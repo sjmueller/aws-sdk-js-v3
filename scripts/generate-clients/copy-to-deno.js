@@ -19,11 +19,7 @@ async function copyPackage(packageName, packageDir, destinationDir) {
   }
 
   if (hasSrc) {
-    return copyPackage(
-      packageName,
-      path.join(packageDir, "src"),
-      destinationDir
-    );
+    return copyPackage(packageName, path.join(packageDir, "src"), destinationDir);
   }
 
   for (const dpath of await fsx.readdir(packageDir)) {
@@ -32,10 +28,7 @@ async function copyPackage(packageName, packageDir, destinationDir) {
     }
     if (dpath === "package.json") {
       let topath = dpath;
-      await fsx.copyFile(
-        path.join(packageDir, dpath),
-        path.join(destinationDir, packageName, topath)
-      );
+      await fsx.copyFile(path.join(packageDir, dpath), path.join(destinationDir, packageName, topath));
     }
     if (dpath.endsWith(".ts")) {
       let topath = dpath;
@@ -56,10 +49,7 @@ async function copyPackage(packageName, packageDir, destinationDir) {
         topath = "mod.ts";
       }
 
-      await fsx.copyFile(
-        path.join(packageDir, dpath),
-        path.join(destinationDir, packageName, topath)
-      );
+      await fsx.copyFile(path.join(packageDir, dpath), path.join(destinationDir, packageName, topath));
       continue;
     }
 
@@ -69,10 +59,7 @@ async function copyPackage(packageName, packageDir, destinationDir) {
       if (dpath.endsWith("node_modules")) {
         continue;
       }
-      await fsx.copy(
-        path.join(packageDir, dpath),
-        path.join(destinationDir, packageName, dpath)
-      );
+      await fsx.copy(path.join(packageDir, dpath), path.join(destinationDir, packageName, dpath));
     }
   }
 }
@@ -109,9 +96,7 @@ async function denoifyTsFile(file, depth) {
     }
 
     if (line === 'import { name, version } from "./package.json";') {
-      const pkgjson = await fsx.readJson(
-        path.join(path.dirname(file), "package.json")
-      );
+      const pkgjson = await fsx.readJson(path.join(path.dirname(file), "package.json"));
       output.push(`const name = "${pkgjson.name}";`);
       output.push(`const version = "${pkgjson.version}";`);
 
@@ -140,25 +125,17 @@ async function denoifyTsFile(file, depth) {
         const importFromAWSSDKmatch = importfrom.match(/@aws-sdk\/(.*)/);
         if (importFromAWSSDKmatch) {
           if (depth === 0) {
-            throw new Error("unexpected import to @aws-sdk at depth 0");
+            throw new Error(`denoifyTsFile ${file} - unexpected import to @aws-sdk at depth 0`);
           }
           let relpath = "";
           for (let i = 1; i < depth; ++i) {
             relpath = relpath + "../";
           }
 
-          const checkAt = path.resolve(
-            path.join(
-              file,
-              "..",
-              `${relpath}${importFromAWSSDKmatch[1]}/mod.ts`
-            )
-          );
+          const checkAt = path.resolve(path.join(file, "..", `${relpath}${importFromAWSSDKmatch[1]}/mod.ts`));
           const exists = await fsx.exists(checkAt);
           if (!exists) {
-            throw new Error(
-              `Cannot find @aws-sdk${importFromAWSSDKmatch[1]}/mod.ts`
-            );
+            throw new Error(`denoifyTsFile ${file} - Cannot find ${checkAt}`);
           }
           replaced = `${match[1]}from "${relpath}${importFromAWSSDKmatch[1]}/mod.ts";`;
         } else {
@@ -234,32 +211,45 @@ async function copyToDeno(sourceDirs, destinationDir) {
         continue;
       }
       if (package.endsWith("node")) {
-        continue;
+        if (package === "credential-provider-node") {
+          // lets see whats in it
+        } else {
+          // skip
+          continue;
+        }
       }
       if (package.startsWith("node")) {
-        continue;
+        if (package === "node-config-provider") {
+          // lets see whats in it
+        } else {
+          // skip
+          continue;
+        }
       }
       if (package.endsWith("client-documentation-generator")) {
         continue;
       }
-      if (package.endsWith("credential-provider-process")) {
+      /*if (package.endsWith("credential-provider-process")) {
         continue;
-      }
+      }*/
 
-      await copyPackage(
-        package,
-        path.join(packagesDir, package),
-        destinationDir
-      );
+      try {
+        await copyPackage(package, path.join(packagesDir, package), destinationDir);
+      } catch (err) {
+        console.log(`Error from copyPackage ${package}`);
+        throw err;
+      }
     }
   }
 
   await denoifyTree(destinationDir, 0);
 }
 
-// dev:
-copyToDeno(["./clients", "./packages"], "./deno");
+if (require.main === module) {
+  // for development - run just the deno copy step
+  copyToDeno(["./clients", "./packages"], "./deno");
+}
 
 module.exports = {
-  copyToDeno
+  copyToDeno,
 };
