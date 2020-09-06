@@ -2,6 +2,14 @@ const fsx = require("fs-extra");
 const path = require("path");
 
 async function copyPackage(packageName, packageDir, destinationDir) {
+  if (packageName.startsWith("deno-")) {
+    console.log(packageName, packageDir);
+    const resultPackageName = packageName.replace(/^deno-/g, "");
+    await fsx.mkdirp(path.join(destinationDir, resultPackageName));
+    await fsx.copy(packageDir, path.join(destinationDir, resultPackageName));
+    return;
+  }
+
   await fsx.mkdirp(path.join(destinationDir, packageName));
 
   let hasSrc = false;
@@ -246,8 +254,9 @@ async function copyToDeno(sourceDirs, destinationDir) {
 }
 
 if (require.main === module) {
-  // for development - run just the deno copy step
-  copyToDeno(["./clients", "./packages"], "./deno");
+  (async () => {
+    await copyToDeno(["./clients", "./packages"], "./deno");
+  })();
 }
 
 module.exports = {
