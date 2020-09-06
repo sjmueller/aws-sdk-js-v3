@@ -1,14 +1,7 @@
+
 import { ResourceGroupsClient } from "./ResourceGroupsClient.ts";
-import {
-  CreateGroupCommand,
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput,
-} from "./commands/CreateGroupCommand.ts";
-import {
-  DeleteGroupCommand,
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput,
-} from "./commands/DeleteGroupCommand.ts";
+import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand.ts";
+import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand.ts";
 import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand.ts";
 import {
   GetGroupConfigurationCommand,
@@ -44,11 +37,7 @@ import {
   UngroupResourcesCommandOutput,
 } from "./commands/UngroupResourcesCommand.ts";
 import { UntagCommand, UntagCommandInput, UntagCommandOutput } from "./commands/UntagCommand.ts";
-import {
-  UpdateGroupCommand,
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput,
-} from "./commands/UpdateGroupCommand.ts";
+import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand.ts";
 import {
   UpdateGroupQueryCommand,
   UpdateGroupQueryCommandInput,

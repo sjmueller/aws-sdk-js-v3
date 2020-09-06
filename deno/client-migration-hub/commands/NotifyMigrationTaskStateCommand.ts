@@ -1,3 +1,4 @@
+
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient.ts";
 import { NotifyMigrationTaskStateRequest, NotifyMigrationTaskStateResult } from "../models/index.ts";
 import {

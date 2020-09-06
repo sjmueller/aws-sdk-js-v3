@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient.ts";
 import { DescribeAttachmentRequest, DescribeAttachmentResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
 import { DescribeNotificationConfigurationsAnswer, DescribeNotificationConfigurationsType } from "../models/index.ts";
 import {

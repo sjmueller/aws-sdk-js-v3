@@ -1,15 +1,8 @@
+
 import { CloudTrailClient } from "./CloudTrailClient.ts";
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand.ts";
-import {
-  CreateTrailCommand,
-  CreateTrailCommandInput,
-  CreateTrailCommandOutput,
-} from "./commands/CreateTrailCommand.ts";
-import {
-  DeleteTrailCommand,
-  DeleteTrailCommandInput,
-  DeleteTrailCommandOutput,
-} from "./commands/DeleteTrailCommand.ts";
+import { CreateTrailCommand, CreateTrailCommandInput, CreateTrailCommandOutput } from "./commands/CreateTrailCommand.ts";
+import { DeleteTrailCommand, DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand.ts";
 import {
   DescribeTrailsCommand,
   DescribeTrailsCommandInput,
@@ -59,16 +52,8 @@ import {
   StartLoggingCommandInput,
   StartLoggingCommandOutput,
 } from "./commands/StartLoggingCommand.ts";
-import {
-  StopLoggingCommand,
-  StopLoggingCommandInput,
-  StopLoggingCommandOutput,
-} from "./commands/StopLoggingCommand.ts";
-import {
-  UpdateTrailCommand,
-  UpdateTrailCommandInput,
-  UpdateTrailCommandOutput,
-} from "./commands/UpdateTrailCommand.ts";
+import { StopLoggingCommand, StopLoggingCommandInput, StopLoggingCommandOutput } from "./commands/StopLoggingCommand.ts";
+import { UpdateTrailCommand, UpdateTrailCommandInput, UpdateTrailCommandOutput } from "./commands/UpdateTrailCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**

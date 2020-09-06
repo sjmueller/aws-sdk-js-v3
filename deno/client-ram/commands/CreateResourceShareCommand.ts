@@ -1,3 +1,4 @@
+
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient.ts";
 import { CreateResourceShareRequest, CreateResourceShareResponse } from "../models/index.ts";
 import {

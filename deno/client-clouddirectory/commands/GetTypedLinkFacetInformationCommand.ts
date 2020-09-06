@@ -1,3 +1,4 @@
+
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
 import { GetTypedLinkFacetInformationRequest, GetTypedLinkFacetInformationResponse } from "../models/index.ts";
 import {

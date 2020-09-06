@@ -1,10 +1,7 @@
+
 import { Lambda } from "../Lambda.ts";
 import { LambdaClient } from "../LambdaClient.ts";
-import {
-  ListAliasesCommand,
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput,
-} from "../commands/ListAliasesCommand.ts";
+import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand.ts";
 import { LambdaPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

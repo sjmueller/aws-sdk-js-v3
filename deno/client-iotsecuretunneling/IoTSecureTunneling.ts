@@ -1,9 +1,6 @@
+
 import { IoTSecureTunnelingClient } from "./IoTSecureTunnelingClient.ts";
-import {
-  CloseTunnelCommand,
-  CloseTunnelCommandInput,
-  CloseTunnelCommandOutput,
-} from "./commands/CloseTunnelCommand.ts";
+import { CloseTunnelCommand, CloseTunnelCommandInput, CloseTunnelCommandOutput } from "./commands/CloseTunnelCommand.ts";
 import {
   DescribeTunnelCommand,
   DescribeTunnelCommandInput,
@@ -14,17 +11,9 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  ListTunnelsCommand,
-  ListTunnelsCommandInput,
-  ListTunnelsCommandOutput,
-} from "./commands/ListTunnelsCommand.ts";
+import { ListTunnelsCommand, ListTunnelsCommandInput, ListTunnelsCommandOutput } from "./commands/ListTunnelsCommand.ts";
 import { OpenTunnelCommand, OpenTunnelCommandInput, OpenTunnelCommandOutput } from "./commands/OpenTunnelCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

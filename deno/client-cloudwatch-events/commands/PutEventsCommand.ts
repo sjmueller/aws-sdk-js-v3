@@ -1,13 +1,7 @@
-import {
-  CloudWatchEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchEventsClient.ts";
+
+import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient.ts";
 import { PutEventsRequest, PutEventsResponse } from "../models/index.ts";
-import {
-  deserializeAws_json1_1PutEventsCommand,
-  serializeAws_json1_1PutEventsCommand,
-} from "../protocols/Aws_json1_1.ts";
+import { deserializeAws_json1_1PutEventsCommand, serializeAws_json1_1PutEventsCommand } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";

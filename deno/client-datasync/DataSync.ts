@@ -1,14 +1,11 @@
+
 import { DataSyncClient } from "./DataSyncClient.ts";
 import {
   CancelTaskExecutionCommand,
   CancelTaskExecutionCommandInput,
   CancelTaskExecutionCommandOutput,
 } from "./commands/CancelTaskExecutionCommand.ts";
-import {
-  CreateAgentCommand,
-  CreateAgentCommandInput,
-  CreateAgentCommandOutput,
-} from "./commands/CreateAgentCommand.ts";
+import { CreateAgentCommand, CreateAgentCommandInput, CreateAgentCommandOutput } from "./commands/CreateAgentCommand.ts";
 import {
   CreateLocationEfsCommand,
   CreateLocationEfsCommandInput,
@@ -40,11 +37,7 @@ import {
   CreateLocationSmbCommandOutput,
 } from "./commands/CreateLocationSmbCommand.ts";
 import { CreateTaskCommand, CreateTaskCommandInput, CreateTaskCommandOutput } from "./commands/CreateTaskCommand.ts";
-import {
-  DeleteAgentCommand,
-  DeleteAgentCommandInput,
-  DeleteAgentCommandOutput,
-} from "./commands/DeleteAgentCommand.ts";
+import { DeleteAgentCommand, DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/DeleteAgentCommand.ts";
 import {
   DeleteLocationCommand,
   DeleteLocationCommandInput,
@@ -118,21 +111,13 @@ import {
   StartTaskExecutionCommandInput,
   StartTaskExecutionCommandOutput,
 } from "./commands/StartTaskExecutionCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateAgentCommand,
-  UpdateAgentCommandInput,
-  UpdateAgentCommandOutput,
-} from "./commands/UpdateAgentCommand.ts";
+import { UpdateAgentCommand, UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand.ts";
 import { UpdateTaskCommand, UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 

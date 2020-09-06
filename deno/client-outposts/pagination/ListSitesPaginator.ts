@@ -1,3 +1,4 @@
+
 import { Outposts } from "../Outposts.ts";
 import { OutpostsClient } from "../OutpostsClient.ts";
 import { ListSitesCommand, ListSitesCommandInput, ListSitesCommandOutput } from "../commands/ListSitesCommand.ts";

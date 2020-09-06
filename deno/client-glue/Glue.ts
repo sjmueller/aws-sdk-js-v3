@@ -1,3 +1,4 @@
+
 import { GlueClient } from "./GlueClient.ts";
 import {
   BatchCreatePartitionCommand,
@@ -110,11 +111,7 @@ import {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput,
 } from "./commands/CreateSecurityConfigurationCommand.ts";
-import {
-  CreateTableCommand,
-  CreateTableCommandInput,
-  CreateTableCommandOutput,
-} from "./commands/CreateTableCommand.ts";
+import { CreateTableCommand, CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand.ts";
 import {
   CreateTriggerCommand,
   CreateTriggerCommandInput,
@@ -186,11 +183,7 @@ import {
   DeleteSecurityConfigurationCommandInput,
   DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand.ts";
-import {
-  DeleteTableCommand,
-  DeleteTableCommandInput,
-  DeleteTableCommandOutput,
-} from "./commands/DeleteTableCommand.ts";
+import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand.ts";
 import {
   DeleteTableVersionCommand,
   DeleteTableVersionCommandInput,
@@ -252,21 +245,13 @@ import {
   GetCrawlerMetricsCommandInput,
   GetCrawlerMetricsCommandOutput,
 } from "./commands/GetCrawlerMetricsCommand.ts";
-import {
-  GetCrawlersCommand,
-  GetCrawlersCommandInput,
-  GetCrawlersCommandOutput,
-} from "./commands/GetCrawlersCommand.ts";
+import { GetCrawlersCommand, GetCrawlersCommandInput, GetCrawlersCommandOutput } from "./commands/GetCrawlersCommand.ts";
 import {
   GetDataCatalogEncryptionSettingsCommand,
   GetDataCatalogEncryptionSettingsCommandInput,
   GetDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/GetDataCatalogEncryptionSettingsCommand.ts";
-import {
-  GetDatabaseCommand,
-  GetDatabaseCommandInput,
-  GetDatabaseCommandOutput,
-} from "./commands/GetDatabaseCommand.ts";
+import { GetDatabaseCommand, GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand.ts";
 import {
   GetDatabasesCommand,
   GetDatabasesCommandInput,
@@ -362,11 +347,7 @@ import {
 import { GetTablesCommand, GetTablesCommandInput, GetTablesCommandOutput } from "./commands/GetTablesCommand.ts";
 import { GetTagsCommand, GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand.ts";
 import { GetTriggerCommand, GetTriggerCommandInput, GetTriggerCommandOutput } from "./commands/GetTriggerCommand.ts";
-import {
-  GetTriggersCommand,
-  GetTriggersCommandInput,
-  GetTriggersCommandOutput,
-} from "./commands/GetTriggersCommand.ts";
+import { GetTriggersCommand, GetTriggersCommandInput, GetTriggersCommandOutput } from "./commands/GetTriggersCommand.ts";
 import {
   GetUserDefinedFunctionCommand,
   GetUserDefinedFunctionCommandInput,
@@ -377,11 +358,7 @@ import {
   GetUserDefinedFunctionsCommandInput,
   GetUserDefinedFunctionsCommandOutput,
 } from "./commands/GetUserDefinedFunctionsCommand.ts";
-import {
-  GetWorkflowCommand,
-  GetWorkflowCommandInput,
-  GetWorkflowCommandOutput,
-} from "./commands/GetWorkflowCommand.ts";
+import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand.ts";
 import {
   GetWorkflowRunCommand,
   GetWorkflowRunCommandInput,
@@ -478,11 +455,7 @@ import {
   StartImportLabelsTaskRunCommandInput,
   StartImportLabelsTaskRunCommandOutput,
 } from "./commands/StartImportLabelsTaskRunCommand.ts";
-import {
-  StartJobRunCommand,
-  StartJobRunCommandInput,
-  StartJobRunCommandOutput,
-} from "./commands/StartJobRunCommand.ts";
+import { StartJobRunCommand, StartJobRunCommandInput, StartJobRunCommandOutput } from "./commands/StartJobRunCommand.ts";
 import {
   StartMLEvaluationTaskRunCommand,
   StartMLEvaluationTaskRunCommandInput,
@@ -503,31 +476,19 @@ import {
   StartWorkflowRunCommandInput,
   StartWorkflowRunCommandOutput,
 } from "./commands/StartWorkflowRunCommand.ts";
-import {
-  StopCrawlerCommand,
-  StopCrawlerCommandInput,
-  StopCrawlerCommandOutput,
-} from "./commands/StopCrawlerCommand.ts";
+import { StopCrawlerCommand, StopCrawlerCommandInput, StopCrawlerCommandOutput } from "./commands/StopCrawlerCommand.ts";
 import {
   StopCrawlerScheduleCommand,
   StopCrawlerScheduleCommandInput,
   StopCrawlerScheduleCommandOutput,
 } from "./commands/StopCrawlerScheduleCommand.ts";
-import {
-  StopTriggerCommand,
-  StopTriggerCommandInput,
-  StopTriggerCommandOutput,
-} from "./commands/StopTriggerCommand.ts";
+import { StopTriggerCommand, StopTriggerCommandInput, StopTriggerCommandOutput } from "./commands/StopTriggerCommand.ts";
 import {
   StopWorkflowRunCommand,
   StopWorkflowRunCommandInput,
   StopWorkflowRunCommandOutput,
 } from "./commands/StopWorkflowRunCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -584,11 +545,7 @@ import {
   UpdatePartitionCommandInput,
   UpdatePartitionCommandOutput,
 } from "./commands/UpdatePartitionCommand.ts";
-import {
-  UpdateTableCommand,
-  UpdateTableCommandInput,
-  UpdateTableCommandOutput,
-} from "./commands/UpdateTableCommand.ts";
+import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand.ts";
 import {
   UpdateTriggerCommand,
   UpdateTriggerCommandInput,

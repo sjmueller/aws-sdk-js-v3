@@ -1,3 +1,4 @@
+
 import { CodeCommitClient } from "./CodeCommitClient.ts";
 import {
   AssociateApprovalRuleTemplateWithRepositoryCommand,
@@ -277,11 +278,7 @@ import {
   PutRepositoryTriggersCommandInput,
   PutRepositoryTriggersCommandOutput,
 } from "./commands/PutRepositoryTriggersCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   TestRepositoryTriggersCommand,
   TestRepositoryTriggersCommandInput,

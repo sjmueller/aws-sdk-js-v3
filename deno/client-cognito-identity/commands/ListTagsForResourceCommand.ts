@@ -1,8 +1,5 @@
-import {
-  CognitoIdentityClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CognitoIdentityClient.ts";
+
+import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient.ts";
 import { ListTagsForResourceInput, ListTagsForResourceResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListTagsForResourceCommand,

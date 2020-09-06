@@ -1,3 +1,4 @@
+
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
 import { DescribeAvailablePatchesRequest, DescribeAvailablePatchesResult } from "../models/index.ts";
 import {

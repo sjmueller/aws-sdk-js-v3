@@ -1,3 +1,4 @@
+
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
 import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/index.ts";
 import {

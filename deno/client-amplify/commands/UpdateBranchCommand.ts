@@ -1,3 +1,4 @@
+
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
 import { UpdateBranchRequest, UpdateBranchResult } from "../models/index.ts";
 import {

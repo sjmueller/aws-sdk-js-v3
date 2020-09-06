@@ -1,3 +1,4 @@
+
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
 import { DescribeCampaignRequest, DescribeCampaignResponse } from "../models/index.ts";
 import {

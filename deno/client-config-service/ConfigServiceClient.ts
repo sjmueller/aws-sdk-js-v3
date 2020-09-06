@@ -1,3 +1,4 @@
+
 import {
   BatchGetAggregateResourceConfigCommandInput,
   BatchGetAggregateResourceConfigCommandOutput,
@@ -240,14 +241,8 @@ import {
   PutConfigurationRecorderCommandInput,
   PutConfigurationRecorderCommandOutput,
 } from "./commands/PutConfigurationRecorderCommand.ts";
-import {
-  PutConformancePackCommandInput,
-  PutConformancePackCommandOutput,
-} from "./commands/PutConformancePackCommand.ts";
-import {
-  PutDeliveryChannelCommandInput,
-  PutDeliveryChannelCommandOutput,
-} from "./commands/PutDeliveryChannelCommand.ts";
+import { PutConformancePackCommandInput, PutConformancePackCommandOutput } from "./commands/PutConformancePackCommand.ts";
+import { PutDeliveryChannelCommandInput, PutDeliveryChannelCommandOutput } from "./commands/PutDeliveryChannelCommand.ts";
 import { PutEvaluationsCommandInput, PutEvaluationsCommandOutput } from "./commands/PutEvaluationsCommand.ts";
 import {
   PutOrganizationConfigRuleCommandInput,

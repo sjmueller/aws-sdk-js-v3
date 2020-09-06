@@ -1,3 +1,4 @@
+
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
 import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/index.ts";
 import {

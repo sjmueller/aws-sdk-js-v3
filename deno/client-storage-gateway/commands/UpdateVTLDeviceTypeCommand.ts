@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
 import { UpdateVTLDeviceTypeInput, UpdateVTLDeviceTypeOutput } from "../models/index.ts";
 import {

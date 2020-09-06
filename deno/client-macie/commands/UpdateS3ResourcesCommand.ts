@@ -1,3 +1,4 @@
+
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient.ts";
 import { UpdateS3ResourcesRequest, UpdateS3ResourcesResult } from "../models/index.ts";
 import {

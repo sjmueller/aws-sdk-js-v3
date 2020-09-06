@@ -1,3 +1,4 @@
+
 import {
   AssociateTeamMemberCommandInput,
   AssociateTeamMemberCommandOutput,
@@ -17,10 +18,7 @@ import {
 } from "./commands/DisassociateTeamMemberCommand.ts";
 import { ListProjectsCommandInput, ListProjectsCommandOutput } from "./commands/ListProjectsCommand.ts";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand.ts";
-import {
-  ListTagsForProjectCommandInput,
-  ListTagsForProjectCommandOutput,
-} from "./commands/ListTagsForProjectCommand.ts";
+import { ListTagsForProjectCommandInput, ListTagsForProjectCommandOutput } from "./commands/ListTagsForProjectCommand.ts";
 import { ListTeamMembersCommandInput, ListTeamMembersCommandOutput } from "./commands/ListTeamMembersCommand.ts";
 import { ListUserProfilesCommandInput, ListUserProfilesCommandOutput } from "./commands/ListUserProfilesCommand.ts";
 import { TagProjectCommandInput, TagProjectCommandOutput } from "./commands/TagProjectCommand.ts";

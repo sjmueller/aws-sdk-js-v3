@@ -1,3 +1,4 @@
+
 import { KinesisVideoClient } from "./KinesisVideoClient.ts";
 import {
   CreateSignalingChannelCommand,
@@ -44,11 +45,7 @@ import {
   ListSignalingChannelsCommandInput,
   ListSignalingChannelsCommandOutput,
 } from "./commands/ListSignalingChannelsCommand.ts";
-import {
-  ListStreamsCommand,
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput,
-} from "./commands/ListStreamsCommand.ts";
+import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -59,22 +56,14 @@ import {
   ListTagsForStreamCommandInput,
   ListTagsForStreamCommandOutput,
 } from "./commands/ListTagsForStreamCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { TagStreamCommand, TagStreamCommandInput, TagStreamCommandOutput } from "./commands/TagStreamCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
-import {
-  UntagStreamCommand,
-  UntagStreamCommandInput,
-  UntagStreamCommandOutput,
-} from "./commands/UntagStreamCommand.ts";
+import { UntagStreamCommand, UntagStreamCommandInput, UntagStreamCommandOutput } from "./commands/UntagStreamCommand.ts";
 import {
   UpdateDataRetentionCommand,
   UpdateDataRetentionCommandInput,

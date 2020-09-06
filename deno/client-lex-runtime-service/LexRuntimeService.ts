@@ -1,3 +1,4 @@
+
 import { LexRuntimeServiceClient } from "./LexRuntimeServiceClient.ts";
 import {
   DeleteSessionCommand,
@@ -5,11 +6,7 @@ import {
   DeleteSessionCommandOutput,
 } from "./commands/DeleteSessionCommand.ts";
 import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand.ts";
-import {
-  PostContentCommand,
-  PostContentCommandInput,
-  PostContentCommandOutput,
-} from "./commands/PostContentCommand.ts";
+import { PostContentCommand, PostContentCommandInput, PostContentCommandOutput } from "./commands/PostContentCommand.ts";
 import { PostTextCommand, PostTextCommandInput, PostTextCommandOutput } from "./commands/PostTextCommand.ts";
 import { PutSessionCommand, PutSessionCommandInput, PutSessionCommandOutput } from "./commands/PutSessionCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";

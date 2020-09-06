@@ -1,3 +1,4 @@
+
 import { CancelKeyDeletionCommandInput, CancelKeyDeletionCommandOutput } from "../commands/CancelKeyDeletionCommand.ts";
 import {
   ConnectCustomKeyStoreCommandInput,
@@ -26,10 +27,7 @@ import {
 } from "../commands/DescribeCustomKeyStoresCommand.ts";
 import { DescribeKeyCommandInput, DescribeKeyCommandOutput } from "../commands/DescribeKeyCommand.ts";
 import { DisableKeyCommandInput, DisableKeyCommandOutput } from "../commands/DisableKeyCommand.ts";
-import {
-  DisableKeyRotationCommandInput,
-  DisableKeyRotationCommandOutput,
-} from "../commands/DisableKeyRotationCommand.ts";
+import { DisableKeyRotationCommandInput, DisableKeyRotationCommandOutput } from "../commands/DisableKeyRotationCommand.ts";
 import {
   DisconnectCustomKeyStoreCommandInput,
   DisconnectCustomKeyStoreCommandOutput,

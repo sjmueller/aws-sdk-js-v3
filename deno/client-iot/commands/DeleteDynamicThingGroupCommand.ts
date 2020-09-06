@@ -1,3 +1,4 @@
+
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
 import { DeleteDynamicThingGroupRequest, DeleteDynamicThingGroupResponse } from "../models/index.ts";
 import {

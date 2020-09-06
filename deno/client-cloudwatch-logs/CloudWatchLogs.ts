@@ -1,3 +1,4 @@
+
 import { CloudWatchLogsClient } from "./CloudWatchLogsClient.ts";
 import {
   AssociateKmsKeyCommand,
@@ -186,11 +187,7 @@ import {
 } from "./commands/PutSubscriptionFilterCommand.ts";
 import { StartQueryCommand, StartQueryCommandInput, StartQueryCommandOutput } from "./commands/StartQueryCommand.ts";
 import { StopQueryCommand, StopQueryCommandInput, StopQueryCommandOutput } from "./commands/StopQueryCommand.ts";
-import {
-  TagLogGroupCommand,
-  TagLogGroupCommandInput,
-  TagLogGroupCommandOutput,
-} from "./commands/TagLogGroupCommand.ts";
+import { TagLogGroupCommand, TagLogGroupCommandInput, TagLogGroupCommandOutput } from "./commands/TagLogGroupCommand.ts";
 import {
   TestMetricFilterCommand,
   TestMetricFilterCommandInput,

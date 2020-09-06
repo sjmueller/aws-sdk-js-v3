@@ -1,3 +1,4 @@
+import { Buffer } from "../../buffer/mod.ts";
 import { Readable, ReadableOptions } from "stream.ts";
 
 export interface MockEventMessageSourceOptions extends ReadableOptions {

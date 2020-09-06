@@ -1,3 +1,4 @@
+
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
 import { GetImageRecipePolicyRequest, GetImageRecipePolicyResponse } from "../models/index.ts";
 import {

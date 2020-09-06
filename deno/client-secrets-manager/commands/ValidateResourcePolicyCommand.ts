@@ -1,3 +1,4 @@
+
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient.ts";
 import { ValidateResourcePolicyRequest, ValidateResourcePolicyResponse } from "../models/index.ts";
 import {

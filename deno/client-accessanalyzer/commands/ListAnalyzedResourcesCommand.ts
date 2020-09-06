@@ -1,3 +1,4 @@
+
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient.ts";
 import { ListAnalyzedResourcesRequest, ListAnalyzedResourcesResponse } from "../models/index.ts";
 import {

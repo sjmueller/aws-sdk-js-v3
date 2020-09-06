@@ -1,3 +1,4 @@
+
 import {
   CancelImageCreationCommandInput,
   CancelImageCreationCommandOutput,
@@ -33,10 +34,7 @@ import {
   DeleteInfrastructureConfigurationCommandOutput,
 } from "./commands/DeleteInfrastructureConfigurationCommand.ts";
 import { GetComponentCommandInput, GetComponentCommandOutput } from "./commands/GetComponentCommand.ts";
-import {
-  GetComponentPolicyCommandInput,
-  GetComponentPolicyCommandOutput,
-} from "./commands/GetComponentPolicyCommand.ts";
+import { GetComponentPolicyCommandInput, GetComponentPolicyCommandOutput } from "./commands/GetComponentPolicyCommand.ts";
 import {
   GetDistributionConfigurationCommandInput,
   GetDistributionConfigurationCommandOutput,
@@ -71,10 +69,7 @@ import {
   ListImagePipelineImagesCommandInput,
   ListImagePipelineImagesCommandOutput,
 } from "./commands/ListImagePipelineImagesCommand.ts";
-import {
-  ListImagePipelinesCommandInput,
-  ListImagePipelinesCommandOutput,
-} from "./commands/ListImagePipelinesCommand.ts";
+import { ListImagePipelinesCommandInput, ListImagePipelinesCommandOutput } from "./commands/ListImagePipelinesCommand.ts";
 import { ListImageRecipesCommandInput, ListImageRecipesCommandOutput } from "./commands/ListImageRecipesCommand.ts";
 import { ListImagesCommandInput, ListImagesCommandOutput } from "./commands/ListImagesCommand.ts";
 import {
@@ -85,10 +80,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  PutComponentPolicyCommandInput,
-  PutComponentPolicyCommandOutput,
-} from "./commands/PutComponentPolicyCommand.ts";
+import { PutComponentPolicyCommandInput, PutComponentPolicyCommandOutput } from "./commands/PutComponentPolicyCommand.ts";
 import { PutImagePolicyCommandInput, PutImagePolicyCommandOutput } from "./commands/PutImagePolicyCommand.ts";
 import {
   PutImageRecipePolicyCommandInput,

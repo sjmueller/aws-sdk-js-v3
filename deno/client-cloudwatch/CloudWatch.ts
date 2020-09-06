@@ -1,3 +1,4 @@
+
 import { CloudWatchClient } from "./CloudWatchClient.ts";
 import {
   DeleteAlarmsCommand,
@@ -94,11 +95,7 @@ import {
   ListDashboardsCommandInput,
   ListDashboardsCommandOutput,
 } from "./commands/ListDashboardsCommand.ts";
-import {
-  ListMetricsCommand,
-  ListMetricsCommandInput,
-  ListMetricsCommandOutput,
-} from "./commands/ListMetricsCommand.ts";
+import { ListMetricsCommand, ListMetricsCommandInput, ListMetricsCommandOutput } from "./commands/ListMetricsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -139,11 +136,7 @@ import {
   SetAlarmStateCommandInput,
   SetAlarmStateCommandOutput,
 } from "./commands/SetAlarmStateCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

@@ -1,3 +1,4 @@
+
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
 import { DeleteRuleRequest } from "../models/index.ts";
 import {

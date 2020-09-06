@@ -1,3 +1,4 @@
+
 import { ServiceDiscoveryClient } from "./ServiceDiscoveryClient.ts";
 import {
   CreateHttpNamespaceCommand,
@@ -39,11 +40,7 @@ import {
   DiscoverInstancesCommandInput,
   DiscoverInstancesCommandOutput,
 } from "./commands/DiscoverInstancesCommand.ts";
-import {
-  GetInstanceCommand,
-  GetInstanceCommandInput,
-  GetInstanceCommandOutput,
-} from "./commands/GetInstanceCommand.ts";
+import { GetInstanceCommand, GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand.ts";
 import {
   GetInstancesHealthStatusCommand,
   GetInstancesHealthStatusCommandInput,
@@ -90,11 +87,7 @@ import {
   RegisterInstanceCommandInput,
   RegisterInstanceCommandOutput,
 } from "./commands/RegisterInstanceCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

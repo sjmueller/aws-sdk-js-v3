@@ -1,8 +1,5 @@
-import {
-  AlexaForBusinessClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AlexaForBusinessClient.ts";
+
+import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
 import { DeleteBusinessReportScheduleRequest, DeleteBusinessReportScheduleResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteBusinessReportScheduleCommand,

@@ -1,10 +1,7 @@
+
 import { WorkMail } from "../WorkMail.ts";
 import { WorkMailClient } from "../WorkMailClient.ts";
-import {
-  ListAliasesCommand,
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput,
-} from "../commands/ListAliasesCommand.ts";
+import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand.ts";
 import { WorkMailPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

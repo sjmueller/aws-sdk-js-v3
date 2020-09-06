@@ -1,3 +1,4 @@
+
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
 import { DeleteDirectConnectGatewayRequest, DeleteDirectConnectGatewayResult } from "../models/index.ts";
 import {

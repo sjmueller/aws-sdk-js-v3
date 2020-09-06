@@ -1,6 +1,7 @@
+
 import { TranscribeStreaming } from "../index.ts";
-import { createReadStream } from "fs.ts";
-import { join } from "path.ts";
+import { createReadStream } from "https://deno.land/std@0.68.0/node/fs.ts";
+import { join } from "https://deno.land/std@0.68.0/node/path.ts";
 const audio = createReadStream(join(__dirname, "speech.wav"));
 
 describe("TranscribeStream client", () => {

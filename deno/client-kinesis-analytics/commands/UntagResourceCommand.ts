@@ -1,8 +1,5 @@
-import {
-  KinesisAnalyticsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../KinesisAnalyticsClient.ts";
+
+import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient.ts";
 import { UntagResourceRequest, UntagResourceResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UntagResourceCommand,

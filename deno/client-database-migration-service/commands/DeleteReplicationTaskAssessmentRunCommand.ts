@@ -1,12 +1,10 @@
+
 import {
   DatabaseMigrationServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import {
-  DeleteReplicationTaskAssessmentRunMessage,
-  DeleteReplicationTaskAssessmentRunResponse,
-} from "../models/index.ts";
+import { DeleteReplicationTaskAssessmentRunMessage, DeleteReplicationTaskAssessmentRunResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand,
   serializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand,

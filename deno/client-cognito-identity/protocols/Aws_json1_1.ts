@@ -1,12 +1,7 @@
-import {
-  CreateIdentityPoolCommandInput,
-  CreateIdentityPoolCommandOutput,
-} from "../commands/CreateIdentityPoolCommand.ts";
+
+import { CreateIdentityPoolCommandInput, CreateIdentityPoolCommandOutput } from "../commands/CreateIdentityPoolCommand.ts";
 import { DeleteIdentitiesCommandInput, DeleteIdentitiesCommandOutput } from "../commands/DeleteIdentitiesCommand.ts";
-import {
-  DeleteIdentityPoolCommandInput,
-  DeleteIdentityPoolCommandOutput,
-} from "../commands/DeleteIdentityPoolCommand.ts";
+import { DeleteIdentityPoolCommandInput, DeleteIdentityPoolCommandOutput } from "../commands/DeleteIdentityPoolCommand.ts";
 import { DescribeIdentityCommandInput, DescribeIdentityCommandOutput } from "../commands/DescribeIdentityCommand.ts";
 import {
   DescribeIdentityPoolCommandInput,
@@ -51,10 +46,7 @@ import {
 } from "../commands/UnlinkDeveloperIdentityCommand.ts";
 import { UnlinkIdentityCommandInput, UnlinkIdentityCommandOutput } from "../commands/UnlinkIdentityCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand.ts";
-import {
-  UpdateIdentityPoolCommandInput,
-  UpdateIdentityPoolCommandOutput,
-} from "../commands/UpdateIdentityPoolCommand.ts";
+import { UpdateIdentityPoolCommandInput, UpdateIdentityPoolCommandOutput } from "../commands/UpdateIdentityPoolCommand.ts";
 import {
   CognitoIdentityProvider,
   ConcurrentModificationException,

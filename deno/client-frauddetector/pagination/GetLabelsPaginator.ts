@@ -1,3 +1,4 @@
+
 import { FraudDetector } from "../FraudDetector.ts";
 import { FraudDetectorClient } from "../FraudDetectorClient.ts";
 import { GetLabelsCommand, GetLabelsCommandInput, GetLabelsCommandOutput } from "../commands/GetLabelsCommand.ts";

@@ -1,3 +1,4 @@
+
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
 import { DescribeOfferingRequest, DescribeOfferingResponse } from "../models/index.ts";
 import {

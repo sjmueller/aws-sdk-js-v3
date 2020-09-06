@@ -1,3 +1,4 @@
+
 import { AcceptMatchCommandInput, AcceptMatchCommandOutput } from "./commands/AcceptMatchCommand.ts";
 import { ClaimGameServerCommandInput, ClaimGameServerCommandOutput } from "./commands/ClaimGameServerCommand.ts";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand.ts";
@@ -99,10 +100,7 @@ import {
   DescribeFleetUtilizationCommandInput,
   DescribeFleetUtilizationCommandOutput,
 } from "./commands/DescribeFleetUtilizationCommand.ts";
-import {
-  DescribeGameServerCommandInput,
-  DescribeGameServerCommandOutput,
-} from "./commands/DescribeGameServerCommand.ts";
+import { DescribeGameServerCommandInput, DescribeGameServerCommandOutput } from "./commands/DescribeGameServerCommand.ts";
 import {
   DescribeGameServerGroupCommandInput,
   DescribeGameServerGroupCommandOutput,
@@ -176,10 +174,7 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "./commands/PutScalingPolicyCommand.ts";
-import {
-  RegisterGameServerCommandInput,
-  RegisterGameServerCommandOutput,
-} from "./commands/RegisterGameServerCommand.ts";
+import { RegisterGameServerCommandInput, RegisterGameServerCommandOutput } from "./commands/RegisterGameServerCommand.ts";
 import {
   RequestUploadCredentialsCommandInput,
   RequestUploadCredentialsCommandOutput,
@@ -189,19 +184,13 @@ import {
   ResumeGameServerGroupCommandInput,
   ResumeGameServerGroupCommandOutput,
 } from "./commands/ResumeGameServerGroupCommand.ts";
-import {
-  SearchGameSessionsCommandInput,
-  SearchGameSessionsCommandOutput,
-} from "./commands/SearchGameSessionsCommand.ts";
+import { SearchGameSessionsCommandInput, SearchGameSessionsCommandOutput } from "./commands/SearchGameSessionsCommand.ts";
 import { StartFleetActionsCommandInput, StartFleetActionsCommandOutput } from "./commands/StartFleetActionsCommand.ts";
 import {
   StartGameSessionPlacementCommandInput,
   StartGameSessionPlacementCommandOutput,
 } from "./commands/StartGameSessionPlacementCommand.ts";
-import {
-  StartMatchBackfillCommandInput,
-  StartMatchBackfillCommandOutput,
-} from "./commands/StartMatchBackfillCommand.ts";
+import { StartMatchBackfillCommandInput, StartMatchBackfillCommandOutput } from "./commands/StartMatchBackfillCommand.ts";
 import { StartMatchmakingCommandInput, StartMatchmakingCommandOutput } from "./commands/StartMatchmakingCommand.ts";
 import { StopFleetActionsCommandInput, StopFleetActionsCommandOutput } from "./commands/StopFleetActionsCommand.ts";
 import {

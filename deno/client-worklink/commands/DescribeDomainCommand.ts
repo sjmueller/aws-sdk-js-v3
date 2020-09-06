@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient.ts";
 import { DescribeDomainRequest, DescribeDomainResponse } from "../models/index.ts";
 import {

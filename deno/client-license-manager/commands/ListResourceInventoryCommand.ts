@@ -1,3 +1,4 @@
+
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient.ts";
 import { ListResourceInventoryRequest, ListResourceInventoryResponse } from "../models/index.ts";
 import {

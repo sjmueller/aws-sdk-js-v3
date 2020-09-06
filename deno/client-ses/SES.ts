@@ -1,3 +1,4 @@
+
 import { SESClient } from "./SESClient.ts";
 import {
   CloneReceiptRuleSetCommand,
@@ -164,11 +165,7 @@ import {
   GetSendStatisticsCommandInput,
   GetSendStatisticsCommandOutput,
 } from "./commands/GetSendStatisticsCommand.ts";
-import {
-  GetTemplateCommand,
-  GetTemplateCommandInput,
-  GetTemplateCommandOutput,
-} from "./commands/GetTemplateCommand.ts";
+import { GetTemplateCommand, GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand.ts";
 import {
   ListConfigurationSetsCommand,
   ListConfigurationSetsCommandInput,

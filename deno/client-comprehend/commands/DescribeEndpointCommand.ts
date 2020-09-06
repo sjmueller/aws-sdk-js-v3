@@ -1,3 +1,4 @@
+
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
 import { DescribeEndpointRequest, DescribeEndpointResponse } from "../models/index.ts";
 import {

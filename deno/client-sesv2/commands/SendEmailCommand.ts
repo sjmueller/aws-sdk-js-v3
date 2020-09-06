@@ -1,3 +1,4 @@
+
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
 import { SendEmailRequest, SendEmailResponse } from "../models/index.ts";
 import {

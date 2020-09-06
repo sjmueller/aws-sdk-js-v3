@@ -1,3 +1,4 @@
+
 import { DynamoDBStreamsClient } from "./DynamoDBStreamsClient.ts";
 import {
   DescribeStreamCommand,
@@ -10,11 +11,7 @@ import {
   GetShardIteratorCommandInput,
   GetShardIteratorCommandOutput,
 } from "./commands/GetShardIteratorCommand.ts";
-import {
-  ListStreamsCommand,
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput,
-} from "./commands/ListStreamsCommand.ts";
+import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**

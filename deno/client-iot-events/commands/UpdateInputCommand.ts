@@ -1,3 +1,4 @@
+
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient.ts";
 import { UpdateInputRequest, UpdateInputResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client.ts";
 import { GetMacieSessionRequest, GetMacieSessionResponse } from "../models/index.ts";
 import {

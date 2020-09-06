@@ -1,3 +1,4 @@
+
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
 import { GetDiscoveredResourceCountsRequest, GetDiscoveredResourceCountsResponse } from "../models/index.ts";
 import {

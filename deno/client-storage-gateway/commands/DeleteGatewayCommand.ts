@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
 import { DeleteGatewayInput, DeleteGatewayOutput } from "../models/index.ts";
 import {

@@ -1,10 +1,7 @@
+
 import { ElasticTranscoder } from "../ElasticTranscoder.ts";
 import { ElasticTranscoderClient } from "../ElasticTranscoderClient.ts";
-import {
-  ListPresetsCommand,
-  ListPresetsCommandInput,
-  ListPresetsCommandOutput,
-} from "../commands/ListPresetsCommand.ts";
+import { ListPresetsCommand, ListPresetsCommandInput, ListPresetsCommandOutput } from "../commands/ListPresetsCommand.ts";
 import { ElasticTranscoderPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

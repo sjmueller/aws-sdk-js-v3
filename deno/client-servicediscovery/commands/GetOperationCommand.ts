@@ -1,8 +1,5 @@
-import {
-  ServiceDiscoveryClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ServiceDiscoveryClient.ts";
+
+import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient.ts";
 import { GetOperationRequest, GetOperationResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetOperationCommand,

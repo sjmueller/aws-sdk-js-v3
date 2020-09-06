@@ -1,3 +1,4 @@
+
 import { GreengrassClient } from "./GreengrassClient.ts";
 import {
   AssociateRoleToGroupCommand,
@@ -59,11 +60,7 @@ import {
   CreateGroupCertificateAuthorityCommandInput,
   CreateGroupCertificateAuthorityCommandOutput,
 } from "./commands/CreateGroupCertificateAuthorityCommand.ts";
-import {
-  CreateGroupCommand,
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput,
-} from "./commands/CreateGroupCommand.ts";
+import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand.ts";
 import {
   CreateGroupVersionCommand,
   CreateGroupVersionCommandInput,
@@ -124,11 +121,7 @@ import {
   DeleteFunctionDefinitionCommandInput,
   DeleteFunctionDefinitionCommandOutput,
 } from "./commands/DeleteFunctionDefinitionCommand.ts";
-import {
-  DeleteGroupCommand,
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput,
-} from "./commands/DeleteGroupCommand.ts";
+import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteLoggerDefinitionCommand,
   DeleteLoggerDefinitionCommandInput,
@@ -381,11 +374,7 @@ import {
   StopBulkDeploymentCommandInput,
   StopBulkDeploymentCommandOutput,
 } from "./commands/StopBulkDeploymentCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -421,11 +410,7 @@ import {
   UpdateGroupCertificateConfigurationCommandInput,
   UpdateGroupCertificateConfigurationCommandOutput,
 } from "./commands/UpdateGroupCertificateConfigurationCommand.ts";
-import {
-  UpdateGroupCommand,
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput,
-} from "./commands/UpdateGroupCommand.ts";
+import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand.ts";
 import {
   UpdateLoggerDefinitionCommand,
   UpdateLoggerDefinitionCommandInput,

@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient.ts";
 import { RevokeDomainAccessRequest, RevokeDomainAccessResponse } from "../models/index.ts";
 import {

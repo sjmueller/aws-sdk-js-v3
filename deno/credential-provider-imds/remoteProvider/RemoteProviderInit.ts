@@ -1,3 +1,4 @@
+
 export const DEFAULT_TIMEOUT = 1000;
 
 // The default in AWS SDK for Python and CLI (botocore) is no retry or one attempt

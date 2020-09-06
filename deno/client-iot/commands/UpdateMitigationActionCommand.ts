@@ -1,3 +1,4 @@
+
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
 import { UpdateMitigationActionRequest, UpdateMitigationActionResponse } from "../models/index.ts";
 import {

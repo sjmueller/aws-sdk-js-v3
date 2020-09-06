@@ -1,3 +1,4 @@
+
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
 import { GetLabelDetectionRequest, GetLabelDetectionResponse } from "../models/index.ts";
 import {

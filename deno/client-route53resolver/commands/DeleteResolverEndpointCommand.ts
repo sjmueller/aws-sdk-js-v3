@@ -1,8 +1,5 @@
-import {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient.ts";
+
+import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient.ts";
 import { DeleteResolverEndpointRequest, DeleteResolverEndpointResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DeleteResolverEndpointCommand,

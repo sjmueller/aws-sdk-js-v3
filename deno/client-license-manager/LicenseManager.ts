@@ -1,3 +1,4 @@
+
 import { LicenseManagerClient } from "./LicenseManagerClient.ts";
 import {
   CreateLicenseConfigurationCommand,
@@ -54,11 +55,7 @@ import {
   ListUsageForLicenseConfigurationCommandInput,
   ListUsageForLicenseConfigurationCommandOutput,
 } from "./commands/ListUsageForLicenseConfigurationCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

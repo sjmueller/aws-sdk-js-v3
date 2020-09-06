@@ -1,3 +1,4 @@
+
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
 import { ListScriptsInput, ListScriptsOutput } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { Athena } from "../Athena.ts";
 import { AthenaClient } from "../AthenaClient.ts";
 import { PaginationConfiguration } from "../../types/mod.ts";

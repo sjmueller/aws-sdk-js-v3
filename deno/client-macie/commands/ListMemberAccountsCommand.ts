@@ -1,3 +1,4 @@
+
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient.ts";
 import { ListMemberAccountsRequest, ListMemberAccountsResult } from "../models/index.ts";
 import {

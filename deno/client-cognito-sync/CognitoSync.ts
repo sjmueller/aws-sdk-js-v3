@@ -1,9 +1,6 @@
+
 import { CognitoSyncClient } from "./CognitoSyncClient.ts";
-import {
-  BulkPublishCommand,
-  BulkPublishCommandInput,
-  BulkPublishCommandOutput,
-} from "./commands/BulkPublishCommand.ts";
+import { BulkPublishCommand, BulkPublishCommandInput, BulkPublishCommandOutput } from "./commands/BulkPublishCommand.ts";
 import {
   DeleteDatasetCommand,
   DeleteDatasetCommandInput,
@@ -49,11 +46,7 @@ import {
   ListIdentityPoolUsageCommandInput,
   ListIdentityPoolUsageCommandOutput,
 } from "./commands/ListIdentityPoolUsageCommand.ts";
-import {
-  ListRecordsCommand,
-  ListRecordsCommandInput,
-  ListRecordsCommandOutput,
-} from "./commands/ListRecordsCommand.ts";
+import { ListRecordsCommand, ListRecordsCommandInput, ListRecordsCommandOutput } from "./commands/ListRecordsCommand.ts";
 import {
   RegisterDeviceCommand,
   RegisterDeviceCommandInput,

@@ -1,3 +1,4 @@
+
 import { IoT1ClickDevicesServiceClient } from "./IoT1ClickDevicesServiceClient.ts";
 import {
   ClaimDevicesByClaimCodeCommand,
@@ -34,21 +35,13 @@ import {
   ListDeviceEventsCommandInput,
   ListDeviceEventsCommandOutput,
 } from "./commands/ListDeviceEventsCommand.ts";
-import {
-  ListDevicesCommand,
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput,
-} from "./commands/ListDevicesCommand.ts";
+import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UnclaimDeviceCommand,
   UnclaimDeviceCommandInput,

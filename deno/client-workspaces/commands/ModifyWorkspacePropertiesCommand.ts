@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
 import { ModifyWorkspacePropertiesRequest, ModifyWorkspacePropertiesResult } from "../models/index.ts";
 import {

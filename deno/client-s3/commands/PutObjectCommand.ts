@@ -1,9 +1,7 @@
+import { Buffer } from "../../buffer/mod.ts";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
 import { PutObjectOutput, PutObjectRequest } from "../models/index.ts";
-import {
-  deserializeAws_restXmlPutObjectCommand,
-  serializeAws_restXmlPutObjectCommand,
-} from "../protocols/Aws_restXml.ts";
+import { deserializeAws_restXmlPutObjectCommand, serializeAws_restXmlPutObjectCommand } from "../protocols/Aws_restXml.ts";
 import { getBucketEndpointPlugin } from "../../middleware-bucket-endpoint/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { getSsecPlugin } from "../../middleware-ssec/mod.ts";

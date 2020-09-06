@@ -1,7 +1,5 @@
-import {
-  GetIceServerConfigCommandInput,
-  GetIceServerConfigCommandOutput,
-} from "./commands/GetIceServerConfigCommand.ts";
+
+import { GetIceServerConfigCommandInput, GetIceServerConfigCommandOutput } from "./commands/GetIceServerConfigCommand.ts";
 import {
   SendAlexaOfferToMasterCommandInput,
   SendAlexaOfferToMasterCommandOutput,

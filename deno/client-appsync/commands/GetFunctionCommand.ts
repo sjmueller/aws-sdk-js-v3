@@ -1,3 +1,4 @@
+
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient.ts";
 import { GetFunctionRequest, GetFunctionResponse } from "../models/index.ts";
 import {

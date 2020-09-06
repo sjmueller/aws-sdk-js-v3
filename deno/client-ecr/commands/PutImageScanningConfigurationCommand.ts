@@ -1,3 +1,4 @@
+
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
 import { PutImageScanningConfigurationRequest, PutImageScanningConfigurationResponse } from "../models/index.ts";
 import {

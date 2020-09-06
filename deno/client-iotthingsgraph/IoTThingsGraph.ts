@@ -1,3 +1,4 @@
+
 import { IoTThingsGraphClient } from "./IoTThingsGraphClient.ts";
 import {
   AssociateEntityToThingCommand,
@@ -64,11 +65,7 @@ import {
   DissociateEntityFromThingCommandInput,
   DissociateEntityFromThingCommandOutput,
 } from "./commands/DissociateEntityFromThingCommand.ts";
-import {
-  GetEntitiesCommand,
-  GetEntitiesCommandInput,
-  GetEntitiesCommandOutput,
-} from "./commands/GetEntitiesCommand.ts";
+import { GetEntitiesCommand, GetEntitiesCommandInput, GetEntitiesCommandOutput } from "./commands/GetEntitiesCommand.ts";
 import {
   GetFlowTemplateCommand,
   GetFlowTemplateCommandInput,
@@ -144,11 +141,7 @@ import {
   SearchThingsCommandInput,
   SearchThingsCommandOutput,
 } from "./commands/SearchThingsCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UndeploySystemInstanceCommand,
   UndeploySystemInstanceCommandInput,

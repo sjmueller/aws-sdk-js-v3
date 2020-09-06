@@ -1,10 +1,7 @@
+
 import { Transfer } from "../Transfer.ts";
 import { TransferClient } from "../TransferClient.ts";
-import {
-  ListServersCommand,
-  ListServersCommandInput,
-  ListServersCommandOutput,
-} from "../commands/ListServersCommand.ts";
+import { ListServersCommand, ListServersCommandInput, ListServersCommandOutput } from "../commands/ListServersCommand.ts";
 import { TransferPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

@@ -1,3 +1,4 @@
+
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient.ts";
 import { BatchGetVariableRequest, BatchGetVariableResult } from "../models/index.ts";
 import {

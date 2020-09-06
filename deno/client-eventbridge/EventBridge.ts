@@ -1,3 +1,4 @@
+
 import { EventBridgeClient } from "./EventBridgeClient.ts";
 import {
   ActivateEventSourceCommand,
@@ -50,11 +51,7 @@ import {
   DescribeRuleCommandInput,
   DescribeRuleCommandOutput,
 } from "./commands/DescribeRuleCommand.ts";
-import {
-  DisableRuleCommand,
-  DisableRuleCommandInput,
-  DisableRuleCommandOutput,
-} from "./commands/DisableRuleCommand.ts";
+import { DisableRuleCommand, DisableRuleCommandInput, DisableRuleCommandOutput } from "./commands/DisableRuleCommand.ts";
 import { EnableRuleCommand, EnableRuleCommandInput, EnableRuleCommandOutput } from "./commands/EnableRuleCommand.ts";
 import {
   ListEventBusesCommand,
@@ -115,11 +112,7 @@ import {
   RemoveTargetsCommandInput,
   RemoveTargetsCommandOutput,
 } from "./commands/RemoveTargetsCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   TestEventPatternCommand,
   TestEventPatternCommandInput,

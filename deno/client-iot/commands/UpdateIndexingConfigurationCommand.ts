@@ -1,3 +1,4 @@
+
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
 import { UpdateIndexingConfigurationRequest, UpdateIndexingConfigurationResponse } from "../models/index.ts";
 import {

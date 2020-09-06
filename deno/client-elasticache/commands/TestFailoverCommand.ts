@@ -1,9 +1,7 @@
+
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
 import { TestFailoverMessage, TestFailoverResult } from "../models/index.ts";
-import {
-  deserializeAws_queryTestFailoverCommand,
-  serializeAws_queryTestFailoverCommand,
-} from "../protocols/Aws_query.ts";
+import { deserializeAws_queryTestFailoverCommand, serializeAws_queryTestFailoverCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";

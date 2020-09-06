@@ -1,10 +1,7 @@
+
 import { Glue } from "../Glue.ts";
 import { GlueClient } from "../GlueClient.ts";
-import {
-  GetCrawlersCommand,
-  GetCrawlersCommandInput,
-  GetCrawlersCommandOutput,
-} from "../commands/GetCrawlersCommand.ts";
+import { GetCrawlersCommand, GetCrawlersCommandInput, GetCrawlersCommandOutput } from "../commands/GetCrawlersCommand.ts";
 import { GluePaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

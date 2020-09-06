@@ -1,21 +1,16 @@
+
 import {
   CreateBatchInferenceJobCommandInput,
   CreateBatchInferenceJobCommandOutput,
 } from "../commands/CreateBatchInferenceJobCommand.ts";
 import { CreateCampaignCommandInput, CreateCampaignCommandOutput } from "../commands/CreateCampaignCommand.ts";
 import { CreateDatasetCommandInput, CreateDatasetCommandOutput } from "../commands/CreateDatasetCommand.ts";
-import {
-  CreateDatasetGroupCommandInput,
-  CreateDatasetGroupCommandOutput,
-} from "../commands/CreateDatasetGroupCommand.ts";
+import { CreateDatasetGroupCommandInput, CreateDatasetGroupCommandOutput } from "../commands/CreateDatasetGroupCommand.ts";
 import {
   CreateDatasetImportJobCommandInput,
   CreateDatasetImportJobCommandOutput,
 } from "../commands/CreateDatasetImportJobCommand.ts";
-import {
-  CreateEventTrackerCommandInput,
-  CreateEventTrackerCommandOutput,
-} from "../commands/CreateEventTrackerCommand.ts";
+import { CreateEventTrackerCommandInput, CreateEventTrackerCommandOutput } from "../commands/CreateEventTrackerCommand.ts";
 import { CreateFilterCommandInput, CreateFilterCommandOutput } from "../commands/CreateFilterCommand.ts";
 import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "../commands/CreateSchemaCommand.ts";
 import { CreateSolutionCommandInput, CreateSolutionCommandOutput } from "../commands/CreateSolutionCommand.ts";
@@ -25,14 +20,8 @@ import {
 } from "../commands/CreateSolutionVersionCommand.ts";
 import { DeleteCampaignCommandInput, DeleteCampaignCommandOutput } from "../commands/DeleteCampaignCommand.ts";
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "../commands/DeleteDatasetCommand.ts";
-import {
-  DeleteDatasetGroupCommandInput,
-  DeleteDatasetGroupCommandOutput,
-} from "../commands/DeleteDatasetGroupCommand.ts";
-import {
-  DeleteEventTrackerCommandInput,
-  DeleteEventTrackerCommandOutput,
-} from "../commands/DeleteEventTrackerCommand.ts";
+import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "../commands/DeleteDatasetGroupCommand.ts";
+import { DeleteEventTrackerCommandInput, DeleteEventTrackerCommandOutput } from "../commands/DeleteEventTrackerCommand.ts";
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "../commands/DeleteFilterCommand.ts";
 import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "../commands/DeleteSchemaCommand.ts";
 import { DeleteSolutionCommandInput, DeleteSolutionCommandOutput } from "../commands/DeleteSolutionCommand.ts";
@@ -67,10 +56,7 @@ import {
   DescribeSolutionVersionCommandInput,
   DescribeSolutionVersionCommandOutput,
 } from "../commands/DescribeSolutionVersionCommand.ts";
-import {
-  GetSolutionMetricsCommandInput,
-  GetSolutionMetricsCommandOutput,
-} from "../commands/GetSolutionMetricsCommand.ts";
+import { GetSolutionMetricsCommandInput, GetSolutionMetricsCommandOutput } from "../commands/GetSolutionMetricsCommand.ts";
 import {
   ListBatchInferenceJobsCommandInput,
   ListBatchInferenceJobsCommandOutput,

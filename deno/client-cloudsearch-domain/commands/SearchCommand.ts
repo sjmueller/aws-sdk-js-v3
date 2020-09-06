@@ -1,13 +1,11 @@
+
 import {
   CloudSearchDomainClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient.ts";
 import { SearchRequest, SearchResponse } from "../models/index.ts";
-import {
-  deserializeAws_restJson1SearchCommand,
-  serializeAws_restJson1SearchCommand,
-} from "../protocols/Aws_restJson1.ts";
+import { deserializeAws_restJson1SearchCommand, serializeAws_restJson1SearchCommand } from "../protocols/Aws_restJson1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";

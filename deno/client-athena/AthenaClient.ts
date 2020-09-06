@@ -1,7 +1,5 @@
-import {
-  BatchGetNamedQueryCommandInput,
-  BatchGetNamedQueryCommandOutput,
-} from "./commands/BatchGetNamedQueryCommand.ts";
+
+import { BatchGetNamedQueryCommandInput, BatchGetNamedQueryCommandOutput } from "./commands/BatchGetNamedQueryCommand.ts";
 import {
   BatchGetQueryExecutionCommandInput,
   BatchGetQueryExecutionCommandOutput,
@@ -36,10 +34,7 @@ import {
   StartQueryExecutionCommandInput,
   StartQueryExecutionCommandOutput,
 } from "./commands/StartQueryExecutionCommand.ts";
-import {
-  StopQueryExecutionCommandInput,
-  StopQueryExecutionCommandOutput,
-} from "./commands/StopQueryExecutionCommand.ts";
+import { StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput } from "./commands/StopQueryExecutionCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UpdateDataCatalogCommandInput, UpdateDataCatalogCommandOutput } from "./commands/UpdateDataCatalogCommand.ts";

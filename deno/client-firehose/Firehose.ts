@@ -1,3 +1,4 @@
+import { Buffer } from "../buffer/mod.ts";
 import { FirehoseClient } from "./FirehoseClient.ts";
 import {
   CreateDeliveryStreamCommand,

@@ -1,3 +1,4 @@
+
 import { CodePipelineClient } from "./CodePipelineClient.ts";
 import {
   AcknowledgeJobCommand,
@@ -54,11 +55,7 @@ import {
   GetJobDetailsCommandInput,
   GetJobDetailsCommandOutput,
 } from "./commands/GetJobDetailsCommand.ts";
-import {
-  GetPipelineCommand,
-  GetPipelineCommandInput,
-  GetPipelineCommandOutput,
-} from "./commands/GetPipelineCommand.ts";
+import { GetPipelineCommand, GetPipelineCommandInput, GetPipelineCommandOutput } from "./commands/GetPipelineCommand.ts";
 import {
   GetPipelineExecutionCommand,
   GetPipelineExecutionCommandInput,
@@ -104,11 +101,7 @@ import {
   ListWebhooksCommandInput,
   ListWebhooksCommandOutput,
 } from "./commands/ListWebhooksCommand.ts";
-import {
-  PollForJobsCommand,
-  PollForJobsCommandInput,
-  PollForJobsCommandOutput,
-} from "./commands/PollForJobsCommand.ts";
+import { PollForJobsCommand, PollForJobsCommandInput, PollForJobsCommandOutput } from "./commands/PollForJobsCommand.ts";
 import {
   PollForThirdPartyJobsCommand,
   PollForThirdPartyJobsCommandInput,
@@ -165,11 +158,7 @@ import {
   StopPipelineExecutionCommandInput,
   StopPipelineExecutionCommandOutput,
 } from "./commands/StopPipelineExecutionCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

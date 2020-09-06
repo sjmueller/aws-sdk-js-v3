@@ -1,3 +1,4 @@
+
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
 import { PutInsightRuleInput, PutInsightRuleOutput } from "../models/index.ts";
 import {

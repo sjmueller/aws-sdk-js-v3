@@ -1,3 +1,4 @@
+
 import { DeviceFarmClient } from "./DeviceFarmClient.ts";
 import {
   CreateDevicePoolCommand,
@@ -167,11 +168,7 @@ import {
   ListDevicePoolsCommandInput,
   ListDevicePoolsCommandOutput,
 } from "./commands/ListDevicePoolsCommand.ts";
-import {
-  ListDevicesCommand,
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput,
-} from "./commands/ListDevicesCommand.ts";
+import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand.ts";
 import {
   ListInstanceProfilesCommand,
   ListInstanceProfilesCommandInput,
@@ -209,11 +206,7 @@ import {
   ListRemoteAccessSessionsCommandOutput,
 } from "./commands/ListRemoteAccessSessionsCommand.ts";
 import { ListRunsCommand, ListRunsCommandInput, ListRunsCommandOutput } from "./commands/ListRunsCommand.ts";
-import {
-  ListSamplesCommand,
-  ListSamplesCommandInput,
-  ListSamplesCommandOutput,
-} from "./commands/ListSamplesCommand.ts";
+import { ListSamplesCommand, ListSamplesCommandInput, ListSamplesCommandOutput } from "./commands/ListSamplesCommand.ts";
 import { ListSuitesCommand, ListSuitesCommandInput, ListSuitesCommandOutput } from "./commands/ListSuitesCommand.ts";
 import {
   ListTagsForResourceCommand,
@@ -246,11 +239,7 @@ import {
   ListUniqueProblemsCommandInput,
   ListUniqueProblemsCommandOutput,
 } from "./commands/ListUniqueProblemsCommand.ts";
-import {
-  ListUploadsCommand,
-  ListUploadsCommandInput,
-  ListUploadsCommandOutput,
-} from "./commands/ListUploadsCommand.ts";
+import { ListUploadsCommand, ListUploadsCommandInput, ListUploadsCommandOutput } from "./commands/ListUploadsCommand.ts";
 import {
   ListVPCEConfigurationsCommand,
   ListVPCEConfigurationsCommandInput,
@@ -266,11 +255,7 @@ import {
   RenewOfferingCommandInput,
   RenewOfferingCommandOutput,
 } from "./commands/RenewOfferingCommand.ts";
-import {
-  ScheduleRunCommand,
-  ScheduleRunCommandInput,
-  ScheduleRunCommandOutput,
-} from "./commands/ScheduleRunCommand.ts";
+import { ScheduleRunCommand, ScheduleRunCommandInput, ScheduleRunCommandOutput } from "./commands/ScheduleRunCommand.ts";
 import { StopJobCommand, StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand.ts";
 import {
   StopRemoteAccessSessionCommand,
@@ -278,11 +263,7 @@ import {
   StopRemoteAccessSessionCommandOutput,
 } from "./commands/StopRemoteAccessSessionCommand.ts";
 import { StopRunCommand, StopRunCommandInput, StopRunCommandOutput } from "./commands/StopRunCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

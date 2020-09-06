@@ -1,3 +1,4 @@
+
 import { FMSClient } from "./FMSClient.ts";
 import {
   AssociateAdminAccountCommand,
@@ -34,11 +35,7 @@ import {
   GetAdminAccountCommandInput,
   GetAdminAccountCommandOutput,
 } from "./commands/GetAdminAccountCommand.ts";
-import {
-  GetAppsListCommand,
-  GetAppsListCommandInput,
-  GetAppsListCommandOutput,
-} from "./commands/GetAppsListCommand.ts";
+import { GetAppsListCommand, GetAppsListCommandInput, GetAppsListCommandOutput } from "./commands/GetAppsListCommand.ts";
 import {
   GetComplianceDetailCommand,
   GetComplianceDetailCommandInput,
@@ -95,11 +92,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  PutAppsListCommand,
-  PutAppsListCommandInput,
-  PutAppsListCommandOutput,
-} from "./commands/PutAppsListCommand.ts";
+import { PutAppsListCommand, PutAppsListCommandInput, PutAppsListCommandOutput } from "./commands/PutAppsListCommand.ts";
 import {
   PutNotificationChannelCommand,
   PutNotificationChannelCommandInput,
@@ -111,11 +104,7 @@ import {
   PutProtocolsListCommandInput,
   PutProtocolsListCommandOutput,
 } from "./commands/PutProtocolsListCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

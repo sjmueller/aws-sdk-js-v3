@@ -1,3 +1,4 @@
+
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
 import { DescribeTagsRequest, DescribeTagsResult } from "../models/index.ts";
 import { deserializeAws_ec2DescribeTagsCommand, serializeAws_ec2DescribeTagsCommand } from "../protocols/Aws_ec2.ts";

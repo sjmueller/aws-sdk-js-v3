@@ -1,3 +1,4 @@
+
 import { LightsailClient } from "./LightsailClient.ts";
 import {
   AllocateStaticIpCommand,
@@ -121,11 +122,7 @@ import {
   CreateRelationalDatabaseSnapshotCommandInput,
   CreateRelationalDatabaseSnapshotCommandOutput,
 } from "./commands/CreateRelationalDatabaseSnapshotCommand.ts";
-import {
-  DeleteAlarmCommand,
-  DeleteAlarmCommandInput,
-  DeleteAlarmCommandOutput,
-} from "./commands/DeleteAlarmCommand.ts";
+import { DeleteAlarmCommand, DeleteAlarmCommandInput, DeleteAlarmCommandOutput } from "./commands/DeleteAlarmCommand.ts";
 import {
   DeleteAutoSnapshotCommand,
   DeleteAutoSnapshotCommandInput,
@@ -228,11 +225,7 @@ import {
   DownloadDefaultKeyPairCommandInput,
   DownloadDefaultKeyPairCommandOutput,
 } from "./commands/DownloadDefaultKeyPairCommand.ts";
-import {
-  EnableAddOnCommand,
-  EnableAddOnCommandInput,
-  EnableAddOnCommandOutput,
-} from "./commands/EnableAddOnCommand.ts";
+import { EnableAddOnCommand, EnableAddOnCommandInput, EnableAddOnCommandOutput } from "./commands/EnableAddOnCommand.ts";
 import {
   ExportSnapshotCommand,
   ExportSnapshotCommandInput,
@@ -314,11 +307,7 @@ import {
   GetInstanceAccessDetailsCommandInput,
   GetInstanceAccessDetailsCommandOutput,
 } from "./commands/GetInstanceAccessDetailsCommand.ts";
-import {
-  GetInstanceCommand,
-  GetInstanceCommandInput,
-  GetInstanceCommandOutput,
-} from "./commands/GetInstanceCommand.ts";
+import { GetInstanceCommand, GetInstanceCommandInput, GetInstanceCommandOutput } from "./commands/GetInstanceCommand.ts";
 import {
   GetInstanceMetricDataCommand,
   GetInstanceMetricDataCommandInput,
@@ -350,11 +339,7 @@ import {
   GetInstancesCommandOutput,
 } from "./commands/GetInstancesCommand.ts";
 import { GetKeyPairCommand, GetKeyPairCommandInput, GetKeyPairCommandOutput } from "./commands/GetKeyPairCommand.ts";
-import {
-  GetKeyPairsCommand,
-  GetKeyPairsCommandInput,
-  GetKeyPairsCommandOutput,
-} from "./commands/GetKeyPairsCommand.ts";
+import { GetKeyPairsCommand, GetKeyPairsCommandInput, GetKeyPairsCommandOutput } from "./commands/GetKeyPairsCommand.ts";
 import {
   GetLoadBalancerCommand,
   GetLoadBalancerCommandInput,
@@ -451,11 +436,7 @@ import {
   GetRelationalDatabasesCommandInput,
   GetRelationalDatabasesCommandOutput,
 } from "./commands/GetRelationalDatabasesCommand.ts";
-import {
-  GetStaticIpCommand,
-  GetStaticIpCommandInput,
-  GetStaticIpCommandOutput,
-} from "./commands/GetStaticIpCommand.ts";
+import { GetStaticIpCommand, GetStaticIpCommandInput, GetStaticIpCommandOutput } from "./commands/GetStaticIpCommand.ts";
 import {
   GetStaticIpsCommand,
   GetStaticIpsCommandInput,
@@ -466,11 +447,7 @@ import {
   ImportKeyPairCommandInput,
   ImportKeyPairCommandOutput,
 } from "./commands/ImportKeyPairCommand.ts";
-import {
-  IsVpcPeeredCommand,
-  IsVpcPeeredCommandInput,
-  IsVpcPeeredCommandOutput,
-} from "./commands/IsVpcPeeredCommand.ts";
+import { IsVpcPeeredCommand, IsVpcPeeredCommandInput, IsVpcPeeredCommandOutput } from "./commands/IsVpcPeeredCommand.ts";
 import {
   OpenInstancePublicPortsCommand,
   OpenInstancePublicPortsCommandInput,
@@ -528,11 +505,7 @@ import {
   StopRelationalDatabaseCommandInput,
   StopRelationalDatabaseCommandOutput,
 } from "./commands/StopRelationalDatabaseCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { TestAlarmCommand, TestAlarmCommandInput, TestAlarmCommandOutput } from "./commands/TestAlarmCommand.ts";
 import { UnpeerVpcCommand, UnpeerVpcCommandInput, UnpeerVpcCommandOutput } from "./commands/UnpeerVpcCommand.ts";
 import {

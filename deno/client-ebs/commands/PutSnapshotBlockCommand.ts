@@ -1,3 +1,4 @@
+import { Buffer } from "../../buffer/mod.ts";
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient.ts";
 import { PutSnapshotBlockRequest, PutSnapshotBlockResponse } from "../models/index.ts";
 import {

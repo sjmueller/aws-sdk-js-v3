@@ -1,14 +1,11 @@
+
 import { CloudDirectoryClient } from "./CloudDirectoryClient.ts";
 import {
   AddFacetToObjectCommand,
   AddFacetToObjectCommandInput,
   AddFacetToObjectCommandOutput,
 } from "./commands/AddFacetToObjectCommand.ts";
-import {
-  ApplySchemaCommand,
-  ApplySchemaCommandInput,
-  ApplySchemaCommandOutput,
-} from "./commands/ApplySchemaCommand.ts";
+import { ApplySchemaCommand, ApplySchemaCommandInput, ApplySchemaCommandOutput } from "./commands/ApplySchemaCommand.ts";
 import {
   AttachObjectCommand,
   AttachObjectCommandInput,
@@ -36,16 +33,8 @@ import {
   CreateDirectoryCommandInput,
   CreateDirectoryCommandOutput,
 } from "./commands/CreateDirectoryCommand.ts";
-import {
-  CreateFacetCommand,
-  CreateFacetCommandInput,
-  CreateFacetCommandOutput,
-} from "./commands/CreateFacetCommand.ts";
-import {
-  CreateIndexCommand,
-  CreateIndexCommandInput,
-  CreateIndexCommandOutput,
-} from "./commands/CreateIndexCommand.ts";
+import { CreateFacetCommand, CreateFacetCommandInput, CreateFacetCommandOutput } from "./commands/CreateFacetCommand.ts";
+import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand.ts";
 import {
   CreateObjectCommand,
   CreateObjectCommandInput,
@@ -66,11 +55,7 @@ import {
   DeleteDirectoryCommandInput,
   DeleteDirectoryCommandOutput,
 } from "./commands/DeleteDirectoryCommand.ts";
-import {
-  DeleteFacetCommand,
-  DeleteFacetCommandInput,
-  DeleteFacetCommandOutput,
-} from "./commands/DeleteFacetCommand.ts";
+import { DeleteFacetCommand, DeleteFacetCommandInput, DeleteFacetCommandOutput } from "./commands/DeleteFacetCommand.ts";
 import {
   DeleteObjectCommand,
   DeleteObjectCommandInput,
@@ -268,21 +253,13 @@ import {
   RemoveFacetFromObjectCommandInput,
   RemoveFacetFromObjectCommandOutput,
 } from "./commands/RemoveFacetFromObjectCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateFacetCommand,
-  UpdateFacetCommandInput,
-  UpdateFacetCommandOutput,
-} from "./commands/UpdateFacetCommand.ts";
+import { UpdateFacetCommand, UpdateFacetCommandInput, UpdateFacetCommandOutput } from "./commands/UpdateFacetCommand.ts";
 import {
   UpdateLinkAttributesCommand,
   UpdateLinkAttributesCommandInput,

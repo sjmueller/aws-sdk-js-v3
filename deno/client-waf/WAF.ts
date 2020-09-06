@@ -1,3 +1,4 @@
+
 import { WAFClient } from "./WAFClient.ts";
 import {
   CreateByteMatchSetCommand,
@@ -9,11 +10,7 @@ import {
   CreateGeoMatchSetCommandInput,
   CreateGeoMatchSetCommandOutput,
 } from "./commands/CreateGeoMatchSetCommand.ts";
-import {
-  CreateIPSetCommand,
-  CreateIPSetCommandInput,
-  CreateIPSetCommandOutput,
-} from "./commands/CreateIPSetCommand.ts";
+import { CreateIPSetCommand, CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand.ts";
 import {
   CreateRateBasedRuleCommand,
   CreateRateBasedRuleCommandInput,
@@ -70,11 +67,7 @@ import {
   DeleteGeoMatchSetCommandInput,
   DeleteGeoMatchSetCommandOutput,
 } from "./commands/DeleteGeoMatchSetCommand.ts";
-import {
-  DeleteIPSetCommand,
-  DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput,
-} from "./commands/DeleteIPSetCommand.ts";
+import { DeleteIPSetCommand, DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand.ts";
 import {
   DeleteLoggingConfigurationCommand,
   DeleteLoggingConfigurationCommandInput,
@@ -266,11 +259,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  ListWebACLsCommand,
-  ListWebACLsCommandInput,
-  ListWebACLsCommandOutput,
-} from "./commands/ListWebACLsCommand.ts";
+import { ListWebACLsCommand, ListWebACLsCommandInput, ListWebACLsCommandOutput } from "./commands/ListWebACLsCommand.ts";
 import {
   ListXssMatchSetsCommand,
   ListXssMatchSetsCommandInput,
@@ -286,11 +275,7 @@ import {
   PutPermissionPolicyCommandInput,
   PutPermissionPolicyCommandOutput,
 } from "./commands/PutPermissionPolicyCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -306,11 +291,7 @@ import {
   UpdateGeoMatchSetCommandInput,
   UpdateGeoMatchSetCommandOutput,
 } from "./commands/UpdateGeoMatchSetCommand.ts";
-import {
-  UpdateIPSetCommand,
-  UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput,
-} from "./commands/UpdateIPSetCommand.ts";
+import { UpdateIPSetCommand, UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand.ts";
 import {
   UpdateRateBasedRuleCommand,
   UpdateRateBasedRuleCommandInput,

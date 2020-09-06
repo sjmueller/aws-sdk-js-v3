@@ -1,10 +1,7 @@
+
 import { SecretsManager } from "../SecretsManager.ts";
 import { SecretsManagerClient } from "../SecretsManagerClient.ts";
-import {
-  ListSecretsCommand,
-  ListSecretsCommandInput,
-  ListSecretsCommandOutput,
-} from "../commands/ListSecretsCommand.ts";
+import { ListSecretsCommand, ListSecretsCommandInput, ListSecretsCommandOutput } from "../commands/ListSecretsCommand.ts";
 import { SecretsManagerPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

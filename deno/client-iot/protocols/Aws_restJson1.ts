@@ -1,3 +1,4 @@
+
 import {
   AcceptCertificateTransferCommandInput,
   AcceptCertificateTransferCommandOutput,
@@ -37,10 +38,7 @@ import {
   CancelCertificateTransferCommandOutput,
 } from "../commands/CancelCertificateTransferCommand.ts";
 import { CancelJobCommandInput, CancelJobCommandOutput } from "../commands/CancelJobCommand.ts";
-import {
-  CancelJobExecutionCommandInput,
-  CancelJobExecutionCommandOutput,
-} from "../commands/CancelJobExecutionCommand.ts";
+import { CancelJobExecutionCommandInput, CancelJobExecutionCommandOutput } from "../commands/CancelJobExecutionCommand.ts";
 import {
   ClearDefaultAuthorizerCommandInput,
   ClearDefaultAuthorizerCommandOutput,
@@ -50,10 +48,7 @@ import {
   ConfirmTopicRuleDestinationCommandOutput,
 } from "../commands/ConfirmTopicRuleDestinationCommand.ts";
 import { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "../commands/CreateAuthorizerCommand.ts";
-import {
-  CreateBillingGroupCommandInput,
-  CreateBillingGroupCommandOutput,
-} from "../commands/CreateBillingGroupCommand.ts";
+import { CreateBillingGroupCommandInput, CreateBillingGroupCommandOutput } from "../commands/CreateBillingGroupCommand.ts";
 import {
   CreateCertificateFromCsrCommandInput,
   CreateCertificateFromCsrCommandOutput,
@@ -117,10 +112,7 @@ import {
   DeleteAccountAuditConfigurationCommandOutput,
 } from "../commands/DeleteAccountAuditConfigurationCommand.ts";
 import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "../commands/DeleteAuthorizerCommand.ts";
-import {
-  DeleteBillingGroupCommandInput,
-  DeleteBillingGroupCommandOutput,
-} from "../commands/DeleteBillingGroupCommand.ts";
+import { DeleteBillingGroupCommandInput, DeleteBillingGroupCommandOutput } from "../commands/DeleteBillingGroupCommand.ts";
 import {
   DeleteCACertificateCommandInput,
   DeleteCACertificateCommandOutput,
@@ -136,10 +128,7 @@ import {
   DeleteDynamicThingGroupCommandOutput,
 } from "../commands/DeleteDynamicThingGroupCommand.ts";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "../commands/DeleteJobCommand.ts";
-import {
-  DeleteJobExecutionCommandInput,
-  DeleteJobExecutionCommandOutput,
-} from "../commands/DeleteJobExecutionCommand.ts";
+import { DeleteJobExecutionCommandInput, DeleteJobExecutionCommandOutput } from "../commands/DeleteJobExecutionCommand.ts";
 import {
   DeleteMitigationActionCommandInput,
   DeleteMitigationActionCommandOutput,
@@ -184,10 +173,7 @@ import {
   DeleteV2LoggingLevelCommandInput,
   DeleteV2LoggingLevelCommandOutput,
 } from "../commands/DeleteV2LoggingLevelCommand.ts";
-import {
-  DeprecateThingTypeCommandInput,
-  DeprecateThingTypeCommandOutput,
-} from "../commands/DeprecateThingTypeCommand.ts";
+import { DeprecateThingTypeCommandInput, DeprecateThingTypeCommandOutput } from "../commands/DeprecateThingTypeCommand.ts";
 import {
   DescribeAccountAuditConfigurationCommandInput,
   DescribeAccountAuditConfigurationCommandOutput,
@@ -201,10 +187,7 @@ import {
   DescribeAuditMitigationActionsTaskCommandOutput,
 } from "../commands/DescribeAuditMitigationActionsTaskCommand.ts";
 import { DescribeAuditTaskCommandInput, DescribeAuditTaskCommandOutput } from "../commands/DescribeAuditTaskCommand.ts";
-import {
-  DescribeAuthorizerCommandInput,
-  DescribeAuthorizerCommandOutput,
-} from "../commands/DescribeAuthorizerCommand.ts";
+import { DescribeAuthorizerCommandInput, DescribeAuthorizerCommandOutput } from "../commands/DescribeAuthorizerCommand.ts";
 import {
   DescribeBillingGroupCommandInput,
   DescribeBillingGroupCommandOutput,
@@ -260,10 +243,7 @@ import {
 } from "../commands/DescribeSecurityProfileCommand.ts";
 import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "../commands/DescribeStreamCommand.ts";
 import { DescribeThingCommandInput, DescribeThingCommandOutput } from "../commands/DescribeThingCommand.ts";
-import {
-  DescribeThingGroupCommandInput,
-  DescribeThingGroupCommandOutput,
-} from "../commands/DescribeThingGroupCommand.ts";
+import { DescribeThingGroupCommandInput, DescribeThingGroupCommandOutput } from "../commands/DescribeThingGroupCommand.ts";
 import {
   DescribeThingRegistrationTaskCommandInput,
   DescribeThingRegistrationTaskCommandOutput,
@@ -333,10 +313,7 @@ import {
 import { ListAuditTasksCommandInput, ListAuditTasksCommandOutput } from "../commands/ListAuditTasksCommand.ts";
 import { ListAuthorizersCommandInput, ListAuthorizersCommandOutput } from "../commands/ListAuthorizersCommand.ts";
 import { ListBillingGroupsCommandInput, ListBillingGroupsCommandOutput } from "../commands/ListBillingGroupsCommand.ts";
-import {
-  ListCACertificatesCommandInput,
-  ListCACertificatesCommandOutput,
-} from "../commands/ListCACertificatesCommand.ts";
+import { ListCACertificatesCommandInput, ListCACertificatesCommandOutput } from "../commands/ListCACertificatesCommand.ts";
 import {
   ListCertificatesByCACommandInput,
   ListCertificatesByCACommandOutput,
@@ -371,10 +348,7 @@ import {
   ListPolicyPrincipalsCommandInput,
   ListPolicyPrincipalsCommandOutput,
 } from "../commands/ListPolicyPrincipalsCommand.ts";
-import {
-  ListPolicyVersionsCommandInput,
-  ListPolicyVersionsCommandOutput,
-} from "../commands/ListPolicyVersionsCommand.ts";
+import { ListPolicyVersionsCommandInput, ListPolicyVersionsCommandOutput } from "../commands/ListPolicyVersionsCommand.ts";
 import {
   ListPrincipalPoliciesCommandInput,
   ListPrincipalPoliciesCommandOutput,
@@ -530,10 +504,7 @@ import {
   UpdateAccountAuditConfigurationCommandOutput,
 } from "../commands/UpdateAccountAuditConfigurationCommand.ts";
 import { UpdateAuthorizerCommandInput, UpdateAuthorizerCommandOutput } from "../commands/UpdateAuthorizerCommand.ts";
-import {
-  UpdateBillingGroupCommandInput,
-  UpdateBillingGroupCommandOutput,
-} from "../commands/UpdateBillingGroupCommand.ts";
+import { UpdateBillingGroupCommandInput, UpdateBillingGroupCommandOutput } from "../commands/UpdateBillingGroupCommand.ts";
 import {
   UpdateCACertificateCommandInput,
   UpdateCACertificateCommandOutput,

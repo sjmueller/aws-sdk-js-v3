@@ -1,8 +1,6 @@
+
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import {
-  ExportClientVpnClientConfigurationRequest,
-  ExportClientVpnClientConfigurationResult,
-} from "../models/index.ts";
+import { ExportClientVpnClientConfigurationRequest, ExportClientVpnClientConfigurationResult } from "../models/index.ts";
 import {
   deserializeAws_ec2ExportClientVpnClientConfigurationCommand,
   serializeAws_ec2ExportClientVpnClientConfigurationCommand,

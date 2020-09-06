@@ -1,3 +1,4 @@
+
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
 import { DescribeAssessmentTemplatesRequest, DescribeAssessmentTemplatesResponse } from "../models/index.ts";
 import {

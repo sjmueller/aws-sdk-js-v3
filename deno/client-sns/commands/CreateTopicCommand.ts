@@ -1,9 +1,7 @@
+
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
 import { CreateTopicInput, CreateTopicResponse } from "../models/index.ts";
-import {
-  deserializeAws_queryCreateTopicCommand,
-  serializeAws_queryCreateTopicCommand,
-} from "../protocols/Aws_query.ts";
+import { deserializeAws_queryCreateTopicCommand, serializeAws_queryCreateTopicCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";

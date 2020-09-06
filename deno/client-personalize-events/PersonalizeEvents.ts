@@ -1,3 +1,4 @@
+
 import { PersonalizeEventsClient } from "./PersonalizeEventsClient.ts";
 import { PutEventsCommand, PutEventsCommandInput, PutEventsCommandOutput } from "./commands/PutEventsCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";

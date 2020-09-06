@@ -1,9 +1,7 @@
+
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
 import { PutDashboardInput, PutDashboardOutput } from "../models/index.ts";
-import {
-  deserializeAws_queryPutDashboardCommand,
-  serializeAws_queryPutDashboardCommand,
-} from "../protocols/Aws_query.ts";
+import { deserializeAws_queryPutDashboardCommand, serializeAws_queryPutDashboardCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";

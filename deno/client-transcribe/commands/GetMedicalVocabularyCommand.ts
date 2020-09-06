@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient.ts";
 import { GetMedicalVocabularyRequest, GetMedicalVocabularyResponse } from "../models/index.ts";
 import {

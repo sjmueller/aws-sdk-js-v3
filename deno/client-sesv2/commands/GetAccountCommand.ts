@@ -1,3 +1,4 @@
+
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
 import { GetAccountRequest, GetAccountResponse } from "../models/index.ts";
 import {

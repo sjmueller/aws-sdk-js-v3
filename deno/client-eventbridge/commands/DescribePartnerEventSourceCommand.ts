@@ -1,3 +1,4 @@
+
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
 import { DescribePartnerEventSourceRequest, DescribePartnerEventSourceResponse } from "../models/index.ts";
 import {

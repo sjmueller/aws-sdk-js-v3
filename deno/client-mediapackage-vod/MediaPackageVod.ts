@@ -1,9 +1,6 @@
+
 import { MediaPackageVodClient } from "./MediaPackageVodClient.ts";
-import {
-  CreateAssetCommand,
-  CreateAssetCommandInput,
-  CreateAssetCommandOutput,
-} from "./commands/CreateAssetCommand.ts";
+import { CreateAssetCommand, CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand.ts";
 import {
   CreatePackagingConfigurationCommand,
   CreatePackagingConfigurationCommandInput,
@@ -14,11 +11,7 @@ import {
   CreatePackagingGroupCommandInput,
   CreatePackagingGroupCommandOutput,
 } from "./commands/CreatePackagingGroupCommand.ts";
-import {
-  DeleteAssetCommand,
-  DeleteAssetCommandInput,
-  DeleteAssetCommandOutput,
-} from "./commands/DeleteAssetCommand.ts";
+import { DeleteAssetCommand, DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand.ts";
 import {
   DeletePackagingConfigurationCommand,
   DeletePackagingConfigurationCommandInput,
@@ -60,11 +53,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

@@ -1,3 +1,4 @@
+
 import { PricingClient } from "./PricingClient.ts";
 import {
   DescribeServicesCommand,
@@ -9,11 +10,7 @@ import {
   GetAttributeValuesCommandInput,
   GetAttributeValuesCommandOutput,
 } from "./commands/GetAttributeValuesCommand.ts";
-import {
-  GetProductsCommand,
-  GetProductsCommandInput,
-  GetProductsCommandOutput,
-} from "./commands/GetProductsCommand.ts";
+import { GetProductsCommand, GetProductsCommandInput, GetProductsCommandOutput } from "./commands/GetProductsCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**

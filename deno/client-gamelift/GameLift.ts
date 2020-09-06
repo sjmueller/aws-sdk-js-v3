@@ -1,29 +1,14 @@
+
 import { GameLiftClient } from "./GameLiftClient.ts";
-import {
-  AcceptMatchCommand,
-  AcceptMatchCommandInput,
-  AcceptMatchCommandOutput,
-} from "./commands/AcceptMatchCommand.ts";
+import { AcceptMatchCommand, AcceptMatchCommandInput, AcceptMatchCommandOutput } from "./commands/AcceptMatchCommand.ts";
 import {
   ClaimGameServerCommand,
   ClaimGameServerCommandInput,
   ClaimGameServerCommandOutput,
 } from "./commands/ClaimGameServerCommand.ts";
-import {
-  CreateAliasCommand,
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput,
-} from "./commands/CreateAliasCommand.ts";
-import {
-  CreateBuildCommand,
-  CreateBuildCommandInput,
-  CreateBuildCommandOutput,
-} from "./commands/CreateBuildCommand.ts";
-import {
-  CreateFleetCommand,
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput,
-} from "./commands/CreateFleetCommand.ts";
+import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand.ts";
+import { CreateBuildCommand, CreateBuildCommandInput, CreateBuildCommandOutput } from "./commands/CreateBuildCommand.ts";
+import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand.ts";
 import {
   CreateGameServerGroupCommand,
   CreateGameServerGroupCommandInput,
@@ -74,21 +59,9 @@ import {
   CreateVpcPeeringConnectionCommandInput,
   CreateVpcPeeringConnectionCommandOutput,
 } from "./commands/CreateVpcPeeringConnectionCommand.ts";
-import {
-  DeleteAliasCommand,
-  DeleteAliasCommandInput,
-  DeleteAliasCommandOutput,
-} from "./commands/DeleteAliasCommand.ts";
-import {
-  DeleteBuildCommand,
-  DeleteBuildCommandInput,
-  DeleteBuildCommandOutput,
-} from "./commands/DeleteBuildCommand.ts";
-import {
-  DeleteFleetCommand,
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput,
-} from "./commands/DeleteFleetCommand.ts";
+import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand.ts";
+import { DeleteBuildCommand, DeleteBuildCommandInput, DeleteBuildCommandOutput } from "./commands/DeleteBuildCommand.ts";
+import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand.ts";
 import {
   DeleteGameServerGroupCommand,
   DeleteGameServerGroupCommandInput,
@@ -264,11 +237,7 @@ import {
   GetInstanceAccessCommandInput,
   GetInstanceAccessCommandOutput,
 } from "./commands/GetInstanceAccessCommand.ts";
-import {
-  ListAliasesCommand,
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput,
-} from "./commands/ListAliasesCommand.ts";
+import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand.ts";
 import { ListBuildsCommand, ListBuildsCommandInput, ListBuildsCommandOutput } from "./commands/ListBuildsCommand.ts";
 import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand.ts";
 import {
@@ -281,11 +250,7 @@ import {
   ListGameServersCommandInput,
   ListGameServersCommandOutput,
 } from "./commands/ListGameServersCommand.ts";
-import {
-  ListScriptsCommand,
-  ListScriptsCommandInput,
-  ListScriptsCommandOutput,
-} from "./commands/ListScriptsCommand.ts";
+import { ListScriptsCommand, ListScriptsCommandInput, ListScriptsCommandOutput } from "./commands/ListScriptsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -361,26 +326,14 @@ import {
   SuspendGameServerGroupCommandInput,
   SuspendGameServerGroupCommandOutput,
 } from "./commands/SuspendGameServerGroupCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateAliasCommand,
-  UpdateAliasCommandInput,
-  UpdateAliasCommandOutput,
-} from "./commands/UpdateAliasCommand.ts";
-import {
-  UpdateBuildCommand,
-  UpdateBuildCommandInput,
-  UpdateBuildCommandOutput,
-} from "./commands/UpdateBuildCommand.ts";
+import { UpdateAliasCommand, UpdateAliasCommandInput, UpdateAliasCommandOutput } from "./commands/UpdateAliasCommand.ts";
+import { UpdateBuildCommand, UpdateBuildCommandInput, UpdateBuildCommandOutput } from "./commands/UpdateBuildCommand.ts";
 import {
   UpdateFleetAttributesCommand,
   UpdateFleetAttributesCommandInput,

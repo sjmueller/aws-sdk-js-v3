@@ -1,3 +1,4 @@
+
 import {
   AssociateAdminAccountCommandInput,
   AssociateAdminAccountCommandOutput,
@@ -41,15 +42,9 @@ import {
   ListComplianceStatusCommandInput,
   ListComplianceStatusCommandOutput,
 } from "./commands/ListComplianceStatusCommand.ts";
-import {
-  ListMemberAccountsCommandInput,
-  ListMemberAccountsCommandOutput,
-} from "./commands/ListMemberAccountsCommand.ts";
+import { ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput } from "./commands/ListMemberAccountsCommand.ts";
 import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand.ts";
-import {
-  ListProtocolsListsCommandInput,
-  ListProtocolsListsCommandOutput,
-} from "./commands/ListProtocolsListsCommand.ts";
+import { ListProtocolsListsCommandInput, ListProtocolsListsCommandOutput } from "./commands/ListProtocolsListsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,

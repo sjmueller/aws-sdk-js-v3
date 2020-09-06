@@ -1,5 +1,6 @@
+
 import { LoadedConfigSelectors } from "../node-config-provider/mod.ts";
-import { Provider, RegionInfoProvider } from "../types/mod.ts";
+import { Provider, RegionInfoProvider, ProcessEnv } from "../types/mod.ts";
 
 export interface BucketEndpointInputConfig {
   /**
@@ -68,7 +69,7 @@ export const NODE_USE_ARN_REGION_INI_NAME = "s3_use_arn_region";
  * @api private
  */
 export const NODE_USE_ARN_REGION_CONFIG_OPTIONS: LoadedConfigSelectors<boolean> = {
-  environmentVariableSelector: (env: NodeJS.ProcessEnv) => {
+  environmentVariableSelector: (env: ProcessEnv) => {
     if (!Object.prototype.hasOwnProperty.call(env, NODE_USE_ARN_REGION_ENV_NAME)) return undefined;
     if (env[NODE_USE_ARN_REGION_ENV_NAME] === "true") return true;
     if (env[NODE_USE_ARN_REGION_ENV_NAME] === "false") return false;

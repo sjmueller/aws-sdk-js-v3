@@ -1,3 +1,4 @@
+
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand.ts";
 import {
   CreateBatchPredictionCommandInput,
@@ -47,10 +48,7 @@ import {
 } from "../commands/DescribeEvaluationsCommand.ts";
 import { DescribeMLModelsCommandInput, DescribeMLModelsCommandOutput } from "../commands/DescribeMLModelsCommand.ts";
 import { DescribeTagsCommandInput, DescribeTagsCommandOutput } from "../commands/DescribeTagsCommand.ts";
-import {
-  GetBatchPredictionCommandInput,
-  GetBatchPredictionCommandOutput,
-} from "../commands/GetBatchPredictionCommand.ts";
+import { GetBatchPredictionCommandInput, GetBatchPredictionCommandOutput } from "../commands/GetBatchPredictionCommand.ts";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand.ts";
 import { GetEvaluationCommandInput, GetEvaluationCommandOutput } from "../commands/GetEvaluationCommand.ts";
 import { GetMLModelCommandInput, GetMLModelCommandOutput } from "../commands/GetMLModelCommand.ts";

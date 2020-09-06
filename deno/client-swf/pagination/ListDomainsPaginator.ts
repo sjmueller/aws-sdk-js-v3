@@ -1,10 +1,7 @@
+
 import { SWF } from "../SWF.ts";
 import { SWFClient } from "../SWFClient.ts";
-import {
-  ListDomainsCommand,
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput,
-} from "../commands/ListDomainsCommand.ts";
+import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand.ts";
 import { SWFPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

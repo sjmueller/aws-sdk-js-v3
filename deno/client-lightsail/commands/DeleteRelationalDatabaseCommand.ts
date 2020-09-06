@@ -1,3 +1,4 @@
+
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
 import { DeleteRelationalDatabaseRequest, DeleteRelationalDatabaseResult } from "../models/index.ts";
 import {

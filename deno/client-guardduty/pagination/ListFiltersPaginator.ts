@@ -1,10 +1,7 @@
+
 import { GuardDuty } from "../GuardDuty.ts";
 import { GuardDutyClient } from "../GuardDutyClient.ts";
-import {
-  ListFiltersCommand,
-  ListFiltersCommandInput,
-  ListFiltersCommandOutput,
-} from "../commands/ListFiltersCommand.ts";
+import { ListFiltersCommand, ListFiltersCommandInput, ListFiltersCommandOutput } from "../commands/ListFiltersCommand.ts";
 import { GuardDutyPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

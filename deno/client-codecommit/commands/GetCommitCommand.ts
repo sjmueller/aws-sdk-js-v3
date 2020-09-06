@@ -1,9 +1,7 @@
+
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
 import { GetCommitInput, GetCommitOutput } from "../models/index.ts";
-import {
-  deserializeAws_json1_1GetCommitCommand,
-  serializeAws_json1_1GetCommitCommand,
-} from "../protocols/Aws_json1_1.ts";
+import { deserializeAws_json1_1GetCommitCommand, serializeAws_json1_1GetCommitCommand } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";

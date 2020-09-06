@@ -1,10 +1,7 @@
+
 import { DeviceFarm } from "../DeviceFarm.ts";
 import { DeviceFarmClient } from "../DeviceFarmClient.ts";
-import {
-  ListSamplesCommand,
-  ListSamplesCommandInput,
-  ListSamplesCommandOutput,
-} from "../commands/ListSamplesCommand.ts";
+import { ListSamplesCommand, ListSamplesCommandInput, ListSamplesCommandOutput } from "../commands/ListSamplesCommand.ts";
 import { DeviceFarmPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

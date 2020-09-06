@@ -1,3 +1,4 @@
+
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
 import { UpdatePullRequestDescriptionInput, UpdatePullRequestDescriptionOutput } from "../models/index.ts";
 import {

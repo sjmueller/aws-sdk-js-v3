@@ -1,8 +1,6 @@
+
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
-import {
-  CreateAdditionalAssignmentsForHITRequest,
-  CreateAdditionalAssignmentsForHITResponse,
-} from "../models/index.ts";
+import { CreateAdditionalAssignmentsForHITRequest, CreateAdditionalAssignmentsForHITResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommand,
   serializeAws_json1_1CreateAdditionalAssignmentsForHITCommand,

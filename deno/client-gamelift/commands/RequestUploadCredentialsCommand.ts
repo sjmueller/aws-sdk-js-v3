@@ -1,3 +1,4 @@
+
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
 import { RequestUploadCredentialsInput, RequestUploadCredentialsOutput } from "../models/index.ts";
 import {

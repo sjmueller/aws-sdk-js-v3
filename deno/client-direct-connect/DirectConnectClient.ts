@@ -1,3 +1,4 @@
+
 import {
   AcceptDirectConnectGatewayAssociationProposalCommandInput,
   AcceptDirectConnectGatewayAssociationProposalCommandOutput,
@@ -61,10 +62,7 @@ import {
   CreateDirectConnectGatewayCommandInput,
   CreateDirectConnectGatewayCommandOutput,
 } from "./commands/CreateDirectConnectGatewayCommand.ts";
-import {
-  CreateInterconnectCommandInput,
-  CreateInterconnectCommandOutput,
-} from "./commands/CreateInterconnectCommand.ts";
+import { CreateInterconnectCommandInput, CreateInterconnectCommandOutput } from "./commands/CreateInterconnectCommand.ts";
 import { CreateLagCommandInput, CreateLagCommandOutput } from "./commands/CreateLagCommand.ts";
 import {
   CreatePrivateVirtualInterfaceCommandInput,
@@ -92,10 +90,7 @@ import {
   DeleteDirectConnectGatewayCommandInput,
   DeleteDirectConnectGatewayCommandOutput,
 } from "./commands/DeleteDirectConnectGatewayCommand.ts";
-import {
-  DeleteInterconnectCommandInput,
-  DeleteInterconnectCommandOutput,
-} from "./commands/DeleteInterconnectCommand.ts";
+import { DeleteInterconnectCommandInput, DeleteInterconnectCommandOutput } from "./commands/DeleteInterconnectCommand.ts";
 import { DeleteLagCommandInput, DeleteLagCommandOutput } from "./commands/DeleteLagCommand.ts";
 import {
   DeleteVirtualInterfaceCommandInput,

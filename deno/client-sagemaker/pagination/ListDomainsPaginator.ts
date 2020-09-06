@@ -1,10 +1,7 @@
+
 import { SageMaker } from "../SageMaker.ts";
 import { SageMakerClient } from "../SageMakerClient.ts";
-import {
-  ListDomainsCommand,
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput,
-} from "../commands/ListDomainsCommand.ts";
+import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand.ts";
 import { SageMakerPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

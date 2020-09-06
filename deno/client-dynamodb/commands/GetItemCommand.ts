@@ -1,3 +1,4 @@
+
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
 import { GetItemInput, GetItemOutput } from "../models/index.ts";
 import { deserializeAws_json1_0GetItemCommand, serializeAws_json1_0GetItemCommand } from "../protocols/Aws_json1_0.ts";

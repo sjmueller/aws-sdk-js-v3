@@ -1,3 +1,4 @@
+
 import { DataPipelineClient } from "./DataPipelineClient.ts";
 import {
   ActivatePipelineCommand,
@@ -45,11 +46,7 @@ import {
   ListPipelinesCommandInput,
   ListPipelinesCommandOutput,
 } from "./commands/ListPipelinesCommand.ts";
-import {
-  PollForTaskCommand,
-  PollForTaskCommandInput,
-  PollForTaskCommandOutput,
-} from "./commands/PollForTaskCommand.ts";
+import { PollForTaskCommand, PollForTaskCommandInput, PollForTaskCommandOutput } from "./commands/PollForTaskCommand.ts";
 import {
   PutPipelineDefinitionCommand,
   PutPipelineDefinitionCommandInput,

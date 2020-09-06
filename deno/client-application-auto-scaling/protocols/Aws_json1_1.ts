@@ -1,3 +1,4 @@
+
 import {
   DeleteScalingPolicyCommandInput,
   DeleteScalingPolicyCommandOutput,
@@ -27,10 +28,7 @@ import {
   DescribeScheduledActionsCommandOutput,
 } from "../commands/DescribeScheduledActionsCommand.ts";
 import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "../commands/PutScalingPolicyCommand.ts";
-import {
-  PutScheduledActionCommandInput,
-  PutScheduledActionCommandOutput,
-} from "../commands/PutScheduledActionCommand.ts";
+import { PutScheduledActionCommandInput, PutScheduledActionCommandOutput } from "../commands/PutScheduledActionCommand.ts";
 import {
   RegisterScalableTargetCommandInput,
   RegisterScalableTargetCommandOutput,

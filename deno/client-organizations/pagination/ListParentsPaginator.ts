@@ -1,10 +1,7 @@
+
 import { Organizations } from "../Organizations.ts";
 import { OrganizationsClient } from "../OrganizationsClient.ts";
-import {
-  ListParentsCommand,
-  ListParentsCommandInput,
-  ListParentsCommandOutput,
-} from "../commands/ListParentsCommand.ts";
+import { ListParentsCommand, ListParentsCommandInput, ListParentsCommandOutput } from "../commands/ListParentsCommand.ts";
 import { OrganizationsPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

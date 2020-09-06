@@ -1,3 +1,4 @@
+
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
 import { SendBulkTemplatedEmailRequest, SendBulkTemplatedEmailResponse } from "../models/index.ts";
 import {

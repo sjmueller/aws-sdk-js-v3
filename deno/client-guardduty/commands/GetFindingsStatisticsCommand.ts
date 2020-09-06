@@ -1,3 +1,4 @@
+
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
 import { GetFindingsStatisticsRequest, GetFindingsStatisticsResponse } from "../models/index.ts";
 import {

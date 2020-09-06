@@ -1,3 +1,4 @@
+import { Buffer } from "../buffer/mod.ts";
 export function calculateBodyLength(body: any): number | undefined {
   if (typeof body === "string") {
     let len = body.length;

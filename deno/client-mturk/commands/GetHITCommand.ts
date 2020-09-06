@@ -1,3 +1,4 @@
+
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
 import { GetHITRequest, GetHITResponse } from "../models/index.ts";
 import { deserializeAws_json1_1GetHITCommand, serializeAws_json1_1GetHITCommand } from "../protocols/Aws_json1_1.ts";

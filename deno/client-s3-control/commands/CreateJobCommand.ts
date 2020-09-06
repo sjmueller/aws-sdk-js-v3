@@ -1,9 +1,7 @@
+
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient.ts";
 import { CreateJobRequest, CreateJobResult } from "../models/index.ts";
-import {
-  deserializeAws_restXmlCreateJobCommand,
-  serializeAws_restXmlCreateJobCommand,
-} from "../protocols/Aws_restXml.ts";
+import { deserializeAws_restXmlCreateJobCommand, serializeAws_restXmlCreateJobCommand } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";

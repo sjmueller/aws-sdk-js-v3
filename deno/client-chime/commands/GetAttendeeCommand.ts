@@ -1,3 +1,4 @@
+
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
 import { GetAttendeeRequest, GetAttendeeResponse } from "../models/index.ts";
 import {

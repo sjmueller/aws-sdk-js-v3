@@ -1,3 +1,4 @@
+
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
 import { UpdateAssetRequest, UpdateAssetResponse } from "../models/index.ts";
 import {

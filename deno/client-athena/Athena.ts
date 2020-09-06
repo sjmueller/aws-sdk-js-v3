@@ -1,3 +1,4 @@
+
 import { AthenaClient } from "./AthenaClient.ts";
 import {
   BatchGetNamedQueryCommand,
@@ -44,11 +45,7 @@ import {
   GetDataCatalogCommandInput,
   GetDataCatalogCommandOutput,
 } from "./commands/GetDataCatalogCommand.ts";
-import {
-  GetDatabaseCommand,
-  GetDatabaseCommandInput,
-  GetDatabaseCommandOutput,
-} from "./commands/GetDatabaseCommand.ts";
+import { GetDatabaseCommand, GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand.ts";
 import {
   GetNamedQueryCommand,
   GetNamedQueryCommandInput,
@@ -119,11 +116,7 @@ import {
   StopQueryExecutionCommandInput,
   StopQueryExecutionCommandOutput,
 } from "./commands/StopQueryExecutionCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

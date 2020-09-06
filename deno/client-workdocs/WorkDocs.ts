@@ -1,3 +1,4 @@
+
 import { WorkDocsClient } from "./WorkDocsClient.ts";
 import {
   AbortDocumentVersionUploadCommand,
@@ -131,11 +132,7 @@ import {
   GetCurrentUserCommandInput,
   GetCurrentUserCommandOutput,
 } from "./commands/GetCurrentUserCommand.ts";
-import {
-  GetDocumentCommand,
-  GetDocumentCommandInput,
-  GetDocumentCommandOutput,
-} from "./commands/GetDocumentCommand.ts";
+import { GetDocumentCommand, GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand.ts";
 import {
   GetDocumentPathCommand,
   GetDocumentPathCommandInput,

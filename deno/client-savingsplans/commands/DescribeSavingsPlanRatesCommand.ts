@@ -1,3 +1,4 @@
+
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient.ts";
 import { DescribeSavingsPlanRatesRequest, DescribeSavingsPlanRatesResponse } from "../models/index.ts";
 import {

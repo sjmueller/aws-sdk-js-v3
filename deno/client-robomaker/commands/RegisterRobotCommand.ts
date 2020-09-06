@@ -1,3 +1,4 @@
+
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient.ts";
 import { RegisterRobotRequest, RegisterRobotResponse } from "../models/index.ts";
 import {

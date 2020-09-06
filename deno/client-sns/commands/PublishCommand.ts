@@ -1,3 +1,4 @@
+
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
 import { PublishInput, PublishResponse } from "../models/index.ts";
 import { deserializeAws_queryPublishCommand, serializeAws_queryPublishCommand } from "../protocols/Aws_query.ts";

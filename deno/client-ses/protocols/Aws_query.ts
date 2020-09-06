@@ -1,3 +1,4 @@
+
 import {
   CloneReceiptRuleSetCommandInput,
   CloneReceiptRuleSetCommandOutput,
@@ -123,10 +124,7 @@ import {
   ListIdentityPoliciesCommandInput,
   ListIdentityPoliciesCommandOutput,
 } from "../commands/ListIdentityPoliciesCommand.ts";
-import {
-  ListReceiptFiltersCommandInput,
-  ListReceiptFiltersCommandOutput,
-} from "../commands/ListReceiptFiltersCommand.ts";
+import { ListReceiptFiltersCommandInput, ListReceiptFiltersCommandOutput } from "../commands/ListReceiptFiltersCommand.ts";
 import {
   ListReceiptRuleSetsCommandInput,
   ListReceiptRuleSetsCommandOutput,
@@ -156,10 +154,7 @@ import {
 } from "../commands/SendCustomVerificationEmailCommand.ts";
 import { SendEmailCommandInput, SendEmailCommandOutput } from "../commands/SendEmailCommand.ts";
 import { SendRawEmailCommandInput, SendRawEmailCommandOutput } from "../commands/SendRawEmailCommand.ts";
-import {
-  SendTemplatedEmailCommandInput,
-  SendTemplatedEmailCommandOutput,
-} from "../commands/SendTemplatedEmailCommand.ts";
+import { SendTemplatedEmailCommandInput, SendTemplatedEmailCommandOutput } from "../commands/SendTemplatedEmailCommand.ts";
 import {
   SetActiveReceiptRuleSetCommandInput,
   SetActiveReceiptRuleSetCommandOutput,
@@ -188,10 +183,7 @@ import {
   SetReceiptRulePositionCommandInput,
   SetReceiptRulePositionCommandOutput,
 } from "../commands/SetReceiptRulePositionCommand.ts";
-import {
-  TestRenderTemplateCommandInput,
-  TestRenderTemplateCommandOutput,
-} from "../commands/TestRenderTemplateCommand.ts";
+import { TestRenderTemplateCommandInput, TestRenderTemplateCommandOutput } from "../commands/TestRenderTemplateCommand.ts";
 import {
   UpdateAccountSendingEnabledCommandInput,
   UpdateAccountSendingEnabledCommandOutput,
@@ -223,10 +215,7 @@ import {
   VerifyDomainIdentityCommandInput,
   VerifyDomainIdentityCommandOutput,
 } from "../commands/VerifyDomainIdentityCommand.ts";
-import {
-  VerifyEmailAddressCommandInput,
-  VerifyEmailAddressCommandOutput,
-} from "../commands/VerifyEmailAddressCommand.ts";
+import { VerifyEmailAddressCommandInput, VerifyEmailAddressCommandOutput } from "../commands/VerifyEmailAddressCommand.ts";
 import {
   VerifyEmailIdentityCommandInput,
   VerifyEmailIdentityCommandOutput,

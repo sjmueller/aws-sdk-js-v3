@@ -1,3 +1,4 @@
+
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient.ts";
 import { UpdateNodegroupVersionRequest, UpdateNodegroupVersionResponse } from "../models/index.ts";
 import {

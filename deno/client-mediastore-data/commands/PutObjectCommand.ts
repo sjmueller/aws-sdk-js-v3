@@ -1,3 +1,4 @@
+import { Buffer } from "../../buffer/mod.ts";
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient.ts";
 import { PutObjectRequest, PutObjectResponse } from "../models/index.ts";
 import {

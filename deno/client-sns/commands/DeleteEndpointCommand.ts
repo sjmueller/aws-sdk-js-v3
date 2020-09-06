@@ -1,3 +1,4 @@
+
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
 import { DeleteEndpointInput } from "../models/index.ts";
 import {

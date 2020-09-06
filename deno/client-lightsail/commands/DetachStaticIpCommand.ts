@@ -1,3 +1,4 @@
+
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
 import { DetachStaticIpRequest, DetachStaticIpResult } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
 import { GetInventoryRequest, GetInventoryResult } from "../models/index.ts";
 import {

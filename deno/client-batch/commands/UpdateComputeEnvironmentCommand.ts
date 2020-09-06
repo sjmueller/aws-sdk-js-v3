@@ -1,3 +1,4 @@
+
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient.ts";
 import { UpdateComputeEnvironmentRequest, UpdateComputeEnvironmentResponse } from "../models/index.ts";
 import {

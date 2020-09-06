@@ -1,3 +1,4 @@
+
 import {
   AbortEnvironmentUpdateCommandInput,
   AbortEnvironmentUpdateCommandOutput,
@@ -122,10 +123,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand.ts";
-import {
-  RebuildEnvironmentCommandInput,
-  RebuildEnvironmentCommandOutput,
-} from "../commands/RebuildEnvironmentCommand.ts";
+import { RebuildEnvironmentCommandInput, RebuildEnvironmentCommandOutput } from "../commands/RebuildEnvironmentCommand.ts";
 import {
   RequestEnvironmentInfoCommandInput,
   RequestEnvironmentInfoCommandOutput,

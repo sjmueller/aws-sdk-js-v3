@@ -1,3 +1,4 @@
+
 import { AddPermissionCommandInput, AddPermissionCommandOutput } from "../commands/AddPermissionCommand.ts";
 import {
   ChangeMessageVisibilityBatchCommandInput,
@@ -8,16 +9,10 @@ import {
   ChangeMessageVisibilityCommandOutput,
 } from "../commands/ChangeMessageVisibilityCommand.ts";
 import { CreateQueueCommandInput, CreateQueueCommandOutput } from "../commands/CreateQueueCommand.ts";
-import {
-  DeleteMessageBatchCommandInput,
-  DeleteMessageBatchCommandOutput,
-} from "../commands/DeleteMessageBatchCommand.ts";
+import { DeleteMessageBatchCommandInput, DeleteMessageBatchCommandOutput } from "../commands/DeleteMessageBatchCommand.ts";
 import { DeleteMessageCommandInput, DeleteMessageCommandOutput } from "../commands/DeleteMessageCommand.ts";
 import { DeleteQueueCommandInput, DeleteQueueCommandOutput } from "../commands/DeleteQueueCommand.ts";
-import {
-  GetQueueAttributesCommandInput,
-  GetQueueAttributesCommandOutput,
-} from "../commands/GetQueueAttributesCommand.ts";
+import { GetQueueAttributesCommandInput, GetQueueAttributesCommandOutput } from "../commands/GetQueueAttributesCommand.ts";
 import { GetQueueUrlCommandInput, GetQueueUrlCommandOutput } from "../commands/GetQueueUrlCommand.ts";
 import {
   ListDeadLetterSourceQueuesCommandInput,
@@ -30,10 +25,7 @@ import { ReceiveMessageCommandInput, ReceiveMessageCommandOutput } from "../comm
 import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "../commands/RemovePermissionCommand.ts";
 import { SendMessageBatchCommandInput, SendMessageBatchCommandOutput } from "../commands/SendMessageBatchCommand.ts";
 import { SendMessageCommandInput, SendMessageCommandOutput } from "../commands/SendMessageCommand.ts";
-import {
-  SetQueueAttributesCommandInput,
-  SetQueueAttributesCommandOutput,
-} from "../commands/SetQueueAttributesCommand.ts";
+import { SetQueueAttributesCommandInput, SetQueueAttributesCommandOutput } from "../commands/SetQueueAttributesCommand.ts";
 import { TagQueueCommandInput, TagQueueCommandOutput } from "../commands/TagQueueCommand.ts";
 import { UntagQueueCommandInput, UntagQueueCommandOutput } from "../commands/UntagQueueCommand.ts";
 import {

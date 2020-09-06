@@ -1,3 +1,4 @@
+
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient.ts";
 import { DescribeIdentityPoolUsageRequest, DescribeIdentityPoolUsageResponse } from "../models/index.ts";
 import {

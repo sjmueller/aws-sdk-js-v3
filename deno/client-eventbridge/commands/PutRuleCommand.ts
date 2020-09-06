@@ -1,3 +1,4 @@
+
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
 import { PutRuleRequest, PutRuleResponse } from "../models/index.ts";
 import { deserializeAws_json1_1PutRuleCommand, serializeAws_json1_1PutRuleCommand } from "../protocols/Aws_json1_1.ts";

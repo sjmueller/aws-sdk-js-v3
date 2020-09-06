@@ -1,10 +1,7 @@
+
 import { EKS } from "../EKS.ts";
 import { EKSClient } from "../EKSClient.ts";
-import {
-  ListUpdatesCommand,
-  ListUpdatesCommandInput,
-  ListUpdatesCommandOutput,
-} from "../commands/ListUpdatesCommand.ts";
+import { ListUpdatesCommand, ListUpdatesCommandInput, ListUpdatesCommandOutput } from "../commands/ListUpdatesCommand.ts";
 import { EKSPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

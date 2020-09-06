@@ -1,3 +1,4 @@
+
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
 import { ValidateTemplateInput, ValidateTemplateOutput } from "../models/index.ts";
 import {

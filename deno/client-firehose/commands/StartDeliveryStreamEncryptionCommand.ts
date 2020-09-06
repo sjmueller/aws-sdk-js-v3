@@ -1,3 +1,4 @@
+
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient.ts";
 import { StartDeliveryStreamEncryptionInput, StartDeliveryStreamEncryptionOutput } from "../models/index.ts";
 import {

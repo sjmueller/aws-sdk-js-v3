@@ -1,3 +1,4 @@
+
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
 import { ListTopicsInput, ListTopicsResponse } from "../models/index.ts";
 import { deserializeAws_queryListTopicsCommand, serializeAws_queryListTopicsCommand } from "../protocols/Aws_query.ts";

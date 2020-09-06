@@ -1,8 +1,6 @@
+
 import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand.ts";
-import {
-  GetAttributeValuesCommandInput,
-  GetAttributeValuesCommandOutput,
-} from "./commands/GetAttributeValuesCommand.ts";
+import { GetAttributeValuesCommandInput, GetAttributeValuesCommandOutput } from "./commands/GetAttributeValuesCommand.ts";
 import { GetProductsCommandInput, GetProductsCommandOutput } from "./commands/GetProductsCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {

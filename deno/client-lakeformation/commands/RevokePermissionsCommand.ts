@@ -1,3 +1,4 @@
+
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient.ts";
 import { RevokePermissionsRequest, RevokePermissionsResponse } from "../models/index.ts";
 import {

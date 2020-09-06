@@ -1,3 +1,4 @@
+
 import { SWFClient } from "./SWFClient.ts";
 import {
   CountClosedWorkflowExecutionsCommand,
@@ -69,11 +70,7 @@ import {
   ListClosedWorkflowExecutionsCommandInput,
   ListClosedWorkflowExecutionsCommandOutput,
 } from "./commands/ListClosedWorkflowExecutionsCommand.ts";
-import {
-  ListDomainsCommand,
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput,
-} from "./commands/ListDomainsCommand.ts";
+import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand.ts";
 import {
   ListOpenWorkflowExecutionsCommand,
   ListOpenWorkflowExecutionsCommandInput,
@@ -154,11 +151,7 @@ import {
   StartWorkflowExecutionCommandInput,
   StartWorkflowExecutionCommandOutput,
 } from "./commands/StartWorkflowExecutionCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   TerminateWorkflowExecutionCommand,
   TerminateWorkflowExecutionCommandInput,

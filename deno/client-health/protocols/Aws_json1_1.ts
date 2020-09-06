@@ -1,3 +1,4 @@
+
 import {
   DescribeAffectedAccountsForOrganizationCommandInput,
   DescribeAffectedAccountsForOrganizationCommandOutput,
@@ -26,10 +27,7 @@ import {
   DescribeEventDetailsForOrganizationCommandInput,
   DescribeEventDetailsForOrganizationCommandOutput,
 } from "../commands/DescribeEventDetailsForOrganizationCommand.ts";
-import {
-  DescribeEventTypesCommandInput,
-  DescribeEventTypesCommandOutput,
-} from "../commands/DescribeEventTypesCommand.ts";
+import { DescribeEventTypesCommandInput, DescribeEventTypesCommandOutput } from "../commands/DescribeEventTypesCommand.ts";
 import { DescribeEventsCommandInput, DescribeEventsCommandOutput } from "../commands/DescribeEventsCommand.ts";
 import {
   DescribeEventsForOrganizationCommandInput,

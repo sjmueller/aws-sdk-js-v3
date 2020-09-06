@@ -1,3 +1,4 @@
+
 import { ComprehendMedicalClient } from "./ComprehendMedicalClient.ts";
 import {
   DescribeEntitiesDetectionV2JobCommand,
@@ -35,11 +36,7 @@ import {
   InferICD10CMCommandInput,
   InferICD10CMCommandOutput,
 } from "./commands/InferICD10CMCommand.ts";
-import {
-  InferRxNormCommand,
-  InferRxNormCommandInput,
-  InferRxNormCommandOutput,
-} from "./commands/InferRxNormCommand.ts";
+import { InferRxNormCommand, InferRxNormCommandInput, InferRxNormCommandOutput } from "./commands/InferRxNormCommand.ts";
 import {
   ListEntitiesDetectionV2JobsCommand,
   ListEntitiesDetectionV2JobsCommandInput,

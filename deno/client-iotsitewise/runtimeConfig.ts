@@ -1,3 +1,4 @@
+
 const name = "@aws-sdk/client-iotsitewise";
 const version = "1.0.0-gamma.1";
 import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";

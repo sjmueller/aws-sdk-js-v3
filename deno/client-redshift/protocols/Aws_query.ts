@@ -1,3 +1,4 @@
+
 import {
   AcceptReservedNodeExchangeCommandInput,
   AcceptReservedNodeExchangeCommandOutput,
@@ -216,10 +217,7 @@ import {
   DisableSnapshotCopyCommandOutput,
 } from "../commands/DisableSnapshotCopyCommand.ts";
 import { EnableLoggingCommandInput, EnableLoggingCommandOutput } from "../commands/EnableLoggingCommand.ts";
-import {
-  EnableSnapshotCopyCommandInput,
-  EnableSnapshotCopyCommandOutput,
-} from "../commands/EnableSnapshotCopyCommand.ts";
+import { EnableSnapshotCopyCommandInput, EnableSnapshotCopyCommandOutput } from "../commands/EnableSnapshotCopyCommand.ts";
 import {
   GetClusterCredentialsCommandInput,
   GetClusterCredentialsCommandOutput,

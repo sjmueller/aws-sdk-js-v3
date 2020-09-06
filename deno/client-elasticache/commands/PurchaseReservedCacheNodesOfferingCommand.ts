@@ -1,8 +1,6 @@
+
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import {
-  PurchaseReservedCacheNodesOfferingMessage,
-  PurchaseReservedCacheNodesOfferingResult,
-} from "../models/index.ts";
+import { PurchaseReservedCacheNodesOfferingMessage, PurchaseReservedCacheNodesOfferingResult } from "../models/index.ts";
 import {
   deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand,
   serializeAws_queryPurchaseReservedCacheNodesOfferingCommand,

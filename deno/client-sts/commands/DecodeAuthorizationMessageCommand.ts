@@ -1,3 +1,4 @@
+
 import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient.ts";
 import { DecodeAuthorizationMessageRequest, DecodeAuthorizationMessageResponse } from "../models/index.ts";
 import {

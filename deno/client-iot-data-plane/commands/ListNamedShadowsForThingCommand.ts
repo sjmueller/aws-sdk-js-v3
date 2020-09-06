@@ -1,3 +1,4 @@
+
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient.ts";
 import { ListNamedShadowsForThingRequest, ListNamedShadowsForThingResponse } from "../models/index.ts";
 import {

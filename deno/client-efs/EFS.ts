@@ -1,3 +1,4 @@
+
 import { EFSClient } from "./EFSClient.ts";
 import {
   CreateAccessPointCommand,
@@ -101,11 +102,7 @@ import {
   PutLifecycleConfigurationCommandInput,
   PutLifecycleConfigurationCommandOutput,
 } from "./commands/PutLifecycleConfigurationCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

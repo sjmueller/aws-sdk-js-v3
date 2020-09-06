@@ -1,3 +1,4 @@
+
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
 import { DescribeEventCategoriesMessage, EventCategoriesMessage } from "../models/index.ts";
 import {

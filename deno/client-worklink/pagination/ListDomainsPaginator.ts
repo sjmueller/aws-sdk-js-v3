@@ -1,10 +1,7 @@
+
 import { WorkLink } from "../WorkLink.ts";
 import { WorkLinkClient } from "../WorkLinkClient.ts";
-import {
-  ListDomainsCommand,
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput,
-} from "../commands/ListDomainsCommand.ts";
+import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand.ts";
 import { WorkLinkPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

@@ -1,3 +1,4 @@
+
 import {
   AssociateApprovalRuleTemplateWithRepositoryCommandInput,
   AssociateApprovalRuleTemplateWithRepositoryCommandOutput,
@@ -162,10 +163,7 @@ import {
   PostCommentForPullRequestCommandOutput,
 } from "./commands/PostCommentForPullRequestCommand.ts";
 import { PostCommentReplyCommandInput, PostCommentReplyCommandOutput } from "./commands/PostCommentReplyCommand.ts";
-import {
-  PutCommentReactionCommandInput,
-  PutCommentReactionCommandOutput,
-} from "./commands/PutCommentReactionCommand.ts";
+import { PutCommentReactionCommandInput, PutCommentReactionCommandOutput } from "./commands/PutCommentReactionCommand.ts";
 import { PutFileCommandInput, PutFileCommandOutput } from "./commands/PutFileCommand.ts";
 import {
   PutRepositoryTriggersCommandInput,

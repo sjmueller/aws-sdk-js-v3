@@ -1,8 +1,6 @@
+
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient.ts";
-import {
-  DescribeDBClusterSnapshotAttributesMessage,
-  DescribeDBClusterSnapshotAttributesResult,
-} from "../models/index.ts";
+import { DescribeDBClusterSnapshotAttributesMessage, DescribeDBClusterSnapshotAttributesResult } from "../models/index.ts";
 import {
   deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand,
   serializeAws_queryDescribeDBClusterSnapshotAttributesCommand,

@@ -1,3 +1,4 @@
+
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
 import { TransferDomainRequest, TransferDomainResponse } from "../models/index.ts";
 import {

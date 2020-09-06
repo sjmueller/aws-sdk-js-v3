@@ -1,3 +1,4 @@
+
 import { ECRClient } from "./ECRClient.ts";
 import {
   BatchCheckLayerAvailabilityCommand,
@@ -121,11 +122,7 @@ import {
   StartLifecyclePolicyPreviewCommandInput,
   StartLifecyclePolicyPreviewCommandOutput,
 } from "./commands/StartLifecyclePolicyPreviewCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

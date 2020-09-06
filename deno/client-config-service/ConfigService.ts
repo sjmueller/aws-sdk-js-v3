@@ -1,3 +1,4 @@
+
 import { ConfigServiceClient } from "./ConfigServiceClient.ts";
 import {
   BatchGetAggregateResourceConfigCommand,
@@ -384,11 +385,7 @@ import {
   StopConfigurationRecorderCommandInput,
   StopConfigurationRecorderCommandOutput,
 } from "./commands/StopConfigurationRecorderCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

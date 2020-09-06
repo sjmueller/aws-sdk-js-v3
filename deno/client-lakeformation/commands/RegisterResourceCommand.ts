@@ -1,3 +1,4 @@
+
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient.ts";
 import { RegisterResourceRequest, RegisterResourceResponse } from "../models/index.ts";
 import {

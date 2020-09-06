@@ -1,3 +1,4 @@
+
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
 import { ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse } from "../models/index.ts";
 import {

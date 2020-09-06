@@ -1,3 +1,4 @@
+
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand.ts";
 import { CreateHarvestJobCommandInput, CreateHarvestJobCommandOutput } from "./commands/CreateHarvestJobCommand.ts";
 import {
@@ -10,10 +11,7 @@ import {
   DeleteOriginEndpointCommandOutput,
 } from "./commands/DeleteOriginEndpointCommand.ts";
 import { DescribeChannelCommandInput, DescribeChannelCommandOutput } from "./commands/DescribeChannelCommand.ts";
-import {
-  DescribeHarvestJobCommandInput,
-  DescribeHarvestJobCommandOutput,
-} from "./commands/DescribeHarvestJobCommand.ts";
+import { DescribeHarvestJobCommandInput, DescribeHarvestJobCommandOutput } from "./commands/DescribeHarvestJobCommand.ts";
 import {
   DescribeOriginEndpointCommandInput,
   DescribeOriginEndpointCommandOutput,

@@ -1,3 +1,4 @@
+
 import { EventStreamMarshaller as EventMarshaller } from "../eventstream-marshaller/mod.ts";
 import { Decoder, Encoder, EventStreamMarshaller as IEventStreamMarshaller, Message } from "../types/mod.ts";
 

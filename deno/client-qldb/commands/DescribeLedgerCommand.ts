@@ -1,3 +1,4 @@
+
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient.ts";
 import { DescribeLedgerRequest, DescribeLedgerResponse } from "../models/index.ts";
 import {

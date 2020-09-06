@@ -1,3 +1,4 @@
+
 import { IAMClient } from "./IAMClient.ts";
 import {
   AddClientIDToOpenIDConnectProviderCommand,
@@ -44,11 +45,7 @@ import {
   CreateAccountAliasCommandInput,
   CreateAccountAliasCommandOutput,
 } from "./commands/CreateAccountAliasCommand.ts";
-import {
-  CreateGroupCommand,
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput,
-} from "./commands/CreateGroupCommand.ts";
+import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand.ts";
 import {
   CreateInstanceProfileCommand,
   CreateInstanceProfileCommandInput,
@@ -116,11 +113,7 @@ import {
   DeleteAccountPasswordPolicyCommandInput,
   DeleteAccountPasswordPolicyCommandOutput,
 } from "./commands/DeleteAccountPasswordPolicyCommand.ts";
-import {
-  DeleteGroupCommand,
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput,
-} from "./commands/DeleteGroupCommand.ts";
+import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteGroupPolicyCommand,
   DeleteGroupPolicyCommandInput,
@@ -569,11 +562,7 @@ import {
   UpdateAssumeRolePolicyCommandInput,
   UpdateAssumeRolePolicyCommandOutput,
 } from "./commands/UpdateAssumeRolePolicyCommand.ts";
-import {
-  UpdateGroupCommand,
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput,
-} from "./commands/UpdateGroupCommand.ts";
+import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand.ts";
 import {
   UpdateLoginProfileCommand,
   UpdateLoginProfileCommandInput,

@@ -1,3 +1,4 @@
+
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand.ts";
 import {
   CreateApplicationVersionCommandInput,
@@ -34,10 +35,7 @@ import {
   PutApplicationPolicyCommandInput,
   PutApplicationPolicyCommandOutput,
 } from "../commands/PutApplicationPolicyCommand.ts";
-import {
-  UnshareApplicationCommandInput,
-  UnshareApplicationCommandOutput,
-} from "../commands/UnshareApplicationCommand.ts";
+import { UnshareApplicationCommandInput, UnshareApplicationCommandOutput } from "../commands/UnshareApplicationCommand.ts";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand.ts";
 import {
   ApplicationDependencySummary,

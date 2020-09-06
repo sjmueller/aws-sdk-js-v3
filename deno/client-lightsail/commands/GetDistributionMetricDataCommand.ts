@@ -1,3 +1,4 @@
+
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
 import { GetDistributionMetricDataRequest, GetDistributionMetricDataResult } from "../models/index.ts";
 import {

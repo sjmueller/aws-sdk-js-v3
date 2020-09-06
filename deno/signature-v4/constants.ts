@@ -1,3 +1,4 @@
+
 export const ALGORITHM_QUERY_PARAM = "X-Amz-Algorithm";
 export const CREDENTIAL_QUERY_PARAM = "X-Amz-Credential";
 export const AMZ_DATE_QUERY_PARAM = "X-Amz-Date";

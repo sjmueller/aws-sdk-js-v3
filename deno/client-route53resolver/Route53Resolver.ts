@@ -1,3 +1,4 @@
+
 import { Route53ResolverClient } from "./Route53ResolverClient.ts";
 import {
   AssociateResolverEndpointIpAddressCommand,
@@ -89,11 +90,7 @@ import {
   PutResolverRulePolicyCommandInput,
   PutResolverRulePolicyCommandOutput,
 } from "./commands/PutResolverRulePolicyCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

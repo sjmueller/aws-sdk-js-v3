@@ -1,3 +1,4 @@
+
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient.ts";
 import { RotateChannelCredentialsRequest, RotateChannelCredentialsResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
 import { GetInsightResultsRequest, GetInsightResultsResponse } from "../models/index.ts";
 import {

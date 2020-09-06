@@ -1,3 +1,4 @@
+
 import { Decoder, Encoder, Hash } from "../types/mod.ts";
 
 export interface SsecMiddlewareInputConfig {}

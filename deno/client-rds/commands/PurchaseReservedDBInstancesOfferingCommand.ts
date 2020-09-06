@@ -1,8 +1,6 @@
+
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import {
-  PurchaseReservedDBInstancesOfferingMessage,
-  PurchaseReservedDBInstancesOfferingResult,
-} from "../models/index.ts";
+import { PurchaseReservedDBInstancesOfferingMessage, PurchaseReservedDBInstancesOfferingResult } from "../models/index.ts";
 import {
   deserializeAws_queryPurchaseReservedDBInstancesOfferingCommand,
   serializeAws_queryPurchaseReservedDBInstancesOfferingCommand,

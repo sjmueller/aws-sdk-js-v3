@@ -1,3 +1,4 @@
+
 import { PutEventsCommandInput, PutEventsCommandOutput } from "../commands/PutEventsCommand.ts";
 import { Event, InvalidInputException } from "../models/index.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";

@@ -1,3 +1,4 @@
+
 import { CodeDeployClient } from "./CodeDeployClient.ts";
 import {
   AddTagsToOnPremisesInstancesCommand,
@@ -214,11 +215,7 @@ import {
   StopDeploymentCommandInput,
   StopDeploymentCommandOutput,
 } from "./commands/StopDeploymentCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

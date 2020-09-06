@@ -1,3 +1,4 @@
+
 import {
   AcceptDomainTransferFromAnotherAwsAccountCommandInput,
   AcceptDomainTransferFromAnotherAwsAccountCommandOutput,
@@ -43,10 +44,7 @@ import {
   GetDomainSuggestionsCommandInput,
   GetDomainSuggestionsCommandOutput,
 } from "./commands/GetDomainSuggestionsCommand.ts";
-import {
-  GetOperationDetailCommandInput,
-  GetOperationDetailCommandOutput,
-} from "./commands/GetOperationDetailCommand.ts";
+import { GetOperationDetailCommandInput, GetOperationDetailCommandOutput } from "./commands/GetOperationDetailCommand.ts";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand.ts";
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand.ts";
 import { ListTagsForDomainCommandInput, ListTagsForDomainCommandOutput } from "./commands/ListTagsForDomainCommand.ts";

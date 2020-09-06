@@ -1,3 +1,4 @@
+
 const SHORT_TO_HEX: { [key: number]: string } = {};
 const HEX_TO_SHORT: { [key: string]: number } = {};
 

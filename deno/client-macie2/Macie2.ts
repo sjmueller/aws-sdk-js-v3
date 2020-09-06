@@ -1,3 +1,4 @@
+
 import { Macie2Client } from "./Macie2Client.ts";
 import {
   AcceptInvitationCommand,
@@ -99,11 +100,7 @@ import {
   DisassociateMemberCommandInput,
   DisassociateMemberCommandOutput,
 } from "./commands/DisassociateMemberCommand.ts";
-import {
-  EnableMacieCommand,
-  EnableMacieCommandInput,
-  EnableMacieCommandOutput,
-} from "./commands/EnableMacieCommand.ts";
+import { EnableMacieCommand, EnableMacieCommandInput, EnableMacieCommandOutput } from "./commands/EnableMacieCommand.ts";
 import {
   EnableOrganizationAdminAccountCommand,
   EnableOrganizationAdminAccountCommandInput,
@@ -129,11 +126,7 @@ import {
   GetFindingStatisticsCommandInput,
   GetFindingStatisticsCommandOutput,
 } from "./commands/GetFindingStatisticsCommand.ts";
-import {
-  GetFindingsCommand,
-  GetFindingsCommandInput,
-  GetFindingsCommandOutput,
-} from "./commands/GetFindingsCommand.ts";
+import { GetFindingsCommand, GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand.ts";
 import {
   GetFindingsFilterCommand,
   GetFindingsFilterCommandInput,
@@ -190,11 +183,7 @@ import {
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
 } from "./commands/ListInvitationsCommand.ts";
-import {
-  ListMembersCommand,
-  ListMembersCommandInput,
-  ListMembersCommandOutput,
-} from "./commands/ListMembersCommand.ts";
+import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand.ts";
 import {
   ListOrganizationAdminAccountsCommand,
   ListOrganizationAdminAccountsCommandInput,
@@ -210,11 +199,7 @@ import {
   PutClassificationExportConfigurationCommandInput,
   PutClassificationExportConfigurationCommandOutput,
 } from "./commands/PutClassificationExportConfigurationCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   TestCustomDataIdentifierCommand,
   TestCustomDataIdentifierCommandInput,

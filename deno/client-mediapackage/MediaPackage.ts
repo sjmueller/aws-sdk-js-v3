@@ -1,3 +1,4 @@
+
 import { MediaPackageClient } from "./MediaPackageClient.ts";
 import {
   CreateChannelCommand,
@@ -69,11 +70,7 @@ import {
   RotateIngestEndpointCredentialsCommandInput,
   RotateIngestEndpointCredentialsCommandOutput,
 } from "./commands/RotateIngestEndpointCredentialsCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

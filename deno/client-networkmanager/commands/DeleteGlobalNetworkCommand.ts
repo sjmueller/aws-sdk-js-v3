@@ -1,3 +1,4 @@
+
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient.ts";
 import { DeleteGlobalNetworkRequest, DeleteGlobalNetworkResponse } from "../models/index.ts";
 import {

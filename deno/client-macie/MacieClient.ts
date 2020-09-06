@@ -1,3 +1,4 @@
+
 import {
   AssociateMemberAccountCommandInput,
   AssociateMemberAccountCommandOutput,
@@ -14,10 +15,7 @@ import {
   DisassociateS3ResourcesCommandInput,
   DisassociateS3ResourcesCommandOutput,
 } from "./commands/DisassociateS3ResourcesCommand.ts";
-import {
-  ListMemberAccountsCommandInput,
-  ListMemberAccountsCommandOutput,
-} from "./commands/ListMemberAccountsCommand.ts";
+import { ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput } from "./commands/ListMemberAccountsCommand.ts";
 import { ListS3ResourcesCommandInput, ListS3ResourcesCommandOutput } from "./commands/ListS3ResourcesCommand.ts";
 import { UpdateS3ResourcesCommandInput, UpdateS3ResourcesCommandOutput } from "./commands/UpdateS3ResourcesCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";

@@ -1,3 +1,4 @@
+
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
 import { GetSegmentVersionRequest, GetSegmentVersionResponse } from "../models/index.ts";
 import {

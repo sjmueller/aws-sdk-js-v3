@@ -1,3 +1,4 @@
+
 import { AddTagsToResourceCommandInput, AddTagsToResourceCommandOutput } from "../commands/AddTagsToResourceCommand.ts";
 import { CancelCommandCommandInput, CancelCommandCommandOutput } from "../commands/CancelCommandCommand.ts";
 import {
@@ -156,10 +157,7 @@ import {
   DescribeMaintenanceWindowsForTargetCommandOutput,
 } from "../commands/DescribeMaintenanceWindowsForTargetCommand.ts";
 import { DescribeOpsItemsCommandInput, DescribeOpsItemsCommandOutput } from "../commands/DescribeOpsItemsCommand.ts";
-import {
-  DescribeParametersCommandInput,
-  DescribeParametersCommandOutput,
-} from "../commands/DescribeParametersCommand.ts";
+import { DescribeParametersCommandInput, DescribeParametersCommandOutput } from "../commands/DescribeParametersCommand.ts";
 import {
   DescribePatchBaselinesCommandInput,
   DescribePatchBaselinesCommandOutput,
@@ -200,10 +198,7 @@ import {
 } from "../commands/GetDeployablePatchSnapshotForInstanceCommand.ts";
 import { GetDocumentCommandInput, GetDocumentCommandOutput } from "../commands/GetDocumentCommand.ts";
 import { GetInventoryCommandInput, GetInventoryCommandOutput } from "../commands/GetInventoryCommand.ts";
-import {
-  GetInventorySchemaCommandInput,
-  GetInventorySchemaCommandOutput,
-} from "../commands/GetInventorySchemaCommand.ts";
+import { GetInventorySchemaCommandInput, GetInventorySchemaCommandOutput } from "../commands/GetInventorySchemaCommand.ts";
 import {
   GetMaintenanceWindowCommandInput,
   GetMaintenanceWindowCommandOutput,
@@ -289,10 +284,7 @@ import {
   ModifyDocumentPermissionCommandInput,
   ModifyDocumentPermissionCommandOutput,
 } from "../commands/ModifyDocumentPermissionCommand.ts";
-import {
-  PutComplianceItemsCommandInput,
-  PutComplianceItemsCommandOutput,
-} from "../commands/PutComplianceItemsCommand.ts";
+import { PutComplianceItemsCommandInput, PutComplianceItemsCommandOutput } from "../commands/PutComplianceItemsCommand.ts";
 import { PutInventoryCommandInput, PutInventoryCommandOutput } from "../commands/PutInventoryCommand.ts";
 import { PutParameterCommandInput, PutParameterCommandOutput } from "../commands/PutParameterCommand.ts";
 import {

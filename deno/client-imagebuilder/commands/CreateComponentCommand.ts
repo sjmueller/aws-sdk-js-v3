@@ -1,3 +1,4 @@
+
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
 import { CreateComponentRequest, CreateComponentResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
 import { DeleteUserRequest } from "../models/index.ts";
 import { deserializeAws_queryDeleteUserCommand, serializeAws_queryDeleteUserCommand } from "../protocols/Aws_query.ts";

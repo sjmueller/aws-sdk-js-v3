@@ -1,3 +1,4 @@
+
 import { WorkLinkClient } from "./WorkLinkClient.ts";
 import {
   AssociateDomainCommand,
@@ -14,16 +15,8 @@ import {
   AssociateWebsiteCertificateAuthorityCommandInput,
   AssociateWebsiteCertificateAuthorityCommandOutput,
 } from "./commands/AssociateWebsiteCertificateAuthorityCommand.ts";
-import {
-  CreateFleetCommand,
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput,
-} from "./commands/CreateFleetCommand.ts";
-import {
-  DeleteFleetCommand,
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput,
-} from "./commands/DeleteFleetCommand.ts";
+import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand.ts";
+import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand.ts";
 import {
   DescribeAuditStreamConfigurationCommand,
   DescribeAuditStreamConfigurationCommandInput,
@@ -79,16 +72,8 @@ import {
   DisassociateWebsiteCertificateAuthorityCommandInput,
   DisassociateWebsiteCertificateAuthorityCommandOutput,
 } from "./commands/DisassociateWebsiteCertificateAuthorityCommand.ts";
-import {
-  ListDevicesCommand,
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput,
-} from "./commands/ListDevicesCommand.ts";
-import {
-  ListDomainsCommand,
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput,
-} from "./commands/ListDomainsCommand.ts";
+import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand.ts";
+import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand.ts";
 import { ListFleetsCommand, ListFleetsCommandInput, ListFleetsCommandOutput } from "./commands/ListFleetsCommand.ts";
 import {
   ListTagsForResourceCommand,
@@ -115,16 +100,8 @@ import {
   RevokeDomainAccessCommandInput,
   RevokeDomainAccessCommandOutput,
 } from "./commands/RevokeDomainAccessCommand.ts";
-import {
-  SignOutUserCommand,
-  SignOutUserCommandInput,
-  SignOutUserCommandOutput,
-} from "./commands/SignOutUserCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { SignOutUserCommand, SignOutUserCommandInput, SignOutUserCommandOutput } from "./commands/SignOutUserCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

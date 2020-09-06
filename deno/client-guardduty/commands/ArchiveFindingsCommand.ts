@@ -1,3 +1,4 @@
+
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
 import { ArchiveFindingsRequest, ArchiveFindingsResponse } from "../models/index.ts";
 import {

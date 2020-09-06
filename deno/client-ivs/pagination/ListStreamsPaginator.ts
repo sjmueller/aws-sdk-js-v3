@@ -1,10 +1,7 @@
+
 import { Ivs } from "../Ivs.ts";
 import { IvsClient } from "../IvsClient.ts";
-import {
-  ListStreamsCommand,
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput,
-} from "../commands/ListStreamsCommand.ts";
+import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "../commands/ListStreamsCommand.ts";
 import { IvsPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

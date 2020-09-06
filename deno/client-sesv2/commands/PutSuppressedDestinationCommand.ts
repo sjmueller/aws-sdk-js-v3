@@ -1,3 +1,4 @@
+
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
 import { PutSuppressedDestinationRequest, PutSuppressedDestinationResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
 import { ListOfferingPromotionsRequest, ListOfferingPromotionsResult } from "../models/index.ts";
 import {

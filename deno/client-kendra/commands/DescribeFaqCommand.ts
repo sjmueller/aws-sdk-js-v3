@@ -1,3 +1,4 @@
+
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient.ts";
 import { DescribeFaqRequest, DescribeFaqResponse } from "../models/index.ts";
 import {

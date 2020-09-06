@@ -1,3 +1,4 @@
+
 import {
   CreateLifecyclePolicyCommandInput,
   CreateLifecyclePolicyCommandOutput,
@@ -10,10 +11,7 @@ import {
   GetLifecyclePoliciesCommandInput,
   GetLifecyclePoliciesCommandOutput,
 } from "../commands/GetLifecyclePoliciesCommand.ts";
-import {
-  GetLifecyclePolicyCommandInput,
-  GetLifecyclePolicyCommandOutput,
-} from "../commands/GetLifecyclePolicyCommand.ts";
+import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "../commands/GetLifecyclePolicyCommand.ts";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,

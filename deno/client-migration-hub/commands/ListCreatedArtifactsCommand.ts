@@ -1,3 +1,4 @@
+
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient.ts";
 import { ListCreatedArtifactsRequest, ListCreatedArtifactsResult } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
 import { MergeBranchesByFastForwardInput, MergeBranchesByFastForwardOutput } from "../models/index.ts";
 import {

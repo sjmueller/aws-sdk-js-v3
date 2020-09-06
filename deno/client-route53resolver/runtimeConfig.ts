@@ -1,3 +1,4 @@
+
 const name = "@aws-sdk/client-route53resolver";
 const version = "1.0.0-gamma.8";
 import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";

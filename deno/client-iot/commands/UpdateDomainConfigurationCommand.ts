@@ -1,3 +1,4 @@
+
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
 import { UpdateDomainConfigurationRequest, UpdateDomainConfigurationResponse } from "../models/index.ts";
 import {

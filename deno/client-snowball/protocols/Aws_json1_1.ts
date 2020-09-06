@@ -1,3 +1,4 @@
+
 import { CancelClusterCommandInput, CancelClusterCommandOutput } from "../commands/CancelClusterCommand.ts";
 import { CancelJobCommandInput, CancelJobCommandOutput } from "../commands/CancelJobCommand.ts";
 import { CreateAddressCommandInput, CreateAddressCommandOutput } from "../commands/CreateAddressCommand.ts";
@@ -10,10 +11,7 @@ import { DescribeJobCommandInput, DescribeJobCommandOutput } from "../commands/D
 import { GetJobManifestCommandInput, GetJobManifestCommandOutput } from "../commands/GetJobManifestCommand.ts";
 import { GetJobUnlockCodeCommandInput, GetJobUnlockCodeCommandOutput } from "../commands/GetJobUnlockCodeCommand.ts";
 import { GetSnowballUsageCommandInput, GetSnowballUsageCommandOutput } from "../commands/GetSnowballUsageCommand.ts";
-import {
-  GetSoftwareUpdatesCommandInput,
-  GetSoftwareUpdatesCommandOutput,
-} from "../commands/GetSoftwareUpdatesCommand.ts";
+import { GetSoftwareUpdatesCommandInput, GetSoftwareUpdatesCommandOutput } from "../commands/GetSoftwareUpdatesCommand.ts";
 import { ListClusterJobsCommandInput, ListClusterJobsCommandOutput } from "../commands/ListClusterJobsCommand.ts";
 import { ListClustersCommandInput, ListClustersCommandOutput } from "../commands/ListClustersCommand.ts";
 import {

@@ -1,8 +1,5 @@
-import {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient.ts";
+
+import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient.ts";
 import {
   DisassociateResolverEndpointIpAddressRequest,
   DisassociateResolverEndpointIpAddressResponse,

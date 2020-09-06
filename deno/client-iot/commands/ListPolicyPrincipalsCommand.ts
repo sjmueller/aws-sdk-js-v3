@@ -1,3 +1,4 @@
+
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
 import { ListPolicyPrincipalsRequest, ListPolicyPrincipalsResponse } from "../models/index.ts";
 import {

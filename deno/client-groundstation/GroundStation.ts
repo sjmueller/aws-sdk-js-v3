@@ -1,3 +1,4 @@
+
 import { GroundStationClient } from "./GroundStationClient.ts";
 import {
   CancelContactCommand,
@@ -60,11 +61,7 @@ import {
   GetSatelliteCommandInput,
   GetSatelliteCommandOutput,
 } from "./commands/GetSatelliteCommand.ts";
-import {
-  ListConfigsCommand,
-  ListConfigsCommandInput,
-  ListConfigsCommandOutput,
-} from "./commands/ListConfigsCommand.ts";
+import { ListConfigsCommand, ListConfigsCommandInput, ListConfigsCommandOutput } from "./commands/ListConfigsCommand.ts";
 import {
   ListContactsCommand,
   ListContactsCommandInput,
@@ -100,11 +97,7 @@ import {
   ReserveContactCommandInput,
   ReserveContactCommandOutput,
 } from "./commands/ReserveContactCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

@@ -1,3 +1,4 @@
+
 import { AttachInstancesCommandInput, AttachInstancesCommandOutput } from "../commands/AttachInstancesCommand.ts";
 import {
   AttachLoadBalancerTargetGroupsCommandInput,
@@ -31,10 +32,7 @@ import {
   CreateLaunchConfigurationCommandInput,
   CreateLaunchConfigurationCommandOutput,
 } from "../commands/CreateLaunchConfigurationCommand.ts";
-import {
-  CreateOrUpdateTagsCommandInput,
-  CreateOrUpdateTagsCommandOutput,
-} from "../commands/CreateOrUpdateTagsCommand.ts";
+import { CreateOrUpdateTagsCommandInput, CreateOrUpdateTagsCommandOutput } from "../commands/CreateOrUpdateTagsCommand.ts";
 import {
   DeleteAutoScalingGroupCommandInput,
   DeleteAutoScalingGroupCommandOutput,
@@ -162,10 +160,7 @@ import {
   RecordLifecycleActionHeartbeatCommandOutput,
 } from "../commands/RecordLifecycleActionHeartbeatCommand.ts";
 import { ResumeProcessesCommandInput, ResumeProcessesCommandOutput } from "../commands/ResumeProcessesCommand.ts";
-import {
-  SetDesiredCapacityCommandInput,
-  SetDesiredCapacityCommandOutput,
-} from "../commands/SetDesiredCapacityCommand.ts";
+import { SetDesiredCapacityCommandInput, SetDesiredCapacityCommandOutput } from "../commands/SetDesiredCapacityCommand.ts";
 import { SetInstanceHealthCommandInput, SetInstanceHealthCommandOutput } from "../commands/SetInstanceHealthCommand.ts";
 import {
   SetInstanceProtectionCommandInput,

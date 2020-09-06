@@ -1,3 +1,4 @@
+
 import { MediaLiveClient } from "./MediaLiveClient.ts";
 import {
   BatchUpdateScheduleCommand,
@@ -9,11 +10,7 @@ import {
   CreateChannelCommandInput,
   CreateChannelCommandOutput,
 } from "./commands/CreateChannelCommand.ts";
-import {
-  CreateInputCommand,
-  CreateInputCommandInput,
-  CreateInputCommandOutput,
-} from "./commands/CreateInputCommand.ts";
+import { CreateInputCommand, CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand.ts";
 import {
   CreateInputSecurityGroupCommand,
   CreateInputSecurityGroupCommandInput,
@@ -35,11 +32,7 @@ import {
   DeleteChannelCommandInput,
   DeleteChannelCommandOutput,
 } from "./commands/DeleteChannelCommand.ts";
-import {
-  DeleteInputCommand,
-  DeleteInputCommandInput,
-  DeleteInputCommandOutput,
-} from "./commands/DeleteInputCommand.ts";
+import { DeleteInputCommand, DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand.ts";
 import {
   DeleteInputSecurityGroupCommand,
   DeleteInputSecurityGroupCommandInput,
@@ -172,11 +165,7 @@ import {
   StartMultiplexCommandInput,
   StartMultiplexCommandOutput,
 } from "./commands/StartMultiplexCommand.ts";
-import {
-  StopChannelCommand,
-  StopChannelCommandInput,
-  StopChannelCommandOutput,
-} from "./commands/StopChannelCommand.ts";
+import { StopChannelCommand, StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand.ts";
 import {
   StopMultiplexCommand,
   StopMultiplexCommandInput,
@@ -192,11 +181,7 @@ import {
   UpdateChannelCommandInput,
   UpdateChannelCommandOutput,
 } from "./commands/UpdateChannelCommand.ts";
-import {
-  UpdateInputCommand,
-  UpdateInputCommandInput,
-  UpdateInputCommandOutput,
-} from "./commands/UpdateInputCommand.ts";
+import { UpdateInputCommand, UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand.ts";
 import {
   UpdateInputDeviceCommand,
   UpdateInputDeviceCommandInput,

@@ -1,3 +1,4 @@
+
 import { MediaStoreClient } from "./MediaStoreClient.ts";
 import {
   CreateContainerCommand,
@@ -94,11 +95,7 @@ import {
   StopAccessLoggingCommandInput,
   StopAccessLoggingCommandOutput,
 } from "./commands/StopAccessLoggingCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

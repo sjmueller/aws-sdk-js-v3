@@ -1,3 +1,4 @@
+
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
 import { UpdateDocumentDefaultVersionRequest, UpdateDocumentDefaultVersionResult } from "../models/index.ts";
 import {

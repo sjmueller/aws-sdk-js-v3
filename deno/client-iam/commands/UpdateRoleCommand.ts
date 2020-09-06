@@ -1,3 +1,4 @@
+
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
 import { UpdateRoleRequest, UpdateRoleResponse } from "../models/index.ts";
 import { deserializeAws_queryUpdateRoleCommand, serializeAws_queryUpdateRoleCommand } from "../protocols/Aws_query.ts";

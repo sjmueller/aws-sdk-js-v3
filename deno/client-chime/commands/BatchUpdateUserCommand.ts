@@ -1,3 +1,4 @@
+
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
 import { BatchUpdateUserRequest, BatchUpdateUserResponse } from "../models/index.ts";
 import {

@@ -1,10 +1,7 @@
+
 import { SecurityHub } from "../SecurityHub.ts";
 import { SecurityHubClient } from "../SecurityHubClient.ts";
-import {
-  ListMembersCommand,
-  ListMembersCommandInput,
-  ListMembersCommandOutput,
-} from "../commands/ListMembersCommand.ts";
+import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand.ts";
 import { SecurityHubPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

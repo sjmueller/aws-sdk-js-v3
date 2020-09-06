@@ -1,3 +1,4 @@
+
 /**
  * Checks if the given value is a Smithy structure of the given type.
  */

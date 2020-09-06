@@ -1,10 +1,7 @@
+
 import { WorkLink } from "../WorkLink.ts";
 import { WorkLinkClient } from "../WorkLinkClient.ts";
-import {
-  ListDevicesCommand,
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput,
-} from "../commands/ListDevicesCommand.ts";
+import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "../commands/ListDevicesCommand.ts";
 import { WorkLinkPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

@@ -1,3 +1,4 @@
+
 import { PinpointClient } from "./PinpointClient.ts";
 import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand.ts";
 import {
@@ -203,11 +204,7 @@ import {
   GetCampaignActivitiesCommandInput,
   GetCampaignActivitiesCommandOutput,
 } from "./commands/GetCampaignActivitiesCommand.ts";
-import {
-  GetCampaignCommand,
-  GetCampaignCommandInput,
-  GetCampaignCommandOutput,
-} from "./commands/GetCampaignCommand.ts";
+import { GetCampaignCommand, GetCampaignCommandInput, GetCampaignCommandOutput } from "./commands/GetCampaignCommand.ts";
 import {
   GetCampaignDateRangeKpiCommand,
   GetCampaignDateRangeKpiCommandInput,
@@ -228,11 +225,7 @@ import {
   GetCampaignsCommandInput,
   GetCampaignsCommandOutput,
 } from "./commands/GetCampaignsCommand.ts";
-import {
-  GetChannelsCommand,
-  GetChannelsCommandInput,
-  GetChannelsCommandOutput,
-} from "./commands/GetChannelsCommand.ts";
+import { GetChannelsCommand, GetChannelsCommandInput, GetChannelsCommandOutput } from "./commands/GetChannelsCommand.ts";
 import {
   GetEmailChannelCommand,
   GetEmailChannelCommandInput,
@@ -243,11 +236,7 @@ import {
   GetEmailTemplateCommandInput,
   GetEmailTemplateCommandOutput,
 } from "./commands/GetEmailTemplateCommand.ts";
-import {
-  GetEndpointCommand,
-  GetEndpointCommandInput,
-  GetEndpointCommandOutput,
-} from "./commands/GetEndpointCommand.ts";
+import { GetEndpointCommand, GetEndpointCommandInput, GetEndpointCommandOutput } from "./commands/GetEndpointCommand.ts";
 import {
   GetEventStreamCommand,
   GetEventStreamCommandInput,
@@ -330,11 +319,7 @@ import {
   GetSegmentVersionsCommandInput,
   GetSegmentVersionsCommandOutput,
 } from "./commands/GetSegmentVersionsCommand.ts";
-import {
-  GetSegmentsCommand,
-  GetSegmentsCommandInput,
-  GetSegmentsCommandOutput,
-} from "./commands/GetSegmentsCommand.ts";
+import { GetSegmentsCommand, GetSegmentsCommandInput, GetSegmentsCommandOutput } from "./commands/GetSegmentsCommand.ts";
 import {
   GetSmsChannelCommand,
   GetSmsChannelCommandInput,
@@ -406,11 +391,7 @@ import {
   SendUsersMessagesCommandInput,
   SendUsersMessagesCommandOutput,
 } from "./commands/SendUsersMessagesCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

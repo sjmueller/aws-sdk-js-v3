@@ -1,3 +1,4 @@
+
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
 import { UpdateAvailabilityOptionsRequest, UpdateAvailabilityOptionsResponse } from "../models/index.ts";
 import {

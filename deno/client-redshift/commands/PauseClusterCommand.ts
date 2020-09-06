@@ -1,9 +1,7 @@
+
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
 import { PauseClusterMessage, PauseClusterResult } from "../models/index.ts";
-import {
-  deserializeAws_queryPauseClusterCommand,
-  serializeAws_queryPauseClusterCommand,
-} from "../protocols/Aws_query.ts";
+import { deserializeAws_queryPauseClusterCommand, serializeAws_queryPauseClusterCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";

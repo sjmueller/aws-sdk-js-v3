@@ -1,3 +1,4 @@
+
 import { OrganizationsClient } from "./OrganizationsClient.ts";
 import {
   AcceptHandshakeCommand,
@@ -189,11 +190,7 @@ import {
   ListOrganizationalUnitsForParentCommandInput,
   ListOrganizationalUnitsForParentCommandOutput,
 } from "./commands/ListOrganizationalUnitsForParentCommand.ts";
-import {
-  ListParentsCommand,
-  ListParentsCommandInput,
-  ListParentsCommandOutput,
-} from "./commands/ListParentsCommand.ts";
+import { ListParentsCommand, ListParentsCommandInput, ListParentsCommandOutput } from "./commands/ListParentsCommand.ts";
 import {
   ListPoliciesCommand,
   ListPoliciesCommandInput,
@@ -215,11 +212,7 @@ import {
   ListTargetsForPolicyCommandInput,
   ListTargetsForPolicyCommandOutput,
 } from "./commands/ListTargetsForPolicyCommand.ts";
-import {
-  MoveAccountCommand,
-  MoveAccountCommandInput,
-  MoveAccountCommandOutput,
-} from "./commands/MoveAccountCommand.ts";
+import { MoveAccountCommand, MoveAccountCommandInput, MoveAccountCommandOutput } from "./commands/MoveAccountCommand.ts";
 import {
   RegisterDelegatedAdministratorCommand,
   RegisterDelegatedAdministratorCommandInput,
@@ -230,11 +223,7 @@ import {
   RemoveAccountFromOrganizationCommandInput,
   RemoveAccountFromOrganizationCommandOutput,
 } from "./commands/RemoveAccountFromOrganizationCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

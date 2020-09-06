@@ -1,10 +1,7 @@
+
 import { GuardDuty } from "../GuardDuty.ts";
 import { GuardDutyClient } from "../GuardDutyClient.ts";
-import {
-  ListMembersCommand,
-  ListMembersCommandInput,
-  ListMembersCommandOutput,
-} from "../commands/ListMembersCommand.ts";
+import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand.ts";
 import { GuardDutyPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

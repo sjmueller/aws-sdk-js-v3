@@ -1,3 +1,4 @@
+
 import {
   AddTagsToCertificateCommandInput,
   AddTagsToCertificateCommandOutput,
@@ -20,10 +21,7 @@ import {
   RemoveTagsFromCertificateCommandOutput,
 } from "../commands/RemoveTagsFromCertificateCommand.ts";
 import { RenewCertificateCommandInput, RenewCertificateCommandOutput } from "../commands/RenewCertificateCommand.ts";
-import {
-  RequestCertificateCommandInput,
-  RequestCertificateCommandOutput,
-} from "../commands/RequestCertificateCommand.ts";
+import { RequestCertificateCommandInput, RequestCertificateCommandOutput } from "../commands/RequestCertificateCommand.ts";
 import {
   ResendValidationEmailCommandInput,
   ResendValidationEmailCommandOutput,

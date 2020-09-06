@@ -1,3 +1,4 @@
+
 import {
   AddClientIDToOpenIDConnectProviderCommandInput,
   AddClientIDToOpenIDConnectProviderCommandOutput,
@@ -12,19 +13,13 @@ import { AttachRolePolicyCommandInput, AttachRolePolicyCommandOutput } from "../
 import { AttachUserPolicyCommandInput, AttachUserPolicyCommandOutput } from "../commands/AttachUserPolicyCommand.ts";
 import { ChangePasswordCommandInput, ChangePasswordCommandOutput } from "../commands/ChangePasswordCommand.ts";
 import { CreateAccessKeyCommandInput, CreateAccessKeyCommandOutput } from "../commands/CreateAccessKeyCommand.ts";
-import {
-  CreateAccountAliasCommandInput,
-  CreateAccountAliasCommandOutput,
-} from "../commands/CreateAccountAliasCommand.ts";
+import { CreateAccountAliasCommandInput, CreateAccountAliasCommandOutput } from "../commands/CreateAccountAliasCommand.ts";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand.ts";
 import {
   CreateInstanceProfileCommandInput,
   CreateInstanceProfileCommandOutput,
 } from "../commands/CreateInstanceProfileCommand.ts";
-import {
-  CreateLoginProfileCommandInput,
-  CreateLoginProfileCommandOutput,
-} from "../commands/CreateLoginProfileCommand.ts";
+import { CreateLoginProfileCommandInput, CreateLoginProfileCommandOutput } from "../commands/CreateLoginProfileCommand.ts";
 import {
   CreateOpenIDConnectProviderCommandInput,
   CreateOpenIDConnectProviderCommandOutput,
@@ -35,10 +30,7 @@ import {
   CreatePolicyVersionCommandOutput,
 } from "../commands/CreatePolicyVersionCommand.ts";
 import { CreateRoleCommandInput, CreateRoleCommandOutput } from "../commands/CreateRoleCommand.ts";
-import {
-  CreateSAMLProviderCommandInput,
-  CreateSAMLProviderCommandOutput,
-} from "../commands/CreateSAMLProviderCommand.ts";
+import { CreateSAMLProviderCommandInput, CreateSAMLProviderCommandOutput } from "../commands/CreateSAMLProviderCommand.ts";
 import {
   CreateServiceLinkedRoleCommandInput,
   CreateServiceLinkedRoleCommandOutput,
@@ -57,10 +49,7 @@ import {
   DeactivateMFADeviceCommandOutput,
 } from "../commands/DeactivateMFADeviceCommand.ts";
 import { DeleteAccessKeyCommandInput, DeleteAccessKeyCommandOutput } from "../commands/DeleteAccessKeyCommand.ts";
-import {
-  DeleteAccountAliasCommandInput,
-  DeleteAccountAliasCommandOutput,
-} from "../commands/DeleteAccountAliasCommand.ts";
+import { DeleteAccountAliasCommandInput, DeleteAccountAliasCommandOutput } from "../commands/DeleteAccountAliasCommand.ts";
 import {
   DeleteAccountPasswordPolicyCommandInput,
   DeleteAccountPasswordPolicyCommandOutput,
@@ -71,10 +60,7 @@ import {
   DeleteInstanceProfileCommandInput,
   DeleteInstanceProfileCommandOutput,
 } from "../commands/DeleteInstanceProfileCommand.ts";
-import {
-  DeleteLoginProfileCommandInput,
-  DeleteLoginProfileCommandOutput,
-} from "../commands/DeleteLoginProfileCommand.ts";
+import { DeleteLoginProfileCommandInput, DeleteLoginProfileCommandOutput } from "../commands/DeleteLoginProfileCommand.ts";
 import {
   DeleteOpenIDConnectProviderCommandInput,
   DeleteOpenIDConnectProviderCommandOutput,
@@ -90,14 +76,8 @@ import {
   DeleteRolePermissionsBoundaryCommandOutput,
 } from "../commands/DeleteRolePermissionsBoundaryCommand.ts";
 import { DeleteRolePolicyCommandInput, DeleteRolePolicyCommandOutput } from "../commands/DeleteRolePolicyCommand.ts";
-import {
-  DeleteSAMLProviderCommandInput,
-  DeleteSAMLProviderCommandOutput,
-} from "../commands/DeleteSAMLProviderCommand.ts";
-import {
-  DeleteSSHPublicKeyCommandInput,
-  DeleteSSHPublicKeyCommandOutput,
-} from "../commands/DeleteSSHPublicKeyCommand.ts";
+import { DeleteSAMLProviderCommandInput, DeleteSAMLProviderCommandOutput } from "../commands/DeleteSAMLProviderCommand.ts";
+import { DeleteSSHPublicKeyCommandInput, DeleteSSHPublicKeyCommandOutput } from "../commands/DeleteSSHPublicKeyCommand.ts";
 import {
   DeleteServerCertificateCommandInput,
   DeleteServerCertificateCommandOutput,
@@ -167,10 +147,7 @@ import {
 } from "../commands/GetCredentialReportCommand.ts";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "../commands/GetGroupCommand.ts";
 import { GetGroupPolicyCommandInput, GetGroupPolicyCommandOutput } from "../commands/GetGroupPolicyCommand.ts";
-import {
-  GetInstanceProfileCommandInput,
-  GetInstanceProfileCommandOutput,
-} from "../commands/GetInstanceProfileCommand.ts";
+import { GetInstanceProfileCommandInput, GetInstanceProfileCommandOutput } from "../commands/GetInstanceProfileCommand.ts";
 import { GetLoginProfileCommandInput, GetLoginProfileCommandOutput } from "../commands/GetLoginProfileCommand.ts";
 import {
   GetOpenIDConnectProviderCommandInput,
@@ -205,10 +182,7 @@ import {
 import { GetUserCommandInput, GetUserCommandOutput } from "../commands/GetUserCommand.ts";
 import { GetUserPolicyCommandInput, GetUserPolicyCommandOutput } from "../commands/GetUserPolicyCommand.ts";
 import { ListAccessKeysCommandInput, ListAccessKeysCommandOutput } from "../commands/ListAccessKeysCommand.ts";
-import {
-  ListAccountAliasesCommandInput,
-  ListAccountAliasesCommandOutput,
-} from "../commands/ListAccountAliasesCommand.ts";
+import { ListAccountAliasesCommandInput, ListAccountAliasesCommandOutput } from "../commands/ListAccountAliasesCommand.ts";
 import {
   ListAttachedGroupPoliciesCommandInput,
   ListAttachedGroupPoliciesCommandOutput,
@@ -246,10 +220,7 @@ import {
   ListPoliciesGrantingServiceAccessCommandInput,
   ListPoliciesGrantingServiceAccessCommandOutput,
 } from "../commands/ListPoliciesGrantingServiceAccessCommand.ts";
-import {
-  ListPolicyVersionsCommandInput,
-  ListPolicyVersionsCommandOutput,
-} from "../commands/ListPolicyVersionsCommand.ts";
+import { ListPolicyVersionsCommandInput, ListPolicyVersionsCommandOutput } from "../commands/ListPolicyVersionsCommand.ts";
 import { ListRolePoliciesCommandInput, ListRolePoliciesCommandOutput } from "../commands/ListRolePoliciesCommand.ts";
 import { ListRoleTagsCommandInput, ListRoleTagsCommandOutput } from "../commands/ListRoleTagsCommand.ts";
 import { ListRolesCommandInput, ListRolesCommandOutput } from "../commands/ListRolesCommand.ts";
@@ -332,10 +303,7 @@ import {
   UpdateAssumeRolePolicyCommandOutput,
 } from "../commands/UpdateAssumeRolePolicyCommand.ts";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "../commands/UpdateGroupCommand.ts";
-import {
-  UpdateLoginProfileCommandInput,
-  UpdateLoginProfileCommandOutput,
-} from "../commands/UpdateLoginProfileCommand.ts";
+import { UpdateLoginProfileCommandInput, UpdateLoginProfileCommandOutput } from "../commands/UpdateLoginProfileCommand.ts";
 import {
   UpdateOpenIDConnectProviderThumbprintCommandInput,
   UpdateOpenIDConnectProviderThumbprintCommandOutput,
@@ -345,14 +313,8 @@ import {
   UpdateRoleDescriptionCommandInput,
   UpdateRoleDescriptionCommandOutput,
 } from "../commands/UpdateRoleDescriptionCommand.ts";
-import {
-  UpdateSAMLProviderCommandInput,
-  UpdateSAMLProviderCommandOutput,
-} from "../commands/UpdateSAMLProviderCommand.ts";
-import {
-  UpdateSSHPublicKeyCommandInput,
-  UpdateSSHPublicKeyCommandOutput,
-} from "../commands/UpdateSSHPublicKeyCommand.ts";
+import { UpdateSAMLProviderCommandInput, UpdateSAMLProviderCommandOutput } from "../commands/UpdateSAMLProviderCommand.ts";
+import { UpdateSSHPublicKeyCommandInput, UpdateSSHPublicKeyCommandOutput } from "../commands/UpdateSSHPublicKeyCommand.ts";
 import {
   UpdateServerCertificateCommandInput,
   UpdateServerCertificateCommandOutput,
@@ -366,10 +328,7 @@ import {
   UpdateSigningCertificateCommandOutput,
 } from "../commands/UpdateSigningCertificateCommand.ts";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "../commands/UpdateUserCommand.ts";
-import {
-  UploadSSHPublicKeyCommandInput,
-  UploadSSHPublicKeyCommandOutput,
-} from "../commands/UploadSSHPublicKeyCommand.ts";
+import { UploadSSHPublicKeyCommandInput, UploadSSHPublicKeyCommandOutput } from "../commands/UploadSSHPublicKeyCommand.ts";
 import {
   UploadServerCertificateCommandInput,
   UploadServerCertificateCommandOutput,

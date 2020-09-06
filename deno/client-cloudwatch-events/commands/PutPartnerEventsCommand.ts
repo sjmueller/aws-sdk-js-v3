@@ -1,8 +1,5 @@
-import {
-  CloudWatchEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchEventsClient.ts";
+
+import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient.ts";
 import { PutPartnerEventsRequest, PutPartnerEventsResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1PutPartnerEventsCommand,

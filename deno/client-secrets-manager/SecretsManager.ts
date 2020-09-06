@@ -1,3 +1,4 @@
+
 import { SecretsManagerClient } from "./SecretsManagerClient.ts";
 import {
   CancelRotateSecretCommand,
@@ -44,11 +45,7 @@ import {
   ListSecretVersionIdsCommandInput,
   ListSecretVersionIdsCommandOutput,
 } from "./commands/ListSecretVersionIdsCommand.ts";
-import {
-  ListSecretsCommand,
-  ListSecretsCommandInput,
-  ListSecretsCommandOutput,
-} from "./commands/ListSecretsCommand.ts";
+import { ListSecretsCommand, ListSecretsCommandInput, ListSecretsCommandOutput } from "./commands/ListSecretsCommand.ts";
 import {
   PutResourcePolicyCommand,
   PutResourcePolicyCommandInput,
@@ -69,11 +66,7 @@ import {
   RotateSecretCommandInput,
   RotateSecretCommandOutput,
 } from "./commands/RotateSecretCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

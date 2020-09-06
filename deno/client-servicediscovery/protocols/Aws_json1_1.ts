@@ -1,3 +1,4 @@
+
 import {
   CreateHttpNamespaceCommandInput,
   CreateHttpNamespaceCommandOutput,
@@ -13,10 +14,7 @@ import {
 import { CreateServiceCommandInput, CreateServiceCommandOutput } from "../commands/CreateServiceCommand.ts";
 import { DeleteNamespaceCommandInput, DeleteNamespaceCommandOutput } from "../commands/DeleteNamespaceCommand.ts";
 import { DeleteServiceCommandInput, DeleteServiceCommandOutput } from "../commands/DeleteServiceCommand.ts";
-import {
-  DeregisterInstanceCommandInput,
-  DeregisterInstanceCommandOutput,
-} from "../commands/DeregisterInstanceCommand.ts";
+import { DeregisterInstanceCommandInput, DeregisterInstanceCommandOutput } from "../commands/DeregisterInstanceCommand.ts";
 import { DiscoverInstancesCommandInput, DiscoverInstancesCommandOutput } from "../commands/DiscoverInstancesCommand.ts";
 import { GetInstanceCommandInput, GetInstanceCommandOutput } from "../commands/GetInstanceCommand.ts";
 import {

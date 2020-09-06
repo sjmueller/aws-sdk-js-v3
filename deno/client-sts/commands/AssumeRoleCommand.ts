@@ -1,3 +1,4 @@
+
 import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient.ts";
 import { AssumeRoleRequest, AssumeRoleResponse } from "../models/index.ts";
 import { deserializeAws_queryAssumeRoleCommand, serializeAws_queryAssumeRoleCommand } from "../protocols/Aws_query.ts";

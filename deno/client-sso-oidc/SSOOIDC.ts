@@ -1,9 +1,6 @@
+
 import { SSOOIDCClient } from "./SSOOIDCClient.ts";
-import {
-  CreateTokenCommand,
-  CreateTokenCommandInput,
-  CreateTokenCommandOutput,
-} from "./commands/CreateTokenCommand.ts";
+import { CreateTokenCommand, CreateTokenCommandInput, CreateTokenCommandOutput } from "./commands/CreateTokenCommand.ts";
 import {
   RegisterClientCommand,
   RegisterClientCommandInput,

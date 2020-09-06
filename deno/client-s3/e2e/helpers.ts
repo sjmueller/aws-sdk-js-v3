@@ -1,3 +1,4 @@
+import { Buffer } from "../../buffer/mod.ts";
 export const createBuffer = (size: string) => {
   var match;
   var buffer;

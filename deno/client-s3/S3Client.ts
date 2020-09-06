@@ -1,3 +1,4 @@
+
 import {
   AbortMultipartUploadCommandInput,
   AbortMultipartUploadCommandOutput,
@@ -34,10 +35,7 @@ import {
   DeleteBucketMetricsConfigurationCommandInput,
   DeleteBucketMetricsConfigurationCommandOutput,
 } from "./commands/DeleteBucketMetricsConfigurationCommand.ts";
-import {
-  DeleteBucketPolicyCommandInput,
-  DeleteBucketPolicyCommandOutput,
-} from "./commands/DeleteBucketPolicyCommand.ts";
+import { DeleteBucketPolicyCommandInput, DeleteBucketPolicyCommandOutput } from "./commands/DeleteBucketPolicyCommand.ts";
 import {
   DeleteBucketReplicationCommandInput,
   DeleteBucketReplicationCommandOutput,
@@ -113,18 +111,12 @@ import {
 import { GetBucketWebsiteCommandInput, GetBucketWebsiteCommandOutput } from "./commands/GetBucketWebsiteCommand.ts";
 import { GetObjectAclCommandInput, GetObjectAclCommandOutput } from "./commands/GetObjectAclCommand.ts";
 import { GetObjectCommandInput, GetObjectCommandOutput } from "./commands/GetObjectCommand.ts";
-import {
-  GetObjectLegalHoldCommandInput,
-  GetObjectLegalHoldCommandOutput,
-} from "./commands/GetObjectLegalHoldCommand.ts";
+import { GetObjectLegalHoldCommandInput, GetObjectLegalHoldCommandOutput } from "./commands/GetObjectLegalHoldCommand.ts";
 import {
   GetObjectLockConfigurationCommandInput,
   GetObjectLockConfigurationCommandOutput,
 } from "./commands/GetObjectLockConfigurationCommand.ts";
-import {
-  GetObjectRetentionCommandInput,
-  GetObjectRetentionCommandOutput,
-} from "./commands/GetObjectRetentionCommand.ts";
+import { GetObjectRetentionCommandInput, GetObjectRetentionCommandOutput } from "./commands/GetObjectRetentionCommand.ts";
 import { GetObjectTaggingCommandInput, GetObjectTaggingCommandOutput } from "./commands/GetObjectTaggingCommand.ts";
 import { GetObjectTorrentCommandInput, GetObjectTorrentCommandOutput } from "./commands/GetObjectTorrentCommand.ts";
 import {
@@ -150,10 +142,7 @@ import {
   ListMultipartUploadsCommandInput,
   ListMultipartUploadsCommandOutput,
 } from "./commands/ListMultipartUploadsCommand.ts";
-import {
-  ListObjectVersionsCommandInput,
-  ListObjectVersionsCommandOutput,
-} from "./commands/ListObjectVersionsCommand.ts";
+import { ListObjectVersionsCommandInput, ListObjectVersionsCommandOutput } from "./commands/ListObjectVersionsCommand.ts";
 import { ListObjectsCommandInput, ListObjectsCommandOutput } from "./commands/ListObjectsCommand.ts";
 import { ListObjectsV2CommandInput, ListObjectsV2CommandOutput } from "./commands/ListObjectsV2Command.ts";
 import { ListPartsCommandInput, ListPartsCommandOutput } from "./commands/ListPartsCommand.ts";
@@ -205,18 +194,12 @@ import {
 import { PutBucketWebsiteCommandInput, PutBucketWebsiteCommandOutput } from "./commands/PutBucketWebsiteCommand.ts";
 import { PutObjectAclCommandInput, PutObjectAclCommandOutput } from "./commands/PutObjectAclCommand.ts";
 import { PutObjectCommandInput, PutObjectCommandOutput } from "./commands/PutObjectCommand.ts";
-import {
-  PutObjectLegalHoldCommandInput,
-  PutObjectLegalHoldCommandOutput,
-} from "./commands/PutObjectLegalHoldCommand.ts";
+import { PutObjectLegalHoldCommandInput, PutObjectLegalHoldCommandOutput } from "./commands/PutObjectLegalHoldCommand.ts";
 import {
   PutObjectLockConfigurationCommandInput,
   PutObjectLockConfigurationCommandOutput,
 } from "./commands/PutObjectLockConfigurationCommand.ts";
-import {
-  PutObjectRetentionCommandInput,
-  PutObjectRetentionCommandOutput,
-} from "./commands/PutObjectRetentionCommand.ts";
+import { PutObjectRetentionCommandInput, PutObjectRetentionCommandOutput } from "./commands/PutObjectRetentionCommand.ts";
 import { PutObjectTaggingCommandInput, PutObjectTaggingCommandOutput } from "./commands/PutObjectTaggingCommand.ts";
 import {
   PutPublicAccessBlockCommandInput,

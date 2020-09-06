@@ -1,3 +1,4 @@
+
 import { SESv2Client } from "./SESv2Client.ts";
 import {
   CreateConfigurationSetCommand,
@@ -291,11 +292,7 @@ import {
   SendCustomVerificationEmailCommandOutput,
 } from "./commands/SendCustomVerificationEmailCommand.ts";
 import { SendEmailCommand, SendEmailCommandInput, SendEmailCommandOutput } from "./commands/SendEmailCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   TestRenderEmailTemplateCommand,
   TestRenderEmailTemplateCommandInput,

@@ -1,8 +1,6 @@
+
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient.ts";
-import {
-  DescribeSubscribersForNotificationRequest,
-  DescribeSubscribersForNotificationResponse,
-} from "../models/index.ts";
+import { DescribeSubscribersForNotificationRequest, DescribeSubscribersForNotificationResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeSubscribersForNotificationCommand,
   serializeAws_json1_1DescribeSubscribersForNotificationCommand,

@@ -1,3 +1,4 @@
+
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient.ts";
 import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/index.ts";
 import {

@@ -1,8 +1,6 @@
+
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import {
-  DescribeMaintenanceWindowsForTargetRequest,
-  DescribeMaintenanceWindowsForTargetResult,
-} from "../models/index.ts";
+import { DescribeMaintenanceWindowsForTargetRequest, DescribeMaintenanceWindowsForTargetResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand,
   serializeAws_json1_1DescribeMaintenanceWindowsForTargetCommand,

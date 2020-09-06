@@ -1,12 +1,10 @@
+
 import {
   ElasticsearchServiceClientResolvedConfig,
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient.ts";
-import {
-  DescribeElasticsearchDomainConfigRequest,
-  DescribeElasticsearchDomainConfigResponse,
-} from "../models/index.ts";
+import { DescribeElasticsearchDomainConfigRequest, DescribeElasticsearchDomainConfigResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeElasticsearchDomainConfigCommand,
   serializeAws_restJson1DescribeElasticsearchDomainConfigCommand,

@@ -1,3 +1,4 @@
+
 import { ConfigureAgentCommandInput, ConfigureAgentCommandOutput } from "../commands/ConfigureAgentCommand.ts";
 import {
   CreateProfilingGroupCommandInput,
@@ -21,10 +22,7 @@ import {
 import { PostAgentProfileCommandInput, PostAgentProfileCommandOutput } from "../commands/PostAgentProfileCommand.ts";
 import { PutPermissionCommandInput, PutPermissionCommandOutput } from "../commands/PutPermissionCommand.ts";
 import { RemovePermissionCommandInput, RemovePermissionCommandOutput } from "../commands/RemovePermissionCommand.ts";
-import {
-  RetrieveTimeSeriesCommandInput,
-  RetrieveTimeSeriesCommandOutput,
-} from "../commands/RetrieveTimeSeriesCommand.ts";
+import { RetrieveTimeSeriesCommandInput, RetrieveTimeSeriesCommandOutput } from "../commands/RetrieveTimeSeriesCommand.ts";
 import {
   UpdateProfilingGroupCommandInput,
   UpdateProfilingGroupCommandOutput,

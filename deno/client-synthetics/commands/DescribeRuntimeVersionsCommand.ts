@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient.ts";
 import { DescribeRuntimeVersionsRequest, DescribeRuntimeVersionsResponse } from "../models/index.ts";
 import {

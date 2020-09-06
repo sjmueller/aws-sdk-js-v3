@@ -3,10 +3,7 @@ const path = require("path");
 
 async function copyPackage(packageName, packageDir, destinationDir) {
   if (packageName.startsWith("deno-")) {
-    console.log(packageName, packageDir);
-    const resultPackageName = packageName.replace(/^deno-/g, "");
-    await fsx.mkdirp(path.join(destinationDir, resultPackageName));
-    await fsx.copy(packageDir, path.join(destinationDir, resultPackageName));
+    // skip here - copy instead at the end
     return;
   }
 
@@ -72,6 +69,19 @@ async function copyPackage(packageName, packageDir, destinationDir) {
   }
 }
 
+/** Overwrite some packages with a deno implementation
+ * instead of editing the node implementation
+ */
+async function copyDenoPackage(packageName, packageDir, destinationDir) {
+  if (packageName.startsWith("deno-")) {
+    console.log(packageName, packageDir);
+    const resultPackageName = packageName.replace(/^deno-/g, "");
+    await fsx.mkdirp(path.join(destinationDir, resultPackageName));
+    await fsx.copy(packageDir, path.join(destinationDir, resultPackageName));
+    return;
+  }
+}
+
 async function denoifyTree(tpath, depth) {
   const stat = await fsx.stat(tpath);
   if (stat.isDirectory()) {
@@ -89,12 +99,23 @@ async function denoifyTsFile(file, depth) {
   const fileContent = await fsx.readFile(file);
   const lines = fileContent.toString().split("\n");
 
+  const extraHeaderLines = {};
   const output = [];
 
   let state = "nothing";
   // very fragile line & regex based fixer-upper:   assuming fairly pretty source lines
   for (const line of lines) {
     let replaced = line;
+
+    if (line.match(/ Buffer/)) {
+      if (depth === 3) {
+        extraHeaderLines["buffer"] = 'import { Buffer } from "../../buffer/mod.ts";';
+      } else if (depth === 2) {
+        extraHeaderLines["buffer"] = 'import { Buffer } from "../buffer/mod.ts";';
+      } else {
+        throw new Error(`Error fixing type Buffer for import from ${file}`);
+      }
+    }
 
     if (line === 'import { Sha256 } from "@aws-crypto/sha256-browser";') {
       replaced = 'import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";';
@@ -107,7 +128,6 @@ async function denoifyTsFile(file, depth) {
       const pkgjson = await fsx.readJson(path.join(path.dirname(file), "package.json"));
       output.push(`const name = "${pkgjson.name}";`);
       output.push(`const version = "${pkgjson.version}";`);
-
       continue;
     }
 
@@ -127,10 +147,12 @@ async function denoifyTsFile(file, depth) {
     if (state === "import" || state === "export") {
       const match = line.match(/^(.*)from[ ]+("|')([^"']+)("|');/);
       if (match) {
-        state = "nothing";
-        const importfrom = match[3];
+        const importLhs = match[1];
+        const importFrom = match[3];
 
-        const importFromAWSSDKmatch = importfrom.match(/@aws-sdk\/(.*)/);
+        state = "nothing";
+
+        const importFromAWSSDKmatch = importFrom.match(/@aws-sdk\/(.*)/);
         if (importFromAWSSDKmatch) {
           if (depth === 0) {
             throw new Error(`denoifyTsFile ${file} - unexpected import to @aws-sdk at depth 0`);
@@ -148,47 +170,51 @@ async function denoifyTsFile(file, depth) {
           replaced = `${match[1]}from "${relpath}${importFromAWSSDKmatch[1]}/mod.ts";`;
         } else {
           //import { Readable } from "stream.ts";
-          const absImportFromMatch = importfrom.match(/^([^.].*)/);
+          const absImportFromMatch = importFrom.match(/^([^.].*)/);
 
           if (absImportFromMatch) {
-            if (importfrom === "uuid") {
+            if (importFrom === "uuid") {
               replaced = `${match[1]}from "../uuid/mod.ts";`;
               output.push(replaced);
               continue;
-            } else if (importfrom === "fast-xml-parser") {
+            } else if (importFrom === "fast-xml-parser") {
               replaced = `${match[1]}from "https://jspm.dev/fast-xml-parser";`;
               output.push(replaced);
               continue;
-            } else if (importfrom === "stream") {
+            } else if (importFrom === "stream") {
               // import { Readable } from "stream.ts"; -> type only
               if (line === 'import { Readable } from "stream";') {
                 replaced = "type Readable = any;";
                 output.push(replaced);
                 continue;
               }
-
+            } else if (importFrom === "fs") {
+              replaced = `${match[1]}from "https://deno.land/std@0.68.0/node/fs.ts";`;
+              output.push(replaced);
+              continue;
+            } else if (importFrom === "os") {
+              replaced = `${match[1]}from "https://deno.land/std@0.68.0/node/os.ts";`;
+              output.push(replaced);
+              continue;
+            } else if (importFrom === "path") {
+              replaced = `${match[1]}from "https://deno.land/std@0.68.0/node/path.ts";`;
+              output.push(replaced);
+              continue;
+            } else if (importFrom === "url") {
               //...
-            } else if (importfrom === "fs") {
+            } else if (importFrom === "http") {
               //...
-            } else if (importfrom === "path") {
+            } else if (importFrom === "buffer") {
               //...
-            } else if (importfrom === "url") {
-              //...
-            } else if (importfrom === "http") {
-              //...
-            } else if (importfrom === "buffer") {
-              //...
-            } else if (importfrom === "@aws-crypto/crc32") {
+            } else if (importFrom === "@aws-crypto/crc32") {
               replaced = `${match[1]}from "https://jspm.dev/@aws-crypto/crc32";`;
               output.push(replaced);
               continue;
-            } else if (importfrom === "http2") {
+            } else if (importFrom === "http2") {
               //...
-            } else if (importfrom === "https") {
+            } else if (importFrom === "https") {
               //...
-            } else if (importfrom === "net") {
-              //...
-            } else if (importfrom === "os") {
+            } else if (importFrom === "net") {
               //...
             } else {
               //throw new Error(`Absolute import of: |${importfrom}|`);
@@ -196,7 +222,9 @@ async function denoifyTsFile(file, depth) {
             }
           }
 
-          replaced = `${match[1]}from "${match[3]}.ts";`;
+          if (!importFrom.endsWith(".ts")) {
+            replaced = `${importLhs}from "${importFrom}.ts";`;
+          }
         }
       }
     }
@@ -204,7 +232,7 @@ async function denoifyTsFile(file, depth) {
     output.push(replaced);
   }
 
-  const outputContent = output.join("\n");
+  const outputContent = Object.values(extraHeaderLines).join("\n") + "\n" + output.join("\n");
   await fsx.writeFile(file, outputContent);
 }
 
@@ -251,6 +279,20 @@ async function copyToDeno(sourceDirs, destinationDir) {
   }
 
   await denoifyTree(destinationDir, 0);
+
+  /** Overwrite some packages with a deno implementation
+   * instead of editing the node implementation
+   */
+  for (const packagesDir of sourceDirs) {
+    for (const package of await fsx.readdir(packagesDir)) {
+      try {
+        await copyDenoPackage(package, path.join(packagesDir, package), destinationDir);
+      } catch (err) {
+        console.log(`Error from copyDenoPackage ${package}`);
+        throw err;
+      }
+    }
+  }
 }
 
 if (require.main === module) {

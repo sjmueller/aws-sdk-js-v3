@@ -1,3 +1,4 @@
+
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
 import { GetJobsRequest, GetJobsResponse } from "../models/index.ts";
 import { deserializeAws_json1_1GetJobsCommand, serializeAws_json1_1GetJobsCommand } from "../protocols/Aws_json1_1.ts";

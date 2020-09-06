@@ -1,3 +1,4 @@
+
 import { RekognitionClient } from "./RekognitionClient.ts";
 import {
   CompareFacesCommand,
@@ -29,11 +30,7 @@ import {
   DeleteCollectionCommandInput,
   DeleteCollectionCommandOutput,
 } from "./commands/DeleteCollectionCommand.ts";
-import {
-  DeleteFacesCommand,
-  DeleteFacesCommandInput,
-  DeleteFacesCommandOutput,
-} from "./commands/DeleteFacesCommand.ts";
+import { DeleteFacesCommand, DeleteFacesCommandInput, DeleteFacesCommandOutput } from "./commands/DeleteFacesCommand.ts";
 import {
   DeleteProjectCommand,
   DeleteProjectCommandInput,
@@ -74,11 +71,7 @@ import {
   DetectCustomLabelsCommandInput,
   DetectCustomLabelsCommandOutput,
 } from "./commands/DetectCustomLabelsCommand.ts";
-import {
-  DetectFacesCommand,
-  DetectFacesCommandInput,
-  DetectFacesCommandOutput,
-} from "./commands/DetectFacesCommand.ts";
+import { DetectFacesCommand, DetectFacesCommandInput, DetectFacesCommandOutput } from "./commands/DetectFacesCommand.ts";
 import {
   DetectLabelsCommand,
   DetectLabelsCommandInput,
@@ -157,11 +150,7 @@ import {
   SearchFacesByImageCommandInput,
   SearchFacesByImageCommandOutput,
 } from "./commands/SearchFacesByImageCommand.ts";
-import {
-  SearchFacesCommand,
-  SearchFacesCommandInput,
-  SearchFacesCommandOutput,
-} from "./commands/SearchFacesCommand.ts";
+import { SearchFacesCommand, SearchFacesCommandInput, SearchFacesCommandOutput } from "./commands/SearchFacesCommand.ts";
 import {
   StartCelebrityRecognitionCommand,
   StartCelebrityRecognitionCommandInput,

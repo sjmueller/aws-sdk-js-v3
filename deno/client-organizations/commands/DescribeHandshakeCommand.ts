@@ -1,3 +1,4 @@
+
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
 import { DescribeHandshakeRequest, DescribeHandshakeResponse } from "../models/index.ts";
 import {

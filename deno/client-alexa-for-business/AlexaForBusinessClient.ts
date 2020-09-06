@@ -1,3 +1,4 @@
+
 import { ApproveSkillCommandInput, ApproveSkillCommandOutput } from "./commands/ApproveSkillCommand.ts";
 import {
   AssociateContactWithAddressBookCommandInput,
@@ -33,10 +34,7 @@ import {
   CreateConferenceProviderCommandOutput,
 } from "./commands/CreateConferenceProviderCommand.ts";
 import { CreateContactCommandInput, CreateContactCommandOutput } from "./commands/CreateContactCommand.ts";
-import {
-  CreateGatewayGroupCommandInput,
-  CreateGatewayGroupCommandOutput,
-} from "./commands/CreateGatewayGroupCommand.ts";
+import { CreateGatewayGroupCommandInput, CreateGatewayGroupCommandOutput } from "./commands/CreateGatewayGroupCommand.ts";
 import {
   CreateNetworkProfileCommandInput,
   CreateNetworkProfileCommandOutput,
@@ -60,10 +58,7 @@ import {
   DeleteDeviceUsageDataCommandInput,
   DeleteDeviceUsageDataCommandOutput,
 } from "./commands/DeleteDeviceUsageDataCommand.ts";
-import {
-  DeleteGatewayGroupCommandInput,
-  DeleteGatewayGroupCommandOutput,
-} from "./commands/DeleteGatewayGroupCommand.ts";
+import { DeleteGatewayGroupCommandInput, DeleteGatewayGroupCommandOutput } from "./commands/DeleteGatewayGroupCommand.ts";
 import {
   DeleteNetworkProfileCommandInput,
   DeleteNetworkProfileCommandOutput,
@@ -174,10 +169,7 @@ import { RegisterAVSDeviceCommandInput, RegisterAVSDeviceCommandOutput } from ".
 import { RejectSkillCommandInput, RejectSkillCommandOutput } from "./commands/RejectSkillCommand.ts";
 import { ResolveRoomCommandInput, ResolveRoomCommandOutput } from "./commands/ResolveRoomCommand.ts";
 import { RevokeInvitationCommandInput, RevokeInvitationCommandOutput } from "./commands/RevokeInvitationCommand.ts";
-import {
-  SearchAddressBooksCommandInput,
-  SearchAddressBooksCommandOutput,
-} from "./commands/SearchAddressBooksCommand.ts";
+import { SearchAddressBooksCommandInput, SearchAddressBooksCommandOutput } from "./commands/SearchAddressBooksCommand.ts";
 import { SearchContactsCommandInput, SearchContactsCommandOutput } from "./commands/SearchContactsCommand.ts";
 import { SearchDevicesCommandInput, SearchDevicesCommandOutput } from "./commands/SearchDevicesCommand.ts";
 import {
@@ -209,10 +201,7 @@ import {
 import { UpdateContactCommandInput, UpdateContactCommandOutput } from "./commands/UpdateContactCommand.ts";
 import { UpdateDeviceCommandInput, UpdateDeviceCommandOutput } from "./commands/UpdateDeviceCommand.ts";
 import { UpdateGatewayCommandInput, UpdateGatewayCommandOutput } from "./commands/UpdateGatewayCommand.ts";
-import {
-  UpdateGatewayGroupCommandInput,
-  UpdateGatewayGroupCommandOutput,
-} from "./commands/UpdateGatewayGroupCommand.ts";
+import { UpdateGatewayGroupCommandInput, UpdateGatewayGroupCommandOutput } from "./commands/UpdateGatewayGroupCommand.ts";
 import {
   UpdateNetworkProfileCommandInput,
   UpdateNetworkProfileCommandOutput,

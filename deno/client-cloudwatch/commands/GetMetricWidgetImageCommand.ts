@@ -1,3 +1,4 @@
+
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
 import { GetMetricWidgetImageInput, GetMetricWidgetImageOutput } from "../models/index.ts";
 import {

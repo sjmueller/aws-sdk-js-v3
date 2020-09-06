@@ -1,14 +1,11 @@
+
 import { DirectoryServiceClient } from "./DirectoryServiceClient.ts";
 import {
   AcceptSharedDirectoryCommand,
   AcceptSharedDirectoryCommandInput,
   AcceptSharedDirectoryCommandOutput,
 } from "./commands/AcceptSharedDirectoryCommand.ts";
-import {
-  AddIpRoutesCommand,
-  AddIpRoutesCommandInput,
-  AddIpRoutesCommandOutput,
-} from "./commands/AddIpRoutesCommand.ts";
+import { AddIpRoutesCommand, AddIpRoutesCommandInput, AddIpRoutesCommandOutput } from "./commands/AddIpRoutesCommand.ts";
 import {
   AddTagsToResourceCommand,
   AddTagsToResourceCommandInput,
@@ -24,11 +21,7 @@ import {
   ConnectDirectoryCommandInput,
   ConnectDirectoryCommandOutput,
 } from "./commands/ConnectDirectoryCommand.ts";
-import {
-  CreateAliasCommand,
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput,
-} from "./commands/CreateAliasCommand.ts";
+import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand.ts";
 import {
   CreateComputerCommand,
   CreateComputerCommandInput,
@@ -59,11 +52,7 @@ import {
   CreateSnapshotCommandInput,
   CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand.ts";
-import {
-  CreateTrustCommand,
-  CreateTrustCommandInput,
-  CreateTrustCommandOutput,
-} from "./commands/CreateTrustCommand.ts";
+import { CreateTrustCommand, CreateTrustCommandInput, CreateTrustCommandOutput } from "./commands/CreateTrustCommand.ts";
 import {
   DeleteConditionalForwarderCommand,
   DeleteConditionalForwarderCommandInput,
@@ -84,11 +73,7 @@ import {
   DeleteSnapshotCommandInput,
   DeleteSnapshotCommandOutput,
 } from "./commands/DeleteSnapshotCommand.ts";
-import {
-  DeleteTrustCommand,
-  DeleteTrustCommandInput,
-  DeleteTrustCommandOutput,
-} from "./commands/DeleteTrustCommand.ts";
+import { DeleteTrustCommand, DeleteTrustCommandInput, DeleteTrustCommandOutput } from "./commands/DeleteTrustCommand.ts";
 import {
   DeregisterCertificateCommand,
   DeregisterCertificateCommandInput,
@@ -155,11 +140,7 @@ import {
   DisableRadiusCommandOutput,
 } from "./commands/DisableRadiusCommand.ts";
 import { DisableSsoCommand, DisableSsoCommandInput, DisableSsoCommandOutput } from "./commands/DisableSsoCommand.ts";
-import {
-  EnableLDAPSCommand,
-  EnableLDAPSCommandInput,
-  EnableLDAPSCommandOutput,
-} from "./commands/EnableLDAPSCommand.ts";
+import { EnableLDAPSCommand, EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "./commands/EnableLDAPSCommand.ts";
 import {
   EnableRadiusCommand,
   EnableRadiusCommandInput,
@@ -266,16 +247,8 @@ import {
   UpdateRadiusCommandInput,
   UpdateRadiusCommandOutput,
 } from "./commands/UpdateRadiusCommand.ts";
-import {
-  UpdateTrustCommand,
-  UpdateTrustCommandInput,
-  UpdateTrustCommandOutput,
-} from "./commands/UpdateTrustCommand.ts";
-import {
-  VerifyTrustCommand,
-  VerifyTrustCommandInput,
-  VerifyTrustCommandOutput,
-} from "./commands/VerifyTrustCommand.ts";
+import { UpdateTrustCommand, UpdateTrustCommandInput, UpdateTrustCommandOutput } from "./commands/UpdateTrustCommand.ts";
+import { VerifyTrustCommand, VerifyTrustCommandInput, VerifyTrustCommandOutput } from "./commands/VerifyTrustCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**

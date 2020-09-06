@@ -1,3 +1,4 @@
+
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
 import { GetLogRecordRequest, GetLogRecordResponse } from "../models/index.ts";
 import {

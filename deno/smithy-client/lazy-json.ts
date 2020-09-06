@@ -1,3 +1,4 @@
+
 /**
  * Lazy String holder for JSON typed contents.
  */

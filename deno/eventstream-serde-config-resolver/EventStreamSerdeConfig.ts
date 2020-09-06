@@ -1,3 +1,4 @@
+
 import { EventStreamMarshaller, EventStreamSerdeProvider } from "../types/mod.ts";
 
 export interface EventStreamSerdeInputConfig {}

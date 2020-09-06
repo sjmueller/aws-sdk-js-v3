@@ -1,3 +1,4 @@
+
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
 import { GetPolicyRequest, GetPolicyResponse } from "../models/index.ts";
 import { deserializeAws_queryGetPolicyCommand, serializeAws_queryGetPolicyCommand } from "../protocols/Aws_query.ts";

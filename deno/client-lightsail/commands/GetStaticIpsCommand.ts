@@ -1,3 +1,4 @@
+
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
 import { GetStaticIpsRequest, GetStaticIpsResult } from "../models/index.ts";
 import {

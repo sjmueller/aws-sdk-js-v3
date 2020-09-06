@@ -1,3 +1,4 @@
+
 export function escapeUri(uri: string): string {
   let output = encodeURIComponent(uri);
 

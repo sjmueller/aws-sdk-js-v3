@@ -1,3 +1,4 @@
+
 import { AutoScalingClient } from "./AutoScalingClient.ts";
 import {
   AttachInstancesCommand,
@@ -210,11 +211,7 @@ import {
   ExecutePolicyCommandInput,
   ExecutePolicyCommandOutput,
 } from "./commands/ExecutePolicyCommand.ts";
-import {
-  ExitStandbyCommand,
-  ExitStandbyCommandInput,
-  ExitStandbyCommandOutput,
-} from "./commands/ExitStandbyCommand.ts";
+import { ExitStandbyCommand, ExitStandbyCommandInput, ExitStandbyCommandOutput } from "./commands/ExitStandbyCommand.ts";
 import {
   PutLifecycleHookCommand,
   PutLifecycleHookCommandInput,

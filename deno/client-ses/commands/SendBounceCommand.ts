@@ -1,3 +1,4 @@
+
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
 import { SendBounceRequest, SendBounceResponse } from "../models/index.ts";
 import { deserializeAws_querySendBounceCommand, serializeAws_querySendBounceCommand } from "../protocols/Aws_query.ts";

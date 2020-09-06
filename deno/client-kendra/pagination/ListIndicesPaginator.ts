@@ -1,10 +1,7 @@
+
 import { Kendra } from "../Kendra.ts";
 import { KendraClient } from "../KendraClient.ts";
-import {
-  ListIndicesCommand,
-  ListIndicesCommandInput,
-  ListIndicesCommandOutput,
-} from "../commands/ListIndicesCommand.ts";
+import { ListIndicesCommand, ListIndicesCommandInput, ListIndicesCommandOutput } from "../commands/ListIndicesCommand.ts";
 import { KendraPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

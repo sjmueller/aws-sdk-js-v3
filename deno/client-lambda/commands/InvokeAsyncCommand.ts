@@ -1,3 +1,4 @@
+import { Buffer } from "../../buffer/mod.ts";
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
 import { InvokeAsyncRequest, InvokeAsyncResponse } from "../models/index.ts";
 import {

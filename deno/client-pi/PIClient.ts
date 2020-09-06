@@ -1,11 +1,9 @@
+
 import {
   DescribeDimensionKeysCommandInput,
   DescribeDimensionKeysCommandOutput,
 } from "./commands/DescribeDimensionKeysCommand.ts";
-import {
-  GetResourceMetricsCommandInput,
-  GetResourceMetricsCommandOutput,
-} from "./commands/GetResourceMetricsCommand.ts";
+import { GetResourceMetricsCommandInput, GetResourceMetricsCommandOutput } from "./commands/GetResourceMetricsCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,

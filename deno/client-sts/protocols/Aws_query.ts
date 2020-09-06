@@ -1,8 +1,6 @@
+
 import { AssumeRoleCommandInput, AssumeRoleCommandOutput } from "../commands/AssumeRoleCommand.ts";
-import {
-  AssumeRoleWithSAMLCommandInput,
-  AssumeRoleWithSAMLCommandOutput,
-} from "../commands/AssumeRoleWithSAMLCommand.ts";
+import { AssumeRoleWithSAMLCommandInput, AssumeRoleWithSAMLCommandOutput } from "../commands/AssumeRoleWithSAMLCommand.ts";
 import {
   AssumeRoleWithWebIdentityCommandInput,
   AssumeRoleWithWebIdentityCommandOutput,
@@ -13,10 +11,7 @@ import {
 } from "../commands/DecodeAuthorizationMessageCommand.ts";
 import { GetAccessKeyInfoCommandInput, GetAccessKeyInfoCommandOutput } from "../commands/GetAccessKeyInfoCommand.ts";
 import { GetCallerIdentityCommandInput, GetCallerIdentityCommandOutput } from "../commands/GetCallerIdentityCommand.ts";
-import {
-  GetFederationTokenCommandInput,
-  GetFederationTokenCommandOutput,
-} from "../commands/GetFederationTokenCommand.ts";
+import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "../commands/GetFederationTokenCommand.ts";
 import { GetSessionTokenCommandInput, GetSessionTokenCommandOutput } from "../commands/GetSessionTokenCommand.ts";
 import {
   AssumeRoleRequest,

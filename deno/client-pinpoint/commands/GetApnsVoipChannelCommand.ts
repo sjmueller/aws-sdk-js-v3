@@ -1,3 +1,4 @@
+
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
 import { GetApnsVoipChannelRequest, GetApnsVoipChannelResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { MediaConvertClient } from "./MediaConvertClient.ts";
 import {
   AssociateCertificateCommand,
@@ -16,11 +17,7 @@ import {
   CreatePresetCommandInput,
   CreatePresetCommandOutput,
 } from "./commands/CreatePresetCommand.ts";
-import {
-  CreateQueueCommand,
-  CreateQueueCommandInput,
-  CreateQueueCommandOutput,
-} from "./commands/CreateQueueCommand.ts";
+import { CreateQueueCommand, CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand.ts";
 import {
   DeleteJobTemplateCommand,
   DeleteJobTemplateCommandInput,
@@ -31,11 +28,7 @@ import {
   DeletePresetCommandInput,
   DeletePresetCommandOutput,
 } from "./commands/DeletePresetCommand.ts";
-import {
-  DeleteQueueCommand,
-  DeleteQueueCommandInput,
-  DeleteQueueCommandOutput,
-} from "./commands/DeleteQueueCommand.ts";
+import { DeleteQueueCommand, DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand.ts";
 import {
   DescribeEndpointsCommand,
   DescribeEndpointsCommandInput,
@@ -60,22 +53,14 @@ import {
   ListJobTemplatesCommandOutput,
 } from "./commands/ListJobTemplatesCommand.ts";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand.ts";
-import {
-  ListPresetsCommand,
-  ListPresetsCommandInput,
-  ListPresetsCommandOutput,
-} from "./commands/ListPresetsCommand.ts";
+import { ListPresetsCommand, ListPresetsCommandInput, ListPresetsCommandOutput } from "./commands/ListPresetsCommand.ts";
 import { ListQueuesCommand, ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -91,11 +76,7 @@ import {
   UpdatePresetCommandInput,
   UpdatePresetCommandOutput,
 } from "./commands/UpdatePresetCommand.ts";
-import {
-  UpdateQueueCommand,
-  UpdateQueueCommandInput,
-  UpdateQueueCommandOutput,
-} from "./commands/UpdateQueueCommand.ts";
+import { UpdateQueueCommand, UpdateQueueCommandInput, UpdateQueueCommandOutput } from "./commands/UpdateQueueCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**

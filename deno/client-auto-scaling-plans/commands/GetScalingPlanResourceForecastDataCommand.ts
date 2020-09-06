@@ -1,12 +1,6 @@
-import {
-  AutoScalingPlansClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AutoScalingPlansClient.ts";
-import {
-  GetScalingPlanResourceForecastDataRequest,
-  GetScalingPlanResourceForecastDataResponse,
-} from "../models/index.ts";
+
+import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient.ts";
+import { GetScalingPlanResourceForecastDataRequest, GetScalingPlanResourceForecastDataResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand,
   serializeAws_json1_1GetScalingPlanResourceForecastDataCommand,

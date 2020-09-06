@@ -1,3 +1,4 @@
+
 import { AppConfigClient } from "./AppConfigClient.ts";
 import {
   CreateApplicationCommand,
@@ -129,11 +130,7 @@ import {
   StopDeploymentCommandInput,
   StopDeploymentCommandOutput,
 } from "./commands/StopDeploymentCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

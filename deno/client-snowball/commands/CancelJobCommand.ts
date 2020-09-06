@@ -1,9 +1,7 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient.ts";
 import { CancelJobRequest, CancelJobResult } from "../models/index.ts";
-import {
-  deserializeAws_json1_1CancelJobCommand,
-  serializeAws_json1_1CancelJobCommand,
-} from "../protocols/Aws_json1_1.ts";
+import { deserializeAws_json1_1CancelJobCommand, serializeAws_json1_1CancelJobCommand } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";

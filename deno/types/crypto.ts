@@ -1,3 +1,4 @@
+
 export type SourceData = string | ArrayBuffer | ArrayBufferView;
 
 /**

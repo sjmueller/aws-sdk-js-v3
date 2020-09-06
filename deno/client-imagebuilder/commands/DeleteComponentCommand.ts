@@ -1,3 +1,4 @@
+
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
 import { DeleteComponentRequest, DeleteComponentResponse } from "../models/index.ts";
 import {

@@ -1,8 +1,6 @@
+
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
-import {
-  GetDeliverabilityDashboardOptionsRequest,
-  GetDeliverabilityDashboardOptionsResponse,
-} from "../models/index.ts";
+import { GetDeliverabilityDashboardOptionsRequest, GetDeliverabilityDashboardOptionsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommand,
   serializeAws_restJson1GetDeliverabilityDashboardOptionsCommand,

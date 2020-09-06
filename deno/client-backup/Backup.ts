@@ -1,3 +1,4 @@
+
 import { BackupClient } from "./BackupClient.ts";
 import {
   CreateBackupPlanCommand,
@@ -210,11 +211,7 @@ import {
   StopBackupJobCommandInput,
   StopBackupJobCommandOutput,
 } from "./commands/StopBackupJobCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

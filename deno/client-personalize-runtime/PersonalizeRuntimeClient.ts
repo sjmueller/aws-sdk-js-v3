@@ -1,11 +1,9 @@
+
 import {
   GetPersonalizedRankingCommandInput,
   GetPersonalizedRankingCommandOutput,
 } from "./commands/GetPersonalizedRankingCommand.ts";
-import {
-  GetRecommendationsCommandInput,
-  GetRecommendationsCommandOutput,
-} from "./commands/GetRecommendationsCommand.ts";
+import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "./commands/GetRecommendationsCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,

@@ -1,3 +1,4 @@
+
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
 import { SetIdentityNotificationTopicRequest, SetIdentityNotificationTopicResponse } from "../models/index.ts";
 import {

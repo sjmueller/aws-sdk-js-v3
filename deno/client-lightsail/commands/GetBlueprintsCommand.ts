@@ -1,3 +1,4 @@
+
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
 import { GetBlueprintsRequest, GetBlueprintsResult } from "../models/index.ts";
 import {

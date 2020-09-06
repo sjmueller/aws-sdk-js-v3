@@ -1,3 +1,4 @@
+
 import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "../commands/AcceptInvitationCommand.ts";
 import { ArchiveFindingsCommandInput, ArchiveFindingsCommandOutput } from "../commands/ArchiveFindingsCommand.ts";
 import { CreateDetectorCommandInput, CreateDetectorCommandOutput } from "../commands/CreateDetectorCommand.ts";
@@ -16,10 +17,7 @@ import {
   CreateThreatIntelSetCommandInput,
   CreateThreatIntelSetCommandOutput,
 } from "../commands/CreateThreatIntelSetCommand.ts";
-import {
-  DeclineInvitationsCommandInput,
-  DeclineInvitationsCommandOutput,
-} from "../commands/DeclineInvitationsCommand.ts";
+import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "../commands/DeclineInvitationsCommand.ts";
 import { DeleteDetectorCommandInput, DeleteDetectorCommandOutput } from "../commands/DeleteDetectorCommand.ts";
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "../commands/DeleteFilterCommand.ts";
 import { DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "../commands/DeleteIPSetCommand.ts";
@@ -70,16 +68,10 @@ import {
   GetInvitationsCountCommandOutput,
 } from "../commands/GetInvitationsCountCommand.ts";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "../commands/GetMasterAccountCommand.ts";
-import {
-  GetMemberDetectorsCommandInput,
-  GetMemberDetectorsCommandOutput,
-} from "../commands/GetMemberDetectorsCommand.ts";
+import { GetMemberDetectorsCommandInput, GetMemberDetectorsCommandOutput } from "../commands/GetMemberDetectorsCommand.ts";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "../commands/GetMembersCommand.ts";
 import { GetThreatIntelSetCommandInput, GetThreatIntelSetCommandOutput } from "../commands/GetThreatIntelSetCommand.ts";
-import {
-  GetUsageStatisticsCommandInput,
-  GetUsageStatisticsCommandOutput,
-} from "../commands/GetUsageStatisticsCommand.ts";
+import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "../commands/GetUsageStatisticsCommand.ts";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "../commands/InviteMembersCommand.ts";
 import { ListDetectorsCommandInput, ListDetectorsCommandOutput } from "../commands/ListDetectorsCommand.ts";
 import { ListFiltersCommandInput, ListFiltersCommandOutput } from "../commands/ListFiltersCommand.ts";

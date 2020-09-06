@@ -1,3 +1,4 @@
+
 import { SageMakerClient } from "./SageMakerClient.ts";
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand.ts";
 import {
@@ -66,11 +67,7 @@ import {
   CreateLabelingJobCommandInput,
   CreateLabelingJobCommandOutput,
 } from "./commands/CreateLabelingJobCommand.ts";
-import {
-  CreateModelCommand,
-  CreateModelCommandInput,
-  CreateModelCommandOutput,
-} from "./commands/CreateModelCommand.ts";
+import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand.ts";
 import {
   CreateModelPackageCommand,
   CreateModelPackageCommandInput,
@@ -116,11 +113,7 @@ import {
   CreateTransformJobCommandInput,
   CreateTransformJobCommandOutput,
 } from "./commands/CreateTransformJobCommand.ts";
-import {
-  CreateTrialCommand,
-  CreateTrialCommandInput,
-  CreateTrialCommandOutput,
-} from "./commands/CreateTrialCommand.ts";
+import { CreateTrialCommand, CreateTrialCommandInput, CreateTrialCommandOutput } from "./commands/CreateTrialCommand.ts";
 import {
   CreateTrialComponentCommand,
   CreateTrialComponentCommandInput,
@@ -182,11 +175,7 @@ import {
   DeleteHumanTaskUiCommandInput,
   DeleteHumanTaskUiCommandOutput,
 } from "./commands/DeleteHumanTaskUiCommand.ts";
-import {
-  DeleteModelCommand,
-  DeleteModelCommandInput,
-  DeleteModelCommandOutput,
-} from "./commands/DeleteModelCommand.ts";
+import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand.ts";
 import {
   DeleteModelPackageCommand,
   DeleteModelPackageCommandInput,
@@ -208,11 +197,7 @@ import {
   DeleteNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/DeleteNotebookInstanceLifecycleConfigCommand.ts";
 import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand.ts";
-import {
-  DeleteTrialCommand,
-  DeleteTrialCommandInput,
-  DeleteTrialCommandOutput,
-} from "./commands/DeleteTrialCommand.ts";
+import { DeleteTrialCommand, DeleteTrialCommandInput, DeleteTrialCommandOutput } from "./commands/DeleteTrialCommand.ts";
 import {
   DeleteTrialComponentCommand,
   DeleteTrialComponentCommandInput,
@@ -238,11 +223,7 @@ import {
   DescribeAlgorithmCommandInput,
   DescribeAlgorithmCommandOutput,
 } from "./commands/DescribeAlgorithmCommand.ts";
-import {
-  DescribeAppCommand,
-  DescribeAppCommandInput,
-  DescribeAppCommandOutput,
-} from "./commands/DescribeAppCommand.ts";
+import { DescribeAppCommand, DescribeAppCommandInput, DescribeAppCommandOutput } from "./commands/DescribeAppCommand.ts";
 import {
   DescribeAutoMLJobCommand,
   DescribeAutoMLJobCommandInput,
@@ -404,11 +385,7 @@ import {
   ListCompilationJobsCommandInput,
   ListCompilationJobsCommandOutput,
 } from "./commands/ListCompilationJobsCommand.ts";
-import {
-  ListDomainsCommand,
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput,
-} from "./commands/ListDomainsCommand.ts";
+import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand.ts";
 import {
   ListEndpointConfigsCommand,
   ListEndpointConfigsCommandInput,
@@ -623,11 +600,7 @@ import {
   UpdateNotebookInstanceLifecycleConfigCommandInput,
   UpdateNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/UpdateNotebookInstanceLifecycleConfigCommand.ts";
-import {
-  UpdateTrialCommand,
-  UpdateTrialCommandInput,
-  UpdateTrialCommandOutput,
-} from "./commands/UpdateTrialCommand.ts";
+import { UpdateTrialCommand, UpdateTrialCommandInput, UpdateTrialCommandOutput } from "./commands/UpdateTrialCommand.ts";
 import {
   UpdateTrialComponentCommand,
   UpdateTrialComponentCommandInput,

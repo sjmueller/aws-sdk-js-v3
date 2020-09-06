@@ -1,7 +1,7 @@
 import { ProviderError } from "@aws-sdk/property-provider";
-import { Provider } from "@aws-sdk/types";
+import { Provider, ProcessEnv } from "@aws-sdk/types";
 
-export type GetterFromEnv<T> = (env: NodeJS.ProcessEnv) => T | undefined;
+export type GetterFromEnv<T> = (env: ProcessEnv) => T | undefined;
 
 /**
  * Get config value given the environment variable name or getter from

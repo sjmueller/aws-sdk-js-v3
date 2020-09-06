@@ -1,3 +1,4 @@
+
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
 import { CreateVirtualMFADeviceRequest, CreateVirtualMFADeviceResponse } from "../models/index.ts";
 import {

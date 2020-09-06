@@ -1,3 +1,4 @@
+
 const name = "@aws-sdk/client-braket";
 const version = "1.0.0-gamma.0";
 import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";

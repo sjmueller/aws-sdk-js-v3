@@ -1,3 +1,4 @@
+
 import {
   ClaimDevicesByClaimCodeCommandInput,
   ClaimDevicesByClaimCodeCommandOutput,
@@ -12,10 +13,7 @@ import {
   InitiateDeviceClaimCommandInput,
   InitiateDeviceClaimCommandOutput,
 } from "../commands/InitiateDeviceClaimCommand.ts";
-import {
-  InvokeDeviceMethodCommandInput,
-  InvokeDeviceMethodCommandOutput,
-} from "../commands/InvokeDeviceMethodCommand.ts";
+import { InvokeDeviceMethodCommandInput, InvokeDeviceMethodCommandOutput } from "../commands/InvokeDeviceMethodCommand.ts";
 import { ListDeviceEventsCommandInput, ListDeviceEventsCommandOutput } from "../commands/ListDeviceEventsCommand.ts";
 import { ListDevicesCommandInput, ListDevicesCommandOutput } from "../commands/ListDevicesCommand.ts";
 import {

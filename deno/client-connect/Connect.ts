@@ -1,3 +1,4 @@
+
 import { ConnectClient } from "./ConnectClient.ts";
 import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
@@ -93,11 +94,7 @@ import {
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand.ts";
-import {
-  StopContactCommand,
-  StopContactCommandInput,
-  StopContactCommandOutput,
-} from "./commands/StopContactCommand.ts";
+import { StopContactCommand, StopContactCommandInput, StopContactCommandOutput } from "./commands/StopContactCommand.ts";
 import {
   StopContactRecordingCommand,
   StopContactRecordingCommandInput,
@@ -108,11 +105,7 @@ import {
   SuspendContactRecordingCommandInput,
   SuspendContactRecordingCommandOutput,
 } from "./commands/SuspendContactRecordingCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

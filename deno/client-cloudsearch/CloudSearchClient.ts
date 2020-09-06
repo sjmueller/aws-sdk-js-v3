@@ -1,3 +1,4 @@
+
 import { BuildSuggestersCommandInput, BuildSuggestersCommandOutput } from "./commands/BuildSuggestersCommand.ts";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand.ts";
 import {
@@ -44,10 +45,7 @@ import {
   DescribeServiceAccessPoliciesCommandInput,
   DescribeServiceAccessPoliciesCommandOutput,
 } from "./commands/DescribeServiceAccessPoliciesCommand.ts";
-import {
-  DescribeSuggestersCommandInput,
-  DescribeSuggestersCommandOutput,
-} from "./commands/DescribeSuggestersCommand.ts";
+import { DescribeSuggestersCommandInput, DescribeSuggestersCommandOutput } from "./commands/DescribeSuggestersCommand.ts";
 import { IndexDocumentsCommandInput, IndexDocumentsCommandOutput } from "./commands/IndexDocumentsCommand.ts";
 import { ListDomainNamesCommandInput, ListDomainNamesCommandOutput } from "./commands/ListDomainNamesCommand.ts";
 import {

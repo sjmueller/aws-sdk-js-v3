@@ -1,3 +1,4 @@
+
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
 import { DescribeScalingPoliciesInput, DescribeScalingPoliciesOutput } from "../models/index.ts";
 import {

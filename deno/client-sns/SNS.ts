@@ -1,3 +1,4 @@
+
 import { SNSClient } from "./SNSClient.ts";
 import {
   AddPermissionCommand,
@@ -24,11 +25,7 @@ import {
   CreatePlatformEndpointCommandInput,
   CreatePlatformEndpointCommandOutput,
 } from "./commands/CreatePlatformEndpointCommand.ts";
-import {
-  CreateTopicCommand,
-  CreateTopicCommandInput,
-  CreateTopicCommandOutput,
-} from "./commands/CreateTopicCommand.ts";
+import { CreateTopicCommand, CreateTopicCommandInput, CreateTopicCommandOutput } from "./commands/CreateTopicCommand.ts";
 import {
   DeleteEndpointCommand,
   DeleteEndpointCommandInput,
@@ -39,11 +36,7 @@ import {
   DeletePlatformApplicationCommandInput,
   DeletePlatformApplicationCommandOutput,
 } from "./commands/DeletePlatformApplicationCommand.ts";
-import {
-  DeleteTopicCommand,
-  DeleteTopicCommandInput,
-  DeleteTopicCommandOutput,
-} from "./commands/DeleteTopicCommand.ts";
+import { DeleteTopicCommand, DeleteTopicCommandInput, DeleteTopicCommandOutput } from "./commands/DeleteTopicCommand.ts";
 import {
   GetEndpointAttributesCommand,
   GetEndpointAttributesCommandInput,
@@ -137,16 +130,8 @@ import {
   SetTopicAttributesCommandOutput,
 } from "./commands/SetTopicAttributesCommand.ts";
 import { SubscribeCommand, SubscribeCommandInput, SubscribeCommandOutput } from "./commands/SubscribeCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
-import {
-  UnsubscribeCommand,
-  UnsubscribeCommandInput,
-  UnsubscribeCommandOutput,
-} from "./commands/UnsubscribeCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UnsubscribeCommand, UnsubscribeCommandInput, UnsubscribeCommandOutput } from "./commands/UnsubscribeCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

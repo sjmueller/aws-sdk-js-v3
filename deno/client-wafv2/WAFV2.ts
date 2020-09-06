@@ -1,3 +1,4 @@
+
 import { WAFV2Client } from "./WAFV2Client.ts";
 import {
   AssociateWebACLCommand,
@@ -9,11 +10,7 @@ import {
   CheckCapacityCommandInput,
   CheckCapacityCommandOutput,
 } from "./commands/CheckCapacityCommand.ts";
-import {
-  CreateIPSetCommand,
-  CreateIPSetCommandInput,
-  CreateIPSetCommandOutput,
-} from "./commands/CreateIPSetCommand.ts";
+import { CreateIPSetCommand, CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand.ts";
 import {
   CreateRegexPatternSetCommand,
   CreateRegexPatternSetCommandInput,
@@ -34,11 +31,7 @@ import {
   DeleteFirewallManagerRuleGroupsCommandInput,
   DeleteFirewallManagerRuleGroupsCommandOutput,
 } from "./commands/DeleteFirewallManagerRuleGroupsCommand.ts";
-import {
-  DeleteIPSetCommand,
-  DeleteIPSetCommandInput,
-  DeleteIPSetCommandOutput,
-} from "./commands/DeleteIPSetCommand.ts";
+import { DeleteIPSetCommand, DeleteIPSetCommandInput, DeleteIPSetCommandOutput } from "./commands/DeleteIPSetCommand.ts";
 import {
   DeleteLoggingConfigurationCommand,
   DeleteLoggingConfigurationCommandInput,
@@ -142,11 +135,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  ListWebACLsCommand,
-  ListWebACLsCommandInput,
-  ListWebACLsCommandOutput,
-} from "./commands/ListWebACLsCommand.ts";
+import { ListWebACLsCommand, ListWebACLsCommandInput, ListWebACLsCommandOutput } from "./commands/ListWebACLsCommand.ts";
 import {
   PutLoggingConfigurationCommand,
   PutLoggingConfigurationCommandInput,
@@ -157,21 +146,13 @@ import {
   PutPermissionPolicyCommandInput,
   PutPermissionPolicyCommandOutput,
 } from "./commands/PutPermissionPolicyCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateIPSetCommand,
-  UpdateIPSetCommandInput,
-  UpdateIPSetCommandOutput,
-} from "./commands/UpdateIPSetCommand.ts";
+import { UpdateIPSetCommand, UpdateIPSetCommandInput, UpdateIPSetCommandOutput } from "./commands/UpdateIPSetCommand.ts";
 import {
   UpdateRegexPatternSetCommand,
   UpdateRegexPatternSetCommandInput,

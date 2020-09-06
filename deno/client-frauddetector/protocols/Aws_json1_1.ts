@@ -1,3 +1,4 @@
+
 import {
   BatchCreateVariableCommandInput,
   BatchCreateVariableCommandOutput,
@@ -8,10 +9,7 @@ import {
   CreateDetectorVersionCommandOutput,
 } from "../commands/CreateDetectorVersionCommand.ts";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "../commands/CreateModelCommand.ts";
-import {
-  CreateModelVersionCommandInput,
-  CreateModelVersionCommandOutput,
-} from "../commands/CreateModelVersionCommand.ts";
+import { CreateModelVersionCommandInput, CreateModelVersionCommandOutput } from "../commands/CreateModelVersionCommand.ts";
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "../commands/CreateRuleCommand.ts";
 import { CreateVariableCommandInput, CreateVariableCommandOutput } from "../commands/CreateVariableCommand.ts";
 import { DeleteDetectorCommandInput, DeleteDetectorCommandOutput } from "../commands/DeleteDetectorCommand.ts";
@@ -26,16 +24,10 @@ import {
   DescribeModelVersionsCommandInput,
   DescribeModelVersionsCommandOutput,
 } from "../commands/DescribeModelVersionsCommand.ts";
-import {
-  GetDetectorVersionCommandInput,
-  GetDetectorVersionCommandOutput,
-} from "../commands/GetDetectorVersionCommand.ts";
+import { GetDetectorVersionCommandInput, GetDetectorVersionCommandOutput } from "../commands/GetDetectorVersionCommand.ts";
 import { GetDetectorsCommandInput, GetDetectorsCommandOutput } from "../commands/GetDetectorsCommand.ts";
 import { GetEntityTypesCommandInput, GetEntityTypesCommandOutput } from "../commands/GetEntityTypesCommand.ts";
-import {
-  GetEventPredictionCommandInput,
-  GetEventPredictionCommandOutput,
-} from "../commands/GetEventPredictionCommand.ts";
+import { GetEventPredictionCommandInput, GetEventPredictionCommandOutput } from "../commands/GetEventPredictionCommand.ts";
 import { GetEventTypesCommandInput, GetEventTypesCommandOutput } from "../commands/GetEventTypesCommand.ts";
 import { GetExternalModelsCommandInput, GetExternalModelsCommandOutput } from "../commands/GetExternalModelsCommand.ts";
 import {
@@ -77,18 +69,12 @@ import {
   UpdateDetectorVersionStatusCommandOutput,
 } from "../commands/UpdateDetectorVersionStatusCommand.ts";
 import { UpdateModelCommandInput, UpdateModelCommandOutput } from "../commands/UpdateModelCommand.ts";
-import {
-  UpdateModelVersionCommandInput,
-  UpdateModelVersionCommandOutput,
-} from "../commands/UpdateModelVersionCommand.ts";
+import { UpdateModelVersionCommandInput, UpdateModelVersionCommandOutput } from "../commands/UpdateModelVersionCommand.ts";
 import {
   UpdateModelVersionStatusCommandInput,
   UpdateModelVersionStatusCommandOutput,
 } from "../commands/UpdateModelVersionStatusCommand.ts";
-import {
-  UpdateRuleMetadataCommandInput,
-  UpdateRuleMetadataCommandOutput,
-} from "../commands/UpdateRuleMetadataCommand.ts";
+import { UpdateRuleMetadataCommandInput, UpdateRuleMetadataCommandOutput } from "../commands/UpdateRuleMetadataCommand.ts";
 import { UpdateRuleVersionCommandInput, UpdateRuleVersionCommandOutput } from "../commands/UpdateRuleVersionCommand.ts";
 import { UpdateVariableCommandInput, UpdateVariableCommandOutput } from "../commands/UpdateVariableCommand.ts";
 import {

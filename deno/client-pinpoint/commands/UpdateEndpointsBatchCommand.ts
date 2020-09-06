@@ -1,3 +1,4 @@
+
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
 import { UpdateEndpointsBatchRequest, UpdateEndpointsBatchResponse } from "../models/index.ts";
 import {

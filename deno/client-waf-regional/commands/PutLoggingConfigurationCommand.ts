@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
 import { PutLoggingConfigurationRequest, PutLoggingConfigurationResponse } from "../models/index.ts";
 import {

@@ -1,8 +1,6 @@
+
 import { AnalyzeDocumentCommandInput, AnalyzeDocumentCommandOutput } from "./commands/AnalyzeDocumentCommand.ts";
-import {
-  DetectDocumentTextCommandInput,
-  DetectDocumentTextCommandOutput,
-} from "./commands/DetectDocumentTextCommand.ts";
+import { DetectDocumentTextCommandInput, DetectDocumentTextCommandOutput } from "./commands/DetectDocumentTextCommand.ts";
 import {
   GetDocumentAnalysisCommandInput,
   GetDocumentAnalysisCommandOutput,

@@ -1,3 +1,4 @@
+
 import { CreateDiscovererCommandInput, CreateDiscovererCommandOutput } from "./commands/CreateDiscovererCommand.ts";
 import { CreateRegistryCommandInput, CreateRegistryCommandOutput } from "./commands/CreateRegistryCommand.ts";
 import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand.ts";
@@ -16,10 +17,7 @@ import {
   DescribeCodeBindingCommandInput,
   DescribeCodeBindingCommandOutput,
 } from "./commands/DescribeCodeBindingCommand.ts";
-import {
-  DescribeDiscovererCommandInput,
-  DescribeDiscovererCommandOutput,
-} from "./commands/DescribeDiscovererCommand.ts";
+import { DescribeDiscovererCommandInput, DescribeDiscovererCommandOutput } from "./commands/DescribeDiscovererCommand.ts";
 import { DescribeRegistryCommandInput, DescribeRegistryCommandOutput } from "./commands/DescribeRegistryCommand.ts";
 import { DescribeSchemaCommandInput, DescribeSchemaCommandOutput } from "./commands/DescribeSchemaCommand.ts";
 import {
@@ -33,10 +31,7 @@ import {
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand.ts";
 import { ListDiscoverersCommandInput, ListDiscoverersCommandOutput } from "./commands/ListDiscoverersCommand.ts";
 import { ListRegistriesCommandInput, ListRegistriesCommandOutput } from "./commands/ListRegistriesCommand.ts";
-import {
-  ListSchemaVersionsCommandInput,
-  ListSchemaVersionsCommandOutput,
-} from "./commands/ListSchemaVersionsCommand.ts";
+import { ListSchemaVersionsCommandInput, ListSchemaVersionsCommandOutput } from "./commands/ListSchemaVersionsCommand.ts";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand.ts";
 import {
   ListTagsForResourceCommandInput,

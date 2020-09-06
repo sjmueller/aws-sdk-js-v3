@@ -1,3 +1,4 @@
+
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
 import { BatchCreateAttendeeRequest, BatchCreateAttendeeResponse } from "../models/index.ts";
 import {

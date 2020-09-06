@@ -1,3 +1,4 @@
+
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
 import { GetDomainNamesRequest, GetDomainNamesResponse } from "../models/index.ts";
 import {

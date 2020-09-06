@@ -1,3 +1,4 @@
+
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
 import { CreateTransitVirtualInterfaceRequest, CreateTransitVirtualInterfaceResult } from "../models/index.ts";
 import {

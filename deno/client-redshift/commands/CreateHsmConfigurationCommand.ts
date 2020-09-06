@@ -1,3 +1,4 @@
+
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
 import { CreateHsmConfigurationMessage, CreateHsmConfigurationResult } from "../models/index.ts";
 import {

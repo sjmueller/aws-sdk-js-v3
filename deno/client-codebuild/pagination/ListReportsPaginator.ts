@@ -1,10 +1,7 @@
+
 import { CodeBuild } from "../CodeBuild.ts";
 import { CodeBuildClient } from "../CodeBuildClient.ts";
-import {
-  ListReportsCommand,
-  ListReportsCommandInput,
-  ListReportsCommandOutput,
-} from "../commands/ListReportsCommand.ts";
+import { ListReportsCommand, ListReportsCommandInput, ListReportsCommandOutput } from "../commands/ListReportsCommand.ts";
 import { CodeBuildPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

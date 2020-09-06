@@ -1,3 +1,4 @@
+
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
 import { PutVoiceConnectorOriginationRequest, PutVoiceConnectorOriginationResponse } from "../models/index.ts";
 import {

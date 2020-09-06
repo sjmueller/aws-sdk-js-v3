@@ -1,3 +1,4 @@
+
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient.ts";
 import { GetOutpostInput, GetOutpostOutput } from "../models/index.ts";
 import {

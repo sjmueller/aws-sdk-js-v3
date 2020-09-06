@@ -1,3 +1,4 @@
+
 import {
   AssociateDelegateToResourceCommandInput,
   AssociateDelegateToResourceCommandOutput,
@@ -56,15 +57,9 @@ import {
   PutMailboxPermissionsCommandInput,
   PutMailboxPermissionsCommandOutput,
 } from "./commands/PutMailboxPermissionsCommand.ts";
-import {
-  RegisterToWorkMailCommandInput,
-  RegisterToWorkMailCommandOutput,
-} from "./commands/RegisterToWorkMailCommand.ts";
+import { RegisterToWorkMailCommandInput, RegisterToWorkMailCommandOutput } from "./commands/RegisterToWorkMailCommand.ts";
 import { ResetPasswordCommandInput, ResetPasswordCommandOutput } from "./commands/ResetPasswordCommand.ts";
-import {
-  UpdateMailboxQuotaCommandInput,
-  UpdateMailboxQuotaCommandOutput,
-} from "./commands/UpdateMailboxQuotaCommand.ts";
+import { UpdateMailboxQuotaCommandInput, UpdateMailboxQuotaCommandOutput } from "./commands/UpdateMailboxQuotaCommand.ts";
 import {
   UpdatePrimaryEmailAddressCommandInput,
   UpdatePrimaryEmailAddressCommandOutput,

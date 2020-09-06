@@ -1,9 +1,6 @@
+
 import { QLDBSessionClient } from "./QLDBSessionClient.ts";
-import {
-  SendCommandCommand,
-  SendCommandCommandInput,
-  SendCommandCommandOutput,
-} from "./commands/SendCommandCommand.ts";
+import { SendCommandCommand, SendCommandCommandInput, SendCommandCommandOutput } from "./commands/SendCommandCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**

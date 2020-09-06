@@ -1,10 +1,7 @@
+
 import { Personalize } from "../Personalize.ts";
 import { PersonalizeClient } from "../PersonalizeClient.ts";
-import {
-  ListRecipesCommand,
-  ListRecipesCommandInput,
-  ListRecipesCommandOutput,
-} from "../commands/ListRecipesCommand.ts";
+import { ListRecipesCommand, ListRecipesCommandInput, ListRecipesCommandOutput } from "../commands/ListRecipesCommand.ts";
 import { PersonalizePaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

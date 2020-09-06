@@ -1,3 +1,4 @@
+
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
 import { PutTargetsRequest, PutTargetsResponse } from "../models/index.ts";
 import {

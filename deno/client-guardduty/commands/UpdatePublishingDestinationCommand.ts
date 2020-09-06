@@ -1,3 +1,4 @@
+
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
 import { UpdatePublishingDestinationRequest, UpdatePublishingDestinationResponse } from "../models/index.ts";
 import {

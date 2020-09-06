@@ -1,7 +1,5 @@
-import {
-  CopyBackupToRegionCommandInput,
-  CopyBackupToRegionCommandOutput,
-} from "./commands/CopyBackupToRegionCommand.ts";
+
+import { CopyBackupToRegionCommandInput, CopyBackupToRegionCommandOutput } from "./commands/CopyBackupToRegionCommand.ts";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand.ts";
 import { CreateHsmCommandInput, CreateHsmCommandOutput } from "./commands/CreateHsmCommand.ts";
 import { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "./commands/DeleteBackupCommand.ts";

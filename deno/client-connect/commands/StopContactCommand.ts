@@ -1,3 +1,4 @@
+
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
 import { StopContactRequest, StopContactResponse } from "../models/index.ts";
 import {

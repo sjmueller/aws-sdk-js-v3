@@ -1,3 +1,4 @@
+
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
 import { ListPortfoliosInput, ListPortfoliosOutput } from "../models/index.ts";
 import {

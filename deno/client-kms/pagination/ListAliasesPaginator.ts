@@ -1,10 +1,7 @@
+
 import { KMS } from "../KMS.ts";
 import { KMSClient } from "../KMSClient.ts";
-import {
-  ListAliasesCommand,
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput,
-} from "../commands/ListAliasesCommand.ts";
+import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand.ts";
 import { KMSPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

@@ -1,3 +1,4 @@
+
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
 import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import {
   AssociateCreatedArtifactCommandInput,
   AssociateCreatedArtifactCommandOutput,
@@ -46,10 +47,7 @@ import {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand.ts";
-import {
-  ListMigrationTasksCommandInput,
-  ListMigrationTasksCommandOutput,
-} from "./commands/ListMigrationTasksCommand.ts";
+import { ListMigrationTasksCommandInput, ListMigrationTasksCommandOutput } from "./commands/ListMigrationTasksCommand.ts";
 import {
   ListProgressUpdateStreamsCommandInput,
   ListProgressUpdateStreamsCommandOutput,

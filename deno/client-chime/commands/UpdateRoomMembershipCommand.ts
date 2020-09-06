@@ -1,3 +1,4 @@
+
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
 import { UpdateRoomMembershipRequest, UpdateRoomMembershipResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 /**
  * Converts a JS string from its native UCS-2/UTF-16 representation into a
  * Uint8Array of the bytes used to represent the equivalent characters in UTF-8.

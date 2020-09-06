@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
 import { DescribeGatewayInformationInput, DescribeGatewayInformationOutput } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient.ts";
 import { CreateOriginEndpointRequest, CreateOriginEndpointResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import {
   KinesisAnalyticsV2ClientResolvedConfig,
   ServiceInputTypes,

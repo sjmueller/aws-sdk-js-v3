@@ -1,3 +1,4 @@
+
 import { KinesisVideoMediaClient } from "./KinesisVideoMediaClient.ts";
 import { GetMediaCommand, GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";

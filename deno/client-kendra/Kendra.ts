@@ -1,3 +1,4 @@
+
 import { KendraClient } from "./KendraClient.ts";
 import {
   BatchDeleteDocumentCommand,
@@ -15,32 +16,20 @@ import {
   CreateDataSourceCommandOutput,
 } from "./commands/CreateDataSourceCommand.ts";
 import { CreateFaqCommand, CreateFaqCommandInput, CreateFaqCommandOutput } from "./commands/CreateFaqCommand.ts";
-import {
-  CreateIndexCommand,
-  CreateIndexCommandInput,
-  CreateIndexCommandOutput,
-} from "./commands/CreateIndexCommand.ts";
+import { CreateIndexCommand, CreateIndexCommandInput, CreateIndexCommandOutput } from "./commands/CreateIndexCommand.ts";
 import {
   DeleteDataSourceCommand,
   DeleteDataSourceCommandInput,
   DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand.ts";
 import { DeleteFaqCommand, DeleteFaqCommandInput, DeleteFaqCommandOutput } from "./commands/DeleteFaqCommand.ts";
-import {
-  DeleteIndexCommand,
-  DeleteIndexCommandInput,
-  DeleteIndexCommandOutput,
-} from "./commands/DeleteIndexCommand.ts";
+import { DeleteIndexCommand, DeleteIndexCommandInput, DeleteIndexCommandOutput } from "./commands/DeleteIndexCommand.ts";
 import {
   DescribeDataSourceCommand,
   DescribeDataSourceCommandInput,
   DescribeDataSourceCommandOutput,
 } from "./commands/DescribeDataSourceCommand.ts";
-import {
-  DescribeFaqCommand,
-  DescribeFaqCommandInput,
-  DescribeFaqCommandOutput,
-} from "./commands/DescribeFaqCommand.ts";
+import { DescribeFaqCommand, DescribeFaqCommandInput, DescribeFaqCommandOutput } from "./commands/DescribeFaqCommand.ts";
 import {
   DescribeIndexCommand,
   DescribeIndexCommandInput,
@@ -57,11 +46,7 @@ import {
   ListDataSourcesCommandOutput,
 } from "./commands/ListDataSourcesCommand.ts";
 import { ListFaqsCommand, ListFaqsCommandInput, ListFaqsCommandOutput } from "./commands/ListFaqsCommand.ts";
-import {
-  ListIndicesCommand,
-  ListIndicesCommandInput,
-  ListIndicesCommandOutput,
-} from "./commands/ListIndicesCommand.ts";
+import { ListIndicesCommand, ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -83,11 +68,7 @@ import {
   SubmitFeedbackCommandInput,
   SubmitFeedbackCommandOutput,
 } from "./commands/SubmitFeedbackCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -98,11 +79,7 @@ import {
   UpdateDataSourceCommandInput,
   UpdateDataSourceCommandOutput,
 } from "./commands/UpdateDataSourceCommand.ts";
-import {
-  UpdateIndexCommand,
-  UpdateIndexCommandInput,
-  UpdateIndexCommandOutput,
-} from "./commands/UpdateIndexCommand.ts";
+import { UpdateIndexCommand, UpdateIndexCommandInput, UpdateIndexCommandOutput } from "./commands/UpdateIndexCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**

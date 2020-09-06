@@ -1,3 +1,4 @@
+
 import { ForecastqueryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastqueryClient.ts";
 import { QueryForecastRequest, QueryForecastResponse } from "../models/index.ts";
 import {

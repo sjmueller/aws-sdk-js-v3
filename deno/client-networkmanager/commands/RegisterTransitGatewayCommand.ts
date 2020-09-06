@@ -1,3 +1,4 @@
+
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient.ts";
 import { RegisterTransitGatewayRequest, RegisterTransitGatewayResponse } from "../models/index.ts";
 import {

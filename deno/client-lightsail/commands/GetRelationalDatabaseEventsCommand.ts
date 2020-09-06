@@ -1,3 +1,4 @@
+
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
 import { GetRelationalDatabaseEventsRequest, GetRelationalDatabaseEventsResult } from "../models/index.ts";
 import {

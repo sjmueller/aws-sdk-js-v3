@@ -1,3 +1,4 @@
+
 import { KinesisAnalyticsV2Client } from "./KinesisAnalyticsV2Client.ts";
 import {
   AddApplicationCloudWatchLoggingOptionCommand,
@@ -114,11 +115,7 @@ import {
   StopApplicationCommandInput,
   StopApplicationCommandOutput,
 } from "./commands/StopApplicationCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

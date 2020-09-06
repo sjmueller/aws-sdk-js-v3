@@ -1,3 +1,4 @@
+
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient.ts";
 import { GetSignalingChannelEndpointInput, GetSignalingChannelEndpointOutput } from "../models/index.ts";
 import {

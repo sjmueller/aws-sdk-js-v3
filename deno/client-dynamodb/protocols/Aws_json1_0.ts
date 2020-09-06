@@ -1,3 +1,4 @@
+
 import { BatchGetItemCommandInput, BatchGetItemCommandOutput } from "../commands/BatchGetItemCommand.ts";
 import { BatchWriteItemCommandInput, BatchWriteItemCommandOutput } from "../commands/BatchWriteItemCommand.ts";
 import { CreateBackupCommandInput, CreateBackupCommandOutput } from "../commands/CreateBackupCommand.ts";
@@ -30,10 +31,7 @@ import {
   DescribeTableReplicaAutoScalingCommandInput,
   DescribeTableReplicaAutoScalingCommandOutput,
 } from "../commands/DescribeTableReplicaAutoScalingCommand.ts";
-import {
-  DescribeTimeToLiveCommandInput,
-  DescribeTimeToLiveCommandOutput,
-} from "../commands/DescribeTimeToLiveCommand.ts";
+import { DescribeTimeToLiveCommandInput, DescribeTimeToLiveCommandOutput } from "../commands/DescribeTimeToLiveCommand.ts";
 import { GetItemCommandInput, GetItemCommandOutput } from "../commands/GetItemCommand.ts";
 import { ListBackupsCommandInput, ListBackupsCommandOutput } from "../commands/ListBackupsCommand.ts";
 import {
@@ -42,10 +40,7 @@ import {
 } from "../commands/ListContributorInsightsCommand.ts";
 import { ListGlobalTablesCommandInput, ListGlobalTablesCommandOutput } from "../commands/ListGlobalTablesCommand.ts";
 import { ListTablesCommandInput, ListTablesCommandOutput } from "../commands/ListTablesCommand.ts";
-import {
-  ListTagsOfResourceCommandInput,
-  ListTagsOfResourceCommandOutput,
-} from "../commands/ListTagsOfResourceCommand.ts";
+import { ListTagsOfResourceCommandInput, ListTagsOfResourceCommandOutput } from "../commands/ListTagsOfResourceCommand.ts";
 import { PutItemCommandInput, PutItemCommandOutput } from "../commands/PutItemCommand.ts";
 import { QueryCommandInput, QueryCommandOutput } from "../commands/QueryCommand.ts";
 import {
@@ -59,10 +54,7 @@ import {
 import { ScanCommandInput, ScanCommandOutput } from "../commands/ScanCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand.ts";
 import { TransactGetItemsCommandInput, TransactGetItemsCommandOutput } from "../commands/TransactGetItemsCommand.ts";
-import {
-  TransactWriteItemsCommandInput,
-  TransactWriteItemsCommandOutput,
-} from "../commands/TransactWriteItemsCommand.ts";
+import { TransactWriteItemsCommandInput, TransactWriteItemsCommandOutput } from "../commands/TransactWriteItemsCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand.ts";
 import {
   UpdateContinuousBackupsCommandInput,

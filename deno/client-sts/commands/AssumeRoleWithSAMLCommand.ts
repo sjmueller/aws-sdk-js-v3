@@ -1,3 +1,4 @@
+
 import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient.ts";
 import { AssumeRoleWithSAMLRequest, AssumeRoleWithSAMLResponse } from "../models/index.ts";
 import {

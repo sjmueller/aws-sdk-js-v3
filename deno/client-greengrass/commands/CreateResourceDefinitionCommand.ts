@@ -1,3 +1,4 @@
+
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
 import { CreateResourceDefinitionRequest, CreateResourceDefinitionResponse } from "../models/index.ts";
 import {

@@ -1,9 +1,7 @@
+
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
 import { DeleteLagRequest, Lag } from "../models/index.ts";
-import {
-  deserializeAws_json1_1DeleteLagCommand,
-  serializeAws_json1_1DeleteLagCommand,
-} from "../protocols/Aws_json1_1.ts";
+import { deserializeAws_json1_1DeleteLagCommand, serializeAws_json1_1DeleteLagCommand } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";

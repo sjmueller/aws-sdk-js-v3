@@ -1,3 +1,4 @@
+
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient.ts";
 import { DescribeDomainRequest, DescribeDomainResult } from "../models/index.ts";
 import {

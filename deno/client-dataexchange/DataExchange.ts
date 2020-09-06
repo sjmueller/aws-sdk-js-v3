@@ -1,3 +1,4 @@
+
 import { DataExchangeClient } from "./DataExchangeClient.ts";
 import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand.ts";
 import {
@@ -11,11 +12,7 @@ import {
   CreateRevisionCommandInput,
   CreateRevisionCommandOutput,
 } from "./commands/CreateRevisionCommand.ts";
-import {
-  DeleteAssetCommand,
-  DeleteAssetCommandInput,
-  DeleteAssetCommandOutput,
-} from "./commands/DeleteAssetCommand.ts";
+import { DeleteAssetCommand, DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand.ts";
 import {
   DeleteDataSetCommand,
   DeleteDataSetCommandInput,
@@ -29,11 +26,7 @@ import {
 import { GetAssetCommand, GetAssetCommandInput, GetAssetCommandOutput } from "./commands/GetAssetCommand.ts";
 import { GetDataSetCommand, GetDataSetCommandInput, GetDataSetCommandOutput } from "./commands/GetDataSetCommand.ts";
 import { GetJobCommand, GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand.ts";
-import {
-  GetRevisionCommand,
-  GetRevisionCommandInput,
-  GetRevisionCommandOutput,
-} from "./commands/GetRevisionCommand.ts";
+import { GetRevisionCommand, GetRevisionCommandInput, GetRevisionCommandOutput } from "./commands/GetRevisionCommand.ts";
 import {
   ListDataSetRevisionsCommand,
   ListDataSetRevisionsCommandInput,
@@ -56,21 +49,13 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import { StartJobCommand, StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateAssetCommand,
-  UpdateAssetCommandInput,
-  UpdateAssetCommandOutput,
-} from "./commands/UpdateAssetCommand.ts";
+import { UpdateAssetCommand, UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand.ts";
 import {
   UpdateDataSetCommand,
   UpdateDataSetCommandInput,

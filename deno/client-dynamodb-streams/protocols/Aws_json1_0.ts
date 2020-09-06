@@ -1,3 +1,4 @@
+
 import { DescribeStreamCommandInput, DescribeStreamCommandOutput } from "../commands/DescribeStreamCommand.ts";
 import { GetRecordsCommandInput, GetRecordsCommandOutput } from "../commands/GetRecordsCommand.ts";
 import { GetShardIteratorCommandInput, GetShardIteratorCommandOutput } from "../commands/GetShardIteratorCommand.ts";

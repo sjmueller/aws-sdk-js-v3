@@ -1,3 +1,4 @@
+
 import { KinesisClient } from "./KinesisClient.ts";
 import {
   AddTagsToStreamCommand,
@@ -71,21 +72,13 @@ import {
   ListStreamConsumersCommandInput,
   ListStreamConsumersCommandOutput,
 } from "./commands/ListStreamConsumersCommand.ts";
-import {
-  ListStreamsCommand,
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput,
-} from "./commands/ListStreamsCommand.ts";
+import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand.ts";
 import {
   ListTagsForStreamCommand,
   ListTagsForStreamCommandInput,
   ListTagsForStreamCommandOutput,
 } from "./commands/ListTagsForStreamCommand.ts";
-import {
-  MergeShardsCommand,
-  MergeShardsCommandInput,
-  MergeShardsCommandOutput,
-} from "./commands/MergeShardsCommand.ts";
+import { MergeShardsCommand, MergeShardsCommandInput, MergeShardsCommandOutput } from "./commands/MergeShardsCommand.ts";
 import { PutRecordCommand, PutRecordCommandInput, PutRecordCommandOutput } from "./commands/PutRecordCommand.ts";
 import { PutRecordsCommand, PutRecordsCommandInput, PutRecordsCommandOutput } from "./commands/PutRecordsCommand.ts";
 import {

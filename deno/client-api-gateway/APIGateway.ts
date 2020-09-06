@@ -1,3 +1,4 @@
+
 import { APIGatewayClient } from "./APIGatewayClient.ts";
 import {
   CreateApiKeyCommand,
@@ -34,11 +35,7 @@ import {
   CreateDomainNameCommandInput,
   CreateDomainNameCommandOutput,
 } from "./commands/CreateDomainNameCommand.ts";
-import {
-  CreateModelCommand,
-  CreateModelCommandInput,
-  CreateModelCommandOutput,
-} from "./commands/CreateModelCommand.ts";
+import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand.ts";
 import {
   CreateRequestValidatorCommand,
   CreateRequestValidatorCommandInput,
@@ -54,11 +51,7 @@ import {
   CreateRestApiCommandInput,
   CreateRestApiCommandOutput,
 } from "./commands/CreateRestApiCommand.ts";
-import {
-  CreateStageCommand,
-  CreateStageCommandInput,
-  CreateStageCommandOutput,
-} from "./commands/CreateStageCommand.ts";
+import { CreateStageCommand, CreateStageCommandInput, CreateStageCommandOutput } from "./commands/CreateStageCommand.ts";
 import {
   CreateUsagePlanCommand,
   CreateUsagePlanCommandInput,
@@ -139,11 +132,7 @@ import {
   DeleteMethodResponseCommandInput,
   DeleteMethodResponseCommandOutput,
 } from "./commands/DeleteMethodResponseCommand.ts";
-import {
-  DeleteModelCommand,
-  DeleteModelCommandInput,
-  DeleteModelCommandOutput,
-} from "./commands/DeleteModelCommand.ts";
+import { DeleteModelCommand, DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand.ts";
 import {
   DeleteRequestValidatorCommand,
   DeleteRequestValidatorCommandInput,
@@ -159,11 +148,7 @@ import {
   DeleteRestApiCommandInput,
   DeleteRestApiCommandOutput,
 } from "./commands/DeleteRestApiCommand.ts";
-import {
-  DeleteStageCommand,
-  DeleteStageCommandInput,
-  DeleteStageCommandOutput,
-} from "./commands/DeleteStageCommand.ts";
+import { DeleteStageCommand, DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand.ts";
 import {
   DeleteUsagePlanCommand,
   DeleteUsagePlanCommandInput,
@@ -311,29 +296,17 @@ import {
   GetRequestValidatorsCommandInput,
   GetRequestValidatorsCommandOutput,
 } from "./commands/GetRequestValidatorsCommand.ts";
-import {
-  GetResourceCommand,
-  GetResourceCommandInput,
-  GetResourceCommandOutput,
-} from "./commands/GetResourceCommand.ts";
+import { GetResourceCommand, GetResourceCommandInput, GetResourceCommandOutput } from "./commands/GetResourceCommand.ts";
 import {
   GetResourcesCommand,
   GetResourcesCommandInput,
   GetResourcesCommandOutput,
 } from "./commands/GetResourcesCommand.ts";
 import { GetRestApiCommand, GetRestApiCommandInput, GetRestApiCommandOutput } from "./commands/GetRestApiCommand.ts";
-import {
-  GetRestApisCommand,
-  GetRestApisCommandInput,
-  GetRestApisCommandOutput,
-} from "./commands/GetRestApisCommand.ts";
+import { GetRestApisCommand, GetRestApisCommandInput, GetRestApisCommandOutput } from "./commands/GetRestApisCommand.ts";
 import { GetSdkCommand, GetSdkCommandInput, GetSdkCommandOutput } from "./commands/GetSdkCommand.ts";
 import { GetSdkTypeCommand, GetSdkTypeCommandInput, GetSdkTypeCommandOutput } from "./commands/GetSdkTypeCommand.ts";
-import {
-  GetSdkTypesCommand,
-  GetSdkTypesCommandInput,
-  GetSdkTypesCommandOutput,
-} from "./commands/GetSdkTypesCommand.ts";
+import { GetSdkTypesCommand, GetSdkTypesCommandInput, GetSdkTypesCommandOutput } from "./commands/GetSdkTypesCommand.ts";
 import { GetStageCommand, GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand.ts";
 import { GetStagesCommand, GetStagesCommandInput, GetStagesCommandOutput } from "./commands/GetStagesCommand.ts";
 import { GetTagsCommand, GetTagsCommandInput, GetTagsCommandOutput } from "./commands/GetTagsCommand.ts";
@@ -359,11 +332,7 @@ import {
   GetUsagePlansCommandOutput,
 } from "./commands/GetUsagePlansCommand.ts";
 import { GetVpcLinkCommand, GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetVpcLinkCommand.ts";
-import {
-  GetVpcLinksCommand,
-  GetVpcLinksCommandInput,
-  GetVpcLinksCommandOutput,
-} from "./commands/GetVpcLinksCommand.ts";
+import { GetVpcLinksCommand, GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand.ts";
 import {
   ImportApiKeysCommand,
   ImportApiKeysCommandInput,
@@ -401,11 +370,7 @@ import {
   PutMethodResponseCommandOutput,
 } from "./commands/PutMethodResponseCommand.ts";
 import { PutRestApiCommand, PutRestApiCommandInput, PutRestApiCommandOutput } from "./commands/PutRestApiCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   TestInvokeAuthorizerCommand,
   TestInvokeAuthorizerCommandInput,
@@ -491,11 +456,7 @@ import {
   UpdateMethodResponseCommandInput,
   UpdateMethodResponseCommandOutput,
 } from "./commands/UpdateMethodResponseCommand.ts";
-import {
-  UpdateModelCommand,
-  UpdateModelCommandInput,
-  UpdateModelCommandOutput,
-} from "./commands/UpdateModelCommand.ts";
+import { UpdateModelCommand, UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand.ts";
 import {
   UpdateRequestValidatorCommand,
   UpdateRequestValidatorCommandInput,
@@ -511,16 +472,8 @@ import {
   UpdateRestApiCommandInput,
   UpdateRestApiCommandOutput,
 } from "./commands/UpdateRestApiCommand.ts";
-import {
-  UpdateStageCommand,
-  UpdateStageCommandInput,
-  UpdateStageCommandOutput,
-} from "./commands/UpdateStageCommand.ts";
-import {
-  UpdateUsageCommand,
-  UpdateUsageCommandInput,
-  UpdateUsageCommandOutput,
-} from "./commands/UpdateUsageCommand.ts";
+import { UpdateStageCommand, UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand.ts";
+import { UpdateUsageCommand, UpdateUsageCommandInput, UpdateUsageCommandOutput } from "./commands/UpdateUsageCommand.ts";
 import {
   UpdateUsagePlanCommand,
   UpdateUsagePlanCommandInput,

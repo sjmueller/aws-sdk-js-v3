@@ -1,3 +1,4 @@
+
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient.ts";
 import { DescribeChannelRequest, DescribeChannelResponse } from "../models/index.ts";
 import {

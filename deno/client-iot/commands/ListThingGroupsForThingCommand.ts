@@ -1,3 +1,4 @@
+
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
 import { ListThingGroupsForThingRequest, ListThingGroupsForThingResponse } from "../models/index.ts";
 import {

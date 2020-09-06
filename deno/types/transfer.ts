@@ -1,3 +1,4 @@
+
 export type RequestHandlerOutput<ResponseType> = { response: ResponseType };
 
 export interface RequestHandler<RequestType, ResponseType, HandlerOptions = {}> {

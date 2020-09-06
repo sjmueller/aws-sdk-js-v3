@@ -1,3 +1,4 @@
+
 import { S3ControlClient } from "./S3ControlClient.ts";
 import {
   CreateAccessPointCommand,
@@ -25,11 +26,7 @@ import {
   DeletePublicAccessBlockCommandInput,
   DeletePublicAccessBlockCommandOutput,
 } from "./commands/DeletePublicAccessBlockCommand.ts";
-import {
-  DescribeJobCommand,
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput,
-} from "./commands/DescribeJobCommand.ts";
+import { DescribeJobCommand, DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand.ts";
 import {
   GetAccessPointCommand,
   GetAccessPointCommandInput,

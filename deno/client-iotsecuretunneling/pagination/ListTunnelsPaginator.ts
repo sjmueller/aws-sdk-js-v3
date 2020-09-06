@@ -1,10 +1,7 @@
+
 import { IoTSecureTunneling } from "../IoTSecureTunneling.ts";
 import { IoTSecureTunnelingClient } from "../IoTSecureTunnelingClient.ts";
-import {
-  ListTunnelsCommand,
-  ListTunnelsCommandInput,
-  ListTunnelsCommandOutput,
-} from "../commands/ListTunnelsCommand.ts";
+import { ListTunnelsCommand, ListTunnelsCommandInput, ListTunnelsCommandOutput } from "../commands/ListTunnelsCommand.ts";
 import { IoTSecureTunnelingPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

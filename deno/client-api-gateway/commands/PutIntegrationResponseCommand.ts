@@ -1,3 +1,4 @@
+
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
 import { IntegrationResponse, PutIntegrationResponseRequest } from "../models/index.ts";
 import {

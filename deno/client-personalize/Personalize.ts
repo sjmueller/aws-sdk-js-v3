@@ -1,3 +1,4 @@
+
 import { PersonalizeClient } from "./PersonalizeClient.ts";
 import {
   CreateBatchInferenceJobCommand,
@@ -184,21 +185,9 @@ import {
   ListEventTrackersCommandInput,
   ListEventTrackersCommandOutput,
 } from "./commands/ListEventTrackersCommand.ts";
-import {
-  ListFiltersCommand,
-  ListFiltersCommandInput,
-  ListFiltersCommandOutput,
-} from "./commands/ListFiltersCommand.ts";
-import {
-  ListRecipesCommand,
-  ListRecipesCommandInput,
-  ListRecipesCommandOutput,
-} from "./commands/ListRecipesCommand.ts";
-import {
-  ListSchemasCommand,
-  ListSchemasCommandInput,
-  ListSchemasCommandOutput,
-} from "./commands/ListSchemasCommand.ts";
+import { ListFiltersCommand, ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand.ts";
+import { ListRecipesCommand, ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand.ts";
+import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand.ts";
 import {
   ListSolutionVersionsCommand,
   ListSolutionVersionsCommandInput,

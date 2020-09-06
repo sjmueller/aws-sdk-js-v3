@@ -1,8 +1,6 @@
+
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import {
-  GetJourneyExecutionActivityMetricsRequest,
-  GetJourneyExecutionActivityMetricsResponse,
-} from "../models/index.ts";
+import { GetJourneyExecutionActivityMetricsRequest, GetJourneyExecutionActivityMetricsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommand,
   serializeAws_restJson1GetJourneyExecutionActivityMetricsCommand,

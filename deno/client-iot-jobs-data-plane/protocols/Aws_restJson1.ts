@@ -1,3 +1,4 @@
+
 import {
   DescribeJobExecutionCommandInput,
   DescribeJobExecutionCommandOutput,
@@ -10,10 +11,7 @@ import {
   StartNextPendingJobExecutionCommandInput,
   StartNextPendingJobExecutionCommandOutput,
 } from "../commands/StartNextPendingJobExecutionCommand.ts";
-import {
-  UpdateJobExecutionCommandInput,
-  UpdateJobExecutionCommandOutput,
-} from "../commands/UpdateJobExecutionCommand.ts";
+import { UpdateJobExecutionCommandInput, UpdateJobExecutionCommandOutput } from "../commands/UpdateJobExecutionCommand.ts";
 import {
   CertificateValidationException,
   InvalidRequestException,

@@ -1,3 +1,4 @@
+
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient.ts";
 import { UpdateUserProfileRequest, UpdateUserProfileResult } from "../models/index.ts";
 import {

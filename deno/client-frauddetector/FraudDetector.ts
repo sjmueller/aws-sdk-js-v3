@@ -1,3 +1,4 @@
+
 import { FraudDetectorClient } from "./FraudDetectorClient.ts";
 import {
   BatchCreateVariableCommand,
@@ -14,11 +15,7 @@ import {
   CreateDetectorVersionCommandInput,
   CreateDetectorVersionCommandOutput,
 } from "./commands/CreateDetectorVersionCommand.ts";
-import {
-  CreateModelCommand,
-  CreateModelCommandInput,
-  CreateModelCommandOutput,
-} from "./commands/CreateModelCommand.ts";
+import { CreateModelCommand, CreateModelCommandInput, CreateModelCommandOutput } from "./commands/CreateModelCommand.ts";
 import {
   CreateModelVersionCommand,
   CreateModelVersionCommandInput,
@@ -40,11 +37,7 @@ import {
   DeleteDetectorVersionCommandInput,
   DeleteDetectorVersionCommandOutput,
 } from "./commands/DeleteDetectorVersionCommand.ts";
-import {
-  DeleteEventCommand,
-  DeleteEventCommandInput,
-  DeleteEventCommandOutput,
-} from "./commands/DeleteEventCommand.ts";
+import { DeleteEventCommand, DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand.ts";
 import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand.ts";
 import {
   DescribeDetectorCommand,
@@ -98,11 +91,7 @@ import {
   GetModelVersionCommandOutput,
 } from "./commands/GetModelVersionCommand.ts";
 import { GetModelsCommand, GetModelsCommandInput, GetModelsCommandOutput } from "./commands/GetModelsCommand.ts";
-import {
-  GetOutcomesCommand,
-  GetOutcomesCommandInput,
-  GetOutcomesCommandOutput,
-} from "./commands/GetOutcomesCommand.ts";
+import { GetOutcomesCommand, GetOutcomesCommandInput, GetOutcomesCommandOutput } from "./commands/GetOutcomesCommand.ts";
 import { GetRulesCommand, GetRulesCommandInput, GetRulesCommandOutput } from "./commands/GetRulesCommand.ts";
 import {
   GetVariablesCommand,
@@ -114,11 +103,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  PutDetectorCommand,
-  PutDetectorCommandInput,
-  PutDetectorCommandOutput,
-} from "./commands/PutDetectorCommand.ts";
+import { PutDetectorCommand, PutDetectorCommandInput, PutDetectorCommandOutput } from "./commands/PutDetectorCommand.ts";
 import {
   PutEntityTypeCommand,
   PutEntityTypeCommandInput,
@@ -141,11 +126,7 @@ import {
 } from "./commands/PutKMSEncryptionKeyCommand.ts";
 import { PutLabelCommand, PutLabelCommandInput, PutLabelCommandOutput } from "./commands/PutLabelCommand.ts";
 import { PutOutcomeCommand, PutOutcomeCommandInput, PutOutcomeCommandOutput } from "./commands/PutOutcomeCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -166,11 +147,7 @@ import {
   UpdateDetectorVersionStatusCommandInput,
   UpdateDetectorVersionStatusCommandOutput,
 } from "./commands/UpdateDetectorVersionStatusCommand.ts";
-import {
-  UpdateModelCommand,
-  UpdateModelCommandInput,
-  UpdateModelCommandOutput,
-} from "./commands/UpdateModelCommand.ts";
+import { UpdateModelCommand, UpdateModelCommandInput, UpdateModelCommandOutput } from "./commands/UpdateModelCommand.ts";
 import {
   UpdateModelVersionCommand,
   UpdateModelVersionCommandInput,

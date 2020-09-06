@@ -1,3 +1,4 @@
+
 import {
   AssociateConfigurationItemsToApplicationCommandInput,
   AssociateConfigurationItemsToApplicationCommandOutput,
@@ -8,10 +9,7 @@ import {
 } from "./commands/BatchDeleteImportDataCommand.ts";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand.ts";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand.ts";
-import {
-  DeleteApplicationsCommandInput,
-  DeleteApplicationsCommandOutput,
-} from "./commands/DeleteApplicationsCommand.ts";
+import { DeleteApplicationsCommandInput, DeleteApplicationsCommandOutput } from "./commands/DeleteApplicationsCommand.ts";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand.ts";
 import { DescribeAgentsCommandInput, DescribeAgentsCommandOutput } from "./commands/DescribeAgentsCommand.ts";
 import {
@@ -47,10 +45,7 @@ import {
   GetDiscoverySummaryCommandInput,
   GetDiscoverySummaryCommandOutput,
 } from "./commands/GetDiscoverySummaryCommand.ts";
-import {
-  ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput,
-} from "./commands/ListConfigurationsCommand.ts";
+import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand.ts";
 import {
   ListServerNeighborsCommandInput,
   ListServerNeighborsCommandOutput,

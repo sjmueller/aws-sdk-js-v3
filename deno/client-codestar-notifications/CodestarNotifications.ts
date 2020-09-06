@@ -1,3 +1,4 @@
+
 import { CodestarNotificationsClient } from "./CodestarNotificationsClient.ts";
 import {
   CreateNotificationRuleCommand,
@@ -34,22 +35,10 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  ListTargetsCommand,
-  ListTargetsCommandInput,
-  ListTargetsCommandOutput,
-} from "./commands/ListTargetsCommand.ts";
+import { ListTargetsCommand, ListTargetsCommandInput, ListTargetsCommandOutput } from "./commands/ListTargetsCommand.ts";
 import { SubscribeCommand, SubscribeCommandInput, SubscribeCommandOutput } from "./commands/SubscribeCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
-import {
-  UnsubscribeCommand,
-  UnsubscribeCommandInput,
-  UnsubscribeCommandOutput,
-} from "./commands/UnsubscribeCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UnsubscribeCommand, UnsubscribeCommandInput, UnsubscribeCommandOutput } from "./commands/UnsubscribeCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

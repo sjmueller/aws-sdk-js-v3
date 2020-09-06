@@ -1,3 +1,4 @@
+
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient.ts";
 import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/index.ts";
 import {

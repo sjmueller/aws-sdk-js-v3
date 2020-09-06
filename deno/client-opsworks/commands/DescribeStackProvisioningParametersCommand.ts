@@ -1,8 +1,6 @@
+
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import {
-  DescribeStackProvisioningParametersRequest,
-  DescribeStackProvisioningParametersResult,
-} from "../models/index.ts";
+import { DescribeStackProvisioningParametersRequest, DescribeStackProvisioningParametersResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeStackProvisioningParametersCommand,
   serializeAws_json1_1DescribeStackProvisioningParametersCommand,

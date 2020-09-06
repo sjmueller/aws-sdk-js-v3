@@ -1,10 +1,7 @@
+
 import { Detective } from "../Detective.ts";
 import { DetectiveClient } from "../DetectiveClient.ts";
-import {
-  ListMembersCommand,
-  ListMembersCommandInput,
-  ListMembersCommandOutput,
-} from "../commands/ListMembersCommand.ts";
+import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "../commands/ListMembersCommand.ts";
 import { DetectivePaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

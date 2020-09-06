@@ -1,3 +1,4 @@
+
 import { IoTSiteWiseClient } from "./IoTSiteWiseClient.ts";
 import {
   AssociateAssetsCommand,
@@ -24,11 +25,7 @@ import {
   CreateAccessPolicyCommandInput,
   CreateAccessPolicyCommandOutput,
 } from "./commands/CreateAccessPolicyCommand.ts";
-import {
-  CreateAssetCommand,
-  CreateAssetCommandInput,
-  CreateAssetCommandOutput,
-} from "./commands/CreateAssetCommand.ts";
+import { CreateAssetCommand, CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand.ts";
 import {
   CreateAssetModelCommand,
   CreateAssetModelCommandInput,
@@ -59,11 +56,7 @@ import {
   DeleteAccessPolicyCommandInput,
   DeleteAccessPolicyCommandOutput,
 } from "./commands/DeleteAccessPolicyCommand.ts";
-import {
-  DeleteAssetCommand,
-  DeleteAssetCommandInput,
-  DeleteAssetCommandOutput,
-} from "./commands/DeleteAssetCommand.ts";
+import { DeleteAssetCommand, DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand.ts";
 import {
   DeleteAssetModelCommand,
   DeleteAssetModelCommandInput,
@@ -185,11 +178,7 @@ import {
   ListGatewaysCommandInput,
   ListGatewaysCommandOutput,
 } from "./commands/ListGatewaysCommand.ts";
-import {
-  ListPortalsCommand,
-  ListPortalsCommandInput,
-  ListPortalsCommandOutput,
-} from "./commands/ListPortalsCommand.ts";
+import { ListPortalsCommand, ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand.ts";
 import {
   ListProjectAssetsCommand,
   ListProjectAssetsCommandInput,
@@ -210,11 +199,7 @@ import {
   PutLoggingOptionsCommandInput,
   PutLoggingOptionsCommandOutput,
 } from "./commands/PutLoggingOptionsCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -225,11 +210,7 @@ import {
   UpdateAccessPolicyCommandInput,
   UpdateAccessPolicyCommandOutput,
 } from "./commands/UpdateAccessPolicyCommand.ts";
-import {
-  UpdateAssetCommand,
-  UpdateAssetCommandInput,
-  UpdateAssetCommandOutput,
-} from "./commands/UpdateAssetCommand.ts";
+import { UpdateAssetCommand, UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand.ts";
 import {
   UpdateAssetModelCommand,
   UpdateAssetModelCommandInput,

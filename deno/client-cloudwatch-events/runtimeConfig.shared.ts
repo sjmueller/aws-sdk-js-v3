@@ -1,3 +1,4 @@
+
 import { defaultRegionInfoProvider } from "./endpoints.ts";
 
 export const ClientSharedValues = {

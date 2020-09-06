@@ -1,3 +1,4 @@
+
 /**
  * Escapes characters that can not be in an XML element.
  */

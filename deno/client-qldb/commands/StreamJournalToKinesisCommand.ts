@@ -1,3 +1,4 @@
+
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient.ts";
 import { StreamJournalToKinesisRequest, StreamJournalToKinesisResponse } from "../models/index.ts";
 import {

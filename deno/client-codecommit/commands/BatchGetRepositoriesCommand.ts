@@ -1,3 +1,4 @@
+
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
 import { BatchGetRepositoriesInput, BatchGetRepositoriesOutput } from "../models/index.ts";
 import {

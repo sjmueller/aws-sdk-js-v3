@@ -1,8 +1,6 @@
+
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
-import {
-  DeleteInfrastructureConfigurationRequest,
-  DeleteInfrastructureConfigurationResponse,
-} from "../models/index.ts";
+import { DeleteInfrastructureConfigurationRequest, DeleteInfrastructureConfigurationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DeleteInfrastructureConfigurationCommand,
   serializeAws_restJson1DeleteInfrastructureConfigurationCommand,

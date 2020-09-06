@@ -1,3 +1,4 @@
+
 import { AlexaForBusinessClient } from "./AlexaForBusinessClient.ts";
 import {
   ApproveSkillCommand,
@@ -280,16 +281,8 @@ import {
   RegisterAVSDeviceCommandInput,
   RegisterAVSDeviceCommandOutput,
 } from "./commands/RegisterAVSDeviceCommand.ts";
-import {
-  RejectSkillCommand,
-  RejectSkillCommandInput,
-  RejectSkillCommandOutput,
-} from "./commands/RejectSkillCommand.ts";
-import {
-  ResolveRoomCommand,
-  ResolveRoomCommandInput,
-  ResolveRoomCommandOutput,
-} from "./commands/ResolveRoomCommand.ts";
+import { RejectSkillCommand, RejectSkillCommandInput, RejectSkillCommandOutput } from "./commands/RejectSkillCommand.ts";
+import { ResolveRoomCommand, ResolveRoomCommandInput, ResolveRoomCommandOutput } from "./commands/ResolveRoomCommand.ts";
 import {
   RevokeInvitationCommand,
   RevokeInvitationCommandInput,
@@ -320,21 +313,13 @@ import {
   SearchProfilesCommandInput,
   SearchProfilesCommandOutput,
 } from "./commands/SearchProfilesCommand.ts";
-import {
-  SearchRoomsCommand,
-  SearchRoomsCommandInput,
-  SearchRoomsCommandOutput,
-} from "./commands/SearchRoomsCommand.ts";
+import { SearchRoomsCommand, SearchRoomsCommandInput, SearchRoomsCommandOutput } from "./commands/SearchRoomsCommand.ts";
 import {
   SearchSkillGroupsCommand,
   SearchSkillGroupsCommandInput,
   SearchSkillGroupsCommandOutput,
 } from "./commands/SearchSkillGroupsCommand.ts";
-import {
-  SearchUsersCommand,
-  SearchUsersCommandInput,
-  SearchUsersCommandOutput,
-} from "./commands/SearchUsersCommand.ts";
+import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand.ts";
 import {
   SendAnnouncementCommand,
   SendAnnouncementCommandInput,
@@ -355,11 +340,7 @@ import {
   StartSmartHomeApplianceDiscoveryCommandInput,
   StartSmartHomeApplianceDiscoveryCommandOutput,
 } from "./commands/StartSmartHomeApplianceDiscoveryCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

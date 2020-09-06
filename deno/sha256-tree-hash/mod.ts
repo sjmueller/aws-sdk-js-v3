@@ -1,3 +1,4 @@
+
 import { Decoder, Hash, HashConstructor, SourceData } from "../types/mod.ts";
 
 const MiB = 1048576;

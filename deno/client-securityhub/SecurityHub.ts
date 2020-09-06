@@ -1,3 +1,4 @@
+
 import { SecurityHubClient } from "./SecurityHubClient.ts";
 import {
   AcceptInvitationCommand,
@@ -69,11 +70,7 @@ import {
   DescribeActionTargetsCommandInput,
   DescribeActionTargetsCommandOutput,
 } from "./commands/DescribeActionTargetsCommand.ts";
-import {
-  DescribeHubCommand,
-  DescribeHubCommandInput,
-  DescribeHubCommandOutput,
-} from "./commands/DescribeHubCommand.ts";
+import { DescribeHubCommand, DescribeHubCommandInput, DescribeHubCommandOutput } from "./commands/DescribeHubCommand.ts";
 import {
   DescribeProductsCommand,
   DescribeProductsCommandInput,
@@ -124,21 +121,13 @@ import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
 } from "./commands/GetEnabledStandardsCommand.ts";
-import {
-  GetFindingsCommand,
-  GetFindingsCommandInput,
-  GetFindingsCommandOutput,
-} from "./commands/GetFindingsCommand.ts";
+import { GetFindingsCommand, GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand.ts";
 import {
   GetInsightResultsCommand,
   GetInsightResultsCommandInput,
   GetInsightResultsCommandOutput,
 } from "./commands/GetInsightResultsCommand.ts";
-import {
-  GetInsightsCommand,
-  GetInsightsCommandInput,
-  GetInsightsCommandOutput,
-} from "./commands/GetInsightsCommand.ts";
+import { GetInsightsCommand, GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand.ts";
 import {
   GetInvitationsCountCommand,
   GetInvitationsCountCommandInput,
@@ -165,21 +154,13 @@ import {
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
 } from "./commands/ListInvitationsCommand.ts";
-import {
-  ListMembersCommand,
-  ListMembersCommandInput,
-  ListMembersCommandOutput,
-} from "./commands/ListMembersCommand.ts";
+import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

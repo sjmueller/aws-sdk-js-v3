@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient.ts";
 import { DescribeCanariesLastRunRequest, DescribeCanariesLastRunResponse } from "../models/index.ts";
 import {

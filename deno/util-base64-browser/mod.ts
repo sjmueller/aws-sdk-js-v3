@@ -1,3 +1,4 @@
+
 const alphabetByEncoding: { [key: string]: number } = {};
 const alphabetByValue: Array<string> = new Array(64);
 

@@ -1,3 +1,4 @@
+
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
 import { DescribeProjectsRequest, DescribeProjectsResponse } from "../models/index.ts";
 import {

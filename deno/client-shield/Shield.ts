@@ -1,3 +1,4 @@
+
 import { ShieldClient } from "./ShieldClient.ts";
 import {
   AssociateDRTLogBucketCommand,
@@ -94,11 +95,7 @@ import {
   GetSubscriptionStateCommandInput,
   GetSubscriptionStateCommandOutput,
 } from "./commands/GetSubscriptionStateCommand.ts";
-import {
-  ListAttacksCommand,
-  ListAttacksCommandInput,
-  ListAttacksCommandOutput,
-} from "./commands/ListAttacksCommand.ts";
+import { ListAttacksCommand, ListAttacksCommandInput, ListAttacksCommandOutput } from "./commands/ListAttacksCommand.ts";
 import {
   ListProtectionsCommand,
   ListProtectionsCommandInput,

@@ -1,3 +1,4 @@
+
 import { CloudHSMClient } from "./CloudHSMClient.ts";
 import {
   AddTagsToResourceCommand,
@@ -23,11 +24,7 @@ import {
   DescribeHapgCommandInput,
   DescribeHapgCommandOutput,
 } from "./commands/DescribeHapgCommand.ts";
-import {
-  DescribeHsmCommand,
-  DescribeHsmCommandInput,
-  DescribeHsmCommandOutput,
-} from "./commands/DescribeHsmCommand.ts";
+import { DescribeHsmCommand, DescribeHsmCommandInput, DescribeHsmCommandOutput } from "./commands/DescribeHsmCommand.ts";
 import {
   DescribeLunaClientCommand,
   DescribeLunaClientCommandInput,

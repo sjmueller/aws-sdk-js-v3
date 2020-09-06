@@ -1,3 +1,4 @@
+
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient.ts";
 import { UpdateConfigurationRequest, UpdateConfigurationResponse } from "../models/index.ts";
 import {

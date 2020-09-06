@@ -1,3 +1,4 @@
+
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient.ts";
 import { GetAuthorizationTokenRequest, GetAuthorizationTokenResult } from "../models/index.ts";
 import {

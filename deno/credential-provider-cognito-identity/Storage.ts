@@ -1,3 +1,4 @@
+
 /**
  * A subset of the Storage interface defined in the WHATWG HTML specification.
  * Access by index is not supported, as it cannot be replicated without Proxy

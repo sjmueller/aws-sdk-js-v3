@@ -1,3 +1,4 @@
+
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
 import { ListTargetsForSecurityProfileRequest, ListTargetsForSecurityProfileResponse } from "../models/index.ts";
 import {

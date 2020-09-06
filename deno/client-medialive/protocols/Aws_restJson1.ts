@@ -1,3 +1,4 @@
+import { Buffer } from "../../buffer/mod.ts";
 import {
   BatchUpdateScheduleCommandInput,
   BatchUpdateScheduleCommandOutput,
@@ -76,10 +77,7 @@ import { StartChannelCommandInput, StartChannelCommandOutput } from "../commands
 import { StartMultiplexCommandInput, StartMultiplexCommandOutput } from "../commands/StartMultiplexCommand.ts";
 import { StopChannelCommandInput, StopChannelCommandOutput } from "../commands/StopChannelCommand.ts";
 import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "../commands/StopMultiplexCommand.ts";
-import {
-  UpdateChannelClassCommandInput,
-  UpdateChannelClassCommandOutput,
-} from "../commands/UpdateChannelClassCommand.ts";
+import { UpdateChannelClassCommandInput, UpdateChannelClassCommandOutput } from "../commands/UpdateChannelClassCommand.ts";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand.ts";
 import { UpdateInputCommandInput, UpdateInputCommandOutput } from "../commands/UpdateInputCommand.ts";
 import { UpdateInputDeviceCommandInput, UpdateInputDeviceCommandOutput } from "../commands/UpdateInputDeviceCommand.ts";

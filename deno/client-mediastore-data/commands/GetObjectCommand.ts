@@ -1,3 +1,4 @@
+
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient.ts";
 import { GetObjectRequest, GetObjectResponse } from "../models/index.ts";
 import {

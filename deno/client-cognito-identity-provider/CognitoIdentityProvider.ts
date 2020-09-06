@@ -1,3 +1,4 @@
+
 import { CognitoIdentityProviderClient } from "./CognitoIdentityProviderClient.ts";
 import {
   AddCustomAttributesCommand,
@@ -159,11 +160,7 @@ import {
   ConfirmSignUpCommandInput,
   ConfirmSignUpCommandOutput,
 } from "./commands/ConfirmSignUpCommand.ts";
-import {
-  CreateGroupCommand,
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput,
-} from "./commands/CreateGroupCommand.ts";
+import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand.ts";
 import {
   CreateIdentityProviderCommand,
   CreateIdentityProviderCommandInput,
@@ -194,11 +191,7 @@ import {
   CreateUserPoolDomainCommandInput,
   CreateUserPoolDomainCommandOutput,
 } from "./commands/CreateUserPoolDomainCommand.ts";
-import {
-  DeleteGroupCommand,
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput,
-} from "./commands/DeleteGroupCommand.ts";
+import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteIdentityProviderCommand,
   DeleteIdentityProviderCommandInput,
@@ -318,11 +311,7 @@ import {
   InitiateAuthCommandInput,
   InitiateAuthCommandOutput,
 } from "./commands/InitiateAuthCommand.ts";
-import {
-  ListDevicesCommand,
-  ListDevicesCommandInput,
-  ListDevicesCommandOutput,
-} from "./commands/ListDevicesCommand.ts";
+import { ListDevicesCommand, ListDevicesCommandInput, ListDevicesCommandOutput } from "./commands/ListDevicesCommand.ts";
 import { ListGroupsCommand, ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand.ts";
 import {
   ListIdentityProvidersCommand,
@@ -406,11 +395,7 @@ import {
   StopUserImportJobCommandInput,
   StopUserImportJobCommandOutput,
 } from "./commands/StopUserImportJobCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -426,11 +411,7 @@ import {
   UpdateDeviceStatusCommandInput,
   UpdateDeviceStatusCommandOutput,
 } from "./commands/UpdateDeviceStatusCommand.ts";
-import {
-  UpdateGroupCommand,
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput,
-} from "./commands/UpdateGroupCommand.ts";
+import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand.ts";
 import {
   UpdateIdentityProviderCommand,
   UpdateIdentityProviderCommandInput,

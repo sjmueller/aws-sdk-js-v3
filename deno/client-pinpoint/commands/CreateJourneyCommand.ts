@@ -1,3 +1,4 @@
+
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
 import { CreateJourneyRequest, CreateJourneyResponse } from "../models/index.ts";
 import {

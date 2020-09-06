@@ -1,3 +1,4 @@
+
 import { Route53DomainsClient } from "./Route53DomainsClient.ts";
 import {
   AcceptDomainTransferFromAnotherAwsAccountCommand,
@@ -64,11 +65,7 @@ import {
   GetOperationDetailCommandInput,
   GetOperationDetailCommandOutput,
 } from "./commands/GetOperationDetailCommand.ts";
-import {
-  ListDomainsCommand,
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput,
-} from "./commands/ListDomainsCommand.ts";
+import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand.ts";
 import {
   ListOperationsCommand,
   ListOperationsCommandInput,
@@ -89,11 +86,7 @@ import {
   RejectDomainTransferFromAnotherAwsAccountCommandInput,
   RejectDomainTransferFromAnotherAwsAccountCommandOutput,
 } from "./commands/RejectDomainTransferFromAnotherAwsAccountCommand.ts";
-import {
-  RenewDomainCommand,
-  RenewDomainCommandInput,
-  RenewDomainCommandOutput,
-} from "./commands/RenewDomainCommand.ts";
+import { RenewDomainCommand, RenewDomainCommandInput, RenewDomainCommandOutput } from "./commands/RenewDomainCommand.ts";
 import {
   ResendContactReachabilityEmailCommand,
   ResendContactReachabilityEmailCommandInput,
@@ -134,11 +127,7 @@ import {
   UpdateTagsForDomainCommandInput,
   UpdateTagsForDomainCommandOutput,
 } from "./commands/UpdateTagsForDomainCommand.ts";
-import {
-  ViewBillingCommand,
-  ViewBillingCommandInput,
-  ViewBillingCommandOutput,
-} from "./commands/ViewBillingCommand.ts";
+import { ViewBillingCommand, ViewBillingCommandInput, ViewBillingCommandOutput } from "./commands/ViewBillingCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**

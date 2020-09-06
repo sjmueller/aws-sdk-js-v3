@@ -1,10 +1,7 @@
+
 import { SecurityHub } from "../SecurityHub.ts";
 import { SecurityHubClient } from "../SecurityHubClient.ts";
-import {
-  GetInsightsCommand,
-  GetInsightsCommandInput,
-  GetInsightsCommandOutput,
-} from "../commands/GetInsightsCommand.ts";
+import { GetInsightsCommand, GetInsightsCommandInput, GetInsightsCommandOutput } from "../commands/GetInsightsCommand.ts";
 import { SecurityHubPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

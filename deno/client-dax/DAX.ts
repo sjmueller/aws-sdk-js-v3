@@ -1,3 +1,4 @@
+
 import { DAXClient } from "./DAXClient.ts";
 import {
   CreateClusterCommand,
@@ -71,11 +72,7 @@ import {
 } from "./commands/IncreaseReplicationFactorCommand.ts";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand.ts";
 import { RebootNodeCommand, RebootNodeCommandInput, RebootNodeCommandOutput } from "./commands/RebootNodeCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

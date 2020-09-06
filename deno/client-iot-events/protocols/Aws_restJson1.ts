@@ -1,3 +1,4 @@
+
 import {
   CreateDetectorModelCommandInput,
   CreateDetectorModelCommandOutput,
@@ -21,10 +22,7 @@ import {
   ListDetectorModelVersionsCommandInput,
   ListDetectorModelVersionsCommandOutput,
 } from "../commands/ListDetectorModelVersionsCommand.ts";
-import {
-  ListDetectorModelsCommandInput,
-  ListDetectorModelsCommandOutput,
-} from "../commands/ListDetectorModelsCommand.ts";
+import { ListDetectorModelsCommandInput, ListDetectorModelsCommandOutput } from "../commands/ListDetectorModelsCommand.ts";
 import { ListInputsCommandInput, ListInputsCommandOutput } from "../commands/ListInputsCommand.ts";
 import {
   ListTagsForResourceCommandInput,

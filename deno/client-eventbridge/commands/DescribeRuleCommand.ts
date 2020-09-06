@@ -1,3 +1,4 @@
+
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
 import { DescribeRuleRequest, DescribeRuleResponse } from "../models/index.ts";
 import {

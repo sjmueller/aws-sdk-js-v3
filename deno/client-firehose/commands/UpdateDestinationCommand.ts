@@ -1,3 +1,4 @@
+
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient.ts";
 import { UpdateDestinationInput, UpdateDestinationOutput } from "../models/index.ts";
 import {

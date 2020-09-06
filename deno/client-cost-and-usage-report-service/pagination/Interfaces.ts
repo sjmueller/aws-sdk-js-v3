@@ -1,3 +1,4 @@
+
 import { CostAndUsageReportService } from "../CostAndUsageReportService.ts";
 import { CostAndUsageReportServiceClient } from "../CostAndUsageReportServiceClient.ts";
 import { PaginationConfiguration } from "../../types/mod.ts";

@@ -1,3 +1,4 @@
+
 import { CreateDevicePoolCommandInput, CreateDevicePoolCommandOutput } from "./commands/CreateDevicePoolCommand.ts";
 import {
   CreateInstanceProfileCommandInput,
@@ -46,10 +47,7 @@ import {
   DeleteVPCEConfigurationCommandInput,
   DeleteVPCEConfigurationCommandOutput,
 } from "./commands/DeleteVPCEConfigurationCommand.ts";
-import {
-  GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput,
-} from "./commands/GetAccountSettingsCommand.ts";
+import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand.ts";
 import { GetDeviceCommandInput, GetDeviceCommandOutput } from "./commands/GetDeviceCommand.ts";
 import { GetDeviceInstanceCommandInput, GetDeviceInstanceCommandOutput } from "./commands/GetDeviceInstanceCommand.ts";
 import { GetDevicePoolCommandInput, GetDevicePoolCommandOutput } from "./commands/GetDevicePoolCommand.ts";
@@ -57,10 +55,7 @@ import {
   GetDevicePoolCompatibilityCommandInput,
   GetDevicePoolCompatibilityCommandOutput,
 } from "./commands/GetDevicePoolCompatibilityCommand.ts";
-import {
-  GetInstanceProfileCommandInput,
-  GetInstanceProfileCommandOutput,
-} from "./commands/GetInstanceProfileCommand.ts";
+import { GetInstanceProfileCommandInput, GetInstanceProfileCommandOutput } from "./commands/GetInstanceProfileCommand.ts";
 import { GetJobCommandInput, GetJobCommandOutput } from "./commands/GetJobCommand.ts";
 import { GetNetworkProfileCommandInput, GetNetworkProfileCommandOutput } from "./commands/GetNetworkProfileCommand.ts";
 import { GetOfferingStatusCommandInput, GetOfferingStatusCommandOutput } from "./commands/GetOfferingStatusCommand.ts";
@@ -72,14 +67,8 @@ import {
 import { GetRunCommandInput, GetRunCommandOutput } from "./commands/GetRunCommand.ts";
 import { GetSuiteCommandInput, GetSuiteCommandOutput } from "./commands/GetSuiteCommand.ts";
 import { GetTestCommandInput, GetTestCommandOutput } from "./commands/GetTestCommand.ts";
-import {
-  GetTestGridProjectCommandInput,
-  GetTestGridProjectCommandOutput,
-} from "./commands/GetTestGridProjectCommand.ts";
-import {
-  GetTestGridSessionCommandInput,
-  GetTestGridSessionCommandOutput,
-} from "./commands/GetTestGridSessionCommand.ts";
+import { GetTestGridProjectCommandInput, GetTestGridProjectCommandOutput } from "./commands/GetTestGridProjectCommand.ts";
+import { GetTestGridSessionCommandInput, GetTestGridSessionCommandOutput } from "./commands/GetTestGridSessionCommand.ts";
 import { GetUploadCommandInput, GetUploadCommandOutput } from "./commands/GetUploadCommand.ts";
 import {
   GetVPCEConfigurationCommandInput,
@@ -143,10 +132,7 @@ import {
   ListTestGridSessionsCommandOutput,
 } from "./commands/ListTestGridSessionsCommand.ts";
 import { ListTestsCommandInput, ListTestsCommandOutput } from "./commands/ListTestsCommand.ts";
-import {
-  ListUniqueProblemsCommandInput,
-  ListUniqueProblemsCommandOutput,
-} from "./commands/ListUniqueProblemsCommand.ts";
+import { ListUniqueProblemsCommandInput, ListUniqueProblemsCommandOutput } from "./commands/ListUniqueProblemsCommand.ts";
 import { ListUploadsCommandInput, ListUploadsCommandOutput } from "./commands/ListUploadsCommand.ts";
 import {
   ListVPCEConfigurationsCommandInput,

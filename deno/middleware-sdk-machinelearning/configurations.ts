@@ -1,3 +1,4 @@
+
 import { UrlParser } from "../types/mod.ts";
 
 export interface PredictEndpointMiddlewareInputConfig {}

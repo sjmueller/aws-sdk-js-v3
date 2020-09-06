@@ -105,7 +105,7 @@ function slurpFile(path: string): Promise<string> {
   });
 }
 
-function getHomeDir(): string {
+function getHomeDirOpt(): string | undefined | null {
   const { HOME, USERPROFILE, HOMEPATH, HOMEDRIVE = `C:${sep}` } = process.env;
 
   if (HOME) return HOME;
@@ -113,4 +113,13 @@ function getHomeDir(): string {
   if (HOMEPATH) return `${HOMEDRIVE}${HOMEPATH}`;
 
   return homedir();
+}
+
+function getHomeDir(): string {
+  const homeDirOpt = getHomeDirOpt();
+
+  if (homeDirOpt === null || homeDirOpt === undefined) {
+    throw new Error("Home dir undefined or null");
+  }
+  return homeDirOpt;
 }

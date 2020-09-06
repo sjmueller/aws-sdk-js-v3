@@ -1,10 +1,7 @@
+
 import { IoTSiteWise } from "../IoTSiteWise.ts";
 import { IoTSiteWiseClient } from "../IoTSiteWiseClient.ts";
-import {
-  ListPortalsCommand,
-  ListPortalsCommandInput,
-  ListPortalsCommandOutput,
-} from "../commands/ListPortalsCommand.ts";
+import { ListPortalsCommand, ListPortalsCommandInput, ListPortalsCommandOutput } from "../commands/ListPortalsCommand.ts";
 import { IoTSiteWisePaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

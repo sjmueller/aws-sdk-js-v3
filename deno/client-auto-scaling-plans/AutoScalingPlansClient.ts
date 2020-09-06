@@ -1,3 +1,4 @@
+
 import { CreateScalingPlanCommandInput, CreateScalingPlanCommandOutput } from "./commands/CreateScalingPlanCommand.ts";
 import { DeleteScalingPlanCommandInput, DeleteScalingPlanCommandOutput } from "./commands/DeleteScalingPlanCommand.ts";
 import {

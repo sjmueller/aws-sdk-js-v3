@@ -1,3 +1,4 @@
+
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient.ts";
 import { DescribePipelineRequest, DescribePipelineResponse } from "../models/index.ts";
 import {

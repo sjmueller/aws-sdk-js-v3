@@ -1,10 +1,7 @@
+
 import { QLDB } from "../QLDB.ts";
 import { QLDBClient } from "../QLDBClient.ts";
-import {
-  ListLedgersCommand,
-  ListLedgersCommandInput,
-  ListLedgersCommandOutput,
-} from "../commands/ListLedgersCommand.ts";
+import { ListLedgersCommand, ListLedgersCommandInput, ListLedgersCommandOutput } from "../commands/ListLedgersCommand.ts";
 import { QLDBPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

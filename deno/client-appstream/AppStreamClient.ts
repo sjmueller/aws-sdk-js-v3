@@ -1,3 +1,4 @@
+
 import { AssociateFleetCommandInput, AssociateFleetCommandOutput } from "./commands/AssociateFleetCommand.ts";
 import {
   BatchAssociateUserStackCommandInput,
@@ -13,19 +14,13 @@ import {
   CreateDirectoryConfigCommandOutput,
 } from "./commands/CreateDirectoryConfigCommand.ts";
 import { CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand.ts";
-import {
-  CreateImageBuilderCommandInput,
-  CreateImageBuilderCommandOutput,
-} from "./commands/CreateImageBuilderCommand.ts";
+import { CreateImageBuilderCommandInput, CreateImageBuilderCommandOutput } from "./commands/CreateImageBuilderCommand.ts";
 import {
   CreateImageBuilderStreamingURLCommandInput,
   CreateImageBuilderStreamingURLCommandOutput,
 } from "./commands/CreateImageBuilderStreamingURLCommand.ts";
 import { CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand.ts";
-import {
-  CreateStreamingURLCommandInput,
-  CreateStreamingURLCommandOutput,
-} from "./commands/CreateStreamingURLCommand.ts";
+import { CreateStreamingURLCommandInput, CreateStreamingURLCommandOutput } from "./commands/CreateStreamingURLCommand.ts";
 import {
   CreateUsageReportSubscriptionCommandInput,
   CreateUsageReportSubscriptionCommandOutput,
@@ -36,10 +31,7 @@ import {
   DeleteDirectoryConfigCommandOutput,
 } from "./commands/DeleteDirectoryConfigCommand.ts";
 import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand.ts";
-import {
-  DeleteImageBuilderCommandInput,
-  DeleteImageBuilderCommandOutput,
-} from "./commands/DeleteImageBuilderCommand.ts";
+import { DeleteImageBuilderCommandInput, DeleteImageBuilderCommandOutput } from "./commands/DeleteImageBuilderCommand.ts";
 import { DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand.ts";
 import {
   DeleteImagePermissionsCommandInput,

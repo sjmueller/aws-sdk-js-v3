@@ -1,3 +1,4 @@
+
 import { MarketplaceEntitlementServiceClient } from "./MarketplaceEntitlementServiceClient.ts";
 import {
   GetEntitlementsCommand,

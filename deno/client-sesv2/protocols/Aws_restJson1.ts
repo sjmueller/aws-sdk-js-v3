@@ -1,3 +1,4 @@
+
 import {
   CreateConfigurationSetCommandInput,
   CreateConfigurationSetCommandOutput,
@@ -131,10 +132,7 @@ import {
   ListEmailIdentitiesCommandInput,
   ListEmailIdentitiesCommandOutput,
 } from "../commands/ListEmailIdentitiesCommand.ts";
-import {
-  ListEmailTemplatesCommandInput,
-  ListEmailTemplatesCommandOutput,
-} from "../commands/ListEmailTemplatesCommand.ts";
+import { ListEmailTemplatesCommandInput, ListEmailTemplatesCommandOutput } from "../commands/ListEmailTemplatesCommand.ts";
 import {
   ListSuppressedDestinationsCommandInput,
   ListSuppressedDestinationsCommandOutput,

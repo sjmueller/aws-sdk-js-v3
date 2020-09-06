@@ -1,3 +1,4 @@
+
 import { CompareFacesCommandInput, CompareFacesCommandOutput } from "./commands/CompareFacesCommand.ts";
 import { CreateCollectionCommandInput, CreateCollectionCommandOutput } from "./commands/CreateCollectionCommand.ts";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand.ts";
@@ -20,10 +21,7 @@ import {
   DeleteStreamProcessorCommandInput,
   DeleteStreamProcessorCommandOutput,
 } from "./commands/DeleteStreamProcessorCommand.ts";
-import {
-  DescribeCollectionCommandInput,
-  DescribeCollectionCommandOutput,
-} from "./commands/DescribeCollectionCommand.ts";
+import { DescribeCollectionCommandInput, DescribeCollectionCommandOutput } from "./commands/DescribeCollectionCommand.ts";
 import {
   DescribeProjectVersionsCommandInput,
   DescribeProjectVersionsCommandOutput,
@@ -33,10 +31,7 @@ import {
   DescribeStreamProcessorCommandInput,
   DescribeStreamProcessorCommandOutput,
 } from "./commands/DescribeStreamProcessorCommand.ts";
-import {
-  DetectCustomLabelsCommandInput,
-  DetectCustomLabelsCommandOutput,
-} from "./commands/DetectCustomLabelsCommand.ts";
+import { DetectCustomLabelsCommandInput, DetectCustomLabelsCommandOutput } from "./commands/DetectCustomLabelsCommand.ts";
 import { DetectFacesCommandInput, DetectFacesCommandOutput } from "./commands/DetectFacesCommand.ts";
 import { DetectLabelsCommandInput, DetectLabelsCommandOutput } from "./commands/DetectLabelsCommand.ts";
 import {
@@ -73,10 +68,7 @@ import {
   RecognizeCelebritiesCommandInput,
   RecognizeCelebritiesCommandOutput,
 } from "./commands/RecognizeCelebritiesCommand.ts";
-import {
-  SearchFacesByImageCommandInput,
-  SearchFacesByImageCommandOutput,
-} from "./commands/SearchFacesByImageCommand.ts";
+import { SearchFacesByImageCommandInput, SearchFacesByImageCommandOutput } from "./commands/SearchFacesByImageCommand.ts";
 import { SearchFacesCommandInput, SearchFacesCommandOutput } from "./commands/SearchFacesCommand.ts";
 import {
   StartCelebrityRecognitionCommandInput,
@@ -86,10 +78,7 @@ import {
   StartContentModerationCommandInput,
   StartContentModerationCommandOutput,
 } from "./commands/StartContentModerationCommand.ts";
-import {
-  StartFaceDetectionCommandInput,
-  StartFaceDetectionCommandOutput,
-} from "./commands/StartFaceDetectionCommand.ts";
+import { StartFaceDetectionCommandInput, StartFaceDetectionCommandOutput } from "./commands/StartFaceDetectionCommand.ts";
 import { StartFaceSearchCommandInput, StartFaceSearchCommandOutput } from "./commands/StartFaceSearchCommand.ts";
 import {
   StartLabelDetectionCommandInput,
@@ -111,14 +100,8 @@ import {
   StartStreamProcessorCommandInput,
   StartStreamProcessorCommandOutput,
 } from "./commands/StartStreamProcessorCommand.ts";
-import {
-  StartTextDetectionCommandInput,
-  StartTextDetectionCommandOutput,
-} from "./commands/StartTextDetectionCommand.ts";
-import {
-  StopProjectVersionCommandInput,
-  StopProjectVersionCommandOutput,
-} from "./commands/StopProjectVersionCommand.ts";
+import { StartTextDetectionCommandInput, StartTextDetectionCommandOutput } from "./commands/StartTextDetectionCommand.ts";
+import { StopProjectVersionCommandInput, StopProjectVersionCommandOutput } from "./commands/StopProjectVersionCommand.ts";
 import {
   StopStreamProcessorCommandInput,
   StopStreamProcessorCommandOutput,

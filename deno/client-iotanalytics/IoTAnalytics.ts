@@ -1,3 +1,4 @@
+
 import { IoTAnalyticsClient } from "./IoTAnalyticsClient.ts";
 import {
   BatchPutMessageCommand,
@@ -139,11 +140,7 @@ import {
   StartPipelineReprocessingCommandInput,
   StartPipelineReprocessingCommandOutput,
 } from "./commands/StartPipelineReprocessingCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

@@ -1,3 +1,4 @@
+
 import {
   CreateLicenseConfigurationCommandInput,
   CreateLicenseConfigurationCommandOutput,
@@ -10,10 +11,7 @@ import {
   GetLicenseConfigurationCommandInput,
   GetLicenseConfigurationCommandOutput,
 } from "../commands/GetLicenseConfigurationCommand.ts";
-import {
-  GetServiceSettingsCommandInput,
-  GetServiceSettingsCommandOutput,
-} from "../commands/GetServiceSettingsCommand.ts";
+import { GetServiceSettingsCommandInput, GetServiceSettingsCommandOutput } from "../commands/GetServiceSettingsCommand.ts";
 import {
   ListAssociationsForLicenseConfigurationCommandInput,
   ListAssociationsForLicenseConfigurationCommandOutput,

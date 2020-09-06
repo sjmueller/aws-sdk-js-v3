@@ -1,10 +1,7 @@
+
 import { AlexaForBusiness } from "../AlexaForBusiness.ts";
 import { AlexaForBusinessClient } from "../AlexaForBusinessClient.ts";
-import {
-  SearchUsersCommand,
-  SearchUsersCommandInput,
-  SearchUsersCommandOutput,
-} from "../commands/SearchUsersCommand.ts";
+import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput } from "../commands/SearchUsersCommand.ts";
 import { AlexaForBusinessPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

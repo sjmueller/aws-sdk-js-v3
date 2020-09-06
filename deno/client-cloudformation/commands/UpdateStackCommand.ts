@@ -1,9 +1,7 @@
+
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
 import { UpdateStackInput, UpdateStackOutput } from "../models/index.ts";
-import {
-  deserializeAws_queryUpdateStackCommand,
-  serializeAws_queryUpdateStackCommand,
-} from "../protocols/Aws_query.ts";
+import { deserializeAws_queryUpdateStackCommand, serializeAws_queryUpdateStackCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";

@@ -1,3 +1,4 @@
+
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
 import { DescribeNamespaceRequest, DescribeNamespaceResponse } from "../models/index.ts";
 import {

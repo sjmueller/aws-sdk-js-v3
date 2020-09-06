@@ -1,3 +1,4 @@
+
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient.ts";
 import { QueryRequest, QueryResult } from "../models/index.ts";
 import { deserializeAws_json1_1QueryCommand, serializeAws_json1_1QueryCommand } from "../protocols/Aws_json1_1.ts";

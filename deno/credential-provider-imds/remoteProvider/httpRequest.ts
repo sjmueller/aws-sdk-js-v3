@@ -1,3 +1,4 @@
+import { Buffer } from "../../buffer/mod.ts";
 import { ProviderError } from "../../property-provider/mod.ts";
 import { Buffer } from "buffer.ts";
 import { IncomingMessage, request, RequestOptions } from "http.ts";

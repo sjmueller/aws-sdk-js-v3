@@ -1,3 +1,4 @@
+
 export * from "./KinesisClient.ts";
 export * from "./Kinesis.ts";
 export * from "./commands/AddTagsToStreamCommand.ts";

@@ -1,3 +1,4 @@
+
 import { Endpoint, Provider, RegionInfoProvider, UrlParser } from "../types/mod.ts";
 
 export interface EndpointsInputConfig {

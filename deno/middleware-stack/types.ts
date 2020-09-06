@@ -1,3 +1,4 @@
+
 import { AbsoluteLocation, HandlerOptions, MiddlewareType, Priority, RelativeLocation, Step } from "../types/mod.ts";
 
 export interface MiddlewareEntry<Input extends object, Output extends object> extends HandlerOptions {

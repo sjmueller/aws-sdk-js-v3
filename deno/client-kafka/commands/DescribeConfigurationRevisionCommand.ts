@@ -1,3 +1,4 @@
+
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient.ts";
 import { DescribeConfigurationRevisionRequest, DescribeConfigurationRevisionResponse } from "../models/index.ts";
 import {

@@ -1,8 +1,5 @@
-import {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient.ts";
+
+import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient.ts";
 import { CreateResolverRuleRequest, CreateResolverRuleResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateResolverRuleCommand,

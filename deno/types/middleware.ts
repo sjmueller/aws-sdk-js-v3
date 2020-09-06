@@ -1,3 +1,4 @@
+
 import { Logger } from "./logger.ts";
 
 export interface InitializeHandlerArguments<Input extends object> {

@@ -1,13 +1,11 @@
+
 import { DeleteAlarmsCommandInput, DeleteAlarmsCommandOutput } from "./commands/DeleteAlarmsCommand.ts";
 import {
   DeleteAnomalyDetectorCommandInput,
   DeleteAnomalyDetectorCommandOutput,
 } from "./commands/DeleteAnomalyDetectorCommand.ts";
 import { DeleteDashboardsCommandInput, DeleteDashboardsCommandOutput } from "./commands/DeleteDashboardsCommand.ts";
-import {
-  DeleteInsightRulesCommandInput,
-  DeleteInsightRulesCommandOutput,
-} from "./commands/DeleteInsightRulesCommand.ts";
+import { DeleteInsightRulesCommandInput, DeleteInsightRulesCommandOutput } from "./commands/DeleteInsightRulesCommand.ts";
 import {
   DescribeAlarmHistoryCommandInput,
   DescribeAlarmHistoryCommandOutput,
@@ -33,14 +31,8 @@ import {
   DisableInsightRulesCommandInput,
   DisableInsightRulesCommandOutput,
 } from "./commands/DisableInsightRulesCommand.ts";
-import {
-  EnableAlarmActionsCommandInput,
-  EnableAlarmActionsCommandOutput,
-} from "./commands/EnableAlarmActionsCommand.ts";
-import {
-  EnableInsightRulesCommandInput,
-  EnableInsightRulesCommandOutput,
-} from "./commands/EnableInsightRulesCommand.ts";
+import { EnableAlarmActionsCommandInput, EnableAlarmActionsCommandOutput } from "./commands/EnableAlarmActionsCommand.ts";
+import { EnableInsightRulesCommandInput, EnableInsightRulesCommandOutput } from "./commands/EnableInsightRulesCommand.ts";
 import { GetDashboardCommandInput, GetDashboardCommandOutput } from "./commands/GetDashboardCommand.ts";
 import {
   GetInsightRuleReportCommandInput,
@@ -61,10 +53,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  PutAnomalyDetectorCommandInput,
-  PutAnomalyDetectorCommandOutput,
-} from "./commands/PutAnomalyDetectorCommand.ts";
+import { PutAnomalyDetectorCommandInput, PutAnomalyDetectorCommandOutput } from "./commands/PutAnomalyDetectorCommand.ts";
 import { PutCompositeAlarmCommandInput, PutCompositeAlarmCommandOutput } from "./commands/PutCompositeAlarmCommand.ts";
 import { PutDashboardCommandInput, PutDashboardCommandOutput } from "./commands/PutDashboardCommand.ts";
 import { PutInsightRuleCommandInput, PutInsightRuleCommandOutput } from "./commands/PutInsightRuleCommand.ts";

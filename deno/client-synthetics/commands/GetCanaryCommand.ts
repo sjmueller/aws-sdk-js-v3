@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient.ts";
 import { GetCanaryRequest, GetCanaryResponse } from "../models/index.ts";
 import {

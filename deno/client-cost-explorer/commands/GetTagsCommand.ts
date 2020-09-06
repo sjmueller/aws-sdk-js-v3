@@ -1,3 +1,4 @@
+
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient.ts";
 import { GetTagsRequest, GetTagsResponse } from "../models/index.ts";
 import { deserializeAws_json1_1GetTagsCommand, serializeAws_json1_1GetTagsCommand } from "../protocols/Aws_json1_1.ts";

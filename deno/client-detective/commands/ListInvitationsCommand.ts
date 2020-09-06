@@ -1,3 +1,4 @@
+
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient.ts";
 import { ListInvitationsRequest, ListInvitationsResponse } from "../models/index.ts";
 import {

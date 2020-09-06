@@ -1,3 +1,4 @@
+
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
 import { DescribeGlobalTableInput, DescribeGlobalTableOutput } from "../models/index.ts";
 import {

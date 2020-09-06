@@ -1,3 +1,4 @@
+
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
 import { GetPartitionRequest, GetPartitionResponse } from "../models/index.ts";
 import {

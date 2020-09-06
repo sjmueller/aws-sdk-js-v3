@@ -1,3 +1,4 @@
+
 import { SourceData } from "../types/mod.ts";
 
 export class MockSha256 {

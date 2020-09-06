@@ -1,3 +1,4 @@
+
 import { WorkMail } from "../WorkMail.ts";
 import { WorkMailClient } from "../WorkMailClient.ts";
 import { PaginationConfiguration } from "../../types/mod.ts";

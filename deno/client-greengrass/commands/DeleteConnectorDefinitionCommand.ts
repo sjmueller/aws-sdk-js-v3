@@ -1,3 +1,4 @@
+
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
 import { DeleteConnectorDefinitionRequest, DeleteConnectorDefinitionResponse } from "../models/index.ts";
 import {

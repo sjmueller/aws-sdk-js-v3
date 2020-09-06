@@ -1,3 +1,4 @@
+
 /**
  * Builds a proper UTC HttpDate timestamp from a Date object
  * since not all environments will have this as the expected

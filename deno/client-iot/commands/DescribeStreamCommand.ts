@@ -1,3 +1,4 @@
+
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
 import { DescribeStreamRequest, DescribeStreamResponse } from "../models/index.ts";
 import {

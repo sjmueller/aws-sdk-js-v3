@@ -1,3 +1,4 @@
+
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
 import { UpdateApplicationSettingsRequest, UpdateApplicationSettingsResponse } from "../models/index.ts";
 import {

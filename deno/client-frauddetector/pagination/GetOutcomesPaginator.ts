@@ -1,10 +1,7 @@
+
 import { FraudDetector } from "../FraudDetector.ts";
 import { FraudDetectorClient } from "../FraudDetectorClient.ts";
-import {
-  GetOutcomesCommand,
-  GetOutcomesCommandInput,
-  GetOutcomesCommandOutput,
-} from "../commands/GetOutcomesCommand.ts";
+import { GetOutcomesCommand, GetOutcomesCommandInput, GetOutcomesCommandOutput } from "../commands/GetOutcomesCommand.ts";
 import { FraudDetectorPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

@@ -1,3 +1,4 @@
+
 import { GlobalAcceleratorClient } from "./GlobalAcceleratorClient.ts";
 import {
   AdvertiseByoipCidrCommand,
@@ -89,11 +90,7 @@ import {
   ProvisionByoipCidrCommandInput,
   ProvisionByoipCidrCommandOutput,
 } from "./commands/ProvisionByoipCidrCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

@@ -1,3 +1,4 @@
+
 export * from "./PersonalizeEventsClient.ts";
 export * from "./PersonalizeEvents.ts";
 export * from "./commands/PutEventsCommand.ts";

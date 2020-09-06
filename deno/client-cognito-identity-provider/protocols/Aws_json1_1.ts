@@ -1,3 +1,4 @@
+
 import {
   AddCustomAttributesCommandInput,
   AddCustomAttributesCommandOutput,
@@ -6,10 +7,7 @@ import {
   AdminAddUserToGroupCommandInput,
   AdminAddUserToGroupCommandOutput,
 } from "../commands/AdminAddUserToGroupCommand.ts";
-import {
-  AdminConfirmSignUpCommandInput,
-  AdminConfirmSignUpCommandOutput,
-} from "../commands/AdminConfirmSignUpCommand.ts";
+import { AdminConfirmSignUpCommandInput, AdminConfirmSignUpCommandOutput } from "../commands/AdminConfirmSignUpCommand.ts";
 import { AdminCreateUserCommandInput, AdminCreateUserCommandOutput } from "../commands/AdminCreateUserCommand.ts";
 import {
   AdminDeleteUserAttributesCommandInput,
@@ -173,10 +171,7 @@ import {
   GetSigningCertificateCommandInput,
   GetSigningCertificateCommandOutput,
 } from "../commands/GetSigningCertificateCommand.ts";
-import {
-  GetUICustomizationCommandInput,
-  GetUICustomizationCommandOutput,
-} from "../commands/GetUICustomizationCommand.ts";
+import { GetUICustomizationCommandInput, GetUICustomizationCommandOutput } from "../commands/GetUICustomizationCommand.ts";
 import {
   GetUserAttributeVerificationCodeCommandInput,
   GetUserAttributeVerificationCodeCommandOutput,
@@ -202,10 +197,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand.ts";
-import {
-  ListUserImportJobsCommandInput,
-  ListUserImportJobsCommandOutput,
-} from "../commands/ListUserImportJobsCommand.ts";
+import { ListUserImportJobsCommandInput, ListUserImportJobsCommandOutput } from "../commands/ListUserImportJobsCommand.ts";
 import {
   ListUserPoolClientsCommandInput,
   ListUserPoolClientsCommandOutput,
@@ -225,10 +217,7 @@ import {
   SetRiskConfigurationCommandInput,
   SetRiskConfigurationCommandOutput,
 } from "../commands/SetRiskConfigurationCommand.ts";
-import {
-  SetUICustomizationCommandInput,
-  SetUICustomizationCommandOutput,
-} from "../commands/SetUICustomizationCommand.ts";
+import { SetUICustomizationCommandInput, SetUICustomizationCommandOutput } from "../commands/SetUICustomizationCommand.ts";
 import {
   SetUserMFAPreferenceCommandInput,
   SetUserMFAPreferenceCommandOutput,
@@ -239,10 +228,7 @@ import {
 } from "../commands/SetUserPoolMfaConfigCommand.ts";
 import { SetUserSettingsCommandInput, SetUserSettingsCommandOutput } from "../commands/SetUserSettingsCommand.ts";
 import { SignUpCommandInput, SignUpCommandOutput } from "../commands/SignUpCommand.ts";
-import {
-  StartUserImportJobCommandInput,
-  StartUserImportJobCommandOutput,
-} from "../commands/StartUserImportJobCommand.ts";
+import { StartUserImportJobCommandInput, StartUserImportJobCommandOutput } from "../commands/StartUserImportJobCommand.ts";
 import { StopUserImportJobCommandInput, StopUserImportJobCommandOutput } from "../commands/StopUserImportJobCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand.ts";
@@ -250,10 +236,7 @@ import {
   UpdateAuthEventFeedbackCommandInput,
   UpdateAuthEventFeedbackCommandOutput,
 } from "../commands/UpdateAuthEventFeedbackCommand.ts";
-import {
-  UpdateDeviceStatusCommandInput,
-  UpdateDeviceStatusCommandOutput,
-} from "../commands/UpdateDeviceStatusCommand.ts";
+import { UpdateDeviceStatusCommandInput, UpdateDeviceStatusCommandOutput } from "../commands/UpdateDeviceStatusCommand.ts";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "../commands/UpdateGroupCommand.ts";
 import {
   UpdateIdentityProviderCommandInput,

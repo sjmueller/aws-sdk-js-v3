@@ -1,3 +1,4 @@
+
 import { MacieClient } from "./MacieClient.ts";
 import {
   AssociateMemberAccountCommand,

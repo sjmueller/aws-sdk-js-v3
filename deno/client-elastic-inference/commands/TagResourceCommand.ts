@@ -1,8 +1,5 @@
-import {
-  ElasticInferenceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticInferenceClient.ts";
+
+import { ElasticInferenceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticInferenceClient.ts";
 import { TagResourceRequest, TagResourceResult } from "../models/index.ts";
 import {
   deserializeAws_restJson1TagResourceCommand,

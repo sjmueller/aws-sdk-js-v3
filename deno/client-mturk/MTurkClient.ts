@@ -1,3 +1,4 @@
+
 import {
   AcceptQualificationRequestCommandInput,
   AcceptQualificationRequestCommandOutput,
@@ -66,10 +67,7 @@ import {
   ListReviewPolicyResultsForHITCommandInput,
   ListReviewPolicyResultsForHITCommandOutput,
 } from "./commands/ListReviewPolicyResultsForHITCommand.ts";
-import {
-  ListReviewableHITsCommandInput,
-  ListReviewableHITsCommandOutput,
-} from "./commands/ListReviewableHITsCommand.ts";
+import { ListReviewableHITsCommandInput, ListReviewableHITsCommandOutput } from "./commands/ListReviewableHITsCommand.ts";
 import { ListWorkerBlocksCommandInput, ListWorkerBlocksCommandOutput } from "./commands/ListWorkerBlocksCommand.ts";
 import {
   ListWorkersWithQualificationTypeCommandInput,
@@ -94,10 +92,7 @@ import {
   UpdateHITReviewStatusCommandInput,
   UpdateHITReviewStatusCommandOutput,
 } from "./commands/UpdateHITReviewStatusCommand.ts";
-import {
-  UpdateHITTypeOfHITCommandInput,
-  UpdateHITTypeOfHITCommandOutput,
-} from "./commands/UpdateHITTypeOfHITCommand.ts";
+import { UpdateHITTypeOfHITCommandInput, UpdateHITTypeOfHITCommandOutput } from "./commands/UpdateHITTypeOfHITCommand.ts";
 import {
   UpdateNotificationSettingsCommandInput,
   UpdateNotificationSettingsCommandOutput,

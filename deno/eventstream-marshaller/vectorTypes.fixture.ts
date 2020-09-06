@@ -1,3 +1,4 @@
+
 import { Message } from "./Message.ts";
 
 export interface NegativeTestVector {

@@ -1,8 +1,6 @@
+
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client.ts";
-import {
-  DescribeOrganizationConfigurationRequest,
-  DescribeOrganizationConfigurationResponse,
-} from "../models/index.ts";
+import { DescribeOrganizationConfigurationRequest, DescribeOrganizationConfigurationResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1DescribeOrganizationConfigurationCommand,
   serializeAws_restJson1DescribeOrganizationConfigurationCommand,

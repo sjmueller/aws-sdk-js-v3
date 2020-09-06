@@ -1,3 +1,4 @@
+
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient.ts";
 import { RegisterStreamConsumerInput, RegisterStreamConsumerOutput } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
 import { DescribeUserHierarchyStructureRequest, DescribeUserHierarchyStructureResponse } from "../models/index.ts";
 import {

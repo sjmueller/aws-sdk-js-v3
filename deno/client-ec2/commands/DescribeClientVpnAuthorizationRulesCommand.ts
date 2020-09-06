@@ -1,8 +1,6 @@
+
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import {
-  DescribeClientVpnAuthorizationRulesRequest,
-  DescribeClientVpnAuthorizationRulesResult,
-} from "../models/index.ts";
+import { DescribeClientVpnAuthorizationRulesRequest, DescribeClientVpnAuthorizationRulesResult } from "../models/index.ts";
 import {
   deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommand,
   serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand,

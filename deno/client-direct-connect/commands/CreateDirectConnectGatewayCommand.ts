@@ -1,3 +1,4 @@
+
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
 import { CreateDirectConnectGatewayRequest, CreateDirectConnectGatewayResult } from "../models/index.ts";
 import {

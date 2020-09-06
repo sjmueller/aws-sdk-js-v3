@@ -1,6 +1,7 @@
-import { readFile } from "fs.ts";
-import { homedir } from "os.ts";
-import { join, sep } from "path.ts";
+
+import { readFile } from "https://deno.land/std@0.68.0/node/fs.ts";
+import { homedir } from "https://deno.land/std@0.68.0/node/os.ts";
+import { join, sep } from "https://deno.land/std@0.68.0/node/path.ts";
 
 export const ENV_CREDENTIALS_PATH = "AWS_SHARED_CREDENTIALS_FILE";
 export const ENV_CONFIG_PATH = "AWS_CONFIG_FILE";
@@ -105,7 +106,7 @@ function slurpFile(path: string): Promise<string> {
   });
 }
 
-function getHomeDir(): string {
+function getHomeDirOpt(): string | undefined | null {
   const { HOME, USERPROFILE, HOMEPATH, HOMEDRIVE = `C:${sep}` } = process.env;
 
   if (HOME) return HOME;
@@ -113,4 +114,13 @@ function getHomeDir(): string {
   if (HOMEPATH) return `${HOMEDRIVE}${HOMEPATH}`;
 
   return homedir();
+}
+
+function getHomeDir(): string {
+  const homeDirOpt = getHomeDirOpt();
+
+  if (homeDirOpt === null || homeDirOpt === undefined) {
+    throw new Error("Home dir undefined or null");
+  }
+  return homeDirOpt;
 }

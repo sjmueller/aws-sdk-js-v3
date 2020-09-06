@@ -1,7 +1,5 @@
-import {
-  AddRoleToDBClusterCommandInput,
-  AddRoleToDBClusterCommandOutput,
-} from "./commands/AddRoleToDBClusterCommand.ts";
+
+import { AddRoleToDBClusterCommandInput, AddRoleToDBClusterCommandOutput } from "./commands/AddRoleToDBClusterCommand.ts";
 import {
   AddRoleToDBInstanceCommandInput,
   AddRoleToDBInstanceCommandOutput,
@@ -19,10 +17,7 @@ import {
   AuthorizeDBSecurityGroupIngressCommandInput,
   AuthorizeDBSecurityGroupIngressCommandOutput,
 } from "./commands/AuthorizeDBSecurityGroupIngressCommand.ts";
-import {
-  BacktrackDBClusterCommandInput,
-  BacktrackDBClusterCommandOutput,
-} from "./commands/BacktrackDBClusterCommand.ts";
+import { BacktrackDBClusterCommandInput, BacktrackDBClusterCommandOutput } from "./commands/BacktrackDBClusterCommand.ts";
 import { CancelExportTaskCommandInput, CancelExportTaskCommandOutput } from "./commands/CancelExportTaskCommand.ts";
 import {
   CopyDBClusterParameterGroupCommandInput,
@@ -172,10 +167,7 @@ import {
   DescribeDBClusterSnapshotsCommandInput,
   DescribeDBClusterSnapshotsCommandOutput,
 } from "./commands/DescribeDBClusterSnapshotsCommand.ts";
-import {
-  DescribeDBClustersCommandInput,
-  DescribeDBClustersCommandOutput,
-} from "./commands/DescribeDBClustersCommand.ts";
+import { DescribeDBClustersCommandInput, DescribeDBClustersCommandOutput } from "./commands/DescribeDBClustersCommand.ts";
 import {
   DescribeDBEngineVersionsCommandInput,
   DescribeDBEngineVersionsCommandOutput,
@@ -188,10 +180,7 @@ import {
   DescribeDBInstancesCommandInput,
   DescribeDBInstancesCommandOutput,
 } from "./commands/DescribeDBInstancesCommand.ts";
-import {
-  DescribeDBLogFilesCommandInput,
-  DescribeDBLogFilesCommandOutput,
-} from "./commands/DescribeDBLogFilesCommand.ts";
+import { DescribeDBLogFilesCommandInput, DescribeDBLogFilesCommandOutput } from "./commands/DescribeDBLogFilesCommand.ts";
 import {
   DescribeDBParameterGroupsCommandInput,
   DescribeDBParameterGroupsCommandOutput,
@@ -299,10 +288,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  ModifyCertificatesCommandInput,
-  ModifyCertificatesCommandOutput,
-} from "./commands/ModifyCertificatesCommand.ts";
+import { ModifyCertificatesCommandInput, ModifyCertificatesCommandOutput } from "./commands/ModifyCertificatesCommand.ts";
 import {
   ModifyCurrentDBClusterCapacityCommandInput,
   ModifyCurrentDBClusterCapacityCommandOutput,
@@ -348,10 +334,7 @@ import {
   ModifyGlobalClusterCommandOutput,
 } from "./commands/ModifyGlobalClusterCommand.ts";
 import { ModifyOptionGroupCommandInput, ModifyOptionGroupCommandOutput } from "./commands/ModifyOptionGroupCommand.ts";
-import {
-  PromoteReadReplicaCommandInput,
-  PromoteReadReplicaCommandOutput,
-} from "./commands/PromoteReadReplicaCommand.ts";
+import { PromoteReadReplicaCommandInput, PromoteReadReplicaCommandOutput } from "./commands/PromoteReadReplicaCommand.ts";
 import {
   PromoteReadReplicaDBClusterCommandInput,
   PromoteReadReplicaDBClusterCommandOutput,
@@ -428,10 +411,7 @@ import {
 import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "./commands/StartDBClusterCommand.ts";
 import { StartDBInstanceCommandInput, StartDBInstanceCommandOutput } from "./commands/StartDBInstanceCommand.ts";
 import { StartExportTaskCommandInput, StartExportTaskCommandOutput } from "./commands/StartExportTaskCommand.ts";
-import {
-  StopActivityStreamCommandInput,
-  StopActivityStreamCommandOutput,
-} from "./commands/StopActivityStreamCommand.ts";
+import { StopActivityStreamCommandInput, StopActivityStreamCommandOutput } from "./commands/StopActivityStreamCommand.ts";
 import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "./commands/StopDBClusterCommand.ts";
 import { StopDBInstanceCommandInput, StopDBInstanceCommandOutput } from "./commands/StopDBInstanceCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";

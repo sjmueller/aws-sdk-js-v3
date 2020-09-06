@@ -1,3 +1,4 @@
+
 import { DynamoDBClient } from "./DynamoDBClient.ts";
 import {
   BatchGetItemCommand,
@@ -19,22 +20,14 @@ import {
   CreateGlobalTableCommandInput,
   CreateGlobalTableCommandOutput,
 } from "./commands/CreateGlobalTableCommand.ts";
-import {
-  CreateTableCommand,
-  CreateTableCommandInput,
-  CreateTableCommandOutput,
-} from "./commands/CreateTableCommand.ts";
+import { CreateTableCommand, CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand.ts";
 import {
   DeleteBackupCommand,
   DeleteBackupCommandInput,
   DeleteBackupCommandOutput,
 } from "./commands/DeleteBackupCommand.ts";
 import { DeleteItemCommand, DeleteItemCommandInput, DeleteItemCommandOutput } from "./commands/DeleteItemCommand.ts";
-import {
-  DeleteTableCommand,
-  DeleteTableCommandInput,
-  DeleteTableCommandOutput,
-} from "./commands/DeleteTableCommand.ts";
+import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand.ts";
 import {
   DescribeBackupCommand,
   DescribeBackupCommandInput,
@@ -86,11 +79,7 @@ import {
   DescribeTimeToLiveCommandOutput,
 } from "./commands/DescribeTimeToLiveCommand.ts";
 import { GetItemCommand, GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand.ts";
-import {
-  ListBackupsCommand,
-  ListBackupsCommandInput,
-  ListBackupsCommandOutput,
-} from "./commands/ListBackupsCommand.ts";
+import { ListBackupsCommand, ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand.ts";
 import {
   ListContributorInsightsCommand,
   ListContributorInsightsCommandInput,
@@ -120,11 +109,7 @@ import {
   RestoreTableToPointInTimeCommandOutput,
 } from "./commands/RestoreTableToPointInTimeCommand.ts";
 import { ScanCommand, ScanCommandInput, ScanCommandOutput } from "./commands/ScanCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   TransactGetItemsCommand,
   TransactGetItemsCommandInput,
@@ -161,11 +146,7 @@ import {
   UpdateGlobalTableSettingsCommandOutput,
 } from "./commands/UpdateGlobalTableSettingsCommand.ts";
 import { UpdateItemCommand, UpdateItemCommandInput, UpdateItemCommandOutput } from "./commands/UpdateItemCommand.ts";
-import {
-  UpdateTableCommand,
-  UpdateTableCommandInput,
-  UpdateTableCommandOutput,
-} from "./commands/UpdateTableCommand.ts";
+import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand.ts";
 import {
   UpdateTableReplicaAutoScalingCommand,
   UpdateTableReplicaAutoScalingCommandInput,

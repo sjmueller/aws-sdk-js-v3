@@ -1,3 +1,4 @@
+
 import { SupportClient } from "./SupportClient.ts";
 import {
   AddAttachmentsToSetCommand,
@@ -60,11 +61,7 @@ import {
   RefreshTrustedAdvisorCheckCommandInput,
   RefreshTrustedAdvisorCheckCommandOutput,
 } from "./commands/RefreshTrustedAdvisorCheckCommand.ts";
-import {
-  ResolveCaseCommand,
-  ResolveCaseCommandInput,
-  ResolveCaseCommandOutput,
-} from "./commands/ResolveCaseCommand.ts";
+import { ResolveCaseCommand, ResolveCaseCommandInput, ResolveCaseCommandOutput } from "./commands/ResolveCaseCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**

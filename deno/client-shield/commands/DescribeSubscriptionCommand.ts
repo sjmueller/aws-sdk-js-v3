@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient.ts";
 import { DescribeSubscriptionRequest, DescribeSubscriptionResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { RAMClient } from "./RAMClient.ts";
 import {
   AcceptResourceShareInvitationCommand,
@@ -104,11 +105,7 @@ import {
   RejectResourceShareInvitationCommandInput,
   RejectResourceShareInvitationCommandOutput,
 } from "./commands/RejectResourceShareInvitationCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

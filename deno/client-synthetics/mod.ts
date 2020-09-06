@@ -1,3 +1,4 @@
+
 export * from "./SyntheticsClient.ts";
 export * from "./Synthetics.ts";
 export * from "./commands/CreateCanaryCommand.ts";

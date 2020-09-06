@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
 import { DescribeResourceRequest, DescribeResourceResponse } from "../models/index.ts";
 import {

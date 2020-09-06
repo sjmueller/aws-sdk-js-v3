@@ -1,10 +1,7 @@
+
 import { CloudFormation } from "../CloudFormation.ts";
 import { CloudFormationClient } from "../CloudFormationClient.ts";
-import {
-  ListExportsCommand,
-  ListExportsCommandInput,
-  ListExportsCommandOutput,
-} from "../commands/ListExportsCommand.ts";
+import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "../commands/ListExportsCommand.ts";
 import { CloudFormationPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

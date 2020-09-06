@@ -1,10 +1,7 @@
+
 import { CloudWatch } from "../CloudWatch.ts";
 import { CloudWatchClient } from "../CloudWatchClient.ts";
-import {
-  ListMetricsCommand,
-  ListMetricsCommandInput,
-  ListMetricsCommandOutput,
-} from "../commands/ListMetricsCommand.ts";
+import { ListMetricsCommand, ListMetricsCommandInput, ListMetricsCommandOutput } from "../commands/ListMetricsCommand.ts";
 import { CloudWatchPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

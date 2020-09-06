@@ -1,3 +1,4 @@
+
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
 import { StopThingRegistrationTaskRequest, StopThingRegistrationTaskResponse } from "../models/index.ts";
 import {

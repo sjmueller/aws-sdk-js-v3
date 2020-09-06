@@ -1,3 +1,4 @@
+
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
 import { ResizeClusterMessage, ResizeClusterResult } from "../models/index.ts";
 import {

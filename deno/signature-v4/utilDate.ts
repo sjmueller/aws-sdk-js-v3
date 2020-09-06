@@ -1,3 +1,4 @@
+
 export function iso8601(time: number | string | Date): string {
   return toDate(time)
     .toISOString()

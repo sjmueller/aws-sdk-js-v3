@@ -1,3 +1,4 @@
+
 import { AssociateWebACLCommandInput, AssociateWebACLCommandOutput } from "./commands/AssociateWebACLCommand.ts";
 import { CheckCapacityCommandInput, CheckCapacityCommandOutput } from "./commands/CheckCapacityCommand.ts";
 import { CreateIPSetCommandInput, CreateIPSetCommandOutput } from "./commands/CreateIPSetCommand.ts";
@@ -30,10 +31,7 @@ import {
   DescribeManagedRuleGroupCommandInput,
   DescribeManagedRuleGroupCommandOutput,
 } from "./commands/DescribeManagedRuleGroupCommand.ts";
-import {
-  DisassociateWebACLCommandInput,
-  DisassociateWebACLCommandOutput,
-} from "./commands/DisassociateWebACLCommand.ts";
+import { DisassociateWebACLCommandInput, DisassociateWebACLCommandOutput } from "./commands/DisassociateWebACLCommand.ts";
 import { GetIPSetCommandInput, GetIPSetCommandOutput } from "./commands/GetIPSetCommand.ts";
 import {
   GetLoggingConfigurationCommandInput,
@@ -47,15 +45,9 @@ import {
   GetRateBasedStatementManagedKeysCommandInput,
   GetRateBasedStatementManagedKeysCommandOutput,
 } from "./commands/GetRateBasedStatementManagedKeysCommand.ts";
-import {
-  GetRegexPatternSetCommandInput,
-  GetRegexPatternSetCommandOutput,
-} from "./commands/GetRegexPatternSetCommand.ts";
+import { GetRegexPatternSetCommandInput, GetRegexPatternSetCommandOutput } from "./commands/GetRegexPatternSetCommand.ts";
 import { GetRuleGroupCommandInput, GetRuleGroupCommandOutput } from "./commands/GetRuleGroupCommand.ts";
-import {
-  GetSampledRequestsCommandInput,
-  GetSampledRequestsCommandOutput,
-} from "./commands/GetSampledRequestsCommand.ts";
+import { GetSampledRequestsCommandInput, GetSampledRequestsCommandOutput } from "./commands/GetSampledRequestsCommand.ts";
 import { GetWebACLCommandInput, GetWebACLCommandOutput } from "./commands/GetWebACLCommand.ts";
 import {
   GetWebACLForResourceCommandInput,

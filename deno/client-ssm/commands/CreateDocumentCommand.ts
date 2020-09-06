@@ -1,3 +1,4 @@
+
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
 import { CreateDocumentRequest, CreateDocumentResult } from "../models/index.ts";
 import {

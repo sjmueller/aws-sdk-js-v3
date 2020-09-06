@@ -1,3 +1,4 @@
+
 import { SchemasClient } from "./SchemasClient.ts";
 import {
   CreateDiscovererCommand,
@@ -89,11 +90,7 @@ import {
   ListSchemaVersionsCommandInput,
   ListSchemaVersionsCommandOutput,
 } from "./commands/ListSchemaVersionsCommand.ts";
-import {
-  ListSchemasCommand,
-  ListSchemasCommandInput,
-  ListSchemasCommandOutput,
-} from "./commands/ListSchemasCommand.ts";
+import { ListSchemasCommand, ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -124,11 +121,7 @@ import {
   StopDiscovererCommandInput,
   StopDiscovererCommandOutput,
 } from "./commands/StopDiscovererCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

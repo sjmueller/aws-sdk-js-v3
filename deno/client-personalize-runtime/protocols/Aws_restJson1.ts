@@ -1,11 +1,9 @@
+
 import {
   GetPersonalizedRankingCommandInput,
   GetPersonalizedRankingCommandOutput,
 } from "../commands/GetPersonalizedRankingCommand.ts";
-import {
-  GetRecommendationsCommandInput,
-  GetRecommendationsCommandOutput,
-} from "../commands/GetRecommendationsCommand.ts";
+import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand.ts";
 import { InvalidInputException, PredictedItem, ResourceNotFoundException } from "../models/index.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";

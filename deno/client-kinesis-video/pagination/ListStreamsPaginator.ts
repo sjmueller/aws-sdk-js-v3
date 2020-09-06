@@ -1,10 +1,7 @@
+
 import { KinesisVideo } from "../KinesisVideo.ts";
 import { KinesisVideoClient } from "../KinesisVideoClient.ts";
-import {
-  ListStreamsCommand,
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput,
-} from "../commands/ListStreamsCommand.ts";
+import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "../commands/ListStreamsCommand.ts";
 import { KinesisVideoPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

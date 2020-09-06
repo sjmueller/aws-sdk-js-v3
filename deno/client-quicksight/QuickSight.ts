@@ -1,3 +1,4 @@
+
 import { QuickSightClient } from "./QuickSightClient.ts";
 import {
   CancelIngestionCommand,
@@ -24,11 +25,7 @@ import {
   CreateDataSourceCommandInput,
   CreateDataSourceCommandOutput,
 } from "./commands/CreateDataSourceCommand.ts";
-import {
-  CreateGroupCommand,
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput,
-} from "./commands/CreateGroupCommand.ts";
+import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand.ts";
 import {
   CreateGroupMembershipCommand,
   CreateGroupMembershipCommandInput,
@@ -64,11 +61,7 @@ import {
   CreateThemeAliasCommandInput,
   CreateThemeAliasCommandOutput,
 } from "./commands/CreateThemeAliasCommand.ts";
-import {
-  CreateThemeCommand,
-  CreateThemeCommandInput,
-  CreateThemeCommandOutput,
-} from "./commands/CreateThemeCommand.ts";
+import { CreateThemeCommand, CreateThemeCommandInput, CreateThemeCommandOutput } from "./commands/CreateThemeCommand.ts";
 import {
   DeleteAccountCustomizationCommand,
   DeleteAccountCustomizationCommandInput,
@@ -89,11 +82,7 @@ import {
   DeleteDataSourceCommandInput,
   DeleteDataSourceCommandOutput,
 } from "./commands/DeleteDataSourceCommand.ts";
-import {
-  DeleteGroupCommand,
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput,
-} from "./commands/DeleteGroupCommand.ts";
+import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteGroupMembershipCommand,
   DeleteGroupMembershipCommandInput,
@@ -124,11 +113,7 @@ import {
   DeleteThemeAliasCommandInput,
   DeleteThemeAliasCommandOutput,
 } from "./commands/DeleteThemeAliasCommand.ts";
-import {
-  DeleteThemeCommand,
-  DeleteThemeCommandInput,
-  DeleteThemeCommandOutput,
-} from "./commands/DeleteThemeCommand.ts";
+import { DeleteThemeCommand, DeleteThemeCommandInput, DeleteThemeCommandOutput } from "./commands/DeleteThemeCommand.ts";
 import {
   DeleteUserByPrincipalIdCommand,
   DeleteUserByPrincipalIdCommandInput,
@@ -333,11 +318,7 @@ import {
   SearchDashboardsCommandInput,
   SearchDashboardsCommandOutput,
 } from "./commands/SearchDashboardsCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -388,11 +369,7 @@ import {
   UpdateDataSourcePermissionsCommandInput,
   UpdateDataSourcePermissionsCommandOutput,
 } from "./commands/UpdateDataSourcePermissionsCommand.ts";
-import {
-  UpdateGroupCommand,
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput,
-} from "./commands/UpdateGroupCommand.ts";
+import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand.ts";
 import {
   UpdateIAMPolicyAssignmentCommand,
   UpdateIAMPolicyAssignmentCommandInput,
@@ -418,11 +395,7 @@ import {
   UpdateThemeAliasCommandInput,
   UpdateThemeAliasCommandOutput,
 } from "./commands/UpdateThemeAliasCommand.ts";
-import {
-  UpdateThemeCommand,
-  UpdateThemeCommandInput,
-  UpdateThemeCommandOutput,
-} from "./commands/UpdateThemeCommand.ts";
+import { UpdateThemeCommand, UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand.ts";
 import {
   UpdateThemePermissionsCommand,
   UpdateThemePermissionsCommandInput,

@@ -1,3 +1,4 @@
+
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient.ts";
 import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/index.ts";
 import {

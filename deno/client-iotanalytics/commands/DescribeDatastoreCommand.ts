@@ -1,3 +1,4 @@
+
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient.ts";
 import { DescribeDatastoreRequest, DescribeDatastoreResponse } from "../models/index.ts";
 import {

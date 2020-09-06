@@ -1,3 +1,4 @@
+
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client.ts";
 import { CreateMemberRequest, CreateMemberResponse } from "../models/index.ts";
 import {

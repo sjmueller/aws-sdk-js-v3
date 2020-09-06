@@ -1,3 +1,4 @@
+
 import { BulkPublishCommandInput, BulkPublishCommandOutput } from "../commands/BulkPublishCommand.ts";
 import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "../commands/DeleteDatasetCommand.ts";
 import { DescribeDatasetCommandInput, DescribeDatasetCommandOutput } from "../commands/DescribeDatasetCommand.ts";
@@ -30,10 +31,7 @@ import {
   SetIdentityPoolConfigurationCommandInput,
   SetIdentityPoolConfigurationCommandOutput,
 } from "../commands/SetIdentityPoolConfigurationCommand.ts";
-import {
-  SubscribeToDatasetCommandInput,
-  SubscribeToDatasetCommandOutput,
-} from "../commands/SubscribeToDatasetCommand.ts";
+import { SubscribeToDatasetCommandInput, SubscribeToDatasetCommandOutput } from "../commands/SubscribeToDatasetCommand.ts";
 import {
   UnsubscribeFromDatasetCommandInput,
   UnsubscribeFromDatasetCommandOutput,

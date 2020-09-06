@@ -1,3 +1,4 @@
+
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
 import { UpdateAccountSettingsRequest, UpdateAccountSettingsResponse } from "../models/index.ts";
 import {

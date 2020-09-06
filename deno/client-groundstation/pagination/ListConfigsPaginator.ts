@@ -1,10 +1,7 @@
+
 import { GroundStation } from "../GroundStation.ts";
 import { GroundStationClient } from "../GroundStationClient.ts";
-import {
-  ListConfigsCommand,
-  ListConfigsCommandInput,
-  ListConfigsCommandOutput,
-} from "../commands/ListConfigsCommand.ts";
+import { ListConfigsCommand, ListConfigsCommandInput, ListConfigsCommandOutput } from "../commands/ListConfigsCommand.ts";
 import { GroundStationPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

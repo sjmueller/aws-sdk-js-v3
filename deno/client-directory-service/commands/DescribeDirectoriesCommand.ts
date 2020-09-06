@@ -1,8 +1,5 @@
-import {
-  DirectoryServiceClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DirectoryServiceClient.ts";
+
+import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
 import { DescribeDirectoriesRequest, DescribeDirectoriesResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeDirectoriesCommand,

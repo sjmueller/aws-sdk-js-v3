@@ -1,3 +1,4 @@
+
 import { CancelUpdateStackCommandInput, CancelUpdateStackCommandOutput } from "./commands/CancelUpdateStackCommand.ts";
 import {
   ContinueUpdateRollbackCommandInput,
@@ -74,21 +75,12 @@ import {
 import { ExecuteChangeSetCommandInput, ExecuteChangeSetCommandOutput } from "./commands/ExecuteChangeSetCommand.ts";
 import { GetStackPolicyCommandInput, GetStackPolicyCommandOutput } from "./commands/GetStackPolicyCommand.ts";
 import { GetTemplateCommandInput, GetTemplateCommandOutput } from "./commands/GetTemplateCommand.ts";
-import {
-  GetTemplateSummaryCommandInput,
-  GetTemplateSummaryCommandOutput,
-} from "./commands/GetTemplateSummaryCommand.ts";
+import { GetTemplateSummaryCommandInput, GetTemplateSummaryCommandOutput } from "./commands/GetTemplateSummaryCommand.ts";
 import { ListChangeSetsCommandInput, ListChangeSetsCommandOutput } from "./commands/ListChangeSetsCommand.ts";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand.ts";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand.ts";
-import {
-  ListStackInstancesCommandInput,
-  ListStackInstancesCommandOutput,
-} from "./commands/ListStackInstancesCommand.ts";
-import {
-  ListStackResourcesCommandInput,
-  ListStackResourcesCommandOutput,
-} from "./commands/ListStackResourcesCommand.ts";
+import { ListStackInstancesCommandInput, ListStackInstancesCommandOutput } from "./commands/ListStackInstancesCommand.ts";
+import { ListStackResourcesCommandInput, ListStackResourcesCommandOutput } from "./commands/ListStackResourcesCommand.ts";
 import {
   ListStackSetOperationResultsCommandInput,
   ListStackSetOperationResultsCommandOutput,

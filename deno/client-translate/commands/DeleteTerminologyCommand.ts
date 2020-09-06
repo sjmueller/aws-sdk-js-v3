@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient.ts";
 import { DeleteTerminologyRequest } from "../models/index.ts";
 import {

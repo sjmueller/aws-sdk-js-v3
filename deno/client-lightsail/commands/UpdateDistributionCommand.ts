@@ -1,3 +1,4 @@
+
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
 import { UpdateDistributionRequest, UpdateDistributionResult } from "../models/index.ts";
 import {

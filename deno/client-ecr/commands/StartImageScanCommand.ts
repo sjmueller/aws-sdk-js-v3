@@ -1,3 +1,4 @@
+
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
 import { StartImageScanRequest, StartImageScanResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { AmplifyClient } from "./AmplifyClient.ts";
 import { CreateAppCommand, CreateAppCommandInput, CreateAppCommandOutput } from "./commands/CreateAppCommand.ts";
 import {
@@ -110,11 +111,7 @@ import {
 } from "./commands/StartDeploymentCommand.ts";
 import { StartJobCommand, StartJobCommandInput, StartJobCommandOutput } from "./commands/StartJobCommand.ts";
 import { StopJobCommand, StopJobCommandInput, StopJobCommandOutput } from "./commands/StopJobCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

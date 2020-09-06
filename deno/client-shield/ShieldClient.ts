@@ -1,3 +1,4 @@
+
 import {
   AssociateDRTLogBucketCommandInput,
   AssociateDRTLogBucketCommandOutput,
@@ -12,25 +13,16 @@ import {
   AssociateProactiveEngagementDetailsCommandOutput,
 } from "./commands/AssociateProactiveEngagementDetailsCommand.ts";
 import { CreateProtectionCommandInput, CreateProtectionCommandOutput } from "./commands/CreateProtectionCommand.ts";
-import {
-  CreateSubscriptionCommandInput,
-  CreateSubscriptionCommandOutput,
-} from "./commands/CreateSubscriptionCommand.ts";
+import { CreateSubscriptionCommandInput, CreateSubscriptionCommandOutput } from "./commands/CreateSubscriptionCommand.ts";
 import { DeleteProtectionCommandInput, DeleteProtectionCommandOutput } from "./commands/DeleteProtectionCommand.ts";
-import {
-  DeleteSubscriptionCommandInput,
-  DeleteSubscriptionCommandOutput,
-} from "./commands/DeleteSubscriptionCommand.ts";
+import { DeleteSubscriptionCommandInput, DeleteSubscriptionCommandOutput } from "./commands/DeleteSubscriptionCommand.ts";
 import { DescribeAttackCommandInput, DescribeAttackCommandOutput } from "./commands/DescribeAttackCommand.ts";
 import { DescribeDRTAccessCommandInput, DescribeDRTAccessCommandOutput } from "./commands/DescribeDRTAccessCommand.ts";
 import {
   DescribeEmergencyContactSettingsCommandInput,
   DescribeEmergencyContactSettingsCommandOutput,
 } from "./commands/DescribeEmergencyContactSettingsCommand.ts";
-import {
-  DescribeProtectionCommandInput,
-  DescribeProtectionCommandOutput,
-} from "./commands/DescribeProtectionCommand.ts";
+import { DescribeProtectionCommandInput, DescribeProtectionCommandOutput } from "./commands/DescribeProtectionCommand.ts";
 import {
   DescribeSubscriptionCommandInput,
   DescribeSubscriptionCommandOutput,
@@ -65,10 +57,7 @@ import {
   UpdateEmergencyContactSettingsCommandInput,
   UpdateEmergencyContactSettingsCommandOutput,
 } from "./commands/UpdateEmergencyContactSettingsCommand.ts";
-import {
-  UpdateSubscriptionCommandInput,
-  UpdateSubscriptionCommandOutput,
-} from "./commands/UpdateSubscriptionCommand.ts";
+import { UpdateSubscriptionCommandInput, UpdateSubscriptionCommandOutput } from "./commands/UpdateSubscriptionCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
   EndpointsInputConfig,

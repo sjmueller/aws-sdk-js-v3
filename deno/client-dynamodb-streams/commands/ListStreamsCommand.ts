@@ -1,8 +1,5 @@
-import {
-  DynamoDBStreamsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../DynamoDBStreamsClient.ts";
+
+import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient.ts";
 import { ListStreamsInput, ListStreamsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_0ListStreamsCommand,

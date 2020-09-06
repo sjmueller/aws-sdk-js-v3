@@ -1,7 +1,5 @@
-import {
-  GetRoleCredentialsCommandInput,
-  GetRoleCredentialsCommandOutput,
-} from "../commands/GetRoleCredentialsCommand.ts";
+
+import { GetRoleCredentialsCommandInput, GetRoleCredentialsCommandOutput } from "../commands/GetRoleCredentialsCommand.ts";
 import { ListAccountRolesCommandInput, ListAccountRolesCommandOutput } from "../commands/ListAccountRolesCommand.ts";
 import { ListAccountsCommandInput, ListAccountsCommandOutput } from "../commands/ListAccountsCommand.ts";
 import { LogoutCommandInput, LogoutCommandOutput } from "../commands/LogoutCommand.ts";

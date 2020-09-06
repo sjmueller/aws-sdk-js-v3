@@ -1,3 +1,4 @@
+
 import {
   AbortDocumentVersionUploadCommandInput,
   AbortDocumentVersionUploadCommandOutput,
@@ -37,10 +38,7 @@ import {
   DeleteNotificationSubscriptionCommandOutput,
 } from "./commands/DeleteNotificationSubscriptionCommand.ts";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
-import {
-  DescribeActivitiesCommandInput,
-  DescribeActivitiesCommandOutput,
-} from "./commands/DescribeActivitiesCommand.ts";
+import { DescribeActivitiesCommandInput, DescribeActivitiesCommandOutput } from "./commands/DescribeActivitiesCommand.ts";
 import { DescribeCommentsCommandInput, DescribeCommentsCommandOutput } from "./commands/DescribeCommentsCommand.ts";
 import {
   DescribeDocumentVersionsCommandInput,
@@ -67,10 +65,7 @@ import { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "./command
 import { GetCurrentUserCommandInput, GetCurrentUserCommandOutput } from "./commands/GetCurrentUserCommand.ts";
 import { GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand.ts";
 import { GetDocumentPathCommandInput, GetDocumentPathCommandOutput } from "./commands/GetDocumentPathCommand.ts";
-import {
-  GetDocumentVersionCommandInput,
-  GetDocumentVersionCommandOutput,
-} from "./commands/GetDocumentVersionCommand.ts";
+import { GetDocumentVersionCommandInput, GetDocumentVersionCommandOutput } from "./commands/GetDocumentVersionCommand.ts";
 import { GetFolderCommandInput, GetFolderCommandOutput } from "./commands/GetFolderCommand.ts";
 import { GetFolderPathCommandInput, GetFolderPathCommandOutput } from "./commands/GetFolderPathCommand.ts";
 import { GetResourcesCommandInput, GetResourcesCommandOutput } from "./commands/GetResourcesCommand.ts";

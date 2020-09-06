@@ -1,3 +1,4 @@
+
 export * from "./PinpointEmailClient.ts";
 export * from "./PinpointEmail.ts";
 export * from "./commands/CreateConfigurationSetCommand.ts";

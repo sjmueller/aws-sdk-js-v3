@@ -1,9 +1,7 @@
+
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
 import { GetObjectOutput, GetObjectRequest } from "../models/index.ts";
-import {
-  deserializeAws_restXmlGetObjectCommand,
-  serializeAws_restXmlGetObjectCommand,
-} from "../protocols/Aws_restXml.ts";
+import { deserializeAws_restXmlGetObjectCommand, serializeAws_restXmlGetObjectCommand } from "../protocols/Aws_restXml.ts";
 import { getBucketEndpointPlugin } from "../../middleware-bucket-endpoint/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { getSsecPlugin } from "../../middleware-ssec/mod.ts";

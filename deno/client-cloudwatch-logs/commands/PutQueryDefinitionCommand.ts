@@ -1,3 +1,4 @@
+
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
 import { PutQueryDefinitionRequest, PutQueryDefinitionResponse } from "../models/index.ts";
 import {

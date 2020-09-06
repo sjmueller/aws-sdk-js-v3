@@ -1,9 +1,7 @@
+
 import { AssociateIpGroupsCommandInput, AssociateIpGroupsCommandOutput } from "../commands/AssociateIpGroupsCommand.ts";
 import { AuthorizeIpRulesCommandInput, AuthorizeIpRulesCommandOutput } from "../commands/AuthorizeIpRulesCommand.ts";
-import {
-  CopyWorkspaceImageCommandInput,
-  CopyWorkspaceImageCommandOutput,
-} from "../commands/CopyWorkspaceImageCommand.ts";
+import { CopyWorkspaceImageCommandInput, CopyWorkspaceImageCommandOutput } from "../commands/CopyWorkspaceImageCommand.ts";
 import { CreateIpGroupCommandInput, CreateIpGroupCommandOutput } from "../commands/CreateIpGroupCommand.ts";
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand.ts";
 import { CreateWorkspacesCommandInput, CreateWorkspacesCommandOutput } from "../commands/CreateWorkspacesCommand.ts";
@@ -48,10 +46,7 @@ import {
   DescribeWorkspaceSnapshotsCommandInput,
   DescribeWorkspaceSnapshotsCommandOutput,
 } from "../commands/DescribeWorkspaceSnapshotsCommand.ts";
-import {
-  DescribeWorkspacesCommandInput,
-  DescribeWorkspacesCommandOutput,
-} from "../commands/DescribeWorkspacesCommand.ts";
+import { DescribeWorkspacesCommandInput, DescribeWorkspacesCommandOutput } from "../commands/DescribeWorkspacesCommand.ts";
 import {
   DescribeWorkspacesConnectionStatusCommandInput,
   DescribeWorkspacesConnectionStatusCommandOutput,

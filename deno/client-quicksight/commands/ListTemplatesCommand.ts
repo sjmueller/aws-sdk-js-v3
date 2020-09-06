@@ -1,3 +1,4 @@
+
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
 import { ListTemplatesRequest, ListTemplatesResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import {
   BatchGrantPermissionsCommandInput,
   BatchGrantPermissionsCommandOutput,
@@ -6,10 +7,7 @@ import {
   BatchRevokePermissionsCommandInput,
   BatchRevokePermissionsCommandOutput,
 } from "./commands/BatchRevokePermissionsCommand.ts";
-import {
-  DeregisterResourceCommandInput,
-  DeregisterResourceCommandOutput,
-} from "./commands/DeregisterResourceCommand.ts";
+import { DeregisterResourceCommandInput, DeregisterResourceCommandOutput } from "./commands/DeregisterResourceCommand.ts";
 import { DescribeResourceCommandInput, DescribeResourceCommandOutput } from "./commands/DescribeResourceCommand.ts";
 import {
   GetDataLakeSettingsCommandInput,

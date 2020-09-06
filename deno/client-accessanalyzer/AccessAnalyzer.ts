@@ -1,3 +1,4 @@
+
 import { AccessAnalyzerClient } from "./AccessAnalyzerClient.ts";
 import {
   CreateAnalyzerCommand,
@@ -24,11 +25,7 @@ import {
   GetAnalyzedResourceCommandInput,
   GetAnalyzedResourceCommandOutput,
 } from "./commands/GetAnalyzedResourceCommand.ts";
-import {
-  GetAnalyzerCommand,
-  GetAnalyzerCommandInput,
-  GetAnalyzerCommandOutput,
-} from "./commands/GetAnalyzerCommand.ts";
+import { GetAnalyzerCommand, GetAnalyzerCommandInput, GetAnalyzerCommandOutput } from "./commands/GetAnalyzerCommand.ts";
 import {
   GetArchiveRuleCommand,
   GetArchiveRuleCommandInput,
@@ -65,11 +62,7 @@ import {
   StartResourceScanCommandInput,
   StartResourceScanCommandOutput,
 } from "./commands/StartResourceScanCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

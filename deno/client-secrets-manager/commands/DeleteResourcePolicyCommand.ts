@@ -1,3 +1,4 @@
+
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient.ts";
 import { DeleteResourcePolicyRequest, DeleteResourcePolicyResponse } from "../models/index.ts";
 import {

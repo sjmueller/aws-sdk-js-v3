@@ -1,3 +1,4 @@
+
 import { IoTClient } from "./IoTClient.ts";
 import {
   AcceptCertificateTransferCommand,
@@ -161,11 +162,7 @@ import {
   CreateStreamCommandInput,
   CreateStreamCommandOutput,
 } from "./commands/CreateStreamCommand.ts";
-import {
-  CreateThingCommand,
-  CreateThingCommandInput,
-  CreateThingCommandOutput,
-} from "./commands/CreateThingCommand.ts";
+import { CreateThingCommand, CreateThingCommandInput, CreateThingCommandOutput } from "./commands/CreateThingCommand.ts";
 import {
   CreateThingGroupCommand,
   CreateThingGroupCommandInput,
@@ -287,11 +284,7 @@ import {
   DeleteStreamCommandInput,
   DeleteStreamCommandOutput,
 } from "./commands/DeleteStreamCommand.ts";
-import {
-  DeleteThingCommand,
-  DeleteThingCommandInput,
-  DeleteThingCommandOutput,
-} from "./commands/DeleteThingCommand.ts";
+import { DeleteThingCommand, DeleteThingCommandInput, DeleteThingCommandOutput } from "./commands/DeleteThingCommand.ts";
 import {
   DeleteThingGroupCommand,
   DeleteThingGroupCommandInput,
@@ -392,11 +385,7 @@ import {
   DescribeIndexCommandInput,
   DescribeIndexCommandOutput,
 } from "./commands/DescribeIndexCommand.ts";
-import {
-  DescribeJobCommand,
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput,
-} from "./commands/DescribeJobCommand.ts";
+import { DescribeJobCommand, DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand.ts";
 import {
   DescribeJobExecutionCommand,
   DescribeJobExecutionCommandInput,
@@ -618,11 +607,7 @@ import {
   ListDomainConfigurationsCommandInput,
   ListDomainConfigurationsCommandOutput,
 } from "./commands/ListDomainConfigurationsCommand.ts";
-import {
-  ListIndicesCommand,
-  ListIndicesCommandInput,
-  ListIndicesCommandOutput,
-} from "./commands/ListIndicesCommand.ts";
+import { ListIndicesCommand, ListIndicesCommandInput, ListIndicesCommandOutput } from "./commands/ListIndicesCommand.ts";
 import {
   ListJobExecutionsForJobCommand,
   ListJobExecutionsForJobCommandInput,
@@ -704,11 +689,7 @@ import {
   ListSecurityProfilesForTargetCommandInput,
   ListSecurityProfilesForTargetCommandOutput,
 } from "./commands/ListSecurityProfilesForTargetCommand.ts";
-import {
-  ListStreamsCommand,
-  ListStreamsCommandInput,
-  ListStreamsCommandOutput,
-} from "./commands/ListStreamsCommand.ts";
+import { ListStreamsCommand, ListStreamsCommandInput, ListStreamsCommandOutput } from "./commands/ListStreamsCommand.ts";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -825,11 +806,7 @@ import {
   ReplaceTopicRuleCommandInput,
   ReplaceTopicRuleCommandOutput,
 } from "./commands/ReplaceTopicRuleCommand.ts";
-import {
-  SearchIndexCommand,
-  SearchIndexCommandInput,
-  SearchIndexCommandOutput,
-} from "./commands/SearchIndexCommand.ts";
+import { SearchIndexCommand, SearchIndexCommandInput, SearchIndexCommandOutput } from "./commands/SearchIndexCommand.ts";
 import {
   SetDefaultAuthorizerCommand,
   SetDefaultAuthorizerCommandInput,
@@ -875,11 +852,7 @@ import {
   StopThingRegistrationTaskCommandInput,
   StopThingRegistrationTaskCommandOutput,
 } from "./commands/StopThingRegistrationTaskCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   TestAuthorizationCommand,
   TestAuthorizationCommandInput,
@@ -981,11 +954,7 @@ import {
   UpdateStreamCommandInput,
   UpdateStreamCommandOutput,
 } from "./commands/UpdateStreamCommand.ts";
-import {
-  UpdateThingCommand,
-  UpdateThingCommandInput,
-  UpdateThingCommandOutput,
-} from "./commands/UpdateThingCommand.ts";
+import { UpdateThingCommand, UpdateThingCommandInput, UpdateThingCommandOutput } from "./commands/UpdateThingCommand.ts";
 import {
   UpdateThingGroupCommand,
   UpdateThingGroupCommandInput,

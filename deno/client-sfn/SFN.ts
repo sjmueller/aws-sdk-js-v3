@@ -1,3 +1,4 @@
+
 import { SFNClient } from "./SFNClient.ts";
 import {
   CreateActivityCommand,
@@ -94,11 +95,7 @@ import {
   StopExecutionCommandInput,
   StopExecutionCommandOutput,
 } from "./commands/StopExecutionCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

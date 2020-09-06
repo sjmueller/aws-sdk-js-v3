@@ -1,8 +1,6 @@
+
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import {
-  ListNotebookInstanceLifecycleConfigsInput,
-  ListNotebookInstanceLifecycleConfigsOutput,
-} from "../models/index.ts";
+import { ListNotebookInstanceLifecycleConfigsInput, ListNotebookInstanceLifecycleConfigsOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommand,
   serializeAws_json1_1ListNotebookInstanceLifecycleConfigsCommand,

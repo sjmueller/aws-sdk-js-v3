@@ -1,8 +1,5 @@
-import {
-  CodeGuruProfilerClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CodeGuruProfilerClient.ts";
+
+import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient.ts";
 import { GetProfileRequest, GetProfileResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1GetProfileCommand,

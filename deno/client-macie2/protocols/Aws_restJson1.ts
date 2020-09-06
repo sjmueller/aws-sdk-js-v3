@@ -1,3 +1,4 @@
+
 import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "../commands/AcceptInvitationCommand.ts";
 import {
   BatchGetCustomDataIdentifiersCommandInput,
@@ -21,10 +22,7 @@ import {
   CreateSampleFindingsCommandInput,
   CreateSampleFindingsCommandOutput,
 } from "../commands/CreateSampleFindingsCommand.ts";
-import {
-  DeclineInvitationsCommandInput,
-  DeclineInvitationsCommandOutput,
-} from "../commands/DeclineInvitationsCommand.ts";
+import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "../commands/DeclineInvitationsCommand.ts";
 import {
   DeleteCustomDataIdentifierCommandInput,
   DeleteCustomDataIdentifierCommandOutput,
@@ -53,10 +51,7 @@ import {
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
 } from "../commands/DisassociateFromMasterAccountCommand.ts";
-import {
-  DisassociateMemberCommandInput,
-  DisassociateMemberCommandOutput,
-} from "../commands/DisassociateMemberCommand.ts";
+import { DisassociateMemberCommandInput, DisassociateMemberCommandOutput } from "../commands/DisassociateMemberCommand.ts";
 import { EnableMacieCommandInput, EnableMacieCommandOutput } from "../commands/EnableMacieCommand.ts";
 import {
   EnableOrganizationAdminAccountCommandInput,
@@ -87,10 +82,7 @@ import {
 import { GetMacieSessionCommandInput, GetMacieSessionCommandOutput } from "../commands/GetMacieSessionCommand.ts";
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "../commands/GetMasterAccountCommand.ts";
 import { GetMemberCommandInput, GetMemberCommandOutput } from "../commands/GetMemberCommand.ts";
-import {
-  GetUsageStatisticsCommandInput,
-  GetUsageStatisticsCommandOutput,
-} from "../commands/GetUsageStatisticsCommand.ts";
+import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from "../commands/GetUsageStatisticsCommand.ts";
 import { GetUsageTotalsCommandInput, GetUsageTotalsCommandOutput } from "../commands/GetUsageTotalsCommand.ts";
 import {
   ListClassificationJobsCommandInput,
@@ -133,10 +125,7 @@ import {
   UpdateFindingsFilterCommandInput,
   UpdateFindingsFilterCommandOutput,
 } from "../commands/UpdateFindingsFilterCommand.ts";
-import {
-  UpdateMacieSessionCommandInput,
-  UpdateMacieSessionCommandOutput,
-} from "../commands/UpdateMacieSessionCommand.ts";
+import { UpdateMacieSessionCommandInput, UpdateMacieSessionCommandOutput } from "../commands/UpdateMacieSessionCommand.ts";
 import {
   UpdateMemberSessionCommandInput,
   UpdateMemberSessionCommandOutput,

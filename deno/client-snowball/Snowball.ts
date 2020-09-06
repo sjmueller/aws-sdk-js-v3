@@ -1,3 +1,4 @@
+
 import { SnowballClient } from "./SnowballClient.ts";
 import {
   CancelClusterCommand,
@@ -31,11 +32,7 @@ import {
   DescribeClusterCommandInput,
   DescribeClusterCommandOutput,
 } from "./commands/DescribeClusterCommand.ts";
-import {
-  DescribeJobCommand,
-  DescribeJobCommandInput,
-  DescribeJobCommandOutput,
-} from "./commands/DescribeJobCommand.ts";
+import { DescribeJobCommand, DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand.ts";
 import {
   GetJobManifestCommand,
   GetJobManifestCommandInput,

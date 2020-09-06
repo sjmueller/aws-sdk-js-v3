@@ -1,3 +1,4 @@
+
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
 import { GetInstanceSnapshotsRequest, GetInstanceSnapshotsResult } from "../models/index.ts";
 import {

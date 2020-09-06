@@ -1,3 +1,4 @@
+
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient.ts";
 import { RemoveTagsRequest, RemoveTagsResponse } from "../models/index.ts";
 import {

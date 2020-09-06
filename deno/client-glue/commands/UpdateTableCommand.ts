@@ -1,3 +1,4 @@
+
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
 import { UpdateTableRequest, UpdateTableResponse } from "../models/index.ts";
 import {

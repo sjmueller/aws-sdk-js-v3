@@ -1,3 +1,4 @@
+
 import { RegionInfo, RegionInfoProvider } from "../types/mod.ts";
 
 // Partition default templates

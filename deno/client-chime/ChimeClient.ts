@@ -1,3 +1,4 @@
+
 import {
   AssociatePhoneNumberWithUserCommandInput,
   AssociatePhoneNumberWithUserCommandOutput,
@@ -27,10 +28,7 @@ import {
   BatchDeletePhoneNumberCommandOutput,
 } from "./commands/BatchDeletePhoneNumberCommand.ts";
 import { BatchSuspendUserCommandInput, BatchSuspendUserCommandOutput } from "./commands/BatchSuspendUserCommand.ts";
-import {
-  BatchUnsuspendUserCommandInput,
-  BatchUnsuspendUserCommandOutput,
-} from "./commands/BatchUnsuspendUserCommand.ts";
+import { BatchUnsuspendUserCommandInput, BatchUnsuspendUserCommandOutput } from "./commands/BatchUnsuspendUserCommand.ts";
 import {
   BatchUpdatePhoneNumberCommandInput,
   BatchUpdatePhoneNumberCommandOutput,
@@ -48,10 +46,7 @@ import {
   CreatePhoneNumberOrderCommandInput,
   CreatePhoneNumberOrderCommandOutput,
 } from "./commands/CreatePhoneNumberOrderCommand.ts";
-import {
-  CreateProxySessionCommandInput,
-  CreateProxySessionCommandOutput,
-} from "./commands/CreateProxySessionCommand.ts";
+import { CreateProxySessionCommandInput, CreateProxySessionCommandOutput } from "./commands/CreateProxySessionCommand.ts";
 import { CreateRoomCommandInput, CreateRoomCommandOutput } from "./commands/CreateRoomCommand.ts";
 import {
   CreateRoomMembershipCommandInput,
@@ -74,10 +69,7 @@ import {
 } from "./commands/DeleteEventsConfigurationCommand.ts";
 import { DeleteMeetingCommandInput, DeleteMeetingCommandOutput } from "./commands/DeleteMeetingCommand.ts";
 import { DeletePhoneNumberCommandInput, DeletePhoneNumberCommandOutput } from "./commands/DeletePhoneNumberCommand.ts";
-import {
-  DeleteProxySessionCommandInput,
-  DeleteProxySessionCommandOutput,
-} from "./commands/DeleteProxySessionCommand.ts";
+import { DeleteProxySessionCommandInput, DeleteProxySessionCommandOutput } from "./commands/DeleteProxySessionCommand.ts";
 import { DeleteRoomCommandInput, DeleteRoomCommandOutput } from "./commands/DeleteRoomCommand.ts";
 import {
   DeleteRoomMembershipCommandInput,
@@ -132,10 +124,7 @@ import {
   DisassociateSigninDelegateGroupsFromAccountCommandOutput,
 } from "./commands/DisassociateSigninDelegateGroupsFromAccountCommand.ts";
 import { GetAccountCommandInput, GetAccountCommandOutput } from "./commands/GetAccountCommand.ts";
-import {
-  GetAccountSettingsCommandInput,
-  GetAccountSettingsCommandOutput,
-} from "./commands/GetAccountSettingsCommand.ts";
+import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from "./commands/GetAccountSettingsCommand.ts";
 import { GetAttendeeCommandInput, GetAttendeeCommandOutput } from "./commands/GetAttendeeCommand.ts";
 import { GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand.ts";
 import {
@@ -276,10 +265,7 @@ import {
   RegenerateSecurityTokenCommandOutput,
 } from "./commands/RegenerateSecurityTokenCommand.ts";
 import { ResetPersonalPINCommandInput, ResetPersonalPINCommandOutput } from "./commands/ResetPersonalPINCommand.ts";
-import {
-  RestorePhoneNumberCommandInput,
-  RestorePhoneNumberCommandOutput,
-} from "./commands/RestorePhoneNumberCommand.ts";
+import { RestorePhoneNumberCommandInput, RestorePhoneNumberCommandOutput } from "./commands/RestorePhoneNumberCommand.ts";
 import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
@@ -305,20 +291,14 @@ import {
   UpdatePhoneNumberSettingsCommandInput,
   UpdatePhoneNumberSettingsCommandOutput,
 } from "./commands/UpdatePhoneNumberSettingsCommand.ts";
-import {
-  UpdateProxySessionCommandInput,
-  UpdateProxySessionCommandOutput,
-} from "./commands/UpdateProxySessionCommand.ts";
+import { UpdateProxySessionCommandInput, UpdateProxySessionCommandOutput } from "./commands/UpdateProxySessionCommand.ts";
 import { UpdateRoomCommandInput, UpdateRoomCommandOutput } from "./commands/UpdateRoomCommand.ts";
 import {
   UpdateRoomMembershipCommandInput,
   UpdateRoomMembershipCommandOutput,
 } from "./commands/UpdateRoomMembershipCommand.ts";
 import { UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand.ts";
-import {
-  UpdateUserSettingsCommandInput,
-  UpdateUserSettingsCommandOutput,
-} from "./commands/UpdateUserSettingsCommand.ts";
+import { UpdateUserSettingsCommandInput, UpdateUserSettingsCommandOutput } from "./commands/UpdateUserSettingsCommand.ts";
 import {
   UpdateVoiceConnectorCommandInput,
   UpdateVoiceConnectorCommandOutput,

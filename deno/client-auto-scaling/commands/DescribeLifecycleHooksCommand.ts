@@ -1,3 +1,4 @@
+
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
 import { DescribeLifecycleHooksAnswer, DescribeLifecycleHooksType } from "../models/index.ts";
 import {

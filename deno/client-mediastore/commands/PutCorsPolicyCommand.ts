@@ -1,3 +1,4 @@
+
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient.ts";
 import { PutCorsPolicyInput, PutCorsPolicyOutput } from "../models/index.ts";
 import {

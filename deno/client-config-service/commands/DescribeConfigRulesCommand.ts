@@ -1,3 +1,4 @@
+
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
 import { DescribeConfigRulesRequest, DescribeConfigRulesResponse } from "../models/index.ts";
 import {

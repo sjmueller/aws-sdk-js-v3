@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
 import { DeleteWorkspaceImageRequest, DeleteWorkspaceImageResult } from "../models/index.ts";
 import {

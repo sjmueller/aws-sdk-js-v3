@@ -1,3 +1,4 @@
+
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
 import { DescribeGameSessionDetailsInput, DescribeGameSessionDetailsOutput } from "../models/index.ts";
 import {

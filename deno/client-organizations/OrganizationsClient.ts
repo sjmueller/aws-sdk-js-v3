@@ -1,3 +1,4 @@
+
 import { AcceptHandshakeCommandInput, AcceptHandshakeCommandOutput } from "./commands/AcceptHandshakeCommand.ts";
 import { AttachPolicyCommandInput, AttachPolicyCommandOutput } from "./commands/AttachPolicyCommand.ts";
 import { CancelHandshakeCommandInput, CancelHandshakeCommandOutput } from "./commands/CancelHandshakeCommand.ts";
@@ -6,20 +7,14 @@ import {
   CreateGovCloudAccountCommandInput,
   CreateGovCloudAccountCommandOutput,
 } from "./commands/CreateGovCloudAccountCommand.ts";
-import {
-  CreateOrganizationCommandInput,
-  CreateOrganizationCommandOutput,
-} from "./commands/CreateOrganizationCommand.ts";
+import { CreateOrganizationCommandInput, CreateOrganizationCommandOutput } from "./commands/CreateOrganizationCommand.ts";
 import {
   CreateOrganizationalUnitCommandInput,
   CreateOrganizationalUnitCommandOutput,
 } from "./commands/CreateOrganizationalUnitCommand.ts";
 import { CreatePolicyCommandInput, CreatePolicyCommandOutput } from "./commands/CreatePolicyCommand.ts";
 import { DeclineHandshakeCommandInput, DeclineHandshakeCommandOutput } from "./commands/DeclineHandshakeCommand.ts";
-import {
-  DeleteOrganizationCommandInput,
-  DeleteOrganizationCommandOutput,
-} from "./commands/DeleteOrganizationCommand.ts";
+import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "./commands/DeleteOrganizationCommand.ts";
 import {
   DeleteOrganizationalUnitCommandInput,
   DeleteOrganizationalUnitCommandOutput,

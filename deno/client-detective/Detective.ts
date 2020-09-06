@@ -1,24 +1,17 @@
+
 import { DetectiveClient } from "./DetectiveClient.ts";
 import {
   AcceptInvitationCommand,
   AcceptInvitationCommandInput,
   AcceptInvitationCommandOutput,
 } from "./commands/AcceptInvitationCommand.ts";
-import {
-  CreateGraphCommand,
-  CreateGraphCommandInput,
-  CreateGraphCommandOutput,
-} from "./commands/CreateGraphCommand.ts";
+import { CreateGraphCommand, CreateGraphCommandInput, CreateGraphCommandOutput } from "./commands/CreateGraphCommand.ts";
 import {
   CreateMembersCommand,
   CreateMembersCommandInput,
   CreateMembersCommandOutput,
 } from "./commands/CreateMembersCommand.ts";
-import {
-  DeleteGraphCommand,
-  DeleteGraphCommandInput,
-  DeleteGraphCommandOutput,
-} from "./commands/DeleteGraphCommand.ts";
+import { DeleteGraphCommand, DeleteGraphCommandInput, DeleteGraphCommandOutput } from "./commands/DeleteGraphCommand.ts";
 import {
   DeleteMembersCommand,
   DeleteMembersCommandInput,
@@ -36,11 +29,7 @@ import {
   ListInvitationsCommandInput,
   ListInvitationsCommandOutput,
 } from "./commands/ListInvitationsCommand.ts";
-import {
-  ListMembersCommand,
-  ListMembersCommandInput,
-  ListMembersCommandOutput,
-} from "./commands/ListMembersCommand.ts";
+import { ListMembersCommand, ListMembersCommandInput, ListMembersCommandOutput } from "./commands/ListMembersCommand.ts";
 import {
   RejectInvitationCommand,
   RejectInvitationCommandInput,

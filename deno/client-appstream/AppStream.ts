@@ -1,3 +1,4 @@
+
 import { AppStreamClient } from "./AppStreamClient.ts";
 import {
   AssociateFleetCommand,
@@ -20,11 +21,7 @@ import {
   CreateDirectoryConfigCommandInput,
   CreateDirectoryConfigCommandOutput,
 } from "./commands/CreateDirectoryConfigCommand.ts";
-import {
-  CreateFleetCommand,
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput,
-} from "./commands/CreateFleetCommand.ts";
+import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand.ts";
 import {
   CreateImageBuilderCommand,
   CreateImageBuilderCommandInput,
@@ -35,11 +32,7 @@ import {
   CreateImageBuilderStreamingURLCommandInput,
   CreateImageBuilderStreamingURLCommandOutput,
 } from "./commands/CreateImageBuilderStreamingURLCommand.ts";
-import {
-  CreateStackCommand,
-  CreateStackCommandInput,
-  CreateStackCommandOutput,
-} from "./commands/CreateStackCommand.ts";
+import { CreateStackCommand, CreateStackCommandInput, CreateStackCommandOutput } from "./commands/CreateStackCommand.ts";
 import {
   CreateStreamingURLCommand,
   CreateStreamingURLCommandInput,
@@ -56,31 +49,19 @@ import {
   DeleteDirectoryConfigCommandInput,
   DeleteDirectoryConfigCommandOutput,
 } from "./commands/DeleteDirectoryConfigCommand.ts";
-import {
-  DeleteFleetCommand,
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput,
-} from "./commands/DeleteFleetCommand.ts";
+import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand.ts";
 import {
   DeleteImageBuilderCommand,
   DeleteImageBuilderCommandInput,
   DeleteImageBuilderCommandOutput,
 } from "./commands/DeleteImageBuilderCommand.ts";
-import {
-  DeleteImageCommand,
-  DeleteImageCommandInput,
-  DeleteImageCommandOutput,
-} from "./commands/DeleteImageCommand.ts";
+import { DeleteImageCommand, DeleteImageCommandInput, DeleteImageCommandOutput } from "./commands/DeleteImageCommand.ts";
 import {
   DeleteImagePermissionsCommand,
   DeleteImagePermissionsCommandInput,
   DeleteImagePermissionsCommandOutput,
 } from "./commands/DeleteImagePermissionsCommand.ts";
-import {
-  DeleteStackCommand,
-  DeleteStackCommandInput,
-  DeleteStackCommandOutput,
-} from "./commands/DeleteStackCommand.ts";
+import { DeleteStackCommand, DeleteStackCommandInput, DeleteStackCommandOutput } from "./commands/DeleteStackCommand.ts";
 import {
   DeleteUsageReportSubscriptionCommand,
   DeleteUsageReportSubscriptionCommandInput,
@@ -137,11 +118,7 @@ import {
   DescribeUsersCommandInput,
   DescribeUsersCommandOutput,
 } from "./commands/DescribeUsersCommand.ts";
-import {
-  DisableUserCommand,
-  DisableUserCommandInput,
-  DisableUserCommandOutput,
-} from "./commands/DisableUserCommand.ts";
+import { DisableUserCommand, DisableUserCommandInput, DisableUserCommandOutput } from "./commands/DisableUserCommand.ts";
 import {
   DisassociateFleetCommand,
   DisassociateFleetCommandInput,
@@ -180,11 +157,7 @@ import {
   StopImageBuilderCommandInput,
   StopImageBuilderCommandOutput,
 } from "./commands/StopImageBuilderCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -195,21 +168,13 @@ import {
   UpdateDirectoryConfigCommandInput,
   UpdateDirectoryConfigCommandOutput,
 } from "./commands/UpdateDirectoryConfigCommand.ts";
-import {
-  UpdateFleetCommand,
-  UpdateFleetCommandInput,
-  UpdateFleetCommandOutput,
-} from "./commands/UpdateFleetCommand.ts";
+import { UpdateFleetCommand, UpdateFleetCommandInput, UpdateFleetCommandOutput } from "./commands/UpdateFleetCommand.ts";
 import {
   UpdateImagePermissionsCommand,
   UpdateImagePermissionsCommandInput,
   UpdateImagePermissionsCommandOutput,
 } from "./commands/UpdateImagePermissionsCommand.ts";
-import {
-  UpdateStackCommand,
-  UpdateStackCommandInput,
-  UpdateStackCommandOutput,
-} from "./commands/UpdateStackCommand.ts";
+import { UpdateStackCommand, UpdateStackCommandInput, UpdateStackCommandOutput } from "./commands/UpdateStackCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**

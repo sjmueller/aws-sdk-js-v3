@@ -1,3 +1,4 @@
+
 import {
   BatchCreatePartitionCommandInput,
   BatchCreatePartitionCommandOutput,
@@ -71,10 +72,7 @@ import {
   DeleteSecurityConfigurationCommandOutput,
 } from "./commands/DeleteSecurityConfigurationCommand.ts";
 import { DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand.ts";
-import {
-  DeleteTableVersionCommandInput,
-  DeleteTableVersionCommandOutput,
-} from "./commands/DeleteTableVersionCommand.ts";
+import { DeleteTableVersionCommandInput, DeleteTableVersionCommandOutput } from "./commands/DeleteTableVersionCommand.ts";
 import { DeleteTriggerCommandInput, DeleteTriggerCommandOutput } from "./commands/DeleteTriggerCommand.ts";
 import {
   DeleteUserDefinedFunctionCommandInput,

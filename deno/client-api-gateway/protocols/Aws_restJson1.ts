@@ -1,3 +1,4 @@
+
 import { CreateApiKeyCommandInput, CreateApiKeyCommandOutput } from "../commands/CreateApiKeyCommand.ts";
 import { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "../commands/CreateAuthorizerCommand.ts";
 import {
@@ -23,10 +24,7 @@ import { CreateResourceCommandInput, CreateResourceCommandOutput } from "../comm
 import { CreateRestApiCommandInput, CreateRestApiCommandOutput } from "../commands/CreateRestApiCommand.ts";
 import { CreateStageCommandInput, CreateStageCommandOutput } from "../commands/CreateStageCommand.ts";
 import { CreateUsagePlanCommandInput, CreateUsagePlanCommandOutput } from "../commands/CreateUsagePlanCommand.ts";
-import {
-  CreateUsagePlanKeyCommandInput,
-  CreateUsagePlanKeyCommandOutput,
-} from "../commands/CreateUsagePlanKeyCommand.ts";
+import { CreateUsagePlanKeyCommandInput, CreateUsagePlanKeyCommandOutput } from "../commands/CreateUsagePlanKeyCommand.ts";
 import { CreateVpcLinkCommandInput, CreateVpcLinkCommandOutput } from "../commands/CreateVpcLinkCommand.ts";
 import { DeleteApiKeyCommandInput, DeleteApiKeyCommandOutput } from "../commands/DeleteApiKeyCommand.ts";
 import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "../commands/DeleteAuthorizerCommand.ts";
@@ -71,10 +69,7 @@ import { DeleteResourceCommandInput, DeleteResourceCommandOutput } from "../comm
 import { DeleteRestApiCommandInput, DeleteRestApiCommandOutput } from "../commands/DeleteRestApiCommand.ts";
 import { DeleteStageCommandInput, DeleteStageCommandOutput } from "../commands/DeleteStageCommand.ts";
 import { DeleteUsagePlanCommandInput, DeleteUsagePlanCommandOutput } from "../commands/DeleteUsagePlanCommand.ts";
-import {
-  DeleteUsagePlanKeyCommandInput,
-  DeleteUsagePlanKeyCommandOutput,
-} from "../commands/DeleteUsagePlanKeyCommand.ts";
+import { DeleteUsagePlanKeyCommandInput, DeleteUsagePlanKeyCommandOutput } from "../commands/DeleteUsagePlanKeyCommand.ts";
 import { DeleteVpcLinkCommandInput, DeleteVpcLinkCommandOutput } from "../commands/DeleteVpcLinkCommand.ts";
 import {
   FlushStageAuthorizersCacheCommandInput,
@@ -90,10 +85,7 @@ import { GetApiKeyCommandInput, GetApiKeyCommandOutput } from "../commands/GetAp
 import { GetApiKeysCommandInput, GetApiKeysCommandOutput } from "../commands/GetApiKeysCommand.ts";
 import { GetAuthorizerCommandInput, GetAuthorizerCommandOutput } from "../commands/GetAuthorizerCommand.ts";
 import { GetAuthorizersCommandInput, GetAuthorizersCommandOutput } from "../commands/GetAuthorizersCommand.ts";
-import {
-  GetBasePathMappingCommandInput,
-  GetBasePathMappingCommandOutput,
-} from "../commands/GetBasePathMappingCommand.ts";
+import { GetBasePathMappingCommandInput, GetBasePathMappingCommandOutput } from "../commands/GetBasePathMappingCommand.ts";
 import {
   GetBasePathMappingsCommandInput,
   GetBasePathMappingsCommandOutput,
@@ -127,10 +119,7 @@ import {
 import { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "../commands/GetDomainNameCommand.ts";
 import { GetDomainNamesCommandInput, GetDomainNamesCommandOutput } from "../commands/GetDomainNamesCommand.ts";
 import { GetExportCommandInput, GetExportCommandOutput } from "../commands/GetExportCommand.ts";
-import {
-  GetGatewayResponseCommandInput,
-  GetGatewayResponseCommandOutput,
-} from "../commands/GetGatewayResponseCommand.ts";
+import { GetGatewayResponseCommandInput, GetGatewayResponseCommandOutput } from "../commands/GetGatewayResponseCommand.ts";
 import {
   GetGatewayResponsesCommandInput,
   GetGatewayResponsesCommandOutput,
@@ -176,10 +165,7 @@ import {
   ImportDocumentationPartsCommandOutput,
 } from "../commands/ImportDocumentationPartsCommand.ts";
 import { ImportRestApiCommandInput, ImportRestApiCommandOutput } from "../commands/ImportRestApiCommand.ts";
-import {
-  PutGatewayResponseCommandInput,
-  PutGatewayResponseCommandOutput,
-} from "../commands/PutGatewayResponseCommand.ts";
+import { PutGatewayResponseCommandInput, PutGatewayResponseCommandOutput } from "../commands/PutGatewayResponseCommand.ts";
 import { PutIntegrationCommandInput, PutIntegrationCommandOutput } from "../commands/PutIntegrationCommand.ts";
 import {
   PutIntegrationResponseCommandInput,

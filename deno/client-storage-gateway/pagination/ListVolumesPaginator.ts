@@ -1,10 +1,7 @@
+
 import { StorageGateway } from "../StorageGateway.ts";
 import { StorageGatewayClient } from "../StorageGatewayClient.ts";
-import {
-  ListVolumesCommand,
-  ListVolumesCommandInput,
-  ListVolumesCommandOutput,
-} from "../commands/ListVolumesCommand.ts";
+import { ListVolumesCommand, ListVolumesCommandInput, ListVolumesCommandOutput } from "../commands/ListVolumesCommand.ts";
 import { StorageGatewayPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

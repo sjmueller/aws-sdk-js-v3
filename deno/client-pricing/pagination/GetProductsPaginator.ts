@@ -1,10 +1,7 @@
+
 import { Pricing } from "../Pricing.ts";
 import { PricingClient } from "../PricingClient.ts";
-import {
-  GetProductsCommand,
-  GetProductsCommandInput,
-  GetProductsCommandOutput,
-} from "../commands/GetProductsCommand.ts";
+import { GetProductsCommand, GetProductsCommandInput, GetProductsCommandOutput } from "../commands/GetProductsCommand.ts";
 import { PricingPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

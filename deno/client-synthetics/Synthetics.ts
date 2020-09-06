@@ -1,3 +1,4 @@
+
 import { SyntheticsClient } from "./SyntheticsClient.ts";
 import {
   CreateCanaryCommand,
@@ -35,17 +36,9 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  StartCanaryCommand,
-  StartCanaryCommandInput,
-  StartCanaryCommandOutput,
-} from "./commands/StartCanaryCommand.ts";
+import { StartCanaryCommand, StartCanaryCommandInput, StartCanaryCommandOutput } from "./commands/StartCanaryCommand.ts";
 import { StopCanaryCommand, StopCanaryCommandInput, StopCanaryCommandOutput } from "./commands/StopCanaryCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

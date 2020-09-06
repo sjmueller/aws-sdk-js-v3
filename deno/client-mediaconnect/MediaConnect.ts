@@ -1,3 +1,4 @@
+
 import { MediaConnectClient } from "./MediaConnectClient.ts";
 import {
   AddFlowOutputsCommand,
@@ -59,11 +60,7 @@ import {
 } from "./commands/RevokeFlowEntitlementCommand.ts";
 import { StartFlowCommand, StartFlowCommandInput, StartFlowCommandOutput } from "./commands/StartFlowCommand.ts";
 import { StopFlowCommand, StopFlowCommandInput, StopFlowCommandOutput } from "./commands/StopFlowCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

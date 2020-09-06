@@ -1,12 +1,6 @@
-import {
-  Route53ResolverClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../Route53ResolverClient.ts";
-import {
-  AssociateResolverEndpointIpAddressRequest,
-  AssociateResolverEndpointIpAddressResponse,
-} from "../models/index.ts";
+
+import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient.ts";
+import { AssociateResolverEndpointIpAddressRequest, AssociateResolverEndpointIpAddressResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1AssociateResolverEndpointIpAddressCommand,
   serializeAws_json1_1AssociateResolverEndpointIpAddressCommand,

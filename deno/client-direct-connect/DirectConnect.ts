@@ -1,3 +1,4 @@
+
 import { DirectConnectClient } from "./DirectConnectClient.ts";
 import {
   AcceptDirectConnectGatewayAssociationProposalCommand,
@@ -201,11 +202,7 @@ import {
   DescribeLagsCommandInput,
   DescribeLagsCommandOutput,
 } from "./commands/DescribeLagsCommand.ts";
-import {
-  DescribeLoaCommand,
-  DescribeLoaCommandInput,
-  DescribeLoaCommandOutput,
-} from "./commands/DescribeLoaCommand.ts";
+import { DescribeLoaCommand, DescribeLoaCommandInput, DescribeLoaCommandOutput } from "./commands/DescribeLoaCommand.ts";
 import {
   DescribeLocationsCommand,
   DescribeLocationsCommandInput,
@@ -246,11 +243,7 @@ import {
   StopBgpFailoverTestCommandInput,
   StopBgpFailoverTestCommandOutput,
 } from "./commands/StopBgpFailoverTestCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

@@ -1,3 +1,4 @@
+
 import {
   BatchDeleteDocumentCommandInput,
   BatchDeleteDocumentCommandOutput,
@@ -9,10 +10,7 @@ import { CreateIndexCommandInput, CreateIndexCommandOutput } from "../commands/C
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand.ts";
 import { DeleteFaqCommandInput, DeleteFaqCommandOutput } from "../commands/DeleteFaqCommand.ts";
 import { DeleteIndexCommandInput, DeleteIndexCommandOutput } from "../commands/DeleteIndexCommand.ts";
-import {
-  DescribeDataSourceCommandInput,
-  DescribeDataSourceCommandOutput,
-} from "../commands/DescribeDataSourceCommand.ts";
+import { DescribeDataSourceCommandInput, DescribeDataSourceCommandOutput } from "../commands/DescribeDataSourceCommand.ts";
 import { DescribeFaqCommandInput, DescribeFaqCommandOutput } from "../commands/DescribeFaqCommand.ts";
 import { DescribeIndexCommandInput, DescribeIndexCommandOutput } from "../commands/DescribeIndexCommand.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
 import { AcceptMatchInput, AcceptMatchOutput } from "../models/index.ts";
 import {

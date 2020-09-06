@@ -1,9 +1,7 @@
+
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient.ts";
 import { DeleteQueueRequest } from "../models/index.ts";
-import {
-  deserializeAws_queryDeleteQueueCommand,
-  serializeAws_queryDeleteQueueCommand,
-} from "../protocols/Aws_query.ts";
+import { deserializeAws_queryDeleteQueueCommand, serializeAws_queryDeleteQueueCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";

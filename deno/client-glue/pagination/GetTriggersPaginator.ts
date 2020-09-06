@@ -1,10 +1,7 @@
+
 import { Glue } from "../Glue.ts";
 import { GlueClient } from "../GlueClient.ts";
-import {
-  GetTriggersCommand,
-  GetTriggersCommandInput,
-  GetTriggersCommandOutput,
-} from "../commands/GetTriggersCommand.ts";
+import { GetTriggersCommand, GetTriggersCommandInput, GetTriggersCommandOutput } from "../commands/GetTriggersCommand.ts";
 import { GluePaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

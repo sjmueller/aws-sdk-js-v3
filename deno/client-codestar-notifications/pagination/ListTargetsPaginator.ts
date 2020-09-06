@@ -1,10 +1,7 @@
+
 import { CodestarNotifications } from "../CodestarNotifications.ts";
 import { CodestarNotificationsClient } from "../CodestarNotificationsClient.ts";
-import {
-  ListTargetsCommand,
-  ListTargetsCommandInput,
-  ListTargetsCommandOutput,
-} from "../commands/ListTargetsCommand.ts";
+import { ListTargetsCommand, ListTargetsCommandInput, ListTargetsCommandOutput } from "../commands/ListTargetsCommand.ts";
 import { CodestarNotificationsPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

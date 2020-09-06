@@ -1,3 +1,4 @@
+
 import {
   AddAttachmentsToSetCommandInput,
   AddAttachmentsToSetCommandOutput,
@@ -7,10 +8,7 @@ import {
   AddCommunicationToCaseCommandOutput,
 } from "../commands/AddCommunicationToCaseCommand.ts";
 import { CreateCaseCommandInput, CreateCaseCommandOutput } from "../commands/CreateCaseCommand.ts";
-import {
-  DescribeAttachmentCommandInput,
-  DescribeAttachmentCommandOutput,
-} from "../commands/DescribeAttachmentCommand.ts";
+import { DescribeAttachmentCommandInput, DescribeAttachmentCommandOutput } from "../commands/DescribeAttachmentCommand.ts";
 import { DescribeCasesCommandInput, DescribeCasesCommandOutput } from "../commands/DescribeCasesCommand.ts";
 import {
   DescribeCommunicationsCommandInput,

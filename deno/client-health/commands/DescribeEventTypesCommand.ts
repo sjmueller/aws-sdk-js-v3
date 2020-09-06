@@ -1,3 +1,4 @@
+
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient.ts";
 import { DescribeEventTypesRequest, DescribeEventTypesResponse } from "../models/index.ts";
 import {

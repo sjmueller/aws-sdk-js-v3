@@ -1,3 +1,4 @@
+
 import { AddFacetToObjectCommandInput, AddFacetToObjectCommandOutput } from "./commands/AddFacetToObjectCommand.ts";
 import { ApplySchemaCommandInput, ApplySchemaCommandOutput } from "./commands/ApplySchemaCommand.ts";
 import { AttachObjectCommandInput, AttachObjectCommandOutput } from "./commands/AttachObjectCommand.ts";
@@ -80,19 +81,13 @@ import {
   ListObjectAttributesCommandInput,
   ListObjectAttributesCommandOutput,
 } from "./commands/ListObjectAttributesCommand.ts";
-import {
-  ListObjectChildrenCommandInput,
-  ListObjectChildrenCommandOutput,
-} from "./commands/ListObjectChildrenCommand.ts";
+import { ListObjectChildrenCommandInput, ListObjectChildrenCommandOutput } from "./commands/ListObjectChildrenCommand.ts";
 import {
   ListObjectParentPathsCommandInput,
   ListObjectParentPathsCommandOutput,
 } from "./commands/ListObjectParentPathsCommand.ts";
 import { ListObjectParentsCommandInput, ListObjectParentsCommandOutput } from "./commands/ListObjectParentsCommand.ts";
-import {
-  ListObjectPoliciesCommandInput,
-  ListObjectPoliciesCommandOutput,
-} from "./commands/ListObjectPoliciesCommand.ts";
+import { ListObjectPoliciesCommandInput, ListObjectPoliciesCommandOutput } from "./commands/ListObjectPoliciesCommand.ts";
 import {
   ListOutgoingTypedLinksCommandInput,
   ListOutgoingTypedLinksCommandOutput,

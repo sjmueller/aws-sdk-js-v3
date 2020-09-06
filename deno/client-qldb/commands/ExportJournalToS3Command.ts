@@ -1,3 +1,4 @@
+
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient.ts";
 import { ExportJournalToS3Request, ExportJournalToS3Response } from "../models/index.ts";
 import {

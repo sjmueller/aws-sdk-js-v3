@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient.ts";
 import { GetTerminologyRequest, GetTerminologyResponse } from "../models/index.ts";
 import {

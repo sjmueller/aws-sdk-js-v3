@@ -1,15 +1,10 @@
+
 import {
   CancelSigningProfileCommandInput,
   CancelSigningProfileCommandOutput,
 } from "./commands/CancelSigningProfileCommand.ts";
-import {
-  DescribeSigningJobCommandInput,
-  DescribeSigningJobCommandOutput,
-} from "./commands/DescribeSigningJobCommand.ts";
-import {
-  GetSigningPlatformCommandInput,
-  GetSigningPlatformCommandOutput,
-} from "./commands/GetSigningPlatformCommand.ts";
+import { DescribeSigningJobCommandInput, DescribeSigningJobCommandOutput } from "./commands/DescribeSigningJobCommand.ts";
+import { GetSigningPlatformCommandInput, GetSigningPlatformCommandOutput } from "./commands/GetSigningPlatformCommand.ts";
 import { GetSigningProfileCommandInput, GetSigningProfileCommandOutput } from "./commands/GetSigningProfileCommand.ts";
 import { ListSigningJobsCommandInput, ListSigningJobsCommandOutput } from "./commands/ListSigningJobsCommand.ts";
 import {

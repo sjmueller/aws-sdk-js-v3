@@ -1,3 +1,4 @@
+
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
 import { ModifyVpnTunnelCertificateRequest, ModifyVpnTunnelCertificateResult } from "../models/index.ts";
 import {

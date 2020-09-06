@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
 import { DescribeSnapshotScheduleInput, DescribeSnapshotScheduleOutput } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { WorkMailClient } from "./WorkMailClient.ts";
 import {
   AssociateDelegateToResourceCommand,
@@ -9,32 +10,16 @@ import {
   AssociateMemberToGroupCommandInput,
   AssociateMemberToGroupCommandOutput,
 } from "./commands/AssociateMemberToGroupCommand.ts";
-import {
-  CreateAliasCommand,
-  CreateAliasCommandInput,
-  CreateAliasCommandOutput,
-} from "./commands/CreateAliasCommand.ts";
-import {
-  CreateGroupCommand,
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput,
-} from "./commands/CreateGroupCommand.ts";
+import { CreateAliasCommand, CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand.ts";
+import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand.ts";
 import {
   CreateResourceCommand,
   CreateResourceCommandInput,
   CreateResourceCommandOutput,
 } from "./commands/CreateResourceCommand.ts";
 import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
-import {
-  DeleteAliasCommand,
-  DeleteAliasCommandInput,
-  DeleteAliasCommandOutput,
-} from "./commands/DeleteAliasCommand.ts";
-import {
-  DeleteGroupCommand,
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput,
-} from "./commands/DeleteGroupCommand.ts";
+import { DeleteAliasCommand, DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand.ts";
+import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteMailboxPermissionsCommand,
   DeleteMailboxPermissionsCommandInput,
@@ -86,11 +71,7 @@ import {
   GetMailboxDetailsCommandInput,
   GetMailboxDetailsCommandOutput,
 } from "./commands/GetMailboxDetailsCommand.ts";
-import {
-  ListAliasesCommand,
-  ListAliasesCommandInput,
-  ListAliasesCommandOutput,
-} from "./commands/ListAliasesCommand.ts";
+import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand.ts";
 import {
   ListGroupMembersCommand,
   ListGroupMembersCommandInput,

@@ -1,3 +1,4 @@
+
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient.ts";
 import { UpdateDataRetentionInput, UpdateDataRetentionOutput } from "../models/index.ts";
 import {

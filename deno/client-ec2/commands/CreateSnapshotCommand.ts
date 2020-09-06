@@ -1,9 +1,7 @@
+
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
 import { CreateSnapshotRequest, Snapshot } from "../models/index.ts";
-import {
-  deserializeAws_ec2CreateSnapshotCommand,
-  serializeAws_ec2CreateSnapshotCommand,
-} from "../protocols/Aws_ec2.ts";
+import { deserializeAws_ec2CreateSnapshotCommand, serializeAws_ec2CreateSnapshotCommand } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";

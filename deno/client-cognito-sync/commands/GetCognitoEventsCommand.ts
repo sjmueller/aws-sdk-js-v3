@@ -1,3 +1,4 @@
+
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient.ts";
 import { GetCognitoEventsRequest, GetCognitoEventsResponse } from "../models/index.ts";
 import {

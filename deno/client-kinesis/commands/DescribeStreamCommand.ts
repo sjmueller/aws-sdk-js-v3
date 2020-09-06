@@ -1,3 +1,4 @@
+
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient.ts";
 import { DescribeStreamInput, DescribeStreamOutput } from "../models/index.ts";
 import {

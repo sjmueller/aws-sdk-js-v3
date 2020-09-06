@@ -1,3 +1,4 @@
+
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand.ts";
 import {
   CreateConfigurationCommandInput,
@@ -34,10 +35,7 @@ import {
   ListConfigurationRevisionsCommandInput,
   ListConfigurationRevisionsCommandOutput,
 } from "../commands/ListConfigurationRevisionsCommand.ts";
-import {
-  ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput,
-} from "../commands/ListConfigurationsCommand.ts";
+import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "../commands/ListConfigurationsCommand.ts";
 import { ListKafkaVersionsCommandInput, ListKafkaVersionsCommandOutput } from "../commands/ListKafkaVersionsCommand.ts";
 import { ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand.ts";
 import {

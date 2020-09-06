@@ -1,3 +1,4 @@
+
 import { CognitoIdentityClient } from "./CognitoIdentityClient.ts";
 import {
   CreateIdentityPoolCommand,
@@ -75,11 +76,7 @@ import {
   SetIdentityPoolRolesCommandInput,
   SetIdentityPoolRolesCommandOutput,
 } from "./commands/SetIdentityPoolRolesCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UnlinkDeveloperIdentityCommand,
   UnlinkDeveloperIdentityCommandInput,

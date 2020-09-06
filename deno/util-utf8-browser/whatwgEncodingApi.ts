@@ -1,3 +1,4 @@
+
 /**
  * A declaration of the global TextEncoder and TextDecoder constructors.
  *

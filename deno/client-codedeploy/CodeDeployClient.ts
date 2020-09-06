@@ -1,3 +1,4 @@
+
 import {
   AddTagsToOnPremisesInstancesCommandInput,
   AddTagsToOnPremisesInstancesCommandOutput,
@@ -30,10 +31,7 @@ import {
   BatchGetOnPremisesInstancesCommandInput,
   BatchGetOnPremisesInstancesCommandOutput,
 } from "./commands/BatchGetOnPremisesInstancesCommand.ts";
-import {
-  ContinueDeploymentCommandInput,
-  ContinueDeploymentCommandOutput,
-} from "./commands/ContinueDeploymentCommand.ts";
+import { ContinueDeploymentCommandInput, ContinueDeploymentCommandOutput } from "./commands/ContinueDeploymentCommand.ts";
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand.ts";
 import { CreateDeploymentCommandInput, CreateDeploymentCommandOutput } from "./commands/CreateDeploymentCommand.ts";
 import {
@@ -75,10 +73,7 @@ import {
   GetDeploymentConfigCommandInput,
   GetDeploymentConfigCommandOutput,
 } from "./commands/GetDeploymentConfigCommand.ts";
-import {
-  GetDeploymentGroupCommandInput,
-  GetDeploymentGroupCommandOutput,
-} from "./commands/GetDeploymentGroupCommand.ts";
+import { GetDeploymentGroupCommandInput, GetDeploymentGroupCommandOutput } from "./commands/GetDeploymentGroupCommand.ts";
 import {
   GetDeploymentInstanceCommandInput,
   GetDeploymentInstanceCommandOutput,

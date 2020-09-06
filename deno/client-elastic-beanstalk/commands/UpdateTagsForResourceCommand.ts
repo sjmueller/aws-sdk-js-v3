@@ -1,8 +1,5 @@
-import {
-  ElasticBeanstalkClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../ElasticBeanstalkClient.ts";
+
+import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
 import { UpdateTagsForResourceMessage } from "../models/index.ts";
 import {
   deserializeAws_queryUpdateTagsForResourceCommand,

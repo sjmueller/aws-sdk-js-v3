@@ -1,3 +1,4 @@
+
 import { CloudHSMV2Client } from "./CloudHSMV2Client.ts";
 import {
   CopyBackupToRegionCommand,
@@ -42,11 +43,7 @@ import {
   RestoreBackupCommandInput,
   RestoreBackupCommandOutput,
 } from "./commands/RestoreBackupCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

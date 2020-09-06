@@ -1,3 +1,4 @@
+
 import { SSMClient } from "./SSMClient.ts";
 import {
   AddTagsToResourceCommand,
@@ -309,11 +310,7 @@ import {
   GetDeployablePatchSnapshotForInstanceCommandInput,
   GetDeployablePatchSnapshotForInstanceCommandOutput,
 } from "./commands/GetDeployablePatchSnapshotForInstanceCommand.ts";
-import {
-  GetDocumentCommand,
-  GetDocumentCommandInput,
-  GetDocumentCommandOutput,
-} from "./commands/GetDocumentCommand.ts";
+import { GetDocumentCommand, GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand.ts";
 import {
   GetInventoryCommand,
   GetInventoryCommandInput,
@@ -515,11 +512,7 @@ import {
   SendAutomationSignalCommandInput,
   SendAutomationSignalCommandOutput,
 } from "./commands/SendAutomationSignalCommand.ts";
-import {
-  SendCommandCommand,
-  SendCommandCommandInput,
-  SendCommandCommandOutput,
-} from "./commands/SendCommandCommand.ts";
+import { SendCommandCommand, SendCommandCommandInput, SendCommandCommandOutput } from "./commands/SendCommandCommand.ts";
 import {
   StartAssociationsOnceCommand,
   StartAssociationsOnceCommandInput,

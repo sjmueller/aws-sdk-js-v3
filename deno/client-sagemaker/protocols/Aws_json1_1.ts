@@ -1,3 +1,4 @@
+
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand.ts";
 import {
   AssociateTrialComponentCommandInput,
@@ -32,10 +33,7 @@ import {
 } from "../commands/CreateHyperParameterTuningJobCommand.ts";
 import { CreateLabelingJobCommandInput, CreateLabelingJobCommandOutput } from "../commands/CreateLabelingJobCommand.ts";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "../commands/CreateModelCommand.ts";
-import {
-  CreateModelPackageCommandInput,
-  CreateModelPackageCommandOutput,
-} from "../commands/CreateModelPackageCommand.ts";
+import { CreateModelPackageCommandInput, CreateModelPackageCommandOutput } from "../commands/CreateModelPackageCommand.ts";
 import {
   CreateMonitoringScheduleCommandInput,
   CreateMonitoringScheduleCommandOutput,
@@ -61,10 +59,7 @@ import {
   CreateProcessingJobCommandOutput,
 } from "../commands/CreateProcessingJobCommand.ts";
 import { CreateTrainingJobCommandInput, CreateTrainingJobCommandOutput } from "../commands/CreateTrainingJobCommand.ts";
-import {
-  CreateTransformJobCommandInput,
-  CreateTransformJobCommandOutput,
-} from "../commands/CreateTransformJobCommand.ts";
+import { CreateTransformJobCommandInput, CreateTransformJobCommandOutput } from "../commands/CreateTransformJobCommand.ts";
 import { CreateTrialCommandInput, CreateTrialCommandOutput } from "../commands/CreateTrialCommand.ts";
 import {
   CreateTrialComponentCommandInput,
@@ -92,10 +87,7 @@ import {
 } from "../commands/DeleteFlowDefinitionCommand.ts";
 import { DeleteHumanTaskUiCommandInput, DeleteHumanTaskUiCommandOutput } from "../commands/DeleteHumanTaskUiCommand.ts";
 import { DeleteModelCommandInput, DeleteModelCommandOutput } from "../commands/DeleteModelCommand.ts";
-import {
-  DeleteModelPackageCommandInput,
-  DeleteModelPackageCommandOutput,
-} from "../commands/DeleteModelPackageCommand.ts";
+import { DeleteModelPackageCommandInput, DeleteModelPackageCommandOutput } from "../commands/DeleteModelPackageCommand.ts";
 import {
   DeleteMonitoringScheduleCommandInput,
   DeleteMonitoringScheduleCommandOutput,
@@ -134,10 +126,7 @@ import {
   DescribeEndpointConfigCommandInput,
   DescribeEndpointConfigCommandOutput,
 } from "../commands/DescribeEndpointConfigCommand.ts";
-import {
-  DescribeExperimentCommandInput,
-  DescribeExperimentCommandOutput,
-} from "../commands/DescribeExperimentCommand.ts";
+import { DescribeExperimentCommandInput, DescribeExperimentCommandOutput } from "../commands/DescribeExperimentCommand.ts";
 import {
   DescribeFlowDefinitionCommandInput,
   DescribeFlowDefinitionCommandOutput,
@@ -260,10 +249,7 @@ import {
   ListNotebookInstancesCommandInput,
   ListNotebookInstancesCommandOutput,
 } from "../commands/ListNotebookInstancesCommand.ts";
-import {
-  ListProcessingJobsCommandInput,
-  ListProcessingJobsCommandOutput,
-} from "../commands/ListProcessingJobsCommand.ts";
+import { ListProcessingJobsCommandInput, ListProcessingJobsCommandOutput } from "../commands/ListProcessingJobsCommand.ts";
 import {
   ListSubscribedWorkteamsCommandInput,
   ListSubscribedWorkteamsCommandOutput,
@@ -294,10 +280,7 @@ import {
   StartNotebookInstanceCommandOutput,
 } from "../commands/StartNotebookInstanceCommand.ts";
 import { StopAutoMLJobCommandInput, StopAutoMLJobCommandOutput } from "../commands/StopAutoMLJobCommand.ts";
-import {
-  StopCompilationJobCommandInput,
-  StopCompilationJobCommandOutput,
-} from "../commands/StopCompilationJobCommand.ts";
+import { StopCompilationJobCommandInput, StopCompilationJobCommandOutput } from "../commands/StopCompilationJobCommand.ts";
 import {
   StopHyperParameterTuningJobCommandInput,
   StopHyperParameterTuningJobCommandOutput,

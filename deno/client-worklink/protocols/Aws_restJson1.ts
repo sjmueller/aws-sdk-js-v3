@@ -1,3 +1,4 @@
+
 import { AssociateDomainCommandInput, AssociateDomainCommandOutput } from "../commands/AssociateDomainCommand.ts";
 import {
   AssociateWebsiteAuthorizationProviderCommandInput,
@@ -35,10 +36,7 @@ import {
   DescribeWebsiteCertificateAuthorityCommandInput,
   DescribeWebsiteCertificateAuthorityCommandOutput,
 } from "../commands/DescribeWebsiteCertificateAuthorityCommand.ts";
-import {
-  DisassociateDomainCommandInput,
-  DisassociateDomainCommandOutput,
-} from "../commands/DisassociateDomainCommand.ts";
+import { DisassociateDomainCommandInput, DisassociateDomainCommandOutput } from "../commands/DisassociateDomainCommand.ts";
 import {
   DisassociateWebsiteAuthorizationProviderCommandInput,
   DisassociateWebsiteAuthorizationProviderCommandOutput,
@@ -66,10 +64,7 @@ import {
   RestoreDomainAccessCommandInput,
   RestoreDomainAccessCommandOutput,
 } from "../commands/RestoreDomainAccessCommand.ts";
-import {
-  RevokeDomainAccessCommandInput,
-  RevokeDomainAccessCommandOutput,
-} from "../commands/RevokeDomainAccessCommand.ts";
+import { RevokeDomainAccessCommandInput, RevokeDomainAccessCommandOutput } from "../commands/RevokeDomainAccessCommand.ts";
 import { SignOutUserCommandInput, SignOutUserCommandOutput } from "../commands/SignOutUserCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand.ts";

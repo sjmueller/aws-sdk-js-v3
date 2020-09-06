@@ -1,3 +1,4 @@
+
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
 import { GetSubscriptionAttributesInput, GetSubscriptionAttributesResponse } from "../models/index.ts";
 import {

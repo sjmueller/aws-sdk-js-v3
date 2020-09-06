@@ -1,8 +1,5 @@
-import {
-  MachineLearningClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../MachineLearningClient.ts";
+
+import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient.ts";
 import { CreateDataSourceFromRedshiftInput, CreateDataSourceFromRedshiftOutput } from "../models/index.ts";
 import {
   deserializeAws_json1_1CreateDataSourceFromRedshiftCommand,

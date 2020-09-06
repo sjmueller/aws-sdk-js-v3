@@ -1,3 +1,4 @@
+
 import {
   AcceptPortfolioShareCommandInput,
   AcceptPortfolioShareCommandOutput,
@@ -71,10 +72,7 @@ import {
   DeleteServiceActionCommandOutput,
 } from "./commands/DeleteServiceActionCommand.ts";
 import { DeleteTagOptionCommandInput, DeleteTagOptionCommandOutput } from "./commands/DeleteTagOptionCommand.ts";
-import {
-  DescribeConstraintCommandInput,
-  DescribeConstraintCommandOutput,
-} from "./commands/DescribeConstraintCommand.ts";
+import { DescribeConstraintCommandInput, DescribeConstraintCommandOutput } from "./commands/DescribeConstraintCommand.ts";
 import {
   DescribeCopyProductStatusCommandInput,
   DescribeCopyProductStatusCommandOutput,
@@ -206,10 +204,7 @@ import {
   ListResourcesForTagOptionCommandInput,
   ListResourcesForTagOptionCommandOutput,
 } from "./commands/ListResourcesForTagOptionCommand.ts";
-import {
-  ListServiceActionsCommandInput,
-  ListServiceActionsCommandOutput,
-} from "./commands/ListServiceActionsCommand.ts";
+import { ListServiceActionsCommandInput, ListServiceActionsCommandOutput } from "./commands/ListServiceActionsCommand.ts";
 import {
   ListServiceActionsForProvisioningArtifactCommandInput,
   ListServiceActionsForProvisioningArtifactCommandOutput,

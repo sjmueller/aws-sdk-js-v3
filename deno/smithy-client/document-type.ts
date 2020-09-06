@@ -1,3 +1,4 @@
+
 /**
  * Smithy document type values.
  */

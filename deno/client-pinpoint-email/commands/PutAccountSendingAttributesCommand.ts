@@ -1,3 +1,4 @@
+
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
 import { PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
 import { ListPlatformApplicationsInput, ListPlatformApplicationsResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
 import { DeleteEmailChannelRequest, DeleteEmailChannelResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand.ts";
 import { CreateComponentCommandInput, CreateComponentCommandOutput } from "./commands/CreateComponentCommand.ts";
 import { CreateLogPatternCommandInput, CreateLogPatternCommandOutput } from "./commands/CreateLogPatternCommand.ts";
@@ -17,10 +18,7 @@ import {
   DescribeComponentConfigurationRecommendationCommandInput,
   DescribeComponentConfigurationRecommendationCommandOutput,
 } from "./commands/DescribeComponentConfigurationRecommendationCommand.ts";
-import {
-  DescribeLogPatternCommandInput,
-  DescribeLogPatternCommandOutput,
-} from "./commands/DescribeLogPatternCommand.ts";
+import { DescribeLogPatternCommandInput, DescribeLogPatternCommandOutput } from "./commands/DescribeLogPatternCommand.ts";
 import {
   DescribeObservationCommandInput,
   DescribeObservationCommandOutput,
@@ -36,10 +34,7 @@ import {
   ListConfigurationHistoryCommandInput,
   ListConfigurationHistoryCommandOutput,
 } from "./commands/ListConfigurationHistoryCommand.ts";
-import {
-  ListLogPatternSetsCommandInput,
-  ListLogPatternSetsCommandOutput,
-} from "./commands/ListLogPatternSetsCommand.ts";
+import { ListLogPatternSetsCommandInput, ListLogPatternSetsCommandOutput } from "./commands/ListLogPatternSetsCommand.ts";
 import { ListLogPatternsCommandInput, ListLogPatternsCommandOutput } from "./commands/ListLogPatternsCommand.ts";
 import { ListProblemsCommandInput, ListProblemsCommandOutput } from "./commands/ListProblemsCommand.ts";
 import {

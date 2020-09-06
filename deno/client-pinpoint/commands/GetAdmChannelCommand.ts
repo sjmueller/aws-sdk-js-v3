@@ -1,3 +1,4 @@
+
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
 import { GetAdmChannelRequest, GetAdmChannelResponse } from "../models/index.ts";
 import {

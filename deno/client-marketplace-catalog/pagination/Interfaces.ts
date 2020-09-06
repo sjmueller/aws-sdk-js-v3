@@ -1,3 +1,4 @@
+
 import { MarketplaceCatalog } from "../MarketplaceCatalog.ts";
 import { MarketplaceCatalogClient } from "../MarketplaceCatalogClient.ts";
 import { PaginationConfiguration } from "../../types/mod.ts";

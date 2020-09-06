@@ -1,3 +1,4 @@
+
 import { Storage } from "./Storage.ts";
 
 export class InMemoryStorage implements Storage {

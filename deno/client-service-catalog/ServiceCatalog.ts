@@ -1,3 +1,4 @@
+
 import { ServiceCatalogClient } from "./ServiceCatalogClient.ts";
 import {
   AcceptPortfolioShareCommand,
@@ -39,11 +40,7 @@ import {
   BatchDisassociateServiceActionFromProvisioningArtifactCommandInput,
   BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput,
 } from "./commands/BatchDisassociateServiceActionFromProvisioningArtifactCommand.ts";
-import {
-  CopyProductCommand,
-  CopyProductCommandInput,
-  CopyProductCommandOutput,
-} from "./commands/CopyProductCommand.ts";
+import { CopyProductCommand, CopyProductCommandInput, CopyProductCommandOutput } from "./commands/CopyProductCommand.ts";
 import {
   CreateConstraintCommand,
   CreateConstraintCommandInput,

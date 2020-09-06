@@ -1,8 +1,5 @@
-import {
-  CloudWatchEventsClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../CloudWatchEventsClient.ts";
+
+import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient.ts";
 import { DescribeEventBusRequest, DescribeEventBusResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeEventBusCommand,

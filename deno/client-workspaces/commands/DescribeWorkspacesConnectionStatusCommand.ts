@@ -1,8 +1,6 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import {
-  DescribeWorkspacesConnectionStatusRequest,
-  DescribeWorkspacesConnectionStatusResult,
-} from "../models/index.ts";
+import { DescribeWorkspacesConnectionStatusRequest, DescribeWorkspacesConnectionStatusResult } from "../models/index.ts";
 import {
   deserializeAws_json1_1DescribeWorkspacesConnectionStatusCommand,
   serializeAws_json1_1DescribeWorkspacesConnectionStatusCommand,

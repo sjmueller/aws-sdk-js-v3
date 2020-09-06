@@ -1,3 +1,4 @@
+
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient.ts";
 import { DeleteTrailRequest, DeleteTrailResponse } from "../models/index.ts";
 import {

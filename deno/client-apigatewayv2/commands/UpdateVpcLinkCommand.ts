@@ -1,3 +1,4 @@
+
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
 import { UpdateVpcLinkRequest, UpdateVpcLinkResponse } from "../models/index.ts";
 import {

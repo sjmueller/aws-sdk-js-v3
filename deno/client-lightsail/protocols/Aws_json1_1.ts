@@ -1,3 +1,4 @@
+
 import { AllocateStaticIpCommandInput, AllocateStaticIpCommandOutput } from "../commands/AllocateStaticIpCommand.ts";
 import {
   AttachCertificateToDistributionCommandInput,
@@ -32,14 +33,8 @@ import {
   CreateDiskFromSnapshotCommandInput,
   CreateDiskFromSnapshotCommandOutput,
 } from "../commands/CreateDiskFromSnapshotCommand.ts";
-import {
-  CreateDiskSnapshotCommandInput,
-  CreateDiskSnapshotCommandOutput,
-} from "../commands/CreateDiskSnapshotCommand.ts";
-import {
-  CreateDistributionCommandInput,
-  CreateDistributionCommandOutput,
-} from "../commands/CreateDistributionCommand.ts";
+import { CreateDiskSnapshotCommandInput, CreateDiskSnapshotCommandOutput } from "../commands/CreateDiskSnapshotCommand.ts";
+import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "../commands/CreateDistributionCommand.ts";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand.ts";
 import { CreateDomainEntryCommandInput, CreateDomainEntryCommandOutput } from "../commands/CreateDomainEntryCommand.ts";
 import {
@@ -52,10 +47,7 @@ import {
   CreateInstancesFromSnapshotCommandOutput,
 } from "../commands/CreateInstancesFromSnapshotCommand.ts";
 import { CreateKeyPairCommandInput, CreateKeyPairCommandOutput } from "../commands/CreateKeyPairCommand.ts";
-import {
-  CreateLoadBalancerCommandInput,
-  CreateLoadBalancerCommandOutput,
-} from "../commands/CreateLoadBalancerCommand.ts";
+import { CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput } from "../commands/CreateLoadBalancerCommand.ts";
 import {
   CreateLoadBalancerTlsCertificateCommandInput,
   CreateLoadBalancerTlsCertificateCommandOutput,
@@ -73,24 +65,15 @@ import {
   CreateRelationalDatabaseSnapshotCommandOutput,
 } from "../commands/CreateRelationalDatabaseSnapshotCommand.ts";
 import { DeleteAlarmCommandInput, DeleteAlarmCommandOutput } from "../commands/DeleteAlarmCommand.ts";
-import {
-  DeleteAutoSnapshotCommandInput,
-  DeleteAutoSnapshotCommandOutput,
-} from "../commands/DeleteAutoSnapshotCommand.ts";
+import { DeleteAutoSnapshotCommandInput, DeleteAutoSnapshotCommandOutput } from "../commands/DeleteAutoSnapshotCommand.ts";
 import { DeleteCertificateCommandInput, DeleteCertificateCommandOutput } from "../commands/DeleteCertificateCommand.ts";
 import {
   DeleteContactMethodCommandInput,
   DeleteContactMethodCommandOutput,
 } from "../commands/DeleteContactMethodCommand.ts";
 import { DeleteDiskCommandInput, DeleteDiskCommandOutput } from "../commands/DeleteDiskCommand.ts";
-import {
-  DeleteDiskSnapshotCommandInput,
-  DeleteDiskSnapshotCommandOutput,
-} from "../commands/DeleteDiskSnapshotCommand.ts";
-import {
-  DeleteDistributionCommandInput,
-  DeleteDistributionCommandOutput,
-} from "../commands/DeleteDistributionCommand.ts";
+import { DeleteDiskSnapshotCommandInput, DeleteDiskSnapshotCommandOutput } from "../commands/DeleteDiskSnapshotCommand.ts";
+import { DeleteDistributionCommandInput, DeleteDistributionCommandOutput } from "../commands/DeleteDistributionCommand.ts";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand.ts";
 import { DeleteDomainEntryCommandInput, DeleteDomainEntryCommandOutput } from "../commands/DeleteDomainEntryCommand.ts";
 import { DeleteInstanceCommandInput, DeleteInstanceCommandOutput } from "../commands/DeleteInstanceCommand.ts";
@@ -103,10 +86,7 @@ import {
   DeleteKnownHostKeysCommandInput,
   DeleteKnownHostKeysCommandOutput,
 } from "../commands/DeleteKnownHostKeysCommand.ts";
-import {
-  DeleteLoadBalancerCommandInput,
-  DeleteLoadBalancerCommandOutput,
-} from "../commands/DeleteLoadBalancerCommand.ts";
+import { DeleteLoadBalancerCommandInput, DeleteLoadBalancerCommandOutput } from "../commands/DeleteLoadBalancerCommand.ts";
 import {
   DeleteLoadBalancerTlsCertificateCommandInput,
   DeleteLoadBalancerTlsCertificateCommandOutput,
@@ -306,10 +286,7 @@ import {
   UpdateDistributionBundleCommandInput,
   UpdateDistributionBundleCommandOutput,
 } from "../commands/UpdateDistributionBundleCommand.ts";
-import {
-  UpdateDistributionCommandInput,
-  UpdateDistributionCommandOutput,
-} from "../commands/UpdateDistributionCommand.ts";
+import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "../commands/UpdateDistributionCommand.ts";
 import { UpdateDomainEntryCommandInput, UpdateDomainEntryCommandOutput } from "../commands/UpdateDomainEntryCommand.ts";
 import {
   UpdateLoadBalancerAttributeCommandInput,

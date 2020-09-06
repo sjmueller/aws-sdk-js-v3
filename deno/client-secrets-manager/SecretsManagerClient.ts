@@ -1,7 +1,5 @@
-import {
-  CancelRotateSecretCommandInput,
-  CancelRotateSecretCommandOutput,
-} from "./commands/CancelRotateSecretCommand.ts";
+
+import { CancelRotateSecretCommandInput, CancelRotateSecretCommandOutput } from "./commands/CancelRotateSecretCommand.ts";
 import { CreateSecretCommandInput, CreateSecretCommandOutput } from "./commands/CreateSecretCommand.ts";
 import {
   DeleteResourcePolicyCommandInput,

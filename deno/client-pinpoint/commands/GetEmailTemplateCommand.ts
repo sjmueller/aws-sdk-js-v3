@@ -1,3 +1,4 @@
+
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
 import { GetEmailTemplateRequest, GetEmailTemplateResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 export * from "./DynamoDBStreamsClient.ts";
 export * from "./DynamoDBStreams.ts";
 export * from "./commands/DescribeStreamCommand.ts";

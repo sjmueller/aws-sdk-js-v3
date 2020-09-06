@@ -1,3 +1,4 @@
+import { Buffer } from "../../buffer/mod.ts";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
 import { UploadPartOutput, UploadPartRequest } from "../models/index.ts";
 import {

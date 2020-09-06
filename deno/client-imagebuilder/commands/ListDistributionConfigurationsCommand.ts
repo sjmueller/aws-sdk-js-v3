@@ -1,3 +1,4 @@
+
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
 import { ListDistributionConfigurationsRequest, ListDistributionConfigurationsResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import {
   CloudSearchDomainClientResolvedConfig,
   ServiceInputTypes,

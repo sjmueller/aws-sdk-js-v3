@@ -1,3 +1,4 @@
+
 import { SignerClient } from "./SignerClient.ts";
 import {
   CancelSigningProfileCommand,
@@ -49,11 +50,7 @@ import {
   StartSigningJobCommandInput,
   StartSigningJobCommandOutput,
 } from "./commands/StartSigningJobCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

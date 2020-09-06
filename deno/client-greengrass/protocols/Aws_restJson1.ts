@@ -1,3 +1,4 @@
+
 import {
   AssociateRoleToGroupCommandInput,
   AssociateRoleToGroupCommandOutput,
@@ -44,10 +45,7 @@ import {
   CreateGroupCertificateAuthorityCommandOutput,
 } from "../commands/CreateGroupCertificateAuthorityCommand.ts";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand.ts";
-import {
-  CreateGroupVersionCommandInput,
-  CreateGroupVersionCommandOutput,
-} from "../commands/CreateGroupVersionCommand.ts";
+import { CreateGroupVersionCommandInput, CreateGroupVersionCommandOutput } from "../commands/CreateGroupVersionCommand.ts";
 import {
   CreateLoggerDefinitionCommandInput,
   CreateLoggerDefinitionCommandOutput,
@@ -273,10 +271,7 @@ import {
   StartBulkDeploymentCommandInput,
   StartBulkDeploymentCommandOutput,
 } from "../commands/StartBulkDeploymentCommand.ts";
-import {
-  StopBulkDeploymentCommandInput,
-  StopBulkDeploymentCommandOutput,
-} from "../commands/StopBulkDeploymentCommand.ts";
+import { StopBulkDeploymentCommandInput, StopBulkDeploymentCommandOutput } from "../commands/StopBulkDeploymentCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand.ts";
 import {

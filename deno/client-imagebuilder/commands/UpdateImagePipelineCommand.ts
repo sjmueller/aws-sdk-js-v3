@@ -1,3 +1,4 @@
+
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
 import { UpdateImagePipelineRequest, UpdateImagePipelineResponse } from "../models/index.ts";
 import {

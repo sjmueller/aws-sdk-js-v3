@@ -1,3 +1,4 @@
+
 import { ChimeClient } from "./ChimeClient.ts";
 import {
   AssociatePhoneNumberWithUserCommand,
@@ -204,11 +205,7 @@ import {
   GetAccountSettingsCommandInput,
   GetAccountSettingsCommandOutput,
 } from "./commands/GetAccountSettingsCommand.ts";
-import {
-  GetAttendeeCommand,
-  GetAttendeeCommandInput,
-  GetAttendeeCommandOutput,
-} from "./commands/GetAttendeeCommand.ts";
+import { GetAttendeeCommand, GetAttendeeCommandInput, GetAttendeeCommandOutput } from "./commands/GetAttendeeCommand.ts";
 import { GetBotCommand, GetBotCommandInput, GetBotCommandOutput } from "./commands/GetBotCommand.ts";
 import {
   GetEventsConfigurationCommand,
@@ -298,11 +295,7 @@ import {
   GetVoiceConnectorTerminationHealthCommandInput,
   GetVoiceConnectorTerminationHealthCommandOutput,
 } from "./commands/GetVoiceConnectorTerminationHealthCommand.ts";
-import {
-  InviteUsersCommand,
-  InviteUsersCommandInput,
-  InviteUsersCommandOutput,
-} from "./commands/InviteUsersCommand.ts";
+import { InviteUsersCommand, InviteUsersCommandInput, InviteUsersCommandOutput } from "./commands/InviteUsersCommand.ts";
 import {
   ListAccountsCommand,
   ListAccountsCommandInput,
@@ -447,17 +440,9 @@ import {
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
 } from "./commands/SearchAvailablePhoneNumbersCommand.ts";
-import {
-  TagAttendeeCommand,
-  TagAttendeeCommandInput,
-  TagAttendeeCommandOutput,
-} from "./commands/TagAttendeeCommand.ts";
+import { TagAttendeeCommand, TagAttendeeCommandInput, TagAttendeeCommandOutput } from "./commands/TagAttendeeCommand.ts";
 import { TagMeetingCommand, TagMeetingCommandInput, TagMeetingCommandOutput } from "./commands/TagMeetingCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagAttendeeCommand,
   UntagAttendeeCommandInput,

@@ -1,3 +1,4 @@
+
 import { MediaTailorClient } from "./MediaTailorClient.ts";
 import {
   DeletePlaybackConfigurationCommand,
@@ -24,11 +25,7 @@ import {
   PutPlaybackConfigurationCommandInput,
   PutPlaybackConfigurationCommandOutput,
 } from "./commands/PutPlaybackConfigurationCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

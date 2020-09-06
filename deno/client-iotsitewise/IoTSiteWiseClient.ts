@@ -1,3 +1,4 @@
+
 import { AssociateAssetsCommandInput, AssociateAssetsCommandOutput } from "./commands/AssociateAssetsCommand.ts";
 import {
   BatchAssociateProjectAssetsCommandInput,
@@ -11,20 +12,14 @@ import {
   BatchPutAssetPropertyValueCommandInput,
   BatchPutAssetPropertyValueCommandOutput,
 } from "./commands/BatchPutAssetPropertyValueCommand.ts";
-import {
-  CreateAccessPolicyCommandInput,
-  CreateAccessPolicyCommandOutput,
-} from "./commands/CreateAccessPolicyCommand.ts";
+import { CreateAccessPolicyCommandInput, CreateAccessPolicyCommandOutput } from "./commands/CreateAccessPolicyCommand.ts";
 import { CreateAssetCommandInput, CreateAssetCommandOutput } from "./commands/CreateAssetCommand.ts";
 import { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "./commands/CreateAssetModelCommand.ts";
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand.ts";
 import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand.ts";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand.ts";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand.ts";
-import {
-  DeleteAccessPolicyCommandInput,
-  DeleteAccessPolicyCommandOutput,
-} from "./commands/DeleteAccessPolicyCommand.ts";
+import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "./commands/DeleteAccessPolicyCommand.ts";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand.ts";
 import { DeleteAssetModelCommandInput, DeleteAssetModelCommandOutput } from "./commands/DeleteAssetModelCommand.ts";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand.ts";
@@ -36,10 +31,7 @@ import {
   DescribeAccessPolicyCommandOutput,
 } from "./commands/DescribeAccessPolicyCommand.ts";
 import { DescribeAssetCommandInput, DescribeAssetCommandOutput } from "./commands/DescribeAssetCommand.ts";
-import {
-  DescribeAssetModelCommandInput,
-  DescribeAssetModelCommandOutput,
-} from "./commands/DescribeAssetModelCommand.ts";
+import { DescribeAssetModelCommandInput, DescribeAssetModelCommandOutput } from "./commands/DescribeAssetModelCommand.ts";
 import {
   DescribeAssetPropertyCommandInput,
   DescribeAssetPropertyCommandOutput,
@@ -56,10 +48,7 @@ import {
 } from "./commands/DescribeLoggingOptionsCommand.ts";
 import { DescribePortalCommandInput, DescribePortalCommandOutput } from "./commands/DescribePortalCommand.ts";
 import { DescribeProjectCommandInput, DescribeProjectCommandOutput } from "./commands/DescribeProjectCommand.ts";
-import {
-  DisassociateAssetsCommandInput,
-  DisassociateAssetsCommandOutput,
-} from "./commands/DisassociateAssetsCommand.ts";
+import { DisassociateAssetsCommandInput, DisassociateAssetsCommandOutput } from "./commands/DisassociateAssetsCommand.ts";
 import {
   GetAssetPropertyAggregatesCommandInput,
   GetAssetPropertyAggregatesCommandOutput,
@@ -72,10 +61,7 @@ import {
   GetAssetPropertyValueHistoryCommandInput,
   GetAssetPropertyValueHistoryCommandOutput,
 } from "./commands/GetAssetPropertyValueHistoryCommand.ts";
-import {
-  ListAccessPoliciesCommandInput,
-  ListAccessPoliciesCommandOutput,
-} from "./commands/ListAccessPoliciesCommand.ts";
+import { ListAccessPoliciesCommandInput, ListAccessPoliciesCommandOutput } from "./commands/ListAccessPoliciesCommand.ts";
 import { ListAssetModelsCommandInput, ListAssetModelsCommandOutput } from "./commands/ListAssetModelsCommand.ts";
 import { ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand.ts";
 import {
@@ -94,10 +80,7 @@ import {
 import { PutLoggingOptionsCommandInput, PutLoggingOptionsCommandOutput } from "./commands/PutLoggingOptionsCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateAccessPolicyCommandInput,
-  UpdateAccessPolicyCommandOutput,
-} from "./commands/UpdateAccessPolicyCommand.ts";
+import { UpdateAccessPolicyCommandInput, UpdateAccessPolicyCommandOutput } from "./commands/UpdateAccessPolicyCommand.ts";
 import { UpdateAssetCommandInput, UpdateAssetCommandOutput } from "./commands/UpdateAssetCommand.ts";
 import { UpdateAssetModelCommandInput, UpdateAssetModelCommandOutput } from "./commands/UpdateAssetModelCommand.ts";
 import {

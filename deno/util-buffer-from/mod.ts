@@ -1,3 +1,4 @@
+import { Buffer } from "../buffer/mod.ts";
 import { isArrayBuffer } from "../is-array-buffer/mod.ts";
 import { Buffer } from "buffer.ts";
 

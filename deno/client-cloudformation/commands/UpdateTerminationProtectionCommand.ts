@@ -1,3 +1,4 @@
+
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
 import { UpdateTerminationProtectionInput, UpdateTerminationProtectionOutput } from "../models/index.ts";
 import {

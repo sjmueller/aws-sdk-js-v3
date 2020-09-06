@@ -1,3 +1,4 @@
+
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
 import { CreateEventSubscriptionMessage, CreateEventSubscriptionResult } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
 import { AddResourcePermissionsRequest, AddResourcePermissionsResponse } from "../models/index.ts";
 import {

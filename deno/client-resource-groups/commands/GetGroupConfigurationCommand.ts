@@ -1,3 +1,4 @@
+
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient.ts";
 import { GetGroupConfigurationInput, GetGroupConfigurationOutput } from "../models/index.ts";
 import {

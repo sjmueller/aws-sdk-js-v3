@@ -1,8 +1,6 @@
+
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import {
-  UpdateColumnStatisticsForPartitionRequest,
-  UpdateColumnStatisticsForPartitionResponse,
-} from "../models/index.ts";
+import { UpdateColumnStatisticsForPartitionRequest, UpdateColumnStatisticsForPartitionResponse } from "../models/index.ts";
 import {
   deserializeAws_json1_1UpdateColumnStatisticsForPartitionCommand,
   serializeAws_json1_1UpdateColumnStatisticsForPartitionCommand,

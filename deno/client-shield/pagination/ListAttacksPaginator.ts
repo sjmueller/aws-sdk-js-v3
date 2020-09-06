@@ -1,10 +1,7 @@
+
 import { Shield } from "../Shield.ts";
 import { ShieldClient } from "../ShieldClient.ts";
-import {
-  ListAttacksCommand,
-  ListAttacksCommandInput,
-  ListAttacksCommandOutput,
-} from "../commands/ListAttacksCommand.ts";
+import { ListAttacksCommand, ListAttacksCommandInput, ListAttacksCommandOutput } from "../commands/ListAttacksCommand.ts";
 import { ShieldPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

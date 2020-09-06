@@ -1,3 +1,4 @@
+
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
 import { DescribeFleetCapacityInput, DescribeFleetCapacityOutput } from "../models/index.ts";
 import {

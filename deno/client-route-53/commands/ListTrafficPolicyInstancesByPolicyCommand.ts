@@ -1,8 +1,6 @@
+
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
-import {
-  ListTrafficPolicyInstancesByPolicyRequest,
-  ListTrafficPolicyInstancesByPolicyResponse,
-} from "../models/index.ts";
+import { ListTrafficPolicyInstancesByPolicyRequest, ListTrafficPolicyInstancesByPolicyResponse } from "../models/index.ts";
 import {
   deserializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand,
   serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand,

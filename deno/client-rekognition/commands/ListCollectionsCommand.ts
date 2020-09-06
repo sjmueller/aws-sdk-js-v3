@@ -1,3 +1,4 @@
+
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
 import { ListCollectionsRequest, ListCollectionsResponse } from "../models/index.ts";
 import {

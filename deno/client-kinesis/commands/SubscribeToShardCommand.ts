@@ -1,3 +1,4 @@
+
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient.ts";
 import { SubscribeToShardInput, SubscribeToShardOutput } from "../models/index.ts";
 import {

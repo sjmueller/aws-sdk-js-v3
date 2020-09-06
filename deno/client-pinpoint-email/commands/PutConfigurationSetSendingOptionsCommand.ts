@@ -1,8 +1,6 @@
+
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
-import {
-  PutConfigurationSetSendingOptionsRequest,
-  PutConfigurationSetSendingOptionsResponse,
-} from "../models/index.ts";
+import { PutConfigurationSetSendingOptionsRequest, PutConfigurationSetSendingOptionsResponse } from "../models/index.ts";
 import {
   deserializeAws_restJson1PutConfigurationSetSendingOptionsCommand,
   serializeAws_restJson1PutConfigurationSetSendingOptionsCommand,

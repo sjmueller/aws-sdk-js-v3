@@ -1,3 +1,4 @@
+
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
 import { DescribeEventTrackerRequest, DescribeEventTrackerResponse } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { WorkLink } from "../WorkLink.ts";
 import { WorkLinkClient } from "../WorkLinkClient.ts";
 import { PaginationConfiguration } from "../../types/mod.ts";

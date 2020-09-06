@@ -1,12 +1,10 @@
+
 import { CreateCachePolicyCommandInput, CreateCachePolicyCommandOutput } from "./commands/CreateCachePolicyCommand.ts";
 import {
   CreateCloudFrontOriginAccessIdentityCommandInput,
   CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/CreateCloudFrontOriginAccessIdentityCommand.ts";
-import {
-  CreateDistributionCommandInput,
-  CreateDistributionCommandOutput,
-} from "./commands/CreateDistributionCommand.ts";
+import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "./commands/CreateDistributionCommand.ts";
 import {
   CreateDistributionWithTagsCommandInput,
   CreateDistributionWithTagsCommandOutput,
@@ -19,10 +17,7 @@ import {
   CreateFieldLevelEncryptionProfileCommandInput,
   CreateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/CreateFieldLevelEncryptionProfileCommand.ts";
-import {
-  CreateInvalidationCommandInput,
-  CreateInvalidationCommandOutput,
-} from "./commands/CreateInvalidationCommand.ts";
+import { CreateInvalidationCommandInput, CreateInvalidationCommandOutput } from "./commands/CreateInvalidationCommand.ts";
 import {
   CreateOriginRequestPolicyCommandInput,
   CreateOriginRequestPolicyCommandOutput,
@@ -41,10 +36,7 @@ import {
   DeleteCloudFrontOriginAccessIdentityCommandInput,
   DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/DeleteCloudFrontOriginAccessIdentityCommand.ts";
-import {
-  DeleteDistributionCommandInput,
-  DeleteDistributionCommandOutput,
-} from "./commands/DeleteDistributionCommand.ts";
+import { DeleteDistributionCommandInput, DeleteDistributionCommandOutput } from "./commands/DeleteDistributionCommand.ts";
 import {
   DeleteFieldLevelEncryptionConfigCommandInput,
   DeleteFieldLevelEncryptionConfigCommandOutput,
@@ -106,10 +98,7 @@ import {
   GetOriginRequestPolicyConfigCommandOutput,
 } from "./commands/GetOriginRequestPolicyConfigCommand.ts";
 import { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand.ts";
-import {
-  GetPublicKeyConfigCommandInput,
-  GetPublicKeyConfigCommandOutput,
-} from "./commands/GetPublicKeyConfigCommand.ts";
+import { GetPublicKeyConfigCommandInput, GetPublicKeyConfigCommandOutput } from "./commands/GetPublicKeyConfigCommand.ts";
 import {
   GetStreamingDistributionCommandInput,
   GetStreamingDistributionCommandOutput,
@@ -165,10 +154,7 @@ import {
   UpdateCloudFrontOriginAccessIdentityCommandInput,
   UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/UpdateCloudFrontOriginAccessIdentityCommand.ts";
-import {
-  UpdateDistributionCommandInput,
-  UpdateDistributionCommandOutput,
-} from "./commands/UpdateDistributionCommand.ts";
+import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "./commands/UpdateDistributionCommand.ts";
 import {
   UpdateFieldLevelEncryptionConfigCommandInput,
   UpdateFieldLevelEncryptionConfigCommandOutput,

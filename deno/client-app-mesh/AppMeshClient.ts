@@ -1,7 +1,5 @@
-import {
-  CreateGatewayRouteCommandInput,
-  CreateGatewayRouteCommandOutput,
-} from "./commands/CreateGatewayRouteCommand.ts";
+
+import { CreateGatewayRouteCommandInput, CreateGatewayRouteCommandOutput } from "./commands/CreateGatewayRouteCommand.ts";
 import { CreateMeshCommandInput, CreateMeshCommandOutput } from "./commands/CreateMeshCommand.ts";
 import { CreateRouteCommandInput, CreateRouteCommandOutput } from "./commands/CreateRouteCommand.ts";
 import {
@@ -17,10 +15,7 @@ import {
   CreateVirtualServiceCommandInput,
   CreateVirtualServiceCommandOutput,
 } from "./commands/CreateVirtualServiceCommand.ts";
-import {
-  DeleteGatewayRouteCommandInput,
-  DeleteGatewayRouteCommandOutput,
-} from "./commands/DeleteGatewayRouteCommand.ts";
+import { DeleteGatewayRouteCommandInput, DeleteGatewayRouteCommandOutput } from "./commands/DeleteGatewayRouteCommand.ts";
 import { DeleteMeshCommandInput, DeleteMeshCommandOutput } from "./commands/DeleteMeshCommand.ts";
 import { DeleteRouteCommandInput, DeleteRouteCommandOutput } from "./commands/DeleteRouteCommand.ts";
 import {
@@ -70,20 +65,14 @@ import {
   ListVirtualGatewaysCommandOutput,
 } from "./commands/ListVirtualGatewaysCommand.ts";
 import { ListVirtualNodesCommandInput, ListVirtualNodesCommandOutput } from "./commands/ListVirtualNodesCommand.ts";
-import {
-  ListVirtualRoutersCommandInput,
-  ListVirtualRoutersCommandOutput,
-} from "./commands/ListVirtualRoutersCommand.ts";
+import { ListVirtualRoutersCommandInput, ListVirtualRoutersCommandOutput } from "./commands/ListVirtualRoutersCommand.ts";
 import {
   ListVirtualServicesCommandInput,
   ListVirtualServicesCommandOutput,
 } from "./commands/ListVirtualServicesCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateGatewayRouteCommandInput,
-  UpdateGatewayRouteCommandOutput,
-} from "./commands/UpdateGatewayRouteCommand.ts";
+import { UpdateGatewayRouteCommandInput, UpdateGatewayRouteCommandOutput } from "./commands/UpdateGatewayRouteCommand.ts";
 import { UpdateMeshCommandInput, UpdateMeshCommandOutput } from "./commands/UpdateMeshCommand.ts";
 import { UpdateRouteCommandInput, UpdateRouteCommandOutput } from "./commands/UpdateRouteCommand.ts";
 import {

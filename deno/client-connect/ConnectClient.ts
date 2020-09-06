@@ -1,3 +1,4 @@
+
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand.ts";
@@ -17,10 +18,7 @@ import {
   GetCurrentMetricDataCommandInput,
   GetCurrentMetricDataCommandOutput,
 } from "./commands/GetCurrentMetricDataCommand.ts";
-import {
-  GetFederationTokenCommandInput,
-  GetFederationTokenCommandOutput,
-} from "./commands/GetFederationTokenCommand.ts";
+import { GetFederationTokenCommandInput, GetFederationTokenCommandOutput } from "./commands/GetFederationTokenCommand.ts";
 import { GetMetricDataCommandInput, GetMetricDataCommandOutput } from "./commands/GetMetricDataCommand.ts";
 import { ListContactFlowsCommandInput, ListContactFlowsCommandOutput } from "./commands/ListContactFlowsCommand.ts";
 import {

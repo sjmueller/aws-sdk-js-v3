@@ -1,3 +1,4 @@
+
 import { RoboMakerClient } from "./RoboMakerClient.ts";
 import {
   BatchDescribeSimulationJobCommand,
@@ -24,11 +25,7 @@ import {
   CreateDeploymentJobCommandInput,
   CreateDeploymentJobCommandOutput,
 } from "./commands/CreateDeploymentJobCommand.ts";
-import {
-  CreateFleetCommand,
-  CreateFleetCommandInput,
-  CreateFleetCommandOutput,
-} from "./commands/CreateFleetCommand.ts";
+import { CreateFleetCommand, CreateFleetCommandInput, CreateFleetCommandOutput } from "./commands/CreateFleetCommand.ts";
 import {
   CreateRobotApplicationCommand,
   CreateRobotApplicationCommandInput,
@@ -39,11 +36,7 @@ import {
   CreateRobotApplicationVersionCommandInput,
   CreateRobotApplicationVersionCommandOutput,
 } from "./commands/CreateRobotApplicationVersionCommand.ts";
-import {
-  CreateRobotCommand,
-  CreateRobotCommandInput,
-  CreateRobotCommandOutput,
-} from "./commands/CreateRobotCommand.ts";
+import { CreateRobotCommand, CreateRobotCommandInput, CreateRobotCommandOutput } from "./commands/CreateRobotCommand.ts";
 import {
   CreateSimulationApplicationCommand,
   CreateSimulationApplicationCommandInput,
@@ -59,21 +52,13 @@ import {
   CreateSimulationJobCommandInput,
   CreateSimulationJobCommandOutput,
 } from "./commands/CreateSimulationJobCommand.ts";
-import {
-  DeleteFleetCommand,
-  DeleteFleetCommandInput,
-  DeleteFleetCommandOutput,
-} from "./commands/DeleteFleetCommand.ts";
+import { DeleteFleetCommand, DeleteFleetCommandInput, DeleteFleetCommandOutput } from "./commands/DeleteFleetCommand.ts";
 import {
   DeleteRobotApplicationCommand,
   DeleteRobotApplicationCommandInput,
   DeleteRobotApplicationCommandOutput,
 } from "./commands/DeleteRobotApplicationCommand.ts";
-import {
-  DeleteRobotCommand,
-  DeleteRobotCommandInput,
-  DeleteRobotCommandOutput,
-} from "./commands/DeleteRobotCommand.ts";
+import { DeleteRobotCommand, DeleteRobotCommandInput, DeleteRobotCommandOutput } from "./commands/DeleteRobotCommand.ts";
 import {
   DeleteSimulationApplicationCommand,
   DeleteSimulationApplicationCommandInput,
@@ -171,11 +156,7 @@ import {
   SyncDeploymentJobCommandInput,
   SyncDeploymentJobCommandOutput,
 } from "./commands/SyncDeploymentJobCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

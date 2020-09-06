@@ -1,3 +1,4 @@
+
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
 import { DescribeTypeRegistrationInput, DescribeTypeRegistrationOutput } from "../models/index.ts";
 import {

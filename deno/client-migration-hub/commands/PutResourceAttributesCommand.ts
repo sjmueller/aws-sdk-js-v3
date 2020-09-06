@@ -1,3 +1,4 @@
+
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient.ts";
 import { PutResourceAttributesRequest, PutResourceAttributesResult } from "../models/index.ts";
 import {

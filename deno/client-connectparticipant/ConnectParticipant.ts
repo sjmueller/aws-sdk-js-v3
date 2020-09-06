@@ -1,3 +1,4 @@
+
 import { ConnectParticipantClient } from "./ConnectParticipantClient.ts";
 import {
   CreateParticipantConnectionCommand,
@@ -15,11 +16,7 @@ import {
   GetTranscriptCommandOutput,
 } from "./commands/GetTranscriptCommand.ts";
 import { SendEventCommand, SendEventCommandInput, SendEventCommandOutput } from "./commands/SendEventCommand.ts";
-import {
-  SendMessageCommand,
-  SendMessageCommandInput,
-  SendMessageCommandOutput,
-} from "./commands/SendMessageCommand.ts";
+import { SendMessageCommand, SendMessageCommandInput, SendMessageCommandOutput } from "./commands/SendMessageCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**

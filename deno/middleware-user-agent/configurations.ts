@@ -1,3 +1,4 @@
+
 export interface UserAgentInputConfig {
   /**
    * The custom user agent header that would be appended to default one

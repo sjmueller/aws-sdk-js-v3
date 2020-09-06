@@ -1,3 +1,4 @@
+
 import { TranscribeClient } from "./TranscribeClient.ts";
 import {
   CreateMedicalVocabularyCommand,

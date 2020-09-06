@@ -1,3 +1,4 @@
+
 import { CodeartifactClient } from "./CodeartifactClient.ts";
 import {
   AssociateExternalConnectionCommand,
@@ -99,11 +100,7 @@ import {
   GetRepositoryPermissionsPolicyCommandInput,
   GetRepositoryPermissionsPolicyCommandOutput,
 } from "./commands/GetRepositoryPermissionsPolicyCommand.ts";
-import {
-  ListDomainsCommand,
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput,
-} from "./commands/ListDomainsCommand.ts";
+import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand.ts";
 import {
   ListPackageVersionAssetsCommand,
   ListPackageVersionAssetsCommandInput,

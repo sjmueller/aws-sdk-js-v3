@@ -1,3 +1,4 @@
+
 import { ARN } from "../util-arn-parser/mod.ts";
 
 const DOMAIN_PATTERN = /^[a-z0-9][a-z0-9\.\-]{1,61}[a-z0-9]$/;

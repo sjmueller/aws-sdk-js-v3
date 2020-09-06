@@ -1,3 +1,4 @@
+
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client.ts";
 import { EnableMacieRequest, EnableMacieResponse } from "../models/index.ts";
 import {

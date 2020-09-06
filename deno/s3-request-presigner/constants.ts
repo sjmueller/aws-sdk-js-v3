@@ -1,3 +1,4 @@
+
 export const UNSIGNED_PAYLOAD = "UNSIGNED-PAYLOAD";
 export const SHA256_HEADER = "X-Amz-Content-Sha256";
 

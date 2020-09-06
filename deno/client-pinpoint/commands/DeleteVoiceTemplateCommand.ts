@@ -1,3 +1,4 @@
+
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
 import { DeleteVoiceTemplateRequest, DeleteVoiceTemplateResponse } from "../models/index.ts";
 import {

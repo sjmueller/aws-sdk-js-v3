@@ -1,3 +1,4 @@
+
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
 import { UpdateTemplateRequest, UpdateTemplateResponse } from "../models/index.ts";
 import {

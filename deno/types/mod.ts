@@ -1,8 +1,10 @@
+
 export * from "./abort.ts";
 export * from "./client.ts";
 export * from "./command.ts";
 export * from "./credentials.ts";
 export * from "./crypto.ts";
+export * from "./env.ts";
 export * from "./eventStream.ts";
 export * from "./http.ts";
 export * from "./logger.ts";

@@ -1,24 +1,17 @@
+
 import { IoTEventsClient } from "./IoTEventsClient.ts";
 import {
   CreateDetectorModelCommand,
   CreateDetectorModelCommandInput,
   CreateDetectorModelCommandOutput,
 } from "./commands/CreateDetectorModelCommand.ts";
-import {
-  CreateInputCommand,
-  CreateInputCommandInput,
-  CreateInputCommandOutput,
-} from "./commands/CreateInputCommand.ts";
+import { CreateInputCommand, CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand.ts";
 import {
   DeleteDetectorModelCommand,
   DeleteDetectorModelCommandInput,
   DeleteDetectorModelCommandOutput,
 } from "./commands/DeleteDetectorModelCommand.ts";
-import {
-  DeleteInputCommand,
-  DeleteInputCommandInput,
-  DeleteInputCommandOutput,
-} from "./commands/DeleteInputCommand.ts";
+import { DeleteInputCommand, DeleteInputCommandInput, DeleteInputCommandOutput } from "./commands/DeleteInputCommand.ts";
 import {
   DescribeDetectorModelCommand,
   DescribeDetectorModelCommandInput,
@@ -55,11 +48,7 @@ import {
   PutLoggingOptionsCommandInput,
   PutLoggingOptionsCommandOutput,
 } from "./commands/PutLoggingOptionsCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
@@ -70,11 +59,7 @@ import {
   UpdateDetectorModelCommandInput,
   UpdateDetectorModelCommandOutput,
 } from "./commands/UpdateDetectorModelCommand.ts";
-import {
-  UpdateInputCommand,
-  UpdateInputCommandInput,
-  UpdateInputCommandOutput,
-} from "./commands/UpdateInputCommand.ts";
+import { UpdateInputCommand, UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**

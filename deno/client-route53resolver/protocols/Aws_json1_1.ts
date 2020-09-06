@@ -1,3 +1,4 @@
+
 import {
   AssociateResolverEndpointIpAddressCommandInput,
   AssociateResolverEndpointIpAddressCommandOutput,
@@ -10,18 +11,12 @@ import {
   CreateResolverEndpointCommandInput,
   CreateResolverEndpointCommandOutput,
 } from "../commands/CreateResolverEndpointCommand.ts";
-import {
-  CreateResolverRuleCommandInput,
-  CreateResolverRuleCommandOutput,
-} from "../commands/CreateResolverRuleCommand.ts";
+import { CreateResolverRuleCommandInput, CreateResolverRuleCommandOutput } from "../commands/CreateResolverRuleCommand.ts";
 import {
   DeleteResolverEndpointCommandInput,
   DeleteResolverEndpointCommandOutput,
 } from "../commands/DeleteResolverEndpointCommand.ts";
-import {
-  DeleteResolverRuleCommandInput,
-  DeleteResolverRuleCommandOutput,
-} from "../commands/DeleteResolverRuleCommand.ts";
+import { DeleteResolverRuleCommandInput, DeleteResolverRuleCommandOutput } from "../commands/DeleteResolverRuleCommand.ts";
 import {
   DisassociateResolverEndpointIpAddressCommandInput,
   DisassociateResolverEndpointIpAddressCommandOutput,
@@ -70,10 +65,7 @@ import {
   UpdateResolverEndpointCommandInput,
   UpdateResolverEndpointCommandOutput,
 } from "../commands/UpdateResolverEndpointCommand.ts";
-import {
-  UpdateResolverRuleCommandInput,
-  UpdateResolverRuleCommandOutput,
-} from "../commands/UpdateResolverRuleCommand.ts";
+import { UpdateResolverRuleCommandInput, UpdateResolverRuleCommandOutput } from "../commands/UpdateResolverRuleCommand.ts";
 import {
   AssociateResolverEndpointIpAddressRequest,
   AssociateResolverEndpointIpAddressResponse,

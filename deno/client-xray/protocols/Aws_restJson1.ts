@@ -1,14 +1,9 @@
+
 import { BatchGetTracesCommandInput, BatchGetTracesCommandOutput } from "../commands/BatchGetTracesCommand.ts";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand.ts";
-import {
-  CreateSamplingRuleCommandInput,
-  CreateSamplingRuleCommandOutput,
-} from "../commands/CreateSamplingRuleCommand.ts";
+import { CreateSamplingRuleCommandInput, CreateSamplingRuleCommandOutput } from "../commands/CreateSamplingRuleCommand.ts";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand.ts";
-import {
-  DeleteSamplingRuleCommandInput,
-  DeleteSamplingRuleCommandOutput,
-} from "../commands/DeleteSamplingRuleCommand.ts";
+import { DeleteSamplingRuleCommandInput, DeleteSamplingRuleCommandOutput } from "../commands/DeleteSamplingRuleCommand.ts";
 import {
   GetEncryptionConfigCommandInput,
   GetEncryptionConfigCommandOutput,
@@ -20,10 +15,7 @@ import {
   GetSamplingStatisticSummariesCommandInput,
   GetSamplingStatisticSummariesCommandOutput,
 } from "../commands/GetSamplingStatisticSummariesCommand.ts";
-import {
-  GetSamplingTargetsCommandInput,
-  GetSamplingTargetsCommandOutput,
-} from "../commands/GetSamplingTargetsCommand.ts";
+import { GetSamplingTargetsCommandInput, GetSamplingTargetsCommandOutput } from "../commands/GetSamplingTargetsCommand.ts";
 import { GetServiceGraphCommandInput, GetServiceGraphCommandOutput } from "../commands/GetServiceGraphCommand.ts";
 import {
   GetTimeSeriesServiceStatisticsCommandInput,
@@ -41,10 +33,7 @@ import {
 } from "../commands/PutTelemetryRecordsCommand.ts";
 import { PutTraceSegmentsCommandInput, PutTraceSegmentsCommandOutput } from "../commands/PutTraceSegmentsCommand.ts";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "../commands/UpdateGroupCommand.ts";
-import {
-  UpdateSamplingRuleCommandInput,
-  UpdateSamplingRuleCommandOutput,
-} from "../commands/UpdateSamplingRuleCommand.ts";
+import { UpdateSamplingRuleCommandInput, UpdateSamplingRuleCommandOutput } from "../commands/UpdateSamplingRuleCommand.ts";
 import {
   Alias,
   AnnotationValue,

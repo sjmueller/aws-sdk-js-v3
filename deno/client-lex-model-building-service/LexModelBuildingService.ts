@@ -1,3 +1,4 @@
+
 import { LexModelBuildingServiceClient } from "./LexModelBuildingServiceClient.ts";
 import {
   CreateBotVersionCommand,
@@ -55,11 +56,7 @@ import {
   DeleteUtterancesCommandInput,
   DeleteUtterancesCommandOutput,
 } from "./commands/DeleteUtterancesCommand.ts";
-import {
-  GetBotAliasCommand,
-  GetBotAliasCommandInput,
-  GetBotAliasCommandOutput,
-} from "./commands/GetBotAliasCommand.ts";
+import { GetBotAliasCommand, GetBotAliasCommandInput, GetBotAliasCommandOutput } from "./commands/GetBotAliasCommand.ts";
 import {
   GetBotAliasesCommand,
   GetBotAliasesCommandInput,
@@ -106,11 +103,7 @@ import {
   GetIntentVersionsCommandOutput,
 } from "./commands/GetIntentVersionsCommand.ts";
 import { GetIntentsCommand, GetIntentsCommandInput, GetIntentsCommandOutput } from "./commands/GetIntentsCommand.ts";
-import {
-  GetSlotTypeCommand,
-  GetSlotTypeCommandInput,
-  GetSlotTypeCommandOutput,
-} from "./commands/GetSlotTypeCommand.ts";
+import { GetSlotTypeCommand, GetSlotTypeCommandInput, GetSlotTypeCommandOutput } from "./commands/GetSlotTypeCommand.ts";
 import {
   GetSlotTypeVersionsCommand,
   GetSlotTypeVersionsCommandInput,
@@ -131,28 +124,12 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
-import {
-  PutBotAliasCommand,
-  PutBotAliasCommandInput,
-  PutBotAliasCommandOutput,
-} from "./commands/PutBotAliasCommand.ts";
+import { PutBotAliasCommand, PutBotAliasCommandInput, PutBotAliasCommandOutput } from "./commands/PutBotAliasCommand.ts";
 import { PutBotCommand, PutBotCommandInput, PutBotCommandOutput } from "./commands/PutBotCommand.ts";
 import { PutIntentCommand, PutIntentCommandInput, PutIntentCommandOutput } from "./commands/PutIntentCommand.ts";
-import {
-  PutSlotTypeCommand,
-  PutSlotTypeCommandInput,
-  PutSlotTypeCommandOutput,
-} from "./commands/PutSlotTypeCommand.ts";
-import {
-  StartImportCommand,
-  StartImportCommandInput,
-  StartImportCommandOutput,
-} from "./commands/StartImportCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { PutSlotTypeCommand, PutSlotTypeCommandInput, PutSlotTypeCommandOutput } from "./commands/PutSlotTypeCommand.ts";
+import { StartImportCommand, StartImportCommandInput, StartImportCommandOutput } from "./commands/StartImportCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

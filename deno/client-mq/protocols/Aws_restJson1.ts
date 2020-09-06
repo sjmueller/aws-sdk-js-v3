@@ -1,3 +1,4 @@
+
 import { CreateBrokerCommandInput, CreateBrokerCommandOutput } from "../commands/CreateBrokerCommand.ts";
 import {
   CreateConfigurationCommandInput,
@@ -31,10 +32,7 @@ import {
   ListConfigurationRevisionsCommandInput,
   ListConfigurationRevisionsCommandOutput,
 } from "../commands/ListConfigurationRevisionsCommand.ts";
-import {
-  ListConfigurationsCommandInput,
-  ListConfigurationsCommandOutput,
-} from "../commands/ListConfigurationsCommand.ts";
+import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "../commands/ListConfigurationsCommand.ts";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand.ts";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand.ts";
 import { RebootBrokerCommandInput, RebootBrokerCommandOutput } from "../commands/RebootBrokerCommand.ts";

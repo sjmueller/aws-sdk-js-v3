@@ -1,3 +1,4 @@
+
 import { ComprehendClient } from "./ComprehendClient.ts";
 import {
   BatchDetectDominantLanguageCommand,
@@ -239,11 +240,7 @@ import {
   StopTrainingEntityRecognizerCommandInput,
   StopTrainingEntityRecognizerCommandOutput,
 } from "./commands/StopTrainingEntityRecognizerCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

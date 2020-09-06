@@ -1,10 +1,7 @@
+
 import { Route53Domains } from "../Route53Domains.ts";
 import { Route53DomainsClient } from "../Route53DomainsClient.ts";
-import {
-  ListDomainsCommand,
-  ListDomainsCommandInput,
-  ListDomainsCommandOutput,
-} from "../commands/ListDomainsCommand.ts";
+import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand.ts";
 import { Route53DomainsPaginationConfiguration } from "./Interfaces.ts";
 import { Paginator } from "../../types/mod.ts";
 

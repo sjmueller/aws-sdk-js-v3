@@ -1,20 +1,15 @@
+
 import {
   AddListenerCertificatesCommandInput,
   AddListenerCertificatesCommandOutput,
 } from "../commands/AddListenerCertificatesCommand.ts";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand.ts";
 import { CreateListenerCommandInput, CreateListenerCommandOutput } from "../commands/CreateListenerCommand.ts";
-import {
-  CreateLoadBalancerCommandInput,
-  CreateLoadBalancerCommandOutput,
-} from "../commands/CreateLoadBalancerCommand.ts";
+import { CreateLoadBalancerCommandInput, CreateLoadBalancerCommandOutput } from "../commands/CreateLoadBalancerCommand.ts";
 import { CreateRuleCommandInput, CreateRuleCommandOutput } from "../commands/CreateRuleCommand.ts";
 import { CreateTargetGroupCommandInput, CreateTargetGroupCommandOutput } from "../commands/CreateTargetGroupCommand.ts";
 import { DeleteListenerCommandInput, DeleteListenerCommandOutput } from "../commands/DeleteListenerCommand.ts";
-import {
-  DeleteLoadBalancerCommandInput,
-  DeleteLoadBalancerCommandOutput,
-} from "../commands/DeleteLoadBalancerCommand.ts";
+import { DeleteLoadBalancerCommandInput, DeleteLoadBalancerCommandOutput } from "../commands/DeleteLoadBalancerCommand.ts";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "../commands/DeleteRuleCommand.ts";
 import { DeleteTargetGroupCommandInput, DeleteTargetGroupCommandOutput } from "../commands/DeleteTargetGroupCommand.ts";
 import { DeregisterTargetsCommandInput, DeregisterTargetsCommandOutput } from "../commands/DeregisterTargetsCommand.ts";

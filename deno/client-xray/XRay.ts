@@ -1,24 +1,17 @@
+
 import { XRayClient } from "./XRayClient.ts";
 import {
   BatchGetTracesCommand,
   BatchGetTracesCommandInput,
   BatchGetTracesCommandOutput,
 } from "./commands/BatchGetTracesCommand.ts";
-import {
-  CreateGroupCommand,
-  CreateGroupCommandInput,
-  CreateGroupCommandOutput,
-} from "./commands/CreateGroupCommand.ts";
+import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand.ts";
 import {
   CreateSamplingRuleCommand,
   CreateSamplingRuleCommandInput,
   CreateSamplingRuleCommandOutput,
 } from "./commands/CreateSamplingRuleCommand.ts";
-import {
-  DeleteGroupCommand,
-  DeleteGroupCommandInput,
-  DeleteGroupCommandOutput,
-} from "./commands/DeleteGroupCommand.ts";
+import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteSamplingRuleCommand,
   DeleteSamplingRuleCommandInput,
@@ -81,11 +74,7 @@ import {
   PutTraceSegmentsCommandInput,
   PutTraceSegmentsCommandOutput,
 } from "./commands/PutTraceSegmentsCommand.ts";
-import {
-  UpdateGroupCommand,
-  UpdateGroupCommandInput,
-  UpdateGroupCommandOutput,
-} from "./commands/UpdateGroupCommand.ts";
+import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand.ts";
 import {
   UpdateSamplingRuleCommand,
   UpdateSamplingRuleCommandInput,

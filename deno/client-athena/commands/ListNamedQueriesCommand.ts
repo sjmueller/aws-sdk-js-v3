@@ -1,3 +1,4 @@
+
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
 import { ListNamedQueriesInput, ListNamedQueriesOutput } from "../models/index.ts";
 import {

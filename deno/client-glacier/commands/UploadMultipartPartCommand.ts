@@ -1,3 +1,4 @@
+import { Buffer } from "../../buffer/mod.ts";
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
 import { UploadMultipartPartInput, UploadMultipartPartOutput } from "../models/index.ts";
 import {

@@ -1,3 +1,4 @@
+
 import { AcceptInvitationCommandInput, AcceptInvitationCommandOutput } from "./commands/AcceptInvitationCommand.ts";
 import {
   BatchDisableStandardsCommandInput,
@@ -15,20 +16,11 @@ import {
   BatchUpdateFindingsCommandInput,
   BatchUpdateFindingsCommandOutput,
 } from "./commands/BatchUpdateFindingsCommand.ts";
-import {
-  CreateActionTargetCommandInput,
-  CreateActionTargetCommandOutput,
-} from "./commands/CreateActionTargetCommand.ts";
+import { CreateActionTargetCommandInput, CreateActionTargetCommandOutput } from "./commands/CreateActionTargetCommand.ts";
 import { CreateInsightCommandInput, CreateInsightCommandOutput } from "./commands/CreateInsightCommand.ts";
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand.ts";
-import {
-  DeclineInvitationsCommandInput,
-  DeclineInvitationsCommandOutput,
-} from "./commands/DeclineInvitationsCommand.ts";
-import {
-  DeleteActionTargetCommandInput,
-  DeleteActionTargetCommandOutput,
-} from "./commands/DeleteActionTargetCommand.ts";
+import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "./commands/DeclineInvitationsCommand.ts";
+import { DeleteActionTargetCommandInput, DeleteActionTargetCommandOutput } from "./commands/DeleteActionTargetCommand.ts";
 import { DeleteInsightCommandInput, DeleteInsightCommandOutput } from "./commands/DeleteInsightCommand.ts";
 import { DeleteInvitationsCommandInput, DeleteInvitationsCommandOutput } from "./commands/DeleteInvitationsCommand.ts";
 import { DeleteMembersCommandInput, DeleteMembersCommandOutput } from "./commands/DeleteMembersCommand.ts";
@@ -47,10 +39,7 @@ import {
   DisableImportFindingsForProductCommandInput,
   DisableImportFindingsForProductCommandOutput,
 } from "./commands/DisableImportFindingsForProductCommand.ts";
-import {
-  DisableSecurityHubCommandInput,
-  DisableSecurityHubCommandOutput,
-} from "./commands/DisableSecurityHubCommand.ts";
+import { DisableSecurityHubCommandInput, DisableSecurityHubCommandOutput } from "./commands/DisableSecurityHubCommand.ts";
 import {
   DisassociateFromMasterAccountCommandInput,
   DisassociateFromMasterAccountCommandOutput,
@@ -90,10 +79,7 @@ import {
 } from "./commands/ListTagsForResourceCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
-import {
-  UpdateActionTargetCommandInput,
-  UpdateActionTargetCommandOutput,
-} from "./commands/UpdateActionTargetCommand.ts";
+import { UpdateActionTargetCommandInput, UpdateActionTargetCommandOutput } from "./commands/UpdateActionTargetCommand.ts";
 import { UpdateFindingsCommandInput, UpdateFindingsCommandOutput } from "./commands/UpdateFindingsCommand.ts";
 import { UpdateInsightCommandInput, UpdateInsightCommandOutput } from "./commands/UpdateInsightCommand.ts";
 import {

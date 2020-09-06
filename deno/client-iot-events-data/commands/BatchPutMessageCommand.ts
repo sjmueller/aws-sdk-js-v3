@@ -1,3 +1,4 @@
+
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient.ts";
 import { BatchPutMessageRequest, BatchPutMessageResponse } from "../models/index.ts";
 import {

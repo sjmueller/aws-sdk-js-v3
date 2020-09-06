@@ -1,3 +1,4 @@
+
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
 import { CreateGatewayRequest, CreateGatewayResponse } from "../models/index.ts";
 import {
