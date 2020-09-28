@@ -133,6 +133,10 @@ async function denoifyTsFile(file, depth) {
       continue;
     }
 
+    if (line.match(/tagValueProcessor: \(val, tagName\) => decodeEscapedXML\(val\),/)) {
+      replaced = line.replace('(val, tagName)', '(val: string)')
+    }
+
     if (state === "nothing") {
       const match = line.match(/^[ ]*import/);
       if (match) {
