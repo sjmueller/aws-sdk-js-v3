@@ -318,7 +318,7 @@ import {
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
 import { parse as xmlParse } from "https://jspm.dev/fast-xml-parser";
-import { v4 as generateIdempotencyToken } from "../uuid/mod.ts";
+import { v4 as generateIdempotencyToken } from "../../uuid/mod.ts";
 
 export const serializeAws_queryCancelUpdateStackCommand = async (
   input: CancelUpdateStackCommandInput,

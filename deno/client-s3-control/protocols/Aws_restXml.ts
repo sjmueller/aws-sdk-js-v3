@@ -96,7 +96,7 @@ import {
 } from "../../types/mod.ts";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "../../xml-builder/mod.ts";
 import { parse as xmlParse } from "https://jspm.dev/fast-xml-parser";
-import { v4 as generateIdempotencyToken } from "../uuid/mod.ts";
+import { v4 as generateIdempotencyToken } from "../../uuid/mod.ts";
 
 export const serializeAws_restXmlCreateAccessPointCommand = async (
   input: CreateAccessPointCommandInput,

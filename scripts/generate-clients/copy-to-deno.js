@@ -165,14 +165,15 @@ async function denoifyTsFile(file, depth) {
 
         state = "nothing";
 
+        let relpath = "";
+        for (let i = 1; i < depth; ++i) {
+          relpath = relpath + "../";
+        }
+
         const importFromAWSSDKmatch = importFrom.match(/@aws-sdk\/(.*)/);
         if (importFromAWSSDKmatch) {
           if (depth === 0) {
             throw new Error(`denoifyTsFile ${file} - unexpected import to @aws-sdk at depth 0`);
-          }
-          let relpath = "";
-          for (let i = 1; i < depth; ++i) {
-            relpath = relpath + "../";
           }
 
           const checkAt = path.resolve(path.join(file, "..", `${relpath}${importFromAWSSDKmatch[1]}/mod.ts`));
@@ -187,7 +188,7 @@ async function denoifyTsFile(file, depth) {
 
           if (absImportFromMatch) {
             if (importFrom === "uuid") {
-              replaced = `${match[1]}from "../uuid/mod.ts";`;
+              replaced = `${match[1]}from "${relpath}uuid/mod.ts";`;
               output.push(replaced);
               continue;
             } else if (importFrom === "fast-xml-parser") {

@@ -500,7 +500,7 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
-import { v4 as generateIdempotencyToken } from "../uuid/mod.ts";
+import { v4 as generateIdempotencyToken } from "../../uuid/mod.ts";
 
 export const serializeAws_json1_1AcceptPortfolioShareCommand = async (
   input: AcceptPortfolioShareCommandInput,
