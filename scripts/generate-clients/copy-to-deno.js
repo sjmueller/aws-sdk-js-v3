@@ -119,9 +119,11 @@ async function denoifyTsFile(file, depth) {
 
     if (line === 'import { Sha256 } from "@aws-crypto/sha256-browser";') {
       replaced = 'import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";';
-      // const Sha256 = Hash.bind(null, 'sha256');
       output.push(replaced);
       continue;
+    }
+    if (line.match(/sha256: Sha256,/)) {
+      replaced = line.replace("Sha256", 'Hash.bind(null, "sha256")');
     }
 
     if (line === 'import { name, version } from "./package.json";') {

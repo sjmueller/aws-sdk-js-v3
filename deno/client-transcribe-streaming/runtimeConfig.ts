@@ -28,7 +28,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
   region: invalidFunction("Region is missing") as any,
   requestHandler: new WebSocketHandler(),
-  sha256: Sha256,
+  sha256: Hash.bind(null, "sha256"),
   streamCollector,
   urlParser: parseUrl,
   utf8Decoder: fromUtf8,

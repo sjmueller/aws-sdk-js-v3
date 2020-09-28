@@ -26,7 +26,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   md5: Md5,
   region: invalidFunction("Region is missing") as any,
   requestHandler: new FetchHttpHandler(),
-  sha256: Sha256,
+  sha256: Hash.bind(null, "sha256"),
   streamCollector,
   urlParser: parseUrl,
   utf8Decoder: fromUtf8,
