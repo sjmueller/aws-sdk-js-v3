@@ -10,7 +10,6 @@ import { WebSocketHandler, eventStreamPayloadHandler } from "../middleware-sdk-t
 import { parseUrl } from "../url-parser-browser/mod.ts";
 import { fromBase64, toBase64 } from "../util-base64-browser/mod.ts";
 import { calculateBodyLength } from "../util-body-length-browser/mod.ts";
-import { defaultUserAgent } from "../util-user-agent-browser/mod.ts";
 import { fromUtf8, toUtf8 } from "../util-utf8-browser/mod.ts";
 import { ClientDefaults } from "./TranscribeStreamingClient.ts";
 import { ClientSharedValues } from "./runtimeConfig.shared.ts";
@@ -22,7 +21,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
-  defaultUserAgent: defaultUserAgent(name, version),
+  defaultUserAgent: `aws-sdk-js-v3-${name}/${version}`,
   eventStreamPayloadHandlerProvider: () => eventStreamPayloadHandler,
   eventStreamSerdeProvider,
   maxAttempts: DEFAULT_MAX_ATTEMPTS,

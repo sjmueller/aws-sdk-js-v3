@@ -137,6 +137,13 @@ async function denoifyTsFile(file, depth) {
       replaced = line.replace('(val, tagName)', '(val: string)')
     }
 
+    if (line.match(/import \{ defaultUserAgent }\ from /)) {
+      continue
+    }
+    if (line.match(/defaultUserAgent: defaultUserAgent\(name, version\),/)) {
+      replaced = line.replace('defaultUserAgent(name, version)', '`aws-sdk-js-v3-${name}/${version}`')
+    }
+
     if (state === "nothing") {
       const match = line.match(/^[ ]*import/);
       if (match) {

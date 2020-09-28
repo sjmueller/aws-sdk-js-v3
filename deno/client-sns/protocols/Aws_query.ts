@@ -1,3 +1,4 @@
+
 import { AddPermissionCommandInput, AddPermissionCommandOutput } from "../commands/AddPermissionCommand.ts";
 import {
   CheckIfPhoneNumberIsOptedOutCommandInput,
@@ -35,10 +36,7 @@ import {
   GetSubscriptionAttributesCommandInput,
   GetSubscriptionAttributesCommandOutput,
 } from "../commands/GetSubscriptionAttributesCommand.ts";
-import {
-  GetTopicAttributesCommandInput,
-  GetTopicAttributesCommandOutput,
-} from "../commands/GetTopicAttributesCommand.ts";
+import { GetTopicAttributesCommandInput, GetTopicAttributesCommandOutput } from "../commands/GetTopicAttributesCommand.ts";
 import {
   ListEndpointsByPlatformApplicationCommandInput,
   ListEndpointsByPlatformApplicationCommandOutput,
@@ -77,10 +75,7 @@ import {
   SetSubscriptionAttributesCommandInput,
   SetSubscriptionAttributesCommandOutput,
 } from "../commands/SetSubscriptionAttributesCommand.ts";
-import {
-  SetTopicAttributesCommandInput,
-  SetTopicAttributesCommandOutput,
-} from "../commands/SetTopicAttributesCommand.ts";
+import { SetTopicAttributesCommandInput, SetTopicAttributesCommandOutput } from "../commands/SetTopicAttributesCommand.ts";
 import { SubscribeCommandInput, SubscribeCommandOutput } from "../commands/SubscribeCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand.ts";
 import { UnsubscribeCommandInput, UnsubscribeCommandOutput } from "../commands/UnsubscribeCommand.ts";
