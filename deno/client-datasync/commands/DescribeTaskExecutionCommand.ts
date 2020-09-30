@@ -1,6 +1,6 @@
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient.ts";
-import { DescribeTaskExecutionRequest, DescribeTaskExecutionResponse } from "../models/index.ts";
+import { DescribeTaskExecutionRequest, DescribeTaskExecutionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeTaskExecutionCommand,
   serializeAws_json1_1DescribeTaskExecutionCommand,

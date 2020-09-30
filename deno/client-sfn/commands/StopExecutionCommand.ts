@@ -1,6 +1,6 @@
 
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient.ts";
-import { StopExecutionInput, StopExecutionOutput } from "../models/index.ts";
+import { StopExecutionInput, StopExecutionOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0StopExecutionCommand,
   serializeAws_json1_0StopExecutionCommand,

@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { ApproveSkillRequest, ApproveSkillResponse } from "../models/index.ts";
+import { ApproveSkillRequest, ApproveSkillResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ApproveSkillCommand,
   serializeAws_json1_1ApproveSkillCommand,

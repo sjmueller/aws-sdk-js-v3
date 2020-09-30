@@ -1,6 +1,6 @@
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient.ts";
-import { GetDataEndpointInput, GetDataEndpointOutput } from "../models/index.ts";
+import { GetDataEndpointInput, GetDataEndpointOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetDataEndpointCommand,
   serializeAws_restJson1GetDataEndpointCommand,

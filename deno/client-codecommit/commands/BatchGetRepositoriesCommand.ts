@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { BatchGetRepositoriesInput, BatchGetRepositoriesOutput } from "../models/index.ts";
+import { BatchGetRepositoriesInput, BatchGetRepositoriesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchGetRepositoriesCommand,
   serializeAws_json1_1BatchGetRepositoriesCommand,

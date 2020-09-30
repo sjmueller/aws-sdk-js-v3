@@ -1,6 +1,6 @@
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
-import { SignalResourceInput } from "../models/index.ts";
+import { SignalResourceInput } from "../models/models_0.ts";
 import {
   deserializeAws_querySignalResourceCommand,
   serializeAws_querySignalResourceCommand,

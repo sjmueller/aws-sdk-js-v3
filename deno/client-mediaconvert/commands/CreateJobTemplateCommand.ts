@@ -1,6 +1,6 @@
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient.ts";
-import { CreateJobTemplateRequest, CreateJobTemplateResponse } from "../models/index.ts";
+import { CreateJobTemplateRequest, CreateJobTemplateResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1CreateJobTemplateCommand,
   serializeAws_restJson1CreateJobTemplateCommand,

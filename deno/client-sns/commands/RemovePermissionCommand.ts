@@ -1,6 +1,6 @@
 
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
-import { RemovePermissionInput } from "../models/index.ts";
+import { RemovePermissionInput } from "../models/models_0.ts";
 import {
   deserializeAws_queryRemovePermissionCommand,
   serializeAws_queryRemovePermissionCommand,

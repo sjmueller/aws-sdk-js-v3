@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient.ts";
-import { ListClustersRequest, ListClustersResult } from "../models/index.ts";
+import { ListClustersRequest, ListClustersResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListClustersCommand,
   serializeAws_json1_1ListClustersCommand,

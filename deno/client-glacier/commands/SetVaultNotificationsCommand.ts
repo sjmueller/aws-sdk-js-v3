@@ -1,6 +1,6 @@
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
-import { SetVaultNotificationsInput } from "../models/index.ts";
+import { SetVaultNotificationsInput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SetVaultNotificationsCommand,
   serializeAws_restJson1SetVaultNotificationsCommand,

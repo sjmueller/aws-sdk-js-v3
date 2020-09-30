@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { DeleteGroupRequest, DeleteGroupResponse } from "../models/index.ts";
+import { DeleteGroupRequest, DeleteGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteGroupCommand,
   serializeAws_json1_1DeleteGroupCommand,

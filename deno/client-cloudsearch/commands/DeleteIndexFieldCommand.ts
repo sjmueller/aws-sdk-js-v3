@@ -1,6 +1,6 @@
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
-import { DeleteIndexFieldRequest, DeleteIndexFieldResponse } from "../models/index.ts";
+import { DeleteIndexFieldRequest, DeleteIndexFieldResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteIndexFieldCommand,
   serializeAws_queryDeleteIndexFieldCommand,

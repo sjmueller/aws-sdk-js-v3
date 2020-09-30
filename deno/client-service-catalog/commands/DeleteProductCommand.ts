@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { DeleteProductInput, DeleteProductOutput } from "../models/index.ts";
+import { DeleteProductInput, DeleteProductOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteProductCommand,
   serializeAws_json1_1DeleteProductCommand,

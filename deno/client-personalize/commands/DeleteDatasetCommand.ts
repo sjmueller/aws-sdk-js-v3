@@ -1,6 +1,6 @@
 
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
-import { DeleteDatasetRequest } from "../models/index.ts";
+import { DeleteDatasetRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteDatasetCommand,
   serializeAws_json1_1DeleteDatasetCommand,

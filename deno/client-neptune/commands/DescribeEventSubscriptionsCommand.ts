@@ -1,6 +1,6 @@
 
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient.ts";
-import { DescribeEventSubscriptionsMessage, EventSubscriptionsMessage } from "../models/index.ts";
+import { DescribeEventSubscriptionsMessage, EventSubscriptionsMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeEventSubscriptionsCommand,
   serializeAws_queryDescribeEventSubscriptionsCommand,

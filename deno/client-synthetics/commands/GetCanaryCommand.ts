@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient.ts";
-import { GetCanaryRequest, GetCanaryResponse } from "../models/index.ts";
+import { GetCanaryRequest, GetCanaryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetCanaryCommand,
   serializeAws_restJson1GetCanaryCommand,

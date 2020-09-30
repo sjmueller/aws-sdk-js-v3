@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { LabelParameterVersionRequest, LabelParameterVersionResult } from "../models/index.ts";
+import { LabelParameterVersionRequest, LabelParameterVersionResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1LabelParameterVersionCommand,
   serializeAws_json1_1LabelParameterVersionCommand,

@@ -1,6 +1,6 @@
 
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
-import { DeleteReplicationJobRequest, DeleteReplicationJobResponse } from "../models/index.ts";
+import { DeleteReplicationJobRequest, DeleteReplicationJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteReplicationJobCommand,
   serializeAws_json1_1DeleteReplicationJobCommand,

@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult } from "../models/index.ts";
+import { CreateDBSubnetGroupMessage, CreateDBSubnetGroupResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateDBSubnetGroupCommand,
   serializeAws_queryCreateDBSubnetGroupCommand,

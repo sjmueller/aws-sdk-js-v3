@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { CreateGovCloudAccountRequest, CreateGovCloudAccountResponse } from "../models/index.ts";
+import { CreateGovCloudAccountRequest, CreateGovCloudAccountResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateGovCloudAccountCommand,
   serializeAws_json1_1CreateGovCloudAccountCommand,

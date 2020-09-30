@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { DeleteQueryDefinitionRequest, DeleteQueryDefinitionResponse } from "../models/index.ts";
+import { DeleteQueryDefinitionRequest, DeleteQueryDefinitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteQueryDefinitionCommand,
   serializeAws_json1_1DeleteQueryDefinitionCommand,

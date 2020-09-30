@@ -1,6 +1,9 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeEgressOnlyInternetGatewaysRequest, DescribeEgressOnlyInternetGatewaysResult } from "../models/index.ts";
+import {
+  DescribeEgressOnlyInternetGatewaysRequest,
+  DescribeEgressOnlyInternetGatewaysResult,
+} from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand,
   serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand,

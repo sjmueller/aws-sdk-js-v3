@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { DeleteGameServerGroupInput, DeleteGameServerGroupOutput } from "../models/index.ts";
+import { DeleteGameServerGroupInput, DeleteGameServerGroupOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteGameServerGroupCommand,
   serializeAws_json1_1DeleteGameServerGroupCommand,

@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { CancelJobExecutionRequest } from "../models/index.ts";
+import { CancelJobExecutionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CancelJobExecutionCommand,
   serializeAws_restJson1CancelJobExecutionCommand,

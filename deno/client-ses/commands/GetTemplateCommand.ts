@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { GetTemplateRequest, GetTemplateResponse } from "../models/index.ts";
+import { GetTemplateRequest, GetTemplateResponse } from "../models/models_0.ts";
 import { deserializeAws_queryGetTemplateCommand, serializeAws_queryGetTemplateCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";

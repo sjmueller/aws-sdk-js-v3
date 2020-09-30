@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/index.ts";
+import { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1TestInvokeAuthorizerCommand,
   serializeAws_restJson1TestInvokeAuthorizerCommand,

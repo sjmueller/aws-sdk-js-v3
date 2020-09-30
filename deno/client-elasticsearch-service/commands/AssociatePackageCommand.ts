@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient.ts";
-import { AssociatePackageRequest, AssociatePackageResponse } from "../models/index.ts";
+import { AssociatePackageRequest, AssociatePackageResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AssociatePackageCommand,
   serializeAws_restJson1AssociatePackageCommand,

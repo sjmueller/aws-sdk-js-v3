@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CreateTransitGatewayRouteRequest, CreateTransitGatewayRouteResult } from "../models/index.ts";
+import { CreateTransitGatewayRouteRequest, CreateTransitGatewayRouteResult } from "../models/models_1.ts";
 import {
   deserializeAws_ec2CreateTransitGatewayRouteCommand,
   serializeAws_ec2CreateTransitGatewayRouteCommand,

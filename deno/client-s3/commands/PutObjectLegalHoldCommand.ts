@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { PutObjectLegalHoldOutput, PutObjectLegalHoldRequest } from "../models/index.ts";
+import { PutObjectLegalHoldOutput, PutObjectLegalHoldRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlPutObjectLegalHoldCommand,
   serializeAws_restXmlPutObjectLegalHoldCommand,

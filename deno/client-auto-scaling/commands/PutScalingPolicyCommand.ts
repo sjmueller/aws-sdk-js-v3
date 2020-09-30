@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { PolicyARNType, PutScalingPolicyType } from "../models/index.ts";
+import { PolicyARNType, PutScalingPolicyType } from "../models/models_0.ts";
 import {
   deserializeAws_queryPutScalingPolicyCommand,
   serializeAws_queryPutScalingPolicyCommand,

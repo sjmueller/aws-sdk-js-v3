@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient.ts";
-import { PutApplicationPolicyRequest, PutApplicationPolicyResponse } from "../models/index.ts";
+import { PutApplicationPolicyRequest, PutApplicationPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutApplicationPolicyCommand,
   serializeAws_restJson1PutApplicationPolicyCommand,

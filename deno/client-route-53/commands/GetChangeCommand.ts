@@ -1,6 +1,6 @@
 
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
-import { GetChangeRequest, GetChangeResponse } from "../models/index.ts";
+import { GetChangeRequest, GetChangeResponse } from "../models/models_0.ts";
 import { deserializeAws_restXmlGetChangeCommand, serializeAws_restXmlGetChangeCommand } from "../protocols/Aws_restXml.ts";
 import { getIdNormalizerPlugin } from "../../middleware-sdk-route53/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";

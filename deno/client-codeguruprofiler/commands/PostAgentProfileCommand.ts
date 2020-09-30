@@ -1,6 +1,6 @@
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient.ts";
-import { PostAgentProfileRequest, PostAgentProfileResponse } from "../models/index.ts";
+import { PostAgentProfileRequest, PostAgentProfileResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PostAgentProfileCommand,
   serializeAws_restJson1PostAgentProfileCommand,

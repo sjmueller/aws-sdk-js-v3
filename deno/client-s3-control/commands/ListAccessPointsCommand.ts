@@ -1,6 +1,6 @@
 
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient.ts";
-import { ListAccessPointsRequest, ListAccessPointsResult } from "../models/index.ts";
+import { ListAccessPointsRequest, ListAccessPointsResult } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlListAccessPointsCommand,
   serializeAws_restXmlListAccessPointsCommand,

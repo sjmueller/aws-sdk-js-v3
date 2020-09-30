@@ -1,6 +1,6 @@
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
-import { ImportKeyMaterialRequest, ImportKeyMaterialResponse } from "../models/index.ts";
+import { ImportKeyMaterialRequest, ImportKeyMaterialResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ImportKeyMaterialCommand,
   serializeAws_json1_1ImportKeyMaterialCommand,

@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ModifyAvailabilityZoneGroupRequest, ModifyAvailabilityZoneGroupResult } from "../models/index.ts";
+import { ModifyAvailabilityZoneGroupRequest, ModifyAvailabilityZoneGroupResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyAvailabilityZoneGroupCommand,
   serializeAws_ec2ModifyAvailabilityZoneGroupCommand,

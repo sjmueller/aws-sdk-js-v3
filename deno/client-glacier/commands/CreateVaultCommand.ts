@@ -1,6 +1,6 @@
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
-import { CreateVaultInput, CreateVaultOutput } from "../models/index.ts";
+import { CreateVaultInput, CreateVaultOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateVaultCommand,
   serializeAws_restJson1CreateVaultCommand,

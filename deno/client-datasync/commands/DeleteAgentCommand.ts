@@ -1,6 +1,6 @@
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient.ts";
-import { DeleteAgentRequest, DeleteAgentResponse } from "../models/index.ts";
+import { DeleteAgentRequest, DeleteAgentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteAgentCommand,
   serializeAws_json1_1DeleteAgentCommand,

@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { SendTemplatedEmailRequest, SendTemplatedEmailResponse } from "../models/index.ts";
+import { SendTemplatedEmailRequest, SendTemplatedEmailResponse } from "../models/models_0.ts";
 import {
   deserializeAws_querySendTemplatedEmailCommand,
   serializeAws_querySendTemplatedEmailCommand,

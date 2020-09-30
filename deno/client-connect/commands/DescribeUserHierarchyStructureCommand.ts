@@ -1,6 +1,6 @@
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
-import { DescribeUserHierarchyStructureRequest, DescribeUserHierarchyStructureResponse } from "../models/index.ts";
+import { DescribeUserHierarchyStructureRequest, DescribeUserHierarchyStructureResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeUserHierarchyStructureCommand,
   serializeAws_restJson1DescribeUserHierarchyStructureCommand,

@@ -1,6 +1,6 @@
 
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient.ts";
-import { StreamJournalToKinesisRequest, StreamJournalToKinesisResponse } from "../models/index.ts";
+import { StreamJournalToKinesisRequest, StreamJournalToKinesisResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StreamJournalToKinesisCommand,
   serializeAws_restJson1StreamJournalToKinesisCommand,

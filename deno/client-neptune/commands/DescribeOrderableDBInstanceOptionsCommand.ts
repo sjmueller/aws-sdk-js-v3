@@ -1,6 +1,6 @@
 
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient.ts";
-import { DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage } from "../models/index.ts";
+import { DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand,
   serializeAws_queryDescribeOrderableDBInstanceOptionsCommand,

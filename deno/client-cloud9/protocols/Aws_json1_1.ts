@@ -75,7 +75,7 @@ import {
   UpdateEnvironmentMembershipResult,
   UpdateEnvironmentRequest,
   UpdateEnvironmentResult,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -267,7 +267,6 @@ export const deserializeAws_json1_1CreateEnvironmentEC2Command = async (
   contents = deserializeAws_json1_1CreateEnvironmentEC2Result(data, context);
   const response: CreateEnvironmentEC2CommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEnvironmentEC2Result",
     ...contents,
   };
   return Promise.resolve(response);
@@ -371,7 +370,6 @@ export const deserializeAws_json1_1CreateEnvironmentMembershipCommand = async (
   contents = deserializeAws_json1_1CreateEnvironmentMembershipResult(data, context);
   const response: CreateEnvironmentMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEnvironmentMembershipResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -475,7 +473,6 @@ export const deserializeAws_json1_1DeleteEnvironmentCommand = async (
   contents = deserializeAws_json1_1DeleteEnvironmentResult(data, context);
   const response: DeleteEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEnvironmentResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -579,7 +576,6 @@ export const deserializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
   contents = deserializeAws_json1_1DeleteEnvironmentMembershipResult(data, context);
   const response: DeleteEnvironmentMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEnvironmentMembershipResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -683,7 +679,6 @@ export const deserializeAws_json1_1DescribeEnvironmentMembershipsCommand = async
   contents = deserializeAws_json1_1DescribeEnvironmentMembershipsResult(data, context);
   const response: DescribeEnvironmentMembershipsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEnvironmentMembershipsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -787,7 +782,6 @@ export const deserializeAws_json1_1DescribeEnvironmentsCommand = async (
   contents = deserializeAws_json1_1DescribeEnvironmentsResult(data, context);
   const response: DescribeEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEnvironmentsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -891,7 +885,6 @@ export const deserializeAws_json1_1DescribeEnvironmentStatusCommand = async (
   contents = deserializeAws_json1_1DescribeEnvironmentStatusResult(data, context);
   const response: DescribeEnvironmentStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEnvironmentStatusResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -995,7 +988,6 @@ export const deserializeAws_json1_1ListEnvironmentsCommand = async (
   contents = deserializeAws_json1_1ListEnvironmentsResult(data, context);
   const response: ListEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEnvironmentsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1099,7 +1091,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1171,7 +1162,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1243,7 +1233,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1315,7 +1304,6 @@ export const deserializeAws_json1_1UpdateEnvironmentCommand = async (
   contents = deserializeAws_json1_1UpdateEnvironmentResult(data, context);
   const response: UpdateEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateEnvironmentResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1419,7 +1407,6 @@ export const deserializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
   contents = deserializeAws_json1_1UpdateEnvironmentMembershipResult(data, context);
   const response: UpdateEnvironmentMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateEnvironmentMembershipResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1774,7 +1761,6 @@ const serializeAws_json1_1UpdateEnvironmentRequest = (
 
 const deserializeAws_json1_1BadRequestException = (output: any, context: __SerdeContext): BadRequestException => {
   return {
-    __type: "BadRequestException",
     className: output.className !== undefined && output.className !== null ? output.className : undefined,
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -1783,7 +1769,6 @@ const deserializeAws_json1_1BadRequestException = (output: any, context: __Serde
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    __type: "ConflictException",
     className: output.className !== undefined && output.className !== null ? output.className : undefined,
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -1795,7 +1780,6 @@ const deserializeAws_json1_1CreateEnvironmentEC2Result = (
   context: __SerdeContext
 ): CreateEnvironmentEC2Result => {
   return {
-    __type: "CreateEnvironmentEC2Result",
     environmentId:
       output.environmentId !== undefined && output.environmentId !== null ? output.environmentId : undefined,
   } as any;
@@ -1806,7 +1790,6 @@ const deserializeAws_json1_1CreateEnvironmentMembershipResult = (
   context: __SerdeContext
 ): CreateEnvironmentMembershipResult => {
   return {
-    __type: "CreateEnvironmentMembershipResult",
     membership:
       output.membership !== undefined && output.membership !== null
         ? deserializeAws_json1_1EnvironmentMember(output.membership, context)
@@ -1818,18 +1801,14 @@ const deserializeAws_json1_1DeleteEnvironmentMembershipResult = (
   output: any,
   context: __SerdeContext
 ): DeleteEnvironmentMembershipResult => {
-  return {
-    __type: "DeleteEnvironmentMembershipResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteEnvironmentResult = (
   output: any,
   context: __SerdeContext
 ): DeleteEnvironmentResult => {
-  return {
-    __type: "DeleteEnvironmentResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeEnvironmentMembershipsResult = (
@@ -1837,7 +1816,6 @@ const deserializeAws_json1_1DescribeEnvironmentMembershipsResult = (
   context: __SerdeContext
 ): DescribeEnvironmentMembershipsResult => {
   return {
-    __type: "DescribeEnvironmentMembershipsResult",
     memberships:
       output.memberships !== undefined && output.memberships !== null
         ? deserializeAws_json1_1EnvironmentMembersList(output.memberships, context)
@@ -1851,7 +1829,6 @@ const deserializeAws_json1_1DescribeEnvironmentsResult = (
   context: __SerdeContext
 ): DescribeEnvironmentsResult => {
   return {
-    __type: "DescribeEnvironmentsResult",
     environments:
       output.environments !== undefined && output.environments !== null
         ? deserializeAws_json1_1EnvironmentList(output.environments, context)
@@ -1864,7 +1841,6 @@ const deserializeAws_json1_1DescribeEnvironmentStatusResult = (
   context: __SerdeContext
 ): DescribeEnvironmentStatusResult => {
   return {
-    __type: "DescribeEnvironmentStatusResult",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
@@ -1872,7 +1848,6 @@ const deserializeAws_json1_1DescribeEnvironmentStatusResult = (
 
 const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext): Environment => {
   return {
-    __type: "Environment",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
@@ -1892,7 +1867,6 @@ const deserializeAws_json1_1EnvironmentIdList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1EnvironmentLifecycle = (output: any, context: __SerdeContext): EnvironmentLifecycle => {
   return {
-    __type: "EnvironmentLifecycle",
     failureResource:
       output.failureResource !== undefined && output.failureResource !== null ? output.failureResource : undefined,
     reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
@@ -1906,7 +1880,6 @@ const deserializeAws_json1_1EnvironmentList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1EnvironmentMember = (output: any, context: __SerdeContext): EnvironmentMember => {
   return {
-    __type: "EnvironmentMember",
     environmentId:
       output.environmentId !== undefined && output.environmentId !== null ? output.environmentId : undefined,
     lastAccess:
@@ -1925,7 +1898,6 @@ const deserializeAws_json1_1EnvironmentMembersList = (output: any, context: __Se
 
 const deserializeAws_json1_1ForbiddenException = (output: any, context: __SerdeContext): ForbiddenException => {
   return {
-    __type: "ForbiddenException",
     className: output.className !== undefined && output.className !== null ? output.className : undefined,
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -1937,7 +1909,6 @@ const deserializeAws_json1_1InternalServerErrorException = (
   context: __SerdeContext
 ): InternalServerErrorException => {
   return {
-    __type: "InternalServerErrorException",
     className: output.className !== undefined && output.className !== null ? output.className : undefined,
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -1946,7 +1917,6 @@ const deserializeAws_json1_1InternalServerErrorException = (
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     className: output.className !== undefined && output.className !== null ? output.className : undefined,
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -1955,7 +1925,6 @@ const deserializeAws_json1_1LimitExceededException = (output: any, context: __Se
 
 const deserializeAws_json1_1ListEnvironmentsResult = (output: any, context: __SerdeContext): ListEnvironmentsResult => {
   return {
-    __type: "ListEnvironmentsResult",
     environmentIds:
       output.environmentIds !== undefined && output.environmentIds !== null
         ? deserializeAws_json1_1EnvironmentIdList(output.environmentIds, context)
@@ -1969,7 +1938,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -1979,7 +1947,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
-    __type: "NotFoundException",
     className: output.className !== undefined && output.className !== null ? output.className : undefined,
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -1988,7 +1955,6 @@ const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -1999,9 +1965,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TooManyRequestsException = (
@@ -2009,7 +1973,6 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    __type: "TooManyRequestsException",
     className: output.className !== undefined && output.className !== null ? output.className : undefined,
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -2017,9 +1980,7 @@ const deserializeAws_json1_1TooManyRequestsException = (
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateEnvironmentMembershipResult = (
@@ -2027,7 +1988,6 @@ const deserializeAws_json1_1UpdateEnvironmentMembershipResult = (
   context: __SerdeContext
 ): UpdateEnvironmentMembershipResult => {
   return {
-    __type: "UpdateEnvironmentMembershipResult",
     membership:
       output.membership !== undefined && output.membership !== null
         ? deserializeAws_json1_1EnvironmentMember(output.membership, context)
@@ -2039,9 +1999,7 @@ const deserializeAws_json1_1UpdateEnvironmentResult = (
   output: any,
   context: __SerdeContext
 ): UpdateEnvironmentResult => {
-  return {
-    __type: "UpdateEnvironmentResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

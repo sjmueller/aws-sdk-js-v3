@@ -1,6 +1,6 @@
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
-import { ListWebhooksInput, ListWebhooksOutput } from "../models/index.ts";
+import { ListWebhooksInput, ListWebhooksOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListWebhooksCommand,
   serializeAws_json1_1ListWebhooksCommand,

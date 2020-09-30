@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { AddFacetToObjectRequest, AddFacetToObjectResponse } from "../models/index.ts";
+import { AddFacetToObjectRequest, AddFacetToObjectResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AddFacetToObjectCommand,
   serializeAws_restJson1AddFacetToObjectCommand,

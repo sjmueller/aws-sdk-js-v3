@@ -1,6 +1,6 @@
 
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient.ts";
-import { DescribeEngineDefaultParametersMessage, DescribeEngineDefaultParametersResult } from "../models/index.ts";
+import { DescribeEngineDefaultParametersMessage, DescribeEngineDefaultParametersResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeEngineDefaultParametersCommand,
   serializeAws_queryDescribeEngineDefaultParametersCommand,

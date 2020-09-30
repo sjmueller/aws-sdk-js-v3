@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { ListDimensionsRequest, ListDimensionsResponse } from "../models/index.ts";
+import { ListDimensionsRequest, ListDimensionsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1ListDimensionsCommand,
   serializeAws_restJson1ListDimensionsCommand,

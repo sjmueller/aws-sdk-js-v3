@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ResetNetworkInterfaceAttributeRequest } from "../models/index.ts";
+import { ResetNetworkInterfaceAttributeRequest } from "../models/models_4.ts";
 import {
   deserializeAws_ec2ResetNetworkInterfaceAttributeCommand,
   serializeAws_ec2ResetNetworkInterfaceAttributeCommand,

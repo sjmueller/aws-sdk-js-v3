@@ -1,6 +1,6 @@
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient.ts";
-import { GrantFlowEntitlementsRequest, GrantFlowEntitlementsResponse } from "../models/index.ts";
+import { GrantFlowEntitlementsRequest, GrantFlowEntitlementsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GrantFlowEntitlementsCommand,
   serializeAws_restJson1GrantFlowEntitlementsCommand,

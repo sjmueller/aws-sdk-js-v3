@@ -1,6 +1,6 @@
 
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
-import { PutDeliverabilityDashboardOptionRequest, PutDeliverabilityDashboardOptionResponse } from "../models/index.ts";
+import { PutDeliverabilityDashboardOptionRequest, PutDeliverabilityDashboardOptionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutDeliverabilityDashboardOptionCommand,
   serializeAws_restJson1PutDeliverabilityDashboardOptionCommand,

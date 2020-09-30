@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { CreateScriptRequest, CreateScriptResponse } from "../models/index.ts";
+import { CreateScriptRequest, CreateScriptResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateScriptCommand,
   serializeAws_json1_1CreateScriptCommand,

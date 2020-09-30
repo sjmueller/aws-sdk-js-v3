@@ -1,6 +1,6 @@
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient.ts";
-import { ListRuleNamesByTargetRequest, ListRuleNamesByTargetResponse } from "../models/index.ts";
+import { ListRuleNamesByTargetRequest, ListRuleNamesByTargetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListRuleNamesByTargetCommand,
   serializeAws_json1_1ListRuleNamesByTargetCommand,
@@ -44,8 +44,11 @@ export class ListRuleNamesByTargetCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListRuleNamesByTargetRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListRuleNamesByTargetResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

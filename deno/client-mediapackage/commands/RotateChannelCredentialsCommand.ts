@@ -1,6 +1,6 @@
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient.ts";
-import { RotateChannelCredentialsRequest, RotateChannelCredentialsResponse } from "../models/index.ts";
+import { RotateChannelCredentialsRequest, RotateChannelCredentialsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1RotateChannelCredentialsCommand,
   serializeAws_restJson1RotateChannelCredentialsCommand,

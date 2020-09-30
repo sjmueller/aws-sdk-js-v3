@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { DeleteReceiptFilterRequest, DeleteReceiptFilterResponse } from "../models/index.ts";
+import { DeleteReceiptFilterRequest, DeleteReceiptFilterResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteReceiptFilterCommand,
   serializeAws_queryDeleteReceiptFilterCommand,

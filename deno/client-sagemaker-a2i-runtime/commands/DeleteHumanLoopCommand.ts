@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../SageMakerA2IRuntimeClient.ts";
-import { DeleteHumanLoopRequest, DeleteHumanLoopResponse } from "../models/index.ts";
+import { DeleteHumanLoopRequest, DeleteHumanLoopResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteHumanLoopCommand,
   serializeAws_restJson1DeleteHumanLoopCommand,

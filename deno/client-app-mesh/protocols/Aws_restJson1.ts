@@ -205,7 +205,7 @@ import {
   VirtualServiceSpec,
   VirtualServiceStatus,
   WeightedTarget,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -1809,7 +1809,6 @@ export const deserializeAws_restJson1CreateGatewayRouteCommand = async (
   }
   const contents: CreateGatewayRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGatewayRouteOutput",
     gatewayRoute: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1919,7 +1918,6 @@ export const deserializeAws_restJson1CreateMeshCommand = async (
   }
   const contents: CreateMeshCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMeshOutput",
     mesh: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2029,7 +2027,6 @@ export const deserializeAws_restJson1CreateRouteCommand = async (
   }
   const contents: CreateRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRouteOutput",
     route: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2139,7 +2136,6 @@ export const deserializeAws_restJson1CreateVirtualGatewayCommand = async (
   }
   const contents: CreateVirtualGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVirtualGatewayOutput",
     virtualGateway: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2249,7 +2245,6 @@ export const deserializeAws_restJson1CreateVirtualNodeCommand = async (
   }
   const contents: CreateVirtualNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVirtualNodeOutput",
     virtualNode: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2359,7 +2354,6 @@ export const deserializeAws_restJson1CreateVirtualRouterCommand = async (
   }
   const contents: CreateVirtualRouterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVirtualRouterOutput",
     virtualRouter: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2469,7 +2463,6 @@ export const deserializeAws_restJson1CreateVirtualServiceCommand = async (
   }
   const contents: CreateVirtualServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVirtualServiceOutput",
     virtualService: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2579,7 +2572,6 @@ export const deserializeAws_restJson1DeleteGatewayRouteCommand = async (
   }
   const contents: DeleteGatewayRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteGatewayRouteOutput",
     gatewayRoute: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2681,7 +2673,6 @@ export const deserializeAws_restJson1DeleteMeshCommand = async (
   }
   const contents: DeleteMeshCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMeshOutput",
     mesh: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2783,7 +2774,6 @@ export const deserializeAws_restJson1DeleteRouteCommand = async (
   }
   const contents: DeleteRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRouteOutput",
     route: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2885,7 +2875,6 @@ export const deserializeAws_restJson1DeleteVirtualGatewayCommand = async (
   }
   const contents: DeleteVirtualGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVirtualGatewayOutput",
     virtualGateway: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2987,7 +2976,6 @@ export const deserializeAws_restJson1DeleteVirtualNodeCommand = async (
   }
   const contents: DeleteVirtualNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVirtualNodeOutput",
     virtualNode: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3089,7 +3077,6 @@ export const deserializeAws_restJson1DeleteVirtualRouterCommand = async (
   }
   const contents: DeleteVirtualRouterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVirtualRouterOutput",
     virtualRouter: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3191,7 +3178,6 @@ export const deserializeAws_restJson1DeleteVirtualServiceCommand = async (
   }
   const contents: DeleteVirtualServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVirtualServiceOutput",
     virtualService: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3293,7 +3279,6 @@ export const deserializeAws_restJson1DescribeGatewayRouteCommand = async (
   }
   const contents: DescribeGatewayRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGatewayRouteOutput",
     gatewayRoute: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3387,7 +3372,6 @@ export const deserializeAws_restJson1DescribeMeshCommand = async (
   }
   const contents: DescribeMeshCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMeshOutput",
     mesh: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3481,7 +3465,6 @@ export const deserializeAws_restJson1DescribeRouteCommand = async (
   }
   const contents: DescribeRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRouteOutput",
     route: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3575,7 +3558,6 @@ export const deserializeAws_restJson1DescribeVirtualGatewayCommand = async (
   }
   const contents: DescribeVirtualGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVirtualGatewayOutput",
     virtualGateway: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3669,7 +3651,6 @@ export const deserializeAws_restJson1DescribeVirtualNodeCommand = async (
   }
   const contents: DescribeVirtualNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVirtualNodeOutput",
     virtualNode: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3763,7 +3744,6 @@ export const deserializeAws_restJson1DescribeVirtualRouterCommand = async (
   }
   const contents: DescribeVirtualRouterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVirtualRouterOutput",
     virtualRouter: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3857,7 +3837,6 @@ export const deserializeAws_restJson1DescribeVirtualServiceCommand = async (
   }
   const contents: DescribeVirtualServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVirtualServiceOutput",
     virtualService: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3951,7 +3930,6 @@ export const deserializeAws_restJson1ListGatewayRoutesCommand = async (
   }
   const contents: ListGatewayRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGatewayRoutesOutput",
     gatewayRoutes: undefined,
     nextToken: undefined,
   };
@@ -4051,7 +4029,6 @@ export const deserializeAws_restJson1ListMeshesCommand = async (
   }
   const contents: ListMeshesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMeshesOutput",
     meshes: undefined,
     nextToken: undefined,
   };
@@ -4151,7 +4128,6 @@ export const deserializeAws_restJson1ListRoutesCommand = async (
   }
   const contents: ListRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRoutesOutput",
     nextToken: undefined,
     routes: undefined,
   };
@@ -4251,7 +4227,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceOutput",
     nextToken: undefined,
     tags: undefined,
   };
@@ -4351,7 +4326,6 @@ export const deserializeAws_restJson1ListVirtualGatewaysCommand = async (
   }
   const contents: ListVirtualGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVirtualGatewaysOutput",
     nextToken: undefined,
     virtualGateways: undefined,
   };
@@ -4451,7 +4425,6 @@ export const deserializeAws_restJson1ListVirtualNodesCommand = async (
   }
   const contents: ListVirtualNodesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVirtualNodesOutput",
     nextToken: undefined,
     virtualNodes: undefined,
   };
@@ -4551,7 +4524,6 @@ export const deserializeAws_restJson1ListVirtualRoutersCommand = async (
   }
   const contents: ListVirtualRoutersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVirtualRoutersOutput",
     nextToken: undefined,
     virtualRouters: undefined,
   };
@@ -4651,7 +4623,6 @@ export const deserializeAws_restJson1ListVirtualServicesCommand = async (
   }
   const contents: ListVirtualServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVirtualServicesOutput",
     nextToken: undefined,
     virtualServices: undefined,
   };
@@ -4751,7 +4722,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4851,7 +4821,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4943,7 +4912,6 @@ export const deserializeAws_restJson1UpdateGatewayRouteCommand = async (
   }
   const contents: UpdateGatewayRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGatewayRouteOutput",
     gatewayRoute: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5053,7 +5021,6 @@ export const deserializeAws_restJson1UpdateMeshCommand = async (
   }
   const contents: UpdateMeshCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateMeshOutput",
     mesh: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5155,7 +5122,6 @@ export const deserializeAws_restJson1UpdateRouteCommand = async (
   }
   const contents: UpdateRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRouteOutput",
     route: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5265,7 +5231,6 @@ export const deserializeAws_restJson1UpdateVirtualGatewayCommand = async (
   }
   const contents: UpdateVirtualGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateVirtualGatewayOutput",
     virtualGateway: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5375,7 +5340,6 @@ export const deserializeAws_restJson1UpdateVirtualNodeCommand = async (
   }
   const contents: UpdateVirtualNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateVirtualNodeOutput",
     virtualNode: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5485,7 +5449,6 @@ export const deserializeAws_restJson1UpdateVirtualRouterCommand = async (
   }
   const contents: UpdateVirtualRouterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateVirtualRouterOutput",
     virtualRouter: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5595,7 +5558,6 @@ export const deserializeAws_restJson1UpdateVirtualServiceCommand = async (
   }
   const contents: UpdateVirtualServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateVirtualServiceOutput",
     virtualService: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6723,7 +6685,6 @@ const deserializeAws_restJson1AwsCloudMapInstanceAttribute = (
   context: __SerdeContext
 ): AwsCloudMapInstanceAttribute => {
   return {
-    __type: "AwsCloudMapInstanceAttribute",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -6741,7 +6702,6 @@ const deserializeAws_restJson1AwsCloudMapServiceDiscovery = (
   context: __SerdeContext
 ): AwsCloudMapServiceDiscovery => {
   return {
-    __type: "AwsCloudMapServiceDiscovery",
     attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1AwsCloudMapInstanceAttributes(output.attributes, context)
@@ -6763,7 +6723,6 @@ const deserializeAws_restJson1Backend = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1BackendDefaults = (output: any, context: __SerdeContext): BackendDefaults => {
   return {
-    __type: "BackendDefaults",
     clientPolicy:
       output.clientPolicy !== undefined && output.clientPolicy !== null
         ? deserializeAws_restJson1ClientPolicy(output.clientPolicy, context)
@@ -6781,7 +6740,6 @@ const deserializeAws_restJson1CertificateAuthorityArns = (output: any, context: 
 
 const deserializeAws_restJson1ClientPolicy = (output: any, context: __SerdeContext): ClientPolicy => {
   return {
-    __type: "ClientPolicy",
     tls:
       output.tls !== undefined && output.tls !== null
         ? deserializeAws_restJson1ClientPolicyTls(output.tls, context)
@@ -6791,7 +6749,6 @@ const deserializeAws_restJson1ClientPolicy = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ClientPolicyTls = (output: any, context: __SerdeContext): ClientPolicyTls => {
   return {
-    __type: "ClientPolicyTls",
     enforce: output.enforce !== undefined && output.enforce !== null ? output.enforce : undefined,
     ports:
       output.ports !== undefined && output.ports !== null
@@ -6806,14 +6763,12 @@ const deserializeAws_restJson1ClientPolicyTls = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1DnsServiceDiscovery = (output: any, context: __SerdeContext): DnsServiceDiscovery => {
   return {
-    __type: "DnsServiceDiscovery",
     hostname: output.hostname !== undefined && output.hostname !== null ? output.hostname : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Duration = (output: any, context: __SerdeContext): Duration => {
   return {
-    __type: "Duration",
     unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -6821,21 +6776,18 @@ const deserializeAws_restJson1Duration = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1EgressFilter = (output: any, context: __SerdeContext): EgressFilter => {
   return {
-    __type: "EgressFilter",
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1FileAccessLog = (output: any, context: __SerdeContext): FileAccessLog => {
   return {
-    __type: "FileAccessLog",
     path: output.path !== undefined && output.path !== null ? output.path : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1GatewayRouteData = (output: any, context: __SerdeContext): GatewayRouteData => {
   return {
-    __type: "GatewayRouteData",
     gatewayRouteName:
       output.gatewayRouteName !== undefined && output.gatewayRouteName !== null ? output.gatewayRouteName : undefined,
     meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
@@ -6864,7 +6816,6 @@ const deserializeAws_restJson1GatewayRouteList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1GatewayRouteRef = (output: any, context: __SerdeContext): GatewayRouteRef => {
   return {
-    __type: "GatewayRouteRef",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -6890,7 +6841,6 @@ const deserializeAws_restJson1GatewayRouteRef = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1GatewayRouteSpec = (output: any, context: __SerdeContext): GatewayRouteSpec => {
   return {
-    __type: "GatewayRouteSpec",
     grpcRoute:
       output.grpcRoute !== undefined && output.grpcRoute !== null
         ? deserializeAws_restJson1GrpcGatewayRoute(output.grpcRoute, context)
@@ -6908,14 +6858,12 @@ const deserializeAws_restJson1GatewayRouteSpec = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1GatewayRouteStatus = (output: any, context: __SerdeContext): GatewayRouteStatus => {
   return {
-    __type: "GatewayRouteStatus",
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1GatewayRouteTarget = (output: any, context: __SerdeContext): GatewayRouteTarget => {
   return {
-    __type: "GatewayRouteTarget",
     virtualService:
       output.virtualService !== undefined && output.virtualService !== null
         ? deserializeAws_restJson1GatewayRouteVirtualService(output.virtualService, context)
@@ -6928,7 +6876,6 @@ const deserializeAws_restJson1GatewayRouteVirtualService = (
   context: __SerdeContext
 ): GatewayRouteVirtualService => {
   return {
-    __type: "GatewayRouteVirtualService",
     virtualServiceName:
       output.virtualServiceName !== undefined && output.virtualServiceName !== null
         ? output.virtualServiceName
@@ -6938,7 +6885,6 @@ const deserializeAws_restJson1GatewayRouteVirtualService = (
 
 const deserializeAws_restJson1GrpcGatewayRoute = (output: any, context: __SerdeContext): GrpcGatewayRoute => {
   return {
-    __type: "GrpcGatewayRoute",
     action:
       output.action !== undefined && output.action !== null
         ? deserializeAws_restJson1GrpcGatewayRouteAction(output.action, context)
@@ -6955,7 +6901,6 @@ const deserializeAws_restJson1GrpcGatewayRouteAction = (
   context: __SerdeContext
 ): GrpcGatewayRouteAction => {
   return {
-    __type: "GrpcGatewayRouteAction",
     target:
       output.target !== undefined && output.target !== null
         ? deserializeAws_restJson1GatewayRouteTarget(output.target, context)
@@ -6965,14 +6910,12 @@ const deserializeAws_restJson1GrpcGatewayRouteAction = (
 
 const deserializeAws_restJson1GrpcGatewayRouteMatch = (output: any, context: __SerdeContext): GrpcGatewayRouteMatch => {
   return {
-    __type: "GrpcGatewayRouteMatch",
     serviceName: output.serviceName !== undefined && output.serviceName !== null ? output.serviceName : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1GrpcRetryPolicy = (output: any, context: __SerdeContext): GrpcRetryPolicy => {
   return {
-    __type: "GrpcRetryPolicy",
     grpcRetryEvents:
       output.grpcRetryEvents !== undefined && output.grpcRetryEvents !== null
         ? deserializeAws_restJson1GrpcRetryPolicyEvents(output.grpcRetryEvents, context)
@@ -7002,7 +6945,6 @@ const deserializeAws_restJson1GrpcRetryPolicyEvents = (
 
 const deserializeAws_restJson1GrpcRoute = (output: any, context: __SerdeContext): GrpcRoute => {
   return {
-    __type: "GrpcRoute",
     action:
       output.action !== undefined && output.action !== null
         ? deserializeAws_restJson1GrpcRouteAction(output.action, context)
@@ -7024,7 +6966,6 @@ const deserializeAws_restJson1GrpcRoute = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1GrpcRouteAction = (output: any, context: __SerdeContext): GrpcRouteAction => {
   return {
-    __type: "GrpcRouteAction",
     weightedTargets:
       output.weightedTargets !== undefined && output.weightedTargets !== null
         ? deserializeAws_restJson1WeightedTargets(output.weightedTargets, context)
@@ -7034,7 +6975,6 @@ const deserializeAws_restJson1GrpcRouteAction = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1GrpcRouteMatch = (output: any, context: __SerdeContext): GrpcRouteMatch => {
   return {
-    __type: "GrpcRouteMatch",
     metadata:
       output.metadata !== undefined && output.metadata !== null
         ? deserializeAws_restJson1GrpcRouteMetadataList(output.metadata, context)
@@ -7046,7 +6986,6 @@ const deserializeAws_restJson1GrpcRouteMatch = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1GrpcRouteMetadata = (output: any, context: __SerdeContext): GrpcRouteMetadata => {
   return {
-    __type: "GrpcRouteMetadata",
     invert: output.invert !== undefined && output.invert !== null ? output.invert : undefined,
     match:
       output.match !== undefined && output.match !== null
@@ -7094,7 +7033,6 @@ const deserializeAws_restJson1GrpcRouteMetadataMatchMethod = (
 
 const deserializeAws_restJson1GrpcTimeout = (output: any, context: __SerdeContext): GrpcTimeout => {
   return {
-    __type: "GrpcTimeout",
     idle:
       output.idle !== undefined && output.idle !== null
         ? deserializeAws_restJson1Duration(output.idle, context)
@@ -7137,7 +7075,6 @@ const deserializeAws_restJson1HeaderMatchMethod = (output: any, context: __Serde
 
 const deserializeAws_restJson1HealthCheckPolicy = (output: any, context: __SerdeContext): HealthCheckPolicy => {
   return {
-    __type: "HealthCheckPolicy",
     healthyThreshold:
       output.healthyThreshold !== undefined && output.healthyThreshold !== null ? output.healthyThreshold : undefined,
     intervalMillis:
@@ -7156,7 +7093,6 @@ const deserializeAws_restJson1HealthCheckPolicy = (output: any, context: __Serde
 
 const deserializeAws_restJson1HttpGatewayRoute = (output: any, context: __SerdeContext): HttpGatewayRoute => {
   return {
-    __type: "HttpGatewayRoute",
     action:
       output.action !== undefined && output.action !== null
         ? deserializeAws_restJson1HttpGatewayRouteAction(output.action, context)
@@ -7173,7 +7109,6 @@ const deserializeAws_restJson1HttpGatewayRouteAction = (
   context: __SerdeContext
 ): HttpGatewayRouteAction => {
   return {
-    __type: "HttpGatewayRouteAction",
     target:
       output.target !== undefined && output.target !== null
         ? deserializeAws_restJson1GatewayRouteTarget(output.target, context)
@@ -7183,14 +7118,12 @@ const deserializeAws_restJson1HttpGatewayRouteAction = (
 
 const deserializeAws_restJson1HttpGatewayRouteMatch = (output: any, context: __SerdeContext): HttpGatewayRouteMatch => {
   return {
-    __type: "HttpGatewayRouteMatch",
     prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1HttpRetryPolicy = (output: any, context: __SerdeContext): HttpRetryPolicy => {
   return {
-    __type: "HttpRetryPolicy",
     httpRetryEvents:
       output.httpRetryEvents !== undefined && output.httpRetryEvents !== null
         ? deserializeAws_restJson1HttpRetryPolicyEvents(output.httpRetryEvents, context)
@@ -7213,7 +7146,6 @@ const deserializeAws_restJson1HttpRetryPolicyEvents = (output: any, context: __S
 
 const deserializeAws_restJson1HttpRoute = (output: any, context: __SerdeContext): HttpRoute => {
   return {
-    __type: "HttpRoute",
     action:
       output.action !== undefined && output.action !== null
         ? deserializeAws_restJson1HttpRouteAction(output.action, context)
@@ -7235,7 +7167,6 @@ const deserializeAws_restJson1HttpRoute = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1HttpRouteAction = (output: any, context: __SerdeContext): HttpRouteAction => {
   return {
-    __type: "HttpRouteAction",
     weightedTargets:
       output.weightedTargets !== undefined && output.weightedTargets !== null
         ? deserializeAws_restJson1WeightedTargets(output.weightedTargets, context)
@@ -7245,7 +7176,6 @@ const deserializeAws_restJson1HttpRouteAction = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1HttpRouteHeader = (output: any, context: __SerdeContext): HttpRouteHeader => {
   return {
-    __type: "HttpRouteHeader",
     invert: output.invert !== undefined && output.invert !== null ? output.invert : undefined,
     match:
       output.match !== undefined && output.match !== null
@@ -7261,7 +7191,6 @@ const deserializeAws_restJson1HttpRouteHeaders = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1HttpRouteMatch = (output: any, context: __SerdeContext): HttpRouteMatch => {
   return {
-    __type: "HttpRouteMatch",
     headers:
       output.headers !== undefined && output.headers !== null
         ? deserializeAws_restJson1HttpRouteHeaders(output.headers, context)
@@ -7274,7 +7203,6 @@ const deserializeAws_restJson1HttpRouteMatch = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1HttpTimeout = (output: any, context: __SerdeContext): HttpTimeout => {
   return {
-    __type: "HttpTimeout",
     idle:
       output.idle !== undefined && output.idle !== null
         ? deserializeAws_restJson1Duration(output.idle, context)
@@ -7288,7 +7216,6 @@ const deserializeAws_restJson1HttpTimeout = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Listener = (output: any, context: __SerdeContext): Listener => {
   return {
-    __type: "Listener",
     healthCheck:
       output.healthCheck !== undefined && output.healthCheck !== null
         ? deserializeAws_restJson1HealthCheckPolicy(output.healthCheck, context)
@@ -7338,7 +7265,6 @@ const deserializeAws_restJson1ListenerTimeout = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ListenerTls = (output: any, context: __SerdeContext): ListenerTls => {
   return {
-    __type: "ListenerTls",
     certificate:
       output.certificate !== undefined && output.certificate !== null
         ? deserializeAws_restJson1ListenerTlsCertificate(output.certificate, context)
@@ -7352,7 +7278,6 @@ const deserializeAws_restJson1ListenerTlsAcmCertificate = (
   context: __SerdeContext
 ): ListenerTlsAcmCertificate => {
   return {
-    __type: "ListenerTlsAcmCertificate",
     certificateArn:
       output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
   } as any;
@@ -7380,7 +7305,6 @@ const deserializeAws_restJson1ListenerTlsFileCertificate = (
   context: __SerdeContext
 ): ListenerTlsFileCertificate => {
   return {
-    __type: "ListenerTlsFileCertificate",
     certificateChain:
       output.certificateChain !== undefined && output.certificateChain !== null ? output.certificateChain : undefined,
     privateKey: output.privateKey !== undefined && output.privateKey !== null ? output.privateKey : undefined,
@@ -7389,7 +7313,6 @@ const deserializeAws_restJson1ListenerTlsFileCertificate = (
 
 const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): Logging => {
   return {
-    __type: "Logging",
     accessLog:
       output.accessLog !== undefined && output.accessLog !== null
         ? deserializeAws_restJson1AccessLog(output.accessLog, context)
@@ -7399,7 +7322,6 @@ const deserializeAws_restJson1Logging = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1MatchRange = (output: any, context: __SerdeContext): MatchRange => {
   return {
-    __type: "MatchRange",
     end: output.end !== undefined && output.end !== null ? output.end : undefined,
     start: output.start !== undefined && output.start !== null ? output.start : undefined,
   } as any;
@@ -7407,7 +7329,6 @@ const deserializeAws_restJson1MatchRange = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1MeshData = (output: any, context: __SerdeContext): MeshData => {
   return {
-    __type: "MeshData",
     meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     metadata:
       output.metadata !== undefined && output.metadata !== null
@@ -7430,7 +7351,6 @@ const deserializeAws_restJson1MeshList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1MeshRef = (output: any, context: __SerdeContext): MeshRef => {
   return {
-    __type: "MeshRef",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -7450,7 +7370,6 @@ const deserializeAws_restJson1MeshRef = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1MeshSpec = (output: any, context: __SerdeContext): MeshSpec => {
   return {
-    __type: "MeshSpec",
     egressFilter:
       output.egressFilter !== undefined && output.egressFilter !== null
         ? deserializeAws_restJson1EgressFilter(output.egressFilter, context)
@@ -7460,14 +7379,12 @@ const deserializeAws_restJson1MeshSpec = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1MeshStatus = (output: any, context: __SerdeContext): MeshStatus => {
   return {
-    __type: "MeshStatus",
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1PortMapping = (output: any, context: __SerdeContext): PortMapping => {
   return {
-    __type: "PortMapping",
     port: output.port !== undefined && output.port !== null ? output.port : undefined,
     protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
   } as any;
@@ -7479,7 +7396,6 @@ const deserializeAws_restJson1PortSet = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1ResourceMetadata = (output: any, context: __SerdeContext): ResourceMetadata => {
   return {
-    __type: "ResourceMetadata",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -7499,7 +7415,6 @@ const deserializeAws_restJson1ResourceMetadata = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1RouteData = (output: any, context: __SerdeContext): RouteData => {
   return {
-    __type: "RouteData",
     meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     metadata:
       output.metadata !== undefined && output.metadata !== null
@@ -7527,7 +7442,6 @@ const deserializeAws_restJson1RouteList = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1RouteRef = (output: any, context: __SerdeContext): RouteRef => {
   return {
-    __type: "RouteRef",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -7552,7 +7466,6 @@ const deserializeAws_restJson1RouteRef = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1RouteSpec = (output: any, context: __SerdeContext): RouteSpec => {
   return {
-    __type: "RouteSpec",
     grpcRoute:
       output.grpcRoute !== undefined && output.grpcRoute !== null
         ? deserializeAws_restJson1GrpcRoute(output.grpcRoute, context)
@@ -7575,7 +7488,6 @@ const deserializeAws_restJson1RouteSpec = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1RouteStatus = (output: any, context: __SerdeContext): RouteStatus => {
   return {
-    __type: "RouteStatus",
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
@@ -7600,7 +7512,6 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1TagRef = (output: any, context: __SerdeContext): TagRef => {
   return {
-    __type: "TagRef",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -7615,7 +7526,6 @@ const deserializeAws_restJson1TcpRetryPolicyEvents = (
 
 const deserializeAws_restJson1TcpRoute = (output: any, context: __SerdeContext): TcpRoute => {
   return {
-    __type: "TcpRoute",
     action:
       output.action !== undefined && output.action !== null
         ? deserializeAws_restJson1TcpRouteAction(output.action, context)
@@ -7629,7 +7539,6 @@ const deserializeAws_restJson1TcpRoute = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1TcpRouteAction = (output: any, context: __SerdeContext): TcpRouteAction => {
   return {
-    __type: "TcpRouteAction",
     weightedTargets:
       output.weightedTargets !== undefined && output.weightedTargets !== null
         ? deserializeAws_restJson1WeightedTargets(output.weightedTargets, context)
@@ -7639,7 +7548,6 @@ const deserializeAws_restJson1TcpRouteAction = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1TcpTimeout = (output: any, context: __SerdeContext): TcpTimeout => {
   return {
-    __type: "TcpTimeout",
     idle:
       output.idle !== undefined && output.idle !== null
         ? deserializeAws_restJson1Duration(output.idle, context)
@@ -7649,7 +7557,6 @@ const deserializeAws_restJson1TcpTimeout = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1TlsValidationContext = (output: any, context: __SerdeContext): TlsValidationContext => {
   return {
-    __type: "TlsValidationContext",
     trust:
       output.trust !== undefined && output.trust !== null
         ? deserializeAws_restJson1TlsValidationContextTrust(output.trust, context)
@@ -7662,7 +7569,6 @@ const deserializeAws_restJson1TlsValidationContextAcmTrust = (
   context: __SerdeContext
 ): TlsValidationContextAcmTrust => {
   return {
-    __type: "TlsValidationContextAcmTrust",
     certificateAuthorityArns:
       output.certificateAuthorityArns !== undefined && output.certificateAuthorityArns !== null
         ? deserializeAws_restJson1CertificateAuthorityArns(output.certificateAuthorityArns, context)
@@ -7675,7 +7581,6 @@ const deserializeAws_restJson1TlsValidationContextFileTrust = (
   context: __SerdeContext
 ): TlsValidationContextFileTrust => {
   return {
-    __type: "TlsValidationContextFileTrust",
     certificateChain:
       output.certificateChain !== undefined && output.certificateChain !== null ? output.certificateChain : undefined,
   } as any;
@@ -7715,7 +7620,6 @@ const deserializeAws_restJson1VirtualGatewayBackendDefaults = (
   context: __SerdeContext
 ): VirtualGatewayBackendDefaults => {
   return {
-    __type: "VirtualGatewayBackendDefaults",
     clientPolicy:
       output.clientPolicy !== undefined && output.clientPolicy !== null
         ? deserializeAws_restJson1VirtualGatewayClientPolicy(output.clientPolicy, context)
@@ -7735,7 +7639,6 @@ const deserializeAws_restJson1VirtualGatewayClientPolicy = (
   context: __SerdeContext
 ): VirtualGatewayClientPolicy => {
   return {
-    __type: "VirtualGatewayClientPolicy",
     tls:
       output.tls !== undefined && output.tls !== null
         ? deserializeAws_restJson1VirtualGatewayClientPolicyTls(output.tls, context)
@@ -7748,7 +7651,6 @@ const deserializeAws_restJson1VirtualGatewayClientPolicyTls = (
   context: __SerdeContext
 ): VirtualGatewayClientPolicyTls => {
   return {
-    __type: "VirtualGatewayClientPolicyTls",
     enforce: output.enforce !== undefined && output.enforce !== null ? output.enforce : undefined,
     ports:
       output.ports !== undefined && output.ports !== null
@@ -7763,7 +7665,6 @@ const deserializeAws_restJson1VirtualGatewayClientPolicyTls = (
 
 const deserializeAws_restJson1VirtualGatewayData = (output: any, context: __SerdeContext): VirtualGatewayData => {
   return {
-    __type: "VirtualGatewayData",
     meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     metadata:
       output.metadata !== undefined && output.metadata !== null
@@ -7789,7 +7690,6 @@ const deserializeAws_restJson1VirtualGatewayFileAccessLog = (
   context: __SerdeContext
 ): VirtualGatewayFileAccessLog => {
   return {
-    __type: "VirtualGatewayFileAccessLog",
     path: output.path !== undefined && output.path !== null ? output.path : undefined,
   } as any;
 };
@@ -7799,7 +7699,6 @@ const deserializeAws_restJson1VirtualGatewayHealthCheckPolicy = (
   context: __SerdeContext
 ): VirtualGatewayHealthCheckPolicy => {
   return {
-    __type: "VirtualGatewayHealthCheckPolicy",
     healthyThreshold:
       output.healthyThreshold !== undefined && output.healthyThreshold !== null ? output.healthyThreshold : undefined,
     intervalMillis:
@@ -7825,7 +7724,6 @@ const deserializeAws_restJson1VirtualGatewayListener = (
   context: __SerdeContext
 ): VirtualGatewayListener => {
   return {
-    __type: "VirtualGatewayListener",
     healthCheck:
       output.healthCheck !== undefined && output.healthCheck !== null
         ? deserializeAws_restJson1VirtualGatewayHealthCheckPolicy(output.healthCheck, context)
@@ -7853,7 +7751,6 @@ const deserializeAws_restJson1VirtualGatewayListenerTls = (
   context: __SerdeContext
 ): VirtualGatewayListenerTls => {
   return {
-    __type: "VirtualGatewayListenerTls",
     certificate:
       output.certificate !== undefined && output.certificate !== null
         ? deserializeAws_restJson1VirtualGatewayListenerTlsCertificate(output.certificate, context)
@@ -7867,7 +7764,6 @@ const deserializeAws_restJson1VirtualGatewayListenerTlsAcmCertificate = (
   context: __SerdeContext
 ): VirtualGatewayListenerTlsAcmCertificate => {
   return {
-    __type: "VirtualGatewayListenerTlsAcmCertificate",
     certificateArn:
       output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
   } as any;
@@ -7895,7 +7791,6 @@ const deserializeAws_restJson1VirtualGatewayListenerTlsFileCertificate = (
   context: __SerdeContext
 ): VirtualGatewayListenerTlsFileCertificate => {
   return {
-    __type: "VirtualGatewayListenerTlsFileCertificate",
     certificateChain:
       output.certificateChain !== undefined && output.certificateChain !== null ? output.certificateChain : undefined,
     privateKey: output.privateKey !== undefined && output.privateKey !== null ? output.privateKey : undefined,
@@ -7904,7 +7799,6 @@ const deserializeAws_restJson1VirtualGatewayListenerTlsFileCertificate = (
 
 const deserializeAws_restJson1VirtualGatewayLogging = (output: any, context: __SerdeContext): VirtualGatewayLogging => {
   return {
-    __type: "VirtualGatewayLogging",
     accessLog:
       output.accessLog !== undefined && output.accessLog !== null
         ? deserializeAws_restJson1VirtualGatewayAccessLog(output.accessLog, context)
@@ -7917,7 +7811,6 @@ const deserializeAws_restJson1VirtualGatewayPortMapping = (
   context: __SerdeContext
 ): VirtualGatewayPortMapping => {
   return {
-    __type: "VirtualGatewayPortMapping",
     port: output.port !== undefined && output.port !== null ? output.port : undefined,
     protocol: output.protocol !== undefined && output.protocol !== null ? output.protocol : undefined,
   } as any;
@@ -7925,7 +7818,6 @@ const deserializeAws_restJson1VirtualGatewayPortMapping = (
 
 const deserializeAws_restJson1VirtualGatewayRef = (output: any, context: __SerdeContext): VirtualGatewayRef => {
   return {
-    __type: "VirtualGatewayRef",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -7949,7 +7841,6 @@ const deserializeAws_restJson1VirtualGatewayRef = (output: any, context: __Serde
 
 const deserializeAws_restJson1VirtualGatewaySpec = (output: any, context: __SerdeContext): VirtualGatewaySpec => {
   return {
-    __type: "VirtualGatewaySpec",
     backendDefaults:
       output.backendDefaults !== undefined && output.backendDefaults !== null
         ? deserializeAws_restJson1VirtualGatewayBackendDefaults(output.backendDefaults, context)
@@ -7967,7 +7858,6 @@ const deserializeAws_restJson1VirtualGatewaySpec = (output: any, context: __Serd
 
 const deserializeAws_restJson1VirtualGatewayStatus = (output: any, context: __SerdeContext): VirtualGatewayStatus => {
   return {
-    __type: "VirtualGatewayStatus",
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
@@ -7977,7 +7867,6 @@ const deserializeAws_restJson1VirtualGatewayTlsValidationContext = (
   context: __SerdeContext
 ): VirtualGatewayTlsValidationContext => {
   return {
-    __type: "VirtualGatewayTlsValidationContext",
     trust:
       output.trust !== undefined && output.trust !== null
         ? deserializeAws_restJson1VirtualGatewayTlsValidationContextTrust(output.trust, context)
@@ -7990,7 +7879,6 @@ const deserializeAws_restJson1VirtualGatewayTlsValidationContextAcmTrust = (
   context: __SerdeContext
 ): VirtualGatewayTlsValidationContextAcmTrust => {
   return {
-    __type: "VirtualGatewayTlsValidationContextAcmTrust",
     certificateAuthorityArns:
       output.certificateAuthorityArns !== undefined && output.certificateAuthorityArns !== null
         ? deserializeAws_restJson1VirtualGatewayCertificateAuthorityArns(output.certificateAuthorityArns, context)
@@ -8003,7 +7891,6 @@ const deserializeAws_restJson1VirtualGatewayTlsValidationContextFileTrust = (
   context: __SerdeContext
 ): VirtualGatewayTlsValidationContextFileTrust => {
   return {
-    __type: "VirtualGatewayTlsValidationContextFileTrust",
     certificateChain:
       output.certificateChain !== undefined && output.certificateChain !== null ? output.certificateChain : undefined,
   } as any;
@@ -8028,7 +7915,6 @@ const deserializeAws_restJson1VirtualGatewayTlsValidationContextTrust = (
 
 const deserializeAws_restJson1VirtualNodeData = (output: any, context: __SerdeContext): VirtualNodeData => {
   return {
-    __type: "VirtualNodeData",
     meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     metadata:
       output.metadata !== undefined && output.metadata !== null
@@ -8053,7 +7939,6 @@ const deserializeAws_restJson1VirtualNodeList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1VirtualNodeRef = (output: any, context: __SerdeContext): VirtualNodeRef => {
   return {
-    __type: "VirtualNodeRef",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -8078,7 +7963,6 @@ const deserializeAws_restJson1VirtualNodeServiceProvider = (
   context: __SerdeContext
 ): VirtualNodeServiceProvider => {
   return {
-    __type: "VirtualNodeServiceProvider",
     virtualNodeName:
       output.virtualNodeName !== undefined && output.virtualNodeName !== null ? output.virtualNodeName : undefined,
   } as any;
@@ -8086,7 +7970,6 @@ const deserializeAws_restJson1VirtualNodeServiceProvider = (
 
 const deserializeAws_restJson1VirtualNodeSpec = (output: any, context: __SerdeContext): VirtualNodeSpec => {
   return {
-    __type: "VirtualNodeSpec",
     backendDefaults:
       output.backendDefaults !== undefined && output.backendDefaults !== null
         ? deserializeAws_restJson1BackendDefaults(output.backendDefaults, context)
@@ -8112,14 +7995,12 @@ const deserializeAws_restJson1VirtualNodeSpec = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1VirtualNodeStatus = (output: any, context: __SerdeContext): VirtualNodeStatus => {
   return {
-    __type: "VirtualNodeStatus",
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1VirtualRouterData = (output: any, context: __SerdeContext): VirtualRouterData => {
   return {
-    __type: "VirtualRouterData",
     meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     metadata:
       output.metadata !== undefined && output.metadata !== null
@@ -8146,7 +8027,6 @@ const deserializeAws_restJson1VirtualRouterList = (output: any, context: __Serde
 
 const deserializeAws_restJson1VirtualRouterListener = (output: any, context: __SerdeContext): VirtualRouterListener => {
   return {
-    __type: "VirtualRouterListener",
     portMapping:
       output.portMapping !== undefined && output.portMapping !== null
         ? deserializeAws_restJson1PortMapping(output.portMapping, context)
@@ -8163,7 +8043,6 @@ const deserializeAws_restJson1VirtualRouterListeners = (
 
 const deserializeAws_restJson1VirtualRouterRef = (output: any, context: __SerdeContext): VirtualRouterRef => {
   return {
-    __type: "VirtualRouterRef",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -8190,7 +8069,6 @@ const deserializeAws_restJson1VirtualRouterServiceProvider = (
   context: __SerdeContext
 ): VirtualRouterServiceProvider => {
   return {
-    __type: "VirtualRouterServiceProvider",
     virtualRouterName:
       output.virtualRouterName !== undefined && output.virtualRouterName !== null
         ? output.virtualRouterName
@@ -8200,7 +8078,6 @@ const deserializeAws_restJson1VirtualRouterServiceProvider = (
 
 const deserializeAws_restJson1VirtualRouterSpec = (output: any, context: __SerdeContext): VirtualRouterSpec => {
   return {
-    __type: "VirtualRouterSpec",
     listeners:
       output.listeners !== undefined && output.listeners !== null
         ? deserializeAws_restJson1VirtualRouterListeners(output.listeners, context)
@@ -8210,14 +8087,12 @@ const deserializeAws_restJson1VirtualRouterSpec = (output: any, context: __Serde
 
 const deserializeAws_restJson1VirtualRouterStatus = (output: any, context: __SerdeContext): VirtualRouterStatus => {
   return {
-    __type: "VirtualRouterStatus",
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1VirtualServiceBackend = (output: any, context: __SerdeContext): VirtualServiceBackend => {
   return {
-    __type: "VirtualServiceBackend",
     clientPolicy:
       output.clientPolicy !== undefined && output.clientPolicy !== null
         ? deserializeAws_restJson1ClientPolicy(output.clientPolicy, context)
@@ -8231,7 +8106,6 @@ const deserializeAws_restJson1VirtualServiceBackend = (output: any, context: __S
 
 const deserializeAws_restJson1VirtualServiceData = (output: any, context: __SerdeContext): VirtualServiceData => {
   return {
-    __type: "VirtualServiceData",
     meshName: output.meshName !== undefined && output.meshName !== null ? output.meshName : undefined,
     metadata:
       output.metadata !== undefined && output.metadata !== null
@@ -8275,7 +8149,6 @@ const deserializeAws_restJson1VirtualServiceProvider = (
 
 const deserializeAws_restJson1VirtualServiceRef = (output: any, context: __SerdeContext): VirtualServiceRef => {
   return {
-    __type: "VirtualServiceRef",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -8299,7 +8172,6 @@ const deserializeAws_restJson1VirtualServiceRef = (output: any, context: __Serde
 
 const deserializeAws_restJson1VirtualServiceSpec = (output: any, context: __SerdeContext): VirtualServiceSpec => {
   return {
-    __type: "VirtualServiceSpec",
     provider:
       output.provider !== undefined && output.provider !== null
         ? deserializeAws_restJson1VirtualServiceProvider(output.provider, context)
@@ -8309,14 +8181,12 @@ const deserializeAws_restJson1VirtualServiceSpec = (output: any, context: __Serd
 
 const deserializeAws_restJson1VirtualServiceStatus = (output: any, context: __SerdeContext): VirtualServiceStatus => {
   return {
-    __type: "VirtualServiceStatus",
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1WeightedTarget = (output: any, context: __SerdeContext): WeightedTarget => {
   return {
-    __type: "WeightedTarget",
     virtualNode: output.virtualNode !== undefined && output.virtualNode !== null ? output.virtualNode : undefined,
     weight: output.weight !== undefined && output.weight !== null ? output.weight : undefined,
   } as any;

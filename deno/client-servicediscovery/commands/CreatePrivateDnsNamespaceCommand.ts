@@ -1,6 +1,6 @@
 
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient.ts";
-import { CreatePrivateDnsNamespaceRequest, CreatePrivateDnsNamespaceResponse } from "../models/index.ts";
+import { CreatePrivateDnsNamespaceRequest, CreatePrivateDnsNamespaceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreatePrivateDnsNamespaceCommand,
   serializeAws_json1_1CreatePrivateDnsNamespaceCommand,

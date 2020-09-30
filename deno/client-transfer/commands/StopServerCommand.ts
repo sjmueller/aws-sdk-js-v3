@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient.ts";
-import { StopServerRequest } from "../models/index.ts";
+import { StopServerRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopServerCommand,
   serializeAws_json1_1StopServerCommand,

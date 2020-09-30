@@ -1,6 +1,6 @@
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient.ts";
-import { CreateChannelRequest, CreateChannelResponse } from "../models/index.ts";
+import { CreateChannelRequest, CreateChannelResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateChannelCommand,
   serializeAws_restJson1CreateChannelCommand,

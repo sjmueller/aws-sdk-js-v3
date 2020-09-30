@@ -1,6 +1,6 @@
 
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
-import { PublishInput, PublishResponse } from "../models/index.ts";
+import { PublishInput, PublishResponse } from "../models/models_0.ts";
 import { deserializeAws_queryPublishCommand, serializeAws_queryPublishCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";

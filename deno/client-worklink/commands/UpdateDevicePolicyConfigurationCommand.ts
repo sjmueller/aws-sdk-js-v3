@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient.ts";
-import { UpdateDevicePolicyConfigurationRequest, UpdateDevicePolicyConfigurationResponse } from "../models/index.ts";
+import { UpdateDevicePolicyConfigurationRequest, UpdateDevicePolicyConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateDevicePolicyConfigurationCommand,
   serializeAws_restJson1UpdateDevicePolicyConfigurationCommand,

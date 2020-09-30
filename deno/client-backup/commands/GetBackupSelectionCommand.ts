@@ -1,6 +1,6 @@
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
-import { GetBackupSelectionInput, GetBackupSelectionOutput } from "../models/index.ts";
+import { GetBackupSelectionInput, GetBackupSelectionOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetBackupSelectionCommand,
   serializeAws_restJson1GetBackupSelectionCommand,

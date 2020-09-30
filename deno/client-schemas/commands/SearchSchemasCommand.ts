@@ -1,6 +1,6 @@
 
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient.ts";
-import { SearchSchemasRequest, SearchSchemasResponse } from "../models/index.ts";
+import { SearchSchemasRequest, SearchSchemasResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SearchSchemasCommand,
   serializeAws_restJson1SearchSchemasCommand,

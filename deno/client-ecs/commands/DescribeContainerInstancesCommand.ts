@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { DescribeContainerInstancesRequest, DescribeContainerInstancesResponse } from "../models/index.ts";
+import { DescribeContainerInstancesRequest, DescribeContainerInstancesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeContainerInstancesCommand,
   serializeAws_json1_1DescribeContainerInstancesCommand,

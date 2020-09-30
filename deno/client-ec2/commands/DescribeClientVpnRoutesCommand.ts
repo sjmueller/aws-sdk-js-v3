@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeClientVpnRoutesRequest, DescribeClientVpnRoutesResult } from "../models/index.ts";
+import { DescribeClientVpnRoutesRequest, DescribeClientVpnRoutesResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeClientVpnRoutesCommand,
   serializeAws_ec2DescribeClientVpnRoutesCommand,

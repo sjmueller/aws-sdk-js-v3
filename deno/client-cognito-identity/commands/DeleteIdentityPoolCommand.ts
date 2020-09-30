@@ -1,6 +1,6 @@
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient.ts";
-import { DeleteIdentityPoolInput } from "../models/index.ts";
+import { DeleteIdentityPoolInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteIdentityPoolCommand,
   serializeAws_json1_1DeleteIdentityPoolCommand,

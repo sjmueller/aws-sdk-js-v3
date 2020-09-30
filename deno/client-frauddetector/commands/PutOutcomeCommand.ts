@@ -1,6 +1,6 @@
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient.ts";
-import { PutOutcomeRequest, PutOutcomeResult } from "../models/index.ts";
+import { PutOutcomeRequest, PutOutcomeResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutOutcomeCommand,
   serializeAws_json1_1PutOutcomeCommand,

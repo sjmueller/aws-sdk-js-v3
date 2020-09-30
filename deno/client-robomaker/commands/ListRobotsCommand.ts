@@ -1,6 +1,6 @@
 
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient.ts";
-import { ListRobotsRequest, ListRobotsResponse } from "../models/index.ts";
+import { ListRobotsRequest, ListRobotsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListRobotsCommand,
   serializeAws_restJson1ListRobotsCommand,

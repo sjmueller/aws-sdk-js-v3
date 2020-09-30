@@ -1,6 +1,6 @@
 
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient.ts";
-import { CreateLinkRequest, CreateLinkResponse } from "../models/index.ts";
+import { CreateLinkRequest, CreateLinkResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateLinkCommand,
   serializeAws_restJson1CreateLinkCommand,

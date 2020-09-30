@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { DeleteCustomVerificationEmailTemplateRequest } from "../models/index.ts";
+import { DeleteCustomVerificationEmailTemplateRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteCustomVerificationEmailTemplateCommand,
   serializeAws_queryDeleteCustomVerificationEmailTemplateCommand,

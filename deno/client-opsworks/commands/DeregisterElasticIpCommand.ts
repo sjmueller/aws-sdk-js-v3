@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { DeregisterElasticIpRequest } from "../models/index.ts";
+import { DeregisterElasticIpRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeregisterElasticIpCommand,
   serializeAws_json1_1DeregisterElasticIpCommand,

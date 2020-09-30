@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { DeleteUserRequest, DeleteUserResult } from "../models/index.ts";
+import { DeleteUserRequest, DeleteUserResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteUserCommand,
   serializeAws_json1_1DeleteUserCommand,

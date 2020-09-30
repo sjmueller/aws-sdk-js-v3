@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { ReleaseStaticIpRequest, ReleaseStaticIpResult } from "../models/index.ts";
+import { ReleaseStaticIpRequest, ReleaseStaticIpResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ReleaseStaticIpCommand,
   serializeAws_json1_1ReleaseStaticIpCommand,

@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { DeleteAccountAliasRequest } from "../models/index.ts";
+import { DeleteAccountAliasRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteAccountAliasCommand,
   serializeAws_queryDeleteAccountAliasCommand,

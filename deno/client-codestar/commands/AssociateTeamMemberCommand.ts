@@ -1,6 +1,6 @@
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient.ts";
-import { AssociateTeamMemberRequest, AssociateTeamMemberResult } from "../models/index.ts";
+import { AssociateTeamMemberRequest, AssociateTeamMemberResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AssociateTeamMemberCommand,
   serializeAws_json1_1AssociateTeamMemberCommand,

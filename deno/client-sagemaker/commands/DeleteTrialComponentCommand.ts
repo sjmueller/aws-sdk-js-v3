@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { DeleteTrialComponentRequest, DeleteTrialComponentResponse } from "../models/index.ts";
+import { DeleteTrialComponentRequest, DeleteTrialComponentResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1DeleteTrialComponentCommand,
   serializeAws_json1_1DeleteTrialComponentCommand,

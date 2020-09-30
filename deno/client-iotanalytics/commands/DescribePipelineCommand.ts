@@ -1,6 +1,6 @@
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient.ts";
-import { DescribePipelineRequest, DescribePipelineResponse } from "../models/index.ts";
+import { DescribePipelineRequest, DescribePipelineResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribePipelineCommand,
   serializeAws_restJson1DescribePipelineCommand,

@@ -1,6 +1,6 @@
 
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient.ts";
-import { ListSpeechSynthesisTasksInput, ListSpeechSynthesisTasksOutput } from "../models/index.ts";
+import { ListSpeechSynthesisTasksInput, ListSpeechSynthesisTasksOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListSpeechSynthesisTasksCommand,
   serializeAws_restJson1ListSpeechSynthesisTasksCommand,

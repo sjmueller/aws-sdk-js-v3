@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { DeleteOrganizationalUnitRequest } from "../models/index.ts";
+import { DeleteOrganizationalUnitRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteOrganizationalUnitCommand,
   serializeAws_json1_1DeleteOrganizationalUnitCommand,

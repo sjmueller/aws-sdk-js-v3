@@ -1,6 +1,6 @@
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient.ts";
-import { AssociateExternalConnectionRequest, AssociateExternalConnectionResult } from "../models/index.ts";
+import { AssociateExternalConnectionRequest, AssociateExternalConnectionResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AssociateExternalConnectionCommand,
   serializeAws_restJson1AssociateExternalConnectionCommand,

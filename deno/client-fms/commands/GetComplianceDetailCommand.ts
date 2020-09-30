@@ -1,6 +1,6 @@
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient.ts";
-import { GetComplianceDetailRequest, GetComplianceDetailResponse } from "../models/index.ts";
+import { GetComplianceDetailRequest, GetComplianceDetailResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetComplianceDetailCommand,
   serializeAws_json1_1GetComplianceDetailCommand,

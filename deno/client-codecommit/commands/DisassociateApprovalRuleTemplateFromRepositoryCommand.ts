@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { DisassociateApprovalRuleTemplateFromRepositoryInput } from "../models/index.ts";
+import { DisassociateApprovalRuleTemplateFromRepositoryInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand,
   serializeAws_json1_1DisassociateApprovalRuleTemplateFromRepositoryCommand,

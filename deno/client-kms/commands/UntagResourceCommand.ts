@@ -1,6 +1,6 @@
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
-import { UntagResourceRequest } from "../models/index.ts";
+import { UntagResourceRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UntagResourceCommand,
   serializeAws_json1_1UntagResourceCommand,

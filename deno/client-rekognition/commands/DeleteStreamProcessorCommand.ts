@@ -1,6 +1,6 @@
 
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
-import { DeleteStreamProcessorRequest, DeleteStreamProcessorResponse } from "../models/index.ts";
+import { DeleteStreamProcessorRequest, DeleteStreamProcessorResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteStreamProcessorCommand,
   serializeAws_json1_1DeleteStreamProcessorCommand,

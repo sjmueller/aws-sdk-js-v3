@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { GetGroupCertificateAuthorityRequest, GetGroupCertificateAuthorityResponse } from "../models/index.ts";
+import { GetGroupCertificateAuthorityRequest, GetGroupCertificateAuthorityResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetGroupCertificateAuthorityCommand,
   serializeAws_restJson1GetGroupCertificateAuthorityCommand,

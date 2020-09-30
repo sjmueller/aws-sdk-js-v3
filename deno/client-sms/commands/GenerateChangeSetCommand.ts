@@ -1,6 +1,6 @@
 
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
-import { GenerateChangeSetRequest, GenerateChangeSetResponse } from "../models/index.ts";
+import { GenerateChangeSetRequest, GenerateChangeSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GenerateChangeSetCommand,
   serializeAws_json1_1GenerateChangeSetCommand,

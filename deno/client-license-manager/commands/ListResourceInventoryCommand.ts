@@ -1,6 +1,6 @@
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient.ts";
-import { ListResourceInventoryRequest, ListResourceInventoryResponse } from "../models/index.ts";
+import { ListResourceInventoryRequest, ListResourceInventoryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListResourceInventoryCommand,
   serializeAws_json1_1ListResourceInventoryCommand,

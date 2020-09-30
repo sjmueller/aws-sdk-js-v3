@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { DescribeAgentVersionsRequest, DescribeAgentVersionsResult } from "../models/index.ts";
+import { DescribeAgentVersionsRequest, DescribeAgentVersionsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeAgentVersionsCommand,
   serializeAws_json1_1DescribeAgentVersionsCommand,

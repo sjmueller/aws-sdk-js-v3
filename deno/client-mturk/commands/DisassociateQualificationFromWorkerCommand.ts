@@ -3,7 +3,7 @@ import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   DisassociateQualificationFromWorkerRequest,
   DisassociateQualificationFromWorkerResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateQualificationFromWorkerCommand,
   serializeAws_json1_1DisassociateQualificationFromWorkerCommand,

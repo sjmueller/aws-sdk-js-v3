@@ -1,6 +1,6 @@
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient.ts";
-import { CreateTrailRequest, CreateTrailResponse } from "../models/index.ts";
+import { CreateTrailRequest, CreateTrailResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateTrailCommand,
   serializeAws_json1_1CreateTrailCommand,

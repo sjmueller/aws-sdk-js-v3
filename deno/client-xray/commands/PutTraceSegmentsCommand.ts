@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient.ts";
-import { PutTraceSegmentsRequest, PutTraceSegmentsResult } from "../models/index.ts";
+import { PutTraceSegmentsRequest, PutTraceSegmentsResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutTraceSegmentsCommand,
   serializeAws_restJson1PutTraceSegmentsCommand,

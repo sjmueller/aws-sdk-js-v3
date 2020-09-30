@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { AutoScalingGroupNamesType, AutoScalingGroupsType } from "../models/index.ts";
+import { AutoScalingGroupNamesType, AutoScalingGroupsType } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeAutoScalingGroupsCommand,
   serializeAws_queryDescribeAutoScalingGroupsCommand,

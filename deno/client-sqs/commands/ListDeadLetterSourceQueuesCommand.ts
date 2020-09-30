@@ -1,6 +1,6 @@
 
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient.ts";
-import { ListDeadLetterSourceQueuesRequest, ListDeadLetterSourceQueuesResult } from "../models/index.ts";
+import { ListDeadLetterSourceQueuesRequest, ListDeadLetterSourceQueuesResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryListDeadLetterSourceQueuesCommand,
   serializeAws_queryListDeadLetterSourceQueuesCommand,

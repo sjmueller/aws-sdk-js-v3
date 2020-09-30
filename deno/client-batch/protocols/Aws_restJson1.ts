@@ -76,7 +76,7 @@ import {
   ServerException,
   Ulimit,
   Volume,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -554,7 +554,6 @@ export const deserializeAws_restJson1CancelJobCommand = async (
   }
   const contents: CancelJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelJobResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -614,7 +613,6 @@ export const deserializeAws_restJson1CreateComputeEnvironmentCommand = async (
   }
   const contents: CreateComputeEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateComputeEnvironmentResponse",
     computeEnvironmentArn: undefined,
     computeEnvironmentName: undefined,
   };
@@ -682,7 +680,6 @@ export const deserializeAws_restJson1CreateJobQueueCommand = async (
   }
   const contents: CreateJobQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateJobQueueResponse",
     jobQueueArn: undefined,
     jobQueueName: undefined,
   };
@@ -750,7 +747,6 @@ export const deserializeAws_restJson1DeleteComputeEnvironmentCommand = async (
   }
   const contents: DeleteComputeEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteComputeEnvironmentResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -810,7 +806,6 @@ export const deserializeAws_restJson1DeleteJobQueueCommand = async (
   }
   const contents: DeleteJobQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteJobQueueResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -870,7 +865,6 @@ export const deserializeAws_restJson1DeregisterJobDefinitionCommand = async (
   }
   const contents: DeregisterJobDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterJobDefinitionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -930,7 +924,6 @@ export const deserializeAws_restJson1DescribeComputeEnvironmentsCommand = async 
   }
   const contents: DescribeComputeEnvironmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeComputeEnvironmentsResponse",
     computeEnvironments: undefined,
     nextToken: undefined,
   };
@@ -1001,7 +994,6 @@ export const deserializeAws_restJson1DescribeJobDefinitionsCommand = async (
   }
   const contents: DescribeJobDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeJobDefinitionsResponse",
     jobDefinitions: undefined,
     nextToken: undefined,
   };
@@ -1069,7 +1061,6 @@ export const deserializeAws_restJson1DescribeJobQueuesCommand = async (
   }
   const contents: DescribeJobQueuesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeJobQueuesResponse",
     jobQueues: undefined,
     nextToken: undefined,
   };
@@ -1137,7 +1128,6 @@ export const deserializeAws_restJson1DescribeJobsCommand = async (
   }
   const contents: DescribeJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeJobsResponse",
     jobs: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1201,7 +1191,6 @@ export const deserializeAws_restJson1ListJobsCommand = async (
   }
   const contents: ListJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJobsResponse",
     jobSummaryList: undefined,
     nextToken: undefined,
   };
@@ -1269,7 +1258,6 @@ export const deserializeAws_restJson1RegisterJobDefinitionCommand = async (
   }
   const contents: RegisterJobDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterJobDefinitionResponse",
     jobDefinitionArn: undefined,
     jobDefinitionName: undefined,
     revision: undefined,
@@ -1341,7 +1329,6 @@ export const deserializeAws_restJson1SubmitJobCommand = async (
   }
   const contents: SubmitJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SubmitJobResponse",
     jobId: undefined,
     jobName: undefined,
   };
@@ -1409,7 +1396,6 @@ export const deserializeAws_restJson1TerminateJobCommand = async (
   }
   const contents: TerminateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TerminateJobResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1469,7 +1455,6 @@ export const deserializeAws_restJson1UpdateComputeEnvironmentCommand = async (
   }
   const contents: UpdateComputeEnvironmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateComputeEnvironmentResponse",
     computeEnvironmentArn: undefined,
     computeEnvironmentName: undefined,
   };
@@ -1537,7 +1522,6 @@ export const deserializeAws_restJson1UpdateJobQueueCommand = async (
   }
   const contents: UpdateJobQueueCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateJobQueueResponse",
     jobQueueArn: undefined,
     jobQueueName: undefined,
   };
@@ -1939,7 +1923,6 @@ const deserializeAws_restJson1ArrayJobStatusSummary = (
 
 const deserializeAws_restJson1ArrayPropertiesDetail = (output: any, context: __SerdeContext): ArrayPropertiesDetail => {
   return {
-    __type: "ArrayPropertiesDetail",
     index: output.index !== undefined && output.index !== null ? output.index : undefined,
     size: output.size !== undefined && output.size !== null ? output.size : undefined,
     statusSummary:
@@ -1954,7 +1937,6 @@ const deserializeAws_restJson1ArrayPropertiesSummary = (
   context: __SerdeContext
 ): ArrayPropertiesSummary => {
   return {
-    __type: "ArrayPropertiesSummary",
     index: output.index !== undefined && output.index !== null ? output.index : undefined,
     size: output.size !== undefined && output.size !== null ? output.size : undefined,
   } as any;
@@ -1965,7 +1947,6 @@ const deserializeAws_restJson1AttemptContainerDetail = (
   context: __SerdeContext
 ): AttemptContainerDetail => {
   return {
-    __type: "AttemptContainerDetail",
     containerInstanceArn:
       output.containerInstanceArn !== undefined && output.containerInstanceArn !== null
         ? output.containerInstanceArn
@@ -1984,7 +1965,6 @@ const deserializeAws_restJson1AttemptContainerDetail = (
 
 const deserializeAws_restJson1AttemptDetail = (output: any, context: __SerdeContext): AttemptDetail => {
   return {
-    __type: "AttemptDetail",
     container:
       output.container !== undefined && output.container !== null
         ? deserializeAws_restJson1AttemptContainerDetail(output.container, context)
@@ -2004,7 +1984,6 @@ const deserializeAws_restJson1ComputeEnvironmentDetail = (
   context: __SerdeContext
 ): ComputeEnvironmentDetail => {
   return {
-    __type: "ComputeEnvironmentDetail",
     computeEnvironmentArn:
       output.computeEnvironmentArn !== undefined && output.computeEnvironmentArn !== null
         ? output.computeEnvironmentArn
@@ -2039,7 +2018,6 @@ const deserializeAws_restJson1ComputeEnvironmentOrder = (
   context: __SerdeContext
 ): ComputeEnvironmentOrder => {
   return {
-    __type: "ComputeEnvironmentOrder",
     computeEnvironment:
       output.computeEnvironment !== undefined && output.computeEnvironment !== null
         ? output.computeEnvironment
@@ -2057,7 +2035,6 @@ const deserializeAws_restJson1ComputeEnvironmentOrders = (
 
 const deserializeAws_restJson1ComputeResource = (output: any, context: __SerdeContext): ComputeResource => {
   return {
-    __type: "ComputeResource",
     allocationStrategy:
       output.allocationStrategy !== undefined && output.allocationStrategy !== null
         ? output.allocationStrategy
@@ -2100,7 +2077,6 @@ const deserializeAws_restJson1ComputeResource = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ContainerDetail = (output: any, context: __SerdeContext): ContainerDetail => {
   return {
-    __type: "ContainerDetail",
     command:
       output.command !== undefined && output.command !== null
         ? deserializeAws_restJson1StringList(output.command, context)
@@ -2158,7 +2134,6 @@ const deserializeAws_restJson1ContainerDetail = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ContainerProperties = (output: any, context: __SerdeContext): ContainerProperties => {
   return {
-    __type: "ContainerProperties",
     command:
       output.command !== undefined && output.command !== null
         ? deserializeAws_restJson1StringList(output.command, context)
@@ -2203,7 +2178,6 @@ const deserializeAws_restJson1ContainerProperties = (output: any, context: __Ser
 
 const deserializeAws_restJson1ContainerSummary = (output: any, context: __SerdeContext): ContainerSummary => {
   return {
-    __type: "ContainerSummary",
     exitCode: output.exitCode !== undefined && output.exitCode !== null ? output.exitCode : undefined,
     reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
   } as any;
@@ -2211,7 +2185,6 @@ const deserializeAws_restJson1ContainerSummary = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): Device => {
   return {
-    __type: "Device",
     containerPath:
       output.containerPath !== undefined && output.containerPath !== null ? output.containerPath : undefined,
     hostPath: output.hostPath !== undefined && output.hostPath !== null ? output.hostPath : undefined,
@@ -2239,14 +2212,12 @@ const deserializeAws_restJson1EnvironmentVariables = (output: any, context: __Se
 
 const deserializeAws_restJson1Host = (output: any, context: __SerdeContext): Host => {
   return {
-    __type: "Host",
     sourcePath: output.sourcePath !== undefined && output.sourcePath !== null ? output.sourcePath : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1JobDefinition = (output: any, context: __SerdeContext): JobDefinition => {
   return {
-    __type: "JobDefinition",
     containerProperties:
       output.containerProperties !== undefined && output.containerProperties !== null
         ? deserializeAws_restJson1ContainerProperties(output.containerProperties, context)
@@ -2285,7 +2256,6 @@ const deserializeAws_restJson1JobDefinitionList = (output: any, context: __Serde
 
 const deserializeAws_restJson1JobDependency = (output: any, context: __SerdeContext): JobDependency => {
   return {
-    __type: "JobDependency",
     jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
@@ -2297,7 +2267,6 @@ const deserializeAws_restJson1JobDependencyList = (output: any, context: __Serde
 
 const deserializeAws_restJson1JobDetail = (output: any, context: __SerdeContext): JobDetail => {
   return {
-    __type: "JobDetail",
     arrayProperties:
       output.arrayProperties !== undefined && output.arrayProperties !== null
         ? deserializeAws_restJson1ArrayPropertiesDetail(output.arrayProperties, context)
@@ -2353,7 +2322,6 @@ const deserializeAws_restJson1JobDetailList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1JobQueueDetail = (output: any, context: __SerdeContext): JobQueueDetail => {
   return {
-    __type: "JobQueueDetail",
     computeEnvironmentOrder:
       output.computeEnvironmentOrder !== undefined && output.computeEnvironmentOrder !== null
         ? deserializeAws_restJson1ComputeEnvironmentOrders(output.computeEnvironmentOrder, context)
@@ -2373,7 +2341,6 @@ const deserializeAws_restJson1JobQueueDetailList = (output: any, context: __Serd
 
 const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext): JobSummary => {
   return {
-    __type: "JobSummary",
     arrayProperties:
       output.arrayProperties !== undefined && output.arrayProperties !== null
         ? deserializeAws_restJson1ArrayPropertiesSummary(output.arrayProperties, context)
@@ -2402,7 +2369,6 @@ const deserializeAws_restJson1JobSummaryList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1JobTimeout = (output: any, context: __SerdeContext): JobTimeout => {
   return {
-    __type: "JobTimeout",
     attemptDurationSeconds:
       output.attemptDurationSeconds !== undefined && output.attemptDurationSeconds !== null
         ? output.attemptDurationSeconds
@@ -2412,7 +2378,6 @@ const deserializeAws_restJson1JobTimeout = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1KeyValuePair = (output: any, context: __SerdeContext): KeyValuePair => {
   return {
-    __type: "KeyValuePair",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -2423,7 +2388,6 @@ const deserializeAws_restJson1LaunchTemplateSpecification = (
   context: __SerdeContext
 ): LaunchTemplateSpecification => {
   return {
-    __type: "LaunchTemplateSpecification",
     launchTemplateId:
       output.launchTemplateId !== undefined && output.launchTemplateId !== null ? output.launchTemplateId : undefined,
     launchTemplateName:
@@ -2436,7 +2400,6 @@ const deserializeAws_restJson1LaunchTemplateSpecification = (
 
 const deserializeAws_restJson1LinuxParameters = (output: any, context: __SerdeContext): LinuxParameters => {
   return {
-    __type: "LinuxParameters",
     devices:
       output.devices !== undefined && output.devices !== null
         ? deserializeAws_restJson1DevicesList(output.devices, context)
@@ -2446,7 +2409,6 @@ const deserializeAws_restJson1LinuxParameters = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1MountPoint = (output: any, context: __SerdeContext): MountPoint => {
   return {
-    __type: "MountPoint",
     containerPath:
       output.containerPath !== undefined && output.containerPath !== null ? output.containerPath : undefined,
     readOnly: output.readOnly !== undefined && output.readOnly !== null ? output.readOnly : undefined,
@@ -2460,7 +2422,6 @@ const deserializeAws_restJson1MountPoints = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
   return {
-    __type: "NetworkInterface",
     attachmentId: output.attachmentId !== undefined && output.attachmentId !== null ? output.attachmentId : undefined,
     ipv6Address: output.ipv6Address !== undefined && output.ipv6Address !== null ? output.ipv6Address : undefined,
     privateIpv4Address:
@@ -2476,7 +2437,6 @@ const deserializeAws_restJson1NetworkInterfaceList = (output: any, context: __Se
 
 const deserializeAws_restJson1NodeDetails = (output: any, context: __SerdeContext): NodeDetails => {
   return {
-    __type: "NodeDetails",
     isMainNode: output.isMainNode !== undefined && output.isMainNode !== null ? output.isMainNode : undefined,
     nodeIndex: output.nodeIndex !== undefined && output.nodeIndex !== null ? output.nodeIndex : undefined,
   } as any;
@@ -2484,7 +2444,6 @@ const deserializeAws_restJson1NodeDetails = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1NodeProperties = (output: any, context: __SerdeContext): NodeProperties => {
   return {
-    __type: "NodeProperties",
     mainNode: output.mainNode !== undefined && output.mainNode !== null ? output.mainNode : undefined,
     nodeRangeProperties:
       output.nodeRangeProperties !== undefined && output.nodeRangeProperties !== null
@@ -2496,7 +2455,6 @@ const deserializeAws_restJson1NodeProperties = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1NodePropertiesSummary = (output: any, context: __SerdeContext): NodePropertiesSummary => {
   return {
-    __type: "NodePropertiesSummary",
     isMainNode: output.isMainNode !== undefined && output.isMainNode !== null ? output.isMainNode : undefined,
     nodeIndex: output.nodeIndex !== undefined && output.nodeIndex !== null ? output.nodeIndex : undefined,
     numNodes: output.numNodes !== undefined && output.numNodes !== null ? output.numNodes : undefined,
@@ -2509,7 +2467,6 @@ const deserializeAws_restJson1NodeRangeProperties = (output: any, context: __Ser
 
 const deserializeAws_restJson1NodeRangeProperty = (output: any, context: __SerdeContext): NodeRangeProperty => {
   return {
-    __type: "NodeRangeProperty",
     container:
       output.container !== undefined && output.container !== null
         ? deserializeAws_restJson1ContainerProperties(output.container, context)
@@ -2530,7 +2487,6 @@ const deserializeAws_restJson1ParametersMap = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1ResourceRequirement = (output: any, context: __SerdeContext): ResourceRequirement => {
   return {
-    __type: "ResourceRequirement",
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -2542,7 +2498,6 @@ const deserializeAws_restJson1ResourceRequirements = (output: any, context: __Se
 
 const deserializeAws_restJson1RetryStrategy = (output: any, context: __SerdeContext): RetryStrategy => {
   return {
-    __type: "RetryStrategy",
     attempts: output.attempts !== undefined && output.attempts !== null ? output.attempts : undefined,
   } as any;
 };
@@ -2563,7 +2518,6 @@ const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1Ulimit = (output: any, context: __SerdeContext): Ulimit => {
   return {
-    __type: "Ulimit",
     hardLimit: output.hardLimit !== undefined && output.hardLimit !== null ? output.hardLimit : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     softLimit: output.softLimit !== undefined && output.softLimit !== null ? output.softLimit : undefined,
@@ -2576,7 +2530,6 @@ const deserializeAws_restJson1Ulimits = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1Volume = (output: any, context: __SerdeContext): Volume => {
   return {
-    __type: "Volume",
     host:
       output.host !== undefined && output.host !== null
         ? deserializeAws_restJson1Host(output.host, context)

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { AdminDisableUserRequest, AdminDisableUserResponse } from "../models/index.ts";
+import { AdminDisableUserRequest, AdminDisableUserResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AdminDisableUserCommand,
   serializeAws_json1_1AdminDisableUserCommand,

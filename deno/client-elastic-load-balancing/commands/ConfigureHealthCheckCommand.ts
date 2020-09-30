@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import { ConfigureHealthCheckInput, ConfigureHealthCheckOutput } from "../models/index.ts";
+import { ConfigureHealthCheckInput, ConfigureHealthCheckOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryConfigureHealthCheckCommand,
   serializeAws_queryConfigureHealthCheckCommand,

@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { DeleteCacheClusterMessage, DeleteCacheClusterResult } from "../models/index.ts";
+import { DeleteCacheClusterMessage, DeleteCacheClusterResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteCacheClusterCommand,
   serializeAws_queryDeleteCacheClusterCommand,

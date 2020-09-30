@@ -1,6 +1,6 @@
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
-import { GetDetectorRequest, GetDetectorResponse } from "../models/index.ts";
+import { GetDetectorRequest, GetDetectorResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetDetectorCommand,
   serializeAws_restJson1GetDetectorCommand,

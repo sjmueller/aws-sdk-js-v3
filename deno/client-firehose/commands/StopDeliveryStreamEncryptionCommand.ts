@@ -1,6 +1,6 @@
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient.ts";
-import { StopDeliveryStreamEncryptionInput, StopDeliveryStreamEncryptionOutput } from "../models/index.ts";
+import { StopDeliveryStreamEncryptionInput, StopDeliveryStreamEncryptionOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopDeliveryStreamEncryptionCommand,
   serializeAws_json1_1StopDeliveryStreamEncryptionCommand,

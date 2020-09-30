@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { CreateExperimentRequest, CreateExperimentResponse } from "../models/index.ts";
+import { CreateExperimentRequest, CreateExperimentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateExperimentCommand,
   serializeAws_json1_1CreateExperimentCommand,

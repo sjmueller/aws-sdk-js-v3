@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient.ts";
-import { DescribeProjectRequest, DescribeProjectResponse } from "../models/index.ts";
+import { DescribeProjectRequest, DescribeProjectResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeProjectCommand,
   serializeAws_restJson1DescribeProjectCommand,

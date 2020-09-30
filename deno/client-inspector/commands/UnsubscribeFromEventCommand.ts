@@ -1,6 +1,6 @@
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
-import { UnsubscribeFromEventRequest } from "../models/index.ts";
+import { UnsubscribeFromEventRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UnsubscribeFromEventCommand,
   serializeAws_json1_1UnsubscribeFromEventCommand,

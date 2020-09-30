@@ -3,7 +3,7 @@ import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DisassociateResourceSharePermissionRequest,
   DisassociateResourceSharePermissionResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DisassociateResourceSharePermissionCommand,
   serializeAws_restJson1DisassociateResourceSharePermissionCommand,

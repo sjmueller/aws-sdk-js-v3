@@ -1,6 +1,6 @@
 
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient.ts";
-import { CreateLedgerRequest, CreateLedgerResponse } from "../models/index.ts";
+import { CreateLedgerRequest, CreateLedgerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateLedgerCommand,
   serializeAws_restJson1CreateLedgerCommand,

@@ -1,6 +1,6 @@
 
 import { QLDBSessionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBSessionClient.ts";
-import { SendCommandRequest, SendCommandResult } from "../models/index.ts";
+import { SendCommandRequest, SendCommandResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0SendCommandCommand,
   serializeAws_json1_0SendCommandCommand,

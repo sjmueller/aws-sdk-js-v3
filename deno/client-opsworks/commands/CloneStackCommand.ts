@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { CloneStackRequest, CloneStackResult } from "../models/index.ts";
+import { CloneStackRequest, CloneStackResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CloneStackCommand,
   serializeAws_json1_1CloneStackCommand,

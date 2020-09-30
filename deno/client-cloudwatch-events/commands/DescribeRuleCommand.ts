@@ -1,6 +1,6 @@
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient.ts";
-import { DescribeRuleRequest, DescribeRuleResponse } from "../models/index.ts";
+import { DescribeRuleRequest, DescribeRuleResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeRuleCommand,
   serializeAws_json1_1DescribeRuleCommand,
@@ -44,8 +44,11 @@ export class DescribeRuleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeRuleResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

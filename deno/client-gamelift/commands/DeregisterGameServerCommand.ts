@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { DeregisterGameServerInput } from "../models/index.ts";
+import { DeregisterGameServerInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeregisterGameServerCommand,
   serializeAws_json1_1DeregisterGameServerCommand,

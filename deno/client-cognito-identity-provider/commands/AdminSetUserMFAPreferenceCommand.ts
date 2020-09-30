@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { AdminSetUserMFAPreferenceRequest, AdminSetUserMFAPreferenceResponse } from "../models/index.ts";
+import { AdminSetUserMFAPreferenceRequest, AdminSetUserMFAPreferenceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AdminSetUserMFAPreferenceCommand,
   serializeAws_json1_1AdminSetUserMFAPreferenceCommand,

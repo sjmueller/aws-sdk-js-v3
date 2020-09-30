@@ -1,6 +1,6 @@
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient.ts";
-import { DescribeVirtualGatewayInput, DescribeVirtualGatewayOutput } from "../models/index.ts";
+import { DescribeVirtualGatewayInput, DescribeVirtualGatewayOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeVirtualGatewayCommand,
   serializeAws_restJson1DescribeVirtualGatewayCommand,

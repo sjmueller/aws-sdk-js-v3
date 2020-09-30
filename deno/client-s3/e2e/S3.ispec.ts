@@ -4,8 +4,8 @@
  * This is the integration test that make sure the client can make request cross-platform-ly
  * in NodeJS, Chromium and Firefox. This test is written in mocha.
  */
-import * as chai from "chai.ts";
-import * as chaiAsPromised from "chai-as-promised.ts";
+import chai from "chai.ts";
+import chaiAsPromised from "chai-as-promised.ts";
 import { S3 } from "../index.ts";
 import { Credentials } from "../../types/mod.ts";
 import { createBuffer } from "./helpers.ts";

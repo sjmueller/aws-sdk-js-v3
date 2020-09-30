@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DeleteTransitGatewayVpcAttachmentRequest, DeleteTransitGatewayVpcAttachmentResult } from "../models/index.ts";
+import { DeleteTransitGatewayVpcAttachmentRequest, DeleteTransitGatewayVpcAttachmentResult } from "../models/models_1.ts";
 import {
   deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand,
   serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand,

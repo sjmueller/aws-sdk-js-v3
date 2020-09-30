@@ -1,6 +1,6 @@
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
-import { UpdateRecoveryPointLifecycleInput, UpdateRecoveryPointLifecycleOutput } from "../models/index.ts";
+import { UpdateRecoveryPointLifecycleInput, UpdateRecoveryPointLifecycleOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateRecoveryPointLifecycleCommand,
   serializeAws_restJson1UpdateRecoveryPointLifecycleCommand,

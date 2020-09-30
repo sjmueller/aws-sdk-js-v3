@@ -1,6 +1,6 @@
 
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
-import { DeleteQueryLoggingConfigRequest, DeleteQueryLoggingConfigResponse } from "../models/index.ts";
+import { DeleteQueryLoggingConfigRequest, DeleteQueryLoggingConfigResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlDeleteQueryLoggingConfigCommand,
   serializeAws_restXmlDeleteQueryLoggingConfigCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { DescribeCopyProductStatusInput, DescribeCopyProductStatusOutput } from "../models/index.ts";
+import { DescribeCopyProductStatusInput, DescribeCopyProductStatusOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeCopyProductStatusCommand,
   serializeAws_json1_1DescribeCopyProductStatusCommand,

@@ -1,6 +1,6 @@
 
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient.ts";
-import { RebootBrokerRequest, RebootBrokerResponse } from "../models/index.ts";
+import { RebootBrokerRequest, RebootBrokerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1RebootBrokerCommand,
   serializeAws_restJson1RebootBrokerCommand,

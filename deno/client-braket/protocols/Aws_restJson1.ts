@@ -18,7 +18,7 @@ import {
   ServiceQuotaExceededException,
   ThrottlingException,
   ValidationException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   LazyJsonString as __LazyJsonString,
@@ -223,7 +223,6 @@ export const deserializeAws_restJson1CancelQuantumTaskCommand = async (
   }
   const contents: CancelQuantumTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelQuantumTaskResponse",
     cancellationStatus: undefined,
     quantumTaskArn: undefined,
   };
@@ -323,7 +322,6 @@ export const deserializeAws_restJson1CreateQuantumTaskCommand = async (
   }
   const contents: CreateQuantumTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateQuantumTaskResponse",
     quantumTaskArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -419,7 +417,6 @@ export const deserializeAws_restJson1GetDeviceCommand = async (
   }
   const contents: GetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDeviceResponse",
     deviceArn: undefined,
     deviceCapabilities: undefined,
     deviceName: undefined,
@@ -527,7 +524,6 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
   }
   const contents: GetQuantumTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetQuantumTaskResponse",
     createdAt: undefined,
     deviceArn: undefined,
     deviceParameters: undefined,
@@ -651,7 +647,6 @@ export const deserializeAws_restJson1SearchDevicesCommand = async (
   }
   const contents: SearchDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchDevicesResponse",
     devices: undefined,
     nextToken: undefined,
   };
@@ -735,7 +730,6 @@ export const deserializeAws_restJson1SearchQuantumTasksCommand = async (
   }
   const contents: SearchQuantumTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchQuantumTasksResponse",
     nextToken: undefined,
     quantumTasks: undefined,
   };
@@ -981,7 +975,6 @@ const serializeAws_restJson1String256List = (input: string[], context: __SerdeCo
 
 const deserializeAws_restJson1DeviceSummary = (output: any, context: __SerdeContext): DeviceSummary => {
   return {
-    __type: "DeviceSummary",
     deviceArn: output.deviceArn !== undefined && output.deviceArn !== null ? output.deviceArn : undefined,
     deviceName: output.deviceName !== undefined && output.deviceName !== null ? output.deviceName : undefined,
     deviceStatus: output.deviceStatus !== undefined && output.deviceStatus !== null ? output.deviceStatus : undefined,
@@ -996,7 +989,6 @@ const deserializeAws_restJson1DeviceSummaryList = (output: any, context: __Serde
 
 const deserializeAws_restJson1QuantumTaskSummary = (output: any, context: __SerdeContext): QuantumTaskSummary => {
   return {
-    __type: "QuantumTaskSummary",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))

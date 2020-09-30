@@ -1,6 +1,6 @@
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
-import { DeleteDataCatalogInput, DeleteDataCatalogOutput } from "../models/index.ts";
+import { DeleteDataCatalogInput, DeleteDataCatalogOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteDataCatalogCommand,
   serializeAws_json1_1DeleteDataCatalogCommand,

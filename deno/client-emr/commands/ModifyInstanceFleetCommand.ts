@@ -1,6 +1,6 @@
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
-import { ModifyInstanceFleetInput } from "../models/index.ts";
+import { ModifyInstanceFleetInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ModifyInstanceFleetCommand,
   serializeAws_json1_1ModifyInstanceFleetCommand,

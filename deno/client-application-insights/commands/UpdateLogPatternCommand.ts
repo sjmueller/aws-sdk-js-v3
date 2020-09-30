@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import { UpdateLogPatternRequest, UpdateLogPatternResponse } from "../models/index.ts";
+import { UpdateLogPatternRequest, UpdateLogPatternResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateLogPatternCommand,
   serializeAws_json1_1UpdateLogPatternCommand,

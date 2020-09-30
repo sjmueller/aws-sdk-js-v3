@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient.ts";
-import { DescribeFleetMetadataRequest, DescribeFleetMetadataResponse } from "../models/index.ts";
+import { DescribeFleetMetadataRequest, DescribeFleetMetadataResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeFleetMetadataCommand,
   serializeAws_restJson1DescribeFleetMetadataCommand,

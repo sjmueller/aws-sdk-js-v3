@@ -1,6 +1,6 @@
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
-import { DeleteComponentRequest, DeleteComponentResponse } from "../models/index.ts";
+import { DeleteComponentRequest, DeleteComponentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteComponentCommand,
   serializeAws_restJson1DeleteComponentCommand,

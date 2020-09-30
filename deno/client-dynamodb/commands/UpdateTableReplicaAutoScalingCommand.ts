@@ -1,6 +1,6 @@
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
-import { UpdateTableReplicaAutoScalingInput, UpdateTableReplicaAutoScalingOutput } from "../models/index.ts";
+import { UpdateTableReplicaAutoScalingInput, UpdateTableReplicaAutoScalingOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0UpdateTableReplicaAutoScalingCommand,
   serializeAws_json1_0UpdateTableReplicaAutoScalingCommand,

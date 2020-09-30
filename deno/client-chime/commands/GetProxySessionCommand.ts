@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { GetProxySessionRequest, GetProxySessionResponse } from "../models/index.ts";
+import { GetProxySessionRequest, GetProxySessionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetProxySessionCommand,
   serializeAws_restJson1GetProxySessionCommand,

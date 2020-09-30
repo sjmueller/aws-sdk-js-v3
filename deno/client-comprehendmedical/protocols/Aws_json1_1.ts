@@ -135,7 +135,7 @@ import {
   Trait,
   UnmappedAttribute,
   ValidationException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -432,7 +432,6 @@ export const deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommand = async
   contents = deserializeAws_json1_1DescribeEntitiesDetectionV2JobResponse(data, context);
   const response: DescribeEntitiesDetectionV2JobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEntitiesDetectionV2JobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -512,7 +511,6 @@ export const deserializeAws_json1_1DescribeICD10CMInferenceJobCommand = async (
   contents = deserializeAws_json1_1DescribeICD10CMInferenceJobResponse(data, context);
   const response: DescribeICD10CMInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeICD10CMInferenceJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -592,7 +590,6 @@ export const deserializeAws_json1_1DescribePHIDetectionJobCommand = async (
   contents = deserializeAws_json1_1DescribePHIDetectionJobResponse(data, context);
   const response: DescribePHIDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePHIDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -672,7 +669,6 @@ export const deserializeAws_json1_1DescribeRxNormInferenceJobCommand = async (
   contents = deserializeAws_json1_1DescribeRxNormInferenceJobResponse(data, context);
   const response: DescribeRxNormInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRxNormInferenceJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -752,7 +748,6 @@ export const deserializeAws_json1_1DetectEntitiesCommand = async (
   contents = deserializeAws_json1_1DetectEntitiesResponse(data, context);
   const response: DetectEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectEntitiesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -848,7 +843,6 @@ export const deserializeAws_json1_1DetectEntitiesV2Command = async (
   contents = deserializeAws_json1_1DetectEntitiesV2Response(data, context);
   const response: DetectEntitiesV2CommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectEntitiesV2Response",
     ...contents,
   };
   return Promise.resolve(response);
@@ -944,7 +938,6 @@ export const deserializeAws_json1_1DetectPHICommand = async (
   contents = deserializeAws_json1_1DetectPHIResponse(data, context);
   const response: DetectPHICommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectPHIResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1040,7 +1033,6 @@ export const deserializeAws_json1_1InferICD10CMCommand = async (
   contents = deserializeAws_json1_1InferICD10CMResponse(data, context);
   const response: InferICD10CMCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InferICD10CMResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1136,7 +1128,6 @@ export const deserializeAws_json1_1InferRxNormCommand = async (
   contents = deserializeAws_json1_1InferRxNormResponse(data, context);
   const response: InferRxNormCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InferRxNormResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1232,7 +1223,6 @@ export const deserializeAws_json1_1ListEntitiesDetectionV2JobsCommand = async (
   contents = deserializeAws_json1_1ListEntitiesDetectionV2JobsResponse(data, context);
   const response: ListEntitiesDetectionV2JobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEntitiesDetectionV2JobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1312,7 +1302,6 @@ export const deserializeAws_json1_1ListICD10CMInferenceJobsCommand = async (
   contents = deserializeAws_json1_1ListICD10CMInferenceJobsResponse(data, context);
   const response: ListICD10CMInferenceJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListICD10CMInferenceJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1392,7 +1381,6 @@ export const deserializeAws_json1_1ListPHIDetectionJobsCommand = async (
   contents = deserializeAws_json1_1ListPHIDetectionJobsResponse(data, context);
   const response: ListPHIDetectionJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPHIDetectionJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1472,7 +1460,6 @@ export const deserializeAws_json1_1ListRxNormInferenceJobsCommand = async (
   contents = deserializeAws_json1_1ListRxNormInferenceJobsResponse(data, context);
   const response: ListRxNormInferenceJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRxNormInferenceJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1552,7 +1539,6 @@ export const deserializeAws_json1_1StartEntitiesDetectionV2JobCommand = async (
   contents = deserializeAws_json1_1StartEntitiesDetectionV2JobResponse(data, context);
   const response: StartEntitiesDetectionV2JobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartEntitiesDetectionV2JobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1632,7 +1618,6 @@ export const deserializeAws_json1_1StartICD10CMInferenceJobCommand = async (
   contents = deserializeAws_json1_1StartICD10CMInferenceJobResponse(data, context);
   const response: StartICD10CMInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartICD10CMInferenceJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1712,7 +1697,6 @@ export const deserializeAws_json1_1StartPHIDetectionJobCommand = async (
   contents = deserializeAws_json1_1StartPHIDetectionJobResponse(data, context);
   const response: StartPHIDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartPHIDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1792,7 +1776,6 @@ export const deserializeAws_json1_1StartRxNormInferenceJobCommand = async (
   contents = deserializeAws_json1_1StartRxNormInferenceJobResponse(data, context);
   const response: StartRxNormInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartRxNormInferenceJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1872,7 +1855,6 @@ export const deserializeAws_json1_1StopEntitiesDetectionV2JobCommand = async (
   contents = deserializeAws_json1_1StopEntitiesDetectionV2JobResponse(data, context);
   const response: StopEntitiesDetectionV2JobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopEntitiesDetectionV2JobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1944,7 +1926,6 @@ export const deserializeAws_json1_1StopICD10CMInferenceJobCommand = async (
   contents = deserializeAws_json1_1StopICD10CMInferenceJobResponse(data, context);
   const response: StopICD10CMInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopICD10CMInferenceJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2016,7 +1997,6 @@ export const deserializeAws_json1_1StopPHIDetectionJobCommand = async (
   contents = deserializeAws_json1_1StopPHIDetectionJobResponse(data, context);
   const response: StopPHIDetectionJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopPHIDetectionJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2088,7 +2068,6 @@ export const deserializeAws_json1_1StopRxNormInferenceJobCommand = async (
   contents = deserializeAws_json1_1StopRxNormInferenceJobResponse(data, context);
   const response: StopRxNormInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopRxNormInferenceJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2528,7 +2507,6 @@ const serializeAws_json1_1StopRxNormInferenceJobRequest = (
 
 const deserializeAws_json1_1Attribute = (output: any, context: __SerdeContext): Attribute => {
   return {
-    __type: "Attribute",
     BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
     Category: output.Category !== undefined && output.Category !== null ? output.Category : undefined,
     EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
@@ -2558,7 +2536,6 @@ const deserializeAws_json1_1ComprehendMedicalAsyncJobProperties = (
   context: __SerdeContext
 ): ComprehendMedicalAsyncJobProperties => {
   return {
-    __type: "ComprehendMedicalAsyncJobProperties",
     DataAccessRoleArn:
       output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
         ? output.DataAccessRoleArn
@@ -2605,7 +2582,6 @@ const deserializeAws_json1_1DescribeEntitiesDetectionV2JobResponse = (
   context: __SerdeContext
 ): DescribeEntitiesDetectionV2JobResponse => {
   return {
-    __type: "DescribeEntitiesDetectionV2JobResponse",
     ComprehendMedicalAsyncJobProperties:
       output.ComprehendMedicalAsyncJobProperties !== undefined && output.ComprehendMedicalAsyncJobProperties !== null
         ? deserializeAws_json1_1ComprehendMedicalAsyncJobProperties(output.ComprehendMedicalAsyncJobProperties, context)
@@ -2618,7 +2594,6 @@ const deserializeAws_json1_1DescribeICD10CMInferenceJobResponse = (
   context: __SerdeContext
 ): DescribeICD10CMInferenceJobResponse => {
   return {
-    __type: "DescribeICD10CMInferenceJobResponse",
     ComprehendMedicalAsyncJobProperties:
       output.ComprehendMedicalAsyncJobProperties !== undefined && output.ComprehendMedicalAsyncJobProperties !== null
         ? deserializeAws_json1_1ComprehendMedicalAsyncJobProperties(output.ComprehendMedicalAsyncJobProperties, context)
@@ -2631,7 +2606,6 @@ const deserializeAws_json1_1DescribePHIDetectionJobResponse = (
   context: __SerdeContext
 ): DescribePHIDetectionJobResponse => {
   return {
-    __type: "DescribePHIDetectionJobResponse",
     ComprehendMedicalAsyncJobProperties:
       output.ComprehendMedicalAsyncJobProperties !== undefined && output.ComprehendMedicalAsyncJobProperties !== null
         ? deserializeAws_json1_1ComprehendMedicalAsyncJobProperties(output.ComprehendMedicalAsyncJobProperties, context)
@@ -2644,7 +2618,6 @@ const deserializeAws_json1_1DescribeRxNormInferenceJobResponse = (
   context: __SerdeContext
 ): DescribeRxNormInferenceJobResponse => {
   return {
-    __type: "DescribeRxNormInferenceJobResponse",
     ComprehendMedicalAsyncJobProperties:
       output.ComprehendMedicalAsyncJobProperties !== undefined && output.ComprehendMedicalAsyncJobProperties !== null
         ? deserializeAws_json1_1ComprehendMedicalAsyncJobProperties(output.ComprehendMedicalAsyncJobProperties, context)
@@ -2654,7 +2627,6 @@ const deserializeAws_json1_1DescribeRxNormInferenceJobResponse = (
 
 const deserializeAws_json1_1DetectEntitiesResponse = (output: any, context: __SerdeContext): DetectEntitiesResponse => {
   return {
-    __type: "DetectEntitiesResponse",
     Entities:
       output.Entities !== undefined && output.Entities !== null
         ? deserializeAws_json1_1EntityList(output.Entities, context)
@@ -2674,7 +2646,6 @@ const deserializeAws_json1_1DetectEntitiesV2Response = (
   context: __SerdeContext
 ): DetectEntitiesV2Response => {
   return {
-    __type: "DetectEntitiesV2Response",
     Entities:
       output.Entities !== undefined && output.Entities !== null
         ? deserializeAws_json1_1EntityList(output.Entities, context)
@@ -2691,7 +2662,6 @@ const deserializeAws_json1_1DetectEntitiesV2Response = (
 
 const deserializeAws_json1_1DetectPHIResponse = (output: any, context: __SerdeContext): DetectPHIResponse => {
   return {
-    __type: "DetectPHIResponse",
     Entities:
       output.Entities !== undefined && output.Entities !== null
         ? deserializeAws_json1_1EntityList(output.Entities, context)
@@ -2704,7 +2674,6 @@ const deserializeAws_json1_1DetectPHIResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1Entity = (output: any, context: __SerdeContext): Entity => {
   return {
-    __type: "Entity",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1AttributeList(output.Attributes, context)
@@ -2729,7 +2698,6 @@ const deserializeAws_json1_1EntityList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1ICD10CMAttribute = (output: any, context: __SerdeContext): ICD10CMAttribute => {
   return {
-    __type: "ICD10CMAttribute",
     BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
     EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -2753,7 +2721,6 @@ const deserializeAws_json1_1ICD10CMAttributeList = (output: any, context: __Serd
 
 const deserializeAws_json1_1ICD10CMConcept = (output: any, context: __SerdeContext): ICD10CMConcept => {
   return {
-    __type: "ICD10CMConcept",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
@@ -2766,7 +2733,6 @@ const deserializeAws_json1_1ICD10CMConceptList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ICD10CMEntity = (output: any, context: __SerdeContext): ICD10CMEntity => {
   return {
-    __type: "ICD10CMEntity",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1ICD10CMAttributeList(output.Attributes, context)
@@ -2795,7 +2761,6 @@ const deserializeAws_json1_1ICD10CMEntityList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ICD10CMTrait = (output: any, context: __SerdeContext): ICD10CMTrait => {
   return {
-    __type: "ICD10CMTrait",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
   } as any;
@@ -2807,7 +2772,6 @@ const deserializeAws_json1_1ICD10CMTraitList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1InferICD10CMResponse = (output: any, context: __SerdeContext): InferICD10CMResponse => {
   return {
-    __type: "InferICD10CMResponse",
     Entities:
       output.Entities !== undefined && output.Entities !== null
         ? deserializeAws_json1_1ICD10CMEntityList(output.Entities, context)
@@ -2820,7 +2784,6 @@ const deserializeAws_json1_1InferICD10CMResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1InferRxNormResponse = (output: any, context: __SerdeContext): InferRxNormResponse => {
   return {
-    __type: "InferRxNormResponse",
     Entities:
       output.Entities !== undefined && output.Entities !== null
         ? deserializeAws_json1_1RxNormEntityList(output.Entities, context)
@@ -2833,7 +2796,6 @@ const deserializeAws_json1_1InferRxNormResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
   return {
-    __type: "InputDataConfig",
     S3Bucket: output.S3Bucket !== undefined && output.S3Bucket !== null ? output.S3Bucket : undefined,
     S3Key: output.S3Key !== undefined && output.S3Key !== null ? output.S3Key : undefined,
   } as any;
@@ -2844,7 +2806,6 @@ const deserializeAws_json1_1InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    __type: "InternalServerException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2854,7 +2815,6 @@ const deserializeAws_json1_1InvalidEncodingException = (
   context: __SerdeContext
 ): InvalidEncodingException => {
   return {
-    __type: "InvalidEncodingException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2864,7 +2824,6 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    __type: "InvalidRequestException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2874,7 +2833,6 @@ const deserializeAws_json1_1ListEntitiesDetectionV2JobsResponse = (
   context: __SerdeContext
 ): ListEntitiesDetectionV2JobsResponse => {
   return {
-    __type: "ListEntitiesDetectionV2JobsResponse",
     ComprehendMedicalAsyncJobPropertiesList:
       output.ComprehendMedicalAsyncJobPropertiesList !== undefined &&
       output.ComprehendMedicalAsyncJobPropertiesList !== null
@@ -2892,7 +2850,6 @@ const deserializeAws_json1_1ListICD10CMInferenceJobsResponse = (
   context: __SerdeContext
 ): ListICD10CMInferenceJobsResponse => {
   return {
-    __type: "ListICD10CMInferenceJobsResponse",
     ComprehendMedicalAsyncJobPropertiesList:
       output.ComprehendMedicalAsyncJobPropertiesList !== undefined &&
       output.ComprehendMedicalAsyncJobPropertiesList !== null
@@ -2910,7 +2867,6 @@ const deserializeAws_json1_1ListPHIDetectionJobsResponse = (
   context: __SerdeContext
 ): ListPHIDetectionJobsResponse => {
   return {
-    __type: "ListPHIDetectionJobsResponse",
     ComprehendMedicalAsyncJobPropertiesList:
       output.ComprehendMedicalAsyncJobPropertiesList !== undefined &&
       output.ComprehendMedicalAsyncJobPropertiesList !== null
@@ -2928,7 +2884,6 @@ const deserializeAws_json1_1ListRxNormInferenceJobsResponse = (
   context: __SerdeContext
 ): ListRxNormInferenceJobsResponse => {
   return {
-    __type: "ListRxNormInferenceJobsResponse",
     ComprehendMedicalAsyncJobPropertiesList:
       output.ComprehendMedicalAsyncJobPropertiesList !== undefined &&
       output.ComprehendMedicalAsyncJobPropertiesList !== null
@@ -2943,7 +2898,6 @@ const deserializeAws_json1_1ListRxNormInferenceJobsResponse = (
 
 const deserializeAws_json1_1OutputDataConfig = (output: any, context: __SerdeContext): OutputDataConfig => {
   return {
-    __type: "OutputDataConfig",
     S3Bucket: output.S3Bucket !== undefined && output.S3Bucket !== null ? output.S3Bucket : undefined,
     S3Key: output.S3Key !== undefined && output.S3Key !== null ? output.S3Key : undefined,
   } as any;
@@ -2954,14 +2908,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RxNormAttribute = (output: any, context: __SerdeContext): RxNormAttribute => {
   return {
-    __type: "RxNormAttribute",
     BeginOffset: output.BeginOffset !== undefined && output.BeginOffset !== null ? output.BeginOffset : undefined,
     EndOffset: output.EndOffset !== undefined && output.EndOffset !== null ? output.EndOffset : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -2985,7 +2937,6 @@ const deserializeAws_json1_1RxNormAttributeList = (output: any, context: __Serde
 
 const deserializeAws_json1_1RxNormConcept = (output: any, context: __SerdeContext): RxNormConcept => {
   return {
-    __type: "RxNormConcept",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
@@ -2998,7 +2949,6 @@ const deserializeAws_json1_1RxNormConceptList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1RxNormEntity = (output: any, context: __SerdeContext): RxNormEntity => {
   return {
-    __type: "RxNormEntity",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1RxNormAttributeList(output.Attributes, context)
@@ -3027,7 +2977,6 @@ const deserializeAws_json1_1RxNormEntityList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1RxNormTrait = (output: any, context: __SerdeContext): RxNormTrait => {
   return {
-    __type: "RxNormTrait",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
   } as any;
@@ -3042,7 +2991,6 @@ const deserializeAws_json1_1ServiceUnavailableException = (
   context: __SerdeContext
 ): ServiceUnavailableException => {
   return {
-    __type: "ServiceUnavailableException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3052,7 +3000,6 @@ const deserializeAws_json1_1StartEntitiesDetectionV2JobResponse = (
   context: __SerdeContext
 ): StartEntitiesDetectionV2JobResponse => {
   return {
-    __type: "StartEntitiesDetectionV2JobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -3062,7 +3009,6 @@ const deserializeAws_json1_1StartICD10CMInferenceJobResponse = (
   context: __SerdeContext
 ): StartICD10CMInferenceJobResponse => {
   return {
-    __type: "StartICD10CMInferenceJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -3072,7 +3018,6 @@ const deserializeAws_json1_1StartPHIDetectionJobResponse = (
   context: __SerdeContext
 ): StartPHIDetectionJobResponse => {
   return {
-    __type: "StartPHIDetectionJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -3082,7 +3027,6 @@ const deserializeAws_json1_1StartRxNormInferenceJobResponse = (
   context: __SerdeContext
 ): StartRxNormInferenceJobResponse => {
   return {
-    __type: "StartRxNormInferenceJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -3092,7 +3036,6 @@ const deserializeAws_json1_1StopEntitiesDetectionV2JobResponse = (
   context: __SerdeContext
 ): StopEntitiesDetectionV2JobResponse => {
   return {
-    __type: "StopEntitiesDetectionV2JobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -3102,7 +3045,6 @@ const deserializeAws_json1_1StopICD10CMInferenceJobResponse = (
   context: __SerdeContext
 ): StopICD10CMInferenceJobResponse => {
   return {
-    __type: "StopICD10CMInferenceJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -3112,7 +3054,6 @@ const deserializeAws_json1_1StopPHIDetectionJobResponse = (
   context: __SerdeContext
 ): StopPHIDetectionJobResponse => {
   return {
-    __type: "StopPHIDetectionJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -3122,7 +3063,6 @@ const deserializeAws_json1_1StopRxNormInferenceJobResponse = (
   context: __SerdeContext
 ): StopRxNormInferenceJobResponse => {
   return {
-    __type: "StopRxNormInferenceJobResponse",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
@@ -3132,7 +3072,6 @@ const deserializeAws_json1_1TextSizeLimitExceededException = (
   context: __SerdeContext
 ): TextSizeLimitExceededException => {
   return {
-    __type: "TextSizeLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3142,14 +3081,12 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    __type: "TooManyRequestsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Trait = (output: any, context: __SerdeContext): Trait => {
   return {
-    __type: "Trait",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Score: output.Score !== undefined && output.Score !== null ? output.Score : undefined,
   } as any;
@@ -3161,7 +3098,6 @@ const deserializeAws_json1_1TraitList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1UnmappedAttribute = (output: any, context: __SerdeContext): UnmappedAttribute => {
   return {
-    __type: "UnmappedAttribute",
     Attribute:
       output.Attribute !== undefined && output.Attribute !== null
         ? deserializeAws_json1_1Attribute(output.Attribute, context)
@@ -3176,7 +3112,6 @@ const deserializeAws_json1_1UnmappedAttributeList = (output: any, context: __Ser
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    __type: "ValidationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };

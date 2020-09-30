@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { EnableTopicRuleRequest } from "../models/index.ts";
+import { EnableTopicRuleRequest } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1EnableTopicRuleCommand,
   serializeAws_restJson1EnableTopicRuleCommand,

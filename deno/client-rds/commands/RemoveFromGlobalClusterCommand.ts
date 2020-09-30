@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { RemoveFromGlobalClusterMessage, RemoveFromGlobalClusterResult } from "../models/index.ts";
+import { RemoveFromGlobalClusterMessage, RemoveFromGlobalClusterResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryRemoveFromGlobalClusterCommand,
   serializeAws_queryRemoveFromGlobalClusterCommand,

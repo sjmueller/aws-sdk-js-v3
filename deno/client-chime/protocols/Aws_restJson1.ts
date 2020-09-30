@@ -374,7 +374,7 @@ import {
   VoiceConnectorGroup,
   VoiceConnectorItem,
   VoiceConnectorSettings,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -4603,7 +4603,6 @@ export const deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorComm
   }
   const contents: AssociatePhoneNumbersWithVoiceConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociatePhoneNumbersWithVoiceConnectorResponse",
     PhoneNumberErrors: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4715,7 +4714,6 @@ export const deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorGrou
   }
   const contents: AssociatePhoneNumbersWithVoiceConnectorGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociatePhoneNumbersWithVoiceConnectorGroupResponse",
     PhoneNumberErrors: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4827,7 +4825,6 @@ export const deserializeAws_restJson1AssociatePhoneNumberWithUserCommand = async
   }
   const contents: AssociatePhoneNumberWithUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociatePhoneNumberWithUserResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4935,7 +4932,6 @@ export const deserializeAws_restJson1AssociateSigninDelegateGroupsWithAccountCom
   }
   const contents: AssociateSigninDelegateGroupsWithAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateSigninDelegateGroupsWithAccountResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5035,7 +5031,6 @@ export const deserializeAws_restJson1BatchCreateAttendeeCommand = async (
   }
   const contents: BatchCreateAttendeeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchCreateAttendeeResponse",
     Attendees: undefined,
     Errors: undefined,
   };
@@ -5151,7 +5146,6 @@ export const deserializeAws_restJson1BatchCreateRoomMembershipCommand = async (
   }
   const contents: BatchCreateRoomMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchCreateRoomMembershipResponse",
     Errors: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5255,7 +5249,6 @@ export const deserializeAws_restJson1BatchDeletePhoneNumberCommand = async (
   }
   const contents: BatchDeletePhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDeletePhoneNumberResponse",
     PhoneNumberErrors: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5359,7 +5352,6 @@ export const deserializeAws_restJson1BatchSuspendUserCommand = async (
   }
   const contents: BatchSuspendUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchSuspendUserResponse",
     UserErrors: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5463,7 +5455,6 @@ export const deserializeAws_restJson1BatchUnsuspendUserCommand = async (
   }
   const contents: BatchUnsuspendUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchUnsuspendUserResponse",
     UserErrors: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5567,7 +5558,6 @@ export const deserializeAws_restJson1BatchUpdatePhoneNumberCommand = async (
   }
   const contents: BatchUpdatePhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchUpdatePhoneNumberResponse",
     PhoneNumberErrors: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5671,7 +5661,6 @@ export const deserializeAws_restJson1BatchUpdateUserCommand = async (
   }
   const contents: BatchUpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchUpdateUserResponse",
     UserErrors: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5775,7 +5764,6 @@ export const deserializeAws_restJson1CreateAccountCommand = async (
   }
   const contents: CreateAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAccountResponse",
     Account: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5879,7 +5867,6 @@ export const deserializeAws_restJson1CreateAttendeeCommand = async (
   }
   const contents: CreateAttendeeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAttendeeResponse",
     Attendee: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5991,7 +5978,6 @@ export const deserializeAws_restJson1CreateBotCommand = async (
   }
   const contents: CreateBotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBotResponse",
     Bot: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6103,7 +6089,6 @@ export const deserializeAws_restJson1CreateMeetingCommand = async (
   }
   const contents: CreateMeetingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMeetingResponse",
     Meeting: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6207,7 +6192,6 @@ export const deserializeAws_restJson1CreateMeetingWithAttendeesCommand = async (
   }
   const contents: CreateMeetingWithAttendeesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMeetingWithAttendeesResponse",
     Attendees: undefined,
     Errors: undefined,
     Meeting: undefined,
@@ -6319,7 +6303,6 @@ export const deserializeAws_restJson1CreatePhoneNumberOrderCommand = async (
   }
   const contents: CreatePhoneNumberOrderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePhoneNumberOrderResponse",
     PhoneNumberOrder: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6431,7 +6414,6 @@ export const deserializeAws_restJson1CreateProxySessionCommand = async (
   }
   const contents: CreateProxySessionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProxySessionResponse",
     ProxySession: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6535,7 +6517,6 @@ export const deserializeAws_restJson1CreateRoomCommand = async (
   }
   const contents: CreateRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRoomResponse",
     Room: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6647,7 +6628,6 @@ export const deserializeAws_restJson1CreateRoomMembershipCommand = async (
   }
   const contents: CreateRoomMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRoomMembershipResponse",
     RoomMembership: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6767,7 +6747,6 @@ export const deserializeAws_restJson1CreateUserCommand = async (
   }
   const contents: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserResponse",
     User: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6879,7 +6858,6 @@ export const deserializeAws_restJson1CreateVoiceConnectorCommand = async (
   }
   const contents: CreateVoiceConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVoiceConnectorResponse",
     VoiceConnector: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6991,7 +6969,6 @@ export const deserializeAws_restJson1CreateVoiceConnectorGroupCommand = async (
   }
   const contents: CreateVoiceConnectorGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVoiceConnectorGroupResponse",
     VoiceConnectorGroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7103,7 +7080,6 @@ export const deserializeAws_restJson1DeleteAccountCommand = async (
   }
   const contents: DeleteAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAccountResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8704,7 +8680,6 @@ export const deserializeAws_restJson1DisassociatePhoneNumberFromUserCommand = as
   }
   const contents: DisassociatePhoneNumberFromUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociatePhoneNumberFromUserResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8804,7 +8779,6 @@ export const deserializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorC
   }
   const contents: DisassociatePhoneNumbersFromVoiceConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociatePhoneNumbersFromVoiceConnectorResponse",
     PhoneNumberErrors: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8908,7 +8882,6 @@ export const deserializeAws_restJson1DisassociatePhoneNumbersFromVoiceConnectorG
   }
   const contents: DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociatePhoneNumbersFromVoiceConnectorGroupResponse",
     PhoneNumberErrors: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9012,7 +8985,6 @@ export const deserializeAws_restJson1DisassociateSigninDelegateGroupsFromAccount
   }
   const contents: DisassociateSigninDelegateGroupsFromAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateSigninDelegateGroupsFromAccountResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -9112,7 +9084,6 @@ export const deserializeAws_restJson1GetAccountCommand = async (
   }
   const contents: GetAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccountResponse",
     Account: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9216,7 +9187,6 @@ export const deserializeAws_restJson1GetAccountSettingsCommand = async (
   }
   const contents: GetAccountSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccountSettingsResponse",
     AccountSettings: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9320,7 +9290,6 @@ export const deserializeAws_restJson1GetAttendeeCommand = async (
   }
   const contents: GetAttendeeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAttendeeResponse",
     Attendee: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9424,7 +9393,6 @@ export const deserializeAws_restJson1GetBotCommand = async (
   }
   const contents: GetBotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBotResponse",
     Bot: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9528,7 +9496,6 @@ export const deserializeAws_restJson1GetEventsConfigurationCommand = async (
   }
   const contents: GetEventsConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEventsConfigurationResponse",
     EventsConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9632,7 +9599,6 @@ export const deserializeAws_restJson1GetGlobalSettingsCommand = async (
   }
   const contents: GetGlobalSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGlobalSettingsResponse",
     BusinessCalling: undefined,
     VoiceConnector: undefined,
   };
@@ -9732,7 +9698,6 @@ export const deserializeAws_restJson1GetMeetingCommand = async (
   }
   const contents: GetMeetingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMeetingResponse",
     Meeting: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9836,7 +9801,6 @@ export const deserializeAws_restJson1GetPhoneNumberCommand = async (
   }
   const contents: GetPhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPhoneNumberResponse",
     PhoneNumber: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9940,7 +9904,6 @@ export const deserializeAws_restJson1GetPhoneNumberOrderCommand = async (
   }
   const contents: GetPhoneNumberOrderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPhoneNumberOrderResponse",
     PhoneNumberOrder: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10044,7 +10007,6 @@ export const deserializeAws_restJson1GetPhoneNumberSettingsCommand = async (
   }
   const contents: GetPhoneNumberSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPhoneNumberSettingsResponse",
     CallingName: undefined,
     CallingNameUpdatedTimestamp: undefined,
   };
@@ -10144,7 +10106,6 @@ export const deserializeAws_restJson1GetProxySessionCommand = async (
   }
   const contents: GetProxySessionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetProxySessionResponse",
     ProxySession: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10248,7 +10209,6 @@ export const deserializeAws_restJson1GetRetentionSettingsCommand = async (
   }
   const contents: GetRetentionSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRetentionSettingsResponse",
     InitiateDeletionTimestamp: undefined,
     RetentionSettings: undefined,
   };
@@ -10356,7 +10316,6 @@ export const deserializeAws_restJson1GetRoomCommand = async (
   }
   const contents: GetRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRoomResponse",
     Room: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10460,7 +10419,6 @@ export const deserializeAws_restJson1GetUserCommand = async (
   }
   const contents: GetUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUserResponse",
     User: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10564,7 +10522,6 @@ export const deserializeAws_restJson1GetUserSettingsCommand = async (
   }
   const contents: GetUserSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUserSettingsResponse",
     UserSettings: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10668,7 +10625,6 @@ export const deserializeAws_restJson1GetVoiceConnectorCommand = async (
   }
   const contents: GetVoiceConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVoiceConnectorResponse",
     VoiceConnector: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10772,7 +10728,6 @@ export const deserializeAws_restJson1GetVoiceConnectorEmergencyCallingConfigurat
   }
   const contents: GetVoiceConnectorEmergencyCallingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVoiceConnectorEmergencyCallingConfigurationResponse",
     EmergencyCallingConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10879,7 +10834,6 @@ export const deserializeAws_restJson1GetVoiceConnectorGroupCommand = async (
   }
   const contents: GetVoiceConnectorGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVoiceConnectorGroupResponse",
     VoiceConnectorGroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10983,7 +10937,6 @@ export const deserializeAws_restJson1GetVoiceConnectorLoggingConfigurationComman
   }
   const contents: GetVoiceConnectorLoggingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVoiceConnectorLoggingConfigurationResponse",
     LoggingConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11087,7 +11040,6 @@ export const deserializeAws_restJson1GetVoiceConnectorOriginationCommand = async
   }
   const contents: GetVoiceConnectorOriginationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVoiceConnectorOriginationResponse",
     Origination: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11191,7 +11143,6 @@ export const deserializeAws_restJson1GetVoiceConnectorProxyCommand = async (
   }
   const contents: GetVoiceConnectorProxyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVoiceConnectorProxyResponse",
     Proxy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11295,7 +11246,6 @@ export const deserializeAws_restJson1GetVoiceConnectorStreamingConfigurationComm
   }
   const contents: GetVoiceConnectorStreamingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVoiceConnectorStreamingConfigurationResponse",
     StreamingConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11402,7 +11352,6 @@ export const deserializeAws_restJson1GetVoiceConnectorTerminationCommand = async
   }
   const contents: GetVoiceConnectorTerminationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVoiceConnectorTerminationResponse",
     Termination: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11506,7 +11455,6 @@ export const deserializeAws_restJson1GetVoiceConnectorTerminationHealthCommand =
   }
   const contents: GetVoiceConnectorTerminationHealthCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVoiceConnectorTerminationHealthResponse",
     TerminationHealth: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11610,7 +11558,6 @@ export const deserializeAws_restJson1InviteUsersCommand = async (
   }
   const contents: InviteUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InviteUsersResponse",
     Invites: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11714,7 +11661,6 @@ export const deserializeAws_restJson1ListAccountsCommand = async (
   }
   const contents: ListAccountsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAccountsResponse",
     Accounts: undefined,
     NextToken: undefined,
   };
@@ -11822,7 +11768,6 @@ export const deserializeAws_restJson1ListAttendeesCommand = async (
   }
   const contents: ListAttendeesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAttendeesResponse",
     Attendees: undefined,
     NextToken: undefined,
   };
@@ -11930,7 +11875,6 @@ export const deserializeAws_restJson1ListAttendeeTagsCommand = async (
   }
   const contents: ListAttendeeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAttendeeTagsResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12034,7 +11978,6 @@ export const deserializeAws_restJson1ListBotsCommand = async (
   }
   const contents: ListBotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBotsResponse",
     Bots: undefined,
     NextToken: undefined,
   };
@@ -12142,7 +12085,6 @@ export const deserializeAws_restJson1ListMeetingsCommand = async (
   }
   const contents: ListMeetingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMeetingsResponse",
     Meetings: undefined,
     NextToken: undefined,
   };
@@ -12242,7 +12184,6 @@ export const deserializeAws_restJson1ListMeetingTagsCommand = async (
   }
   const contents: ListMeetingTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMeetingTagsResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12346,7 +12287,6 @@ export const deserializeAws_restJson1ListPhoneNumberOrdersCommand = async (
   }
   const contents: ListPhoneNumberOrdersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPhoneNumberOrdersResponse",
     NextToken: undefined,
     PhoneNumberOrders: undefined,
   };
@@ -12446,7 +12386,6 @@ export const deserializeAws_restJson1ListPhoneNumbersCommand = async (
   }
   const contents: ListPhoneNumbersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPhoneNumbersResponse",
     NextToken: undefined,
     PhoneNumbers: undefined,
   };
@@ -12546,7 +12485,6 @@ export const deserializeAws_restJson1ListProxySessionsCommand = async (
   }
   const contents: ListProxySessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProxySessionsResponse",
     NextToken: undefined,
     ProxySessions: undefined,
   };
@@ -12654,7 +12592,6 @@ export const deserializeAws_restJson1ListRoomMembershipsCommand = async (
   }
   const contents: ListRoomMembershipsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRoomMembershipsResponse",
     NextToken: undefined,
     RoomMemberships: undefined,
   };
@@ -12762,7 +12699,6 @@ export const deserializeAws_restJson1ListRoomsCommand = async (
   }
   const contents: ListRoomsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRoomsResponse",
     NextToken: undefined,
     Rooms: undefined,
   };
@@ -12870,7 +12806,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12966,7 +12901,6 @@ export const deserializeAws_restJson1ListUsersCommand = async (
   }
   const contents: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUsersResponse",
     NextToken: undefined,
     Users: undefined,
   };
@@ -13074,7 +13008,6 @@ export const deserializeAws_restJson1ListVoiceConnectorGroupsCommand = async (
   }
   const contents: ListVoiceConnectorGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVoiceConnectorGroupsResponse",
     NextToken: undefined,
     VoiceConnectorGroups: undefined,
   };
@@ -13174,7 +13107,6 @@ export const deserializeAws_restJson1ListVoiceConnectorsCommand = async (
   }
   const contents: ListVoiceConnectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVoiceConnectorsResponse",
     NextToken: undefined,
     VoiceConnectors: undefined,
   };
@@ -13274,7 +13206,6 @@ export const deserializeAws_restJson1ListVoiceConnectorTerminationCredentialsCom
   }
   const contents: ListVoiceConnectorTerminationCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVoiceConnectorTerminationCredentialsResponse",
     Usernames: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13378,7 +13309,6 @@ export const deserializeAws_restJson1LogoutUserCommand = async (
   }
   const contents: LogoutUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "LogoutUserResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -13478,7 +13408,6 @@ export const deserializeAws_restJson1PutEventsConfigurationCommand = async (
   }
   const contents: PutEventsConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutEventsConfigurationResponse",
     EventsConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13582,7 +13511,6 @@ export const deserializeAws_restJson1PutRetentionSettingsCommand = async (
   }
   const contents: PutRetentionSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutRetentionSettingsResponse",
     InitiateDeletionTimestamp: undefined,
     RetentionSettings: undefined,
   };
@@ -13698,7 +13626,6 @@ export const deserializeAws_restJson1PutVoiceConnectorEmergencyCallingConfigurat
   }
   const contents: PutVoiceConnectorEmergencyCallingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutVoiceConnectorEmergencyCallingConfigurationResponse",
     EmergencyCallingConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13805,7 +13732,6 @@ export const deserializeAws_restJson1PutVoiceConnectorLoggingConfigurationComman
   }
   const contents: PutVoiceConnectorLoggingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutVoiceConnectorLoggingConfigurationResponse",
     LoggingConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13909,7 +13835,6 @@ export const deserializeAws_restJson1PutVoiceConnectorOriginationCommand = async
   }
   const contents: PutVoiceConnectorOriginationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutVoiceConnectorOriginationResponse",
     Origination: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14013,7 +13938,6 @@ export const deserializeAws_restJson1PutVoiceConnectorProxyCommand = async (
   }
   const contents: PutVoiceConnectorProxyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutVoiceConnectorProxyResponse",
     Proxy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14125,7 +14049,6 @@ export const deserializeAws_restJson1PutVoiceConnectorStreamingConfigurationComm
   }
   const contents: PutVoiceConnectorStreamingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutVoiceConnectorStreamingConfigurationResponse",
     StreamingConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14232,7 +14155,6 @@ export const deserializeAws_restJson1PutVoiceConnectorTerminationCommand = async
   }
   const contents: PutVoiceConnectorTerminationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutVoiceConnectorTerminationResponse",
     Termination: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14443,7 +14365,6 @@ export const deserializeAws_restJson1RedactConversationMessageCommand = async (
   }
   const contents: RedactConversationMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RedactConversationMessageResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -14543,7 +14464,6 @@ export const deserializeAws_restJson1RedactRoomMessageCommand = async (
   }
   const contents: RedactRoomMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RedactRoomMessageResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -14643,7 +14563,6 @@ export const deserializeAws_restJson1RegenerateSecurityTokenCommand = async (
   }
   const contents: RegenerateSecurityTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegenerateSecurityTokenResponse",
     Bot: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14747,7 +14666,6 @@ export const deserializeAws_restJson1ResetPersonalPINCommand = async (
   }
   const contents: ResetPersonalPINCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResetPersonalPINResponse",
     User: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14851,7 +14769,6 @@ export const deserializeAws_restJson1RestorePhoneNumberCommand = async (
   }
   const contents: RestorePhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestorePhoneNumberResponse",
     PhoneNumber: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14963,7 +14880,6 @@ export const deserializeAws_restJson1SearchAvailablePhoneNumbersCommand = async 
   }
   const contents: SearchAvailablePhoneNumbersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchAvailablePhoneNumbersResponse",
     E164PhoneNumbers: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -15661,7 +15577,6 @@ export const deserializeAws_restJson1UpdateAccountCommand = async (
   }
   const contents: UpdateAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAccountResponse",
     Account: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -15765,7 +15680,6 @@ export const deserializeAws_restJson1UpdateAccountSettingsCommand = async (
   }
   const contents: UpdateAccountSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAccountSettingsResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -15873,7 +15787,6 @@ export const deserializeAws_restJson1UpdateBotCommand = async (
   }
   const contents: UpdateBotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateBotResponse",
     Bot: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -16068,7 +15981,6 @@ export const deserializeAws_restJson1UpdatePhoneNumberCommand = async (
   }
   const contents: UpdatePhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdatePhoneNumberResponse",
     PhoneNumber: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -16263,7 +16175,6 @@ export const deserializeAws_restJson1UpdateProxySessionCommand = async (
   }
   const contents: UpdateProxySessionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateProxySessionResponse",
     ProxySession: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -16367,7 +16278,6 @@ export const deserializeAws_restJson1UpdateRoomCommand = async (
   }
   const contents: UpdateRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRoomResponse",
     Room: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -16471,7 +16381,6 @@ export const deserializeAws_restJson1UpdateRoomMembershipCommand = async (
   }
   const contents: UpdateRoomMembershipCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRoomMembershipResponse",
     RoomMembership: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -16575,7 +16484,6 @@ export const deserializeAws_restJson1UpdateUserCommand = async (
   }
   const contents: UpdateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateUserResponse",
     User: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -16778,7 +16686,6 @@ export const deserializeAws_restJson1UpdateVoiceConnectorCommand = async (
   }
   const contents: UpdateVoiceConnectorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateVoiceConnectorResponse",
     VoiceConnector: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -16882,7 +16789,6 @@ export const deserializeAws_restJson1UpdateVoiceConnectorGroupCommand = async (
   }
   const contents: UpdateVoiceConnectorGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateVoiceConnectorGroupResponse",
     VoiceConnectorGroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -17587,7 +17493,6 @@ const serializeAws_restJson1VoiceConnectorSettings = (input: VoiceConnectorSetti
 
 const deserializeAws_restJson1Account = (output: any, context: __SerdeContext): Account => {
   return {
-    __type: "Account",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     AccountType: output.AccountType !== undefined && output.AccountType !== null ? output.AccountType : undefined,
     AwsAccountId: output.AwsAccountId !== undefined && output.AwsAccountId !== null ? output.AwsAccountId : undefined,
@@ -17615,7 +17520,6 @@ const deserializeAws_restJson1AccountList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1AccountSettings = (output: any, context: __SerdeContext): AccountSettings => {
   return {
-    __type: "AccountSettings",
     DisableRemoteControl:
       output.DisableRemoteControl !== undefined && output.DisableRemoteControl !== null
         ? output.DisableRemoteControl
@@ -17630,7 +17534,6 @@ const deserializeAws_restJson1AlexaForBusinessMetadata = (
   context: __SerdeContext
 ): AlexaForBusinessMetadata => {
   return {
-    __type: "AlexaForBusinessMetadata",
     AlexaForBusinessRoomArn:
       output.AlexaForBusinessRoomArn !== undefined && output.AlexaForBusinessRoomArn !== null
         ? output.AlexaForBusinessRoomArn
@@ -17644,7 +17547,6 @@ const deserializeAws_restJson1AlexaForBusinessMetadata = (
 
 const deserializeAws_restJson1Attendee = (output: any, context: __SerdeContext): Attendee => {
   return {
-    __type: "Attendee",
     AttendeeId: output.AttendeeId !== undefined && output.AttendeeId !== null ? output.AttendeeId : undefined,
     ExternalUserId:
       output.ExternalUserId !== undefined && output.ExternalUserId !== null ? output.ExternalUserId : undefined,
@@ -17665,7 +17567,6 @@ const deserializeAws_restJson1BatchCreateAttendeeErrorList = (
 
 const deserializeAws_restJson1Bot = (output: any, context: __SerdeContext): Bot => {
   return {
-    __type: "Bot",
     BotEmail: output.BotEmail !== undefined && output.BotEmail !== null ? output.BotEmail : undefined,
     BotId: output.BotId !== undefined && output.BotId !== null ? output.BotId : undefined,
     BotType: output.BotType !== undefined && output.BotType !== null ? output.BotType : undefined,
@@ -17694,7 +17595,6 @@ const deserializeAws_restJson1BusinessCallingSettings = (
   context: __SerdeContext
 ): BusinessCallingSettings => {
   return {
-    __type: "BusinessCallingSettings",
     CdrBucket: output.CdrBucket !== undefined && output.CdrBucket !== null ? output.CdrBucket : undefined,
   } as any;
 };
@@ -17712,7 +17612,6 @@ const deserializeAws_restJson1ConversationRetentionSettings = (
   context: __SerdeContext
 ): ConversationRetentionSettings => {
   return {
-    __type: "ConversationRetentionSettings",
     RetentionDays:
       output.RetentionDays !== undefined && output.RetentionDays !== null ? output.RetentionDays : undefined,
   } as any;
@@ -17720,7 +17619,6 @@ const deserializeAws_restJson1ConversationRetentionSettings = (
 
 const deserializeAws_restJson1CreateAttendeeError = (output: any, context: __SerdeContext): CreateAttendeeError => {
   return {
-    __type: "CreateAttendeeError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     ExternalUserId:
@@ -17733,7 +17631,6 @@ const deserializeAws_restJson1DNISEmergencyCallingConfiguration = (
   context: __SerdeContext
 ): DNISEmergencyCallingConfiguration => {
   return {
-    __type: "DNISEmergencyCallingConfiguration",
     CallingCountry:
       output.CallingCountry !== undefined && output.CallingCountry !== null ? output.CallingCountry : undefined,
     EmergencyPhoneNumber:
@@ -17761,7 +17658,6 @@ const deserializeAws_restJson1EmergencyCallingConfiguration = (
   context: __SerdeContext
 ): EmergencyCallingConfiguration => {
   return {
-    __type: "EmergencyCallingConfiguration",
     DNIS:
       output.DNIS !== undefined && output.DNIS !== null
         ? deserializeAws_restJson1DNISEmergencyCallingConfigurationList(output.DNIS, context)
@@ -17771,7 +17667,6 @@ const deserializeAws_restJson1EmergencyCallingConfiguration = (
 
 const deserializeAws_restJson1EventsConfiguration = (output: any, context: __SerdeContext): EventsConfiguration => {
   return {
-    __type: "EventsConfiguration",
     BotId: output.BotId !== undefined && output.BotId !== null ? output.BotId : undefined,
     LambdaFunctionArn:
       output.LambdaFunctionArn !== undefined && output.LambdaFunctionArn !== null
@@ -17786,7 +17681,6 @@ const deserializeAws_restJson1EventsConfiguration = (output: any, context: __Ser
 
 const deserializeAws_restJson1GeoMatchParams = (output: any, context: __SerdeContext): GeoMatchParams => {
   return {
-    __type: "GeoMatchParams",
     AreaCode: output.AreaCode !== undefined && output.AreaCode !== null ? output.AreaCode : undefined,
     Country: output.Country !== undefined && output.Country !== null ? output.Country : undefined,
   } as any;
@@ -17794,7 +17688,6 @@ const deserializeAws_restJson1GeoMatchParams = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Invite = (output: any, context: __SerdeContext): Invite => {
   return {
-    __type: "Invite",
     EmailAddress: output.EmailAddress !== undefined && output.EmailAddress !== null ? output.EmailAddress : undefined,
     EmailStatus: output.EmailStatus !== undefined && output.EmailStatus !== null ? output.EmailStatus : undefined,
     InviteId: output.InviteId !== undefined && output.InviteId !== null ? output.InviteId : undefined,
@@ -17812,7 +17705,6 @@ const deserializeAws_restJson1LicenseList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1LoggingConfiguration = (output: any, context: __SerdeContext): LoggingConfiguration => {
   return {
-    __type: "LoggingConfiguration",
     EnableSIPLogs:
       output.EnableSIPLogs !== undefined && output.EnableSIPLogs !== null ? output.EnableSIPLogs : undefined,
   } as any;
@@ -17820,7 +17712,6 @@ const deserializeAws_restJson1LoggingConfiguration = (output: any, context: __Se
 
 const deserializeAws_restJson1MediaPlacement = (output: any, context: __SerdeContext): MediaPlacement => {
   return {
-    __type: "MediaPlacement",
     AudioFallbackUrl:
       output.AudioFallbackUrl !== undefined && output.AudioFallbackUrl !== null ? output.AudioFallbackUrl : undefined,
     AudioHostUrl: output.AudioHostUrl !== undefined && output.AudioHostUrl !== null ? output.AudioHostUrl : undefined,
@@ -17838,7 +17729,6 @@ const deserializeAws_restJson1MediaPlacement = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Meeting = (output: any, context: __SerdeContext): Meeting => {
   return {
-    __type: "Meeting",
     ExternalMeetingId:
       output.ExternalMeetingId !== undefined && output.ExternalMeetingId !== null
         ? output.ExternalMeetingId
@@ -17858,7 +17748,6 @@ const deserializeAws_restJson1MeetingList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): Member => {
   return {
-    __type: "Member",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
     FullName: output.FullName !== undefined && output.FullName !== null ? output.FullName : undefined,
@@ -17869,7 +17758,6 @@ const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): M
 
 const deserializeAws_restJson1MemberError = (output: any, context: __SerdeContext): MemberError => {
   return {
-    __type: "MemberError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     MemberId: output.MemberId !== undefined && output.MemberId !== null ? output.MemberId : undefined,
@@ -17882,7 +17770,6 @@ const deserializeAws_restJson1MemberErrorList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1OrderedPhoneNumber = (output: any, context: __SerdeContext): OrderedPhoneNumber => {
   return {
-    __type: "OrderedPhoneNumber",
     E164PhoneNumber:
       output.E164PhoneNumber !== undefined && output.E164PhoneNumber !== null ? output.E164PhoneNumber : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
@@ -17895,7 +17782,6 @@ const deserializeAws_restJson1OrderedPhoneNumberList = (output: any, context: __
 
 const deserializeAws_restJson1Origination = (output: any, context: __SerdeContext): Origination => {
   return {
-    __type: "Origination",
     Disabled: output.Disabled !== undefined && output.Disabled !== null ? output.Disabled : undefined,
     Routes:
       output.Routes !== undefined && output.Routes !== null
@@ -17906,7 +17792,6 @@ const deserializeAws_restJson1Origination = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1OriginationRoute = (output: any, context: __SerdeContext): OriginationRoute => {
   return {
-    __type: "OriginationRoute",
     Host: output.Host !== undefined && output.Host !== null ? output.Host : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
     Priority: output.Priority !== undefined && output.Priority !== null ? output.Priority : undefined,
@@ -17921,7 +17806,6 @@ const deserializeAws_restJson1OriginationRouteList = (output: any, context: __Se
 
 const deserializeAws_restJson1Participant = (output: any, context: __SerdeContext): Participant => {
   return {
-    __type: "Participant",
     PhoneNumber: output.PhoneNumber !== undefined && output.PhoneNumber !== null ? output.PhoneNumber : undefined,
     ProxyPhoneNumber:
       output.ProxyPhoneNumber !== undefined && output.ProxyPhoneNumber !== null ? output.ProxyPhoneNumber : undefined,
@@ -17934,7 +17818,6 @@ const deserializeAws_restJson1Participants = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1PhoneNumber = (output: any, context: __SerdeContext): PhoneNumber => {
   return {
-    __type: "PhoneNumber",
     Associations:
       output.Associations !== undefined && output.Associations !== null
         ? deserializeAws_restJson1PhoneNumberAssociationList(output.Associations, context)
@@ -17975,7 +17858,6 @@ const deserializeAws_restJson1PhoneNumberAssociation = (
   context: __SerdeContext
 ): PhoneNumberAssociation => {
   return {
-    __type: "PhoneNumberAssociation",
     AssociatedTimestamp:
       output.AssociatedTimestamp !== undefined && output.AssociatedTimestamp !== null
         ? new Date(output.AssociatedTimestamp)
@@ -17997,7 +17879,6 @@ const deserializeAws_restJson1PhoneNumberCapabilities = (
   context: __SerdeContext
 ): PhoneNumberCapabilities => {
   return {
-    __type: "PhoneNumberCapabilities",
     InboundCall: output.InboundCall !== undefined && output.InboundCall !== null ? output.InboundCall : undefined,
     InboundMMS: output.InboundMMS !== undefined && output.InboundMMS !== null ? output.InboundMMS : undefined,
     InboundSMS: output.InboundSMS !== undefined && output.InboundSMS !== null ? output.InboundSMS : undefined,
@@ -18009,7 +17890,6 @@ const deserializeAws_restJson1PhoneNumberCapabilities = (
 
 const deserializeAws_restJson1PhoneNumberError = (output: any, context: __SerdeContext): PhoneNumberError => {
   return {
-    __type: "PhoneNumberError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     PhoneNumberId:
@@ -18027,7 +17907,6 @@ const deserializeAws_restJson1PhoneNumberList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1PhoneNumberOrder = (output: any, context: __SerdeContext): PhoneNumberOrder => {
   return {
-    __type: "PhoneNumberOrder",
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
         ? new Date(output.CreatedTimestamp)
@@ -18055,7 +17934,6 @@ const deserializeAws_restJson1PhoneNumberOrderList = (output: any, context: __Se
 
 const deserializeAws_restJson1Proxy = (output: any, context: __SerdeContext): Proxy => {
   return {
-    __type: "Proxy",
     DefaultSessionExpiryMinutes:
       output.DefaultSessionExpiryMinutes !== undefined && output.DefaultSessionExpiryMinutes !== null
         ? output.DefaultSessionExpiryMinutes
@@ -18074,7 +17952,6 @@ const deserializeAws_restJson1Proxy = (output: any, context: __SerdeContext): Pr
 
 const deserializeAws_restJson1ProxySession = (output: any, context: __SerdeContext): ProxySession => {
   return {
-    __type: "ProxySession",
     Capabilities:
       output.Capabilities !== undefined && output.Capabilities !== null
         ? deserializeAws_restJson1CapabilityList(output.Capabilities, context)
@@ -18122,7 +17999,6 @@ const deserializeAws_restJson1ProxySessions = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1RetentionSettings = (output: any, context: __SerdeContext): RetentionSettings => {
   return {
-    __type: "RetentionSettings",
     ConversationRetentionSettings:
       output.ConversationRetentionSettings !== undefined && output.ConversationRetentionSettings !== null
         ? deserializeAws_restJson1ConversationRetentionSettings(output.ConversationRetentionSettings, context)
@@ -18136,7 +18012,6 @@ const deserializeAws_restJson1RetentionSettings = (output: any, context: __Serde
 
 const deserializeAws_restJson1Room = (output: any, context: __SerdeContext): Room => {
   return {
-    __type: "Room",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     CreatedBy: output.CreatedBy !== undefined && output.CreatedBy !== null ? output.CreatedBy : undefined,
     CreatedTimestamp:
@@ -18158,7 +18033,6 @@ const deserializeAws_restJson1RoomList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1RoomMembership = (output: any, context: __SerdeContext): RoomMembership => {
   return {
-    __type: "RoomMembership",
     InvitedBy: output.InvitedBy !== undefined && output.InvitedBy !== null ? output.InvitedBy : undefined,
     Member:
       output.Member !== undefined && output.Member !== null
@@ -18179,7 +18053,6 @@ const deserializeAws_restJson1RoomMembershipList = (output: any, context: __Serd
 
 const deserializeAws_restJson1RoomRetentionSettings = (output: any, context: __SerdeContext): RoomRetentionSettings => {
   return {
-    __type: "RoomRetentionSettings",
     RetentionDays:
       output.RetentionDays !== undefined && output.RetentionDays !== null ? output.RetentionDays : undefined,
   } as any;
@@ -18191,7 +18064,6 @@ const deserializeAws_restJson1SensitiveStringList = (output: any, context: __Ser
 
 const deserializeAws_restJson1SigninDelegateGroup = (output: any, context: __SerdeContext): SigninDelegateGroup => {
   return {
-    __type: "SigninDelegateGroup",
     GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
   } as any;
 };
@@ -18208,7 +18080,6 @@ const deserializeAws_restJson1StreamingConfiguration = (
   context: __SerdeContext
 ): StreamingConfiguration => {
   return {
-    __type: "StreamingConfiguration",
     DataRetentionInHours:
       output.DataRetentionInHours !== undefined && output.DataRetentionInHours !== null
         ? output.DataRetentionInHours
@@ -18226,7 +18097,6 @@ const deserializeAws_restJson1StreamingNotificationTarget = (
   context: __SerdeContext
 ): StreamingNotificationTarget => {
   return {
-    __type: "StreamingNotificationTarget",
     NotificationTarget:
       output.NotificationTarget !== undefined && output.NotificationTarget !== null
         ? output.NotificationTarget
@@ -18247,7 +18117,6 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -18259,7 +18128,6 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1TelephonySettings = (output: any, context: __SerdeContext): TelephonySettings => {
   return {
-    __type: "TelephonySettings",
     InboundCalling:
       output.InboundCalling !== undefined && output.InboundCalling !== null ? output.InboundCalling : undefined,
     OutboundCalling:
@@ -18270,7 +18138,6 @@ const deserializeAws_restJson1TelephonySettings = (output: any, context: __Serde
 
 const deserializeAws_restJson1Termination = (output: any, context: __SerdeContext): Termination => {
   return {
-    __type: "Termination",
     CallingRegions:
       output.CallingRegions !== undefined && output.CallingRegions !== null
         ? deserializeAws_restJson1CallingRegionList(output.CallingRegions, context)
@@ -18290,7 +18157,6 @@ const deserializeAws_restJson1Termination = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1TerminationHealth = (output: any, context: __SerdeContext): TerminationHealth => {
   return {
-    __type: "TerminationHealth",
     Source: output.Source !== undefined && output.Source !== null ? output.Source : undefined,
     Timestamp: output.Timestamp !== undefined && output.Timestamp !== null ? new Date(output.Timestamp) : undefined,
   } as any;
@@ -18298,7 +18164,6 @@ const deserializeAws_restJson1TerminationHealth = (output: any, context: __Serde
 
 const deserializeAws_restJson1User = (output: any, context: __SerdeContext): User => {
   return {
-    __type: "User",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     AlexaForBusinessMetadata:
       output.AlexaForBusinessMetadata !== undefined && output.AlexaForBusinessMetadata !== null
@@ -18330,7 +18195,6 @@ const deserializeAws_restJson1User = (output: any, context: __SerdeContext): Use
 
 const deserializeAws_restJson1UserError = (output: any, context: __SerdeContext): UserError => {
   return {
-    __type: "UserError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     UserId: output.UserId !== undefined && output.UserId !== null ? output.UserId : undefined,
@@ -18347,7 +18211,6 @@ const deserializeAws_restJson1UserList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1UserSettings = (output: any, context: __SerdeContext): UserSettings => {
   return {
-    __type: "UserSettings",
     Telephony:
       output.Telephony !== undefined && output.Telephony !== null
         ? deserializeAws_restJson1TelephonySettings(output.Telephony, context)
@@ -18357,7 +18220,6 @@ const deserializeAws_restJson1UserSettings = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1VoiceConnector = (output: any, context: __SerdeContext): VoiceConnector => {
   return {
-    __type: "VoiceConnector",
     AwsRegion: output.AwsRegion !== undefined && output.AwsRegion !== null ? output.AwsRegion : undefined,
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
@@ -18381,7 +18243,6 @@ const deserializeAws_restJson1VoiceConnector = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1VoiceConnectorGroup = (output: any, context: __SerdeContext): VoiceConnectorGroup => {
   return {
-    __type: "VoiceConnectorGroup",
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
         ? new Date(output.CreatedTimestamp)
@@ -18411,7 +18272,6 @@ const deserializeAws_restJson1VoiceConnectorGroupList = (
 
 const deserializeAws_restJson1VoiceConnectorItem = (output: any, context: __SerdeContext): VoiceConnectorItem => {
   return {
-    __type: "VoiceConnectorItem",
     Priority: output.Priority !== undefined && output.Priority !== null ? output.Priority : undefined,
     VoiceConnectorId:
       output.VoiceConnectorId !== undefined && output.VoiceConnectorId !== null ? output.VoiceConnectorId : undefined,
@@ -18431,7 +18291,6 @@ const deserializeAws_restJson1VoiceConnectorSettings = (
   context: __SerdeContext
 ): VoiceConnectorSettings => {
   return {
-    __type: "VoiceConnectorSettings",
     CdrBucket: output.CdrBucket !== undefined && output.CdrBucket !== null ? output.CdrBucket : undefined,
   } as any;
 };

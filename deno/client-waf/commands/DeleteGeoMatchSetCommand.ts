@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { DeleteGeoMatchSetRequest, DeleteGeoMatchSetResponse } from "../models/index.ts";
+import { DeleteGeoMatchSetRequest, DeleteGeoMatchSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteGeoMatchSetCommand,
   serializeAws_json1_1DeleteGeoMatchSetCommand,

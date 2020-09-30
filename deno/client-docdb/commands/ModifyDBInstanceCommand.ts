@@ -1,6 +1,6 @@
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
-import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/index.ts";
+import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryModifyDBInstanceCommand,
   serializeAws_queryModifyDBInstanceCommand,

@@ -1,6 +1,6 @@
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
-import { DescribePortalRequest, DescribePortalResponse } from "../models/index.ts";
+import { DescribePortalRequest, DescribePortalResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribePortalCommand,
   serializeAws_restJson1DescribePortalCommand,

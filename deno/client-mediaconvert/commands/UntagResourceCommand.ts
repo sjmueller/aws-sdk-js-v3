@@ -1,6 +1,6 @@
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient.ts";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/index.ts";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UntagResourceCommand,
   serializeAws_restJson1UntagResourceCommand,

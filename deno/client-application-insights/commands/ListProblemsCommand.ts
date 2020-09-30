@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import { ListProblemsRequest, ListProblemsResponse } from "../models/index.ts";
+import { ListProblemsRequest, ListProblemsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListProblemsCommand,
   serializeAws_json1_1ListProblemsCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { DeleteReplicationSubnetGroupMessage, DeleteReplicationSubnetGroupResponse } from "../models/index.ts";
+import { DeleteReplicationSubnetGroupMessage, DeleteReplicationSubnetGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteReplicationSubnetGroupCommand,
   serializeAws_json1_1DeleteReplicationSubnetGroupCommand,

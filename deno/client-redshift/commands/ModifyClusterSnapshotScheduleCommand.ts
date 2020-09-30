@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { ModifyClusterSnapshotScheduleMessage } from "../models/index.ts";
+import { ModifyClusterSnapshotScheduleMessage } from "../models/models_1.ts";
 import {
   deserializeAws_queryModifyClusterSnapshotScheduleCommand,
   serializeAws_queryModifyClusterSnapshotScheduleCommand,

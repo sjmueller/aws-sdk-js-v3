@@ -1,6 +1,6 @@
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient.ts";
-import { ListPlaybackConfigurationsRequest, ListPlaybackConfigurationsResponse } from "../models/index.ts";
+import { ListPlaybackConfigurationsRequest, ListPlaybackConfigurationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListPlaybackConfigurationsCommand,
   serializeAws_restJson1ListPlaybackConfigurationsCommand,

@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeIamInstanceProfileAssociationsRequest,
   DescribeIamInstanceProfileAssociationsResult,
-} from "../models/index.ts";
+} from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand,
   serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand,

@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { GetInsightRuleReportInput, GetInsightRuleReportOutput } from "../models/index.ts";
+import { GetInsightRuleReportInput, GetInsightRuleReportOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetInsightRuleReportCommand,
   serializeAws_queryGetInsightRuleReportCommand,

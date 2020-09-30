@@ -1,6 +1,6 @@
 
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
-import { DeleteEmailIdentityPolicyRequest, DeleteEmailIdentityPolicyResponse } from "../models/index.ts";
+import { DeleteEmailIdentityPolicyRequest, DeleteEmailIdentityPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteEmailIdentityPolicyCommand,
   serializeAws_restJson1DeleteEmailIdentityPolicyCommand,

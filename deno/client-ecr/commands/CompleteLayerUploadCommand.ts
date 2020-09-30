@@ -1,6 +1,6 @@
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
-import { CompleteLayerUploadRequest, CompleteLayerUploadResponse } from "../models/index.ts";
+import { CompleteLayerUploadRequest, CompleteLayerUploadResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CompleteLayerUploadCommand,
   serializeAws_json1_1CompleteLayerUploadCommand,

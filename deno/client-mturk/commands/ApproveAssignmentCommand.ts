@@ -1,6 +1,6 @@
 
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
-import { ApproveAssignmentRequest, ApproveAssignmentResponse } from "../models/index.ts";
+import { ApproveAssignmentRequest, ApproveAssignmentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ApproveAssignmentCommand,
   serializeAws_json1_1ApproveAssignmentCommand,

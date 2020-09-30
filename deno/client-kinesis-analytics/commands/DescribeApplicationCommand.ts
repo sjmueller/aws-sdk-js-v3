@@ -1,6 +1,6 @@
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient.ts";
-import { DescribeApplicationRequest, DescribeApplicationResponse } from "../models/index.ts";
+import { DescribeApplicationRequest, DescribeApplicationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeApplicationCommand,
   serializeAws_json1_1DescribeApplicationCommand,

@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { CreateGroupRequest, CreateGroupResponse } from "../models/index.ts";
+import { CreateGroupRequest, CreateGroupResponse } from "../models/models_0.ts";
 import { deserializeAws_queryCreateGroupCommand, serializeAws_queryCreateGroupCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";

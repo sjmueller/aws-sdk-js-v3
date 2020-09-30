@@ -1,6 +1,6 @@
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient.ts";
-import { DeleteSubscriberRequest, DeleteSubscriberResponse } from "../models/index.ts";
+import { DeleteSubscriberRequest, DeleteSubscriberResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteSubscriberCommand,
   serializeAws_json1_1DeleteSubscriberCommand,

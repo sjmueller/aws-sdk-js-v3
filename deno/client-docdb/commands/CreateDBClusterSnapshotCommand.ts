@@ -1,6 +1,6 @@
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
-import { CreateDBClusterSnapshotMessage, CreateDBClusterSnapshotResult } from "../models/index.ts";
+import { CreateDBClusterSnapshotMessage, CreateDBClusterSnapshotResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateDBClusterSnapshotCommand,
   serializeAws_queryCreateDBClusterSnapshotCommand,

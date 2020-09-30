@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { AdminListUserAuthEventsRequest, AdminListUserAuthEventsResponse } from "../models/index.ts";
+import { AdminListUserAuthEventsRequest, AdminListUserAuthEventsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AdminListUserAuthEventsCommand,
   serializeAws_json1_1AdminListUserAuthEventsCommand,

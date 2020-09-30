@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeNetworkAclsRequest, DescribeNetworkAclsResult } from "../models/index.ts";
+import { DescribeNetworkAclsRequest, DescribeNetworkAclsResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeNetworkAclsCommand,
   serializeAws_ec2DescribeNetworkAclsCommand,

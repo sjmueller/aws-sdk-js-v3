@@ -1,6 +1,6 @@
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient.ts";
-import { UpdateReportGroupInput, UpdateReportGroupOutput } from "../models/index.ts";
+import { UpdateReportGroupInput, UpdateReportGroupOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateReportGroupCommand,
   serializeAws_json1_1UpdateReportGroupCommand,

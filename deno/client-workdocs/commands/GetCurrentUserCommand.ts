@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { GetCurrentUserRequest, GetCurrentUserResponse } from "../models/index.ts";
+import { GetCurrentUserRequest, GetCurrentUserResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetCurrentUserCommand,
   serializeAws_restJson1GetCurrentUserCommand,

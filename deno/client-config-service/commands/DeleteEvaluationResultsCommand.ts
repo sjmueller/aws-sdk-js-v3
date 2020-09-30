@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { DeleteEvaluationResultsRequest, DeleteEvaluationResultsResponse } from "../models/index.ts";
+import { DeleteEvaluationResultsRequest, DeleteEvaluationResultsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteEvaluationResultsCommand,
   serializeAws_json1_1DeleteEvaluationResultsCommand,

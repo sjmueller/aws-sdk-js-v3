@@ -1,6 +1,6 @@
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient.ts";
-import { DeleteMissionProfileRequest, MissionProfileIdResponse } from "../models/index.ts";
+import { DeleteMissionProfileRequest, MissionProfileIdResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteMissionProfileCommand,
   serializeAws_restJson1DeleteMissionProfileCommand,

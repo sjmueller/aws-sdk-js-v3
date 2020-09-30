@@ -1,6 +1,6 @@
 
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
-import { DeleteAppLaunchConfigurationRequest, DeleteAppLaunchConfigurationResponse } from "../models/index.ts";
+import { DeleteAppLaunchConfigurationRequest, DeleteAppLaunchConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteAppLaunchConfigurationCommand,
   serializeAws_json1_1DeleteAppLaunchConfigurationCommand,

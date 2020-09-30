@@ -1,6 +1,6 @@
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient.ts";
-import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/index.ts";
+import { UpdateApplicationRequest, UpdateApplicationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateApplicationCommand,
   serializeAws_json1_1UpdateApplicationCommand,

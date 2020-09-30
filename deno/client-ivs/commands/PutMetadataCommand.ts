@@ -1,6 +1,6 @@
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient.ts";
-import { PutMetadataRequest } from "../models/index.ts";
+import { PutMetadataRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutMetadataCommand,
   serializeAws_restJson1PutMetadataCommand,

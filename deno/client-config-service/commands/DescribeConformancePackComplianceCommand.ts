@@ -1,6 +1,9 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { DescribeConformancePackComplianceRequest, DescribeConformancePackComplianceResponse } from "../models/index.ts";
+import {
+  DescribeConformancePackComplianceRequest,
+  DescribeConformancePackComplianceResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeConformancePackComplianceCommand,
   serializeAws_json1_1DescribeConformancePackComplianceCommand,

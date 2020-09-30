@@ -1,6 +1,6 @@
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient.ts";
-import { GetDeviceRequest, GetDeviceResponse } from "../models/index.ts";
+import { GetDeviceRequest, GetDeviceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetDeviceCommand,
   serializeAws_restJson1GetDeviceCommand,

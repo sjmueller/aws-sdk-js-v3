@@ -1,6 +1,6 @@
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient.ts";
-import { StopDeploymentInput, StopDeploymentOutput } from "../models/index.ts";
+import { StopDeploymentInput, StopDeploymentOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopDeploymentCommand,
   serializeAws_json1_1StopDeploymentCommand,

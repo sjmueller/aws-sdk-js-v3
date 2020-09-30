@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DeleteOptionGroupMessage } from "../models/index.ts";
+import { DeleteOptionGroupMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteOptionGroupCommand,
   serializeAws_queryDeleteOptionGroupCommand,

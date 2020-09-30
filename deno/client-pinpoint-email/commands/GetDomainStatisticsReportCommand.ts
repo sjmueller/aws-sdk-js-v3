@@ -1,6 +1,6 @@
 
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
-import { GetDomainStatisticsReportRequest, GetDomainStatisticsReportResponse } from "../models/index.ts";
+import { GetDomainStatisticsReportRequest, GetDomainStatisticsReportResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetDomainStatisticsReportCommand,
   serializeAws_restJson1GetDomainStatisticsReportCommand,

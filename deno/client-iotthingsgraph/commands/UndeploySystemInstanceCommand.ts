@@ -1,6 +1,6 @@
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
-import { UndeploySystemInstanceRequest, UndeploySystemInstanceResponse } from "../models/index.ts";
+import { UndeploySystemInstanceRequest, UndeploySystemInstanceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UndeploySystemInstanceCommand,
   serializeAws_json1_1UndeploySystemInstanceCommand,

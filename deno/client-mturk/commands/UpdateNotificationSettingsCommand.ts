@@ -1,6 +1,6 @@
 
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
-import { UpdateNotificationSettingsRequest, UpdateNotificationSettingsResponse } from "../models/index.ts";
+import { UpdateNotificationSettingsRequest, UpdateNotificationSettingsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateNotificationSettingsCommand,
   serializeAws_json1_1UpdateNotificationSettingsCommand,

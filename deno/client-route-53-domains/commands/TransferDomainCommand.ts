@@ -1,6 +1,6 @@
 
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
-import { TransferDomainRequest, TransferDomainResponse } from "../models/index.ts";
+import { TransferDomainRequest, TransferDomainResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1TransferDomainCommand,
   serializeAws_json1_1TransferDomainCommand,

@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeLocalGatewayRouteTableVpcAssociationsRequest,
   DescribeLocalGatewayRouteTableVpcAssociationsResult,
-} from "../models/index.ts";
+} from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand,
   serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand,

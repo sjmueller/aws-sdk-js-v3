@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { ModifyDBSnapshotAttributeMessage, ModifyDBSnapshotAttributeResult } from "../models/index.ts";
+import { ModifyDBSnapshotAttributeMessage, ModifyDBSnapshotAttributeResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryModifyDBSnapshotAttributeCommand,
   serializeAws_queryModifyDBSnapshotAttributeCommand,

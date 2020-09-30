@@ -1,6 +1,6 @@
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient.ts";
-import { DeleteProfilingGroupRequest, DeleteProfilingGroupResponse } from "../models/index.ts";
+import { DeleteProfilingGroupRequest, DeleteProfilingGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteProfilingGroupCommand,
   serializeAws_restJson1DeleteProfilingGroupCommand,

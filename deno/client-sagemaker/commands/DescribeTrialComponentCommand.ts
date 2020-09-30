@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { DescribeTrialComponentRequest, DescribeTrialComponentResponse } from "../models/index.ts";
+import { DescribeTrialComponentRequest, DescribeTrialComponentResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1DescribeTrialComponentCommand,
   serializeAws_json1_1DescribeTrialComponentCommand,

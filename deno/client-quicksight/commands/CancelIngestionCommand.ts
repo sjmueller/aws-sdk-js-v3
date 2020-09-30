@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { CancelIngestionRequest, CancelIngestionResponse } from "../models/index.ts";
+import { CancelIngestionRequest, CancelIngestionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CancelIngestionCommand,
   serializeAws_restJson1CancelIngestionCommand,

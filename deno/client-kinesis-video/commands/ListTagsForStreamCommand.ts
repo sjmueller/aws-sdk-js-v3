@@ -1,6 +1,6 @@
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient.ts";
-import { ListTagsForStreamInput, ListTagsForStreamOutput } from "../models/index.ts";
+import { ListTagsForStreamInput, ListTagsForStreamOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListTagsForStreamCommand,
   serializeAws_restJson1ListTagsForStreamCommand,

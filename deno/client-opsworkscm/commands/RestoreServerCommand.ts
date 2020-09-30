@@ -1,6 +1,6 @@
 
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient.ts";
-import { RestoreServerRequest, RestoreServerResponse } from "../models/index.ts";
+import { RestoreServerRequest, RestoreServerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RestoreServerCommand,
   serializeAws_json1_1RestoreServerCommand,

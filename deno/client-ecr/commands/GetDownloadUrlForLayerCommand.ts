@@ -1,6 +1,6 @@
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
-import { GetDownloadUrlForLayerRequest, GetDownloadUrlForLayerResponse } from "../models/index.ts";
+import { GetDownloadUrlForLayerRequest, GetDownloadUrlForLayerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetDownloadUrlForLayerCommand,
   serializeAws_json1_1GetDownloadUrlForLayerCommand,

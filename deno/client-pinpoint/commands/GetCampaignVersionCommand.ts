@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { GetCampaignVersionRequest, GetCampaignVersionResponse } from "../models/index.ts";
+import { GetCampaignVersionRequest, GetCampaignVersionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetCampaignVersionCommand,
   serializeAws_restJson1GetCampaignVersionCommand,

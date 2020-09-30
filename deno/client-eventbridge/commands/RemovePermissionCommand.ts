@@ -1,6 +1,6 @@
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
-import { RemovePermissionRequest } from "../models/index.ts";
+import { RemovePermissionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RemovePermissionCommand,
   serializeAws_json1_1RemovePermissionCommand,

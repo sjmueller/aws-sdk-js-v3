@@ -1,6 +1,6 @@
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient.ts";
-import { GetCognitoEventsRequest, GetCognitoEventsResponse } from "../models/index.ts";
+import { GetCognitoEventsRequest, GetCognitoEventsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetCognitoEventsCommand,
   serializeAws_restJson1GetCognitoEventsCommand,

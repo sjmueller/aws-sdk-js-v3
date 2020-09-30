@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { GetAppliedSchemaVersionRequest, GetAppliedSchemaVersionResponse } from "../models/index.ts";
+import { GetAppliedSchemaVersionRequest, GetAppliedSchemaVersionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetAppliedSchemaVersionCommand,
   serializeAws_restJson1GetAppliedSchemaVersionCommand,

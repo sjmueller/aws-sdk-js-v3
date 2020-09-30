@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { DeleteVoiceConnectorOriginationRequest } from "../models/index.ts";
+import { DeleteVoiceConnectorOriginationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteVoiceConnectorOriginationCommand,
   serializeAws_restJson1DeleteVoiceConnectorOriginationCommand,

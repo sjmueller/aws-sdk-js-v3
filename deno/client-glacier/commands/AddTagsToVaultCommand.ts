@@ -1,6 +1,6 @@
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
-import { AddTagsToVaultInput } from "../models/index.ts";
+import { AddTagsToVaultInput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AddTagsToVaultCommand,
   serializeAws_restJson1AddTagsToVaultCommand,

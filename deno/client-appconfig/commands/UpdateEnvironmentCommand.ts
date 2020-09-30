@@ -1,6 +1,6 @@
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient.ts";
-import { Environment, UpdateEnvironmentRequest } from "../models/index.ts";
+import { Environment, UpdateEnvironmentRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateEnvironmentCommand,
   serializeAws_restJson1UpdateEnvironmentCommand,

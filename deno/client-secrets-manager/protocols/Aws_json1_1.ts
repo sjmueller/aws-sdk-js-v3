@@ -85,7 +85,7 @@ import {
   ValidateResourcePolicyRequest,
   ValidateResourcePolicyResponse,
   ValidationErrorsEntry,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -356,7 +356,6 @@ export const deserializeAws_json1_1CancelRotateSecretCommand = async (
   contents = deserializeAws_json1_1CancelRotateSecretResponse(data, context);
   const response: CancelRotateSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelRotateSecretResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -436,7 +435,6 @@ export const deserializeAws_json1_1CreateSecretCommand = async (
   contents = deserializeAws_json1_1CreateSecretResponse(data, context);
   const response: CreateSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSecretResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -556,7 +554,6 @@ export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
   contents = deserializeAws_json1_1DeleteResourcePolicyResponse(data, context);
   const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteResourcePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -628,7 +625,6 @@ export const deserializeAws_json1_1DeleteSecretCommand = async (
   contents = deserializeAws_json1_1DeleteSecretResponse(data, context);
   const response: DeleteSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSecretResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -708,7 +704,6 @@ export const deserializeAws_json1_1DescribeSecretCommand = async (
   contents = deserializeAws_json1_1DescribeSecretResponse(data, context);
   const response: DescribeSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSecretResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -772,7 +767,6 @@ export const deserializeAws_json1_1GetRandomPasswordCommand = async (
   contents = deserializeAws_json1_1GetRandomPasswordResponse(data, context);
   const response: GetRandomPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRandomPasswordResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -844,7 +838,6 @@ export const deserializeAws_json1_1GetResourcePolicyCommand = async (
   contents = deserializeAws_json1_1GetResourcePolicyResponse(data, context);
   const response: GetResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResourcePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -916,7 +909,6 @@ export const deserializeAws_json1_1GetSecretValueCommand = async (
   contents = deserializeAws_json1_1GetSecretValueResponse(data, context);
   const response: GetSecretValueCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSecretValueResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1004,7 +996,6 @@ export const deserializeAws_json1_1ListSecretsCommand = async (
   contents = deserializeAws_json1_1ListSecretsResponse(data, context);
   const response: ListSecretsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSecretsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1076,7 +1067,6 @@ export const deserializeAws_json1_1ListSecretVersionIdsCommand = async (
   contents = deserializeAws_json1_1ListSecretVersionIdsResponse(data, context);
   const response: ListSecretVersionIdsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSecretVersionIdsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1148,7 +1138,6 @@ export const deserializeAws_json1_1PutResourcePolicyCommand = async (
   contents = deserializeAws_json1_1PutResourcePolicyResponse(data, context);
   const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutResourcePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1244,7 +1233,6 @@ export const deserializeAws_json1_1PutSecretValueCommand = async (
   contents = deserializeAws_json1_1PutSecretValueResponse(data, context);
   const response: PutSecretValueCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutSecretValueResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1348,7 +1336,6 @@ export const deserializeAws_json1_1RestoreSecretCommand = async (
   contents = deserializeAws_json1_1RestoreSecretResponse(data, context);
   const response: RestoreSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreSecretResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1428,7 +1415,6 @@ export const deserializeAws_json1_1RotateSecretCommand = async (
   contents = deserializeAws_json1_1RotateSecretResponse(data, context);
   const response: RotateSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RotateSecretResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1660,7 +1646,6 @@ export const deserializeAws_json1_1UpdateSecretCommand = async (
   contents = deserializeAws_json1_1UpdateSecretResponse(data, context);
   const response: UpdateSecretCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSecretResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1780,7 +1765,6 @@ export const deserializeAws_json1_1UpdateSecretVersionStageCommand = async (
   contents = deserializeAws_json1_1UpdateSecretVersionStageResponse(data, context);
   const response: UpdateSecretVersionStageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSecretVersionStageResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1868,7 +1852,6 @@ export const deserializeAws_json1_1ValidateResourcePolicyCommand = async (
   contents = deserializeAws_json1_1ValidateResourcePolicyResponse(data, context);
   const response: ValidateResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ValidateResourcePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2356,7 +2339,6 @@ const deserializeAws_json1_1CancelRotateSecretResponse = (
   context: __SerdeContext
 ): CancelRotateSecretResponse => {
   return {
-    __type: "CancelRotateSecretResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
@@ -2365,7 +2347,6 @@ const deserializeAws_json1_1CancelRotateSecretResponse = (
 
 const deserializeAws_json1_1CreateSecretResponse = (output: any, context: __SerdeContext): CreateSecretResponse => {
   return {
-    __type: "CreateSecretResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
@@ -2374,7 +2355,6 @@ const deserializeAws_json1_1CreateSecretResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1DecryptionFailure = (output: any, context: __SerdeContext): DecryptionFailure => {
   return {
-    __type: "DecryptionFailure",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2384,7 +2364,6 @@ const deserializeAws_json1_1DeleteResourcePolicyResponse = (
   context: __SerdeContext
 ): DeleteResourcePolicyResponse => {
   return {
-    __type: "DeleteResourcePolicyResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
@@ -2392,7 +2371,6 @@ const deserializeAws_json1_1DeleteResourcePolicyResponse = (
 
 const deserializeAws_json1_1DeleteSecretResponse = (output: any, context: __SerdeContext): DeleteSecretResponse => {
   return {
-    __type: "DeleteSecretResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     DeletionDate:
       output.DeletionDate !== undefined && output.DeletionDate !== null
@@ -2404,7 +2382,6 @@ const deserializeAws_json1_1DeleteSecretResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __SerdeContext): DescribeSecretResponse => {
   return {
-    __type: "DescribeSecretResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
@@ -2454,7 +2431,6 @@ const deserializeAws_json1_1DescribeSecretResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1EncryptionFailure = (output: any, context: __SerdeContext): EncryptionFailure => {
   return {
-    __type: "EncryptionFailure",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2464,7 +2440,6 @@ const deserializeAws_json1_1GetRandomPasswordResponse = (
   context: __SerdeContext
 ): GetRandomPasswordResponse => {
   return {
-    __type: "GetRandomPasswordResponse",
     RandomPassword:
       output.RandomPassword !== undefined && output.RandomPassword !== null ? output.RandomPassword : undefined,
   } as any;
@@ -2475,7 +2450,6 @@ const deserializeAws_json1_1GetResourcePolicyResponse = (
   context: __SerdeContext
 ): GetResourcePolicyResponse => {
   return {
-    __type: "GetResourcePolicyResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ResourcePolicy:
@@ -2485,7 +2459,6 @@ const deserializeAws_json1_1GetResourcePolicyResponse = (
 
 const deserializeAws_json1_1GetSecretValueResponse = (output: any, context: __SerdeContext): GetSecretValueResponse => {
   return {
-    __type: "GetSecretValueResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
@@ -2507,7 +2480,6 @@ const deserializeAws_json1_1GetSecretValueResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1InternalServiceError = (output: any, context: __SerdeContext): InternalServiceError => {
   return {
-    __type: "InternalServiceError",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2517,7 +2489,6 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2527,7 +2498,6 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2537,21 +2507,18 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    __type: "InvalidRequestException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListSecretsResponse = (output: any, context: __SerdeContext): ListSecretsResponse => {
   return {
-    __type: "ListSecretsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SecretList:
       output.SecretList !== undefined && output.SecretList !== null
@@ -2565,7 +2532,6 @@ const deserializeAws_json1_1ListSecretVersionIdsResponse = (
   context: __SerdeContext
 ): ListSecretVersionIdsResponse => {
   return {
-    __type: "ListSecretVersionIdsResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
@@ -2581,7 +2547,6 @@ const deserializeAws_json1_1MalformedPolicyDocumentException = (
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
   return {
-    __type: "MalformedPolicyDocumentException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2591,14 +2556,12 @@ const deserializeAws_json1_1PreconditionNotMetException = (
   context: __SerdeContext
 ): PreconditionNotMetException => {
   return {
-    __type: "PreconditionNotMetException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1PublicPolicyException = (output: any, context: __SerdeContext): PublicPolicyException => {
   return {
-    __type: "PublicPolicyException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2608,7 +2571,6 @@ const deserializeAws_json1_1PutResourcePolicyResponse = (
   context: __SerdeContext
 ): PutResourcePolicyResponse => {
   return {
-    __type: "PutResourcePolicyResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
@@ -2616,7 +2578,6 @@ const deserializeAws_json1_1PutResourcePolicyResponse = (
 
 const deserializeAws_json1_1PutSecretValueResponse = (output: any, context: __SerdeContext): PutSecretValueResponse => {
   return {
-    __type: "PutSecretValueResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
@@ -2632,7 +2593,6 @@ const deserializeAws_json1_1ResourceExistsException = (
   context: __SerdeContext
 ): ResourceExistsException => {
   return {
-    __type: "ResourceExistsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2642,14 +2602,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RestoreSecretResponse = (output: any, context: __SerdeContext): RestoreSecretResponse => {
   return {
-    __type: "RestoreSecretResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
@@ -2657,7 +2615,6 @@ const deserializeAws_json1_1RestoreSecretResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1RotateSecretResponse = (output: any, context: __SerdeContext): RotateSecretResponse => {
   return {
-    __type: "RotateSecretResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
@@ -2666,7 +2623,6 @@ const deserializeAws_json1_1RotateSecretResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1RotationRulesType = (output: any, context: __SerdeContext): RotationRulesType => {
   return {
-    __type: "RotationRulesType",
     AutomaticallyAfterDays:
       output.AutomaticallyAfterDays !== undefined && output.AutomaticallyAfterDays !== null
         ? output.AutomaticallyAfterDays
@@ -2676,7 +2632,6 @@ const deserializeAws_json1_1RotationRulesType = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1SecretListEntry = (output: any, context: __SerdeContext): SecretListEntry => {
   return {
-    __type: "SecretListEntry",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
@@ -2733,7 +2688,6 @@ const deserializeAws_json1_1SecretVersionsListEntry = (
   context: __SerdeContext
 ): SecretVersionsListEntry => {
   return {
-    __type: "SecretVersionsListEntry",
     CreatedDate:
       output.CreatedDate !== undefined && output.CreatedDate !== null
         ? new Date(Math.round(output.CreatedDate * 1000))
@@ -2776,7 +2730,6 @@ const deserializeAws_json1_1SecretVersionsToStagesMapType = (
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -2788,7 +2741,6 @@ const deserializeAws_json1_1TagListType = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1UpdateSecretResponse = (output: any, context: __SerdeContext): UpdateSecretResponse => {
   return {
-    __type: "UpdateSecretResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     VersionId: output.VersionId !== undefined && output.VersionId !== null ? output.VersionId : undefined,
@@ -2800,7 +2752,6 @@ const deserializeAws_json1_1UpdateSecretVersionStageResponse = (
   context: __SerdeContext
 ): UpdateSecretVersionStageResponse => {
   return {
-    __type: "UpdateSecretVersionStageResponse",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
@@ -2811,7 +2762,6 @@ const deserializeAws_json1_1ValidateResourcePolicyResponse = (
   context: __SerdeContext
 ): ValidateResourcePolicyResponse => {
   return {
-    __type: "ValidateResourcePolicyResponse",
     PolicyValidationPassed:
       output.PolicyValidationPassed !== undefined && output.PolicyValidationPassed !== null
         ? output.PolicyValidationPassed
@@ -2825,7 +2775,6 @@ const deserializeAws_json1_1ValidateResourcePolicyResponse = (
 
 const deserializeAws_json1_1ValidationErrorsEntry = (output: any, context: __SerdeContext): ValidationErrorsEntry => {
   return {
-    __type: "ValidationErrorsEntry",
     CheckName: output.CheckName !== undefined && output.CheckName !== null ? output.CheckName : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
   } as any;

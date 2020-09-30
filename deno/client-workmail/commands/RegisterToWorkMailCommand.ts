@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { RegisterToWorkMailRequest, RegisterToWorkMailResponse } from "../models/index.ts";
+import { RegisterToWorkMailRequest, RegisterToWorkMailResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RegisterToWorkMailCommand,
   serializeAws_json1_1RegisterToWorkMailCommand,

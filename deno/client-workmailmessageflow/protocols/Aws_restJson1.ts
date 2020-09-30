@@ -3,7 +3,7 @@ import {
   GetRawMessageContentCommandInput,
   GetRawMessageContentCommandOutput,
 } from "../commands/GetRawMessageContentCommand.ts";
-import { ResourceNotFoundException } from "../models/index.ts";
+import { ResourceNotFoundException } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -55,7 +55,6 @@ export const deserializeAws_restJson1GetRawMessageContentCommand = async (
   }
   const contents: GetRawMessageContentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRawMessageContentResponse",
     messageContent: undefined,
   };
   const data: any = output.body;

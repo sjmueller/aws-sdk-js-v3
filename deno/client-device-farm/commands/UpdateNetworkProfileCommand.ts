@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { UpdateNetworkProfileRequest, UpdateNetworkProfileResult } from "../models/index.ts";
+import { UpdateNetworkProfileRequest, UpdateNetworkProfileResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateNetworkProfileCommand,
   serializeAws_json1_1UpdateNetworkProfileCommand,

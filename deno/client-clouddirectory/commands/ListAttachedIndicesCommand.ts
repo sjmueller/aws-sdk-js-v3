@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { ListAttachedIndicesRequest, ListAttachedIndicesResponse } from "../models/index.ts";
+import { ListAttachedIndicesRequest, ListAttachedIndicesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListAttachedIndicesCommand,
   serializeAws_restJson1ListAttachedIndicesCommand,

@@ -1,6 +1,6 @@
 
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
-import { GetContactReachabilityStatusRequest, GetContactReachabilityStatusResponse } from "../models/index.ts";
+import { GetContactReachabilityStatusRequest, GetContactReachabilityStatusResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetContactReachabilityStatusCommand,
   serializeAws_json1_1GetContactReachabilityStatusCommand,

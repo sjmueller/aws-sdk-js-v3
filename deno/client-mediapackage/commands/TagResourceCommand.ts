@@ -1,6 +1,6 @@
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient.ts";
-import { TagResourceRequest } from "../models/index.ts";
+import { TagResourceRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1TagResourceCommand,
   serializeAws_restJson1TagResourceCommand,

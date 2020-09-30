@@ -1,6 +1,9 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { DescribeAggregationAuthorizationsRequest, DescribeAggregationAuthorizationsResponse } from "../models/index.ts";
+import {
+  DescribeAggregationAuthorizationsRequest,
+  DescribeAggregationAuthorizationsResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeAggregationAuthorizationsCommand,
   serializeAws_json1_1DescribeAggregationAuthorizationsCommand,

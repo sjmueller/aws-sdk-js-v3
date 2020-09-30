@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { UpdateUserRequest, UpdateUserResponse } from "../models/index.ts";
+import { UpdateUserRequest, UpdateUserResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UpdateUserCommand,
   serializeAws_restJson1UpdateUserCommand,

@@ -1,6 +1,6 @@
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
-import { DefineAnalysisSchemeRequest, DefineAnalysisSchemeResponse } from "../models/index.ts";
+import { DefineAnalysisSchemeRequest, DefineAnalysisSchemeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDefineAnalysisSchemeCommand,
   serializeAws_queryDefineAnalysisSchemeCommand,

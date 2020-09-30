@@ -1,6 +1,6 @@
 
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
-import { DescribeSolutionRequest, DescribeSolutionResponse } from "../models/index.ts";
+import { DescribeSolutionRequest, DescribeSolutionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeSolutionCommand,
   serializeAws_json1_1DescribeSolutionCommand,

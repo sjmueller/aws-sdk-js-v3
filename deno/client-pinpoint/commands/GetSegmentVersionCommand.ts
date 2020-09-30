@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { GetSegmentVersionRequest, GetSegmentVersionResponse } from "../models/index.ts";
+import { GetSegmentVersionRequest, GetSegmentVersionResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1GetSegmentVersionCommand,
   serializeAws_restJson1GetSegmentVersionCommand,

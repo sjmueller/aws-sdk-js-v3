@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { UpdateServiceSettingRequest, UpdateServiceSettingResult } from "../models/index.ts";
+import { UpdateServiceSettingRequest, UpdateServiceSettingResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1UpdateServiceSettingCommand,
   serializeAws_json1_1UpdateServiceSettingCommand,

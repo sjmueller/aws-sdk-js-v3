@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { BatchReadRequest, BatchReadResponse } from "../models/index.ts";
+import { BatchReadRequest, BatchReadResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1BatchReadCommand,
   serializeAws_restJson1BatchReadCommand,

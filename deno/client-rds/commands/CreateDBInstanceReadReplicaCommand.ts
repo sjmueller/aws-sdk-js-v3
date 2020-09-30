@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { CreateDBInstanceReadReplicaMessage, CreateDBInstanceReadReplicaResult } from "../models/index.ts";
+import { CreateDBInstanceReadReplicaMessage, CreateDBInstanceReadReplicaResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateDBInstanceReadReplicaCommand,
   serializeAws_queryCreateDBInstanceReadReplicaCommand,

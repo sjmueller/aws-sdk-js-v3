@@ -1,6 +1,6 @@
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
-import { PutKeyPolicyRequest } from "../models/index.ts";
+import { PutKeyPolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutKeyPolicyCommand,
   serializeAws_json1_1PutKeyPolicyCommand,

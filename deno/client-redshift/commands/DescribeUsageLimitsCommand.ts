@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { DescribeUsageLimitsMessage, UsageLimitList } from "../models/index.ts";
+import { DescribeUsageLimitsMessage, UsageLimitList } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeUsageLimitsCommand,
   serializeAws_queryDescribeUsageLimitsCommand,

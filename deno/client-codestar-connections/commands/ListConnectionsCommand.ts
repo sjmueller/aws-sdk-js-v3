@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient.ts";
-import { ListConnectionsInput, ListConnectionsOutput } from "../models/index.ts";
+import { ListConnectionsInput, ListConnectionsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0ListConnectionsCommand,
   serializeAws_json1_0ListConnectionsCommand,

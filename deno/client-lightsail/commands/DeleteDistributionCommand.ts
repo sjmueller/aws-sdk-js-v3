@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { DeleteDistributionRequest, DeleteDistributionResult } from "../models/index.ts";
+import { DeleteDistributionRequest, DeleteDistributionResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteDistributionCommand,
   serializeAws_json1_1DeleteDistributionCommand,

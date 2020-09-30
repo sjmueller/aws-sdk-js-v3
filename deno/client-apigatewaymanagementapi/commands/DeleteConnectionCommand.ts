@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApiGatewayManagementApiClient.ts";
-import { DeleteConnectionRequest } from "../models/index.ts";
+import { DeleteConnectionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteConnectionCommand,
   serializeAws_restJson1DeleteConnectionCommand,

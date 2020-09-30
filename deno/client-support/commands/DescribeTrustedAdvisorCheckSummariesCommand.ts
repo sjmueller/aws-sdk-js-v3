@@ -3,7 +3,7 @@ import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } fr
 import {
   DescribeTrustedAdvisorCheckSummariesRequest,
   DescribeTrustedAdvisorCheckSummariesResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand,
   serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesCommand,

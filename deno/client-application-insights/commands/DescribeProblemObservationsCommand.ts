@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import { DescribeProblemObservationsRequest, DescribeProblemObservationsResponse } from "../models/index.ts";
+import { DescribeProblemObservationsRequest, DescribeProblemObservationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeProblemObservationsCommand,
   serializeAws_json1_1DescribeProblemObservationsCommand,

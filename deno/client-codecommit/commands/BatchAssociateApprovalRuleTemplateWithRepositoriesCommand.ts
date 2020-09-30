@@ -3,7 +3,7 @@ import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   BatchAssociateApprovalRuleTemplateWithRepositoriesInput,
   BatchAssociateApprovalRuleTemplateWithRepositoriesOutput,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand,
   serializeAws_json1_1BatchAssociateApprovalRuleTemplateWithRepositoriesCommand,

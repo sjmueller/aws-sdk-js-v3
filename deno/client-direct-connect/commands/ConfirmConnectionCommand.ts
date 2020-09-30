@@ -1,6 +1,6 @@
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
-import { ConfirmConnectionRequest, ConfirmConnectionResponse } from "../models/index.ts";
+import { ConfirmConnectionRequest, ConfirmConnectionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ConfirmConnectionCommand,
   serializeAws_json1_1ConfirmConnectionCommand,

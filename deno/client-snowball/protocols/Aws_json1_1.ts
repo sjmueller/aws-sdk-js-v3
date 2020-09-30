@@ -92,7 +92,7 @@ import {
   UpdateJobRequest,
   UpdateJobResult,
   WirelessConnection,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -362,7 +362,6 @@ export const deserializeAws_json1_1CancelClusterCommand = async (
   contents = deserializeAws_json1_1CancelClusterResult(data, context);
   const response: CancelClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -434,7 +433,6 @@ export const deserializeAws_json1_1CancelJobCommand = async (
   contents = deserializeAws_json1_1CancelJobResult(data, context);
   const response: CancelJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelJobResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -506,7 +504,6 @@ export const deserializeAws_json1_1CreateAddressCommand = async (
   contents = deserializeAws_json1_1CreateAddressResult(data, context);
   const response: CreateAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAddressResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -570,7 +567,6 @@ export const deserializeAws_json1_1CreateClusterCommand = async (
   contents = deserializeAws_json1_1CreateClusterResult(data, context);
   const response: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -650,7 +646,6 @@ export const deserializeAws_json1_1CreateJobCommand = async (
   contents = deserializeAws_json1_1CreateJobResult(data, context);
   const response: CreateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateJobResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -738,7 +733,6 @@ export const deserializeAws_json1_1DescribeAddressCommand = async (
   contents = deserializeAws_json1_1DescribeAddressResult(data, context);
   const response: DescribeAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAddressResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -794,7 +788,6 @@ export const deserializeAws_json1_1DescribeAddressesCommand = async (
   contents = deserializeAws_json1_1DescribeAddressesResult(data, context);
   const response: DescribeAddressesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAddressesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -858,7 +851,6 @@ export const deserializeAws_json1_1DescribeClusterCommand = async (
   contents = deserializeAws_json1_1DescribeClusterResult(data, context);
   const response: DescribeClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -914,7 +906,6 @@ export const deserializeAws_json1_1DescribeJobCommand = async (
   contents = deserializeAws_json1_1DescribeJobResult(data, context);
   const response: DescribeJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeJobResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -970,7 +961,6 @@ export const deserializeAws_json1_1GetJobManifestCommand = async (
   contents = deserializeAws_json1_1GetJobManifestResult(data, context);
   const response: GetJobManifestCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetJobManifestResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1034,7 +1024,6 @@ export const deserializeAws_json1_1GetJobUnlockCodeCommand = async (
   contents = deserializeAws_json1_1GetJobUnlockCodeResult(data, context);
   const response: GetJobUnlockCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetJobUnlockCodeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1098,7 +1087,6 @@ export const deserializeAws_json1_1GetSnowballUsageCommand = async (
   contents = deserializeAws_json1_1GetSnowballUsageResult(data, context);
   const response: GetSnowballUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSnowballUsageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1146,7 +1134,6 @@ export const deserializeAws_json1_1GetSoftwareUpdatesCommand = async (
   contents = deserializeAws_json1_1GetSoftwareUpdatesResult(data, context);
   const response: GetSoftwareUpdatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSoftwareUpdatesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1210,7 +1197,6 @@ export const deserializeAws_json1_1ListClusterJobsCommand = async (
   contents = deserializeAws_json1_1ListClusterJobsResult(data, context);
   const response: ListClusterJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListClusterJobsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1274,7 +1260,6 @@ export const deserializeAws_json1_1ListClustersCommand = async (
   contents = deserializeAws_json1_1ListClustersResult(data, context);
   const response: ListClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListClustersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1330,7 +1315,6 @@ export const deserializeAws_json1_1ListCompatibleImagesCommand = async (
   contents = deserializeAws_json1_1ListCompatibleImagesResult(data, context);
   const response: ListCompatibleImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCompatibleImagesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1394,7 +1378,6 @@ export const deserializeAws_json1_1ListJobsCommand = async (
   contents = deserializeAws_json1_1ListJobsResult(data, context);
   const response: ListJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJobsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1450,7 +1433,6 @@ export const deserializeAws_json1_1UpdateClusterCommand = async (
   contents = deserializeAws_json1_1UpdateClusterResult(data, context);
   const response: UpdateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateClusterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1538,7 +1520,6 @@ export const deserializeAws_json1_1UpdateJobCommand = async (
   contents = deserializeAws_json1_1UpdateJobResult(data, context);
   const response: UpdateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateJobResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2084,7 +2065,6 @@ const serializeAws_json1_1WirelessConnection = (input: WirelessConnection, conte
 
 const deserializeAws_json1_1Address = (output: any, context: __SerdeContext): Address => {
   return {
-    __type: "Address",
     AddressId: output.AddressId !== undefined && output.AddressId !== null ? output.AddressId : undefined,
     City: output.City !== undefined && output.City !== null ? output.City : undefined,
     Company: output.Company !== undefined && output.Company !== null ? output.Company : undefined,
@@ -2111,15 +2091,11 @@ const deserializeAws_json1_1AddressList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1CancelClusterResult = (output: any, context: __SerdeContext): CancelClusterResult => {
-  return {
-    __type: "CancelClusterResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CancelJobResult = (output: any, context: __SerdeContext): CancelJobResult => {
-  return {
-    __type: "CancelJobResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ClusterLimitExceededException = (
@@ -2127,14 +2103,12 @@ const deserializeAws_json1_1ClusterLimitExceededException = (
   context: __SerdeContext
 ): ClusterLimitExceededException => {
   return {
-    __type: "ClusterLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ClusterListEntry = (output: any, context: __SerdeContext): ClusterListEntry => {
   return {
-    __type: "ClusterListEntry",
     ClusterId: output.ClusterId !== undefined && output.ClusterId !== null ? output.ClusterId : undefined,
     ClusterState: output.ClusterState !== undefined && output.ClusterState !== null ? output.ClusterState : undefined,
     CreationDate:
@@ -2151,7 +2125,6 @@ const deserializeAws_json1_1ClusterListEntryList = (output: any, context: __Serd
 
 const deserializeAws_json1_1ClusterMetadata = (output: any, context: __SerdeContext): ClusterMetadata => {
   return {
-    __type: "ClusterMetadata",
     AddressId: output.AddressId !== undefined && output.AddressId !== null ? output.AddressId : undefined,
     ClusterId: output.ClusterId !== undefined && output.ClusterId !== null ? output.ClusterId : undefined,
     ClusterState: output.ClusterState !== undefined && output.ClusterState !== null ? output.ClusterState : undefined,
@@ -2187,7 +2160,6 @@ const deserializeAws_json1_1ClusterMetadata = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1CompatibleImage = (output: any, context: __SerdeContext): CompatibleImage => {
   return {
-    __type: "CompatibleImage",
     AmiId: output.AmiId !== undefined && output.AmiId !== null ? output.AmiId : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
@@ -2199,28 +2171,24 @@ const deserializeAws_json1_1CompatibleImageList = (output: any, context: __Serde
 
 const deserializeAws_json1_1CreateAddressResult = (output: any, context: __SerdeContext): CreateAddressResult => {
   return {
-    __type: "CreateAddressResult",
     AddressId: output.AddressId !== undefined && output.AddressId !== null ? output.AddressId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateClusterResult = (output: any, context: __SerdeContext): CreateClusterResult => {
   return {
-    __type: "CreateClusterResult",
     ClusterId: output.ClusterId !== undefined && output.ClusterId !== null ? output.ClusterId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateJobResult = (output: any, context: __SerdeContext): CreateJobResult => {
   return {
-    __type: "CreateJobResult",
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DataTransfer = (output: any, context: __SerdeContext): DataTransfer => {
   return {
-    __type: "DataTransfer",
     BytesTransferred:
       output.BytesTransferred !== undefined && output.BytesTransferred !== null ? output.BytesTransferred : undefined,
     ObjectsTransferred:
@@ -2237,7 +2205,6 @@ const deserializeAws_json1_1DescribeAddressesResult = (
   context: __SerdeContext
 ): DescribeAddressesResult => {
   return {
-    __type: "DescribeAddressesResult",
     Addresses:
       output.Addresses !== undefined && output.Addresses !== null
         ? deserializeAws_json1_1AddressList(output.Addresses, context)
@@ -2248,7 +2215,6 @@ const deserializeAws_json1_1DescribeAddressesResult = (
 
 const deserializeAws_json1_1DescribeAddressResult = (output: any, context: __SerdeContext): DescribeAddressResult => {
   return {
-    __type: "DescribeAddressResult",
     Address:
       output.Address !== undefined && output.Address !== null
         ? deserializeAws_json1_1Address(output.Address, context)
@@ -2258,7 +2224,6 @@ const deserializeAws_json1_1DescribeAddressResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1DescribeClusterResult = (output: any, context: __SerdeContext): DescribeClusterResult => {
   return {
-    __type: "DescribeClusterResult",
     ClusterMetadata:
       output.ClusterMetadata !== undefined && output.ClusterMetadata !== null
         ? deserializeAws_json1_1ClusterMetadata(output.ClusterMetadata, context)
@@ -2268,7 +2233,6 @@ const deserializeAws_json1_1DescribeClusterResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1DescribeJobResult = (output: any, context: __SerdeContext): DescribeJobResult => {
   return {
-    __type: "DescribeJobResult",
     JobMetadata:
       output.JobMetadata !== undefined && output.JobMetadata !== null
         ? deserializeAws_json1_1JobMetadata(output.JobMetadata, context)
@@ -2282,7 +2246,6 @@ const deserializeAws_json1_1DescribeJobResult = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1DeviceConfiguration = (output: any, context: __SerdeContext): DeviceConfiguration => {
   return {
-    __type: "DeviceConfiguration",
     SnowconeDeviceConfiguration:
       output.SnowconeDeviceConfiguration !== undefined && output.SnowconeDeviceConfiguration !== null
         ? deserializeAws_json1_1SnowconeDeviceConfiguration(output.SnowconeDeviceConfiguration, context)
@@ -2292,7 +2255,6 @@ const deserializeAws_json1_1DeviceConfiguration = (output: any, context: __Serde
 
 const deserializeAws_json1_1Ec2AmiResource = (output: any, context: __SerdeContext): Ec2AmiResource => {
   return {
-    __type: "Ec2AmiResource",
     AmiId: output.AmiId !== undefined && output.AmiId !== null ? output.AmiId : undefined,
     SnowballAmiId:
       output.SnowballAmiId !== undefined && output.SnowballAmiId !== null ? output.SnowballAmiId : undefined,
@@ -2308,14 +2270,12 @@ const deserializeAws_json1_1Ec2RequestFailedException = (
   context: __SerdeContext
 ): Ec2RequestFailedException => {
   return {
-    __type: "Ec2RequestFailedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1EventTriggerDefinition = (output: any, context: __SerdeContext): EventTriggerDefinition => {
   return {
-    __type: "EventTriggerDefinition",
     EventResourceARN:
       output.EventResourceARN !== undefined && output.EventResourceARN !== null ? output.EventResourceARN : undefined,
   } as any;
@@ -2330,21 +2290,18 @@ const deserializeAws_json1_1EventTriggerDefinitionList = (
 
 const deserializeAws_json1_1GetJobManifestResult = (output: any, context: __SerdeContext): GetJobManifestResult => {
   return {
-    __type: "GetJobManifestResult",
     ManifestURI: output.ManifestURI !== undefined && output.ManifestURI !== null ? output.ManifestURI : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetJobUnlockCodeResult = (output: any, context: __SerdeContext): GetJobUnlockCodeResult => {
   return {
-    __type: "GetJobUnlockCodeResult",
     UnlockCode: output.UnlockCode !== undefined && output.UnlockCode !== null ? output.UnlockCode : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetSnowballUsageResult = (output: any, context: __SerdeContext): GetSnowballUsageResult => {
   return {
-    __type: "GetSnowballUsageResult",
     SnowballLimit:
       output.SnowballLimit !== undefined && output.SnowballLimit !== null ? output.SnowballLimit : undefined,
     SnowballsInUse:
@@ -2357,14 +2314,12 @@ const deserializeAws_json1_1GetSoftwareUpdatesResult = (
   context: __SerdeContext
 ): GetSoftwareUpdatesResult => {
   return {
-    __type: "GetSoftwareUpdatesResult",
     UpdatesURI: output.UpdatesURI !== undefined && output.UpdatesURI !== null ? output.UpdatesURI : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1INDTaxDocuments = (output: any, context: __SerdeContext): INDTaxDocuments => {
   return {
-    __type: "INDTaxDocuments",
     GSTIN: output.GSTIN !== undefined && output.GSTIN !== null ? output.GSTIN : undefined,
   } as any;
 };
@@ -2374,7 +2329,6 @@ const deserializeAws_json1_1InvalidAddressException = (
   context: __SerdeContext
 ): InvalidAddressException => {
   return {
-    __type: "InvalidAddressException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2384,7 +2338,6 @@ const deserializeAws_json1_1InvalidInputCombinationException = (
   context: __SerdeContext
 ): InvalidInputCombinationException => {
   return {
-    __type: "InvalidInputCombinationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2394,7 +2347,6 @@ const deserializeAws_json1_1InvalidJobStateException = (
   context: __SerdeContext
 ): InvalidJobStateException => {
   return {
-    __type: "InvalidJobStateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2404,7 +2356,6 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2414,7 +2365,6 @@ const deserializeAws_json1_1InvalidResourceException = (
   context: __SerdeContext
 ): InvalidResourceException => {
   return {
-    __type: "InvalidResourceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
   } as any;
@@ -2422,7 +2372,6 @@ const deserializeAws_json1_1InvalidResourceException = (
 
 const deserializeAws_json1_1JobListEntry = (output: any, context: __SerdeContext): JobListEntry => {
   return {
-    __type: "JobListEntry",
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
@@ -2442,7 +2391,6 @@ const deserializeAws_json1_1JobListEntryList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1JobLogs = (output: any, context: __SerdeContext): JobLogs => {
   return {
-    __type: "JobLogs",
     JobCompletionReportURI:
       output.JobCompletionReportURI !== undefined && output.JobCompletionReportURI !== null
         ? output.JobCompletionReportURI
@@ -2456,7 +2404,6 @@ const deserializeAws_json1_1JobLogs = (output: any, context: __SerdeContext): Jo
 
 const deserializeAws_json1_1JobMetadata = (output: any, context: __SerdeContext): JobMetadata => {
   return {
-    __type: "JobMetadata",
     AddressId: output.AddressId !== undefined && output.AddressId !== null ? output.AddressId : undefined,
     ClusterId: output.ClusterId !== undefined && output.ClusterId !== null ? output.ClusterId : undefined,
     CreationDate:
@@ -2515,7 +2462,6 @@ const deserializeAws_json1_1JobMetadataList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1JobResource = (output: any, context: __SerdeContext): JobResource => {
   return {
-    __type: "JobResource",
     Ec2AmiResources:
       output.Ec2AmiResources !== undefined && output.Ec2AmiResources !== null
         ? deserializeAws_json1_1Ec2AmiResourceList(output.Ec2AmiResources, context)
@@ -2537,7 +2483,6 @@ const deserializeAws_json1_1JobStateList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1KeyRange = (output: any, context: __SerdeContext): KeyRange => {
   return {
-    __type: "KeyRange",
     BeginMarker: output.BeginMarker !== undefined && output.BeginMarker !== null ? output.BeginMarker : undefined,
     EndMarker: output.EndMarker !== undefined && output.EndMarker !== null ? output.EndMarker : undefined,
   } as any;
@@ -2548,14 +2493,12 @@ const deserializeAws_json1_1KMSRequestFailedException = (
   context: __SerdeContext
 ): KMSRequestFailedException => {
   return {
-    __type: "KMSRequestFailedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LambdaResource = (output: any, context: __SerdeContext): LambdaResource => {
   return {
-    __type: "LambdaResource",
     EventTriggers:
       output.EventTriggers !== undefined && output.EventTriggers !== null
         ? deserializeAws_json1_1EventTriggerDefinitionList(output.EventTriggers, context)
@@ -2570,7 +2513,6 @@ const deserializeAws_json1_1LambdaResourceList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ListClusterJobsResult = (output: any, context: __SerdeContext): ListClusterJobsResult => {
   return {
-    __type: "ListClusterJobsResult",
     JobListEntries:
       output.JobListEntries !== undefined && output.JobListEntries !== null
         ? deserializeAws_json1_1JobListEntryList(output.JobListEntries, context)
@@ -2581,7 +2523,6 @@ const deserializeAws_json1_1ListClusterJobsResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1ListClustersResult = (output: any, context: __SerdeContext): ListClustersResult => {
   return {
-    __type: "ListClustersResult",
     ClusterListEntries:
       output.ClusterListEntries !== undefined && output.ClusterListEntries !== null
         ? deserializeAws_json1_1ClusterListEntryList(output.ClusterListEntries, context)
@@ -2595,7 +2536,6 @@ const deserializeAws_json1_1ListCompatibleImagesResult = (
   context: __SerdeContext
 ): ListCompatibleImagesResult => {
   return {
-    __type: "ListCompatibleImagesResult",
     CompatibleImages:
       output.CompatibleImages !== undefined && output.CompatibleImages !== null
         ? deserializeAws_json1_1CompatibleImageList(output.CompatibleImages, context)
@@ -2606,7 +2546,6 @@ const deserializeAws_json1_1ListCompatibleImagesResult = (
 
 const deserializeAws_json1_1ListJobsResult = (output: any, context: __SerdeContext): ListJobsResult => {
   return {
-    __type: "ListJobsResult",
     JobListEntries:
       output.JobListEntries !== undefined && output.JobListEntries !== null
         ? deserializeAws_json1_1JobListEntryList(output.JobListEntries, context)
@@ -2617,7 +2556,6 @@ const deserializeAws_json1_1ListJobsResult = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Notification = (output: any, context: __SerdeContext): Notification => {
   return {
-    __type: "Notification",
     JobStatesToNotify:
       output.JobStatesToNotify !== undefined && output.JobStatesToNotify !== null
         ? deserializeAws_json1_1JobStateList(output.JobStatesToNotify, context)
@@ -2629,7 +2567,6 @@ const deserializeAws_json1_1Notification = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1S3Resource = (output: any, context: __SerdeContext): S3Resource => {
   return {
-    __type: "S3Resource",
     BucketArn: output.BucketArn !== undefined && output.BucketArn !== null ? output.BucketArn : undefined,
     KeyRange:
       output.KeyRange !== undefined && output.KeyRange !== null
@@ -2644,7 +2581,6 @@ const deserializeAws_json1_1S3ResourceList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Shipment = (output: any, context: __SerdeContext): Shipment => {
   return {
-    __type: "Shipment",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     TrackingNumber:
       output.TrackingNumber !== undefined && output.TrackingNumber !== null ? output.TrackingNumber : undefined,
@@ -2653,7 +2589,6 @@ const deserializeAws_json1_1Shipment = (output: any, context: __SerdeContext): S
 
 const deserializeAws_json1_1ShippingDetails = (output: any, context: __SerdeContext): ShippingDetails => {
   return {
-    __type: "ShippingDetails",
     InboundShipment:
       output.InboundShipment !== undefined && output.InboundShipment !== null
         ? deserializeAws_json1_1Shipment(output.InboundShipment, context)
@@ -2672,7 +2607,6 @@ const deserializeAws_json1_1SnowconeDeviceConfiguration = (
   context: __SerdeContext
 ): SnowconeDeviceConfiguration => {
   return {
-    __type: "SnowconeDeviceConfiguration",
     WirelessConnection:
       output.WirelessConnection !== undefined && output.WirelessConnection !== null
         ? deserializeAws_json1_1WirelessConnection(output.WirelessConnection, context)
@@ -2682,7 +2616,6 @@ const deserializeAws_json1_1SnowconeDeviceConfiguration = (
 
 const deserializeAws_json1_1TaxDocuments = (output: any, context: __SerdeContext): TaxDocuments => {
   return {
-    __type: "TaxDocuments",
     IND:
       output.IND !== undefined && output.IND !== null
         ? deserializeAws_json1_1INDTaxDocuments(output.IND, context)
@@ -2695,26 +2628,20 @@ const deserializeAws_json1_1UnsupportedAddressException = (
   context: __SerdeContext
 ): UnsupportedAddressException => {
   return {
-    __type: "UnsupportedAddressException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UpdateClusterResult = (output: any, context: __SerdeContext): UpdateClusterResult => {
-  return {
-    __type: "UpdateClusterResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateJobResult = (output: any, context: __SerdeContext): UpdateJobResult => {
-  return {
-    __type: "UpdateJobResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1WirelessConnection = (output: any, context: __SerdeContext): WirelessConnection => {
   return {
-    __type: "WirelessConnection",
     IsWifiEnabled:
       output.IsWifiEnabled !== undefined && output.IsWifiEnabled !== null ? output.IsWifiEnabled : undefined,
   } as any;

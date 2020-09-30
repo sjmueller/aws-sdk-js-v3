@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient.ts";
-import { DescribeConfigurationsRequest, DescribeConfigurationsResponse } from "../models/index.ts";
+import { DescribeConfigurationsRequest, DescribeConfigurationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeConfigurationsCommand,
   serializeAws_json1_1DescribeConfigurationsCommand,

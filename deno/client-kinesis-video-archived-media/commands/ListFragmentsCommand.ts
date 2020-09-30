@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient.ts";
-import { ListFragmentsInput, ListFragmentsOutput } from "../models/index.ts";
+import { ListFragmentsInput, ListFragmentsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListFragmentsCommand,
   serializeAws_restJson1ListFragmentsCommand,

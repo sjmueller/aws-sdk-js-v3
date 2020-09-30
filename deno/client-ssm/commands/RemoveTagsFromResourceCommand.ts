@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { RemoveTagsFromResourceRequest, RemoveTagsFromResourceResult } from "../models/index.ts";
+import { RemoveTagsFromResourceRequest, RemoveTagsFromResourceResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1RemoveTagsFromResourceCommand,
   serializeAws_json1_1RemoveTagsFromResourceCommand,

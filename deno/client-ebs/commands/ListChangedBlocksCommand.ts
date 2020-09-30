@@ -1,6 +1,6 @@
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient.ts";
-import { ListChangedBlocksRequest, ListChangedBlocksResponse } from "../models/index.ts";
+import { ListChangedBlocksRequest, ListChangedBlocksResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListChangedBlocksCommand,
   serializeAws_restJson1ListChangedBlocksCommand,

@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { SetDesiredCapacityType } from "../models/index.ts";
+import { SetDesiredCapacityType } from "../models/models_0.ts";
 import {
   deserializeAws_querySetDesiredCapacityCommand,
   serializeAws_querySetDesiredCapacityCommand,

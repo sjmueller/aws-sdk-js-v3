@@ -3,7 +3,7 @@ import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ListAuditMitigationActionsExecutionsRequest,
   ListAuditMitigationActionsExecutionsResponse,
-} from "../models/index.ts";
+} from "../models/models_1.ts";
 import {
   deserializeAws_restJson1ListAuditMitigationActionsExecutionsCommand,
   serializeAws_restJson1ListAuditMitigationActionsExecutionsCommand,

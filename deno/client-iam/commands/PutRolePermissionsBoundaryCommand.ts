@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { PutRolePermissionsBoundaryRequest } from "../models/index.ts";
+import { PutRolePermissionsBoundaryRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryPutRolePermissionsBoundaryCommand,
   serializeAws_queryPutRolePermissionsBoundaryCommand,

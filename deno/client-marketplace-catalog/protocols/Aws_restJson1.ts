@@ -22,7 +22,7 @@ import {
   Sort,
   ThrottlingException,
   ValidationException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -208,7 +208,6 @@ export const deserializeAws_restJson1CancelChangeSetCommand = async (
   }
   const contents: CancelChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelChangeSetResponse",
     ChangeSetArn: undefined,
     ChangeSetId: undefined,
   };
@@ -308,7 +307,6 @@ export const deserializeAws_restJson1DescribeChangeSetCommand = async (
   }
   const contents: DescribeChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeChangeSetResponse",
     ChangeSet: undefined,
     ChangeSetArn: undefined,
     ChangeSetId: undefined,
@@ -424,7 +422,6 @@ export const deserializeAws_restJson1DescribeEntityCommand = async (
   }
   const contents: DescribeEntityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEntityResponse",
     Details: undefined,
     EntityArn: undefined,
     EntityIdentifier: undefined,
@@ -536,7 +533,6 @@ export const deserializeAws_restJson1ListChangeSetsCommand = async (
   }
   const contents: ListChangeSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListChangeSetsResponse",
     ChangeSetSummaryList: undefined,
     NextToken: undefined,
   };
@@ -620,7 +616,6 @@ export const deserializeAws_restJson1ListEntitiesCommand = async (
   }
   const contents: ListEntitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEntitiesResponse",
     EntitySummaryList: undefined,
     NextToken: undefined,
   };
@@ -712,7 +707,6 @@ export const deserializeAws_restJson1StartChangeSetCommand = async (
   }
   const contents: StartChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartChangeSetResponse",
     ChangeSetArn: undefined,
     ChangeSetId: undefined,
   };
@@ -1004,7 +998,6 @@ const deserializeAws_restJson1ChangeSetSummaryListItem = (
   context: __SerdeContext
 ): ChangeSetSummaryListItem => {
   return {
-    __type: "ChangeSetSummaryListItem",
     ChangeSetArn: output.ChangeSetArn !== undefined && output.ChangeSetArn !== null ? output.ChangeSetArn : undefined,
     ChangeSetId: output.ChangeSetId !== undefined && output.ChangeSetId !== null ? output.ChangeSetId : undefined,
     ChangeSetName:
@@ -1021,7 +1014,6 @@ const deserializeAws_restJson1ChangeSetSummaryListItem = (
 
 const deserializeAws_restJson1ChangeSummary = (output: any, context: __SerdeContext): ChangeSummary => {
   return {
-    __type: "ChangeSummary",
     ChangeType: output.ChangeType !== undefined && output.ChangeType !== null ? output.ChangeType : undefined,
     Details: output.Details !== undefined && output.Details !== null ? output.Details : undefined,
     Entity:
@@ -1037,7 +1029,6 @@ const deserializeAws_restJson1ChangeSummary = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Entity = (output: any, context: __SerdeContext): Entity => {
   return {
-    __type: "Entity",
     Identifier: output.Identifier !== undefined && output.Identifier !== null ? output.Identifier : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -1045,7 +1036,6 @@ const deserializeAws_restJson1Entity = (output: any, context: __SerdeContext): E
 
 const deserializeAws_restJson1EntitySummary = (output: any, context: __SerdeContext): EntitySummary => {
   return {
-    __type: "EntitySummary",
     EntityArn: output.EntityArn !== undefined && output.EntityArn !== null ? output.EntityArn : undefined,
     EntityId: output.EntityId !== undefined && output.EntityId !== null ? output.EntityId : undefined,
     EntityType: output.EntityType !== undefined && output.EntityType !== null ? output.EntityType : undefined,
@@ -1062,7 +1052,6 @@ const deserializeAws_restJson1EntitySummaryList = (output: any, context: __Serde
 
 const deserializeAws_restJson1ErrorDetail = (output: any, context: __SerdeContext): ErrorDetail => {
   return {
-    __type: "ErrorDetail",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
   } as any;

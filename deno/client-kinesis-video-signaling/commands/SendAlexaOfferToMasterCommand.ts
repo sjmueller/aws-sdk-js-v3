@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoSignalingClient.ts";
-import { SendAlexaOfferToMasterRequest, SendAlexaOfferToMasterResponse } from "../models/index.ts";
+import { SendAlexaOfferToMasterRequest, SendAlexaOfferToMasterResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SendAlexaOfferToMasterCommand,
   serializeAws_restJson1SendAlexaOfferToMasterCommand,

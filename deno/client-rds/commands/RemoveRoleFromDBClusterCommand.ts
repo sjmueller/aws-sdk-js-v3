@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { RemoveRoleFromDBClusterMessage } from "../models/index.ts";
+import { RemoveRoleFromDBClusterMessage } from "../models/models_1.ts";
 import {
   deserializeAws_queryRemoveRoleFromDBClusterCommand,
   serializeAws_queryRemoveRoleFromDBClusterCommand,

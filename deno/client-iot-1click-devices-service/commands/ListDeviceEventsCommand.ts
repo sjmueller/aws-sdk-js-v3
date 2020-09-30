@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient.ts";
-import { ListDeviceEventsRequest, ListDeviceEventsResponse } from "../models/index.ts";
+import { ListDeviceEventsRequest, ListDeviceEventsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListDeviceEventsCommand,
   serializeAws_restJson1ListDeviceEventsCommand,

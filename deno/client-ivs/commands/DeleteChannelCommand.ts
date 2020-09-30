@@ -1,6 +1,6 @@
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient.ts";
-import { DeleteChannelRequest } from "../models/index.ts";
+import { DeleteChannelRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteChannelCommand,
   serializeAws_restJson1DeleteChannelCommand,

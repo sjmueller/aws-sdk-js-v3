@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { ListComplianceSummariesRequest, ListComplianceSummariesResult } from "../models/index.ts";
+import { ListComplianceSummariesRequest, ListComplianceSummariesResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ListComplianceSummariesCommand,
   serializeAws_json1_1ListComplianceSummariesCommand,

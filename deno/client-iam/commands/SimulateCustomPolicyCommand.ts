@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { SimulateCustomPolicyRequest, SimulatePolicyResponse } from "../models/index.ts";
+import { SimulateCustomPolicyRequest, SimulatePolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_querySimulateCustomPolicyCommand,
   serializeAws_querySimulateCustomPolicyCommand,

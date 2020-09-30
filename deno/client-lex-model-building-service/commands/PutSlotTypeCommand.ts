@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient.ts";
-import { PutSlotTypeRequest, PutSlotTypeResponse } from "../models/index.ts";
+import { PutSlotTypeRequest, PutSlotTypeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutSlotTypeCommand,
   serializeAws_restJson1PutSlotTypeCommand,

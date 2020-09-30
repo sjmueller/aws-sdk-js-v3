@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { CreateGroupMembershipRequest, CreateGroupMembershipResponse } from "../models/index.ts";
+import { CreateGroupMembershipRequest, CreateGroupMembershipResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateGroupMembershipCommand,
   serializeAws_restJson1CreateGroupMembershipCommand,

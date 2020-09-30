@@ -1,6 +1,6 @@
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient.ts";
-import { PutResourceAttributesRequest, PutResourceAttributesResult } from "../models/index.ts";
+import { PutResourceAttributesRequest, PutResourceAttributesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutResourceAttributesCommand,
   serializeAws_json1_1PutResourceAttributesCommand,

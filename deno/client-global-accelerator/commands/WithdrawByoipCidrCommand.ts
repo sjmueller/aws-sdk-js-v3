@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient.ts";
-import { WithdrawByoipCidrRequest, WithdrawByoipCidrResponse } from "../models/index.ts";
+import { WithdrawByoipCidrRequest, WithdrawByoipCidrResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1WithdrawByoipCidrCommand,
   serializeAws_json1_1WithdrawByoipCidrCommand,

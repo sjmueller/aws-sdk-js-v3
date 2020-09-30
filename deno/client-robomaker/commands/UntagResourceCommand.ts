@@ -1,6 +1,6 @@
 
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient.ts";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/index.ts";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UntagResourceCommand,
   serializeAws_restJson1UntagResourceCommand,

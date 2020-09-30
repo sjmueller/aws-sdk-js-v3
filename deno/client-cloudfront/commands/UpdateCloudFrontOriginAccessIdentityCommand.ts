@@ -3,7 +3,7 @@ import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   UpdateCloudFrontOriginAccessIdentityRequest,
   UpdateCloudFrontOriginAccessIdentityResult,
-} from "../models/index.ts";
+} from "../models/models_1.ts";
 import {
   deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand,
   serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeEventsClient.ts";
-import { PutEventsRequest } from "../models/index.ts";
+import { PutEventsRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutEventsCommand,
   serializeAws_restJson1PutEventsCommand,

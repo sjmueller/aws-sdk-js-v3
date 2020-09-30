@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { ResendConfirmationCodeRequest, ResendConfirmationCodeResponse } from "../models/index.ts";
+import { ResendConfirmationCodeRequest, ResendConfirmationCodeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ResendConfirmationCodeCommand,
   serializeAws_json1_1ResendConfirmationCodeCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { DeleteConnectionMessage, DeleteConnectionResponse } from "../models/index.ts";
+import { DeleteConnectionMessage, DeleteConnectionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteConnectionCommand,
   serializeAws_json1_1DeleteConnectionCommand,

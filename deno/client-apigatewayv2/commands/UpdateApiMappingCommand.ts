@@ -1,6 +1,6 @@
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
-import { UpdateApiMappingRequest, UpdateApiMappingResponse } from "../models/index.ts";
+import { UpdateApiMappingRequest, UpdateApiMappingResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateApiMappingCommand,
   serializeAws_restJson1UpdateApiMappingCommand,

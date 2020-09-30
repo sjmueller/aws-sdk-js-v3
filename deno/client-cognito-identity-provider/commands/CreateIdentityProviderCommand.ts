@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { CreateIdentityProviderRequest, CreateIdentityProviderResponse } from "../models/index.ts";
+import { CreateIdentityProviderRequest, CreateIdentityProviderResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateIdentityProviderCommand,
   serializeAws_json1_1CreateIdentityProviderCommand,

@@ -156,7 +156,7 @@ import {
   UpdateTagsForDomainResponse,
   ViewBillingRequest,
   ViewBillingResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -543,7 +543,6 @@ export const deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountComm
   contents = deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountResponse(data, context);
   const response: AcceptDomainTransferFromAnotherAwsAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptDomainTransferFromAnotherAwsAccountResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -615,7 +614,6 @@ export const deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountComman
   contents = deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountResponse(data, context);
   const response: CancelDomainTransferToAnotherAwsAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelDomainTransferToAnotherAwsAccountResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -679,7 +677,6 @@ export const deserializeAws_json1_1CheckDomainAvailabilityCommand = async (
   contents = deserializeAws_json1_1CheckDomainAvailabilityResponse(data, context);
   const response: CheckDomainAvailabilityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CheckDomainAvailabilityResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -743,7 +740,6 @@ export const deserializeAws_json1_1CheckDomainTransferabilityCommand = async (
   contents = deserializeAws_json1_1CheckDomainTransferabilityResponse(data, context);
   const response: CheckDomainTransferabilityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CheckDomainTransferabilityResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -807,7 +803,6 @@ export const deserializeAws_json1_1DeleteTagsForDomainCommand = async (
   contents = deserializeAws_json1_1DeleteTagsForDomainResponse(data, context);
   const response: DeleteTagsForDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTagsForDomainResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -879,7 +874,6 @@ export const deserializeAws_json1_1DisableDomainAutoRenewCommand = async (
   contents = deserializeAws_json1_1DisableDomainAutoRenewResponse(data, context);
   const response: DisableDomainAutoRenewCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableDomainAutoRenewResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -943,7 +937,6 @@ export const deserializeAws_json1_1DisableDomainTransferLockCommand = async (
   contents = deserializeAws_json1_1DisableDomainTransferLockResponse(data, context);
   const response: DisableDomainTransferLockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableDomainTransferLockResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1031,7 +1024,6 @@ export const deserializeAws_json1_1EnableDomainAutoRenewCommand = async (
   contents = deserializeAws_json1_1EnableDomainAutoRenewResponse(data, context);
   const response: EnableDomainAutoRenewCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableDomainAutoRenewResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1103,7 +1095,6 @@ export const deserializeAws_json1_1EnableDomainTransferLockCommand = async (
   contents = deserializeAws_json1_1EnableDomainTransferLockResponse(data, context);
   const response: EnableDomainTransferLockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableDomainTransferLockResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1191,7 +1182,6 @@ export const deserializeAws_json1_1GetContactReachabilityStatusCommand = async (
   contents = deserializeAws_json1_1GetContactReachabilityStatusResponse(data, context);
   const response: GetContactReachabilityStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetContactReachabilityStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1263,7 +1253,6 @@ export const deserializeAws_json1_1GetDomainDetailCommand = async (
   contents = deserializeAws_json1_1GetDomainDetailResponse(data, context);
   const response: GetDomainDetailCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDomainDetailResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1327,7 +1316,6 @@ export const deserializeAws_json1_1GetDomainSuggestionsCommand = async (
   contents = deserializeAws_json1_1GetDomainSuggestionsResponse(data, context);
   const response: GetDomainSuggestionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDomainSuggestionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1391,7 +1379,6 @@ export const deserializeAws_json1_1GetOperationDetailCommand = async (
   contents = deserializeAws_json1_1GetOperationDetailResponse(data, context);
   const response: GetOperationDetailCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOperationDetailResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1447,7 +1434,6 @@ export const deserializeAws_json1_1ListDomainsCommand = async (
   contents = deserializeAws_json1_1ListDomainsResponse(data, context);
   const response: ListDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDomainsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1503,7 +1489,6 @@ export const deserializeAws_json1_1ListOperationsCommand = async (
   contents = deserializeAws_json1_1ListOperationsResponse(data, context);
   const response: ListOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListOperationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1559,7 +1544,6 @@ export const deserializeAws_json1_1ListTagsForDomainCommand = async (
   contents = deserializeAws_json1_1ListTagsForDomainResponse(data, context);
   const response: ListTagsForDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForDomainResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1631,7 +1615,6 @@ export const deserializeAws_json1_1RegisterDomainCommand = async (
   contents = deserializeAws_json1_1RegisterDomainResponse(data, context);
   const response: RegisterDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterDomainResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1727,7 +1710,6 @@ export const deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountComm
   contents = deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountResponse(data, context);
   const response: RejectDomainTransferFromAnotherAwsAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectDomainTransferFromAnotherAwsAccountResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1791,7 +1773,6 @@ export const deserializeAws_json1_1RenewDomainCommand = async (
   contents = deserializeAws_json1_1RenewDomainResponse(data, context);
   const response: RenewDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RenewDomainResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1879,7 +1860,6 @@ export const deserializeAws_json1_1ResendContactReachabilityEmailCommand = async
   contents = deserializeAws_json1_1ResendContactReachabilityEmailResponse(data, context);
   const response: ResendContactReachabilityEmailCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResendContactReachabilityEmailResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1951,7 +1931,6 @@ export const deserializeAws_json1_1RetrieveDomainAuthCodeCommand = async (
   contents = deserializeAws_json1_1RetrieveDomainAuthCodeResponse(data, context);
   const response: RetrieveDomainAuthCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RetrieveDomainAuthCodeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2015,7 +1994,6 @@ export const deserializeAws_json1_1TransferDomainCommand = async (
   contents = deserializeAws_json1_1TransferDomainResponse(data, context);
   const response: TransferDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TransferDomainResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2111,7 +2089,6 @@ export const deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommand = as
   contents = deserializeAws_json1_1TransferDomainToAnotherAwsAccountResponse(data, context);
   const response: TransferDomainToAnotherAwsAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TransferDomainToAnotherAwsAccountResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2183,7 +2160,6 @@ export const deserializeAws_json1_1UpdateDomainContactCommand = async (
   contents = deserializeAws_json1_1UpdateDomainContactResponse(data, context);
   const response: UpdateDomainContactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDomainContactResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2271,7 +2247,6 @@ export const deserializeAws_json1_1UpdateDomainContactPrivacyCommand = async (
   contents = deserializeAws_json1_1UpdateDomainContactPrivacyResponse(data, context);
   const response: UpdateDomainContactPrivacyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDomainContactPrivacyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2359,7 +2334,6 @@ export const deserializeAws_json1_1UpdateDomainNameserversCommand = async (
   contents = deserializeAws_json1_1UpdateDomainNameserversResponse(data, context);
   const response: UpdateDomainNameserversCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDomainNameserversResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2447,7 +2421,6 @@ export const deserializeAws_json1_1UpdateTagsForDomainCommand = async (
   contents = deserializeAws_json1_1UpdateTagsForDomainResponse(data, context);
   const response: UpdateTagsForDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTagsForDomainResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2519,7 +2492,6 @@ export const deserializeAws_json1_1ViewBillingCommand = async (
   contents = deserializeAws_json1_1ViewBillingResponse(data, context);
   const response: ViewBillingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ViewBillingResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3031,14 +3003,12 @@ const deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountResponse = 
   context: __SerdeContext
 ): AcceptDomainTransferFromAnotherAwsAccountResponse => {
   return {
-    __type: "AcceptDomainTransferFromAnotherAwsAccountResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1BillingRecord = (output: any, context: __SerdeContext): BillingRecord => {
   return {
-    __type: "BillingRecord",
     BillDate:
       output.BillDate !== undefined && output.BillDate !== null
         ? new Date(Math.round(output.BillDate * 1000))
@@ -3059,7 +3029,6 @@ const deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountResponse = (
   context: __SerdeContext
 ): CancelDomainTransferToAnotherAwsAccountResponse => {
   return {
-    __type: "CancelDomainTransferToAnotherAwsAccountResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
@@ -3069,7 +3038,6 @@ const deserializeAws_json1_1CheckDomainAvailabilityResponse = (
   context: __SerdeContext
 ): CheckDomainAvailabilityResponse => {
   return {
-    __type: "CheckDomainAvailabilityResponse",
     Availability: output.Availability !== undefined && output.Availability !== null ? output.Availability : undefined,
   } as any;
 };
@@ -3079,7 +3047,6 @@ const deserializeAws_json1_1CheckDomainTransferabilityResponse = (
   context: __SerdeContext
 ): CheckDomainTransferabilityResponse => {
   return {
-    __type: "CheckDomainTransferabilityResponse",
     Transferability:
       output.Transferability !== undefined && output.Transferability !== null
         ? deserializeAws_json1_1DomainTransferability(output.Transferability, context)
@@ -3089,7 +3056,6 @@ const deserializeAws_json1_1CheckDomainTransferabilityResponse = (
 
 const deserializeAws_json1_1ContactDetail = (output: any, context: __SerdeContext): ContactDetail => {
   return {
-    __type: "ContactDetail",
     AddressLine1: output.AddressLine1 !== undefined && output.AddressLine1 !== null ? output.AddressLine1 : undefined,
     AddressLine2: output.AddressLine2 !== undefined && output.AddressLine2 !== null ? output.AddressLine2 : undefined,
     City: output.City !== undefined && output.City !== null ? output.City : undefined,
@@ -3115,18 +3081,14 @@ const deserializeAws_json1_1DeleteTagsForDomainResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteTagsForDomainResponse => {
-  return {
-    __type: "DeleteTagsForDomainResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisableDomainAutoRenewResponse = (
   output: any,
   context: __SerdeContext
 ): DisableDomainAutoRenewResponse => {
-  return {
-    __type: "DisableDomainAutoRenewResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisableDomainTransferLockResponse = (
@@ -3134,14 +3096,12 @@ const deserializeAws_json1_1DisableDomainTransferLockResponse = (
   context: __SerdeContext
 ): DisableDomainTransferLockResponse => {
   return {
-    __type: "DisableDomainTransferLockResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DomainLimitExceeded = (output: any, context: __SerdeContext): DomainLimitExceeded => {
   return {
-    __type: "DomainLimitExceeded",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3152,7 +3112,6 @@ const deserializeAws_json1_1DomainStatusList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1DomainSuggestion = (output: any, context: __SerdeContext): DomainSuggestion => {
   return {
-    __type: "DomainSuggestion",
     Availability: output.Availability !== undefined && output.Availability !== null ? output.Availability : undefined,
     DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
   } as any;
@@ -3164,7 +3123,6 @@ const deserializeAws_json1_1DomainSuggestionsList = (output: any, context: __Ser
 
 const deserializeAws_json1_1DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
   return {
-    __type: "DomainSummary",
     AutoRenew: output.AutoRenew !== undefined && output.AutoRenew !== null ? output.AutoRenew : undefined,
     DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     Expiry:
@@ -3179,14 +3137,12 @@ const deserializeAws_json1_1DomainSummaryList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1DomainTransferability = (output: any, context: __SerdeContext): DomainTransferability => {
   return {
-    __type: "DomainTransferability",
     Transferable: output.Transferable !== undefined && output.Transferable !== null ? output.Transferable : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DuplicateRequest = (output: any, context: __SerdeContext): DuplicateRequest => {
   return {
-    __type: "DuplicateRequest",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3195,9 +3151,7 @@ const deserializeAws_json1_1EnableDomainAutoRenewResponse = (
   output: any,
   context: __SerdeContext
 ): EnableDomainAutoRenewResponse => {
-  return {
-    __type: "EnableDomainAutoRenewResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1EnableDomainTransferLockResponse = (
@@ -3205,14 +3159,12 @@ const deserializeAws_json1_1EnableDomainTransferLockResponse = (
   context: __SerdeContext
 ): EnableDomainTransferLockResponse => {
   return {
-    __type: "EnableDomainTransferLockResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ExtraParam = (output: any, context: __SerdeContext): ExtraParam => {
   return {
-    __type: "ExtraParam",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -3227,7 +3179,6 @@ const deserializeAws_json1_1GetContactReachabilityStatusResponse = (
   context: __SerdeContext
 ): GetContactReachabilityStatusResponse => {
   return {
-    __type: "GetContactReachabilityStatusResponse",
     domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
@@ -3238,7 +3189,6 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
   context: __SerdeContext
 ): GetDomainDetailResponse => {
   return {
-    __type: "GetDomainDetailResponse",
     AbuseContactEmail:
       output.AbuseContactEmail !== undefined && output.AbuseContactEmail !== null
         ? output.AbuseContactEmail
@@ -3303,7 +3253,6 @@ const deserializeAws_json1_1GetDomainSuggestionsResponse = (
   context: __SerdeContext
 ): GetDomainSuggestionsResponse => {
   return {
-    __type: "GetDomainSuggestionsResponse",
     SuggestionsList:
       output.SuggestionsList !== undefined && output.SuggestionsList !== null
         ? deserializeAws_json1_1DomainSuggestionsList(output.SuggestionsList, context)
@@ -3316,7 +3265,6 @@ const deserializeAws_json1_1GetOperationDetailResponse = (
   context: __SerdeContext
 ): GetOperationDetailResponse => {
   return {
-    __type: "GetOperationDetailResponse",
     DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
@@ -3335,14 +3283,12 @@ const deserializeAws_json1_1GlueIpList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1InvalidInput = (output: any, context: __SerdeContext): InvalidInput => {
   return {
-    __type: "InvalidInput",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListDomainsResponse = (output: any, context: __SerdeContext): ListDomainsResponse => {
   return {
-    __type: "ListDomainsResponse",
     Domains:
       output.Domains !== undefined && output.Domains !== null
         ? deserializeAws_json1_1DomainSummaryList(output.Domains, context)
@@ -3354,7 +3300,6 @@ const deserializeAws_json1_1ListDomainsResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1ListOperationsResponse = (output: any, context: __SerdeContext): ListOperationsResponse => {
   return {
-    __type: "ListOperationsResponse",
     NextPageMarker:
       output.NextPageMarker !== undefined && output.NextPageMarker !== null ? output.NextPageMarker : undefined,
     Operations:
@@ -3369,7 +3314,6 @@ const deserializeAws_json1_1ListTagsForDomainResponse = (
   context: __SerdeContext
 ): ListTagsForDomainResponse => {
   return {
-    __type: "ListTagsForDomainResponse",
     TagList:
       output.TagList !== undefined && output.TagList !== null
         ? deserializeAws_json1_1TagList(output.TagList, context)
@@ -3379,7 +3323,6 @@ const deserializeAws_json1_1ListTagsForDomainResponse = (
 
 const deserializeAws_json1_1Nameserver = (output: any, context: __SerdeContext): Nameserver => {
   return {
-    __type: "Nameserver",
     GlueIps:
       output.GlueIps !== undefined && output.GlueIps !== null
         ? deserializeAws_json1_1GlueIpList(output.GlueIps, context)
@@ -3394,14 +3337,12 @@ const deserializeAws_json1_1NameserverList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1OperationLimitExceeded = (output: any, context: __SerdeContext): OperationLimitExceeded => {
   return {
-    __type: "OperationLimitExceeded",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
   return {
-    __type: "OperationSummary",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     SubmittedDate:
@@ -3418,7 +3359,6 @@ const deserializeAws_json1_1OperationSummaryList = (output: any, context: __Serd
 
 const deserializeAws_json1_1RegisterDomainResponse = (output: any, context: __SerdeContext): RegisterDomainResponse => {
   return {
-    __type: "RegisterDomainResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
@@ -3428,14 +3368,12 @@ const deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountResponse = 
   context: __SerdeContext
 ): RejectDomainTransferFromAnotherAwsAccountResponse => {
   return {
-    __type: "RejectDomainTransferFromAnotherAwsAccountResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RenewDomainResponse = (output: any, context: __SerdeContext): RenewDomainResponse => {
   return {
-    __type: "RenewDomainResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
@@ -3445,7 +3383,6 @@ const deserializeAws_json1_1ResendContactReachabilityEmailResponse = (
   context: __SerdeContext
 ): ResendContactReachabilityEmailResponse => {
   return {
-    __type: "ResendContactReachabilityEmailResponse",
     domainName: output.domainName !== undefined && output.domainName !== null ? output.domainName : undefined,
     emailAddress: output.emailAddress !== undefined && output.emailAddress !== null ? output.emailAddress : undefined,
     isAlreadyVerified:
@@ -3460,14 +3397,12 @@ const deserializeAws_json1_1RetrieveDomainAuthCodeResponse = (
   context: __SerdeContext
 ): RetrieveDomainAuthCodeResponse => {
   return {
-    __type: "RetrieveDomainAuthCodeResponse",
     AuthCode: output.AuthCode !== undefined && output.AuthCode !== null ? output.AuthCode : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -3479,14 +3414,12 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TLDRulesViolation = (output: any, context: __SerdeContext): TLDRulesViolation => {
   return {
-    __type: "TLDRulesViolation",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1TransferDomainResponse = (output: any, context: __SerdeContext): TransferDomainResponse => {
   return {
-    __type: "TransferDomainResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
@@ -3496,7 +3429,6 @@ const deserializeAws_json1_1TransferDomainToAnotherAwsAccountResponse = (
   context: __SerdeContext
 ): TransferDomainToAnotherAwsAccountResponse => {
   return {
-    __type: "TransferDomainToAnotherAwsAccountResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
   } as any;
@@ -3504,7 +3436,6 @@ const deserializeAws_json1_1TransferDomainToAnotherAwsAccountResponse = (
 
 const deserializeAws_json1_1UnsupportedTLD = (output: any, context: __SerdeContext): UnsupportedTLD => {
   return {
-    __type: "UnsupportedTLD",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3514,7 +3445,6 @@ const deserializeAws_json1_1UpdateDomainContactPrivacyResponse = (
   context: __SerdeContext
 ): UpdateDomainContactPrivacyResponse => {
   return {
-    __type: "UpdateDomainContactPrivacyResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
@@ -3524,7 +3454,6 @@ const deserializeAws_json1_1UpdateDomainContactResponse = (
   context: __SerdeContext
 ): UpdateDomainContactResponse => {
   return {
-    __type: "UpdateDomainContactResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
@@ -3534,7 +3463,6 @@ const deserializeAws_json1_1UpdateDomainNameserversResponse = (
   context: __SerdeContext
 ): UpdateDomainNameserversResponse => {
   return {
-    __type: "UpdateDomainNameserversResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
@@ -3543,14 +3471,11 @@ const deserializeAws_json1_1UpdateTagsForDomainResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateTagsForDomainResponse => {
-  return {
-    __type: "UpdateTagsForDomainResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ViewBillingResponse = (output: any, context: __SerdeContext): ViewBillingResponse => {
   return {
-    __type: "ViewBillingResponse",
     BillingRecords:
       output.BillingRecords !== undefined && output.BillingRecords !== null
         ? deserializeAws_json1_1BillingRecords(output.BillingRecords, context)

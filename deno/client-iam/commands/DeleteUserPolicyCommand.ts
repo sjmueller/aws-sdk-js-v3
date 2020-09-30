@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { DeleteUserPolicyRequest } from "../models/index.ts";
+import { DeleteUserPolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteUserPolicyCommand,
   serializeAws_queryDeleteUserPolicyCommand,

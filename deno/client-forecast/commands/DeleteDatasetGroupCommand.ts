@@ -1,6 +1,6 @@
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient.ts";
-import { DeleteDatasetGroupRequest } from "../models/index.ts";
+import { DeleteDatasetGroupRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteDatasetGroupCommand,
   serializeAws_json1_1DeleteDatasetGroupCommand,

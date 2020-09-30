@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/index.ts";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1ListTagsForResourceCommand,
   serializeAws_restJson1ListTagsForResourceCommand,

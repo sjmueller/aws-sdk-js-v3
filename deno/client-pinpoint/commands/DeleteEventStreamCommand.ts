@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { DeleteEventStreamRequest, DeleteEventStreamResponse } from "../models/index.ts";
+import { DeleteEventStreamRequest, DeleteEventStreamResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteEventStreamCommand,
   serializeAws_restJson1DeleteEventStreamCommand,

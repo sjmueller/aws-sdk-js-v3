@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { StartConfigRulesEvaluationRequest, StartConfigRulesEvaluationResponse } from "../models/index.ts";
+import { StartConfigRulesEvaluationRequest, StartConfigRulesEvaluationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartConfigRulesEvaluationCommand,
   serializeAws_json1_1StartConfigRulesEvaluationCommand,

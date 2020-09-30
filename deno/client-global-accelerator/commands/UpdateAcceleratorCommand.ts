@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient.ts";
-import { UpdateAcceleratorRequest, UpdateAcceleratorResponse } from "../models/index.ts";
+import { UpdateAcceleratorRequest, UpdateAcceleratorResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateAcceleratorCommand,
   serializeAws_json1_1UpdateAcceleratorCommand,

@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { BatchDeleteTableRequest, BatchDeleteTableResponse } from "../models/index.ts";
+import { BatchDeleteTableRequest, BatchDeleteTableResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchDeleteTableCommand,
   serializeAws_json1_1BatchDeleteTableCommand,

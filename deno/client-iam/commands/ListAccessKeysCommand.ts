@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { ListAccessKeysRequest, ListAccessKeysResponse } from "../models/index.ts";
+import { ListAccessKeysRequest, ListAccessKeysResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryListAccessKeysCommand,
   serializeAws_queryListAccessKeysCommand,

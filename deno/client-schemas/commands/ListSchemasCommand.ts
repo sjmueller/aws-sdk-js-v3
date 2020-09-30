@@ -1,6 +1,6 @@
 
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient.ts";
-import { ListSchemasRequest, ListSchemasResponse } from "../models/index.ts";
+import { ListSchemasRequest, ListSchemasResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListSchemasCommand,
   serializeAws_restJson1ListSchemasCommand,

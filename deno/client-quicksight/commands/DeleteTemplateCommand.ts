@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { DeleteTemplateRequest, DeleteTemplateResponse } from "../models/index.ts";
+import { DeleteTemplateRequest, DeleteTemplateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteTemplateCommand,
   serializeAws_restJson1DeleteTemplateCommand,

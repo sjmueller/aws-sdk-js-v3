@@ -1,6 +1,6 @@
 
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient.ts";
-import { DBSubnetGroupMessage, DescribeDBSubnetGroupsMessage } from "../models/index.ts";
+import { DBSubnetGroupMessage, DescribeDBSubnetGroupsMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeDBSubnetGroupsCommand,
   serializeAws_queryDescribeDBSubnetGroupsCommand,

@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { DeleteDomainEntryRequest, DeleteDomainEntryResult } from "../models/index.ts";
+import { DeleteDomainEntryRequest, DeleteDomainEntryResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteDomainEntryCommand,
   serializeAws_json1_1DeleteDomainEntryCommand,

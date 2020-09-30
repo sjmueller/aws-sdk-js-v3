@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client.ts";
-import { GetRegexPatternSetRequest, GetRegexPatternSetResponse } from "../models/index.ts";
+import { GetRegexPatternSetRequest, GetRegexPatternSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetRegexPatternSetCommand,
   serializeAws_json1_1GetRegexPatternSetCommand,

@@ -1,6 +1,6 @@
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
-import { DescribeConnectionLoaRequest, DescribeConnectionLoaResponse } from "../models/index.ts";
+import { DescribeConnectionLoaRequest, DescribeConnectionLoaResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeConnectionLoaCommand,
   serializeAws_json1_1DescribeConnectionLoaCommand,

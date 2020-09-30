@@ -1,6 +1,6 @@
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
-import { DeleteBackupVaultInput } from "../models/index.ts";
+import { DeleteBackupVaultInput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteBackupVaultCommand,
   serializeAws_restJson1DeleteBackupVaultCommand,

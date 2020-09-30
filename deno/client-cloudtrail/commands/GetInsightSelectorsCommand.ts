@@ -1,6 +1,6 @@
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient.ts";
-import { GetInsightSelectorsRequest, GetInsightSelectorsResponse } from "../models/index.ts";
+import { GetInsightSelectorsRequest, GetInsightSelectorsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetInsightSelectorsCommand,
   serializeAws_json1_1GetInsightSelectorsCommand,

@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { GetBucketLoggingOutput, GetBucketLoggingRequest } from "../models/index.ts";
+import { GetBucketLoggingOutput, GetBucketLoggingRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlGetBucketLoggingCommand,
   serializeAws_restXmlGetBucketLoggingCommand,

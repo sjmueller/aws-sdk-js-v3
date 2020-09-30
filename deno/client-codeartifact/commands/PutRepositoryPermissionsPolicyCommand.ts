@@ -1,6 +1,6 @@
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient.ts";
-import { PutRepositoryPermissionsPolicyRequest, PutRepositoryPermissionsPolicyResult } from "../models/index.ts";
+import { PutRepositoryPermissionsPolicyRequest, PutRepositoryPermissionsPolicyResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutRepositoryPermissionsPolicyCommand,
   serializeAws_restJson1PutRepositoryPermissionsPolicyCommand,

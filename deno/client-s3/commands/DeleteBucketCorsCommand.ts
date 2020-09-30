@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { DeleteBucketCorsRequest } from "../models/index.ts";
+import { DeleteBucketCorsRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlDeleteBucketCorsCommand,
   serializeAws_restXmlDeleteBucketCorsCommand,

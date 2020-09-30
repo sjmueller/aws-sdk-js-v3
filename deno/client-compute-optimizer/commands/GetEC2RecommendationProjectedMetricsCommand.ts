@@ -3,7 +3,7 @@ import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 import {
   GetEC2RecommendationProjectedMetricsRequest,
   GetEC2RecommendationProjectedMetricsResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand,
   serializeAws_json1_0GetEC2RecommendationProjectedMetricsCommand,

@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   DescribeLocalGatewayVirtualInterfaceGroupsResult,
-} from "../models/index.ts";
+} from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand,
   serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand,

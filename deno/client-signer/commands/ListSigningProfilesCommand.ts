@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient.ts";
-import { ListSigningProfilesRequest, ListSigningProfilesResponse } from "../models/index.ts";
+import { ListSigningProfilesRequest, ListSigningProfilesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListSigningProfilesCommand,
   serializeAws_restJson1ListSigningProfilesCommand,

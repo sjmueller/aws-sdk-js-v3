@@ -1,6 +1,6 @@
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
-import { StopDBClusterMessage, StopDBClusterResult } from "../models/index.ts";
+import { StopDBClusterMessage, StopDBClusterResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryStopDBClusterCommand,
   serializeAws_queryStopDBClusterCommand,

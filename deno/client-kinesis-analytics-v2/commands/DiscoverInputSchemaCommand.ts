@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client.ts";
-import { DiscoverInputSchemaRequest, DiscoverInputSchemaResponse } from "../models/index.ts";
+import { DiscoverInputSchemaRequest, DiscoverInputSchemaResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DiscoverInputSchemaCommand,
   serializeAws_json1_1DiscoverInputSchemaCommand,

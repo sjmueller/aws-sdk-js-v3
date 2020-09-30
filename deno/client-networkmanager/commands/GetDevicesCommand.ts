@@ -1,6 +1,6 @@
 
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient.ts";
-import { GetDevicesRequest, GetDevicesResponse } from "../models/index.ts";
+import { GetDevicesRequest, GetDevicesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetDevicesCommand,
   serializeAws_restJson1GetDevicesCommand,

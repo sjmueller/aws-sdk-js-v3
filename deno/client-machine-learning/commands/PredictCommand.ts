@@ -1,6 +1,6 @@
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient.ts";
-import { PredictInput, PredictOutput } from "../models/index.ts";
+import { PredictInput, PredictOutput } from "../models/models_0.ts";
 import { deserializeAws_json1_1PredictCommand, serializeAws_json1_1PredictCommand } from "../protocols/Aws_json1_1.ts";
 import { getPredictEndpointPlugin } from "../../middleware-sdk-machinelearning/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";

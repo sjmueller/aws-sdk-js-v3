@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { GetParametersRequest, GetParametersResult } from "../models/index.ts";
+import { GetParametersRequest, GetParametersResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetParametersCommand,
   serializeAws_json1_1GetParametersCommand,

@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/index.ts";
+import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetResourcePolicyCommand,
   serializeAws_json1_1GetResourcePolicyCommand,

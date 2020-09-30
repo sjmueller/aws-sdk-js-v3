@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { CreatePortfolioShareInput, CreatePortfolioShareOutput } from "../models/index.ts";
+import { CreatePortfolioShareInput, CreatePortfolioShareOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreatePortfolioShareCommand,
   serializeAws_json1_1CreatePortfolioShareCommand,

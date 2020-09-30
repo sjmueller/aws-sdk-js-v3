@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import { DeleteAccessPointInput, DeleteAccessPointOutput } from "../models/index.ts";
+import { DeleteAccessPointInput, DeleteAccessPointOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteLoadBalancerCommand,
   serializeAws_queryDeleteLoadBalancerCommand,

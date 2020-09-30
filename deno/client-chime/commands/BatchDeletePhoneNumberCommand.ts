@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { BatchDeletePhoneNumberRequest, BatchDeletePhoneNumberResponse } from "../models/index.ts";
+import { BatchDeletePhoneNumberRequest, BatchDeletePhoneNumberResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1BatchDeletePhoneNumberCommand,
   serializeAws_restJson1BatchDeletePhoneNumberCommand,

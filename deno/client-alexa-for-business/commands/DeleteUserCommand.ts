@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { DeleteUserRequest, DeleteUserResponse } from "../models/index.ts";
+import { DeleteUserRequest, DeleteUserResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteUserCommand,
   serializeAws_json1_1DeleteUserCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient.ts";
-import { DeleteListenerRequest } from "../models/index.ts";
+import { DeleteListenerRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteListenerCommand,
   serializeAws_json1_1DeleteListenerCommand,

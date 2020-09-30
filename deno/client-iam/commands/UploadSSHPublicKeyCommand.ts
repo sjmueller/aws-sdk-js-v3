@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { UploadSSHPublicKeyRequest, UploadSSHPublicKeyResponse } from "../models/index.ts";
+import { UploadSSHPublicKeyRequest, UploadSSHPublicKeyResponse } from "../models/models_1.ts";
 import {
   deserializeAws_queryUploadSSHPublicKeyCommand,
   serializeAws_queryUploadSSHPublicKeyCommand,

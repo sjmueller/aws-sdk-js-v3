@@ -1,6 +1,6 @@
 
 import { DynamoDBStreamsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBStreamsClient.ts";
-import { GetRecordsInput, GetRecordsOutput } from "../models/index.ts";
+import { GetRecordsInput, GetRecordsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0GetRecordsCommand,
   serializeAws_json1_0GetRecordsCommand,

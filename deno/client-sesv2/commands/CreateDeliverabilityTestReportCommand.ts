@@ -1,6 +1,6 @@
 
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
-import { CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse } from "../models/index.ts";
+import { CreateDeliverabilityTestReportRequest, CreateDeliverabilityTestReportResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateDeliverabilityTestReportCommand,
   serializeAws_restJson1CreateDeliverabilityTestReportCommand,

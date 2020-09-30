@@ -31,7 +31,7 @@ import {
   HlsConfiguration,
   LivePreRollConfiguration,
   PlaybackConfiguration,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -281,7 +281,6 @@ export const deserializeAws_restJson1DeletePlaybackConfigurationCommand = async 
   }
   const contents: DeletePlaybackConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePlaybackConfigurationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -325,7 +324,6 @@ export const deserializeAws_restJson1GetPlaybackConfigurationCommand = async (
   }
   const contents: GetPlaybackConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPlaybackConfigurationResponse",
     AdDecisionServerUrl: undefined,
     AvailSuppression: undefined,
     Bumper: undefined,
@@ -436,7 +434,6 @@ export const deserializeAws_restJson1ListPlaybackConfigurationsCommand = async (
   }
   const contents: ListPlaybackConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPlaybackConfigurationsResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -488,7 +485,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -544,7 +540,6 @@ export const deserializeAws_restJson1PutPlaybackConfigurationCommand = async (
   }
   const contents: PutPlaybackConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutPlaybackConfigurationResponse",
     AdDecisionServerUrl: undefined,
     AvailSuppression: undefined,
     Bumper: undefined,
@@ -835,7 +830,6 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1AvailSuppression = (output: any, context: __SerdeContext): AvailSuppression => {
   return {
-    __type: "AvailSuppression",
     Mode: output.Mode !== undefined && output.Mode !== null ? output.Mode : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -843,7 +837,6 @@ const deserializeAws_restJson1AvailSuppression = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Bumper = (output: any, context: __SerdeContext): Bumper => {
   return {
-    __type: "Bumper",
     EndUrl: output.EndUrl !== undefined && output.EndUrl !== null ? output.EndUrl : undefined,
     StartUrl: output.StartUrl !== undefined && output.StartUrl !== null ? output.StartUrl : undefined,
   } as any;
@@ -851,7 +844,6 @@ const deserializeAws_restJson1Bumper = (output: any, context: __SerdeContext): B
 
 const deserializeAws_restJson1CdnConfiguration = (output: any, context: __SerdeContext): CdnConfiguration => {
   return {
-    __type: "CdnConfiguration",
     AdSegmentUrlPrefix:
       output.AdSegmentUrlPrefix !== undefined && output.AdSegmentUrlPrefix !== null
         ? output.AdSegmentUrlPrefix
@@ -865,7 +857,6 @@ const deserializeAws_restJson1CdnConfiguration = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1DashConfiguration = (output: any, context: __SerdeContext): DashConfiguration => {
   return {
-    __type: "DashConfiguration",
     ManifestEndpointPrefix:
       output.ManifestEndpointPrefix !== undefined && output.ManifestEndpointPrefix !== null
         ? output.ManifestEndpointPrefix
@@ -880,7 +871,6 @@ const deserializeAws_restJson1DashConfiguration = (output: any, context: __Serde
 
 const deserializeAws_restJson1HlsConfiguration = (output: any, context: __SerdeContext): HlsConfiguration => {
   return {
-    __type: "HlsConfiguration",
     ManifestEndpointPrefix:
       output.ManifestEndpointPrefix !== undefined && output.ManifestEndpointPrefix !== null
         ? output.ManifestEndpointPrefix
@@ -893,7 +883,6 @@ const deserializeAws_restJson1LivePreRollConfiguration = (
   context: __SerdeContext
 ): LivePreRollConfiguration => {
   return {
-    __type: "LivePreRollConfiguration",
     AdDecisionServerUrl:
       output.AdDecisionServerUrl !== undefined && output.AdDecisionServerUrl !== null
         ? output.AdDecisionServerUrl
@@ -907,7 +896,6 @@ const deserializeAws_restJson1LivePreRollConfiguration = (
 
 const deserializeAws_restJson1PlaybackConfiguration = (output: any, context: __SerdeContext): PlaybackConfiguration => {
   return {
-    __type: "PlaybackConfiguration",
     AdDecisionServerUrl:
       output.AdDecisionServerUrl !== undefined && output.AdDecisionServerUrl !== null
         ? output.AdDecisionServerUrl

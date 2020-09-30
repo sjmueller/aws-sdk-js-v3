@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/index.ts";
+import { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1TestInvokeAuthorizerCommand,
   serializeAws_restJson1TestInvokeAuthorizerCommand,

@@ -1,6 +1,6 @@
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient.ts";
-import { RemoveTagsInput, RemoveTagsOutput } from "../models/index.ts";
+import { RemoveTagsInput, RemoveTagsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RemoveTagsCommand,
   serializeAws_json1_1RemoveTagsCommand,

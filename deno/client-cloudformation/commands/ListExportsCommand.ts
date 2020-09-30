@@ -1,6 +1,6 @@
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
-import { ListExportsInput, ListExportsOutput } from "../models/index.ts";
+import { ListExportsInput, ListExportsOutput } from "../models/models_0.ts";
 import { deserializeAws_queryListExportsCommand, serializeAws_queryListExportsCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";

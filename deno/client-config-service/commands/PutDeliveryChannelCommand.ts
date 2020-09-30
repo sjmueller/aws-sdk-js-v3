@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { PutDeliveryChannelRequest } from "../models/index.ts";
+import { PutDeliveryChannelRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutDeliveryChannelCommand,
   serializeAws_json1_1PutDeliveryChannelCommand,

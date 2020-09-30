@@ -1,6 +1,6 @@
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
-import { PutImageRecipePolicyRequest, PutImageRecipePolicyResponse } from "../models/index.ts";
+import { PutImageRecipePolicyRequest, PutImageRecipePolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutImageRecipePolicyCommand,
   serializeAws_restJson1PutImageRecipePolicyCommand,

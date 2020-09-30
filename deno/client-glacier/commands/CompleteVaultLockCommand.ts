@@ -1,6 +1,6 @@
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
-import { CompleteVaultLockInput } from "../models/index.ts";
+import { CompleteVaultLockInput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CompleteVaultLockCommand,
   serializeAws_restJson1CompleteVaultLockCommand,

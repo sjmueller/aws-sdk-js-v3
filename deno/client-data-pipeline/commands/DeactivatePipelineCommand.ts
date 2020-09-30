@@ -1,6 +1,6 @@
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient.ts";
-import { DeactivatePipelineInput, DeactivatePipelineOutput } from "../models/index.ts";
+import { DeactivatePipelineInput, DeactivatePipelineOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeactivatePipelineCommand,
   serializeAws_json1_1DeactivatePipelineCommand,

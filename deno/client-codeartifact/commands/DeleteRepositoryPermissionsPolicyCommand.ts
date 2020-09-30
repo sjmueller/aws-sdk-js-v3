@@ -1,6 +1,6 @@
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient.ts";
-import { DeleteRepositoryPermissionsPolicyRequest, DeleteRepositoryPermissionsPolicyResult } from "../models/index.ts";
+import { DeleteRepositoryPermissionsPolicyRequest, DeleteRepositoryPermissionsPolicyResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand,
   serializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand,

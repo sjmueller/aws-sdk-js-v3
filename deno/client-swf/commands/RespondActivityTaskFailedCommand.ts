@@ -1,6 +1,6 @@
 
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient.ts";
-import { RespondActivityTaskFailedInput } from "../models/index.ts";
+import { RespondActivityTaskFailedInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0RespondActivityTaskFailedCommand,
   serializeAws_json1_0RespondActivityTaskFailedCommand,

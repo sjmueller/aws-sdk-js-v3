@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { GetJourneyDateRangeKpiRequest, GetJourneyDateRangeKpiResponse } from "../models/index.ts";
+import { GetJourneyDateRangeKpiRequest, GetJourneyDateRangeKpiResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetJourneyDateRangeKpiCommand,
   serializeAws_restJson1GetJourneyDateRangeKpiCommand,

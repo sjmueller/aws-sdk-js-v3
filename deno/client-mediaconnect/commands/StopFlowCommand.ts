@@ -1,6 +1,6 @@
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient.ts";
-import { StopFlowRequest, StopFlowResponse } from "../models/index.ts";
+import { StopFlowRequest, StopFlowResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StopFlowCommand,
   serializeAws_restJson1StopFlowCommand,

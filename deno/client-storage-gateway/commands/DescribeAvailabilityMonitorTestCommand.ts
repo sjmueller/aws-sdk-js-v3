@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { DescribeAvailabilityMonitorTestInput, DescribeAvailabilityMonitorTestOutput } from "../models/index.ts";
+import { DescribeAvailabilityMonitorTestInput, DescribeAvailabilityMonitorTestOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeAvailabilityMonitorTestCommand,
   serializeAws_json1_1DescribeAvailabilityMonitorTestCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { DeleteIpGroupRequest, DeleteIpGroupResult } from "../models/index.ts";
+import { DeleteIpGroupRequest, DeleteIpGroupResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteIpGroupCommand,
   serializeAws_json1_1DeleteIpGroupCommand,

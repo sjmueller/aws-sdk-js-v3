@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { DescribePoliciesType, PoliciesType } from "../models/index.ts";
+import { DescribePoliciesType, PoliciesType } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribePoliciesCommand,
   serializeAws_queryDescribePoliciesCommand,

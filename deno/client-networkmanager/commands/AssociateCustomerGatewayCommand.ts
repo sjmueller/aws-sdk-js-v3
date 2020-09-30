@@ -1,6 +1,6 @@
 
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient.ts";
-import { AssociateCustomerGatewayRequest, AssociateCustomerGatewayResponse } from "../models/index.ts";
+import { AssociateCustomerGatewayRequest, AssociateCustomerGatewayResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AssociateCustomerGatewayCommand,
   serializeAws_restJson1AssociateCustomerGatewayCommand,

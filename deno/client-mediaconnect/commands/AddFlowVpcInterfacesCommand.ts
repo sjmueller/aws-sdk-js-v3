@@ -1,6 +1,6 @@
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient.ts";
-import { AddFlowVpcInterfacesRequest, AddFlowVpcInterfacesResponse } from "../models/index.ts";
+import { AddFlowVpcInterfacesRequest, AddFlowVpcInterfacesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AddFlowVpcInterfacesCommand,
   serializeAws_restJson1AddFlowVpcInterfacesCommand,

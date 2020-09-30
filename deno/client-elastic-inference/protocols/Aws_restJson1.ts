@@ -28,7 +28,7 @@ import {
   KeyValuePair,
   MemoryInfo,
   ResourceNotFoundException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -225,7 +225,6 @@ export const deserializeAws_restJson1DescribeAcceleratorOfferingsCommand = async
   }
   const contents: DescribeAcceleratorOfferingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAcceleratorOfferingsResponse",
     acceleratorTypeOfferings: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -300,7 +299,6 @@ export const deserializeAws_restJson1DescribeAcceleratorsCommand = async (
   }
   const contents: DescribeAcceleratorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAcceleratorsResponse",
     acceleratorSet: undefined,
     nextToken: undefined,
   };
@@ -376,7 +374,6 @@ export const deserializeAws_restJson1DescribeAcceleratorTypesCommand = async (
   }
   const contents: DescribeAcceleratorTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAcceleratorTypesResponse",
     acceleratorTypes: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -432,7 +429,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResult",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -504,7 +500,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResult",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -572,7 +567,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResult",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -717,7 +711,6 @@ const serializeAws_restJson1ValueStringList = (input: string[], context: __Serde
 
 const deserializeAws_restJson1AcceleratorType = (output: any, context: __SerdeContext): AcceleratorType => {
   return {
-    __type: "AcceleratorType",
     acceleratorTypeName:
       output.acceleratorTypeName !== undefined && output.acceleratorTypeName !== null
         ? output.acceleratorTypeName
@@ -742,7 +735,6 @@ const deserializeAws_restJson1AcceleratorTypeOffering = (
   context: __SerdeContext
 ): AcceleratorTypeOffering => {
   return {
-    __type: "AcceleratorTypeOffering",
     acceleratorType:
       output.acceleratorType !== undefined && output.acceleratorType !== null ? output.acceleratorType : undefined,
     location: output.location !== undefined && output.location !== null ? output.location : undefined,
@@ -762,7 +754,6 @@ const deserializeAws_restJson1ElasticInferenceAccelerator = (
   context: __SerdeContext
 ): ElasticInferenceAccelerator => {
   return {
-    __type: "ElasticInferenceAccelerator",
     acceleratorHealth:
       output.acceleratorHealth !== undefined && output.acceleratorHealth !== null
         ? deserializeAws_restJson1ElasticInferenceAcceleratorHealth(output.acceleratorHealth, context)
@@ -783,7 +774,6 @@ const deserializeAws_restJson1ElasticInferenceAcceleratorHealth = (
   context: __SerdeContext
 ): ElasticInferenceAcceleratorHealth => {
   return {
-    __type: "ElasticInferenceAcceleratorHealth",
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
 };
@@ -797,7 +787,6 @@ const deserializeAws_restJson1ElasticInferenceAcceleratorSet = (
 
 const deserializeAws_restJson1KeyValuePair = (output: any, context: __SerdeContext): KeyValuePair => {
   return {
-    __type: "KeyValuePair",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -805,7 +794,6 @@ const deserializeAws_restJson1KeyValuePair = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1MemoryInfo = (output: any, context: __SerdeContext): MemoryInfo => {
   return {
-    __type: "MemoryInfo",
     sizeInMiB: output.sizeInMiB !== undefined && output.sizeInMiB !== null ? output.sizeInMiB : undefined,
   } as any;
 };

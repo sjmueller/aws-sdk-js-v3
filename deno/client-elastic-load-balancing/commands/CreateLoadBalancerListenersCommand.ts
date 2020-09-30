@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import { CreateLoadBalancerListenerInput, CreateLoadBalancerListenerOutput } from "../models/index.ts";
+import { CreateLoadBalancerListenerInput, CreateLoadBalancerListenerOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateLoadBalancerListenersCommand,
   serializeAws_queryCreateLoadBalancerListenersCommand,

@@ -1,6 +1,6 @@
 
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient.ts";
-import { DeleteDiscovererRequest } from "../models/index.ts";
+import { DeleteDiscovererRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteDiscovererCommand,
   serializeAws_restJson1DeleteDiscovererCommand,

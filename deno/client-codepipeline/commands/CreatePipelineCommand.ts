@@ -1,6 +1,6 @@
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
-import { CreatePipelineInput, CreatePipelineOutput } from "../models/index.ts";
+import { CreatePipelineInput, CreatePipelineOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreatePipelineCommand,
   serializeAws_json1_1CreatePipelineCommand,

@@ -1,6 +1,6 @@
 
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
-import { PutEmailIdentityDkimAttributesRequest, PutEmailIdentityDkimAttributesResponse } from "../models/index.ts";
+import { PutEmailIdentityDkimAttributesRequest, PutEmailIdentityDkimAttributesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand,
   serializeAws_restJson1PutEmailIdentityDkimAttributesCommand,

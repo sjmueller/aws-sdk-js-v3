@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { UpdateGameSessionQueueInput, UpdateGameSessionQueueOutput } from "../models/index.ts";
+import { UpdateGameSessionQueueInput, UpdateGameSessionQueueOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateGameSessionQueueCommand,
   serializeAws_json1_1UpdateGameSessionQueueCommand,

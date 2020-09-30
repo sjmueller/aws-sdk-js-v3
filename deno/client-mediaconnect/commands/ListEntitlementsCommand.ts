@@ -1,6 +1,6 @@
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient.ts";
-import { ListEntitlementsRequest, ListEntitlementsResponse } from "../models/index.ts";
+import { ListEntitlementsRequest, ListEntitlementsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListEntitlementsCommand,
   serializeAws_restJson1ListEntitlementsCommand,

@@ -1,6 +1,6 @@
 
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient.ts";
-import { ValidateResourcePolicyRequest, ValidateResourcePolicyResponse } from "../models/index.ts";
+import { ValidateResourcePolicyRequest, ValidateResourcePolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ValidateResourcePolicyCommand,
   serializeAws_json1_1ValidateResourcePolicyCommand,

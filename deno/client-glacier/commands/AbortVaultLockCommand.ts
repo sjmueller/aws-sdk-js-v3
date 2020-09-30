@@ -1,6 +1,6 @@
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
-import { AbortVaultLockInput } from "../models/index.ts";
+import { AbortVaultLockInput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AbortVaultLockCommand,
   serializeAws_restJson1AbortVaultLockCommand,

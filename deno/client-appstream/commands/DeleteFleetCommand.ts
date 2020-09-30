@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { DeleteFleetRequest, DeleteFleetResult } from "../models/index.ts";
+import { DeleteFleetRequest, DeleteFleetResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteFleetCommand,
   serializeAws_json1_1DeleteFleetCommand,

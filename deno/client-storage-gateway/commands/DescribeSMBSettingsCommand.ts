@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { DescribeSMBSettingsInput, DescribeSMBSettingsOutput } from "../models/index.ts";
+import { DescribeSMBSettingsInput, DescribeSMBSettingsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeSMBSettingsCommand,
   serializeAws_json1_1DescribeSMBSettingsCommand,

@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ModifyClientVpnEndpointRequest, ModifyClientVpnEndpointResult } from "../models/index.ts";
+import { ModifyClientVpnEndpointRequest, ModifyClientVpnEndpointResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyClientVpnEndpointCommand,
   serializeAws_ec2ModifyClientVpnEndpointCommand,

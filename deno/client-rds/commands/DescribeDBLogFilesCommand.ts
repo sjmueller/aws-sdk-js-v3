@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DescribeDBLogFilesMessage, DescribeDBLogFilesResponse } from "../models/index.ts";
+import { DescribeDBLogFilesMessage, DescribeDBLogFilesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeDBLogFilesCommand,
   serializeAws_queryDescribeDBLogFilesCommand,

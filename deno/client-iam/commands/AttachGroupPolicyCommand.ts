@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { AttachGroupPolicyRequest } from "../models/index.ts";
+import { AttachGroupPolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryAttachGroupPolicyCommand,
   serializeAws_queryAttachGroupPolicyCommand,

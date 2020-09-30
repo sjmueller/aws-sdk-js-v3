@@ -27,7 +27,7 @@ import {
   ServiceQuotaExceededException,
   UnprocessedAccount,
   ValidationException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -420,7 +420,6 @@ export const deserializeAws_restJson1CreateGraphCommand = async (
   }
   const contents: CreateGraphCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGraphResponse",
     GraphArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -492,7 +491,6 @@ export const deserializeAws_restJson1CreateMembersCommand = async (
   }
   const contents: CreateMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMembersResponse",
     Members: undefined,
     UnprocessedAccounts: undefined,
   };
@@ -643,7 +641,6 @@ export const deserializeAws_restJson1DeleteMembersCommand = async (
   }
   const contents: DeleteMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMembersResponse",
     AccountIds: undefined,
     UnprocessedAccounts: undefined,
   };
@@ -802,7 +799,6 @@ export const deserializeAws_restJson1GetMembersCommand = async (
   }
   const contents: GetMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMembersResponse",
     MemberDetails: undefined,
     UnprocessedAccounts: undefined,
   };
@@ -878,7 +874,6 @@ export const deserializeAws_restJson1ListGraphsCommand = async (
   }
   const contents: ListGraphsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGraphsResponse",
     GraphList: undefined,
     NextToken: undefined,
   };
@@ -946,7 +941,6 @@ export const deserializeAws_restJson1ListInvitationsCommand = async (
   }
   const contents: ListInvitationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInvitationsResponse",
     Invitations: undefined,
     NextToken: undefined,
   };
@@ -1014,7 +1008,6 @@ export const deserializeAws_restJson1ListMembersCommand = async (
   }
   const contents: ListMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMembersResponse",
     MemberDetails: undefined,
     NextToken: undefined,
   };
@@ -1345,7 +1338,6 @@ const deserializeAws_restJson1AccountIdList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Graph = (output: any, context: __SerdeContext): Graph => {
   return {
-    __type: "Graph",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
@@ -1360,7 +1352,6 @@ const deserializeAws_restJson1GraphList = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1MemberDetail = (output: any, context: __SerdeContext): MemberDetail => {
   return {
-    __type: "MemberDetail",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     DisabledReason:
       output.DisabledReason !== undefined && output.DisabledReason !== null ? output.DisabledReason : undefined,
@@ -1393,7 +1384,6 @@ const deserializeAws_restJson1MemberDetailList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1UnprocessedAccount = (output: any, context: __SerdeContext): UnprocessedAccount => {
   return {
-    __type: "UnprocessedAccount",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
   } as any;

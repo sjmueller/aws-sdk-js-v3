@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { RemoveTagsFromResourceMessage } from "../models/index.ts";
+import { RemoveTagsFromResourceMessage } from "../models/models_1.ts";
 import {
   deserializeAws_queryRemoveTagsFromResourceCommand,
   serializeAws_queryRemoveTagsFromResourceCommand,

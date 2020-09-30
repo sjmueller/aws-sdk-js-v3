@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { DescribeEnvironmentHealthRequest, DescribeEnvironmentHealthResult } from "../models/index.ts";
+import { DescribeEnvironmentHealthRequest, DescribeEnvironmentHealthResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeEnvironmentHealthCommand,
   serializeAws_queryDescribeEnvironmentHealthCommand,

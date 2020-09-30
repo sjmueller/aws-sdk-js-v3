@@ -7,7 +7,7 @@ import {
 import {
   SetLoadBalancerListenerSSLCertificateInput,
   SetLoadBalancerListenerSSLCertificateOutput,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_querySetLoadBalancerListenerSSLCertificateCommand,
   serializeAws_querySetLoadBalancerListenerSSLCertificateCommand,

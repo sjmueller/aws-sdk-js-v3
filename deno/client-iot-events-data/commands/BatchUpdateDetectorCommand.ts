@@ -1,6 +1,6 @@
 
 import { IoTEventsDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsDataClient.ts";
-import { BatchUpdateDetectorRequest, BatchUpdateDetectorResponse } from "../models/index.ts";
+import { BatchUpdateDetectorRequest, BatchUpdateDetectorResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1BatchUpdateDetectorCommand,
   serializeAws_restJson1BatchUpdateDetectorCommand,

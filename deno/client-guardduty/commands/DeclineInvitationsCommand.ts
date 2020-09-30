@@ -1,6 +1,6 @@
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
-import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/index.ts";
+import { DeclineInvitationsRequest, DeclineInvitationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeclineInvitationsCommand,
   serializeAws_restJson1DeclineInvitationsCommand,

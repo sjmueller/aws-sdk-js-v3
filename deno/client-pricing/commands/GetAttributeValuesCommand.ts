@@ -1,6 +1,6 @@
 
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient.ts";
-import { GetAttributeValuesRequest, GetAttributeValuesResponse } from "../models/index.ts";
+import { GetAttributeValuesRequest, GetAttributeValuesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetAttributeValuesCommand,
   serializeAws_json1_1GetAttributeValuesCommand,

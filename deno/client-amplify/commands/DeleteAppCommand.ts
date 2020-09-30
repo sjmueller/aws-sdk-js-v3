@@ -1,6 +1,6 @@
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
-import { DeleteAppRequest, DeleteAppResult } from "../models/index.ts";
+import { DeleteAppRequest, DeleteAppResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteAppCommand,
   serializeAws_restJson1DeleteAppCommand,

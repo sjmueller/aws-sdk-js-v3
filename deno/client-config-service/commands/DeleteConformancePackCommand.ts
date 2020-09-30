@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { DeleteConformancePackRequest } from "../models/index.ts";
+import { DeleteConformancePackRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteConformancePackCommand,
   serializeAws_json1_1DeleteConformancePackCommand,

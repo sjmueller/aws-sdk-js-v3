@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { DeleteRetentionConfigurationRequest } from "../models/index.ts";
+import { DeleteRetentionConfigurationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteRetentionConfigurationCommand,
   serializeAws_json1_1DeleteRetentionConfigurationCommand,

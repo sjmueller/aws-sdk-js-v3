@@ -1,6 +1,6 @@
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
-import { DeleteCorsConfigurationRequest } from "../models/index.ts";
+import { DeleteCorsConfigurationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteCorsConfigurationCommand,
   serializeAws_restJson1DeleteCorsConfigurationCommand,

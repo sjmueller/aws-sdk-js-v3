@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { UpdateDomainEntryRequest, UpdateDomainEntryResult } from "../models/index.ts";
+import { UpdateDomainEntryRequest, UpdateDomainEntryResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1UpdateDomainEntryCommand,
   serializeAws_json1_1UpdateDomainEntryCommand,

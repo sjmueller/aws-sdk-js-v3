@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse } from "../models/index.ts";
+import { AssociateSoftwareTokenRequest, AssociateSoftwareTokenResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AssociateSoftwareTokenCommand,
   serializeAws_json1_1AssociateSoftwareTokenCommand,

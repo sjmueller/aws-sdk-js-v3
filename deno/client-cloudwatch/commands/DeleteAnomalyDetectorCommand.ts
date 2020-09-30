@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { DeleteAnomalyDetectorInput, DeleteAnomalyDetectorOutput } from "../models/index.ts";
+import { DeleteAnomalyDetectorInput, DeleteAnomalyDetectorOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteAnomalyDetectorCommand,
   serializeAws_queryDeleteAnomalyDetectorCommand,

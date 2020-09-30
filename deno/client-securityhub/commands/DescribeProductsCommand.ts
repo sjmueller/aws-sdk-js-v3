@@ -1,6 +1,6 @@
 
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { DescribeProductsRequest, DescribeProductsResponse } from "../models/index.ts";
+import { DescribeProductsRequest, DescribeProductsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeProductsCommand,
   serializeAws_restJson1DescribeProductsCommand,

@@ -1,6 +1,6 @@
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient.ts";
-import { CreateComputeEnvironmentRequest, CreateComputeEnvironmentResponse } from "../models/index.ts";
+import { CreateComputeEnvironmentRequest, CreateComputeEnvironmentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateComputeEnvironmentCommand,
   serializeAws_restJson1CreateComputeEnvironmentCommand,

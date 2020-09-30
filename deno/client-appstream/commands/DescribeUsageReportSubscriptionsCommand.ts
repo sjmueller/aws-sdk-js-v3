@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { DescribeUsageReportSubscriptionsRequest, DescribeUsageReportSubscriptionsResult } from "../models/index.ts";
+import { DescribeUsageReportSubscriptionsRequest, DescribeUsageReportSubscriptionsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeUsageReportSubscriptionsCommand,
   serializeAws_json1_1DescribeUsageReportSubscriptionsCommand,

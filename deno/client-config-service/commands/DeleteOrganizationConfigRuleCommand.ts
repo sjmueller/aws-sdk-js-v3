@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { DeleteOrganizationConfigRuleRequest } from "../models/index.ts";
+import { DeleteOrganizationConfigRuleRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteOrganizationConfigRuleCommand,
   serializeAws_json1_1DeleteOrganizationConfigRuleCommand,

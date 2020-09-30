@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { CreateDistributionWithTagsRequest, CreateDistributionWithTagsResult } from "../models/index.ts";
+import { CreateDistributionWithTagsRequest, CreateDistributionWithTagsResult } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlCreateDistributionWithTagsCommand,
   serializeAws_restXmlCreateDistributionWithTagsCommand,

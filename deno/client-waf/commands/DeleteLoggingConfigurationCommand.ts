@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { DeleteLoggingConfigurationRequest, DeleteLoggingConfigurationResponse } from "../models/index.ts";
+import { DeleteLoggingConfigurationRequest, DeleteLoggingConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteLoggingConfigurationCommand,
   serializeAws_json1_1DeleteLoggingConfigurationCommand,

@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/index.ts";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1UntagResourceCommand,
   serializeAws_json1_1UntagResourceCommand,

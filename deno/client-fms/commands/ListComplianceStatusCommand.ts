@@ -1,6 +1,6 @@
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient.ts";
-import { ListComplianceStatusRequest, ListComplianceStatusResponse } from "../models/index.ts";
+import { ListComplianceStatusRequest, ListComplianceStatusResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListComplianceStatusCommand,
   serializeAws_json1_1ListComplianceStatusCommand,

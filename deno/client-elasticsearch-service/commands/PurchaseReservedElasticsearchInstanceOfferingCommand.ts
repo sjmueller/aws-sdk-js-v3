@@ -7,7 +7,7 @@ import {
 import {
   PurchaseReservedElasticsearchInstanceOfferingRequest,
   PurchaseReservedElasticsearchInstanceOfferingResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand,
   serializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferingCommand,

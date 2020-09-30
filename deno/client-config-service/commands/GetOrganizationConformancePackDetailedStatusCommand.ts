@@ -3,7 +3,7 @@ import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import {
   GetOrganizationConformancePackDetailedStatusRequest,
   GetOrganizationConformancePackDetailedStatusResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand,
   serializeAws_json1_1GetOrganizationConformancePackDetailedStatusCommand,

@@ -1,6 +1,6 @@
 
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
-import { DeleteTrafficPolicyInstanceRequest, DeleteTrafficPolicyInstanceResponse } from "../models/index.ts";
+import { DeleteTrafficPolicyInstanceRequest, DeleteTrafficPolicyInstanceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlDeleteTrafficPolicyInstanceCommand,
   serializeAws_restXmlDeleteTrafficPolicyInstanceCommand,

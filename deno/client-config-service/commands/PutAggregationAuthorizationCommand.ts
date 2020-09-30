@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { PutAggregationAuthorizationRequest, PutAggregationAuthorizationResponse } from "../models/index.ts";
+import { PutAggregationAuthorizationRequest, PutAggregationAuthorizationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutAggregationAuthorizationCommand,
   serializeAws_json1_1PutAggregationAuthorizationCommand,

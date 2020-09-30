@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { BatchCreateAttendeeRequest, BatchCreateAttendeeResponse } from "../models/index.ts";
+import { BatchCreateAttendeeRequest, BatchCreateAttendeeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1BatchCreateAttendeeCommand,
   serializeAws_restJson1BatchCreateAttendeeCommand,

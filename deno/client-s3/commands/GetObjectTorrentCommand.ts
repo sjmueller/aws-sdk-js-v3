@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { GetObjectTorrentOutput, GetObjectTorrentRequest } from "../models/index.ts";
+import { GetObjectTorrentOutput, GetObjectTorrentRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlGetObjectTorrentCommand,
   serializeAws_restXmlGetObjectTorrentCommand,

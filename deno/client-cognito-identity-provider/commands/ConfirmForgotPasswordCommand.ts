@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { ConfirmForgotPasswordRequest, ConfirmForgotPasswordResponse } from "../models/index.ts";
+import { ConfirmForgotPasswordRequest, ConfirmForgotPasswordResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ConfirmForgotPasswordCommand,
   serializeAws_json1_1ConfirmForgotPasswordCommand,

@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { DeleteClusterSecurityGroupMessage } from "../models/index.ts";
+import { DeleteClusterSecurityGroupMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteClusterSecurityGroupCommand,
   serializeAws_queryDeleteClusterSecurityGroupCommand,

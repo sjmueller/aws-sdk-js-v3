@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { DescribeFleetEventsInput, DescribeFleetEventsOutput } from "../models/index.ts";
+import { DescribeFleetEventsInput, DescribeFleetEventsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeFleetEventsCommand,
   serializeAws_json1_1DescribeFleetEventsCommand,

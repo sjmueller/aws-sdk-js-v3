@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { DisassociateIpGroupsRequest, DisassociateIpGroupsResult } from "../models/index.ts";
+import { DisassociateIpGroupsRequest, DisassociateIpGroupsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateIpGroupsCommand,
   serializeAws_json1_1DisassociateIpGroupsCommand,

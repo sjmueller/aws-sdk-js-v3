@@ -3,7 +3,7 @@ import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeregisterPatchBaselineForPatchGroupRequest,
   DeregisterPatchBaselineForPatchGroupResult,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand,
   serializeAws_json1_1DeregisterPatchBaselineForPatchGroupCommand,

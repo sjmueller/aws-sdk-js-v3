@@ -1,6 +1,6 @@
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient.ts";
-import { Application, UpdateApplicationRequest } from "../models/index.ts";
+import { Application, UpdateApplicationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateApplicationCommand,
   serializeAws_restJson1UpdateApplicationCommand,

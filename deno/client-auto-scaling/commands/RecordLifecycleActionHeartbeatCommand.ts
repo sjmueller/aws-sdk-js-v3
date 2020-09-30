@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { RecordLifecycleActionHeartbeatAnswer, RecordLifecycleActionHeartbeatType } from "../models/index.ts";
+import { RecordLifecycleActionHeartbeatAnswer, RecordLifecycleActionHeartbeatType } from "../models/models_0.ts";
 import {
   deserializeAws_queryRecordLifecycleActionHeartbeatCommand,
   serializeAws_queryRecordLifecycleActionHeartbeatCommand,

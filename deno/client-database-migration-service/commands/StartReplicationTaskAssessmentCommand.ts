@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { StartReplicationTaskAssessmentMessage, StartReplicationTaskAssessmentResponse } from "../models/index.ts";
+import { StartReplicationTaskAssessmentMessage, StartReplicationTaskAssessmentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartReplicationTaskAssessmentCommand,
   serializeAws_json1_1StartReplicationTaskAssessmentCommand,

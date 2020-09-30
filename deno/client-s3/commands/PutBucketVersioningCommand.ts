@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { PutBucketVersioningRequest } from "../models/index.ts";
+import { PutBucketVersioningRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlPutBucketVersioningCommand,
   serializeAws_restXmlPutBucketVersioningCommand,

@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { PutCompositeAlarmInput } from "../models/index.ts";
+import { PutCompositeAlarmInput } from "../models/models_0.ts";
 import {
   deserializeAws_queryPutCompositeAlarmCommand,
   serializeAws_queryPutCompositeAlarmCommand,

@@ -1,6 +1,6 @@
 
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
-import { CreateCampaignRequest, CreateCampaignResponse } from "../models/index.ts";
+import { CreateCampaignRequest, CreateCampaignResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateCampaignCommand,
   serializeAws_json1_1CreateCampaignCommand,

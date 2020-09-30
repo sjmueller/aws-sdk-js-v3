@@ -1,6 +1,6 @@
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient.ts";
-import { CreateMountTargetRequest, MountTargetDescription } from "../models/index.ts";
+import { CreateMountTargetRequest, MountTargetDescription } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateMountTargetCommand,
   serializeAws_restJson1CreateMountTargetCommand,

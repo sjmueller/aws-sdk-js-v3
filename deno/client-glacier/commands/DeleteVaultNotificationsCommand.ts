@@ -1,6 +1,6 @@
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
-import { DeleteVaultNotificationsInput } from "../models/index.ts";
+import { DeleteVaultNotificationsInput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteVaultNotificationsCommand,
   serializeAws_restJson1DeleteVaultNotificationsCommand,

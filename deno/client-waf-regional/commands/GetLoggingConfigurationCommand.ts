@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { GetLoggingConfigurationRequest, GetLoggingConfigurationResponse } from "../models/index.ts";
+import { GetLoggingConfigurationRequest, GetLoggingConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetLoggingConfigurationCommand,
   serializeAws_json1_1GetLoggingConfigurationCommand,

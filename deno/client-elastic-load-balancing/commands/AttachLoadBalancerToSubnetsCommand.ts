@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import { AttachLoadBalancerToSubnetsInput, AttachLoadBalancerToSubnetsOutput } from "../models/index.ts";
+import { AttachLoadBalancerToSubnetsInput, AttachLoadBalancerToSubnetsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryAttachLoadBalancerToSubnetsCommand,
   serializeAws_queryAttachLoadBalancerToSubnetsCommand,

@@ -1,6 +1,6 @@
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
-import { ListAssessmentRunAgentsRequest, ListAssessmentRunAgentsResponse } from "../models/index.ts";
+import { ListAssessmentRunAgentsRequest, ListAssessmentRunAgentsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListAssessmentRunAgentsCommand,
   serializeAws_json1_1ListAssessmentRunAgentsCommand,

@@ -1,6 +1,6 @@
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
-import { DescribeContributorInsightsInput, DescribeContributorInsightsOutput } from "../models/index.ts";
+import { DescribeContributorInsightsInput, DescribeContributorInsightsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0DescribeContributorInsightsCommand,
   serializeAws_json1_0DescribeContributorInsightsCommand,

@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CreateDhcpOptionsRequest, CreateDhcpOptionsResult } from "../models/index.ts";
+import { CreateDhcpOptionsRequest, CreateDhcpOptionsResult } from "../models/models_0.ts";
 import {
   deserializeAws_ec2CreateDhcpOptionsCommand,
   serializeAws_ec2CreateDhcpOptionsCommand,

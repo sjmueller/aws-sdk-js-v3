@@ -1,6 +1,6 @@
 
 import { MacieClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MacieClient.ts";
-import { AssociateS3ResourcesRequest, AssociateS3ResourcesResult } from "../models/index.ts";
+import { AssociateS3ResourcesRequest, AssociateS3ResourcesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AssociateS3ResourcesCommand,
   serializeAws_json1_1AssociateS3ResourcesCommand,

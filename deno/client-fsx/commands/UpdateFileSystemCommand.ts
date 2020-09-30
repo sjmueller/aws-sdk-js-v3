@@ -1,6 +1,6 @@
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient.ts";
-import { UpdateFileSystemRequest, UpdateFileSystemResponse } from "../models/index.ts";
+import { UpdateFileSystemRequest, UpdateFileSystemResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateFileSystemCommand,
   serializeAws_json1_1UpdateFileSystemCommand,

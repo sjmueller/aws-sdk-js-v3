@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { UpdateProjectRequest, UpdateProjectResult } from "../models/index.ts";
+import { UpdateProjectRequest, UpdateProjectResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateProjectCommand,
   serializeAws_json1_1UpdateProjectCommand,

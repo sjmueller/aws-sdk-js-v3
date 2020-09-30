@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { DeleteByteMatchSetRequest, DeleteByteMatchSetResponse } from "../models/index.ts";
+import { DeleteByteMatchSetRequest, DeleteByteMatchSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteByteMatchSetCommand,
   serializeAws_json1_1DeleteByteMatchSetCommand,

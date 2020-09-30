@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { CreateVirtualMFADeviceRequest, CreateVirtualMFADeviceResponse } from "../models/index.ts";
+import { CreateVirtualMFADeviceRequest, CreateVirtualMFADeviceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateVirtualMFADeviceCommand,
   serializeAws_queryCreateVirtualMFADeviceCommand,

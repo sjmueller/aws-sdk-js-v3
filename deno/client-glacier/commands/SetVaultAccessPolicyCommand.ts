@@ -1,6 +1,6 @@
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
-import { SetVaultAccessPolicyInput } from "../models/index.ts";
+import { SetVaultAccessPolicyInput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SetVaultAccessPolicyCommand,
   serializeAws_restJson1SetVaultAccessPolicyCommand,

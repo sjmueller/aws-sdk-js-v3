@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { DeleteCacheSubnetGroupMessage } from "../models/index.ts";
+import { DeleteCacheSubnetGroupMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteCacheSubnetGroupCommand,
   serializeAws_queryDeleteCacheSubnetGroupCommand,

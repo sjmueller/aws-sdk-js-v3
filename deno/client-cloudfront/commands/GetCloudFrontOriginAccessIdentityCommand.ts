@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { GetCloudFrontOriginAccessIdentityRequest, GetCloudFrontOriginAccessIdentityResult } from "../models/index.ts";
+import { GetCloudFrontOriginAccessIdentityRequest, GetCloudFrontOriginAccessIdentityResult } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand,
   serializeAws_restXmlGetCloudFrontOriginAccessIdentityCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { UpdateRuleGroupRequest, UpdateRuleGroupResponse } from "../models/index.ts";
+import { UpdateRuleGroupRequest, UpdateRuleGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateRuleGroupCommand,
   serializeAws_json1_1UpdateRuleGroupCommand,

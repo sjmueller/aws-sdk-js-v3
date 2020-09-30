@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient.ts";
-import { InferICD10CMRequest, InferICD10CMResponse } from "../models/index.ts";
+import { InferICD10CMRequest, InferICD10CMResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1InferICD10CMCommand,
   serializeAws_json1_1InferICD10CMCommand,

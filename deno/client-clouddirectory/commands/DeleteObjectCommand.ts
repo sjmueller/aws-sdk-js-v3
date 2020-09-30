@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { DeleteObjectRequest, DeleteObjectResponse } from "../models/index.ts";
+import { DeleteObjectRequest, DeleteObjectResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteObjectCommand,
   serializeAws_restJson1DeleteObjectCommand,

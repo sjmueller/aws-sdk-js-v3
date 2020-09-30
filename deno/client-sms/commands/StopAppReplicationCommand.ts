@@ -1,6 +1,6 @@
 
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
-import { StopAppReplicationRequest, StopAppReplicationResponse } from "../models/index.ts";
+import { StopAppReplicationRequest, StopAppReplicationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopAppReplicationCommand,
   serializeAws_json1_1StopAppReplicationCommand,

@@ -1,6 +1,7 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DBClusterEndpoint, ModifyDBClusterEndpointMessage } from "../models/index.ts";
+import { DBClusterEndpoint } from "../models/models_0.ts";
+import { ModifyDBClusterEndpointMessage } from "../models/models_1.ts";
 import {
   deserializeAws_queryModifyDBClusterEndpointCommand,
   serializeAws_queryModifyDBClusterEndpointCommand,

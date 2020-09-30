@@ -1,6 +1,6 @@
 
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
-import { GetTopicAttributesInput, GetTopicAttributesResponse } from "../models/index.ts";
+import { GetTopicAttributesInput, GetTopicAttributesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetTopicAttributesCommand,
   serializeAws_queryGetTopicAttributesCommand,

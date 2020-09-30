@@ -1,6 +1,6 @@
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient.ts";
-import { BatchRevokePermissionsRequest, BatchRevokePermissionsResponse } from "../models/index.ts";
+import { BatchRevokePermissionsRequest, BatchRevokePermissionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchRevokePermissionsCommand,
   serializeAws_json1_1BatchRevokePermissionsCommand,

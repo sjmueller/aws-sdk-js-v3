@@ -1,6 +1,6 @@
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient.ts";
-import { CreateBudgetRequest, CreateBudgetResponse } from "../models/index.ts";
+import { CreateBudgetRequest, CreateBudgetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateBudgetCommand,
   serializeAws_json1_1CreateBudgetCommand,

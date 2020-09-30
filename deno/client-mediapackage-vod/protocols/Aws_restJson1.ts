@@ -71,7 +71,7 @@ import {
   TooManyRequestsException,
   UnprocessableEntityException,
   __PeriodTriggersElement,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -576,7 +576,6 @@ export const deserializeAws_restJson1CreateAssetCommand = async (
   }
   const contents: CreateAssetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAssetResponse",
     Arn: undefined,
     CreatedAt: undefined,
     EgressEndpoints: undefined,
@@ -704,7 +703,6 @@ export const deserializeAws_restJson1CreatePackagingConfigurationCommand = async
   }
   const contents: CreatePackagingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePackagingConfigurationResponse",
     Arn: undefined,
     CmafPackage: undefined,
     DashPackage: undefined,
@@ -828,7 +826,6 @@ export const deserializeAws_restJson1CreatePackagingGroupCommand = async (
   }
   const contents: CreatePackagingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePackagingGroupResponse",
     Arn: undefined,
     Authorization: undefined,
     DomainName: undefined,
@@ -940,7 +937,6 @@ export const deserializeAws_restJson1DeleteAssetCommand = async (
   }
   const contents: DeleteAssetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAssetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1032,7 +1028,6 @@ export const deserializeAws_restJson1DeletePackagingConfigurationCommand = async
   }
   const contents: DeletePackagingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePackagingConfigurationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1124,7 +1119,6 @@ export const deserializeAws_restJson1DeletePackagingGroupCommand = async (
   }
   const contents: DeletePackagingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePackagingGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1216,7 +1210,6 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
   }
   const contents: DescribeAssetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAssetResponse",
     Arn: undefined,
     CreatedAt: undefined,
     EgressEndpoints: undefined,
@@ -1344,7 +1337,6 @@ export const deserializeAws_restJson1DescribePackagingConfigurationCommand = asy
   }
   const contents: DescribePackagingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePackagingConfigurationResponse",
     Arn: undefined,
     CmafPackage: undefined,
     DashPackage: undefined,
@@ -1468,7 +1460,6 @@ export const deserializeAws_restJson1DescribePackagingGroupCommand = async (
   }
   const contents: DescribePackagingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePackagingGroupResponse",
     Arn: undefined,
     Authorization: undefined,
     DomainName: undefined,
@@ -1580,7 +1571,6 @@ export const deserializeAws_restJson1ListAssetsCommand = async (
   }
   const contents: ListAssetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAssetsResponse",
     Assets: undefined,
     NextToken: undefined,
   };
@@ -1680,7 +1670,6 @@ export const deserializeAws_restJson1ListPackagingConfigurationsCommand = async 
   }
   const contents: ListPackagingConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPackagingConfigurationsResponse",
     NextToken: undefined,
     PackagingConfigurations: undefined,
   };
@@ -1783,7 +1772,6 @@ export const deserializeAws_restJson1ListPackagingGroupsCommand = async (
   }
   const contents: ListPackagingGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPackagingGroupsResponse",
     NextToken: undefined,
     PackagingGroups: undefined,
   };
@@ -1883,7 +1871,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2017,7 +2004,6 @@ export const deserializeAws_restJson1UpdatePackagingGroupCommand = async (
   }
   const contents: UpdatePackagingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdatePackagingGroupResponse",
     Arn: undefined,
     Authorization: undefined,
     DomainName: undefined,
@@ -2469,7 +2455,6 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1AssetShallow = (output: any, context: __SerdeContext): AssetShallow => {
   return {
-    __type: "AssetShallow",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     CreatedAt: output.createdAt !== undefined && output.createdAt !== null ? output.createdAt : undefined,
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
@@ -2488,7 +2473,6 @@ const deserializeAws_restJson1AssetShallow = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Authorization = (output: any, context: __SerdeContext): Authorization => {
   return {
-    __type: "Authorization",
     CdnIdentifierSecret:
       output.cdnIdentifierSecret !== undefined && output.cdnIdentifierSecret !== null
         ? output.cdnIdentifierSecret
@@ -2500,7 +2484,6 @@ const deserializeAws_restJson1Authorization = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1CmafEncryption = (output: any, context: __SerdeContext): CmafEncryption => {
   return {
-    __type: "CmafEncryption",
     SpekeKeyProvider:
       output.spekeKeyProvider !== undefined && output.spekeKeyProvider !== null
         ? deserializeAws_restJson1SpekeKeyProvider(output.spekeKeyProvider, context)
@@ -2510,7 +2493,6 @@ const deserializeAws_restJson1CmafEncryption = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1CmafPackage = (output: any, context: __SerdeContext): CmafPackage => {
   return {
-    __type: "CmafPackage",
     Encryption:
       output.encryption !== undefined && output.encryption !== null
         ? deserializeAws_restJson1CmafEncryption(output.encryption, context)
@@ -2528,7 +2510,6 @@ const deserializeAws_restJson1CmafPackage = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1DashEncryption = (output: any, context: __SerdeContext): DashEncryption => {
   return {
-    __type: "DashEncryption",
     SpekeKeyProvider:
       output.spekeKeyProvider !== undefined && output.spekeKeyProvider !== null
         ? deserializeAws_restJson1SpekeKeyProvider(output.spekeKeyProvider, context)
@@ -2538,7 +2519,6 @@ const deserializeAws_restJson1DashEncryption = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1DashManifest = (output: any, context: __SerdeContext): DashManifest => {
   return {
-    __type: "DashManifest",
     ManifestLayout:
       output.manifestLayout !== undefined && output.manifestLayout !== null ? output.manifestLayout : undefined,
     ManifestName: output.manifestName !== undefined && output.manifestName !== null ? output.manifestName : undefined,
@@ -2556,7 +2536,6 @@ const deserializeAws_restJson1DashManifest = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContext): DashPackage => {
   return {
-    __type: "DashPackage",
     DashManifests:
       output.dashManifests !== undefined && output.dashManifests !== null
         ? deserializeAws_restJson1__listOfDashManifest(output.dashManifests, context)
@@ -2582,7 +2561,6 @@ const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1EgressEndpoint = (output: any, context: __SerdeContext): EgressEndpoint => {
   return {
-    __type: "EgressEndpoint",
     PackagingConfigurationId:
       output.packagingConfigurationId !== undefined && output.packagingConfigurationId !== null
         ? output.packagingConfigurationId
@@ -2593,7 +2571,6 @@ const deserializeAws_restJson1EgressEndpoint = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1HlsEncryption = (output: any, context: __SerdeContext): HlsEncryption => {
   return {
-    __type: "HlsEncryption",
     ConstantInitializationVector:
       output.constantInitializationVector !== undefined && output.constantInitializationVector !== null
         ? output.constantInitializationVector
@@ -2609,7 +2586,6 @@ const deserializeAws_restJson1HlsEncryption = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1HlsManifest = (output: any, context: __SerdeContext): HlsManifest => {
   return {
-    __type: "HlsManifest",
     AdMarkers: output.adMarkers !== undefined && output.adMarkers !== null ? output.adMarkers : undefined,
     IncludeIframeOnlyStream:
       output.includeIframeOnlyStream !== undefined && output.includeIframeOnlyStream !== null
@@ -2631,7 +2607,6 @@ const deserializeAws_restJson1HlsManifest = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1HlsPackage = (output: any, context: __SerdeContext): HlsPackage => {
   return {
-    __type: "HlsPackage",
     Encryption:
       output.encryption !== undefined && output.encryption !== null
         ? deserializeAws_restJson1HlsEncryption(output.encryption, context)
@@ -2653,7 +2628,6 @@ const deserializeAws_restJson1HlsPackage = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1MssEncryption = (output: any, context: __SerdeContext): MssEncryption => {
   return {
-    __type: "MssEncryption",
     SpekeKeyProvider:
       output.spekeKeyProvider !== undefined && output.spekeKeyProvider !== null
         ? deserializeAws_restJson1SpekeKeyProvider(output.spekeKeyProvider, context)
@@ -2663,7 +2637,6 @@ const deserializeAws_restJson1MssEncryption = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1MssManifest = (output: any, context: __SerdeContext): MssManifest => {
   return {
-    __type: "MssManifest",
     ManifestName: output.manifestName !== undefined && output.manifestName !== null ? output.manifestName : undefined,
     StreamSelection:
       output.streamSelection !== undefined && output.streamSelection !== null
@@ -2674,7 +2647,6 @@ const deserializeAws_restJson1MssManifest = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1MssPackage = (output: any, context: __SerdeContext): MssPackage => {
   return {
-    __type: "MssPackage",
     Encryption:
       output.encryption !== undefined && output.encryption !== null
         ? deserializeAws_restJson1MssEncryption(output.encryption, context)
@@ -2695,7 +2667,6 @@ const deserializeAws_restJson1PackagingConfiguration = (
   context: __SerdeContext
 ): PackagingConfiguration => {
   return {
-    __type: "PackagingConfiguration",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     CmafPackage:
       output.cmafPackage !== undefined && output.cmafPackage !== null
@@ -2725,7 +2696,6 @@ const deserializeAws_restJson1PackagingConfiguration = (
 
 const deserializeAws_restJson1PackagingGroup = (output: any, context: __SerdeContext): PackagingGroup => {
   return {
-    __type: "PackagingGroup",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     Authorization:
       output.authorization !== undefined && output.authorization !== null
@@ -2742,7 +2712,6 @@ const deserializeAws_restJson1PackagingGroup = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1SpekeKeyProvider = (output: any, context: __SerdeContext): SpekeKeyProvider => {
   return {
-    __type: "SpekeKeyProvider",
     RoleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     SystemIds:
       output.systemIds !== undefined && output.systemIds !== null
@@ -2754,7 +2723,6 @@ const deserializeAws_restJson1SpekeKeyProvider = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1StreamSelection = (output: any, context: __SerdeContext): StreamSelection => {
   return {
-    __type: "StreamSelection",
     MaxVideoBitsPerSecond:
       output.maxVideoBitsPerSecond !== undefined && output.maxVideoBitsPerSecond !== null
         ? output.maxVideoBitsPerSecond

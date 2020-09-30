@@ -1,6 +1,6 @@
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient.ts";
-import { RemoveTagsFromCertificateRequest } from "../models/index.ts";
+import { RemoveTagsFromCertificateRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RemoveTagsFromCertificateCommand,
   serializeAws_json1_1RemoveTagsFromCertificateCommand,

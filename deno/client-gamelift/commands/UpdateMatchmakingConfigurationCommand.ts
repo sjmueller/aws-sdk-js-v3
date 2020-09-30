@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { UpdateMatchmakingConfigurationInput, UpdateMatchmakingConfigurationOutput } from "../models/index.ts";
+import { UpdateMatchmakingConfigurationInput, UpdateMatchmakingConfigurationOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateMatchmakingConfigurationCommand,
   serializeAws_json1_1UpdateMatchmakingConfigurationCommand,

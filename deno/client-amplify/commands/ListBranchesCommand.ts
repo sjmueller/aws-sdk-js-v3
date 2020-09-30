@@ -1,6 +1,6 @@
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
-import { ListBranchesRequest, ListBranchesResult } from "../models/index.ts";
+import { ListBranchesRequest, ListBranchesResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListBranchesCommand,
   serializeAws_restJson1ListBranchesCommand,

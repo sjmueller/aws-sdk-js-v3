@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { DescribeProductViewInput, DescribeProductViewOutput } from "../models/index.ts";
+import { DescribeProductViewInput, DescribeProductViewOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeProductViewCommand,
   serializeAws_json1_1DescribeProductViewCommand,

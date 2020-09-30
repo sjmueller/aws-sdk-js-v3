@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient.ts";
-import { FinalizeDeviceClaimRequest, FinalizeDeviceClaimResponse } from "../models/index.ts";
+import { FinalizeDeviceClaimRequest, FinalizeDeviceClaimResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1FinalizeDeviceClaimCommand,
   serializeAws_restJson1FinalizeDeviceClaimCommand,

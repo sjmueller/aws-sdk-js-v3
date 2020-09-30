@@ -1,6 +1,6 @@
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient.ts";
-import { DescribeFileSystemPolicyRequest, FileSystemPolicyDescription } from "../models/index.ts";
+import { DescribeFileSystemPolicyRequest, FileSystemPolicyDescription } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeFileSystemPolicyCommand,
   serializeAws_restJson1DescribeFileSystemPolicyCommand,

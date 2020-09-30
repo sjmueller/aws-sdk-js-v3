@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { DeleteEmailChannelRequest, DeleteEmailChannelResponse } from "../models/index.ts";
+import { DeleteEmailChannelRequest, DeleteEmailChannelResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteEmailChannelCommand,
   serializeAws_restJson1DeleteEmailChannelCommand,

@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { DeleteInsightRulesInput, DeleteInsightRulesOutput } from "../models/index.ts";
+import { DeleteInsightRulesInput, DeleteInsightRulesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteInsightRulesCommand,
   serializeAws_queryDeleteInsightRulesCommand,

@@ -1,6 +1,6 @@
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
-import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/index.ts";
+import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryRebootDBInstanceCommand,
   serializeAws_queryRebootDBInstanceCommand,

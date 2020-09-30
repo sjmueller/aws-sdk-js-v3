@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient.ts";
-import { CreateListenerRequest, CreateListenerResponse } from "../models/index.ts";
+import { CreateListenerRequest, CreateListenerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateListenerCommand,
   serializeAws_json1_1CreateListenerCommand,

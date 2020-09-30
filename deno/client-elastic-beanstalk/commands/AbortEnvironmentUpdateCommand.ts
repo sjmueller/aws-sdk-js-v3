@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { AbortEnvironmentUpdateMessage } from "../models/index.ts";
+import { AbortEnvironmentUpdateMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryAbortEnvironmentUpdateCommand,
   serializeAws_queryAbortEnvironmentUpdateCommand,

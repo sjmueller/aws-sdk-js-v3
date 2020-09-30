@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { DeleteUserProfileRequest } from "../models/index.ts";
+import { DeleteUserProfileRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteUserProfileCommand,
   serializeAws_json1_1DeleteUserProfileCommand,

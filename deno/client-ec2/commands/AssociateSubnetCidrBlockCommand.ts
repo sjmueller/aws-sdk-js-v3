@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { AssociateSubnetCidrBlockRequest, AssociateSubnetCidrBlockResult } from "../models/index.ts";
+import { AssociateSubnetCidrBlockRequest, AssociateSubnetCidrBlockResult } from "../models/models_0.ts";
 import {
   deserializeAws_ec2AssociateSubnetCidrBlockCommand,
   serializeAws_ec2AssociateSubnetCidrBlockCommand,

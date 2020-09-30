@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { DescribeVTLDevicesInput, DescribeVTLDevicesOutput } from "../models/index.ts";
+import { DescribeVTLDevicesInput, DescribeVTLDevicesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeVTLDevicesCommand,
   serializeAws_json1_1DescribeVTLDevicesCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient.ts";
-import { CreateUserRequest, CreateUserResponse } from "../models/index.ts";
+import { CreateUserRequest, CreateUserResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateUserCommand,
   serializeAws_json1_1CreateUserCommand,

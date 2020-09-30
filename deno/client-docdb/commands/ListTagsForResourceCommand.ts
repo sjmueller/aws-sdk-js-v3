@@ -1,6 +1,6 @@
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
-import { ListTagsForResourceMessage, TagListMessage } from "../models/index.ts";
+import { ListTagsForResourceMessage, TagListMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryListTagsForResourceCommand,
   serializeAws_queryListTagsForResourceCommand,

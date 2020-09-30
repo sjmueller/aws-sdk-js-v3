@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { PutDestinationPolicyRequest } from "../models/index.ts";
+import { PutDestinationPolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutDestinationPolicyCommand,
   serializeAws_json1_1PutDestinationPolicyCommand,

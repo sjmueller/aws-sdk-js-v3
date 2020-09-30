@@ -1,6 +1,7 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { RegisterUserRequest, RegisterUserResponse } from "../models/index.ts";
+import { RegisterUserRequest } from "../models/models_0.ts";
+import { RegisterUserResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1RegisterUserCommand,
   serializeAws_restJson1RegisterUserCommand,

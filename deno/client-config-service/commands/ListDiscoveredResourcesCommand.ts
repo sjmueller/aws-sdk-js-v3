@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResponse } from "../models/index.ts";
+import { ListDiscoveredResourcesRequest, ListDiscoveredResourcesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListDiscoveredResourcesCommand,
   serializeAws_json1_1ListDiscoveredResourcesCommand,

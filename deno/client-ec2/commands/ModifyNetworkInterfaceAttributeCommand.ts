@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ModifyNetworkInterfaceAttributeRequest } from "../models/index.ts";
+import { ModifyNetworkInterfaceAttributeRequest } from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyNetworkInterfaceAttributeCommand,
   serializeAws_ec2ModifyNetworkInterfaceAttributeCommand,

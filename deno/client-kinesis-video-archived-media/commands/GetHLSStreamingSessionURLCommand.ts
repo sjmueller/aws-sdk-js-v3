@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient.ts";
-import { GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput } from "../models/index.ts";
+import { GetHLSStreamingSessionURLInput, GetHLSStreamingSessionURLOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetHLSStreamingSessionURLCommand,
   serializeAws_restJson1GetHLSStreamingSessionURLCommand,

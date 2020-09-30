@@ -1,6 +1,6 @@
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
-import { GetTemplateSummaryInput, GetTemplateSummaryOutput } from "../models/index.ts";
+import { GetTemplateSummaryInput, GetTemplateSummaryOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetTemplateSummaryCommand,
   serializeAws_queryGetTemplateSummaryCommand,

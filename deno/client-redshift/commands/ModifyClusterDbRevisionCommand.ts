@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { ModifyClusterDbRevisionMessage, ModifyClusterDbRevisionResult } from "../models/index.ts";
+import { ModifyClusterDbRevisionMessage, ModifyClusterDbRevisionResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryModifyClusterDbRevisionCommand,
   serializeAws_queryModifyClusterDbRevisionCommand,

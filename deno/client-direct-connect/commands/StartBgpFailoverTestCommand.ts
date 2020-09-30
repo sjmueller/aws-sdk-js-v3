@@ -1,6 +1,6 @@
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
-import { StartBgpFailoverTestRequest, StartBgpFailoverTestResponse } from "../models/index.ts";
+import { StartBgpFailoverTestRequest, StartBgpFailoverTestResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartBgpFailoverTestCommand,
   serializeAws_json1_1StartBgpFailoverTestCommand,

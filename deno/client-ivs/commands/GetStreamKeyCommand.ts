@@ -1,6 +1,6 @@
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient.ts";
-import { GetStreamKeyRequest, GetStreamKeyResponse } from "../models/index.ts";
+import { GetStreamKeyRequest, GetStreamKeyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetStreamKeyCommand,
   serializeAws_restJson1GetStreamKeyCommand,

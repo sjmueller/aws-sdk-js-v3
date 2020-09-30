@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { DescribeMetricCollectionTypesAnswer } from "../models/index.ts";
+import { DescribeMetricCollectionTypesAnswer } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeMetricCollectionTypesCommand,
   serializeAws_queryDescribeMetricCollectionTypesCommand,

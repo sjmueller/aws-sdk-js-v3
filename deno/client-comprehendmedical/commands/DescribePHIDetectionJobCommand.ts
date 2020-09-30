@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient.ts";
-import { DescribePHIDetectionJobRequest, DescribePHIDetectionJobResponse } from "../models/index.ts";
+import { DescribePHIDetectionJobRequest, DescribePHIDetectionJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribePHIDetectionJobCommand,
   serializeAws_json1_1DescribePHIDetectionJobCommand,

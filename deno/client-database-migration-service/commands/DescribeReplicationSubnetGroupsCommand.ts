@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { DescribeReplicationSubnetGroupsMessage, DescribeReplicationSubnetGroupsResponse } from "../models/index.ts";
+import { DescribeReplicationSubnetGroupsMessage, DescribeReplicationSubnetGroupsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeReplicationSubnetGroupsCommand,
   serializeAws_json1_1DescribeReplicationSubnetGroupsCommand,

@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { CreateBusinessReportScheduleRequest, CreateBusinessReportScheduleResponse } from "../models/index.ts";
+import { CreateBusinessReportScheduleRequest, CreateBusinessReportScheduleResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateBusinessReportScheduleCommand,
   serializeAws_json1_1CreateBusinessReportScheduleCommand,

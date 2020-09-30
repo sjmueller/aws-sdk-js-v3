@@ -1,6 +1,6 @@
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
-import { RestoreTableToPointInTimeInput, RestoreTableToPointInTimeOutput } from "../models/index.ts";
+import { RestoreTableToPointInTimeInput, RestoreTableToPointInTimeOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0RestoreTableToPointInTimeCommand,
   serializeAws_json1_0RestoreTableToPointInTimeCommand,

@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DisassociateVpcCidrBlockRequest, DisassociateVpcCidrBlockResult } from "../models/index.ts";
+import { DisassociateVpcCidrBlockRequest, DisassociateVpcCidrBlockResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2DisassociateVpcCidrBlockCommand,
   serializeAws_ec2DisassociateVpcCidrBlockCommand,

@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ModifyManagedPrefixListRequest, ModifyManagedPrefixListResult } from "../models/index.ts";
+import { ModifyManagedPrefixListRequest, ModifyManagedPrefixListResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyManagedPrefixListCommand,
   serializeAws_ec2ModifyManagedPrefixListCommand,

@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { DeleteConfigRuleRequest } from "../models/index.ts";
+import { DeleteConfigRuleRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteConfigRuleCommand,
   serializeAws_json1_1DeleteConfigRuleCommand,

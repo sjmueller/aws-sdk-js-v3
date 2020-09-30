@@ -1,6 +1,6 @@
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient.ts";
-import { DeleteAccessPointRequest } from "../models/index.ts";
+import { DeleteAccessPointRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteAccessPointCommand,
   serializeAws_restJson1DeleteAccessPointCommand,

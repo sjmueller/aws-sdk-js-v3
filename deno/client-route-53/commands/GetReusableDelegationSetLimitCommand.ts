@@ -1,6 +1,6 @@
 
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
-import { GetReusableDelegationSetLimitRequest, GetReusableDelegationSetLimitResponse } from "../models/index.ts";
+import { GetReusableDelegationSetLimitRequest, GetReusableDelegationSetLimitResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlGetReusableDelegationSetLimitCommand,
   serializeAws_restXmlGetReusableDelegationSetLimitCommand,

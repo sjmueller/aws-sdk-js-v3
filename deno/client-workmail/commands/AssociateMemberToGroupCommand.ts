@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { AssociateMemberToGroupRequest, AssociateMemberToGroupResponse } from "../models/index.ts";
+import { AssociateMemberToGroupRequest, AssociateMemberToGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AssociateMemberToGroupCommand,
   serializeAws_json1_1AssociateMemberToGroupCommand,

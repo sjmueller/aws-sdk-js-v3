@@ -1,6 +1,6 @@
 
 import { MediaPackageClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageClient.ts";
-import { ListHarvestJobsRequest, ListHarvestJobsResponse } from "../models/index.ts";
+import { ListHarvestJobsRequest, ListHarvestJobsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListHarvestJobsCommand,
   serializeAws_restJson1ListHarvestJobsCommand,

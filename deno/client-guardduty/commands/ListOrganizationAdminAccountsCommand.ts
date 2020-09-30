@@ -1,6 +1,6 @@
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
-import { ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse } from "../models/index.ts";
+import { ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListOrganizationAdminAccountsCommand,
   serializeAws_restJson1ListOrganizationAdminAccountsCommand,

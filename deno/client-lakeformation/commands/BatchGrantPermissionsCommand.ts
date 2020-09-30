@@ -1,6 +1,6 @@
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient.ts";
-import { BatchGrantPermissionsRequest, BatchGrantPermissionsResponse } from "../models/index.ts";
+import { BatchGrantPermissionsRequest, BatchGrantPermissionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchGrantPermissionsCommand,
   serializeAws_json1_1BatchGrantPermissionsCommand,

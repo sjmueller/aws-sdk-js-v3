@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient.ts";
-import { AddAttachmentsToSetRequest, AddAttachmentsToSetResponse } from "../models/index.ts";
+import { AddAttachmentsToSetRequest, AddAttachmentsToSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AddAttachmentsToSetCommand,
   serializeAws_json1_1AddAttachmentsToSetCommand,

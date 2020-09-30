@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { ListRoomsRequest, ListRoomsResponse } from "../models/index.ts";
+import { ListRoomsRequest, ListRoomsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListRoomsCommand,
   serializeAws_restJson1ListRoomsCommand,

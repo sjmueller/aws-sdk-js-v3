@@ -1,6 +1,6 @@
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
-import { GetFederationTokenRequest, GetFederationTokenResponse } from "../models/index.ts";
+import { GetFederationTokenRequest, GetFederationTokenResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetFederationTokenCommand,
   serializeAws_restJson1GetFederationTokenCommand,

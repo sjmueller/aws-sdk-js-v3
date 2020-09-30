@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient.ts";
-import { CancelChangeSetRequest, CancelChangeSetResponse } from "../models/index.ts";
+import { CancelChangeSetRequest, CancelChangeSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CancelChangeSetCommand,
   serializeAws_restJson1CancelChangeSetCommand,

@@ -1,6 +1,6 @@
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient.ts";
-import { ListAppsListsRequest, ListAppsListsResponse } from "../models/index.ts";
+import { ListAppsListsRequest, ListAppsListsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListAppsListsCommand,
   serializeAws_json1_1ListAppsListsCommand,

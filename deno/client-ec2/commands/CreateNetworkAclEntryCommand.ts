@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CreateNetworkAclEntryRequest } from "../models/index.ts";
+import { CreateNetworkAclEntryRequest } from "../models/models_1.ts";
 import {
   deserializeAws_ec2CreateNetworkAclEntryCommand,
   serializeAws_ec2CreateNetworkAclEntryCommand,

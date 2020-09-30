@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient.ts";
-import { GetDiscoverySummaryRequest, GetDiscoverySummaryResponse } from "../models/index.ts";
+import { GetDiscoverySummaryRequest, GetDiscoverySummaryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetDiscoverySummaryCommand,
   serializeAws_json1_1GetDiscoverySummaryCommand,

@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { GetDifferencesInput, GetDifferencesOutput } from "../models/index.ts";
+import { GetDifferencesInput, GetDifferencesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetDifferencesCommand,
   serializeAws_json1_1GetDifferencesCommand,

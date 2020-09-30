@@ -1,6 +1,6 @@
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient.ts";
-import { CreateJobQueueRequest, CreateJobQueueResponse } from "../models/index.ts";
+import { CreateJobQueueRequest, CreateJobQueueResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateJobQueueCommand,
   serializeAws_restJson1CreateJobQueueCommand,

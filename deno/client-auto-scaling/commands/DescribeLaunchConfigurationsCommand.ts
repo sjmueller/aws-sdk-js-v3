@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { LaunchConfigurationNamesType, LaunchConfigurationsType } from "../models/index.ts";
+import { LaunchConfigurationNamesType, LaunchConfigurationsType } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeLaunchConfigurationsCommand,
   serializeAws_queryDescribeLaunchConfigurationsCommand,

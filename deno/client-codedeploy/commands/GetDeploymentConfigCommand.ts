@@ -1,6 +1,6 @@
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient.ts";
-import { GetDeploymentConfigInput, GetDeploymentConfigOutput } from "../models/index.ts";
+import { GetDeploymentConfigInput, GetDeploymentConfigOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetDeploymentConfigCommand,
   serializeAws_json1_1GetDeploymentConfigCommand,

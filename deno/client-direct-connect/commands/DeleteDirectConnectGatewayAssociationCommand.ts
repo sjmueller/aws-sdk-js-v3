@@ -3,7 +3,7 @@ import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import {
   DeleteDirectConnectGatewayAssociationRequest,
   DeleteDirectConnectGatewayAssociationResult,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand,
   serializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand,

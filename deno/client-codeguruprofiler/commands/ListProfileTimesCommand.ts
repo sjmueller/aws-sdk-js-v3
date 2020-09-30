@@ -1,6 +1,6 @@
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient.ts";
-import { ListProfileTimesRequest, ListProfileTimesResponse } from "../models/index.ts";
+import { ListProfileTimesRequest, ListProfileTimesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListProfileTimesCommand,
   serializeAws_restJson1ListProfileTimesCommand,

@@ -301,7 +301,7 @@ import {
   TooManyRequestsException,
   TrackingOptions,
   VolumeStatistics,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -2401,7 +2401,6 @@ export const deserializeAws_restJson1CreateConfigurationSetCommand = async (
   }
   const contents: CreateConfigurationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateConfigurationSetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2493,7 +2492,6 @@ export const deserializeAws_restJson1CreateConfigurationSetEventDestinationComma
   }
   const contents: CreateConfigurationSetEventDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateConfigurationSetEventDestinationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2577,7 +2575,6 @@ export const deserializeAws_restJson1CreateCustomVerificationEmailTemplateComman
   }
   const contents: CreateCustomVerificationEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCustomVerificationEmailTemplateResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2661,7 +2658,6 @@ export const deserializeAws_restJson1CreateDedicatedIpPoolCommand = async (
   }
   const contents: CreateDedicatedIpPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDedicatedIpPoolResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2745,7 +2741,6 @@ export const deserializeAws_restJson1CreateDeliverabilityTestReportCommand = asy
   }
   const contents: CreateDeliverabilityTestReportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDeliverabilityTestReportResponse",
     DeliverabilityTestStatus: undefined,
     ReportId: undefined,
   };
@@ -2869,7 +2864,6 @@ export const deserializeAws_restJson1CreateEmailIdentityCommand = async (
   }
   const contents: CreateEmailIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEmailIdentityResponse",
     DkimAttributes: undefined,
     IdentityType: undefined,
     VerifiedForSendingStatus: undefined,
@@ -2965,7 +2959,6 @@ export const deserializeAws_restJson1CreateEmailIdentityPolicyCommand = async (
   }
   const contents: CreateEmailIdentityPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEmailIdentityPolicyResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3049,7 +3042,6 @@ export const deserializeAws_restJson1CreateEmailTemplateCommand = async (
   }
   const contents: CreateEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEmailTemplateResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3125,7 +3117,6 @@ export const deserializeAws_restJson1DeleteConfigurationSetCommand = async (
   }
   const contents: DeleteConfigurationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteConfigurationSetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3201,7 +3192,6 @@ export const deserializeAws_restJson1DeleteConfigurationSetEventDestinationComma
   }
   const contents: DeleteConfigurationSetEventDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteConfigurationSetEventDestinationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3269,7 +3259,6 @@ export const deserializeAws_restJson1DeleteCustomVerificationEmailTemplateComman
   }
   const contents: DeleteCustomVerificationEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCustomVerificationEmailTemplateResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3337,7 +3326,6 @@ export const deserializeAws_restJson1DeleteDedicatedIpPoolCommand = async (
   }
   const contents: DeleteDedicatedIpPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDedicatedIpPoolResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3413,7 +3401,6 @@ export const deserializeAws_restJson1DeleteEmailIdentityCommand = async (
   }
   const contents: DeleteEmailIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEmailIdentityResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3489,7 +3476,6 @@ export const deserializeAws_restJson1DeleteEmailIdentityPolicyCommand = async (
   }
   const contents: DeleteEmailIdentityPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEmailIdentityPolicyResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3557,7 +3543,6 @@ export const deserializeAws_restJson1DeleteEmailTemplateCommand = async (
   }
   const contents: DeleteEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEmailTemplateResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3625,7 +3610,6 @@ export const deserializeAws_restJson1DeleteSuppressedDestinationCommand = async 
   }
   const contents: DeleteSuppressedDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSuppressedDestinationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3693,7 +3677,6 @@ export const deserializeAws_restJson1GetAccountCommand = async (
   }
   const contents: GetAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccountResponse",
     DedicatedIpAutoWarmupEnabled: undefined,
     Details: undefined,
     EnforcementStatus: undefined,
@@ -3781,7 +3764,6 @@ export const deserializeAws_restJson1GetBlacklistReportsCommand = async (
   }
   const contents: GetBlacklistReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBlacklistReportsResponse",
     BlacklistReport: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3853,7 +3835,6 @@ export const deserializeAws_restJson1GetConfigurationSetCommand = async (
   }
   const contents: GetConfigurationSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConfigurationSetResponse",
     ConfigurationSetName: undefined,
     DeliveryOptions: undefined,
     ReputationOptions: undefined,
@@ -3949,7 +3930,6 @@ export const deserializeAws_restJson1GetConfigurationSetEventDestinationsCommand
   }
   const contents: GetConfigurationSetEventDestinationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConfigurationSetEventDestinationsResponse",
     EventDestinations: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4021,7 +4001,6 @@ export const deserializeAws_restJson1GetCustomVerificationEmailTemplateCommand =
   }
   const contents: GetCustomVerificationEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCustomVerificationEmailTemplateResponse",
     FailureRedirectionURL: undefined,
     FromEmailAddress: undefined,
     SuccessRedirectionURL: undefined,
@@ -4113,7 +4092,6 @@ export const deserializeAws_restJson1GetDedicatedIpCommand = async (
   }
   const contents: GetDedicatedIpCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDedicatedIpResponse",
     DedicatedIp: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4185,7 +4163,6 @@ export const deserializeAws_restJson1GetDedicatedIpsCommand = async (
   }
   const contents: GetDedicatedIpsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDedicatedIpsResponse",
     DedicatedIps: undefined,
     NextToken: undefined,
   };
@@ -4261,7 +4238,6 @@ export const deserializeAws_restJson1GetDeliverabilityDashboardOptionsCommand = 
   }
   const contents: GetDeliverabilityDashboardOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDeliverabilityDashboardOptionsResponse",
     AccountStatus: undefined,
     ActiveSubscribedDomains: undefined,
     DashboardEnabled: undefined,
@@ -4355,7 +4331,6 @@ export const deserializeAws_restJson1GetDeliverabilityTestReportCommand = async 
   }
   const contents: GetDeliverabilityTestReportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDeliverabilityTestReportResponse",
     DeliverabilityTestReport: undefined,
     IspPlacements: undefined,
     Message: undefined,
@@ -4446,7 +4421,6 @@ export const deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand = as
   }
   const contents: GetDomainDeliverabilityCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDomainDeliverabilityCampaignResponse",
     DomainDeliverabilityCampaign: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4521,7 +4495,6 @@ export const deserializeAws_restJson1GetDomainStatisticsReportCommand = async (
   }
   const contents: GetDomainStatisticsReportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDomainStatisticsReportResponse",
     DailyVolumes: undefined,
     OverallVolume: undefined,
   };
@@ -4597,7 +4570,6 @@ export const deserializeAws_restJson1GetEmailIdentityCommand = async (
   }
   const contents: GetEmailIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEmailIdentityResponse",
     DkimAttributes: undefined,
     FeedbackForwardingStatus: undefined,
     IdentityType: undefined,
@@ -4693,7 +4665,6 @@ export const deserializeAws_restJson1GetEmailIdentityPoliciesCommand = async (
   }
   const contents: GetEmailIdentityPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEmailIdentityPoliciesResponse",
     Policies: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4765,7 +4736,6 @@ export const deserializeAws_restJson1GetEmailTemplateCommand = async (
   }
   const contents: GetEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEmailTemplateResponse",
     TemplateContent: undefined,
     TemplateName: undefined,
   };
@@ -4841,7 +4811,6 @@ export const deserializeAws_restJson1GetSuppressedDestinationCommand = async (
   }
   const contents: GetSuppressedDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSuppressedDestinationResponse",
     SuppressedDestination: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4913,7 +4882,6 @@ export const deserializeAws_restJson1ListConfigurationSetsCommand = async (
   }
   const contents: ListConfigurationSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListConfigurationSetsResponse",
     ConfigurationSets: undefined,
     NextToken: undefined,
   };
@@ -4981,7 +4949,6 @@ export const deserializeAws_restJson1ListCustomVerificationEmailTemplatesCommand
   }
   const contents: ListCustomVerificationEmailTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCustomVerificationEmailTemplatesResponse",
     CustomVerificationEmailTemplates: undefined,
     NextToken: undefined,
   };
@@ -5052,7 +5019,6 @@ export const deserializeAws_restJson1ListDedicatedIpPoolsCommand = async (
   }
   const contents: ListDedicatedIpPoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDedicatedIpPoolsResponse",
     DedicatedIpPools: undefined,
     NextToken: undefined,
   };
@@ -5120,7 +5086,6 @@ export const deserializeAws_restJson1ListDeliverabilityTestReportsCommand = asyn
   }
   const contents: ListDeliverabilityTestReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDeliverabilityTestReportsResponse",
     DeliverabilityTestReports: undefined,
     NextToken: undefined,
   };
@@ -5199,7 +5164,6 @@ export const deserializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = 
   }
   const contents: ListDomainDeliverabilityCampaignsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDomainDeliverabilityCampaignsResponse",
     DomainDeliverabilityCampaigns: undefined,
     NextToken: undefined,
   };
@@ -5278,7 +5242,6 @@ export const deserializeAws_restJson1ListEmailIdentitiesCommand = async (
   }
   const contents: ListEmailIdentitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEmailIdentitiesResponse",
     EmailIdentities: undefined,
     NextToken: undefined,
   };
@@ -5346,7 +5309,6 @@ export const deserializeAws_restJson1ListEmailTemplatesCommand = async (
   }
   const contents: ListEmailTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEmailTemplatesResponse",
     NextToken: undefined,
     TemplatesMetadata: undefined,
   };
@@ -5414,7 +5376,6 @@ export const deserializeAws_restJson1ListSuppressedDestinationsCommand = async (
   }
   const contents: ListSuppressedDestinationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSuppressedDestinationsResponse",
     NextToken: undefined,
     SuppressedDestinationSummaries: undefined,
   };
@@ -5493,7 +5454,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5565,7 +5525,6 @@ export const deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesComman
   }
   const contents: PutAccountDedicatedIpWarmupAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutAccountDedicatedIpWarmupAttributesResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5625,7 +5584,6 @@ export const deserializeAws_restJson1PutAccountDetailsCommand = async (
   }
   const contents: PutAccountDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutAccountDetailsResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5693,7 +5651,6 @@ export const deserializeAws_restJson1PutAccountSendingAttributesCommand = async 
   }
   const contents: PutAccountSendingAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutAccountSendingAttributesResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5753,7 +5710,6 @@ export const deserializeAws_restJson1PutAccountSuppressionAttributesCommand = as
   }
   const contents: PutAccountSuppressionAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutAccountSuppressionAttributesResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5813,7 +5769,6 @@ export const deserializeAws_restJson1PutConfigurationSetDeliveryOptionsCommand =
   }
   const contents: PutConfigurationSetDeliveryOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutConfigurationSetDeliveryOptionsResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5881,7 +5836,6 @@ export const deserializeAws_restJson1PutConfigurationSetReputationOptionsCommand
   }
   const contents: PutConfigurationSetReputationOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutConfigurationSetReputationOptionsResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5949,7 +5903,6 @@ export const deserializeAws_restJson1PutConfigurationSetSendingOptionsCommand = 
   }
   const contents: PutConfigurationSetSendingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutConfigurationSetSendingOptionsResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6017,7 +5970,6 @@ export const deserializeAws_restJson1PutConfigurationSetSuppressionOptionsComman
   }
   const contents: PutConfigurationSetSuppressionOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutConfigurationSetSuppressionOptionsResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6085,7 +6037,6 @@ export const deserializeAws_restJson1PutConfigurationSetTrackingOptionsCommand =
   }
   const contents: PutConfigurationSetTrackingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutConfigurationSetTrackingOptionsResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6153,7 +6104,6 @@ export const deserializeAws_restJson1PutDedicatedIpInPoolCommand = async (
   }
   const contents: PutDedicatedIpInPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutDedicatedIpInPoolResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6221,7 +6171,6 @@ export const deserializeAws_restJson1PutDedicatedIpWarmupAttributesCommand = asy
   }
   const contents: PutDedicatedIpWarmupAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutDedicatedIpWarmupAttributesResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6289,7 +6238,6 @@ export const deserializeAws_restJson1PutDeliverabilityDashboardOptionCommand = a
   }
   const contents: PutDeliverabilityDashboardOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutDeliverabilityDashboardOptionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6373,7 +6321,6 @@ export const deserializeAws_restJson1PutEmailIdentityDkimAttributesCommand = asy
   }
   const contents: PutEmailIdentityDkimAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutEmailIdentityDkimAttributesResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6441,7 +6388,6 @@ export const deserializeAws_restJson1PutEmailIdentityDkimSigningAttributesComman
   }
   const contents: PutEmailIdentityDkimSigningAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutEmailIdentityDkimSigningAttributesResponse",
     DkimStatus: undefined,
     DkimTokens: undefined,
   };
@@ -6517,7 +6463,6 @@ export const deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand =
   }
   const contents: PutEmailIdentityFeedbackAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutEmailIdentityFeedbackAttributesResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6585,7 +6530,6 @@ export const deserializeAws_restJson1PutEmailIdentityMailFromAttributesCommand =
   }
   const contents: PutEmailIdentityMailFromAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutEmailIdentityMailFromAttributesResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6653,7 +6597,6 @@ export const deserializeAws_restJson1PutSuppressedDestinationCommand = async (
   }
   const contents: PutSuppressedDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutSuppressedDestinationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -6713,7 +6656,6 @@ export const deserializeAws_restJson1SendBulkEmailCommand = async (
   }
   const contents: SendBulkEmailCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendBulkEmailResponse",
     BulkEmailEntryResults: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6828,7 +6770,6 @@ export const deserializeAws_restJson1SendCustomVerificationEmailCommand = async 
   }
   const contents: SendCustomVerificationEmailCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendCustomVerificationEmailResponse",
     MessageId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6932,7 +6873,6 @@ export const deserializeAws_restJson1SendEmailCommand = async (
   }
   const contents: SendEmailCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendEmailResponse",
     MessageId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7044,7 +6984,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -7120,7 +7059,6 @@ export const deserializeAws_restJson1TestRenderEmailTemplateCommand = async (
   }
   const contents: TestRenderEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TestRenderEmailTemplateResponse",
     RenderedTemplate: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7192,7 +7130,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -7268,7 +7205,6 @@ export const deserializeAws_restJson1UpdateConfigurationSetEventDestinationComma
   }
   const contents: UpdateConfigurationSetEventDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateConfigurationSetEventDestinationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -7336,7 +7272,6 @@ export const deserializeAws_restJson1UpdateCustomVerificationEmailTemplateComman
   }
   const contents: UpdateCustomVerificationEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateCustomVerificationEmailTemplateResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -7404,7 +7339,6 @@ export const deserializeAws_restJson1UpdateEmailIdentityPolicyCommand = async (
   }
   const contents: UpdateEmailIdentityPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateEmailIdentityPolicyResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -7472,7 +7406,6 @@ export const deserializeAws_restJson1UpdateEmailTemplateCommand = async (
   }
   const contents: UpdateEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateEmailTemplateResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8044,7 +7977,6 @@ const serializeAws_restJson1TrackingOptions = (input: TrackingOptions, context: 
 
 const deserializeAws_restJson1AccountDetails = (output: any, context: __SerdeContext): AccountDetails => {
   return {
-    __type: "AccountDetails",
     AdditionalContactEmailAddresses:
       output.AdditionalContactEmailAddresses !== undefined && output.AdditionalContactEmailAddresses !== null
         ? deserializeAws_restJson1AdditionalContactEmailAddresses(output.AdditionalContactEmailAddresses, context)
@@ -8074,7 +8006,6 @@ const deserializeAws_restJson1BlacklistEntries = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1BlacklistEntry = (output: any, context: __SerdeContext): BlacklistEntry => {
   return {
-    __type: "BlacklistEntry",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     ListingTime:
       output.ListingTime !== undefined && output.ListingTime !== null
@@ -8099,7 +8030,6 @@ const deserializeAws_restJson1BlacklistReport = (
 
 const deserializeAws_restJson1BulkEmailEntryResult = (output: any, context: __SerdeContext): BulkEmailEntryResult => {
   return {
-    __type: "BulkEmailEntryResult",
     Error: output.Error !== undefined && output.Error !== null ? output.Error : undefined,
     MessageId: output.MessageId !== undefined && output.MessageId !== null ? output.MessageId : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
@@ -8115,7 +8045,6 @@ const deserializeAws_restJson1BulkEmailEntryResultList = (
 
 const deserializeAws_restJson1CloudWatchDestination = (output: any, context: __SerdeContext): CloudWatchDestination => {
   return {
-    __type: "CloudWatchDestination",
     DimensionConfigurations:
       output.DimensionConfigurations !== undefined && output.DimensionConfigurations !== null
         ? deserializeAws_restJson1CloudWatchDimensionConfigurations(output.DimensionConfigurations, context)
@@ -8128,7 +8057,6 @@ const deserializeAws_restJson1CloudWatchDimensionConfiguration = (
   context: __SerdeContext
 ): CloudWatchDimensionConfiguration => {
   return {
-    __type: "CloudWatchDimensionConfiguration",
     DefaultDimensionValue:
       output.DefaultDimensionValue !== undefined && output.DefaultDimensionValue !== null
         ? output.DefaultDimensionValue
@@ -8158,7 +8086,6 @@ const deserializeAws_restJson1CustomVerificationEmailTemplateMetadata = (
   context: __SerdeContext
 ): CustomVerificationEmailTemplateMetadata => {
   return {
-    __type: "CustomVerificationEmailTemplateMetadata",
     FailureRedirectionURL:
       output.FailureRedirectionURL !== undefined && output.FailureRedirectionURL !== null
         ? output.FailureRedirectionURL
@@ -8186,7 +8113,6 @@ const deserializeAws_restJson1CustomVerificationEmailTemplatesList = (
 
 const deserializeAws_restJson1DailyVolume = (output: any, context: __SerdeContext): DailyVolume => {
   return {
-    __type: "DailyVolume",
     DomainIspPlacements:
       output.DomainIspPlacements !== undefined && output.DomainIspPlacements !== null
         ? deserializeAws_restJson1DomainIspPlacements(output.DomainIspPlacements, context)
@@ -8208,7 +8134,6 @@ const deserializeAws_restJson1DailyVolumes = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1DedicatedIp = (output: any, context: __SerdeContext): DedicatedIp => {
   return {
-    __type: "DedicatedIp",
     Ip: output.Ip !== undefined && output.Ip !== null ? output.Ip : undefined,
     PoolName: output.PoolName !== undefined && output.PoolName !== null ? output.PoolName : undefined,
     WarmupPercentage:
@@ -8226,7 +8151,6 @@ const deserializeAws_restJson1DeliverabilityTestReport = (
   context: __SerdeContext
 ): DeliverabilityTestReport => {
   return {
-    __type: "DeliverabilityTestReport",
     CreateDate:
       output.CreateDate !== undefined && output.CreateDate !== null
         ? new Date(Math.round(output.CreateDate * 1000))
@@ -8252,7 +8176,6 @@ const deserializeAws_restJson1DeliverabilityTestReports = (
 
 const deserializeAws_restJson1DeliveryOptions = (output: any, context: __SerdeContext): DeliveryOptions => {
   return {
-    __type: "DeliveryOptions",
     SendingPoolName:
       output.SendingPoolName !== undefined && output.SendingPoolName !== null ? output.SendingPoolName : undefined,
     TlsPolicy: output.TlsPolicy !== undefined && output.TlsPolicy !== null ? output.TlsPolicy : undefined,
@@ -8261,7 +8184,6 @@ const deserializeAws_restJson1DeliveryOptions = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1DkimAttributes = (output: any, context: __SerdeContext): DkimAttributes => {
   return {
-    __type: "DkimAttributes",
     SigningAttributesOrigin:
       output.SigningAttributesOrigin !== undefined && output.SigningAttributesOrigin !== null
         ? output.SigningAttributesOrigin
@@ -8285,7 +8207,6 @@ const deserializeAws_restJson1DomainDeliverabilityCampaign = (
   context: __SerdeContext
 ): DomainDeliverabilityCampaign => {
   return {
-    __type: "DomainDeliverabilityCampaign",
     CampaignId: output.CampaignId !== undefined && output.CampaignId !== null ? output.CampaignId : undefined,
     DeleteRate: output.DeleteRate !== undefined && output.DeleteRate !== null ? output.DeleteRate : undefined,
     Esps:
@@ -8329,7 +8250,6 @@ const deserializeAws_restJson1DomainDeliverabilityTrackingOption = (
   context: __SerdeContext
 ): DomainDeliverabilityTrackingOption => {
   return {
-    __type: "DomainDeliverabilityTrackingOption",
     Domain: output.Domain !== undefined && output.Domain !== null ? output.Domain : undefined,
     InboxPlacementTrackingOption:
       output.InboxPlacementTrackingOption !== undefined && output.InboxPlacementTrackingOption !== null
@@ -8351,7 +8271,6 @@ const deserializeAws_restJson1DomainDeliverabilityTrackingOptions = (
 
 const deserializeAws_restJson1DomainIspPlacement = (output: any, context: __SerdeContext): DomainIspPlacement => {
   return {
-    __type: "DomainIspPlacement",
     InboxPercentage:
       output.InboxPercentage !== undefined && output.InboxPercentage !== null ? output.InboxPercentage : undefined,
     InboxRawCount:
@@ -8369,7 +8288,6 @@ const deserializeAws_restJson1DomainIspPlacements = (output: any, context: __Ser
 
 const deserializeAws_restJson1EmailTemplateContent = (output: any, context: __SerdeContext): EmailTemplateContent => {
   return {
-    __type: "EmailTemplateContent",
     Html: output.Html !== undefined && output.Html !== null ? output.Html : undefined,
     Subject: output.Subject !== undefined && output.Subject !== null ? output.Subject : undefined,
     Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
@@ -8378,7 +8296,6 @@ const deserializeAws_restJson1EmailTemplateContent = (output: any, context: __Se
 
 const deserializeAws_restJson1EmailTemplateMetadata = (output: any, context: __SerdeContext): EmailTemplateMetadata => {
   return {
-    __type: "EmailTemplateMetadata",
     CreatedTimestamp:
       output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
         ? new Date(Math.round(output.CreatedTimestamp * 1000))
@@ -8400,7 +8317,6 @@ const deserializeAws_restJson1Esps = (output: any, context: __SerdeContext): str
 
 const deserializeAws_restJson1EventDestination = (output: any, context: __SerdeContext): EventDestination => {
   return {
-    __type: "EventDestination",
     CloudWatchDestination:
       output.CloudWatchDestination !== undefined && output.CloudWatchDestination !== null
         ? deserializeAws_restJson1CloudWatchDestination(output.CloudWatchDestination, context)
@@ -8436,7 +8352,6 @@ const deserializeAws_restJson1EventTypes = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1IdentityInfo = (output: any, context: __SerdeContext): IdentityInfo => {
   return {
-    __type: "IdentityInfo",
     IdentityName: output.IdentityName !== undefined && output.IdentityName !== null ? output.IdentityName : undefined,
     IdentityType: output.IdentityType !== undefined && output.IdentityType !== null ? output.IdentityType : undefined,
     SendingEnabled:
@@ -8453,7 +8368,6 @@ const deserializeAws_restJson1InboxPlacementTrackingOption = (
   context: __SerdeContext
 ): InboxPlacementTrackingOption => {
   return {
-    __type: "InboxPlacementTrackingOption",
     Global: output.Global !== undefined && output.Global !== null ? output.Global : undefined,
     TrackedIsps:
       output.TrackedIsps !== undefined && output.TrackedIsps !== null
@@ -8472,7 +8386,6 @@ const deserializeAws_restJson1IspNameList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1IspPlacement = (output: any, context: __SerdeContext): IspPlacement => {
   return {
-    __type: "IspPlacement",
     IspName: output.IspName !== undefined && output.IspName !== null ? output.IspName : undefined,
     PlacementStatistics:
       output.PlacementStatistics !== undefined && output.PlacementStatistics !== null
@@ -8490,7 +8403,6 @@ const deserializeAws_restJson1KinesisFirehoseDestination = (
   context: __SerdeContext
 ): KinesisFirehoseDestination => {
   return {
-    __type: "KinesisFirehoseDestination",
     DeliveryStreamArn:
       output.DeliveryStreamArn !== undefined && output.DeliveryStreamArn !== null
         ? output.DeliveryStreamArn
@@ -8505,7 +8417,6 @@ const deserializeAws_restJson1ListOfDedicatedIpPools = (output: any, context: __
 
 const deserializeAws_restJson1MailFromAttributes = (output: any, context: __SerdeContext): MailFromAttributes => {
   return {
-    __type: "MailFromAttributes",
     BehaviorOnMxFailure:
       output.BehaviorOnMxFailure !== undefined && output.BehaviorOnMxFailure !== null
         ? output.BehaviorOnMxFailure
@@ -8521,7 +8432,6 @@ const deserializeAws_restJson1MailFromAttributes = (output: any, context: __Serd
 
 const deserializeAws_restJson1OverallVolume = (output: any, context: __SerdeContext): OverallVolume => {
   return {
-    __type: "OverallVolume",
     DomainIspPlacements:
       output.DomainIspPlacements !== undefined && output.DomainIspPlacements !== null
         ? deserializeAws_restJson1DomainIspPlacements(output.DomainIspPlacements, context)
@@ -8537,7 +8447,6 @@ const deserializeAws_restJson1OverallVolume = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1PinpointDestination = (output: any, context: __SerdeContext): PinpointDestination => {
   return {
-    __type: "PinpointDestination",
     ApplicationArn:
       output.ApplicationArn !== undefined && output.ApplicationArn !== null ? output.ApplicationArn : undefined,
   } as any;
@@ -8545,7 +8454,6 @@ const deserializeAws_restJson1PinpointDestination = (output: any, context: __Ser
 
 const deserializeAws_restJson1PlacementStatistics = (output: any, context: __SerdeContext): PlacementStatistics => {
   return {
-    __type: "PlacementStatistics",
     DkimPercentage:
       output.DkimPercentage !== undefined && output.DkimPercentage !== null ? output.DkimPercentage : undefined,
     InboxPercentage:
@@ -8573,7 +8481,6 @@ const deserializeAws_restJson1PolicyMap = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1ReputationOptions = (output: any, context: __SerdeContext): ReputationOptions => {
   return {
-    __type: "ReputationOptions",
     LastFreshStart:
       output.LastFreshStart !== undefined && output.LastFreshStart !== null
         ? new Date(Math.round(output.LastFreshStart * 1000))
@@ -8587,7 +8494,6 @@ const deserializeAws_restJson1ReputationOptions = (output: any, context: __Serde
 
 const deserializeAws_restJson1ReviewDetails = (output: any, context: __SerdeContext): ReviewDetails => {
   return {
-    __type: "ReviewDetails",
     CaseId: output.CaseId !== undefined && output.CaseId !== null ? output.CaseId : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
@@ -8595,7 +8501,6 @@ const deserializeAws_restJson1ReviewDetails = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1SendingOptions = (output: any, context: __SerdeContext): SendingOptions => {
   return {
-    __type: "SendingOptions",
     SendingEnabled:
       output.SendingEnabled !== undefined && output.SendingEnabled !== null ? output.SendingEnabled : undefined,
   } as any;
@@ -8603,7 +8508,6 @@ const deserializeAws_restJson1SendingOptions = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1SendQuota = (output: any, context: __SerdeContext): SendQuota => {
   return {
-    __type: "SendQuota",
     Max24HourSend:
       output.Max24HourSend !== undefined && output.Max24HourSend !== null ? output.Max24HourSend : undefined,
     MaxSendRate: output.MaxSendRate !== undefined && output.MaxSendRate !== null ? output.MaxSendRate : undefined,
@@ -8614,14 +8518,12 @@ const deserializeAws_restJson1SendQuota = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1SnsDestination = (output: any, context: __SerdeContext): SnsDestination => {
   return {
-    __type: "SnsDestination",
     TopicArn: output.TopicArn !== undefined && output.TopicArn !== null ? output.TopicArn : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1SuppressedDestination = (output: any, context: __SerdeContext): SuppressedDestination => {
   return {
-    __type: "SuppressedDestination",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_restJson1SuppressedDestinationAttributes(output.Attributes, context)
@@ -8640,7 +8542,6 @@ const deserializeAws_restJson1SuppressedDestinationAttributes = (
   context: __SerdeContext
 ): SuppressedDestinationAttributes => {
   return {
-    __type: "SuppressedDestinationAttributes",
     FeedbackId: output.FeedbackId !== undefined && output.FeedbackId !== null ? output.FeedbackId : undefined,
     MessageId: output.MessageId !== undefined && output.MessageId !== null ? output.MessageId : undefined,
   } as any;
@@ -8658,7 +8559,6 @@ const deserializeAws_restJson1SuppressedDestinationSummary = (
   context: __SerdeContext
 ): SuppressedDestinationSummary => {
   return {
-    __type: "SuppressedDestinationSummary",
     EmailAddress: output.EmailAddress !== undefined && output.EmailAddress !== null ? output.EmailAddress : undefined,
     LastUpdateTime:
       output.LastUpdateTime !== undefined && output.LastUpdateTime !== null
@@ -8670,7 +8570,6 @@ const deserializeAws_restJson1SuppressedDestinationSummary = (
 
 const deserializeAws_restJson1SuppressionAttributes = (output: any, context: __SerdeContext): SuppressionAttributes => {
   return {
-    __type: "SuppressionAttributes",
     SuppressedReasons:
       output.SuppressedReasons !== undefined && output.SuppressedReasons !== null
         ? deserializeAws_restJson1SuppressionListReasons(output.SuppressedReasons, context)
@@ -8687,7 +8586,6 @@ const deserializeAws_restJson1SuppressionListReasons = (
 
 const deserializeAws_restJson1SuppressionOptions = (output: any, context: __SerdeContext): SuppressionOptions => {
   return {
-    __type: "SuppressionOptions",
     SuppressedReasons:
       output.SuppressedReasons !== undefined && output.SuppressedReasons !== null
         ? deserializeAws_restJson1SuppressionListReasons(output.SuppressedReasons, context)
@@ -8697,7 +8595,6 @@ const deserializeAws_restJson1SuppressionOptions = (output: any, context: __Serd
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -8709,7 +8606,6 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1TrackingOptions = (output: any, context: __SerdeContext): TrackingOptions => {
   return {
-    __type: "TrackingOptions",
     CustomRedirectDomain:
       output.CustomRedirectDomain !== undefined && output.CustomRedirectDomain !== null
         ? output.CustomRedirectDomain
@@ -8719,7 +8615,6 @@ const deserializeAws_restJson1TrackingOptions = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1VolumeStatistics = (output: any, context: __SerdeContext): VolumeStatistics => {
   return {
-    __type: "VolumeStatistics",
     InboxRawCount:
       output.InboxRawCount !== undefined && output.InboxRawCount !== null ? output.InboxRawCount : undefined,
     ProjectedInbox:

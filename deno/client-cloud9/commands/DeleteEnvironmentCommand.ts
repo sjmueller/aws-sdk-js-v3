@@ -1,6 +1,6 @@
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client.ts";
-import { DeleteEnvironmentRequest, DeleteEnvironmentResult } from "../models/index.ts";
+import { DeleteEnvironmentRequest, DeleteEnvironmentResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteEnvironmentCommand,
   serializeAws_json1_1DeleteEnvironmentCommand,

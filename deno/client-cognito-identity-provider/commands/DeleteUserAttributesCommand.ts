@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { DeleteUserAttributesRequest, DeleteUserAttributesResponse } from "../models/index.ts";
+import { DeleteUserAttributesRequest, DeleteUserAttributesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteUserAttributesCommand,
   serializeAws_json1_1DeleteUserAttributesCommand,

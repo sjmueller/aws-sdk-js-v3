@@ -1,6 +1,6 @@
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient.ts";
-import { ListJobsRequest, ListJobsResponse } from "../models/index.ts";
+import { ListJobsRequest, ListJobsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListJobsCommand,
   serializeAws_restJson1ListJobsCommand,

@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage } from "../models/index.ts";
+import { DescribePendingMaintenanceActionsMessage, PendingMaintenanceActionsMessage } from "../models/models_1.ts";
 import {
   deserializeAws_queryDescribePendingMaintenanceActionsCommand,
   serializeAws_queryDescribePendingMaintenanceActionsCommand,

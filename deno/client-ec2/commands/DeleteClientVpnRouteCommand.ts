@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DeleteClientVpnRouteRequest, DeleteClientVpnRouteResult } from "../models/index.ts";
+import { DeleteClientVpnRouteRequest, DeleteClientVpnRouteResult } from "../models/models_1.ts";
 import {
   deserializeAws_ec2DeleteClientVpnRouteCommand,
   serializeAws_ec2DeleteClientVpnRouteCommand,

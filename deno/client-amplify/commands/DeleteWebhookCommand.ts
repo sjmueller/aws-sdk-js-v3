@@ -1,6 +1,6 @@
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
-import { DeleteWebhookRequest, DeleteWebhookResult } from "../models/index.ts";
+import { DeleteWebhookRequest, DeleteWebhookResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteWebhookCommand,
   serializeAws_restJson1DeleteWebhookCommand,

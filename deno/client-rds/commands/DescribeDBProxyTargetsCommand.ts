@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DescribeDBProxyTargetsRequest, DescribeDBProxyTargetsResponse } from "../models/index.ts";
+import { DescribeDBProxyTargetsRequest, DescribeDBProxyTargetsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeDBProxyTargetsCommand,
   serializeAws_queryDescribeDBProxyTargetsCommand,

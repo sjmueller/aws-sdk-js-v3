@@ -1,6 +1,6 @@
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
-import { StartBackupJobInput, StartBackupJobOutput } from "../models/index.ts";
+import { StartBackupJobInput, StartBackupJobOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StartBackupJobCommand,
   serializeAws_restJson1StartBackupJobCommand,

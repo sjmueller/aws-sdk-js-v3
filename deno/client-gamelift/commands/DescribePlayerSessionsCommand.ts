@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { DescribePlayerSessionsInput, DescribePlayerSessionsOutput } from "../models/index.ts";
+import { DescribePlayerSessionsInput, DescribePlayerSessionsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribePlayerSessionsCommand,
   serializeAws_json1_1DescribePlayerSessionsCommand,

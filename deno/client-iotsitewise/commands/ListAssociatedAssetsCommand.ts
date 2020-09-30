@@ -1,6 +1,6 @@
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
-import { ListAssociatedAssetsRequest, ListAssociatedAssetsResponse } from "../models/index.ts";
+import { ListAssociatedAssetsRequest, ListAssociatedAssetsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListAssociatedAssetsCommand,
   serializeAws_restJson1ListAssociatedAssetsCommand,

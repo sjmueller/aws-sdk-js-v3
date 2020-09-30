@@ -1,6 +1,6 @@
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient.ts";
-import { RebootNodeRequest, RebootNodeResponse } from "../models/index.ts";
+import { RebootNodeRequest, RebootNodeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RebootNodeCommand,
   serializeAws_json1_1RebootNodeCommand,

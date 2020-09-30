@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient.ts";
-import { GetUtterancesViewRequest, GetUtterancesViewResponse } from "../models/index.ts";
+import { GetUtterancesViewRequest, GetUtterancesViewResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetUtterancesViewCommand,
   serializeAws_restJson1GetUtterancesViewCommand,

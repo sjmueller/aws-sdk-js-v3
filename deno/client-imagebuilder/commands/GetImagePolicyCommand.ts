@@ -1,6 +1,6 @@
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
-import { GetImagePolicyRequest, GetImagePolicyResponse } from "../models/index.ts";
+import { GetImagePolicyRequest, GetImagePolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetImagePolicyCommand,
   serializeAws_restJson1GetImagePolicyCommand,

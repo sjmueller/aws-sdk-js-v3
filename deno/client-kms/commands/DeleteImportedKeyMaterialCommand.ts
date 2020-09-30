@@ -1,6 +1,6 @@
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
-import { DeleteImportedKeyMaterialRequest } from "../models/index.ts";
+import { DeleteImportedKeyMaterialRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteImportedKeyMaterialCommand,
   serializeAws_json1_1DeleteImportedKeyMaterialCommand,

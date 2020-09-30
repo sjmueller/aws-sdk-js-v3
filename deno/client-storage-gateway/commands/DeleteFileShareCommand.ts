@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { DeleteFileShareInput, DeleteFileShareOutput } from "../models/index.ts";
+import { DeleteFileShareInput, DeleteFileShareOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteFileShareCommand,
   serializeAws_json1_1DeleteFileShareCommand,

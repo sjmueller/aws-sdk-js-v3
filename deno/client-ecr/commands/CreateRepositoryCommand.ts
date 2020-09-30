@@ -1,6 +1,6 @@
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
-import { CreateRepositoryRequest, CreateRepositoryResponse } from "../models/index.ts";
+import { CreateRepositoryRequest, CreateRepositoryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateRepositoryCommand,
   serializeAws_json1_1CreateRepositoryCommand,

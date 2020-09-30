@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { CreateRuleRequest, CreateRuleResponse } from "../models/index.ts";
+import { CreateRuleRequest, CreateRuleResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateRuleCommand,
   serializeAws_json1_1CreateRuleCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient.ts";
-import { DescribeCasesRequest, DescribeCasesResponse } from "../models/index.ts";
+import { DescribeCasesRequest, DescribeCasesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeCasesCommand,
   serializeAws_json1_1DescribeCasesCommand,

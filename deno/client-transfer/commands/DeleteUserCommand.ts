@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient.ts";
-import { DeleteUserRequest } from "../models/index.ts";
+import { DeleteUserRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteUserCommand,
   serializeAws_json1_1DeleteUserCommand,

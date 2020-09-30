@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DeleteDBSnapshotMessage, DeleteDBSnapshotResult } from "../models/index.ts";
+import { DeleteDBSnapshotMessage, DeleteDBSnapshotResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteDBSnapshotCommand,
   serializeAws_queryDeleteDBSnapshotCommand,

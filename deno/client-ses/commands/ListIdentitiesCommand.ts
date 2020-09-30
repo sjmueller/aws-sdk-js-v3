@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { ListIdentitiesRequest, ListIdentitiesResponse } from "../models/index.ts";
+import { ListIdentitiesRequest, ListIdentitiesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryListIdentitiesCommand,
   serializeAws_queryListIdentitiesCommand,

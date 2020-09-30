@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { DeleteInstanceRequest, DeleteInstanceResult } from "../models/index.ts";
+import { DeleteInstanceRequest, DeleteInstanceResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteInstanceCommand,
   serializeAws_json1_1DeleteInstanceCommand,

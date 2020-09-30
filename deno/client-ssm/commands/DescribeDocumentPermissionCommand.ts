@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { DescribeDocumentPermissionRequest, DescribeDocumentPermissionResponse } from "../models/index.ts";
+import { DescribeDocumentPermissionRequest, DescribeDocumentPermissionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeDocumentPermissionCommand,
   serializeAws_json1_1DescribeDocumentPermissionCommand,

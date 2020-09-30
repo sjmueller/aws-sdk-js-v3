@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { UpdateDistributionRequest, UpdateDistributionResult } from "../models/index.ts";
+import { UpdateDistributionRequest, UpdateDistributionResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1UpdateDistributionCommand,
   serializeAws_json1_1UpdateDistributionCommand,

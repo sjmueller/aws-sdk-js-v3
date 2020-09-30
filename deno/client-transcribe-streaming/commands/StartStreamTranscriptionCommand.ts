@@ -4,7 +4,7 @@ import {
   ServiceOutputTypes,
   TranscribeStreamingClientResolvedConfig,
 } from "../TranscribeStreamingClient.ts";
-import { StartStreamTranscriptionRequest, StartStreamTranscriptionResponse } from "../models/index.ts";
+import { StartStreamTranscriptionRequest, StartStreamTranscriptionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StartStreamTranscriptionCommand,
   serializeAws_restJson1StartStreamTranscriptionCommand,

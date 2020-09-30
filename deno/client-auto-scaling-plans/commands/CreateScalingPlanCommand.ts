@@ -1,6 +1,6 @@
 
 import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient.ts";
-import { CreateScalingPlanRequest, CreateScalingPlanResponse } from "../models/index.ts";
+import { CreateScalingPlanRequest, CreateScalingPlanResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateScalingPlanCommand,
   serializeAws_json1_1CreateScalingPlanCommand,

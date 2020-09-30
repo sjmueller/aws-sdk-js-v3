@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { UpdateUserSettingsRequest } from "../models/index.ts";
+import { UpdateUserSettingsRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateUserSettingsCommand,
   serializeAws_restJson1UpdateUserSettingsCommand,

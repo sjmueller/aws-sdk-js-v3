@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { DeleteClusterMessage, DeleteClusterResult } from "../models/index.ts";
+import { DeleteClusterMessage, DeleteClusterResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteClusterCommand,
   serializeAws_queryDeleteClusterCommand,

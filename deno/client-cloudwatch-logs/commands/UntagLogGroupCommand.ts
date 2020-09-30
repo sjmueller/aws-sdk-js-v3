@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { UntagLogGroupRequest } from "../models/index.ts";
+import { UntagLogGroupRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UntagLogGroupCommand,
   serializeAws_json1_1UntagLogGroupCommand,

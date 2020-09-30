@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { ListSkillsRequest, ListSkillsResponse } from "../models/index.ts";
+import { ListSkillsRequest, ListSkillsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListSkillsCommand,
   serializeAws_json1_1ListSkillsCommand,

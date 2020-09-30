@@ -1,6 +1,6 @@
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient.ts";
-import { ListStreamsInput, ListStreamsOutput } from "../models/index.ts";
+import { ListStreamsInput, ListStreamsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListStreamsCommand,
   serializeAws_restJson1ListStreamsCommand,

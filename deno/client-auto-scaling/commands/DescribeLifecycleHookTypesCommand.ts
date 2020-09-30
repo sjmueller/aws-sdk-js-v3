@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { DescribeLifecycleHookTypesAnswer } from "../models/index.ts";
+import { DescribeLifecycleHookTypesAnswer } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeLifecycleHookTypesCommand,
   serializeAws_queryDescribeLifecycleHookTypesCommand,

@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ModifyVpcAttributeRequest } from "../models/index.ts";
+import { ModifyVpcAttributeRequest } from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyVpcAttributeCommand,
   serializeAws_ec2ModifyVpcAttributeCommand,

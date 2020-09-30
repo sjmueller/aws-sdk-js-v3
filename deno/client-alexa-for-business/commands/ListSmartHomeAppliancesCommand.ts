@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { ListSmartHomeAppliancesRequest, ListSmartHomeAppliancesResponse } from "../models/index.ts";
+import { ListSmartHomeAppliancesRequest, ListSmartHomeAppliancesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListSmartHomeAppliancesCommand,
   serializeAws_json1_1ListSmartHomeAppliancesCommand,

@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { CreateBucketOutput, CreateBucketRequest } from "../models/index.ts";
+import { CreateBucketOutput, CreateBucketRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlCreateBucketCommand,
   serializeAws_restXmlCreateBucketCommand,

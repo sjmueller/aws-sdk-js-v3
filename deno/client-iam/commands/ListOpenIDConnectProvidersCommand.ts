@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { ListOpenIDConnectProvidersRequest, ListOpenIDConnectProvidersResponse } from "../models/index.ts";
+import { ListOpenIDConnectProvidersRequest, ListOpenIDConnectProvidersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryListOpenIDConnectProvidersCommand,
   serializeAws_queryListOpenIDConnectProvidersCommand,

@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { FilterLogEventsRequest, FilterLogEventsResponse } from "../models/index.ts";
+import { FilterLogEventsRequest, FilterLogEventsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1FilterLogEventsCommand,
   serializeAws_json1_1FilterLogEventsCommand,

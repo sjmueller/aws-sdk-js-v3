@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { ListByteMatchSetsRequest, ListByteMatchSetsResponse } from "../models/index.ts";
+import { ListByteMatchSetsRequest, ListByteMatchSetsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListByteMatchSetsCommand,
   serializeAws_json1_1ListByteMatchSetsCommand,

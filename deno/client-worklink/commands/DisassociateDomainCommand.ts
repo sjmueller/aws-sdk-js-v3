@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient.ts";
-import { DisassociateDomainRequest, DisassociateDomainResponse } from "../models/index.ts";
+import { DisassociateDomainRequest, DisassociateDomainResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DisassociateDomainCommand,
   serializeAws_restJson1DisassociateDomainCommand,

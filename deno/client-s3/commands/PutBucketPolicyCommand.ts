@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { PutBucketPolicyRequest } from "../models/index.ts";
+import { PutBucketPolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlPutBucketPolicyCommand,
   serializeAws_restXmlPutBucketPolicyCommand,

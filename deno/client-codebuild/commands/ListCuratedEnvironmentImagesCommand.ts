@@ -1,6 +1,6 @@
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient.ts";
-import { ListCuratedEnvironmentImagesInput, ListCuratedEnvironmentImagesOutput } from "../models/index.ts";
+import { ListCuratedEnvironmentImagesInput, ListCuratedEnvironmentImagesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListCuratedEnvironmentImagesCommand,
   serializeAws_json1_1ListCuratedEnvironmentImagesCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { DescribeBandwidthRateLimitInput, DescribeBandwidthRateLimitOutput } from "../models/index.ts";
+import { DescribeBandwidthRateLimitInput, DescribeBandwidthRateLimitOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeBandwidthRateLimitCommand,
   serializeAws_json1_1DescribeBandwidthRateLimitCommand,

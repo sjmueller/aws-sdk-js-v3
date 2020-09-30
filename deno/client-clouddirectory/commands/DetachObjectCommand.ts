@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { DetachObjectRequest, DetachObjectResponse } from "../models/index.ts";
+import { DetachObjectRequest, DetachObjectResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DetachObjectCommand,
   serializeAws_restJson1DetachObjectCommand,

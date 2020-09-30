@@ -1,6 +1,6 @@
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient.ts";
-import { DeleteMeshInput, DeleteMeshOutput } from "../models/index.ts";
+import { DeleteMeshInput, DeleteMeshOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteMeshCommand,
   serializeAws_restJson1DeleteMeshCommand,

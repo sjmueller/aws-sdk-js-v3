@@ -1,6 +1,6 @@
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient.ts";
-import { PutDataLakeSettingsRequest, PutDataLakeSettingsResponse } from "../models/index.ts";
+import { PutDataLakeSettingsRequest, PutDataLakeSettingsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutDataLakeSettingsCommand,
   serializeAws_json1_1PutDataLakeSettingsCommand,

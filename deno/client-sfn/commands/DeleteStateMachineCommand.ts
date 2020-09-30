@@ -1,6 +1,6 @@
 
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient.ts";
-import { DeleteStateMachineInput, DeleteStateMachineOutput } from "../models/index.ts";
+import { DeleteStateMachineInput, DeleteStateMachineOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0DeleteStateMachineCommand,
   serializeAws_json1_0DeleteStateMachineCommand,

@@ -1,6 +1,6 @@
 
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient.ts";
-import { CancelJournalKinesisStreamRequest, CancelJournalKinesisStreamResponse } from "../models/index.ts";
+import { CancelJournalKinesisStreamRequest, CancelJournalKinesisStreamResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CancelJournalKinesisStreamCommand,
   serializeAws_restJson1CancelJournalKinesisStreamCommand,

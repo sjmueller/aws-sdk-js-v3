@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { DescribeTemplateAliasRequest, DescribeTemplateAliasResponse } from "../models/index.ts";
+import { DescribeTemplateAliasRequest, DescribeTemplateAliasResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeTemplateAliasCommand,
   serializeAws_restJson1DescribeTemplateAliasCommand,

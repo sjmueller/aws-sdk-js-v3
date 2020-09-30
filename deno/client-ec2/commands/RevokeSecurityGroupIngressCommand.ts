@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { RevokeSecurityGroupIngressRequest } from "../models/index.ts";
+import { RevokeSecurityGroupIngressRequest } from "../models/models_4.ts";
 import {
   deserializeAws_ec2RevokeSecurityGroupIngressCommand,
   serializeAws_ec2RevokeSecurityGroupIngressCommand,

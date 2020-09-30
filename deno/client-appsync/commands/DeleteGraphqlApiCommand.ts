@@ -1,6 +1,6 @@
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient.ts";
-import { DeleteGraphqlApiRequest, DeleteGraphqlApiResponse } from "../models/index.ts";
+import { DeleteGraphqlApiRequest, DeleteGraphqlApiResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteGraphqlApiCommand,
   serializeAws_restJson1DeleteGraphqlApiCommand,

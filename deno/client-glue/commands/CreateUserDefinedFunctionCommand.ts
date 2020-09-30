@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { CreateUserDefinedFunctionRequest, CreateUserDefinedFunctionResponse } from "../models/index.ts";
+import { CreateUserDefinedFunctionRequest, CreateUserDefinedFunctionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateUserDefinedFunctionCommand,
   serializeAws_json1_1CreateUserDefinedFunctionCommand,

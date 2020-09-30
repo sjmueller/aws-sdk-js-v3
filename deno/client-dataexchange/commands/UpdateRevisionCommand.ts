@@ -1,6 +1,6 @@
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient.ts";
-import { UpdateRevisionRequest, UpdateRevisionResponse } from "../models/index.ts";
+import { UpdateRevisionRequest, UpdateRevisionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateRevisionCommand,
   serializeAws_restJson1UpdateRevisionCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { DeleteTapeInput, DeleteTapeOutput } from "../models/index.ts";
+import { DeleteTapeInput, DeleteTapeOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteTapeCommand,
   serializeAws_json1_1DeleteTapeCommand,

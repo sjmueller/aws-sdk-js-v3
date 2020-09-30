@@ -17,7 +17,7 @@ import {
   Transcript,
   TranscriptEvent,
   TranscriptResultStream,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -79,7 +79,6 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   }
   const contents: StartStreamTranscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartStreamTranscriptionResponse",
     LanguageCode: undefined,
     MediaEncoding: undefined,
     MediaSampleRateHertz: undefined,
@@ -321,9 +320,7 @@ const deserializeAws_restJson1TranscriptEvent_event = async (
   output: any,
   context: __SerdeContext
 ): Promise<TranscriptEvent> => {
-  let contents: TranscriptEvent = {
-    __type: "TranscriptEvent",
-  } as any;
+  let contents: TranscriptEvent = {} as any;
   const data: any = await parseBody(output.body, context);
   contents = {
     ...contents,
@@ -431,7 +428,6 @@ const serializeAws_restJson1AudioStream = (input: AudioStream, context: __SerdeC
 
 const deserializeAws_restJson1Alternative = (output: any, context: __SerdeContext): Alternative => {
   return {
-    __type: "Alternative",
     Items:
       output.Items !== undefined && output.Items !== null
         ? deserializeAws_restJson1ItemList(output.Items, context)
@@ -446,7 +442,6 @@ const deserializeAws_restJson1AlternativeList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
-    __type: "Item",
     Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
     EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
     StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
@@ -464,7 +459,6 @@ const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): Result => {
   return {
-    __type: "Result",
     Alternatives:
       output.Alternatives !== undefined && output.Alternatives !== null
         ? deserializeAws_restJson1AlternativeList(output.Alternatives, context)
@@ -482,7 +476,6 @@ const deserializeAws_restJson1ResultList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext): Transcript => {
   return {
-    __type: "Transcript",
     Results:
       output.Results !== undefined && output.Results !== null
         ? deserializeAws_restJson1ResultList(output.Results, context)
@@ -492,7 +485,6 @@ const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1TranscriptEvent = (output: any, context: __SerdeContext): TranscriptEvent => {
   return {
-    __type: "TranscriptEvent",
     Transcript:
       output.Transcript !== undefined && output.Transcript !== null
         ? deserializeAws_restJson1Transcript(output.Transcript, context)

@@ -1,6 +1,6 @@
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
-import { GetAssetPropertyValueHistoryRequest, GetAssetPropertyValueHistoryResponse } from "../models/index.ts";
+import { GetAssetPropertyValueHistoryRequest, GetAssetPropertyValueHistoryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetAssetPropertyValueHistoryCommand,
   serializeAws_restJson1GetAssetPropertyValueHistoryCommand,

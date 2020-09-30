@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { SendInvitationRequest, SendInvitationResponse } from "../models/index.ts";
+import { SendInvitationRequest, SendInvitationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SendInvitationCommand,
   serializeAws_json1_1SendInvitationCommand,

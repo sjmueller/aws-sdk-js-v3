@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { CreateProvisionedProductPlanInput, CreateProvisionedProductPlanOutput } from "../models/index.ts";
+import { CreateProvisionedProductPlanInput, CreateProvisionedProductPlanOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateProvisionedProductPlanCommand,
   serializeAws_json1_1CreateProvisionedProductPlanCommand,

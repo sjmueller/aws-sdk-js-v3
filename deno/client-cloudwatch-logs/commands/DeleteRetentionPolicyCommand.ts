@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { DeleteRetentionPolicyRequest } from "../models/index.ts";
+import { DeleteRetentionPolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteRetentionPolicyCommand,
   serializeAws_json1_1DeleteRetentionPolicyCommand,

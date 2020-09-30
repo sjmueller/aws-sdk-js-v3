@@ -1,6 +1,6 @@
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
-import { GetAuthorizerRequest, GetAuthorizerResponse } from "../models/index.ts";
+import { GetAuthorizerRequest, GetAuthorizerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetAuthorizerCommand,
   serializeAws_restJson1GetAuthorizerCommand,

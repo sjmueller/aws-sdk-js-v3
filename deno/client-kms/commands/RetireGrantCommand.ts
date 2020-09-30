@@ -1,6 +1,6 @@
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
-import { RetireGrantRequest } from "../models/index.ts";
+import { RetireGrantRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RetireGrantCommand,
   serializeAws_json1_1RetireGrantCommand,

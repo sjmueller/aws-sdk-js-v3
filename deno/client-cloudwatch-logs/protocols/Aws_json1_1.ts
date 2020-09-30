@@ -178,7 +178,7 @@ import {
   TestMetricFilterResponse,
   UnrecognizedClientException,
   UntagLogGroupRequest,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -899,7 +899,6 @@ export const deserializeAws_json1_1CreateExportTaskCommand = async (
   contents = deserializeAws_json1_1CreateExportTaskResponse(data, context);
   const response: CreateExportTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateExportTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1459,7 +1458,6 @@ export const deserializeAws_json1_1DeleteQueryDefinitionCommand = async (
   contents = deserializeAws_json1_1DeleteQueryDefinitionResponse(data, context);
   const response: DeleteQueryDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteQueryDefinitionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1751,7 +1749,6 @@ export const deserializeAws_json1_1DescribeDestinationsCommand = async (
   contents = deserializeAws_json1_1DescribeDestinationsResponse(data, context);
   const response: DescribeDestinationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDestinationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1815,7 +1812,6 @@ export const deserializeAws_json1_1DescribeExportTasksCommand = async (
   contents = deserializeAws_json1_1DescribeExportTasksResponse(data, context);
   const response: DescribeExportTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeExportTasksResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1879,7 +1875,6 @@ export const deserializeAws_json1_1DescribeLogGroupsCommand = async (
   contents = deserializeAws_json1_1DescribeLogGroupsResponse(data, context);
   const response: DescribeLogGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLogGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1943,7 +1938,6 @@ export const deserializeAws_json1_1DescribeLogStreamsCommand = async (
   contents = deserializeAws_json1_1DescribeLogStreamsResponse(data, context);
   const response: DescribeLogStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLogStreamsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2015,7 +2009,6 @@ export const deserializeAws_json1_1DescribeMetricFiltersCommand = async (
   contents = deserializeAws_json1_1DescribeMetricFiltersResponse(data, context);
   const response: DescribeMetricFiltersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMetricFiltersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2087,7 +2080,6 @@ export const deserializeAws_json1_1DescribeQueriesCommand = async (
   contents = deserializeAws_json1_1DescribeQueriesResponse(data, context);
   const response: DescribeQueriesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeQueriesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2159,7 +2151,6 @@ export const deserializeAws_json1_1DescribeQueryDefinitionsCommand = async (
   contents = deserializeAws_json1_1DescribeQueryDefinitionsResponse(data, context);
   const response: DescribeQueryDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeQueryDefinitionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2223,7 +2214,6 @@ export const deserializeAws_json1_1DescribeResourcePoliciesCommand = async (
   contents = deserializeAws_json1_1DescribeResourcePoliciesResponse(data, context);
   const response: DescribeResourcePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeResourcePoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2287,7 +2277,6 @@ export const deserializeAws_json1_1DescribeSubscriptionFiltersCommand = async (
   contents = deserializeAws_json1_1DescribeSubscriptionFiltersResponse(data, context);
   const response: DescribeSubscriptionFiltersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSubscriptionFiltersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2435,7 +2424,6 @@ export const deserializeAws_json1_1FilterLogEventsCommand = async (
   contents = deserializeAws_json1_1FilterLogEventsResponse(data, context);
   const response: FilterLogEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FilterLogEventsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2507,7 +2495,6 @@ export const deserializeAws_json1_1GetLogEventsCommand = async (
   contents = deserializeAws_json1_1GetLogEventsResponse(data, context);
   const response: GetLogEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLogEventsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2579,7 +2566,6 @@ export const deserializeAws_json1_1GetLogGroupFieldsCommand = async (
   contents = deserializeAws_json1_1GetLogGroupFieldsResponse(data, context);
   const response: GetLogGroupFieldsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLogGroupFieldsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2659,7 +2645,6 @@ export const deserializeAws_json1_1GetLogRecordCommand = async (
   contents = deserializeAws_json1_1GetLogRecordResponse(data, context);
   const response: GetLogRecordCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLogRecordResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2739,7 +2724,6 @@ export const deserializeAws_json1_1GetQueryResultsCommand = async (
   contents = deserializeAws_json1_1GetQueryResultsResponse(data, context);
   const response: GetQueryResultsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetQueryResultsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2811,7 +2795,6 @@ export const deserializeAws_json1_1ListTagsLogGroupCommand = async (
   contents = deserializeAws_json1_1ListTagsLogGroupResponse(data, context);
   const response: ListTagsLogGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsLogGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2875,7 +2858,6 @@ export const deserializeAws_json1_1PutDestinationCommand = async (
   contents = deserializeAws_json1_1PutDestinationResponse(data, context);
   const response: PutDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutDestinationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3015,7 +2997,6 @@ export const deserializeAws_json1_1PutLogEventsCommand = async (
   contents = deserializeAws_json1_1PutLogEventsResponse(data, context);
   const response: PutLogEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutLogEventsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3195,7 +3176,6 @@ export const deserializeAws_json1_1PutQueryDefinitionCommand = async (
   contents = deserializeAws_json1_1PutQueryDefinitionResponse(data, context);
   const response: PutQueryDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutQueryDefinitionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3267,7 +3247,6 @@ export const deserializeAws_json1_1PutResourcePolicyCommand = async (
   contents = deserializeAws_json1_1PutResourcePolicyResponse(data, context);
   const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutResourcePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3499,7 +3478,6 @@ export const deserializeAws_json1_1StartQueryCommand = async (
   contents = deserializeAws_json1_1StartQueryResponse(data, context);
   const response: StartQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartQueryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3587,7 +3565,6 @@ export const deserializeAws_json1_1StopQueryCommand = async (
   contents = deserializeAws_json1_1StopQueryResponse(data, context);
   const response: StopQueryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopQueryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3719,7 +3696,6 @@ export const deserializeAws_json1_1TestMetricFilterCommand = async (
   contents = deserializeAws_json1_1TestMetricFilterResponse(data, context);
   const response: TestMetricFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TestMetricFilterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4451,7 +4427,6 @@ const deserializeAws_json1_1CreateExportTaskResponse = (
   context: __SerdeContext
 ): CreateExportTaskResponse => {
   return {
-    __type: "CreateExportTaskResponse",
     taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
   } as any;
 };
@@ -4461,7 +4436,6 @@ const deserializeAws_json1_1DataAlreadyAcceptedException = (
   context: __SerdeContext
 ): DataAlreadyAcceptedException => {
   return {
-    __type: "DataAlreadyAcceptedException",
     expectedSequenceToken:
       output.expectedSequenceToken !== undefined && output.expectedSequenceToken !== null
         ? output.expectedSequenceToken
@@ -4475,7 +4449,6 @@ const deserializeAws_json1_1DeleteQueryDefinitionResponse = (
   context: __SerdeContext
 ): DeleteQueryDefinitionResponse => {
   return {
-    __type: "DeleteQueryDefinitionResponse",
     success: output.success !== undefined && output.success !== null ? output.success : undefined,
   } as any;
 };
@@ -4485,7 +4458,6 @@ const deserializeAws_json1_1DescribeDestinationsResponse = (
   context: __SerdeContext
 ): DescribeDestinationsResponse => {
   return {
-    __type: "DescribeDestinationsResponse",
     destinations:
       output.destinations !== undefined && output.destinations !== null
         ? deserializeAws_json1_1Destinations(output.destinations, context)
@@ -4499,7 +4471,6 @@ const deserializeAws_json1_1DescribeExportTasksResponse = (
   context: __SerdeContext
 ): DescribeExportTasksResponse => {
   return {
-    __type: "DescribeExportTasksResponse",
     exportTasks:
       output.exportTasks !== undefined && output.exportTasks !== null
         ? deserializeAws_json1_1ExportTasks(output.exportTasks, context)
@@ -4513,7 +4484,6 @@ const deserializeAws_json1_1DescribeLogGroupsResponse = (
   context: __SerdeContext
 ): DescribeLogGroupsResponse => {
   return {
-    __type: "DescribeLogGroupsResponse",
     logGroups:
       output.logGroups !== undefined && output.logGroups !== null
         ? deserializeAws_json1_1LogGroups(output.logGroups, context)
@@ -4527,7 +4497,6 @@ const deserializeAws_json1_1DescribeLogStreamsResponse = (
   context: __SerdeContext
 ): DescribeLogStreamsResponse => {
   return {
-    __type: "DescribeLogStreamsResponse",
     logStreams:
       output.logStreams !== undefined && output.logStreams !== null
         ? deserializeAws_json1_1LogStreams(output.logStreams, context)
@@ -4541,7 +4510,6 @@ const deserializeAws_json1_1DescribeMetricFiltersResponse = (
   context: __SerdeContext
 ): DescribeMetricFiltersResponse => {
   return {
-    __type: "DescribeMetricFiltersResponse",
     metricFilters:
       output.metricFilters !== undefined && output.metricFilters !== null
         ? deserializeAws_json1_1MetricFilters(output.metricFilters, context)
@@ -4555,7 +4523,6 @@ const deserializeAws_json1_1DescribeQueriesResponse = (
   context: __SerdeContext
 ): DescribeQueriesResponse => {
   return {
-    __type: "DescribeQueriesResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     queries:
       output.queries !== undefined && output.queries !== null
@@ -4569,7 +4536,6 @@ const deserializeAws_json1_1DescribeQueryDefinitionsResponse = (
   context: __SerdeContext
 ): DescribeQueryDefinitionsResponse => {
   return {
-    __type: "DescribeQueryDefinitionsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     queryDefinitions:
       output.queryDefinitions !== undefined && output.queryDefinitions !== null
@@ -4583,7 +4549,6 @@ const deserializeAws_json1_1DescribeResourcePoliciesResponse = (
   context: __SerdeContext
 ): DescribeResourcePoliciesResponse => {
   return {
-    __type: "DescribeResourcePoliciesResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     resourcePolicies:
       output.resourcePolicies !== undefined && output.resourcePolicies !== null
@@ -4597,7 +4562,6 @@ const deserializeAws_json1_1DescribeSubscriptionFiltersResponse = (
   context: __SerdeContext
 ): DescribeSubscriptionFiltersResponse => {
   return {
-    __type: "DescribeSubscriptionFiltersResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     subscriptionFilters:
       output.subscriptionFilters !== undefined && output.subscriptionFilters !== null
@@ -4608,7 +4572,6 @@ const deserializeAws_json1_1DescribeSubscriptionFiltersResponse = (
 
 const deserializeAws_json1_1Destination = (output: any, context: __SerdeContext): Destination => {
   return {
-    __type: "Destination",
     accessPolicy: output.accessPolicy !== undefined && output.accessPolicy !== null ? output.accessPolicy : undefined,
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     creationTime: output.creationTime !== undefined && output.creationTime !== null ? output.creationTime : undefined,
@@ -4625,7 +4588,6 @@ const deserializeAws_json1_1Destinations = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ExportTask = (output: any, context: __SerdeContext): ExportTask => {
   return {
-    __type: "ExportTask",
     destination: output.destination !== undefined && output.destination !== null ? output.destination : undefined,
     destinationPrefix:
       output.destinationPrefix !== undefined && output.destinationPrefix !== null
@@ -4652,7 +4614,6 @@ const deserializeAws_json1_1ExportTaskExecutionInfo = (
   context: __SerdeContext
 ): ExportTaskExecutionInfo => {
   return {
-    __type: "ExportTaskExecutionInfo",
     completionTime:
       output.completionTime !== undefined && output.completionTime !== null ? output.completionTime : undefined,
     creationTime: output.creationTime !== undefined && output.creationTime !== null ? output.creationTime : undefined,
@@ -4665,7 +4626,6 @@ const deserializeAws_json1_1ExportTasks = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ExportTaskStatus = (output: any, context: __SerdeContext): ExportTaskStatus => {
   return {
-    __type: "ExportTaskStatus",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -4683,7 +4643,6 @@ const deserializeAws_json1_1ExtractedValues = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1FilteredLogEvent = (output: any, context: __SerdeContext): FilteredLogEvent => {
   return {
-    __type: "FilteredLogEvent",
     eventId: output.eventId !== undefined && output.eventId !== null ? output.eventId : undefined,
     ingestionTime:
       output.ingestionTime !== undefined && output.ingestionTime !== null ? output.ingestionTime : undefined,
@@ -4703,7 +4662,6 @@ const deserializeAws_json1_1FilterLogEventsResponse = (
   context: __SerdeContext
 ): FilterLogEventsResponse => {
   return {
-    __type: "FilterLogEventsResponse",
     events:
       output.events !== undefined && output.events !== null
         ? deserializeAws_json1_1FilteredLogEvents(output.events, context)
@@ -4718,7 +4676,6 @@ const deserializeAws_json1_1FilterLogEventsResponse = (
 
 const deserializeAws_json1_1GetLogEventsResponse = (output: any, context: __SerdeContext): GetLogEventsResponse => {
   return {
-    __type: "GetLogEventsResponse",
     events:
       output.events !== undefined && output.events !== null
         ? deserializeAws_json1_1OutputLogEvents(output.events, context)
@@ -4737,7 +4694,6 @@ const deserializeAws_json1_1GetLogGroupFieldsResponse = (
   context: __SerdeContext
 ): GetLogGroupFieldsResponse => {
   return {
-    __type: "GetLogGroupFieldsResponse",
     logGroupFields:
       output.logGroupFields !== undefined && output.logGroupFields !== null
         ? deserializeAws_json1_1LogGroupFieldList(output.logGroupFields, context)
@@ -4747,7 +4703,6 @@ const deserializeAws_json1_1GetLogGroupFieldsResponse = (
 
 const deserializeAws_json1_1GetLogRecordResponse = (output: any, context: __SerdeContext): GetLogRecordResponse => {
   return {
-    __type: "GetLogRecordResponse",
     logRecord:
       output.logRecord !== undefined && output.logRecord !== null
         ? deserializeAws_json1_1LogRecord(output.logRecord, context)
@@ -4760,7 +4715,6 @@ const deserializeAws_json1_1GetQueryResultsResponse = (
   context: __SerdeContext
 ): GetQueryResultsResponse => {
   return {
-    __type: "GetQueryResultsResponse",
     results:
       output.results !== undefined && output.results !== null
         ? deserializeAws_json1_1QueryResults(output.results, context)
@@ -4778,7 +4732,6 @@ const deserializeAws_json1_1InvalidOperationException = (
   context: __SerdeContext
 ): InvalidOperationException => {
   return {
-    __type: "InvalidOperationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -4788,7 +4741,6 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -4798,7 +4750,6 @@ const deserializeAws_json1_1InvalidSequenceTokenException = (
   context: __SerdeContext
 ): InvalidSequenceTokenException => {
   return {
-    __type: "InvalidSequenceTokenException",
     expectedSequenceToken:
       output.expectedSequenceToken !== undefined && output.expectedSequenceToken !== null
         ? output.expectedSequenceToken
@@ -4809,7 +4760,6 @@ const deserializeAws_json1_1InvalidSequenceTokenException = (
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -4819,7 +4769,6 @@ const deserializeAws_json1_1ListTagsLogGroupResponse = (
   context: __SerdeContext
 ): ListTagsLogGroupResponse => {
   return {
-    __type: "ListTagsLogGroupResponse",
     tags:
       output.tags !== undefined && output.tags !== null ? deserializeAws_json1_1Tags(output.tags, context) : undefined,
   } as any;
@@ -4827,7 +4776,6 @@ const deserializeAws_json1_1ListTagsLogGroupResponse = (
 
 const deserializeAws_json1_1LogGroup = (output: any, context: __SerdeContext): LogGroup => {
   return {
-    __type: "LogGroup",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     creationTime: output.creationTime !== undefined && output.creationTime !== null ? output.creationTime : undefined,
     kmsKeyId: output.kmsKeyId !== undefined && output.kmsKeyId !== null ? output.kmsKeyId : undefined,
@@ -4844,7 +4792,6 @@ const deserializeAws_json1_1LogGroup = (output: any, context: __SerdeContext): L
 
 const deserializeAws_json1_1LogGroupField = (output: any, context: __SerdeContext): LogGroupField => {
   return {
-    __type: "LogGroupField",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     percent: output.percent !== undefined && output.percent !== null ? output.percent : undefined,
   } as any;
@@ -4874,7 +4821,6 @@ const deserializeAws_json1_1LogRecord = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1LogStream = (output: any, context: __SerdeContext): LogStream => {
   return {
-    __type: "LogStream",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     creationTime: output.creationTime !== undefined && output.creationTime !== null ? output.creationTime : undefined,
     firstEventTimestamp:
@@ -4908,7 +4854,6 @@ const deserializeAws_json1_1MalformedQueryException = (
   context: __SerdeContext
 ): MalformedQueryException => {
   return {
-    __type: "MalformedQueryException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     queryCompileError:
       output.queryCompileError !== undefined && output.queryCompileError !== null
@@ -4919,7 +4864,6 @@ const deserializeAws_json1_1MalformedQueryException = (
 
 const deserializeAws_json1_1MetricFilter = (output: any, context: __SerdeContext): MetricFilter => {
   return {
-    __type: "MetricFilter",
     creationTime: output.creationTime !== undefined && output.creationTime !== null ? output.creationTime : undefined,
     filterName: output.filterName !== undefined && output.filterName !== null ? output.filterName : undefined,
     filterPattern:
@@ -4941,7 +4885,6 @@ const deserializeAws_json1_1MetricFilterMatchRecord = (
   context: __SerdeContext
 ): MetricFilterMatchRecord => {
   return {
-    __type: "MetricFilterMatchRecord",
     eventMessage: output.eventMessage !== undefined && output.eventMessage !== null ? output.eventMessage : undefined,
     eventNumber: output.eventNumber !== undefined && output.eventNumber !== null ? output.eventNumber : undefined,
     extractedValues:
@@ -4957,7 +4900,6 @@ const deserializeAws_json1_1MetricFilters = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1MetricTransformation = (output: any, context: __SerdeContext): MetricTransformation => {
   return {
-    __type: "MetricTransformation",
     defaultValue: output.defaultValue !== undefined && output.defaultValue !== null ? output.defaultValue : undefined,
     metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
     metricNamespace:
@@ -4975,14 +4917,12 @@ const deserializeAws_json1_1OperationAbortedException = (
   context: __SerdeContext
 ): OperationAbortedException => {
   return {
-    __type: "OperationAbortedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1OutputLogEvent = (output: any, context: __SerdeContext): OutputLogEvent => {
   return {
-    __type: "OutputLogEvent",
     ingestionTime:
       output.ingestionTime !== undefined && output.ingestionTime !== null ? output.ingestionTime : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -4996,7 +4936,6 @@ const deserializeAws_json1_1OutputLogEvents = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1PutDestinationResponse = (output: any, context: __SerdeContext): PutDestinationResponse => {
   return {
-    __type: "PutDestinationResponse",
     destination:
       output.destination !== undefined && output.destination !== null
         ? deserializeAws_json1_1Destination(output.destination, context)
@@ -5006,7 +4945,6 @@ const deserializeAws_json1_1PutDestinationResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1PutLogEventsResponse = (output: any, context: __SerdeContext): PutLogEventsResponse => {
   return {
-    __type: "PutLogEventsResponse",
     nextSequenceToken:
       output.nextSequenceToken !== undefined && output.nextSequenceToken !== null
         ? output.nextSequenceToken
@@ -5023,7 +4961,6 @@ const deserializeAws_json1_1PutQueryDefinitionResponse = (
   context: __SerdeContext
 ): PutQueryDefinitionResponse => {
   return {
-    __type: "PutQueryDefinitionResponse",
     queryDefinitionId:
       output.queryDefinitionId !== undefined && output.queryDefinitionId !== null
         ? output.queryDefinitionId
@@ -5036,7 +4973,6 @@ const deserializeAws_json1_1PutResourcePolicyResponse = (
   context: __SerdeContext
 ): PutResourcePolicyResponse => {
   return {
-    __type: "PutResourcePolicyResponse",
     resourcePolicy:
       output.resourcePolicy !== undefined && output.resourcePolicy !== null
         ? deserializeAws_json1_1ResourcePolicy(output.resourcePolicy, context)
@@ -5046,7 +4982,6 @@ const deserializeAws_json1_1PutResourcePolicyResponse = (
 
 const deserializeAws_json1_1QueryCompileError = (output: any, context: __SerdeContext): QueryCompileError => {
   return {
-    __type: "QueryCompileError",
     location:
       output.location !== undefined && output.location !== null
         ? deserializeAws_json1_1QueryCompileErrorLocation(output.location, context)
@@ -5060,7 +4995,6 @@ const deserializeAws_json1_1QueryCompileErrorLocation = (
   context: __SerdeContext
 ): QueryCompileErrorLocation => {
   return {
-    __type: "QueryCompileErrorLocation",
     endCharOffset:
       output.endCharOffset !== undefined && output.endCharOffset !== null ? output.endCharOffset : undefined,
     startCharOffset:
@@ -5070,7 +5004,6 @@ const deserializeAws_json1_1QueryCompileErrorLocation = (
 
 const deserializeAws_json1_1QueryDefinition = (output: any, context: __SerdeContext): QueryDefinition => {
   return {
-    __type: "QueryDefinition",
     lastModified: output.lastModified !== undefined && output.lastModified !== null ? output.lastModified : undefined,
     logGroupNames:
       output.logGroupNames !== undefined && output.logGroupNames !== null
@@ -5091,7 +5024,6 @@ const deserializeAws_json1_1QueryDefinitionList = (output: any, context: __Serde
 
 const deserializeAws_json1_1QueryInfo = (output: any, context: __SerdeContext): QueryInfo => {
   return {
-    __type: "QueryInfo",
     createTime: output.createTime !== undefined && output.createTime !== null ? output.createTime : undefined,
     logGroupName: output.logGroupName !== undefined && output.logGroupName !== null ? output.logGroupName : undefined,
     queryId: output.queryId !== undefined && output.queryId !== null ? output.queryId : undefined,
@@ -5110,7 +5042,6 @@ const deserializeAws_json1_1QueryResults = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1QueryStatistics = (output: any, context: __SerdeContext): QueryStatistics => {
   return {
-    __type: "QueryStatistics",
     bytesScanned: output.bytesScanned !== undefined && output.bytesScanned !== null ? output.bytesScanned : undefined,
     recordsMatched:
       output.recordsMatched !== undefined && output.recordsMatched !== null ? output.recordsMatched : undefined,
@@ -5121,7 +5052,6 @@ const deserializeAws_json1_1QueryStatistics = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1RejectedLogEventsInfo = (output: any, context: __SerdeContext): RejectedLogEventsInfo => {
   return {
-    __type: "RejectedLogEventsInfo",
     expiredLogEventEndIndex:
       output.expiredLogEventEndIndex !== undefined && output.expiredLogEventEndIndex !== null
         ? output.expiredLogEventEndIndex
@@ -5142,7 +5072,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    __type: "ResourceAlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5152,7 +5081,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5163,7 +5091,6 @@ const deserializeAws_json1_1ResourcePolicies = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
   return {
-    __type: "ResourcePolicy",
     lastUpdatedTime:
       output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null ? output.lastUpdatedTime : undefined,
     policyDocument:
@@ -5174,7 +5101,6 @@ const deserializeAws_json1_1ResourcePolicy = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1ResultField = (output: any, context: __SerdeContext): ResultField => {
   return {
-    __type: "ResultField",
     field: output.field !== undefined && output.field !== null ? output.field : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -5186,7 +5112,6 @@ const deserializeAws_json1_1ResultRows = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1SearchedLogStream = (output: any, context: __SerdeContext): SearchedLogStream => {
   return {
-    __type: "SearchedLogStream",
     logStreamName:
       output.logStreamName !== undefined && output.logStreamName !== null ? output.logStreamName : undefined,
     searchedCompletely:
@@ -5205,28 +5130,24 @@ const deserializeAws_json1_1ServiceUnavailableException = (
   context: __SerdeContext
 ): ServiceUnavailableException => {
   return {
-    __type: "ServiceUnavailableException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1StartQueryResponse = (output: any, context: __SerdeContext): StartQueryResponse => {
   return {
-    __type: "StartQueryResponse",
     queryId: output.queryId !== undefined && output.queryId !== null ? output.queryId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1StopQueryResponse = (output: any, context: __SerdeContext): StopQueryResponse => {
   return {
-    __type: "StopQueryResponse",
     success: output.success !== undefined && output.success !== null ? output.success : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SubscriptionFilter = (output: any, context: __SerdeContext): SubscriptionFilter => {
   return {
-    __type: "SubscriptionFilter",
     creationTime: output.creationTime !== undefined && output.creationTime !== null ? output.creationTime : undefined,
     destinationArn:
       output.destinationArn !== undefined && output.destinationArn !== null ? output.destinationArn : undefined,
@@ -5258,7 +5179,6 @@ const deserializeAws_json1_1TestMetricFilterResponse = (
   context: __SerdeContext
 ): TestMetricFilterResponse => {
   return {
-    __type: "TestMetricFilterResponse",
     matches:
       output.matches !== undefined && output.matches !== null
         ? deserializeAws_json1_1MetricFilterMatches(output.matches, context)
@@ -5271,7 +5191,6 @@ const deserializeAws_json1_1UnrecognizedClientException = (
   context: __SerdeContext
 ): UnrecognizedClientException => {
   return {
-    __type: "UnrecognizedClientException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };

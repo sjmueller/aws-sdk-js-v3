@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { GetBucketInventoryConfigurationOutput, GetBucketInventoryConfigurationRequest } from "../models/index.ts";
+import { GetBucketInventoryConfigurationOutput, GetBucketInventoryConfigurationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlGetBucketInventoryConfigurationCommand,
   serializeAws_restXmlGetBucketInventoryConfigurationCommand,

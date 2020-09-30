@@ -1,6 +1,6 @@
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
-import { ListEntityRecognizersRequest, ListEntityRecognizersResponse } from "../models/index.ts";
+import { ListEntityRecognizersRequest, ListEntityRecognizersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListEntityRecognizersCommand,
   serializeAws_json1_1ListEntityRecognizersCommand,

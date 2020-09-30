@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { GetRegistrationCodeRequest, GetRegistrationCodeResponse } from "../models/index.ts";
+import { GetRegistrationCodeRequest, GetRegistrationCodeResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1GetRegistrationCodeCommand,
   serializeAws_restJson1GetRegistrationCodeCommand,

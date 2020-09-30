@@ -1,6 +1,6 @@
 
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
-import { GetDomainSuggestionsRequest, GetDomainSuggestionsResponse } from "../models/index.ts";
+import { GetDomainSuggestionsRequest, GetDomainSuggestionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetDomainSuggestionsCommand,
   serializeAws_json1_1GetDomainSuggestionsCommand,

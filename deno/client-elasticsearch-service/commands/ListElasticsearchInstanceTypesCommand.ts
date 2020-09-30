@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient.ts";
-import { ListElasticsearchInstanceTypesRequest, ListElasticsearchInstanceTypesResponse } from "../models/index.ts";
+import { ListElasticsearchInstanceTypesRequest, ListElasticsearchInstanceTypesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListElasticsearchInstanceTypesCommand,
   serializeAws_restJson1ListElasticsearchInstanceTypesCommand,

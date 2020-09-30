@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { CreateTagsRequest } from "../models/index.ts";
+import { CreateTagsRequest } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1CreateTagsCommand,
   serializeAws_restJson1CreateTagsCommand,

@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { VerifyDomainDkimRequest, VerifyDomainDkimResponse } from "../models/index.ts";
+import { VerifyDomainDkimRequest, VerifyDomainDkimResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryVerifyDomainDkimCommand,
   serializeAws_queryVerifyDomainDkimCommand,

@@ -1,6 +1,6 @@
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient.ts";
-import { DeleteRuleRequest } from "../models/index.ts";
+import { DeleteRuleRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteRuleCommand,
   serializeAws_json1_1DeleteRuleCommand,
@@ -44,8 +44,11 @@ export class DeleteRuleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

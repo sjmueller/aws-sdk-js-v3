@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client.ts";
-import { UpdateWebACLRequest, UpdateWebACLResponse } from "../models/index.ts";
+import { UpdateWebACLRequest, UpdateWebACLResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateWebACLCommand,
   serializeAws_json1_1UpdateWebACLCommand,

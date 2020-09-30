@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { DescribeMaintenanceWindowScheduleRequest, DescribeMaintenanceWindowScheduleResult } from "../models/index.ts";
+import { DescribeMaintenanceWindowScheduleRequest, DescribeMaintenanceWindowScheduleResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeMaintenanceWindowScheduleCommand,
   serializeAws_json1_1DescribeMaintenanceWindowScheduleCommand,

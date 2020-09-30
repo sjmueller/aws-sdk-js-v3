@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { DeleteCertificateMessage, DeleteCertificateResponse } from "../models/index.ts";
+import { DeleteCertificateMessage, DeleteCertificateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteCertificateCommand,
   serializeAws_json1_1DeleteCertificateCommand,

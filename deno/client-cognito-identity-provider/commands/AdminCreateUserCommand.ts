@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { AdminCreateUserRequest, AdminCreateUserResponse } from "../models/index.ts";
+import { AdminCreateUserRequest, AdminCreateUserResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AdminCreateUserCommand,
   serializeAws_json1_1AdminCreateUserCommand,

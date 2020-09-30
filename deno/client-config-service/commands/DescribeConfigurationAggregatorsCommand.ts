@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { DescribeConfigurationAggregatorsRequest, DescribeConfigurationAggregatorsResponse } from "../models/index.ts";
+import { DescribeConfigurationAggregatorsRequest, DescribeConfigurationAggregatorsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeConfigurationAggregatorsCommand,
   serializeAws_json1_1DescribeConfigurationAggregatorsCommand,

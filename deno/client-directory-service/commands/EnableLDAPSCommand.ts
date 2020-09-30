@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { EnableLDAPSRequest, EnableLDAPSResult } from "../models/index.ts";
+import { EnableLDAPSRequest, EnableLDAPSResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1EnableLDAPSCommand,
   serializeAws_json1_1EnableLDAPSCommand,

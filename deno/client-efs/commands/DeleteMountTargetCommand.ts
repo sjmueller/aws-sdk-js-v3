@@ -1,6 +1,6 @@
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient.ts";
-import { DeleteMountTargetRequest } from "../models/index.ts";
+import { DeleteMountTargetRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteMountTargetCommand,
   serializeAws_restJson1DeleteMountTargetCommand,

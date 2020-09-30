@@ -1,6 +1,6 @@
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
-import { ListTypeRegistrationsInput, ListTypeRegistrationsOutput } from "../models/index.ts";
+import { ListTypeRegistrationsInput, ListTypeRegistrationsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryListTypeRegistrationsCommand,
   serializeAws_queryListTypeRegistrationsCommand,

@@ -1,6 +1,6 @@
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient.ts";
-import { ModifyHapgRequest, ModifyHapgResponse } from "../models/index.ts";
+import { ModifyHapgRequest, ModifyHapgResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ModifyHapgCommand,
   serializeAws_json1_1ModifyHapgCommand,

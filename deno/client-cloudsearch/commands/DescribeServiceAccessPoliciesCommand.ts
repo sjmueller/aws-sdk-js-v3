@@ -1,6 +1,6 @@
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
-import { DescribeServiceAccessPoliciesRequest, DescribeServiceAccessPoliciesResponse } from "../models/index.ts";
+import { DescribeServiceAccessPoliciesRequest, DescribeServiceAccessPoliciesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeServiceAccessPoliciesCommand,
   serializeAws_queryDescribeServiceAccessPoliciesCommand,

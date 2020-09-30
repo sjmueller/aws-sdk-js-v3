@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { ListProcessingJobsRequest, ListProcessingJobsResponse } from "../models/index.ts";
+import { ListProcessingJobsRequest, ListProcessingJobsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ListProcessingJobsCommand,
   serializeAws_json1_1ListProcessingJobsCommand,

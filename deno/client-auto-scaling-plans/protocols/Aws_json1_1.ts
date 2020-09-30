@@ -46,7 +46,7 @@ import {
   UpdateScalingPlanRequest,
   UpdateScalingPlanResponse,
   ValidationException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -147,7 +147,6 @@ export const deserializeAws_json1_1CreateScalingPlanCommand = async (
   contents = deserializeAws_json1_1CreateScalingPlanResponse(data, context);
   const response: CreateScalingPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateScalingPlanResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -227,7 +226,6 @@ export const deserializeAws_json1_1DeleteScalingPlanCommand = async (
   contents = deserializeAws_json1_1DeleteScalingPlanResponse(data, context);
   const response: DeleteScalingPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteScalingPlanResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -307,7 +305,6 @@ export const deserializeAws_json1_1DescribeScalingPlanResourcesCommand = async (
   contents = deserializeAws_json1_1DescribeScalingPlanResourcesResponse(data, context);
   const response: DescribeScalingPlanResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeScalingPlanResourcesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -387,7 +384,6 @@ export const deserializeAws_json1_1DescribeScalingPlansCommand = async (
   contents = deserializeAws_json1_1DescribeScalingPlansResponse(data, context);
   const response: DescribeScalingPlansCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeScalingPlansResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -467,7 +463,6 @@ export const deserializeAws_json1_1GetScalingPlanResourceForecastDataCommand = a
   contents = deserializeAws_json1_1GetScalingPlanResourceForecastDataResponse(data, context);
   const response: GetScalingPlanResourceForecastDataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetScalingPlanResourceForecastDataResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -531,7 +526,6 @@ export const deserializeAws_json1_1UpdateScalingPlanCommand = async (
   contents = deserializeAws_json1_1UpdateScalingPlanResponse(data, context);
   const response: UpdateScalingPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateScalingPlanResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -948,7 +942,6 @@ const serializeAws_json1_1UpdateScalingPlanRequest = (
 
 const deserializeAws_json1_1ApplicationSource = (output: any, context: __SerdeContext): ApplicationSource => {
   return {
-    __type: "ApplicationSource",
     CloudFormationStackARN:
       output.CloudFormationStackARN !== undefined && output.CloudFormationStackARN !== null
         ? output.CloudFormationStackARN
@@ -965,7 +958,6 @@ const deserializeAws_json1_1ConcurrentUpdateException = (
   context: __SerdeContext
 ): ConcurrentUpdateException => {
   return {
-    __type: "ConcurrentUpdateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -975,7 +967,6 @@ const deserializeAws_json1_1CreateScalingPlanResponse = (
   context: __SerdeContext
 ): CreateScalingPlanResponse => {
   return {
-    __type: "CreateScalingPlanResponse",
     ScalingPlanVersion:
       output.ScalingPlanVersion !== undefined && output.ScalingPlanVersion !== null
         ? output.ScalingPlanVersion
@@ -988,7 +979,6 @@ const deserializeAws_json1_1CustomizedLoadMetricSpecification = (
   context: __SerdeContext
 ): CustomizedLoadMetricSpecification => {
   return {
-    __type: "CustomizedLoadMetricSpecification",
     Dimensions:
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_json1_1MetricDimensions(output.Dimensions, context)
@@ -1005,7 +995,6 @@ const deserializeAws_json1_1CustomizedScalingMetricSpecification = (
   context: __SerdeContext
 ): CustomizedScalingMetricSpecification => {
   return {
-    __type: "CustomizedScalingMetricSpecification",
     Dimensions:
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_json1_1MetricDimensions(output.Dimensions, context)
@@ -1019,7 +1008,6 @@ const deserializeAws_json1_1CustomizedScalingMetricSpecification = (
 
 const deserializeAws_json1_1Datapoint = (output: any, context: __SerdeContext): Datapoint => {
   return {
-    __type: "Datapoint",
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
@@ -1036,9 +1024,7 @@ const deserializeAws_json1_1DeleteScalingPlanResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteScalingPlanResponse => {
-  return {
-    __type: "DeleteScalingPlanResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeScalingPlanResourcesResponse = (
@@ -1046,7 +1032,6 @@ const deserializeAws_json1_1DescribeScalingPlanResourcesResponse = (
   context: __SerdeContext
 ): DescribeScalingPlanResourcesResponse => {
   return {
-    __type: "DescribeScalingPlanResourcesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ScalingPlanResources:
       output.ScalingPlanResources !== undefined && output.ScalingPlanResources !== null
@@ -1060,7 +1045,6 @@ const deserializeAws_json1_1DescribeScalingPlansResponse = (
   context: __SerdeContext
 ): DescribeScalingPlansResponse => {
   return {
-    __type: "DescribeScalingPlansResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ScalingPlans:
       output.ScalingPlans !== undefined && output.ScalingPlans !== null
@@ -1074,7 +1058,6 @@ const deserializeAws_json1_1GetScalingPlanResourceForecastDataResponse = (
   context: __SerdeContext
 ): GetScalingPlanResourceForecastDataResponse => {
   return {
-    __type: "GetScalingPlanResourceForecastDataResponse",
     Datapoints:
       output.Datapoints !== undefined && output.Datapoints !== null
         ? deserializeAws_json1_1Datapoints(output.Datapoints, context)
@@ -1087,7 +1070,6 @@ const deserializeAws_json1_1InternalServiceException = (
   context: __SerdeContext
 ): InternalServiceException => {
   return {
-    __type: "InternalServiceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1097,21 +1079,18 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   return {
-    __type: "MetricDimension",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -1126,7 +1105,6 @@ const deserializeAws_json1_1ObjectNotFoundException = (
   context: __SerdeContext
 ): ObjectNotFoundException => {
   return {
-    __type: "ObjectNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1136,7 +1114,6 @@ const deserializeAws_json1_1PredefinedLoadMetricSpecification = (
   context: __SerdeContext
 ): PredefinedLoadMetricSpecification => {
   return {
-    __type: "PredefinedLoadMetricSpecification",
     PredefinedLoadMetricType:
       output.PredefinedLoadMetricType !== undefined && output.PredefinedLoadMetricType !== null
         ? output.PredefinedLoadMetricType
@@ -1151,7 +1128,6 @@ const deserializeAws_json1_1PredefinedScalingMetricSpecification = (
   context: __SerdeContext
 ): PredefinedScalingMetricSpecification => {
   return {
-    __type: "PredefinedScalingMetricSpecification",
     PredefinedScalingMetricType:
       output.PredefinedScalingMetricType !== undefined && output.PredefinedScalingMetricType !== null
         ? output.PredefinedScalingMetricType
@@ -1163,7 +1139,6 @@ const deserializeAws_json1_1PredefinedScalingMetricSpecification = (
 
 const deserializeAws_json1_1ScalingInstruction = (output: any, context: __SerdeContext): ScalingInstruction => {
   return {
-    __type: "ScalingInstruction",
     CustomizedLoadMetricSpecification:
       output.CustomizedLoadMetricSpecification !== undefined && output.CustomizedLoadMetricSpecification !== null
         ? deserializeAws_json1_1CustomizedLoadMetricSpecification(output.CustomizedLoadMetricSpecification, context)
@@ -1218,7 +1193,6 @@ const deserializeAws_json1_1ScalingInstructions = (output: any, context: __Serde
 
 const deserializeAws_json1_1ScalingPlan = (output: any, context: __SerdeContext): ScalingPlan => {
   return {
-    __type: "ScalingPlan",
     ApplicationSource:
       output.ApplicationSource !== undefined && output.ApplicationSource !== null
         ? deserializeAws_json1_1ApplicationSource(output.ApplicationSource, context)
@@ -1249,7 +1223,6 @@ const deserializeAws_json1_1ScalingPlan = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ScalingPlanResource = (output: any, context: __SerdeContext): ScalingPlanResource => {
   return {
-    __type: "ScalingPlanResource",
     ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
     ScalableDimension:
       output.ScalableDimension !== undefined && output.ScalableDimension !== null
@@ -1292,7 +1265,6 @@ const deserializeAws_json1_1ScalingPolicies = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy => {
   return {
-    __type: "ScalingPolicy",
     PolicyName: output.PolicyName !== undefined && output.PolicyName !== null ? output.PolicyName : undefined,
     PolicyType: output.PolicyType !== undefined && output.PolicyType !== null ? output.PolicyType : undefined,
     TargetTrackingConfiguration:
@@ -1304,7 +1276,6 @@ const deserializeAws_json1_1ScalingPolicy = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1TagFilter = (output: any, context: __SerdeContext): TagFilter => {
   return {
-    __type: "TagFilter",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Values:
       output.Values !== undefined && output.Values !== null
@@ -1326,7 +1297,6 @@ const deserializeAws_json1_1TargetTrackingConfiguration = (
   context: __SerdeContext
 ): TargetTrackingConfiguration => {
   return {
-    __type: "TargetTrackingConfiguration",
     CustomizedScalingMetricSpecification:
       output.CustomizedScalingMetricSpecification !== undefined && output.CustomizedScalingMetricSpecification !== null
         ? deserializeAws_json1_1CustomizedScalingMetricSpecification(
@@ -1366,14 +1336,11 @@ const deserializeAws_json1_1UpdateScalingPlanResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateScalingPlanResponse => {
-  return {
-    __type: "UpdateScalingPlanResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    __type: "ValidationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };

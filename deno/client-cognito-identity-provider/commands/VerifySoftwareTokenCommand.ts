@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { VerifySoftwareTokenRequest, VerifySoftwareTokenResponse } from "../models/index.ts";
+import { VerifySoftwareTokenRequest, VerifySoftwareTokenResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1VerifySoftwareTokenCommand,
   serializeAws_json1_1VerifySoftwareTokenCommand,

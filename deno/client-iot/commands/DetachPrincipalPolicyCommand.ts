@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DetachPrincipalPolicyRequest } from "../models/index.ts";
+import { DetachPrincipalPolicyRequest } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DetachPrincipalPolicyCommand,
   serializeAws_restJson1DetachPrincipalPolicyCommand,

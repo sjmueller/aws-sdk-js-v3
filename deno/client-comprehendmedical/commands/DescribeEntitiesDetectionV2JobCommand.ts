@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient.ts";
-import { DescribeEntitiesDetectionV2JobRequest, DescribeEntitiesDetectionV2JobResponse } from "../models/index.ts";
+import { DescribeEntitiesDetectionV2JobRequest, DescribeEntitiesDetectionV2JobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeEntitiesDetectionV2JobCommand,
   serializeAws_json1_1DescribeEntitiesDetectionV2JobCommand,

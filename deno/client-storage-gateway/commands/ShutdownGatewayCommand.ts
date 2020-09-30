@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { ShutdownGatewayInput, ShutdownGatewayOutput } from "../models/index.ts";
+import { ShutdownGatewayInput, ShutdownGatewayOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ShutdownGatewayCommand,
   serializeAws_json1_1ShutdownGatewayCommand,

@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { TagMeetingRequest } from "../models/index.ts";
+import { TagMeetingRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1TagMeetingCommand,
   serializeAws_restJson1TagMeetingCommand,

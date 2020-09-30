@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { ListGroupsRequest, ListGroupsResponse } from "../models/index.ts";
+import { ListGroupsRequest, ListGroupsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListGroupsCommand,
   serializeAws_json1_1ListGroupsCommand,

@@ -1,6 +1,6 @@
 
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
-import { CreateCollectionRequest, CreateCollectionResponse } from "../models/index.ts";
+import { CreateCollectionRequest, CreateCollectionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateCollectionCommand,
   serializeAws_json1_1CreateCollectionCommand,

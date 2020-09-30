@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { AdminResetUserPasswordRequest, AdminResetUserPasswordResponse } from "../models/index.ts";
+import { AdminResetUserPasswordRequest, AdminResetUserPasswordResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AdminResetUserPasswordCommand,
   serializeAws_json1_1AdminResetUserPasswordCommand,

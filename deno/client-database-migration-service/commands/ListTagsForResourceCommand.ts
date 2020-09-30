@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { ListTagsForResourceMessage, ListTagsForResourceResponse } from "../models/index.ts";
+import { ListTagsForResourceMessage, ListTagsForResourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListTagsForResourceCommand,
   serializeAws_json1_1ListTagsForResourceCommand,

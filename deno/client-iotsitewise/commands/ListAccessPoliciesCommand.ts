@@ -1,6 +1,6 @@
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
-import { ListAccessPoliciesRequest, ListAccessPoliciesResponse } from "../models/index.ts";
+import { ListAccessPoliciesRequest, ListAccessPoliciesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListAccessPoliciesCommand,
   serializeAws_restJson1ListAccessPoliciesCommand,

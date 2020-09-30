@@ -1,6 +1,6 @@
 
 import { EBSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EBSClient.ts";
-import { StartSnapshotRequest, StartSnapshotResponse } from "../models/index.ts";
+import { StartSnapshotRequest, StartSnapshotResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StartSnapshotCommand,
   serializeAws_restJson1StartSnapshotCommand,

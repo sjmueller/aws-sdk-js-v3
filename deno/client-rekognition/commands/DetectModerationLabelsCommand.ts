@@ -1,6 +1,6 @@
 
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
-import { DetectModerationLabelsRequest, DetectModerationLabelsResponse } from "../models/index.ts";
+import { DetectModerationLabelsRequest, DetectModerationLabelsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DetectModerationLabelsCommand,
   serializeAws_json1_1DetectModerationLabelsCommand,

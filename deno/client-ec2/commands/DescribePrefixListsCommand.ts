@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribePrefixListsRequest, DescribePrefixListsResult } from "../models/index.ts";
+import { DescribePrefixListsRequest, DescribePrefixListsResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2DescribePrefixListsCommand,
   serializeAws_ec2DescribePrefixListsCommand,

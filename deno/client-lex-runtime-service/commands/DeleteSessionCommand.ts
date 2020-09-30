@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient.ts";
-import { DeleteSessionRequest, DeleteSessionResponse } from "../models/index.ts";
+import { DeleteSessionRequest, DeleteSessionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteSessionCommand,
   serializeAws_restJson1DeleteSessionCommand,

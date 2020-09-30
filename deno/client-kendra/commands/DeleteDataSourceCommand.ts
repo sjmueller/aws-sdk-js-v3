@@ -1,6 +1,6 @@
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient.ts";
-import { DeleteDataSourceRequest } from "../models/index.ts";
+import { DeleteDataSourceRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteDataSourceCommand,
   serializeAws_json1_1DeleteDataSourceCommand,

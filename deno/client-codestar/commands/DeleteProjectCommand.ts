@@ -1,6 +1,6 @@
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient.ts";
-import { DeleteProjectRequest, DeleteProjectResult } from "../models/index.ts";
+import { DeleteProjectRequest, DeleteProjectResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteProjectCommand,
   serializeAws_json1_1DeleteProjectCommand,

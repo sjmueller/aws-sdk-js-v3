@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { DisableSsoRequest, DisableSsoResult } from "../models/index.ts";
+import { DisableSsoRequest, DisableSsoResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisableSsoCommand,
   serializeAws_json1_1DisableSsoCommand,

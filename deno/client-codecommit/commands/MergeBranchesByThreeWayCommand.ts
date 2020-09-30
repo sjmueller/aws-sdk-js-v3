@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { MergeBranchesByThreeWayInput, MergeBranchesByThreeWayOutput } from "../models/index.ts";
+import { MergeBranchesByThreeWayInput, MergeBranchesByThreeWayOutput } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1MergeBranchesByThreeWayCommand,
   serializeAws_json1_1MergeBranchesByThreeWayCommand,

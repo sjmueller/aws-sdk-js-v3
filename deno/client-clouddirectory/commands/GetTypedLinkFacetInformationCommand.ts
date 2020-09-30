@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { GetTypedLinkFacetInformationRequest, GetTypedLinkFacetInformationResponse } from "../models/index.ts";
+import { GetTypedLinkFacetInformationRequest, GetTypedLinkFacetInformationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetTypedLinkFacetInformationCommand,
   serializeAws_restJson1GetTypedLinkFacetInformationCommand,

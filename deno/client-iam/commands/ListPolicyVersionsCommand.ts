@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { ListPolicyVersionsRequest, ListPolicyVersionsResponse } from "../models/index.ts";
+import { ListPolicyVersionsRequest, ListPolicyVersionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryListPolicyVersionsCommand,
   serializeAws_queryListPolicyVersionsCommand,

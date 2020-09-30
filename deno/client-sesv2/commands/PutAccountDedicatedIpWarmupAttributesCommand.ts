@@ -3,7 +3,7 @@ import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   PutAccountDedicatedIpWarmupAttributesRequest,
   PutAccountDedicatedIpWarmupAttributesResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand,
   serializeAws_restJson1PutAccountDedicatedIpWarmupAttributesCommand,

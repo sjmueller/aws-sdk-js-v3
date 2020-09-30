@@ -1,6 +1,6 @@
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient.ts";
-import { CreateAgentRequest, CreateAgentResponse } from "../models/index.ts";
+import { CreateAgentRequest, CreateAgentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateAgentCommand,
   serializeAws_json1_1CreateAgentCommand,

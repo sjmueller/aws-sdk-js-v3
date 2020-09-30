@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient.ts";
-import { GetBotChannelAssociationsRequest, GetBotChannelAssociationsResponse } from "../models/index.ts";
+import { GetBotChannelAssociationsRequest, GetBotChannelAssociationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetBotChannelAssociationsCommand,
   serializeAws_restJson1GetBotChannelAssociationsCommand,

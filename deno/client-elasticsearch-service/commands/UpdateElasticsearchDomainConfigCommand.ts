@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient.ts";
-import { UpdateElasticsearchDomainConfigRequest, UpdateElasticsearchDomainConfigResponse } from "../models/index.ts";
+import { UpdateElasticsearchDomainConfigRequest, UpdateElasticsearchDomainConfigResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateElasticsearchDomainConfigCommand,
   serializeAws_restJson1UpdateElasticsearchDomainConfigCommand,

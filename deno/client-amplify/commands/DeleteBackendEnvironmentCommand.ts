@@ -1,6 +1,6 @@
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
-import { DeleteBackendEnvironmentRequest, DeleteBackendEnvironmentResult } from "../models/index.ts";
+import { DeleteBackendEnvironmentRequest, DeleteBackendEnvironmentResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteBackendEnvironmentCommand,
   serializeAws_restJson1DeleteBackendEnvironmentCommand,

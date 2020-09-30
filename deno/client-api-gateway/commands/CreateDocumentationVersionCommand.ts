@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { CreateDocumentationVersionRequest, DocumentationVersion } from "../models/index.ts";
+import { CreateDocumentationVersionRequest, DocumentationVersion } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateDocumentationVersionCommand,
   serializeAws_restJson1CreateDocumentationVersionCommand,

@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ModifyTransitGatewayVpcAttachmentRequest, ModifyTransitGatewayVpcAttachmentResult } from "../models/index.ts";
+import { ModifyTransitGatewayVpcAttachmentRequest, ModifyTransitGatewayVpcAttachmentResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand,
   serializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand,

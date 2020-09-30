@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { CreateLabelsRequest, CreateLabelsResponse } from "../models/index.ts";
+import { CreateLabelsRequest, CreateLabelsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateLabelsCommand,
   serializeAws_restJson1CreateLabelsCommand,

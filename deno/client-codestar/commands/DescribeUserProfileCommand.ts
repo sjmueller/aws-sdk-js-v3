@@ -1,6 +1,6 @@
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient.ts";
-import { DescribeUserProfileRequest, DescribeUserProfileResult } from "../models/index.ts";
+import { DescribeUserProfileRequest, DescribeUserProfileResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeUserProfileCommand,
   serializeAws_json1_1DescribeUserProfileCommand,

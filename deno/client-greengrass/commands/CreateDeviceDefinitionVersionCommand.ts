@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { CreateDeviceDefinitionVersionRequest, CreateDeviceDefinitionVersionResponse } from "../models/index.ts";
+import { CreateDeviceDefinitionVersionRequest, CreateDeviceDefinitionVersionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateDeviceDefinitionVersionCommand,
   serializeAws_restJson1CreateDeviceDefinitionVersionCommand,

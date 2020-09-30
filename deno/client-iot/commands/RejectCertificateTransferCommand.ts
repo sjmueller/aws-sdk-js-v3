@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { RejectCertificateTransferRequest } from "../models/index.ts";
+import { RejectCertificateTransferRequest } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1RejectCertificateTransferCommand,
   serializeAws_restJson1RejectCertificateTransferCommand,

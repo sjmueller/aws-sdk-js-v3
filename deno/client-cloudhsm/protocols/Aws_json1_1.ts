@@ -70,7 +70,7 @@ import {
   RemoveTagsFromResourceRequest,
   RemoveTagsFromResourceResponse,
   Tag,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -353,7 +353,6 @@ export const deserializeAws_json1_1AddTagsToResourceCommand = async (
   contents = deserializeAws_json1_1AddTagsToResourceResponse(data, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddTagsToResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -425,7 +424,6 @@ export const deserializeAws_json1_1CreateHapgCommand = async (
   contents = deserializeAws_json1_1CreateHapgResponse(data, context);
   const response: CreateHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHapgResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -497,7 +495,6 @@ export const deserializeAws_json1_1CreateHsmCommand = async (
   contents = deserializeAws_json1_1CreateHsmResponse(data, context);
   const response: CreateHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHsmResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -569,7 +566,6 @@ export const deserializeAws_json1_1CreateLunaClientCommand = async (
   contents = deserializeAws_json1_1CreateLunaClientResponse(data, context);
   const response: CreateLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLunaClientResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -641,7 +637,6 @@ export const deserializeAws_json1_1DeleteHapgCommand = async (
   contents = deserializeAws_json1_1DeleteHapgResponse(data, context);
   const response: DeleteHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteHapgResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -713,7 +708,6 @@ export const deserializeAws_json1_1DeleteHsmCommand = async (
   contents = deserializeAws_json1_1DeleteHsmResponse(data, context);
   const response: DeleteHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteHsmResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -785,7 +779,6 @@ export const deserializeAws_json1_1DeleteLunaClientCommand = async (
   contents = deserializeAws_json1_1DeleteLunaClientResponse(data, context);
   const response: DeleteLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLunaClientResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -857,7 +850,6 @@ export const deserializeAws_json1_1DescribeHapgCommand = async (
   contents = deserializeAws_json1_1DescribeHapgResponse(data, context);
   const response: DescribeHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeHapgResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -929,7 +921,6 @@ export const deserializeAws_json1_1DescribeHsmCommand = async (
   contents = deserializeAws_json1_1DescribeHsmResponse(data, context);
   const response: DescribeHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeHsmResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1001,7 +992,6 @@ export const deserializeAws_json1_1DescribeLunaClientCommand = async (
   contents = deserializeAws_json1_1DescribeLunaClientResponse(data, context);
   const response: DescribeLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLunaClientResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1073,7 +1063,6 @@ export const deserializeAws_json1_1GetConfigCommand = async (
   contents = deserializeAws_json1_1GetConfigResponse(data, context);
   const response: GetConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConfigResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1145,7 +1134,6 @@ export const deserializeAws_json1_1ListAvailableZonesCommand = async (
   contents = deserializeAws_json1_1ListAvailableZonesResponse(data, context);
   const response: ListAvailableZonesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAvailableZonesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1217,7 +1205,6 @@ export const deserializeAws_json1_1ListHapgsCommand = async (
   contents = deserializeAws_json1_1ListHapgsResponse(data, context);
   const response: ListHapgsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHapgsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1289,7 +1276,6 @@ export const deserializeAws_json1_1ListHsmsCommand = async (
   contents = deserializeAws_json1_1ListHsmsResponse(data, context);
   const response: ListHsmsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHsmsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1361,7 +1347,6 @@ export const deserializeAws_json1_1ListLunaClientsCommand = async (
   contents = deserializeAws_json1_1ListLunaClientsResponse(data, context);
   const response: ListLunaClientsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLunaClientsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1433,7 +1418,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1505,7 +1489,6 @@ export const deserializeAws_json1_1ModifyHapgCommand = async (
   contents = deserializeAws_json1_1ModifyHapgResponse(data, context);
   const response: ModifyHapgCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyHapgResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1577,7 +1560,6 @@ export const deserializeAws_json1_1ModifyHsmCommand = async (
   contents = deserializeAws_json1_1ModifyHsmResponse(data, context);
   const response: ModifyHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyHsmResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1649,7 +1631,6 @@ export const deserializeAws_json1_1ModifyLunaClientCommand = async (
   contents = deserializeAws_json1_1ModifyLunaClientResponse(data, context);
   const response: ModifyLunaClientCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyLunaClientResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1705,7 +1686,6 @@ export const deserializeAws_json1_1RemoveTagsFromResourceCommand = async (
   contents = deserializeAws_json1_1RemoveTagsFromResourceResponse(data, context);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveTagsFromResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1995,7 +1975,6 @@ const deserializeAws_json1_1AddTagsToResourceResponse = (
   context: __SerdeContext
 ): AddTagsToResourceResponse => {
   return {
-    __type: "AddTagsToResourceResponse",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
@@ -2013,7 +1992,6 @@ const deserializeAws_json1_1CloudHsmInternalException = (
   context: __SerdeContext
 ): CloudHsmInternalException => {
   return {
-    __type: "CloudHsmInternalException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     retryable: output.retryable !== undefined && output.retryable !== null ? output.retryable : undefined,
   } as any;
@@ -2024,7 +2002,6 @@ const deserializeAws_json1_1CloudHsmServiceException = (
   context: __SerdeContext
 ): CloudHsmServiceException => {
   return {
-    __type: "CloudHsmServiceException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     retryable: output.retryable !== undefined && output.retryable !== null ? output.retryable : undefined,
   } as any;
@@ -2032,14 +2009,12 @@ const deserializeAws_json1_1CloudHsmServiceException = (
 
 const deserializeAws_json1_1CreateHapgResponse = (output: any, context: __SerdeContext): CreateHapgResponse => {
   return {
-    __type: "CreateHapgResponse",
     HapgArn: output.HapgArn !== undefined && output.HapgArn !== null ? output.HapgArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateHsmResponse = (output: any, context: __SerdeContext): CreateHsmResponse => {
   return {
-    __type: "CreateHsmResponse",
     HsmArn: output.HsmArn !== undefined && output.HsmArn !== null ? output.HsmArn : undefined,
   } as any;
 };
@@ -2049,21 +2024,18 @@ const deserializeAws_json1_1CreateLunaClientResponse = (
   context: __SerdeContext
 ): CreateLunaClientResponse => {
   return {
-    __type: "CreateLunaClientResponse",
     ClientArn: output.ClientArn !== undefined && output.ClientArn !== null ? output.ClientArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteHapgResponse = (output: any, context: __SerdeContext): DeleteHapgResponse => {
   return {
-    __type: "DeleteHapgResponse",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteHsmResponse = (output: any, context: __SerdeContext): DeleteHsmResponse => {
   return {
-    __type: "DeleteHsmResponse",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
@@ -2073,14 +2045,12 @@ const deserializeAws_json1_1DeleteLunaClientResponse = (
   context: __SerdeContext
 ): DeleteLunaClientResponse => {
   return {
-    __type: "DeleteLunaClientResponse",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DescribeHapgResponse = (output: any, context: __SerdeContext): DescribeHapgResponse => {
   return {
-    __type: "DescribeHapgResponse",
     HapgArn: output.HapgArn !== undefined && output.HapgArn !== null ? output.HapgArn : undefined,
     HapgSerial: output.HapgSerial !== undefined && output.HapgSerial !== null ? output.HapgSerial : undefined,
     HsmsLastActionFailed:
@@ -2110,7 +2080,6 @@ const deserializeAws_json1_1DescribeHapgResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1DescribeHsmResponse = (output: any, context: __SerdeContext): DescribeHsmResponse => {
   return {
-    __type: "DescribeHsmResponse",
     AvailabilityZone:
       output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     EniId: output.EniId !== undefined && output.EniId !== null ? output.EniId : undefined,
@@ -2160,7 +2129,6 @@ const deserializeAws_json1_1DescribeLunaClientResponse = (
   context: __SerdeContext
 ): DescribeLunaClientResponse => {
   return {
-    __type: "DescribeLunaClientResponse",
     Certificate: output.Certificate !== undefined && output.Certificate !== null ? output.Certificate : undefined,
     CertificateFingerprint:
       output.CertificateFingerprint !== undefined && output.CertificateFingerprint !== null
@@ -2177,7 +2145,6 @@ const deserializeAws_json1_1DescribeLunaClientResponse = (
 
 const deserializeAws_json1_1GetConfigResponse = (output: any, context: __SerdeContext): GetConfigResponse => {
   return {
-    __type: "GetConfigResponse",
     ConfigCred: output.ConfigCred !== undefined && output.ConfigCred !== null ? output.ConfigCred : undefined,
     ConfigFile: output.ConfigFile !== undefined && output.ConfigFile !== null ? output.ConfigFile : undefined,
     ConfigType: output.ConfigType !== undefined && output.ConfigType !== null ? output.ConfigType : undefined,
@@ -2197,7 +2164,6 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    __type: "InvalidRequestException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     retryable: output.retryable !== undefined && output.retryable !== null ? output.retryable : undefined,
   } as any;
@@ -2208,7 +2174,6 @@ const deserializeAws_json1_1ListAvailableZonesResponse = (
   context: __SerdeContext
 ): ListAvailableZonesResponse => {
   return {
-    __type: "ListAvailableZonesResponse",
     AZList:
       output.AZList !== undefined && output.AZList !== null
         ? deserializeAws_json1_1AZList(output.AZList, context)
@@ -2218,7 +2183,6 @@ const deserializeAws_json1_1ListAvailableZonesResponse = (
 
 const deserializeAws_json1_1ListHapgsResponse = (output: any, context: __SerdeContext): ListHapgsResponse => {
   return {
-    __type: "ListHapgsResponse",
     HapgList:
       output.HapgList !== undefined && output.HapgList !== null
         ? deserializeAws_json1_1HapgList(output.HapgList, context)
@@ -2229,7 +2193,6 @@ const deserializeAws_json1_1ListHapgsResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ListHsmsResponse = (output: any, context: __SerdeContext): ListHsmsResponse => {
   return {
-    __type: "ListHsmsResponse",
     HsmList:
       output.HsmList !== undefined && output.HsmList !== null
         ? deserializeAws_json1_1HsmList(output.HsmList, context)
@@ -2243,7 +2206,6 @@ const deserializeAws_json1_1ListLunaClientsResponse = (
   context: __SerdeContext
 ): ListLunaClientsResponse => {
   return {
-    __type: "ListLunaClientsResponse",
     ClientList:
       output.ClientList !== undefined && output.ClientList !== null
         ? deserializeAws_json1_1ClientList(output.ClientList, context)
@@ -2257,7 +2219,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     TagList:
       output.TagList !== undefined && output.TagList !== null
         ? deserializeAws_json1_1TagList(output.TagList, context)
@@ -2267,14 +2228,12 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1ModifyHapgResponse = (output: any, context: __SerdeContext): ModifyHapgResponse => {
   return {
-    __type: "ModifyHapgResponse",
     HapgArn: output.HapgArn !== undefined && output.HapgArn !== null ? output.HapgArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ModifyHsmResponse = (output: any, context: __SerdeContext): ModifyHsmResponse => {
   return {
-    __type: "ModifyHsmResponse",
     HsmArn: output.HsmArn !== undefined && output.HsmArn !== null ? output.HsmArn : undefined,
   } as any;
 };
@@ -2284,7 +2243,6 @@ const deserializeAws_json1_1ModifyLunaClientResponse = (
   context: __SerdeContext
 ): ModifyLunaClientResponse => {
   return {
-    __type: "ModifyLunaClientResponse",
     ClientArn: output.ClientArn !== undefined && output.ClientArn !== null ? output.ClientArn : undefined,
   } as any;
 };
@@ -2302,14 +2260,12 @@ const deserializeAws_json1_1RemoveTagsFromResourceResponse = (
   context: __SerdeContext
 ): RemoveTagsFromResourceResponse => {
   return {
-    __type: "RemoveTagsFromResourceResponse",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;

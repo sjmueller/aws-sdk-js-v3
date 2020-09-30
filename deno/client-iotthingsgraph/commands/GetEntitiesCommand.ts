@@ -1,6 +1,6 @@
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
-import { GetEntitiesRequest, GetEntitiesResponse } from "../models/index.ts";
+import { GetEntitiesRequest, GetEntitiesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetEntitiesCommand,
   serializeAws_json1_1GetEntitiesCommand,

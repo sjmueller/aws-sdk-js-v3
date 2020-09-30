@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient.ts";
-import { SubscribeRequest, SubscribeResult } from "../models/index.ts";
+import { SubscribeRequest, SubscribeResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SubscribeCommand,
   serializeAws_restJson1SubscribeCommand,

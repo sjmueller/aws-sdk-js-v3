@@ -1,6 +1,6 @@
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
-import { DescribeRestoreJobInput, DescribeRestoreJobOutput } from "../models/index.ts";
+import { DescribeRestoreJobInput, DescribeRestoreJobOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeRestoreJobCommand,
   serializeAws_restJson1DescribeRestoreJobCommand,

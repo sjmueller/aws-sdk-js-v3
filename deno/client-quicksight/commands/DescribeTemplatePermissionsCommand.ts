@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { DescribeTemplatePermissionsRequest, DescribeTemplatePermissionsResponse } from "../models/index.ts";
+import { DescribeTemplatePermissionsRequest, DescribeTemplatePermissionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeTemplatePermissionsCommand,
   serializeAws_restJson1DescribeTemplatePermissionsCommand,

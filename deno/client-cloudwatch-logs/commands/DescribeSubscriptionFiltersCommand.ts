@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { DescribeSubscriptionFiltersRequest, DescribeSubscriptionFiltersResponse } from "../models/index.ts";
+import { DescribeSubscriptionFiltersRequest, DescribeSubscriptionFiltersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeSubscriptionFiltersCommand,
   serializeAws_json1_1DescribeSubscriptionFiltersCommand,

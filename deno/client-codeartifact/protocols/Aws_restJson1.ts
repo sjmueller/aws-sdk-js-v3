@@ -118,7 +118,7 @@ import {
   UpstreamRepository,
   UpstreamRepositoryInfo,
   ValidationException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -1081,7 +1081,6 @@ export const deserializeAws_restJson1AssociateExternalConnectionCommand = async 
   }
   const contents: AssociateExternalConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateExternalConnectionResult",
     repository: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1185,7 +1184,6 @@ export const deserializeAws_restJson1CopyPackageVersionsCommand = async (
   }
   const contents: CopyPackageVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CopyPackageVersionsResult",
     failedVersions: undefined,
     successfulVersions: undefined,
   };
@@ -1296,7 +1294,6 @@ export const deserializeAws_restJson1CreateDomainCommand = async (
   }
   const contents: CreateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDomainResult",
     domain: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1400,7 +1397,6 @@ export const deserializeAws_restJson1CreateRepositoryCommand = async (
   }
   const contents: CreateRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRepositoryResult",
     repository: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1504,7 +1500,6 @@ export const deserializeAws_restJson1DeleteDomainCommand = async (
   }
   const contents: DeleteDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDomainResult",
     domain: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1600,7 +1595,6 @@ export const deserializeAws_restJson1DeleteDomainPermissionsPolicyCommand = asyn
   }
   const contents: DeleteDomainPermissionsPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDomainPermissionsPolicyResult",
     policy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1696,7 +1690,6 @@ export const deserializeAws_restJson1DeletePackageVersionsCommand = async (
   }
   const contents: DeletePackageVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePackageVersionsResult",
     failedVersions: undefined,
     successfulVersions: undefined,
   };
@@ -1799,7 +1792,6 @@ export const deserializeAws_restJson1DeleteRepositoryCommand = async (
   }
   const contents: DeleteRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRepositoryResult",
     repository: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1895,7 +1887,6 @@ export const deserializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand = 
   }
   const contents: DeleteRepositoryPermissionsPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRepositoryPermissionsPolicyResult",
     policy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1991,7 +1982,6 @@ export const deserializeAws_restJson1DescribeDomainCommand = async (
   }
   const contents: DescribeDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDomainResult",
     domain: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2079,7 +2069,6 @@ export const deserializeAws_restJson1DescribePackageVersionCommand = async (
   }
   const contents: DescribePackageVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePackageVersionResult",
     packageVersion: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2175,7 +2164,6 @@ export const deserializeAws_restJson1DescribeRepositoryCommand = async (
   }
   const contents: DescribeRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRepositoryResult",
     repository: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2263,7 +2251,6 @@ export const deserializeAws_restJson1DisassociateExternalConnectionCommand = asy
   }
   const contents: DisassociateExternalConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateExternalConnectionResult",
     repository: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2367,7 +2354,6 @@ export const deserializeAws_restJson1DisposePackageVersionsCommand = async (
   }
   const contents: DisposePackageVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisposePackageVersionsResult",
     failedVersions: undefined,
     successfulVersions: undefined,
   };
@@ -2470,7 +2456,6 @@ export const deserializeAws_restJson1GetAuthorizationTokenCommand = async (
   }
   const contents: GetAuthorizationTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAuthorizationTokenResult",
     authorizationToken: undefined,
     expiration: undefined,
   };
@@ -2562,7 +2547,6 @@ export const deserializeAws_restJson1GetDomainPermissionsPolicyCommand = async (
   }
   const contents: GetDomainPermissionsPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDomainPermissionsPolicyResult",
     policy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2650,7 +2634,6 @@ export const deserializeAws_restJson1GetPackageVersionAssetCommand = async (
   }
   const contents: GetPackageVersionAssetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPackageVersionAssetResult",
     asset: undefined,
     assetName: undefined,
     packageVersion: undefined,
@@ -2748,7 +2731,6 @@ export const deserializeAws_restJson1GetPackageVersionReadmeCommand = async (
   }
   const contents: GetPackageVersionReadmeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPackageVersionReadmeResult",
     format: undefined,
     namespace: undefined,
     package: undefined,
@@ -2856,7 +2838,6 @@ export const deserializeAws_restJson1GetRepositoryEndpointCommand = async (
   }
   const contents: GetRepositoryEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRepositoryEndpointResult",
     repositoryEndpoint: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2944,7 +2925,6 @@ export const deserializeAws_restJson1GetRepositoryPermissionsPolicyCommand = asy
   }
   const contents: GetRepositoryPermissionsPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRepositoryPermissionsPolicyResult",
     policy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3032,7 +3012,6 @@ export const deserializeAws_restJson1ListDomainsCommand = async (
   }
   const contents: ListDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDomainsResult",
     domains: undefined,
     nextToken: undefined,
   };
@@ -3116,7 +3095,6 @@ export const deserializeAws_restJson1ListPackagesCommand = async (
   }
   const contents: ListPackagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPackagesResult",
     nextToken: undefined,
     packages: undefined,
   };
@@ -3208,7 +3186,6 @@ export const deserializeAws_restJson1ListPackageVersionAssetsCommand = async (
   }
   const contents: ListPackageVersionAssetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPackageVersionAssetsResult",
     assets: undefined,
     format: undefined,
     namespace: undefined,
@@ -3320,7 +3297,6 @@ export const deserializeAws_restJson1ListPackageVersionDependenciesCommand = asy
   }
   const contents: ListPackageVersionDependenciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPackageVersionDependenciesResult",
     dependencies: undefined,
     format: undefined,
     namespace: undefined,
@@ -3432,7 +3408,6 @@ export const deserializeAws_restJson1ListPackageVersionsCommand = async (
   }
   const contents: ListPackageVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPackageVersionsResult",
     defaultDisplayVersion: undefined,
     format: undefined,
     namespace: undefined,
@@ -3540,7 +3515,6 @@ export const deserializeAws_restJson1ListRepositoriesCommand = async (
   }
   const contents: ListRepositoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRepositoriesResult",
     nextToken: undefined,
     repositories: undefined,
   };
@@ -3624,7 +3598,6 @@ export const deserializeAws_restJson1ListRepositoriesInDomainCommand = async (
   }
   const contents: ListRepositoriesInDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRepositoriesInDomainResult",
     nextToken: undefined,
     repositories: undefined,
   };
@@ -3716,7 +3689,6 @@ export const deserializeAws_restJson1PutDomainPermissionsPolicyCommand = async (
   }
   const contents: PutDomainPermissionsPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutDomainPermissionsPolicyResult",
     policy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3820,7 +3792,6 @@ export const deserializeAws_restJson1PutRepositoryPermissionsPolicyCommand = asy
   }
   const contents: PutRepositoryPermissionsPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutRepositoryPermissionsPolicyResult",
     policy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3924,7 +3895,6 @@ export const deserializeAws_restJson1UpdatePackageVersionsStatusCommand = async 
   }
   const contents: UpdatePackageVersionsStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdatePackageVersionsStatusResult",
     failedVersions: undefined,
     successfulVersions: undefined,
   };
@@ -4027,7 +3997,6 @@ export const deserializeAws_restJson1UpdateRepositoryCommand = async (
   }
   const contents: UpdateRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRepositoryResult",
     repository: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4312,7 +4281,6 @@ const deserializeAws_restJson1AssetHashes = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1AssetSummary = (output: any, context: __SerdeContext): AssetSummary => {
   return {
-    __type: "AssetSummary",
     hashes:
       output.hashes !== undefined && output.hashes !== null
         ? deserializeAws_restJson1AssetHashes(output.hashes, context)
@@ -4328,7 +4296,6 @@ const deserializeAws_restJson1AssetSummaryList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1DomainDescription = (output: any, context: __SerdeContext): DomainDescription => {
   return {
-    __type: "DomainDescription",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     assetSizeBytes:
       output.assetSizeBytes !== undefined && output.assetSizeBytes !== null ? output.assetSizeBytes : undefined,
@@ -4348,7 +4315,6 @@ const deserializeAws_restJson1DomainDescription = (output: any, context: __Serde
 
 const deserializeAws_restJson1DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
   return {
-    __type: "DomainSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdTime:
       output.createdTime !== undefined && output.createdTime !== null
@@ -4368,7 +4334,6 @@ const deserializeAws_restJson1DomainSummaryList = (output: any, context: __Serde
 
 const deserializeAws_restJson1LicenseInfo = (output: any, context: __SerdeContext): LicenseInfo => {
   return {
-    __type: "LicenseInfo",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     url: output.url !== undefined && output.url !== null ? output.url : undefined,
   } as any;
@@ -4380,7 +4345,6 @@ const deserializeAws_restJson1LicenseInfoList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1PackageDependency = (output: any, context: __SerdeContext): PackageDependency => {
   return {
-    __type: "PackageDependency",
     dependencyType:
       output.dependencyType !== undefined && output.dependencyType !== null ? output.dependencyType : undefined,
     namespace: output.namespace !== undefined && output.namespace !== null ? output.namespace : undefined,
@@ -4398,7 +4362,6 @@ const deserializeAws_restJson1PackageDependencyList = (output: any, context: __S
 
 const deserializeAws_restJson1PackageSummary = (output: any, context: __SerdeContext): PackageSummary => {
   return {
-    __type: "PackageSummary",
     format: output.format !== undefined && output.format !== null ? output.format : undefined,
     namespace: output.namespace !== undefined && output.namespace !== null ? output.namespace : undefined,
     package: output.package !== undefined && output.package !== null ? output.package : undefined,
@@ -4414,7 +4377,6 @@ const deserializeAws_restJson1PackageVersionDescription = (
   context: __SerdeContext
 ): PackageVersionDescription => {
   return {
-    __type: "PackageVersionDescription",
     displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
     format: output.format !== undefined && output.format !== null ? output.format : undefined,
     homePage: output.homePage !== undefined && output.homePage !== null ? output.homePage : undefined,
@@ -4441,7 +4403,6 @@ const deserializeAws_restJson1PackageVersionDescription = (
 
 const deserializeAws_restJson1PackageVersionError = (output: any, context: __SerdeContext): PackageVersionError => {
   return {
-    __type: "PackageVersionError",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
   } as any;
@@ -4462,7 +4423,6 @@ const deserializeAws_restJson1PackageVersionErrorMap = (
 
 const deserializeAws_restJson1PackageVersionSummary = (output: any, context: __SerdeContext): PackageVersionSummary => {
   return {
-    __type: "PackageVersionSummary",
     revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
@@ -4478,7 +4438,6 @@ const deserializeAws_restJson1PackageVersionSummaryList = (
 
 const deserializeAws_restJson1RepositoryDescription = (output: any, context: __SerdeContext): RepositoryDescription => {
   return {
-    __type: "RepositoryDescription",
     administratorAccount:
       output.administratorAccount !== undefined && output.administratorAccount !== null
         ? output.administratorAccount
@@ -4504,7 +4463,6 @@ const deserializeAws_restJson1RepositoryExternalConnectionInfo = (
   context: __SerdeContext
 ): RepositoryExternalConnectionInfo => {
   return {
-    __type: "RepositoryExternalConnectionInfo",
     externalConnectionName:
       output.externalConnectionName !== undefined && output.externalConnectionName !== null
         ? output.externalConnectionName
@@ -4524,7 +4482,6 @@ const deserializeAws_restJson1RepositoryExternalConnectionInfoList = (
 
 const deserializeAws_restJson1RepositorySummary = (output: any, context: __SerdeContext): RepositorySummary => {
   return {
-    __type: "RepositorySummary",
     administratorAccount:
       output.administratorAccount !== undefined && output.administratorAccount !== null
         ? output.administratorAccount
@@ -4543,7 +4500,6 @@ const deserializeAws_restJson1RepositorySummaryList = (output: any, context: __S
 
 const deserializeAws_restJson1ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
   return {
-    __type: "ResourcePolicy",
     document: output.document !== undefined && output.document !== null ? output.document : undefined,
     resourceArn: output.resourceArn !== undefined && output.resourceArn !== null ? output.resourceArn : undefined,
     revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
@@ -4555,7 +4511,6 @@ const deserializeAws_restJson1SuccessfulPackageVersionInfo = (
   context: __SerdeContext
 ): SuccessfulPackageVersionInfo => {
   return {
-    __type: "SuccessfulPackageVersionInfo",
     revision: output.revision !== undefined && output.revision !== null ? output.revision : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
   } as any;
@@ -4579,7 +4534,6 @@ const deserializeAws_restJson1UpstreamRepositoryInfo = (
   context: __SerdeContext
 ): UpstreamRepositoryInfo => {
   return {
-    __type: "UpstreamRepositoryInfo",
     repositoryName:
       output.repositoryName !== undefined && output.repositoryName !== null ? output.repositoryName : undefined,
   } as any;

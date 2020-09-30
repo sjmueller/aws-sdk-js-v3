@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { CopyWorkspaceImageRequest, CopyWorkspaceImageResult } from "../models/index.ts";
+import { CopyWorkspaceImageRequest, CopyWorkspaceImageResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CopyWorkspaceImageCommand,
   serializeAws_json1_1CopyWorkspaceImageCommand,

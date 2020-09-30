@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { ListPortfoliosInput, ListPortfoliosOutput } from "../models/index.ts";
+import { ListPortfoliosInput, ListPortfoliosOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListPortfoliosCommand,
   serializeAws_json1_1ListPortfoliosCommand,

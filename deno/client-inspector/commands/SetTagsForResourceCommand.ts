@@ -1,6 +1,6 @@
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
-import { SetTagsForResourceRequest } from "../models/index.ts";
+import { SetTagsForResourceRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SetTagsForResourceCommand,
   serializeAws_json1_1SetTagsForResourceCommand,

@@ -1,6 +1,6 @@
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
-import { CreateStackSetInput, CreateStackSetOutput } from "../models/index.ts";
+import { CreateStackSetInput, CreateStackSetOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateStackSetCommand,
   serializeAws_queryCreateStackSetCommand,

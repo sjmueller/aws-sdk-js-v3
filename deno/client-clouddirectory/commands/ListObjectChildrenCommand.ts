@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { ListObjectChildrenRequest, ListObjectChildrenResponse } from "../models/index.ts";
+import { ListObjectChildrenRequest, ListObjectChildrenResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListObjectChildrenCommand,
   serializeAws_restJson1ListObjectChildrenCommand,

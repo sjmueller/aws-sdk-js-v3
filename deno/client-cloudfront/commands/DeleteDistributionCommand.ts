@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { DeleteDistributionRequest } from "../models/index.ts";
+import { DeleteDistributionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlDeleteDistributionCommand,
   serializeAws_restXmlDeleteDistributionCommand,

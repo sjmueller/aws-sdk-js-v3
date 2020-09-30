@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeSnapshotAttributeRequest, DescribeSnapshotAttributeResult } from "../models/index.ts";
+import { DescribeSnapshotAttributeRequest, DescribeSnapshotAttributeResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2DescribeSnapshotAttributeCommand,
   serializeAws_ec2DescribeSnapshotAttributeCommand,

@@ -1,6 +1,6 @@
 
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient.ts";
-import { DeleteServerRequest, DeleteServerResponse } from "../models/index.ts";
+import { DeleteServerRequest, DeleteServerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteServerCommand,
   serializeAws_json1_1DeleteServerCommand,

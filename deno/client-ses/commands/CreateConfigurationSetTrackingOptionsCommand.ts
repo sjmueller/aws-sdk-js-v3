@@ -3,7 +3,7 @@ import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   CreateConfigurationSetTrackingOptionsRequest,
   CreateConfigurationSetTrackingOptionsResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateConfigurationSetTrackingOptionsCommand,
   serializeAws_queryCreateConfigurationSetTrackingOptionsCommand,

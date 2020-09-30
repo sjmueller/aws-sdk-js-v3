@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { DeleteModelRequest } from "../models/index.ts";
+import { DeleteModelRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteModelCommand,
   serializeAws_restJson1DeleteModelCommand,

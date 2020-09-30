@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { DisableSnapshotCopyMessage, DisableSnapshotCopyResult } from "../models/index.ts";
+import { DisableSnapshotCopyMessage, DisableSnapshotCopyResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDisableSnapshotCopyCommand,
   serializeAws_queryDisableSnapshotCopyCommand,

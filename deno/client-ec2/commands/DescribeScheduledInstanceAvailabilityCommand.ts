@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeScheduledInstanceAvailabilityRequest,
   DescribeScheduledInstanceAvailabilityResult,
-} from "../models/index.ts";
+} from "../models/models_3.ts";
 import {
   deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommand,
   serializeAws_ec2DescribeScheduledInstanceAvailabilityCommand,

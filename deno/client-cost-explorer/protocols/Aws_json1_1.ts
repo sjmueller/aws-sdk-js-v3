@@ -168,7 +168,7 @@ import {
   UpdateCostCategoryDefinitionRequest,
   UpdateCostCategoryDefinitionResponse,
   UtilizationByTime,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -438,7 +438,6 @@ export const deserializeAws_json1_1CreateCostCategoryDefinitionCommand = async (
   contents = deserializeAws_json1_1CreateCostCategoryDefinitionResponse(data, context);
   const response: CreateCostCategoryDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCostCategoryDefinitionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -502,7 +501,6 @@ export const deserializeAws_json1_1DeleteCostCategoryDefinitionCommand = async (
   contents = deserializeAws_json1_1DeleteCostCategoryDefinitionResponse(data, context);
   const response: DeleteCostCategoryDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCostCategoryDefinitionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -566,7 +564,6 @@ export const deserializeAws_json1_1DescribeCostCategoryDefinitionCommand = async
   contents = deserializeAws_json1_1DescribeCostCategoryDefinitionResponse(data, context);
   const response: DescribeCostCategoryDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCostCategoryDefinitionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -630,7 +627,6 @@ export const deserializeAws_json1_1GetCostAndUsageCommand = async (
   contents = deserializeAws_json1_1GetCostAndUsageResponse(data, context);
   const response: GetCostAndUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCostAndUsageResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -718,7 +714,6 @@ export const deserializeAws_json1_1GetCostAndUsageWithResourcesCommand = async (
   contents = deserializeAws_json1_1GetCostAndUsageWithResourcesResponse(data, context);
   const response: GetCostAndUsageWithResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCostAndUsageWithResourcesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -806,7 +801,6 @@ export const deserializeAws_json1_1GetCostForecastCommand = async (
   contents = deserializeAws_json1_1GetCostForecastResponse(data, context);
   const response: GetCostForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCostForecastResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -870,7 +864,6 @@ export const deserializeAws_json1_1GetDimensionValuesCommand = async (
   contents = deserializeAws_json1_1GetDimensionValuesResponse(data, context);
   const response: GetDimensionValuesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDimensionValuesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -958,7 +951,6 @@ export const deserializeAws_json1_1GetReservationCoverageCommand = async (
   contents = deserializeAws_json1_1GetReservationCoverageResponse(data, context);
   const response: GetReservationCoverageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetReservationCoverageResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1030,7 +1022,6 @@ export const deserializeAws_json1_1GetReservationPurchaseRecommendationCommand =
   contents = deserializeAws_json1_1GetReservationPurchaseRecommendationResponse(data, context);
   const response: GetReservationPurchaseRecommendationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetReservationPurchaseRecommendationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1102,7 +1093,6 @@ export const deserializeAws_json1_1GetReservationUtilizationCommand = async (
   contents = deserializeAws_json1_1GetReservationUtilizationResponse(data, context);
   const response: GetReservationUtilizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetReservationUtilizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1174,7 +1164,6 @@ export const deserializeAws_json1_1GetRightsizingRecommendationCommand = async (
   contents = deserializeAws_json1_1GetRightsizingRecommendationResponse(data, context);
   const response: GetRightsizingRecommendationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRightsizingRecommendationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1238,7 +1227,6 @@ export const deserializeAws_json1_1GetSavingsPlansCoverageCommand = async (
   contents = deserializeAws_json1_1GetSavingsPlansCoverageResponse(data, context);
   const response: GetSavingsPlansCoverageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSavingsPlansCoverageResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1310,7 +1298,6 @@ export const deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand 
   contents = deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationResponse(data, context);
   const response: GetSavingsPlansPurchaseRecommendationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSavingsPlansPurchaseRecommendationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1374,7 +1361,6 @@ export const deserializeAws_json1_1GetSavingsPlansUtilizationCommand = async (
   contents = deserializeAws_json1_1GetSavingsPlansUtilizationResponse(data, context);
   const response: GetSavingsPlansUtilizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSavingsPlansUtilizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1438,7 +1424,6 @@ export const deserializeAws_json1_1GetSavingsPlansUtilizationDetailsCommand = as
   contents = deserializeAws_json1_1GetSavingsPlansUtilizationDetailsResponse(data, context);
   const response: GetSavingsPlansUtilizationDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSavingsPlansUtilizationDetailsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1510,7 +1495,6 @@ export const deserializeAws_json1_1GetTagsCommand = async (
   contents = deserializeAws_json1_1GetTagsResponse(data, context);
   const response: GetTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTagsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1598,7 +1582,6 @@ export const deserializeAws_json1_1GetUsageForecastCommand = async (
   contents = deserializeAws_json1_1GetUsageForecastResponse(data, context);
   const response: GetUsageForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUsageForecastResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1670,7 +1653,6 @@ export const deserializeAws_json1_1ListCostCategoryDefinitionsCommand = async (
   contents = deserializeAws_json1_1ListCostCategoryDefinitionsResponse(data, context);
   const response: ListCostCategoryDefinitionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCostCategoryDefinitionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1726,7 +1708,6 @@ export const deserializeAws_json1_1UpdateCostCategoryDefinitionCommand = async (
   contents = deserializeAws_json1_1UpdateCostCategoryDefinitionResponse(data, context);
   const response: UpdateCostCategoryDefinitionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateCostCategoryDefinitionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2266,14 +2247,12 @@ const deserializeAws_json1_1BillExpirationException = (
   context: __SerdeContext
 ): BillExpirationException => {
   return {
-    __type: "BillExpirationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CostCategory = (output: any, context: __SerdeContext): CostCategory => {
   return {
-    __type: "CostCategory",
     CostCategoryArn:
       output.CostCategoryArn !== undefined && output.CostCategoryArn !== null ? output.CostCategoryArn : undefined,
     EffectiveEnd: output.EffectiveEnd !== undefined && output.EffectiveEnd !== null ? output.EffectiveEnd : undefined,
@@ -2290,7 +2269,6 @@ const deserializeAws_json1_1CostCategory = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1CostCategoryReference = (output: any, context: __SerdeContext): CostCategoryReference => {
   return {
-    __type: "CostCategoryReference",
     CostCategoryArn:
       output.CostCategoryArn !== undefined && output.CostCategoryArn !== null ? output.CostCategoryArn : undefined,
     EffectiveEnd: output.EffectiveEnd !== undefined && output.EffectiveEnd !== null ? output.EffectiveEnd : undefined,
@@ -2311,7 +2289,6 @@ const deserializeAws_json1_1CostCategoryReferencesList = (
 
 const deserializeAws_json1_1CostCategoryRule = (output: any, context: __SerdeContext): CostCategoryRule => {
   return {
-    __type: "CostCategoryRule",
     Rule:
       output.Rule !== undefined && output.Rule !== null
         ? deserializeAws_json1_1Expression(output.Rule, context)
@@ -2326,7 +2303,6 @@ const deserializeAws_json1_1CostCategoryRulesList = (output: any, context: __Ser
 
 const deserializeAws_json1_1CostCategoryValues = (output: any, context: __SerdeContext): CostCategoryValues => {
   return {
-    __type: "CostCategoryValues",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Values:
       output.Values !== undefined && output.Values !== null
@@ -2337,7 +2313,6 @@ const deserializeAws_json1_1CostCategoryValues = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1Coverage = (output: any, context: __SerdeContext): Coverage => {
   return {
-    __type: "Coverage",
     CoverageCost:
       output.CoverageCost !== undefined && output.CoverageCost !== null
         ? deserializeAws_json1_1CoverageCost(output.CoverageCost, context)
@@ -2355,7 +2330,6 @@ const deserializeAws_json1_1Coverage = (output: any, context: __SerdeContext): C
 
 const deserializeAws_json1_1CoverageByTime = (output: any, context: __SerdeContext): CoverageByTime => {
   return {
-    __type: "CoverageByTime",
     Groups:
       output.Groups !== undefined && output.Groups !== null
         ? deserializeAws_json1_1ReservationCoverageGroups(output.Groups, context)
@@ -2373,14 +2347,12 @@ const deserializeAws_json1_1CoverageByTime = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1CoverageCost = (output: any, context: __SerdeContext): CoverageCost => {
   return {
-    __type: "CoverageCost",
     OnDemandCost: output.OnDemandCost !== undefined && output.OnDemandCost !== null ? output.OnDemandCost : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CoverageHours = (output: any, context: __SerdeContext): CoverageHours => {
   return {
-    __type: "CoverageHours",
     CoverageHoursPercentage:
       output.CoverageHoursPercentage !== undefined && output.CoverageHoursPercentage !== null
         ? output.CoverageHoursPercentage
@@ -2401,7 +2373,6 @@ const deserializeAws_json1_1CoverageNormalizedUnits = (
   context: __SerdeContext
 ): CoverageNormalizedUnits => {
   return {
-    __type: "CoverageNormalizedUnits",
     CoverageNormalizedUnitsPercentage:
       output.CoverageNormalizedUnitsPercentage !== undefined && output.CoverageNormalizedUnitsPercentage !== null
         ? output.CoverageNormalizedUnitsPercentage
@@ -2430,7 +2401,6 @@ const deserializeAws_json1_1CreateCostCategoryDefinitionResponse = (
   context: __SerdeContext
 ): CreateCostCategoryDefinitionResponse => {
   return {
-    __type: "CreateCostCategoryDefinitionResponse",
     CostCategoryArn:
       output.CostCategoryArn !== undefined && output.CostCategoryArn !== null ? output.CostCategoryArn : undefined,
     EffectiveStart:
@@ -2440,7 +2410,6 @@ const deserializeAws_json1_1CreateCostCategoryDefinitionResponse = (
 
 const deserializeAws_json1_1CurrentInstance = (output: any, context: __SerdeContext): CurrentInstance => {
   return {
-    __type: "CurrentInstance",
     CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
     InstanceName: output.InstanceName !== undefined && output.InstanceName !== null ? output.InstanceName : undefined,
     MonthlyCost: output.MonthlyCost !== undefined && output.MonthlyCost !== null ? output.MonthlyCost : undefined,
@@ -2483,14 +2452,12 @@ const deserializeAws_json1_1DataUnavailableException = (
   context: __SerdeContext
 ): DataUnavailableException => {
   return {
-    __type: "DataUnavailableException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DateInterval = (output: any, context: __SerdeContext): DateInterval => {
   return {
-    __type: "DateInterval",
     End: output.End !== undefined && output.End !== null ? output.End : undefined,
     Start: output.Start !== undefined && output.Start !== null ? output.Start : undefined,
   } as any;
@@ -2501,7 +2468,6 @@ const deserializeAws_json1_1DeleteCostCategoryDefinitionResponse = (
   context: __SerdeContext
 ): DeleteCostCategoryDefinitionResponse => {
   return {
-    __type: "DeleteCostCategoryDefinitionResponse",
     CostCategoryArn:
       output.CostCategoryArn !== undefined && output.CostCategoryArn !== null ? output.CostCategoryArn : undefined,
     EffectiveEnd: output.EffectiveEnd !== undefined && output.EffectiveEnd !== null ? output.EffectiveEnd : undefined,
@@ -2513,7 +2479,6 @@ const deserializeAws_json1_1DescribeCostCategoryDefinitionResponse = (
   context: __SerdeContext
 ): DescribeCostCategoryDefinitionResponse => {
   return {
-    __type: "DescribeCostCategoryDefinitionResponse",
     CostCategory:
       output.CostCategory !== undefined && output.CostCategory !== null
         ? deserializeAws_json1_1CostCategory(output.CostCategory, context)
@@ -2523,7 +2488,6 @@ const deserializeAws_json1_1DescribeCostCategoryDefinitionResponse = (
 
 const deserializeAws_json1_1DimensionValues = (output: any, context: __SerdeContext): DimensionValues => {
   return {
-    __type: "DimensionValues",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     MatchOptions:
       output.MatchOptions !== undefined && output.MatchOptions !== null
@@ -2541,7 +2505,6 @@ const deserializeAws_json1_1DimensionValuesWithAttributes = (
   context: __SerdeContext
 ): DimensionValuesWithAttributes => {
   return {
-    __type: "DimensionValuesWithAttributes",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1Attributes(output.Attributes, context)
@@ -2559,7 +2522,6 @@ const deserializeAws_json1_1DimensionValuesWithAttributesList = (
 
 const deserializeAws_json1_1EC2InstanceDetails = (output: any, context: __SerdeContext): EC2InstanceDetails => {
   return {
-    __type: "EC2InstanceDetails",
     AvailabilityZone:
       output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     CurrentGeneration:
@@ -2578,7 +2540,6 @@ const deserializeAws_json1_1EC2InstanceDetails = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1EC2ResourceDetails = (output: any, context: __SerdeContext): EC2ResourceDetails => {
   return {
-    __type: "EC2ResourceDetails",
     HourlyOnDemandRate:
       output.HourlyOnDemandRate !== undefined && output.HourlyOnDemandRate !== null
         ? output.HourlyOnDemandRate
@@ -2599,7 +2560,6 @@ const deserializeAws_json1_1EC2ResourceDetails = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1EC2ResourceUtilization = (output: any, context: __SerdeContext): EC2ResourceUtilization => {
   return {
-    __type: "EC2ResourceUtilization",
     MaxCpuUtilizationPercentage:
       output.MaxCpuUtilizationPercentage !== undefined && output.MaxCpuUtilizationPercentage !== null
         ? output.MaxCpuUtilizationPercentage
@@ -2617,7 +2577,6 @@ const deserializeAws_json1_1EC2ResourceUtilization = (output: any, context: __Se
 
 const deserializeAws_json1_1EC2Specification = (output: any, context: __SerdeContext): EC2Specification => {
   return {
-    __type: "EC2Specification",
     OfferingClass:
       output.OfferingClass !== undefined && output.OfferingClass !== null ? output.OfferingClass : undefined,
   } as any;
@@ -2628,7 +2587,6 @@ const deserializeAws_json1_1ElastiCacheInstanceDetails = (
   context: __SerdeContext
 ): ElastiCacheInstanceDetails => {
   return {
-    __type: "ElastiCacheInstanceDetails",
     CurrentGeneration:
       output.CurrentGeneration !== undefined && output.CurrentGeneration !== null
         ? output.CurrentGeneration
@@ -2647,7 +2605,6 @@ const deserializeAws_json1_1ElastiCacheInstanceDetails = (
 
 const deserializeAws_json1_1ESInstanceDetails = (output: any, context: __SerdeContext): ESInstanceDetails => {
   return {
-    __type: "ESInstanceDetails",
     CurrentGeneration:
       output.CurrentGeneration !== undefined && output.CurrentGeneration !== null
         ? output.CurrentGeneration
@@ -2663,7 +2620,6 @@ const deserializeAws_json1_1ESInstanceDetails = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1Expression = (output: any, context: __SerdeContext): Expression => {
   return {
-    __type: "Expression",
     And:
       output.And !== undefined && output.And !== null
         ? deserializeAws_json1_1Expressions(output.And, context)
@@ -2695,7 +2651,6 @@ const deserializeAws_json1_1Expressions = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ForecastResult = (output: any, context: __SerdeContext): ForecastResult => {
   return {
-    __type: "ForecastResult",
     MeanValue: output.MeanValue !== undefined && output.MeanValue !== null ? output.MeanValue : undefined,
     PredictionIntervalLowerBound:
       output.PredictionIntervalLowerBound !== undefined && output.PredictionIntervalLowerBound !== null
@@ -2721,7 +2676,6 @@ const deserializeAws_json1_1GetCostAndUsageResponse = (
   context: __SerdeContext
 ): GetCostAndUsageResponse => {
   return {
-    __type: "GetCostAndUsageResponse",
     GroupDefinitions:
       output.GroupDefinitions !== undefined && output.GroupDefinitions !== null
         ? deserializeAws_json1_1GroupDefinitions(output.GroupDefinitions, context)
@@ -2740,7 +2694,6 @@ const deserializeAws_json1_1GetCostAndUsageWithResourcesResponse = (
   context: __SerdeContext
 ): GetCostAndUsageWithResourcesResponse => {
   return {
-    __type: "GetCostAndUsageWithResourcesResponse",
     GroupDefinitions:
       output.GroupDefinitions !== undefined && output.GroupDefinitions !== null
         ? deserializeAws_json1_1GroupDefinitions(output.GroupDefinitions, context)
@@ -2759,7 +2712,6 @@ const deserializeAws_json1_1GetCostForecastResponse = (
   context: __SerdeContext
 ): GetCostForecastResponse => {
   return {
-    __type: "GetCostForecastResponse",
     ForecastResultsByTime:
       output.ForecastResultsByTime !== undefined && output.ForecastResultsByTime !== null
         ? deserializeAws_json1_1ForecastResultsByTime(output.ForecastResultsByTime, context)
@@ -2776,7 +2728,6 @@ const deserializeAws_json1_1GetDimensionValuesResponse = (
   context: __SerdeContext
 ): GetDimensionValuesResponse => {
   return {
-    __type: "GetDimensionValuesResponse",
     DimensionValues:
       output.DimensionValues !== undefined && output.DimensionValues !== null
         ? deserializeAws_json1_1DimensionValuesWithAttributesList(output.DimensionValues, context)
@@ -2793,7 +2744,6 @@ const deserializeAws_json1_1GetReservationCoverageResponse = (
   context: __SerdeContext
 ): GetReservationCoverageResponse => {
   return {
-    __type: "GetReservationCoverageResponse",
     CoveragesByTime:
       output.CoveragesByTime !== undefined && output.CoveragesByTime !== null
         ? deserializeAws_json1_1CoveragesByTime(output.CoveragesByTime, context)
@@ -2812,7 +2762,6 @@ const deserializeAws_json1_1GetReservationPurchaseRecommendationResponse = (
   context: __SerdeContext
 ): GetReservationPurchaseRecommendationResponse => {
   return {
-    __type: "GetReservationPurchaseRecommendationResponse",
     Metadata:
       output.Metadata !== undefined && output.Metadata !== null
         ? deserializeAws_json1_1ReservationPurchaseRecommendationMetadata(output.Metadata, context)
@@ -2831,7 +2780,6 @@ const deserializeAws_json1_1GetReservationUtilizationResponse = (
   context: __SerdeContext
 ): GetReservationUtilizationResponse => {
   return {
-    __type: "GetReservationUtilizationResponse",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     Total:
@@ -2850,7 +2798,6 @@ const deserializeAws_json1_1GetRightsizingRecommendationResponse = (
   context: __SerdeContext
 ): GetRightsizingRecommendationResponse => {
   return {
-    __type: "GetRightsizingRecommendationResponse",
     Configuration:
       output.Configuration !== undefined && output.Configuration !== null
         ? deserializeAws_json1_1RightsizingRecommendationConfiguration(output.Configuration, context)
@@ -2877,7 +2824,6 @@ const deserializeAws_json1_1GetSavingsPlansCoverageResponse = (
   context: __SerdeContext
 ): GetSavingsPlansCoverageResponse => {
   return {
-    __type: "GetSavingsPlansCoverageResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SavingsPlansCoverages:
       output.SavingsPlansCoverages !== undefined && output.SavingsPlansCoverages !== null
@@ -2891,7 +2837,6 @@ const deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationResponse = (
   context: __SerdeContext
 ): GetSavingsPlansPurchaseRecommendationResponse => {
   return {
-    __type: "GetSavingsPlansPurchaseRecommendationResponse",
     Metadata:
       output.Metadata !== undefined && output.Metadata !== null
         ? deserializeAws_json1_1SavingsPlansPurchaseRecommendationMetadata(output.Metadata, context)
@@ -2910,7 +2855,6 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationDetailsResponse = (
   context: __SerdeContext
 ): GetSavingsPlansUtilizationDetailsResponse => {
   return {
-    __type: "GetSavingsPlansUtilizationDetailsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SavingsPlansUtilizationDetails:
       output.SavingsPlansUtilizationDetails !== undefined && output.SavingsPlansUtilizationDetails !== null
@@ -2932,7 +2876,6 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationResponse = (
   context: __SerdeContext
 ): GetSavingsPlansUtilizationResponse => {
   return {
-    __type: "GetSavingsPlansUtilizationResponse",
     SavingsPlansUtilizationsByTime:
       output.SavingsPlansUtilizationsByTime !== undefined && output.SavingsPlansUtilizationsByTime !== null
         ? deserializeAws_json1_1SavingsPlansUtilizationsByTime(output.SavingsPlansUtilizationsByTime, context)
@@ -2946,7 +2889,6 @@ const deserializeAws_json1_1GetSavingsPlansUtilizationResponse = (
 
 const deserializeAws_json1_1GetTagsResponse = (output: any, context: __SerdeContext): GetTagsResponse => {
   return {
-    __type: "GetTagsResponse",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     ReturnSize: output.ReturnSize !== undefined && output.ReturnSize !== null ? output.ReturnSize : undefined,
@@ -2963,7 +2905,6 @@ const deserializeAws_json1_1GetUsageForecastResponse = (
   context: __SerdeContext
 ): GetUsageForecastResponse => {
   return {
-    __type: "GetUsageForecastResponse",
     ForecastResultsByTime:
       output.ForecastResultsByTime !== undefined && output.ForecastResultsByTime !== null
         ? deserializeAws_json1_1ForecastResultsByTime(output.ForecastResultsByTime, context)
@@ -2977,7 +2918,6 @@ const deserializeAws_json1_1GetUsageForecastResponse = (
 
 const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Group => {
   return {
-    __type: "Group",
     Keys:
       output.Keys !== undefined && output.Keys !== null ? deserializeAws_json1_1Keys(output.Keys, context) : undefined,
     Metrics:
@@ -2989,7 +2929,6 @@ const deserializeAws_json1_1Group = (output: any, context: __SerdeContext): Grou
 
 const deserializeAws_json1_1GroupDefinition = (output: any, context: __SerdeContext): GroupDefinition => {
   return {
-    __type: "GroupDefinition",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -3005,7 +2944,6 @@ const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Gro
 
 const deserializeAws_json1_1InstanceDetails = (output: any, context: __SerdeContext): InstanceDetails => {
   return {
-    __type: "InstanceDetails",
     EC2InstanceDetails:
       output.EC2InstanceDetails !== undefined && output.EC2InstanceDetails !== null
         ? deserializeAws_json1_1EC2InstanceDetails(output.EC2InstanceDetails, context)
@@ -3034,7 +2972,6 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3045,7 +2982,6 @@ const deserializeAws_json1_1Keys = (output: any, context: __SerdeContext): strin
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3055,7 +2991,6 @@ const deserializeAws_json1_1ListCostCategoryDefinitionsResponse = (
   context: __SerdeContext
 ): ListCostCategoryDefinitionsResponse => {
   return {
-    __type: "ListCostCategoryDefinitionsResponse",
     CostCategoryReferences:
       output.CostCategoryReferences !== undefined && output.CostCategoryReferences !== null
         ? deserializeAws_json1_1CostCategoryReferencesList(output.CostCategoryReferences, context)
@@ -3080,7 +3015,6 @@ const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): { 
 
 const deserializeAws_json1_1MetricValue = (output: any, context: __SerdeContext): MetricValue => {
   return {
-    __type: "MetricValue",
     Amount: output.Amount !== undefined && output.Amount !== null ? output.Amount : undefined,
     Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
   } as any;
@@ -3091,7 +3025,6 @@ const deserializeAws_json1_1ModifyRecommendationDetail = (
   context: __SerdeContext
 ): ModifyRecommendationDetail => {
   return {
-    __type: "ModifyRecommendationDetail",
     TargetInstances:
       output.TargetInstances !== undefined && output.TargetInstances !== null
         ? deserializeAws_json1_1TargetInstancesList(output.TargetInstances, context)
@@ -3101,7 +3034,6 @@ const deserializeAws_json1_1ModifyRecommendationDetail = (
 
 const deserializeAws_json1_1RDSInstanceDetails = (output: any, context: __SerdeContext): RDSInstanceDetails => {
   return {
-    __type: "RDSInstanceDetails",
     CurrentGeneration:
       output.CurrentGeneration !== undefined && output.CurrentGeneration !== null
         ? output.CurrentGeneration
@@ -3126,7 +3058,6 @@ const deserializeAws_json1_1RedshiftInstanceDetails = (
   context: __SerdeContext
 ): RedshiftInstanceDetails => {
   return {
-    __type: "RedshiftInstanceDetails",
     CurrentGeneration:
       output.CurrentGeneration !== undefined && output.CurrentGeneration !== null
         ? output.CurrentGeneration
@@ -3144,14 +3075,12 @@ const deserializeAws_json1_1RequestChangedException = (
   context: __SerdeContext
 ): RequestChangedException => {
   return {
-    __type: "RequestChangedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ReservationAggregates = (output: any, context: __SerdeContext): ReservationAggregates => {
   return {
-    __type: "ReservationAggregates",
     AmortizedRecurringFee:
       output.AmortizedRecurringFee !== undefined && output.AmortizedRecurringFee !== null
         ? output.AmortizedRecurringFee
@@ -3199,7 +3128,6 @@ const deserializeAws_json1_1ReservationCoverageGroup = (
   context: __SerdeContext
 ): ReservationCoverageGroup => {
   return {
-    __type: "ReservationCoverageGroup",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1Attributes(output.Attributes, context)
@@ -3223,7 +3151,6 @@ const deserializeAws_json1_1ReservationPurchaseRecommendation = (
   context: __SerdeContext
 ): ReservationPurchaseRecommendation => {
   return {
-    __type: "ReservationPurchaseRecommendation",
     AccountScope: output.AccountScope !== undefined && output.AccountScope !== null ? output.AccountScope : undefined,
     LookbackPeriodInDays:
       output.LookbackPeriodInDays !== undefined && output.LookbackPeriodInDays !== null
@@ -3252,7 +3179,6 @@ const deserializeAws_json1_1ReservationPurchaseRecommendationDetail = (
   context: __SerdeContext
 ): ReservationPurchaseRecommendationDetail => {
   return {
-    __type: "ReservationPurchaseRecommendationDetail",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     AverageNormalizedUnitsUsedPerHour:
       output.AverageNormalizedUnitsUsedPerHour !== undefined && output.AverageNormalizedUnitsUsedPerHour !== null
@@ -3339,7 +3265,6 @@ const deserializeAws_json1_1ReservationPurchaseRecommendationMetadata = (
   context: __SerdeContext
 ): ReservationPurchaseRecommendationMetadata => {
   return {
-    __type: "ReservationPurchaseRecommendationMetadata",
     GenerationTimestamp:
       output.GenerationTimestamp !== undefined && output.GenerationTimestamp !== null
         ? output.GenerationTimestamp
@@ -3361,7 +3286,6 @@ const deserializeAws_json1_1ReservationPurchaseRecommendationSummary = (
   context: __SerdeContext
 ): ReservationPurchaseRecommendationSummary => {
   return {
-    __type: "ReservationPurchaseRecommendationSummary",
     CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
     TotalEstimatedMonthlySavingsAmount:
       output.TotalEstimatedMonthlySavingsAmount !== undefined && output.TotalEstimatedMonthlySavingsAmount !== null
@@ -3380,7 +3304,6 @@ const deserializeAws_json1_1ReservationUtilizationGroup = (
   context: __SerdeContext
 ): ReservationUtilizationGroup => {
   return {
-    __type: "ReservationUtilizationGroup",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1Attributes(output.Attributes, context)
@@ -3403,7 +3326,6 @@ const deserializeAws_json1_1ReservationUtilizationGroups = (
 
 const deserializeAws_json1_1ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
   return {
-    __type: "ResourceDetails",
     EC2ResourceDetails:
       output.EC2ResourceDetails !== undefined && output.EC2ResourceDetails !== null
         ? deserializeAws_json1_1EC2ResourceDetails(output.EC2ResourceDetails, context)
@@ -3416,14 +3338,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResourceUtilization = (output: any, context: __SerdeContext): ResourceUtilization => {
   return {
-    __type: "ResourceUtilization",
     EC2ResourceUtilization:
       output.EC2ResourceUtilization !== undefined && output.EC2ResourceUtilization !== null
         ? deserializeAws_json1_1EC2ResourceUtilization(output.EC2ResourceUtilization, context)
@@ -3433,7 +3353,6 @@ const deserializeAws_json1_1ResourceUtilization = (output: any, context: __Serde
 
 const deserializeAws_json1_1ResultByTime = (output: any, context: __SerdeContext): ResultByTime => {
   return {
-    __type: "ResultByTime",
     Estimated: output.Estimated !== undefined && output.Estimated !== null ? output.Estimated : undefined,
     Groups:
       output.Groups !== undefined && output.Groups !== null
@@ -3459,7 +3378,6 @@ const deserializeAws_json1_1RightsizingRecommendation = (
   context: __SerdeContext
 ): RightsizingRecommendation => {
   return {
-    __type: "RightsizingRecommendation",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     CurrentInstance:
       output.CurrentInstance !== undefined && output.CurrentInstance !== null
@@ -3483,7 +3401,6 @@ const deserializeAws_json1_1RightsizingRecommendationConfiguration = (
   context: __SerdeContext
 ): RightsizingRecommendationConfiguration => {
   return {
-    __type: "RightsizingRecommendationConfiguration",
     BenefitsConsidered:
       output.BenefitsConsidered !== undefined && output.BenefitsConsidered !== null
         ? output.BenefitsConsidered
@@ -3507,7 +3424,6 @@ const deserializeAws_json1_1RightsizingRecommendationMetadata = (
   context: __SerdeContext
 ): RightsizingRecommendationMetadata => {
   return {
-    __type: "RightsizingRecommendationMetadata",
     GenerationTimestamp:
       output.GenerationTimestamp !== undefined && output.GenerationTimestamp !== null
         ? output.GenerationTimestamp
@@ -3526,7 +3442,6 @@ const deserializeAws_json1_1RightsizingRecommendationSummary = (
   context: __SerdeContext
 ): RightsizingRecommendationSummary => {
   return {
-    __type: "RightsizingRecommendationSummary",
     EstimatedTotalMonthlySavingsAmount:
       output.EstimatedTotalMonthlySavingsAmount !== undefined && output.EstimatedTotalMonthlySavingsAmount !== null
         ? output.EstimatedTotalMonthlySavingsAmount
@@ -3551,7 +3466,6 @@ const deserializeAws_json1_1SavingsPlansAmortizedCommitment = (
   context: __SerdeContext
 ): SavingsPlansAmortizedCommitment => {
   return {
-    __type: "SavingsPlansAmortizedCommitment",
     AmortizedRecurringCommitment:
       output.AmortizedRecurringCommitment !== undefined && output.AmortizedRecurringCommitment !== null
         ? output.AmortizedRecurringCommitment
@@ -3569,7 +3483,6 @@ const deserializeAws_json1_1SavingsPlansAmortizedCommitment = (
 
 const deserializeAws_json1_1SavingsPlansCoverage = (output: any, context: __SerdeContext): SavingsPlansCoverage => {
   return {
-    __type: "SavingsPlansCoverage",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1Attributes(output.Attributes, context)
@@ -3590,7 +3503,6 @@ const deserializeAws_json1_1SavingsPlansCoverageData = (
   context: __SerdeContext
 ): SavingsPlansCoverageData => {
   return {
-    __type: "SavingsPlansCoverageData",
     CoveragePercentage:
       output.CoveragePercentage !== undefined && output.CoveragePercentage !== null
         ? output.CoveragePercentage
@@ -3610,7 +3522,6 @@ const deserializeAws_json1_1SavingsPlansCoverages = (output: any, context: __Ser
 
 const deserializeAws_json1_1SavingsPlansDetails = (output: any, context: __SerdeContext): SavingsPlansDetails => {
   return {
-    __type: "SavingsPlansDetails",
     InstanceFamily:
       output.InstanceFamily !== undefined && output.InstanceFamily !== null ? output.InstanceFamily : undefined,
     OfferingId: output.OfferingId !== undefined && output.OfferingId !== null ? output.OfferingId : undefined,
@@ -3623,7 +3534,6 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendation = (
   context: __SerdeContext
 ): SavingsPlansPurchaseRecommendation => {
   return {
-    __type: "SavingsPlansPurchaseRecommendation",
     AccountScope: output.AccountScope !== undefined && output.AccountScope !== null ? output.AccountScope : undefined,
     LookbackPeriodInDays:
       output.LookbackPeriodInDays !== undefined && output.LookbackPeriodInDays !== null
@@ -3658,7 +3568,6 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendationDetail = (
   context: __SerdeContext
 ): SavingsPlansPurchaseRecommendationDetail => {
   return {
-    __type: "SavingsPlansPurchaseRecommendationDetail",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
     CurrentAverageHourlyOnDemandSpend:
@@ -3727,7 +3636,6 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendationMetadata = (
   context: __SerdeContext
 ): SavingsPlansPurchaseRecommendationMetadata => {
   return {
-    __type: "SavingsPlansPurchaseRecommendationMetadata",
     GenerationTimestamp:
       output.GenerationTimestamp !== undefined && output.GenerationTimestamp !== null
         ? output.GenerationTimestamp
@@ -3742,7 +3650,6 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendationSummary = (
   context: __SerdeContext
 ): SavingsPlansPurchaseRecommendationSummary => {
   return {
-    __type: "SavingsPlansPurchaseRecommendationSummary",
     CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
     CurrentOnDemandSpend:
       output.CurrentOnDemandSpend !== undefined && output.CurrentOnDemandSpend !== null
@@ -3787,7 +3694,6 @@ const deserializeAws_json1_1SavingsPlansPurchaseRecommendationSummary = (
 
 const deserializeAws_json1_1SavingsPlansSavings = (output: any, context: __SerdeContext): SavingsPlansSavings => {
   return {
-    __type: "SavingsPlansSavings",
     NetSavings: output.NetSavings !== undefined && output.NetSavings !== null ? output.NetSavings : undefined,
     OnDemandCostEquivalent:
       output.OnDemandCostEquivalent !== undefined && output.OnDemandCostEquivalent !== null
@@ -3801,7 +3707,6 @@ const deserializeAws_json1_1SavingsPlansUtilization = (
   context: __SerdeContext
 ): SavingsPlansUtilization => {
   return {
-    __type: "SavingsPlansUtilization",
     TotalCommitment:
       output.TotalCommitment !== undefined && output.TotalCommitment !== null ? output.TotalCommitment : undefined,
     UnusedCommitment:
@@ -3820,7 +3725,6 @@ const deserializeAws_json1_1SavingsPlansUtilizationAggregates = (
   context: __SerdeContext
 ): SavingsPlansUtilizationAggregates => {
   return {
-    __type: "SavingsPlansUtilizationAggregates",
     AmortizedCommitment:
       output.AmortizedCommitment !== undefined && output.AmortizedCommitment !== null
         ? deserializeAws_json1_1SavingsPlansAmortizedCommitment(output.AmortizedCommitment, context)
@@ -3841,7 +3745,6 @@ const deserializeAws_json1_1SavingsPlansUtilizationByTime = (
   context: __SerdeContext
 ): SavingsPlansUtilizationByTime => {
   return {
-    __type: "SavingsPlansUtilizationByTime",
     AmortizedCommitment:
       output.AmortizedCommitment !== undefined && output.AmortizedCommitment !== null
         ? deserializeAws_json1_1SavingsPlansAmortizedCommitment(output.AmortizedCommitment, context)
@@ -3866,7 +3769,6 @@ const deserializeAws_json1_1SavingsPlansUtilizationDetail = (
   context: __SerdeContext
 ): SavingsPlansUtilizationDetail => {
   return {
-    __type: "SavingsPlansUtilizationDetail",
     AmortizedCommitment:
       output.AmortizedCommitment !== undefined && output.AmortizedCommitment !== null
         ? deserializeAws_json1_1SavingsPlansAmortizedCommitment(output.AmortizedCommitment, context)
@@ -3907,14 +3809,12 @@ const deserializeAws_json1_1ServiceQuotaExceededException = (
   context: __SerdeContext
 ): ServiceQuotaExceededException => {
   return {
-    __type: "ServiceQuotaExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ServiceSpecification = (output: any, context: __SerdeContext): ServiceSpecification => {
   return {
-    __type: "ServiceSpecification",
     EC2Specification:
       output.EC2Specification !== undefined && output.EC2Specification !== null
         ? deserializeAws_json1_1EC2Specification(output.EC2Specification, context)
@@ -3928,7 +3828,6 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): st
 
 const deserializeAws_json1_1TagValues = (output: any, context: __SerdeContext): TagValues => {
   return {
-    __type: "TagValues",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     MatchOptions:
       output.MatchOptions !== undefined && output.MatchOptions !== null
@@ -3947,7 +3846,6 @@ const deserializeAws_json1_1TagValuesList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1TargetInstance = (output: any, context: __SerdeContext): TargetInstance => {
   return {
-    __type: "TargetInstance",
     CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
     DefaultTargetInstance:
       output.DefaultTargetInstance !== undefined && output.DefaultTargetInstance !== null
@@ -3981,7 +3879,6 @@ const deserializeAws_json1_1TerminateRecommendationDetail = (
   context: __SerdeContext
 ): TerminateRecommendationDetail => {
   return {
-    __type: "TerminateRecommendationDetail",
     CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
     EstimatedMonthlySavings:
       output.EstimatedMonthlySavings !== undefined && output.EstimatedMonthlySavings !== null
@@ -3995,7 +3892,6 @@ const deserializeAws_json1_1UnresolvableUsageUnitException = (
   context: __SerdeContext
 ): UnresolvableUsageUnitException => {
   return {
-    __type: "UnresolvableUsageUnitException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4005,7 +3901,6 @@ const deserializeAws_json1_1UpdateCostCategoryDefinitionResponse = (
   context: __SerdeContext
 ): UpdateCostCategoryDefinitionResponse => {
   return {
-    __type: "UpdateCostCategoryDefinitionResponse",
     CostCategoryArn:
       output.CostCategoryArn !== undefined && output.CostCategoryArn !== null ? output.CostCategoryArn : undefined,
     EffectiveStart:
@@ -4015,7 +3910,6 @@ const deserializeAws_json1_1UpdateCostCategoryDefinitionResponse = (
 
 const deserializeAws_json1_1UtilizationByTime = (output: any, context: __SerdeContext): UtilizationByTime => {
   return {
-    __type: "UtilizationByTime",
     Groups:
       output.Groups !== undefined && output.Groups !== null
         ? deserializeAws_json1_1ReservationUtilizationGroups(output.Groups, context)

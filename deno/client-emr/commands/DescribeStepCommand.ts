@@ -1,6 +1,6 @@
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
-import { DescribeStepInput, DescribeStepOutput } from "../models/index.ts";
+import { DescribeStepInput, DescribeStepOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeStepCommand,
   serializeAws_json1_1DescribeStepCommand,

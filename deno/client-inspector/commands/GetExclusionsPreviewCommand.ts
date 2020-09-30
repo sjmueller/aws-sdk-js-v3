@@ -1,6 +1,6 @@
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
-import { GetExclusionsPreviewRequest, GetExclusionsPreviewResponse } from "../models/index.ts";
+import { GetExclusionsPreviewRequest, GetExclusionsPreviewResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetExclusionsPreviewCommand,
   serializeAws_json1_1GetExclusionsPreviewCommand,

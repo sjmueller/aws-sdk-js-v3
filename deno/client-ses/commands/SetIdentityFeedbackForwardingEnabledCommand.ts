@@ -3,7 +3,7 @@ import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   SetIdentityFeedbackForwardingEnabledRequest,
   SetIdentityFeedbackForwardingEnabledResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_querySetIdentityFeedbackForwardingEnabledCommand,
   serializeAws_querySetIdentityFeedbackForwardingEnabledCommand,

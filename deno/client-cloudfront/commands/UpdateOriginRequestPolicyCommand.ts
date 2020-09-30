@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { UpdateOriginRequestPolicyRequest, UpdateOriginRequestPolicyResult } from "../models/index.ts";
+import { UpdateOriginRequestPolicyRequest, UpdateOriginRequestPolicyResult } from "../models/models_1.ts";
 import {
   deserializeAws_restXmlUpdateOriginRequestPolicyCommand,
   serializeAws_restXmlUpdateOriginRequestPolicyCommand,

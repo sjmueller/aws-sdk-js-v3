@@ -1,6 +1,6 @@
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient.ts";
-import { CreateIdentityPoolInput, IdentityPool } from "../models/index.ts";
+import { CreateIdentityPoolInput, IdentityPool } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateIdentityPoolCommand,
   serializeAws_json1_1CreateIdentityPoolCommand,

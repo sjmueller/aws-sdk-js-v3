@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { AttachCertificateToDistributionRequest, AttachCertificateToDistributionResult } from "../models/index.ts";
+import { AttachCertificateToDistributionRequest, AttachCertificateToDistributionResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AttachCertificateToDistributionCommand,
   serializeAws_json1_1AttachCertificateToDistributionCommand,

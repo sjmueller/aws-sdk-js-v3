@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { DeleteRemoteAccessSessionRequest, DeleteRemoteAccessSessionResult } from "../models/index.ts";
+import { DeleteRemoteAccessSessionRequest, DeleteRemoteAccessSessionResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteRemoteAccessSessionCommand,
   serializeAws_json1_1DeleteRemoteAccessSessionCommand,

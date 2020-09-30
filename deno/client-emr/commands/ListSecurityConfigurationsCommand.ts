@@ -1,6 +1,6 @@
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
-import { ListSecurityConfigurationsInput, ListSecurityConfigurationsOutput } from "../models/index.ts";
+import { ListSecurityConfigurationsInput, ListSecurityConfigurationsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListSecurityConfigurationsCommand,
   serializeAws_json1_1ListSecurityConfigurationsCommand,

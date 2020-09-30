@@ -1,6 +1,6 @@
 
 import { MediaTailorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaTailorClient.ts";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/index.ts";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListTagsForResourceCommand,
   serializeAws_restJson1ListTagsForResourceCommand,

@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DescribeThingGroupRequest, DescribeThingGroupResponse } from "../models/index.ts";
+import { DescribeThingGroupRequest, DescribeThingGroupResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DescribeThingGroupCommand,
   serializeAws_restJson1DescribeThingGroupCommand,

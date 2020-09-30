@@ -1,6 +1,6 @@
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient.ts";
-import { CreateProgressUpdateStreamRequest, CreateProgressUpdateStreamResult } from "../models/index.ts";
+import { CreateProgressUpdateStreamRequest, CreateProgressUpdateStreamResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateProgressUpdateStreamCommand,
   serializeAws_json1_1CreateProgressUpdateStreamCommand,

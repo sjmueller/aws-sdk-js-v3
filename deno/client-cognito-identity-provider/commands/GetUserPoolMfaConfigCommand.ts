@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse } from "../models/index.ts";
+import { GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetUserPoolMfaConfigCommand,
   serializeAws_json1_1GetUserPoolMfaConfigCommand,

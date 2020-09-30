@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { GetCommandInvocationRequest, GetCommandInvocationResult } from "../models/index.ts";
+import { GetCommandInvocationRequest, GetCommandInvocationResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetCommandInvocationCommand,
   serializeAws_json1_1GetCommandInvocationCommand,

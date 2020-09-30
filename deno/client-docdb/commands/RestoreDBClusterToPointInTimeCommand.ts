@@ -1,6 +1,6 @@
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
-import { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/index.ts";
+import { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryRestoreDBClusterToPointInTimeCommand,
   serializeAws_queryRestoreDBClusterToPointInTimeCommand,

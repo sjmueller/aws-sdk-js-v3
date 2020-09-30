@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { GetDevicePoolCompatibilityRequest, GetDevicePoolCompatibilityResult } from "../models/index.ts";
+import { GetDevicePoolCompatibilityRequest, GetDevicePoolCompatibilityResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetDevicePoolCompatibilityCommand,
   serializeAws_json1_1GetDevicePoolCompatibilityCommand,

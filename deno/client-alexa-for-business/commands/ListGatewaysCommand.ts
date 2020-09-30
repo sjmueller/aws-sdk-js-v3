@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { ListGatewaysRequest, ListGatewaysResponse } from "../models/index.ts";
+import { ListGatewaysRequest, ListGatewaysResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListGatewaysCommand,
   serializeAws_json1_1ListGatewaysCommand,

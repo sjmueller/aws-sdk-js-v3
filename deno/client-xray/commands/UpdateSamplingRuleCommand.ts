@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient.ts";
-import { UpdateSamplingRuleRequest, UpdateSamplingRuleResult } from "../models/index.ts";
+import { UpdateSamplingRuleRequest, UpdateSamplingRuleResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateSamplingRuleCommand,
   serializeAws_restJson1UpdateSamplingRuleCommand,

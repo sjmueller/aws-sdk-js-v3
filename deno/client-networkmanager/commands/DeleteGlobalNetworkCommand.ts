@@ -1,6 +1,6 @@
 
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient.ts";
-import { DeleteGlobalNetworkRequest, DeleteGlobalNetworkResponse } from "../models/index.ts";
+import { DeleteGlobalNetworkRequest, DeleteGlobalNetworkResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteGlobalNetworkCommand,
   serializeAws_restJson1DeleteGlobalNetworkCommand,

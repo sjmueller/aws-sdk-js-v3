@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient.ts";
-import { GetTranscriptRequest, GetTranscriptResponse } from "../models/index.ts";
+import { GetTranscriptRequest, GetTranscriptResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetTranscriptCommand,
   serializeAws_restJson1GetTranscriptCommand,

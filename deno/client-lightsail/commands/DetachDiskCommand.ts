@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { DetachDiskRequest, DetachDiskResult } from "../models/index.ts";
+import { DetachDiskRequest, DetachDiskResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DetachDiskCommand,
   serializeAws_json1_1DetachDiskCommand,

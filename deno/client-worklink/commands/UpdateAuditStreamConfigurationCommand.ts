@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient.ts";
-import { UpdateAuditStreamConfigurationRequest, UpdateAuditStreamConfigurationResponse } from "../models/index.ts";
+import { UpdateAuditStreamConfigurationRequest, UpdateAuditStreamConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateAuditStreamConfigurationCommand,
   serializeAws_restJson1UpdateAuditStreamConfigurationCommand,

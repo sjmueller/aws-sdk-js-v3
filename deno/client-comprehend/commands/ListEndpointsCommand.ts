@@ -1,6 +1,6 @@
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
-import { ListEndpointsRequest, ListEndpointsResponse } from "../models/index.ts";
+import { ListEndpointsRequest, ListEndpointsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListEndpointsCommand,
   serializeAws_json1_1ListEndpointsCommand,

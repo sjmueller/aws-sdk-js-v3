@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { InstallToRemoteAccessSessionRequest, InstallToRemoteAccessSessionResult } from "../models/index.ts";
+import { InstallToRemoteAccessSessionRequest, InstallToRemoteAccessSessionResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1InstallToRemoteAccessSessionCommand,
   serializeAws_json1_1InstallToRemoteAccessSessionCommand,

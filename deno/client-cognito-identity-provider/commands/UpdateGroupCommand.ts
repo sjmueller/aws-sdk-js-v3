@@ -4,7 +4,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { UpdateGroupRequest, UpdateGroupResponse } from "../models/index.ts";
+import { UpdateGroupRequest } from "../models/models_0.ts";
+import { UpdateGroupResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1UpdateGroupCommand,
   serializeAws_json1_1UpdateGroupCommand,

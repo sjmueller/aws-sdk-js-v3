@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ModifyInstanceAttributeRequest } from "../models/index.ts";
+import { ModifyInstanceAttributeRequest } from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyInstanceAttributeCommand,
   serializeAws_ec2ModifyInstanceAttributeCommand,

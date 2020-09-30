@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { DescribeTapeRecoveryPointsInput, DescribeTapeRecoveryPointsOutput } from "../models/index.ts";
+import { DescribeTapeRecoveryPointsInput, DescribeTapeRecoveryPointsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeTapeRecoveryPointsCommand,
   serializeAws_json1_1DescribeTapeRecoveryPointsCommand,

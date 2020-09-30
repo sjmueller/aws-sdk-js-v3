@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { FailoverGlobalReplicationGroupMessage, FailoverGlobalReplicationGroupResult } from "../models/index.ts";
+import { FailoverGlobalReplicationGroupMessage, FailoverGlobalReplicationGroupResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryFailoverGlobalReplicationGroupCommand,
   serializeAws_queryFailoverGlobalReplicationGroupCommand,

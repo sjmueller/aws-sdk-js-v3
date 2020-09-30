@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient.ts";
-import { RevokeDomainAccessRequest, RevokeDomainAccessResponse } from "../models/index.ts";
+import { RevokeDomainAccessRequest, RevokeDomainAccessResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1RevokeDomainAccessCommand,
   serializeAws_restJson1RevokeDomainAccessCommand,

@@ -1,6 +1,9 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ModifyVpcEndpointServicePermissionsRequest, ModifyVpcEndpointServicePermissionsResult } from "../models/index.ts";
+import {
+  ModifyVpcEndpointServicePermissionsRequest,
+  ModifyVpcEndpointServicePermissionsResult,
+} from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommand,
   serializeAws_ec2ModifyVpcEndpointServicePermissionsCommand,

@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { UnshareDirectoryRequest, UnshareDirectoryResult } from "../models/index.ts";
+import { UnshareDirectoryRequest, UnshareDirectoryResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UnshareDirectoryCommand,
   serializeAws_json1_1UnshareDirectoryCommand,

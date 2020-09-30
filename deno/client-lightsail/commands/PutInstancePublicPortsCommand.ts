@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { PutInstancePublicPortsRequest, PutInstancePublicPortsResult } from "../models/index.ts";
+import { PutInstancePublicPortsRequest, PutInstancePublicPortsResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1PutInstancePublicPortsCommand,
   serializeAws_json1_1PutInstancePublicPortsCommand,

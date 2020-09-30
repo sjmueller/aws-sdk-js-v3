@@ -1,6 +1,6 @@
 
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient.ts";
-import { CreateDBClusterMessage, CreateDBClusterResult } from "../models/index.ts";
+import { CreateDBClusterMessage, CreateDBClusterResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateDBClusterCommand,
   serializeAws_queryCreateDBClusterCommand,

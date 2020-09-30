@@ -1,6 +1,6 @@
 
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
-import { DescribeFeatureTransformationRequest, DescribeFeatureTransformationResponse } from "../models/index.ts";
+import { DescribeFeatureTransformationRequest, DescribeFeatureTransformationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeFeatureTransformationCommand,
   serializeAws_json1_1DescribeFeatureTransformationCommand,

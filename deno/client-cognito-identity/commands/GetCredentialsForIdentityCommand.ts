@@ -1,6 +1,6 @@
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient.ts";
-import { GetCredentialsForIdentityInput, GetCredentialsForIdentityResponse } from "../models/index.ts";
+import { GetCredentialsForIdentityInput, GetCredentialsForIdentityResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetCredentialsForIdentityCommand,
   serializeAws_json1_1GetCredentialsForIdentityCommand,

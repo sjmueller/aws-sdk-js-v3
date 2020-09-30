@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { UpdatePolicyRequest, UpdatePolicyResponse } from "../models/index.ts";
+import { UpdatePolicyRequest, UpdatePolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdatePolicyCommand,
   serializeAws_json1_1UpdatePolicyCommand,

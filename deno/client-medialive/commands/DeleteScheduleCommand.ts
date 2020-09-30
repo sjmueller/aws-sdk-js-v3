@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { DeleteScheduleRequest, DeleteScheduleResponse } from "../models/index.ts";
+import { DeleteScheduleRequest, DeleteScheduleResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DeleteScheduleCommand,
   serializeAws_restJson1DeleteScheduleCommand,

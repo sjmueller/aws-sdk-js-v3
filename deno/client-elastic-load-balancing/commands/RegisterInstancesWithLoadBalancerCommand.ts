@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import { RegisterEndPointsInput, RegisterEndPointsOutput } from "../models/index.ts";
+import { RegisterEndPointsInput, RegisterEndPointsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryRegisterInstancesWithLoadBalancerCommand,
   serializeAws_queryRegisterInstancesWithLoadBalancerCommand,

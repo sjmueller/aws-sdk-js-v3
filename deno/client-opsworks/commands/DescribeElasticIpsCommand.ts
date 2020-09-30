@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { DescribeElasticIpsRequest, DescribeElasticIpsResult } from "../models/index.ts";
+import { DescribeElasticIpsRequest, DescribeElasticIpsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeElasticIpsCommand,
   serializeAws_json1_1DescribeElasticIpsCommand,

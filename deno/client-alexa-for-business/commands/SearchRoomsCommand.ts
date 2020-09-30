@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { SearchRoomsRequest, SearchRoomsResponse } from "../models/index.ts";
+import { SearchRoomsRequest, SearchRoomsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SearchRoomsCommand,
   serializeAws_json1_1SearchRoomsCommand,

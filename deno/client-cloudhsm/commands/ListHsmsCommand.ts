@@ -1,6 +1,6 @@
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient.ts";
-import { ListHsmsRequest, ListHsmsResponse } from "../models/index.ts";
+import { ListHsmsRequest, ListHsmsResponse } from "../models/models_0.ts";
 import { deserializeAws_json1_1ListHsmsCommand, serializeAws_json1_1ListHsmsCommand } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";

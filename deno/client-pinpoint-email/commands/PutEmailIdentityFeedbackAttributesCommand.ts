@@ -1,6 +1,9 @@
 
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
-import { PutEmailIdentityFeedbackAttributesRequest, PutEmailIdentityFeedbackAttributesResponse } from "../models/index.ts";
+import {
+  PutEmailIdentityFeedbackAttributesRequest,
+  PutEmailIdentityFeedbackAttributesResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand,
   serializeAws_restJson1PutEmailIdentityFeedbackAttributesCommand,

@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { DisassociateSkillFromUsersRequest, DisassociateSkillFromUsersResponse } from "../models/index.ts";
+import { DisassociateSkillFromUsersRequest, DisassociateSkillFromUsersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateSkillFromUsersCommand,
   serializeAws_json1_1DisassociateSkillFromUsersCommand,

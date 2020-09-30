@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeReservedInstancesModificationsRequest,
   DescribeReservedInstancesModificationsResult,
-} from "../models/index.ts";
+} from "../models/models_3.ts";
 import {
   deserializeAws_ec2DescribeReservedInstancesModificationsCommand,
   serializeAws_ec2DescribeReservedInstancesModificationsCommand,

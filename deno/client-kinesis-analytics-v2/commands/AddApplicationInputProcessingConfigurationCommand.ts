@@ -7,7 +7,7 @@ import {
 import {
   AddApplicationInputProcessingConfigurationRequest,
   AddApplicationInputProcessingConfigurationResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommand,
   serializeAws_json1_1AddApplicationInputProcessingConfigurationCommand,

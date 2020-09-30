@@ -1,6 +1,6 @@
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
-import { UpdateAvailabilityOptionsRequest, UpdateAvailabilityOptionsResponse } from "../models/index.ts";
+import { UpdateAvailabilityOptionsRequest, UpdateAvailabilityOptionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryUpdateAvailabilityOptionsCommand,
   serializeAws_queryUpdateAvailabilityOptionsCommand,

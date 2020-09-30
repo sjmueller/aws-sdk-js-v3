@@ -1,6 +1,6 @@
 
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient.ts";
-import { GetLinksRequest, GetLinksResponse } from "../models/index.ts";
+import { GetLinksRequest, GetLinksResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetLinksCommand,
   serializeAws_restJson1GetLinksCommand,

@@ -3,7 +3,7 @@ import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetIdentityMailFromDomainAttributesRequest,
   GetIdentityMailFromDomainAttributesResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_queryGetIdentityMailFromDomainAttributesCommand,
   serializeAws_queryGetIdentityMailFromDomainAttributesCommand,

@@ -1,6 +1,6 @@
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient.ts";
-import { UpdateMonitoringRequest, UpdateMonitoringResponse } from "../models/index.ts";
+import { UpdateMonitoringRequest, UpdateMonitoringResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateMonitoringCommand,
   serializeAws_restJson1UpdateMonitoringCommand,

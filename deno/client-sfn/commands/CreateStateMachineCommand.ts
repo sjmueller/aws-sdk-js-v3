@@ -1,6 +1,6 @@
 
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient.ts";
-import { CreateStateMachineInput, CreateStateMachineOutput } from "../models/index.ts";
+import { CreateStateMachineInput, CreateStateMachineOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0CreateStateMachineCommand,
   serializeAws_json1_0CreateStateMachineCommand,

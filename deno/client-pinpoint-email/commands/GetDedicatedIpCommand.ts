@@ -1,6 +1,6 @@
 
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
-import { GetDedicatedIpRequest, GetDedicatedIpResponse } from "../models/index.ts";
+import { GetDedicatedIpRequest, GetDedicatedIpResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetDedicatedIpCommand,
   serializeAws_restJson1GetDedicatedIpCommand,

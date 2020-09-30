@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import { DescribeAccessPointsInput, DescribeAccessPointsOutput } from "../models/index.ts";
+import { DescribeAccessPointsInput, DescribeAccessPointsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeLoadBalancersCommand,
   serializeAws_queryDescribeLoadBalancersCommand,

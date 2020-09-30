@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { DeleteApnsChannelRequest, DeleteApnsChannelResponse } from "../models/index.ts";
+import { DeleteApnsChannelRequest, DeleteApnsChannelResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteApnsChannelCommand,
   serializeAws_restJson1DeleteApnsChannelCommand,

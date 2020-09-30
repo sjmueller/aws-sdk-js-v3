@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DeleteInstallationMediaMessage, InstallationMedia } from "../models/index.ts";
+import { DeleteInstallationMediaMessage, InstallationMedia } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteInstallationMediaCommand,
   serializeAws_queryDeleteInstallationMediaCommand,

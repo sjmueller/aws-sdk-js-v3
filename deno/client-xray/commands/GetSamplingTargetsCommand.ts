@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient.ts";
-import { GetSamplingTargetsRequest, GetSamplingTargetsResult } from "../models/index.ts";
+import { GetSamplingTargetsRequest, GetSamplingTargetsResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetSamplingTargetsCommand,
   serializeAws_restJson1GetSamplingTargetsCommand,

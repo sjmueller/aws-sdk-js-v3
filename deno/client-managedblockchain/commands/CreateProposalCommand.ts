@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient.ts";
-import { CreateProposalInput, CreateProposalOutput } from "../models/index.ts";
+import { CreateProposalInput, CreateProposalOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateProposalCommand,
   serializeAws_restJson1CreateProposalCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient.ts";
-import { ImportSshPublicKeyRequest, ImportSshPublicKeyResponse } from "../models/index.ts";
+import { ImportSshPublicKeyRequest, ImportSshPublicKeyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ImportSshPublicKeyCommand,
   serializeAws_json1_1ImportSshPublicKeyCommand,

@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { AuthorizeClientVpnIngressRequest, AuthorizeClientVpnIngressResult } from "../models/index.ts";
+import { AuthorizeClientVpnIngressRequest, AuthorizeClientVpnIngressResult } from "../models/models_0.ts";
 import {
   deserializeAws_ec2AuthorizeClientVpnIngressCommand,
   serializeAws_ec2AuthorizeClientVpnIngressCommand,

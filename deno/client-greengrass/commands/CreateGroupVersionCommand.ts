@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { CreateGroupVersionRequest, CreateGroupVersionResponse } from "../models/index.ts";
+import { CreateGroupVersionRequest, CreateGroupVersionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateGroupVersionCommand,
   serializeAws_restJson1CreateGroupVersionCommand,

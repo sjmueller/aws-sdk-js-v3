@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { AddIpRoutesRequest, AddIpRoutesResult } from "../models/index.ts";
+import { AddIpRoutesRequest, AddIpRoutesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AddIpRoutesCommand,
   serializeAws_json1_1AddIpRoutesCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient.ts";
-import { AdvertiseByoipCidrRequest, AdvertiseByoipCidrResponse } from "../models/index.ts";
+import { AdvertiseByoipCidrRequest, AdvertiseByoipCidrResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AdvertiseByoipCidrCommand,
   serializeAws_json1_1AdvertiseByoipCidrCommand,

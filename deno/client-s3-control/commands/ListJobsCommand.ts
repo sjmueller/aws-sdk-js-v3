@@ -1,6 +1,6 @@
 
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient.ts";
-import { ListJobsRequest, ListJobsResult } from "../models/index.ts";
+import { ListJobsRequest, ListJobsResult } from "../models/models_0.ts";
 import { deserializeAws_restXmlListJobsCommand, serializeAws_restXmlListJobsCommand } from "../protocols/Aws_restXml.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";

@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { ListDeviceInstancesRequest, ListDeviceInstancesResult } from "../models/index.ts";
+import { ListDeviceInstancesRequest, ListDeviceInstancesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListDeviceInstancesCommand,
   serializeAws_json1_1ListDeviceInstancesCommand,

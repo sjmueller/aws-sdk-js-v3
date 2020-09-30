@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeLocalGatewaysRequest, DescribeLocalGatewaysResult } from "../models/index.ts";
+import { DescribeLocalGatewaysRequest, DescribeLocalGatewaysResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeLocalGatewaysCommand,
   serializeAws_ec2DescribeLocalGatewaysCommand,

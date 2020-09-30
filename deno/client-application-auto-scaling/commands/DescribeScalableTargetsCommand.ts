@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient.ts";
-import { DescribeScalableTargetsRequest, DescribeScalableTargetsResponse } from "../models/index.ts";
+import { DescribeScalableTargetsRequest, DescribeScalableTargetsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeScalableTargetsCommand,
   serializeAws_json1_1DescribeScalableTargetsCommand,

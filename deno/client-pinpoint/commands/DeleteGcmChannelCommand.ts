@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { DeleteGcmChannelRequest, DeleteGcmChannelResponse } from "../models/index.ts";
+import { DeleteGcmChannelRequest, DeleteGcmChannelResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteGcmChannelCommand,
   serializeAws_restJson1DeleteGcmChannelCommand,

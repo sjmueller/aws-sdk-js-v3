@@ -1,6 +1,6 @@
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
-import { DeleteExpressionRequest, DeleteExpressionResponse } from "../models/index.ts";
+import { DeleteExpressionRequest, DeleteExpressionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteExpressionCommand,
   serializeAws_queryDeleteExpressionCommand,

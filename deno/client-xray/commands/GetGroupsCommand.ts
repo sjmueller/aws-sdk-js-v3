@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient.ts";
-import { GetGroupsRequest, GetGroupsResult } from "../models/index.ts";
+import { GetGroupsRequest, GetGroupsResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetGroupsCommand,
   serializeAws_restJson1GetGroupsCommand,

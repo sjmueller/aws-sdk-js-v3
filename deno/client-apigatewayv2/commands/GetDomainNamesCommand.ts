@@ -1,6 +1,6 @@
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
-import { GetDomainNamesRequest, GetDomainNamesResponse } from "../models/index.ts";
+import { GetDomainNamesRequest, GetDomainNamesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetDomainNamesCommand,
   serializeAws_restJson1GetDomainNamesCommand,

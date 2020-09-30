@@ -1,6 +1,6 @@
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
-import { UpdateRouteResponseRequest, UpdateRouteResponseResponse } from "../models/index.ts";
+import { UpdateRouteResponseRequest, UpdateRouteResponseResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateRouteResponseCommand,
   serializeAws_restJson1UpdateRouteResponseCommand,

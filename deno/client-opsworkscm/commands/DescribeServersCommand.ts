@@ -1,6 +1,6 @@
 
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient.ts";
-import { DescribeServersRequest, DescribeServersResponse } from "../models/index.ts";
+import { DescribeServersRequest, DescribeServersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeServersCommand,
   serializeAws_json1_1DescribeServersCommand,

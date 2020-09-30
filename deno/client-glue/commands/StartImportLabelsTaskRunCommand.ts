@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { StartImportLabelsTaskRunRequest, StartImportLabelsTaskRunResponse } from "../models/index.ts";
+import { StartImportLabelsTaskRunRequest, StartImportLabelsTaskRunResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1StartImportLabelsTaskRunCommand,
   serializeAws_json1_1StartImportLabelsTaskRunCommand,

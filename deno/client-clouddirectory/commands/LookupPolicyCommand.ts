@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { LookupPolicyRequest, LookupPolicyResponse } from "../models/index.ts";
+import { LookupPolicyRequest, LookupPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1LookupPolicyCommand,
   serializeAws_restJson1LookupPolicyCommand,

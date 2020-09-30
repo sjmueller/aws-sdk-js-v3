@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { ListActiveViolationsRequest, ListActiveViolationsResponse } from "../models/index.ts";
+import { ListActiveViolationsRequest, ListActiveViolationsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1ListActiveViolationsCommand,
   serializeAws_restJson1ListActiveViolationsCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { DescribeAccountModificationsRequest, DescribeAccountModificationsResult } from "../models/index.ts";
+import { DescribeAccountModificationsRequest, DescribeAccountModificationsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeAccountModificationsCommand,
   serializeAws_json1_1DescribeAccountModificationsCommand,

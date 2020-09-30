@@ -270,7 +270,7 @@ import {
   UpdateTimeToLiveInput,
   UpdateTimeToLiveOutput,
   WriteRequest,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -827,7 +827,6 @@ export const deserializeAws_json1_0BatchGetItemCommand = async (
   contents = deserializeAws_json1_0BatchGetItemOutput(data, context);
   const response: BatchGetItemCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGetItemOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -915,7 +914,6 @@ export const deserializeAws_json1_0BatchWriteItemCommand = async (
   contents = deserializeAws_json1_0BatchWriteItemOutput(data, context);
   const response: BatchWriteItemCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchWriteItemOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1011,7 +1009,6 @@ export const deserializeAws_json1_0CreateBackupCommand = async (
   contents = deserializeAws_json1_0CreateBackupOutput(data, context);
   const response: CreateBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBackupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1115,7 +1112,6 @@ export const deserializeAws_json1_0CreateGlobalTableCommand = async (
   contents = deserializeAws_json1_0CreateGlobalTableOutput(data, context);
   const response: CreateGlobalTableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGlobalTableOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1203,7 +1199,6 @@ export const deserializeAws_json1_0CreateTableCommand = async (
   contents = deserializeAws_json1_0CreateTableOutput(data, context);
   const response: CreateTableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTableOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1283,7 +1278,6 @@ export const deserializeAws_json1_0DeleteBackupCommand = async (
   contents = deserializeAws_json1_0DeleteBackupOutput(data, context);
   const response: DeleteBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBackupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1371,7 +1365,6 @@ export const deserializeAws_json1_0DeleteItemCommand = async (
   contents = deserializeAws_json1_0DeleteItemOutput(data, context);
   const response: DeleteItemCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteItemOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1483,7 +1476,6 @@ export const deserializeAws_json1_0DeleteTableCommand = async (
   contents = deserializeAws_json1_0DeleteTableOutput(data, context);
   const response: DeleteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTableOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1571,7 +1563,6 @@ export const deserializeAws_json1_0DescribeBackupCommand = async (
   contents = deserializeAws_json1_0DescribeBackupOutput(data, context);
   const response: DescribeBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBackupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1643,7 +1634,6 @@ export const deserializeAws_json1_0DescribeContinuousBackupsCommand = async (
   contents = deserializeAws_json1_0DescribeContinuousBackupsOutput(data, context);
   const response: DescribeContinuousBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeContinuousBackupsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1715,7 +1705,6 @@ export const deserializeAws_json1_0DescribeContributorInsightsCommand = async (
   contents = deserializeAws_json1_0DescribeContributorInsightsOutput(data, context);
   const response: DescribeContributorInsightsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeContributorInsightsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1779,7 +1768,6 @@ export const deserializeAws_json1_0DescribeEndpointsCommand = async (
   contents = deserializeAws_json1_0DescribeEndpointsResponse(data, context);
   const response: DescribeEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEndpointsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1827,7 +1815,6 @@ export const deserializeAws_json1_0DescribeGlobalTableCommand = async (
   contents = deserializeAws_json1_0DescribeGlobalTableOutput(data, context);
   const response: DescribeGlobalTableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGlobalTableOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1899,7 +1886,6 @@ export const deserializeAws_json1_0DescribeGlobalTableSettingsCommand = async (
   contents = deserializeAws_json1_0DescribeGlobalTableSettingsOutput(data, context);
   const response: DescribeGlobalTableSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGlobalTableSettingsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1971,7 +1957,6 @@ export const deserializeAws_json1_0DescribeLimitsCommand = async (
   contents = deserializeAws_json1_0DescribeLimitsOutput(data, context);
   const response: DescribeLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLimitsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2035,7 +2020,6 @@ export const deserializeAws_json1_0DescribeTableCommand = async (
   contents = deserializeAws_json1_0DescribeTableOutput(data, context);
   const response: DescribeTableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTableOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2107,7 +2091,6 @@ export const deserializeAws_json1_0DescribeTableReplicaAutoScalingCommand = asyn
   contents = deserializeAws_json1_0DescribeTableReplicaAutoScalingOutput(data, context);
   const response: DescribeTableReplicaAutoScalingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTableReplicaAutoScalingOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2171,7 +2154,6 @@ export const deserializeAws_json1_0DescribeTimeToLiveCommand = async (
   contents = deserializeAws_json1_0DescribeTimeToLiveOutput(data, context);
   const response: DescribeTimeToLiveCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTimeToLiveOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2243,7 +2225,6 @@ export const deserializeAws_json1_0GetItemCommand = async (
   contents = deserializeAws_json1_0GetItemOutput(data, context);
   const response: GetItemCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetItemOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2331,7 +2312,6 @@ export const deserializeAws_json1_0ListBackupsCommand = async (
   contents = deserializeAws_json1_0ListBackupsOutput(data, context);
   const response: ListBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBackupsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2395,7 +2375,6 @@ export const deserializeAws_json1_0ListContributorInsightsCommand = async (
   contents = deserializeAws_json1_0ListContributorInsightsOutput(data, context);
   const response: ListContributorInsightsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListContributorInsightsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2459,7 +2438,6 @@ export const deserializeAws_json1_0ListGlobalTablesCommand = async (
   contents = deserializeAws_json1_0ListGlobalTablesOutput(data, context);
   const response: ListGlobalTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGlobalTablesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2523,7 +2501,6 @@ export const deserializeAws_json1_0ListTablesCommand = async (
   contents = deserializeAws_json1_0ListTablesOutput(data, context);
   const response: ListTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTablesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2587,7 +2564,6 @@ export const deserializeAws_json1_0ListTagsOfResourceCommand = async (
   contents = deserializeAws_json1_0ListTagsOfResourceOutput(data, context);
   const response: ListTagsOfResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsOfResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2659,7 +2635,6 @@ export const deserializeAws_json1_0PutItemCommand = async (
   contents = deserializeAws_json1_0PutItemOutput(data, context);
   const response: PutItemCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutItemOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2771,7 +2746,6 @@ export const deserializeAws_json1_0QueryCommand = async (
   contents = deserializeAws_json1_0QueryOutput(data, context);
   const response: QueryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "QueryOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2859,7 +2833,6 @@ export const deserializeAws_json1_0RestoreTableFromBackupCommand = async (
   contents = deserializeAws_json1_0RestoreTableFromBackupOutput(data, context);
   const response: RestoreTableFromBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreTableFromBackupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2963,7 +2936,6 @@ export const deserializeAws_json1_0RestoreTableToPointInTimeCommand = async (
   contents = deserializeAws_json1_0RestoreTableToPointInTimeOutput(data, context);
   const response: RestoreTableToPointInTimeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreTableToPointInTimeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3075,7 +3047,6 @@ export const deserializeAws_json1_0ScanCommand = async (
   contents = deserializeAws_json1_0ScanOutput(data, context);
   const response: ScanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ScanOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3247,7 +3218,6 @@ export const deserializeAws_json1_0TransactGetItemsCommand = async (
   contents = deserializeAws_json1_0TransactGetItemsOutput(data, context);
   const response: TransactGetItemsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TransactGetItemsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3343,7 +3313,6 @@ export const deserializeAws_json1_0TransactWriteItemsCommand = async (
   contents = deserializeAws_json1_0TransactWriteItemsOutput(data, context);
   const response: TransactWriteItemsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TransactWriteItemsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3539,7 +3508,6 @@ export const deserializeAws_json1_0UpdateContinuousBackupsCommand = async (
   contents = deserializeAws_json1_0UpdateContinuousBackupsOutput(data, context);
   const response: UpdateContinuousBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateContinuousBackupsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3619,7 +3587,6 @@ export const deserializeAws_json1_0UpdateContributorInsightsCommand = async (
   contents = deserializeAws_json1_0UpdateContributorInsightsOutput(data, context);
   const response: UpdateContributorInsightsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateContributorInsightsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3683,7 +3650,6 @@ export const deserializeAws_json1_0UpdateGlobalTableCommand = async (
   contents = deserializeAws_json1_0UpdateGlobalTableOutput(data, context);
   const response: UpdateGlobalTableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGlobalTableOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3779,7 +3745,6 @@ export const deserializeAws_json1_0UpdateGlobalTableSettingsCommand = async (
   contents = deserializeAws_json1_0UpdateGlobalTableSettingsOutput(data, context);
   const response: UpdateGlobalTableSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGlobalTableSettingsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3883,7 +3848,6 @@ export const deserializeAws_json1_0UpdateItemCommand = async (
   contents = deserializeAws_json1_0UpdateItemOutput(data, context);
   const response: UpdateItemCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateItemOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3995,7 +3959,6 @@ export const deserializeAws_json1_0UpdateTableCommand = async (
   contents = deserializeAws_json1_0UpdateTableOutput(data, context);
   const response: UpdateTableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTableOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4083,7 +4046,6 @@ export const deserializeAws_json1_0UpdateTableReplicaAutoScalingCommand = async 
   contents = deserializeAws_json1_0UpdateTableReplicaAutoScalingOutput(data, context);
   const response: UpdateTableReplicaAutoScalingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTableReplicaAutoScalingOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4163,7 +4125,6 @@ export const deserializeAws_json1_0UpdateTimeToLiveCommand = async (
   contents = deserializeAws_json1_0UpdateTimeToLiveOutput(data, context);
   const response: UpdateTimeToLiveCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTimeToLiveOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6093,7 +6054,6 @@ const serializeAws_json1_0WriteRequests = (input: WriteRequest[], context: __Ser
 
 const deserializeAws_json1_0ArchivalSummary = (output: any, context: __SerdeContext): ArchivalSummary => {
   return {
-    __type: "ArchivalSummary",
     ArchivalBackupArn:
       output.ArchivalBackupArn !== undefined && output.ArchivalBackupArn !== null
         ? output.ArchivalBackupArn
@@ -6109,7 +6069,6 @@ const deserializeAws_json1_0ArchivalSummary = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_0AttributeDefinition = (output: any, context: __SerdeContext): AttributeDefinition => {
   return {
-    __type: "AttributeDefinition",
     AttributeName:
       output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
     AttributeType:
@@ -6140,7 +6099,6 @@ const deserializeAws_json1_0AttributeNameList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_0AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   return {
-    __type: "AttributeValue",
     B: output.B !== undefined && output.B !== null ? context.base64Decoder(output.B) : undefined,
     BOOL: output.BOOL !== undefined && output.BOOL !== null ? output.BOOL : undefined,
     BS:
@@ -6174,7 +6132,6 @@ const deserializeAws_json1_0AutoScalingPolicyDescription = (
   context: __SerdeContext
 ): AutoScalingPolicyDescription => {
   return {
-    __type: "AutoScalingPolicyDescription",
     PolicyName: output.PolicyName !== undefined && output.PolicyName !== null ? output.PolicyName : undefined,
     TargetTrackingScalingPolicyConfiguration:
       output.TargetTrackingScalingPolicyConfiguration !== undefined &&
@@ -6199,7 +6156,6 @@ const deserializeAws_json1_0AutoScalingSettingsDescription = (
   context: __SerdeContext
 ): AutoScalingSettingsDescription => {
   return {
-    __type: "AutoScalingSettingsDescription",
     AutoScalingDisabled:
       output.AutoScalingDisabled !== undefined && output.AutoScalingDisabled !== null
         ? output.AutoScalingDisabled
@@ -6222,7 +6178,6 @@ const deserializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationD
   context: __SerdeContext
 ): AutoScalingTargetTrackingScalingPolicyConfigurationDescription => {
   return {
-    __type: "AutoScalingTargetTrackingScalingPolicyConfigurationDescription",
     DisableScaleIn:
       output.DisableScaleIn !== undefined && output.DisableScaleIn !== null ? output.DisableScaleIn : undefined,
     ScaleInCooldown:
@@ -6235,7 +6190,6 @@ const deserializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationD
 
 const deserializeAws_json1_0BackupDescription = (output: any, context: __SerdeContext): BackupDescription => {
   return {
-    __type: "BackupDescription",
     BackupDetails:
       output.BackupDetails !== undefined && output.BackupDetails !== null
         ? deserializeAws_json1_0BackupDetails(output.BackupDetails, context)
@@ -6253,7 +6207,6 @@ const deserializeAws_json1_0BackupDescription = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_0BackupDetails = (output: any, context: __SerdeContext): BackupDetails => {
   return {
-    __type: "BackupDetails",
     BackupArn: output.BackupArn !== undefined && output.BackupArn !== null ? output.BackupArn : undefined,
     BackupCreationDateTime:
       output.BackupCreationDateTime !== undefined && output.BackupCreationDateTime !== null
@@ -6273,7 +6226,6 @@ const deserializeAws_json1_0BackupDetails = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_0BackupInUseException = (output: any, context: __SerdeContext): BackupInUseException => {
   return {
-    __type: "BackupInUseException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6283,7 +6235,6 @@ const deserializeAws_json1_0BackupNotFoundException = (
   context: __SerdeContext
 ): BackupNotFoundException => {
   return {
-    __type: "BackupNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6294,7 +6245,6 @@ const deserializeAws_json1_0BackupSummaries = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_0BackupSummary = (output: any, context: __SerdeContext): BackupSummary => {
   return {
-    __type: "BackupSummary",
     BackupArn: output.BackupArn !== undefined && output.BackupArn !== null ? output.BackupArn : undefined,
     BackupCreationDateTime:
       output.BackupCreationDateTime !== undefined && output.BackupCreationDateTime !== null
@@ -6317,7 +6267,6 @@ const deserializeAws_json1_0BackupSummary = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_0BatchGetItemOutput = (output: any, context: __SerdeContext): BatchGetItemOutput => {
   return {
-    __type: "BatchGetItemOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
         ? deserializeAws_json1_0ConsumedCapacityMultiple(output.ConsumedCapacity, context)
@@ -6361,7 +6310,6 @@ const deserializeAws_json1_0BatchGetResponseMap = (
 
 const deserializeAws_json1_0BatchWriteItemOutput = (output: any, context: __SerdeContext): BatchWriteItemOutput => {
   return {
-    __type: "BatchWriteItemOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
         ? deserializeAws_json1_0ConsumedCapacityMultiple(output.ConsumedCapacity, context)
@@ -6392,7 +6340,6 @@ const deserializeAws_json1_0BatchWriteItemRequestMap = (
 
 const deserializeAws_json1_0BillingModeSummary = (output: any, context: __SerdeContext): BillingModeSummary => {
   return {
-    __type: "BillingModeSummary",
     BillingMode: output.BillingMode !== undefined && output.BillingMode !== null ? output.BillingMode : undefined,
     LastUpdateToPayPerRequestDateTime:
       output.LastUpdateToPayPerRequestDateTime !== undefined && output.LastUpdateToPayPerRequestDateTime !== null
@@ -6407,7 +6354,6 @@ const deserializeAws_json1_0BinarySetAttributeValue = (output: any, context: __S
 
 const deserializeAws_json1_0CancellationReason = (output: any, context: __SerdeContext): CancellationReason => {
   return {
-    __type: "CancellationReason",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Item:
       output.Item !== undefined && output.Item !== null
@@ -6423,7 +6369,6 @@ const deserializeAws_json1_0CancellationReasonList = (output: any, context: __Se
 
 const deserializeAws_json1_0Capacity = (output: any, context: __SerdeContext): Capacity => {
   return {
-    __type: "Capacity",
     CapacityUnits:
       output.CapacityUnits !== undefined && output.CapacityUnits !== null ? output.CapacityUnits : undefined,
     ReadCapacityUnits:
@@ -6442,14 +6387,12 @@ const deserializeAws_json1_0ConditionalCheckFailedException = (
   context: __SerdeContext
 ): ConditionalCheckFailedException => {
   return {
-    __type: "ConditionalCheckFailedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0ConsumedCapacity = (output: any, context: __SerdeContext): ConsumedCapacity => {
   return {
-    __type: "ConsumedCapacity",
     CapacityUnits:
       output.CapacityUnits !== undefined && output.CapacityUnits !== null ? output.CapacityUnits : undefined,
     GlobalSecondaryIndexes:
@@ -6485,7 +6428,6 @@ const deserializeAws_json1_0ContinuousBackupsDescription = (
   context: __SerdeContext
 ): ContinuousBackupsDescription => {
   return {
-    __type: "ContinuousBackupsDescription",
     ContinuousBackupsStatus:
       output.ContinuousBackupsStatus !== undefined && output.ContinuousBackupsStatus !== null
         ? output.ContinuousBackupsStatus
@@ -6502,7 +6444,6 @@ const deserializeAws_json1_0ContinuousBackupsUnavailableException = (
   context: __SerdeContext
 ): ContinuousBackupsUnavailableException => {
   return {
-    __type: "ContinuousBackupsUnavailableException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6523,7 +6464,6 @@ const deserializeAws_json1_0ContributorInsightsSummary = (
   context: __SerdeContext
 ): ContributorInsightsSummary => {
   return {
-    __type: "ContributorInsightsSummary",
     ContributorInsightsStatus:
       output.ContributorInsightsStatus !== undefined && output.ContributorInsightsStatus !== null
         ? output.ContributorInsightsStatus
@@ -6535,7 +6475,6 @@ const deserializeAws_json1_0ContributorInsightsSummary = (
 
 const deserializeAws_json1_0CreateBackupOutput = (output: any, context: __SerdeContext): CreateBackupOutput => {
   return {
-    __type: "CreateBackupOutput",
     BackupDetails:
       output.BackupDetails !== undefined && output.BackupDetails !== null
         ? deserializeAws_json1_0BackupDetails(output.BackupDetails, context)
@@ -6548,7 +6487,6 @@ const deserializeAws_json1_0CreateGlobalTableOutput = (
   context: __SerdeContext
 ): CreateGlobalTableOutput => {
   return {
-    __type: "CreateGlobalTableOutput",
     GlobalTableDescription:
       output.GlobalTableDescription !== undefined && output.GlobalTableDescription !== null
         ? deserializeAws_json1_0GlobalTableDescription(output.GlobalTableDescription, context)
@@ -6558,7 +6496,6 @@ const deserializeAws_json1_0CreateGlobalTableOutput = (
 
 const deserializeAws_json1_0CreateTableOutput = (output: any, context: __SerdeContext): CreateTableOutput => {
   return {
-    __type: "CreateTableOutput",
     TableDescription:
       output.TableDescription !== undefined && output.TableDescription !== null
         ? deserializeAws_json1_0TableDescription(output.TableDescription, context)
@@ -6568,7 +6505,6 @@ const deserializeAws_json1_0CreateTableOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_0DeleteBackupOutput = (output: any, context: __SerdeContext): DeleteBackupOutput => {
   return {
-    __type: "DeleteBackupOutput",
     BackupDescription:
       output.BackupDescription !== undefined && output.BackupDescription !== null
         ? deserializeAws_json1_0BackupDescription(output.BackupDescription, context)
@@ -6578,7 +6514,6 @@ const deserializeAws_json1_0DeleteBackupOutput = (output: any, context: __SerdeC
 
 const deserializeAws_json1_0DeleteItemOutput = (output: any, context: __SerdeContext): DeleteItemOutput => {
   return {
-    __type: "DeleteItemOutput",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_0AttributeMap(output.Attributes, context)
@@ -6596,14 +6531,12 @@ const deserializeAws_json1_0DeleteItemOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_0DeleteRequest = (output: any, context: __SerdeContext): DeleteRequest => {
   return {
-    __type: "DeleteRequest",
     Key: output.Key !== undefined && output.Key !== null ? deserializeAws_json1_0Key(output.Key, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0DeleteTableOutput = (output: any, context: __SerdeContext): DeleteTableOutput => {
   return {
-    __type: "DeleteTableOutput",
     TableDescription:
       output.TableDescription !== undefined && output.TableDescription !== null
         ? deserializeAws_json1_0TableDescription(output.TableDescription, context)
@@ -6613,7 +6546,6 @@ const deserializeAws_json1_0DeleteTableOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_0DescribeBackupOutput = (output: any, context: __SerdeContext): DescribeBackupOutput => {
   return {
-    __type: "DescribeBackupOutput",
     BackupDescription:
       output.BackupDescription !== undefined && output.BackupDescription !== null
         ? deserializeAws_json1_0BackupDescription(output.BackupDescription, context)
@@ -6626,7 +6558,6 @@ const deserializeAws_json1_0DescribeContinuousBackupsOutput = (
   context: __SerdeContext
 ): DescribeContinuousBackupsOutput => {
   return {
-    __type: "DescribeContinuousBackupsOutput",
     ContinuousBackupsDescription:
       output.ContinuousBackupsDescription !== undefined && output.ContinuousBackupsDescription !== null
         ? deserializeAws_json1_0ContinuousBackupsDescription(output.ContinuousBackupsDescription, context)
@@ -6639,7 +6570,6 @@ const deserializeAws_json1_0DescribeContributorInsightsOutput = (
   context: __SerdeContext
 ): DescribeContributorInsightsOutput => {
   return {
-    __type: "DescribeContributorInsightsOutput",
     ContributorInsightsRuleList:
       output.ContributorInsightsRuleList !== undefined && output.ContributorInsightsRuleList !== null
         ? deserializeAws_json1_0ContributorInsightsRuleList(output.ContributorInsightsRuleList, context)
@@ -6666,7 +6596,6 @@ const deserializeAws_json1_0DescribeEndpointsResponse = (
   context: __SerdeContext
 ): DescribeEndpointsResponse => {
   return {
-    __type: "DescribeEndpointsResponse",
     Endpoints:
       output.Endpoints !== undefined && output.Endpoints !== null
         ? deserializeAws_json1_0Endpoints(output.Endpoints, context)
@@ -6679,7 +6608,6 @@ const deserializeAws_json1_0DescribeGlobalTableOutput = (
   context: __SerdeContext
 ): DescribeGlobalTableOutput => {
   return {
-    __type: "DescribeGlobalTableOutput",
     GlobalTableDescription:
       output.GlobalTableDescription !== undefined && output.GlobalTableDescription !== null
         ? deserializeAws_json1_0GlobalTableDescription(output.GlobalTableDescription, context)
@@ -6692,7 +6620,6 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsOutput = (
   context: __SerdeContext
 ): DescribeGlobalTableSettingsOutput => {
   return {
-    __type: "DescribeGlobalTableSettingsOutput",
     GlobalTableName:
       output.GlobalTableName !== undefined && output.GlobalTableName !== null ? output.GlobalTableName : undefined,
     ReplicaSettings:
@@ -6704,7 +6631,6 @@ const deserializeAws_json1_0DescribeGlobalTableSettingsOutput = (
 
 const deserializeAws_json1_0DescribeLimitsOutput = (output: any, context: __SerdeContext): DescribeLimitsOutput => {
   return {
-    __type: "DescribeLimitsOutput",
     AccountMaxReadCapacityUnits:
       output.AccountMaxReadCapacityUnits !== undefined && output.AccountMaxReadCapacityUnits !== null
         ? output.AccountMaxReadCapacityUnits
@@ -6726,7 +6652,6 @@ const deserializeAws_json1_0DescribeLimitsOutput = (output: any, context: __Serd
 
 const deserializeAws_json1_0DescribeTableOutput = (output: any, context: __SerdeContext): DescribeTableOutput => {
   return {
-    __type: "DescribeTableOutput",
     Table:
       output.Table !== undefined && output.Table !== null
         ? deserializeAws_json1_0TableDescription(output.Table, context)
@@ -6739,7 +6664,6 @@ const deserializeAws_json1_0DescribeTableReplicaAutoScalingOutput = (
   context: __SerdeContext
 ): DescribeTableReplicaAutoScalingOutput => {
   return {
-    __type: "DescribeTableReplicaAutoScalingOutput",
     TableAutoScalingDescription:
       output.TableAutoScalingDescription !== undefined && output.TableAutoScalingDescription !== null
         ? deserializeAws_json1_0TableAutoScalingDescription(output.TableAutoScalingDescription, context)
@@ -6752,7 +6676,6 @@ const deserializeAws_json1_0DescribeTimeToLiveOutput = (
   context: __SerdeContext
 ): DescribeTimeToLiveOutput => {
   return {
-    __type: "DescribeTimeToLiveOutput",
     TimeToLiveDescription:
       output.TimeToLiveDescription !== undefined && output.TimeToLiveDescription !== null
         ? deserializeAws_json1_0TimeToLiveDescription(output.TimeToLiveDescription, context)
@@ -6762,7 +6685,6 @@ const deserializeAws_json1_0DescribeTimeToLiveOutput = (
 
 const deserializeAws_json1_0Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
-    __type: "Endpoint",
     Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
     CachePeriodInMinutes:
       output.CachePeriodInMinutes !== undefined && output.CachePeriodInMinutes !== null
@@ -6790,7 +6712,6 @@ const deserializeAws_json1_0ExpressionAttributeNameMap = (
 
 const deserializeAws_json1_0FailureException = (output: any, context: __SerdeContext): FailureException => {
   return {
-    __type: "FailureException",
     ExceptionDescription:
       output.ExceptionDescription !== undefined && output.ExceptionDescription !== null
         ? output.ExceptionDescription
@@ -6802,7 +6723,6 @@ const deserializeAws_json1_0FailureException = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_0GetItemOutput = (output: any, context: __SerdeContext): GetItemOutput => {
   return {
-    __type: "GetItemOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
         ? deserializeAws_json1_0ConsumedCapacity(output.ConsumedCapacity, context)
@@ -6819,7 +6739,6 @@ const deserializeAws_json1_0GlobalSecondaryIndexDescription = (
   context: __SerdeContext
 ): GlobalSecondaryIndexDescription => {
   return {
-    __type: "GlobalSecondaryIndexDescription",
     Backfilling: output.Backfilling !== undefined && output.Backfilling !== null ? output.Backfilling : undefined,
     IndexArn: output.IndexArn !== undefined && output.IndexArn !== null ? output.IndexArn : undefined,
     IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
@@ -6861,7 +6780,6 @@ const deserializeAws_json1_0GlobalSecondaryIndexInfo = (
   context: __SerdeContext
 ): GlobalSecondaryIndexInfo => {
   return {
-    __type: "GlobalSecondaryIndexInfo",
     IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
     KeySchema:
       output.KeySchema !== undefined && output.KeySchema !== null
@@ -6880,7 +6798,6 @@ const deserializeAws_json1_0GlobalSecondaryIndexInfo = (
 
 const deserializeAws_json1_0GlobalTable = (output: any, context: __SerdeContext): GlobalTable => {
   return {
-    __type: "GlobalTable",
     GlobalTableName:
       output.GlobalTableName !== undefined && output.GlobalTableName !== null ? output.GlobalTableName : undefined,
     ReplicationGroup:
@@ -6895,14 +6812,12 @@ const deserializeAws_json1_0GlobalTableAlreadyExistsException = (
   context: __SerdeContext
 ): GlobalTableAlreadyExistsException => {
   return {
-    __type: "GlobalTableAlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0GlobalTableDescription = (output: any, context: __SerdeContext): GlobalTableDescription => {
   return {
-    __type: "GlobalTableDescription",
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -6931,7 +6846,6 @@ const deserializeAws_json1_0GlobalTableNotFoundException = (
   context: __SerdeContext
 ): GlobalTableNotFoundException => {
   return {
-    __type: "GlobalTableNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6941,21 +6855,18 @@ const deserializeAws_json1_0IdempotentParameterMismatchException = (
   context: __SerdeContext
 ): IdempotentParameterMismatchException => {
   return {
-    __type: "IdempotentParameterMismatchException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0IndexNotFoundException = (output: any, context: __SerdeContext): IndexNotFoundException => {
   return {
-    __type: "IndexNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
-    __type: "InternalServerError",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6965,7 +6876,6 @@ const deserializeAws_json1_0InvalidEndpointException = (
   context: __SerdeContext
 ): InvalidEndpointException => {
   return {
-    __type: "InvalidEndpointException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -6975,7 +6885,6 @@ const deserializeAws_json1_0InvalidRestoreTimeException = (
   context: __SerdeContext
 ): InvalidRestoreTimeException => {
   return {
-    __type: "InvalidRestoreTimeException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -6995,7 +6904,6 @@ const deserializeAws_json1_0ItemCollectionKeyAttributeMap = (
 
 const deserializeAws_json1_0ItemCollectionMetrics = (output: any, context: __SerdeContext): ItemCollectionMetrics => {
   return {
-    __type: "ItemCollectionMetrics",
     ItemCollectionKey:
       output.ItemCollectionKey !== undefined && output.ItemCollectionKey !== null
         ? deserializeAws_json1_0ItemCollectionKeyAttributeMap(output.ItemCollectionKey, context)
@@ -7036,7 +6944,6 @@ const deserializeAws_json1_0ItemCollectionSizeLimitExceededException = (
   context: __SerdeContext
 ): ItemCollectionSizeLimitExceededException => {
   return {
-    __type: "ItemCollectionSizeLimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7047,7 +6954,6 @@ const deserializeAws_json1_0ItemList = (output: any, context: __SerdeContext): {
 
 const deserializeAws_json1_0ItemResponse = (output: any, context: __SerdeContext): ItemResponse => {
   return {
-    __type: "ItemResponse",
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_json1_0AttributeMap(output.Item, context)
@@ -7075,7 +6981,6 @@ const deserializeAws_json1_0KeyList = (output: any, context: __SerdeContext): { 
 
 const deserializeAws_json1_0KeysAndAttributes = (output: any, context: __SerdeContext): KeysAndAttributes => {
   return {
-    __type: "KeysAndAttributes",
     AttributesToGet:
       output.AttributesToGet !== undefined && output.AttributesToGet !== null
         ? deserializeAws_json1_0AttributeNameList(output.AttributesToGet, context)
@@ -7103,7 +7008,6 @@ const deserializeAws_json1_0KeySchema = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_0KeySchemaElement = (output: any, context: __SerdeContext): KeySchemaElement => {
   return {
-    __type: "KeySchemaElement",
     AttributeName:
       output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
     KeyType: output.KeyType !== undefined && output.KeyType !== null ? output.KeyType : undefined,
@@ -7112,7 +7016,6 @@ const deserializeAws_json1_0KeySchemaElement = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_0LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7123,7 +7026,6 @@ const deserializeAws_json1_0ListAttributeValue = (output: any, context: __SerdeC
 
 const deserializeAws_json1_0ListBackupsOutput = (output: any, context: __SerdeContext): ListBackupsOutput => {
   return {
-    __type: "ListBackupsOutput",
     BackupSummaries:
       output.BackupSummaries !== undefined && output.BackupSummaries !== null
         ? deserializeAws_json1_0BackupSummaries(output.BackupSummaries, context)
@@ -7140,7 +7042,6 @@ const deserializeAws_json1_0ListContributorInsightsOutput = (
   context: __SerdeContext
 ): ListContributorInsightsOutput => {
   return {
-    __type: "ListContributorInsightsOutput",
     ContributorInsightsSummaries:
       output.ContributorInsightsSummaries !== undefined && output.ContributorInsightsSummaries !== null
         ? deserializeAws_json1_0ContributorInsightsSummaries(output.ContributorInsightsSummaries, context)
@@ -7151,7 +7052,6 @@ const deserializeAws_json1_0ListContributorInsightsOutput = (
 
 const deserializeAws_json1_0ListGlobalTablesOutput = (output: any, context: __SerdeContext): ListGlobalTablesOutput => {
   return {
-    __type: "ListGlobalTablesOutput",
     GlobalTables:
       output.GlobalTables !== undefined && output.GlobalTables !== null
         ? deserializeAws_json1_0GlobalTableList(output.GlobalTables, context)
@@ -7165,7 +7065,6 @@ const deserializeAws_json1_0ListGlobalTablesOutput = (output: any, context: __Se
 
 const deserializeAws_json1_0ListTablesOutput = (output: any, context: __SerdeContext): ListTablesOutput => {
   return {
-    __type: "ListTablesOutput",
     LastEvaluatedTableName:
       output.LastEvaluatedTableName !== undefined && output.LastEvaluatedTableName !== null
         ? output.LastEvaluatedTableName
@@ -7182,7 +7081,6 @@ const deserializeAws_json1_0ListTagsOfResourceOutput = (
   context: __SerdeContext
 ): ListTagsOfResourceOutput => {
   return {
-    __type: "ListTagsOfResourceOutput",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -7196,7 +7094,6 @@ const deserializeAws_json1_0LocalSecondaryIndexDescription = (
   context: __SerdeContext
 ): LocalSecondaryIndexDescription => {
   return {
-    __type: "LocalSecondaryIndexDescription",
     IndexArn: output.IndexArn !== undefined && output.IndexArn !== null ? output.IndexArn : undefined,
     IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
     IndexSizeBytes:
@@ -7232,7 +7129,6 @@ const deserializeAws_json1_0LocalSecondaryIndexInfo = (
   context: __SerdeContext
 ): LocalSecondaryIndexInfo => {
   return {
-    __type: "LocalSecondaryIndexInfo",
     IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
     KeySchema:
       output.KeySchema !== undefined && output.KeySchema !== null
@@ -7271,7 +7167,6 @@ const deserializeAws_json1_0PointInTimeRecoveryDescription = (
   context: __SerdeContext
 ): PointInTimeRecoveryDescription => {
   return {
-    __type: "PointInTimeRecoveryDescription",
     EarliestRestorableDateTime:
       output.EarliestRestorableDateTime !== undefined && output.EarliestRestorableDateTime !== null
         ? new Date(Math.round(output.EarliestRestorableDateTime * 1000))
@@ -7292,14 +7187,12 @@ const deserializeAws_json1_0PointInTimeRecoveryUnavailableException = (
   context: __SerdeContext
 ): PointInTimeRecoveryUnavailableException => {
   return {
-    __type: "PointInTimeRecoveryUnavailableException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0Projection = (output: any, context: __SerdeContext): Projection => {
   return {
-    __type: "Projection",
     NonKeyAttributes:
       output.NonKeyAttributes !== undefined && output.NonKeyAttributes !== null
         ? deserializeAws_json1_0NonKeyAttributeNameList(output.NonKeyAttributes, context)
@@ -7311,7 +7204,6 @@ const deserializeAws_json1_0Projection = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_0ProvisionedThroughput = (output: any, context: __SerdeContext): ProvisionedThroughput => {
   return {
-    __type: "ProvisionedThroughput",
     ReadCapacityUnits:
       output.ReadCapacityUnits !== undefined && output.ReadCapacityUnits !== null
         ? output.ReadCapacityUnits
@@ -7328,7 +7220,6 @@ const deserializeAws_json1_0ProvisionedThroughputDescription = (
   context: __SerdeContext
 ): ProvisionedThroughputDescription => {
   return {
-    __type: "ProvisionedThroughputDescription",
     LastDecreaseDateTime:
       output.LastDecreaseDateTime !== undefined && output.LastDecreaseDateTime !== null
         ? new Date(Math.round(output.LastDecreaseDateTime * 1000))
@@ -7357,7 +7248,6 @@ const deserializeAws_json1_0ProvisionedThroughputExceededException = (
   context: __SerdeContext
 ): ProvisionedThroughputExceededException => {
   return {
-    __type: "ProvisionedThroughputExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7367,7 +7257,6 @@ const deserializeAws_json1_0ProvisionedThroughputOverride = (
   context: __SerdeContext
 ): ProvisionedThroughputOverride => {
   return {
-    __type: "ProvisionedThroughputOverride",
     ReadCapacityUnits:
       output.ReadCapacityUnits !== undefined && output.ReadCapacityUnits !== null
         ? output.ReadCapacityUnits
@@ -7390,7 +7279,6 @@ const deserializeAws_json1_0PutItemInputAttributeMap = (
 
 const deserializeAws_json1_0PutItemOutput = (output: any, context: __SerdeContext): PutItemOutput => {
   return {
-    __type: "PutItemOutput",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_0AttributeMap(output.Attributes, context)
@@ -7408,7 +7296,6 @@ const deserializeAws_json1_0PutItemOutput = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_0PutRequest = (output: any, context: __SerdeContext): PutRequest => {
   return {
-    __type: "PutRequest",
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_json1_0PutItemInputAttributeMap(output.Item, context)
@@ -7418,7 +7305,6 @@ const deserializeAws_json1_0PutRequest = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_0QueryOutput = (output: any, context: __SerdeContext): QueryOutput => {
   return {
-    __type: "QueryOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
         ? deserializeAws_json1_0ConsumedCapacity(output.ConsumedCapacity, context)
@@ -7438,7 +7324,6 @@ const deserializeAws_json1_0QueryOutput = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_0Replica = (output: any, context: __SerdeContext): Replica => {
   return {
-    __type: "Replica",
     RegionName: output.RegionName !== undefined && output.RegionName !== null ? output.RegionName : undefined,
   } as any;
 };
@@ -7448,7 +7333,6 @@ const deserializeAws_json1_0ReplicaAlreadyExistsException = (
   context: __SerdeContext
 ): ReplicaAlreadyExistsException => {
   return {
-    __type: "ReplicaAlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7458,7 +7342,6 @@ const deserializeAws_json1_0ReplicaAutoScalingDescription = (
   context: __SerdeContext
 ): ReplicaAutoScalingDescription => {
   return {
-    __type: "ReplicaAutoScalingDescription",
     GlobalSecondaryIndexes:
       output.GlobalSecondaryIndexes !== undefined && output.GlobalSecondaryIndexes !== null
         ? deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescriptionList(
@@ -7497,7 +7380,6 @@ const deserializeAws_json1_0ReplicaAutoScalingDescriptionList = (
 
 const deserializeAws_json1_0ReplicaDescription = (output: any, context: __SerdeContext): ReplicaDescription => {
   return {
-    __type: "ReplicaDescription",
     GlobalSecondaryIndexes:
       output.GlobalSecondaryIndexes !== undefined && output.GlobalSecondaryIndexes !== null
         ? deserializeAws_json1_0ReplicaGlobalSecondaryIndexDescriptionList(output.GlobalSecondaryIndexes, context)
@@ -7531,7 +7413,6 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingDescription = 
   context: __SerdeContext
 ): ReplicaGlobalSecondaryIndexAutoScalingDescription => {
   return {
-    __type: "ReplicaGlobalSecondaryIndexAutoScalingDescription",
     IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
     IndexStatus: output.IndexStatus !== undefined && output.IndexStatus !== null ? output.IndexStatus : undefined,
     ProvisionedReadCapacityAutoScalingSettings:
@@ -7567,7 +7448,6 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexDescription = (
   context: __SerdeContext
 ): ReplicaGlobalSecondaryIndexDescription => {
   return {
-    __type: "ReplicaGlobalSecondaryIndexDescription",
     IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
     ProvisionedThroughputOverride:
       output.ProvisionedThroughputOverride !== undefined && output.ProvisionedThroughputOverride !== null
@@ -7590,7 +7470,6 @@ const deserializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsDescription = (
   context: __SerdeContext
 ): ReplicaGlobalSecondaryIndexSettingsDescription => {
   return {
-    __type: "ReplicaGlobalSecondaryIndexSettingsDescription",
     IndexName: output.IndexName !== undefined && output.IndexName !== null ? output.IndexName : undefined,
     IndexStatus: output.IndexStatus !== undefined && output.IndexStatus !== null ? output.IndexStatus : undefined,
     ProvisionedReadCapacityAutoScalingSettings:
@@ -7638,7 +7517,6 @@ const deserializeAws_json1_0ReplicaNotFoundException = (
   context: __SerdeContext
 ): ReplicaNotFoundException => {
   return {
-    __type: "ReplicaNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7648,7 +7526,6 @@ const deserializeAws_json1_0ReplicaSettingsDescription = (
   context: __SerdeContext
 ): ReplicaSettingsDescription => {
   return {
-    __type: "ReplicaSettingsDescription",
     RegionName: output.RegionName !== undefined && output.RegionName !== null ? output.RegionName : undefined,
     ReplicaBillingModeSummary:
       output.ReplicaBillingModeSummary !== undefined && output.ReplicaBillingModeSummary !== null
@@ -7699,14 +7576,12 @@ const deserializeAws_json1_0ReplicaSettingsDescriptionList = (
 
 const deserializeAws_json1_0RequestLimitExceeded = (output: any, context: __SerdeContext): RequestLimitExceeded => {
   return {
-    __type: "RequestLimitExceeded",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    __type: "ResourceInUseException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7716,14 +7591,12 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0RestoreSummary = (output: any, context: __SerdeContext): RestoreSummary => {
   return {
-    __type: "RestoreSummary",
     RestoreDateTime:
       output.RestoreDateTime !== undefined && output.RestoreDateTime !== null
         ? new Date(Math.round(output.RestoreDateTime * 1000))
@@ -7744,7 +7617,6 @@ const deserializeAws_json1_0RestoreTableFromBackupOutput = (
   context: __SerdeContext
 ): RestoreTableFromBackupOutput => {
   return {
-    __type: "RestoreTableFromBackupOutput",
     TableDescription:
       output.TableDescription !== undefined && output.TableDescription !== null
         ? deserializeAws_json1_0TableDescription(output.TableDescription, context)
@@ -7757,7 +7629,6 @@ const deserializeAws_json1_0RestoreTableToPointInTimeOutput = (
   context: __SerdeContext
 ): RestoreTableToPointInTimeOutput => {
   return {
-    __type: "RestoreTableToPointInTimeOutput",
     TableDescription:
       output.TableDescription !== undefined && output.TableDescription !== null
         ? deserializeAws_json1_0TableDescription(output.TableDescription, context)
@@ -7767,7 +7638,6 @@ const deserializeAws_json1_0RestoreTableToPointInTimeOutput = (
 
 const deserializeAws_json1_0ScanOutput = (output: any, context: __SerdeContext): ScanOutput => {
   return {
-    __type: "ScanOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
         ? deserializeAws_json1_0ConsumedCapacity(output.ConsumedCapacity, context)
@@ -7800,7 +7670,6 @@ const deserializeAws_json1_0SecondaryIndexesCapacityMap = (
 
 const deserializeAws_json1_0SourceTableDetails = (output: any, context: __SerdeContext): SourceTableDetails => {
   return {
-    __type: "SourceTableDetails",
     BillingMode: output.BillingMode !== undefined && output.BillingMode !== null ? output.BillingMode : undefined,
     ItemCount: output.ItemCount !== undefined && output.ItemCount !== null ? output.ItemCount : undefined,
     KeySchema:
@@ -7828,7 +7697,6 @@ const deserializeAws_json1_0SourceTableFeatureDetails = (
   context: __SerdeContext
 ): SourceTableFeatureDetails => {
   return {
-    __type: "SourceTableFeatureDetails",
     GlobalSecondaryIndexes:
       output.GlobalSecondaryIndexes !== undefined && output.GlobalSecondaryIndexes !== null
         ? deserializeAws_json1_0GlobalSecondaryIndexes(output.GlobalSecondaryIndexes, context)
@@ -7854,7 +7722,6 @@ const deserializeAws_json1_0SourceTableFeatureDetails = (
 
 const deserializeAws_json1_0SSEDescription = (output: any, context: __SerdeContext): SSEDescription => {
   return {
-    __type: "SSEDescription",
     InaccessibleEncryptionDateTime:
       output.InaccessibleEncryptionDateTime !== undefined && output.InaccessibleEncryptionDateTime !== null
         ? new Date(Math.round(output.InaccessibleEncryptionDateTime * 1000))
@@ -7868,7 +7735,6 @@ const deserializeAws_json1_0SSEDescription = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_0StreamSpecification = (output: any, context: __SerdeContext): StreamSpecification => {
   return {
-    __type: "StreamSpecification",
     StreamEnabled:
       output.StreamEnabled !== undefined && output.StreamEnabled !== null ? output.StreamEnabled : undefined,
     StreamViewType:
@@ -7885,7 +7751,6 @@ const deserializeAws_json1_0TableAlreadyExistsException = (
   context: __SerdeContext
 ): TableAlreadyExistsException => {
   return {
-    __type: "TableAlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7895,7 +7760,6 @@ const deserializeAws_json1_0TableAutoScalingDescription = (
   context: __SerdeContext
 ): TableAutoScalingDescription => {
   return {
-    __type: "TableAutoScalingDescription",
     Replicas:
       output.Replicas !== undefined && output.Replicas !== null
         ? deserializeAws_json1_0ReplicaAutoScalingDescriptionList(output.Replicas, context)
@@ -7907,7 +7771,6 @@ const deserializeAws_json1_0TableAutoScalingDescription = (
 
 const deserializeAws_json1_0TableDescription = (output: any, context: __SerdeContext): TableDescription => {
   return {
-    __type: "TableDescription",
     ArchivalSummary:
       output.ArchivalSummary !== undefined && output.ArchivalSummary !== null
         ? deserializeAws_json1_0ArchivalSummary(output.ArchivalSummary, context)
@@ -7978,7 +7841,6 @@ const deserializeAws_json1_0TableDescription = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_0TableInUseException = (output: any, context: __SerdeContext): TableInUseException => {
   return {
-    __type: "TableInUseException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7989,14 +7851,12 @@ const deserializeAws_json1_0TableNameList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_0TableNotFoundException = (output: any, context: __SerdeContext): TableNotFoundException => {
   return {
-    __type: "TableNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -8008,7 +7868,6 @@ const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_0TimeToLiveDescription = (output: any, context: __SerdeContext): TimeToLiveDescription => {
   return {
-    __type: "TimeToLiveDescription",
     AttributeName:
       output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
     TimeToLiveStatus:
@@ -8021,7 +7880,6 @@ const deserializeAws_json1_0TimeToLiveSpecification = (
   context: __SerdeContext
 ): TimeToLiveSpecification => {
   return {
-    __type: "TimeToLiveSpecification",
     AttributeName:
       output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
@@ -8030,7 +7888,6 @@ const deserializeAws_json1_0TimeToLiveSpecification = (
 
 const deserializeAws_json1_0TransactGetItemsOutput = (output: any, context: __SerdeContext): TransactGetItemsOutput => {
   return {
-    __type: "TransactGetItemsOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
         ? deserializeAws_json1_0ConsumedCapacityMultiple(output.ConsumedCapacity, context)
@@ -8047,7 +7904,6 @@ const deserializeAws_json1_0TransactionCanceledException = (
   context: __SerdeContext
 ): TransactionCanceledException => {
   return {
-    __type: "TransactionCanceledException",
     CancellationReasons:
       output.CancellationReasons !== undefined && output.CancellationReasons !== null
         ? deserializeAws_json1_0CancellationReasonList(output.CancellationReasons, context)
@@ -8061,7 +7917,6 @@ const deserializeAws_json1_0TransactionConflictException = (
   context: __SerdeContext
 ): TransactionConflictException => {
   return {
-    __type: "TransactionConflictException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -8071,7 +7926,6 @@ const deserializeAws_json1_0TransactionInProgressException = (
   context: __SerdeContext
 ): TransactionInProgressException => {
   return {
-    __type: "TransactionInProgressException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8081,7 +7935,6 @@ const deserializeAws_json1_0TransactWriteItemsOutput = (
   context: __SerdeContext
 ): TransactWriteItemsOutput => {
   return {
-    __type: "TransactWriteItemsOutput",
     ConsumedCapacity:
       output.ConsumedCapacity !== undefined && output.ConsumedCapacity !== null
         ? deserializeAws_json1_0ConsumedCapacityMultiple(output.ConsumedCapacity, context)
@@ -8098,7 +7951,6 @@ const deserializeAws_json1_0UpdateContinuousBackupsOutput = (
   context: __SerdeContext
 ): UpdateContinuousBackupsOutput => {
   return {
-    __type: "UpdateContinuousBackupsOutput",
     ContinuousBackupsDescription:
       output.ContinuousBackupsDescription !== undefined && output.ContinuousBackupsDescription !== null
         ? deserializeAws_json1_0ContinuousBackupsDescription(output.ContinuousBackupsDescription, context)
@@ -8111,7 +7963,6 @@ const deserializeAws_json1_0UpdateContributorInsightsOutput = (
   context: __SerdeContext
 ): UpdateContributorInsightsOutput => {
   return {
-    __type: "UpdateContributorInsightsOutput",
     ContributorInsightsStatus:
       output.ContributorInsightsStatus !== undefined && output.ContributorInsightsStatus !== null
         ? output.ContributorInsightsStatus
@@ -8126,7 +7977,6 @@ const deserializeAws_json1_0UpdateGlobalTableOutput = (
   context: __SerdeContext
 ): UpdateGlobalTableOutput => {
   return {
-    __type: "UpdateGlobalTableOutput",
     GlobalTableDescription:
       output.GlobalTableDescription !== undefined && output.GlobalTableDescription !== null
         ? deserializeAws_json1_0GlobalTableDescription(output.GlobalTableDescription, context)
@@ -8139,7 +7989,6 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsOutput = (
   context: __SerdeContext
 ): UpdateGlobalTableSettingsOutput => {
   return {
-    __type: "UpdateGlobalTableSettingsOutput",
     GlobalTableName:
       output.GlobalTableName !== undefined && output.GlobalTableName !== null ? output.GlobalTableName : undefined,
     ReplicaSettings:
@@ -8151,7 +8000,6 @@ const deserializeAws_json1_0UpdateGlobalTableSettingsOutput = (
 
 const deserializeAws_json1_0UpdateItemOutput = (output: any, context: __SerdeContext): UpdateItemOutput => {
   return {
-    __type: "UpdateItemOutput",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_0AttributeMap(output.Attributes, context)
@@ -8169,7 +8017,6 @@ const deserializeAws_json1_0UpdateItemOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_0UpdateTableOutput = (output: any, context: __SerdeContext): UpdateTableOutput => {
   return {
-    __type: "UpdateTableOutput",
     TableDescription:
       output.TableDescription !== undefined && output.TableDescription !== null
         ? deserializeAws_json1_0TableDescription(output.TableDescription, context)
@@ -8182,7 +8029,6 @@ const deserializeAws_json1_0UpdateTableReplicaAutoScalingOutput = (
   context: __SerdeContext
 ): UpdateTableReplicaAutoScalingOutput => {
   return {
-    __type: "UpdateTableReplicaAutoScalingOutput",
     TableAutoScalingDescription:
       output.TableAutoScalingDescription !== undefined && output.TableAutoScalingDescription !== null
         ? deserializeAws_json1_0TableAutoScalingDescription(output.TableAutoScalingDescription, context)
@@ -8192,7 +8038,6 @@ const deserializeAws_json1_0UpdateTableReplicaAutoScalingOutput = (
 
 const deserializeAws_json1_0UpdateTimeToLiveOutput = (output: any, context: __SerdeContext): UpdateTimeToLiveOutput => {
   return {
-    __type: "UpdateTimeToLiveOutput",
     TimeToLiveSpecification:
       output.TimeToLiveSpecification !== undefined && output.TimeToLiveSpecification !== null
         ? deserializeAws_json1_0TimeToLiveSpecification(output.TimeToLiveSpecification, context)
@@ -8202,7 +8047,6 @@ const deserializeAws_json1_0UpdateTimeToLiveOutput = (output: any, context: __Se
 
 const deserializeAws_json1_0WriteRequest = (output: any, context: __SerdeContext): WriteRequest => {
   return {
-    __type: "WriteRequest",
     DeleteRequest:
       output.DeleteRequest !== undefined && output.DeleteRequest !== null
         ? deserializeAws_json1_0DeleteRequest(output.DeleteRequest, context)

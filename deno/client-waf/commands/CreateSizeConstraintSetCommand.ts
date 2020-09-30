@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { CreateSizeConstraintSetRequest, CreateSizeConstraintSetResponse } from "../models/index.ts";
+import { CreateSizeConstraintSetRequest, CreateSizeConstraintSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateSizeConstraintSetCommand,
   serializeAws_json1_1CreateSizeConstraintSetCommand,

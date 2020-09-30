@@ -490,7 +490,7 @@ import {
   UpdateTagOptionInput,
   UpdateTagOptionOutput,
   UsageInstruction,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -1595,7 +1595,6 @@ export const deserializeAws_json1_1AcceptPortfolioShareCommand = async (
   contents = deserializeAws_json1_1AcceptPortfolioShareOutput(data, context);
   const response: AcceptPortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptPortfolioShareOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1667,7 +1666,6 @@ export const deserializeAws_json1_1AssociateBudgetWithResourceCommand = async (
   contents = deserializeAws_json1_1AssociateBudgetWithResourceOutput(data, context);
   const response: AssociateBudgetWithResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateBudgetWithResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1747,7 +1745,6 @@ export const deserializeAws_json1_1AssociatePrincipalWithPortfolioCommand = asyn
   contents = deserializeAws_json1_1AssociatePrincipalWithPortfolioOutput(data, context);
   const response: AssociatePrincipalWithPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociatePrincipalWithPortfolioOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1819,7 +1816,6 @@ export const deserializeAws_json1_1AssociateProductWithPortfolioCommand = async 
   contents = deserializeAws_json1_1AssociateProductWithPortfolioOutput(data, context);
   const response: AssociateProductWithPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateProductWithPortfolioOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1891,7 +1887,6 @@ export const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifac
   contents = deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactOutput(data, context);
   const response: AssociateServiceActionWithProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateServiceActionWithProvisioningArtifactOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1963,7 +1958,6 @@ export const deserializeAws_json1_1AssociateTagOptionWithResourceCommand = async
   contents = deserializeAws_json1_1AssociateTagOptionWithResourceOutput(data, context);
   const response: AssociateTagOptionWithResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateTagOptionWithResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2059,7 +2053,6 @@ export const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningAr
   contents = deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactOutput(data, context);
   const response: BatchAssociateServiceActionWithProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchAssociateServiceActionWithProvisioningArtifactOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2115,7 +2108,6 @@ export const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisionin
   contents = deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactOutput(data, context);
   const response: BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDisassociateServiceActionFromProvisioningArtifactOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2171,7 +2163,6 @@ export const deserializeAws_json1_1CopyProductCommand = async (
   contents = deserializeAws_json1_1CopyProductOutput(data, context);
   const response: CopyProductCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CopyProductOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2235,7 +2226,6 @@ export const deserializeAws_json1_1CreateConstraintCommand = async (
   contents = deserializeAws_json1_1CreateConstraintOutput(data, context);
   const response: CreateConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateConstraintOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2315,7 +2305,6 @@ export const deserializeAws_json1_1CreatePortfolioCommand = async (
   contents = deserializeAws_json1_1CreatePortfolioOutput(data, context);
   const response: CreatePortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePortfolioOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2387,7 +2376,6 @@ export const deserializeAws_json1_1CreatePortfolioShareCommand = async (
   contents = deserializeAws_json1_1CreatePortfolioShareOutput(data, context);
   const response: CreatePortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePortfolioShareOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2475,7 +2463,6 @@ export const deserializeAws_json1_1CreateProductCommand = async (
   contents = deserializeAws_json1_1CreateProductOutput(data, context);
   const response: CreateProductCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProductOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2547,7 +2534,6 @@ export const deserializeAws_json1_1CreateProvisionedProductPlanCommand = async (
   contents = deserializeAws_json1_1CreateProvisionedProductPlanOutput(data, context);
   const response: CreateProvisionedProductPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProvisionedProductPlanOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2619,7 +2605,6 @@ export const deserializeAws_json1_1CreateProvisioningArtifactCommand = async (
   contents = deserializeAws_json1_1CreateProvisioningArtifactOutput(data, context);
   const response: CreateProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProvisioningArtifactOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2691,7 +2676,6 @@ export const deserializeAws_json1_1CreateServiceActionCommand = async (
   contents = deserializeAws_json1_1CreateServiceActionOutput(data, context);
   const response: CreateServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateServiceActionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2755,7 +2739,6 @@ export const deserializeAws_json1_1CreateTagOptionCommand = async (
   contents = deserializeAws_json1_1CreateTagOptionOutput(data, context);
   const response: CreateTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTagOptionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2827,7 +2810,6 @@ export const deserializeAws_json1_1DeleteConstraintCommand = async (
   contents = deserializeAws_json1_1DeleteConstraintOutput(data, context);
   const response: DeleteConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteConstraintOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2891,7 +2873,6 @@ export const deserializeAws_json1_1DeletePortfolioCommand = async (
   contents = deserializeAws_json1_1DeletePortfolioOutput(data, context);
   const response: DeletePortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePortfolioOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2971,7 +2952,6 @@ export const deserializeAws_json1_1DeletePortfolioShareCommand = async (
   contents = deserializeAws_json1_1DeletePortfolioShareOutput(data, context);
   const response: DeletePortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePortfolioShareOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3051,7 +3031,6 @@ export const deserializeAws_json1_1DeleteProductCommand = async (
   contents = deserializeAws_json1_1DeleteProductOutput(data, context);
   const response: DeleteProductCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProductOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3131,7 +3110,6 @@ export const deserializeAws_json1_1DeleteProvisionedProductPlanCommand = async (
   contents = deserializeAws_json1_1DeleteProvisionedProductPlanOutput(data, context);
   const response: DeleteProvisionedProductPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProvisionedProductPlanOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3195,7 +3173,6 @@ export const deserializeAws_json1_1DeleteProvisioningArtifactCommand = async (
   contents = deserializeAws_json1_1DeleteProvisioningArtifactOutput(data, context);
   const response: DeleteProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProvisioningArtifactOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3267,7 +3244,6 @@ export const deserializeAws_json1_1DeleteServiceActionCommand = async (
   contents = deserializeAws_json1_1DeleteServiceActionOutput(data, context);
   const response: DeleteServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteServiceActionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3331,7 +3307,6 @@ export const deserializeAws_json1_1DeleteTagOptionCommand = async (
   contents = deserializeAws_json1_1DeleteTagOptionOutput(data, context);
   const response: DeleteTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTagOptionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3403,7 +3378,6 @@ export const deserializeAws_json1_1DescribeConstraintCommand = async (
   contents = deserializeAws_json1_1DescribeConstraintOutput(data, context);
   const response: DescribeConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConstraintOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3459,7 +3433,6 @@ export const deserializeAws_json1_1DescribeCopyProductStatusCommand = async (
   contents = deserializeAws_json1_1DescribeCopyProductStatusOutput(data, context);
   const response: DescribeCopyProductStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCopyProductStatusOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3515,7 +3488,6 @@ export const deserializeAws_json1_1DescribePortfolioCommand = async (
   contents = deserializeAws_json1_1DescribePortfolioOutput(data, context);
   const response: DescribePortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePortfolioOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3571,7 +3543,6 @@ export const deserializeAws_json1_1DescribePortfolioShareStatusCommand = async (
   contents = deserializeAws_json1_1DescribePortfolioShareStatusOutput(data, context);
   const response: DescribePortfolioShareStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePortfolioShareStatusOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3643,7 +3614,6 @@ export const deserializeAws_json1_1DescribeProductCommand = async (
   contents = deserializeAws_json1_1DescribeProductOutput(data, context);
   const response: DescribeProductCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProductOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3707,7 +3677,6 @@ export const deserializeAws_json1_1DescribeProductAsAdminCommand = async (
   contents = deserializeAws_json1_1DescribeProductAsAdminOutput(data, context);
   const response: DescribeProductAsAdminCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProductAsAdminOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3771,7 +3740,6 @@ export const deserializeAws_json1_1DescribeProductViewCommand = async (
   contents = deserializeAws_json1_1DescribeProductViewOutput(data, context);
   const response: DescribeProductViewCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProductViewOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3835,7 +3803,6 @@ export const deserializeAws_json1_1DescribeProvisionedProductCommand = async (
   contents = deserializeAws_json1_1DescribeProvisionedProductOutput(data, context);
   const response: DescribeProvisionedProductCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProvisionedProductOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3891,7 +3858,6 @@ export const deserializeAws_json1_1DescribeProvisionedProductPlanCommand = async
   contents = deserializeAws_json1_1DescribeProvisionedProductPlanOutput(data, context);
   const response: DescribeProvisionedProductPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProvisionedProductPlanOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3955,7 +3921,6 @@ export const deserializeAws_json1_1DescribeProvisioningArtifactCommand = async (
   contents = deserializeAws_json1_1DescribeProvisioningArtifactOutput(data, context);
   const response: DescribeProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProvisioningArtifactOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4019,7 +3984,6 @@ export const deserializeAws_json1_1DescribeProvisioningParametersCommand = async
   contents = deserializeAws_json1_1DescribeProvisioningParametersOutput(data, context);
   const response: DescribeProvisioningParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProvisioningParametersOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4083,7 +4047,6 @@ export const deserializeAws_json1_1DescribeRecordCommand = async (
   contents = deserializeAws_json1_1DescribeRecordOutput(data, context);
   const response: DescribeRecordCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRecordOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4139,7 +4102,6 @@ export const deserializeAws_json1_1DescribeServiceActionCommand = async (
   contents = deserializeAws_json1_1DescribeServiceActionOutput(data, context);
   const response: DescribeServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeServiceActionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4195,7 +4157,6 @@ export const deserializeAws_json1_1DescribeServiceActionExecutionParametersComma
   contents = deserializeAws_json1_1DescribeServiceActionExecutionParametersOutput(data, context);
   const response: DescribeServiceActionExecutionParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeServiceActionExecutionParametersOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4259,7 +4220,6 @@ export const deserializeAws_json1_1DescribeTagOptionCommand = async (
   contents = deserializeAws_json1_1DescribeTagOptionOutput(data, context);
   const response: DescribeTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTagOptionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4323,7 +4283,6 @@ export const deserializeAws_json1_1DisableAWSOrganizationsAccessCommand = async 
   contents = deserializeAws_json1_1DisableAWSOrganizationsAccessOutput(data, context);
   const response: DisableAWSOrganizationsAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableAWSOrganizationsAccessOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4395,7 +4354,6 @@ export const deserializeAws_json1_1DisassociateBudgetFromResourceCommand = async
   contents = deserializeAws_json1_1DisassociateBudgetFromResourceOutput(data, context);
   const response: DisassociateBudgetFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateBudgetFromResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4451,7 +4409,6 @@ export const deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommand = a
   contents = deserializeAws_json1_1DisassociatePrincipalFromPortfolioOutput(data, context);
   const response: DisassociatePrincipalFromPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociatePrincipalFromPortfolioOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4515,7 +4472,6 @@ export const deserializeAws_json1_1DisassociateProductFromPortfolioCommand = asy
   contents = deserializeAws_json1_1DisassociateProductFromPortfolioOutput(data, context);
   const response: DisassociateProductFromPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateProductFromPortfolioOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4587,7 +4543,6 @@ export const deserializeAws_json1_1DisassociateServiceActionFromProvisioningArti
   contents = deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactOutput(data, context);
   const response: DisassociateServiceActionFromProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateServiceActionFromProvisioningArtifactOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4643,7 +4598,6 @@ export const deserializeAws_json1_1DisassociateTagOptionFromResourceCommand = as
   contents = deserializeAws_json1_1DisassociateTagOptionFromResourceOutput(data, context);
   const response: DisassociateTagOptionFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateTagOptionFromResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4707,7 +4661,6 @@ export const deserializeAws_json1_1EnableAWSOrganizationsAccessCommand = async (
   contents = deserializeAws_json1_1EnableAWSOrganizationsAccessOutput(data, context);
   const response: EnableAWSOrganizationsAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableAWSOrganizationsAccessOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4779,7 +4732,6 @@ export const deserializeAws_json1_1ExecuteProvisionedProductPlanCommand = async 
   contents = deserializeAws_json1_1ExecuteProvisionedProductPlanOutput(data, context);
   const response: ExecuteProvisionedProductPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExecuteProvisionedProductPlanOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4851,7 +4803,6 @@ export const deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommand
   contents = deserializeAws_json1_1ExecuteProvisionedProductServiceActionOutput(data, context);
   const response: ExecuteProvisionedProductServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExecuteProvisionedProductServiceActionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4923,7 +4874,6 @@ export const deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommand = asyn
   contents = deserializeAws_json1_1GetAWSOrganizationsAccessStatusOutput(data, context);
   const response: GetAWSOrganizationsAccessStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAWSOrganizationsAccessStatusOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4987,7 +4937,6 @@ export const deserializeAws_json1_1ListAcceptedPortfolioSharesCommand = async (
   contents = deserializeAws_json1_1ListAcceptedPortfolioSharesOutput(data, context);
   const response: ListAcceptedPortfolioSharesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAcceptedPortfolioSharesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5051,7 +5000,6 @@ export const deserializeAws_json1_1ListBudgetsForResourceCommand = async (
   contents = deserializeAws_json1_1ListBudgetsForResourceOutput(data, context);
   const response: ListBudgetsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBudgetsForResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5115,7 +5063,6 @@ export const deserializeAws_json1_1ListConstraintsForPortfolioCommand = async (
   contents = deserializeAws_json1_1ListConstraintsForPortfolioOutput(data, context);
   const response: ListConstraintsForPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListConstraintsForPortfolioOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5179,7 +5126,6 @@ export const deserializeAws_json1_1ListLaunchPathsCommand = async (
   contents = deserializeAws_json1_1ListLaunchPathsOutput(data, context);
   const response: ListLaunchPathsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLaunchPathsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5243,7 +5189,6 @@ export const deserializeAws_json1_1ListOrganizationPortfolioAccessCommand = asyn
   contents = deserializeAws_json1_1ListOrganizationPortfolioAccessOutput(data, context);
   const response: ListOrganizationPortfolioAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListOrganizationPortfolioAccessOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5315,7 +5260,6 @@ export const deserializeAws_json1_1ListPortfolioAccessCommand = async (
   contents = deserializeAws_json1_1ListPortfolioAccessOutput(data, context);
   const response: ListPortfolioAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPortfolioAccessOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5379,7 +5323,6 @@ export const deserializeAws_json1_1ListPortfoliosCommand = async (
   contents = deserializeAws_json1_1ListPortfoliosOutput(data, context);
   const response: ListPortfoliosCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPortfoliosOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5435,7 +5378,6 @@ export const deserializeAws_json1_1ListPortfoliosForProductCommand = async (
   contents = deserializeAws_json1_1ListPortfoliosForProductOutput(data, context);
   const response: ListPortfoliosForProductCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPortfoliosForProductOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5499,7 +5441,6 @@ export const deserializeAws_json1_1ListPrincipalsForPortfolioCommand = async (
   contents = deserializeAws_json1_1ListPrincipalsForPortfolioOutput(data, context);
   const response: ListPrincipalsForPortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPrincipalsForPortfolioOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5563,7 +5504,6 @@ export const deserializeAws_json1_1ListProvisionedProductPlansCommand = async (
   contents = deserializeAws_json1_1ListProvisionedProductPlansOutput(data, context);
   const response: ListProvisionedProductPlansCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProvisionedProductPlansOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5627,7 +5567,6 @@ export const deserializeAws_json1_1ListProvisioningArtifactsCommand = async (
   contents = deserializeAws_json1_1ListProvisioningArtifactsOutput(data, context);
   const response: ListProvisioningArtifactsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProvisioningArtifactsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5691,7 +5630,6 @@ export const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionComm
   contents = deserializeAws_json1_1ListProvisioningArtifactsForServiceActionOutput(data, context);
   const response: ListProvisioningArtifactsForServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProvisioningArtifactsForServiceActionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5755,7 +5693,6 @@ export const deserializeAws_json1_1ListRecordHistoryCommand = async (
   contents = deserializeAws_json1_1ListRecordHistoryOutput(data, context);
   const response: ListRecordHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRecordHistoryOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5811,7 +5748,6 @@ export const deserializeAws_json1_1ListResourcesForTagOptionCommand = async (
   contents = deserializeAws_json1_1ListResourcesForTagOptionOutput(data, context);
   const response: ListResourcesForTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourcesForTagOptionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5883,7 +5819,6 @@ export const deserializeAws_json1_1ListServiceActionsCommand = async (
   contents = deserializeAws_json1_1ListServiceActionsOutput(data, context);
   const response: ListServiceActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListServiceActionsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5939,7 +5874,6 @@ export const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactComm
   contents = deserializeAws_json1_1ListServiceActionsForProvisioningArtifactOutput(data, context);
   const response: ListServiceActionsForProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListServiceActionsForProvisioningArtifactOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6003,7 +5937,6 @@ export const deserializeAws_json1_1ListStackInstancesForProvisionedProductComman
   contents = deserializeAws_json1_1ListStackInstancesForProvisionedProductOutput(data, context);
   const response: ListStackInstancesForProvisionedProductCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStackInstancesForProvisionedProductOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6067,7 +6000,6 @@ export const deserializeAws_json1_1ListTagOptionsCommand = async (
   contents = deserializeAws_json1_1ListTagOptionsOutput(data, context);
   const response: ListTagOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagOptionsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6131,7 +6063,6 @@ export const deserializeAws_json1_1ProvisionProductCommand = async (
   contents = deserializeAws_json1_1ProvisionProductOutput(data, context);
   const response: ProvisionProductCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ProvisionProductOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6203,7 +6134,6 @@ export const deserializeAws_json1_1RejectPortfolioShareCommand = async (
   contents = deserializeAws_json1_1RejectPortfolioShareOutput(data, context);
   const response: RejectPortfolioShareCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectPortfolioShareOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6259,7 +6189,6 @@ export const deserializeAws_json1_1ScanProvisionedProductsCommand = async (
   contents = deserializeAws_json1_1ScanProvisionedProductsOutput(data, context);
   const response: ScanProvisionedProductsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ScanProvisionedProductsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6315,7 +6244,6 @@ export const deserializeAws_json1_1SearchProductsCommand = async (
   contents = deserializeAws_json1_1SearchProductsOutput(data, context);
   const response: SearchProductsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchProductsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6371,7 +6299,6 @@ export const deserializeAws_json1_1SearchProductsAsAdminCommand = async (
   contents = deserializeAws_json1_1SearchProductsAsAdminOutput(data, context);
   const response: SearchProductsAsAdminCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchProductsAsAdminOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6435,7 +6362,6 @@ export const deserializeAws_json1_1SearchProvisionedProductsCommand = async (
   contents = deserializeAws_json1_1SearchProvisionedProductsOutput(data, context);
   const response: SearchProvisionedProductsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchProvisionedProductsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6491,7 +6417,6 @@ export const deserializeAws_json1_1TerminateProvisionedProductCommand = async (
   contents = deserializeAws_json1_1TerminateProvisionedProductOutput(data, context);
   const response: TerminateProvisionedProductCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TerminateProvisionedProductOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6547,7 +6472,6 @@ export const deserializeAws_json1_1UpdateConstraintCommand = async (
   contents = deserializeAws_json1_1UpdateConstraintOutput(data, context);
   const response: UpdateConstraintCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateConstraintOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6611,7 +6535,6 @@ export const deserializeAws_json1_1UpdatePortfolioCommand = async (
   contents = deserializeAws_json1_1UpdatePortfolioOutput(data, context);
   const response: UpdatePortfolioCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdatePortfolioOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6691,7 +6614,6 @@ export const deserializeAws_json1_1UpdateProductCommand = async (
   contents = deserializeAws_json1_1UpdateProductOutput(data, context);
   const response: UpdateProductCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateProductOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6763,7 +6685,6 @@ export const deserializeAws_json1_1UpdateProvisionedProductCommand = async (
   contents = deserializeAws_json1_1UpdateProvisionedProductOutput(data, context);
   const response: UpdateProvisionedProductCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateProvisionedProductOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6827,7 +6748,6 @@ export const deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand = a
   contents = deserializeAws_json1_1UpdateProvisionedProductPropertiesOutput(data, context);
   const response: UpdateProvisionedProductPropertiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateProvisionedProductPropertiesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6899,7 +6819,6 @@ export const deserializeAws_json1_1UpdateProvisioningArtifactCommand = async (
   contents = deserializeAws_json1_1UpdateProvisioningArtifactOutput(data, context);
   const response: UpdateProvisioningArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateProvisioningArtifactOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6963,7 +6882,6 @@ export const deserializeAws_json1_1UpdateServiceActionCommand = async (
   contents = deserializeAws_json1_1UpdateServiceActionOutput(data, context);
   const response: UpdateServiceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateServiceActionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7027,7 +6945,6 @@ export const deserializeAws_json1_1UpdateTagOptionCommand = async (
   contents = deserializeAws_json1_1UpdateTagOptionOutput(data, context);
   const response: UpdateTagOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTagOptionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8499,9 +8416,7 @@ const deserializeAws_json1_1AcceptPortfolioShareOutput = (
   output: any,
   context: __SerdeContext
 ): AcceptPortfolioShareOutput => {
-  return {
-    __type: "AcceptPortfolioShareOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AccountIds = (output: any, context: __SerdeContext): string[] => {
@@ -8516,45 +8431,35 @@ const deserializeAws_json1_1AssociateBudgetWithResourceOutput = (
   output: any,
   context: __SerdeContext
 ): AssociateBudgetWithResourceOutput => {
-  return {
-    __type: "AssociateBudgetWithResourceOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociatePrincipalWithPortfolioOutput = (
   output: any,
   context: __SerdeContext
 ): AssociatePrincipalWithPortfolioOutput => {
-  return {
-    __type: "AssociatePrincipalWithPortfolioOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateProductWithPortfolioOutput = (
   output: any,
   context: __SerdeContext
 ): AssociateProductWithPortfolioOutput => {
-  return {
-    __type: "AssociateProductWithPortfolioOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): AssociateServiceActionWithProvisioningArtifactOutput => {
-  return {
-    __type: "AssociateServiceActionWithProvisioningArtifactOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateTagOptionWithResourceOutput = (
   output: any,
   context: __SerdeContext
 ): AssociateTagOptionWithResourceOutput => {
-  return {
-    __type: "AssociateTagOptionWithResourceOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactOutput = (
@@ -8562,7 +8467,6 @@ const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactO
   context: __SerdeContext
 ): BatchAssociateServiceActionWithProvisioningArtifactOutput => {
   return {
-    __type: "BatchAssociateServiceActionWithProvisioningArtifactOutput",
     FailedServiceActionAssociations:
       output.FailedServiceActionAssociations !== undefined && output.FailedServiceActionAssociations !== null
         ? deserializeAws_json1_1FailedServiceActionAssociations(output.FailedServiceActionAssociations, context)
@@ -8575,7 +8479,6 @@ const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifa
   context: __SerdeContext
 ): BatchDisassociateServiceActionFromProvisioningArtifactOutput => {
   return {
-    __type: "BatchDisassociateServiceActionFromProvisioningArtifactOutput",
     FailedServiceActionAssociations:
       output.FailedServiceActionAssociations !== undefined && output.FailedServiceActionAssociations !== null
         ? deserializeAws_json1_1FailedServiceActionAssociations(output.FailedServiceActionAssociations, context)
@@ -8585,7 +8488,6 @@ const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifa
 
 const deserializeAws_json1_1BudgetDetail = (output: any, context: __SerdeContext): BudgetDetail => {
   return {
-    __type: "BudgetDetail",
     BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
   } as any;
 };
@@ -8596,7 +8498,6 @@ const deserializeAws_json1_1Budgets = (output: any, context: __SerdeContext): Bu
 
 const deserializeAws_json1_1CloudWatchDashboard = (output: any, context: __SerdeContext): CloudWatchDashboard => {
   return {
-    __type: "CloudWatchDashboard",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
@@ -8607,7 +8508,6 @@ const deserializeAws_json1_1CloudWatchDashboards = (output: any, context: __Serd
 
 const deserializeAws_json1_1ConstraintDetail = (output: any, context: __SerdeContext): ConstraintDetail => {
   return {
-    __type: "ConstraintDetail",
     ConstraintId: output.ConstraintId !== undefined && output.ConstraintId !== null ? output.ConstraintId : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
@@ -8627,7 +8527,6 @@ const deserializeAws_json1_1ConstraintSummaries = (output: any, context: __Serde
 
 const deserializeAws_json1_1ConstraintSummary = (output: any, context: __SerdeContext): ConstraintSummary => {
   return {
-    __type: "ConstraintSummary",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -8635,7 +8534,6 @@ const deserializeAws_json1_1ConstraintSummary = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1CopyProductOutput = (output: any, context: __SerdeContext): CopyProductOutput => {
   return {
-    __type: "CopyProductOutput",
     CopyProductToken:
       output.CopyProductToken !== undefined && output.CopyProductToken !== null ? output.CopyProductToken : undefined,
   } as any;
@@ -8643,7 +8541,6 @@ const deserializeAws_json1_1CopyProductOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1CreateConstraintOutput = (output: any, context: __SerdeContext): CreateConstraintOutput => {
   return {
-    __type: "CreateConstraintOutput",
     ConstraintDetail:
       output.ConstraintDetail !== undefined && output.ConstraintDetail !== null
         ? deserializeAws_json1_1ConstraintDetail(output.ConstraintDetail, context)
@@ -8658,7 +8555,6 @@ const deserializeAws_json1_1CreateConstraintOutput = (output: any, context: __Se
 
 const deserializeAws_json1_1CreatePortfolioOutput = (output: any, context: __SerdeContext): CreatePortfolioOutput => {
   return {
-    __type: "CreatePortfolioOutput",
     PortfolioDetail:
       output.PortfolioDetail !== undefined && output.PortfolioDetail !== null
         ? deserializeAws_json1_1PortfolioDetail(output.PortfolioDetail, context)
@@ -8673,7 +8569,6 @@ const deserializeAws_json1_1CreatePortfolioShareOutput = (
   context: __SerdeContext
 ): CreatePortfolioShareOutput => {
   return {
-    __type: "CreatePortfolioShareOutput",
     PortfolioShareToken:
       output.PortfolioShareToken !== undefined && output.PortfolioShareToken !== null
         ? output.PortfolioShareToken
@@ -8683,7 +8578,6 @@ const deserializeAws_json1_1CreatePortfolioShareOutput = (
 
 const deserializeAws_json1_1CreateProductOutput = (output: any, context: __SerdeContext): CreateProductOutput => {
   return {
-    __type: "CreateProductOutput",
     ProductViewDetail:
       output.ProductViewDetail !== undefined && output.ProductViewDetail !== null
         ? deserializeAws_json1_1ProductViewDetail(output.ProductViewDetail, context)
@@ -8702,7 +8596,6 @@ const deserializeAws_json1_1CreateProvisionedProductPlanOutput = (
   context: __SerdeContext
 ): CreateProvisionedProductPlanOutput => {
   return {
-    __type: "CreateProvisionedProductPlanOutput",
     PlanId: output.PlanId !== undefined && output.PlanId !== null ? output.PlanId : undefined,
     PlanName: output.PlanName !== undefined && output.PlanName !== null ? output.PlanName : undefined,
     ProvisionProductId:
@@ -8725,7 +8618,6 @@ const deserializeAws_json1_1CreateProvisioningArtifactOutput = (
   context: __SerdeContext
 ): CreateProvisioningArtifactOutput => {
   return {
-    __type: "CreateProvisioningArtifactOutput",
     Info:
       output.Info !== undefined && output.Info !== null
         ? deserializeAws_json1_1ProvisioningArtifactInfo(output.Info, context)
@@ -8743,7 +8635,6 @@ const deserializeAws_json1_1CreateServiceActionOutput = (
   context: __SerdeContext
 ): CreateServiceActionOutput => {
   return {
-    __type: "CreateServiceActionOutput",
     ServiceActionDetail:
       output.ServiceActionDetail !== undefined && output.ServiceActionDetail !== null
         ? deserializeAws_json1_1ServiceActionDetail(output.ServiceActionDetail, context)
@@ -8753,7 +8644,6 @@ const deserializeAws_json1_1CreateServiceActionOutput = (
 
 const deserializeAws_json1_1CreateTagOptionOutput = (output: any, context: __SerdeContext): CreateTagOptionOutput => {
   return {
-    __type: "CreateTagOptionOutput",
     TagOptionDetail:
       output.TagOptionDetail !== undefined && output.TagOptionDetail !== null
         ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
@@ -8762,15 +8652,11 @@ const deserializeAws_json1_1CreateTagOptionOutput = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1DeleteConstraintOutput = (output: any, context: __SerdeContext): DeleteConstraintOutput => {
-  return {
-    __type: "DeleteConstraintOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeletePortfolioOutput = (output: any, context: __SerdeContext): DeletePortfolioOutput => {
-  return {
-    __type: "DeletePortfolioOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeletePortfolioShareOutput = (
@@ -8778,7 +8664,6 @@ const deserializeAws_json1_1DeletePortfolioShareOutput = (
   context: __SerdeContext
 ): DeletePortfolioShareOutput => {
   return {
-    __type: "DeletePortfolioShareOutput",
     PortfolioShareToken:
       output.PortfolioShareToken !== undefined && output.PortfolioShareToken !== null
         ? output.PortfolioShareToken
@@ -8787,42 +8672,32 @@ const deserializeAws_json1_1DeletePortfolioShareOutput = (
 };
 
 const deserializeAws_json1_1DeleteProductOutput = (output: any, context: __SerdeContext): DeleteProductOutput => {
-  return {
-    __type: "DeleteProductOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteProvisionedProductPlanOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteProvisionedProductPlanOutput => {
-  return {
-    __type: "DeleteProvisionedProductPlanOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteProvisioningArtifactOutput => {
-  return {
-    __type: "DeleteProvisioningArtifactOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteServiceActionOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteServiceActionOutput => {
-  return {
-    __type: "DeleteServiceActionOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteTagOptionOutput = (output: any, context: __SerdeContext): DeleteTagOptionOutput => {
-  return {
-    __type: "DeleteTagOptionOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeConstraintOutput = (
@@ -8830,7 +8705,6 @@ const deserializeAws_json1_1DescribeConstraintOutput = (
   context: __SerdeContext
 ): DescribeConstraintOutput => {
   return {
-    __type: "DescribeConstraintOutput",
     ConstraintDetail:
       output.ConstraintDetail !== undefined && output.ConstraintDetail !== null
         ? deserializeAws_json1_1ConstraintDetail(output.ConstraintDetail, context)
@@ -8848,7 +8722,6 @@ const deserializeAws_json1_1DescribeCopyProductStatusOutput = (
   context: __SerdeContext
 ): DescribeCopyProductStatusOutput => {
   return {
-    __type: "DescribeCopyProductStatusOutput",
     CopyProductStatus:
       output.CopyProductStatus !== undefined && output.CopyProductStatus !== null
         ? output.CopyProductStatus
@@ -8864,7 +8737,6 @@ const deserializeAws_json1_1DescribePortfolioOutput = (
   context: __SerdeContext
 ): DescribePortfolioOutput => {
   return {
-    __type: "DescribePortfolioOutput",
     Budgets:
       output.Budgets !== undefined && output.Budgets !== null
         ? deserializeAws_json1_1Budgets(output.Budgets, context)
@@ -8887,7 +8759,6 @@ const deserializeAws_json1_1DescribePortfolioShareStatusOutput = (
   context: __SerdeContext
 ): DescribePortfolioShareStatusOutput => {
   return {
-    __type: "DescribePortfolioShareStatusOutput",
     OrganizationNodeValue:
       output.OrganizationNodeValue !== undefined && output.OrganizationNodeValue !== null
         ? output.OrganizationNodeValue
@@ -8910,7 +8781,6 @@ const deserializeAws_json1_1DescribeProductAsAdminOutput = (
   context: __SerdeContext
 ): DescribeProductAsAdminOutput => {
   return {
-    __type: "DescribeProductAsAdminOutput",
     Budgets:
       output.Budgets !== undefined && output.Budgets !== null
         ? deserializeAws_json1_1Budgets(output.Budgets, context)
@@ -8934,7 +8804,6 @@ const deserializeAws_json1_1DescribeProductAsAdminOutput = (
 
 const deserializeAws_json1_1DescribeProductOutput = (output: any, context: __SerdeContext): DescribeProductOutput => {
   return {
-    __type: "DescribeProductOutput",
     Budgets:
       output.Budgets !== undefined && output.Budgets !== null
         ? deserializeAws_json1_1Budgets(output.Budgets, context)
@@ -8959,7 +8828,6 @@ const deserializeAws_json1_1DescribeProductViewOutput = (
   context: __SerdeContext
 ): DescribeProductViewOutput => {
   return {
-    __type: "DescribeProductViewOutput",
     ProductViewSummary:
       output.ProductViewSummary !== undefined && output.ProductViewSummary !== null
         ? deserializeAws_json1_1ProductViewSummary(output.ProductViewSummary, context)
@@ -8976,7 +8844,6 @@ const deserializeAws_json1_1DescribeProvisionedProductOutput = (
   context: __SerdeContext
 ): DescribeProvisionedProductOutput => {
   return {
-    __type: "DescribeProvisionedProductOutput",
     CloudWatchDashboards:
       output.CloudWatchDashboards !== undefined && output.CloudWatchDashboards !== null
         ? deserializeAws_json1_1CloudWatchDashboards(output.CloudWatchDashboards, context)
@@ -8993,7 +8860,6 @@ const deserializeAws_json1_1DescribeProvisionedProductPlanOutput = (
   context: __SerdeContext
 ): DescribeProvisionedProductPlanOutput => {
   return {
-    __type: "DescribeProvisionedProductPlanOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     ProvisionedProductPlanDetails:
@@ -9012,7 +8878,6 @@ const deserializeAws_json1_1DescribeProvisioningArtifactOutput = (
   context: __SerdeContext
 ): DescribeProvisioningArtifactOutput => {
   return {
-    __type: "DescribeProvisioningArtifactOutput",
     Info:
       output.Info !== undefined && output.Info !== null
         ? deserializeAws_json1_1ProvisioningArtifactInfo(output.Info, context)
@@ -9030,7 +8895,6 @@ const deserializeAws_json1_1DescribeProvisioningParametersOutput = (
   context: __SerdeContext
 ): DescribeProvisioningParametersOutput => {
   return {
-    __type: "DescribeProvisioningParametersOutput",
     ConstraintSummaries:
       output.ConstraintSummaries !== undefined && output.ConstraintSummaries !== null
         ? deserializeAws_json1_1ConstraintSummaries(output.ConstraintSummaries, context)
@@ -9060,7 +8924,6 @@ const deserializeAws_json1_1DescribeProvisioningParametersOutput = (
 
 const deserializeAws_json1_1DescribeRecordOutput = (output: any, context: __SerdeContext): DescribeRecordOutput => {
   return {
-    __type: "DescribeRecordOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     RecordDetail:
@@ -9079,7 +8942,6 @@ const deserializeAws_json1_1DescribeServiceActionExecutionParametersOutput = (
   context: __SerdeContext
 ): DescribeServiceActionExecutionParametersOutput => {
   return {
-    __type: "DescribeServiceActionExecutionParametersOutput",
     ServiceActionParameters:
       output.ServiceActionParameters !== undefined && output.ServiceActionParameters !== null
         ? deserializeAws_json1_1ExecutionParameters(output.ServiceActionParameters, context)
@@ -9092,7 +8954,6 @@ const deserializeAws_json1_1DescribeServiceActionOutput = (
   context: __SerdeContext
 ): DescribeServiceActionOutput => {
   return {
-    __type: "DescribeServiceActionOutput",
     ServiceActionDetail:
       output.ServiceActionDetail !== undefined && output.ServiceActionDetail !== null
         ? deserializeAws_json1_1ServiceActionDetail(output.ServiceActionDetail, context)
@@ -9105,7 +8966,6 @@ const deserializeAws_json1_1DescribeTagOptionOutput = (
   context: __SerdeContext
 ): DescribeTagOptionOutput => {
   return {
-    __type: "DescribeTagOptionOutput",
     TagOptionDetail:
       output.TagOptionDetail !== undefined && output.TagOptionDetail !== null
         ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
@@ -9117,54 +8977,42 @@ const deserializeAws_json1_1DisableAWSOrganizationsAccessOutput = (
   output: any,
   context: __SerdeContext
 ): DisableAWSOrganizationsAccessOutput => {
-  return {
-    __type: "DisableAWSOrganizationsAccessOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateBudgetFromResourceOutput = (
   output: any,
   context: __SerdeContext
 ): DisassociateBudgetFromResourceOutput => {
-  return {
-    __type: "DisassociateBudgetFromResourceOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociatePrincipalFromPortfolioOutput = (
   output: any,
   context: __SerdeContext
 ): DisassociatePrincipalFromPortfolioOutput => {
-  return {
-    __type: "DisassociatePrincipalFromPortfolioOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateProductFromPortfolioOutput = (
   output: any,
   context: __SerdeContext
 ): DisassociateProductFromPortfolioOutput => {
-  return {
-    __type: "DisassociateProductFromPortfolioOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactOutput = (
   output: any,
   context: __SerdeContext
 ): DisassociateServiceActionFromProvisioningArtifactOutput => {
-  return {
-    __type: "DisassociateServiceActionFromProvisioningArtifactOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateTagOptionFromResourceOutput = (
   output: any,
   context: __SerdeContext
 ): DisassociateTagOptionFromResourceOutput => {
-  return {
-    __type: "DisassociateTagOptionFromResourceOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DuplicateResourceException = (
@@ -9172,7 +9020,6 @@ const deserializeAws_json1_1DuplicateResourceException = (
   context: __SerdeContext
 ): DuplicateResourceException => {
   return {
-    __type: "DuplicateResourceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -9181,9 +9028,7 @@ const deserializeAws_json1_1EnableAWSOrganizationsAccessOutput = (
   output: any,
   context: __SerdeContext
 ): EnableAWSOrganizationsAccessOutput => {
-  return {
-    __type: "EnableAWSOrganizationsAccessOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ExecuteProvisionedProductPlanOutput = (
@@ -9191,7 +9036,6 @@ const deserializeAws_json1_1ExecuteProvisionedProductPlanOutput = (
   context: __SerdeContext
 ): ExecuteProvisionedProductPlanOutput => {
   return {
-    __type: "ExecuteProvisionedProductPlanOutput",
     RecordDetail:
       output.RecordDetail !== undefined && output.RecordDetail !== null
         ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
@@ -9204,7 +9048,6 @@ const deserializeAws_json1_1ExecuteProvisionedProductServiceActionOutput = (
   context: __SerdeContext
 ): ExecuteProvisionedProductServiceActionOutput => {
   return {
-    __type: "ExecuteProvisionedProductServiceActionOutput",
     RecordDetail:
       output.RecordDetail !== undefined && output.RecordDetail !== null
         ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
@@ -9214,7 +9057,6 @@ const deserializeAws_json1_1ExecuteProvisionedProductServiceActionOutput = (
 
 const deserializeAws_json1_1ExecutionParameter = (output: any, context: __SerdeContext): ExecutionParameter => {
   return {
-    __type: "ExecutionParameter",
     DefaultValues:
       output.DefaultValues !== undefined && output.DefaultValues !== null
         ? deserializeAws_json1_1ExecutionParameterValueList(output.DefaultValues, context)
@@ -9237,7 +9079,6 @@ const deserializeAws_json1_1FailedServiceActionAssociation = (
   context: __SerdeContext
 ): FailedServiceActionAssociation => {
   return {
-    __type: "FailedServiceActionAssociation",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     ProductId: output.ProductId !== undefined && output.ProductId !== null ? output.ProductId : undefined,
@@ -9262,7 +9103,6 @@ const deserializeAws_json1_1GetAWSOrganizationsAccessStatusOutput = (
   context: __SerdeContext
 ): GetAWSOrganizationsAccessStatusOutput => {
   return {
-    __type: "GetAWSOrganizationsAccessStatusOutput",
     AccessStatus: output.AccessStatus !== undefined && output.AccessStatus !== null ? output.AccessStatus : undefined,
   } as any;
 };
@@ -9272,21 +9112,18 @@ const deserializeAws_json1_1InvalidParametersException = (
   context: __SerdeContext
 ): InvalidParametersException => {
   return {
-    __type: "InvalidParametersException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
   return {
-    __type: "InvalidStateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LaunchPath = (output: any, context: __SerdeContext): LaunchPath => {
   return {
-    __type: "LaunchPath",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
@@ -9302,7 +9139,6 @@ const deserializeAws_json1_1LaunchPathSummaries = (output: any, context: __Serde
 
 const deserializeAws_json1_1LaunchPathSummary = (output: any, context: __SerdeContext): LaunchPathSummary => {
   return {
-    __type: "LaunchPathSummary",
     ConstraintSummaries:
       output.ConstraintSummaries !== undefined && output.ConstraintSummaries !== null
         ? deserializeAws_json1_1ConstraintSummaries(output.ConstraintSummaries, context)
@@ -9316,7 +9152,6 @@ const deserializeAws_json1_1LaunchPathSummary = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -9326,7 +9161,6 @@ const deserializeAws_json1_1ListAcceptedPortfolioSharesOutput = (
   context: __SerdeContext
 ): ListAcceptedPortfolioSharesOutput => {
   return {
-    __type: "ListAcceptedPortfolioSharesOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     PortfolioDetails:
@@ -9341,7 +9175,6 @@ const deserializeAws_json1_1ListBudgetsForResourceOutput = (
   context: __SerdeContext
 ): ListBudgetsForResourceOutput => {
   return {
-    __type: "ListBudgetsForResourceOutput",
     Budgets:
       output.Budgets !== undefined && output.Budgets !== null
         ? deserializeAws_json1_1Budgets(output.Budgets, context)
@@ -9356,7 +9189,6 @@ const deserializeAws_json1_1ListConstraintsForPortfolioOutput = (
   context: __SerdeContext
 ): ListConstraintsForPortfolioOutput => {
   return {
-    __type: "ListConstraintsForPortfolioOutput",
     ConstraintDetails:
       output.ConstraintDetails !== undefined && output.ConstraintDetails !== null
         ? deserializeAws_json1_1ConstraintDetails(output.ConstraintDetails, context)
@@ -9368,7 +9200,6 @@ const deserializeAws_json1_1ListConstraintsForPortfolioOutput = (
 
 const deserializeAws_json1_1ListLaunchPathsOutput = (output: any, context: __SerdeContext): ListLaunchPathsOutput => {
   return {
-    __type: "ListLaunchPathsOutput",
     LaunchPathSummaries:
       output.LaunchPathSummaries !== undefined && output.LaunchPathSummaries !== null
         ? deserializeAws_json1_1LaunchPathSummaries(output.LaunchPathSummaries, context)
@@ -9383,7 +9214,6 @@ const deserializeAws_json1_1ListOrganizationPortfolioAccessOutput = (
   context: __SerdeContext
 ): ListOrganizationPortfolioAccessOutput => {
   return {
-    __type: "ListOrganizationPortfolioAccessOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     OrganizationNodes:
@@ -9398,7 +9228,6 @@ const deserializeAws_json1_1ListPortfolioAccessOutput = (
   context: __SerdeContext
 ): ListPortfolioAccessOutput => {
   return {
-    __type: "ListPortfolioAccessOutput",
     AccountIds:
       output.AccountIds !== undefined && output.AccountIds !== null
         ? deserializeAws_json1_1AccountIds(output.AccountIds, context)
@@ -9413,7 +9242,6 @@ const deserializeAws_json1_1ListPortfoliosForProductOutput = (
   context: __SerdeContext
 ): ListPortfoliosForProductOutput => {
   return {
-    __type: "ListPortfoliosForProductOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     PortfolioDetails:
@@ -9425,7 +9253,6 @@ const deserializeAws_json1_1ListPortfoliosForProductOutput = (
 
 const deserializeAws_json1_1ListPortfoliosOutput = (output: any, context: __SerdeContext): ListPortfoliosOutput => {
   return {
-    __type: "ListPortfoliosOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     PortfolioDetails:
@@ -9440,7 +9267,6 @@ const deserializeAws_json1_1ListPrincipalsForPortfolioOutput = (
   context: __SerdeContext
 ): ListPrincipalsForPortfolioOutput => {
   return {
-    __type: "ListPrincipalsForPortfolioOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     Principals:
@@ -9455,7 +9281,6 @@ const deserializeAws_json1_1ListProvisionedProductPlansOutput = (
   context: __SerdeContext
 ): ListProvisionedProductPlansOutput => {
   return {
-    __type: "ListProvisionedProductPlansOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     ProvisionedProductPlans:
@@ -9470,7 +9295,6 @@ const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionOutput = (
   context: __SerdeContext
 ): ListProvisioningArtifactsForServiceActionOutput => {
   return {
-    __type: "ListProvisioningArtifactsForServiceActionOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     ProvisioningArtifactViews:
@@ -9485,7 +9309,6 @@ const deserializeAws_json1_1ListProvisioningArtifactsOutput = (
   context: __SerdeContext
 ): ListProvisioningArtifactsOutput => {
   return {
-    __type: "ListProvisioningArtifactsOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     ProvisioningArtifactDetails:
@@ -9500,7 +9323,6 @@ const deserializeAws_json1_1ListRecordHistoryOutput = (
   context: __SerdeContext
 ): ListRecordHistoryOutput => {
   return {
-    __type: "ListRecordHistoryOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     RecordDetails:
@@ -9515,7 +9337,6 @@ const deserializeAws_json1_1ListResourcesForTagOptionOutput = (
   context: __SerdeContext
 ): ListResourcesForTagOptionOutput => {
   return {
-    __type: "ListResourcesForTagOptionOutput",
     PageToken: output.PageToken !== undefined && output.PageToken !== null ? output.PageToken : undefined,
     ResourceDetails:
       output.ResourceDetails !== undefined && output.ResourceDetails !== null
@@ -9529,7 +9350,6 @@ const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactOutput = (
   context: __SerdeContext
 ): ListServiceActionsForProvisioningArtifactOutput => {
   return {
-    __type: "ListServiceActionsForProvisioningArtifactOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     ServiceActionSummaries:
@@ -9544,7 +9364,6 @@ const deserializeAws_json1_1ListServiceActionsOutput = (
   context: __SerdeContext
 ): ListServiceActionsOutput => {
   return {
-    __type: "ListServiceActionsOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     ServiceActionSummaries:
@@ -9559,7 +9378,6 @@ const deserializeAws_json1_1ListStackInstancesForProvisionedProductOutput = (
   context: __SerdeContext
 ): ListStackInstancesForProvisionedProductOutput => {
   return {
-    __type: "ListStackInstancesForProvisionedProductOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     StackInstances:
@@ -9571,7 +9389,6 @@ const deserializeAws_json1_1ListStackInstancesForProvisionedProductOutput = (
 
 const deserializeAws_json1_1ListTagOptionsOutput = (output: any, context: __SerdeContext): ListTagOptionsOutput => {
   return {
-    __type: "ListTagOptionsOutput",
     PageToken: output.PageToken !== undefined && output.PageToken !== null ? output.PageToken : undefined,
     TagOptionDetails:
       output.TagOptionDetails !== undefined && output.TagOptionDetails !== null
@@ -9593,14 +9410,12 @@ const deserializeAws_json1_1OperationNotSupportedException = (
   context: __SerdeContext
 ): OperationNotSupportedException => {
   return {
-    __type: "OperationNotSupportedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1OrganizationNode = (output: any, context: __SerdeContext): OrganizationNode => {
   return {
-    __type: "OrganizationNode",
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -9612,7 +9427,6 @@ const deserializeAws_json1_1OrganizationNodes = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
   return {
-    __type: "ParameterConstraints",
     AllowedValues:
       output.AllowedValues !== undefined && output.AllowedValues !== null
         ? deserializeAws_json1_1AllowedValues(output.AllowedValues, context)
@@ -9622,7 +9436,6 @@ const deserializeAws_json1_1ParameterConstraints = (output: any, context: __Serd
 
 const deserializeAws_json1_1PortfolioDetail = (output: any, context: __SerdeContext): PortfolioDetail => {
   return {
-    __type: "PortfolioDetail",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
@@ -9641,7 +9454,6 @@ const deserializeAws_json1_1PortfolioDetails = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Principal = (output: any, context: __SerdeContext): Principal => {
   return {
-    __type: "Principal",
     PrincipalARN: output.PrincipalARN !== undefined && output.PrincipalARN !== null ? output.PrincipalARN : undefined,
     PrincipalType:
       output.PrincipalType !== undefined && output.PrincipalType !== null ? output.PrincipalType : undefined,
@@ -9670,7 +9482,6 @@ const deserializeAws_json1_1ProductViewAggregationValue = (
   context: __SerdeContext
 ): ProductViewAggregationValue => {
   return {
-    __type: "ProductViewAggregationValue",
     ApproximateCount:
       output.ApproximateCount !== undefined && output.ApproximateCount !== null ? output.ApproximateCount : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
@@ -9686,7 +9497,6 @@ const deserializeAws_json1_1ProductViewAggregationValues = (
 
 const deserializeAws_json1_1ProductViewDetail = (output: any, context: __SerdeContext): ProductViewDetail => {
   return {
-    __type: "ProductViewDetail",
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
@@ -9710,7 +9520,6 @@ const deserializeAws_json1_1ProductViewSummaries = (output: any, context: __Serd
 
 const deserializeAws_json1_1ProductViewSummary = (output: any, context: __SerdeContext): ProductViewSummary => {
   return {
-    __type: "ProductViewSummary",
     Distributor: output.Distributor !== undefined && output.Distributor !== null ? output.Distributor : undefined,
     HasDefaultPath:
       output.HasDefaultPath !== undefined && output.HasDefaultPath !== null ? output.HasDefaultPath : undefined,
@@ -9735,7 +9544,6 @@ const deserializeAws_json1_1ProvisionedProductAttribute = (
   context: __SerdeContext
 ): ProvisionedProductAttribute => {
   return {
-    __type: "ProvisionedProductAttribute",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
@@ -9776,7 +9584,6 @@ const deserializeAws_json1_1ProvisionedProductDetail = (
   context: __SerdeContext
 ): ProvisionedProductDetail => {
   return {
-    __type: "ProvisionedProductDetail",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
@@ -9811,7 +9618,6 @@ const deserializeAws_json1_1ProvisionedProductPlanDetails = (
   context: __SerdeContext
 ): ProvisionedProductPlanDetails => {
   return {
-    __type: "ProvisionedProductPlanDetails",
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
@@ -9865,7 +9671,6 @@ const deserializeAws_json1_1ProvisionedProductPlanSummary = (
   context: __SerdeContext
 ): ProvisionedProductPlanSummary => {
   return {
-    __type: "ProvisionedProductPlanSummary",
     PlanId: output.PlanId !== undefined && output.PlanId !== null ? output.PlanId : undefined,
     PlanName: output.PlanName !== undefined && output.PlanName !== null ? output.PlanName : undefined,
     PlanType: output.PlanType !== undefined && output.PlanType !== null ? output.PlanType : undefined,
@@ -9899,7 +9704,6 @@ const deserializeAws_json1_1ProvisionedProductProperties = (
 
 const deserializeAws_json1_1ProvisioningArtifact = (output: any, context: __SerdeContext): ProvisioningArtifact => {
   return {
-    __type: "ProvisioningArtifact",
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
@@ -9916,7 +9720,6 @@ const deserializeAws_json1_1ProvisioningArtifactDetail = (
   context: __SerdeContext
 ): ProvisioningArtifactDetail => {
   return {
-    __type: "ProvisioningArtifactDetail",
     Active: output.Active !== undefined && output.Active !== null ? output.Active : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
@@ -9955,7 +9758,6 @@ const deserializeAws_json1_1ProvisioningArtifactOutput = (
   context: __SerdeContext
 ): ProvisioningArtifactOutput => {
   return {
-    __type: "ProvisioningArtifactOutput",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
   } as any;
@@ -9973,7 +9775,6 @@ const deserializeAws_json1_1ProvisioningArtifactParameter = (
   context: __SerdeContext
 ): ProvisioningArtifactParameter => {
   return {
-    __type: "ProvisioningArtifactParameter",
     DefaultValue: output.DefaultValue !== undefined && output.DefaultValue !== null ? output.DefaultValue : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     IsNoEcho: output.IsNoEcho !== undefined && output.IsNoEcho !== null ? output.IsNoEcho : undefined,
@@ -9999,7 +9800,6 @@ const deserializeAws_json1_1ProvisioningArtifactPreferences = (
   context: __SerdeContext
 ): ProvisioningArtifactPreferences => {
   return {
-    __type: "ProvisioningArtifactPreferences",
     StackSetAccounts:
       output.StackSetAccounts !== undefined && output.StackSetAccounts !== null
         ? deserializeAws_json1_1StackSetAccounts(output.StackSetAccounts, context)
@@ -10027,7 +9827,6 @@ const deserializeAws_json1_1ProvisioningArtifactSummary = (
   context: __SerdeContext
 ): ProvisioningArtifactSummary => {
   return {
-    __type: "ProvisioningArtifactSummary",
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
@@ -10047,7 +9846,6 @@ const deserializeAws_json1_1ProvisioningArtifactView = (
   context: __SerdeContext
 ): ProvisioningArtifactView => {
   return {
-    __type: "ProvisioningArtifactView",
     ProductViewSummary:
       output.ProductViewSummary !== undefined && output.ProductViewSummary !== null
         ? deserializeAws_json1_1ProductViewSummary(output.ProductViewSummary, context)
@@ -10068,7 +9866,6 @@ const deserializeAws_json1_1ProvisioningArtifactViews = (
 
 const deserializeAws_json1_1ProvisionProductOutput = (output: any, context: __SerdeContext): ProvisionProductOutput => {
   return {
-    __type: "ProvisionProductOutput",
     RecordDetail:
       output.RecordDetail !== undefined && output.RecordDetail !== null
         ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
@@ -10078,7 +9875,6 @@ const deserializeAws_json1_1ProvisionProductOutput = (output: any, context: __Se
 
 const deserializeAws_json1_1RecordDetail = (output: any, context: __SerdeContext): RecordDetail => {
   return {
-    __type: "RecordDetail",
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
@@ -10125,7 +9921,6 @@ const deserializeAws_json1_1RecordDetails = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1RecordError = (output: any, context: __SerdeContext): RecordError => {
   return {
-    __type: "RecordError",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
   } as any;
@@ -10137,7 +9932,6 @@ const deserializeAws_json1_1RecordErrors = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1RecordOutput = (output: any, context: __SerdeContext): RecordOutput => {
   return {
-    __type: "RecordOutput",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     OutputKey: output.OutputKey !== undefined && output.OutputKey !== null ? output.OutputKey : undefined,
     OutputValue: output.OutputValue !== undefined && output.OutputValue !== null ? output.OutputValue : undefined,
@@ -10150,7 +9944,6 @@ const deserializeAws_json1_1RecordOutputs = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1RecordTag = (output: any, context: __SerdeContext): RecordTag => {
   return {
-    __type: "RecordTag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -10164,14 +9957,11 @@ const deserializeAws_json1_1RejectPortfolioShareOutput = (
   output: any,
   context: __SerdeContext
 ): RejectPortfolioShareOutput => {
-  return {
-    __type: "RejectPortfolioShareOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ResourceChange = (output: any, context: __SerdeContext): ResourceChange => {
   return {
-    __type: "ResourceChange",
     Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
     Details:
       output.Details !== undefined && output.Details !== null
@@ -10196,7 +9986,6 @@ const deserializeAws_json1_1ResourceChange = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1ResourceChangeDetail = (output: any, context: __SerdeContext): ResourceChangeDetail => {
   return {
-    __type: "ResourceChangeDetail",
     CausingEntity:
       output.CausingEntity !== undefined && output.CausingEntity !== null ? output.CausingEntity : undefined,
     Evaluation: output.Evaluation !== undefined && output.Evaluation !== null ? output.Evaluation : undefined,
@@ -10217,7 +10006,6 @@ const deserializeAws_json1_1ResourceChanges = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ResourceDetail = (output: any, context: __SerdeContext): ResourceDetail => {
   return {
-    __type: "ResourceDetail",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
@@ -10235,7 +10023,6 @@ const deserializeAws_json1_1ResourceDetails = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    __type: "ResourceInUseException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -10245,7 +10032,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -10255,7 +10041,6 @@ const deserializeAws_json1_1ResourceTargetDefinition = (
   context: __SerdeContext
 ): ResourceTargetDefinition => {
   return {
-    __type: "ResourceTargetDefinition",
     Attribute: output.Attribute !== undefined && output.Attribute !== null ? output.Attribute : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     RequiresRecreation:
@@ -10270,7 +10055,6 @@ const deserializeAws_json1_1ScanProvisionedProductsOutput = (
   context: __SerdeContext
 ): ScanProvisionedProductsOutput => {
   return {
-    __type: "ScanProvisionedProductsOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     ProvisionedProducts:
@@ -10289,7 +10073,6 @@ const deserializeAws_json1_1SearchProductsAsAdminOutput = (
   context: __SerdeContext
 ): SearchProductsAsAdminOutput => {
   return {
-    __type: "SearchProductsAsAdminOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     ProductViewDetails:
@@ -10301,7 +10084,6 @@ const deserializeAws_json1_1SearchProductsAsAdminOutput = (
 
 const deserializeAws_json1_1SearchProductsOutput = (output: any, context: __SerdeContext): SearchProductsOutput => {
   return {
-    __type: "SearchProductsOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     ProductViewAggregations:
@@ -10320,7 +10102,6 @@ const deserializeAws_json1_1SearchProvisionedProductsOutput = (
   context: __SerdeContext
 ): SearchProvisionedProductsOutput => {
   return {
-    __type: "SearchProvisionedProductsOutput",
     NextPageToken:
       output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
     ProvisionedProducts:
@@ -10349,7 +10130,6 @@ const deserializeAws_json1_1ServiceActionDefinitionMap = (
 
 const deserializeAws_json1_1ServiceActionDetail = (output: any, context: __SerdeContext): ServiceActionDetail => {
   return {
-    __type: "ServiceActionDetail",
     Definition:
       output.Definition !== undefined && output.Definition !== null
         ? deserializeAws_json1_1ServiceActionDefinitionMap(output.Definition, context)
@@ -10367,7 +10147,6 @@ const deserializeAws_json1_1ServiceActionSummaries = (output: any, context: __Se
 
 const deserializeAws_json1_1ServiceActionSummary = (output: any, context: __SerdeContext): ServiceActionSummary => {
   return {
-    __type: "ServiceActionSummary",
     DefinitionType:
       output.DefinitionType !== undefined && output.DefinitionType !== null ? output.DefinitionType : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -10378,7 +10157,6 @@ const deserializeAws_json1_1ServiceActionSummary = (output: any, context: __Serd
 
 const deserializeAws_json1_1ShareDetails = (output: any, context: __SerdeContext): ShareDetails => {
   return {
-    __type: "ShareDetails",
     ShareErrors:
       output.ShareErrors !== undefined && output.ShareErrors !== null
         ? deserializeAws_json1_1ShareErrors(output.ShareErrors, context)
@@ -10392,7 +10170,6 @@ const deserializeAws_json1_1ShareDetails = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ShareError = (output: any, context: __SerdeContext): ShareError => {
   return {
-    __type: "ShareError",
     Accounts:
       output.Accounts !== undefined && output.Accounts !== null
         ? deserializeAws_json1_1Namespaces(output.Accounts, context)
@@ -10408,7 +10185,6 @@ const deserializeAws_json1_1ShareErrors = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1StackInstance = (output: any, context: __SerdeContext): StackInstance => {
   return {
-    __type: "StackInstance",
     Account: output.Account !== undefined && output.Account !== null ? output.Account : undefined,
     Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
     StackInstanceStatus:
@@ -10436,7 +10212,6 @@ const deserializeAws_json1_1SuccessfulShares = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -10444,7 +10219,6 @@ const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag =>
 
 const deserializeAws_json1_1TagOptionDetail = (output: any, context: __SerdeContext): TagOptionDetail => {
   return {
-    __type: "TagOptionDetail",
     Active: output.Active !== undefined && output.Active !== null ? output.Active : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
@@ -10461,7 +10235,6 @@ const deserializeAws_json1_1TagOptionNotMigratedException = (
   context: __SerdeContext
 ): TagOptionNotMigratedException => {
   return {
-    __type: "TagOptionNotMigratedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -10472,7 +10245,6 @@ const deserializeAws_json1_1TagOptionSummaries = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1TagOptionSummary = (output: any, context: __SerdeContext): TagOptionSummary => {
   return {
-    __type: "TagOptionSummary",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Values:
       output.Values !== undefined && output.Values !== null
@@ -10494,7 +10266,6 @@ const deserializeAws_json1_1TerminateProvisionedProductOutput = (
   context: __SerdeContext
 ): TerminateProvisionedProductOutput => {
   return {
-    __type: "TerminateProvisionedProductOutput",
     RecordDetail:
       output.RecordDetail !== undefined && output.RecordDetail !== null
         ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
@@ -10504,7 +10275,6 @@ const deserializeAws_json1_1TerminateProvisionedProductOutput = (
 
 const deserializeAws_json1_1UpdateConstraintOutput = (output: any, context: __SerdeContext): UpdateConstraintOutput => {
   return {
-    __type: "UpdateConstraintOutput",
     ConstraintDetail:
       output.ConstraintDetail !== undefined && output.ConstraintDetail !== null
         ? deserializeAws_json1_1ConstraintDetail(output.ConstraintDetail, context)
@@ -10519,7 +10289,6 @@ const deserializeAws_json1_1UpdateConstraintOutput = (output: any, context: __Se
 
 const deserializeAws_json1_1UpdatePortfolioOutput = (output: any, context: __SerdeContext): UpdatePortfolioOutput => {
   return {
-    __type: "UpdatePortfolioOutput",
     PortfolioDetail:
       output.PortfolioDetail !== undefined && output.PortfolioDetail !== null
         ? deserializeAws_json1_1PortfolioDetail(output.PortfolioDetail, context)
@@ -10531,7 +10300,6 @@ const deserializeAws_json1_1UpdatePortfolioOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1UpdateProductOutput = (output: any, context: __SerdeContext): UpdateProductOutput => {
   return {
-    __type: "UpdateProductOutput",
     ProductViewDetail:
       output.ProductViewDetail !== undefined && output.ProductViewDetail !== null
         ? deserializeAws_json1_1ProductViewDetail(output.ProductViewDetail, context)
@@ -10546,7 +10314,6 @@ const deserializeAws_json1_1UpdateProvisionedProductOutput = (
   context: __SerdeContext
 ): UpdateProvisionedProductOutput => {
   return {
-    __type: "UpdateProvisionedProductOutput",
     RecordDetail:
       output.RecordDetail !== undefined && output.RecordDetail !== null
         ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
@@ -10559,7 +10326,6 @@ const deserializeAws_json1_1UpdateProvisionedProductPropertiesOutput = (
   context: __SerdeContext
 ): UpdateProvisionedProductPropertiesOutput => {
   return {
-    __type: "UpdateProvisionedProductPropertiesOutput",
     ProvisionedProductId:
       output.ProvisionedProductId !== undefined && output.ProvisionedProductId !== null
         ? output.ProvisionedProductId
@@ -10578,7 +10344,6 @@ const deserializeAws_json1_1UpdateProvisioningArtifactOutput = (
   context: __SerdeContext
 ): UpdateProvisioningArtifactOutput => {
   return {
-    __type: "UpdateProvisioningArtifactOutput",
     Info:
       output.Info !== undefined && output.Info !== null
         ? deserializeAws_json1_1ProvisioningArtifactInfo(output.Info, context)
@@ -10596,7 +10361,6 @@ const deserializeAws_json1_1UpdateProvisioningParameter = (
   context: __SerdeContext
 ): UpdateProvisioningParameter => {
   return {
-    __type: "UpdateProvisioningParameter",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     UsePreviousValue:
       output.UsePreviousValue !== undefined && output.UsePreviousValue !== null ? output.UsePreviousValue : undefined,
@@ -10616,7 +10380,6 @@ const deserializeAws_json1_1UpdateServiceActionOutput = (
   context: __SerdeContext
 ): UpdateServiceActionOutput => {
   return {
-    __type: "UpdateServiceActionOutput",
     ServiceActionDetail:
       output.ServiceActionDetail !== undefined && output.ServiceActionDetail !== null
         ? deserializeAws_json1_1ServiceActionDetail(output.ServiceActionDetail, context)
@@ -10626,7 +10389,6 @@ const deserializeAws_json1_1UpdateServiceActionOutput = (
 
 const deserializeAws_json1_1UpdateTagOptionOutput = (output: any, context: __SerdeContext): UpdateTagOptionOutput => {
   return {
-    __type: "UpdateTagOptionOutput",
     TagOptionDetail:
       output.TagOptionDetail !== undefined && output.TagOptionDetail !== null
         ? deserializeAws_json1_1TagOptionDetail(output.TagOptionDetail, context)
@@ -10636,7 +10398,6 @@ const deserializeAws_json1_1UpdateTagOptionOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1UsageInstruction = (output: any, context: __SerdeContext): UsageInstruction => {
   return {
-    __type: "UsageInstruction",
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;

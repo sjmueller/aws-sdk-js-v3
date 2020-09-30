@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { SetPermissionRequest } from "../models/index.ts";
+import { SetPermissionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SetPermissionCommand,
   serializeAws_json1_1SetPermissionCommand,

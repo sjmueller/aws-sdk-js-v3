@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { GetApnsChannelRequest, GetApnsChannelResponse } from "../models/index.ts";
+import { GetApnsChannelRequest, GetApnsChannelResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetApnsChannelCommand,
   serializeAws_restJson1GetApnsChannelCommand,

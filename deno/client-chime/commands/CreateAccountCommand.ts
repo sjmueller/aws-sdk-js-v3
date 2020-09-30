@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { CreateAccountRequest, CreateAccountResponse } from "../models/index.ts";
+import { CreateAccountRequest, CreateAccountResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateAccountCommand,
   serializeAws_restJson1CreateAccountCommand,

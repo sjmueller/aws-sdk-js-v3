@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/index.ts";
+import { RestoreDBClusterToPointInTimeMessage, RestoreDBClusterToPointInTimeResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryRestoreDBClusterToPointInTimeCommand,
   serializeAws_queryRestoreDBClusterToPointInTimeCommand,

@@ -1,6 +1,6 @@
 
 import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient.ts";
-import { GetSessionTokenRequest, GetSessionTokenResponse } from "../models/index.ts";
+import { GetSessionTokenRequest, GetSessionTokenResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetSessionTokenCommand,
   serializeAws_queryGetSessionTokenCommand,

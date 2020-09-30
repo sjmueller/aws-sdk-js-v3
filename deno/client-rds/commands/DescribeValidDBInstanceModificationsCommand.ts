@@ -3,7 +3,7 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeValidDBInstanceModificationsMessage,
   DescribeValidDBInstanceModificationsResult,
-} from "../models/index.ts";
+} from "../models/models_1.ts";
 import {
   deserializeAws_queryDescribeValidDBInstanceModificationsCommand,
   serializeAws_queryDescribeValidDBInstanceModificationsCommand,

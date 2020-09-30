@@ -1,6 +1,6 @@
 
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
-import { ListHostedZonesByNameRequest, ListHostedZonesByNameResponse } from "../models/index.ts";
+import { ListHostedZonesByNameRequest, ListHostedZonesByNameResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlListHostedZonesByNameCommand,
   serializeAws_restXmlListHostedZonesByNameCommand,

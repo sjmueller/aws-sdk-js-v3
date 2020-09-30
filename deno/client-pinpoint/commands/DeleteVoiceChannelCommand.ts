@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { DeleteVoiceChannelRequest, DeleteVoiceChannelResponse } from "../models/index.ts";
+import { DeleteVoiceChannelRequest, DeleteVoiceChannelResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteVoiceChannelCommand,
   serializeAws_restJson1DeleteVoiceChannelCommand,

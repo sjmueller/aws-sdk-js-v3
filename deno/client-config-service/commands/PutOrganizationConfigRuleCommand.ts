@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { PutOrganizationConfigRuleRequest, PutOrganizationConfigRuleResponse } from "../models/index.ts";
+import { PutOrganizationConfigRuleRequest, PutOrganizationConfigRuleResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutOrganizationConfigRuleCommand,
   serializeAws_json1_1PutOrganizationConfigRuleCommand,

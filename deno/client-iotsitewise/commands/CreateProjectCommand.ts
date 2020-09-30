@@ -1,6 +1,6 @@
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
-import { CreateProjectRequest, CreateProjectResponse } from "../models/index.ts";
+import { CreateProjectRequest, CreateProjectResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateProjectCommand,
   serializeAws_restJson1CreateProjectCommand,

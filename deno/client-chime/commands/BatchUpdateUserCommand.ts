@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { BatchUpdateUserRequest, BatchUpdateUserResponse } from "../models/index.ts";
+import { BatchUpdateUserRequest, BatchUpdateUserResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1BatchUpdateUserCommand,
   serializeAws_restJson1BatchUpdateUserCommand,

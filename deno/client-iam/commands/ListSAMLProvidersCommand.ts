@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { ListSAMLProvidersRequest, ListSAMLProvidersResponse } from "../models/index.ts";
+import { ListSAMLProvidersRequest, ListSAMLProvidersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryListSAMLProvidersCommand,
   serializeAws_queryListSAMLProvidersCommand,

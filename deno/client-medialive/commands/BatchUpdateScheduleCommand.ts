@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { BatchUpdateScheduleRequest, BatchUpdateScheduleResponse } from "../models/index.ts";
+import { BatchUpdateScheduleRequest, BatchUpdateScheduleResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1BatchUpdateScheduleCommand,
   serializeAws_restJson1BatchUpdateScheduleCommand,

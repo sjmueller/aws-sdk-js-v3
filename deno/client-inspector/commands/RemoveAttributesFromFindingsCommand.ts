@@ -1,6 +1,6 @@
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
-import { RemoveAttributesFromFindingsRequest, RemoveAttributesFromFindingsResponse } from "../models/index.ts";
+import { RemoveAttributesFromFindingsRequest, RemoveAttributesFromFindingsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RemoveAttributesFromFindingsCommand,
   serializeAws_json1_1RemoveAttributesFromFindingsCommand,

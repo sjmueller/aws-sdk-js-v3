@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { DeleteBucketMetricsConfigurationRequest } from "../models/index.ts";
+import { DeleteBucketMetricsConfigurationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlDeleteBucketMetricsConfigurationCommand,
   serializeAws_restXmlDeleteBucketMetricsConfigurationCommand,

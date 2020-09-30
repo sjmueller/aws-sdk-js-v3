@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { DetachInstancesFromLoadBalancerRequest, DetachInstancesFromLoadBalancerResult } from "../models/index.ts";
+import { DetachInstancesFromLoadBalancerRequest, DetachInstancesFromLoadBalancerResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DetachInstancesFromLoadBalancerCommand,
   serializeAws_json1_1DetachInstancesFromLoadBalancerCommand,

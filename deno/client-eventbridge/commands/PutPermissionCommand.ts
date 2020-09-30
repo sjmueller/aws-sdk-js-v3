@@ -1,6 +1,6 @@
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
-import { PutPermissionRequest } from "../models/index.ts";
+import { PutPermissionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutPermissionCommand,
   serializeAws_json1_1PutPermissionCommand,

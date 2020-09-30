@@ -1,6 +1,6 @@
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
-import { GetRepositoryPolicyRequest, GetRepositoryPolicyResponse } from "../models/index.ts";
+import { GetRepositoryPolicyRequest, GetRepositoryPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetRepositoryPolicyCommand,
   serializeAws_json1_1GetRepositoryPolicyCommand,

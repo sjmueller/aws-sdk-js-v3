@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { SendBounceRequest, SendBounceResponse } from "../models/index.ts";
+import { SendBounceRequest, SendBounceResponse } from "../models/models_0.ts";
 import { deserializeAws_querySendBounceCommand, serializeAws_querySendBounceCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";

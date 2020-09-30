@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DBClusterParameterGroupNameMessage, ResetDBClusterParameterGroupMessage } from "../models/index.ts";
+import { DBClusterParameterGroupNameMessage, ResetDBClusterParameterGroupMessage } from "../models/models_1.ts";
 import {
   deserializeAws_queryResetDBClusterParameterGroupCommand,
   serializeAws_queryResetDBClusterParameterGroupCommand,

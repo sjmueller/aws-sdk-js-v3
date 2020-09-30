@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient.ts";
-import { AssociateDRTLogBucketRequest, AssociateDRTLogBucketResponse } from "../models/index.ts";
+import { AssociateDRTLogBucketRequest, AssociateDRTLogBucketResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AssociateDRTLogBucketCommand,
   serializeAws_json1_1AssociateDRTLogBucketCommand,

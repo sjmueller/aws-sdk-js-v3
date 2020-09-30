@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { ListRegexMatchSetsRequest, ListRegexMatchSetsResponse } from "../models/index.ts";
+import { ListRegexMatchSetsRequest, ListRegexMatchSetsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListRegexMatchSetsCommand,
   serializeAws_json1_1ListRegexMatchSetsCommand,

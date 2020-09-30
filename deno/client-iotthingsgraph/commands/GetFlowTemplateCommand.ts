@@ -1,6 +1,6 @@
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
-import { GetFlowTemplateRequest, GetFlowTemplateResponse } from "../models/index.ts";
+import { GetFlowTemplateRequest, GetFlowTemplateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetFlowTemplateCommand,
   serializeAws_json1_1GetFlowTemplateCommand,

@@ -229,7 +229,7 @@ import {
   Tag,
   TerminateJobFlowsInput,
   VolumeSpecification,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -681,7 +681,6 @@ export const deserializeAws_json1_1AddInstanceFleetCommand = async (
   contents = deserializeAws_json1_1AddInstanceFleetOutput(data, context);
   const response: AddInstanceFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddInstanceFleetOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -745,7 +744,6 @@ export const deserializeAws_json1_1AddInstanceGroupsCommand = async (
   contents = deserializeAws_json1_1AddInstanceGroupsOutput(data, context);
   const response: AddInstanceGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddInstanceGroupsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -801,7 +799,6 @@ export const deserializeAws_json1_1AddJobFlowStepsCommand = async (
   contents = deserializeAws_json1_1AddJobFlowStepsOutput(data, context);
   const response: AddJobFlowStepsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddJobFlowStepsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -857,7 +854,6 @@ export const deserializeAws_json1_1AddTagsCommand = async (
   contents = deserializeAws_json1_1AddTagsOutput(data, context);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddTagsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -921,7 +917,6 @@ export const deserializeAws_json1_1CancelStepsCommand = async (
   contents = deserializeAws_json1_1CancelStepsOutput(data, context);
   const response: CancelStepsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelStepsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -985,7 +980,6 @@ export const deserializeAws_json1_1CreateSecurityConfigurationCommand = async (
   contents = deserializeAws_json1_1CreateSecurityConfigurationOutput(data, context);
   const response: CreateSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSecurityConfigurationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1049,7 +1043,6 @@ export const deserializeAws_json1_1DeleteSecurityConfigurationCommand = async (
   contents = deserializeAws_json1_1DeleteSecurityConfigurationOutput(data, context);
   const response: DeleteSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSecurityConfigurationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1113,7 +1106,6 @@ export const deserializeAws_json1_1DescribeClusterCommand = async (
   contents = deserializeAws_json1_1DescribeClusterOutput(data, context);
   const response: DescribeClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClusterOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1177,7 +1169,6 @@ export const deserializeAws_json1_1DescribeJobFlowsCommand = async (
   contents = deserializeAws_json1_1DescribeJobFlowsOutput(data, context);
   const response: DescribeJobFlowsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeJobFlowsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1233,7 +1224,6 @@ export const deserializeAws_json1_1DescribeSecurityConfigurationCommand = async 
   contents = deserializeAws_json1_1DescribeSecurityConfigurationOutput(data, context);
   const response: DescribeSecurityConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSecurityConfigurationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1297,7 +1287,6 @@ export const deserializeAws_json1_1DescribeStepCommand = async (
   contents = deserializeAws_json1_1DescribeStepOutput(data, context);
   const response: DescribeStepCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStepOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1361,7 +1350,6 @@ export const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand = as
   contents = deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput(data, context);
   const response: GetBlockPublicAccessConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBlockPublicAccessConfigurationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1425,7 +1413,6 @@ export const deserializeAws_json1_1GetManagedScalingPolicyCommand = async (
   contents = deserializeAws_json1_1GetManagedScalingPolicyOutput(data, context);
   const response: GetManagedScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetManagedScalingPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1473,7 +1460,6 @@ export const deserializeAws_json1_1ListBootstrapActionsCommand = async (
   contents = deserializeAws_json1_1ListBootstrapActionsOutput(data, context);
   const response: ListBootstrapActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBootstrapActionsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1537,7 +1523,6 @@ export const deserializeAws_json1_1ListClustersCommand = async (
   contents = deserializeAws_json1_1ListClustersOutput(data, context);
   const response: ListClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListClustersOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1601,7 +1586,6 @@ export const deserializeAws_json1_1ListInstanceFleetsCommand = async (
   contents = deserializeAws_json1_1ListInstanceFleetsOutput(data, context);
   const response: ListInstanceFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInstanceFleetsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1665,7 +1649,6 @@ export const deserializeAws_json1_1ListInstanceGroupsCommand = async (
   contents = deserializeAws_json1_1ListInstanceGroupsOutput(data, context);
   const response: ListInstanceGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInstanceGroupsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1729,7 +1712,6 @@ export const deserializeAws_json1_1ListInstancesCommand = async (
   contents = deserializeAws_json1_1ListInstancesOutput(data, context);
   const response: ListInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInstancesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1793,7 +1775,6 @@ export const deserializeAws_json1_1ListSecurityConfigurationsCommand = async (
   contents = deserializeAws_json1_1ListSecurityConfigurationsOutput(data, context);
   const response: ListSecurityConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSecurityConfigurationsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1857,7 +1838,6 @@ export const deserializeAws_json1_1ListStepsCommand = async (
   contents = deserializeAws_json1_1ListStepsOutput(data, context);
   const response: ListStepsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStepsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1921,7 +1901,6 @@ export const deserializeAws_json1_1ModifyClusterCommand = async (
   contents = deserializeAws_json1_1ModifyClusterOutput(data, context);
   const response: ModifyClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyClusterOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2097,7 +2076,6 @@ export const deserializeAws_json1_1PutAutoScalingPolicyCommand = async (
   contents = deserializeAws_json1_1PutAutoScalingPolicyOutput(data, context);
   const response: PutAutoScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutAutoScalingPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2145,7 +2123,6 @@ export const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand = as
   contents = deserializeAws_json1_1PutBlockPublicAccessConfigurationOutput(data, context);
   const response: PutBlockPublicAccessConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutBlockPublicAccessConfigurationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2209,7 +2186,6 @@ export const deserializeAws_json1_1PutManagedScalingPolicyCommand = async (
   contents = deserializeAws_json1_1PutManagedScalingPolicyOutput(data, context);
   const response: PutManagedScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutManagedScalingPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2257,7 +2233,6 @@ export const deserializeAws_json1_1RemoveAutoScalingPolicyCommand = async (
   contents = deserializeAws_json1_1RemoveAutoScalingPolicyOutput(data, context);
   const response: RemoveAutoScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveAutoScalingPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2305,7 +2280,6 @@ export const deserializeAws_json1_1RemoveManagedScalingPolicyCommand = async (
   contents = deserializeAws_json1_1RemoveManagedScalingPolicyOutput(data, context);
   const response: RemoveManagedScalingPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveManagedScalingPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2353,7 +2327,6 @@ export const deserializeAws_json1_1RemoveTagsCommand = async (
   contents = deserializeAws_json1_1RemoveTagsOutput(data, context);
   const response: RemoveTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveTagsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2417,7 +2390,6 @@ export const deserializeAws_json1_1RunJobFlowCommand = async (
   contents = deserializeAws_json1_1RunJobFlowOutput(data, context);
   const response: RunJobFlowCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RunJobFlowOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3603,7 +3575,6 @@ const serializeAws_json1_1XmlStringMaxLen256List = (input: string[], context: __
 
 const deserializeAws_json1_1AddInstanceFleetOutput = (output: any, context: __SerdeContext): AddInstanceFleetOutput => {
   return {
-    __type: "AddInstanceFleetOutput",
     ClusterArn: output.ClusterArn !== undefined && output.ClusterArn !== null ? output.ClusterArn : undefined,
     ClusterId: output.ClusterId !== undefined && output.ClusterId !== null ? output.ClusterId : undefined,
     InstanceFleetId:
@@ -3616,7 +3587,6 @@ const deserializeAws_json1_1AddInstanceGroupsOutput = (
   context: __SerdeContext
 ): AddInstanceGroupsOutput => {
   return {
-    __type: "AddInstanceGroupsOutput",
     ClusterArn: output.ClusterArn !== undefined && output.ClusterArn !== null ? output.ClusterArn : undefined,
     InstanceGroupIds:
       output.InstanceGroupIds !== undefined && output.InstanceGroupIds !== null
@@ -3628,7 +3598,6 @@ const deserializeAws_json1_1AddInstanceGroupsOutput = (
 
 const deserializeAws_json1_1AddJobFlowStepsOutput = (output: any, context: __SerdeContext): AddJobFlowStepsOutput => {
   return {
-    __type: "AddJobFlowStepsOutput",
     StepIds:
       output.StepIds !== undefined && output.StepIds !== null
         ? deserializeAws_json1_1StepIdsList(output.StepIds, context)
@@ -3637,14 +3606,11 @@ const deserializeAws_json1_1AddJobFlowStepsOutput = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1AddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput => {
-  return {
-    __type: "AddTagsOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Application = (output: any, context: __SerdeContext): Application => {
   return {
-    __type: "Application",
     AdditionalInfo:
       output.AdditionalInfo !== undefined && output.AdditionalInfo !== null
         ? deserializeAws_json1_1StringMap(output.AdditionalInfo, context)
@@ -3667,7 +3633,6 @@ const deserializeAws_json1_1AutoScalingPolicyDescription = (
   context: __SerdeContext
 ): AutoScalingPolicyDescription => {
   return {
-    __type: "AutoScalingPolicyDescription",
     Constraints:
       output.Constraints !== undefined && output.Constraints !== null
         ? deserializeAws_json1_1ScalingConstraints(output.Constraints, context)
@@ -3688,7 +3653,6 @@ const deserializeAws_json1_1AutoScalingPolicyStateChangeReason = (
   context: __SerdeContext
 ): AutoScalingPolicyStateChangeReason => {
   return {
-    __type: "AutoScalingPolicyStateChangeReason",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -3699,7 +3663,6 @@ const deserializeAws_json1_1AutoScalingPolicyStatus = (
   context: __SerdeContext
 ): AutoScalingPolicyStatus => {
   return {
-    __type: "AutoScalingPolicyStatus",
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateChangeReason:
       output.StateChangeReason !== undefined && output.StateChangeReason !== null
@@ -3713,7 +3676,6 @@ const deserializeAws_json1_1BlockPublicAccessConfiguration = (
   context: __SerdeContext
 ): BlockPublicAccessConfiguration => {
   return {
-    __type: "BlockPublicAccessConfiguration",
     BlockPublicSecurityGroupRules:
       output.BlockPublicSecurityGroupRules !== undefined && output.BlockPublicSecurityGroupRules !== null
         ? output.BlockPublicSecurityGroupRules
@@ -3741,7 +3703,6 @@ const deserializeAws_json1_1BlockPublicAccessConfigurationMetadata = (
   context: __SerdeContext
 ): BlockPublicAccessConfigurationMetadata => {
   return {
-    __type: "BlockPublicAccessConfigurationMetadata",
     CreatedByArn: output.CreatedByArn !== undefined && output.CreatedByArn !== null ? output.CreatedByArn : undefined,
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
@@ -3752,7 +3713,6 @@ const deserializeAws_json1_1BlockPublicAccessConfigurationMetadata = (
 
 const deserializeAws_json1_1BootstrapActionConfig = (output: any, context: __SerdeContext): BootstrapActionConfig => {
   return {
-    __type: "BootstrapActionConfig",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ScriptBootstrapAction:
       output.ScriptBootstrapAction !== undefined && output.ScriptBootstrapAction !== null
@@ -3763,7 +3723,6 @@ const deserializeAws_json1_1BootstrapActionConfig = (output: any, context: __Ser
 
 const deserializeAws_json1_1BootstrapActionDetail = (output: any, context: __SerdeContext): BootstrapActionDetail => {
   return {
-    __type: "BootstrapActionDetail",
     BootstrapActionConfig:
       output.BootstrapActionConfig !== undefined && output.BootstrapActionConfig !== null
         ? deserializeAws_json1_1BootstrapActionConfig(output.BootstrapActionConfig, context)
@@ -3780,7 +3739,6 @@ const deserializeAws_json1_1BootstrapActionDetailList = (
 
 const deserializeAws_json1_1CancelStepsInfo = (output: any, context: __SerdeContext): CancelStepsInfo => {
   return {
-    __type: "CancelStepsInfo",
     Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     StepId: output.StepId !== undefined && output.StepId !== null ? output.StepId : undefined,
@@ -3793,7 +3751,6 @@ const deserializeAws_json1_1CancelStepsInfoList = (output: any, context: __Serde
 
 const deserializeAws_json1_1CancelStepsOutput = (output: any, context: __SerdeContext): CancelStepsOutput => {
   return {
-    __type: "CancelStepsOutput",
     CancelStepsInfoList:
       output.CancelStepsInfoList !== undefined && output.CancelStepsInfoList !== null
         ? deserializeAws_json1_1CancelStepsInfoList(output.CancelStepsInfoList, context)
@@ -3806,7 +3763,6 @@ const deserializeAws_json1_1CloudWatchAlarmDefinition = (
   context: __SerdeContext
 ): CloudWatchAlarmDefinition => {
   return {
-    __type: "CloudWatchAlarmDefinition",
     ComparisonOperator:
       output.ComparisonOperator !== undefined && output.ComparisonOperator !== null
         ? output.ComparisonOperator
@@ -3830,7 +3786,6 @@ const deserializeAws_json1_1CloudWatchAlarmDefinition = (
 
 const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cluster => {
   return {
-    __type: "Cluster",
     Applications:
       output.Applications !== undefined && output.Applications !== null
         ? deserializeAws_json1_1ApplicationList(output.Applications, context)
@@ -3927,7 +3882,6 @@ const deserializeAws_json1_1ClusterStateChangeReason = (
   context: __SerdeContext
 ): ClusterStateChangeReason => {
   return {
-    __type: "ClusterStateChangeReason",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -3935,7 +3889,6 @@ const deserializeAws_json1_1ClusterStateChangeReason = (
 
 const deserializeAws_json1_1ClusterStatus = (output: any, context: __SerdeContext): ClusterStatus => {
   return {
-    __type: "ClusterStatus",
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateChangeReason:
       output.StateChangeReason !== undefined && output.StateChangeReason !== null
@@ -3950,7 +3903,6 @@ const deserializeAws_json1_1ClusterStatus = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ClusterSummary = (output: any, context: __SerdeContext): ClusterSummary => {
   return {
-    __type: "ClusterSummary",
     ClusterArn: output.ClusterArn !== undefined && output.ClusterArn !== null ? output.ClusterArn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -3972,7 +3924,6 @@ const deserializeAws_json1_1ClusterSummaryList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ClusterTimeline = (output: any, context: __SerdeContext): ClusterTimeline => {
   return {
-    __type: "ClusterTimeline",
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -3990,7 +3941,6 @@ const deserializeAws_json1_1ClusterTimeline = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1Command = (output: any, context: __SerdeContext): Command => {
   return {
-    __type: "Command",
     Args:
       output.Args !== undefined && output.Args !== null
         ? deserializeAws_json1_1StringList(output.Args, context)
@@ -4006,7 +3956,6 @@ const deserializeAws_json1_1CommandList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ComputeLimits = (output: any, context: __SerdeContext): ComputeLimits => {
   return {
-    __type: "ComputeLimits",
     MaximumCapacityUnits:
       output.MaximumCapacityUnits !== undefined && output.MaximumCapacityUnits !== null
         ? output.MaximumCapacityUnits
@@ -4029,7 +3978,6 @@ const deserializeAws_json1_1ComputeLimits = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Configuration = (output: any, context: __SerdeContext): Configuration => {
   return {
-    __type: "Configuration",
     Classification:
       output.Classification !== undefined && output.Classification !== null ? output.Classification : undefined,
     Configurations:
@@ -4052,7 +4000,6 @@ const deserializeAws_json1_1CreateSecurityConfigurationOutput = (
   context: __SerdeContext
 ): CreateSecurityConfigurationOutput => {
   return {
-    __type: "CreateSecurityConfigurationOutput",
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -4065,14 +4012,11 @@ const deserializeAws_json1_1DeleteSecurityConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteSecurityConfigurationOutput => {
-  return {
-    __type: "DeleteSecurityConfigurationOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeClusterOutput = (output: any, context: __SerdeContext): DescribeClusterOutput => {
   return {
-    __type: "DescribeClusterOutput",
     Cluster:
       output.Cluster !== undefined && output.Cluster !== null
         ? deserializeAws_json1_1Cluster(output.Cluster, context)
@@ -4082,7 +4026,6 @@ const deserializeAws_json1_1DescribeClusterOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1DescribeJobFlowsOutput = (output: any, context: __SerdeContext): DescribeJobFlowsOutput => {
   return {
-    __type: "DescribeJobFlowsOutput",
     JobFlows:
       output.JobFlows !== undefined && output.JobFlows !== null
         ? deserializeAws_json1_1JobFlowDetailList(output.JobFlows, context)
@@ -4095,7 +4038,6 @@ const deserializeAws_json1_1DescribeSecurityConfigurationOutput = (
   context: __SerdeContext
 ): DescribeSecurityConfigurationOutput => {
   return {
-    __type: "DescribeSecurityConfigurationOutput",
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -4110,7 +4052,6 @@ const deserializeAws_json1_1DescribeSecurityConfigurationOutput = (
 
 const deserializeAws_json1_1DescribeStepOutput = (output: any, context: __SerdeContext): DescribeStepOutput => {
   return {
-    __type: "DescribeStepOutput",
     Step:
       output.Step !== undefined && output.Step !== null ? deserializeAws_json1_1Step(output.Step, context) : undefined,
   } as any;
@@ -4118,7 +4059,6 @@ const deserializeAws_json1_1DescribeStepOutput = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1EbsBlockDevice = (output: any, context: __SerdeContext): EbsBlockDevice => {
   return {
-    __type: "EbsBlockDevice",
     Device: output.Device !== undefined && output.Device !== null ? output.Device : undefined,
     VolumeSpecification:
       output.VolumeSpecification !== undefined && output.VolumeSpecification !== null
@@ -4133,7 +4073,6 @@ const deserializeAws_json1_1EbsBlockDeviceList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1EbsVolume = (output: any, context: __SerdeContext): EbsVolume => {
   return {
-    __type: "EbsVolume",
     Device: output.Device !== undefined && output.Device !== null ? output.Device : undefined,
     VolumeId: output.VolumeId !== undefined && output.VolumeId !== null ? output.VolumeId : undefined,
   } as any;
@@ -4145,7 +4084,6 @@ const deserializeAws_json1_1EbsVolumeList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Ec2InstanceAttributes = (output: any, context: __SerdeContext): Ec2InstanceAttributes => {
   return {
-    __type: "Ec2InstanceAttributes",
     AdditionalMasterSecurityGroups:
       output.AdditionalMasterSecurityGroups !== undefined && output.AdditionalMasterSecurityGroups !== null
         ? deserializeAws_json1_1StringList(output.AdditionalMasterSecurityGroups, context)
@@ -4193,7 +4131,6 @@ const deserializeAws_json1_1EC2InstanceIdsList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1FailureDetails = (output: any, context: __SerdeContext): FailureDetails => {
   return {
-    __type: "FailureDetails",
     LogFile: output.LogFile !== undefined && output.LogFile !== null ? output.LogFile : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
@@ -4205,7 +4142,6 @@ const deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput = (
   context: __SerdeContext
 ): GetBlockPublicAccessConfigurationOutput => {
   return {
-    __type: "GetBlockPublicAccessConfigurationOutput",
     BlockPublicAccessConfiguration:
       output.BlockPublicAccessConfiguration !== undefined && output.BlockPublicAccessConfiguration !== null
         ? deserializeAws_json1_1BlockPublicAccessConfiguration(output.BlockPublicAccessConfiguration, context)
@@ -4226,7 +4162,6 @@ const deserializeAws_json1_1GetManagedScalingPolicyOutput = (
   context: __SerdeContext
 ): GetManagedScalingPolicyOutput => {
   return {
-    __type: "GetManagedScalingPolicyOutput",
     ManagedScalingPolicy:
       output.ManagedScalingPolicy !== undefined && output.ManagedScalingPolicy !== null
         ? deserializeAws_json1_1ManagedScalingPolicy(output.ManagedScalingPolicy, context)
@@ -4236,7 +4171,6 @@ const deserializeAws_json1_1GetManagedScalingPolicyOutput = (
 
 const deserializeAws_json1_1HadoopJarStepConfig = (output: any, context: __SerdeContext): HadoopJarStepConfig => {
   return {
-    __type: "HadoopJarStepConfig",
     Args:
       output.Args !== undefined && output.Args !== null
         ? deserializeAws_json1_1XmlStringList(output.Args, context)
@@ -4252,7 +4186,6 @@ const deserializeAws_json1_1HadoopJarStepConfig = (output: any, context: __Serde
 
 const deserializeAws_json1_1HadoopStepConfig = (output: any, context: __SerdeContext): HadoopStepConfig => {
   return {
-    __type: "HadoopStepConfig",
     Args:
       output.Args !== undefined && output.Args !== null
         ? deserializeAws_json1_1StringList(output.Args, context)
@@ -4268,7 +4201,6 @@ const deserializeAws_json1_1HadoopStepConfig = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): Instance => {
   return {
-    __type: "Instance",
     EbsVolumes:
       output.EbsVolumes !== undefined && output.EbsVolumes !== null
         ? deserializeAws_json1_1EbsVolumeList(output.EbsVolumes, context)
@@ -4299,7 +4231,6 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
 
 const deserializeAws_json1_1InstanceFleet = (output: any, context: __SerdeContext): InstanceFleet => {
   return {
-    __type: "InstanceFleet",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     InstanceFleetType:
       output.InstanceFleetType !== undefined && output.InstanceFleetType !== null
@@ -4346,7 +4277,6 @@ const deserializeAws_json1_1InstanceFleetProvisioningSpecifications = (
   context: __SerdeContext
 ): InstanceFleetProvisioningSpecifications => {
   return {
-    __type: "InstanceFleetProvisioningSpecifications",
     OnDemandSpecification:
       output.OnDemandSpecification !== undefined && output.OnDemandSpecification !== null
         ? deserializeAws_json1_1OnDemandProvisioningSpecification(output.OnDemandSpecification, context)
@@ -4363,7 +4293,6 @@ const deserializeAws_json1_1InstanceFleetStateChangeReason = (
   context: __SerdeContext
 ): InstanceFleetStateChangeReason => {
   return {
-    __type: "InstanceFleetStateChangeReason",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -4371,7 +4300,6 @@ const deserializeAws_json1_1InstanceFleetStateChangeReason = (
 
 const deserializeAws_json1_1InstanceFleetStatus = (output: any, context: __SerdeContext): InstanceFleetStatus => {
   return {
-    __type: "InstanceFleetStatus",
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateChangeReason:
       output.StateChangeReason !== undefined && output.StateChangeReason !== null
@@ -4386,7 +4314,6 @@ const deserializeAws_json1_1InstanceFleetStatus = (output: any, context: __Serde
 
 const deserializeAws_json1_1InstanceFleetTimeline = (output: any, context: __SerdeContext): InstanceFleetTimeline => {
   return {
-    __type: "InstanceFleetTimeline",
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -4404,7 +4331,6 @@ const deserializeAws_json1_1InstanceFleetTimeline = (output: any, context: __Ser
 
 const deserializeAws_json1_1InstanceGroup = (output: any, context: __SerdeContext): InstanceGroup => {
   return {
-    __type: "InstanceGroup",
     AutoScalingPolicy:
       output.AutoScalingPolicy !== undefined && output.AutoScalingPolicy !== null
         ? deserializeAws_json1_1AutoScalingPolicyDescription(output.AutoScalingPolicy, context)
@@ -4462,7 +4388,6 @@ const deserializeAws_json1_1InstanceGroup = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1InstanceGroupDetail = (output: any, context: __SerdeContext): InstanceGroupDetail => {
   return {
-    __type: "InstanceGroupDetail",
     BidPrice: output.BidPrice !== undefined && output.BidPrice !== null ? output.BidPrice : undefined,
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
@@ -4519,7 +4444,6 @@ const deserializeAws_json1_1InstanceGroupStateChangeReason = (
   context: __SerdeContext
 ): InstanceGroupStateChangeReason => {
   return {
-    __type: "InstanceGroupStateChangeReason",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -4527,7 +4451,6 @@ const deserializeAws_json1_1InstanceGroupStateChangeReason = (
 
 const deserializeAws_json1_1InstanceGroupStatus = (output: any, context: __SerdeContext): InstanceGroupStatus => {
   return {
-    __type: "InstanceGroupStatus",
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateChangeReason:
       output.StateChangeReason !== undefined && output.StateChangeReason !== null
@@ -4542,7 +4465,6 @@ const deserializeAws_json1_1InstanceGroupStatus = (output: any, context: __Serde
 
 const deserializeAws_json1_1InstanceGroupTimeline = (output: any, context: __SerdeContext): InstanceGroupTimeline => {
   return {
-    __type: "InstanceGroupTimeline",
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -4564,7 +4486,6 @@ const deserializeAws_json1_1InstanceList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1InstanceResizePolicy = (output: any, context: __SerdeContext): InstanceResizePolicy => {
   return {
-    __type: "InstanceResizePolicy",
     InstanceTerminationTimeout:
       output.InstanceTerminationTimeout !== undefined && output.InstanceTerminationTimeout !== null
         ? output.InstanceTerminationTimeout
@@ -4585,7 +4506,6 @@ const deserializeAws_json1_1InstanceStateChangeReason = (
   context: __SerdeContext
 ): InstanceStateChangeReason => {
   return {
-    __type: "InstanceStateChangeReason",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -4593,7 +4513,6 @@ const deserializeAws_json1_1InstanceStateChangeReason = (
 
 const deserializeAws_json1_1InstanceStatus = (output: any, context: __SerdeContext): InstanceStatus => {
   return {
-    __type: "InstanceStatus",
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateChangeReason:
       output.StateChangeReason !== undefined && output.StateChangeReason !== null
@@ -4608,7 +4527,6 @@ const deserializeAws_json1_1InstanceStatus = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1InstanceTimeline = (output: any, context: __SerdeContext): InstanceTimeline => {
   return {
-    __type: "InstanceTimeline",
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -4629,7 +4547,6 @@ const deserializeAws_json1_1InstanceTypeSpecification = (
   context: __SerdeContext
 ): InstanceTypeSpecification => {
   return {
-    __type: "InstanceTypeSpecification",
     BidPrice: output.BidPrice !== undefined && output.BidPrice !== null ? output.BidPrice : undefined,
     BidPriceAsPercentageOfOnDemandPrice:
       output.BidPriceAsPercentageOfOnDemandPrice !== undefined && output.BidPriceAsPercentageOfOnDemandPrice !== null
@@ -4658,9 +4575,7 @@ const deserializeAws_json1_1InstanceTypeSpecificationList = (
 };
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
-  return {
-    __type: "InternalServerError",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1InternalServerException = (
@@ -4668,7 +4583,6 @@ const deserializeAws_json1_1InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    __type: "InternalServerException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -4678,7 +4592,6 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    __type: "InvalidRequestException",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -4686,7 +4599,6 @@ const deserializeAws_json1_1InvalidRequestException = (
 
 const deserializeAws_json1_1JobFlowDetail = (output: any, context: __SerdeContext): JobFlowDetail => {
   return {
-    __type: "JobFlowDetail",
     AmiVersion: output.AmiVersion !== undefined && output.AmiVersion !== null ? output.AmiVersion : undefined,
     AutoScalingRole:
       output.AutoScalingRole !== undefined && output.AutoScalingRole !== null ? output.AutoScalingRole : undefined,
@@ -4739,7 +4651,6 @@ const deserializeAws_json1_1JobFlowExecutionStatusDetail = (
   context: __SerdeContext
 ): JobFlowExecutionStatusDetail => {
   return {
-    __type: "JobFlowExecutionStatusDetail",
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -4766,7 +4677,6 @@ const deserializeAws_json1_1JobFlowExecutionStatusDetail = (
 
 const deserializeAws_json1_1JobFlowInstancesDetail = (output: any, context: __SerdeContext): JobFlowInstancesDetail => {
   return {
-    __type: "JobFlowInstancesDetail",
     Ec2KeyName: output.Ec2KeyName !== undefined && output.Ec2KeyName !== null ? output.Ec2KeyName : undefined,
     Ec2SubnetId: output.Ec2SubnetId !== undefined && output.Ec2SubnetId !== null ? output.Ec2SubnetId : undefined,
     HadoopVersion:
@@ -4812,7 +4722,6 @@ const deserializeAws_json1_1JobFlowInstancesDetail = (output: any, context: __Se
 
 const deserializeAws_json1_1KerberosAttributes = (output: any, context: __SerdeContext): KerberosAttributes => {
   return {
-    __type: "KerberosAttributes",
     ADDomainJoinPassword:
       output.ADDomainJoinPassword !== undefined && output.ADDomainJoinPassword !== null
         ? output.ADDomainJoinPassword
@@ -4831,7 +4740,6 @@ const deserializeAws_json1_1KerberosAttributes = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1KeyValue = (output: any, context: __SerdeContext): KeyValue => {
   return {
-    __type: "KeyValue",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -4846,7 +4754,6 @@ const deserializeAws_json1_1ListBootstrapActionsOutput = (
   context: __SerdeContext
 ): ListBootstrapActionsOutput => {
   return {
-    __type: "ListBootstrapActionsOutput",
     BootstrapActions:
       output.BootstrapActions !== undefined && output.BootstrapActions !== null
         ? deserializeAws_json1_1CommandList(output.BootstrapActions, context)
@@ -4857,7 +4764,6 @@ const deserializeAws_json1_1ListBootstrapActionsOutput = (
 
 const deserializeAws_json1_1ListClustersOutput = (output: any, context: __SerdeContext): ListClustersOutput => {
   return {
-    __type: "ListClustersOutput",
     Clusters:
       output.Clusters !== undefined && output.Clusters !== null
         ? deserializeAws_json1_1ClusterSummaryList(output.Clusters, context)
@@ -4871,7 +4777,6 @@ const deserializeAws_json1_1ListInstanceFleetsOutput = (
   context: __SerdeContext
 ): ListInstanceFleetsOutput => {
   return {
-    __type: "ListInstanceFleetsOutput",
     InstanceFleets:
       output.InstanceFleets !== undefined && output.InstanceFleets !== null
         ? deserializeAws_json1_1InstanceFleetList(output.InstanceFleets, context)
@@ -4885,7 +4790,6 @@ const deserializeAws_json1_1ListInstanceGroupsOutput = (
   context: __SerdeContext
 ): ListInstanceGroupsOutput => {
   return {
-    __type: "ListInstanceGroupsOutput",
     InstanceGroups:
       output.InstanceGroups !== undefined && output.InstanceGroups !== null
         ? deserializeAws_json1_1InstanceGroupList(output.InstanceGroups, context)
@@ -4896,7 +4800,6 @@ const deserializeAws_json1_1ListInstanceGroupsOutput = (
 
 const deserializeAws_json1_1ListInstancesOutput = (output: any, context: __SerdeContext): ListInstancesOutput => {
   return {
-    __type: "ListInstancesOutput",
     Instances:
       output.Instances !== undefined && output.Instances !== null
         ? deserializeAws_json1_1InstanceList(output.Instances, context)
@@ -4910,7 +4813,6 @@ const deserializeAws_json1_1ListSecurityConfigurationsOutput = (
   context: __SerdeContext
 ): ListSecurityConfigurationsOutput => {
   return {
-    __type: "ListSecurityConfigurationsOutput",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     SecurityConfigurations:
       output.SecurityConfigurations !== undefined && output.SecurityConfigurations !== null
@@ -4921,7 +4823,6 @@ const deserializeAws_json1_1ListSecurityConfigurationsOutput = (
 
 const deserializeAws_json1_1ListStepsOutput = (output: any, context: __SerdeContext): ListStepsOutput => {
   return {
-    __type: "ListStepsOutput",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     Steps:
       output.Steps !== undefined && output.Steps !== null
@@ -4932,7 +4833,6 @@ const deserializeAws_json1_1ListStepsOutput = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ManagedScalingPolicy = (output: any, context: __SerdeContext): ManagedScalingPolicy => {
   return {
-    __type: "ManagedScalingPolicy",
     ComputeLimits:
       output.ComputeLimits !== undefined && output.ComputeLimits !== null
         ? deserializeAws_json1_1ComputeLimits(output.ComputeLimits, context)
@@ -4942,7 +4842,6 @@ const deserializeAws_json1_1ManagedScalingPolicy = (output: any, context: __Serd
 
 const deserializeAws_json1_1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   return {
-    __type: "MetricDimension",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -4954,7 +4853,6 @@ const deserializeAws_json1_1MetricDimensionList = (output: any, context: __Serde
 
 const deserializeAws_json1_1ModifyClusterOutput = (output: any, context: __SerdeContext): ModifyClusterOutput => {
   return {
-    __type: "ModifyClusterOutput",
     StepConcurrencyLevel:
       output.StepConcurrencyLevel !== undefined && output.StepConcurrencyLevel !== null
         ? output.StepConcurrencyLevel
@@ -4967,7 +4865,6 @@ const deserializeAws_json1_1OnDemandProvisioningSpecification = (
   context: __SerdeContext
 ): OnDemandProvisioningSpecification => {
   return {
-    __type: "OnDemandProvisioningSpecification",
     AllocationStrategy:
       output.AllocationStrategy !== undefined && output.AllocationStrategy !== null
         ? output.AllocationStrategy
@@ -4977,7 +4874,6 @@ const deserializeAws_json1_1OnDemandProvisioningSpecification = (
 
 const deserializeAws_json1_1PlacementType = (output: any, context: __SerdeContext): PlacementType => {
   return {
-    __type: "PlacementType",
     AvailabilityZone:
       output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     AvailabilityZones:
@@ -4989,7 +4885,6 @@ const deserializeAws_json1_1PlacementType = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): PortRange => {
   return {
-    __type: "PortRange",
     MaxRange: output.MaxRange !== undefined && output.MaxRange !== null ? output.MaxRange : undefined,
     MinRange: output.MinRange !== undefined && output.MinRange !== null ? output.MinRange : undefined,
   } as any;
@@ -5004,7 +4899,6 @@ const deserializeAws_json1_1PutAutoScalingPolicyOutput = (
   context: __SerdeContext
 ): PutAutoScalingPolicyOutput => {
   return {
-    __type: "PutAutoScalingPolicyOutput",
     AutoScalingPolicy:
       output.AutoScalingPolicy !== undefined && output.AutoScalingPolicy !== null
         ? deserializeAws_json1_1AutoScalingPolicyDescription(output.AutoScalingPolicy, context)
@@ -5020,47 +4914,36 @@ const deserializeAws_json1_1PutBlockPublicAccessConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): PutBlockPublicAccessConfigurationOutput => {
-  return {
-    __type: "PutBlockPublicAccessConfigurationOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutManagedScalingPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): PutManagedScalingPolicyOutput => {
-  return {
-    __type: "PutManagedScalingPolicyOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RemoveAutoScalingPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveAutoScalingPolicyOutput => {
-  return {
-    __type: "RemoveAutoScalingPolicyOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RemoveManagedScalingPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveManagedScalingPolicyOutput => {
-  return {
-    __type: "RemoveManagedScalingPolicyOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RemoveTagsOutput = (output: any, context: __SerdeContext): RemoveTagsOutput => {
-  return {
-    __type: "RemoveTagsOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RunJobFlowOutput = (output: any, context: __SerdeContext): RunJobFlowOutput => {
   return {
-    __type: "RunJobFlowOutput",
     ClusterArn: output.ClusterArn !== undefined && output.ClusterArn !== null ? output.ClusterArn : undefined,
     JobFlowId: output.JobFlowId !== undefined && output.JobFlowId !== null ? output.JobFlowId : undefined,
   } as any;
@@ -5068,7 +4951,6 @@ const deserializeAws_json1_1RunJobFlowOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ScalingAction = (output: any, context: __SerdeContext): ScalingAction => {
   return {
-    __type: "ScalingAction",
     Market: output.Market !== undefined && output.Market !== null ? output.Market : undefined,
     SimpleScalingPolicyConfiguration:
       output.SimpleScalingPolicyConfiguration !== undefined && output.SimpleScalingPolicyConfiguration !== null
@@ -5079,7 +4961,6 @@ const deserializeAws_json1_1ScalingAction = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ScalingConstraints = (output: any, context: __SerdeContext): ScalingConstraints => {
   return {
-    __type: "ScalingConstraints",
     MaxCapacity: output.MaxCapacity !== undefined && output.MaxCapacity !== null ? output.MaxCapacity : undefined,
     MinCapacity: output.MinCapacity !== undefined && output.MinCapacity !== null ? output.MinCapacity : undefined,
   } as any;
@@ -5087,7 +4968,6 @@ const deserializeAws_json1_1ScalingConstraints = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ScalingRule = (output: any, context: __SerdeContext): ScalingRule => {
   return {
-    __type: "ScalingRule",
     Action:
       output.Action !== undefined && output.Action !== null
         ? deserializeAws_json1_1ScalingAction(output.Action, context)
@@ -5107,7 +4987,6 @@ const deserializeAws_json1_1ScalingRuleList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ScalingTrigger = (output: any, context: __SerdeContext): ScalingTrigger => {
   return {
-    __type: "ScalingTrigger",
     CloudWatchAlarmDefinition:
       output.CloudWatchAlarmDefinition !== undefined && output.CloudWatchAlarmDefinition !== null
         ? deserializeAws_json1_1CloudWatchAlarmDefinition(output.CloudWatchAlarmDefinition, context)
@@ -5120,7 +4999,6 @@ const deserializeAws_json1_1ScriptBootstrapActionConfig = (
   context: __SerdeContext
 ): ScriptBootstrapActionConfig => {
   return {
-    __type: "ScriptBootstrapActionConfig",
     Args:
       output.Args !== undefined && output.Args !== null
         ? deserializeAws_json1_1XmlStringList(output.Args, context)
@@ -5141,7 +5019,6 @@ const deserializeAws_json1_1SecurityConfigurationSummary = (
   context: __SerdeContext
 ): SecurityConfigurationSummary => {
   return {
-    __type: "SecurityConfigurationSummary",
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -5152,7 +5029,6 @@ const deserializeAws_json1_1SecurityConfigurationSummary = (
 
 const deserializeAws_json1_1ShrinkPolicy = (output: any, context: __SerdeContext): ShrinkPolicy => {
   return {
-    __type: "ShrinkPolicy",
     DecommissionTimeout:
       output.DecommissionTimeout !== undefined && output.DecommissionTimeout !== null
         ? output.DecommissionTimeout
@@ -5169,7 +5045,6 @@ const deserializeAws_json1_1SimpleScalingPolicyConfiguration = (
   context: __SerdeContext
 ): SimpleScalingPolicyConfiguration => {
   return {
-    __type: "SimpleScalingPolicyConfiguration",
     AdjustmentType:
       output.AdjustmentType !== undefined && output.AdjustmentType !== null ? output.AdjustmentType : undefined,
     CoolDown: output.CoolDown !== undefined && output.CoolDown !== null ? output.CoolDown : undefined,
@@ -5185,7 +5060,6 @@ const deserializeAws_json1_1SpotProvisioningSpecification = (
   context: __SerdeContext
 ): SpotProvisioningSpecification => {
   return {
-    __type: "SpotProvisioningSpecification",
     AllocationStrategy:
       output.AllocationStrategy !== undefined && output.AllocationStrategy !== null
         ? output.AllocationStrategy
@@ -5205,7 +5079,6 @@ const deserializeAws_json1_1SpotProvisioningSpecification = (
 
 const deserializeAws_json1_1Step = (output: any, context: __SerdeContext): Step => {
   return {
-    __type: "Step",
     ActionOnFailure:
       output.ActionOnFailure !== undefined && output.ActionOnFailure !== null ? output.ActionOnFailure : undefined,
     Config:
@@ -5223,7 +5096,6 @@ const deserializeAws_json1_1Step = (output: any, context: __SerdeContext): Step 
 
 const deserializeAws_json1_1StepConfig = (output: any, context: __SerdeContext): StepConfig => {
   return {
-    __type: "StepConfig",
     ActionOnFailure:
       output.ActionOnFailure !== undefined && output.ActionOnFailure !== null ? output.ActionOnFailure : undefined,
     HadoopJarStep:
@@ -5236,7 +5108,6 @@ const deserializeAws_json1_1StepConfig = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1StepDetail = (output: any, context: __SerdeContext): StepDetail => {
   return {
-    __type: "StepDetail",
     ExecutionStatusDetail:
       output.ExecutionStatusDetail !== undefined && output.ExecutionStatusDetail !== null
         ? deserializeAws_json1_1StepExecutionStatusDetail(output.ExecutionStatusDetail, context)
@@ -5257,7 +5128,6 @@ const deserializeAws_json1_1StepExecutionStatusDetail = (
   context: __SerdeContext
 ): StepExecutionStatusDetail => {
   return {
-    __type: "StepExecutionStatusDetail",
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -5284,7 +5154,6 @@ const deserializeAws_json1_1StepIdsList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1StepStateChangeReason = (output: any, context: __SerdeContext): StepStateChangeReason => {
   return {
-    __type: "StepStateChangeReason",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -5292,7 +5161,6 @@ const deserializeAws_json1_1StepStateChangeReason = (output: any, context: __Ser
 
 const deserializeAws_json1_1StepStatus = (output: any, context: __SerdeContext): StepStatus => {
   return {
-    __type: "StepStatus",
     FailureDetails:
       output.FailureDetails !== undefined && output.FailureDetails !== null
         ? deserializeAws_json1_1FailureDetails(output.FailureDetails, context)
@@ -5311,7 +5179,6 @@ const deserializeAws_json1_1StepStatus = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1StepSummary = (output: any, context: __SerdeContext): StepSummary => {
   return {
-    __type: "StepSummary",
     ActionOnFailure:
       output.ActionOnFailure !== undefined && output.ActionOnFailure !== null ? output.ActionOnFailure : undefined,
     Config:
@@ -5333,7 +5200,6 @@ const deserializeAws_json1_1StepSummaryList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1StepTimeline = (output: any, context: __SerdeContext): StepTimeline => {
   return {
-    __type: "StepTimeline",
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -5369,7 +5235,6 @@ const deserializeAws_json1_1SupportedProductsList = (output: any, context: __Ser
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -5381,7 +5246,6 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1VolumeSpecification = (output: any, context: __SerdeContext): VolumeSpecification => {
   return {
-    __type: "VolumeSpecification",
     Iops: output.Iops !== undefined && output.Iops !== null ? output.Iops : undefined,
     SizeInGB: output.SizeInGB !== undefined && output.SizeInGB !== null ? output.SizeInGB : undefined,
     VolumeType: output.VolumeType !== undefined && output.VolumeType !== null ? output.VolumeType : undefined,

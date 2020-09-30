@@ -1,6 +1,6 @@
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient.ts";
-import { ExportEC2InstanceRecommendationsRequest, ExportEC2InstanceRecommendationsResponse } from "../models/index.ts";
+import { ExportEC2InstanceRecommendationsRequest, ExportEC2InstanceRecommendationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0ExportEC2InstanceRecommendationsCommand,
   serializeAws_json1_0ExportEC2InstanceRecommendationsCommand,

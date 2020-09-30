@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { AttachLoadBalancersResultType, AttachLoadBalancersType } from "../models/index.ts";
+import { AttachLoadBalancersResultType, AttachLoadBalancersType } from "../models/models_0.ts";
 import {
   deserializeAws_queryAttachLoadBalancersCommand,
   serializeAws_queryAttachLoadBalancersCommand,

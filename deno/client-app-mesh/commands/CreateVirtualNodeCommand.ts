@@ -1,6 +1,6 @@
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient.ts";
-import { CreateVirtualNodeInput, CreateVirtualNodeOutput } from "../models/index.ts";
+import { CreateVirtualNodeInput, CreateVirtualNodeOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateVirtualNodeCommand,
   serializeAws_restJson1CreateVirtualNodeCommand,

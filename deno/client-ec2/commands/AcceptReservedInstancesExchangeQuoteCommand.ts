@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   AcceptReservedInstancesExchangeQuoteRequest,
   AcceptReservedInstancesExchangeQuoteResult,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand,
   serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient.ts";
-import { GetDASHStreamingSessionURLInput, GetDASHStreamingSessionURLOutput } from "../models/index.ts";
+import { GetDASHStreamingSessionURLInput, GetDASHStreamingSessionURLOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetDASHStreamingSessionURLCommand,
   serializeAws_restJson1GetDASHStreamingSessionURLCommand,

@@ -1,6 +1,6 @@
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient.ts";
-import { UntagResourceInput, UntagResourceOutput } from "../models/index.ts";
+import { UntagResourceInput, UntagResourceOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UntagResourceCommand,
   serializeAws_json1_1UntagResourceCommand,

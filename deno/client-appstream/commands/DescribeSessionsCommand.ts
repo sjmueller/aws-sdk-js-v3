@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { DescribeSessionsRequest, DescribeSessionsResult } from "../models/index.ts";
+import { DescribeSessionsRequest, DescribeSessionsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeSessionsCommand,
   serializeAws_json1_1DescribeSessionsCommand,

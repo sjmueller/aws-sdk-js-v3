@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { CreateFleetRequest, CreateFleetResult } from "../models/index.ts";
+import { CreateFleetRequest, CreateFleetResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateFleetCommand,
   serializeAws_json1_1CreateFleetCommand,

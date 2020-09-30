@@ -1,6 +1,6 @@
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
-import { ListEventSourcesRequest, ListEventSourcesResponse } from "../models/index.ts";
+import { ListEventSourcesRequest, ListEventSourcesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListEventSourcesCommand,
   serializeAws_json1_1ListEventSourcesCommand,

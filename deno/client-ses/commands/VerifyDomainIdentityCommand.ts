@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { VerifyDomainIdentityRequest, VerifyDomainIdentityResponse } from "../models/index.ts";
+import { VerifyDomainIdentityRequest, VerifyDomainIdentityResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryVerifyDomainIdentityCommand,
   serializeAws_queryVerifyDomainIdentityCommand,

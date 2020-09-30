@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { CreateDevicePoolRequest, CreateDevicePoolResult } from "../models/index.ts";
+import { CreateDevicePoolRequest, CreateDevicePoolResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateDevicePoolCommand,
   serializeAws_json1_1CreateDevicePoolCommand,

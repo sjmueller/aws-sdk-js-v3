@@ -1,6 +1,6 @@
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client.ts";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/index.ts";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListTagsForResourceCommand,
   serializeAws_json1_1ListTagsForResourceCommand,

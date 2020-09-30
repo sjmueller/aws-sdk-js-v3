@@ -1,6 +1,6 @@
 
 import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SavingsplansClient.ts";
-import { DescribeSavingsPlansOfferingsRequest, DescribeSavingsPlansOfferingsResponse } from "../models/index.ts";
+import { DescribeSavingsPlansOfferingsRequest, DescribeSavingsPlansOfferingsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeSavingsPlansOfferingsCommand,
   serializeAws_restJson1DescribeSavingsPlansOfferingsCommand,

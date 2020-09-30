@@ -83,7 +83,7 @@ import {
   TransitGatewayRegistrationStateReason,
   ValidationException,
   ValidationExceptionField,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -1125,7 +1125,6 @@ export const deserializeAws_restJson1AssociateCustomerGatewayCommand = async (
   }
   const contents: AssociateCustomerGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateCustomerGatewayResponse",
     CustomerGatewayAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1232,7 +1231,6 @@ export const deserializeAws_restJson1AssociateLinkCommand = async (
   }
   const contents: AssociateLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateLinkResponse",
     LinkAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1336,7 +1334,6 @@ export const deserializeAws_restJson1CreateDeviceCommand = async (
   }
   const contents: CreateDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDeviceResponse",
     Device: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1440,7 +1437,6 @@ export const deserializeAws_restJson1CreateGlobalNetworkCommand = async (
   }
   const contents: CreateGlobalNetworkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGlobalNetworkResponse",
     GlobalNetwork: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1536,7 +1532,6 @@ export const deserializeAws_restJson1CreateLinkCommand = async (
   }
   const contents: CreateLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLinkResponse",
     Link: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1640,7 +1635,6 @@ export const deserializeAws_restJson1CreateSiteCommand = async (
   }
   const contents: CreateSiteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSiteResponse",
     Site: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1744,7 +1738,6 @@ export const deserializeAws_restJson1DeleteDeviceCommand = async (
   }
   const contents: DeleteDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDeviceResponse",
     Device: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1840,7 +1833,6 @@ export const deserializeAws_restJson1DeleteGlobalNetworkCommand = async (
   }
   const contents: DeleteGlobalNetworkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteGlobalNetworkResponse",
     GlobalNetwork: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1936,7 +1928,6 @@ export const deserializeAws_restJson1DeleteLinkCommand = async (
   }
   const contents: DeleteLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLinkResponse",
     Link: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2032,7 +2023,6 @@ export const deserializeAws_restJson1DeleteSiteCommand = async (
   }
   const contents: DeleteSiteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSiteResponse",
     Site: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2128,7 +2118,6 @@ export const deserializeAws_restJson1DeregisterTransitGatewayCommand = async (
   }
   const contents: DeregisterTransitGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterTransitGatewayResponse",
     TransitGatewayRegistration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2227,7 +2216,6 @@ export const deserializeAws_restJson1DescribeGlobalNetworksCommand = async (
   }
   const contents: DescribeGlobalNetworksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeGlobalNetworksResponse",
     GlobalNetworks: undefined,
     NextToken: undefined,
   };
@@ -2319,7 +2307,6 @@ export const deserializeAws_restJson1DisassociateCustomerGatewayCommand = async 
   }
   const contents: DisassociateCustomerGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateCustomerGatewayResponse",
     CustomerGatewayAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2418,7 +2405,6 @@ export const deserializeAws_restJson1DisassociateLinkCommand = async (
   }
   const contents: DisassociateLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateLinkResponse",
     LinkAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2514,7 +2500,6 @@ export const deserializeAws_restJson1GetCustomerGatewayAssociationsCommand = asy
   }
   const contents: GetCustomerGatewayAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCustomerGatewayAssociationsResponse",
     CustomerGatewayAssociations: undefined,
     NextToken: undefined,
   };
@@ -2617,7 +2602,6 @@ export const deserializeAws_restJson1GetDevicesCommand = async (
   }
   const contents: GetDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDevicesResponse",
     Devices: undefined,
     NextToken: undefined,
   };
@@ -2709,7 +2693,6 @@ export const deserializeAws_restJson1GetLinkAssociationsCommand = async (
   }
   const contents: GetLinkAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLinkAssociationsResponse",
     LinkAssociations: undefined,
     NextToken: undefined,
   };
@@ -2801,7 +2784,6 @@ export const deserializeAws_restJson1GetLinksCommand = async (
   }
   const contents: GetLinksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLinksResponse",
     Links: undefined,
     NextToken: undefined,
   };
@@ -2893,7 +2875,6 @@ export const deserializeAws_restJson1GetSitesCommand = async (
   }
   const contents: GetSitesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSitesResponse",
     NextToken: undefined,
     Sites: undefined,
   };
@@ -2985,7 +2966,6 @@ export const deserializeAws_restJson1GetTransitGatewayRegistrationsCommand = asy
   }
   const contents: GetTransitGatewayRegistrationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTransitGatewayRegistrationsResponse",
     NextToken: undefined,
     TransitGatewayRegistrations: undefined,
   };
@@ -3080,7 +3060,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     TagList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3168,7 +3147,6 @@ export const deserializeAws_restJson1RegisterTransitGatewayCommand = async (
   }
   const contents: RegisterTransitGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterTransitGatewayResponse",
     TransitGatewayRegistration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3267,7 +3245,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3367,7 +3344,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3459,7 +3435,6 @@ export const deserializeAws_restJson1UpdateDeviceCommand = async (
   }
   const contents: UpdateDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDeviceResponse",
     Device: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3555,7 +3530,6 @@ export const deserializeAws_restJson1UpdateGlobalNetworkCommand = async (
   }
   const contents: UpdateGlobalNetworkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGlobalNetworkResponse",
     GlobalNetwork: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3651,7 +3625,6 @@ export const deserializeAws_restJson1UpdateLinkCommand = async (
   }
   const contents: UpdateLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateLinkResponse",
     Link: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3755,7 +3728,6 @@ export const deserializeAws_restJson1UpdateSiteCommand = async (
   }
   const contents: UpdateSiteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSiteResponse",
     Site: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4037,7 +4009,6 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
 
 const deserializeAws_restJson1Bandwidth = (output: any, context: __SerdeContext): Bandwidth => {
   return {
-    __type: "Bandwidth",
     DownloadSpeed:
       output.DownloadSpeed !== undefined && output.DownloadSpeed !== null ? output.DownloadSpeed : undefined,
     UploadSpeed: output.UploadSpeed !== undefined && output.UploadSpeed !== null ? output.UploadSpeed : undefined,
@@ -4049,7 +4020,6 @@ const deserializeAws_restJson1CustomerGatewayAssociation = (
   context: __SerdeContext
 ): CustomerGatewayAssociation => {
   return {
-    __type: "CustomerGatewayAssociation",
     CustomerGatewayArn:
       output.CustomerGatewayArn !== undefined && output.CustomerGatewayArn !== null
         ? output.CustomerGatewayArn
@@ -4071,7 +4041,6 @@ const deserializeAws_restJson1CustomerGatewayAssociationList = (
 
 const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): Device => {
   return {
-    __type: "Device",
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -4104,7 +4073,6 @@ const deserializeAws_restJson1DeviceList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1GlobalNetwork = (output: any, context: __SerdeContext): GlobalNetwork => {
   return {
-    __type: "GlobalNetwork",
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -4128,7 +4096,6 @@ const deserializeAws_restJson1GlobalNetworkList = (output: any, context: __Serde
 
 const deserializeAws_restJson1Link = (output: any, context: __SerdeContext): Link => {
   return {
-    __type: "Link",
     Bandwidth:
       output.Bandwidth !== undefined && output.Bandwidth !== null
         ? deserializeAws_restJson1Bandwidth(output.Bandwidth, context)
@@ -4155,7 +4122,6 @@ const deserializeAws_restJson1Link = (output: any, context: __SerdeContext): Lin
 
 const deserializeAws_restJson1LinkAssociation = (output: any, context: __SerdeContext): LinkAssociation => {
   return {
-    __type: "LinkAssociation",
     DeviceId: output.DeviceId !== undefined && output.DeviceId !== null ? output.DeviceId : undefined,
     GlobalNetworkId:
       output.GlobalNetworkId !== undefined && output.GlobalNetworkId !== null ? output.GlobalNetworkId : undefined,
@@ -4177,7 +4143,6 @@ const deserializeAws_restJson1LinkList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Location = (output: any, context: __SerdeContext): Location => {
   return {
-    __type: "Location",
     Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
     Latitude: output.Latitude !== undefined && output.Latitude !== null ? output.Latitude : undefined,
     Longitude: output.Longitude !== undefined && output.Longitude !== null ? output.Longitude : undefined,
@@ -4186,7 +4151,6 @@ const deserializeAws_restJson1Location = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Site = (output: any, context: __SerdeContext): Site => {
   return {
-    __type: "Site",
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -4214,7 +4178,6 @@ const deserializeAws_restJson1SiteList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -4229,7 +4192,6 @@ const deserializeAws_restJson1TransitGatewayRegistration = (
   context: __SerdeContext
 ): TransitGatewayRegistration => {
   return {
-    __type: "TransitGatewayRegistration",
     GlobalNetworkId:
       output.GlobalNetworkId !== undefined && output.GlobalNetworkId !== null ? output.GlobalNetworkId : undefined,
     State:
@@ -4255,7 +4217,6 @@ const deserializeAws_restJson1TransitGatewayRegistrationStateReason = (
   context: __SerdeContext
 ): TransitGatewayRegistrationStateReason => {
   return {
-    __type: "TransitGatewayRegistrationStateReason",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -4266,7 +4227,6 @@ const deserializeAws_restJson1ValidationExceptionField = (
   context: __SerdeContext
 ): ValidationExceptionField => {
   return {
-    __type: "ValidationExceptionField",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;

@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { UpdateAddressBookRequest, UpdateAddressBookResponse } from "../models/index.ts";
+import { UpdateAddressBookRequest, UpdateAddressBookResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateAddressBookCommand,
   serializeAws_json1_1UpdateAddressBookCommand,

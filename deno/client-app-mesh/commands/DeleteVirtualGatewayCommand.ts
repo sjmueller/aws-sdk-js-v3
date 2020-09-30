@@ -1,6 +1,6 @@
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient.ts";
-import { DeleteVirtualGatewayInput, DeleteVirtualGatewayOutput } from "../models/index.ts";
+import { DeleteVirtualGatewayInput, DeleteVirtualGatewayOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteVirtualGatewayCommand,
   serializeAws_restJson1DeleteVirtualGatewayCommand,

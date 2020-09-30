@@ -1,6 +1,6 @@
 
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient.ts";
-import { ListPermissionsRequest, ListPermissionsResponse } from "../models/index.ts";
+import { ListPermissionsRequest, ListPermissionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListPermissionsCommand,
   serializeAws_restJson1ListPermissionsCommand,

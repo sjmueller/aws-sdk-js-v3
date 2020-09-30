@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { BatchGetResourceConfigRequest, BatchGetResourceConfigResponse } from "../models/index.ts";
+import { BatchGetResourceConfigRequest, BatchGetResourceConfigResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchGetResourceConfigCommand,
   serializeAws_json1_1BatchGetResourceConfigCommand,

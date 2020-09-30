@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { ModifyWorkspaceCreationPropertiesRequest, ModifyWorkspaceCreationPropertiesResult } from "../models/index.ts";
+import { ModifyWorkspaceCreationPropertiesRequest, ModifyWorkspaceCreationPropertiesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand,
   serializeAws_json1_1ModifyWorkspaceCreationPropertiesCommand,

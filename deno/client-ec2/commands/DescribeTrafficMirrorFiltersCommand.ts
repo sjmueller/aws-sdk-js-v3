@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeTrafficMirrorFiltersRequest, DescribeTrafficMirrorFiltersResult } from "../models/index.ts";
+import { DescribeTrafficMirrorFiltersRequest, DescribeTrafficMirrorFiltersResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2DescribeTrafficMirrorFiltersCommand,
   serializeAws_ec2DescribeTrafficMirrorFiltersCommand,

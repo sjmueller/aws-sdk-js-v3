@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient.ts";
-import { ListTagsRequest, ListTagsResponse } from "../models/index.ts";
+import { ListTagsRequest, ListTagsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListTagsCommand,
   serializeAws_restJson1ListTagsCommand,

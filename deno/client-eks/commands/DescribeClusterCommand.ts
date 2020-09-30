@@ -1,6 +1,6 @@
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient.ts";
-import { DescribeClusterRequest, DescribeClusterResponse } from "../models/index.ts";
+import { DescribeClusterRequest, DescribeClusterResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeClusterCommand,
   serializeAws_restJson1DescribeClusterCommand,

@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { RestoreFromClusterSnapshotMessage, RestoreFromClusterSnapshotResult } from "../models/index.ts";
+import { RestoreFromClusterSnapshotMessage, RestoreFromClusterSnapshotResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryRestoreFromClusterSnapshotCommand,
   serializeAws_queryRestoreFromClusterSnapshotCommand,

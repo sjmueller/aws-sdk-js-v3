@@ -1,6 +1,6 @@
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient.ts";
-import { IncreaseStreamRetentionPeriodInput } from "../models/index.ts";
+import { IncreaseStreamRetentionPeriodInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1IncreaseStreamRetentionPeriodCommand,
   serializeAws_json1_1IncreaseStreamRetentionPeriodCommand,

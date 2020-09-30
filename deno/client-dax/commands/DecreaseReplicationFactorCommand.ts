@@ -1,6 +1,6 @@
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient.ts";
-import { DecreaseReplicationFactorRequest, DecreaseReplicationFactorResponse } from "../models/index.ts";
+import { DecreaseReplicationFactorRequest, DecreaseReplicationFactorResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DecreaseReplicationFactorCommand,
   serializeAws_json1_1DecreaseReplicationFactorCommand,

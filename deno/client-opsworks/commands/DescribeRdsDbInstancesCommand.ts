@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { DescribeRdsDbInstancesRequest, DescribeRdsDbInstancesResult } from "../models/index.ts";
+import { DescribeRdsDbInstancesRequest, DescribeRdsDbInstancesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeRdsDbInstancesCommand,
   serializeAws_json1_1DescribeRdsDbInstancesCommand,

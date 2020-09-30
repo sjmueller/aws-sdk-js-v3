@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CreateVpnConnectionRouteRequest } from "../models/index.ts";
+import { CreateVpnConnectionRouteRequest } from "../models/models_1.ts";
 import {
   deserializeAws_ec2CreateVpnConnectionRouteCommand,
   serializeAws_ec2CreateVpnConnectionRouteCommand,

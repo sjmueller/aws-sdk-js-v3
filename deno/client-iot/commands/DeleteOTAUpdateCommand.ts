@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DeleteOTAUpdateRequest, DeleteOTAUpdateResponse } from "../models/index.ts";
+import { DeleteOTAUpdateRequest, DeleteOTAUpdateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteOTAUpdateCommand,
   serializeAws_restJson1DeleteOTAUpdateCommand,

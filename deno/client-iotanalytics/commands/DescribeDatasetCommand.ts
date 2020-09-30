@@ -1,6 +1,6 @@
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient.ts";
-import { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/index.ts";
+import { DescribeDatasetRequest, DescribeDatasetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeDatasetCommand,
   serializeAws_restJson1DescribeDatasetCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { AuthorizeIpRulesRequest, AuthorizeIpRulesResult } from "../models/index.ts";
+import { AuthorizeIpRulesRequest, AuthorizeIpRulesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AuthorizeIpRulesCommand,
   serializeAws_json1_1AuthorizeIpRulesCommand,

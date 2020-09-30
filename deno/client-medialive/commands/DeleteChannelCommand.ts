@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { DeleteChannelRequest, DeleteChannelResponse } from "../models/index.ts";
+import { DeleteChannelRequest, DeleteChannelResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DeleteChannelCommand,
   serializeAws_restJson1DeleteChannelCommand,

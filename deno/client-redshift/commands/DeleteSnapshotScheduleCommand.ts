@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { DeleteSnapshotScheduleMessage } from "../models/index.ts";
+import { DeleteSnapshotScheduleMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteSnapshotScheduleCommand,
   serializeAws_queryDeleteSnapshotScheduleCommand,

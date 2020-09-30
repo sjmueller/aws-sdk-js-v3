@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { GlobalSignOutRequest, GlobalSignOutResponse } from "../models/index.ts";
+import { GlobalSignOutRequest, GlobalSignOutResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GlobalSignOutCommand,
   serializeAws_json1_1GlobalSignOutCommand,

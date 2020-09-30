@@ -7,7 +7,7 @@ import {
 import {
   DescribeReplicationTaskAssessmentRunsMessage,
   DescribeReplicationTaskAssessmentRunsResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand,
   serializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand,

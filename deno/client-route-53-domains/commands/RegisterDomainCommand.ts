@@ -1,6 +1,6 @@
 
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
-import { RegisterDomainRequest, RegisterDomainResponse } from "../models/index.ts";
+import { RegisterDomainRequest, RegisterDomainResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RegisterDomainCommand,
   serializeAws_json1_1RegisterDomainCommand,

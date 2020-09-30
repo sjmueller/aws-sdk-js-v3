@@ -1,6 +1,6 @@
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient.ts";
-import { CreateClusterRequest, CreateClusterResponse } from "../models/index.ts";
+import { CreateClusterRequest, CreateClusterResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateClusterCommand,
   serializeAws_restJson1CreateClusterCommand,

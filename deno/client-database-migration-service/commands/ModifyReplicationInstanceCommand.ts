@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { ModifyReplicationInstanceMessage, ModifyReplicationInstanceResponse } from "../models/index.ts";
+import { ModifyReplicationInstanceMessage, ModifyReplicationInstanceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ModifyReplicationInstanceCommand,
   serializeAws_json1_1ModifyReplicationInstanceCommand,

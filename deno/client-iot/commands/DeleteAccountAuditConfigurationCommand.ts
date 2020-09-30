@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DeleteAccountAuditConfigurationRequest, DeleteAccountAuditConfigurationResponse } from "../models/index.ts";
+import { DeleteAccountAuditConfigurationRequest, DeleteAccountAuditConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteAccountAuditConfigurationCommand,
   serializeAws_restJson1DeleteAccountAuditConfigurationCommand,

@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { DecreaseReplicaCountMessage, DecreaseReplicaCountResult } from "../models/index.ts";
+import { DecreaseReplicaCountMessage, DecreaseReplicaCountResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDecreaseReplicaCountCommand,
   serializeAws_queryDecreaseReplicaCountCommand,

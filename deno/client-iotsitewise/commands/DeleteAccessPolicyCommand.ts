@@ -1,6 +1,6 @@
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
-import { DeleteAccessPolicyRequest, DeleteAccessPolicyResponse } from "../models/index.ts";
+import { DeleteAccessPolicyRequest, DeleteAccessPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteAccessPolicyCommand,
   serializeAws_restJson1DeleteAccessPolicyCommand,

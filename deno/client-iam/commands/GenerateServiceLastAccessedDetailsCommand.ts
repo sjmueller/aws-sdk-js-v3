@@ -1,6 +1,9 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { GenerateServiceLastAccessedDetailsRequest, GenerateServiceLastAccessedDetailsResponse } from "../models/index.ts";
+import {
+  GenerateServiceLastAccessedDetailsRequest,
+  GenerateServiceLastAccessedDetailsResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_queryGenerateServiceLastAccessedDetailsCommand,
   serializeAws_queryGenerateServiceLastAccessedDetailsCommand,

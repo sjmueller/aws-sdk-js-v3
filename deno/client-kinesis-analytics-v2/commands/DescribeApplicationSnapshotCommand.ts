@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client.ts";
-import { DescribeApplicationSnapshotRequest, DescribeApplicationSnapshotResponse } from "../models/index.ts";
+import { DescribeApplicationSnapshotRequest, DescribeApplicationSnapshotResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeApplicationSnapshotCommand,
   serializeAws_json1_1DescribeApplicationSnapshotCommand,

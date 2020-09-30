@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient.ts";
-import { EnableProactiveEngagementRequest, EnableProactiveEngagementResponse } from "../models/index.ts";
+import { EnableProactiveEngagementRequest, EnableProactiveEngagementResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1EnableProactiveEngagementCommand,
   serializeAws_json1_1EnableProactiveEngagementCommand,

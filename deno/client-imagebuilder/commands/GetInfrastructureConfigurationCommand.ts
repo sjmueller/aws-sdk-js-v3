@@ -1,6 +1,6 @@
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
-import { GetInfrastructureConfigurationRequest, GetInfrastructureConfigurationResponse } from "../models/index.ts";
+import { GetInfrastructureConfigurationRequest, GetInfrastructureConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetInfrastructureConfigurationCommand,
   serializeAws_restJson1GetInfrastructureConfigurationCommand,

@@ -1,6 +1,6 @@
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client.ts";
-import { DescribeBucketsRequest, DescribeBucketsResponse } from "../models/index.ts";
+import { DescribeBucketsRequest, DescribeBucketsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeBucketsCommand,
   serializeAws_restJson1DescribeBucketsCommand,

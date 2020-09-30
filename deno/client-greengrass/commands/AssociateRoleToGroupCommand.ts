@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { AssociateRoleToGroupRequest, AssociateRoleToGroupResponse } from "../models/index.ts";
+import { AssociateRoleToGroupRequest, AssociateRoleToGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AssociateRoleToGroupCommand,
   serializeAws_restJson1AssociateRoleToGroupCommand,

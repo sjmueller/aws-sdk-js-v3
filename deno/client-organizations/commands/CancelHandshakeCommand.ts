@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { CancelHandshakeRequest, CancelHandshakeResponse } from "../models/index.ts";
+import { CancelHandshakeRequest, CancelHandshakeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CancelHandshakeCommand,
   serializeAws_json1_1CancelHandshakeCommand,

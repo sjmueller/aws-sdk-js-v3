@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { DiscoverPollEndpointRequest, DiscoverPollEndpointResponse } from "../models/index.ts";
+import { DiscoverPollEndpointRequest, DiscoverPollEndpointResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DiscoverPollEndpointCommand,
   serializeAws_json1_1DiscoverPollEndpointCommand,

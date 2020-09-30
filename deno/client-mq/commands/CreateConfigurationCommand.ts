@@ -1,6 +1,6 @@
 
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient.ts";
-import { CreateConfigurationRequest, CreateConfigurationResponse } from "../models/index.ts";
+import { CreateConfigurationRequest, CreateConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateConfigurationCommand,
   serializeAws_restJson1CreateConfigurationCommand,

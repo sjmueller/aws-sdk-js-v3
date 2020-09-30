@@ -1,6 +1,6 @@
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient.ts";
-import { StopApplicationRequest, StopApplicationResponse } from "../models/index.ts";
+import { StopApplicationRequest, StopApplicationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopApplicationCommand,
   serializeAws_json1_1StopApplicationCommand,

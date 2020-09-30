@@ -1,6 +1,6 @@
 
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
-import { GetSuppressedDestinationRequest, GetSuppressedDestinationResponse } from "../models/index.ts";
+import { GetSuppressedDestinationRequest, GetSuppressedDestinationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetSuppressedDestinationCommand,
   serializeAws_restJson1GetSuppressedDestinationCommand,

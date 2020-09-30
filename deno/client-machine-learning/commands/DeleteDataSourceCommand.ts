@@ -1,6 +1,6 @@
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient.ts";
-import { DeleteDataSourceInput, DeleteDataSourceOutput } from "../models/index.ts";
+import { DeleteDataSourceInput, DeleteDataSourceOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteDataSourceCommand,
   serializeAws_json1_1DeleteDataSourceCommand,

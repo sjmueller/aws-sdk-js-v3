@@ -1,6 +1,6 @@
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
-import { PutItemInput, PutItemOutput } from "../models/index.ts";
+import { PutItemInput, PutItemOutput } from "../models/models_0.ts";
 import { deserializeAws_json1_0PutItemCommand, serializeAws_json1_0PutItemCommand } from "../protocols/Aws_json1_0.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";

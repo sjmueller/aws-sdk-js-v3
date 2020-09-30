@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { DescribeSharedDirectoriesRequest, DescribeSharedDirectoriesResult } from "../models/index.ts";
+import { DescribeSharedDirectoriesRequest, DescribeSharedDirectoriesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeSharedDirectoriesCommand,
   serializeAws_json1_1DescribeSharedDirectoriesCommand,

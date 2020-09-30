@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { DeleteClassifierRequest, DeleteClassifierResponse } from "../models/index.ts";
+import { DeleteClassifierRequest, DeleteClassifierResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteClassifierCommand,
   serializeAws_json1_1DeleteClassifierCommand,

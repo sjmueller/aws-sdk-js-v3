@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { DeleteServiceSpecificCredentialRequest } from "../models/index.ts";
+import { DeleteServiceSpecificCredentialRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteServiceSpecificCredentialCommand,
   serializeAws_queryDeleteServiceSpecificCredentialCommand,

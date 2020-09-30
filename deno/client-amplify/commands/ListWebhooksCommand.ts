@@ -1,6 +1,6 @@
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
-import { ListWebhooksRequest, ListWebhooksResult } from "../models/index.ts";
+import { ListWebhooksRequest, ListWebhooksResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListWebhooksCommand,
   serializeAws_restJson1ListWebhooksCommand,

@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { UpdateEndpointWeightsAndCapacitiesInput, UpdateEndpointWeightsAndCapacitiesOutput } from "../models/index.ts";
+import { UpdateEndpointWeightsAndCapacitiesInput, UpdateEndpointWeightsAndCapacitiesOutput } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand,
   serializeAws_json1_1UpdateEndpointWeightsAndCapacitiesCommand,

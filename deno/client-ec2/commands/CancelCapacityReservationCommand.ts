@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CancelCapacityReservationRequest, CancelCapacityReservationResult } from "../models/index.ts";
+import { CancelCapacityReservationRequest, CancelCapacityReservationResult } from "../models/models_0.ts";
 import {
   deserializeAws_ec2CancelCapacityReservationCommand,
   serializeAws_ec2CancelCapacityReservationCommand,

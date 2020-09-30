@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { ListDevicesRequest, ListDevicesResponse } from "../models/index.ts";
+import { ListDevicesRequest, ListDevicesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListDevicesCommand,
   serializeAws_json1_1ListDevicesCommand,

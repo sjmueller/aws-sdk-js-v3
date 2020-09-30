@@ -1,6 +1,6 @@
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient.ts";
-import { UpdateServiceSettingsRequest, UpdateServiceSettingsResponse } from "../models/index.ts";
+import { UpdateServiceSettingsRequest, UpdateServiceSettingsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateServiceSettingsCommand,
   serializeAws_json1_1UpdateServiceSettingsCommand,

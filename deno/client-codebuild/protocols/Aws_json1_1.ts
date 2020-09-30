@@ -225,7 +225,7 @@ import {
   VpcConfig,
   Webhook,
   WebhookFilter,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -807,7 +807,6 @@ export const deserializeAws_json1_1BatchDeleteBuildsCommand = async (
   contents = deserializeAws_json1_1BatchDeleteBuildsOutput(data, context);
   const response: BatchDeleteBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDeleteBuildsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -863,7 +862,6 @@ export const deserializeAws_json1_1BatchGetBuildBatchesCommand = async (
   contents = deserializeAws_json1_1BatchGetBuildBatchesOutput(data, context);
   const response: BatchGetBuildBatchesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGetBuildBatchesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -919,7 +917,6 @@ export const deserializeAws_json1_1BatchGetBuildsCommand = async (
   contents = deserializeAws_json1_1BatchGetBuildsOutput(data, context);
   const response: BatchGetBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGetBuildsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -975,7 +972,6 @@ export const deserializeAws_json1_1BatchGetProjectsCommand = async (
   contents = deserializeAws_json1_1BatchGetProjectsOutput(data, context);
   const response: BatchGetProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGetProjectsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1031,7 +1027,6 @@ export const deserializeAws_json1_1BatchGetReportGroupsCommand = async (
   contents = deserializeAws_json1_1BatchGetReportGroupsOutput(data, context);
   const response: BatchGetReportGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGetReportGroupsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1087,7 +1082,6 @@ export const deserializeAws_json1_1BatchGetReportsCommand = async (
   contents = deserializeAws_json1_1BatchGetReportsOutput(data, context);
   const response: BatchGetReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGetReportsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1143,7 +1137,6 @@ export const deserializeAws_json1_1CreateProjectCommand = async (
   contents = deserializeAws_json1_1CreateProjectOutput(data, context);
   const response: CreateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProjectOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1215,7 +1208,6 @@ export const deserializeAws_json1_1CreateReportGroupCommand = async (
   contents = deserializeAws_json1_1CreateReportGroupOutput(data, context);
   const response: CreateReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateReportGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1287,7 +1279,6 @@ export const deserializeAws_json1_1CreateWebhookCommand = async (
   contents = deserializeAws_json1_1CreateWebhookOutput(data, context);
   const response: CreateWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateWebhookOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1367,7 +1358,6 @@ export const deserializeAws_json1_1DeleteBuildBatchCommand = async (
   contents = deserializeAws_json1_1DeleteBuildBatchOutput(data, context);
   const response: DeleteBuildBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBuildBatchOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1423,7 +1413,6 @@ export const deserializeAws_json1_1DeleteProjectCommand = async (
   contents = deserializeAws_json1_1DeleteProjectOutput(data, context);
   const response: DeleteProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProjectOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1479,7 +1468,6 @@ export const deserializeAws_json1_1DeleteReportCommand = async (
   contents = deserializeAws_json1_1DeleteReportOutput(data, context);
   const response: DeleteReportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteReportOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1535,7 +1523,6 @@ export const deserializeAws_json1_1DeleteReportGroupCommand = async (
   contents = deserializeAws_json1_1DeleteReportGroupOutput(data, context);
   const response: DeleteReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteReportGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1591,7 +1578,6 @@ export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
   contents = deserializeAws_json1_1DeleteResourcePolicyOutput(data, context);
   const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteResourcePolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1647,7 +1633,6 @@ export const deserializeAws_json1_1DeleteSourceCredentialsCommand = async (
   contents = deserializeAws_json1_1DeleteSourceCredentialsOutput(data, context);
   const response: DeleteSourceCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSourceCredentialsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1711,7 +1696,6 @@ export const deserializeAws_json1_1DeleteWebhookCommand = async (
   contents = deserializeAws_json1_1DeleteWebhookOutput(data, context);
   const response: DeleteWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteWebhookOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1783,7 +1767,6 @@ export const deserializeAws_json1_1DescribeCodeCoveragesCommand = async (
   contents = deserializeAws_json1_1DescribeCodeCoveragesOutput(data, context);
   const response: DescribeCodeCoveragesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCodeCoveragesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1839,7 +1822,6 @@ export const deserializeAws_json1_1DescribeTestCasesCommand = async (
   contents = deserializeAws_json1_1DescribeTestCasesOutput(data, context);
   const response: DescribeTestCasesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTestCasesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1903,7 +1885,6 @@ export const deserializeAws_json1_1GetResourcePolicyCommand = async (
   contents = deserializeAws_json1_1GetResourcePolicyOutput(data, context);
   const response: GetResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResourcePolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1967,7 +1948,6 @@ export const deserializeAws_json1_1ImportSourceCredentialsCommand = async (
   contents = deserializeAws_json1_1ImportSourceCredentialsOutput(data, context);
   const response: ImportSourceCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportSourceCredentialsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2039,7 +2019,6 @@ export const deserializeAws_json1_1InvalidateProjectCacheCommand = async (
   contents = deserializeAws_json1_1InvalidateProjectCacheOutput(data, context);
   const response: InvalidateProjectCacheCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InvalidateProjectCacheOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2103,7 +2082,6 @@ export const deserializeAws_json1_1ListBuildBatchesCommand = async (
   contents = deserializeAws_json1_1ListBuildBatchesOutput(data, context);
   const response: ListBuildBatchesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBuildBatchesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2159,7 +2137,6 @@ export const deserializeAws_json1_1ListBuildBatchesForProjectCommand = async (
   contents = deserializeAws_json1_1ListBuildBatchesForProjectOutput(data, context);
   const response: ListBuildBatchesForProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBuildBatchesForProjectOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2223,7 +2200,6 @@ export const deserializeAws_json1_1ListBuildsCommand = async (
   contents = deserializeAws_json1_1ListBuildsOutput(data, context);
   const response: ListBuildsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBuildsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2279,7 +2255,6 @@ export const deserializeAws_json1_1ListBuildsForProjectCommand = async (
   contents = deserializeAws_json1_1ListBuildsForProjectOutput(data, context);
   const response: ListBuildsForProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBuildsForProjectOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2343,7 +2318,6 @@ export const deserializeAws_json1_1ListCuratedEnvironmentImagesCommand = async (
   contents = deserializeAws_json1_1ListCuratedEnvironmentImagesOutput(data, context);
   const response: ListCuratedEnvironmentImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCuratedEnvironmentImagesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2391,7 +2365,6 @@ export const deserializeAws_json1_1ListProjectsCommand = async (
   contents = deserializeAws_json1_1ListProjectsOutput(data, context);
   const response: ListProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProjectsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2447,7 +2420,6 @@ export const deserializeAws_json1_1ListReportGroupsCommand = async (
   contents = deserializeAws_json1_1ListReportGroupsOutput(data, context);
   const response: ListReportGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListReportGroupsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2503,7 +2475,6 @@ export const deserializeAws_json1_1ListReportsCommand = async (
   contents = deserializeAws_json1_1ListReportsOutput(data, context);
   const response: ListReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListReportsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2559,7 +2530,6 @@ export const deserializeAws_json1_1ListReportsForReportGroupCommand = async (
   contents = deserializeAws_json1_1ListReportsForReportGroupOutput(data, context);
   const response: ListReportsForReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListReportsForReportGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2623,7 +2593,6 @@ export const deserializeAws_json1_1ListSharedProjectsCommand = async (
   contents = deserializeAws_json1_1ListSharedProjectsOutput(data, context);
   const response: ListSharedProjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSharedProjectsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2679,7 +2648,6 @@ export const deserializeAws_json1_1ListSharedReportGroupsCommand = async (
   contents = deserializeAws_json1_1ListSharedReportGroupsOutput(data, context);
   const response: ListSharedReportGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSharedReportGroupsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2735,7 +2703,6 @@ export const deserializeAws_json1_1ListSourceCredentialsCommand = async (
   contents = deserializeAws_json1_1ListSourceCredentialsOutput(data, context);
   const response: ListSourceCredentialsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSourceCredentialsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2791,7 +2758,6 @@ export const deserializeAws_json1_1PutResourcePolicyCommand = async (
   contents = deserializeAws_json1_1PutResourcePolicyOutput(data, context);
   const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutResourcePolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2855,7 +2821,6 @@ export const deserializeAws_json1_1RetryBuildCommand = async (
   contents = deserializeAws_json1_1RetryBuildOutput(data, context);
   const response: RetryBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RetryBuildOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2927,7 +2892,6 @@ export const deserializeAws_json1_1RetryBuildBatchCommand = async (
   contents = deserializeAws_json1_1RetryBuildBatchOutput(data, context);
   const response: RetryBuildBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RetryBuildBatchOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2991,7 +2955,6 @@ export const deserializeAws_json1_1StartBuildCommand = async (
   contents = deserializeAws_json1_1StartBuildOutput(data, context);
   const response: StartBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartBuildOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3063,7 +3026,6 @@ export const deserializeAws_json1_1StartBuildBatchCommand = async (
   contents = deserializeAws_json1_1StartBuildBatchOutput(data, context);
   const response: StartBuildBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartBuildBatchOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3127,7 +3089,6 @@ export const deserializeAws_json1_1StopBuildCommand = async (
   contents = deserializeAws_json1_1StopBuildOutput(data, context);
   const response: StopBuildCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopBuildOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3191,7 +3152,6 @@ export const deserializeAws_json1_1StopBuildBatchCommand = async (
   contents = deserializeAws_json1_1StopBuildBatchOutput(data, context);
   const response: StopBuildBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopBuildBatchOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3255,7 +3215,6 @@ export const deserializeAws_json1_1UpdateProjectCommand = async (
   contents = deserializeAws_json1_1UpdateProjectOutput(data, context);
   const response: UpdateProjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateProjectOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3319,7 +3278,6 @@ export const deserializeAws_json1_1UpdateReportGroupCommand = async (
   contents = deserializeAws_json1_1UpdateReportGroupOutput(data, context);
   const response: UpdateReportGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateReportGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3383,7 +3341,6 @@ export const deserializeAws_json1_1UpdateWebhookCommand = async (
   contents = deserializeAws_json1_1UpdateWebhookOutput(data, context);
   const response: UpdateWebhookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateWebhookOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4378,7 +4335,6 @@ const deserializeAws_json1_1AccountLimitExceededException = (
   context: __SerdeContext
 ): AccountLimitExceededException => {
   return {
-    __type: "AccountLimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -4388,7 +4344,6 @@ const deserializeAws_json1_1BatchDeleteBuildsOutput = (
   context: __SerdeContext
 ): BatchDeleteBuildsOutput => {
   return {
-    __type: "BatchDeleteBuildsOutput",
     buildsDeleted:
       output.buildsDeleted !== undefined && output.buildsDeleted !== null
         ? deserializeAws_json1_1BuildIds(output.buildsDeleted, context)
@@ -4405,7 +4360,6 @@ const deserializeAws_json1_1BatchGetBuildBatchesOutput = (
   context: __SerdeContext
 ): BatchGetBuildBatchesOutput => {
   return {
-    __type: "BatchGetBuildBatchesOutput",
     buildBatches:
       output.buildBatches !== undefined && output.buildBatches !== null
         ? deserializeAws_json1_1BuildBatches(output.buildBatches, context)
@@ -4419,7 +4373,6 @@ const deserializeAws_json1_1BatchGetBuildBatchesOutput = (
 
 const deserializeAws_json1_1BatchGetBuildsOutput = (output: any, context: __SerdeContext): BatchGetBuildsOutput => {
   return {
-    __type: "BatchGetBuildsOutput",
     builds:
       output.builds !== undefined && output.builds !== null
         ? deserializeAws_json1_1Builds(output.builds, context)
@@ -4433,7 +4386,6 @@ const deserializeAws_json1_1BatchGetBuildsOutput = (output: any, context: __Serd
 
 const deserializeAws_json1_1BatchGetProjectsOutput = (output: any, context: __SerdeContext): BatchGetProjectsOutput => {
   return {
-    __type: "BatchGetProjectsOutput",
     projects:
       output.projects !== undefined && output.projects !== null
         ? deserializeAws_json1_1Projects(output.projects, context)
@@ -4450,7 +4402,6 @@ const deserializeAws_json1_1BatchGetReportGroupsOutput = (
   context: __SerdeContext
 ): BatchGetReportGroupsOutput => {
   return {
-    __type: "BatchGetReportGroupsOutput",
     reportGroups:
       output.reportGroups !== undefined && output.reportGroups !== null
         ? deserializeAws_json1_1ReportGroups(output.reportGroups, context)
@@ -4464,7 +4415,6 @@ const deserializeAws_json1_1BatchGetReportGroupsOutput = (
 
 const deserializeAws_json1_1BatchGetReportsOutput = (output: any, context: __SerdeContext): BatchGetReportsOutput => {
   return {
-    __type: "BatchGetReportsOutput",
     reports:
       output.reports !== undefined && output.reports !== null
         ? deserializeAws_json1_1Reports(output.reports, context)
@@ -4478,7 +4428,6 @@ const deserializeAws_json1_1BatchGetReportsOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1BatchRestrictions = (output: any, context: __SerdeContext): BatchRestrictions => {
   return {
-    __type: "BatchRestrictions",
     computeTypesAllowed:
       output.computeTypesAllowed !== undefined && output.computeTypesAllowed !== null
         ? deserializeAws_json1_1ComputeTypesAllowed(output.computeTypesAllowed, context)
@@ -4492,7 +4441,6 @@ const deserializeAws_json1_1BatchRestrictions = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Build => {
   return {
-    __type: "Build",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     artifacts:
       output.artifacts !== undefined && output.artifacts !== null
@@ -4590,7 +4538,6 @@ const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Buil
 
 const deserializeAws_json1_1BuildArtifacts = (output: any, context: __SerdeContext): BuildArtifacts => {
   return {
-    __type: "BuildArtifacts",
     artifactIdentifier:
       output.artifactIdentifier !== undefined && output.artifactIdentifier !== null
         ? output.artifactIdentifier
@@ -4615,7 +4562,6 @@ const deserializeAws_json1_1BuildArtifactsList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1BuildBatch = (output: any, context: __SerdeContext): BuildBatch => {
   return {
-    __type: "BuildBatch",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     artifacts:
       output.artifacts !== undefined && output.artifacts !== null
@@ -4714,7 +4660,6 @@ const deserializeAws_json1_1BuildBatchIds = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1BuildBatchPhase = (output: any, context: __SerdeContext): BuildBatchPhase => {
   return {
-    __type: "BuildBatchPhase",
     contexts:
       output.contexts !== undefined && output.contexts !== null
         ? deserializeAws_json1_1PhaseContexts(output.contexts, context)
@@ -4740,7 +4685,6 @@ const deserializeAws_json1_1BuildBatchPhases = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1BuildGroup = (output: any, context: __SerdeContext): BuildGroup => {
   return {
-    __type: "BuildGroup",
     currentBuildSummary:
       output.currentBuildSummary !== undefined && output.currentBuildSummary !== null
         ? deserializeAws_json1_1BuildSummary(output.currentBuildSummary, context)
@@ -4769,7 +4713,6 @@ const deserializeAws_json1_1BuildIds = (output: any, context: __SerdeContext): s
 
 const deserializeAws_json1_1BuildNotDeleted = (output: any, context: __SerdeContext): BuildNotDeleted => {
   return {
-    __type: "BuildNotDeleted",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     statusCode: output.statusCode !== undefined && output.statusCode !== null ? output.statusCode : undefined,
   } as any;
@@ -4777,7 +4720,6 @@ const deserializeAws_json1_1BuildNotDeleted = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1BuildPhase = (output: any, context: __SerdeContext): BuildPhase => {
   return {
-    __type: "BuildPhase",
     contexts:
       output.contexts !== undefined && output.contexts !== null
         ? deserializeAws_json1_1PhaseContexts(output.contexts, context)
@@ -4815,7 +4757,6 @@ const deserializeAws_json1_1BuildsNotDeleted = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1BuildStatusConfig = (output: any, context: __SerdeContext): BuildStatusConfig => {
   return {
-    __type: "BuildStatusConfig",
     context: output.context !== undefined && output.context !== null ? output.context : undefined,
     targetUrl: output.targetUrl !== undefined && output.targetUrl !== null ? output.targetUrl : undefined,
   } as any;
@@ -4827,7 +4768,6 @@ const deserializeAws_json1_1BuildSummaries = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1BuildSummary = (output: any, context: __SerdeContext): BuildSummary => {
   return {
-    __type: "BuildSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     buildStatus: output.buildStatus !== undefined && output.buildStatus !== null ? output.buildStatus : undefined,
     primaryArtifact:
@@ -4847,7 +4787,6 @@ const deserializeAws_json1_1BuildSummary = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1CloudWatchLogsConfig = (output: any, context: __SerdeContext): CloudWatchLogsConfig => {
   return {
-    __type: "CloudWatchLogsConfig",
     groupName: output.groupName !== undefined && output.groupName !== null ? output.groupName : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
     streamName: output.streamName !== undefined && output.streamName !== null ? output.streamName : undefined,
@@ -4856,7 +4795,6 @@ const deserializeAws_json1_1CloudWatchLogsConfig = (output: any, context: __Serd
 
 const deserializeAws_json1_1CodeCoverage = (output: any, context: __SerdeContext): CodeCoverage => {
   return {
-    __type: "CodeCoverage",
     branchCoveragePercentage:
       output.branchCoveragePercentage !== undefined && output.branchCoveragePercentage !== null
         ? output.branchCoveragePercentage
@@ -4884,7 +4822,6 @@ const deserializeAws_json1_1CodeCoverageReportSummary = (
   context: __SerdeContext
 ): CodeCoverageReportSummary => {
   return {
-    __type: "CodeCoverageReportSummary",
     branchCoveragePercentage:
       output.branchCoveragePercentage !== undefined && output.branchCoveragePercentage !== null
         ? output.branchCoveragePercentage
@@ -4912,7 +4849,6 @@ const deserializeAws_json1_1ComputeTypesAllowed = (output: any, context: __Serde
 
 const deserializeAws_json1_1CreateProjectOutput = (output: any, context: __SerdeContext): CreateProjectOutput => {
   return {
-    __type: "CreateProjectOutput",
     project:
       output.project !== undefined && output.project !== null
         ? deserializeAws_json1_1Project(output.project, context)
@@ -4925,7 +4861,6 @@ const deserializeAws_json1_1CreateReportGroupOutput = (
   context: __SerdeContext
 ): CreateReportGroupOutput => {
   return {
-    __type: "CreateReportGroupOutput",
     reportGroup:
       output.reportGroup !== undefined && output.reportGroup !== null
         ? deserializeAws_json1_1ReportGroup(output.reportGroup, context)
@@ -4935,7 +4870,6 @@ const deserializeAws_json1_1CreateReportGroupOutput = (
 
 const deserializeAws_json1_1CreateWebhookOutput = (output: any, context: __SerdeContext): CreateWebhookOutput => {
   return {
-    __type: "CreateWebhookOutput",
     webhook:
       output.webhook !== undefined && output.webhook !== null
         ? deserializeAws_json1_1Webhook(output.webhook, context)
@@ -4945,7 +4879,6 @@ const deserializeAws_json1_1CreateWebhookOutput = (output: any, context: __Serde
 
 const deserializeAws_json1_1DebugSession = (output: any, context: __SerdeContext): DebugSession => {
   return {
-    __type: "DebugSession",
     sessionEnabled:
       output.sessionEnabled !== undefined && output.sessionEnabled !== null ? output.sessionEnabled : undefined,
     sessionTarget:
@@ -4955,7 +4888,6 @@ const deserializeAws_json1_1DebugSession = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1DeleteBuildBatchOutput = (output: any, context: __SerdeContext): DeleteBuildBatchOutput => {
   return {
-    __type: "DeleteBuildBatchOutput",
     buildsDeleted:
       output.buildsDeleted !== undefined && output.buildsDeleted !== null
         ? deserializeAws_json1_1BuildIds(output.buildsDeleted, context)
@@ -4969,33 +4901,25 @@ const deserializeAws_json1_1DeleteBuildBatchOutput = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1DeleteProjectOutput = (output: any, context: __SerdeContext): DeleteProjectOutput => {
-  return {
-    __type: "DeleteProjectOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteReportGroupOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteReportGroupOutput => {
-  return {
-    __type: "DeleteReportGroupOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteReportOutput = (output: any, context: __SerdeContext): DeleteReportOutput => {
-  return {
-    __type: "DeleteReportOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteResourcePolicyOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteResourcePolicyOutput => {
-  return {
-    __type: "DeleteResourcePolicyOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteSourceCredentialsOutput = (
@@ -5003,15 +4927,12 @@ const deserializeAws_json1_1DeleteSourceCredentialsOutput = (
   context: __SerdeContext
 ): DeleteSourceCredentialsOutput => {
   return {
-    __type: "DeleteSourceCredentialsOutput",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteWebhookOutput = (output: any, context: __SerdeContext): DeleteWebhookOutput => {
-  return {
-    __type: "DeleteWebhookOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeCodeCoveragesOutput = (
@@ -5019,7 +4940,6 @@ const deserializeAws_json1_1DescribeCodeCoveragesOutput = (
   context: __SerdeContext
 ): DescribeCodeCoveragesOutput => {
   return {
-    __type: "DescribeCodeCoveragesOutput",
     codeCoverages:
       output.codeCoverages !== undefined && output.codeCoverages !== null
         ? deserializeAws_json1_1CodeCoverages(output.codeCoverages, context)
@@ -5033,7 +4953,6 @@ const deserializeAws_json1_1DescribeTestCasesOutput = (
   context: __SerdeContext
 ): DescribeTestCasesOutput => {
   return {
-    __type: "DescribeTestCasesOutput",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     testCases:
       output.testCases !== undefined && output.testCases !== null
@@ -5044,7 +4963,6 @@ const deserializeAws_json1_1DescribeTestCasesOutput = (
 
 const deserializeAws_json1_1EnvironmentImage = (output: any, context: __SerdeContext): EnvironmentImage => {
   return {
-    __type: "EnvironmentImage",
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     versions:
@@ -5060,7 +4978,6 @@ const deserializeAws_json1_1EnvironmentImages = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1EnvironmentLanguage = (output: any, context: __SerdeContext): EnvironmentLanguage => {
   return {
-    __type: "EnvironmentLanguage",
     images:
       output.images !== undefined && output.images !== null
         ? deserializeAws_json1_1EnvironmentImages(output.images, context)
@@ -5075,7 +4992,6 @@ const deserializeAws_json1_1EnvironmentLanguages = (output: any, context: __Serd
 
 const deserializeAws_json1_1EnvironmentPlatform = (output: any, context: __SerdeContext): EnvironmentPlatform => {
   return {
-    __type: "EnvironmentPlatform",
     languages:
       output.languages !== undefined && output.languages !== null
         ? deserializeAws_json1_1EnvironmentLanguages(output.languages, context)
@@ -5090,7 +5006,6 @@ const deserializeAws_json1_1EnvironmentPlatforms = (output: any, context: __Serd
 
 const deserializeAws_json1_1EnvironmentVariable = (output: any, context: __SerdeContext): EnvironmentVariable => {
   return {
-    __type: "EnvironmentVariable",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
@@ -5106,7 +5021,6 @@ const deserializeAws_json1_1ExportedEnvironmentVariable = (
   context: __SerdeContext
 ): ExportedEnvironmentVariable => {
   return {
-    __type: "ExportedEnvironmentVariable",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -5132,14 +5046,12 @@ const deserializeAws_json1_1GetResourcePolicyOutput = (
   context: __SerdeContext
 ): GetResourcePolicyOutput => {
   return {
-    __type: "GetResourcePolicyOutput",
     policy: output.policy !== undefined && output.policy !== null ? output.policy : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GitSubmodulesConfig = (output: any, context: __SerdeContext): GitSubmodulesConfig => {
   return {
-    __type: "GitSubmodulesConfig",
     fetchSubmodules:
       output.fetchSubmodules !== undefined && output.fetchSubmodules !== null ? output.fetchSubmodules : undefined,
   } as any;
@@ -5158,7 +5070,6 @@ const deserializeAws_json1_1ImportSourceCredentialsOutput = (
   context: __SerdeContext
 ): ImportSourceCredentialsOutput => {
   return {
-    __type: "ImportSourceCredentialsOutput",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
   } as any;
 };
@@ -5167,14 +5078,11 @@ const deserializeAws_json1_1InvalidateProjectCacheOutput = (
   output: any,
   context: __SerdeContext
 ): InvalidateProjectCacheOutput => {
-  return {
-    __type: "InvalidateProjectCacheOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    __type: "InvalidInputException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5184,7 +5092,6 @@ const deserializeAws_json1_1ListBuildBatchesForProjectOutput = (
   context: __SerdeContext
 ): ListBuildBatchesForProjectOutput => {
   return {
-    __type: "ListBuildBatchesForProjectOutput",
     ids:
       output.ids !== undefined && output.ids !== null
         ? deserializeAws_json1_1BuildBatchIds(output.ids, context)
@@ -5195,7 +5102,6 @@ const deserializeAws_json1_1ListBuildBatchesForProjectOutput = (
 
 const deserializeAws_json1_1ListBuildBatchesOutput = (output: any, context: __SerdeContext): ListBuildBatchesOutput => {
   return {
-    __type: "ListBuildBatchesOutput",
     ids:
       output.ids !== undefined && output.ids !== null
         ? deserializeAws_json1_1BuildBatchIds(output.ids, context)
@@ -5209,7 +5115,6 @@ const deserializeAws_json1_1ListBuildsForProjectOutput = (
   context: __SerdeContext
 ): ListBuildsForProjectOutput => {
   return {
-    __type: "ListBuildsForProjectOutput",
     ids:
       output.ids !== undefined && output.ids !== null ? deserializeAws_json1_1BuildIds(output.ids, context) : undefined,
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
@@ -5218,7 +5123,6 @@ const deserializeAws_json1_1ListBuildsForProjectOutput = (
 
 const deserializeAws_json1_1ListBuildsOutput = (output: any, context: __SerdeContext): ListBuildsOutput => {
   return {
-    __type: "ListBuildsOutput",
     ids:
       output.ids !== undefined && output.ids !== null ? deserializeAws_json1_1BuildIds(output.ids, context) : undefined,
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
@@ -5230,7 +5134,6 @@ const deserializeAws_json1_1ListCuratedEnvironmentImagesOutput = (
   context: __SerdeContext
 ): ListCuratedEnvironmentImagesOutput => {
   return {
-    __type: "ListCuratedEnvironmentImagesOutput",
     platforms:
       output.platforms !== undefined && output.platforms !== null
         ? deserializeAws_json1_1EnvironmentPlatforms(output.platforms, context)
@@ -5240,7 +5143,6 @@ const deserializeAws_json1_1ListCuratedEnvironmentImagesOutput = (
 
 const deserializeAws_json1_1ListProjectsOutput = (output: any, context: __SerdeContext): ListProjectsOutput => {
   return {
-    __type: "ListProjectsOutput",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     projects:
       output.projects !== undefined && output.projects !== null
@@ -5251,7 +5153,6 @@ const deserializeAws_json1_1ListProjectsOutput = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ListReportGroupsOutput = (output: any, context: __SerdeContext): ListReportGroupsOutput => {
   return {
-    __type: "ListReportGroupsOutput",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     reportGroups:
       output.reportGroups !== undefined && output.reportGroups !== null
@@ -5265,7 +5166,6 @@ const deserializeAws_json1_1ListReportsForReportGroupOutput = (
   context: __SerdeContext
 ): ListReportsForReportGroupOutput => {
   return {
-    __type: "ListReportsForReportGroupOutput",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     reports:
       output.reports !== undefined && output.reports !== null
@@ -5276,7 +5176,6 @@ const deserializeAws_json1_1ListReportsForReportGroupOutput = (
 
 const deserializeAws_json1_1ListReportsOutput = (output: any, context: __SerdeContext): ListReportsOutput => {
   return {
-    __type: "ListReportsOutput",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     reports:
       output.reports !== undefined && output.reports !== null
@@ -5290,7 +5189,6 @@ const deserializeAws_json1_1ListSharedProjectsOutput = (
   context: __SerdeContext
 ): ListSharedProjectsOutput => {
   return {
-    __type: "ListSharedProjectsOutput",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     projects:
       output.projects !== undefined && output.projects !== null
@@ -5304,7 +5202,6 @@ const deserializeAws_json1_1ListSharedReportGroupsOutput = (
   context: __SerdeContext
 ): ListSharedReportGroupsOutput => {
   return {
-    __type: "ListSharedReportGroupsOutput",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     reportGroups:
       output.reportGroups !== undefined && output.reportGroups !== null
@@ -5318,7 +5215,6 @@ const deserializeAws_json1_1ListSourceCredentialsOutput = (
   context: __SerdeContext
 ): ListSourceCredentialsOutput => {
   return {
-    __type: "ListSourceCredentialsOutput",
     sourceCredentialsInfos:
       output.sourceCredentialsInfos !== undefined && output.sourceCredentialsInfos !== null
         ? deserializeAws_json1_1SourceCredentialsInfos(output.sourceCredentialsInfos, context)
@@ -5328,7 +5224,6 @@ const deserializeAws_json1_1ListSourceCredentialsOutput = (
 
 const deserializeAws_json1_1LogsConfig = (output: any, context: __SerdeContext): LogsConfig => {
   return {
-    __type: "LogsConfig",
     cloudWatchLogs:
       output.cloudWatchLogs !== undefined && output.cloudWatchLogs !== null
         ? deserializeAws_json1_1CloudWatchLogsConfig(output.cloudWatchLogs, context)
@@ -5342,7 +5237,6 @@ const deserializeAws_json1_1LogsConfig = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1LogsLocation = (output: any, context: __SerdeContext): LogsLocation => {
   return {
-    __type: "LogsLocation",
     cloudWatchLogs:
       output.cloudWatchLogs !== undefined && output.cloudWatchLogs !== null
         ? deserializeAws_json1_1CloudWatchLogsConfig(output.cloudWatchLogs, context)
@@ -5365,7 +5259,6 @@ const deserializeAws_json1_1LogsLocation = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
   return {
-    __type: "NetworkInterface",
     networkInterfaceId:
       output.networkInterfaceId !== undefined && output.networkInterfaceId !== null
         ? output.networkInterfaceId
@@ -5376,14 +5269,12 @@ const deserializeAws_json1_1NetworkInterface = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1OAuthProviderException = (output: any, context: __SerdeContext): OAuthProviderException => {
   return {
-    __type: "OAuthProviderException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1PhaseContext = (output: any, context: __SerdeContext): PhaseContext => {
   return {
-    __type: "PhaseContext",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     statusCode: output.statusCode !== undefined && output.statusCode !== null ? output.statusCode : undefined,
   } as any;
@@ -5395,7 +5286,6 @@ const deserializeAws_json1_1PhaseContexts = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Project = (output: any, context: __SerdeContext): Project => {
   return {
-    __type: "Project",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     artifacts:
       output.artifacts !== undefined && output.artifacts !== null
@@ -5481,7 +5371,6 @@ const deserializeAws_json1_1ProjectArns = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ProjectArtifacts = (output: any, context: __SerdeContext): ProjectArtifacts => {
   return {
-    __type: "ProjectArtifacts",
     artifactIdentifier:
       output.artifactIdentifier !== undefined && output.artifactIdentifier !== null
         ? output.artifactIdentifier
@@ -5510,7 +5399,6 @@ const deserializeAws_json1_1ProjectArtifactsList = (output: any, context: __Serd
 
 const deserializeAws_json1_1ProjectBadge = (output: any, context: __SerdeContext): ProjectBadge => {
   return {
-    __type: "ProjectBadge",
     badgeEnabled: output.badgeEnabled !== undefined && output.badgeEnabled !== null ? output.badgeEnabled : undefined,
     badgeRequestUrl:
       output.badgeRequestUrl !== undefined && output.badgeRequestUrl !== null ? output.badgeRequestUrl : undefined,
@@ -5522,7 +5410,6 @@ const deserializeAws_json1_1ProjectBuildBatchConfig = (
   context: __SerdeContext
 ): ProjectBuildBatchConfig => {
   return {
-    __type: "ProjectBuildBatchConfig",
     combineArtifacts:
       output.combineArtifacts !== undefined && output.combineArtifacts !== null ? output.combineArtifacts : undefined,
     restrictions:
@@ -5537,7 +5424,6 @@ const deserializeAws_json1_1ProjectBuildBatchConfig = (
 
 const deserializeAws_json1_1ProjectCache = (output: any, context: __SerdeContext): ProjectCache => {
   return {
-    __type: "ProjectCache",
     location: output.location !== undefined && output.location !== null ? output.location : undefined,
     modes:
       output.modes !== undefined && output.modes !== null
@@ -5553,7 +5439,6 @@ const deserializeAws_json1_1ProjectCacheModes = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ProjectEnvironment = (output: any, context: __SerdeContext): ProjectEnvironment => {
   return {
-    __type: "ProjectEnvironment",
     certificate: output.certificate !== undefined && output.certificate !== null ? output.certificate : undefined,
     computeType: output.computeType !== undefined && output.computeType !== null ? output.computeType : undefined,
     environmentVariables:
@@ -5580,7 +5465,6 @@ const deserializeAws_json1_1ProjectFileSystemLocation = (
   context: __SerdeContext
 ): ProjectFileSystemLocation => {
   return {
-    __type: "ProjectFileSystemLocation",
     identifier: output.identifier !== undefined && output.identifier !== null ? output.identifier : undefined,
     location: output.location !== undefined && output.location !== null ? output.location : undefined,
     mountOptions: output.mountOptions !== undefined && output.mountOptions !== null ? output.mountOptions : undefined,
@@ -5613,7 +5497,6 @@ const deserializeAws_json1_1ProjectSecondarySourceVersions = (
 
 const deserializeAws_json1_1ProjectSource = (output: any, context: __SerdeContext): ProjectSource => {
   return {
-    __type: "ProjectSource",
     auth:
       output.auth !== undefined && output.auth !== null
         ? deserializeAws_json1_1SourceAuth(output.auth, context)
@@ -5647,7 +5530,6 @@ const deserializeAws_json1_1ProjectSources = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1ProjectSourceVersion = (output: any, context: __SerdeContext): ProjectSourceVersion => {
   return {
-    __type: "ProjectSourceVersion",
     sourceIdentifier:
       output.sourceIdentifier !== undefined && output.sourceIdentifier !== null ? output.sourceIdentifier : undefined,
     sourceVersion:
@@ -5660,14 +5542,12 @@ const deserializeAws_json1_1PutResourcePolicyOutput = (
   context: __SerdeContext
 ): PutResourcePolicyOutput => {
   return {
-    __type: "PutResourcePolicyOutput",
     resourceArn: output.resourceArn !== undefined && output.resourceArn !== null ? output.resourceArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RegistryCredential = (output: any, context: __SerdeContext): RegistryCredential => {
   return {
-    __type: "RegistryCredential",
     credential: output.credential !== undefined && output.credential !== null ? output.credential : undefined,
     credentialProvider:
       output.credentialProvider !== undefined && output.credentialProvider !== null
@@ -5678,7 +5558,6 @@ const deserializeAws_json1_1RegistryCredential = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1Report = (output: any, context: __SerdeContext): Report => {
   return {
-    __type: "Report",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     codeCoverageSummary:
       output.codeCoverageSummary !== undefined && output.codeCoverageSummary !== null
@@ -5712,7 +5591,6 @@ const deserializeAws_json1_1ReportArns = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1ReportExportConfig = (output: any, context: __SerdeContext): ReportExportConfig => {
   return {
-    __type: "ReportExportConfig",
     exportConfigType:
       output.exportConfigType !== undefined && output.exportConfigType !== null ? output.exportConfigType : undefined,
     s3Destination:
@@ -5724,7 +5602,6 @@ const deserializeAws_json1_1ReportExportConfig = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ReportGroup = (output: any, context: __SerdeContext): ReportGroup => {
   return {
-    __type: "ReportGroup",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     created:
       output.created !== undefined && output.created !== null ? new Date(Math.round(output.created * 1000)) : undefined,
@@ -5769,7 +5646,6 @@ const deserializeAws_json1_1ReportStatusCounts = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ResolvedArtifact = (output: any, context: __SerdeContext): ResolvedArtifact => {
   return {
-    __type: "ResolvedArtifact",
     identifier: output.identifier !== undefined && output.identifier !== null ? output.identifier : undefined,
     location: output.location !== undefined && output.location !== null ? output.location : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
@@ -5785,7 +5661,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    __type: "ResourceAlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5795,14 +5670,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RetryBuildBatchOutput = (output: any, context: __SerdeContext): RetryBuildBatchOutput => {
   return {
-    __type: "RetryBuildBatchOutput",
     buildBatch:
       output.buildBatch !== undefined && output.buildBatch !== null
         ? deserializeAws_json1_1BuildBatch(output.buildBatch, context)
@@ -5812,7 +5685,6 @@ const deserializeAws_json1_1RetryBuildBatchOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1RetryBuildOutput = (output: any, context: __SerdeContext): RetryBuildOutput => {
   return {
-    __type: "RetryBuildOutput",
     build:
       output.build !== undefined && output.build !== null
         ? deserializeAws_json1_1Build(output.build, context)
@@ -5822,7 +5694,6 @@ const deserializeAws_json1_1RetryBuildOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1S3LogsConfig = (output: any, context: __SerdeContext): S3LogsConfig => {
   return {
-    __type: "S3LogsConfig",
     encryptionDisabled:
       output.encryptionDisabled !== undefined && output.encryptionDisabled !== null
         ? output.encryptionDisabled
@@ -5834,7 +5705,6 @@ const deserializeAws_json1_1S3LogsConfig = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1S3ReportExportConfig = (output: any, context: __SerdeContext): S3ReportExportConfig => {
   return {
-    __type: "S3ReportExportConfig",
     bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
     encryptionDisabled:
       output.encryptionDisabled !== undefined && output.encryptionDisabled !== null
@@ -5853,7 +5723,6 @@ const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1SourceAuth = (output: any, context: __SerdeContext): SourceAuth => {
   return {
-    __type: "SourceAuth",
     resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
@@ -5861,7 +5730,6 @@ const deserializeAws_json1_1SourceAuth = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1SourceCredentialsInfo = (output: any, context: __SerdeContext): SourceCredentialsInfo => {
   return {
-    __type: "SourceCredentialsInfo",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     authType: output.authType !== undefined && output.authType !== null ? output.authType : undefined,
     serverType: output.serverType !== undefined && output.serverType !== null ? output.serverType : undefined,
@@ -5877,7 +5745,6 @@ const deserializeAws_json1_1SourceCredentialsInfos = (
 
 const deserializeAws_json1_1StartBuildBatchOutput = (output: any, context: __SerdeContext): StartBuildBatchOutput => {
   return {
-    __type: "StartBuildBatchOutput",
     buildBatch:
       output.buildBatch !== undefined && output.buildBatch !== null
         ? deserializeAws_json1_1BuildBatch(output.buildBatch, context)
@@ -5887,7 +5754,6 @@ const deserializeAws_json1_1StartBuildBatchOutput = (output: any, context: __Ser
 
 const deserializeAws_json1_1StartBuildOutput = (output: any, context: __SerdeContext): StartBuildOutput => {
   return {
-    __type: "StartBuildOutput",
     build:
       output.build !== undefined && output.build !== null
         ? deserializeAws_json1_1Build(output.build, context)
@@ -5897,7 +5763,6 @@ const deserializeAws_json1_1StartBuildOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1StopBuildBatchOutput = (output: any, context: __SerdeContext): StopBuildBatchOutput => {
   return {
-    __type: "StopBuildBatchOutput",
     buildBatch:
       output.buildBatch !== undefined && output.buildBatch !== null
         ? deserializeAws_json1_1BuildBatch(output.buildBatch, context)
@@ -5907,7 +5772,6 @@ const deserializeAws_json1_1StopBuildBatchOutput = (output: any, context: __Serd
 
 const deserializeAws_json1_1StopBuildOutput = (output: any, context: __SerdeContext): StopBuildOutput => {
   return {
-    __type: "StopBuildOutput",
     build:
       output.build !== undefined && output.build !== null
         ? deserializeAws_json1_1Build(output.build, context)
@@ -5921,7 +5785,6 @@ const deserializeAws_json1_1Subnets = (output: any, context: __SerdeContext): st
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -5933,7 +5796,6 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TestCase = (output: any, context: __SerdeContext): TestCase => {
   return {
-    __type: "TestCase",
     durationInNanoSeconds:
       output.durationInNanoSeconds !== undefined && output.durationInNanoSeconds !== null
         ? output.durationInNanoSeconds
@@ -5956,7 +5818,6 @@ const deserializeAws_json1_1TestCases = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1TestReportSummary = (output: any, context: __SerdeContext): TestReportSummary => {
   return {
-    __type: "TestReportSummary",
     durationInNanoSeconds:
       output.durationInNanoSeconds !== undefined && output.durationInNanoSeconds !== null
         ? output.durationInNanoSeconds
@@ -5971,7 +5832,6 @@ const deserializeAws_json1_1TestReportSummary = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1UpdateProjectOutput = (output: any, context: __SerdeContext): UpdateProjectOutput => {
   return {
-    __type: "UpdateProjectOutput",
     project:
       output.project !== undefined && output.project !== null
         ? deserializeAws_json1_1Project(output.project, context)
@@ -5984,7 +5844,6 @@ const deserializeAws_json1_1UpdateReportGroupOutput = (
   context: __SerdeContext
 ): UpdateReportGroupOutput => {
   return {
-    __type: "UpdateReportGroupOutput",
     reportGroup:
       output.reportGroup !== undefined && output.reportGroup !== null
         ? deserializeAws_json1_1ReportGroup(output.reportGroup, context)
@@ -5994,7 +5853,6 @@ const deserializeAws_json1_1UpdateReportGroupOutput = (
 
 const deserializeAws_json1_1UpdateWebhookOutput = (output: any, context: __SerdeContext): UpdateWebhookOutput => {
   return {
-    __type: "UpdateWebhookOutput",
     webhook:
       output.webhook !== undefined && output.webhook !== null
         ? deserializeAws_json1_1Webhook(output.webhook, context)
@@ -6004,7 +5862,6 @@ const deserializeAws_json1_1UpdateWebhookOutput = (output: any, context: __Serde
 
 const deserializeAws_json1_1VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
   return {
-    __type: "VpcConfig",
     securityGroupIds:
       output.securityGroupIds !== undefined && output.securityGroupIds !== null
         ? deserializeAws_json1_1SecurityGroupIds(output.securityGroupIds, context)
@@ -6019,7 +5876,6 @@ const deserializeAws_json1_1VpcConfig = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Webhook = (output: any, context: __SerdeContext): Webhook => {
   return {
-    __type: "Webhook",
     branchFilter: output.branchFilter !== undefined && output.branchFilter !== null ? output.branchFilter : undefined,
     buildType: output.buildType !== undefined && output.buildType !== null ? output.buildType : undefined,
     filterGroups:
@@ -6038,7 +5894,6 @@ const deserializeAws_json1_1Webhook = (output: any, context: __SerdeContext): We
 
 const deserializeAws_json1_1WebhookFilter = (output: any, context: __SerdeContext): WebhookFilter => {
   return {
-    __type: "WebhookFilter",
     excludeMatchedPattern:
       output.excludeMatchedPattern !== undefined && output.excludeMatchedPattern !== null
         ? output.excludeMatchedPattern

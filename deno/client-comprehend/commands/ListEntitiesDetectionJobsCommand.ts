@@ -1,6 +1,6 @@
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
-import { ListEntitiesDetectionJobsRequest, ListEntitiesDetectionJobsResponse } from "../models/index.ts";
+import { ListEntitiesDetectionJobsRequest, ListEntitiesDetectionJobsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListEntitiesDetectionJobsCommand,
   serializeAws_json1_1ListEntitiesDetectionJobsCommand,

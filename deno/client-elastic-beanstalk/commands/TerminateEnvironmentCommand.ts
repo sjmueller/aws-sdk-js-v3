@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { EnvironmentDescription, TerminateEnvironmentMessage } from "../models/index.ts";
+import { EnvironmentDescription, TerminateEnvironmentMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryTerminateEnvironmentCommand,
   serializeAws_queryTerminateEnvironmentCommand,

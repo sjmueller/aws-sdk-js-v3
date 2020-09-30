@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { ImportKeyPairRequest, ImportKeyPairResult } from "../models/index.ts";
+import { ImportKeyPairRequest, ImportKeyPairResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ImportKeyPairCommand,
   serializeAws_json1_1ImportKeyPairCommand,

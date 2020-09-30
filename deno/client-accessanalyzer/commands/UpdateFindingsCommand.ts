@@ -1,6 +1,6 @@
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient.ts";
-import { UpdateFindingsRequest } from "../models/index.ts";
+import { UpdateFindingsRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateFindingsCommand,
   serializeAws_restJson1UpdateFindingsCommand,

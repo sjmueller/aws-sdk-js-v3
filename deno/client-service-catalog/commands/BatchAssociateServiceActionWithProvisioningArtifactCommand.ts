@@ -3,7 +3,7 @@ import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 import {
   BatchAssociateServiceActionWithProvisioningArtifactInput,
   BatchAssociateServiceActionWithProvisioningArtifactOutput,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand,
   serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommand,

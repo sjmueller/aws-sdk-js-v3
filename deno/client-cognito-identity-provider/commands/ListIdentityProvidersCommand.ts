@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { ListIdentityProvidersRequest, ListIdentityProvidersResponse } from "../models/index.ts";
+import { ListIdentityProvidersRequest, ListIdentityProvidersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListIdentityProvidersCommand,
   serializeAws_json1_1ListIdentityProvidersCommand,

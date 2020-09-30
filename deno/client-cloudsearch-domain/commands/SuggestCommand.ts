@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient.ts";
-import { SuggestRequest, SuggestResponse } from "../models/index.ts";
+import { SuggestRequest, SuggestResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SuggestCommand,
   serializeAws_restJson1SuggestCommand,

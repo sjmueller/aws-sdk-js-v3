@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { ListAccountAliasesRequest, ListAccountAliasesResponse } from "../models/index.ts";
+import { ListAccountAliasesRequest, ListAccountAliasesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryListAccountAliasesCommand,
   serializeAws_queryListAccountAliasesCommand,

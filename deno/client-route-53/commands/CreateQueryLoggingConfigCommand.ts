@@ -1,6 +1,6 @@
 
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
-import { CreateQueryLoggingConfigRequest, CreateQueryLoggingConfigResponse } from "../models/index.ts";
+import { CreateQueryLoggingConfigRequest, CreateQueryLoggingConfigResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlCreateQueryLoggingConfigCommand,
   serializeAws_restXmlCreateQueryLoggingConfigCommand,

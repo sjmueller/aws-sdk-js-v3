@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ModifyInstanceCapacityReservationAttributesRequest,
   ModifyInstanceCapacityReservationAttributesResult,
-} from "../models/index.ts";
+} from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand,
   serializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand,

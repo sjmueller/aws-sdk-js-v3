@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { RemoveTagsFromResourceInput, RemoveTagsFromResourceOutput } from "../models/index.ts";
+import { RemoveTagsFromResourceInput, RemoveTagsFromResourceOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RemoveTagsFromResourceCommand,
   serializeAws_json1_1RemoveTagsFromResourceCommand,

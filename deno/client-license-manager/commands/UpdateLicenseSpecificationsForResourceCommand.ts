@@ -3,7 +3,7 @@ import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 import {
   UpdateLicenseSpecificationsForResourceRequest,
   UpdateLicenseSpecificationsForResourceResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand,
   serializeAws_json1_1UpdateLicenseSpecificationsForResourceCommand,

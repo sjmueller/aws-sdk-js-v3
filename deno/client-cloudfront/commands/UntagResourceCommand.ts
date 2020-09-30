@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { UntagResourceRequest } from "../models/index.ts";
+import { UntagResourceRequest } from "../models/models_1.ts";
 import {
   deserializeAws_restXmlUntagResourceCommand,
   serializeAws_restXmlUntagResourceCommand,

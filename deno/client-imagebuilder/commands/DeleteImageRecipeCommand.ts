@@ -1,6 +1,6 @@
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
-import { DeleteImageRecipeRequest, DeleteImageRecipeResponse } from "../models/index.ts";
+import { DeleteImageRecipeRequest, DeleteImageRecipeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteImageRecipeCommand,
   serializeAws_restJson1DeleteImageRecipeCommand,

@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { GetVoiceConnectorRequest, GetVoiceConnectorResponse } from "../models/index.ts";
+import { GetVoiceConnectorRequest, GetVoiceConnectorResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetVoiceConnectorCommand,
   serializeAws_restJson1GetVoiceConnectorCommand,

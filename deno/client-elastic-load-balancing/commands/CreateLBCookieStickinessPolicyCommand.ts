@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import { CreateLBCookieStickinessPolicyInput, CreateLBCookieStickinessPolicyOutput } from "../models/index.ts";
+import { CreateLBCookieStickinessPolicyInput, CreateLBCookieStickinessPolicyOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateLBCookieStickinessPolicyCommand,
   serializeAws_queryCreateLBCookieStickinessPolicyCommand,

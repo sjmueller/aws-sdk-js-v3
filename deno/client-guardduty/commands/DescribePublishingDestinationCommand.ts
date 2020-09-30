@@ -1,6 +1,6 @@
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
-import { DescribePublishingDestinationRequest, DescribePublishingDestinationResponse } from "../models/index.ts";
+import { DescribePublishingDestinationRequest, DescribePublishingDestinationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribePublishingDestinationCommand,
   serializeAws_restJson1DescribePublishingDestinationCommand,

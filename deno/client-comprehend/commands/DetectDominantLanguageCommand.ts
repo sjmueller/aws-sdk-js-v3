@@ -1,6 +1,6 @@
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
-import { DetectDominantLanguageRequest, DetectDominantLanguageResponse } from "../models/index.ts";
+import { DetectDominantLanguageRequest, DetectDominantLanguageResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DetectDominantLanguageCommand,
   serializeAws_json1_1DetectDominantLanguageCommand,

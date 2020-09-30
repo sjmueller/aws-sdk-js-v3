@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { DeleteUsageReportSubscriptionRequest, DeleteUsageReportSubscriptionResult } from "../models/index.ts";
+import { DeleteUsageReportSubscriptionRequest, DeleteUsageReportSubscriptionResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteUsageReportSubscriptionCommand,
   serializeAws_json1_1DeleteUsageReportSubscriptionCommand,

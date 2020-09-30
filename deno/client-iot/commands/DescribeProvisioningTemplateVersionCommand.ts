@@ -3,7 +3,7 @@ import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeProvisioningTemplateVersionRequest,
   DescribeProvisioningTemplateVersionResponse,
-} from "../models/index.ts";
+} from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DescribeProvisioningTemplateVersionCommand,
   serializeAws_restJson1DescribeProvisioningTemplateVersionCommand,

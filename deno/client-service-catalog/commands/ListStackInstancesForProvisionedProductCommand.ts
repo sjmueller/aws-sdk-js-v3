@@ -3,7 +3,7 @@ import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 import {
   ListStackInstancesForProvisionedProductInput,
   ListStackInstancesForProvisionedProductOutput,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListStackInstancesForProvisionedProductCommand,
   serializeAws_json1_1ListStackInstancesForProvisionedProductCommand,

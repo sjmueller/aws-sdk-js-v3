@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { DescribeStacksRequest, DescribeStacksResult } from "../models/index.ts";
+import { DescribeStacksRequest, DescribeStacksResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeStacksCommand,
   serializeAws_json1_1DescribeStacksCommand,

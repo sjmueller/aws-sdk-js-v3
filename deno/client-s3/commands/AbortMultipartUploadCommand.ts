@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { AbortMultipartUploadOutput, AbortMultipartUploadRequest } from "../models/index.ts";
+import { AbortMultipartUploadOutput, AbortMultipartUploadRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlAbortMultipartUploadCommand,
   serializeAws_restXmlAbortMultipartUploadCommand,

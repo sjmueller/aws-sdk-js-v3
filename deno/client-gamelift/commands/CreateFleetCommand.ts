@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { CreateFleetInput, CreateFleetOutput } from "../models/index.ts";
+import { CreateFleetInput, CreateFleetOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateFleetCommand,
   serializeAws_json1_1CreateFleetCommand,

@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { StopChannelRequest, StopChannelResponse } from "../models/index.ts";
+import { StopChannelRequest, StopChannelResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1StopChannelCommand,
   serializeAws_restJson1StopChannelCommand,

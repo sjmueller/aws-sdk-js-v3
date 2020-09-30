@@ -9,7 +9,7 @@ import {
   InternalServiceErrorException,
   InvalidParameterException,
   ThrottlingException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -45,7 +45,6 @@ export const deserializeAws_json1_1GetEntitlementsCommand = async (
   contents = deserializeAws_json1_1GetEntitlementsResult(data, context);
   const response: GetEntitlementsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEntitlementsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -178,7 +177,6 @@ const serializeAws_json1_1GetEntitlementsRequest = (input: GetEntitlementsReques
 
 const deserializeAws_json1_1Entitlement = (output: any, context: __SerdeContext): Entitlement => {
   return {
-    __type: "Entitlement",
     CustomerIdentifier:
       output.CustomerIdentifier !== undefined && output.CustomerIdentifier !== null
         ? output.CustomerIdentifier
@@ -202,7 +200,6 @@ const deserializeAws_json1_1EntitlementList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1EntitlementValue = (output: any, context: __SerdeContext): EntitlementValue => {
   return {
-    __type: "EntitlementValue",
     BooleanValue: output.BooleanValue !== undefined && output.BooleanValue !== null ? output.BooleanValue : undefined,
     DoubleValue: output.DoubleValue !== undefined && output.DoubleValue !== null ? output.DoubleValue : undefined,
     IntegerValue: output.IntegerValue !== undefined && output.IntegerValue !== null ? output.IntegerValue : undefined,
@@ -212,7 +209,6 @@ const deserializeAws_json1_1EntitlementValue = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1GetEntitlementsResult = (output: any, context: __SerdeContext): GetEntitlementsResult => {
   return {
-    __type: "GetEntitlementsResult",
     Entitlements:
       output.Entitlements !== undefined && output.Entitlements !== null
         ? deserializeAws_json1_1EntitlementList(output.Entitlements, context)
@@ -226,7 +222,6 @@ const deserializeAws_json1_1InternalServiceErrorException = (
   context: __SerdeContext
 ): InternalServiceErrorException => {
   return {
-    __type: "InternalServiceErrorException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -236,14 +231,12 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    __type: "ThrottlingException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };

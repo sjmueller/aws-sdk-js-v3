@@ -1,6 +1,6 @@
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient.ts";
-import { GetEventPredictionRequest, GetEventPredictionResult } from "../models/index.ts";
+import { GetEventPredictionRequest, GetEventPredictionResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetEventPredictionCommand,
   serializeAws_json1_1GetEventPredictionCommand,

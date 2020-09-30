@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { BatchCreatePartitionRequest, BatchCreatePartitionResponse } from "../models/index.ts";
+import { BatchCreatePartitionRequest, BatchCreatePartitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchCreatePartitionCommand,
   serializeAws_json1_1BatchCreatePartitionCommand,

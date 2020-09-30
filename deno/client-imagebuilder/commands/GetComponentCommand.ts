@@ -1,6 +1,6 @@
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
-import { GetComponentRequest, GetComponentResponse } from "../models/index.ts";
+import { GetComponentRequest, GetComponentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetComponentCommand,
   serializeAws_restJson1GetComponentCommand,

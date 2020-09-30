@@ -1,6 +1,6 @@
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
-import { DeleteVaultInput } from "../models/index.ts";
+import { DeleteVaultInput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteVaultCommand,
   serializeAws_restJson1DeleteVaultCommand,

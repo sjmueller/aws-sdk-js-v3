@@ -1,6 +1,6 @@
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
-import { BatchDetectSentimentRequest, BatchDetectSentimentResponse } from "../models/index.ts";
+import { BatchDetectSentimentRequest, BatchDetectSentimentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchDetectSentimentCommand,
   serializeAws_json1_1BatchDetectSentimentCommand,

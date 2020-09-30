@@ -1,6 +1,6 @@
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient.ts";
-import { AssociateCertificateRequest, AssociateCertificateResponse } from "../models/index.ts";
+import { AssociateCertificateRequest, AssociateCertificateResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1AssociateCertificateCommand,
   serializeAws_restJson1AssociateCertificateCommand,

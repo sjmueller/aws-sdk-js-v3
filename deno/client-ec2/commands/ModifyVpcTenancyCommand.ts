@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ModifyVpcTenancyRequest, ModifyVpcTenancyResult } from "../models/index.ts";
+import { ModifyVpcTenancyRequest, ModifyVpcTenancyResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyVpcTenancyCommand,
   serializeAws_ec2ModifyVpcTenancyCommand,

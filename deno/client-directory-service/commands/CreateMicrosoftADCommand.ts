@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { CreateMicrosoftADRequest, CreateMicrosoftADResult } from "../models/index.ts";
+import { CreateMicrosoftADRequest, CreateMicrosoftADResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateMicrosoftADCommand,
   serializeAws_json1_1CreateMicrosoftADCommand,

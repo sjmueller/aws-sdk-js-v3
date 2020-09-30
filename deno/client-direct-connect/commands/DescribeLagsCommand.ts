@@ -1,6 +1,6 @@
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
-import { DescribeLagsRequest, Lags } from "../models/index.ts";
+import { DescribeLagsRequest, Lags } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeLagsCommand,
   serializeAws_json1_1DescribeLagsCommand,

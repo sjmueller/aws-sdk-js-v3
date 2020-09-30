@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { DeletePlatformVersionRequest, DeletePlatformVersionResult } from "../models/index.ts";
+import { DeletePlatformVersionRequest, DeletePlatformVersionResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeletePlatformVersionCommand,
   serializeAws_queryDeletePlatformVersionCommand,

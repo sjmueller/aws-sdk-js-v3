@@ -1,6 +1,6 @@
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient.ts";
-import { CreateDatasetGroupRequest, CreateDatasetGroupResponse } from "../models/index.ts";
+import { CreateDatasetGroupRequest, CreateDatasetGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateDatasetGroupCommand,
   serializeAws_json1_1CreateDatasetGroupCommand,

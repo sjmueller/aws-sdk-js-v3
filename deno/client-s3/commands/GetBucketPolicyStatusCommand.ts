@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { GetBucketPolicyStatusOutput, GetBucketPolicyStatusRequest } from "../models/index.ts";
+import { GetBucketPolicyStatusOutput, GetBucketPolicyStatusRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlGetBucketPolicyStatusCommand,
   serializeAws_restXmlGetBucketPolicyStatusCommand,

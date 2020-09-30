@@ -1,6 +1,6 @@
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient.ts";
-import { DeleteResourcesByExternalIdInput, DeleteResourcesByExternalIdOutput } from "../models/index.ts";
+import { DeleteResourcesByExternalIdInput, DeleteResourcesByExternalIdOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteResourcesByExternalIdCommand,
   serializeAws_json1_1DeleteResourcesByExternalIdCommand,

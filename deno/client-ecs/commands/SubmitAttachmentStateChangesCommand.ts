@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { SubmitAttachmentStateChangesRequest, SubmitAttachmentStateChangesResponse } from "../models/index.ts";
+import { SubmitAttachmentStateChangesRequest, SubmitAttachmentStateChangesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SubmitAttachmentStateChangesCommand,
   serializeAws_json1_1SubmitAttachmentStateChangesCommand,

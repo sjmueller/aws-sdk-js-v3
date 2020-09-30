@@ -1,6 +1,6 @@
 
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
-import { CreateDedicatedIpPoolRequest, CreateDedicatedIpPoolResponse } from "../models/index.ts";
+import { CreateDedicatedIpPoolRequest, CreateDedicatedIpPoolResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateDedicatedIpPoolCommand,
   serializeAws_restJson1CreateDedicatedIpPoolCommand,

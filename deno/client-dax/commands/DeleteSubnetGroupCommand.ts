@@ -1,6 +1,6 @@
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient.ts";
-import { DeleteSubnetGroupRequest, DeleteSubnetGroupResponse } from "../models/index.ts";
+import { DeleteSubnetGroupRequest, DeleteSubnetGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteSubnetGroupCommand,
   serializeAws_json1_1DeleteSubnetGroupCommand,

@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { RequestEnvironmentInfoMessage } from "../models/index.ts";
+import { RequestEnvironmentInfoMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryRequestEnvironmentInfoCommand,
   serializeAws_queryRequestEnvironmentInfoCommand,

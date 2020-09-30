@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { DescribeClusterTracksMessage, TrackListMessage } from "../models/index.ts";
+import { DescribeClusterTracksMessage, TrackListMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeClusterTracksCommand,
   serializeAws_queryDescribeClusterTracksCommand,

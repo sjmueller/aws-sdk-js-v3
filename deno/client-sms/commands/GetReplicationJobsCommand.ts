@@ -1,6 +1,6 @@
 
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
-import { GetReplicationJobsRequest, GetReplicationJobsResponse } from "../models/index.ts";
+import { GetReplicationJobsRequest, GetReplicationJobsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetReplicationJobsCommand,
   serializeAws_json1_1GetReplicationJobsCommand,

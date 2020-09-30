@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { CreateConstraintInput, CreateConstraintOutput } from "../models/index.ts";
+import { CreateConstraintInput, CreateConstraintOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateConstraintCommand,
   serializeAws_json1_1CreateConstraintCommand,

@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { DeleteKeyPairRequest, DeleteKeyPairResult } from "../models/index.ts";
+import { DeleteKeyPairRequest, DeleteKeyPairResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteKeyPairCommand,
   serializeAws_json1_1DeleteKeyPairCommand,

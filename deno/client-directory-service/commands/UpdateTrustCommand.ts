@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { UpdateTrustRequest, UpdateTrustResult } from "../models/index.ts";
+import { UpdateTrustRequest, UpdateTrustResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateTrustCommand,
   serializeAws_json1_1UpdateTrustCommand,

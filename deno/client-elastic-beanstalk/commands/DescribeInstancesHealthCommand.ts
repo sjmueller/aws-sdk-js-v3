@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { DescribeInstancesHealthRequest, DescribeInstancesHealthResult } from "../models/index.ts";
+import { DescribeInstancesHealthRequest, DescribeInstancesHealthResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeInstancesHealthCommand,
   serializeAws_queryDescribeInstancesHealthCommand,

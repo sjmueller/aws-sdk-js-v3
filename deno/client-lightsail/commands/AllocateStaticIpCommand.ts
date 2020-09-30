@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { AllocateStaticIpRequest, AllocateStaticIpResult } from "../models/index.ts";
+import { AllocateStaticIpRequest, AllocateStaticIpResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AllocateStaticIpCommand,
   serializeAws_json1_1AllocateStaticIpCommand,

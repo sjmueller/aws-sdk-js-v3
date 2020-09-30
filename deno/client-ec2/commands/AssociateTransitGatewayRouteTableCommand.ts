@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { AssociateTransitGatewayRouteTableRequest, AssociateTransitGatewayRouteTableResult } from "../models/index.ts";
+import { AssociateTransitGatewayRouteTableRequest, AssociateTransitGatewayRouteTableResult } from "../models/models_0.ts";
 import {
   deserializeAws_ec2AssociateTransitGatewayRouteTableCommand,
   serializeAws_ec2AssociateTransitGatewayRouteTableCommand,

@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { AttachRolePolicyRequest } from "../models/index.ts";
+import { AttachRolePolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryAttachRolePolicyCommand,
   serializeAws_queryAttachRolePolicyCommand,

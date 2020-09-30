@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { DeleteExperimentRequest, DeleteExperimentResponse } from "../models/index.ts";
+import { DeleteExperimentRequest, DeleteExperimentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteExperimentCommand,
   serializeAws_json1_1DeleteExperimentCommand,

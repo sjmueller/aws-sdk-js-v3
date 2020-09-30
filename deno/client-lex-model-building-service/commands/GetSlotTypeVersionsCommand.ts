@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient.ts";
-import { GetSlotTypeVersionsRequest, GetSlotTypeVersionsResponse } from "../models/index.ts";
+import { GetSlotTypeVersionsRequest, GetSlotTypeVersionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetSlotTypeVersionsCommand,
   serializeAws_restJson1GetSlotTypeVersionsCommand,

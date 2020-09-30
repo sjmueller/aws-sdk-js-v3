@@ -238,7 +238,7 @@ import {
   UserStackAssociation,
   UserStackAssociationError,
   VpcConfig,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -872,7 +872,6 @@ export const deserializeAws_json1_1AssociateFleetCommand = async (
   contents = deserializeAws_json1_1AssociateFleetResult(data, context);
   const response: AssociateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateFleetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -968,7 +967,6 @@ export const deserializeAws_json1_1BatchAssociateUserStackCommand = async (
   contents = deserializeAws_json1_1BatchAssociateUserStackResult(data, context);
   const response: BatchAssociateUserStackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchAssociateUserStackResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1024,7 +1022,6 @@ export const deserializeAws_json1_1BatchDisassociateUserStackCommand = async (
   contents = deserializeAws_json1_1BatchDisassociateUserStackResult(data, context);
   const response: BatchDisassociateUserStackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDisassociateUserStackResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1072,7 +1069,6 @@ export const deserializeAws_json1_1CopyImageCommand = async (
   contents = deserializeAws_json1_1CopyImageResponse(data, context);
   const response: CopyImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CopyImageResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1168,7 +1164,6 @@ export const deserializeAws_json1_1CreateDirectoryConfigCommand = async (
   contents = deserializeAws_json1_1CreateDirectoryConfigResult(data, context);
   const response: CreateDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDirectoryConfigResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1240,7 +1235,6 @@ export const deserializeAws_json1_1CreateFleetCommand = async (
   contents = deserializeAws_json1_1CreateFleetResult(data, context);
   const response: CreateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFleetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1368,7 +1362,6 @@ export const deserializeAws_json1_1CreateImageBuilderCommand = async (
   contents = deserializeAws_json1_1CreateImageBuilderResult(data, context);
   const response: CreateImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateImageBuilderResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1496,7 +1489,6 @@ export const deserializeAws_json1_1CreateImageBuilderStreamingURLCommand = async
   contents = deserializeAws_json1_1CreateImageBuilderStreamingURLResult(data, context);
   const response: CreateImageBuilderStreamingURLCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateImageBuilderStreamingURLResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1560,7 +1552,6 @@ export const deserializeAws_json1_1CreateStackCommand = async (
   contents = deserializeAws_json1_1CreateStackResult(data, context);
   const response: CreateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStackResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1664,7 +1655,6 @@ export const deserializeAws_json1_1CreateStreamingURLCommand = async (
   contents = deserializeAws_json1_1CreateStreamingURLResult(data, context);
   const response: CreateStreamingURLCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStreamingURLResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1744,7 +1734,6 @@ export const deserializeAws_json1_1CreateUsageReportSubscriptionCommand = async 
   contents = deserializeAws_json1_1CreateUsageReportSubscriptionResult(data, context);
   const response: CreateUsageReportSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUsageReportSubscriptionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1816,7 +1805,6 @@ export const deserializeAws_json1_1CreateUserCommand = async (
   contents = deserializeAws_json1_1CreateUserResult(data, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1904,7 +1892,6 @@ export const deserializeAws_json1_1DeleteDirectoryConfigCommand = async (
   contents = deserializeAws_json1_1DeleteDirectoryConfigResult(data, context);
   const response: DeleteDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDirectoryConfigResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1968,7 +1955,6 @@ export const deserializeAws_json1_1DeleteFleetCommand = async (
   contents = deserializeAws_json1_1DeleteFleetResult(data, context);
   const response: DeleteFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFleetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2040,7 +2026,6 @@ export const deserializeAws_json1_1DeleteImageCommand = async (
   contents = deserializeAws_json1_1DeleteImageResult(data, context);
   const response: DeleteImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteImageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2120,7 +2105,6 @@ export const deserializeAws_json1_1DeleteImageBuilderCommand = async (
   contents = deserializeAws_json1_1DeleteImageBuilderResult(data, context);
   const response: DeleteImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteImageBuilderResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2192,7 +2176,6 @@ export const deserializeAws_json1_1DeleteImagePermissionsCommand = async (
   contents = deserializeAws_json1_1DeleteImagePermissionsResult(data, context);
   const response: DeleteImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteImagePermissionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2256,7 +2239,6 @@ export const deserializeAws_json1_1DeleteStackCommand = async (
   contents = deserializeAws_json1_1DeleteStackResult(data, context);
   const response: DeleteStackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteStackResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2328,7 +2310,6 @@ export const deserializeAws_json1_1DeleteUsageReportSubscriptionCommand = async 
   contents = deserializeAws_json1_1DeleteUsageReportSubscriptionResult(data, context);
   const response: DeleteUsageReportSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteUsageReportSubscriptionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2392,7 +2373,6 @@ export const deserializeAws_json1_1DeleteUserCommand = async (
   contents = deserializeAws_json1_1DeleteUserResult(data, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteUserResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2448,7 +2428,6 @@ export const deserializeAws_json1_1DescribeDirectoryConfigsCommand = async (
   contents = deserializeAws_json1_1DescribeDirectoryConfigsResult(data, context);
   const response: DescribeDirectoryConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDirectoryConfigsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2504,7 +2483,6 @@ export const deserializeAws_json1_1DescribeFleetsCommand = async (
   contents = deserializeAws_json1_1DescribeFleetsResult(data, context);
   const response: DescribeFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFleetsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2560,7 +2538,6 @@ export const deserializeAws_json1_1DescribeImageBuildersCommand = async (
   contents = deserializeAws_json1_1DescribeImageBuildersResult(data, context);
   const response: DescribeImageBuildersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeImageBuildersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2616,7 +2593,6 @@ export const deserializeAws_json1_1DescribeImagePermissionsCommand = async (
   contents = deserializeAws_json1_1DescribeImagePermissionsResult(data, context);
   const response: DescribeImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeImagePermissionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2672,7 +2648,6 @@ export const deserializeAws_json1_1DescribeImagesCommand = async (
   contents = deserializeAws_json1_1DescribeImagesResult(data, context);
   const response: DescribeImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeImagesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2736,7 +2711,6 @@ export const deserializeAws_json1_1DescribeSessionsCommand = async (
   contents = deserializeAws_json1_1DescribeSessionsResult(data, context);
   const response: DescribeSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSessionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2792,7 +2766,6 @@ export const deserializeAws_json1_1DescribeStacksCommand = async (
   contents = deserializeAws_json1_1DescribeStacksResult(data, context);
   const response: DescribeStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStacksResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2848,7 +2821,6 @@ export const deserializeAws_json1_1DescribeUsageReportSubscriptionsCommand = asy
   contents = deserializeAws_json1_1DescribeUsageReportSubscriptionsResult(data, context);
   const response: DescribeUsageReportSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUsageReportSubscriptionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2912,7 +2884,6 @@ export const deserializeAws_json1_1DescribeUsersCommand = async (
   contents = deserializeAws_json1_1DescribeUsersResult(data, context);
   const response: DescribeUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUsersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2976,7 +2947,6 @@ export const deserializeAws_json1_1DescribeUserStackAssociationsCommand = async 
   contents = deserializeAws_json1_1DescribeUserStackAssociationsResult(data, context);
   const response: DescribeUserStackAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUserStackAssociationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3032,7 +3002,6 @@ export const deserializeAws_json1_1DisableUserCommand = async (
   contents = deserializeAws_json1_1DisableUserResult(data, context);
   const response: DisableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableUserResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3088,7 +3057,6 @@ export const deserializeAws_json1_1DisassociateFleetCommand = async (
   contents = deserializeAws_json1_1DisassociateFleetResult(data, context);
   const response: DisassociateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateFleetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3160,7 +3128,6 @@ export const deserializeAws_json1_1EnableUserCommand = async (
   contents = deserializeAws_json1_1EnableUserResult(data, context);
   const response: EnableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableUserResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3224,7 +3191,6 @@ export const deserializeAws_json1_1ExpireSessionCommand = async (
   contents = deserializeAws_json1_1ExpireSessionResult(data, context);
   const response: ExpireSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExpireSessionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3272,7 +3238,6 @@ export const deserializeAws_json1_1ListAssociatedFleetsCommand = async (
   contents = deserializeAws_json1_1ListAssociatedFleetsResult(data, context);
   const response: ListAssociatedFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAssociatedFleetsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3320,7 +3285,6 @@ export const deserializeAws_json1_1ListAssociatedStacksCommand = async (
   contents = deserializeAws_json1_1ListAssociatedStacksResult(data, context);
   const response: ListAssociatedStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAssociatedStacksResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3368,7 +3332,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3424,7 +3387,6 @@ export const deserializeAws_json1_1StartFleetCommand = async (
   contents = deserializeAws_json1_1StartFleetResult(data, context);
   const response: StartFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartFleetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3528,7 +3490,6 @@ export const deserializeAws_json1_1StartImageBuilderCommand = async (
   contents = deserializeAws_json1_1StartImageBuilderResult(data, context);
   const response: StartImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartImageBuilderResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3616,7 +3577,6 @@ export const deserializeAws_json1_1StopFleetCommand = async (
   contents = deserializeAws_json1_1StopFleetResult(data, context);
   const response: StopFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopFleetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3680,7 +3640,6 @@ export const deserializeAws_json1_1StopImageBuilderCommand = async (
   contents = deserializeAws_json1_1StopImageBuilderResult(data, context);
   const response: StopImageBuilderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopImageBuilderResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3752,7 +3711,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3824,7 +3782,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3880,7 +3837,6 @@ export const deserializeAws_json1_1UpdateDirectoryConfigCommand = async (
   contents = deserializeAws_json1_1UpdateDirectoryConfigResult(data, context);
   const response: UpdateDirectoryConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDirectoryConfigResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3952,7 +3908,6 @@ export const deserializeAws_json1_1UpdateFleetCommand = async (
   contents = deserializeAws_json1_1UpdateFleetResult(data, context);
   const response: UpdateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFleetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4080,7 +4035,6 @@ export const deserializeAws_json1_1UpdateImagePermissionsCommand = async (
   contents = deserializeAws_json1_1UpdateImagePermissionsResult(data, context);
   const response: UpdateImagePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateImagePermissionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4152,7 +4106,6 @@ export const deserializeAws_json1_1UpdateStackCommand = async (
   contents = deserializeAws_json1_1UpdateStackResult(data, context);
   const response: UpdateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateStackResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5130,7 +5083,6 @@ const serializeAws_json1_1VpcConfig = (input: VpcConfig, context: __SerdeContext
 
 const deserializeAws_json1_1AccessEndpoint = (output: any, context: __SerdeContext): AccessEndpoint => {
   return {
-    __type: "AccessEndpoint",
     EndpointType: output.EndpointType !== undefined && output.EndpointType !== null ? output.EndpointType : undefined,
     VpceId: output.VpceId !== undefined && output.VpceId !== null ? output.VpceId : undefined,
   } as any;
@@ -5142,7 +5094,6 @@ const deserializeAws_json1_1AccessEndpointList = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1Application = (output: any, context: __SerdeContext): Application => {
   return {
-    __type: "Application",
     DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     IconURL: output.IconURL !== undefined && output.IconURL !== null ? output.IconURL : undefined,
@@ -5166,7 +5117,6 @@ const deserializeAws_json1_1ApplicationSettingsResponse = (
   context: __SerdeContext
 ): ApplicationSettingsResponse => {
   return {
-    __type: "ApplicationSettingsResponse",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     S3BucketName: output.S3BucketName !== undefined && output.S3BucketName !== null ? output.S3BucketName : undefined,
     SettingsGroup:
@@ -5175,9 +5125,7 @@ const deserializeAws_json1_1ApplicationSettingsResponse = (
 };
 
 const deserializeAws_json1_1AssociateFleetResult = (output: any, context: __SerdeContext): AssociateFleetResult => {
-  return {
-    __type: "AssociateFleetResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1BatchAssociateUserStackResult = (
@@ -5185,7 +5133,6 @@ const deserializeAws_json1_1BatchAssociateUserStackResult = (
   context: __SerdeContext
 ): BatchAssociateUserStackResult => {
   return {
-    __type: "BatchAssociateUserStackResult",
     errors:
       output.errors !== undefined && output.errors !== null
         ? deserializeAws_json1_1UserStackAssociationErrorList(output.errors, context)
@@ -5198,7 +5145,6 @@ const deserializeAws_json1_1BatchDisassociateUserStackResult = (
   context: __SerdeContext
 ): BatchDisassociateUserStackResult => {
   return {
-    __type: "BatchDisassociateUserStackResult",
     errors:
       output.errors !== undefined && output.errors !== null
         ? deserializeAws_json1_1UserStackAssociationErrorList(output.errors, context)
@@ -5208,7 +5154,6 @@ const deserializeAws_json1_1BatchDisassociateUserStackResult = (
 
 const deserializeAws_json1_1ComputeCapacityStatus = (output: any, context: __SerdeContext): ComputeCapacityStatus => {
   return {
-    __type: "ComputeCapacityStatus",
     Available: output.Available !== undefined && output.Available !== null ? output.Available : undefined,
     Desired: output.Desired !== undefined && output.Desired !== null ? output.Desired : undefined,
     InUse: output.InUse !== undefined && output.InUse !== null ? output.InUse : undefined,
@@ -5221,14 +5166,12 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    __type: "ConcurrentModificationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CopyImageResponse = (output: any, context: __SerdeContext): CopyImageResponse => {
   return {
-    __type: "CopyImageResponse",
     DestinationImageName:
       output.DestinationImageName !== undefined && output.DestinationImageName !== null
         ? output.DestinationImageName
@@ -5241,7 +5184,6 @@ const deserializeAws_json1_1CreateDirectoryConfigResult = (
   context: __SerdeContext
 ): CreateDirectoryConfigResult => {
   return {
-    __type: "CreateDirectoryConfigResult",
     DirectoryConfig:
       output.DirectoryConfig !== undefined && output.DirectoryConfig !== null
         ? deserializeAws_json1_1DirectoryConfig(output.DirectoryConfig, context)
@@ -5251,7 +5193,6 @@ const deserializeAws_json1_1CreateDirectoryConfigResult = (
 
 const deserializeAws_json1_1CreateFleetResult = (output: any, context: __SerdeContext): CreateFleetResult => {
   return {
-    __type: "CreateFleetResult",
     Fleet:
       output.Fleet !== undefined && output.Fleet !== null
         ? deserializeAws_json1_1Fleet(output.Fleet, context)
@@ -5264,7 +5205,6 @@ const deserializeAws_json1_1CreateImageBuilderResult = (
   context: __SerdeContext
 ): CreateImageBuilderResult => {
   return {
-    __type: "CreateImageBuilderResult",
     ImageBuilder:
       output.ImageBuilder !== undefined && output.ImageBuilder !== null
         ? deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context)
@@ -5277,7 +5217,6 @@ const deserializeAws_json1_1CreateImageBuilderStreamingURLResult = (
   context: __SerdeContext
 ): CreateImageBuilderStreamingURLResult => {
   return {
-    __type: "CreateImageBuilderStreamingURLResult",
     Expires:
       output.Expires !== undefined && output.Expires !== null ? new Date(Math.round(output.Expires * 1000)) : undefined,
     StreamingURL: output.StreamingURL !== undefined && output.StreamingURL !== null ? output.StreamingURL : undefined,
@@ -5286,7 +5225,6 @@ const deserializeAws_json1_1CreateImageBuilderStreamingURLResult = (
 
 const deserializeAws_json1_1CreateStackResult = (output: any, context: __SerdeContext): CreateStackResult => {
   return {
-    __type: "CreateStackResult",
     Stack:
       output.Stack !== undefined && output.Stack !== null
         ? deserializeAws_json1_1Stack(output.Stack, context)
@@ -5299,7 +5237,6 @@ const deserializeAws_json1_1CreateStreamingURLResult = (
   context: __SerdeContext
 ): CreateStreamingURLResult => {
   return {
-    __type: "CreateStreamingURLResult",
     Expires:
       output.Expires !== undefined && output.Expires !== null ? new Date(Math.round(output.Expires * 1000)) : undefined,
     StreamingURL: output.StreamingURL !== undefined && output.StreamingURL !== null ? output.StreamingURL : undefined,
@@ -5311,31 +5248,24 @@ const deserializeAws_json1_1CreateUsageReportSubscriptionResult = (
   context: __SerdeContext
 ): CreateUsageReportSubscriptionResult => {
   return {
-    __type: "CreateUsageReportSubscriptionResult",
     S3BucketName: output.S3BucketName !== undefined && output.S3BucketName !== null ? output.S3BucketName : undefined,
     Schedule: output.Schedule !== undefined && output.Schedule !== null ? output.Schedule : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateUserResult = (output: any, context: __SerdeContext): CreateUserResult => {
-  return {
-    __type: "CreateUserResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteDirectoryConfigResult = (
   output: any,
   context: __SerdeContext
 ): DeleteDirectoryConfigResult => {
-  return {
-    __type: "DeleteDirectoryConfigResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteFleetResult = (output: any, context: __SerdeContext): DeleteFleetResult => {
-  return {
-    __type: "DeleteFleetResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteImageBuilderResult = (
@@ -5343,7 +5273,6 @@ const deserializeAws_json1_1DeleteImageBuilderResult = (
   context: __SerdeContext
 ): DeleteImageBuilderResult => {
   return {
-    __type: "DeleteImageBuilderResult",
     ImageBuilder:
       output.ImageBuilder !== undefined && output.ImageBuilder !== null
         ? deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context)
@@ -5355,14 +5284,11 @@ const deserializeAws_json1_1DeleteImagePermissionsResult = (
   output: any,
   context: __SerdeContext
 ): DeleteImagePermissionsResult => {
-  return {
-    __type: "DeleteImagePermissionsResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteImageResult = (output: any, context: __SerdeContext): DeleteImageResult => {
   return {
-    __type: "DeleteImageResult",
     Image:
       output.Image !== undefined && output.Image !== null
         ? deserializeAws_json1_1Image(output.Image, context)
@@ -5371,24 +5297,18 @@ const deserializeAws_json1_1DeleteImageResult = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_json1_1DeleteStackResult = (output: any, context: __SerdeContext): DeleteStackResult => {
-  return {
-    __type: "DeleteStackResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteUsageReportSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): DeleteUsageReportSubscriptionResult => {
-  return {
-    __type: "DeleteUsageReportSubscriptionResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteUserResult = (output: any, context: __SerdeContext): DeleteUserResult => {
-  return {
-    __type: "DeleteUserResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeDirectoryConfigsResult = (
@@ -5396,7 +5316,6 @@ const deserializeAws_json1_1DescribeDirectoryConfigsResult = (
   context: __SerdeContext
 ): DescribeDirectoryConfigsResult => {
   return {
-    __type: "DescribeDirectoryConfigsResult",
     DirectoryConfigs:
       output.DirectoryConfigs !== undefined && output.DirectoryConfigs !== null
         ? deserializeAws_json1_1DirectoryConfigList(output.DirectoryConfigs, context)
@@ -5407,7 +5326,6 @@ const deserializeAws_json1_1DescribeDirectoryConfigsResult = (
 
 const deserializeAws_json1_1DescribeFleetsResult = (output: any, context: __SerdeContext): DescribeFleetsResult => {
   return {
-    __type: "DescribeFleetsResult",
     Fleets:
       output.Fleets !== undefined && output.Fleets !== null
         ? deserializeAws_json1_1FleetList(output.Fleets, context)
@@ -5421,7 +5339,6 @@ const deserializeAws_json1_1DescribeImageBuildersResult = (
   context: __SerdeContext
 ): DescribeImageBuildersResult => {
   return {
-    __type: "DescribeImageBuildersResult",
     ImageBuilders:
       output.ImageBuilders !== undefined && output.ImageBuilders !== null
         ? deserializeAws_json1_1ImageBuilderList(output.ImageBuilders, context)
@@ -5435,7 +5352,6 @@ const deserializeAws_json1_1DescribeImagePermissionsResult = (
   context: __SerdeContext
 ): DescribeImagePermissionsResult => {
   return {
-    __type: "DescribeImagePermissionsResult",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SharedImagePermissionsList:
@@ -5447,7 +5363,6 @@ const deserializeAws_json1_1DescribeImagePermissionsResult = (
 
 const deserializeAws_json1_1DescribeImagesResult = (output: any, context: __SerdeContext): DescribeImagesResult => {
   return {
-    __type: "DescribeImagesResult",
     Images:
       output.Images !== undefined && output.Images !== null
         ? deserializeAws_json1_1ImageList(output.Images, context)
@@ -5458,7 +5373,6 @@ const deserializeAws_json1_1DescribeImagesResult = (output: any, context: __Serd
 
 const deserializeAws_json1_1DescribeSessionsResult = (output: any, context: __SerdeContext): DescribeSessionsResult => {
   return {
-    __type: "DescribeSessionsResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Sessions:
       output.Sessions !== undefined && output.Sessions !== null
@@ -5469,7 +5383,6 @@ const deserializeAws_json1_1DescribeSessionsResult = (output: any, context: __Se
 
 const deserializeAws_json1_1DescribeStacksResult = (output: any, context: __SerdeContext): DescribeStacksResult => {
   return {
-    __type: "DescribeStacksResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Stacks:
       output.Stacks !== undefined && output.Stacks !== null
@@ -5483,7 +5396,6 @@ const deserializeAws_json1_1DescribeUsageReportSubscriptionsResult = (
   context: __SerdeContext
 ): DescribeUsageReportSubscriptionsResult => {
   return {
-    __type: "DescribeUsageReportSubscriptionsResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     UsageReportSubscriptions:
       output.UsageReportSubscriptions !== undefined && output.UsageReportSubscriptions !== null
@@ -5494,7 +5406,6 @@ const deserializeAws_json1_1DescribeUsageReportSubscriptionsResult = (
 
 const deserializeAws_json1_1DescribeUsersResult = (output: any, context: __SerdeContext): DescribeUsersResult => {
   return {
-    __type: "DescribeUsersResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Users:
       output.Users !== undefined && output.Users !== null
@@ -5508,7 +5419,6 @@ const deserializeAws_json1_1DescribeUserStackAssociationsResult = (
   context: __SerdeContext
 ): DescribeUserStackAssociationsResult => {
   return {
-    __type: "DescribeUserStackAssociationsResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     UserStackAssociations:
       output.UserStackAssociations !== undefined && output.UserStackAssociations !== null
@@ -5519,7 +5429,6 @@ const deserializeAws_json1_1DescribeUserStackAssociationsResult = (
 
 const deserializeAws_json1_1DirectoryConfig = (output: any, context: __SerdeContext): DirectoryConfig => {
   return {
-    __type: "DirectoryConfig",
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
@@ -5545,23 +5454,18 @@ const deserializeAws_json1_1DirectoryConfigList = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1DisableUserResult = (output: any, context: __SerdeContext): DisableUserResult => {
-  return {
-    __type: "DisableUserResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateFleetResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateFleetResult => {
-  return {
-    __type: "DisassociateFleetResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DomainJoinInfo = (output: any, context: __SerdeContext): DomainJoinInfo => {
   return {
-    __type: "DomainJoinInfo",
     DirectoryName:
       output.DirectoryName !== undefined && output.DirectoryName !== null ? output.DirectoryName : undefined,
     OrganizationalUnitDistinguishedName:
@@ -5580,20 +5484,15 @@ const deserializeAws_json1_1EmbedHostDomains = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_json1_1EnableUserResult = (output: any, context: __SerdeContext): EnableUserResult => {
-  return {
-    __type: "EnableUserResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ExpireSessionResult = (output: any, context: __SerdeContext): ExpireSessionResult => {
-  return {
-    __type: "ExpireSessionResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Fleet = (output: any, context: __SerdeContext): Fleet => {
   return {
-    __type: "Fleet",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     ComputeCapacityStatus:
       output.ComputeCapacityStatus !== undefined && output.ComputeCapacityStatus !== null
@@ -5645,7 +5544,6 @@ const deserializeAws_json1_1Fleet = (output: any, context: __SerdeContext): Flee
 
 const deserializeAws_json1_1FleetError = (output: any, context: __SerdeContext): FleetError => {
   return {
-    __type: "FleetError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
   } as any;
@@ -5661,7 +5559,6 @@ const deserializeAws_json1_1FleetList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Image => {
   return {
-    __type: "Image",
     Applications:
       output.Applications !== undefined && output.Applications !== null
         ? deserializeAws_json1_1Applications(output.Applications, context)
@@ -5705,7 +5602,6 @@ const deserializeAws_json1_1Image = (output: any, context: __SerdeContext): Imag
 
 const deserializeAws_json1_1ImageBuilder = (output: any, context: __SerdeContext): ImageBuilder => {
   return {
-    __type: "ImageBuilder",
     AccessEndpoints:
       output.AccessEndpoints !== undefined && output.AccessEndpoints !== null
         ? deserializeAws_json1_1AccessEndpointList(output.AccessEndpoints, context)
@@ -5763,7 +5659,6 @@ const deserializeAws_json1_1ImageBuilderStateChangeReason = (
   context: __SerdeContext
 ): ImageBuilderStateChangeReason => {
   return {
-    __type: "ImageBuilderStateChangeReason",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -5775,7 +5670,6 @@ const deserializeAws_json1_1ImageList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1ImagePermissions = (output: any, context: __SerdeContext): ImagePermissions => {
   return {
-    __type: "ImagePermissions",
     allowFleet: output.allowFleet !== undefined && output.allowFleet !== null ? output.allowFleet : undefined,
     allowImageBuilder:
       output.allowImageBuilder !== undefined && output.allowImageBuilder !== null
@@ -5786,7 +5680,6 @@ const deserializeAws_json1_1ImagePermissions = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ImageStateChangeReason = (output: any, context: __SerdeContext): ImageStateChangeReason => {
   return {
-    __type: "ImageStateChangeReason",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -5797,7 +5690,6 @@ const deserializeAws_json1_1IncompatibleImageException = (
   context: __SerdeContext
 ): IncompatibleImageException => {
   return {
-    __type: "IncompatibleImageException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -5807,7 +5699,6 @@ const deserializeAws_json1_1InvalidAccountStatusException = (
   context: __SerdeContext
 ): InvalidAccountStatusException => {
   return {
-    __type: "InvalidAccountStatusException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -5817,14 +5708,12 @@ const deserializeAws_json1_1InvalidParameterCombinationException = (
   context: __SerdeContext
 ): InvalidParameterCombinationException => {
   return {
-    __type: "InvalidParameterCombinationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidRoleException = (output: any, context: __SerdeContext): InvalidRoleException => {
   return {
-    __type: "InvalidRoleException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -5834,7 +5723,6 @@ const deserializeAws_json1_1LastReportGenerationExecutionError = (
   context: __SerdeContext
 ): LastReportGenerationExecutionError => {
   return {
-    __type: "LastReportGenerationExecutionError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
   } as any;
@@ -5849,7 +5737,6 @@ const deserializeAws_json1_1LastReportGenerationExecutionErrors = (
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -5859,7 +5746,6 @@ const deserializeAws_json1_1ListAssociatedFleetsResult = (
   context: __SerdeContext
 ): ListAssociatedFleetsResult => {
   return {
-    __type: "ListAssociatedFleetsResult",
     Names:
       output.Names !== undefined && output.Names !== null
         ? deserializeAws_json1_1StringList(output.Names, context)
@@ -5873,7 +5759,6 @@ const deserializeAws_json1_1ListAssociatedStacksResult = (
   context: __SerdeContext
 ): ListAssociatedStacksResult => {
   return {
-    __type: "ListAssociatedStacksResult",
     Names:
       output.Names !== undefined && output.Names !== null
         ? deserializeAws_json1_1StringList(output.Names, context)
@@ -5887,7 +5772,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
@@ -5908,7 +5792,6 @@ const deserializeAws_json1_1NetworkAccessConfiguration = (
   context: __SerdeContext
 ): NetworkAccessConfiguration => {
   return {
-    __type: "NetworkAccessConfiguration",
     EniId: output.EniId !== undefined && output.EniId !== null ? output.EniId : undefined,
     EniPrivateIpAddress:
       output.EniPrivateIpAddress !== undefined && output.EniPrivateIpAddress !== null
@@ -5922,7 +5805,6 @@ const deserializeAws_json1_1OperationNotPermittedException = (
   context: __SerdeContext
 ): OperationNotPermittedException => {
   return {
-    __type: "OperationNotPermittedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -5939,14 +5821,12 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    __type: "ResourceAlreadyExistsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResourceError = (output: any, context: __SerdeContext): ResourceError => {
   return {
-    __type: "ResourceError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     ErrorTimestamp:
@@ -5962,7 +5842,6 @@ const deserializeAws_json1_1ResourceErrors = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    __type: "ResourceInUseException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -5972,7 +5851,6 @@ const deserializeAws_json1_1ResourceNotAvailableException = (
   context: __SerdeContext
 ): ResourceNotAvailableException => {
   return {
-    __type: "ResourceNotAvailableException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -5982,7 +5860,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -5996,7 +5873,6 @@ const deserializeAws_json1_1ServiceAccountCredentials = (
   context: __SerdeContext
 ): ServiceAccountCredentials => {
   return {
-    __type: "ServiceAccountCredentials",
     AccountName: output.AccountName !== undefined && output.AccountName !== null ? output.AccountName : undefined,
     AccountPassword:
       output.AccountPassword !== undefined && output.AccountPassword !== null ? output.AccountPassword : undefined,
@@ -6005,7 +5881,6 @@ const deserializeAws_json1_1ServiceAccountCredentials = (
 
 const deserializeAws_json1_1Session = (output: any, context: __SerdeContext): Session => {
   return {
-    __type: "Session",
     AuthenticationType:
       output.AuthenticationType !== undefined && output.AuthenticationType !== null
         ? output.AuthenticationType
@@ -6038,7 +5913,6 @@ const deserializeAws_json1_1SessionList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1SharedImagePermissions = (output: any, context: __SerdeContext): SharedImagePermissions => {
   return {
-    __type: "SharedImagePermissions",
     imagePermissions:
       output.imagePermissions !== undefined && output.imagePermissions !== null
         ? deserializeAws_json1_1ImagePermissions(output.imagePermissions, context)
@@ -6057,7 +5931,6 @@ const deserializeAws_json1_1SharedImagePermissionsList = (
 
 const deserializeAws_json1_1Stack = (output: any, context: __SerdeContext): Stack => {
   return {
-    __type: "Stack",
     AccessEndpoints:
       output.AccessEndpoints !== undefined && output.AccessEndpoints !== null
         ? deserializeAws_json1_1AccessEndpointList(output.AccessEndpoints, context)
@@ -6097,7 +5970,6 @@ const deserializeAws_json1_1Stack = (output: any, context: __SerdeContext): Stac
 
 const deserializeAws_json1_1StackError = (output: any, context: __SerdeContext): StackError => {
   return {
-    __type: "StackError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
   } as any;
@@ -6112,9 +5984,7 @@ const deserializeAws_json1_1StackList = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1StartFleetResult = (output: any, context: __SerdeContext): StartFleetResult => {
-  return {
-    __type: "StartFleetResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StartImageBuilderResult = (
@@ -6122,7 +5992,6 @@ const deserializeAws_json1_1StartImageBuilderResult = (
   context: __SerdeContext
 ): StartImageBuilderResult => {
   return {
-    __type: "StartImageBuilderResult",
     ImageBuilder:
       output.ImageBuilder !== undefined && output.ImageBuilder !== null
         ? deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context)
@@ -6131,14 +6000,11 @@ const deserializeAws_json1_1StartImageBuilderResult = (
 };
 
 const deserializeAws_json1_1StopFleetResult = (output: any, context: __SerdeContext): StopFleetResult => {
-  return {
-    __type: "StopFleetResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StopImageBuilderResult = (output: any, context: __SerdeContext): StopImageBuilderResult => {
   return {
-    __type: "StopImageBuilderResult",
     ImageBuilder:
       output.ImageBuilder !== undefined && output.ImageBuilder !== null
         ? deserializeAws_json1_1ImageBuilder(output.ImageBuilder, context)
@@ -6148,7 +6014,6 @@ const deserializeAws_json1_1StopImageBuilderResult = (output: any, context: __Se
 
 const deserializeAws_json1_1StorageConnector = (output: any, context: __SerdeContext): StorageConnector => {
   return {
-    __type: "StorageConnector",
     ConnectorType:
       output.ConnectorType !== undefined && output.ConnectorType !== null ? output.ConnectorType : undefined,
     Domains:
@@ -6175,9 +6040,7 @@ const deserializeAws_json1_1SubnetIdList = (output: any, context: __SerdeContext
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -6191,9 +6054,7 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): { [ke
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateDirectoryConfigResult = (
@@ -6201,7 +6062,6 @@ const deserializeAws_json1_1UpdateDirectoryConfigResult = (
   context: __SerdeContext
 ): UpdateDirectoryConfigResult => {
   return {
-    __type: "UpdateDirectoryConfigResult",
     DirectoryConfig:
       output.DirectoryConfig !== undefined && output.DirectoryConfig !== null
         ? deserializeAws_json1_1DirectoryConfig(output.DirectoryConfig, context)
@@ -6211,7 +6071,6 @@ const deserializeAws_json1_1UpdateDirectoryConfigResult = (
 
 const deserializeAws_json1_1UpdateFleetResult = (output: any, context: __SerdeContext): UpdateFleetResult => {
   return {
-    __type: "UpdateFleetResult",
     Fleet:
       output.Fleet !== undefined && output.Fleet !== null
         ? deserializeAws_json1_1Fleet(output.Fleet, context)
@@ -6223,14 +6082,11 @@ const deserializeAws_json1_1UpdateImagePermissionsResult = (
   output: any,
   context: __SerdeContext
 ): UpdateImagePermissionsResult => {
-  return {
-    __type: "UpdateImagePermissionsResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateStackResult = (output: any, context: __SerdeContext): UpdateStackResult => {
   return {
-    __type: "UpdateStackResult",
     Stack:
       output.Stack !== undefined && output.Stack !== null
         ? deserializeAws_json1_1Stack(output.Stack, context)
@@ -6243,7 +6099,6 @@ const deserializeAws_json1_1UsageReportSubscription = (
   context: __SerdeContext
 ): UsageReportSubscription => {
   return {
-    __type: "UsageReportSubscription",
     LastGeneratedReportDate:
       output.LastGeneratedReportDate !== undefined && output.LastGeneratedReportDate !== null
         ? new Date(Math.round(output.LastGeneratedReportDate * 1000))
@@ -6266,7 +6121,6 @@ const deserializeAws_json1_1UsageReportSubscriptionList = (
 
 const deserializeAws_json1_1User = (output: any, context: __SerdeContext): User => {
   return {
-    __type: "User",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     AuthenticationType:
       output.AuthenticationType !== undefined && output.AuthenticationType !== null
@@ -6290,7 +6144,6 @@ const deserializeAws_json1_1UserList = (output: any, context: __SerdeContext): U
 
 const deserializeAws_json1_1UserSetting = (output: any, context: __SerdeContext): UserSetting => {
   return {
-    __type: "UserSetting",
     Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
     Permission: output.Permission !== undefined && output.Permission !== null ? output.Permission : undefined,
   } as any;
@@ -6302,7 +6155,6 @@ const deserializeAws_json1_1UserSettingList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1UserStackAssociation = (output: any, context: __SerdeContext): UserStackAssociation => {
   return {
-    __type: "UserStackAssociation",
     AuthenticationType:
       output.AuthenticationType !== undefined && output.AuthenticationType !== null
         ? output.AuthenticationType
@@ -6321,7 +6173,6 @@ const deserializeAws_json1_1UserStackAssociationError = (
   context: __SerdeContext
 ): UserStackAssociationError => {
   return {
-    __type: "UserStackAssociationError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     UserStackAssociation:
@@ -6347,7 +6198,6 @@ const deserializeAws_json1_1UserStackAssociationList = (
 
 const deserializeAws_json1_1VpcConfig = (output: any, context: __SerdeContext): VpcConfig => {
   return {
-    __type: "VpcConfig",
     SecurityGroupIds:
       output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
         ? deserializeAws_json1_1SecurityGroupIdList(output.SecurityGroupIds, context)

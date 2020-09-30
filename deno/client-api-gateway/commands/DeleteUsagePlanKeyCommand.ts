@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { DeleteUsagePlanKeyRequest } from "../models/index.ts";
+import { DeleteUsagePlanKeyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteUsagePlanKeyCommand,
   serializeAws_restJson1DeleteUsagePlanKeyCommand,

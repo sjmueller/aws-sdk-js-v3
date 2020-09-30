@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { GetBucketEncryptionOutput, GetBucketEncryptionRequest } from "../models/index.ts";
+import { GetBucketEncryptionOutput, GetBucketEncryptionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlGetBucketEncryptionCommand,
   serializeAws_restXmlGetBucketEncryptionCommand,

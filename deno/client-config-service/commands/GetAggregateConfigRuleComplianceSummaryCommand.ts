@@ -3,7 +3,7 @@ import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import {
   GetAggregateConfigRuleComplianceSummaryRequest,
   GetAggregateConfigRuleComplianceSummaryResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand,
   serializeAws_json1_1GetAggregateConfigRuleComplianceSummaryCommand,

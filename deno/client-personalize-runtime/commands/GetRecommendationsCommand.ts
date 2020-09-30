@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeRuntimeClient.ts";
-import { GetRecommendationsRequest, GetRecommendationsResponse } from "../models/index.ts";
+import { GetRecommendationsRequest, GetRecommendationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetRecommendationsCommand,
   serializeAws_restJson1GetRecommendationsCommand,

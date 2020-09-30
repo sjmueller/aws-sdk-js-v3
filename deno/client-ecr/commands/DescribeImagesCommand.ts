@@ -1,6 +1,6 @@
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
-import { DescribeImagesRequest, DescribeImagesResponse } from "../models/index.ts";
+import { DescribeImagesRequest, DescribeImagesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeImagesCommand,
   serializeAws_json1_1DescribeImagesCommand,

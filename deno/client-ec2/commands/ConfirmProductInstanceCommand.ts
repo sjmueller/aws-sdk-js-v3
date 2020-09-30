@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ConfirmProductInstanceRequest, ConfirmProductInstanceResult } from "../models/index.ts";
+import { ConfirmProductInstanceRequest, ConfirmProductInstanceResult } from "../models/models_0.ts";
 import {
   deserializeAws_ec2ConfirmProductInstanceCommand,
   serializeAws_ec2ConfirmProductInstanceCommand,

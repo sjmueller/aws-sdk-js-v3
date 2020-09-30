@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { CreateWebACLMigrationStackRequest, CreateWebACLMigrationStackResponse } from "../models/index.ts";
+import { CreateWebACLMigrationStackRequest, CreateWebACLMigrationStackResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateWebACLMigrationStackCommand,
   serializeAws_json1_1CreateWebACLMigrationStackCommand,

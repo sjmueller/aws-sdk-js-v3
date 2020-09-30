@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { GetBucketAnalyticsConfigurationOutput, GetBucketAnalyticsConfigurationRequest } from "../models/index.ts";
+import { GetBucketAnalyticsConfigurationOutput, GetBucketAnalyticsConfigurationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlGetBucketAnalyticsConfigurationCommand,
   serializeAws_restXmlGetBucketAnalyticsConfigurationCommand,

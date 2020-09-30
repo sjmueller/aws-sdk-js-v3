@@ -1,6 +1,6 @@
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient.ts";
-import { DeleteTagsRequest } from "../models/index.ts";
+import { DeleteTagsRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteTagsCommand,
   serializeAws_restJson1DeleteTagsCommand,

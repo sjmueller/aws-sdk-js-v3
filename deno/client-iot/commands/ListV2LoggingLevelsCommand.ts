@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { ListV2LoggingLevelsRequest, ListV2LoggingLevelsResponse } from "../models/index.ts";
+import { ListV2LoggingLevelsRequest, ListV2LoggingLevelsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1ListV2LoggingLevelsCommand,
   serializeAws_restJson1ListV2LoggingLevelsCommand,

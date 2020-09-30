@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { DeleteAuthorizerRequest } from "../models/index.ts";
+import { DeleteAuthorizerRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteAuthorizerCommand,
   serializeAws_restJson1DeleteAuthorizerCommand,

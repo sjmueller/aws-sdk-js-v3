@@ -1,6 +1,6 @@
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient.ts";
-import { DeleteArchiveRuleRequest } from "../models/index.ts";
+import { DeleteArchiveRuleRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteArchiveRuleCommand,
   serializeAws_restJson1DeleteArchiveRuleCommand,

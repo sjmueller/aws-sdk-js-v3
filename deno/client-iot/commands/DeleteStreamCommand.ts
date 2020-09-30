@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DeleteStreamRequest, DeleteStreamResponse } from "../models/index.ts";
+import { DeleteStreamRequest, DeleteStreamResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteStreamCommand,
   serializeAws_restJson1DeleteStreamCommand,

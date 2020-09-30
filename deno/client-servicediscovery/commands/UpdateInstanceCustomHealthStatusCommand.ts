@@ -1,6 +1,6 @@
 
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient.ts";
-import { UpdateInstanceCustomHealthStatusRequest } from "../models/index.ts";
+import { UpdateInstanceCustomHealthStatusRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateInstanceCustomHealthStatusCommand,
   serializeAws_json1_1UpdateInstanceCustomHealthStatusCommand,

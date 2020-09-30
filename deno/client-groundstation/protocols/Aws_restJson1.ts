@@ -82,7 +82,7 @@ import {
   TrackingConfig,
   UplinkEchoConfig,
   UplinkSpectrumConfig,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -889,7 +889,6 @@ export const deserializeAws_restJson1CancelContactCommand = async (
   }
   const contents: CancelContactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ContactIdResponse",
     contactId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -961,7 +960,6 @@ export const deserializeAws_restJson1CreateConfigCommand = async (
   }
   const contents: CreateConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfigIdResponse",
     configArn: undefined,
     configId: undefined,
     configType: undefined,
@@ -1049,7 +1047,6 @@ export const deserializeAws_restJson1CreateDataflowEndpointGroupCommand = async 
   }
   const contents: CreateDataflowEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DataflowEndpointGroupIdResponse",
     dataflowEndpointGroupId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1121,7 +1118,6 @@ export const deserializeAws_restJson1CreateMissionProfileCommand = async (
   }
   const contents: CreateMissionProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "MissionProfileIdResponse",
     missionProfileId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1193,7 +1189,6 @@ export const deserializeAws_restJson1DeleteConfigCommand = async (
   }
   const contents: DeleteConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfigIdResponse",
     configArn: undefined,
     configId: undefined,
     configType: undefined,
@@ -1273,7 +1268,6 @@ export const deserializeAws_restJson1DeleteDataflowEndpointGroupCommand = async 
   }
   const contents: DeleteDataflowEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DataflowEndpointGroupIdResponse",
     dataflowEndpointGroupId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1345,7 +1339,6 @@ export const deserializeAws_restJson1DeleteMissionProfileCommand = async (
   }
   const contents: DeleteMissionProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "MissionProfileIdResponse",
     missionProfileId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1417,7 +1410,6 @@ export const deserializeAws_restJson1DescribeContactCommand = async (
   }
   const contents: DescribeContactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeContactResponse",
     contactId: undefined,
     contactStatus: undefined,
     endTime: undefined,
@@ -1537,7 +1529,6 @@ export const deserializeAws_restJson1GetConfigCommand = async (
   }
   const contents: GetConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConfigResponse",
     configArn: undefined,
     configData: undefined,
     configId: undefined,
@@ -1629,7 +1620,6 @@ export const deserializeAws_restJson1GetDataflowEndpointGroupCommand = async (
   }
   const contents: GetDataflowEndpointGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDataflowEndpointGroupResponse",
     dataflowEndpointGroupArn: undefined,
     dataflowEndpointGroupId: undefined,
     endpointsDetails: undefined,
@@ -1713,7 +1703,6 @@ export const deserializeAws_restJson1GetMinuteUsageCommand = async (
   }
   const contents: GetMinuteUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMinuteUsageResponse",
     estimatedMinutesRemaining: undefined,
     isReservedMinutesCustomer: undefined,
     totalReservedMinuteAllocation: undefined,
@@ -1801,7 +1790,6 @@ export const deserializeAws_restJson1GetMissionProfileCommand = async (
   }
   const contents: GetMissionProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMissionProfileResponse",
     contactPostPassDurationSeconds: undefined,
     contactPrePassDurationSeconds: undefined,
     dataflowEdges: undefined,
@@ -1909,7 +1897,6 @@ export const deserializeAws_restJson1GetSatelliteCommand = async (
   }
   const contents: GetSatelliteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSatelliteResponse",
     groundStations: undefined,
     noradSatelliteID: undefined,
     satelliteArn: undefined,
@@ -1993,7 +1980,6 @@ export const deserializeAws_restJson1ListConfigsCommand = async (
   }
   const contents: ListConfigsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListConfigsResponse",
     configList: undefined,
     nextToken: undefined,
   };
@@ -2069,7 +2055,6 @@ export const deserializeAws_restJson1ListContactsCommand = async (
   }
   const contents: ListContactsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListContactsResponse",
     contactList: undefined,
     nextToken: undefined,
   };
@@ -2145,7 +2130,6 @@ export const deserializeAws_restJson1ListDataflowEndpointGroupsCommand = async (
   }
   const contents: ListDataflowEndpointGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDataflowEndpointGroupsResponse",
     dataflowEndpointGroupList: undefined,
     nextToken: undefined,
   };
@@ -2224,7 +2208,6 @@ export const deserializeAws_restJson1ListGroundStationsCommand = async (
   }
   const contents: ListGroundStationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGroundStationsResponse",
     groundStationList: undefined,
     nextToken: undefined,
   };
@@ -2300,7 +2283,6 @@ export const deserializeAws_restJson1ListMissionProfilesCommand = async (
   }
   const contents: ListMissionProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMissionProfilesResponse",
     missionProfileList: undefined,
     nextToken: undefined,
   };
@@ -2376,7 +2358,6 @@ export const deserializeAws_restJson1ListSatellitesCommand = async (
   }
   const contents: ListSatellitesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSatellitesResponse",
     nextToken: undefined,
     satellites: undefined,
   };
@@ -2452,7 +2433,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2524,7 +2504,6 @@ export const deserializeAws_restJson1ReserveContactCommand = async (
   }
   const contents: ReserveContactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ContactIdResponse",
     contactId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2596,7 +2575,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2664,7 +2642,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2732,7 +2709,6 @@ export const deserializeAws_restJson1UpdateConfigCommand = async (
   }
   const contents: UpdateConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfigIdResponse",
     configArn: undefined,
     configId: undefined,
     configType: undefined,
@@ -2812,7 +2788,6 @@ export const deserializeAws_restJson1UpdateMissionProfileCommand = async (
   }
   const contents: UpdateMissionProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "MissionProfileIdResponse",
     missionProfileId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3155,7 +3130,6 @@ const serializeAws_restJson1UplinkSpectrumConfig = (input: UplinkSpectrumConfig,
 
 const deserializeAws_restJson1AntennaDownlinkConfig = (output: any, context: __SerdeContext): AntennaDownlinkConfig => {
   return {
-    __type: "AntennaDownlinkConfig",
     spectrumConfig:
       output.spectrumConfig !== undefined && output.spectrumConfig !== null
         ? deserializeAws_restJson1SpectrumConfig(output.spectrumConfig, context)
@@ -3168,7 +3142,6 @@ const deserializeAws_restJson1AntennaDownlinkDemodDecodeConfig = (
   context: __SerdeContext
 ): AntennaDownlinkDemodDecodeConfig => {
   return {
-    __type: "AntennaDownlinkDemodDecodeConfig",
     decodeConfig:
       output.decodeConfig !== undefined && output.decodeConfig !== null
         ? deserializeAws_restJson1DecodeConfig(output.decodeConfig, context)
@@ -3186,7 +3159,6 @@ const deserializeAws_restJson1AntennaDownlinkDemodDecodeConfig = (
 
 const deserializeAws_restJson1AntennaUplinkConfig = (output: any, context: __SerdeContext): AntennaUplinkConfig => {
   return {
-    __type: "AntennaUplinkConfig",
     spectrumConfig:
       output.spectrumConfig !== undefined && output.spectrumConfig !== null
         ? deserializeAws_restJson1UplinkSpectrumConfig(output.spectrumConfig, context)
@@ -3206,7 +3178,6 @@ const deserializeAws_restJson1ConfigList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1ConfigListItem = (output: any, context: __SerdeContext): ConfigListItem => {
   return {
-    __type: "ConfigListItem",
     configArn: output.configArn !== undefined && output.configArn !== null ? output.configArn : undefined,
     configId: output.configId !== undefined && output.configId !== null ? output.configId : undefined,
     configType: output.configType !== undefined && output.configType !== null ? output.configType : undefined,
@@ -3253,7 +3224,6 @@ const deserializeAws_restJson1ConfigTypeData = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1ContactData = (output: any, context: __SerdeContext): ContactData => {
   return {
-    __type: "ContactData",
     contactId: output.contactId !== undefined && output.contactId !== null ? output.contactId : undefined,
     contactStatus:
       output.contactStatus !== undefined && output.contactStatus !== null ? output.contactStatus : undefined,
@@ -3305,7 +3275,6 @@ const deserializeAws_restJson1DataflowEdgeList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1DataflowEndpoint = (output: any, context: __SerdeContext): DataflowEndpoint => {
   return {
-    __type: "DataflowEndpoint",
     address:
       output.address !== undefined && output.address !== null
         ? deserializeAws_restJson1SocketAddress(output.address, context)
@@ -3321,7 +3290,6 @@ const deserializeAws_restJson1DataflowEndpointConfig = (
   context: __SerdeContext
 ): DataflowEndpointConfig => {
   return {
-    __type: "DataflowEndpointConfig",
     dataflowEndpointName:
       output.dataflowEndpointName !== undefined && output.dataflowEndpointName !== null
         ? output.dataflowEndpointName
@@ -3345,7 +3313,6 @@ const deserializeAws_restJson1DataflowEndpointListItem = (
   context: __SerdeContext
 ): DataflowEndpointListItem => {
   return {
-    __type: "DataflowEndpointListItem",
     dataflowEndpointGroupArn:
       output.dataflowEndpointGroupArn !== undefined && output.dataflowEndpointGroupArn !== null
         ? output.dataflowEndpointGroupArn
@@ -3359,7 +3326,6 @@ const deserializeAws_restJson1DataflowEndpointListItem = (
 
 const deserializeAws_restJson1DecodeConfig = (output: any, context: __SerdeContext): DecodeConfig => {
   return {
-    __type: "DecodeConfig",
     unvalidatedJSON:
       output.unvalidatedJSON !== undefined && output.unvalidatedJSON !== null ? output.unvalidatedJSON : undefined,
   } as any;
@@ -3367,7 +3333,6 @@ const deserializeAws_restJson1DecodeConfig = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1DemodulationConfig = (output: any, context: __SerdeContext): DemodulationConfig => {
   return {
-    __type: "DemodulationConfig",
     unvalidatedJSON:
       output.unvalidatedJSON !== undefined && output.unvalidatedJSON !== null ? output.unvalidatedJSON : undefined,
   } as any;
@@ -3375,7 +3340,6 @@ const deserializeAws_restJson1DemodulationConfig = (output: any, context: __Serd
 
 const deserializeAws_restJson1Eirp = (output: any, context: __SerdeContext): Eirp => {
   return {
-    __type: "Eirp",
     units: output.units !== undefined && output.units !== null ? output.units : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -3383,7 +3347,6 @@ const deserializeAws_restJson1Eirp = (output: any, context: __SerdeContext): Eir
 
 const deserializeAws_restJson1Elevation = (output: any, context: __SerdeContext): Elevation => {
   return {
-    __type: "Elevation",
     unit: output.unit !== undefined && output.unit !== null ? output.unit : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -3391,7 +3354,6 @@ const deserializeAws_restJson1Elevation = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1EndpointDetails = (output: any, context: __SerdeContext): EndpointDetails => {
   return {
-    __type: "EndpointDetails",
     endpoint:
       output.endpoint !== undefined && output.endpoint !== null
         ? deserializeAws_restJson1DataflowEndpoint(output.endpoint, context)
@@ -3409,7 +3371,6 @@ const deserializeAws_restJson1EndpointDetailsList = (output: any, context: __Ser
 
 const deserializeAws_restJson1Frequency = (output: any, context: __SerdeContext): Frequency => {
   return {
-    __type: "Frequency",
     units: output.units !== undefined && output.units !== null ? output.units : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -3417,7 +3378,6 @@ const deserializeAws_restJson1Frequency = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1FrequencyBandwidth = (output: any, context: __SerdeContext): FrequencyBandwidth => {
   return {
-    __type: "FrequencyBandwidth",
     units: output.units !== undefined && output.units !== null ? output.units : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -3425,7 +3385,6 @@ const deserializeAws_restJson1FrequencyBandwidth = (output: any, context: __Serd
 
 const deserializeAws_restJson1GroundStationData = (output: any, context: __SerdeContext): GroundStationData => {
   return {
-    __type: "GroundStationData",
     groundStationId:
       output.groundStationId !== undefined && output.groundStationId !== null ? output.groundStationId : undefined,
     groundStationName:
@@ -3453,7 +3412,6 @@ const deserializeAws_restJson1MissionProfileListItem = (
   context: __SerdeContext
 ): MissionProfileListItem => {
   return {
-    __type: "MissionProfileListItem",
     missionProfileArn:
       output.missionProfileArn !== undefined && output.missionProfileArn !== null
         ? output.missionProfileArn
@@ -3471,7 +3429,6 @@ const deserializeAws_restJson1SatelliteList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1SatelliteListItem = (output: any, context: __SerdeContext): SatelliteListItem => {
   return {
-    __type: "SatelliteListItem",
     groundStations:
       output.groundStations !== undefined && output.groundStations !== null
         ? deserializeAws_restJson1GroundStationIdList(output.groundStations, context)
@@ -3485,7 +3442,6 @@ const deserializeAws_restJson1SatelliteListItem = (output: any, context: __Serde
 
 const deserializeAws_restJson1SecurityDetails = (output: any, context: __SerdeContext): SecurityDetails => {
   return {
-    __type: "SecurityDetails",
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     securityGroupIds:
       output.securityGroupIds !== undefined && output.securityGroupIds !== null
@@ -3504,7 +3460,6 @@ const deserializeAws_restJson1SecurityGroupIdList = (output: any, context: __Ser
 
 const deserializeAws_restJson1SocketAddress = (output: any, context: __SerdeContext): SocketAddress => {
   return {
-    __type: "SocketAddress",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     port: output.port !== undefined && output.port !== null ? output.port : undefined,
   } as any;
@@ -3512,7 +3467,6 @@ const deserializeAws_restJson1SocketAddress = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1SpectrumConfig = (output: any, context: __SerdeContext): SpectrumConfig => {
   return {
-    __type: "SpectrumConfig",
     bandwidth:
       output.bandwidth !== undefined && output.bandwidth !== null
         ? deserializeAws_restJson1FrequencyBandwidth(output.bandwidth, context)
@@ -3541,14 +3495,12 @@ const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1TrackingConfig = (output: any, context: __SerdeContext): TrackingConfig => {
   return {
-    __type: "TrackingConfig",
     autotrack: output.autotrack !== undefined && output.autotrack !== null ? output.autotrack : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1UplinkEchoConfig = (output: any, context: __SerdeContext): UplinkEchoConfig => {
   return {
-    __type: "UplinkEchoConfig",
     antennaUplinkConfigArn:
       output.antennaUplinkConfigArn !== undefined && output.antennaUplinkConfigArn !== null
         ? output.antennaUplinkConfigArn
@@ -3559,7 +3511,6 @@ const deserializeAws_restJson1UplinkEchoConfig = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1UplinkSpectrumConfig = (output: any, context: __SerdeContext): UplinkSpectrumConfig => {
   return {
-    __type: "UplinkSpectrumConfig",
     centerFrequency:
       output.centerFrequency !== undefined && output.centerFrequency !== null
         ? deserializeAws_restJson1Frequency(output.centerFrequency, context)

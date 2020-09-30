@@ -1,6 +1,9 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { UpdateRelationalDatabaseParametersRequest, UpdateRelationalDatabaseParametersResult } from "../models/index.ts";
+import {
+  UpdateRelationalDatabaseParametersRequest,
+  UpdateRelationalDatabaseParametersResult,
+} from "../models/models_1.ts";
 import {
   deserializeAws_json1_1UpdateRelationalDatabaseParametersCommand,
   serializeAws_json1_1UpdateRelationalDatabaseParametersCommand,

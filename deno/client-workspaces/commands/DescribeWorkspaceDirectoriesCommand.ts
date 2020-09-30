@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { DescribeWorkspaceDirectoriesRequest, DescribeWorkspaceDirectoriesResult } from "../models/index.ts";
+import { DescribeWorkspaceDirectoriesRequest, DescribeWorkspaceDirectoriesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeWorkspaceDirectoriesCommand,
   serializeAws_json1_1DescribeWorkspaceDirectoriesCommand,

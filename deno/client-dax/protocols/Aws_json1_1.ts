@@ -129,7 +129,7 @@ import {
   UpdateParameterGroupResponse,
   UpdateSubnetGroupRequest,
   UpdateSubnetGroupResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -425,7 +425,6 @@ export const deserializeAws_json1_1CreateClusterCommand = async (
   contents = deserializeAws_json1_1CreateClusterResponse(data, context);
   const response: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateClusterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -585,7 +584,6 @@ export const deserializeAws_json1_1CreateParameterGroupCommand = async (
   contents = deserializeAws_json1_1CreateParameterGroupResponse(data, context);
   const response: CreateParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateParameterGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -681,7 +679,6 @@ export const deserializeAws_json1_1CreateSubnetGroupCommand = async (
   contents = deserializeAws_json1_1CreateSubnetGroupResponse(data, context);
   const response: CreateSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSubnetGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -769,7 +766,6 @@ export const deserializeAws_json1_1DecreaseReplicationFactorCommand = async (
   contents = deserializeAws_json1_1DecreaseReplicationFactorResponse(data, context);
   const response: DecreaseReplicationFactorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DecreaseReplicationFactorResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -865,7 +861,6 @@ export const deserializeAws_json1_1DeleteClusterCommand = async (
   contents = deserializeAws_json1_1DeleteClusterResponse(data, context);
   const response: DeleteClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteClusterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -953,7 +948,6 @@ export const deserializeAws_json1_1DeleteParameterGroupCommand = async (
   contents = deserializeAws_json1_1DeleteParameterGroupResponse(data, context);
   const response: DeleteParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteParameterGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1041,7 +1035,6 @@ export const deserializeAws_json1_1DeleteSubnetGroupCommand = async (
   contents = deserializeAws_json1_1DeleteSubnetGroupResponse(data, context);
   const response: DeleteSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSubnetGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1113,7 +1106,6 @@ export const deserializeAws_json1_1DescribeClustersCommand = async (
   contents = deserializeAws_json1_1DescribeClustersResponse(data, context);
   const response: DescribeClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClustersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1193,7 +1185,6 @@ export const deserializeAws_json1_1DescribeDefaultParametersCommand = async (
   contents = deserializeAws_json1_1DescribeDefaultParametersResponse(data, context);
   const response: DescribeDefaultParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDefaultParametersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1265,7 +1256,6 @@ export const deserializeAws_json1_1DescribeEventsCommand = async (
   contents = deserializeAws_json1_1DescribeEventsResponse(data, context);
   const response: DescribeEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1337,7 +1327,6 @@ export const deserializeAws_json1_1DescribeParameterGroupsCommand = async (
   contents = deserializeAws_json1_1DescribeParameterGroupsResponse(data, context);
   const response: DescribeParameterGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeParameterGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1417,7 +1406,6 @@ export const deserializeAws_json1_1DescribeParametersCommand = async (
   contents = deserializeAws_json1_1DescribeParametersResponse(data, context);
   const response: DescribeParametersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeParametersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1497,7 +1485,6 @@ export const deserializeAws_json1_1DescribeSubnetGroupsCommand = async (
   contents = deserializeAws_json1_1DescribeSubnetGroupsResponse(data, context);
   const response: DescribeSubnetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSubnetGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1561,7 +1548,6 @@ export const deserializeAws_json1_1IncreaseReplicationFactorCommand = async (
   contents = deserializeAws_json1_1IncreaseReplicationFactorResponse(data, context);
   const response: IncreaseReplicationFactorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "IncreaseReplicationFactorResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1681,7 +1667,6 @@ export const deserializeAws_json1_1ListTagsCommand = async (
   contents = deserializeAws_json1_1ListTagsResponse(data, context);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1777,7 +1762,6 @@ export const deserializeAws_json1_1RebootNodeCommand = async (
   contents = deserializeAws_json1_1RebootNodeResponse(data, context);
   const response: RebootNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RebootNodeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1873,7 +1857,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1977,7 +1960,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2081,7 +2063,6 @@ export const deserializeAws_json1_1UpdateClusterCommand = async (
   contents = deserializeAws_json1_1UpdateClusterResponse(data, context);
   const response: UpdateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateClusterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2185,7 +2166,6 @@ export const deserializeAws_json1_1UpdateParameterGroupCommand = async (
   contents = deserializeAws_json1_1UpdateParameterGroupResponse(data, context);
   const response: UpdateParameterGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateParameterGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2273,7 +2253,6 @@ export const deserializeAws_json1_1UpdateSubnetGroupCommand = async (
   contents = deserializeAws_json1_1UpdateSubnetGroupResponse(data, context);
   const response: UpdateSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSubnetGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3042,7 +3021,6 @@ const serializeAws_json1_1UpdateSubnetGroupRequest = (
 
 const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cluster => {
   return {
-    __type: "Cluster",
     ActiveNodes: output.ActiveNodes !== undefined && output.ActiveNodes !== null ? output.ActiveNodes : undefined,
     ClusterArn: output.ClusterArn !== undefined && output.ClusterArn !== null ? output.ClusterArn : undefined,
     ClusterDiscoveryEndpoint:
@@ -3092,7 +3070,6 @@ const deserializeAws_json1_1ClusterAlreadyExistsFault = (
   context: __SerdeContext
 ): ClusterAlreadyExistsFault => {
   return {
-    __type: "ClusterAlreadyExistsFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3103,7 +3080,6 @@ const deserializeAws_json1_1ClusterList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ClusterNotFoundFault = (output: any, context: __SerdeContext): ClusterNotFoundFault => {
   return {
-    __type: "ClusterNotFoundFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3113,14 +3089,12 @@ const deserializeAws_json1_1ClusterQuotaForCustomerExceededFault = (
   context: __SerdeContext
 ): ClusterQuotaForCustomerExceededFault => {
   return {
-    __type: "ClusterQuotaForCustomerExceededFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateClusterResponse = (output: any, context: __SerdeContext): CreateClusterResponse => {
   return {
-    __type: "CreateClusterResponse",
     Cluster:
       output.Cluster !== undefined && output.Cluster !== null
         ? deserializeAws_json1_1Cluster(output.Cluster, context)
@@ -3133,7 +3107,6 @@ const deserializeAws_json1_1CreateParameterGroupResponse = (
   context: __SerdeContext
 ): CreateParameterGroupResponse => {
   return {
-    __type: "CreateParameterGroupResponse",
     ParameterGroup:
       output.ParameterGroup !== undefined && output.ParameterGroup !== null
         ? deserializeAws_json1_1ParameterGroup(output.ParameterGroup, context)
@@ -3146,7 +3119,6 @@ const deserializeAws_json1_1CreateSubnetGroupResponse = (
   context: __SerdeContext
 ): CreateSubnetGroupResponse => {
   return {
-    __type: "CreateSubnetGroupResponse",
     SubnetGroup:
       output.SubnetGroup !== undefined && output.SubnetGroup !== null
         ? deserializeAws_json1_1SubnetGroup(output.SubnetGroup, context)
@@ -3159,7 +3131,6 @@ const deserializeAws_json1_1DecreaseReplicationFactorResponse = (
   context: __SerdeContext
 ): DecreaseReplicationFactorResponse => {
   return {
-    __type: "DecreaseReplicationFactorResponse",
     Cluster:
       output.Cluster !== undefined && output.Cluster !== null
         ? deserializeAws_json1_1Cluster(output.Cluster, context)
@@ -3169,7 +3140,6 @@ const deserializeAws_json1_1DecreaseReplicationFactorResponse = (
 
 const deserializeAws_json1_1DeleteClusterResponse = (output: any, context: __SerdeContext): DeleteClusterResponse => {
   return {
-    __type: "DeleteClusterResponse",
     Cluster:
       output.Cluster !== undefined && output.Cluster !== null
         ? deserializeAws_json1_1Cluster(output.Cluster, context)
@@ -3182,7 +3152,6 @@ const deserializeAws_json1_1DeleteParameterGroupResponse = (
   context: __SerdeContext
 ): DeleteParameterGroupResponse => {
   return {
-    __type: "DeleteParameterGroupResponse",
     DeletionMessage:
       output.DeletionMessage !== undefined && output.DeletionMessage !== null ? output.DeletionMessage : undefined,
   } as any;
@@ -3193,7 +3162,6 @@ const deserializeAws_json1_1DeleteSubnetGroupResponse = (
   context: __SerdeContext
 ): DeleteSubnetGroupResponse => {
   return {
-    __type: "DeleteSubnetGroupResponse",
     DeletionMessage:
       output.DeletionMessage !== undefined && output.DeletionMessage !== null ? output.DeletionMessage : undefined,
   } as any;
@@ -3204,7 +3172,6 @@ const deserializeAws_json1_1DescribeClustersResponse = (
   context: __SerdeContext
 ): DescribeClustersResponse => {
   return {
-    __type: "DescribeClustersResponse",
     Clusters:
       output.Clusters !== undefined && output.Clusters !== null
         ? deserializeAws_json1_1ClusterList(output.Clusters, context)
@@ -3218,7 +3185,6 @@ const deserializeAws_json1_1DescribeDefaultParametersResponse = (
   context: __SerdeContext
 ): DescribeDefaultParametersResponse => {
   return {
-    __type: "DescribeDefaultParametersResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
@@ -3229,7 +3195,6 @@ const deserializeAws_json1_1DescribeDefaultParametersResponse = (
 
 const deserializeAws_json1_1DescribeEventsResponse = (output: any, context: __SerdeContext): DescribeEventsResponse => {
   return {
-    __type: "DescribeEventsResponse",
     Events:
       output.Events !== undefined && output.Events !== null
         ? deserializeAws_json1_1EventList(output.Events, context)
@@ -3243,7 +3208,6 @@ const deserializeAws_json1_1DescribeParameterGroupsResponse = (
   context: __SerdeContext
 ): DescribeParameterGroupsResponse => {
   return {
-    __type: "DescribeParameterGroupsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ParameterGroups:
       output.ParameterGroups !== undefined && output.ParameterGroups !== null
@@ -3257,7 +3221,6 @@ const deserializeAws_json1_1DescribeParametersResponse = (
   context: __SerdeContext
 ): DescribeParametersResponse => {
   return {
-    __type: "DescribeParametersResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
@@ -3271,7 +3234,6 @@ const deserializeAws_json1_1DescribeSubnetGroupsResponse = (
   context: __SerdeContext
 ): DescribeSubnetGroupsResponse => {
   return {
-    __type: "DescribeSubnetGroupsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SubnetGroups:
       output.SubnetGroups !== undefined && output.SubnetGroups !== null
@@ -3282,7 +3244,6 @@ const deserializeAws_json1_1DescribeSubnetGroupsResponse = (
 
 const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
-    __type: "Endpoint",
     Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
   } as any;
@@ -3290,7 +3251,6 @@ const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): E
 
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
   return {
-    __type: "Event",
     Date: output.Date !== undefined && output.Date !== null ? new Date(Math.round(output.Date * 1000)) : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     SourceName: output.SourceName !== undefined && output.SourceName !== null ? output.SourceName : undefined,
@@ -3307,7 +3267,6 @@ const deserializeAws_json1_1IncreaseReplicationFactorResponse = (
   context: __SerdeContext
 ): IncreaseReplicationFactorResponse => {
   return {
-    __type: "IncreaseReplicationFactorResponse",
     Cluster:
       output.Cluster !== undefined && output.Cluster !== null
         ? deserializeAws_json1_1Cluster(output.Cluster, context)
@@ -3320,14 +3279,12 @@ const deserializeAws_json1_1InsufficientClusterCapacityFault = (
   context: __SerdeContext
 ): InsufficientClusterCapacityFault => {
   return {
-    __type: "InsufficientClusterCapacityFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidARNFault = (output: any, context: __SerdeContext): InvalidARNFault => {
   return {
-    __type: "InvalidARNFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3337,7 +3294,6 @@ const deserializeAws_json1_1InvalidClusterStateFault = (
   context: __SerdeContext
 ): InvalidClusterStateFault => {
   return {
-    __type: "InvalidClusterStateFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3347,7 +3303,6 @@ const deserializeAws_json1_1InvalidParameterCombinationException = (
   context: __SerdeContext
 ): InvalidParameterCombinationException => {
   return {
-    __type: "InvalidParameterCombinationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3357,7 +3312,6 @@ const deserializeAws_json1_1InvalidParameterGroupStateFault = (
   context: __SerdeContext
 ): InvalidParameterGroupStateFault => {
   return {
-    __type: "InvalidParameterGroupStateFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3367,14 +3321,12 @@ const deserializeAws_json1_1InvalidParameterValueException = (
   context: __SerdeContext
 ): InvalidParameterValueException => {
   return {
-    __type: "InvalidParameterValueException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet => {
   return {
-    __type: "InvalidSubnet",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3384,14 +3336,12 @@ const deserializeAws_json1_1InvalidVPCNetworkStateFault = (
   context: __SerdeContext
 ): InvalidVPCNetworkStateFault => {
   return {
-    __type: "InvalidVPCNetworkStateFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeContext): ListTagsResponse => {
   return {
-    __type: "ListTagsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -3402,7 +3352,6 @@ const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Node = (output: any, context: __SerdeContext): Node => {
   return {
-    __type: "Node",
     AvailabilityZone:
       output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     Endpoint:
@@ -3432,7 +3381,6 @@ const deserializeAws_json1_1NodeList = (output: any, context: __SerdeContext): N
 
 const deserializeAws_json1_1NodeNotFoundFault = (output: any, context: __SerdeContext): NodeNotFoundFault => {
   return {
-    __type: "NodeNotFoundFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3442,7 +3390,6 @@ const deserializeAws_json1_1NodeQuotaForClusterExceededFault = (
   context: __SerdeContext
 ): NodeQuotaForClusterExceededFault => {
   return {
-    __type: "NodeQuotaForClusterExceededFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3452,14 +3399,12 @@ const deserializeAws_json1_1NodeQuotaForCustomerExceededFault = (
   context: __SerdeContext
 ): NodeQuotaForCustomerExceededFault => {
   return {
-    __type: "NodeQuotaForCustomerExceededFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1NodeTypeSpecificValue = (output: any, context: __SerdeContext): NodeTypeSpecificValue => {
   return {
-    __type: "NodeTypeSpecificValue",
     NodeType: output.NodeType !== undefined && output.NodeType !== null ? output.NodeType : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -3477,7 +3422,6 @@ const deserializeAws_json1_1NotificationConfiguration = (
   context: __SerdeContext
 ): NotificationConfiguration => {
   return {
-    __type: "NotificationConfiguration",
     TopicArn: output.TopicArn !== undefined && output.TopicArn !== null ? output.TopicArn : undefined,
     TopicStatus: output.TopicStatus !== undefined && output.TopicStatus !== null ? output.TopicStatus : undefined,
   } as any;
@@ -3485,7 +3429,6 @@ const deserializeAws_json1_1NotificationConfiguration = (
 
 const deserializeAws_json1_1Parameter = (output: any, context: __SerdeContext): Parameter => {
   return {
-    __type: "Parameter",
     AllowedValues:
       output.AllowedValues !== undefined && output.AllowedValues !== null ? output.AllowedValues : undefined,
     ChangeType: output.ChangeType !== undefined && output.ChangeType !== null ? output.ChangeType : undefined,
@@ -3508,7 +3451,6 @@ const deserializeAws_json1_1Parameter = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1ParameterGroup = (output: any, context: __SerdeContext): ParameterGroup => {
   return {
-    __type: "ParameterGroup",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     ParameterGroupName:
       output.ParameterGroupName !== undefined && output.ParameterGroupName !== null
@@ -3522,7 +3464,6 @@ const deserializeAws_json1_1ParameterGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): ParameterGroupAlreadyExistsFault => {
   return {
-    __type: "ParameterGroupAlreadyExistsFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3536,7 +3477,6 @@ const deserializeAws_json1_1ParameterGroupNotFoundFault = (
   context: __SerdeContext
 ): ParameterGroupNotFoundFault => {
   return {
-    __type: "ParameterGroupNotFoundFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3546,14 +3486,12 @@ const deserializeAws_json1_1ParameterGroupQuotaExceededFault = (
   context: __SerdeContext
 ): ParameterGroupQuotaExceededFault => {
   return {
-    __type: "ParameterGroupQuotaExceededFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ParameterGroupStatus = (output: any, context: __SerdeContext): ParameterGroupStatus => {
   return {
-    __type: "ParameterGroupStatus",
     NodeIdsToReboot:
       output.NodeIdsToReboot !== undefined && output.NodeIdsToReboot !== null
         ? deserializeAws_json1_1NodeIdentifierList(output.NodeIdsToReboot, context)
@@ -3575,7 +3513,6 @@ const deserializeAws_json1_1ParameterList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1RebootNodeResponse = (output: any, context: __SerdeContext): RebootNodeResponse => {
   return {
-    __type: "RebootNodeResponse",
     Cluster:
       output.Cluster !== undefined && output.Cluster !== null
         ? deserializeAws_json1_1Cluster(output.Cluster, context)
@@ -3588,7 +3525,6 @@ const deserializeAws_json1_1SecurityGroupMembership = (
   context: __SerdeContext
 ): SecurityGroupMembership => {
   return {
-    __type: "SecurityGroupMembership",
     SecurityGroupIdentifier:
       output.SecurityGroupIdentifier !== undefined && output.SecurityGroupIdentifier !== null
         ? output.SecurityGroupIdentifier
@@ -3609,21 +3545,18 @@ const deserializeAws_json1_1ServiceLinkedRoleNotFoundFault = (
   context: __SerdeContext
 ): ServiceLinkedRoleNotFoundFault => {
   return {
-    __type: "ServiceLinkedRoleNotFoundFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SSEDescription = (output: any, context: __SerdeContext): SSEDescription => {
   return {
-    __type: "SSEDescription",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Subnet = (output: any, context: __SerdeContext): Subnet => {
   return {
-    __type: "Subnet",
     SubnetAvailabilityZone:
       output.SubnetAvailabilityZone !== undefined && output.SubnetAvailabilityZone !== null
         ? output.SubnetAvailabilityZone
@@ -3635,7 +3568,6 @@ const deserializeAws_json1_1Subnet = (output: any, context: __SerdeContext): Sub
 
 const deserializeAws_json1_1SubnetGroup = (output: any, context: __SerdeContext): SubnetGroup => {
   return {
-    __type: "SubnetGroup",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     SubnetGroupName:
       output.SubnetGroupName !== undefined && output.SubnetGroupName !== null ? output.SubnetGroupName : undefined,
@@ -3652,14 +3584,12 @@ const deserializeAws_json1_1SubnetGroupAlreadyExistsFault = (
   context: __SerdeContext
 ): SubnetGroupAlreadyExistsFault => {
   return {
-    __type: "SubnetGroupAlreadyExistsFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SubnetGroupInUseFault = (output: any, context: __SerdeContext): SubnetGroupInUseFault => {
   return {
-    __type: "SubnetGroupInUseFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3673,7 +3603,6 @@ const deserializeAws_json1_1SubnetGroupNotFoundFault = (
   context: __SerdeContext
 ): SubnetGroupNotFoundFault => {
   return {
-    __type: "SubnetGroupNotFoundFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3683,14 +3612,12 @@ const deserializeAws_json1_1SubnetGroupQuotaExceededFault = (
   context: __SerdeContext
 ): SubnetGroupQuotaExceededFault => {
   return {
-    __type: "SubnetGroupQuotaExceededFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SubnetInUse = (output: any, context: __SerdeContext): SubnetInUse => {
   return {
-    __type: "SubnetInUse",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3704,14 +3631,12 @@ const deserializeAws_json1_1SubnetQuotaExceededFault = (
   context: __SerdeContext
 ): SubnetQuotaExceededFault => {
   return {
-    __type: "SubnetQuotaExceededFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -3723,7 +3648,6 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TagNotFoundFault = (output: any, context: __SerdeContext): TagNotFoundFault => {
   return {
-    __type: "TagNotFoundFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3733,14 +3657,12 @@ const deserializeAws_json1_1TagQuotaPerResourceExceeded = (
   context: __SerdeContext
 ): TagQuotaPerResourceExceeded => {
   return {
-    __type: "TagQuotaPerResourceExceeded",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
   return {
-    __type: "TagResourceResponse",
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -3750,7 +3672,6 @@ const deserializeAws_json1_1TagResourceResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
   return {
-    __type: "UntagResourceResponse",
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -3760,7 +3681,6 @@ const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1UpdateClusterResponse = (output: any, context: __SerdeContext): UpdateClusterResponse => {
   return {
-    __type: "UpdateClusterResponse",
     Cluster:
       output.Cluster !== undefined && output.Cluster !== null
         ? deserializeAws_json1_1Cluster(output.Cluster, context)
@@ -3773,7 +3693,6 @@ const deserializeAws_json1_1UpdateParameterGroupResponse = (
   context: __SerdeContext
 ): UpdateParameterGroupResponse => {
   return {
-    __type: "UpdateParameterGroupResponse",
     ParameterGroup:
       output.ParameterGroup !== undefined && output.ParameterGroup !== null
         ? deserializeAws_json1_1ParameterGroup(output.ParameterGroup, context)
@@ -3786,7 +3705,6 @@ const deserializeAws_json1_1UpdateSubnetGroupResponse = (
   context: __SerdeContext
 ): UpdateSubnetGroupResponse => {
   return {
-    __type: "UpdateSubnetGroupResponse",
     SubnetGroup:
       output.SubnetGroup !== undefined && output.SubnetGroup !== null
         ? deserializeAws_json1_1SubnetGroup(output.SubnetGroup, context)

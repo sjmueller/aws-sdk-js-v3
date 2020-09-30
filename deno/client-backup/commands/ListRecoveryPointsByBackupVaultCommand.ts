@@ -1,6 +1,6 @@
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
-import { ListRecoveryPointsByBackupVaultInput, ListRecoveryPointsByBackupVaultOutput } from "../models/index.ts";
+import { ListRecoveryPointsByBackupVaultInput, ListRecoveryPointsByBackupVaultOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommand,
   serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand,

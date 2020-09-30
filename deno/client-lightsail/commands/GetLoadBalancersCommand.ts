@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { GetLoadBalancersRequest, GetLoadBalancersResult } from "../models/index.ts";
+import { GetLoadBalancersRequest, GetLoadBalancersResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetLoadBalancersCommand,
   serializeAws_json1_1GetLoadBalancersCommand,

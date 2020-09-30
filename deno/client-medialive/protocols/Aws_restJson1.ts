@@ -111,27 +111,14 @@ import {
   AudioTrack,
   AudioTrackSelection,
   AutomaticInputFailoverSettings,
-  AvailBlanking,
-  AvailConfiguration,
-  AvailSettings,
-  BadGatewayException,
-  BadRequestException,
-  BatchScheduleActionCreateRequest,
-  BatchScheduleActionCreateResult,
-  BatchScheduleActionDeleteRequest,
-  BatchScheduleActionDeleteResult,
-  BlackoutSlate,
   BurnInDestinationSettings,
   CaptionDescription,
   CaptionDestinationSettings,
   CaptionLanguageMapping,
   CaptionSelector,
   CaptionSelectorSettings,
-  Channel,
   ChannelEgressEndpoint,
   ChannelSummary,
-  ColorSpacePassthroughSettings,
-  ConflictException,
   DvbNitSettings,
   DvbSdtSettings,
   DvbSubDestinationSettings,
@@ -142,25 +129,10 @@ import {
   EmbeddedDestinationSettings,
   EmbeddedPlusScte20DestinationSettings,
   EmbeddedSourceSettings,
-  EncoderSettings,
-  FeatureActivations,
   FecOutputSettings,
-  FixedModeScheduleActionStartSettings,
   Fmp4HlsSettings,
-  FollowModeScheduleActionStartSettings,
-  ForbiddenException,
   FrameCaptureGroupSettings,
   FrameCaptureOutputSettings,
-  FrameCaptureSettings,
-  GatewayTimeoutException,
-  GlobalConfiguration,
-  H264ColorSpaceSettings,
-  H264FilterSettings,
-  H264Settings,
-  H265ColorSpaceSettings,
-  H265FilterSettings,
-  H265Settings,
-  Hdr10Settings,
   HlsAdMarkers,
   HlsAkamaiSettings,
   HlsBasicPutSettings,
@@ -173,7 +145,6 @@ import {
   HlsSettings,
   HlsTimedMetadataScheduleActionSettings,
   HlsWebdavSettings,
-  ImmediateModeScheduleActionStartSettings,
   Input,
   InputAttachment,
   InputChannelLevel,
@@ -181,14 +152,12 @@ import {
   InputDestination,
   InputDestinationRequest,
   InputDestinationVpc,
-  InputDeviceConfigurableSettings,
   InputDeviceHdSettings,
   InputDeviceNetworkSettings,
   InputDeviceRequest,
   InputDeviceSettings,
   InputDeviceSummary,
   InputLocation,
-  InputLossBehavior,
   InputPrepareScheduleActionSettings,
   InputSecurityGroup,
   InputSettings,
@@ -196,10 +165,8 @@ import {
   InputSourceRequest,
   InputSpecification,
   InputSwitchScheduleActionSettings,
-  InputVpcRequest,
   InputWhitelistRule,
   InputWhitelistRuleCidr,
-  InternalServerErrorException,
   KeyProviderSettings,
   M2tsSettings,
   M3u8Settings,
@@ -211,25 +178,15 @@ import {
   Mp2Settings,
   MsSmoothGroupSettings,
   MsSmoothOutputSettings,
-  Multiplex,
   MultiplexGroupSettings,
   MultiplexMediaConnectOutputDestinationSettings,
   MultiplexOutputDestination,
   MultiplexOutputSettings,
-  MultiplexProgram,
   MultiplexProgramChannelDestinationSettings,
-  MultiplexProgramPacketIdentifiersMap,
-  MultiplexProgramServiceDescriptor,
-  MultiplexProgramSettings,
   MultiplexProgramSummary,
-  MultiplexSettings,
   MultiplexSettingsSummary,
-  MultiplexStatmuxVideoSettings,
   MultiplexSummary,
-  MultiplexVideoSettings,
   NetworkInputSettings,
-  NielsenConfiguration,
-  NotFoundException,
   Offering,
   Output,
   OutputDestination,
@@ -242,56 +199,101 @@ import {
   PauseStateScheduleActionSettings,
   PipelineDetail,
   PipelinePauseStateSettings,
-  Rec601Settings,
-  Rec709Settings,
   RemixSettings,
   Reservation,
   ReservationResourceSpecification,
   RtmpCaptionInfoDestinationSettings,
   RtmpGroupSettings,
   RtmpOutputSettings,
-  ScheduleAction,
-  ScheduleActionSettings,
-  ScheduleActionStartSettings,
   Scte20PlusEmbeddedDestinationSettings,
   Scte20SourceSettings,
   Scte27DestinationSettings,
   Scte27SourceSettings,
-  Scte35DeliveryRestrictions,
-  Scte35Descriptor,
-  Scte35DescriptorSettings,
   Scte35ReturnToNetworkScheduleActionSettings,
-  Scte35SegmentationDescriptor,
-  Scte35SpliceInsert,
   Scte35SpliceInsertScheduleActionSettings,
-  Scte35TimeSignalApos,
-  Scte35TimeSignalScheduleActionSettings,
   SmpteTtDestinationSettings,
   StandardHlsSettings,
   StartTimecode,
-  StaticImageActivateScheduleActionSettings,
-  StaticImageDeactivateScheduleActionSettings,
   StaticKeySettings,
   StopTimecode,
   TeletextDestinationSettings,
   TeletextSourceSettings,
-  TemporalFilterSettings,
-  TimecodeConfig,
-  TooManyRequestsException,
   TtmlDestinationSettings,
   UdpContainerSettings,
   UdpGroupSettings,
   UdpOutputSettings,
-  UnprocessableEntityException,
-  ValidationError,
-  VideoCodecSettings,
-  VideoDescription,
   VideoSelector,
   VideoSelectorPid,
   VideoSelectorProgramId,
   VideoSelectorSettings,
   WebvttDestinationSettings,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
+import {
+  AvailBlanking,
+  AvailConfiguration,
+  AvailSettings,
+  BadGatewayException,
+  BadRequestException,
+  BatchScheduleActionCreateRequest,
+  BatchScheduleActionCreateResult,
+  BatchScheduleActionDeleteRequest,
+  BatchScheduleActionDeleteResult,
+  BlackoutSlate,
+  Channel,
+  ColorSpacePassthroughSettings,
+  ConflictException,
+  EncoderSettings,
+  FeatureActivations,
+  FixedModeScheduleActionStartSettings,
+  FollowModeScheduleActionStartSettings,
+  ForbiddenException,
+  FrameCaptureSettings,
+  GatewayTimeoutException,
+  GlobalConfiguration,
+  H264ColorSpaceSettings,
+  H264FilterSettings,
+  H264Settings,
+  H265ColorSpaceSettings,
+  H265FilterSettings,
+  H265Settings,
+  Hdr10Settings,
+  ImmediateModeScheduleActionStartSettings,
+  InputDeviceConfigurableSettings,
+  InputLossBehavior,
+  InputVpcRequest,
+  InternalServerErrorException,
+  Multiplex,
+  MultiplexProgram,
+  MultiplexProgramPacketIdentifiersMap,
+  MultiplexProgramServiceDescriptor,
+  MultiplexProgramSettings,
+  MultiplexSettings,
+  MultiplexStatmuxVideoSettings,
+  MultiplexVideoSettings,
+  NielsenConfiguration,
+  NotFoundException,
+  Rec601Settings,
+  Rec709Settings,
+  ScheduleAction,
+  ScheduleActionSettings,
+  ScheduleActionStartSettings,
+  Scte35DeliveryRestrictions,
+  Scte35Descriptor,
+  Scte35DescriptorSettings,
+  Scte35SegmentationDescriptor,
+  Scte35SpliceInsert,
+  Scte35TimeSignalApos,
+  Scte35TimeSignalScheduleActionSettings,
+  StaticImageActivateScheduleActionSettings,
+  StaticImageDeactivateScheduleActionSettings,
+  TemporalFilterSettings,
+  TimecodeConfig,
+  TooManyRequestsException,
+  UnprocessableEntityException,
+  ValidationError,
+  VideoCodecSettings,
+  VideoDescription,
+} from "../models/models_1.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -1874,7 +1876,6 @@ export const deserializeAws_restJson1BatchUpdateScheduleCommand = async (
   }
   const contents: BatchUpdateScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchUpdateScheduleResponse",
     Creates: undefined,
     Deletes: undefined,
   };
@@ -1990,7 +1991,6 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
   }
   const contents: CreateChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateChannelResponse",
     Channel: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2102,7 +2102,6 @@ export const deserializeAws_restJson1CreateInputCommand = async (
   }
   const contents: CreateInputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateInputResponse",
     Input: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2198,7 +2197,6 @@ export const deserializeAws_restJson1CreateInputSecurityGroupCommand = async (
   }
   const contents: CreateInputSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateInputSecurityGroupResponse",
     SecurityGroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2294,7 +2292,6 @@ export const deserializeAws_restJson1CreateMultiplexCommand = async (
   }
   const contents: CreateMultiplexCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMultiplexResponse",
     Multiplex: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2406,7 +2403,6 @@ export const deserializeAws_restJson1CreateMultiplexProgramCommand = async (
   }
   const contents: CreateMultiplexProgramCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMultiplexProgramResponse",
     MultiplexProgram: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2593,7 +2589,6 @@ export const deserializeAws_restJson1DeleteChannelCommand = async (
   }
   const contents: DeleteChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteChannelResponse",
     Arn: undefined,
     ChannelClass: undefined,
     Destinations: undefined,
@@ -2761,7 +2756,6 @@ export const deserializeAws_restJson1DeleteInputCommand = async (
   }
   const contents: DeleteInputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteInputResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2869,7 +2863,6 @@ export const deserializeAws_restJson1DeleteInputSecurityGroupCommand = async (
   }
   const contents: DeleteInputSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteInputSecurityGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2969,7 +2962,6 @@ export const deserializeAws_restJson1DeleteMultiplexCommand = async (
   }
   const contents: DeleteMultiplexCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMultiplexResponse",
     Arn: undefined,
     AvailabilityZones: undefined,
     Destinations: undefined,
@@ -3117,7 +3109,6 @@ export const deserializeAws_restJson1DeleteMultiplexProgramCommand = async (
   }
   const contents: DeleteMultiplexProgramCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMultiplexProgramResponse",
     ChannelId: undefined,
     MultiplexProgramSettings: undefined,
     PacketIdentifiersMap: undefined,
@@ -3247,7 +3238,6 @@ export const deserializeAws_restJson1DeleteReservationCommand = async (
   }
   const contents: DeleteReservationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteReservationResponse",
     Arn: undefined,
     Count: undefined,
     CurrencyCode: undefined,
@@ -3430,7 +3420,6 @@ export const deserializeAws_restJson1DeleteScheduleCommand = async (
   }
   const contents: DeleteScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteScheduleResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3605,7 +3594,6 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
   }
   const contents: DescribeChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeChannelResponse",
     Arn: undefined,
     ChannelClass: undefined,
     Destinations: undefined,
@@ -3765,7 +3753,6 @@ export const deserializeAws_restJson1DescribeInputCommand = async (
   }
   const contents: DescribeInputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInputResponse",
     Arn: undefined,
     AttachedChannels: undefined,
     Destinations: undefined,
@@ -3925,7 +3912,6 @@ export const deserializeAws_restJson1DescribeInputDeviceCommand = async (
   }
   const contents: DescribeInputDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInputDeviceResponse",
     Arn: undefined,
     ConnectionState: undefined,
     DeviceSettingsSyncState: undefined,
@@ -4065,7 +4051,6 @@ export const deserializeAws_restJson1DescribeInputDeviceThumbnailCommand = async
   }
   const contents: DescribeInputDeviceThumbnailCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInputDeviceThumbnailResponse",
     Body: undefined,
     ContentLength: undefined,
     ContentType: undefined,
@@ -4183,7 +4168,6 @@ export const deserializeAws_restJson1DescribeInputSecurityGroupCommand = async (
   }
   const contents: DescribeInputSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInputSecurityGroupResponse",
     Arn: undefined,
     Id: undefined,
     Inputs: undefined,
@@ -4307,7 +4291,6 @@ export const deserializeAws_restJson1DescribeMultiplexCommand = async (
   }
   const contents: DescribeMultiplexCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMultiplexResponse",
     Arn: undefined,
     AvailabilityZones: undefined,
     Destinations: undefined,
@@ -4447,7 +4430,6 @@ export const deserializeAws_restJson1DescribeMultiplexProgramCommand = async (
   }
   const contents: DescribeMultiplexProgramCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMultiplexProgramResponse",
     ChannelId: undefined,
     MultiplexProgramSettings: undefined,
     PacketIdentifiersMap: undefined,
@@ -4569,7 +4551,6 @@ export const deserializeAws_restJson1DescribeOfferingCommand = async (
   }
   const contents: DescribeOfferingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOfferingResponse",
     Arn: undefined,
     CurrencyCode: undefined,
     Duration: undefined,
@@ -4716,7 +4697,6 @@ export const deserializeAws_restJson1DescribeReservationCommand = async (
   }
   const contents: DescribeReservationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReservationResponse",
     Arn: undefined,
     Count: undefined,
     CurrencyCode: undefined,
@@ -4891,7 +4871,6 @@ export const deserializeAws_restJson1DescribeScheduleCommand = async (
   }
   const contents: DescribeScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeScheduleResponse",
     NextToken: undefined,
     ScheduleActions: undefined,
   };
@@ -4999,7 +4978,6 @@ export const deserializeAws_restJson1ListChannelsCommand = async (
   }
   const contents: ListChannelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListChannelsResponse",
     Channels: undefined,
     NextToken: undefined,
   };
@@ -5099,7 +5077,6 @@ export const deserializeAws_restJson1ListInputDevicesCommand = async (
   }
   const contents: ListInputDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInputDevicesResponse",
     InputDevices: undefined,
     NextToken: undefined,
   };
@@ -5199,7 +5176,6 @@ export const deserializeAws_restJson1ListInputsCommand = async (
   }
   const contents: ListInputsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInputsResponse",
     Inputs: undefined,
     NextToken: undefined,
   };
@@ -5299,7 +5275,6 @@ export const deserializeAws_restJson1ListInputSecurityGroupsCommand = async (
   }
   const contents: ListInputSecurityGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInputSecurityGroupsResponse",
     InputSecurityGroups: undefined,
     NextToken: undefined,
   };
@@ -5402,7 +5377,6 @@ export const deserializeAws_restJson1ListMultiplexesCommand = async (
   }
   const contents: ListMultiplexesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMultiplexesResponse",
     Multiplexes: undefined,
     NextToken: undefined,
   };
@@ -5502,7 +5476,6 @@ export const deserializeAws_restJson1ListMultiplexProgramsCommand = async (
   }
   const contents: ListMultiplexProgramsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMultiplexProgramsResponse",
     MultiplexPrograms: undefined,
     NextToken: undefined,
   };
@@ -5613,7 +5586,6 @@ export const deserializeAws_restJson1ListOfferingsCommand = async (
   }
   const contents: ListOfferingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListOfferingsResponse",
     NextToken: undefined,
     Offerings: undefined,
   };
@@ -5713,7 +5685,6 @@ export const deserializeAws_restJson1ListReservationsCommand = async (
   }
   const contents: ListReservationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListReservationsResponse",
     NextToken: undefined,
     Reservations: undefined,
   };
@@ -5813,7 +5784,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5893,7 +5863,6 @@ export const deserializeAws_restJson1PurchaseOfferingCommand = async (
   }
   const contents: PurchaseOfferingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PurchaseOfferingResponse",
     Reservation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6005,7 +5974,6 @@ export const deserializeAws_restJson1StartChannelCommand = async (
   }
   const contents: StartChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartChannelResponse",
     Arn: undefined,
     ChannelClass: undefined,
     Destinations: undefined,
@@ -6173,7 +6141,6 @@ export const deserializeAws_restJson1StartMultiplexCommand = async (
   }
   const contents: StartMultiplexCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartMultiplexResponse",
     Arn: undefined,
     AvailabilityZones: undefined,
     Destinations: undefined,
@@ -6321,7 +6288,6 @@ export const deserializeAws_restJson1StopChannelCommand = async (
   }
   const contents: StopChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopChannelResponse",
     Arn: undefined,
     ChannelClass: undefined,
     Destinations: undefined,
@@ -6489,7 +6455,6 @@ export const deserializeAws_restJson1StopMultiplexCommand = async (
   }
   const contents: StopMultiplexCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopMultiplexResponse",
     Arn: undefined,
     AvailabilityZones: undefined,
     Destinations: undefined,
@@ -6637,7 +6602,6 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
   }
   const contents: UpdateChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateChannelResponse",
     Channel: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6741,7 +6705,6 @@ export const deserializeAws_restJson1UpdateChannelClassCommand = async (
   }
   const contents: UpdateChannelClassCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateChannelClassResponse",
     Channel: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6861,7 +6824,6 @@ export const deserializeAws_restJson1UpdateInputCommand = async (
   }
   const contents: UpdateInputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateInputResponse",
     Input: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6965,7 +6927,6 @@ export const deserializeAws_restJson1UpdateInputDeviceCommand = async (
   }
   const contents: UpdateInputDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateInputDeviceResponse",
     Arn: undefined,
     ConnectionState: undefined,
     DeviceSettingsSyncState: undefined,
@@ -7113,7 +7074,6 @@ export const deserializeAws_restJson1UpdateInputSecurityGroupCommand = async (
   }
   const contents: UpdateInputSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateInputSecurityGroupResponse",
     SecurityGroup: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7217,7 +7177,6 @@ export const deserializeAws_restJson1UpdateMultiplexCommand = async (
   }
   const contents: UpdateMultiplexCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateMultiplexResponse",
     Multiplex: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7329,7 +7288,6 @@ export const deserializeAws_restJson1UpdateMultiplexProgramCommand = async (
   }
   const contents: UpdateMultiplexProgramCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateMultiplexProgramResponse",
     MultiplexProgram: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7441,7 +7399,6 @@ export const deserializeAws_restJson1UpdateReservationCommand = async (
   }
   const contents: UpdateReservationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateReservationResponse",
     Reservation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10125,7 +10082,6 @@ const deserializeAws_restJson1__listOfVideoDescription = (output: any, context: 
 
 const deserializeAws_restJson1AacSettings = (output: any, context: __SerdeContext): AacSettings => {
   return {
-    __type: "AacSettings",
     Bitrate: output.bitrate !== undefined && output.bitrate !== null ? output.bitrate : undefined,
     CodingMode: output.codingMode !== undefined && output.codingMode !== null ? output.codingMode : undefined,
     InputType: output.inputType !== undefined && output.inputType !== null ? output.inputType : undefined,
@@ -10141,7 +10097,6 @@ const deserializeAws_restJson1AacSettings = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Ac3Settings = (output: any, context: __SerdeContext): Ac3Settings => {
   return {
-    __type: "Ac3Settings",
     Bitrate: output.bitrate !== undefined && output.bitrate !== null ? output.bitrate : undefined,
     BitstreamMode:
       output.bitstreamMode !== undefined && output.bitstreamMode !== null ? output.bitstreamMode : undefined,
@@ -10159,7 +10114,6 @@ const deserializeAws_restJson1ArchiveContainerSettings = (
   context: __SerdeContext
 ): ArchiveContainerSettings => {
   return {
-    __type: "ArchiveContainerSettings",
     M2tsSettings:
       output.m2tsSettings !== undefined && output.m2tsSettings !== null
         ? deserializeAws_restJson1M2tsSettings(output.m2tsSettings, context)
@@ -10169,7 +10123,6 @@ const deserializeAws_restJson1ArchiveContainerSettings = (
 
 const deserializeAws_restJson1ArchiveGroupSettings = (output: any, context: __SerdeContext): ArchiveGroupSettings => {
   return {
-    __type: "ArchiveGroupSettings",
     Destination:
       output.destination !== undefined && output.destination !== null
         ? deserializeAws_restJson1OutputLocationRef(output.destination, context)
@@ -10181,7 +10134,6 @@ const deserializeAws_restJson1ArchiveGroupSettings = (output: any, context: __Se
 
 const deserializeAws_restJson1ArchiveOutputSettings = (output: any, context: __SerdeContext): ArchiveOutputSettings => {
   return {
-    __type: "ArchiveOutputSettings",
     ContainerSettings:
       output.containerSettings !== undefined && output.containerSettings !== null
         ? deserializeAws_restJson1ArchiveContainerSettings(output.containerSettings, context)
@@ -10195,20 +10147,15 @@ const deserializeAws_restJson1AribDestinationSettings = (
   output: any,
   context: __SerdeContext
 ): AribDestinationSettings => {
-  return {
-    __type: "AribDestinationSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1AribSourceSettings = (output: any, context: __SerdeContext): AribSourceSettings => {
-  return {
-    __type: "AribSourceSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1AudioChannelMapping = (output: any, context: __SerdeContext): AudioChannelMapping => {
   return {
-    __type: "AudioChannelMapping",
     InputChannelLevels:
       output.inputChannelLevels !== undefined && output.inputChannelLevels !== null
         ? deserializeAws_restJson1__listOfInputChannelLevel(output.inputChannelLevels, context)
@@ -10220,7 +10167,6 @@ const deserializeAws_restJson1AudioChannelMapping = (output: any, context: __Ser
 
 const deserializeAws_restJson1AudioCodecSettings = (output: any, context: __SerdeContext): AudioCodecSettings => {
   return {
-    __type: "AudioCodecSettings",
     AacSettings:
       output.aacSettings !== undefined && output.aacSettings !== null
         ? deserializeAws_restJson1AacSettings(output.aacSettings, context)
@@ -10246,7 +10192,6 @@ const deserializeAws_restJson1AudioCodecSettings = (output: any, context: __Serd
 
 const deserializeAws_restJson1AudioDescription = (output: any, context: __SerdeContext): AudioDescription => {
   return {
-    __type: "AudioDescription",
     AudioNormalizationSettings:
       output.audioNormalizationSettings !== undefined && output.audioNormalizationSettings !== null
         ? deserializeAws_restJson1AudioNormalizationSettings(output.audioNormalizationSettings, context)
@@ -10281,7 +10226,6 @@ const deserializeAws_restJson1AudioLanguageSelection = (
   context: __SerdeContext
 ): AudioLanguageSelection => {
   return {
-    __type: "AudioLanguageSelection",
     LanguageCode: output.languageCode !== undefined && output.languageCode !== null ? output.languageCode : undefined,
     LanguageSelectionPolicy:
       output.languageSelectionPolicy !== undefined && output.languageSelectionPolicy !== null
@@ -10295,7 +10239,6 @@ const deserializeAws_restJson1AudioNormalizationSettings = (
   context: __SerdeContext
 ): AudioNormalizationSettings => {
   return {
-    __type: "AudioNormalizationSettings",
     Algorithm: output.algorithm !== undefined && output.algorithm !== null ? output.algorithm : undefined,
     AlgorithmControl:
       output.algorithmControl !== undefined && output.algorithmControl !== null ? output.algorithmControl : undefined,
@@ -10305,7 +10248,6 @@ const deserializeAws_restJson1AudioNormalizationSettings = (
 
 const deserializeAws_restJson1AudioOnlyHlsSettings = (output: any, context: __SerdeContext): AudioOnlyHlsSettings => {
   return {
-    __type: "AudioOnlyHlsSettings",
     AudioGroupId: output.audioGroupId !== undefined && output.audioGroupId !== null ? output.audioGroupId : undefined,
     AudioOnlyImage:
       output.audioOnlyImage !== undefined && output.audioOnlyImage !== null
@@ -10319,14 +10261,12 @@ const deserializeAws_restJson1AudioOnlyHlsSettings = (output: any, context: __Se
 
 const deserializeAws_restJson1AudioPidSelection = (output: any, context: __SerdeContext): AudioPidSelection => {
   return {
-    __type: "AudioPidSelection",
     Pid: output.pid !== undefined && output.pid !== null ? output.pid : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1AudioSelector = (output: any, context: __SerdeContext): AudioSelector => {
   return {
-    __type: "AudioSelector",
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     SelectorSettings:
       output.selectorSettings !== undefined && output.selectorSettings !== null
@@ -10337,7 +10277,6 @@ const deserializeAws_restJson1AudioSelector = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1AudioSelectorSettings = (output: any, context: __SerdeContext): AudioSelectorSettings => {
   return {
-    __type: "AudioSelectorSettings",
     AudioLanguageSelection:
       output.audioLanguageSelection !== undefined && output.audioLanguageSelection !== null
         ? deserializeAws_restJson1AudioLanguageSelection(output.audioLanguageSelection, context)
@@ -10355,14 +10294,12 @@ const deserializeAws_restJson1AudioSelectorSettings = (output: any, context: __S
 
 const deserializeAws_restJson1AudioTrack = (output: any, context: __SerdeContext): AudioTrack => {
   return {
-    __type: "AudioTrack",
     Track: output.track !== undefined && output.track !== null ? output.track : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1AudioTrackSelection = (output: any, context: __SerdeContext): AudioTrackSelection => {
   return {
-    __type: "AudioTrackSelection",
     Tracks:
       output.tracks !== undefined && output.tracks !== null
         ? deserializeAws_restJson1__listOfAudioTrack(output.tracks, context)
@@ -10375,7 +10312,6 @@ const deserializeAws_restJson1AutomaticInputFailoverSettings = (
   context: __SerdeContext
 ): AutomaticInputFailoverSettings => {
   return {
-    __type: "AutomaticInputFailoverSettings",
     InputPreference:
       output.inputPreference !== undefined && output.inputPreference !== null ? output.inputPreference : undefined,
     SecondaryInputId:
@@ -10385,7 +10321,6 @@ const deserializeAws_restJson1AutomaticInputFailoverSettings = (
 
 const deserializeAws_restJson1AvailBlanking = (output: any, context: __SerdeContext): AvailBlanking => {
   return {
-    __type: "AvailBlanking",
     AvailBlankingImage:
       output.availBlankingImage !== undefined && output.availBlankingImage !== null
         ? deserializeAws_restJson1InputLocation(output.availBlankingImage, context)
@@ -10396,7 +10331,6 @@ const deserializeAws_restJson1AvailBlanking = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1AvailConfiguration = (output: any, context: __SerdeContext): AvailConfiguration => {
   return {
-    __type: "AvailConfiguration",
     AvailSettings:
       output.availSettings !== undefined && output.availSettings !== null
         ? deserializeAws_restJson1AvailSettings(output.availSettings, context)
@@ -10406,7 +10340,6 @@ const deserializeAws_restJson1AvailConfiguration = (output: any, context: __Serd
 
 const deserializeAws_restJson1AvailSettings = (output: any, context: __SerdeContext): AvailSettings => {
   return {
-    __type: "AvailSettings",
     Scte35SpliceInsert:
       output.scte35SpliceInsert !== undefined && output.scte35SpliceInsert !== null
         ? deserializeAws_restJson1Scte35SpliceInsert(output.scte35SpliceInsert, context)
@@ -10423,7 +10356,6 @@ const deserializeAws_restJson1BatchScheduleActionCreateResult = (
   context: __SerdeContext
 ): BatchScheduleActionCreateResult => {
   return {
-    __type: "BatchScheduleActionCreateResult",
     ScheduleActions:
       output.scheduleActions !== undefined && output.scheduleActions !== null
         ? deserializeAws_restJson1__listOfScheduleAction(output.scheduleActions, context)
@@ -10436,7 +10368,6 @@ const deserializeAws_restJson1BatchScheduleActionDeleteResult = (
   context: __SerdeContext
 ): BatchScheduleActionDeleteResult => {
   return {
-    __type: "BatchScheduleActionDeleteResult",
     ScheduleActions:
       output.scheduleActions !== undefined && output.scheduleActions !== null
         ? deserializeAws_restJson1__listOfScheduleAction(output.scheduleActions, context)
@@ -10446,7 +10377,6 @@ const deserializeAws_restJson1BatchScheduleActionDeleteResult = (
 
 const deserializeAws_restJson1BlackoutSlate = (output: any, context: __SerdeContext): BlackoutSlate => {
   return {
-    __type: "BlackoutSlate",
     BlackoutSlateImage:
       output.blackoutSlateImage !== undefined && output.blackoutSlateImage !== null
         ? deserializeAws_restJson1InputLocation(output.blackoutSlateImage, context)
@@ -10469,7 +10399,6 @@ const deserializeAws_restJson1BurnInDestinationSettings = (
   context: __SerdeContext
 ): BurnInDestinationSettings => {
   return {
-    __type: "BurnInDestinationSettings",
     Alignment: output.alignment !== undefined && output.alignment !== null ? output.alignment : undefined,
     BackgroundColor:
       output.backgroundColor !== undefined && output.backgroundColor !== null ? output.backgroundColor : undefined,
@@ -10506,7 +10435,6 @@ const deserializeAws_restJson1BurnInDestinationSettings = (
 
 const deserializeAws_restJson1CaptionDescription = (output: any, context: __SerdeContext): CaptionDescription => {
   return {
-    __type: "CaptionDescription",
     CaptionSelectorName:
       output.captionSelectorName !== undefined && output.captionSelectorName !== null
         ? output.captionSelectorName
@@ -10529,7 +10457,6 @@ const deserializeAws_restJson1CaptionDestinationSettings = (
   context: __SerdeContext
 ): CaptionDestinationSettings => {
   return {
-    __type: "CaptionDestinationSettings",
     AribDestinationSettings:
       output.aribDestinationSettings !== undefined && output.aribDestinationSettings !== null
         ? deserializeAws_restJson1AribDestinationSettings(output.aribDestinationSettings, context)
@@ -10598,7 +10525,6 @@ const deserializeAws_restJson1CaptionLanguageMapping = (
   context: __SerdeContext
 ): CaptionLanguageMapping => {
   return {
-    __type: "CaptionLanguageMapping",
     CaptionChannel:
       output.captionChannel !== undefined && output.captionChannel !== null ? output.captionChannel : undefined,
     LanguageCode: output.languageCode !== undefined && output.languageCode !== null ? output.languageCode : undefined,
@@ -10611,7 +10537,6 @@ const deserializeAws_restJson1CaptionLanguageMapping = (
 
 const deserializeAws_restJson1CaptionSelector = (output: any, context: __SerdeContext): CaptionSelector => {
   return {
-    __type: "CaptionSelector",
     LanguageCode: output.languageCode !== undefined && output.languageCode !== null ? output.languageCode : undefined,
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     SelectorSettings:
@@ -10626,7 +10551,6 @@ const deserializeAws_restJson1CaptionSelectorSettings = (
   context: __SerdeContext
 ): CaptionSelectorSettings => {
   return {
-    __type: "CaptionSelectorSettings",
     AribSourceSettings:
       output.aribSourceSettings !== undefined && output.aribSourceSettings !== null
         ? deserializeAws_restJson1AribSourceSettings(output.aribSourceSettings, context)
@@ -10656,7 +10580,6 @@ const deserializeAws_restJson1CaptionSelectorSettings = (
 
 const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
   return {
-    __type: "Channel",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     ChannelClass: output.channelClass !== undefined && output.channelClass !== null ? output.channelClass : undefined,
     Destinations:
@@ -10701,14 +10624,12 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1ChannelEgressEndpoint = (output: any, context: __SerdeContext): ChannelEgressEndpoint => {
   return {
-    __type: "ChannelEgressEndpoint",
     SourceIp: output.sourceIp !== undefined && output.sourceIp !== null ? output.sourceIp : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
   return {
-    __type: "ChannelSummary",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     ChannelClass: output.channelClass !== undefined && output.channelClass !== null ? output.channelClass : undefined,
     Destinations:
@@ -10747,14 +10668,11 @@ const deserializeAws_restJson1ColorSpacePassthroughSettings = (
   output: any,
   context: __SerdeContext
 ): ColorSpacePassthroughSettings => {
-  return {
-    __type: "ColorSpacePassthroughSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1DvbNitSettings = (output: any, context: __SerdeContext): DvbNitSettings => {
   return {
-    __type: "DvbNitSettings",
     NetworkId: output.networkId !== undefined && output.networkId !== null ? output.networkId : undefined,
     NetworkName: output.networkName !== undefined && output.networkName !== null ? output.networkName : undefined,
     RepInterval: output.repInterval !== undefined && output.repInterval !== null ? output.repInterval : undefined,
@@ -10763,7 +10681,6 @@ const deserializeAws_restJson1DvbNitSettings = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1DvbSdtSettings = (output: any, context: __SerdeContext): DvbSdtSettings => {
   return {
-    __type: "DvbSdtSettings",
     OutputSdt: output.outputSdt !== undefined && output.outputSdt !== null ? output.outputSdt : undefined,
     RepInterval: output.repInterval !== undefined && output.repInterval !== null ? output.repInterval : undefined,
     ServiceName: output.serviceName !== undefined && output.serviceName !== null ? output.serviceName : undefined,
@@ -10779,7 +10696,6 @@ const deserializeAws_restJson1DvbSubDestinationSettings = (
   context: __SerdeContext
 ): DvbSubDestinationSettings => {
   return {
-    __type: "DvbSubDestinationSettings",
     Alignment: output.alignment !== undefined && output.alignment !== null ? output.alignment : undefined,
     BackgroundColor:
       output.backgroundColor !== undefined && output.backgroundColor !== null ? output.backgroundColor : undefined,
@@ -10816,21 +10732,18 @@ const deserializeAws_restJson1DvbSubDestinationSettings = (
 
 const deserializeAws_restJson1DvbSubSourceSettings = (output: any, context: __SerdeContext): DvbSubSourceSettings => {
   return {
-    __type: "DvbSubSourceSettings",
     Pid: output.pid !== undefined && output.pid !== null ? output.pid : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1DvbTdtSettings = (output: any, context: __SerdeContext): DvbTdtSettings => {
   return {
-    __type: "DvbTdtSettings",
     RepInterval: output.repInterval !== undefined && output.repInterval !== null ? output.repInterval : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Eac3Settings = (output: any, context: __SerdeContext): Eac3Settings => {
   return {
-    __type: "Eac3Settings",
     AttenuationControl:
       output.attenuationControl !== undefined && output.attenuationControl !== null
         ? output.attenuationControl
@@ -10881,7 +10794,6 @@ const deserializeAws_restJson1EbuTtDDestinationSettings = (
   context: __SerdeContext
 ): EbuTtDDestinationSettings => {
   return {
-    __type: "EbuTtDDestinationSettings",
     FillLineGap: output.fillLineGap !== undefined && output.fillLineGap !== null ? output.fillLineGap : undefined,
     FontFamily: output.fontFamily !== undefined && output.fontFamily !== null ? output.fontFamily : undefined,
     StyleControl: output.styleControl !== undefined && output.styleControl !== null ? output.styleControl : undefined,
@@ -10892,18 +10804,14 @@ const deserializeAws_restJson1EmbeddedDestinationSettings = (
   output: any,
   context: __SerdeContext
 ): EmbeddedDestinationSettings => {
-  return {
-    __type: "EmbeddedDestinationSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1EmbeddedPlusScte20DestinationSettings = (
   output: any,
   context: __SerdeContext
 ): EmbeddedPlusScte20DestinationSettings => {
-  return {
-    __type: "EmbeddedPlusScte20DestinationSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1EmbeddedSourceSettings = (
@@ -10911,7 +10819,6 @@ const deserializeAws_restJson1EmbeddedSourceSettings = (
   context: __SerdeContext
 ): EmbeddedSourceSettings => {
   return {
-    __type: "EmbeddedSourceSettings",
     Convert608To708:
       output.convert608To708 !== undefined && output.convert608To708 !== null ? output.convert608To708 : undefined,
     Scte20Detection:
@@ -10929,7 +10836,6 @@ const deserializeAws_restJson1EmbeddedSourceSettings = (
 
 const deserializeAws_restJson1EncoderSettings = (output: any, context: __SerdeContext): EncoderSettings => {
   return {
-    __type: "EncoderSettings",
     AudioDescriptions:
       output.audioDescriptions !== undefined && output.audioDescriptions !== null
         ? deserializeAws_restJson1__listOfAudioDescription(output.audioDescriptions, context)
@@ -10979,7 +10885,6 @@ const deserializeAws_restJson1EncoderSettings = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1FeatureActivations = (output: any, context: __SerdeContext): FeatureActivations => {
   return {
-    __type: "FeatureActivations",
     InputPrepareScheduleActions:
       output.inputPrepareScheduleActions !== undefined && output.inputPrepareScheduleActions !== null
         ? output.inputPrepareScheduleActions
@@ -10989,7 +10894,6 @@ const deserializeAws_restJson1FeatureActivations = (output: any, context: __Serd
 
 const deserializeAws_restJson1FecOutputSettings = (output: any, context: __SerdeContext): FecOutputSettings => {
   return {
-    __type: "FecOutputSettings",
     ColumnDepth: output.columnDepth !== undefined && output.columnDepth !== null ? output.columnDepth : undefined,
     IncludeFec: output.includeFec !== undefined && output.includeFec !== null ? output.includeFec : undefined,
     RowLength: output.rowLength !== undefined && output.rowLength !== null ? output.rowLength : undefined,
@@ -11001,14 +10905,12 @@ const deserializeAws_restJson1FixedModeScheduleActionStartSettings = (
   context: __SerdeContext
 ): FixedModeScheduleActionStartSettings => {
   return {
-    __type: "FixedModeScheduleActionStartSettings",
     Time: output.time !== undefined && output.time !== null ? output.time : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Fmp4HlsSettings = (output: any, context: __SerdeContext): Fmp4HlsSettings => {
   return {
-    __type: "Fmp4HlsSettings",
     AudioRenditionSets:
       output.audioRenditionSets !== undefined && output.audioRenditionSets !== null
         ? output.audioRenditionSets
@@ -11029,7 +10931,6 @@ const deserializeAws_restJson1FollowModeScheduleActionStartSettings = (
   context: __SerdeContext
 ): FollowModeScheduleActionStartSettings => {
   return {
-    __type: "FollowModeScheduleActionStartSettings",
     FollowPoint: output.followPoint !== undefined && output.followPoint !== null ? output.followPoint : undefined,
     ReferenceActionName:
       output.referenceActionName !== undefined && output.referenceActionName !== null
@@ -11043,7 +10944,6 @@ const deserializeAws_restJson1FrameCaptureGroupSettings = (
   context: __SerdeContext
 ): FrameCaptureGroupSettings => {
   return {
-    __type: "FrameCaptureGroupSettings",
     Destination:
       output.destination !== undefined && output.destination !== null
         ? deserializeAws_restJson1OutputLocationRef(output.destination, context)
@@ -11056,14 +10956,12 @@ const deserializeAws_restJson1FrameCaptureOutputSettings = (
   context: __SerdeContext
 ): FrameCaptureOutputSettings => {
   return {
-    __type: "FrameCaptureOutputSettings",
     NameModifier: output.nameModifier !== undefined && output.nameModifier !== null ? output.nameModifier : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1FrameCaptureSettings = (output: any, context: __SerdeContext): FrameCaptureSettings => {
   return {
-    __type: "FrameCaptureSettings",
     CaptureInterval:
       output.captureInterval !== undefined && output.captureInterval !== null ? output.captureInterval : undefined,
     CaptureIntervalUnits:
@@ -11075,7 +10973,6 @@ const deserializeAws_restJson1FrameCaptureSettings = (output: any, context: __Se
 
 const deserializeAws_restJson1GlobalConfiguration = (output: any, context: __SerdeContext): GlobalConfiguration => {
   return {
-    __type: "GlobalConfiguration",
     InitialAudioGain:
       output.initialAudioGain !== undefined && output.initialAudioGain !== null ? output.initialAudioGain : undefined,
     InputEndAction:
@@ -11104,7 +11001,6 @@ const deserializeAws_restJson1H264ColorSpaceSettings = (
   context: __SerdeContext
 ): H264ColorSpaceSettings => {
   return {
-    __type: "H264ColorSpaceSettings",
     ColorSpacePassthroughSettings:
       output.colorSpacePassthroughSettings !== undefined && output.colorSpacePassthroughSettings !== null
         ? deserializeAws_restJson1ColorSpacePassthroughSettings(output.colorSpacePassthroughSettings, context)
@@ -11122,7 +11018,6 @@ const deserializeAws_restJson1H264ColorSpaceSettings = (
 
 const deserializeAws_restJson1H264FilterSettings = (output: any, context: __SerdeContext): H264FilterSettings => {
   return {
-    __type: "H264FilterSettings",
     TemporalFilterSettings:
       output.temporalFilterSettings !== undefined && output.temporalFilterSettings !== null
         ? deserializeAws_restJson1TemporalFilterSettings(output.temporalFilterSettings, context)
@@ -11132,7 +11027,6 @@ const deserializeAws_restJson1H264FilterSettings = (output: any, context: __Serd
 
 const deserializeAws_restJson1H264Settings = (output: any, context: __SerdeContext): H264Settings => {
   return {
-    __type: "H264Settings",
     AdaptiveQuantization:
       output.adaptiveQuantization !== undefined && output.adaptiveQuantization !== null
         ? output.adaptiveQuantization
@@ -11218,7 +11112,6 @@ const deserializeAws_restJson1H265ColorSpaceSettings = (
   context: __SerdeContext
 ): H265ColorSpaceSettings => {
   return {
-    __type: "H265ColorSpaceSettings",
     ColorSpacePassthroughSettings:
       output.colorSpacePassthroughSettings !== undefined && output.colorSpacePassthroughSettings !== null
         ? deserializeAws_restJson1ColorSpacePassthroughSettings(output.colorSpacePassthroughSettings, context)
@@ -11240,7 +11133,6 @@ const deserializeAws_restJson1H265ColorSpaceSettings = (
 
 const deserializeAws_restJson1H265FilterSettings = (output: any, context: __SerdeContext): H265FilterSettings => {
   return {
-    __type: "H265FilterSettings",
     TemporalFilterSettings:
       output.temporalFilterSettings !== undefined && output.temporalFilterSettings !== null
         ? deserializeAws_restJson1TemporalFilterSettings(output.temporalFilterSettings, context)
@@ -11250,7 +11142,6 @@ const deserializeAws_restJson1H265FilterSettings = (output: any, context: __Serd
 
 const deserializeAws_restJson1H265Settings = (output: any, context: __SerdeContext): H265Settings => {
   return {
-    __type: "H265Settings",
     AdaptiveQuantization:
       output.adaptiveQuantization !== undefined && output.adaptiveQuantization !== null
         ? output.adaptiveQuantization
@@ -11317,7 +11208,6 @@ const deserializeAws_restJson1H265Settings = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Hdr10Settings = (output: any, context: __SerdeContext): Hdr10Settings => {
   return {
-    __type: "Hdr10Settings",
     MaxCll: output.maxCll !== undefined && output.maxCll !== null ? output.maxCll : undefined,
     MaxFall: output.maxFall !== undefined && output.maxFall !== null ? output.maxFall : undefined,
   } as any;
@@ -11325,7 +11215,6 @@ const deserializeAws_restJson1Hdr10Settings = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1HlsAkamaiSettings = (output: any, context: __SerdeContext): HlsAkamaiSettings => {
   return {
-    __type: "HlsAkamaiSettings",
     ConnectionRetryInterval:
       output.connectionRetryInterval !== undefined && output.connectionRetryInterval !== null
         ? output.connectionRetryInterval
@@ -11345,7 +11234,6 @@ const deserializeAws_restJson1HlsAkamaiSettings = (output: any, context: __Serde
 
 const deserializeAws_restJson1HlsBasicPutSettings = (output: any, context: __SerdeContext): HlsBasicPutSettings => {
   return {
-    __type: "HlsBasicPutSettings",
     ConnectionRetryInterval:
       output.connectionRetryInterval !== undefined && output.connectionRetryInterval !== null
         ? output.connectionRetryInterval
@@ -11361,7 +11249,6 @@ const deserializeAws_restJson1HlsBasicPutSettings = (output: any, context: __Ser
 
 const deserializeAws_restJson1HlsCdnSettings = (output: any, context: __SerdeContext): HlsCdnSettings => {
   return {
-    __type: "HlsCdnSettings",
     HlsAkamaiSettings:
       output.hlsAkamaiSettings !== undefined && output.hlsAkamaiSettings !== null
         ? deserializeAws_restJson1HlsAkamaiSettings(output.hlsAkamaiSettings, context)
@@ -11383,7 +11270,6 @@ const deserializeAws_restJson1HlsCdnSettings = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1HlsGroupSettings = (output: any, context: __SerdeContext): HlsGroupSettings => {
   return {
-    __type: "HlsGroupSettings",
     AdMarkers:
       output.adMarkers !== undefined && output.adMarkers !== null
         ? deserializeAws_restJson1__listOfHlsAdMarkers(output.adMarkers, context)
@@ -11504,14 +11390,12 @@ const deserializeAws_restJson1HlsId3SegmentTaggingScheduleActionSettings = (
   context: __SerdeContext
 ): HlsId3SegmentTaggingScheduleActionSettings => {
   return {
-    __type: "HlsId3SegmentTaggingScheduleActionSettings",
     Tag: output.tag !== undefined && output.tag !== null ? output.tag : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1HlsInputSettings = (output: any, context: __SerdeContext): HlsInputSettings => {
   return {
-    __type: "HlsInputSettings",
     Bandwidth: output.bandwidth !== undefined && output.bandwidth !== null ? output.bandwidth : undefined,
     BufferSegments:
       output.bufferSegments !== undefined && output.bufferSegments !== null ? output.bufferSegments : undefined,
@@ -11523,7 +11407,6 @@ const deserializeAws_restJson1HlsInputSettings = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1HlsMediaStoreSettings = (output: any, context: __SerdeContext): HlsMediaStoreSettings => {
   return {
-    __type: "HlsMediaStoreSettings",
     ConnectionRetryInterval:
       output.connectionRetryInterval !== undefined && output.connectionRetryInterval !== null
         ? output.connectionRetryInterval
@@ -11543,7 +11426,6 @@ const deserializeAws_restJson1HlsMediaStoreSettings = (output: any, context: __S
 
 const deserializeAws_restJson1HlsOutputSettings = (output: any, context: __SerdeContext): HlsOutputSettings => {
   return {
-    __type: "HlsOutputSettings",
     H265PackagingType:
       output.h265PackagingType !== undefined && output.h265PackagingType !== null
         ? output.h265PackagingType
@@ -11560,7 +11442,6 @@ const deserializeAws_restJson1HlsOutputSettings = (output: any, context: __Serde
 
 const deserializeAws_restJson1HlsSettings = (output: any, context: __SerdeContext): HlsSettings => {
   return {
-    __type: "HlsSettings",
     AudioOnlyHlsSettings:
       output.audioOnlyHlsSettings !== undefined && output.audioOnlyHlsSettings !== null
         ? deserializeAws_restJson1AudioOnlyHlsSettings(output.audioOnlyHlsSettings, context)
@@ -11581,14 +11462,12 @@ const deserializeAws_restJson1HlsTimedMetadataScheduleActionSettings = (
   context: __SerdeContext
 ): HlsTimedMetadataScheduleActionSettings => {
   return {
-    __type: "HlsTimedMetadataScheduleActionSettings",
     Id3: output.id3 !== undefined && output.id3 !== null ? output.id3 : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1HlsWebdavSettings = (output: any, context: __SerdeContext): HlsWebdavSettings => {
   return {
-    __type: "HlsWebdavSettings",
     ConnectionRetryInterval:
       output.connectionRetryInterval !== undefined && output.connectionRetryInterval !== null
         ? output.connectionRetryInterval
@@ -11608,14 +11487,11 @@ const deserializeAws_restJson1ImmediateModeScheduleActionStartSettings = (
   output: any,
   context: __SerdeContext
 ): ImmediateModeScheduleActionStartSettings => {
-  return {
-    __type: "ImmediateModeScheduleActionStartSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1Input = (output: any, context: __SerdeContext): Input => {
   return {
-    __type: "Input",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     AttachedChannels:
       output.attachedChannels !== undefined && output.attachedChannels !== null
@@ -11658,7 +11534,6 @@ const deserializeAws_restJson1Input = (output: any, context: __SerdeContext): In
 
 const deserializeAws_restJson1InputAttachment = (output: any, context: __SerdeContext): InputAttachment => {
   return {
-    __type: "InputAttachment",
     AutomaticInputFailoverSettings:
       output.automaticInputFailoverSettings !== undefined && output.automaticInputFailoverSettings !== null
         ? deserializeAws_restJson1AutomaticInputFailoverSettings(output.automaticInputFailoverSettings, context)
@@ -11677,7 +11552,6 @@ const deserializeAws_restJson1InputAttachment = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1InputChannelLevel = (output: any, context: __SerdeContext): InputChannelLevel => {
   return {
-    __type: "InputChannelLevel",
     Gain: output.gain !== undefined && output.gain !== null ? output.gain : undefined,
     InputChannel: output.inputChannel !== undefined && output.inputChannel !== null ? output.inputChannel : undefined,
   } as any;
@@ -11685,7 +11559,6 @@ const deserializeAws_restJson1InputChannelLevel = (output: any, context: __Serde
 
 const deserializeAws_restJson1InputClippingSettings = (output: any, context: __SerdeContext): InputClippingSettings => {
   return {
-    __type: "InputClippingSettings",
     InputTimecodeSource:
       output.inputTimecodeSource !== undefined && output.inputTimecodeSource !== null
         ? output.inputTimecodeSource
@@ -11703,7 +11576,6 @@ const deserializeAws_restJson1InputClippingSettings = (output: any, context: __S
 
 const deserializeAws_restJson1InputDestination = (output: any, context: __SerdeContext): InputDestination => {
   return {
-    __type: "InputDestination",
     Ip: output.ip !== undefined && output.ip !== null ? output.ip : undefined,
     Port: output.port !== undefined && output.port !== null ? output.port : undefined,
     Url: output.url !== undefined && output.url !== null ? output.url : undefined,
@@ -11716,7 +11588,6 @@ const deserializeAws_restJson1InputDestination = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1InputDestinationVpc = (output: any, context: __SerdeContext): InputDestinationVpc => {
   return {
-    __type: "InputDestinationVpc",
     AvailabilityZone:
       output.availabilityZone !== undefined && output.availabilityZone !== null ? output.availabilityZone : undefined,
     NetworkInterfaceId:
@@ -11728,7 +11599,6 @@ const deserializeAws_restJson1InputDestinationVpc = (output: any, context: __Ser
 
 const deserializeAws_restJson1InputDeviceHdSettings = (output: any, context: __SerdeContext): InputDeviceHdSettings => {
   return {
-    __type: "InputDeviceHdSettings",
     ActiveInput: output.activeInput !== undefined && output.activeInput !== null ? output.activeInput : undefined,
     ConfiguredInput:
       output.configuredInput !== undefined && output.configuredInput !== null ? output.configuredInput : undefined,
@@ -11746,7 +11616,6 @@ const deserializeAws_restJson1InputDeviceNetworkSettings = (
   context: __SerdeContext
 ): InputDeviceNetworkSettings => {
   return {
-    __type: "InputDeviceNetworkSettings",
     DnsAddresses:
       output.dnsAddresses !== undefined && output.dnsAddresses !== null
         ? deserializeAws_restJson1__listOf__string(output.dnsAddresses, context)
@@ -11760,14 +11629,12 @@ const deserializeAws_restJson1InputDeviceNetworkSettings = (
 
 const deserializeAws_restJson1InputDeviceSettings = (output: any, context: __SerdeContext): InputDeviceSettings => {
   return {
-    __type: "InputDeviceSettings",
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1InputDeviceSummary = (output: any, context: __SerdeContext): InputDeviceSummary => {
   return {
-    __type: "InputDeviceSummary",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     ConnectionState:
       output.connectionState !== undefined && output.connectionState !== null ? output.connectionState : undefined,
@@ -11793,7 +11660,6 @@ const deserializeAws_restJson1InputDeviceSummary = (output: any, context: __Serd
 
 const deserializeAws_restJson1InputLocation = (output: any, context: __SerdeContext): InputLocation => {
   return {
-    __type: "InputLocation",
     PasswordParam:
       output.passwordParam !== undefined && output.passwordParam !== null ? output.passwordParam : undefined,
     Uri: output.uri !== undefined && output.uri !== null ? output.uri : undefined,
@@ -11803,7 +11669,6 @@ const deserializeAws_restJson1InputLocation = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1InputLossBehavior = (output: any, context: __SerdeContext): InputLossBehavior => {
   return {
-    __type: "InputLossBehavior",
     BlackFrameMsec:
       output.blackFrameMsec !== undefined && output.blackFrameMsec !== null ? output.blackFrameMsec : undefined,
     InputLossImageColor:
@@ -11828,7 +11693,6 @@ const deserializeAws_restJson1InputPrepareScheduleActionSettings = (
   context: __SerdeContext
 ): InputPrepareScheduleActionSettings => {
   return {
-    __type: "InputPrepareScheduleActionSettings",
     InputAttachmentNameReference:
       output.inputAttachmentNameReference !== undefined && output.inputAttachmentNameReference !== null
         ? output.inputAttachmentNameReference
@@ -11846,7 +11710,6 @@ const deserializeAws_restJson1InputPrepareScheduleActionSettings = (
 
 const deserializeAws_restJson1InputSecurityGroup = (output: any, context: __SerdeContext): InputSecurityGroup => {
   return {
-    __type: "InputSecurityGroup",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     Inputs:
@@ -11867,7 +11730,6 @@ const deserializeAws_restJson1InputSecurityGroup = (output: any, context: __Serd
 
 const deserializeAws_restJson1InputSettings = (output: any, context: __SerdeContext): InputSettings => {
   return {
-    __type: "InputSettings",
     AudioSelectors:
       output.audioSelectors !== undefined && output.audioSelectors !== null
         ? deserializeAws_restJson1__listOfAudioSelector(output.audioSelectors, context)
@@ -11904,7 +11766,6 @@ const deserializeAws_restJson1InputSettings = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1InputSource = (output: any, context: __SerdeContext): InputSource => {
   return {
-    __type: "InputSource",
     PasswordParam:
       output.passwordParam !== undefined && output.passwordParam !== null ? output.passwordParam : undefined,
     Url: output.url !== undefined && output.url !== null ? output.url : undefined,
@@ -11914,7 +11775,6 @@ const deserializeAws_restJson1InputSource = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1InputSpecification = (output: any, context: __SerdeContext): InputSpecification => {
   return {
-    __type: "InputSpecification",
     Codec: output.codec !== undefined && output.codec !== null ? output.codec : undefined,
     MaximumBitrate:
       output.maximumBitrate !== undefined && output.maximumBitrate !== null ? output.maximumBitrate : undefined,
@@ -11927,7 +11787,6 @@ const deserializeAws_restJson1InputSwitchScheduleActionSettings = (
   context: __SerdeContext
 ): InputSwitchScheduleActionSettings => {
   return {
-    __type: "InputSwitchScheduleActionSettings",
     InputAttachmentNameReference:
       output.inputAttachmentNameReference !== undefined && output.inputAttachmentNameReference !== null
         ? output.inputAttachmentNameReference
@@ -11945,14 +11804,12 @@ const deserializeAws_restJson1InputSwitchScheduleActionSettings = (
 
 const deserializeAws_restJson1InputWhitelistRule = (output: any, context: __SerdeContext): InputWhitelistRule => {
   return {
-    __type: "InputWhitelistRule",
     Cidr: output.cidr !== undefined && output.cidr !== null ? output.cidr : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1KeyProviderSettings = (output: any, context: __SerdeContext): KeyProviderSettings => {
   return {
-    __type: "KeyProviderSettings",
     StaticKeySettings:
       output.staticKeySettings !== undefined && output.staticKeySettings !== null
         ? deserializeAws_restJson1StaticKeySettings(output.staticKeySettings, context)
@@ -11962,7 +11819,6 @@ const deserializeAws_restJson1KeyProviderSettings = (output: any, context: __Ser
 
 const deserializeAws_restJson1M2tsSettings = (output: any, context: __SerdeContext): M2tsSettings => {
   return {
-    __type: "M2tsSettings",
     AbsentInputAudioBehavior:
       output.absentInputAudioBehavior !== undefined && output.absentInputAudioBehavior !== null
         ? output.absentInputAudioBehavior
@@ -12061,7 +11917,6 @@ const deserializeAws_restJson1M2tsSettings = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1M3u8Settings = (output: any, context: __SerdeContext): M3u8Settings => {
   return {
-    __type: "M3u8Settings",
     AudioFramesPerPes:
       output.audioFramesPerPes !== undefined && output.audioFramesPerPes !== null
         ? output.audioFramesPerPes
@@ -12098,7 +11953,6 @@ const deserializeAws_restJson1M3u8Settings = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1MediaConnectFlow = (output: any, context: __SerdeContext): MediaConnectFlow => {
   return {
-    __type: "MediaConnectFlow",
     FlowArn: output.flowArn !== undefined && output.flowArn !== null ? output.flowArn : undefined,
   } as any;
 };
@@ -12108,7 +11962,6 @@ const deserializeAws_restJson1MediaPackageGroupSettings = (
   context: __SerdeContext
 ): MediaPackageGroupSettings => {
   return {
-    __type: "MediaPackageGroupSettings",
     Destination:
       output.destination !== undefined && output.destination !== null
         ? deserializeAws_restJson1OutputLocationRef(output.destination, context)
@@ -12121,7 +11974,6 @@ const deserializeAws_restJson1MediaPackageOutputDestinationSettings = (
   context: __SerdeContext
 ): MediaPackageOutputDestinationSettings => {
   return {
-    __type: "MediaPackageOutputDestinationSettings",
     ChannelId: output.channelId !== undefined && output.channelId !== null ? output.channelId : undefined,
   } as any;
 };
@@ -12130,14 +11982,11 @@ const deserializeAws_restJson1MediaPackageOutputSettings = (
   output: any,
   context: __SerdeContext
 ): MediaPackageOutputSettings => {
-  return {
-    __type: "MediaPackageOutputSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1Mp2Settings = (output: any, context: __SerdeContext): Mp2Settings => {
   return {
-    __type: "Mp2Settings",
     Bitrate: output.bitrate !== undefined && output.bitrate !== null ? output.bitrate : undefined,
     CodingMode: output.codingMode !== undefined && output.codingMode !== null ? output.codingMode : undefined,
     SampleRate: output.sampleRate !== undefined && output.sampleRate !== null ? output.sampleRate : undefined,
@@ -12146,7 +11995,6 @@ const deserializeAws_restJson1Mp2Settings = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1MsSmoothGroupSettings = (output: any, context: __SerdeContext): MsSmoothGroupSettings => {
   return {
-    __type: "MsSmoothGroupSettings",
     AcquisitionPointId:
       output.acquisitionPointId !== undefined && output.acquisitionPointId !== null
         ? output.acquisitionPointId
@@ -12204,7 +12052,6 @@ const deserializeAws_restJson1MsSmoothOutputSettings = (
   context: __SerdeContext
 ): MsSmoothOutputSettings => {
   return {
-    __type: "MsSmoothOutputSettings",
     H265PackagingType:
       output.h265PackagingType !== undefined && output.h265PackagingType !== null
         ? output.h265PackagingType
@@ -12215,7 +12062,6 @@ const deserializeAws_restJson1MsSmoothOutputSettings = (
 
 const deserializeAws_restJson1Multiplex = (output: any, context: __SerdeContext): Multiplex => {
   return {
-    __type: "Multiplex",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     AvailabilityZones:
       output.availabilityZones !== undefined && output.availabilityZones !== null
@@ -12248,9 +12094,7 @@ const deserializeAws_restJson1MultiplexGroupSettings = (
   output: any,
   context: __SerdeContext
 ): MultiplexGroupSettings => {
-  return {
-    __type: "MultiplexGroupSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1MultiplexMediaConnectOutputDestinationSettings = (
@@ -12258,7 +12102,6 @@ const deserializeAws_restJson1MultiplexMediaConnectOutputDestinationSettings = (
   context: __SerdeContext
 ): MultiplexMediaConnectOutputDestinationSettings => {
   return {
-    __type: "MultiplexMediaConnectOutputDestinationSettings",
     EntitlementArn:
       output.entitlementArn !== undefined && output.entitlementArn !== null ? output.entitlementArn : undefined,
   } as any;
@@ -12269,7 +12112,6 @@ const deserializeAws_restJson1MultiplexOutputDestination = (
   context: __SerdeContext
 ): MultiplexOutputDestination => {
   return {
-    __type: "MultiplexOutputDestination",
     MediaConnectSettings:
       output.mediaConnectSettings !== undefined && output.mediaConnectSettings !== null
         ? deserializeAws_restJson1MultiplexMediaConnectOutputDestinationSettings(output.mediaConnectSettings, context)
@@ -12282,7 +12124,6 @@ const deserializeAws_restJson1MultiplexOutputSettings = (
   context: __SerdeContext
 ): MultiplexOutputSettings => {
   return {
-    __type: "MultiplexOutputSettings",
     Destination:
       output.destination !== undefined && output.destination !== null
         ? deserializeAws_restJson1OutputLocationRef(output.destination, context)
@@ -12292,7 +12133,6 @@ const deserializeAws_restJson1MultiplexOutputSettings = (
 
 const deserializeAws_restJson1MultiplexProgram = (output: any, context: __SerdeContext): MultiplexProgram => {
   return {
-    __type: "MultiplexProgram",
     ChannelId: output.channelId !== undefined && output.channelId !== null ? output.channelId : undefined,
     MultiplexProgramSettings:
       output.multiplexProgramSettings !== undefined && output.multiplexProgramSettings !== null
@@ -12311,7 +12151,6 @@ const deserializeAws_restJson1MultiplexProgramChannelDestinationSettings = (
   context: __SerdeContext
 ): MultiplexProgramChannelDestinationSettings => {
   return {
-    __type: "MultiplexProgramChannelDestinationSettings",
     MultiplexId: output.multiplexId !== undefined && output.multiplexId !== null ? output.multiplexId : undefined,
     ProgramName: output.programName !== undefined && output.programName !== null ? output.programName : undefined,
   } as any;
@@ -12322,7 +12161,6 @@ const deserializeAws_restJson1MultiplexProgramPacketIdentifiersMap = (
   context: __SerdeContext
 ): MultiplexProgramPacketIdentifiersMap => {
   return {
-    __type: "MultiplexProgramPacketIdentifiersMap",
     AudioPids:
       output.audioPids !== undefined && output.audioPids !== null
         ? deserializeAws_restJson1__listOf__integer(output.audioPids, context)
@@ -12362,7 +12200,6 @@ const deserializeAws_restJson1MultiplexProgramServiceDescriptor = (
   context: __SerdeContext
 ): MultiplexProgramServiceDescriptor => {
   return {
-    __type: "MultiplexProgramServiceDescriptor",
     ProviderName: output.providerName !== undefined && output.providerName !== null ? output.providerName : undefined,
     ServiceName: output.serviceName !== undefined && output.serviceName !== null ? output.serviceName : undefined,
   } as any;
@@ -12373,7 +12210,6 @@ const deserializeAws_restJson1MultiplexProgramSettings = (
   context: __SerdeContext
 ): MultiplexProgramSettings => {
   return {
-    __type: "MultiplexProgramSettings",
     PreferredChannelPipeline:
       output.preferredChannelPipeline !== undefined && output.preferredChannelPipeline !== null
         ? output.preferredChannelPipeline
@@ -12396,7 +12232,6 @@ const deserializeAws_restJson1MultiplexProgramSummary = (
   context: __SerdeContext
 ): MultiplexProgramSummary => {
   return {
-    __type: "MultiplexProgramSummary",
     ChannelId: output.channelId !== undefined && output.channelId !== null ? output.channelId : undefined,
     ProgramName: output.programName !== undefined && output.programName !== null ? output.programName : undefined,
   } as any;
@@ -12404,7 +12239,6 @@ const deserializeAws_restJson1MultiplexProgramSummary = (
 
 const deserializeAws_restJson1MultiplexSettings = (output: any, context: __SerdeContext): MultiplexSettings => {
   return {
-    __type: "MultiplexSettings",
     MaximumVideoBufferDelayMilliseconds:
       output.maximumVideoBufferDelayMilliseconds !== undefined && output.maximumVideoBufferDelayMilliseconds !== null
         ? output.maximumVideoBufferDelayMilliseconds
@@ -12429,7 +12263,6 @@ const deserializeAws_restJson1MultiplexSettingsSummary = (
   context: __SerdeContext
 ): MultiplexSettingsSummary => {
   return {
-    __type: "MultiplexSettingsSummary",
     TransportStreamBitrate:
       output.transportStreamBitrate !== undefined && output.transportStreamBitrate !== null
         ? output.transportStreamBitrate
@@ -12442,7 +12275,6 @@ const deserializeAws_restJson1MultiplexStatmuxVideoSettings = (
   context: __SerdeContext
 ): MultiplexStatmuxVideoSettings => {
   return {
-    __type: "MultiplexStatmuxVideoSettings",
     MaximumBitrate:
       output.maximumBitrate !== undefined && output.maximumBitrate !== null ? output.maximumBitrate : undefined,
     MinimumBitrate:
@@ -12452,7 +12284,6 @@ const deserializeAws_restJson1MultiplexStatmuxVideoSettings = (
 
 const deserializeAws_restJson1MultiplexSummary = (output: any, context: __SerdeContext): MultiplexSummary => {
   return {
-    __type: "MultiplexSummary",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     AvailabilityZones:
       output.availabilityZones !== undefined && output.availabilityZones !== null
@@ -12482,7 +12313,6 @@ const deserializeAws_restJson1MultiplexVideoSettings = (
   context: __SerdeContext
 ): MultiplexVideoSettings => {
   return {
-    __type: "MultiplexVideoSettings",
     ConstantBitrate:
       output.constantBitrate !== undefined && output.constantBitrate !== null ? output.constantBitrate : undefined,
     StatmuxSettings:
@@ -12494,7 +12324,6 @@ const deserializeAws_restJson1MultiplexVideoSettings = (
 
 const deserializeAws_restJson1NetworkInputSettings = (output: any, context: __SerdeContext): NetworkInputSettings => {
   return {
-    __type: "NetworkInputSettings",
     HlsInputSettings:
       output.hlsInputSettings !== undefined && output.hlsInputSettings !== null
         ? deserializeAws_restJson1HlsInputSettings(output.hlsInputSettings, context)
@@ -12506,7 +12335,6 @@ const deserializeAws_restJson1NetworkInputSettings = (output: any, context: __Se
 
 const deserializeAws_restJson1NielsenConfiguration = (output: any, context: __SerdeContext): NielsenConfiguration => {
   return {
-    __type: "NielsenConfiguration",
     DistributorId:
       output.distributorId !== undefined && output.distributorId !== null ? output.distributorId : undefined,
     NielsenPcmToId3Tagging:
@@ -12518,7 +12346,6 @@ const deserializeAws_restJson1NielsenConfiguration = (output: any, context: __Se
 
 const deserializeAws_restJson1Offering = (output: any, context: __SerdeContext): Offering => {
   return {
-    __type: "Offering",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     CurrencyCode: output.currencyCode !== undefined && output.currencyCode !== null ? output.currencyCode : undefined,
     Duration: output.duration !== undefined && output.duration !== null ? output.duration : undefined,
@@ -12542,7 +12369,6 @@ const deserializeAws_restJson1Offering = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): Output => {
   return {
-    __type: "Output",
     AudioDescriptionNames:
       output.audioDescriptionNames !== undefined && output.audioDescriptionNames !== null
         ? deserializeAws_restJson1__listOf__string(output.audioDescriptionNames, context)
@@ -12565,7 +12391,6 @@ const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): O
 
 const deserializeAws_restJson1OutputDestination = (output: any, context: __SerdeContext): OutputDestination => {
   return {
-    __type: "OutputDestination",
     Id: output.id !== undefined && output.id !== null ? output.id : undefined,
     MediaPackageSettings:
       output.mediaPackageSettings !== undefined && output.mediaPackageSettings !== null
@@ -12587,7 +12412,6 @@ const deserializeAws_restJson1OutputDestinationSettings = (
   context: __SerdeContext
 ): OutputDestinationSettings => {
   return {
-    __type: "OutputDestinationSettings",
     PasswordParam:
       output.passwordParam !== undefined && output.passwordParam !== null ? output.passwordParam : undefined,
     StreamName: output.streamName !== undefined && output.streamName !== null ? output.streamName : undefined,
@@ -12598,7 +12422,6 @@ const deserializeAws_restJson1OutputDestinationSettings = (
 
 const deserializeAws_restJson1OutputGroup = (output: any, context: __SerdeContext): OutputGroup => {
   return {
-    __type: "OutputGroup",
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     OutputGroupSettings:
       output.outputGroupSettings !== undefined && output.outputGroupSettings !== null
@@ -12613,7 +12436,6 @@ const deserializeAws_restJson1OutputGroup = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1OutputGroupSettings = (output: any, context: __SerdeContext): OutputGroupSettings => {
   return {
-    __type: "OutputGroupSettings",
     ArchiveGroupSettings:
       output.archiveGroupSettings !== undefined && output.archiveGroupSettings !== null
         ? deserializeAws_restJson1ArchiveGroupSettings(output.archiveGroupSettings, context)
@@ -12651,7 +12473,6 @@ const deserializeAws_restJson1OutputGroupSettings = (output: any, context: __Ser
 
 const deserializeAws_restJson1OutputLocationRef = (output: any, context: __SerdeContext): OutputLocationRef => {
   return {
-    __type: "OutputLocationRef",
     DestinationRefId:
       output.destinationRefId !== undefined && output.destinationRefId !== null ? output.destinationRefId : undefined,
   } as any;
@@ -12659,7 +12480,6 @@ const deserializeAws_restJson1OutputLocationRef = (output: any, context: __Serde
 
 const deserializeAws_restJson1OutputSettings = (output: any, context: __SerdeContext): OutputSettings => {
   return {
-    __type: "OutputSettings",
     ArchiveOutputSettings:
       output.archiveOutputSettings !== undefined && output.archiveOutputSettings !== null
         ? deserializeAws_restJson1ArchiveOutputSettings(output.archiveOutputSettings, context)
@@ -12696,9 +12516,7 @@ const deserializeAws_restJson1OutputSettings = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_restJson1PassThroughSettings = (output: any, context: __SerdeContext): PassThroughSettings => {
-  return {
-    __type: "PassThroughSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1PauseStateScheduleActionSettings = (
@@ -12706,7 +12524,6 @@ const deserializeAws_restJson1PauseStateScheduleActionSettings = (
   context: __SerdeContext
 ): PauseStateScheduleActionSettings => {
   return {
-    __type: "PauseStateScheduleActionSettings",
     Pipelines:
       output.pipelines !== undefined && output.pipelines !== null
         ? deserializeAws_restJson1__listOfPipelinePauseStateSettings(output.pipelines, context)
@@ -12716,7 +12533,6 @@ const deserializeAws_restJson1PauseStateScheduleActionSettings = (
 
 const deserializeAws_restJson1PipelineDetail = (output: any, context: __SerdeContext): PipelineDetail => {
   return {
-    __type: "PipelineDetail",
     ActiveInputAttachmentName:
       output.activeInputAttachmentName !== undefined && output.activeInputAttachmentName !== null
         ? output.activeInputAttachmentName
@@ -12734,26 +12550,20 @@ const deserializeAws_restJson1PipelinePauseStateSettings = (
   context: __SerdeContext
 ): PipelinePauseStateSettings => {
   return {
-    __type: "PipelinePauseStateSettings",
     PipelineId: output.pipelineId !== undefined && output.pipelineId !== null ? output.pipelineId : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Rec601Settings = (output: any, context: __SerdeContext): Rec601Settings => {
-  return {
-    __type: "Rec601Settings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1Rec709Settings = (output: any, context: __SerdeContext): Rec709Settings => {
-  return {
-    __type: "Rec709Settings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1RemixSettings = (output: any, context: __SerdeContext): RemixSettings => {
   return {
-    __type: "RemixSettings",
     ChannelMappings:
       output.channelMappings !== undefined && output.channelMappings !== null
         ? deserializeAws_restJson1__listOfAudioChannelMapping(output.channelMappings, context)
@@ -12765,7 +12575,6 @@ const deserializeAws_restJson1RemixSettings = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Reservation = (output: any, context: __SerdeContext): Reservation => {
   return {
-    __type: "Reservation",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     Count: output.count !== undefined && output.count !== null ? output.count : undefined,
     CurrencyCode: output.currencyCode !== undefined && output.currencyCode !== null ? output.currencyCode : undefined,
@@ -12803,7 +12612,6 @@ const deserializeAws_restJson1ReservationResourceSpecification = (
   context: __SerdeContext
 ): ReservationResourceSpecification => {
   return {
-    __type: "ReservationResourceSpecification",
     ChannelClass: output.channelClass !== undefined && output.channelClass !== null ? output.channelClass : undefined,
     Codec: output.codec !== undefined && output.codec !== null ? output.codec : undefined,
     MaximumBitrate:
@@ -12822,14 +12630,11 @@ const deserializeAws_restJson1RtmpCaptionInfoDestinationSettings = (
   output: any,
   context: __SerdeContext
 ): RtmpCaptionInfoDestinationSettings => {
-  return {
-    __type: "RtmpCaptionInfoDestinationSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1RtmpGroupSettings = (output: any, context: __SerdeContext): RtmpGroupSettings => {
   return {
-    __type: "RtmpGroupSettings",
     AuthenticationScheme:
       output.authenticationScheme !== undefined && output.authenticationScheme !== null
         ? output.authenticationScheme
@@ -12848,7 +12653,6 @@ const deserializeAws_restJson1RtmpGroupSettings = (output: any, context: __Serde
 
 const deserializeAws_restJson1RtmpOutputSettings = (output: any, context: __SerdeContext): RtmpOutputSettings => {
   return {
-    __type: "RtmpOutputSettings",
     CertificateMode:
       output.certificateMode !== undefined && output.certificateMode !== null ? output.certificateMode : undefined,
     ConnectionRetryInterval:
@@ -12865,7 +12669,6 @@ const deserializeAws_restJson1RtmpOutputSettings = (output: any, context: __Serd
 
 const deserializeAws_restJson1ScheduleAction = (output: any, context: __SerdeContext): ScheduleAction => {
   return {
-    __type: "ScheduleAction",
     ActionName: output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
     ScheduleActionSettings:
       output.scheduleActionSettings !== undefined && output.scheduleActionSettings !== null
@@ -12883,7 +12686,6 @@ const deserializeAws_restJson1ScheduleActionSettings = (
   context: __SerdeContext
 ): ScheduleActionSettings => {
   return {
-    __type: "ScheduleActionSettings",
     HlsId3SegmentTaggingSettings:
       output.hlsId3SegmentTaggingSettings !== undefined && output.hlsId3SegmentTaggingSettings !== null
         ? deserializeAws_restJson1HlsId3SegmentTaggingScheduleActionSettings(
@@ -12941,7 +12743,6 @@ const deserializeAws_restJson1ScheduleActionStartSettings = (
   context: __SerdeContext
 ): ScheduleActionStartSettings => {
   return {
-    __type: "ScheduleActionStartSettings",
     FixedModeScheduleActionStartSettings:
       output.fixedModeScheduleActionStartSettings !== undefined && output.fixedModeScheduleActionStartSettings !== null
         ? deserializeAws_restJson1FixedModeScheduleActionStartSettings(
@@ -12972,14 +12773,11 @@ const deserializeAws_restJson1Scte20PlusEmbeddedDestinationSettings = (
   output: any,
   context: __SerdeContext
 ): Scte20PlusEmbeddedDestinationSettings => {
-  return {
-    __type: "Scte20PlusEmbeddedDestinationSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1Scte20SourceSettings = (output: any, context: __SerdeContext): Scte20SourceSettings => {
   return {
-    __type: "Scte20SourceSettings",
     Convert608To708:
       output.convert608To708 !== undefined && output.convert608To708 !== null ? output.convert608To708 : undefined,
     Source608ChannelNumber:
@@ -12993,14 +12791,11 @@ const deserializeAws_restJson1Scte27DestinationSettings = (
   output: any,
   context: __SerdeContext
 ): Scte27DestinationSettings => {
-  return {
-    __type: "Scte27DestinationSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1Scte27SourceSettings = (output: any, context: __SerdeContext): Scte27SourceSettings => {
   return {
-    __type: "Scte27SourceSettings",
     Pid: output.pid !== undefined && output.pid !== null ? output.pid : undefined,
   } as any;
 };
@@ -13010,7 +12805,6 @@ const deserializeAws_restJson1Scte35DeliveryRestrictions = (
   context: __SerdeContext
 ): Scte35DeliveryRestrictions => {
   return {
-    __type: "Scte35DeliveryRestrictions",
     ArchiveAllowedFlag:
       output.archiveAllowedFlag !== undefined && output.archiveAllowedFlag !== null
         ? output.archiveAllowedFlag
@@ -13032,7 +12826,6 @@ const deserializeAws_restJson1Scte35DeliveryRestrictions = (
 
 const deserializeAws_restJson1Scte35Descriptor = (output: any, context: __SerdeContext): Scte35Descriptor => {
   return {
-    __type: "Scte35Descriptor",
     Scte35DescriptorSettings:
       output.scte35DescriptorSettings !== undefined && output.scte35DescriptorSettings !== null
         ? deserializeAws_restJson1Scte35DescriptorSettings(output.scte35DescriptorSettings, context)
@@ -13045,7 +12838,6 @@ const deserializeAws_restJson1Scte35DescriptorSettings = (
   context: __SerdeContext
 ): Scte35DescriptorSettings => {
   return {
-    __type: "Scte35DescriptorSettings",
     SegmentationDescriptorScte35DescriptorSettings:
       output.segmentationDescriptorScte35DescriptorSettings !== undefined &&
       output.segmentationDescriptorScte35DescriptorSettings !== null
@@ -13062,7 +12854,6 @@ const deserializeAws_restJson1Scte35ReturnToNetworkScheduleActionSettings = (
   context: __SerdeContext
 ): Scte35ReturnToNetworkScheduleActionSettings => {
   return {
-    __type: "Scte35ReturnToNetworkScheduleActionSettings",
     SpliceEventId:
       output.spliceEventId !== undefined && output.spliceEventId !== null ? output.spliceEventId : undefined,
   } as any;
@@ -13073,7 +12864,6 @@ const deserializeAws_restJson1Scte35SegmentationDescriptor = (
   context: __SerdeContext
 ): Scte35SegmentationDescriptor => {
   return {
-    __type: "Scte35SegmentationDescriptor",
     DeliveryRestrictions:
       output.deliveryRestrictions !== undefined && output.deliveryRestrictions !== null
         ? deserializeAws_restJson1Scte35DeliveryRestrictions(output.deliveryRestrictions, context)
@@ -13114,7 +12904,6 @@ const deserializeAws_restJson1Scte35SegmentationDescriptor = (
 
 const deserializeAws_restJson1Scte35SpliceInsert = (output: any, context: __SerdeContext): Scte35SpliceInsert => {
   return {
-    __type: "Scte35SpliceInsert",
     AdAvailOffset:
       output.adAvailOffset !== undefined && output.adAvailOffset !== null ? output.adAvailOffset : undefined,
     NoRegionalBlackoutFlag:
@@ -13133,7 +12922,6 @@ const deserializeAws_restJson1Scte35SpliceInsertScheduleActionSettings = (
   context: __SerdeContext
 ): Scte35SpliceInsertScheduleActionSettings => {
   return {
-    __type: "Scte35SpliceInsertScheduleActionSettings",
     Duration: output.duration !== undefined && output.duration !== null ? output.duration : undefined,
     SpliceEventId:
       output.spliceEventId !== undefined && output.spliceEventId !== null ? output.spliceEventId : undefined,
@@ -13142,7 +12930,6 @@ const deserializeAws_restJson1Scte35SpliceInsertScheduleActionSettings = (
 
 const deserializeAws_restJson1Scte35TimeSignalApos = (output: any, context: __SerdeContext): Scte35TimeSignalApos => {
   return {
-    __type: "Scte35TimeSignalApos",
     AdAvailOffset:
       output.adAvailOffset !== undefined && output.adAvailOffset !== null ? output.adAvailOffset : undefined,
     NoRegionalBlackoutFlag:
@@ -13161,7 +12948,6 @@ const deserializeAws_restJson1Scte35TimeSignalScheduleActionSettings = (
   context: __SerdeContext
 ): Scte35TimeSignalScheduleActionSettings => {
   return {
-    __type: "Scte35TimeSignalScheduleActionSettings",
     Scte35Descriptors:
       output.scte35Descriptors !== undefined && output.scte35Descriptors !== null
         ? deserializeAws_restJson1__listOfScte35Descriptor(output.scte35Descriptors, context)
@@ -13173,14 +12959,11 @@ const deserializeAws_restJson1SmpteTtDestinationSettings = (
   output: any,
   context: __SerdeContext
 ): SmpteTtDestinationSettings => {
-  return {
-    __type: "SmpteTtDestinationSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1StandardHlsSettings = (output: any, context: __SerdeContext): StandardHlsSettings => {
   return {
-    __type: "StandardHlsSettings",
     AudioRenditionSets:
       output.audioRenditionSets !== undefined && output.audioRenditionSets !== null
         ? output.audioRenditionSets
@@ -13194,7 +12977,6 @@ const deserializeAws_restJson1StandardHlsSettings = (output: any, context: __Ser
 
 const deserializeAws_restJson1StartTimecode = (output: any, context: __SerdeContext): StartTimecode => {
   return {
-    __type: "StartTimecode",
     Timecode: output.timecode !== undefined && output.timecode !== null ? output.timecode : undefined,
   } as any;
 };
@@ -13204,7 +12986,6 @@ const deserializeAws_restJson1StaticImageActivateScheduleActionSettings = (
   context: __SerdeContext
 ): StaticImageActivateScheduleActionSettings => {
   return {
-    __type: "StaticImageActivateScheduleActionSettings",
     Duration: output.duration !== undefined && output.duration !== null ? output.duration : undefined,
     FadeIn: output.fadeIn !== undefined && output.fadeIn !== null ? output.fadeIn : undefined,
     FadeOut: output.fadeOut !== undefined && output.fadeOut !== null ? output.fadeOut : undefined,
@@ -13226,7 +13007,6 @@ const deserializeAws_restJson1StaticImageDeactivateScheduleActionSettings = (
   context: __SerdeContext
 ): StaticImageDeactivateScheduleActionSettings => {
   return {
-    __type: "StaticImageDeactivateScheduleActionSettings",
     FadeOut: output.fadeOut !== undefined && output.fadeOut !== null ? output.fadeOut : undefined,
     Layer: output.layer !== undefined && output.layer !== null ? output.layer : undefined,
   } as any;
@@ -13234,7 +13014,6 @@ const deserializeAws_restJson1StaticImageDeactivateScheduleActionSettings = (
 
 const deserializeAws_restJson1StaticKeySettings = (output: any, context: __SerdeContext): StaticKeySettings => {
   return {
-    __type: "StaticKeySettings",
     KeyProviderServer:
       output.keyProviderServer !== undefined && output.keyProviderServer !== null
         ? deserializeAws_restJson1InputLocation(output.keyProviderServer, context)
@@ -13246,7 +13025,6 @@ const deserializeAws_restJson1StaticKeySettings = (output: any, context: __Serde
 
 const deserializeAws_restJson1StopTimecode = (output: any, context: __SerdeContext): StopTimecode => {
   return {
-    __type: "StopTimecode",
     LastFrameClippingBehavior:
       output.lastFrameClippingBehavior !== undefined && output.lastFrameClippingBehavior !== null
         ? output.lastFrameClippingBehavior
@@ -13269,9 +13047,7 @@ const deserializeAws_restJson1TeletextDestinationSettings = (
   output: any,
   context: __SerdeContext
 ): TeletextDestinationSettings => {
-  return {
-    __type: "TeletextDestinationSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1TeletextSourceSettings = (
@@ -13279,7 +13055,6 @@ const deserializeAws_restJson1TeletextSourceSettings = (
   context: __SerdeContext
 ): TeletextSourceSettings => {
   return {
-    __type: "TeletextSourceSettings",
     PageNumber: output.pageNumber !== undefined && output.pageNumber !== null ? output.pageNumber : undefined,
   } as any;
 };
@@ -13289,7 +13064,6 @@ const deserializeAws_restJson1TemporalFilterSettings = (
   context: __SerdeContext
 ): TemporalFilterSettings => {
   return {
-    __type: "TemporalFilterSettings",
     PostFilterSharpening:
       output.postFilterSharpening !== undefined && output.postFilterSharpening !== null
         ? output.postFilterSharpening
@@ -13300,7 +13074,6 @@ const deserializeAws_restJson1TemporalFilterSettings = (
 
 const deserializeAws_restJson1TimecodeConfig = (output: any, context: __SerdeContext): TimecodeConfig => {
   return {
-    __type: "TimecodeConfig",
     Source: output.source !== undefined && output.source !== null ? output.source : undefined,
     SyncThreshold:
       output.syncThreshold !== undefined && output.syncThreshold !== null ? output.syncThreshold : undefined,
@@ -13312,14 +13085,12 @@ const deserializeAws_restJson1TtmlDestinationSettings = (
   context: __SerdeContext
 ): TtmlDestinationSettings => {
   return {
-    __type: "TtmlDestinationSettings",
     StyleControl: output.styleControl !== undefined && output.styleControl !== null ? output.styleControl : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1UdpContainerSettings = (output: any, context: __SerdeContext): UdpContainerSettings => {
   return {
-    __type: "UdpContainerSettings",
     M2tsSettings:
       output.m2tsSettings !== undefined && output.m2tsSettings !== null
         ? deserializeAws_restJson1M2tsSettings(output.m2tsSettings, context)
@@ -13329,7 +13100,6 @@ const deserializeAws_restJson1UdpContainerSettings = (output: any, context: __Se
 
 const deserializeAws_restJson1UdpGroupSettings = (output: any, context: __SerdeContext): UdpGroupSettings => {
   return {
-    __type: "UdpGroupSettings",
     InputLossAction:
       output.inputLossAction !== undefined && output.inputLossAction !== null ? output.inputLossAction : undefined,
     TimedMetadataId3Frame:
@@ -13345,7 +13115,6 @@ const deserializeAws_restJson1UdpGroupSettings = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1UdpOutputSettings = (output: any, context: __SerdeContext): UdpOutputSettings => {
   return {
-    __type: "UdpOutputSettings",
     BufferMsec: output.bufferMsec !== undefined && output.bufferMsec !== null ? output.bufferMsec : undefined,
     ContainerSettings:
       output.containerSettings !== undefined && output.containerSettings !== null
@@ -13364,7 +13133,6 @@ const deserializeAws_restJson1UdpOutputSettings = (output: any, context: __Serde
 
 const deserializeAws_restJson1ValidationError = (output: any, context: __SerdeContext): ValidationError => {
   return {
-    __type: "ValidationError",
     ElementPath: output.elementPath !== undefined && output.elementPath !== null ? output.elementPath : undefined,
     ErrorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
   } as any;
@@ -13372,7 +13140,6 @@ const deserializeAws_restJson1ValidationError = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1VideoCodecSettings = (output: any, context: __SerdeContext): VideoCodecSettings => {
   return {
-    __type: "VideoCodecSettings",
     FrameCaptureSettings:
       output.frameCaptureSettings !== undefined && output.frameCaptureSettings !== null
         ? deserializeAws_restJson1FrameCaptureSettings(output.frameCaptureSettings, context)
@@ -13390,7 +13157,6 @@ const deserializeAws_restJson1VideoCodecSettings = (output: any, context: __Serd
 
 const deserializeAws_restJson1VideoDescription = (output: any, context: __SerdeContext): VideoDescription => {
   return {
-    __type: "VideoDescription",
     CodecSettings:
       output.codecSettings !== undefined && output.codecSettings !== null
         ? deserializeAws_restJson1VideoCodecSettings(output.codecSettings, context)
@@ -13407,7 +13173,6 @@ const deserializeAws_restJson1VideoDescription = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1VideoSelector = (output: any, context: __SerdeContext): VideoSelector => {
   return {
-    __type: "VideoSelector",
     ColorSpace: output.colorSpace !== undefined && output.colorSpace !== null ? output.colorSpace : undefined,
     ColorSpaceUsage:
       output.colorSpaceUsage !== undefined && output.colorSpaceUsage !== null ? output.colorSpaceUsage : undefined,
@@ -13420,7 +13185,6 @@ const deserializeAws_restJson1VideoSelector = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1VideoSelectorPid = (output: any, context: __SerdeContext): VideoSelectorPid => {
   return {
-    __type: "VideoSelectorPid",
     Pid: output.pid !== undefined && output.pid !== null ? output.pid : undefined,
   } as any;
 };
@@ -13430,14 +13194,12 @@ const deserializeAws_restJson1VideoSelectorProgramId = (
   context: __SerdeContext
 ): VideoSelectorProgramId => {
   return {
-    __type: "VideoSelectorProgramId",
     ProgramId: output.programId !== undefined && output.programId !== null ? output.programId : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1VideoSelectorSettings = (output: any, context: __SerdeContext): VideoSelectorSettings => {
   return {
-    __type: "VideoSelectorSettings",
     VideoSelectorPid:
       output.videoSelectorPid !== undefined && output.videoSelectorPid !== null
         ? deserializeAws_restJson1VideoSelectorPid(output.videoSelectorPid, context)
@@ -13453,9 +13215,7 @@ const deserializeAws_restJson1WebvttDestinationSettings = (
   output: any,
   context: __SerdeContext
 ): WebvttDestinationSettings => {
-  return {
-    __type: "WebvttDestinationSettings",
-  } as any;
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client.ts";
-import { DescribeRulesInput, DescribeRulesOutput } from "../models/index.ts";
+import { DescribeRulesInput, DescribeRulesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeRulesCommand,
   serializeAws_queryDescribeRulesCommand,

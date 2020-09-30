@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { RebootClusterMessage, RebootClusterResult } from "../models/index.ts";
+import { RebootClusterMessage, RebootClusterResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryRebootClusterCommand,
   serializeAws_queryRebootClusterCommand,

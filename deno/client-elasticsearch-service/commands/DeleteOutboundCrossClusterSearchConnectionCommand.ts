@@ -7,7 +7,7 @@ import {
 import {
   DeleteOutboundCrossClusterSearchConnectionRequest,
   DeleteOutboundCrossClusterSearchConnectionResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionCommand,
   serializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionCommand,

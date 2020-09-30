@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { ImportCatalogToGlueRequest, ImportCatalogToGlueResponse } from "../models/index.ts";
+import { ImportCatalogToGlueRequest, ImportCatalogToGlueResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ImportCatalogToGlueCommand,
   serializeAws_json1_1ImportCatalogToGlueCommand,

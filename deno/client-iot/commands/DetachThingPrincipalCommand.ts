@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DetachThingPrincipalRequest, DetachThingPrincipalResponse } from "../models/index.ts";
+import { DetachThingPrincipalRequest, DetachThingPrincipalResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DetachThingPrincipalCommand,
   serializeAws_restJson1DetachThingPrincipalCommand,

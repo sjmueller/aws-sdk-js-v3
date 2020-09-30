@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DisassociateRouteTableRequest } from "../models/index.ts";
+import { DisassociateRouteTableRequest } from "../models/models_3.ts";
 import {
   deserializeAws_ec2DisassociateRouteTableCommand,
   serializeAws_ec2DisassociateRouteTableCommand,

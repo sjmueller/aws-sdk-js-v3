@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { ListDelegatedServicesForAccountRequest, ListDelegatedServicesForAccountResponse } from "../models/index.ts";
+import { ListDelegatedServicesForAccountRequest, ListDelegatedServicesForAccountResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListDelegatedServicesForAccountCommand,
   serializeAws_json1_1ListDelegatedServicesForAccountCommand,

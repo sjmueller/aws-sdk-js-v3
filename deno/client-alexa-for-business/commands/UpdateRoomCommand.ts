@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { UpdateRoomRequest, UpdateRoomResponse } from "../models/index.ts";
+import { UpdateRoomRequest, UpdateRoomResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateRoomCommand,
   serializeAws_json1_1UpdateRoomCommand,

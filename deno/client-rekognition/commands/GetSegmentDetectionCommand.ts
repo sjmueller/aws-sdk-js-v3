@@ -1,6 +1,6 @@
 
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
-import { GetSegmentDetectionRequest, GetSegmentDetectionResponse } from "../models/index.ts";
+import { GetSegmentDetectionRequest, GetSegmentDetectionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetSegmentDetectionCommand,
   serializeAws_json1_1GetSegmentDetectionCommand,

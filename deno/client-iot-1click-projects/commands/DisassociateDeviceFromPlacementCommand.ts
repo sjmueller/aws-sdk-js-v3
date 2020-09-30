@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient.ts";
-import { DisassociateDeviceFromPlacementRequest, DisassociateDeviceFromPlacementResponse } from "../models/index.ts";
+import { DisassociateDeviceFromPlacementRequest, DisassociateDeviceFromPlacementResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DisassociateDeviceFromPlacementCommand,
   serializeAws_restJson1DisassociateDeviceFromPlacementCommand,

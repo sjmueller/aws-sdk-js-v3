@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { DescribeInstanceRefreshesAnswer, DescribeInstanceRefreshesType } from "../models/index.ts";
+import { DescribeInstanceRefreshesAnswer, DescribeInstanceRefreshesType } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeInstanceRefreshesCommand,
   serializeAws_queryDescribeInstanceRefreshesCommand,

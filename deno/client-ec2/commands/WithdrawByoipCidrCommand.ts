@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { WithdrawByoipCidrRequest, WithdrawByoipCidrResult } from "../models/index.ts";
+import { WithdrawByoipCidrRequest, WithdrawByoipCidrResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2WithdrawByoipCidrCommand,
   serializeAws_ec2WithdrawByoipCidrCommand,

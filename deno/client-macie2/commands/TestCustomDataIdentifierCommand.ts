@@ -1,6 +1,6 @@
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client.ts";
-import { TestCustomDataIdentifierRequest, TestCustomDataIdentifierResponse } from "../models/index.ts";
+import { TestCustomDataIdentifierRequest, TestCustomDataIdentifierResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1TestCustomDataIdentifierCommand,
   serializeAws_restJson1TestCustomDataIdentifierCommand,

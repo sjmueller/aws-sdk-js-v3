@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { StartInstanceRequest } from "../models/index.ts";
+import { StartInstanceRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartInstanceCommand,
   serializeAws_json1_1StartInstanceCommand,

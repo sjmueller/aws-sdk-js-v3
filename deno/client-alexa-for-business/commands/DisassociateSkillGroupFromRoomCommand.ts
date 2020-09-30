@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { DisassociateSkillGroupFromRoomRequest, DisassociateSkillGroupFromRoomResponse } from "../models/index.ts";
+import { DisassociateSkillGroupFromRoomRequest, DisassociateSkillGroupFromRoomResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateSkillGroupFromRoomCommand,
   serializeAws_json1_1DisassociateSkillGroupFromRoomCommand,

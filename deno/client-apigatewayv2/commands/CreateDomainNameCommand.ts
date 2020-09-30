@@ -1,6 +1,6 @@
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
-import { CreateDomainNameRequest, CreateDomainNameResponse } from "../models/index.ts";
+import { CreateDomainNameRequest, CreateDomainNameResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateDomainNameCommand,
   serializeAws_restJson1CreateDomainNameCommand,

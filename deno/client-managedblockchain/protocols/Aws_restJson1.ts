@@ -62,7 +62,7 @@ import {
   ThrottlingException,
   VoteSummary,
   VotingPolicy,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -879,7 +879,6 @@ export const deserializeAws_restJson1CreateMemberCommand = async (
   }
   const contents: CreateMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMemberOutput",
     MemberId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -991,7 +990,6 @@ export const deserializeAws_restJson1CreateNetworkCommand = async (
   }
   const contents: CreateNetworkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateNetworkOutput",
     MemberId: undefined,
     NetworkId: undefined,
   };
@@ -1091,7 +1089,6 @@ export const deserializeAws_restJson1CreateNodeCommand = async (
   }
   const contents: CreateNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateNodeOutput",
     NodeId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1203,7 +1200,6 @@ export const deserializeAws_restJson1CreateProposalCommand = async (
   }
   const contents: CreateProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProposalOutput",
     ProposalId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1299,7 +1295,6 @@ export const deserializeAws_restJson1DeleteMemberCommand = async (
   }
   const contents: DeleteMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMemberOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1391,7 +1386,6 @@ export const deserializeAws_restJson1DeleteNodeCommand = async (
   }
   const contents: DeleteNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteNodeOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1483,7 +1477,6 @@ export const deserializeAws_restJson1GetMemberCommand = async (
   }
   const contents: GetMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMemberOutput",
     Member: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1571,7 +1564,6 @@ export const deserializeAws_restJson1GetNetworkCommand = async (
   }
   const contents: GetNetworkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetNetworkOutput",
     Network: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1659,7 +1651,6 @@ export const deserializeAws_restJson1GetNodeCommand = async (
   }
   const contents: GetNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetNodeOutput",
     Node: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1747,7 +1738,6 @@ export const deserializeAws_restJson1GetProposalCommand = async (
   }
   const contents: GetProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetProposalOutput",
     Proposal: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1835,7 +1825,6 @@ export const deserializeAws_restJson1ListInvitationsCommand = async (
   }
   const contents: ListInvitationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInvitationsOutput",
     Invitations: undefined,
     NextToken: undefined,
   };
@@ -1935,7 +1924,6 @@ export const deserializeAws_restJson1ListMembersCommand = async (
   }
   const contents: ListMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMembersOutput",
     Members: undefined,
     NextToken: undefined,
   };
@@ -2019,7 +2007,6 @@ export const deserializeAws_restJson1ListNetworksCommand = async (
   }
   const contents: ListNetworksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListNetworksOutput",
     Networks: undefined,
     NextToken: undefined,
   };
@@ -2103,7 +2090,6 @@ export const deserializeAws_restJson1ListNodesCommand = async (
   }
   const contents: ListNodesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListNodesOutput",
     NextToken: undefined,
     Nodes: undefined,
   };
@@ -2187,7 +2173,6 @@ export const deserializeAws_restJson1ListProposalsCommand = async (
   }
   const contents: ListProposalsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProposalsOutput",
     NextToken: undefined,
     Proposals: undefined,
   };
@@ -2279,7 +2264,6 @@ export const deserializeAws_restJson1ListProposalVotesCommand = async (
   }
   const contents: ListProposalVotesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProposalVotesOutput",
     NextToken: undefined,
     ProposalVotes: undefined,
   };
@@ -2363,7 +2347,6 @@ export const deserializeAws_restJson1RejectInvitationCommand = async (
   }
   const contents: RejectInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectInvitationOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2455,7 +2438,6 @@ export const deserializeAws_restJson1UpdateMemberCommand = async (
   }
   const contents: UpdateMemberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateMemberOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2539,7 +2521,6 @@ export const deserializeAws_restJson1UpdateNodeCommand = async (
   }
   const contents: UpdateNodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateNodeOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2623,7 +2604,6 @@ export const deserializeAws_restJson1VoteOnProposalCommand = async (
   }
   const contents: VoteOnProposalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VoteOnProposalOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3027,7 +3007,6 @@ const deserializeAws_restJson1ApprovalThresholdPolicy = (
   context: __SerdeContext
 ): ApprovalThresholdPolicy => {
   return {
-    __type: "ApprovalThresholdPolicy",
     ProposalDurationInHours:
       output.ProposalDurationInHours !== undefined && output.ProposalDurationInHours !== null
         ? output.ProposalDurationInHours
@@ -3045,7 +3024,6 @@ const deserializeAws_restJson1ApprovalThresholdPolicy = (
 
 const deserializeAws_restJson1Invitation = (output: any, context: __SerdeContext): Invitation => {
   return {
-    __type: "Invitation",
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     ExpirationDate:
@@ -3067,7 +3045,6 @@ const deserializeAws_restJson1InvitationList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1InviteAction = (output: any, context: __SerdeContext): InviteAction => {
   return {
-    __type: "InviteAction",
     Principal: output.Principal !== undefined && output.Principal !== null ? output.Principal : undefined,
   } as any;
 };
@@ -3078,14 +3055,12 @@ const deserializeAws_restJson1InviteActionList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1LogConfiguration = (output: any, context: __SerdeContext): LogConfiguration => {
   return {
-    __type: "LogConfiguration",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1LogConfigurations = (output: any, context: __SerdeContext): LogConfigurations => {
   return {
-    __type: "LogConfigurations",
     Cloudwatch:
       output.Cloudwatch !== undefined && output.Cloudwatch !== null
         ? deserializeAws_restJson1LogConfiguration(output.Cloudwatch, context)
@@ -3095,7 +3070,6 @@ const deserializeAws_restJson1LogConfigurations = (output: any, context: __Serde
 
 const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): Member => {
   return {
-    __type: "Member",
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -3119,7 +3093,6 @@ const deserializeAws_restJson1MemberFabricAttributes = (
   context: __SerdeContext
 ): MemberFabricAttributes => {
   return {
-    __type: "MemberFabricAttributes",
     AdminUsername:
       output.AdminUsername !== undefined && output.AdminUsername !== null ? output.AdminUsername : undefined,
     CaEndpoint: output.CaEndpoint !== undefined && output.CaEndpoint !== null ? output.CaEndpoint : undefined,
@@ -3131,7 +3104,6 @@ const deserializeAws_restJson1MemberFabricLogPublishingConfiguration = (
   context: __SerdeContext
 ): MemberFabricLogPublishingConfiguration => {
   return {
-    __type: "MemberFabricLogPublishingConfiguration",
     CaLogs:
       output.CaLogs !== undefined && output.CaLogs !== null
         ? deserializeAws_restJson1LogConfigurations(output.CaLogs, context)
@@ -3144,7 +3116,6 @@ const deserializeAws_restJson1MemberFrameworkAttributes = (
   context: __SerdeContext
 ): MemberFrameworkAttributes => {
   return {
-    __type: "MemberFrameworkAttributes",
     Fabric:
       output.Fabric !== undefined && output.Fabric !== null
         ? deserializeAws_restJson1MemberFabricAttributes(output.Fabric, context)
@@ -3157,7 +3128,6 @@ const deserializeAws_restJson1MemberLogPublishingConfiguration = (
   context: __SerdeContext
 ): MemberLogPublishingConfiguration => {
   return {
-    __type: "MemberLogPublishingConfiguration",
     Fabric:
       output.Fabric !== undefined && output.Fabric !== null
         ? deserializeAws_restJson1MemberFabricLogPublishingConfiguration(output.Fabric, context)
@@ -3167,7 +3137,6 @@ const deserializeAws_restJson1MemberLogPublishingConfiguration = (
 
 const deserializeAws_restJson1MemberSummary = (output: any, context: __SerdeContext): MemberSummary => {
   return {
-    __type: "MemberSummary",
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -3184,7 +3153,6 @@ const deserializeAws_restJson1MemberSummaryList = (output: any, context: __Serde
 
 const deserializeAws_restJson1Network = (output: any, context: __SerdeContext): Network => {
   return {
-    __type: "Network",
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -3214,7 +3182,6 @@ const deserializeAws_restJson1NetworkFabricAttributes = (
   context: __SerdeContext
 ): NetworkFabricAttributes => {
   return {
-    __type: "NetworkFabricAttributes",
     Edition: output.Edition !== undefined && output.Edition !== null ? output.Edition : undefined,
     OrderingServiceEndpoint:
       output.OrderingServiceEndpoint !== undefined && output.OrderingServiceEndpoint !== null
@@ -3228,7 +3195,6 @@ const deserializeAws_restJson1NetworkFrameworkAttributes = (
   context: __SerdeContext
 ): NetworkFrameworkAttributes => {
   return {
-    __type: "NetworkFrameworkAttributes",
     Fabric:
       output.Fabric !== undefined && output.Fabric !== null
         ? deserializeAws_restJson1NetworkFabricAttributes(output.Fabric, context)
@@ -3238,7 +3204,6 @@ const deserializeAws_restJson1NetworkFrameworkAttributes = (
 
 const deserializeAws_restJson1NetworkSummary = (output: any, context: __SerdeContext): NetworkSummary => {
   return {
-    __type: "NetworkSummary",
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -3257,7 +3222,6 @@ const deserializeAws_restJson1NetworkSummaryList = (output: any, context: __Serd
 
 const deserializeAws_restJson1Node = (output: any, context: __SerdeContext): Node => {
   return {
-    __type: "Node",
     AvailabilityZone:
       output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     CreationDate:
@@ -3280,7 +3244,6 @@ const deserializeAws_restJson1Node = (output: any, context: __SerdeContext): Nod
 
 const deserializeAws_restJson1NodeFabricAttributes = (output: any, context: __SerdeContext): NodeFabricAttributes => {
   return {
-    __type: "NodeFabricAttributes",
     PeerEndpoint: output.PeerEndpoint !== undefined && output.PeerEndpoint !== null ? output.PeerEndpoint : undefined,
     PeerEventEndpoint:
       output.PeerEventEndpoint !== undefined && output.PeerEventEndpoint !== null
@@ -3294,7 +3257,6 @@ const deserializeAws_restJson1NodeFabricLogPublishingConfiguration = (
   context: __SerdeContext
 ): NodeFabricLogPublishingConfiguration => {
   return {
-    __type: "NodeFabricLogPublishingConfiguration",
     ChaincodeLogs:
       output.ChaincodeLogs !== undefined && output.ChaincodeLogs !== null
         ? deserializeAws_restJson1LogConfigurations(output.ChaincodeLogs, context)
@@ -3311,7 +3273,6 @@ const deserializeAws_restJson1NodeFrameworkAttributes = (
   context: __SerdeContext
 ): NodeFrameworkAttributes => {
   return {
-    __type: "NodeFrameworkAttributes",
     Fabric:
       output.Fabric !== undefined && output.Fabric !== null
         ? deserializeAws_restJson1NodeFabricAttributes(output.Fabric, context)
@@ -3324,7 +3285,6 @@ const deserializeAws_restJson1NodeLogPublishingConfiguration = (
   context: __SerdeContext
 ): NodeLogPublishingConfiguration => {
   return {
-    __type: "NodeLogPublishingConfiguration",
     Fabric:
       output.Fabric !== undefined && output.Fabric !== null
         ? deserializeAws_restJson1NodeFabricLogPublishingConfiguration(output.Fabric, context)
@@ -3334,7 +3294,6 @@ const deserializeAws_restJson1NodeLogPublishingConfiguration = (
 
 const deserializeAws_restJson1NodeSummary = (output: any, context: __SerdeContext): NodeSummary => {
   return {
-    __type: "NodeSummary",
     AvailabilityZone:
       output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     CreationDate:
@@ -3351,7 +3310,6 @@ const deserializeAws_restJson1NodeSummaryList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext): Proposal => {
   return {
-    __type: "Proposal",
     Actions:
       output.Actions !== undefined && output.Actions !== null
         ? deserializeAws_restJson1ProposalActions(output.Actions, context)
@@ -3385,7 +3343,6 @@ const deserializeAws_restJson1Proposal = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1ProposalActions = (output: any, context: __SerdeContext): ProposalActions => {
   return {
-    __type: "ProposalActions",
     Invitations:
       output.Invitations !== undefined && output.Invitations !== null
         ? deserializeAws_restJson1InviteActionList(output.Invitations, context)
@@ -3399,7 +3356,6 @@ const deserializeAws_restJson1ProposalActions = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ProposalSummary = (output: any, context: __SerdeContext): ProposalSummary => {
   return {
-    __type: "ProposalSummary",
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null ? new Date(output.CreationDate) : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -3430,7 +3386,6 @@ const deserializeAws_restJson1ProposalVoteList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1RemoveAction = (output: any, context: __SerdeContext): RemoveAction => {
   return {
-    __type: "RemoveAction",
     MemberId: output.MemberId !== undefined && output.MemberId !== null ? output.MemberId : undefined,
   } as any;
 };
@@ -3441,7 +3396,6 @@ const deserializeAws_restJson1RemoveActionList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1VoteSummary = (output: any, context: __SerdeContext): VoteSummary => {
   return {
-    __type: "VoteSummary",
     MemberId: output.MemberId !== undefined && output.MemberId !== null ? output.MemberId : undefined,
     MemberName: output.MemberName !== undefined && output.MemberName !== null ? output.MemberName : undefined,
     Vote: output.Vote !== undefined && output.Vote !== null ? output.Vote : undefined,
@@ -3450,7 +3404,6 @@ const deserializeAws_restJson1VoteSummary = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1VotingPolicy = (output: any, context: __SerdeContext): VotingPolicy => {
   return {
-    __type: "VotingPolicy",
     ApprovalThresholdPolicy:
       output.ApprovalThresholdPolicy !== undefined && output.ApprovalThresholdPolicy !== null
         ? deserializeAws_restJson1ApprovalThresholdPolicy(output.ApprovalThresholdPolicy, context)

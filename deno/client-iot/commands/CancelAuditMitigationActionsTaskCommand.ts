@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { CancelAuditMitigationActionsTaskRequest, CancelAuditMitigationActionsTaskResponse } from "../models/index.ts";
+import { CancelAuditMitigationActionsTaskRequest, CancelAuditMitigationActionsTaskResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CancelAuditMitigationActionsTaskCommand,
   serializeAws_restJson1CancelAuditMitigationActionsTaskCommand,

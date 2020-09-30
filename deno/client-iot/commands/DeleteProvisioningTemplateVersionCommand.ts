@@ -1,6 +1,9 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DeleteProvisioningTemplateVersionRequest, DeleteProvisioningTemplateVersionResponse } from "../models/index.ts";
+import {
+  DeleteProvisioningTemplateVersionRequest,
+  DeleteProvisioningTemplateVersionResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteProvisioningTemplateVersionCommand,
   serializeAws_restJson1DeleteProvisioningTemplateVersionCommand,

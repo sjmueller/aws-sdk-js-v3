@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { AliasConfiguration, CreateAliasRequest } from "../models/index.ts";
+import { AliasConfiguration, CreateAliasRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateAliasCommand,
   serializeAws_restJson1CreateAliasCommand,

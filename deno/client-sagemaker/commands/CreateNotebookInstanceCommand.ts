@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { CreateNotebookInstanceInput, CreateNotebookInstanceOutput } from "../models/index.ts";
+import { CreateNotebookInstanceInput, CreateNotebookInstanceOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateNotebookInstanceCommand,
   serializeAws_json1_1CreateNotebookInstanceCommand,

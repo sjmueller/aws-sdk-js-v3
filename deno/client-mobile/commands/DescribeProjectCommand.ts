@@ -1,6 +1,6 @@
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient.ts";
-import { DescribeProjectRequest, DescribeProjectResult } from "../models/index.ts";
+import { DescribeProjectRequest, DescribeProjectResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeProjectCommand,
   serializeAws_restJson1DescribeProjectCommand,

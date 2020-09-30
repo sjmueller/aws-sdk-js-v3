@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ModifyDefaultCreditSpecificationRequest, ModifyDefaultCreditSpecificationResult } from "../models/index.ts";
+import { ModifyDefaultCreditSpecificationRequest, ModifyDefaultCreditSpecificationResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyDefaultCreditSpecificationCommand,
   serializeAws_ec2ModifyDefaultCreditSpecificationCommand,

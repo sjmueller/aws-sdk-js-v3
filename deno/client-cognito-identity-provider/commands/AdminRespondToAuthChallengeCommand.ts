@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { AdminRespondToAuthChallengeRequest, AdminRespondToAuthChallengeResponse } from "../models/index.ts";
+import { AdminRespondToAuthChallengeRequest, AdminRespondToAuthChallengeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AdminRespondToAuthChallengeCommand,
   serializeAws_json1_1AdminRespondToAuthChallengeCommand,

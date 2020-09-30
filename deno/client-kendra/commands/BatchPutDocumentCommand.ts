@@ -1,6 +1,6 @@
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient.ts";
-import { BatchPutDocumentRequest, BatchPutDocumentResponse } from "../models/index.ts";
+import { BatchPutDocumentRequest, BatchPutDocumentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchPutDocumentCommand,
   serializeAws_json1_1BatchPutDocumentCommand,

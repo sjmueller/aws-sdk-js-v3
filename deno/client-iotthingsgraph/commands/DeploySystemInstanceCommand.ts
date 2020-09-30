@@ -1,6 +1,6 @@
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
-import { DeploySystemInstanceRequest, DeploySystemInstanceResponse } from "../models/index.ts";
+import { DeploySystemInstanceRequest, DeploySystemInstanceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeploySystemInstanceCommand,
   serializeAws_json1_1DeploySystemInstanceCommand,

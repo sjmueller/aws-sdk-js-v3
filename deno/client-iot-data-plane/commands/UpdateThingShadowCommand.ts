@@ -1,6 +1,6 @@
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient.ts";
-import { UpdateThingShadowRequest, UpdateThingShadowResponse } from "../models/index.ts";
+import { UpdateThingShadowRequest, UpdateThingShadowResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateThingShadowCommand,
   serializeAws_restJson1UpdateThingShadowCommand,

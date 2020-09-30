@@ -1,6 +1,6 @@
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient.ts";
-import { GetUsageForecastRequest, GetUsageForecastResponse } from "../models/index.ts";
+import { GetUsageForecastRequest, GetUsageForecastResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetUsageForecastCommand,
   serializeAws_json1_1GetUsageForecastCommand,

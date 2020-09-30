@@ -1,6 +1,6 @@
 
 import { SSOOIDCClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOOIDCClient.ts";
-import { StartDeviceAuthorizationRequest, StartDeviceAuthorizationResponse } from "../models/index.ts";
+import { StartDeviceAuthorizationRequest, StartDeviceAuthorizationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StartDeviceAuthorizationCommand,
   serializeAws_restJson1StartDeviceAuthorizationCommand,

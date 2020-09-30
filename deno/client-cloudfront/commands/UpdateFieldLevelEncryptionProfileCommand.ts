@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { UpdateFieldLevelEncryptionProfileRequest, UpdateFieldLevelEncryptionProfileResult } from "../models/index.ts";
+import { UpdateFieldLevelEncryptionProfileRequest, UpdateFieldLevelEncryptionProfileResult } from "../models/models_1.ts";
 import {
   deserializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand,
   serializeAws_restXmlUpdateFieldLevelEncryptionProfileCommand,

@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { DeregisterContainerInstanceRequest, DeregisterContainerInstanceResponse } from "../models/index.ts";
+import { DeregisterContainerInstanceRequest, DeregisterContainerInstanceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeregisterContainerInstanceCommand,
   serializeAws_json1_1DeregisterContainerInstanceCommand,

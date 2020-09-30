@@ -1,6 +1,6 @@
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient.ts";
-import { ConfigurationProfiles, ListConfigurationProfilesRequest } from "../models/index.ts";
+import { ConfigurationProfiles, ListConfigurationProfilesRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListConfigurationProfilesCommand,
   serializeAws_restJson1ListConfigurationProfilesCommand,

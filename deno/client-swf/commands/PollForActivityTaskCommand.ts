@@ -1,6 +1,6 @@
 
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient.ts";
-import { ActivityTask, PollForActivityTaskInput } from "../models/index.ts";
+import { ActivityTask, PollForActivityTaskInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0PollForActivityTaskCommand,
   serializeAws_json1_0PollForActivityTaskCommand,

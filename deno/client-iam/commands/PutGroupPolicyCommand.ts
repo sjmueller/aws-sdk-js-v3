@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { PutGroupPolicyRequest } from "../models/index.ts";
+import { PutGroupPolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryPutGroupPolicyCommand,
   serializeAws_queryPutGroupPolicyCommand,

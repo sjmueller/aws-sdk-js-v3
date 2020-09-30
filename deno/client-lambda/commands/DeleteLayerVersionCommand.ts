@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { DeleteLayerVersionRequest } from "../models/index.ts";
+import { DeleteLayerVersionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteLayerVersionCommand,
   serializeAws_restJson1DeleteLayerVersionCommand,

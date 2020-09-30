@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DBClusterMessage, DescribeDBClustersMessage } from "../models/index.ts";
+import { DBClusterMessage, DescribeDBClustersMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeDBClustersCommand,
   serializeAws_queryDescribeDBClustersCommand,

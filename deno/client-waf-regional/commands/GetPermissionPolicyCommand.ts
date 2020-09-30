@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { GetPermissionPolicyRequest, GetPermissionPolicyResponse } from "../models/index.ts";
+import { GetPermissionPolicyRequest, GetPermissionPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetPermissionPolicyCommand,
   serializeAws_json1_1GetPermissionPolicyCommand,

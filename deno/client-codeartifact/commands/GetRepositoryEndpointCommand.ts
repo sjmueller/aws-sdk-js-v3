@@ -1,6 +1,6 @@
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient.ts";
-import { GetRepositoryEndpointRequest, GetRepositoryEndpointResult } from "../models/index.ts";
+import { GetRepositoryEndpointRequest, GetRepositoryEndpointResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetRepositoryEndpointCommand,
   serializeAws_restJson1GetRepositoryEndpointCommand,

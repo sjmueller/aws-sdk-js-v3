@@ -1,6 +1,6 @@
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient.ts";
-import { DeleteContainerPolicyInput, DeleteContainerPolicyOutput } from "../models/index.ts";
+import { DeleteContainerPolicyInput, DeleteContainerPolicyOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteContainerPolicyCommand,
   serializeAws_json1_1DeleteContainerPolicyCommand,

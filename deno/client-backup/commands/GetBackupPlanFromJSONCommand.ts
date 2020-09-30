@@ -1,6 +1,6 @@
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
-import { GetBackupPlanFromJSONInput, GetBackupPlanFromJSONOutput } from "../models/index.ts";
+import { GetBackupPlanFromJSONInput, GetBackupPlanFromJSONOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetBackupPlanFromJSONCommand,
   serializeAws_restJson1GetBackupPlanFromJSONCommand,

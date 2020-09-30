@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ModifyEbsDefaultKmsKeyIdRequest, ModifyEbsDefaultKmsKeyIdResult } from "../models/index.ts";
+import { ModifyEbsDefaultKmsKeyIdRequest, ModifyEbsDefaultKmsKeyIdResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand,
   serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand,

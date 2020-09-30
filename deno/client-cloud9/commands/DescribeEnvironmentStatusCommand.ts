@@ -1,6 +1,6 @@
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client.ts";
-import { DescribeEnvironmentStatusRequest, DescribeEnvironmentStatusResult } from "../models/index.ts";
+import { DescribeEnvironmentStatusRequest, DescribeEnvironmentStatusResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeEnvironmentStatusCommand,
   serializeAws_json1_1DescribeEnvironmentStatusCommand,

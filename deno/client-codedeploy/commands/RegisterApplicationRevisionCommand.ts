@@ -1,6 +1,6 @@
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient.ts";
-import { RegisterApplicationRevisionInput } from "../models/index.ts";
+import { RegisterApplicationRevisionInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RegisterApplicationRevisionCommand,
   serializeAws_json1_1RegisterApplicationRevisionCommand,

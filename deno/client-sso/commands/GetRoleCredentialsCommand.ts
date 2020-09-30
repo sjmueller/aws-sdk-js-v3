@@ -1,6 +1,6 @@
 
 import { SSOClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOClient.ts";
-import { GetRoleCredentialsRequest, GetRoleCredentialsResponse } from "../models/index.ts";
+import { GetRoleCredentialsRequest, GetRoleCredentialsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetRoleCredentialsCommand,
   serializeAws_restJson1GetRoleCredentialsCommand,

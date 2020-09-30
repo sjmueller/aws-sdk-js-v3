@@ -1,6 +1,6 @@
 
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient.ts";
-import { CancelQuantumTaskRequest, CancelQuantumTaskResponse } from "../models/index.ts";
+import { CancelQuantumTaskRequest, CancelQuantumTaskResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CancelQuantumTaskCommand,
   serializeAws_restJson1CancelQuantumTaskCommand,

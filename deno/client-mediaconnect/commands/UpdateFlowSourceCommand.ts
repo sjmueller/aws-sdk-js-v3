@@ -1,6 +1,6 @@
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient.ts";
-import { UpdateFlowSourceRequest, UpdateFlowSourceResponse } from "../models/index.ts";
+import { UpdateFlowSourceRequest, UpdateFlowSourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateFlowSourceCommand,
   serializeAws_restJson1UpdateFlowSourceCommand,

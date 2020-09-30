@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import { CreateApplicationRequest, CreateApplicationResponse } from "../models/index.ts";
+import { CreateApplicationRequest, CreateApplicationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateApplicationCommand,
   serializeAws_json1_1CreateApplicationCommand,

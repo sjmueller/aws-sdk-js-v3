@@ -1,6 +1,6 @@
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient.ts";
-import { SubmitFeedbackRequest } from "../models/index.ts";
+import { SubmitFeedbackRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SubmitFeedbackCommand,
   serializeAws_json1_1SubmitFeedbackCommand,

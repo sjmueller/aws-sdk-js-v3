@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { StopCrawlerScheduleRequest, StopCrawlerScheduleResponse } from "../models/index.ts";
+import { StopCrawlerScheduleRequest, StopCrawlerScheduleResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1StopCrawlerScheduleCommand,
   serializeAws_json1_1StopCrawlerScheduleCommand,

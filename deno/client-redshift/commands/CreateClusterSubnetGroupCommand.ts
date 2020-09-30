@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { CreateClusterSubnetGroupMessage, CreateClusterSubnetGroupResult } from "../models/index.ts";
+import { CreateClusterSubnetGroupMessage, CreateClusterSubnetGroupResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateClusterSubnetGroupCommand,
   serializeAws_queryCreateClusterSubnetGroupCommand,

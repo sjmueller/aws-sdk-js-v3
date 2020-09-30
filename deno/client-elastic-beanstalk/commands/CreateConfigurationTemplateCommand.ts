@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { ConfigurationSettingsDescription, CreateConfigurationTemplateMessage } from "../models/index.ts";
+import { ConfigurationSettingsDescription, CreateConfigurationTemplateMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateConfigurationTemplateCommand,
   serializeAws_queryCreateConfigurationTemplateCommand,

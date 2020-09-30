@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { DeleteRuleGroupRequest, DeleteRuleGroupResponse } from "../models/index.ts";
+import { DeleteRuleGroupRequest, DeleteRuleGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteRuleGroupCommand,
   serializeAws_json1_1DeleteRuleGroupCommand,

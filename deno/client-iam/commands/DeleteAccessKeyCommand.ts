@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { DeleteAccessKeyRequest } from "../models/index.ts";
+import { DeleteAccessKeyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteAccessKeyCommand,
   serializeAws_queryDeleteAccessKeyCommand,

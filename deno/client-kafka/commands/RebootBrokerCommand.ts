@@ -1,6 +1,6 @@
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient.ts";
-import { RebootBrokerRequest, RebootBrokerResponse } from "../models/index.ts";
+import { RebootBrokerRequest, RebootBrokerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1RebootBrokerCommand,
   serializeAws_restJson1RebootBrokerCommand,

@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { DeleteFleetInput } from "../models/index.ts";
+import { DeleteFleetInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteFleetCommand,
   serializeAws_json1_1DeleteFleetCommand,

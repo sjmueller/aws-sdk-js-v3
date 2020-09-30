@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { EnableVpcClassicLinkRequest, EnableVpcClassicLinkResult } from "../models/index.ts";
+import { EnableVpcClassicLinkRequest, EnableVpcClassicLinkResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2EnableVpcClassicLinkCommand,
   serializeAws_ec2EnableVpcClassicLinkCommand,

@@ -1,6 +1,6 @@
 
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient.ts";
-import { DBParameterGroupNameMessage, ModifyDBParameterGroupMessage } from "../models/index.ts";
+import { DBParameterGroupNameMessage, ModifyDBParameterGroupMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryModifyDBParameterGroupCommand,
   serializeAws_queryModifyDBParameterGroupCommand,

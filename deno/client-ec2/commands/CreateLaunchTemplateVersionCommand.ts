@@ -1,6 +1,7 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CreateLaunchTemplateVersionRequest, CreateLaunchTemplateVersionResult } from "../models/index.ts";
+import { CreateLaunchTemplateVersionRequest } from "../models/models_0.ts";
+import { CreateLaunchTemplateVersionResult } from "../models/models_1.ts";
 import {
   deserializeAws_ec2CreateLaunchTemplateVersionCommand,
   serializeAws_ec2CreateLaunchTemplateVersionCommand,

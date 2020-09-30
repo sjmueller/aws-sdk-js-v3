@@ -1,6 +1,6 @@
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
-import { UpdateScalingParametersRequest, UpdateScalingParametersResponse } from "../models/index.ts";
+import { UpdateScalingParametersRequest, UpdateScalingParametersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryUpdateScalingParametersCommand,
   serializeAws_queryUpdateScalingParametersCommand,

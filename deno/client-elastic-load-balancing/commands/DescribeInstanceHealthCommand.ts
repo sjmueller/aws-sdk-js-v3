@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import { DescribeEndPointStateInput, DescribeEndPointStateOutput } from "../models/index.ts";
+import { DescribeEndPointStateInput, DescribeEndPointStateOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeInstanceHealthCommand,
   serializeAws_queryDescribeInstanceHealthCommand,

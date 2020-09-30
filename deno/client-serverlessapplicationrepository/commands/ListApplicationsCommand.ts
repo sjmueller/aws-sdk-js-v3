@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient.ts";
-import { ListApplicationsRequest, ListApplicationsResponse } from "../models/index.ts";
+import { ListApplicationsRequest, ListApplicationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListApplicationsCommand,
   serializeAws_restJson1ListApplicationsCommand,

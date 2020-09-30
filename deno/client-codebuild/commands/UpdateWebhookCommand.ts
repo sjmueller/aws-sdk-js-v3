@@ -1,6 +1,6 @@
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient.ts";
-import { UpdateWebhookInput, UpdateWebhookOutput } from "../models/index.ts";
+import { UpdateWebhookInput, UpdateWebhookOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateWebhookCommand,
   serializeAws_json1_1UpdateWebhookCommand,

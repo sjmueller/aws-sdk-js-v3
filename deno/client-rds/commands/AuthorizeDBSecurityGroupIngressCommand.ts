@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { AuthorizeDBSecurityGroupIngressMessage, AuthorizeDBSecurityGroupIngressResult } from "../models/index.ts";
+import { AuthorizeDBSecurityGroupIngressMessage, AuthorizeDBSecurityGroupIngressResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryAuthorizeDBSecurityGroupIngressCommand,
   serializeAws_queryAuthorizeDBSecurityGroupIngressCommand,

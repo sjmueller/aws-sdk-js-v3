@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient.ts";
-import { DeleteBotChannelAssociationRequest } from "../models/index.ts";
+import { DeleteBotChannelAssociationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteBotChannelAssociationCommand,
   serializeAws_restJson1DeleteBotChannelAssociationCommand,

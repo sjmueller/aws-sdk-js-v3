@@ -1,6 +1,6 @@
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient.ts";
-import { GetRecordsInput, GetRecordsOutput } from "../models/index.ts";
+import { GetRecordsInput, GetRecordsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetRecordsCommand,
   serializeAws_json1_1GetRecordsCommand,

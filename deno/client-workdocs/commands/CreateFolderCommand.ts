@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { CreateFolderRequest, CreateFolderResponse } from "../models/index.ts";
+import { CreateFolderRequest, CreateFolderResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateFolderCommand,
   serializeAws_restJson1CreateFolderCommand,

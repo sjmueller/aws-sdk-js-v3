@@ -7,7 +7,7 @@ import {
 import {
   DescribeReplicationInstanceTaskLogsMessage,
   DescribeReplicationInstanceTaskLogsResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand,
   serializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand,

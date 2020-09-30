@@ -1,6 +1,6 @@
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient.ts";
-import { CreateDataSourceRequest, CreateDataSourceResponse } from "../models/index.ts";
+import { CreateDataSourceRequest, CreateDataSourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateDataSourceCommand,
   serializeAws_restJson1CreateDataSourceCommand,

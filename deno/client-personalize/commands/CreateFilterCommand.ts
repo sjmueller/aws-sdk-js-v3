@@ -1,6 +1,6 @@
 
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
-import { CreateFilterRequest, CreateFilterResponse } from "../models/index.ts";
+import { CreateFilterRequest, CreateFilterResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateFilterCommand,
   serializeAws_json1_1CreateFilterCommand,

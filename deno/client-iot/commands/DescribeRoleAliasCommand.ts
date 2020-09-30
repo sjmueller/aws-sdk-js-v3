@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DescribeRoleAliasRequest, DescribeRoleAliasResponse } from "../models/index.ts";
+import { DescribeRoleAliasRequest, DescribeRoleAliasResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DescribeRoleAliasCommand,
   serializeAws_restJson1DescribeRoleAliasCommand,

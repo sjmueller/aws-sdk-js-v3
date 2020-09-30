@@ -1,6 +1,6 @@
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
-import { EnableRuleRequest } from "../models/index.ts";
+import { EnableRuleRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1EnableRuleCommand,
   serializeAws_json1_1EnableRuleCommand,

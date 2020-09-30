@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { GetMetricStatisticsInput, GetMetricStatisticsOutput } from "../models/index.ts";
+import { GetMetricStatisticsInput, GetMetricStatisticsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetMetricStatisticsCommand,
   serializeAws_queryGetMetricStatisticsCommand,

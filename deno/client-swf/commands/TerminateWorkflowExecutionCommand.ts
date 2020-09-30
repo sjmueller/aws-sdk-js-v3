@@ -1,6 +1,6 @@
 
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient.ts";
-import { TerminateWorkflowExecutionInput } from "../models/index.ts";
+import { TerminateWorkflowExecutionInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0TerminateWorkflowExecutionCommand,
   serializeAws_json1_0TerminateWorkflowExecutionCommand,

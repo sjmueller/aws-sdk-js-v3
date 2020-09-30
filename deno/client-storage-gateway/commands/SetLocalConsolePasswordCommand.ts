@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { SetLocalConsolePasswordInput, SetLocalConsolePasswordOutput } from "../models/index.ts";
+import { SetLocalConsolePasswordInput, SetLocalConsolePasswordOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SetLocalConsolePasswordCommand,
   serializeAws_json1_1SetLocalConsolePasswordCommand,

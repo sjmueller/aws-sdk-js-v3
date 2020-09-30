@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { ResolveAliasInput, ResolveAliasOutput } from "../models/index.ts";
+import { ResolveAliasInput, ResolveAliasOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ResolveAliasCommand,
   serializeAws_json1_1ResolveAliasCommand,

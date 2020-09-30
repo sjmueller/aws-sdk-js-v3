@@ -1,6 +1,6 @@
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient.ts";
-import { UpdateDataRetentionInput, UpdateDataRetentionOutput } from "../models/index.ts";
+import { UpdateDataRetentionInput, UpdateDataRetentionOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateDataRetentionCommand,
   serializeAws_restJson1UpdateDataRetentionCommand,

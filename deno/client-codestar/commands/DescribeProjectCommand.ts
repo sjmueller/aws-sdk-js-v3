@@ -1,6 +1,6 @@
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient.ts";
-import { DescribeProjectRequest, DescribeProjectResult } from "../models/index.ts";
+import { DescribeProjectRequest, DescribeProjectResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeProjectCommand,
   serializeAws_json1_1DescribeProjectCommand,

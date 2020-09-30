@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { DescribeInputRequest, DescribeInputResponse } from "../models/index.ts";
+import { DescribeInputRequest, DescribeInputResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DescribeInputCommand,
   serializeAws_restJson1DescribeInputCommand,

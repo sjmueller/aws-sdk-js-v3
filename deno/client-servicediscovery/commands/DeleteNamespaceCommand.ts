@@ -1,6 +1,6 @@
 
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient.ts";
-import { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/index.ts";
+import { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteNamespaceCommand,
   serializeAws_json1_1DeleteNamespaceCommand,

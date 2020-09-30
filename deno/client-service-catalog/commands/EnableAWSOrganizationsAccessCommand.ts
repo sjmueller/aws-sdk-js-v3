@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { EnableAWSOrganizationsAccessInput, EnableAWSOrganizationsAccessOutput } from "../models/index.ts";
+import { EnableAWSOrganizationsAccessInput, EnableAWSOrganizationsAccessOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1EnableAWSOrganizationsAccessCommand,
   serializeAws_json1_1EnableAWSOrganizationsAccessCommand,

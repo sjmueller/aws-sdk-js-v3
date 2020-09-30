@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { StopReplicationTaskMessage, StopReplicationTaskResponse } from "../models/index.ts";
+import { StopReplicationTaskMessage, StopReplicationTaskResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopReplicationTaskCommand,
   serializeAws_json1_1StopReplicationTaskCommand,

@@ -1,6 +1,6 @@
 
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient.ts";
-import { DisassociateCustomerGatewayRequest, DisassociateCustomerGatewayResponse } from "../models/index.ts";
+import { DisassociateCustomerGatewayRequest, DisassociateCustomerGatewayResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DisassociateCustomerGatewayCommand,
   serializeAws_restJson1DisassociateCustomerGatewayCommand,

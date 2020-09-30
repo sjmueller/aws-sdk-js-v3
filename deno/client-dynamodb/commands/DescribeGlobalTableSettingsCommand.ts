@@ -1,6 +1,6 @@
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
-import { DescribeGlobalTableSettingsInput, DescribeGlobalTableSettingsOutput } from "../models/index.ts";
+import { DescribeGlobalTableSettingsInput, DescribeGlobalTableSettingsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0DescribeGlobalTableSettingsCommand,
   serializeAws_json1_0DescribeGlobalTableSettingsCommand,

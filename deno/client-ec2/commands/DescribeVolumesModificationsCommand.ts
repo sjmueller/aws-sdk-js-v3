@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeVolumesModificationsRequest, DescribeVolumesModificationsResult } from "../models/index.ts";
+import { DescribeVolumesModificationsRequest, DescribeVolumesModificationsResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2DescribeVolumesModificationsCommand,
   serializeAws_ec2DescribeVolumesModificationsCommand,

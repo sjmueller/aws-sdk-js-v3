@@ -1,6 +1,6 @@
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
-import { GetBackupVaultNotificationsInput, GetBackupVaultNotificationsOutput } from "../models/index.ts";
+import { GetBackupVaultNotificationsInput, GetBackupVaultNotificationsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetBackupVaultNotificationsCommand,
   serializeAws_restJson1GetBackupVaultNotificationsCommand,

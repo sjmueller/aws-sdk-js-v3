@@ -1,6 +1,6 @@
 
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
-import { DeleteQualificationTypeRequest, DeleteQualificationTypeResponse } from "../models/index.ts";
+import { DeleteQualificationTypeRequest, DeleteQualificationTypeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteQualificationTypeCommand,
   serializeAws_json1_1DeleteQualificationTypeCommand,

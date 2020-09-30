@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { DeleteEventSubscriptionMessage } from "../models/index.ts";
+import { DeleteEventSubscriptionMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteEventSubscriptionCommand,
   serializeAws_queryDeleteEventSubscriptionCommand,

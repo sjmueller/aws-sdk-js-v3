@@ -1,6 +1,6 @@
 
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient.ts";
-import { DeleteLexiconInput, DeleteLexiconOutput } from "../models/index.ts";
+import { DeleteLexiconInput, DeleteLexiconOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteLexiconCommand,
   serializeAws_restJson1DeleteLexiconCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient.ts";
-import { UpdateNodeInput, UpdateNodeOutput } from "../models/index.ts";
+import { UpdateNodeInput, UpdateNodeOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateNodeCommand,
   serializeAws_restJson1UpdateNodeCommand,

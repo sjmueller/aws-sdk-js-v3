@@ -1,6 +1,6 @@
 
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
-import { ListWorkersWithQualificationTypeRequest, ListWorkersWithQualificationTypeResponse } from "../models/index.ts";
+import { ListWorkersWithQualificationTypeRequest, ListWorkersWithQualificationTypeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListWorkersWithQualificationTypeCommand,
   serializeAws_json1_1ListWorkersWithQualificationTypeCommand,

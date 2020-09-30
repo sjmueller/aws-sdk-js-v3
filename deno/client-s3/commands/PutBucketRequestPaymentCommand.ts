@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { PutBucketRequestPaymentRequest } from "../models/index.ts";
+import { PutBucketRequestPaymentRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlPutBucketRequestPaymentCommand,
   serializeAws_restXmlPutBucketRequestPaymentCommand,

@@ -1,6 +1,6 @@
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
-import { DetectSyntaxRequest, DetectSyntaxResponse } from "../models/index.ts";
+import { DetectSyntaxRequest, DetectSyntaxResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DetectSyntaxCommand,
   serializeAws_json1_1DetectSyntaxCommand,

@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { MergePullRequestByThreeWayInput, MergePullRequestByThreeWayOutput } from "../models/index.ts";
+import { MergePullRequestByThreeWayInput, MergePullRequestByThreeWayOutput } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1MergePullRequestByThreeWayCommand,
   serializeAws_json1_1MergePullRequestByThreeWayCommand,

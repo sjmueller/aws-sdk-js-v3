@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { GetAppsRequest, GetAppsResponse } from "../models/index.ts";
+import { GetAppsRequest, GetAppsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetAppsCommand,
   serializeAws_restJson1GetAppsCommand,

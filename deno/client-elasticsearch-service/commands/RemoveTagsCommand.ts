@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient.ts";
-import { RemoveTagsRequest } from "../models/index.ts";
+import { RemoveTagsRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1RemoveTagsCommand,
   serializeAws_restJson1RemoveTagsCommand,

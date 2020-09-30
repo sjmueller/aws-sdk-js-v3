@@ -1,6 +1,6 @@
 
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
-import { DeleteSolutionRequest } from "../models/index.ts";
+import { DeleteSolutionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteSolutionCommand,
   serializeAws_json1_1DeleteSolutionCommand,

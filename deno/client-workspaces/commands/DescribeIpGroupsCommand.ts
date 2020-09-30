@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { DescribeIpGroupsRequest, DescribeIpGroupsResult } from "../models/index.ts";
+import { DescribeIpGroupsRequest, DescribeIpGroupsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeIpGroupsCommand,
   serializeAws_json1_1DescribeIpGroupsCommand,

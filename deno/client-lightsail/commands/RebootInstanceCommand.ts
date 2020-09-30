@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { RebootInstanceRequest, RebootInstanceResult } from "../models/index.ts";
+import { RebootInstanceRequest, RebootInstanceResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1RebootInstanceCommand,
   serializeAws_json1_1RebootInstanceCommand,

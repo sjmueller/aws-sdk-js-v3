@@ -227,7 +227,7 @@ import {
   UnsubscribeFromEventRequest,
   UnsupportedFeatureException,
   UpdateAssessmentTargetRequest,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -729,7 +729,6 @@ export const deserializeAws_json1_1AddAttributesToFindingsCommand = async (
   contents = deserializeAws_json1_1AddAttributesToFindingsResponse(data, context);
   const response: AddAttributesToFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddAttributesToFindingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -817,7 +816,6 @@ export const deserializeAws_json1_1CreateAssessmentTargetCommand = async (
   contents = deserializeAws_json1_1CreateAssessmentTargetResponse(data, context);
   const response: CreateAssessmentTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAssessmentTargetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -921,7 +919,6 @@ export const deserializeAws_json1_1CreateAssessmentTemplateCommand = async (
   contents = deserializeAws_json1_1CreateAssessmentTemplateResponse(data, context);
   const response: CreateAssessmentTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAssessmentTemplateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1017,7 +1014,6 @@ export const deserializeAws_json1_1CreateExclusionsPreviewCommand = async (
   contents = deserializeAws_json1_1CreateExclusionsPreviewResponse(data, context);
   const response: CreateExclusionsPreviewCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateExclusionsPreviewResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1113,7 +1109,6 @@ export const deserializeAws_json1_1CreateResourceGroupCommand = async (
   contents = deserializeAws_json1_1CreateResourceGroupResponse(data, context);
   const response: CreateResourceGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateResourceGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1477,7 +1472,6 @@ export const deserializeAws_json1_1DescribeAssessmentRunsCommand = async (
   contents = deserializeAws_json1_1DescribeAssessmentRunsResponse(data, context);
   const response: DescribeAssessmentRunsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAssessmentRunsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1541,7 +1535,6 @@ export const deserializeAws_json1_1DescribeAssessmentTargetsCommand = async (
   contents = deserializeAws_json1_1DescribeAssessmentTargetsResponse(data, context);
   const response: DescribeAssessmentTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAssessmentTargetsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1605,7 +1598,6 @@ export const deserializeAws_json1_1DescribeAssessmentTemplatesCommand = async (
   contents = deserializeAws_json1_1DescribeAssessmentTemplatesResponse(data, context);
   const response: DescribeAssessmentTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAssessmentTemplatesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1669,7 +1661,6 @@ export const deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand = async
   contents = deserializeAws_json1_1DescribeCrossAccountAccessRoleResponse(data, context);
   const response: DescribeCrossAccountAccessRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCrossAccountAccessRoleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1725,7 +1716,6 @@ export const deserializeAws_json1_1DescribeExclusionsCommand = async (
   contents = deserializeAws_json1_1DescribeExclusionsResponse(data, context);
   const response: DescribeExclusionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeExclusionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1789,7 +1779,6 @@ export const deserializeAws_json1_1DescribeFindingsCommand = async (
   contents = deserializeAws_json1_1DescribeFindingsResponse(data, context);
   const response: DescribeFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFindingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1853,7 +1842,6 @@ export const deserializeAws_json1_1DescribeResourceGroupsCommand = async (
   contents = deserializeAws_json1_1DescribeResourceGroupsResponse(data, context);
   const response: DescribeResourceGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeResourceGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1917,7 +1905,6 @@ export const deserializeAws_json1_1DescribeRulesPackagesCommand = async (
   contents = deserializeAws_json1_1DescribeRulesPackagesResponse(data, context);
   const response: DescribeRulesPackagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRulesPackagesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1981,7 +1968,6 @@ export const deserializeAws_json1_1GetAssessmentReportCommand = async (
   contents = deserializeAws_json1_1GetAssessmentReportResponse(data, context);
   const response: GetAssessmentReportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAssessmentReportResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2085,7 +2071,6 @@ export const deserializeAws_json1_1GetExclusionsPreviewCommand = async (
   contents = deserializeAws_json1_1GetExclusionsPreviewResponse(data, context);
   const response: GetExclusionsPreviewCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetExclusionsPreviewResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2165,7 +2150,6 @@ export const deserializeAws_json1_1GetTelemetryMetadataCommand = async (
   contents = deserializeAws_json1_1GetTelemetryMetadataResponse(data, context);
   const response: GetTelemetryMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTelemetryMetadataResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2245,7 +2229,6 @@ export const deserializeAws_json1_1ListAssessmentRunAgentsCommand = async (
   contents = deserializeAws_json1_1ListAssessmentRunAgentsResponse(data, context);
   const response: ListAssessmentRunAgentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAssessmentRunAgentsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2325,7 +2308,6 @@ export const deserializeAws_json1_1ListAssessmentRunsCommand = async (
   contents = deserializeAws_json1_1ListAssessmentRunsResponse(data, context);
   const response: ListAssessmentRunsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAssessmentRunsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2405,7 +2387,6 @@ export const deserializeAws_json1_1ListAssessmentTargetsCommand = async (
   contents = deserializeAws_json1_1ListAssessmentTargetsResponse(data, context);
   const response: ListAssessmentTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAssessmentTargetsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2477,7 +2458,6 @@ export const deserializeAws_json1_1ListAssessmentTemplatesCommand = async (
   contents = deserializeAws_json1_1ListAssessmentTemplatesResponse(data, context);
   const response: ListAssessmentTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAssessmentTemplatesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2557,7 +2537,6 @@ export const deserializeAws_json1_1ListEventSubscriptionsCommand = async (
   contents = deserializeAws_json1_1ListEventSubscriptionsResponse(data, context);
   const response: ListEventSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEventSubscriptionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2637,7 +2616,6 @@ export const deserializeAws_json1_1ListExclusionsCommand = async (
   contents = deserializeAws_json1_1ListExclusionsResponse(data, context);
   const response: ListExclusionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListExclusionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2717,7 +2695,6 @@ export const deserializeAws_json1_1ListFindingsCommand = async (
   contents = deserializeAws_json1_1ListFindingsResponse(data, context);
   const response: ListFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFindingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2797,7 +2774,6 @@ export const deserializeAws_json1_1ListRulesPackagesCommand = async (
   contents = deserializeAws_json1_1ListRulesPackagesResponse(data, context);
   const response: ListRulesPackagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRulesPackagesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2869,7 +2845,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2949,7 +2924,6 @@ export const deserializeAws_json1_1PreviewAgentsCommand = async (
   contents = deserializeAws_json1_1PreviewAgentsResponse(data, context);
   const response: PreviewAgentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PreviewAgentsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3121,7 +3095,6 @@ export const deserializeAws_json1_1RemoveAttributesFromFindingsCommand = async (
   contents = deserializeAws_json1_1RemoveAttributesFromFindingsResponse(data, context);
   const response: RemoveAttributesFromFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveAttributesFromFindingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3293,7 +3266,6 @@ export const deserializeAws_json1_1StartAssessmentRunCommand = async (
   contents = deserializeAws_json1_1StartAssessmentRunResponse(data, context);
   const response: StartAssessmentRunCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartAssessmentRunResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4480,7 +4452,6 @@ const serializeAws_json1_1UserAttributeList = (input: Attribute[], context: __Se
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     canRetry: output.canRetry !== undefined && output.canRetry !== null ? output.canRetry : undefined,
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -4492,7 +4463,6 @@ const deserializeAws_json1_1AddAttributesToFindingsResponse = (
   context: __SerdeContext
 ): AddAttributesToFindingsResponse => {
   return {
-    __type: "AddAttributesToFindingsResponse",
     failedItems:
       output.failedItems !== undefined && output.failedItems !== null
         ? deserializeAws_json1_1FailedItems(output.failedItems, context)
@@ -4505,7 +4475,6 @@ const deserializeAws_json1_1AgentAlreadyRunningAssessment = (
   context: __SerdeContext
 ): AgentAlreadyRunningAssessment => {
   return {
-    __type: "AgentAlreadyRunningAssessment",
     agentId: output.agentId !== undefined && output.agentId !== null ? output.agentId : undefined,
     assessmentRunArn:
       output.assessmentRunArn !== undefined && output.assessmentRunArn !== null ? output.assessmentRunArn : undefined,
@@ -4521,7 +4490,6 @@ const deserializeAws_json1_1AgentAlreadyRunningAssessmentList = (
 
 const deserializeAws_json1_1AgentPreview = (output: any, context: __SerdeContext): AgentPreview => {
   return {
-    __type: "AgentPreview",
     agentHealth: output.agentHealth !== undefined && output.agentHealth !== null ? output.agentHealth : undefined,
     agentId: output.agentId !== undefined && output.agentId !== null ? output.agentId : undefined,
     agentVersion: output.agentVersion !== undefined && output.agentVersion !== null ? output.agentVersion : undefined,
@@ -4545,7 +4513,6 @@ const deserializeAws_json1_1AgentsAlreadyRunningAssessmentException = (
   context: __SerdeContext
 ): AgentsAlreadyRunningAssessmentException => {
   return {
-    __type: "AgentsAlreadyRunningAssessmentException",
     agents:
       output.agents !== undefined && output.agents !== null
         ? deserializeAws_json1_1AgentAlreadyRunningAssessmentList(output.agents, context)
@@ -4563,7 +4530,6 @@ const deserializeAws_json1_1AssessmentRulesPackageArnList = (output: any, contex
 
 const deserializeAws_json1_1AssessmentRun = (output: any, context: __SerdeContext): AssessmentRun => {
   return {
-    __type: "AssessmentRun",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     assessmentTemplateArn:
       output.assessmentTemplateArn !== undefined && output.assessmentTemplateArn !== null
@@ -4618,7 +4584,6 @@ const deserializeAws_json1_1AssessmentRun = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1AssessmentRunAgent = (output: any, context: __SerdeContext): AssessmentRunAgent => {
   return {
-    __type: "AssessmentRunAgent",
     agentHealth: output.agentHealth !== undefined && output.agentHealth !== null ? output.agentHealth : undefined,
     agentHealthCode:
       output.agentHealthCode !== undefined && output.agentHealthCode !== null ? output.agentHealthCode : undefined,
@@ -4664,7 +4629,6 @@ const deserializeAws_json1_1AssessmentRunInProgressException = (
   context: __SerdeContext
 ): AssessmentRunInProgressException => {
   return {
-    __type: "AssessmentRunInProgressException",
     assessmentRunArns:
       output.assessmentRunArns !== undefined && output.assessmentRunArns !== null
         ? deserializeAws_json1_1AssessmentRunInProgressArnList(output.assessmentRunArns, context)
@@ -4687,7 +4651,6 @@ const deserializeAws_json1_1AssessmentRunNotification = (
   context: __SerdeContext
 ): AssessmentRunNotification => {
   return {
-    __type: "AssessmentRunNotification",
     date: output.date !== undefined && output.date !== null ? new Date(Math.round(output.date * 1000)) : undefined,
     error: output.error !== undefined && output.error !== null ? output.error : undefined,
     event: output.event !== undefined && output.event !== null ? output.event : undefined,
@@ -4712,7 +4675,6 @@ const deserializeAws_json1_1AssessmentRunStateChange = (
   context: __SerdeContext
 ): AssessmentRunStateChange => {
   return {
-    __type: "AssessmentRunStateChange",
     state: output.state !== undefined && output.state !== null ? output.state : undefined,
     stateChangedAt:
       output.stateChangedAt !== undefined && output.stateChangedAt !== null
@@ -4730,7 +4692,6 @@ const deserializeAws_json1_1AssessmentRunStateChangeList = (
 
 const deserializeAws_json1_1AssessmentTarget = (output: any, context: __SerdeContext): AssessmentTarget => {
   return {
-    __type: "AssessmentTarget",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -4752,7 +4713,6 @@ const deserializeAws_json1_1AssessmentTargetList = (output: any, context: __Serd
 
 const deserializeAws_json1_1AssessmentTemplate = (output: any, context: __SerdeContext): AssessmentTemplate => {
   return {
-    __type: "AssessmentTemplate",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     assessmentRunCount:
       output.assessmentRunCount !== undefined && output.assessmentRunCount !== null
@@ -4799,7 +4759,6 @@ const deserializeAws_json1_1AssessmentTemplateRulesPackageArnList = (
 
 const deserializeAws_json1_1AssetAttributes = (output: any, context: __SerdeContext): AssetAttributes => {
   return {
-    __type: "AssetAttributes",
     agentId: output.agentId !== undefined && output.agentId !== null ? output.agentId : undefined,
     amiId: output.amiId !== undefined && output.amiId !== null ? output.amiId : undefined,
     autoScalingGroup:
@@ -4822,7 +4781,6 @@ const deserializeAws_json1_1AssetAttributes = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1Attribute = (output: any, context: __SerdeContext): Attribute => {
   return {
-    __type: "Attribute",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -4837,7 +4795,6 @@ const deserializeAws_json1_1CreateAssessmentTargetResponse = (
   context: __SerdeContext
 ): CreateAssessmentTargetResponse => {
   return {
-    __type: "CreateAssessmentTargetResponse",
     assessmentTargetArn:
       output.assessmentTargetArn !== undefined && output.assessmentTargetArn !== null
         ? output.assessmentTargetArn
@@ -4850,7 +4807,6 @@ const deserializeAws_json1_1CreateAssessmentTemplateResponse = (
   context: __SerdeContext
 ): CreateAssessmentTemplateResponse => {
   return {
-    __type: "CreateAssessmentTemplateResponse",
     assessmentTemplateArn:
       output.assessmentTemplateArn !== undefined && output.assessmentTemplateArn !== null
         ? output.assessmentTemplateArn
@@ -4863,7 +4819,6 @@ const deserializeAws_json1_1CreateExclusionsPreviewResponse = (
   context: __SerdeContext
 ): CreateExclusionsPreviewResponse => {
   return {
-    __type: "CreateExclusionsPreviewResponse",
     previewToken: output.previewToken !== undefined && output.previewToken !== null ? output.previewToken : undefined,
   } as any;
 };
@@ -4873,7 +4828,6 @@ const deserializeAws_json1_1CreateResourceGroupResponse = (
   context: __SerdeContext
 ): CreateResourceGroupResponse => {
   return {
-    __type: "CreateResourceGroupResponse",
     resourceGroupArn:
       output.resourceGroupArn !== undefined && output.resourceGroupArn !== null ? output.resourceGroupArn : undefined,
   } as any;
@@ -4884,7 +4838,6 @@ const deserializeAws_json1_1DescribeAssessmentRunsResponse = (
   context: __SerdeContext
 ): DescribeAssessmentRunsResponse => {
   return {
-    __type: "DescribeAssessmentRunsResponse",
     assessmentRuns:
       output.assessmentRuns !== undefined && output.assessmentRuns !== null
         ? deserializeAws_json1_1AssessmentRunList(output.assessmentRuns, context)
@@ -4901,7 +4854,6 @@ const deserializeAws_json1_1DescribeAssessmentTargetsResponse = (
   context: __SerdeContext
 ): DescribeAssessmentTargetsResponse => {
   return {
-    __type: "DescribeAssessmentTargetsResponse",
     assessmentTargets:
       output.assessmentTargets !== undefined && output.assessmentTargets !== null
         ? deserializeAws_json1_1AssessmentTargetList(output.assessmentTargets, context)
@@ -4918,7 +4870,6 @@ const deserializeAws_json1_1DescribeAssessmentTemplatesResponse = (
   context: __SerdeContext
 ): DescribeAssessmentTemplatesResponse => {
   return {
-    __type: "DescribeAssessmentTemplatesResponse",
     assessmentTemplates:
       output.assessmentTemplates !== undefined && output.assessmentTemplates !== null
         ? deserializeAws_json1_1AssessmentTemplateList(output.assessmentTemplates, context)
@@ -4935,7 +4886,6 @@ const deserializeAws_json1_1DescribeCrossAccountAccessRoleResponse = (
   context: __SerdeContext
 ): DescribeCrossAccountAccessRoleResponse => {
   return {
-    __type: "DescribeCrossAccountAccessRoleResponse",
     registeredAt:
       output.registeredAt !== undefined && output.registeredAt !== null
         ? new Date(Math.round(output.registeredAt * 1000))
@@ -4950,7 +4900,6 @@ const deserializeAws_json1_1DescribeExclusionsResponse = (
   context: __SerdeContext
 ): DescribeExclusionsResponse => {
   return {
-    __type: "DescribeExclusionsResponse",
     exclusions:
       output.exclusions !== undefined && output.exclusions !== null
         ? deserializeAws_json1_1ExclusionMap(output.exclusions, context)
@@ -4967,7 +4916,6 @@ const deserializeAws_json1_1DescribeFindingsResponse = (
   context: __SerdeContext
 ): DescribeFindingsResponse => {
   return {
-    __type: "DescribeFindingsResponse",
     failedItems:
       output.failedItems !== undefined && output.failedItems !== null
         ? deserializeAws_json1_1FailedItems(output.failedItems, context)
@@ -4984,7 +4932,6 @@ const deserializeAws_json1_1DescribeResourceGroupsResponse = (
   context: __SerdeContext
 ): DescribeResourceGroupsResponse => {
   return {
-    __type: "DescribeResourceGroupsResponse",
     failedItems:
       output.failedItems !== undefined && output.failedItems !== null
         ? deserializeAws_json1_1FailedItems(output.failedItems, context)
@@ -5001,7 +4948,6 @@ const deserializeAws_json1_1DescribeRulesPackagesResponse = (
   context: __SerdeContext
 ): DescribeRulesPackagesResponse => {
   return {
-    __type: "DescribeRulesPackagesResponse",
     failedItems:
       output.failedItems !== undefined && output.failedItems !== null
         ? deserializeAws_json1_1FailedItems(output.failedItems, context)
@@ -5015,7 +4961,6 @@ const deserializeAws_json1_1DescribeRulesPackagesResponse = (
 
 const deserializeAws_json1_1EventSubscription = (output: any, context: __SerdeContext): EventSubscription => {
   return {
-    __type: "EventSubscription",
     event: output.event !== undefined && output.event !== null ? output.event : undefined,
     subscribedAt:
       output.subscribedAt !== undefined && output.subscribedAt !== null
@@ -5030,7 +4975,6 @@ const deserializeAws_json1_1EventSubscriptionList = (output: any, context: __Ser
 
 const deserializeAws_json1_1Exclusion = (output: any, context: __SerdeContext): Exclusion => {
   return {
-    __type: "Exclusion",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     attributes:
       output.attributes !== undefined && output.attributes !== null
@@ -5059,7 +5003,6 @@ const deserializeAws_json1_1ExclusionMap = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ExclusionPreview = (output: any, context: __SerdeContext): ExclusionPreview => {
   return {
-    __type: "ExclusionPreview",
     attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_json1_1AttributeList(output.attributes, context)
@@ -5081,7 +5024,6 @@ const deserializeAws_json1_1ExclusionPreviewList = (output: any, context: __Serd
 
 const deserializeAws_json1_1FailedItemDetails = (output: any, context: __SerdeContext): FailedItemDetails => {
   return {
-    __type: "FailedItemDetails",
     failureCode: output.failureCode !== undefined && output.failureCode !== null ? output.failureCode : undefined,
     retryable: output.retryable !== undefined && output.retryable !== null ? output.retryable : undefined,
   } as any;
@@ -5102,7 +5044,6 @@ const deserializeAws_json1_1FailedItems = (
 
 const deserializeAws_json1_1Finding = (output: any, context: __SerdeContext): Finding => {
   return {
-    __type: "Finding",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     assetAttributes:
       output.assetAttributes !== undefined && output.assetAttributes !== null
@@ -5157,7 +5098,6 @@ const deserializeAws_json1_1GetAssessmentReportResponse = (
   context: __SerdeContext
 ): GetAssessmentReportResponse => {
   return {
-    __type: "GetAssessmentReportResponse",
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
     url: output.url !== undefined && output.url !== null ? output.url : undefined,
   } as any;
@@ -5168,7 +5108,6 @@ const deserializeAws_json1_1GetExclusionsPreviewResponse = (
   context: __SerdeContext
 ): GetExclusionsPreviewResponse => {
   return {
-    __type: "GetExclusionsPreviewResponse",
     exclusionPreviews:
       output.exclusionPreviews !== undefined && output.exclusionPreviews !== null
         ? deserializeAws_json1_1ExclusionPreviewList(output.exclusionPreviews, context)
@@ -5184,7 +5123,6 @@ const deserializeAws_json1_1GetTelemetryMetadataResponse = (
   context: __SerdeContext
 ): GetTelemetryMetadataResponse => {
   return {
-    __type: "GetTelemetryMetadataResponse",
     telemetryMetadata:
       output.telemetryMetadata !== undefined && output.telemetryMetadata !== null
         ? deserializeAws_json1_1TelemetryMetadataList(output.telemetryMetadata, context)
@@ -5197,7 +5135,6 @@ const deserializeAws_json1_1InspectorServiceAttributes = (
   context: __SerdeContext
 ): InspectorServiceAttributes => {
   return {
-    __type: "InspectorServiceAttributes",
     assessmentRunArn:
       output.assessmentRunArn !== undefined && output.assessmentRunArn !== null ? output.assessmentRunArn : undefined,
     rulesPackageArn:
@@ -5209,7 +5146,6 @@ const deserializeAws_json1_1InspectorServiceAttributes = (
 
 const deserializeAws_json1_1InternalException = (output: any, context: __SerdeContext): InternalException => {
   return {
-    __type: "InternalException",
     canRetry: output.canRetry !== undefined && output.canRetry !== null ? output.canRetry : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -5220,7 +5156,6 @@ const deserializeAws_json1_1InvalidCrossAccountRoleException = (
   context: __SerdeContext
 ): InvalidCrossAccountRoleException => {
   return {
-    __type: "InvalidCrossAccountRoleException",
     canRetry: output.canRetry !== undefined && output.canRetry !== null ? output.canRetry : undefined,
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -5229,7 +5164,6 @@ const deserializeAws_json1_1InvalidCrossAccountRoleException = (
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    __type: "InvalidInputException",
     canRetry: output.canRetry !== undefined && output.canRetry !== null ? output.canRetry : undefined,
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -5246,7 +5180,6 @@ const deserializeAws_json1_1Ipv6Addresses = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     canRetry: output.canRetry !== undefined && output.canRetry !== null ? output.canRetry : undefined,
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -5258,7 +5191,6 @@ const deserializeAws_json1_1ListAssessmentRunAgentsResponse = (
   context: __SerdeContext
 ): ListAssessmentRunAgentsResponse => {
   return {
-    __type: "ListAssessmentRunAgentsResponse",
     assessmentRunAgents:
       output.assessmentRunAgents !== undefined && output.assessmentRunAgents !== null
         ? deserializeAws_json1_1AssessmentRunAgentList(output.assessmentRunAgents, context)
@@ -5272,7 +5204,6 @@ const deserializeAws_json1_1ListAssessmentRunsResponse = (
   context: __SerdeContext
 ): ListAssessmentRunsResponse => {
   return {
-    __type: "ListAssessmentRunsResponse",
     assessmentRunArns:
       output.assessmentRunArns !== undefined && output.assessmentRunArns !== null
         ? deserializeAws_json1_1ListReturnedArnList(output.assessmentRunArns, context)
@@ -5286,7 +5217,6 @@ const deserializeAws_json1_1ListAssessmentTargetsResponse = (
   context: __SerdeContext
 ): ListAssessmentTargetsResponse => {
   return {
-    __type: "ListAssessmentTargetsResponse",
     assessmentTargetArns:
       output.assessmentTargetArns !== undefined && output.assessmentTargetArns !== null
         ? deserializeAws_json1_1ListReturnedArnList(output.assessmentTargetArns, context)
@@ -5300,7 +5230,6 @@ const deserializeAws_json1_1ListAssessmentTemplatesResponse = (
   context: __SerdeContext
 ): ListAssessmentTemplatesResponse => {
   return {
-    __type: "ListAssessmentTemplatesResponse",
     assessmentTemplateArns:
       output.assessmentTemplateArns !== undefined && output.assessmentTemplateArns !== null
         ? deserializeAws_json1_1ListReturnedArnList(output.assessmentTemplateArns, context)
@@ -5314,7 +5243,6 @@ const deserializeAws_json1_1ListEventSubscriptionsResponse = (
   context: __SerdeContext
 ): ListEventSubscriptionsResponse => {
   return {
-    __type: "ListEventSubscriptionsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     subscriptions:
       output.subscriptions !== undefined && output.subscriptions !== null
@@ -5325,7 +5253,6 @@ const deserializeAws_json1_1ListEventSubscriptionsResponse = (
 
 const deserializeAws_json1_1ListExclusionsResponse = (output: any, context: __SerdeContext): ListExclusionsResponse => {
   return {
-    __type: "ListExclusionsResponse",
     exclusionArns:
       output.exclusionArns !== undefined && output.exclusionArns !== null
         ? deserializeAws_json1_1ListReturnedArnList(output.exclusionArns, context)
@@ -5336,7 +5263,6 @@ const deserializeAws_json1_1ListExclusionsResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1ListFindingsResponse = (output: any, context: __SerdeContext): ListFindingsResponse => {
   return {
-    __type: "ListFindingsResponse",
     findingArns:
       output.findingArns !== undefined && output.findingArns !== null
         ? deserializeAws_json1_1ListReturnedArnList(output.findingArns, context)
@@ -5354,7 +5280,6 @@ const deserializeAws_json1_1ListRulesPackagesResponse = (
   context: __SerdeContext
 ): ListRulesPackagesResponse => {
   return {
-    __type: "ListRulesPackagesResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     rulesPackageArns:
       output.rulesPackageArns !== undefined && output.rulesPackageArns !== null
@@ -5368,7 +5293,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_1TagList(output.tags, context)
@@ -5378,7 +5302,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
   return {
-    __type: "NetworkInterface",
     ipv6Addresses:
       output.ipv6Addresses !== undefined && output.ipv6Addresses !== null
         ? deserializeAws_json1_1Ipv6Addresses(output.ipv6Addresses, context)
@@ -5413,7 +5336,6 @@ const deserializeAws_json1_1NetworkInterfaces = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1NoSuchEntityException = (output: any, context: __SerdeContext): NoSuchEntityException => {
   return {
-    __type: "NoSuchEntityException",
     canRetry: output.canRetry !== undefined && output.canRetry !== null ? output.canRetry : undefined,
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -5422,7 +5344,6 @@ const deserializeAws_json1_1NoSuchEntityException = (output: any, context: __Ser
 
 const deserializeAws_json1_1PreviewAgentsResponse = (output: any, context: __SerdeContext): PreviewAgentsResponse => {
   return {
-    __type: "PreviewAgentsResponse",
     agentPreviews:
       output.agentPreviews !== undefined && output.agentPreviews !== null
         ? deserializeAws_json1_1AgentPreviewList(output.agentPreviews, context)
@@ -5436,14 +5357,12 @@ const deserializeAws_json1_1PreviewGenerationInProgressException = (
   context: __SerdeContext
 ): PreviewGenerationInProgressException => {
   return {
-    __type: "PreviewGenerationInProgressException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1PrivateIp = (output: any, context: __SerdeContext): PrivateIp => {
   return {
-    __type: "PrivateIp",
     privateDnsName:
       output.privateDnsName !== undefined && output.privateDnsName !== null ? output.privateDnsName : undefined,
     privateIpAddress:
@@ -5460,7 +5379,6 @@ const deserializeAws_json1_1RemoveAttributesFromFindingsResponse = (
   context: __SerdeContext
 ): RemoveAttributesFromFindingsResponse => {
   return {
-    __type: "RemoveAttributesFromFindingsResponse",
     failedItems:
       output.failedItems !== undefined && output.failedItems !== null
         ? deserializeAws_json1_1FailedItems(output.failedItems, context)
@@ -5470,7 +5388,6 @@ const deserializeAws_json1_1RemoveAttributesFromFindingsResponse = (
 
 const deserializeAws_json1_1ResourceGroup = (output: any, context: __SerdeContext): ResourceGroup => {
   return {
-    __type: "ResourceGroup",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -5489,7 +5406,6 @@ const deserializeAws_json1_1ResourceGroupList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ResourceGroupTag = (output: any, context: __SerdeContext): ResourceGroupTag => {
   return {
-    __type: "ResourceGroupTag",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -5501,7 +5417,6 @@ const deserializeAws_json1_1ResourceGroupTags = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1RulesPackage = (output: any, context: __SerdeContext): RulesPackage => {
   return {
-    __type: "RulesPackage",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -5516,7 +5431,6 @@ const deserializeAws_json1_1RulesPackageList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Scope = (output: any, context: __SerdeContext): Scope => {
   return {
-    __type: "Scope",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -5528,7 +5442,6 @@ const deserializeAws_json1_1ScopeList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1SecurityGroup = (output: any, context: __SerdeContext): SecurityGroup => {
   return {
-    __type: "SecurityGroup",
     groupId: output.groupId !== undefined && output.groupId !== null ? output.groupId : undefined,
     groupName: output.groupName !== undefined && output.groupName !== null ? output.groupName : undefined,
   } as any;
@@ -5543,7 +5456,6 @@ const deserializeAws_json1_1ServiceTemporarilyUnavailableException = (
   context: __SerdeContext
 ): ServiceTemporarilyUnavailableException => {
   return {
-    __type: "ServiceTemporarilyUnavailableException",
     canRetry: output.canRetry !== undefined && output.canRetry !== null ? output.canRetry : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -5554,7 +5466,6 @@ const deserializeAws_json1_1StartAssessmentRunResponse = (
   context: __SerdeContext
 ): StartAssessmentRunResponse => {
   return {
-    __type: "StartAssessmentRunResponse",
     assessmentRunArn:
       output.assessmentRunArn !== undefined && output.assessmentRunArn !== null ? output.assessmentRunArn : undefined,
   } as any;
@@ -5562,7 +5473,6 @@ const deserializeAws_json1_1StartAssessmentRunResponse = (
 
 const deserializeAws_json1_1Subscription = (output: any, context: __SerdeContext): Subscription => {
   return {
-    __type: "Subscription",
     eventSubscriptions:
       output.eventSubscriptions !== undefined && output.eventSubscriptions !== null
         ? deserializeAws_json1_1EventSubscriptionList(output.eventSubscriptions, context)
@@ -5578,7 +5488,6 @@ const deserializeAws_json1_1SubscriptionList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -5594,7 +5503,6 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
 
 const deserializeAws_json1_1TelemetryMetadata = (output: any, context: __SerdeContext): TelemetryMetadata => {
   return {
-    __type: "TelemetryMetadata",
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
     dataSize: output.dataSize !== undefined && output.dataSize !== null ? output.dataSize : undefined,
     messageType: output.messageType !== undefined && output.messageType !== null ? output.messageType : undefined,
@@ -5610,7 +5518,6 @@ const deserializeAws_json1_1UnsupportedFeatureException = (
   context: __SerdeContext
 ): UnsupportedFeatureException => {
   return {
-    __type: "UnsupportedFeatureException",
     canRetry: output.canRetry !== undefined && output.canRetry !== null ? output.canRetry : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;

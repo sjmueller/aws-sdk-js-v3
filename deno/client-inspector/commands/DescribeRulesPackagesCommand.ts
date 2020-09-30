@@ -1,6 +1,6 @@
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
-import { DescribeRulesPackagesRequest, DescribeRulesPackagesResponse } from "../models/index.ts";
+import { DescribeRulesPackagesRequest, DescribeRulesPackagesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeRulesPackagesCommand,
   serializeAws_json1_1DescribeRulesPackagesCommand,

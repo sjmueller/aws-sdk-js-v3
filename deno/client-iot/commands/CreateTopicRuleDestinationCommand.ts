@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { CreateTopicRuleDestinationRequest, CreateTopicRuleDestinationResponse } from "../models/index.ts";
+import { CreateTopicRuleDestinationRequest, CreateTopicRuleDestinationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateTopicRuleDestinationCommand,
   serializeAws_restJson1CreateTopicRuleDestinationCommand,

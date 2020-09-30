@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceEntitlementServiceClient.ts";
-import { GetEntitlementsRequest, GetEntitlementsResult } from "../models/index.ts";
+import { GetEntitlementsRequest, GetEntitlementsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetEntitlementsCommand,
   serializeAws_json1_1GetEntitlementsCommand,

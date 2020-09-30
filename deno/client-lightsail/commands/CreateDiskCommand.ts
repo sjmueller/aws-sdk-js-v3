@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { CreateDiskRequest, CreateDiskResult } from "../models/index.ts";
+import { CreateDiskRequest, CreateDiskResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateDiskCommand,
   serializeAws_json1_1CreateDiskCommand,

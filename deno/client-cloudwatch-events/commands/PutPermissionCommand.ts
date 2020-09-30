@@ -1,6 +1,6 @@
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient.ts";
-import { PutPermissionRequest } from "../models/index.ts";
+import { PutPermissionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutPermissionCommand,
   serializeAws_json1_1PutPermissionCommand,
@@ -44,8 +44,11 @@ export class PutPermissionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutPermissionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

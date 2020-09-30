@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { CreateAppRequest, CreateAppResponse } from "../models/index.ts";
+import { CreateAppRequest, CreateAppResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateAppCommand,
   serializeAws_restJson1CreateAppCommand,

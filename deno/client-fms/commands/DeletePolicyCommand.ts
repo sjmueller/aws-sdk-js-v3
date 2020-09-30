@@ -1,6 +1,6 @@
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient.ts";
-import { DeletePolicyRequest } from "../models/index.ts";
+import { DeletePolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeletePolicyCommand,
   serializeAws_json1_1DeletePolicyCommand,

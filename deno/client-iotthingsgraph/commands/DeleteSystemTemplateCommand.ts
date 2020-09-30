@@ -1,6 +1,6 @@
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
-import { DeleteSystemTemplateRequest, DeleteSystemTemplateResponse } from "../models/index.ts";
+import { DeleteSystemTemplateRequest, DeleteSystemTemplateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteSystemTemplateCommand,
   serializeAws_json1_1DeleteSystemTemplateCommand,

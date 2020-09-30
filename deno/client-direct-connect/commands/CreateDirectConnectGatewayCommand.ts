@@ -1,6 +1,6 @@
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
-import { CreateDirectConnectGatewayRequest, CreateDirectConnectGatewayResult } from "../models/index.ts";
+import { CreateDirectConnectGatewayRequest, CreateDirectConnectGatewayResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateDirectConnectGatewayCommand,
   serializeAws_json1_1CreateDirectConnectGatewayCommand,

@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { UpdateGroupRequest, UpdateGroupResponse } from "../models/index.ts";
+import { UpdateGroupRequest, UpdateGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateGroupCommand,
   serializeAws_restJson1UpdateGroupCommand,

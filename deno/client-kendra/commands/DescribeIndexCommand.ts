@@ -1,6 +1,6 @@
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient.ts";
-import { DescribeIndexRequest, DescribeIndexResponse } from "../models/index.ts";
+import { DescribeIndexRequest, DescribeIndexResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeIndexCommand,
   serializeAws_json1_1DescribeIndexCommand,

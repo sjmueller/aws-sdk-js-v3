@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ModifyVpcPeeringConnectionOptionsRequest, ModifyVpcPeeringConnectionOptionsResult } from "../models/index.ts";
+import { ModifyVpcPeeringConnectionOptionsRequest, ModifyVpcPeeringConnectionOptionsResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand,
   serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand,

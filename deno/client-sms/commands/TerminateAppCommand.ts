@@ -1,6 +1,6 @@
 
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
-import { TerminateAppRequest, TerminateAppResponse } from "../models/index.ts";
+import { TerminateAppRequest, TerminateAppResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1TerminateAppCommand,
   serializeAws_json1_1TerminateAppCommand,

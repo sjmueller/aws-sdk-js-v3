@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from "../WAFV2Client.ts";
-import { DescribeManagedRuleGroupRequest, DescribeManagedRuleGroupResponse } from "../models/index.ts";
+import { DescribeManagedRuleGroupRequest, DescribeManagedRuleGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeManagedRuleGroupCommand,
   serializeAws_json1_1DescribeManagedRuleGroupCommand,

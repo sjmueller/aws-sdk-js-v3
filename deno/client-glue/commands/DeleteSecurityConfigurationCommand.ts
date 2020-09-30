@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { DeleteSecurityConfigurationRequest, DeleteSecurityConfigurationResponse } from "../models/index.ts";
+import { DeleteSecurityConfigurationRequest, DeleteSecurityConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteSecurityConfigurationCommand,
   serializeAws_json1_1DeleteSecurityConfigurationCommand,

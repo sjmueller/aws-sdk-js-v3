@@ -1,6 +1,6 @@
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient.ts";
-import { BulkPublishRequest, BulkPublishResponse } from "../models/index.ts";
+import { BulkPublishRequest, BulkPublishResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1BulkPublishCommand,
   serializeAws_restJson1BulkPublishCommand,

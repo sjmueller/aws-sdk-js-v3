@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { DeleteMultiplexProgramRequest, DeleteMultiplexProgramResponse } from "../models/index.ts";
+import { DeleteMultiplexProgramRequest, DeleteMultiplexProgramResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DeleteMultiplexProgramCommand,
   serializeAws_restJson1DeleteMultiplexProgramCommand,

@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { CreateContactMethodRequest, CreateContactMethodResult } from "../models/index.ts";
+import { CreateContactMethodRequest, CreateContactMethodResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateContactMethodCommand,
   serializeAws_json1_1CreateContactMethodCommand,

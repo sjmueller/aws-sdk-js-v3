@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { GetPushTemplateRequest, GetPushTemplateResponse } from "../models/index.ts";
+import { GetPushTemplateRequest, GetPushTemplateResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1GetPushTemplateCommand,
   serializeAws_restJson1GetPushTemplateCommand,

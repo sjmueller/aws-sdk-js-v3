@@ -1,6 +1,6 @@
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient.ts";
-import { DeleteSourceCredentialsInput, DeleteSourceCredentialsOutput } from "../models/index.ts";
+import { DeleteSourceCredentialsInput, DeleteSourceCredentialsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteSourceCredentialsCommand,
   serializeAws_json1_1DeleteSourceCredentialsCommand,

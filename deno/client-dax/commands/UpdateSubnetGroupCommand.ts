@@ -1,6 +1,6 @@
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient.ts";
-import { UpdateSubnetGroupRequest, UpdateSubnetGroupResponse } from "../models/index.ts";
+import { UpdateSubnetGroupRequest, UpdateSubnetGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateSubnetGroupCommand,
   serializeAws_json1_1UpdateSubnetGroupCommand,

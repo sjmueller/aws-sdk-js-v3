@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { UpdateChapCredentialsInput, UpdateChapCredentialsOutput } from "../models/index.ts";
+import { UpdateChapCredentialsInput, UpdateChapCredentialsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateChapCredentialsCommand,
   serializeAws_json1_1UpdateChapCredentialsCommand,

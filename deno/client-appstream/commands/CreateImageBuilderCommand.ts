@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { CreateImageBuilderRequest, CreateImageBuilderResult } from "../models/index.ts";
+import { CreateImageBuilderRequest, CreateImageBuilderResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateImageBuilderCommand,
   serializeAws_json1_1CreateImageBuilderCommand,

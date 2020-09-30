@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient.ts";
-import { DeleteNodeInput, DeleteNodeOutput } from "../models/index.ts";
+import { DeleteNodeInput, DeleteNodeOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteNodeCommand,
   serializeAws_restJson1DeleteNodeCommand,

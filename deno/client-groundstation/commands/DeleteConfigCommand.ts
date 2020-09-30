@@ -1,6 +1,6 @@
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient.ts";
-import { ConfigIdResponse, DeleteConfigRequest } from "../models/index.ts";
+import { ConfigIdResponse, DeleteConfigRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteConfigCommand,
   serializeAws_restJson1DeleteConfigCommand,

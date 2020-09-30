@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { ListRateBasedRulesRequest, ListRateBasedRulesResponse } from "../models/index.ts";
+import { ListRateBasedRulesRequest, ListRateBasedRulesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListRateBasedRulesCommand,
   serializeAws_json1_1ListRateBasedRulesCommand,

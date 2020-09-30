@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { AdminUpdateDeviceStatusRequest, AdminUpdateDeviceStatusResponse } from "../models/index.ts";
+import { AdminUpdateDeviceStatusRequest, AdminUpdateDeviceStatusResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AdminUpdateDeviceStatusCommand,
   serializeAws_json1_1AdminUpdateDeviceStatusCommand,

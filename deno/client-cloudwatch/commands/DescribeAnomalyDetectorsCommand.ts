@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { DescribeAnomalyDetectorsInput, DescribeAnomalyDetectorsOutput } from "../models/index.ts";
+import { DescribeAnomalyDetectorsInput, DescribeAnomalyDetectorsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeAnomalyDetectorsCommand,
   serializeAws_queryDescribeAnomalyDetectorsCommand,

@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { CreateBranchInput } from "../models/index.ts";
+import { CreateBranchInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateBranchCommand,
   serializeAws_json1_1CreateBranchCommand,

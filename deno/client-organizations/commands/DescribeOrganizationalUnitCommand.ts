@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { DescribeOrganizationalUnitRequest, DescribeOrganizationalUnitResponse } from "../models/index.ts";
+import { DescribeOrganizationalUnitRequest, DescribeOrganizationalUnitResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeOrganizationalUnitCommand,
   serializeAws_json1_1DescribeOrganizationalUnitCommand,

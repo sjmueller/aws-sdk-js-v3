@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { DeleteCrawlerRequest, DeleteCrawlerResponse } from "../models/index.ts";
+import { DeleteCrawlerRequest, DeleteCrawlerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteCrawlerCommand,
   serializeAws_json1_1DeleteCrawlerCommand,

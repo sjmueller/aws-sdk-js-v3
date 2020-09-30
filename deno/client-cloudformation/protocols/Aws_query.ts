@@ -302,7 +302,7 @@ import {
   UpdateTerminationProtectionOutput,
   ValidateTemplateInput,
   ValidateTemplateOutput,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -1263,7 +1263,6 @@ export const deserializeAws_queryContinueUpdateRollbackCommand = async (
   contents = deserializeAws_queryContinueUpdateRollbackOutput(data.ContinueUpdateRollbackResult, context);
   const response: ContinueUpdateRollbackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ContinueUpdateRollbackOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1318,7 +1317,6 @@ export const deserializeAws_queryCreateChangeSetCommand = async (
   contents = deserializeAws_queryCreateChangeSetOutput(data.CreateChangeSetResult, context);
   const response: CreateChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateChangeSetOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1389,7 +1387,6 @@ export const deserializeAws_queryCreateStackCommand = async (
   contents = deserializeAws_queryCreateStackOutput(data.CreateStackResult, context);
   const response: CreateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStackOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1468,7 +1465,6 @@ export const deserializeAws_queryCreateStackInstancesCommand = async (
   contents = deserializeAws_queryCreateStackInstancesOutput(data.CreateStackInstancesResult, context);
   const response: CreateStackInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStackInstancesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1563,7 +1559,6 @@ export const deserializeAws_queryCreateStackSetCommand = async (
   contents = deserializeAws_queryCreateStackSetOutput(data.CreateStackSetResult, context);
   const response: CreateStackSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStackSetOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1634,7 +1629,6 @@ export const deserializeAws_queryDeleteChangeSetCommand = async (
   contents = deserializeAws_queryDeleteChangeSetOutput(data.DeleteChangeSetResult, context);
   const response: DeleteChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteChangeSetOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1740,7 +1734,6 @@ export const deserializeAws_queryDeleteStackInstancesCommand = async (
   contents = deserializeAws_queryDeleteStackInstancesOutput(data.DeleteStackInstancesResult, context);
   const response: DeleteStackInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteStackInstancesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1827,7 +1820,6 @@ export const deserializeAws_queryDeleteStackSetCommand = async (
   contents = deserializeAws_queryDeleteStackSetOutput(data.DeleteStackSetResult, context);
   const response: DeleteStackSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteStackSetOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1890,7 +1882,6 @@ export const deserializeAws_queryDeregisterTypeCommand = async (
   contents = deserializeAws_queryDeregisterTypeOutput(data.DeregisterTypeResult, context);
   const response: DeregisterTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterTypeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1953,7 +1944,6 @@ export const deserializeAws_queryDescribeAccountLimitsCommand = async (
   contents = deserializeAws_queryDescribeAccountLimitsOutput(data.DescribeAccountLimitsResult, context);
   const response: DescribeAccountLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAccountLimitsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2000,7 +1990,6 @@ export const deserializeAws_queryDescribeChangeSetCommand = async (
   contents = deserializeAws_queryDescribeChangeSetOutput(data.DescribeChangeSetResult, context);
   const response: DescribeChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeChangeSetOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2058,7 +2047,6 @@ export const deserializeAws_queryDescribeStackDriftDetectionStatusCommand = asyn
   );
   const response: DescribeStackDriftDetectionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStackDriftDetectionStatusOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2105,7 +2093,6 @@ export const deserializeAws_queryDescribeStackEventsCommand = async (
   contents = deserializeAws_queryDescribeStackEventsOutput(data.DescribeStackEventsResult, context);
   const response: DescribeStackEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStackEventsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2152,7 +2139,6 @@ export const deserializeAws_queryDescribeStackInstanceCommand = async (
   contents = deserializeAws_queryDescribeStackInstanceOutput(data.DescribeStackInstanceResult, context);
   const response: DescribeStackInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStackInstanceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2215,7 +2201,6 @@ export const deserializeAws_queryDescribeStackResourceCommand = async (
   contents = deserializeAws_queryDescribeStackResourceOutput(data.DescribeStackResourceResult, context);
   const response: DescribeStackResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStackResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2262,7 +2247,6 @@ export const deserializeAws_queryDescribeStackResourceDriftsCommand = async (
   contents = deserializeAws_queryDescribeStackResourceDriftsOutput(data.DescribeStackResourceDriftsResult, context);
   const response: DescribeStackResourceDriftsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStackResourceDriftsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2309,7 +2293,6 @@ export const deserializeAws_queryDescribeStackResourcesCommand = async (
   contents = deserializeAws_queryDescribeStackResourcesOutput(data.DescribeStackResourcesResult, context);
   const response: DescribeStackResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStackResourcesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2356,7 +2339,6 @@ export const deserializeAws_queryDescribeStacksCommand = async (
   contents = deserializeAws_queryDescribeStacksOutput(data.DescribeStacksResult, context);
   const response: DescribeStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStacksOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2403,7 +2385,6 @@ export const deserializeAws_queryDescribeStackSetCommand = async (
   contents = deserializeAws_queryDescribeStackSetOutput(data.DescribeStackSetResult, context);
   const response: DescribeStackSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStackSetOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2458,7 +2439,6 @@ export const deserializeAws_queryDescribeStackSetOperationCommand = async (
   contents = deserializeAws_queryDescribeStackSetOperationOutput(data.DescribeStackSetOperationResult, context);
   const response: DescribeStackSetOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStackSetOperationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2521,7 +2501,6 @@ export const deserializeAws_queryDescribeTypeCommand = async (
   contents = deserializeAws_queryDescribeTypeOutput(data.DescribeTypeResult, context);
   const response: DescribeTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTypeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2584,7 +2563,6 @@ export const deserializeAws_queryDescribeTypeRegistrationCommand = async (
   contents = deserializeAws_queryDescribeTypeRegistrationOutput(data.DescribeTypeRegistrationResult, context);
   const response: DescribeTypeRegistrationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTypeRegistrationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2639,7 +2617,6 @@ export const deserializeAws_queryDetectStackDriftCommand = async (
   contents = deserializeAws_queryDetectStackDriftOutput(data.DetectStackDriftResult, context);
   const response: DetectStackDriftCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectStackDriftOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2686,7 +2663,6 @@ export const deserializeAws_queryDetectStackResourceDriftCommand = async (
   contents = deserializeAws_queryDetectStackResourceDriftOutput(data.DetectStackResourceDriftResult, context);
   const response: DetectStackResourceDriftCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectStackResourceDriftOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2733,7 +2709,6 @@ export const deserializeAws_queryDetectStackSetDriftCommand = async (
   contents = deserializeAws_queryDetectStackSetDriftOutput(data.DetectStackSetDriftResult, context);
   const response: DetectStackSetDriftCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetectStackSetDriftOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2804,7 +2779,6 @@ export const deserializeAws_queryEstimateTemplateCostCommand = async (
   contents = deserializeAws_queryEstimateTemplateCostOutput(data.EstimateTemplateCostResult, context);
   const response: EstimateTemplateCostCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EstimateTemplateCostOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2851,7 +2825,6 @@ export const deserializeAws_queryExecuteChangeSetCommand = async (
   contents = deserializeAws_queryExecuteChangeSetOutput(data.ExecuteChangeSetResult, context);
   const response: ExecuteChangeSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExecuteChangeSetOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2930,7 +2903,6 @@ export const deserializeAws_queryGetStackPolicyCommand = async (
   contents = deserializeAws_queryGetStackPolicyOutput(data.GetStackPolicyResult, context);
   const response: GetStackPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetStackPolicyOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2977,7 +2949,6 @@ export const deserializeAws_queryGetTemplateCommand = async (
   contents = deserializeAws_queryGetTemplateOutput(data.GetTemplateResult, context);
   const response: GetTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTemplateOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3032,7 +3003,6 @@ export const deserializeAws_queryGetTemplateSummaryCommand = async (
   contents = deserializeAws_queryGetTemplateSummaryOutput(data.GetTemplateSummaryResult, context);
   const response: GetTemplateSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTemplateSummaryOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3087,7 +3057,6 @@ export const deserializeAws_queryListChangeSetsCommand = async (
   contents = deserializeAws_queryListChangeSetsOutput(data.ListChangeSetsResult, context);
   const response: ListChangeSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListChangeSetsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3134,7 +3103,6 @@ export const deserializeAws_queryListExportsCommand = async (
   contents = deserializeAws_queryListExportsOutput(data.ListExportsResult, context);
   const response: ListExportsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListExportsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3181,7 +3149,6 @@ export const deserializeAws_queryListImportsCommand = async (
   contents = deserializeAws_queryListImportsOutput(data.ListImportsResult, context);
   const response: ListImportsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListImportsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3228,7 +3195,6 @@ export const deserializeAws_queryListStackInstancesCommand = async (
   contents = deserializeAws_queryListStackInstancesOutput(data.ListStackInstancesResult, context);
   const response: ListStackInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStackInstancesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3283,7 +3249,6 @@ export const deserializeAws_queryListStackResourcesCommand = async (
   contents = deserializeAws_queryListStackResourcesOutput(data.ListStackResourcesResult, context);
   const response: ListStackResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStackResourcesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3330,7 +3295,6 @@ export const deserializeAws_queryListStacksCommand = async (
   contents = deserializeAws_queryListStacksOutput(data.ListStacksResult, context);
   const response: ListStacksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStacksOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3377,7 +3341,6 @@ export const deserializeAws_queryListStackSetOperationResultsCommand = async (
   contents = deserializeAws_queryListStackSetOperationResultsOutput(data.ListStackSetOperationResultsResult, context);
   const response: ListStackSetOperationResultsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStackSetOperationResultsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3440,7 +3403,6 @@ export const deserializeAws_queryListStackSetOperationsCommand = async (
   contents = deserializeAws_queryListStackSetOperationsOutput(data.ListStackSetOperationsResult, context);
   const response: ListStackSetOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStackSetOperationsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3495,7 +3457,6 @@ export const deserializeAws_queryListStackSetsCommand = async (
   contents = deserializeAws_queryListStackSetsOutput(data.ListStackSetsResult, context);
   const response: ListStackSetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStackSetsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3542,7 +3503,6 @@ export const deserializeAws_queryListTypeRegistrationsCommand = async (
   contents = deserializeAws_queryListTypeRegistrationsOutput(data.ListTypeRegistrationsResult, context);
   const response: ListTypeRegistrationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTypeRegistrationsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3597,7 +3557,6 @@ export const deserializeAws_queryListTypesCommand = async (
   contents = deserializeAws_queryListTypesOutput(data.ListTypesResult, context);
   const response: ListTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTypesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3652,7 +3611,6 @@ export const deserializeAws_queryListTypeVersionsCommand = async (
   contents = deserializeAws_queryListTypeVersionsOutput(data.ListTypeVersionsResult, context);
   const response: ListTypeVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTypeVersionsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3707,7 +3665,6 @@ export const deserializeAws_queryRecordHandlerProgressCommand = async (
   contents = deserializeAws_queryRecordHandlerProgressOutput(data.RecordHandlerProgressResult, context);
   const response: RecordHandlerProgressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RecordHandlerProgressOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3770,7 +3727,6 @@ export const deserializeAws_queryRegisterTypeCommand = async (
   contents = deserializeAws_queryRegisterTypeOutput(data.RegisterTypeResult, context);
   const response: RegisterTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterTypeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3868,7 +3824,6 @@ export const deserializeAws_querySetTypeDefaultVersionCommand = async (
   contents = deserializeAws_querySetTypeDefaultVersionOutput(data.SetTypeDefaultVersionResult, context);
   const response: SetTypeDefaultVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetTypeDefaultVersionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3974,7 +3929,6 @@ export const deserializeAws_queryStopStackSetOperationCommand = async (
   contents = deserializeAws_queryStopStackSetOperationOutput(data.StopStackSetOperationResult, context);
   const response: StopStackSetOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopStackSetOperationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4045,7 +3999,6 @@ export const deserializeAws_queryUpdateStackCommand = async (
   contents = deserializeAws_queryUpdateStackOutput(data.UpdateStackResult, context);
   const response: UpdateStackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateStackOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4108,7 +4061,6 @@ export const deserializeAws_queryUpdateStackInstancesCommand = async (
   contents = deserializeAws_queryUpdateStackInstancesOutput(data.UpdateStackInstancesResult, context);
   const response: UpdateStackInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateStackInstancesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4203,7 +4155,6 @@ export const deserializeAws_queryUpdateStackSetCommand = async (
   contents = deserializeAws_queryUpdateStackSetOutput(data.UpdateStackSetResult, context);
   const response: UpdateStackSetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateStackSetOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4298,7 +4249,6 @@ export const deserializeAws_queryUpdateTerminationProtectionCommand = async (
   contents = deserializeAws_queryUpdateTerminationProtectionOutput(data.UpdateTerminationProtectionResult, context);
   const response: UpdateTerminationProtectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTerminationProtectionOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4345,7 +4295,6 @@ export const deserializeAws_queryValidateTemplateCommand = async (
   contents = deserializeAws_queryValidateTemplateOutput(data.ValidateTemplateResult, context);
   const response: ValidateTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ValidateTemplateOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6314,7 +6263,6 @@ const serializeAws_queryValidateTemplateInput = (input: ValidateTemplateInput, c
 
 const deserializeAws_queryAccountGateResult = (output: any, context: __SerdeContext): AccountGateResult => {
   let contents: any = {
-    __type: "AccountGateResult",
     StatusReason: undefined,
     Status: undefined,
   };
@@ -6329,7 +6277,6 @@ const deserializeAws_queryAccountGateResult = (output: any, context: __SerdeCont
 
 const deserializeAws_queryAccountLimit = (output: any, context: __SerdeContext): AccountLimit => {
   let contents: any = {
-    __type: "AccountLimit",
     Name: undefined,
     Value: undefined,
   };
@@ -6356,7 +6303,6 @@ const deserializeAws_queryAllowedValues = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryAlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
   let contents: any = {
-    __type: "AlreadyExistsException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6367,7 +6313,6 @@ const deserializeAws_queryAlreadyExistsException = (output: any, context: __Serd
 
 const deserializeAws_queryAutoDeployment = (output: any, context: __SerdeContext): AutoDeployment => {
   let contents: any = {
-    __type: "AutoDeployment",
     RetainStacksOnAccountRemoval: undefined,
     Enabled: undefined,
   };
@@ -6386,7 +6331,6 @@ const deserializeAws_queryCapabilities = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryCFNRegistryException = (output: any, context: __SerdeContext): CFNRegistryException => {
   let contents: any = {
-    __type: "CFNRegistryException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6397,7 +6341,6 @@ const deserializeAws_queryCFNRegistryException = (output: any, context: __SerdeC
 
 const deserializeAws_queryChange = (output: any, context: __SerdeContext): Change => {
   let contents: any = {
-    __type: "Change",
     ResourceChange: undefined,
     Type: undefined,
   };
@@ -6419,7 +6362,6 @@ const deserializeAws_queryChangeSetNotFoundException = (
   context: __SerdeContext
 ): ChangeSetNotFoundException => {
   let contents: any = {
-    __type: "ChangeSetNotFoundException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6434,7 +6376,6 @@ const deserializeAws_queryChangeSetSummaries = (output: any, context: __SerdeCon
 
 const deserializeAws_queryChangeSetSummary = (output: any, context: __SerdeContext): ChangeSetSummary => {
   let contents: any = {
-    __type: "ChangeSetSummary",
     Status: undefined,
     StatusReason: undefined,
     Description: undefined,
@@ -6479,15 +6420,12 @@ const deserializeAws_queryContinueUpdateRollbackOutput = (
   output: any,
   context: __SerdeContext
 ): ContinueUpdateRollbackOutput => {
-  let contents: any = {
-    __type: "ContinueUpdateRollbackOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryCreateChangeSetOutput = (output: any, context: __SerdeContext): CreateChangeSetOutput => {
   let contents: any = {
-    __type: "CreateChangeSetOutput",
     StackId: undefined,
     Id: undefined,
   };
@@ -6505,7 +6443,6 @@ const deserializeAws_queryCreatedButModifiedException = (
   context: __SerdeContext
 ): CreatedButModifiedException => {
   let contents: any = {
-    __type: "CreatedButModifiedException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6519,7 +6456,6 @@ const deserializeAws_queryCreateStackInstancesOutput = (
   context: __SerdeContext
 ): CreateStackInstancesOutput => {
   let contents: any = {
-    __type: "CreateStackInstancesOutput",
     OperationId: undefined,
   };
   if (output["OperationId"] !== undefined) {
@@ -6530,7 +6466,6 @@ const deserializeAws_queryCreateStackInstancesOutput = (
 
 const deserializeAws_queryCreateStackOutput = (output: any, context: __SerdeContext): CreateStackOutput => {
   let contents: any = {
-    __type: "CreateStackOutput",
     StackId: undefined,
   };
   if (output["StackId"] !== undefined) {
@@ -6541,7 +6476,6 @@ const deserializeAws_queryCreateStackOutput = (output: any, context: __SerdeCont
 
 const deserializeAws_queryCreateStackSetOutput = (output: any, context: __SerdeContext): CreateStackSetOutput => {
   let contents: any = {
-    __type: "CreateStackSetOutput",
     StackSetId: undefined,
   };
   if (output["StackSetId"] !== undefined) {
@@ -6551,9 +6485,7 @@ const deserializeAws_queryCreateStackSetOutput = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryDeleteChangeSetOutput = (output: any, context: __SerdeContext): DeleteChangeSetOutput => {
-  let contents: any = {
-    __type: "DeleteChangeSetOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -6562,7 +6494,6 @@ const deserializeAws_queryDeleteStackInstancesOutput = (
   context: __SerdeContext
 ): DeleteStackInstancesOutput => {
   let contents: any = {
-    __type: "DeleteStackInstancesOutput",
     OperationId: undefined,
   };
   if (output["OperationId"] !== undefined) {
@@ -6572,15 +6503,12 @@ const deserializeAws_queryDeleteStackInstancesOutput = (
 };
 
 const deserializeAws_queryDeleteStackSetOutput = (output: any, context: __SerdeContext): DeleteStackSetOutput => {
-  let contents: any = {
-    __type: "DeleteStackSetOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryDeploymentTargets = (output: any, context: __SerdeContext): DeploymentTargets => {
   let contents: any = {
-    __type: "DeploymentTargets",
     Accounts: undefined,
     OrganizationalUnitIds: undefined,
   };
@@ -6603,9 +6531,7 @@ const deserializeAws_queryDeploymentTargets = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_queryDeregisterTypeOutput = (output: any, context: __SerdeContext): DeregisterTypeOutput => {
-  let contents: any = {
-    __type: "DeregisterTypeOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -6614,7 +6540,6 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
   context: __SerdeContext
 ): DescribeAccountLimitsOutput => {
   let contents: any = {
-    __type: "DescribeAccountLimitsOutput",
     NextToken: undefined,
     AccountLimits: undefined,
   };
@@ -6635,7 +6560,6 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
 
 const deserializeAws_queryDescribeChangeSetOutput = (output: any, context: __SerdeContext): DescribeChangeSetOutput => {
   let contents: any = {
-    __type: "DescribeChangeSetOutput",
     Parameters: undefined,
     Changes: undefined,
     Status: undefined,
@@ -6736,7 +6660,6 @@ const deserializeAws_queryDescribeStackDriftDetectionStatusOutput = (
   context: __SerdeContext
 ): DescribeStackDriftDetectionStatusOutput => {
   let contents: any = {
-    __type: "DescribeStackDriftDetectionStatusOutput",
     Timestamp: undefined,
     DetectionStatus: undefined,
     StackId: undefined,
@@ -6774,7 +6697,6 @@ const deserializeAws_queryDescribeStackEventsOutput = (
   context: __SerdeContext
 ): DescribeStackEventsOutput => {
   let contents: any = {
-    __type: "DescribeStackEventsOutput",
     NextToken: undefined,
     StackEvents: undefined,
   };
@@ -6798,7 +6720,6 @@ const deserializeAws_queryDescribeStackInstanceOutput = (
   context: __SerdeContext
 ): DescribeStackInstanceOutput => {
   let contents: any = {
-    __type: "DescribeStackInstanceOutput",
     StackInstance: undefined,
   };
   if (output["StackInstance"] !== undefined) {
@@ -6812,7 +6733,6 @@ const deserializeAws_queryDescribeStackResourceDriftsOutput = (
   context: __SerdeContext
 ): DescribeStackResourceDriftsOutput => {
   let contents: any = {
-    __type: "DescribeStackResourceDriftsOutput",
     StackResourceDrifts: undefined,
     NextToken: undefined,
   };
@@ -6836,7 +6756,6 @@ const deserializeAws_queryDescribeStackResourceOutput = (
   context: __SerdeContext
 ): DescribeStackResourceOutput => {
   let contents: any = {
-    __type: "DescribeStackResourceOutput",
     StackResourceDetail: undefined,
   };
   if (output["StackResourceDetail"] !== undefined) {
@@ -6850,7 +6769,6 @@ const deserializeAws_queryDescribeStackResourcesOutput = (
   context: __SerdeContext
 ): DescribeStackResourcesOutput => {
   let contents: any = {
-    __type: "DescribeStackResourcesOutput",
     StackResources: undefined,
   };
   if (output.StackResources === "") {
@@ -6870,7 +6788,6 @@ const deserializeAws_queryDescribeStackSetOperationOutput = (
   context: __SerdeContext
 ): DescribeStackSetOperationOutput => {
   let contents: any = {
-    __type: "DescribeStackSetOperationOutput",
     StackSetOperation: undefined,
   };
   if (output["StackSetOperation"] !== undefined) {
@@ -6881,7 +6798,6 @@ const deserializeAws_queryDescribeStackSetOperationOutput = (
 
 const deserializeAws_queryDescribeStackSetOutput = (output: any, context: __SerdeContext): DescribeStackSetOutput => {
   let contents: any = {
-    __type: "DescribeStackSetOutput",
     StackSet: undefined,
   };
   if (output["StackSet"] !== undefined) {
@@ -6892,7 +6808,6 @@ const deserializeAws_queryDescribeStackSetOutput = (output: any, context: __Serd
 
 const deserializeAws_queryDescribeStacksOutput = (output: any, context: __SerdeContext): DescribeStacksOutput => {
   let contents: any = {
-    __type: "DescribeStacksOutput",
     NextToken: undefined,
     Stacks: undefined,
   };
@@ -6910,7 +6825,6 @@ const deserializeAws_queryDescribeStacksOutput = (output: any, context: __SerdeC
 
 const deserializeAws_queryDescribeTypeOutput = (output: any, context: __SerdeContext): DescribeTypeOutput => {
   let contents: any = {
-    __type: "DescribeTypeOutput",
     DeprecatedStatus: undefined,
     SourceUrl: undefined,
     Description: undefined,
@@ -6984,7 +6898,6 @@ const deserializeAws_queryDescribeTypeRegistrationOutput = (
   context: __SerdeContext
 ): DescribeTypeRegistrationOutput => {
   let contents: any = {
-    __type: "DescribeTypeRegistrationOutput",
     Description: undefined,
     ProgressStatus: undefined,
     TypeVersionArn: undefined,
@@ -7007,7 +6920,6 @@ const deserializeAws_queryDescribeTypeRegistrationOutput = (
 
 const deserializeAws_queryDetectStackDriftOutput = (output: any, context: __SerdeContext): DetectStackDriftOutput => {
   let contents: any = {
-    __type: "DetectStackDriftOutput",
     StackDriftDetectionId: undefined,
   };
   if (output["StackDriftDetectionId"] !== undefined) {
@@ -7021,7 +6933,6 @@ const deserializeAws_queryDetectStackResourceDriftOutput = (
   context: __SerdeContext
 ): DetectStackResourceDriftOutput => {
   let contents: any = {
-    __type: "DetectStackResourceDriftOutput",
     StackResourceDrift: undefined,
   };
   if (output["StackResourceDrift"] !== undefined) {
@@ -7035,7 +6946,6 @@ const deserializeAws_queryDetectStackSetDriftOutput = (
   context: __SerdeContext
 ): DetectStackSetDriftOutput => {
   let contents: any = {
-    __type: "DetectStackSetDriftOutput",
     OperationId: undefined,
   };
   if (output["OperationId"] !== undefined) {
@@ -7049,7 +6959,6 @@ const deserializeAws_queryEstimateTemplateCostOutput = (
   context: __SerdeContext
 ): EstimateTemplateCostOutput => {
   let contents: any = {
-    __type: "EstimateTemplateCostOutput",
     Url: undefined,
   };
   if (output["Url"] !== undefined) {
@@ -7059,15 +6968,12 @@ const deserializeAws_queryEstimateTemplateCostOutput = (
 };
 
 const deserializeAws_queryExecuteChangeSetOutput = (output: any, context: __SerdeContext): ExecuteChangeSetOutput => {
-  let contents: any = {
-    __type: "ExecuteChangeSetOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryExport = (output: any, context: __SerdeContext): Export => {
   let contents: any = {
-    __type: "Export",
     Name: undefined,
     Value: undefined,
     ExportingStackId: undefined,
@@ -7090,7 +6996,6 @@ const deserializeAws_queryExports = (output: any, context: __SerdeContext): Expo
 
 const deserializeAws_queryGetStackPolicyOutput = (output: any, context: __SerdeContext): GetStackPolicyOutput => {
   let contents: any = {
-    __type: "GetStackPolicyOutput",
     StackPolicyBody: undefined,
   };
   if (output["StackPolicyBody"] !== undefined) {
@@ -7101,7 +7006,6 @@ const deserializeAws_queryGetStackPolicyOutput = (output: any, context: __SerdeC
 
 const deserializeAws_queryGetTemplateOutput = (output: any, context: __SerdeContext): GetTemplateOutput => {
   let contents: any = {
-    __type: "GetTemplateOutput",
     TemplateBody: undefined,
     StagesAvailable: undefined,
   };
@@ -7125,7 +7029,6 @@ const deserializeAws_queryGetTemplateSummaryOutput = (
   context: __SerdeContext
 ): GetTemplateSummaryOutput => {
   let contents: any = {
-    __type: "GetTemplateSummaryOutput",
     ResourceIdentifierSummaries: undefined,
     Version: undefined,
     Metadata: undefined,
@@ -7208,7 +7111,6 @@ const deserializeAws_queryInsufficientCapabilitiesException = (
   context: __SerdeContext
 ): InsufficientCapabilitiesException => {
   let contents: any = {
-    __type: "InsufficientCapabilitiesException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7222,7 +7124,6 @@ const deserializeAws_queryInvalidChangeSetStatusException = (
   context: __SerdeContext
 ): InvalidChangeSetStatusException => {
   let contents: any = {
-    __type: "InvalidChangeSetStatusException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7236,7 +7137,6 @@ const deserializeAws_queryInvalidOperationException = (
   context: __SerdeContext
 ): InvalidOperationException => {
   let contents: any = {
-    __type: "InvalidOperationException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7250,7 +7150,6 @@ const deserializeAws_queryInvalidStateTransitionException = (
   context: __SerdeContext
 ): InvalidStateTransitionException => {
   let contents: any = {
-    __type: "InvalidStateTransitionException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7261,7 +7160,6 @@ const deserializeAws_queryInvalidStateTransitionException = (
 
 const deserializeAws_queryLimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   let contents: any = {
-    __type: "LimitExceededException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7272,7 +7170,6 @@ const deserializeAws_queryLimitExceededException = (output: any, context: __Serd
 
 const deserializeAws_queryListChangeSetsOutput = (output: any, context: __SerdeContext): ListChangeSetsOutput => {
   let contents: any = {
-    __type: "ListChangeSetsOutput",
     NextToken: undefined,
     Summaries: undefined,
   };
@@ -7293,7 +7190,6 @@ const deserializeAws_queryListChangeSetsOutput = (output: any, context: __SerdeC
 
 const deserializeAws_queryListExportsOutput = (output: any, context: __SerdeContext): ListExportsOutput => {
   let contents: any = {
-    __type: "ListExportsOutput",
     Exports: undefined,
     NextToken: undefined,
   };
@@ -7311,7 +7207,6 @@ const deserializeAws_queryListExportsOutput = (output: any, context: __SerdeCont
 
 const deserializeAws_queryListImportsOutput = (output: any, context: __SerdeContext): ListImportsOutput => {
   let contents: any = {
-    __type: "ListImportsOutput",
     NextToken: undefined,
     Imports: undefined,
   };
@@ -7332,7 +7227,6 @@ const deserializeAws_queryListStackInstancesOutput = (
   context: __SerdeContext
 ): ListStackInstancesOutput => {
   let contents: any = {
-    __type: "ListStackInstancesOutput",
     NextToken: undefined,
     Summaries: undefined,
   };
@@ -7356,7 +7250,6 @@ const deserializeAws_queryListStackResourcesOutput = (
   context: __SerdeContext
 ): ListStackResourcesOutput => {
   let contents: any = {
-    __type: "ListStackResourcesOutput",
     NextToken: undefined,
     StackResourceSummaries: undefined,
   };
@@ -7380,7 +7273,6 @@ const deserializeAws_queryListStackSetOperationResultsOutput = (
   context: __SerdeContext
 ): ListStackSetOperationResultsOutput => {
   let contents: any = {
-    __type: "ListStackSetOperationResultsOutput",
     Summaries: undefined,
     NextToken: undefined,
   };
@@ -7404,7 +7296,6 @@ const deserializeAws_queryListStackSetOperationsOutput = (
   context: __SerdeContext
 ): ListStackSetOperationsOutput => {
   let contents: any = {
-    __type: "ListStackSetOperationsOutput",
     NextToken: undefined,
     Summaries: undefined,
   };
@@ -7425,7 +7316,6 @@ const deserializeAws_queryListStackSetOperationsOutput = (
 
 const deserializeAws_queryListStackSetsOutput = (output: any, context: __SerdeContext): ListStackSetsOutput => {
   let contents: any = {
-    __type: "ListStackSetsOutput",
     NextToken: undefined,
     Summaries: undefined,
   };
@@ -7446,7 +7336,6 @@ const deserializeAws_queryListStackSetsOutput = (output: any, context: __SerdeCo
 
 const deserializeAws_queryListStacksOutput = (output: any, context: __SerdeContext): ListStacksOutput => {
   let contents: any = {
-    __type: "ListStacksOutput",
     StackSummaries: undefined,
     NextToken: undefined,
   };
@@ -7470,7 +7359,6 @@ const deserializeAws_queryListTypeRegistrationsOutput = (
   context: __SerdeContext
 ): ListTypeRegistrationsOutput => {
   let contents: any = {
-    __type: "ListTypeRegistrationsOutput",
     RegistrationTokenList: undefined,
     NextToken: undefined,
   };
@@ -7491,7 +7379,6 @@ const deserializeAws_queryListTypeRegistrationsOutput = (
 
 const deserializeAws_queryListTypesOutput = (output: any, context: __SerdeContext): ListTypesOutput => {
   let contents: any = {
-    __type: "ListTypesOutput",
     TypeSummaries: undefined,
     NextToken: undefined,
   };
@@ -7512,7 +7399,6 @@ const deserializeAws_queryListTypesOutput = (output: any, context: __SerdeContex
 
 const deserializeAws_queryListTypeVersionsOutput = (output: any, context: __SerdeContext): ListTypeVersionsOutput => {
   let contents: any = {
-    __type: "ListTypeVersionsOutput",
     NextToken: undefined,
     TypeVersionSummaries: undefined,
   };
@@ -7533,7 +7419,6 @@ const deserializeAws_queryListTypeVersionsOutput = (output: any, context: __Serd
 
 const deserializeAws_queryLoggingConfig = (output: any, context: __SerdeContext): LoggingConfig => {
   let contents: any = {
-    __type: "LoggingConfig",
     LogRoleArn: undefined,
     LogGroupName: undefined,
   };
@@ -7555,7 +7440,6 @@ const deserializeAws_queryNameAlreadyExistsException = (
   context: __SerdeContext
 ): NameAlreadyExistsException => {
   let contents: any = {
-    __type: "NameAlreadyExistsException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7573,7 +7457,6 @@ const deserializeAws_queryOperationIdAlreadyExistsException = (
   context: __SerdeContext
 ): OperationIdAlreadyExistsException => {
   let contents: any = {
-    __type: "OperationIdAlreadyExistsException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7587,7 +7470,6 @@ const deserializeAws_queryOperationInProgressException = (
   context: __SerdeContext
 ): OperationInProgressException => {
   let contents: any = {
-    __type: "OperationInProgressException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7601,7 +7483,6 @@ const deserializeAws_queryOperationNotFoundException = (
   context: __SerdeContext
 ): OperationNotFoundException => {
   let contents: any = {
-    __type: "OperationNotFoundException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7615,7 +7496,6 @@ const deserializeAws_queryOperationStatusCheckFailedException = (
   context: __SerdeContext
 ): OperationStatusCheckFailedException => {
   let contents: any = {
-    __type: "OperationStatusCheckFailedException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7630,7 +7510,6 @@ const deserializeAws_queryOrganizationalUnitIdList = (output: any, context: __Se
 
 const deserializeAws_queryOutput = (output: any, context: __SerdeContext): Output => {
   let contents: any = {
-    __type: "Output",
     OutputValue: undefined,
     OutputKey: undefined,
     ExportName: undefined,
@@ -7657,7 +7536,6 @@ const deserializeAws_queryOutputs = (output: any, context: __SerdeContext): Outp
 
 const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Parameter => {
   let contents: any = {
-    __type: "Parameter",
     ParameterKey: undefined,
     ResolvedValue: undefined,
     ParameterValue: undefined,
@@ -7680,7 +7558,6 @@ const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Pa
 
 const deserializeAws_queryParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
   let contents: any = {
-    __type: "ParameterConstraints",
     AllowedValues: undefined,
   };
   if (output.AllowedValues === "") {
@@ -7697,7 +7574,6 @@ const deserializeAws_queryParameterConstraints = (output: any, context: __SerdeC
 
 const deserializeAws_queryParameterDeclaration = (output: any, context: __SerdeContext): ParameterDeclaration => {
   let contents: any = {
-    __type: "ParameterDeclaration",
     ParameterConstraints: undefined,
     Description: undefined,
     ParameterType: undefined,
@@ -7746,7 +7622,6 @@ const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (
   context: __SerdeContext
 ): PhysicalResourceIdContextKeyValuePair => {
   let contents: any = {
-    __type: "PhysicalResourceIdContextKeyValuePair",
     Value: undefined,
     Key: undefined,
   };
@@ -7761,7 +7636,6 @@ const deserializeAws_queryPhysicalResourceIdContextKeyValuePair = (
 
 const deserializeAws_queryPropertyDifference = (output: any, context: __SerdeContext): PropertyDifference => {
   let contents: any = {
-    __type: "PropertyDifference",
     PropertyPath: undefined,
     ExpectedValue: undefined,
     ActualValue: undefined,
@@ -7790,9 +7664,7 @@ const deserializeAws_queryRecordHandlerProgressOutput = (
   output: any,
   context: __SerdeContext
 ): RecordHandlerProgressOutput => {
-  let contents: any = {
-    __type: "RecordHandlerProgressOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -7802,7 +7674,6 @@ const deserializeAws_queryRegionList = (output: any, context: __SerdeContext): s
 
 const deserializeAws_queryRegisterTypeOutput = (output: any, context: __SerdeContext): RegisterTypeOutput => {
   let contents: any = {
-    __type: "RegisterTypeOutput",
     RegistrationToken: undefined,
   };
   if (output["RegistrationToken"] !== undefined) {
@@ -7817,7 +7688,6 @@ const deserializeAws_queryRegistrationTokenList = (output: any, context: __Serde
 
 const deserializeAws_queryResourceChange = (output: any, context: __SerdeContext): ResourceChange => {
   let contents: any = {
-    __type: "ResourceChange",
     PhysicalResourceId: undefined,
     Replacement: undefined,
     Action: undefined,
@@ -7861,7 +7731,6 @@ const deserializeAws_queryResourceChange = (output: any, context: __SerdeContext
 
 const deserializeAws_queryResourceChangeDetail = (output: any, context: __SerdeContext): ResourceChangeDetail => {
   let contents: any = {
-    __type: "ResourceChangeDetail",
     ChangeSource: undefined,
     CausingEntity: undefined,
     Target: undefined,
@@ -7902,7 +7771,6 @@ const deserializeAws_queryResourceIdentifierSummary = (
   context: __SerdeContext
 ): ResourceIdentifierSummary => {
   let contents: any = {
-    __type: "ResourceIdentifierSummary",
     LogicalResourceIds: undefined,
     ResourceIdentifiers: undefined,
     ResourceType: undefined,
@@ -7936,7 +7804,6 @@ const deserializeAws_queryResourceTargetDefinition = (
   context: __SerdeContext
 ): ResourceTargetDefinition => {
   let contents: any = {
-    __type: "ResourceTargetDefinition",
     Name: undefined,
     RequiresRecreation: undefined,
     Attribute: undefined,
@@ -7959,7 +7826,6 @@ const deserializeAws_queryResourceTypes = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryRollbackConfiguration = (output: any, context: __SerdeContext): RollbackConfiguration => {
   let contents: any = {
-    __type: "RollbackConfiguration",
     RollbackTriggers: undefined,
     MonitoringTimeInMinutes: undefined,
   };
@@ -7980,7 +7846,6 @@ const deserializeAws_queryRollbackConfiguration = (output: any, context: __Serde
 
 const deserializeAws_queryRollbackTrigger = (output: any, context: __SerdeContext): RollbackTrigger => {
   let contents: any = {
-    __type: "RollbackTrigger",
     Type: undefined,
     Arn: undefined,
   };
@@ -8005,15 +7870,12 @@ const deserializeAws_querySetTypeDefaultVersionOutput = (
   output: any,
   context: __SerdeContext
 ): SetTypeDefaultVersionOutput => {
-  let contents: any = {
-    __type: "SetTypeDefaultVersionOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryStack = (output: any, context: __SerdeContext): Stack => {
   let contents: any = {
-    __type: "Stack",
     Outputs: undefined,
     Parameters: undefined,
     RollbackConfiguration: undefined,
@@ -8135,7 +7997,6 @@ const deserializeAws_queryStack = (output: any, context: __SerdeContext): Stack 
 
 const deserializeAws_queryStackDriftInformation = (output: any, context: __SerdeContext): StackDriftInformation => {
   let contents: any = {
-    __type: "StackDriftInformation",
     LastCheckTimestamp: undefined,
     StackDriftStatus: undefined,
   };
@@ -8153,7 +8014,6 @@ const deserializeAws_queryStackDriftInformationSummary = (
   context: __SerdeContext
 ): StackDriftInformationSummary => {
   let contents: any = {
-    __type: "StackDriftInformationSummary",
     StackDriftStatus: undefined,
     LastCheckTimestamp: undefined,
   };
@@ -8168,7 +8028,6 @@ const deserializeAws_queryStackDriftInformationSummary = (
 
 const deserializeAws_queryStackEvent = (output: any, context: __SerdeContext): StackEvent => {
   let contents: any = {
-    __type: "StackEvent",
     ClientRequestToken: undefined,
     ResourceStatusReason: undefined,
     LogicalResourceId: undefined,
@@ -8223,7 +8082,6 @@ const deserializeAws_queryStackEvents = (output: any, context: __SerdeContext): 
 
 const deserializeAws_queryStackInstance = (output: any, context: __SerdeContext): StackInstance => {
   let contents: any = {
-    __type: "StackInstance",
     Region: undefined,
     DriftStatus: undefined,
     ParameterOverrides: undefined,
@@ -8286,7 +8144,6 @@ const deserializeAws_queryStackInstanceComprehensiveStatus = (
   context: __SerdeContext
 ): StackInstanceComprehensiveStatus => {
   let contents: any = {
-    __type: "StackInstanceComprehensiveStatus",
     DetailedStatus: undefined,
   };
   if (output["DetailedStatus"] !== undefined) {
@@ -8300,7 +8157,6 @@ const deserializeAws_queryStackInstanceNotFoundException = (
   context: __SerdeContext
 ): StackInstanceNotFoundException => {
   let contents: any = {
-    __type: "StackInstanceNotFoundException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -8315,7 +8171,6 @@ const deserializeAws_queryStackInstanceSummaries = (output: any, context: __Serd
 
 const deserializeAws_queryStackInstanceSummary = (output: any, context: __SerdeContext): StackInstanceSummary => {
   let contents: any = {
-    __type: "StackInstanceSummary",
     Status: undefined,
     StatusReason: undefined,
     LastDriftCheckTimestamp: undefined,
@@ -8365,7 +8220,6 @@ const deserializeAws_queryStackInstanceSummary = (output: any, context: __SerdeC
 
 const deserializeAws_queryStackResource = (output: any, context: __SerdeContext): StackResource => {
   let contents: any = {
-    __type: "StackResource",
     LogicalResourceId: undefined,
     ResourceStatusReason: undefined,
     Description: undefined,
@@ -8412,7 +8266,6 @@ const deserializeAws_queryStackResource = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryStackResourceDetail = (output: any, context: __SerdeContext): StackResourceDetail => {
   let contents: any = {
-    __type: "StackResourceDetail",
     DriftInformation: undefined,
     StackId: undefined,
     StackName: undefined,
@@ -8463,7 +8316,6 @@ const deserializeAws_queryStackResourceDetail = (output: any, context: __SerdeCo
 
 const deserializeAws_queryStackResourceDrift = (output: any, context: __SerdeContext): StackResourceDrift => {
   let contents: any = {
-    __type: "StackResourceDrift",
     LogicalResourceId: undefined,
     PhysicalResourceIdContext: undefined,
     ActualProperties: undefined,
@@ -8528,7 +8380,6 @@ const deserializeAws_queryStackResourceDriftInformation = (
   context: __SerdeContext
 ): StackResourceDriftInformation => {
   let contents: any = {
-    __type: "StackResourceDriftInformation",
     StackResourceDriftStatus: undefined,
     LastCheckTimestamp: undefined,
   };
@@ -8546,7 +8397,6 @@ const deserializeAws_queryStackResourceDriftInformationSummary = (
   context: __SerdeContext
 ): StackResourceDriftInformationSummary => {
   let contents: any = {
-    __type: "StackResourceDriftInformationSummary",
     LastCheckTimestamp: undefined,
     StackResourceDriftStatus: undefined,
   };
@@ -8573,7 +8423,6 @@ const deserializeAws_queryStackResourceSummaries = (output: any, context: __Serd
 
 const deserializeAws_queryStackResourceSummary = (output: any, context: __SerdeContext): StackResourceSummary => {
   let contents: any = {
-    __type: "StackResourceSummary",
     ResourceStatusReason: undefined,
     LogicalResourceId: undefined,
     PhysicalResourceId: undefined,
@@ -8615,7 +8464,6 @@ const deserializeAws_queryStacks = (output: any, context: __SerdeContext): Stack
 
 const deserializeAws_queryStackSet = (output: any, context: __SerdeContext): StackSet => {
   let contents: any = {
-    __type: "StackSet",
     Status: undefined,
     StackSetName: undefined,
     ExecutionRoleName: undefined,
@@ -8709,7 +8557,6 @@ const deserializeAws_queryStackSetDriftDetectionDetails = (
   context: __SerdeContext
 ): StackSetDriftDetectionDetails => {
   let contents: any = {
-    __type: "StackSetDriftDetectionDetails",
     TotalStackInstancesCount: undefined,
     DriftedStackInstancesCount: undefined,
     InSyncStackInstancesCount: undefined,
@@ -8751,7 +8598,6 @@ const deserializeAws_queryStackSetNotEmptyException = (
   context: __SerdeContext
 ): StackSetNotEmptyException => {
   let contents: any = {
-    __type: "StackSetNotEmptyException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -8765,7 +8611,6 @@ const deserializeAws_queryStackSetNotFoundException = (
   context: __SerdeContext
 ): StackSetNotFoundException => {
   let contents: any = {
-    __type: "StackSetNotFoundException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -8776,7 +8621,6 @@ const deserializeAws_queryStackSetNotFoundException = (
 
 const deserializeAws_queryStackSetOperation = (output: any, context: __SerdeContext): StackSetOperation => {
   let contents: any = {
-    __type: "StackSetOperation",
     StackSetId: undefined,
     Status: undefined,
     RetainStacks: undefined,
@@ -8840,7 +8684,6 @@ const deserializeAws_queryStackSetOperationPreferences = (
   context: __SerdeContext
 ): StackSetOperationPreferences => {
   let contents: any = {
-    __type: "StackSetOperationPreferences",
     MaxConcurrentCount: undefined,
     RegionOrder: undefined,
     FailureToleranceCount: undefined,
@@ -8883,7 +8726,6 @@ const deserializeAws_queryStackSetOperationResultSummary = (
   context: __SerdeContext
 ): StackSetOperationResultSummary => {
   let contents: any = {
-    __type: "StackSetOperationResultSummary",
     AccountGateResult: undefined,
     StatusReason: undefined,
     Region: undefined,
@@ -8924,7 +8766,6 @@ const deserializeAws_queryStackSetOperationSummary = (
   context: __SerdeContext
 ): StackSetOperationSummary => {
   let contents: any = {
-    __type: "StackSetOperationSummary",
     Action: undefined,
     Status: undefined,
     OperationId: undefined,
@@ -8955,7 +8796,6 @@ const deserializeAws_queryStackSetSummaries = (output: any, context: __SerdeCont
 
 const deserializeAws_queryStackSetSummary = (output: any, context: __SerdeContext): StackSetSummary => {
   let contents: any = {
-    __type: "StackSetSummary",
     Status: undefined,
     AutoDeployment: undefined,
     Description: undefined,
@@ -8998,7 +8838,6 @@ const deserializeAws_queryStackSummaries = (output: any, context: __SerdeContext
 
 const deserializeAws_queryStackSummary = (output: any, context: __SerdeContext): StackSummary => {
   let contents: any = {
-    __type: "StackSummary",
     StackStatusReason: undefined,
     StackName: undefined,
     StackId: undefined,
@@ -9053,7 +8892,6 @@ const deserializeAws_queryStageList = (output: any, context: __SerdeContext): (T
 
 const deserializeAws_queryStaleRequestException = (output: any, context: __SerdeContext): StaleRequestException => {
   let contents: any = {
-    __type: "StaleRequestException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -9066,15 +8904,12 @@ const deserializeAws_queryStopStackSetOperationOutput = (
   output: any,
   context: __SerdeContext
 ): StopStackSetOperationOutput => {
-  let contents: any = {
-    __type: "StopStackSetOperationOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
-    __type: "Tag",
     Value: undefined,
     Key: undefined,
   };
@@ -9093,7 +8928,6 @@ const deserializeAws_queryTags = (output: any, context: __SerdeContext): Tag[] =
 
 const deserializeAws_queryTemplateParameter = (output: any, context: __SerdeContext): TemplateParameter => {
   let contents: any = {
-    __type: "TemplateParameter",
     Description: undefined,
     ParameterKey: undefined,
     NoEcho: undefined,
@@ -9123,7 +8957,6 @@ const deserializeAws_queryTokenAlreadyExistsException = (
   context: __SerdeContext
 ): TokenAlreadyExistsException => {
   let contents: any = {
-    __type: "TokenAlreadyExistsException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -9138,7 +8971,6 @@ const deserializeAws_queryTransformsList = (output: any, context: __SerdeContext
 
 const deserializeAws_queryTypeNotFoundException = (output: any, context: __SerdeContext): TypeNotFoundException => {
   let contents: any = {
-    __type: "TypeNotFoundException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -9153,7 +8985,6 @@ const deserializeAws_queryTypeSummaries = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryTypeSummary = (output: any, context: __SerdeContext): TypeSummary => {
   let contents: any = {
-    __type: "TypeSummary",
     Type: undefined,
     TypeName: undefined,
     Description: undefined,
@@ -9188,7 +9019,6 @@ const deserializeAws_queryTypeVersionSummaries = (output: any, context: __SerdeC
 
 const deserializeAws_queryTypeVersionSummary = (output: any, context: __SerdeContext): TypeVersionSummary => {
   let contents: any = {
-    __type: "TypeVersionSummary",
     Arn: undefined,
     TypeName: undefined,
     Description: undefined,
@@ -9226,7 +9056,6 @@ const deserializeAws_queryUpdateStackInstancesOutput = (
   context: __SerdeContext
 ): UpdateStackInstancesOutput => {
   let contents: any = {
-    __type: "UpdateStackInstancesOutput",
     OperationId: undefined,
   };
   if (output["OperationId"] !== undefined) {
@@ -9237,7 +9066,6 @@ const deserializeAws_queryUpdateStackInstancesOutput = (
 
 const deserializeAws_queryUpdateStackOutput = (output: any, context: __SerdeContext): UpdateStackOutput => {
   let contents: any = {
-    __type: "UpdateStackOutput",
     StackId: undefined,
   };
   if (output["StackId"] !== undefined) {
@@ -9248,7 +9076,6 @@ const deserializeAws_queryUpdateStackOutput = (output: any, context: __SerdeCont
 
 const deserializeAws_queryUpdateStackSetOutput = (output: any, context: __SerdeContext): UpdateStackSetOutput => {
   let contents: any = {
-    __type: "UpdateStackSetOutput",
     OperationId: undefined,
   };
   if (output["OperationId"] !== undefined) {
@@ -9262,7 +9089,6 @@ const deserializeAws_queryUpdateTerminationProtectionOutput = (
   context: __SerdeContext
 ): UpdateTerminationProtectionOutput => {
   let contents: any = {
-    __type: "UpdateTerminationProtectionOutput",
     StackId: undefined,
   };
   if (output["StackId"] !== undefined) {
@@ -9273,7 +9099,6 @@ const deserializeAws_queryUpdateTerminationProtectionOutput = (
 
 const deserializeAws_queryValidateTemplateOutput = (output: any, context: __SerdeContext): ValidateTemplateOutput => {
   let contents: any = {
-    __type: "ValidateTemplateOutput",
     Parameters: undefined,
     CapabilitiesReason: undefined,
     DeclaredTransforms: undefined,

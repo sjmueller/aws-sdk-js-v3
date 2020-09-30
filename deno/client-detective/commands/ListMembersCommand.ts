@@ -1,6 +1,6 @@
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient.ts";
-import { ListMembersRequest, ListMembersResponse } from "../models/index.ts";
+import { ListMembersRequest, ListMembersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListMembersCommand,
   serializeAws_restJson1ListMembersCommand,

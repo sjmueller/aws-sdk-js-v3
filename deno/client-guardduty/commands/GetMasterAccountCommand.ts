@@ -1,6 +1,6 @@
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
-import { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/index.ts";
+import { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetMasterAccountCommand,
   serializeAws_restJson1GetMasterAccountCommand,

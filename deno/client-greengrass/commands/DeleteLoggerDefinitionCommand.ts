@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { DeleteLoggerDefinitionRequest, DeleteLoggerDefinitionResponse } from "../models/index.ts";
+import { DeleteLoggerDefinitionRequest, DeleteLoggerDefinitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteLoggerDefinitionCommand,
   serializeAws_restJson1DeleteLoggerDefinitionCommand,

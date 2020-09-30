@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { AdminUpdateAuthEventFeedbackRequest, AdminUpdateAuthEventFeedbackResponse } from "../models/index.ts";
+import { AdminUpdateAuthEventFeedbackRequest, AdminUpdateAuthEventFeedbackResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommand,
   serializeAws_json1_1AdminUpdateAuthEventFeedbackCommand,

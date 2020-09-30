@@ -1,6 +1,6 @@
 
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient.ts";
-import { CancelDeploymentJobRequest, CancelDeploymentJobResponse } from "../models/index.ts";
+import { CancelDeploymentJobRequest, CancelDeploymentJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CancelDeploymentJobCommand,
   serializeAws_restJson1CancelDeploymentJobCommand,

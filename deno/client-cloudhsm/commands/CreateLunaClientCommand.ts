@@ -1,6 +1,6 @@
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient.ts";
-import { CreateLunaClientRequest, CreateLunaClientResponse } from "../models/index.ts";
+import { CreateLunaClientRequest, CreateLunaClientResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateLunaClientCommand,
   serializeAws_json1_1CreateLunaClientCommand,

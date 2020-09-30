@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import { DeleteLoadBalancerListenerInput, DeleteLoadBalancerListenerOutput } from "../models/index.ts";
+import { DeleteLoadBalancerListenerInput, DeleteLoadBalancerListenerOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteLoadBalancerListenersCommand,
   serializeAws_queryDeleteLoadBalancerListenersCommand,

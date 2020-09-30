@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import { CreateLoadBalancerPolicyInput, CreateLoadBalancerPolicyOutput } from "../models/index.ts";
+import { CreateLoadBalancerPolicyInput, CreateLoadBalancerPolicyOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateLoadBalancerPolicyCommand,
   serializeAws_queryCreateLoadBalancerPolicyCommand,

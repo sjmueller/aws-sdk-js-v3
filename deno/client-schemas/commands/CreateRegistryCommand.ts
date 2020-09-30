@@ -1,6 +1,6 @@
 
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient.ts";
-import { CreateRegistryRequest, CreateRegistryResponse } from "../models/index.ts";
+import { CreateRegistryRequest, CreateRegistryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateRegistryCommand,
   serializeAws_restJson1CreateRegistryCommand,

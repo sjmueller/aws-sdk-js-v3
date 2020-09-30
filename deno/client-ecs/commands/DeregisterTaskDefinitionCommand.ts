@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { DeregisterTaskDefinitionRequest, DeregisterTaskDefinitionResponse } from "../models/index.ts";
+import { DeregisterTaskDefinitionRequest, DeregisterTaskDefinitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeregisterTaskDefinitionCommand,
   serializeAws_json1_1DeregisterTaskDefinitionCommand,

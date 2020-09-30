@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient.ts";
-import { ListJobsByStatusRequest, ListJobsByStatusResponse } from "../models/index.ts";
+import { ListJobsByStatusRequest, ListJobsByStatusResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListJobsByStatusCommand,
   serializeAws_restJson1ListJobsByStatusCommand,

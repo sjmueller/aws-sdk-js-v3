@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { DeleteUserDefinedFunctionRequest, DeleteUserDefinedFunctionResponse } from "../models/index.ts";
+import { DeleteUserDefinedFunctionRequest, DeleteUserDefinedFunctionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteUserDefinedFunctionCommand,
   serializeAws_json1_1DeleteUserDefinedFunctionCommand,

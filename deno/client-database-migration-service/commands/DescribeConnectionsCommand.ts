@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { DescribeConnectionsMessage, DescribeConnectionsResponse } from "../models/index.ts";
+import { DescribeConnectionsMessage, DescribeConnectionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeConnectionsCommand,
   serializeAws_json1_1DescribeConnectionsCommand,

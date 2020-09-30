@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { DescribeAccountSettingsRequest, DescribeAccountSettingsResponse } from "../models/index.ts";
+import { DescribeAccountSettingsRequest, DescribeAccountSettingsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeAccountSettingsCommand,
   serializeAws_restJson1DescribeAccountSettingsCommand,

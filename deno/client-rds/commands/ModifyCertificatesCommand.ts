@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { ModifyCertificatesMessage, ModifyCertificatesResult } from "../models/index.ts";
+import { ModifyCertificatesMessage, ModifyCertificatesResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryModifyCertificatesCommand,
   serializeAws_queryModifyCertificatesCommand,

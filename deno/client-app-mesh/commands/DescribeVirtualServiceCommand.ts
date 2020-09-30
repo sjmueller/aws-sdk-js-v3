@@ -1,6 +1,6 @@
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient.ts";
-import { DescribeVirtualServiceInput, DescribeVirtualServiceOutput } from "../models/index.ts";
+import { DescribeVirtualServiceInput, DescribeVirtualServiceOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeVirtualServiceCommand,
   serializeAws_restJson1DescribeVirtualServiceCommand,

@@ -1,6 +1,6 @@
 
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient.ts";
-import { PutLexiconInput, PutLexiconOutput } from "../models/index.ts";
+import { PutLexiconInput, PutLexiconOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutLexiconCommand,
   serializeAws_restJson1PutLexiconCommand,

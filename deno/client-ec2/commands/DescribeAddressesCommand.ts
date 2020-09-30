@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeAddressesRequest, DescribeAddressesResult } from "../models/index.ts";
+import { DescribeAddressesRequest, DescribeAddressesResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeAddressesCommand,
   serializeAws_ec2DescribeAddressesCommand,

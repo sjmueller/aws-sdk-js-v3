@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { DescribeCommentsRequest, DescribeCommentsResponse } from "../models/index.ts";
+import { DescribeCommentsRequest, DescribeCommentsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeCommentsCommand,
   serializeAws_restJson1DescribeCommentsCommand,

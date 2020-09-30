@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient.ts";
-import { PutBotAliasRequest, PutBotAliasResponse } from "../models/index.ts";
+import { PutBotAliasRequest, PutBotAliasResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutBotAliasCommand,
   serializeAws_restJson1PutBotAliasCommand,

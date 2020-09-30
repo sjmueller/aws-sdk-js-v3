@@ -1,6 +1,6 @@
 
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
-import { DisassociateVPCFromHostedZoneRequest, DisassociateVPCFromHostedZoneResponse } from "../models/index.ts";
+import { DisassociateVPCFromHostedZoneRequest, DisassociateVPCFromHostedZoneResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlDisassociateVPCFromHostedZoneCommand,
   serializeAws_restXmlDisassociateVPCFromHostedZoneCommand,

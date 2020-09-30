@@ -1,6 +1,6 @@
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient.ts";
-import { CancelPipelineReprocessingRequest, CancelPipelineReprocessingResponse } from "../models/index.ts";
+import { CancelPipelineReprocessingRequest, CancelPipelineReprocessingResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CancelPipelineReprocessingCommand,
   serializeAws_restJson1CancelPipelineReprocessingCommand,

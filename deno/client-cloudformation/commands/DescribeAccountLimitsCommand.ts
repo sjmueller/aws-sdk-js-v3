@@ -1,6 +1,6 @@
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
-import { DescribeAccountLimitsInput, DescribeAccountLimitsOutput } from "../models/index.ts";
+import { DescribeAccountLimitsInput, DescribeAccountLimitsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeAccountLimitsCommand,
   serializeAws_queryDescribeAccountLimitsCommand,

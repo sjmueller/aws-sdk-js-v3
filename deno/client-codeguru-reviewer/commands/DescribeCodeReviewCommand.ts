@@ -1,6 +1,6 @@
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient.ts";
-import { DescribeCodeReviewRequest, DescribeCodeReviewResponse } from "../models/index.ts";
+import { DescribeCodeReviewRequest, DescribeCodeReviewResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeCodeReviewCommand,
   serializeAws_restJson1DescribeCodeReviewCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient.ts";
-import { DeleteTagsRequest, DeleteTagsResponse } from "../models/index.ts";
+import { DeleteTagsRequest, DeleteTagsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteTagsCommand,
   serializeAws_json1_1DeleteTagsCommand,

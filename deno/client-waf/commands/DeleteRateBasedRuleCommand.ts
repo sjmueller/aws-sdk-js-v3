@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { DeleteRateBasedRuleRequest, DeleteRateBasedRuleResponse } from "../models/index.ts";
+import { DeleteRateBasedRuleRequest, DeleteRateBasedRuleResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteRateBasedRuleCommand,
   serializeAws_json1_1DeleteRateBasedRuleCommand,

@@ -1,6 +1,6 @@
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient.ts";
-import { ListAvailableZonesRequest, ListAvailableZonesResponse } from "../models/index.ts";
+import { ListAvailableZonesRequest, ListAvailableZonesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListAvailableZonesCommand,
   serializeAws_json1_1ListAvailableZonesCommand,

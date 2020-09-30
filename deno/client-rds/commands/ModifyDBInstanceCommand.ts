@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/index.ts";
+import { ModifyDBInstanceMessage, ModifyDBInstanceResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryModifyDBInstanceCommand,
   serializeAws_queryModifyDBInstanceCommand,

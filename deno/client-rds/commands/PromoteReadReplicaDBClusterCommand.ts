@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { PromoteReadReplicaDBClusterMessage, PromoteReadReplicaDBClusterResult } from "../models/index.ts";
+import { PromoteReadReplicaDBClusterMessage, PromoteReadReplicaDBClusterResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryPromoteReadReplicaDBClusterCommand,
   serializeAws_queryPromoteReadReplicaDBClusterCommand,

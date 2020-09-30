@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { UpdateVolumeRequest } from "../models/index.ts";
+import { UpdateVolumeRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateVolumeCommand,
   serializeAws_json1_1UpdateVolumeCommand,

@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { ListThemesRequest, ListThemesResponse } from "../models/index.ts";
+import { ListThemesRequest, ListThemesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListThemesCommand,
   serializeAws_restJson1ListThemesCommand,

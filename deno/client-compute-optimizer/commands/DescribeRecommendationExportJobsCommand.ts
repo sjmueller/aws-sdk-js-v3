@@ -1,6 +1,6 @@
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient.ts";
-import { DescribeRecommendationExportJobsRequest, DescribeRecommendationExportJobsResponse } from "../models/index.ts";
+import { DescribeRecommendationExportJobsRequest, DescribeRecommendationExportJobsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0DescribeRecommendationExportJobsCommand,
   serializeAws_json1_0DescribeRecommendationExportJobsCommand,

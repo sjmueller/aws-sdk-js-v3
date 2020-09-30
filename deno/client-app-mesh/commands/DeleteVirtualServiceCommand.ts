@@ -1,6 +1,6 @@
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient.ts";
-import { DeleteVirtualServiceInput, DeleteVirtualServiceOutput } from "../models/index.ts";
+import { DeleteVirtualServiceInput, DeleteVirtualServiceOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteVirtualServiceCommand,
   serializeAws_restJson1DeleteVirtualServiceCommand,

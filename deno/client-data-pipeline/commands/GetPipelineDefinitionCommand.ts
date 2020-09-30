@@ -1,6 +1,6 @@
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient.ts";
-import { GetPipelineDefinitionInput, GetPipelineDefinitionOutput } from "../models/index.ts";
+import { GetPipelineDefinitionInput, GetPipelineDefinitionOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetPipelineDefinitionCommand,
   serializeAws_json1_1GetPipelineDefinitionCommand,

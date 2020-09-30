@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { DescribeAccountRequest, DescribeAccountResponse } from "../models/index.ts";
+import { DescribeAccountRequest, DescribeAccountResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeAccountCommand,
   serializeAws_json1_1DescribeAccountCommand,

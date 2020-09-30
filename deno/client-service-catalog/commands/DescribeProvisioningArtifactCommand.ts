@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { DescribeProvisioningArtifactInput, DescribeProvisioningArtifactOutput } from "../models/index.ts";
+import { DescribeProvisioningArtifactInput, DescribeProvisioningArtifactOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeProvisioningArtifactCommand,
   serializeAws_json1_1DescribeProvisioningArtifactCommand,

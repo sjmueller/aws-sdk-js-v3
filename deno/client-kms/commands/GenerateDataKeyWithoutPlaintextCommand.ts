@@ -1,6 +1,6 @@
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
-import { GenerateDataKeyWithoutPlaintextRequest, GenerateDataKeyWithoutPlaintextResponse } from "../models/index.ts";
+import { GenerateDataKeyWithoutPlaintextRequest, GenerateDataKeyWithoutPlaintextResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand,
   serializeAws_json1_1GenerateDataKeyWithoutPlaintextCommand,

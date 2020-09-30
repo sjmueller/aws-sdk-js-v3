@@ -1,6 +1,6 @@
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
-import { DescribeRecoveryPointInput, DescribeRecoveryPointOutput } from "../models/index.ts";
+import { DescribeRecoveryPointInput, DescribeRecoveryPointOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeRecoveryPointCommand,
   serializeAws_restJson1DescribeRecoveryPointCommand,

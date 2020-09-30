@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { MonitorInstancesRequest, MonitorInstancesResult } from "../models/index.ts";
+import { MonitorInstancesRequest, MonitorInstancesResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2MonitorInstancesCommand,
   serializeAws_ec2MonitorInstancesCommand,

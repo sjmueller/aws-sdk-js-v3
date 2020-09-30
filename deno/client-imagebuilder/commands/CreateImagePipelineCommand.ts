@@ -1,6 +1,6 @@
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
-import { CreateImagePipelineRequest, CreateImagePipelineResponse } from "../models/index.ts";
+import { CreateImagePipelineRequest, CreateImagePipelineResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateImagePipelineCommand,
   serializeAws_restJson1CreateImagePipelineCommand,

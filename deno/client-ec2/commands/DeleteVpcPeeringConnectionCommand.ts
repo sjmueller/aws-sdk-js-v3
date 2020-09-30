@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DeleteVpcPeeringConnectionRequest, DeleteVpcPeeringConnectionResult } from "../models/index.ts";
+import { DeleteVpcPeeringConnectionRequest, DeleteVpcPeeringConnectionResult } from "../models/models_1.ts";
 import {
   deserializeAws_ec2DeleteVpcPeeringConnectionCommand,
   serializeAws_ec2DeleteVpcPeeringConnectionCommand,

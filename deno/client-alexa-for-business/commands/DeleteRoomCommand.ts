@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { DeleteRoomRequest, DeleteRoomResponse } from "../models/index.ts";
+import { DeleteRoomRequest, DeleteRoomResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteRoomCommand,
   serializeAws_json1_1DeleteRoomCommand,

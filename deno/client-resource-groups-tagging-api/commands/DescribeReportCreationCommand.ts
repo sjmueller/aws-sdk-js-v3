@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient.ts";
-import { DescribeReportCreationInput, DescribeReportCreationOutput } from "../models/index.ts";
+import { DescribeReportCreationInput, DescribeReportCreationOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeReportCreationCommand,
   serializeAws_json1_1DescribeReportCreationCommand,

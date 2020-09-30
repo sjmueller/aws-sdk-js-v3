@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { DescribeTableStatisticsMessage, DescribeTableStatisticsResponse } from "../models/index.ts";
+import { DescribeTableStatisticsMessage, DescribeTableStatisticsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeTableStatisticsCommand,
   serializeAws_json1_1DescribeTableStatisticsCommand,

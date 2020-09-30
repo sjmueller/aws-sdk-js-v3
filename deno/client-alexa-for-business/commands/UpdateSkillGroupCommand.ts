@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { UpdateSkillGroupRequest, UpdateSkillGroupResponse } from "../models/index.ts";
+import { UpdateSkillGroupRequest, UpdateSkillGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateSkillGroupCommand,
   serializeAws_json1_1UpdateSkillGroupCommand,

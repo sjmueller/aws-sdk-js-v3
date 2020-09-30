@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { DeleteResourceServerRequest } from "../models/index.ts";
+import { DeleteResourceServerRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteResourceServerCommand,
   serializeAws_json1_1DeleteResourceServerCommand,

@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { AddTagsToResourceMessage } from "../models/index.ts";
+import { AddTagsToResourceMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryAddTagsToResourceCommand,
   serializeAws_queryAddTagsToResourceCommand,

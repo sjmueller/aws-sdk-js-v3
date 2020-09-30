@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { ChangePasswordRequest, ChangePasswordResponse } from "../models/index.ts";
+import { ChangePasswordRequest, ChangePasswordResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ChangePasswordCommand,
   serializeAws_json1_1ChangePasswordCommand,

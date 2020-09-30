@@ -1,6 +1,6 @@
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
-import { DeprecateFlowTemplateRequest, DeprecateFlowTemplateResponse } from "../models/index.ts";
+import { DeprecateFlowTemplateRequest, DeprecateFlowTemplateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeprecateFlowTemplateCommand,
   serializeAws_json1_1DeprecateFlowTemplateCommand,

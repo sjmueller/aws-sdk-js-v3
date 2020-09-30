@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient.ts";
-import { DeleteConnectionInput, DeleteConnectionOutput } from "../models/index.ts";
+import { DeleteConnectionInput, DeleteConnectionOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0DeleteConnectionCommand,
   serializeAws_json1_0DeleteConnectionCommand,

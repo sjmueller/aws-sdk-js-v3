@@ -1,6 +1,6 @@
 
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient.ts";
-import { DeleteOutpostInput, DeleteOutpostOutput } from "../models/index.ts";
+import { DeleteOutpostInput, DeleteOutpostOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteOutpostCommand,
   serializeAws_restJson1DeleteOutpostCommand,

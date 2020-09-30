@@ -1,6 +1,6 @@
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
-import { UpdateTimeToLiveInput, UpdateTimeToLiveOutput } from "../models/index.ts";
+import { UpdateTimeToLiveInput, UpdateTimeToLiveOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0UpdateTimeToLiveCommand,
   serializeAws_json1_0UpdateTimeToLiveCommand,

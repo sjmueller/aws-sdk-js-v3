@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { SearchAvailablePhoneNumbersRequest, SearchAvailablePhoneNumbersResponse } from "../models/index.ts";
+import { SearchAvailablePhoneNumbersRequest, SearchAvailablePhoneNumbersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SearchAvailablePhoneNumbersCommand,
   serializeAws_restJson1SearchAvailablePhoneNumbersCommand,

@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { GetDomainsRequest, GetDomainsResult } from "../models/index.ts";
+import { GetDomainsRequest, GetDomainsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetDomainsCommand,
   serializeAws_json1_1GetDomainsCommand,

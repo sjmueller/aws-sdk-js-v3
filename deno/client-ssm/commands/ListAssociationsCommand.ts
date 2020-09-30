@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { ListAssociationsRequest, ListAssociationsResult } from "../models/index.ts";
+import { ListAssociationsRequest, ListAssociationsResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ListAssociationsCommand,
   serializeAws_json1_1ListAssociationsCommand,

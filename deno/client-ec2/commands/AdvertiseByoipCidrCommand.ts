@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { AdvertiseByoipCidrRequest, AdvertiseByoipCidrResult } from "../models/index.ts";
+import { AdvertiseByoipCidrRequest, AdvertiseByoipCidrResult } from "../models/models_0.ts";
 import {
   deserializeAws_ec2AdvertiseByoipCidrCommand,
   serializeAws_ec2AdvertiseByoipCidrCommand,

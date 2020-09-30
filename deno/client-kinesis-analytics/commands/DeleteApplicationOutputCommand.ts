@@ -1,6 +1,6 @@
 
 import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisAnalyticsClient.ts";
-import { DeleteApplicationOutputRequest, DeleteApplicationOutputResponse } from "../models/index.ts";
+import { DeleteApplicationOutputRequest, DeleteApplicationOutputResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteApplicationOutputCommand,
   serializeAws_json1_1DeleteApplicationOutputCommand,

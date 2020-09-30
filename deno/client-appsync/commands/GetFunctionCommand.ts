@@ -1,6 +1,6 @@
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient.ts";
-import { GetFunctionRequest, GetFunctionResponse } from "../models/index.ts";
+import { GetFunctionRequest, GetFunctionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetFunctionCommand,
   serializeAws_restJson1GetFunctionCommand,

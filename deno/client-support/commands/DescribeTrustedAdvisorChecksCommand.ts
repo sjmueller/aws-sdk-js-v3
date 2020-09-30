@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient.ts";
-import { DescribeTrustedAdvisorChecksRequest, DescribeTrustedAdvisorChecksResponse } from "../models/index.ts";
+import { DescribeTrustedAdvisorChecksRequest, DescribeTrustedAdvisorChecksResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeTrustedAdvisorChecksCommand,
   serializeAws_json1_1DescribeTrustedAdvisorChecksCommand,

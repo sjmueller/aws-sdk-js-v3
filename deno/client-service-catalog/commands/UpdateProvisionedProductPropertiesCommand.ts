@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { UpdateProvisionedProductPropertiesInput, UpdateProvisionedProductPropertiesOutput } from "../models/index.ts";
+import { UpdateProvisionedProductPropertiesInput, UpdateProvisionedProductPropertiesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand,
   serializeAws_json1_1UpdateProvisionedProductPropertiesCommand,

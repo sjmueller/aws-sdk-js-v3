@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { GetGatewayGroupRequest, GetGatewayGroupResponse } from "../models/index.ts";
+import { GetGatewayGroupRequest, GetGatewayGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetGatewayGroupCommand,
   serializeAws_json1_1GetGatewayGroupCommand,

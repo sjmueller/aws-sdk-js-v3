@@ -1,6 +1,6 @@
 
 import { PollyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PollyClient.ts";
-import { DescribeVoicesInput, DescribeVoicesOutput } from "../models/index.ts";
+import { DescribeVoicesInput, DescribeVoicesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeVoicesCommand,
   serializeAws_restJson1DescribeVoicesCommand,

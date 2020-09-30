@@ -1,6 +1,6 @@
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
-import { SetStackPolicyInput } from "../models/index.ts";
+import { SetStackPolicyInput } from "../models/models_0.ts";
 import {
   deserializeAws_querySetStackPolicyCommand,
   serializeAws_querySetStackPolicyCommand,

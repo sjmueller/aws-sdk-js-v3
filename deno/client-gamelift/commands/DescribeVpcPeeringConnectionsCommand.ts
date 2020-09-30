@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { DescribeVpcPeeringConnectionsInput, DescribeVpcPeeringConnectionsOutput } from "../models/index.ts";
+import { DescribeVpcPeeringConnectionsInput, DescribeVpcPeeringConnectionsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeVpcPeeringConnectionsCommand,
   serializeAws_json1_1DescribeVpcPeeringConnectionsCommand,

@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { InviteAccountToOrganizationRequest, InviteAccountToOrganizationResponse } from "../models/index.ts";
+import { InviteAccountToOrganizationRequest, InviteAccountToOrganizationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1InviteAccountToOrganizationCommand,
   serializeAws_json1_1InviteAccountToOrganizationCommand,

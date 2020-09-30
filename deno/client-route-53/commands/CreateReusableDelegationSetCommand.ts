@@ -1,6 +1,6 @@
 
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
-import { CreateReusableDelegationSetRequest, CreateReusableDelegationSetResponse } from "../models/index.ts";
+import { CreateReusableDelegationSetRequest, CreateReusableDelegationSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlCreateReusableDelegationSetCommand,
   serializeAws_restXmlCreateReusableDelegationSetCommand,

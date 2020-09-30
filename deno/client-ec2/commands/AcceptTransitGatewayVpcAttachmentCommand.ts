@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { AcceptTransitGatewayVpcAttachmentRequest, AcceptTransitGatewayVpcAttachmentResult } from "../models/index.ts";
+import { AcceptTransitGatewayVpcAttachmentRequest, AcceptTransitGatewayVpcAttachmentResult } from "../models/models_0.ts";
 import {
   deserializeAws_ec2AcceptTransitGatewayVpcAttachmentCommand,
   serializeAws_ec2AcceptTransitGatewayVpcAttachmentCommand,

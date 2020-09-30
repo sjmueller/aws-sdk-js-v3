@@ -1,6 +1,6 @@
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient.ts";
-import { PutRecordBatchInput, PutRecordBatchOutput } from "../models/index.ts";
+import { PutRecordBatchInput, PutRecordBatchOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutRecordBatchCommand,
   serializeAws_json1_1PutRecordBatchCommand,

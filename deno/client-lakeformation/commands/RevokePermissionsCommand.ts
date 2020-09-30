@@ -1,6 +1,6 @@
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient.ts";
-import { RevokePermissionsRequest, RevokePermissionsResponse } from "../models/index.ts";
+import { RevokePermissionsRequest, RevokePermissionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RevokePermissionsCommand,
   serializeAws_json1_1RevokePermissionsCommand,

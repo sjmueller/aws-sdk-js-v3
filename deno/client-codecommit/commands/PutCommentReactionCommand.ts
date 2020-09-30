@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { PutCommentReactionInput } from "../models/index.ts";
+import { PutCommentReactionInput } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1PutCommentReactionCommand,
   serializeAws_json1_1PutCommentReactionCommand,

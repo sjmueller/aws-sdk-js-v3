@@ -162,7 +162,7 @@ import {
   ThrottlingException,
   VPCConfig,
   VPCConfigResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -1273,7 +1273,6 @@ export const deserializeAws_restJson1BatchDescribeSimulationJobCommand = async (
   }
   const contents: BatchDescribeSimulationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDescribeSimulationJobResponse",
     jobs: undefined,
     unprocessedJobs: undefined,
   };
@@ -1357,7 +1356,6 @@ export const deserializeAws_restJson1CancelDeploymentJobCommand = async (
   }
   const contents: CancelDeploymentJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelDeploymentJobResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1433,7 +1431,6 @@ export const deserializeAws_restJson1CancelSimulationJobCommand = async (
   }
   const contents: CancelSimulationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelSimulationJobResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1509,7 +1506,6 @@ export const deserializeAws_restJson1CancelSimulationJobBatchCommand = async (
   }
   const contents: CancelSimulationJobBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelSimulationJobBatchResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1585,7 +1581,6 @@ export const deserializeAws_restJson1CreateDeploymentJobCommand = async (
   }
   const contents: CreateDeploymentJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDeploymentJobResponse",
     arn: undefined,
     createdAt: undefined,
     deploymentApplicationConfigs: undefined,
@@ -1724,7 +1719,6 @@ export const deserializeAws_restJson1CreateFleetCommand = async (
   }
   const contents: CreateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFleetResponse",
     arn: undefined,
     createdAt: undefined,
     name: undefined,
@@ -1816,7 +1810,6 @@ export const deserializeAws_restJson1CreateRobotCommand = async (
   }
   const contents: CreateRobotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRobotResponse",
     architecture: undefined,
     arn: undefined,
     createdAt: undefined,
@@ -1924,7 +1917,6 @@ export const deserializeAws_restJson1CreateRobotApplicationCommand = async (
   }
   const contents: CreateRobotApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRobotApplicationResponse",
     arn: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
@@ -2048,7 +2040,6 @@ export const deserializeAws_restJson1CreateRobotApplicationVersionCommand = asyn
   }
   const contents: CreateRobotApplicationVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRobotApplicationVersionResponse",
     arn: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
@@ -2160,7 +2151,6 @@ export const deserializeAws_restJson1CreateSimulationApplicationCommand = async 
   }
   const contents: CreateSimulationApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSimulationApplicationResponse",
     arn: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
@@ -2295,7 +2285,6 @@ export const deserializeAws_restJson1CreateSimulationApplicationVersionCommand =
   }
   const contents: CreateSimulationApplicationVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSimulationApplicationVersionResponse",
     arn: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
@@ -2418,7 +2407,6 @@ export const deserializeAws_restJson1CreateSimulationJobCommand = async (
   }
   const contents: CreateSimulationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSimulationJobResponse",
     arn: undefined,
     clientRequestToken: undefined,
     compute: undefined,
@@ -2593,7 +2581,6 @@ export const deserializeAws_restJson1DeleteFleetCommand = async (
   }
   const contents: DeleteFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFleetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2661,7 +2648,6 @@ export const deserializeAws_restJson1DeleteRobotCommand = async (
   }
   const contents: DeleteRobotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRobotResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2729,7 +2715,6 @@ export const deserializeAws_restJson1DeleteRobotApplicationCommand = async (
   }
   const contents: DeleteRobotApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRobotApplicationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2797,7 +2782,6 @@ export const deserializeAws_restJson1DeleteSimulationApplicationCommand = async 
   }
   const contents: DeleteSimulationApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSimulationApplicationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2865,7 +2849,6 @@ export const deserializeAws_restJson1DeregisterRobotCommand = async (
   }
   const contents: DeregisterRobotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterRobotResponse",
     fleet: undefined,
     robot: undefined,
   };
@@ -2949,7 +2932,6 @@ export const deserializeAws_restJson1DescribeDeploymentJobCommand = async (
   }
   const contents: DescribeDeploymentJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDeploymentJobResponse",
     arn: undefined,
     createdAt: undefined,
     deploymentApplicationConfigs: undefined,
@@ -3071,7 +3053,6 @@ export const deserializeAws_restJson1DescribeFleetCommand = async (
   }
   const contents: DescribeFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFleetResponse",
     arn: undefined,
     createdAt: undefined,
     lastDeploymentJob: undefined,
@@ -3179,7 +3160,6 @@ export const deserializeAws_restJson1DescribeRobotCommand = async (
   }
   const contents: DescribeRobotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRobotResponse",
     architecture: undefined,
     arn: undefined,
     createdAt: undefined,
@@ -3295,7 +3275,6 @@ export const deserializeAws_restJson1DescribeRobotApplicationCommand = async (
   }
   const contents: DescribeRobotApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRobotApplicationResponse",
     arn: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
@@ -3403,7 +3382,6 @@ export const deserializeAws_restJson1DescribeSimulationApplicationCommand = asyn
   }
   const contents: DescribeSimulationApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSimulationApplicationResponse",
     arn: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
@@ -3522,7 +3500,6 @@ export const deserializeAws_restJson1DescribeSimulationJobCommand = async (
   }
   const contents: DescribeSimulationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSimulationJobResponse",
     arn: undefined,
     clientRequestToken: undefined,
     compute: undefined,
@@ -3685,7 +3662,6 @@ export const deserializeAws_restJson1DescribeSimulationJobBatchCommand = async (
   }
   const contents: DescribeSimulationJobBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSimulationJobBatchResponse",
     arn: undefined,
     batchPolicy: undefined,
     clientRequestToken: undefined,
@@ -3801,7 +3777,6 @@ export const deserializeAws_restJson1ListDeploymentJobsCommand = async (
   }
   const contents: ListDeploymentJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDeploymentJobsResponse",
     deploymentJobs: undefined,
     nextToken: undefined,
   };
@@ -3885,7 +3860,6 @@ export const deserializeAws_restJson1ListFleetsCommand = async (
   }
   const contents: ListFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFleetsResponse",
     fleetDetails: undefined,
     nextToken: undefined,
   };
@@ -3969,7 +3943,6 @@ export const deserializeAws_restJson1ListRobotApplicationsCommand = async (
   }
   const contents: ListRobotApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRobotApplicationsResponse",
     nextToken: undefined,
     robotApplicationSummaries: undefined,
   };
@@ -4048,7 +4021,6 @@ export const deserializeAws_restJson1ListRobotsCommand = async (
   }
   const contents: ListRobotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRobotsResponse",
     nextToken: undefined,
     robots: undefined,
   };
@@ -4132,7 +4104,6 @@ export const deserializeAws_restJson1ListSimulationApplicationsCommand = async (
   }
   const contents: ListSimulationApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSimulationApplicationsResponse",
     nextToken: undefined,
     simulationApplicationSummaries: undefined,
   };
@@ -4211,7 +4182,6 @@ export const deserializeAws_restJson1ListSimulationJobBatchesCommand = async (
   }
   const contents: ListSimulationJobBatchesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSimulationJobBatchesResponse",
     nextToken: undefined,
     simulationJobBatchSummaries: undefined,
   };
@@ -4282,7 +4252,6 @@ export const deserializeAws_restJson1ListSimulationJobsCommand = async (
   }
   const contents: ListSimulationJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSimulationJobsResponse",
     nextToken: undefined,
     simulationJobSummaries: undefined,
   };
@@ -4361,7 +4330,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4441,7 +4409,6 @@ export const deserializeAws_restJson1RegisterRobotCommand = async (
   }
   const contents: RegisterRobotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterRobotResponse",
     fleet: undefined,
     robot: undefined,
   };
@@ -4533,7 +4500,6 @@ export const deserializeAws_restJson1RestartSimulationJobCommand = async (
   }
   const contents: RestartSimulationJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestartSimulationJobResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4617,7 +4583,6 @@ export const deserializeAws_restJson1StartSimulationJobBatchCommand = async (
   }
   const contents: StartSimulationJobBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartSimulationJobBatchResponse",
     arn: undefined,
     batchPolicy: undefined,
     clientRequestToken: undefined,
@@ -4745,7 +4710,6 @@ export const deserializeAws_restJson1SyncDeploymentJobCommand = async (
   }
   const contents: SyncDeploymentJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SyncDeploymentJobResponse",
     arn: undefined,
     createdAt: undefined,
     deploymentApplicationConfigs: undefined,
@@ -4880,7 +4844,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4956,7 +4919,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5032,7 +4994,6 @@ export const deserializeAws_restJson1UpdateRobotApplicationCommand = async (
   }
   const contents: UpdateRobotApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRobotApplicationResponse",
     arn: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
@@ -5144,7 +5105,6 @@ export const deserializeAws_restJson1UpdateSimulationApplicationCommand = async 
   }
   const contents: UpdateSimulationApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSimulationApplicationResponse",
     arn: undefined,
     lastUpdatedAt: undefined,
     name: undefined,
@@ -5717,7 +5677,6 @@ const deserializeAws_restJson1Arns = (output: any, context: __SerdeContext): str
 
 const deserializeAws_restJson1BatchPolicy = (output: any, context: __SerdeContext): BatchPolicy => {
   return {
-    __type: "BatchPolicy",
     maxConcurrency:
       output.maxConcurrency !== undefined && output.maxConcurrency !== null ? output.maxConcurrency : undefined,
     timeoutInSeconds:
@@ -5727,7 +5686,6 @@ const deserializeAws_restJson1BatchPolicy = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Compute = (output: any, context: __SerdeContext): Compute => {
   return {
-    __type: "Compute",
     simulationUnitLimit:
       output.simulationUnitLimit !== undefined && output.simulationUnitLimit !== null
         ? output.simulationUnitLimit
@@ -5737,7 +5695,6 @@ const deserializeAws_restJson1Compute = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1ComputeResponse = (output: any, context: __SerdeContext): ComputeResponse => {
   return {
-    __type: "ComputeResponse",
     simulationUnitLimit:
       output.simulationUnitLimit !== undefined && output.simulationUnitLimit !== null
         ? output.simulationUnitLimit
@@ -5754,7 +5711,6 @@ const deserializeAws_restJson1CreateSimulationJobRequests = (
 
 const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext): DataSource => {
   return {
-    __type: "DataSource",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     s3Bucket: output.s3Bucket !== undefined && output.s3Bucket !== null ? output.s3Bucket : undefined,
     s3Keys:
@@ -5766,7 +5722,6 @@ const deserializeAws_restJson1DataSource = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1DataSourceConfig = (output: any, context: __SerdeContext): DataSourceConfig => {
   return {
-    __type: "DataSourceConfig",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     s3Bucket: output.s3Bucket !== undefined && output.s3Bucket !== null ? output.s3Bucket : undefined,
     s3Keys:
@@ -5793,7 +5748,6 @@ const deserializeAws_restJson1DeploymentApplicationConfig = (
   context: __SerdeContext
 ): DeploymentApplicationConfig => {
   return {
-    __type: "DeploymentApplicationConfig",
     application: output.application !== undefined && output.application !== null ? output.application : undefined,
     applicationVersion:
       output.applicationVersion !== undefined && output.applicationVersion !== null
@@ -5815,7 +5769,6 @@ const deserializeAws_restJson1DeploymentApplicationConfigs = (
 
 const deserializeAws_restJson1DeploymentConfig = (output: any, context: __SerdeContext): DeploymentConfig => {
   return {
-    __type: "DeploymentConfig",
     concurrentDeploymentPercentage:
       output.concurrentDeploymentPercentage !== undefined && output.concurrentDeploymentPercentage !== null
         ? output.concurrentDeploymentPercentage
@@ -5837,7 +5790,6 @@ const deserializeAws_restJson1DeploymentConfig = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1DeploymentJob = (output: any, context: __SerdeContext): DeploymentJob => {
   return {
-    __type: "DeploymentJob",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -5868,7 +5820,6 @@ const deserializeAws_restJson1DeploymentLaunchConfig = (
   context: __SerdeContext
 ): DeploymentLaunchConfig => {
   return {
-    __type: "DeploymentLaunchConfig",
     environmentVariables:
       output.environmentVariables !== undefined && output.environmentVariables !== null
         ? deserializeAws_restJson1EnvironmentVariableMap(output.environmentVariables, context)
@@ -5900,7 +5851,6 @@ const deserializeAws_restJson1FailedCreateSimulationJobRequest = (
   context: __SerdeContext
 ): FailedCreateSimulationJobRequest => {
   return {
-    __type: "FailedCreateSimulationJobRequest",
     failedAt:
       output.failedAt !== undefined && output.failedAt !== null
         ? new Date(Math.round(output.failedAt * 1000))
@@ -5924,7 +5874,6 @@ const deserializeAws_restJson1FailedCreateSimulationJobRequests = (
 
 const deserializeAws_restJson1Fleet = (output: any, context: __SerdeContext): Fleet => {
   return {
-    __type: "Fleet",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -5952,7 +5901,6 @@ const deserializeAws_restJson1Fleets = (output: any, context: __SerdeContext): F
 
 const deserializeAws_restJson1LaunchConfig = (output: any, context: __SerdeContext): LaunchConfig => {
   return {
-    __type: "LaunchConfig",
     environmentVariables:
       output.environmentVariables !== undefined && output.environmentVariables !== null
         ? deserializeAws_restJson1EnvironmentVariableMap(output.environmentVariables, context)
@@ -5969,7 +5917,6 @@ const deserializeAws_restJson1LaunchConfig = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1LoggingConfig = (output: any, context: __SerdeContext): LoggingConfig => {
   return {
-    __type: "LoggingConfig",
     recordAllRosTopics:
       output.recordAllRosTopics !== undefined && output.recordAllRosTopics !== null
         ? output.recordAllRosTopics
@@ -5979,7 +5926,6 @@ const deserializeAws_restJson1LoggingConfig = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
   return {
-    __type: "NetworkInterface",
     networkInterfaceId:
       output.networkInterfaceId !== undefined && output.networkInterfaceId !== null
         ? output.networkInterfaceId
@@ -5993,7 +5939,6 @@ const deserializeAws_restJson1NetworkInterface = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1OutputLocation = (output: any, context: __SerdeContext): OutputLocation => {
   return {
-    __type: "OutputLocation",
     s3Bucket: output.s3Bucket !== undefined && output.s3Bucket !== null ? output.s3Bucket : undefined,
     s3Prefix: output.s3Prefix !== undefined && output.s3Prefix !== null ? output.s3Prefix : undefined,
   } as any;
@@ -6001,7 +5946,6 @@ const deserializeAws_restJson1OutputLocation = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1PortForwardingConfig = (output: any, context: __SerdeContext): PortForwardingConfig => {
   return {
-    __type: "PortForwardingConfig",
     portMappings:
       output.portMappings !== undefined && output.portMappings !== null
         ? deserializeAws_restJson1PortMappingList(output.portMappings, context)
@@ -6011,7 +5955,6 @@ const deserializeAws_restJson1PortForwardingConfig = (output: any, context: __Se
 
 const deserializeAws_restJson1PortMapping = (output: any, context: __SerdeContext): PortMapping => {
   return {
-    __type: "PortMapping",
     applicationPort:
       output.applicationPort !== undefined && output.applicationPort !== null ? output.applicationPort : undefined,
     enableOnPublicIp:
@@ -6026,7 +5969,6 @@ const deserializeAws_restJson1PortMappingList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ProgressDetail = (output: any, context: __SerdeContext): ProgressDetail => {
   return {
-    __type: "ProgressDetail",
     currentProgress:
       output.currentProgress !== undefined && output.currentProgress !== null ? output.currentProgress : undefined,
     estimatedTimeRemainingSeconds:
@@ -6041,7 +5983,6 @@ const deserializeAws_restJson1ProgressDetail = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1RenderingEngine = (output: any, context: __SerdeContext): RenderingEngine => {
   return {
-    __type: "RenderingEngine",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
@@ -6049,7 +5990,6 @@ const deserializeAws_restJson1RenderingEngine = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Robot = (output: any, context: __SerdeContext): Robot => {
   return {
-    __type: "Robot",
     architecture: output.architecture !== undefined && output.architecture !== null ? output.architecture : undefined,
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
@@ -6079,7 +6019,6 @@ const deserializeAws_restJson1RobotApplicationConfig = (
   context: __SerdeContext
 ): RobotApplicationConfig => {
   return {
-    __type: "RobotApplicationConfig",
     application: output.application !== undefined && output.application !== null ? output.application : undefined,
     applicationVersion:
       output.applicationVersion !== undefined && output.applicationVersion !== null
@@ -6115,7 +6054,6 @@ const deserializeAws_restJson1RobotApplicationSummary = (
   context: __SerdeContext
 ): RobotApplicationSummary => {
   return {
-    __type: "RobotApplicationSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
@@ -6132,7 +6070,6 @@ const deserializeAws_restJson1RobotApplicationSummary = (
 
 const deserializeAws_restJson1RobotDeployment = (output: any, context: __SerdeContext): RobotDeployment => {
   return {
-    __type: "RobotDeployment",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     deploymentFinishTime:
       output.deploymentFinishTime !== undefined && output.deploymentFinishTime !== null
@@ -6163,7 +6100,6 @@ const deserializeAws_restJson1Robots = (output: any, context: __SerdeContext): R
 
 const deserializeAws_restJson1RobotSoftwareSuite = (output: any, context: __SerdeContext): RobotSoftwareSuite => {
   return {
-    __type: "RobotSoftwareSuite",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
@@ -6171,7 +6107,6 @@ const deserializeAws_restJson1RobotSoftwareSuite = (output: any, context: __Serd
 
 const deserializeAws_restJson1S3KeyOutput = (output: any, context: __SerdeContext): S3KeyOutput => {
   return {
-    __type: "S3KeyOutput",
     etag: output.etag !== undefined && output.etag !== null ? output.etag : undefined,
     s3Key: output.s3Key !== undefined && output.s3Key !== null ? output.s3Key : undefined,
   } as any;
@@ -6187,7 +6122,6 @@ const deserializeAws_restJson1S3Keys = (output: any, context: __SerdeContext): s
 
 const deserializeAws_restJson1S3Object = (output: any, context: __SerdeContext): S3Object => {
   return {
-    __type: "S3Object",
     bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
     etag: output.etag !== undefined && output.etag !== null ? output.etag : undefined,
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
@@ -6203,7 +6137,6 @@ const deserializeAws_restJson1SimulationApplicationConfig = (
   context: __SerdeContext
 ): SimulationApplicationConfig => {
   return {
-    __type: "SimulationApplicationConfig",
     application: output.application !== undefined && output.application !== null ? output.application : undefined,
     applicationVersion:
       output.applicationVersion !== undefined && output.applicationVersion !== null
@@ -6239,7 +6172,6 @@ const deserializeAws_restJson1SimulationApplicationSummary = (
   context: __SerdeContext
 ): SimulationApplicationSummary => {
   return {
-    __type: "SimulationApplicationSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     lastUpdatedAt:
       output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
@@ -6260,7 +6192,6 @@ const deserializeAws_restJson1SimulationApplicationSummary = (
 
 const deserializeAws_restJson1SimulationJob = (output: any, context: __SerdeContext): SimulationJob => {
   return {
-    __type: "SimulationJob",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     clientRequestToken:
       output.clientRequestToken !== undefined && output.clientRequestToken !== null
@@ -6341,7 +6272,6 @@ const deserializeAws_restJson1SimulationJobBatchSummary = (
   context: __SerdeContext
 ): SimulationJobBatchSummary => {
   return {
-    __type: "SimulationJobBatchSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
@@ -6369,7 +6299,6 @@ const deserializeAws_restJson1SimulationJobBatchSummary = (
 
 const deserializeAws_restJson1SimulationJobRequest = (output: any, context: __SerdeContext): SimulationJobRequest => {
   return {
-    __type: "SimulationJobRequest",
     compute:
       output.compute !== undefined && output.compute !== null
         ? deserializeAws_restJson1Compute(output.compute, context)
@@ -6429,7 +6358,6 @@ const deserializeAws_restJson1SimulationJobSummaries = (
 
 const deserializeAws_restJson1SimulationJobSummary = (output: any, context: __SerdeContext): SimulationJobSummary => {
   return {
-    __type: "SimulationJobSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     dataSourceNames:
       output.dataSourceNames !== undefined && output.dataSourceNames !== null
@@ -6457,7 +6385,6 @@ const deserializeAws_restJson1SimulationSoftwareSuite = (
   context: __SerdeContext
 ): SimulationSoftwareSuite => {
   return {
-    __type: "SimulationSoftwareSuite",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
@@ -6465,7 +6392,6 @@ const deserializeAws_restJson1SimulationSoftwareSuite = (
 
 const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): Source => {
   return {
-    __type: "Source",
     architecture: output.architecture !== undefined && output.architecture !== null ? output.architecture : undefined,
     etag: output.etag !== undefined && output.etag !== null ? output.etag : undefined,
     s3Bucket: output.s3Bucket !== undefined && output.s3Bucket !== null ? output.s3Bucket : undefined,
@@ -6493,7 +6419,6 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1VPCConfig = (output: any, context: __SerdeContext): VPCConfig => {
   return {
-    __type: "VPCConfig",
     assignPublicIp:
       output.assignPublicIp !== undefined && output.assignPublicIp !== null ? output.assignPublicIp : undefined,
     securityGroups:
@@ -6509,7 +6434,6 @@ const deserializeAws_restJson1VPCConfig = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1VPCConfigResponse = (output: any, context: __SerdeContext): VPCConfigResponse => {
   return {
-    __type: "VPCConfigResponse",
     assignPublicIp:
       output.assignPublicIp !== undefined && output.assignPublicIp !== null ? output.assignPublicIp : undefined,
     securityGroups:

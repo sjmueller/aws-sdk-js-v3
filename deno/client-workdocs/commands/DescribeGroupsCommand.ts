@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { DescribeGroupsRequest, DescribeGroupsResponse } from "../models/index.ts";
+import { DescribeGroupsRequest, DescribeGroupsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeGroupsCommand,
   serializeAws_restJson1DescribeGroupsCommand,

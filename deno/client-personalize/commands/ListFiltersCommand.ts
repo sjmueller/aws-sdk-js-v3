@@ -1,6 +1,6 @@
 
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
-import { ListFiltersRequest, ListFiltersResponse } from "../models/index.ts";
+import { ListFiltersRequest, ListFiltersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListFiltersCommand,
   serializeAws_json1_1ListFiltersCommand,

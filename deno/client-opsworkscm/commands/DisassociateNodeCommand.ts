@@ -1,6 +1,6 @@
 
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient.ts";
-import { DisassociateNodeRequest, DisassociateNodeResponse } from "../models/index.ts";
+import { DisassociateNodeRequest, DisassociateNodeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateNodeCommand,
   serializeAws_json1_1DisassociateNodeCommand,

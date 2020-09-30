@@ -1,6 +1,6 @@
 
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
-import { UpdateExpirationForHITRequest, UpdateExpirationForHITResponse } from "../models/index.ts";
+import { UpdateExpirationForHITRequest, UpdateExpirationForHITResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateExpirationForHITCommand,
   serializeAws_json1_1UpdateExpirationForHITCommand,

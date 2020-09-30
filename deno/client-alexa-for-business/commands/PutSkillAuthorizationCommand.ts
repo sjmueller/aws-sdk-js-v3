@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { PutSkillAuthorizationRequest, PutSkillAuthorizationResponse } from "../models/index.ts";
+import { PutSkillAuthorizationRequest, PutSkillAuthorizationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutSkillAuthorizationCommand,
   serializeAws_json1_1PutSkillAuthorizationCommand,

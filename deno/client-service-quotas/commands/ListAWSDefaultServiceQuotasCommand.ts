@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient.ts";
-import { ListAWSDefaultServiceQuotasRequest, ListAWSDefaultServiceQuotasResponse } from "../models/index.ts";
+import { ListAWSDefaultServiceQuotasRequest, ListAWSDefaultServiceQuotasResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListAWSDefaultServiceQuotasCommand,
   serializeAws_json1_1ListAWSDefaultServiceQuotasCommand,

@@ -1,6 +1,6 @@
 
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
-import { PutAccountSuppressionAttributesRequest, PutAccountSuppressionAttributesResponse } from "../models/index.ts";
+import { PutAccountSuppressionAttributesRequest, PutAccountSuppressionAttributesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutAccountSuppressionAttributesCommand,
   serializeAws_restJson1PutAccountSuppressionAttributesCommand,

@@ -1,6 +1,6 @@
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
-import { GetMembersRequest, GetMembersResponse } from "../models/index.ts";
+import { GetMembersRequest, GetMembersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetMembersCommand,
   serializeAws_restJson1GetMembersCommand,

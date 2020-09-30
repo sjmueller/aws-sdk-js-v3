@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { DeleteRequestValidatorRequest } from "../models/index.ts";
+import { DeleteRequestValidatorRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteRequestValidatorCommand,
   serializeAws_restJson1DeleteRequestValidatorCommand,

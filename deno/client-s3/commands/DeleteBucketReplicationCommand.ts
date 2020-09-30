@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { DeleteBucketReplicationRequest } from "../models/index.ts";
+import { DeleteBucketReplicationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlDeleteBucketReplicationCommand,
   serializeAws_restXmlDeleteBucketReplicationCommand,

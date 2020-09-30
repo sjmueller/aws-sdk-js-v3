@@ -69,7 +69,7 @@ import {
   UpdateNotificationResponse,
   UpdateSubscriberRequest,
   UpdateSubscriberResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -274,7 +274,6 @@ export const deserializeAws_json1_1CreateBudgetCommand = async (
   contents = deserializeAws_json1_1CreateBudgetResponse(data, context);
   const response: CreateBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBudgetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -362,7 +361,6 @@ export const deserializeAws_json1_1CreateNotificationCommand = async (
   contents = deserializeAws_json1_1CreateNotificationResponse(data, context);
   const response: CreateNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateNotificationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -458,7 +456,6 @@ export const deserializeAws_json1_1CreateSubscriberCommand = async (
   contents = deserializeAws_json1_1CreateSubscriberResponse(data, context);
   const response: CreateSubscriberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSubscriberResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -554,7 +551,6 @@ export const deserializeAws_json1_1DeleteBudgetCommand = async (
   contents = deserializeAws_json1_1DeleteBudgetResponse(data, context);
   const response: DeleteBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBudgetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -634,7 +630,6 @@ export const deserializeAws_json1_1DeleteNotificationCommand = async (
   contents = deserializeAws_json1_1DeleteNotificationResponse(data, context);
   const response: DeleteNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteNotificationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -714,7 +709,6 @@ export const deserializeAws_json1_1DeleteSubscriberCommand = async (
   contents = deserializeAws_json1_1DeleteSubscriberResponse(data, context);
   const response: DeleteSubscriberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSubscriberResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -794,7 +788,6 @@ export const deserializeAws_json1_1DescribeBudgetCommand = async (
   contents = deserializeAws_json1_1DescribeBudgetResponse(data, context);
   const response: DescribeBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBudgetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -874,7 +867,6 @@ export const deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand = asy
   contents = deserializeAws_json1_1DescribeBudgetPerformanceHistoryResponse(data, context);
   const response: DescribeBudgetPerformanceHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBudgetPerformanceHistoryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -970,7 +962,6 @@ export const deserializeAws_json1_1DescribeBudgetsCommand = async (
   contents = deserializeAws_json1_1DescribeBudgetsResponse(data, context);
   const response: DescribeBudgetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBudgetsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1066,7 +1057,6 @@ export const deserializeAws_json1_1DescribeNotificationsForBudgetCommand = async
   contents = deserializeAws_json1_1DescribeNotificationsForBudgetResponse(data, context);
   const response: DescribeNotificationsForBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeNotificationsForBudgetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1162,7 +1152,6 @@ export const deserializeAws_json1_1DescribeSubscribersForNotificationCommand = a
   contents = deserializeAws_json1_1DescribeSubscribersForNotificationResponse(data, context);
   const response: DescribeSubscribersForNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSubscribersForNotificationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1258,7 +1247,6 @@ export const deserializeAws_json1_1UpdateBudgetCommand = async (
   contents = deserializeAws_json1_1UpdateBudgetResponse(data, context);
   const response: UpdateBudgetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateBudgetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1338,7 +1326,6 @@ export const deserializeAws_json1_1UpdateNotificationCommand = async (
   contents = deserializeAws_json1_1UpdateNotificationResponse(data, context);
   const response: UpdateNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateNotificationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1426,7 +1413,6 @@ export const deserializeAws_json1_1UpdateSubscriberCommand = async (
   contents = deserializeAws_json1_1UpdateSubscriberResponse(data, context);
   const response: UpdateSubscriberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSubscriberResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1915,14 +1901,12 @@ const serializeAws_json1_1UpdateSubscriberRequest = (input: UpdateSubscriberRequ
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Budget = (output: any, context: __SerdeContext): Budget => {
   return {
-    __type: "Budget",
     BudgetLimit:
       output.BudgetLimit !== undefined && output.BudgetLimit !== null
         ? deserializeAws_json1_1Spend(output.BudgetLimit, context)
@@ -1962,7 +1946,6 @@ const deserializeAws_json1_1BudgetedAndActualAmounts = (
   context: __SerdeContext
 ): BudgetedAndActualAmounts => {
   return {
-    __type: "BudgetedAndActualAmounts",
     ActualAmount:
       output.ActualAmount !== undefined && output.ActualAmount !== null
         ? deserializeAws_json1_1Spend(output.ActualAmount, context)
@@ -1990,7 +1973,6 @@ const deserializeAws_json1_1BudgetPerformanceHistory = (
   context: __SerdeContext
 ): BudgetPerformanceHistory => {
   return {
-    __type: "BudgetPerformanceHistory",
     BudgetName: output.BudgetName !== undefined && output.BudgetName !== null ? output.BudgetName : undefined,
     BudgetType: output.BudgetType !== undefined && output.BudgetType !== null ? output.BudgetType : undefined,
     BudgetedAndActualAmountsList:
@@ -2015,7 +1997,6 @@ const deserializeAws_json1_1Budgets = (output: any, context: __SerdeContext): Bu
 
 const deserializeAws_json1_1CalculatedSpend = (output: any, context: __SerdeContext): CalculatedSpend => {
   return {
-    __type: "CalculatedSpend",
     ActualSpend:
       output.ActualSpend !== undefined && output.ActualSpend !== null
         ? deserializeAws_json1_1Spend(output.ActualSpend, context)
@@ -2039,7 +2020,6 @@ const deserializeAws_json1_1CostFilters = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1CostTypes = (output: any, context: __SerdeContext): CostTypes => {
   return {
-    __type: "CostTypes",
     IncludeCredit:
       output.IncludeCredit !== undefined && output.IncludeCredit !== null ? output.IncludeCredit : undefined,
     IncludeDiscount:
@@ -2067,27 +2047,21 @@ const deserializeAws_json1_1CostTypes = (output: any, context: __SerdeContext): 
 };
 
 const deserializeAws_json1_1CreateBudgetResponse = (output: any, context: __SerdeContext): CreateBudgetResponse => {
-  return {
-    __type: "CreateBudgetResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateNotificationResponse = (
   output: any,
   context: __SerdeContext
 ): CreateNotificationResponse => {
-  return {
-    __type: "CreateNotificationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateSubscriberResponse = (
   output: any,
   context: __SerdeContext
 ): CreateSubscriberResponse => {
-  return {
-    __type: "CreateSubscriberResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreationLimitExceededException = (
@@ -2095,33 +2069,26 @@ const deserializeAws_json1_1CreationLimitExceededException = (
   context: __SerdeContext
 ): CreationLimitExceededException => {
   return {
-    __type: "CreationLimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteBudgetResponse = (output: any, context: __SerdeContext): DeleteBudgetResponse => {
-  return {
-    __type: "DeleteBudgetResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteNotificationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteNotificationResponse => {
-  return {
-    __type: "DeleteNotificationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteSubscriberResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteSubscriberResponse => {
-  return {
-    __type: "DeleteSubscriberResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeBudgetPerformanceHistoryResponse = (
@@ -2129,7 +2096,6 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryResponse = (
   context: __SerdeContext
 ): DescribeBudgetPerformanceHistoryResponse => {
   return {
-    __type: "DescribeBudgetPerformanceHistoryResponse",
     BudgetPerformanceHistory:
       output.BudgetPerformanceHistory !== undefined && output.BudgetPerformanceHistory !== null
         ? deserializeAws_json1_1BudgetPerformanceHistory(output.BudgetPerformanceHistory, context)
@@ -2140,7 +2106,6 @@ const deserializeAws_json1_1DescribeBudgetPerformanceHistoryResponse = (
 
 const deserializeAws_json1_1DescribeBudgetResponse = (output: any, context: __SerdeContext): DescribeBudgetResponse => {
   return {
-    __type: "DescribeBudgetResponse",
     Budget:
       output.Budget !== undefined && output.Budget !== null
         ? deserializeAws_json1_1Budget(output.Budget, context)
@@ -2153,7 +2118,6 @@ const deserializeAws_json1_1DescribeBudgetsResponse = (
   context: __SerdeContext
 ): DescribeBudgetsResponse => {
   return {
-    __type: "DescribeBudgetsResponse",
     Budgets:
       output.Budgets !== undefined && output.Budgets !== null
         ? deserializeAws_json1_1Budgets(output.Budgets, context)
@@ -2167,7 +2131,6 @@ const deserializeAws_json1_1DescribeNotificationsForBudgetResponse = (
   context: __SerdeContext
 ): DescribeNotificationsForBudgetResponse => {
   return {
-    __type: "DescribeNotificationsForBudgetResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Notifications:
       output.Notifications !== undefined && output.Notifications !== null
@@ -2181,7 +2144,6 @@ const deserializeAws_json1_1DescribeSubscribersForNotificationResponse = (
   context: __SerdeContext
 ): DescribeSubscribersForNotificationResponse => {
   return {
-    __type: "DescribeSubscribersForNotificationResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Subscribers:
       output.Subscribers !== undefined && output.Subscribers !== null
@@ -2199,7 +2161,6 @@ const deserializeAws_json1_1DuplicateRecordException = (
   context: __SerdeContext
 ): DuplicateRecordException => {
   return {
-    __type: "DuplicateRecordException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2209,14 +2170,12 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
   context: __SerdeContext
 ): ExpiredNextTokenException => {
   return {
-    __type: "ExpiredNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
-    __type: "InternalErrorException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2226,7 +2185,6 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2236,21 +2194,18 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
-    __type: "NotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Notification = (output: any, context: __SerdeContext): Notification => {
   return {
-    __type: "Notification",
     ComparisonOperator:
       output.ComparisonOperator !== undefined && output.ComparisonOperator !== null
         ? output.ComparisonOperator
@@ -2283,7 +2238,6 @@ const deserializeAws_json1_1PlannedBudgetLimits = (output: any, context: __Serde
 
 const deserializeAws_json1_1Spend = (output: any, context: __SerdeContext): Spend => {
   return {
-    __type: "Spend",
     Amount: output.Amount !== undefined && output.Amount !== null ? output.Amount : undefined,
     Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
   } as any;
@@ -2291,7 +2245,6 @@ const deserializeAws_json1_1Spend = (output: any, context: __SerdeContext): Spen
 
 const deserializeAws_json1_1Subscriber = (output: any, context: __SerdeContext): Subscriber => {
   return {
-    __type: "Subscriber",
     Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
     SubscriptionType:
       output.SubscriptionType !== undefined && output.SubscriptionType !== null ? output.SubscriptionType : undefined,
@@ -2304,34 +2257,27 @@ const deserializeAws_json1_1Subscribers = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1TimePeriod = (output: any, context: __SerdeContext): TimePeriod => {
   return {
-    __type: "TimePeriod",
     End: output.End !== undefined && output.End !== null ? new Date(Math.round(output.End * 1000)) : undefined,
     Start: output.Start !== undefined && output.Start !== null ? new Date(Math.round(output.Start * 1000)) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UpdateBudgetResponse = (output: any, context: __SerdeContext): UpdateBudgetResponse => {
-  return {
-    __type: "UpdateBudgetResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateNotificationResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateNotificationResponse => {
-  return {
-    __type: "UpdateNotificationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateSubscriberResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateSubscriberResponse => {
-  return {
-    __type: "UpdateSubscriberResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

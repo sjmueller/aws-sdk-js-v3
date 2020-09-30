@@ -1,6 +1,6 @@
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient.ts";
-import { ListClusterOperationsRequest, ListClusterOperationsResponse } from "../models/index.ts";
+import { ListClusterOperationsRequest, ListClusterOperationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListClusterOperationsCommand,
   serializeAws_restJson1ListClusterOperationsCommand,

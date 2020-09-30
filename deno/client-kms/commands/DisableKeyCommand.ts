@@ -1,6 +1,6 @@
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
-import { DisableKeyRequest } from "../models/index.ts";
+import { DisableKeyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisableKeyCommand,
   serializeAws_json1_1DisableKeyCommand,

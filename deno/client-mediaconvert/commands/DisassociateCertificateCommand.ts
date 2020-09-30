@@ -1,6 +1,6 @@
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient.ts";
-import { DisassociateCertificateRequest, DisassociateCertificateResponse } from "../models/index.ts";
+import { DisassociateCertificateRequest, DisassociateCertificateResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DisassociateCertificateCommand,
   serializeAws_restJson1DisassociateCertificateCommand,

@@ -1,6 +1,7 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { ExportTask, StartExportTaskMessage } from "../models/index.ts";
+import { ExportTask } from "../models/models_0.ts";
+import { StartExportTaskMessage } from "../models/models_1.ts";
 import {
   deserializeAws_queryStartExportTaskCommand,
   serializeAws_queryStartExportTaskCommand,

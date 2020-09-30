@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/index.ts";
+import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryFailoverDBClusterCommand,
   serializeAws_queryFailoverDBClusterCommand,

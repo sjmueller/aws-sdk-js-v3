@@ -1,6 +1,6 @@
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
-import { CreateDataCatalogInput, CreateDataCatalogOutput } from "../models/index.ts";
+import { CreateDataCatalogInput, CreateDataCatalogOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateDataCatalogCommand,
   serializeAws_json1_1CreateDataCatalogCommand,

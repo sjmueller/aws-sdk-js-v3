@@ -1,6 +1,6 @@
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient.ts";
-import { DeleteBudgetRequest, DeleteBudgetResponse } from "../models/index.ts";
+import { DeleteBudgetRequest, DeleteBudgetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteBudgetCommand,
   serializeAws_json1_1DeleteBudgetCommand,

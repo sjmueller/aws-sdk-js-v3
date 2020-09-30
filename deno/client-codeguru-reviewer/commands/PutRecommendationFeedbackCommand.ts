@@ -1,6 +1,6 @@
 
 import { CodeGuruReviewerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruReviewerClient.ts";
-import { PutRecommendationFeedbackRequest, PutRecommendationFeedbackResponse } from "../models/index.ts";
+import { PutRecommendationFeedbackRequest, PutRecommendationFeedbackResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutRecommendationFeedbackCommand,
   serializeAws_restJson1PutRecommendationFeedbackCommand,

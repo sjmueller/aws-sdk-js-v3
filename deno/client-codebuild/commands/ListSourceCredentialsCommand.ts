@@ -1,6 +1,6 @@
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient.ts";
-import { ListSourceCredentialsInput, ListSourceCredentialsOutput } from "../models/index.ts";
+import { ListSourceCredentialsInput, ListSourceCredentialsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListSourceCredentialsCommand,
   serializeAws_json1_1ListSourceCredentialsCommand,

@@ -1,6 +1,6 @@
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
-import { SetTerminationProtectionInput } from "../models/index.ts";
+import { SetTerminationProtectionInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SetTerminationProtectionCommand,
   serializeAws_json1_1SetTerminationProtectionCommand,

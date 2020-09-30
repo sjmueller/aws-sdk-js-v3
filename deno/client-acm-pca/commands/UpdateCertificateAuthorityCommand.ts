@@ -1,6 +1,6 @@
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient.ts";
-import { UpdateCertificateAuthorityRequest } from "../models/index.ts";
+import { UpdateCertificateAuthorityRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateCertificateAuthorityCommand,
   serializeAws_json1_1UpdateCertificateAuthorityCommand,

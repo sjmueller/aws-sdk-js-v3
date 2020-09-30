@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient.ts";
-import { UpdateDomainMetadataRequest, UpdateDomainMetadataResponse } from "../models/index.ts";
+import { UpdateDomainMetadataRequest, UpdateDomainMetadataResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateDomainMetadataCommand,
   serializeAws_restJson1UpdateDomainMetadataCommand,

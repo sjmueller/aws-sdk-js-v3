@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { StopInstanceRequest } from "../models/index.ts";
+import { StopInstanceRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopInstanceCommand,
   serializeAws_json1_1StopInstanceCommand,

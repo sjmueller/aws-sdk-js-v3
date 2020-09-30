@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { DescribeAlarmHistoryInput, DescribeAlarmHistoryOutput } from "../models/index.ts";
+import { DescribeAlarmHistoryInput, DescribeAlarmHistoryOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeAlarmHistoryCommand,
   serializeAws_queryDescribeAlarmHistoryCommand,

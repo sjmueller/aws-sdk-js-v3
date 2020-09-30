@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { SubmitContainerStateChangeRequest, SubmitContainerStateChangeResponse } from "../models/index.ts";
+import { SubmitContainerStateChangeRequest, SubmitContainerStateChangeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SubmitContainerStateChangeCommand,
   serializeAws_json1_1SubmitContainerStateChangeCommand,

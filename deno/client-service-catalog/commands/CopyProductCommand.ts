@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { CopyProductInput, CopyProductOutput } from "../models/index.ts";
+import { CopyProductInput, CopyProductOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CopyProductCommand,
   serializeAws_json1_1CopyProductCommand,

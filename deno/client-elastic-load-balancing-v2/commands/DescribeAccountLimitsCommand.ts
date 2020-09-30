@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client.ts";
-import { DescribeAccountLimitsInput, DescribeAccountLimitsOutput } from "../models/index.ts";
+import { DescribeAccountLimitsInput, DescribeAccountLimitsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeAccountLimitsCommand,
   serializeAws_queryDescribeAccountLimitsCommand,

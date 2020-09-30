@@ -1,6 +1,6 @@
 
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient.ts";
-import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult } from "../models/index.ts";
+import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteEventSubscriptionCommand,
   serializeAws_queryDeleteEventSubscriptionCommand,

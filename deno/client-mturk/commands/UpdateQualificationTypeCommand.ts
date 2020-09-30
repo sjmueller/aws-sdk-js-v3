@@ -1,6 +1,6 @@
 
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
-import { UpdateQualificationTypeRequest, UpdateQualificationTypeResponse } from "../models/index.ts";
+import { UpdateQualificationTypeRequest, UpdateQualificationTypeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateQualificationTypeCommand,
   serializeAws_json1_1UpdateQualificationTypeCommand,

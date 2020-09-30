@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { PutPublicAccessBlockRequest } from "../models/index.ts";
+import { PutPublicAccessBlockRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlPutPublicAccessBlockCommand,
   serializeAws_restXmlPutPublicAccessBlockCommand,

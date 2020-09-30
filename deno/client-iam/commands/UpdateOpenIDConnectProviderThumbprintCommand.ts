@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { UpdateOpenIDConnectProviderThumbprintRequest } from "../models/index.ts";
+import { UpdateOpenIDConnectProviderThumbprintRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand,
   serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand,

@@ -1,6 +1,6 @@
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
-import { CertificateMessage, DescribeCertificatesMessage } from "../models/index.ts";
+import { CertificateMessage, DescribeCertificatesMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeCertificatesCommand,
   serializeAws_queryDescribeCertificatesCommand,

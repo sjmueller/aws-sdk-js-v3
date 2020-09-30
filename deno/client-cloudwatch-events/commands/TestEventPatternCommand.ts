@@ -1,6 +1,6 @@
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient.ts";
-import { TestEventPatternRequest, TestEventPatternResponse } from "../models/index.ts";
+import { TestEventPatternRequest, TestEventPatternResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1TestEventPatternCommand,
   serializeAws_json1_1TestEventPatternCommand,
@@ -44,8 +44,11 @@ export class TestEventPatternCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: TestEventPatternRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: TestEventPatternResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

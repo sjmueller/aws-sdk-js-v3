@@ -1,6 +1,6 @@
 
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient.ts";
-import { DomainInfos, ListDomainsInput } from "../models/index.ts";
+import { DomainInfos, ListDomainsInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0ListDomainsCommand,
   serializeAws_json1_0ListDomainsCommand,

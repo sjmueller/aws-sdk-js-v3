@@ -1,6 +1,6 @@
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
-import { DescribeChangeSetInput, DescribeChangeSetOutput } from "../models/index.ts";
+import { DescribeChangeSetInput, DescribeChangeSetOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeChangeSetCommand,
   serializeAws_queryDescribeChangeSetCommand,

@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { GetAggregateResourceConfigRequest, GetAggregateResourceConfigResponse } from "../models/index.ts";
+import { GetAggregateResourceConfigRequest, GetAggregateResourceConfigResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetAggregateResourceConfigCommand,
   serializeAws_json1_1GetAggregateResourceConfigCommand,

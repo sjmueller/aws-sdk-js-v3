@@ -1,6 +1,6 @@
 
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient.ts";
-import { CreateSchemaRequest, CreateSchemaResponse } from "../models/index.ts";
+import { CreateSchemaRequest, CreateSchemaResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateSchemaCommand,
   serializeAws_restJson1CreateSchemaCommand,

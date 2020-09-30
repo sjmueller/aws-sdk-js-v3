@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { ModifySubnetAttributeRequest } from "../models/index.ts";
+import { ModifySubnetAttributeRequest } from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifySubnetAttributeCommand,
   serializeAws_ec2ModifySubnetAttributeCommand,

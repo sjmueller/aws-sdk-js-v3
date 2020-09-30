@@ -1,6 +1,6 @@
 
 import { FirehoseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FirehoseClient.ts";
-import { CreateDeliveryStreamInput, CreateDeliveryStreamOutput } from "../models/index.ts";
+import { CreateDeliveryStreamInput, CreateDeliveryStreamOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateDeliveryStreamCommand,
   serializeAws_json1_1CreateDeliveryStreamCommand,

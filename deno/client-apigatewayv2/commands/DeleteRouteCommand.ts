@@ -1,6 +1,6 @@
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
-import { DeleteRouteRequest } from "../models/index.ts";
+import { DeleteRouteRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteRouteCommand,
   serializeAws_restJson1DeleteRouteCommand,

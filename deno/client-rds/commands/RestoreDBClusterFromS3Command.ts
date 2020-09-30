@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result } from "../models/index.ts";
+import { RestoreDBClusterFromS3Message, RestoreDBClusterFromS3Result } from "../models/models_1.ts";
 import {
   deserializeAws_queryRestoreDBClusterFromS3Command,
   serializeAws_queryRestoreDBClusterFromS3Command,

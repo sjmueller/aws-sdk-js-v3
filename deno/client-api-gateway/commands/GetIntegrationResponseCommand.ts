@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { GetIntegrationResponseRequest, IntegrationResponse } from "../models/index.ts";
+import { GetIntegrationResponseRequest, IntegrationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetIntegrationResponseCommand,
   serializeAws_restJson1GetIntegrationResponseCommand,

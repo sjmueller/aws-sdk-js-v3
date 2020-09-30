@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } from "../SignerClient.ts";
-import { CancelSigningProfileRequest } from "../models/index.ts";
+import { CancelSigningProfileRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CancelSigningProfileCommand,
   serializeAws_restJson1CancelSigningProfileCommand,

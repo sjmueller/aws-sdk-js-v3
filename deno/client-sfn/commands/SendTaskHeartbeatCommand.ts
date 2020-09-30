@@ -1,6 +1,6 @@
 
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient.ts";
-import { SendTaskHeartbeatInput, SendTaskHeartbeatOutput } from "../models/index.ts";
+import { SendTaskHeartbeatInput, SendTaskHeartbeatOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0SendTaskHeartbeatCommand,
   serializeAws_json1_0SendTaskHeartbeatCommand,

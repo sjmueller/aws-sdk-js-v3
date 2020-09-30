@@ -166,7 +166,7 @@ import {
   UnsubscribeInput,
   UntagResourceRequest,
   UntagResourceResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -798,7 +798,6 @@ export const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand = async (
   contents = deserializeAws_queryCheckIfPhoneNumberIsOptedOutResponse(data.CheckIfPhoneNumberIsOptedOutResult, context);
   const response: CheckIfPhoneNumberIsOptedOutCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CheckIfPhoneNumberIsOptedOutResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -877,7 +876,6 @@ export const deserializeAws_queryConfirmSubscriptionCommand = async (
   contents = deserializeAws_queryConfirmSubscriptionResponse(data.ConfirmSubscriptionResult, context);
   const response: ConfirmSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfirmSubscriptionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -972,7 +970,6 @@ export const deserializeAws_queryCreatePlatformApplicationCommand = async (
   contents = deserializeAws_queryCreatePlatformApplicationResponse(data.CreatePlatformApplicationResult, context);
   const response: CreatePlatformApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePlatformApplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1043,7 +1040,6 @@ export const deserializeAws_queryCreatePlatformEndpointCommand = async (
   contents = deserializeAws_queryCreateEndpointResponse(data.CreatePlatformEndpointResult, context);
   const response: CreatePlatformEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEndpointResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1122,7 +1118,6 @@ export const deserializeAws_queryCreateTopicCommand = async (
   contents = deserializeAws_queryCreateTopicResponse(data.CreateTopicResult, context);
   const response: CreateTopicCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTopicResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1474,7 +1469,6 @@ export const deserializeAws_queryGetEndpointAttributesCommand = async (
   contents = deserializeAws_queryGetEndpointAttributesResponse(data.GetEndpointAttributesResult, context);
   const response: GetEndpointAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEndpointAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1556,7 +1550,6 @@ export const deserializeAws_queryGetPlatformApplicationAttributesCommand = async
   );
   const response: GetPlatformApplicationAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPlatformApplicationAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1635,7 +1628,6 @@ export const deserializeAws_queryGetSMSAttributesCommand = async (
   contents = deserializeAws_queryGetSMSAttributesResponse(data.GetSMSAttributesResult, context);
   const response: GetSMSAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSMSAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1714,7 +1706,6 @@ export const deserializeAws_queryGetSubscriptionAttributesCommand = async (
   contents = deserializeAws_queryGetSubscriptionAttributesResponse(data.GetSubscriptionAttributesResult, context);
   const response: GetSubscriptionAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSubscriptionAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1793,7 +1784,6 @@ export const deserializeAws_queryGetTopicAttributesCommand = async (
   contents = deserializeAws_queryGetTopicAttributesResponse(data.GetTopicAttributesResult, context);
   const response: GetTopicAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTopicAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1883,7 +1873,6 @@ export const deserializeAws_queryListEndpointsByPlatformApplicationCommand = asy
   );
   const response: ListEndpointsByPlatformApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEndpointsByPlatformApplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1962,7 +1951,6 @@ export const deserializeAws_queryListPhoneNumbersOptedOutCommand = async (
   contents = deserializeAws_queryListPhoneNumbersOptedOutResponse(data.ListPhoneNumbersOptedOutResult, context);
   const response: ListPhoneNumbersOptedOutCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPhoneNumbersOptedOutResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2041,7 +2029,6 @@ export const deserializeAws_queryListPlatformApplicationsCommand = async (
   contents = deserializeAws_queryListPlatformApplicationsResponse(data.ListPlatformApplicationsResult, context);
   const response: ListPlatformApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPlatformApplicationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2112,7 +2099,6 @@ export const deserializeAws_queryListSubscriptionsCommand = async (
   contents = deserializeAws_queryListSubscriptionsResponse(data.ListSubscriptionsResult, context);
   const response: ListSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSubscriptionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2183,7 +2169,6 @@ export const deserializeAws_queryListSubscriptionsByTopicCommand = async (
   contents = deserializeAws_queryListSubscriptionsByTopicResponse(data.ListSubscriptionsByTopicResult, context);
   const response: ListSubscriptionsByTopicCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSubscriptionsByTopicResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2262,7 +2247,6 @@ export const deserializeAws_queryListTagsForResourceCommand = async (
   contents = deserializeAws_queryListTagsForResourceResponse(data.ListTagsForResourceResult, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2349,7 +2333,6 @@ export const deserializeAws_queryListTopicsCommand = async (
   contents = deserializeAws_queryListTopicsResponse(data.ListTopicsResult, context);
   const response: ListTopicsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTopicsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2420,7 +2403,6 @@ export const deserializeAws_queryOptInPhoneNumberCommand = async (
   contents = deserializeAws_queryOptInPhoneNumberResponse(data.OptInPhoneNumberResult, context);
   const response: OptInPhoneNumberCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "OptInPhoneNumberResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2499,7 +2481,6 @@ export const deserializeAws_queryPublishCommand = async (
   contents = deserializeAws_queryPublishResponse(data.PublishResult, context);
   const response: PublishCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PublishResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2883,7 +2864,6 @@ export const deserializeAws_querySetSMSAttributesCommand = async (
   contents = deserializeAws_querySetSMSAttributesResponse(data.SetSMSAttributesResult, context);
   const response: SetSMSAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetSMSAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3128,7 +3108,6 @@ export const deserializeAws_querySubscribeCommand = async (
   contents = deserializeAws_querySubscribeResponse(data.SubscribeResult, context);
   const response: SubscribeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SubscribeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3231,7 +3210,6 @@ export const deserializeAws_queryTagResourceCommand = async (
   contents = deserializeAws_queryTagResourceResponse(data.TagResourceResult, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3417,7 +3395,6 @@ export const deserializeAws_queryUntagResourceCommand = async (
   contents = deserializeAws_queryUntagResourceResponse(data.UntagResourceResult, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4453,7 +4430,6 @@ const deserializeAws_queryAuthorizationErrorException = (
   context: __SerdeContext
 ): AuthorizationErrorException => {
   let contents: any = {
-    __type: "AuthorizationErrorException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4467,7 +4443,6 @@ const deserializeAws_queryCheckIfPhoneNumberIsOptedOutResponse = (
   context: __SerdeContext
 ): CheckIfPhoneNumberIsOptedOutResponse => {
   let contents: any = {
-    __type: "CheckIfPhoneNumberIsOptedOutResponse",
     isOptedOut: undefined,
   };
   if (output["isOptedOut"] !== undefined) {
@@ -4481,7 +4456,6 @@ const deserializeAws_queryConcurrentAccessException = (
   context: __SerdeContext
 ): ConcurrentAccessException => {
   let contents: any = {
-    __type: "ConcurrentAccessException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4495,7 +4469,6 @@ const deserializeAws_queryConfirmSubscriptionResponse = (
   context: __SerdeContext
 ): ConfirmSubscriptionResponse => {
   let contents: any = {
-    __type: "ConfirmSubscriptionResponse",
     SubscriptionArn: undefined,
   };
   if (output["SubscriptionArn"] !== undefined) {
@@ -4506,7 +4479,6 @@ const deserializeAws_queryConfirmSubscriptionResponse = (
 
 const deserializeAws_queryCreateEndpointResponse = (output: any, context: __SerdeContext): CreateEndpointResponse => {
   let contents: any = {
-    __type: "CreateEndpointResponse",
     EndpointArn: undefined,
   };
   if (output["EndpointArn"] !== undefined) {
@@ -4520,7 +4492,6 @@ const deserializeAws_queryCreatePlatformApplicationResponse = (
   context: __SerdeContext
 ): CreatePlatformApplicationResponse => {
   let contents: any = {
-    __type: "CreatePlatformApplicationResponse",
     PlatformApplicationArn: undefined,
   };
   if (output["PlatformApplicationArn"] !== undefined) {
@@ -4531,7 +4502,6 @@ const deserializeAws_queryCreatePlatformApplicationResponse = (
 
 const deserializeAws_queryCreateTopicResponse = (output: any, context: __SerdeContext): CreateTopicResponse => {
   let contents: any = {
-    __type: "CreateTopicResponse",
     TopicArn: undefined,
   };
   if (output["TopicArn"] !== undefined) {
@@ -4542,7 +4512,6 @@ const deserializeAws_queryCreateTopicResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): Endpoint => {
   let contents: any = {
-    __type: "Endpoint",
     Attributes: undefined,
     EndpointArn: undefined,
   };
@@ -4566,7 +4535,6 @@ const deserializeAws_queryEndpointDisabledException = (
   context: __SerdeContext
 ): EndpointDisabledException => {
   let contents: any = {
-    __type: "EndpointDisabledException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4580,7 +4548,6 @@ const deserializeAws_queryFilterPolicyLimitExceededException = (
   context: __SerdeContext
 ): FilterPolicyLimitExceededException => {
   let contents: any = {
-    __type: "FilterPolicyLimitExceededException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4594,7 +4561,6 @@ const deserializeAws_queryGetEndpointAttributesResponse = (
   context: __SerdeContext
 ): GetEndpointAttributesResponse => {
   let contents: any = {
-    __type: "GetEndpointAttributesResponse",
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -4614,7 +4580,6 @@ const deserializeAws_queryGetPlatformApplicationAttributesResponse = (
   context: __SerdeContext
 ): GetPlatformApplicationAttributesResponse => {
   let contents: any = {
-    __type: "GetPlatformApplicationAttributesResponse",
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -4634,7 +4599,6 @@ const deserializeAws_queryGetSMSAttributesResponse = (
   context: __SerdeContext
 ): GetSMSAttributesResponse => {
   let contents: any = {
-    __type: "GetSMSAttributesResponse",
     attributes: undefined,
   };
   if (output.attributes === "") {
@@ -4654,7 +4618,6 @@ const deserializeAws_queryGetSubscriptionAttributesResponse = (
   context: __SerdeContext
 ): GetSubscriptionAttributesResponse => {
   let contents: any = {
-    __type: "GetSubscriptionAttributesResponse",
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -4674,7 +4637,6 @@ const deserializeAws_queryGetTopicAttributesResponse = (
   context: __SerdeContext
 ): GetTopicAttributesResponse => {
   let contents: any = {
-    __type: "GetTopicAttributesResponse",
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -4691,7 +4653,6 @@ const deserializeAws_queryGetTopicAttributesResponse = (
 
 const deserializeAws_queryInternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   let contents: any = {
-    __type: "InternalErrorException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4705,7 +4666,6 @@ const deserializeAws_queryInvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   let contents: any = {
-    __type: "InvalidParameterException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4719,7 +4679,6 @@ const deserializeAws_queryInvalidParameterValueException = (
   context: __SerdeContext
 ): InvalidParameterValueException => {
   let contents: any = {
-    __type: "InvalidParameterValueException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4733,7 +4692,6 @@ const deserializeAws_queryInvalidSecurityException = (
   context: __SerdeContext
 ): InvalidSecurityException => {
   let contents: any = {
-    __type: "InvalidSecurityException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4747,7 +4705,6 @@ const deserializeAws_queryKMSAccessDeniedException = (
   context: __SerdeContext
 ): KMSAccessDeniedException => {
   let contents: any = {
-    __type: "KMSAccessDeniedException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4758,7 +4715,6 @@ const deserializeAws_queryKMSAccessDeniedException = (
 
 const deserializeAws_queryKMSDisabledException = (output: any, context: __SerdeContext): KMSDisabledException => {
   let contents: any = {
-    __type: "KMSDisabledException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4772,7 +4728,6 @@ const deserializeAws_queryKMSInvalidStateException = (
   context: __SerdeContext
 ): KMSInvalidStateException => {
   let contents: any = {
-    __type: "KMSInvalidStateException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4783,7 +4738,6 @@ const deserializeAws_queryKMSInvalidStateException = (
 
 const deserializeAws_queryKMSNotFoundException = (output: any, context: __SerdeContext): KMSNotFoundException => {
   let contents: any = {
-    __type: "KMSNotFoundException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4794,7 +4748,6 @@ const deserializeAws_queryKMSNotFoundException = (output: any, context: __SerdeC
 
 const deserializeAws_queryKMSOptInRequired = (output: any, context: __SerdeContext): KMSOptInRequired => {
   let contents: any = {
-    __type: "KMSOptInRequired",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4805,7 +4758,6 @@ const deserializeAws_queryKMSOptInRequired = (output: any, context: __SerdeConte
 
 const deserializeAws_queryKMSThrottlingException = (output: any, context: __SerdeContext): KMSThrottlingException => {
   let contents: any = {
-    __type: "KMSThrottlingException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -4819,7 +4771,6 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
   context: __SerdeContext
 ): ListEndpointsByPlatformApplicationResponse => {
   let contents: any = {
-    __type: "ListEndpointsByPlatformApplicationResponse",
     NextToken: undefined,
     Endpoints: undefined,
   };
@@ -4854,7 +4805,6 @@ const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
   context: __SerdeContext
 ): ListPhoneNumbersOptedOutResponse => {
   let contents: any = {
-    __type: "ListPhoneNumbersOptedOutResponse",
     nextToken: undefined,
     phoneNumbers: undefined,
   };
@@ -4878,7 +4828,6 @@ const deserializeAws_queryListPlatformApplicationsResponse = (
   context: __SerdeContext
 ): ListPlatformApplicationsResponse => {
   let contents: any = {
-    __type: "ListPlatformApplicationsResponse",
     NextToken: undefined,
     PlatformApplications: undefined,
   };
@@ -4902,7 +4851,6 @@ const deserializeAws_queryListSubscriptionsByTopicResponse = (
   context: __SerdeContext
 ): ListSubscriptionsByTopicResponse => {
   let contents: any = {
-    __type: "ListSubscriptionsByTopicResponse",
     NextToken: undefined,
     Subscriptions: undefined,
   };
@@ -4926,7 +4874,6 @@ const deserializeAws_queryListSubscriptionsResponse = (
   context: __SerdeContext
 ): ListSubscriptionsResponse => {
   let contents: any = {
-    __type: "ListSubscriptionsResponse",
     NextToken: undefined,
     Subscriptions: undefined,
   };
@@ -4950,7 +4897,6 @@ const deserializeAws_queryListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   let contents: any = {
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   if (output.Tags === "") {
@@ -4964,7 +4910,6 @@ const deserializeAws_queryListTagsForResourceResponse = (
 
 const deserializeAws_queryListTopicsResponse = (output: any, context: __SerdeContext): ListTopicsResponse => {
   let contents: any = {
-    __type: "ListTopicsResponse",
     Topics: undefined,
     NextToken: undefined,
   };
@@ -4992,7 +4937,6 @@ const deserializeAws_queryMapStringToString = (output: any, context: __SerdeCont
 
 const deserializeAws_queryNotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   let contents: any = {
-    __type: "NotFoundException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5005,9 +4949,7 @@ const deserializeAws_queryOptInPhoneNumberResponse = (
   output: any,
   context: __SerdeContext
 ): OptInPhoneNumberResponse => {
-  let contents: any = {
-    __type: "OptInPhoneNumberResponse",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -5017,7 +4959,6 @@ const deserializeAws_queryPhoneNumberList = (output: any, context: __SerdeContex
 
 const deserializeAws_queryPlatformApplication = (output: any, context: __SerdeContext): PlatformApplication => {
   let contents: any = {
-    __type: "PlatformApplication",
     Attributes: undefined,
     PlatformApplicationArn: undefined,
   };
@@ -5041,7 +4982,6 @@ const deserializeAws_queryPlatformApplicationDisabledException = (
   context: __SerdeContext
 ): PlatformApplicationDisabledException => {
   let contents: any = {
-    __type: "PlatformApplicationDisabledException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5052,7 +4992,6 @@ const deserializeAws_queryPlatformApplicationDisabledException = (
 
 const deserializeAws_queryPublishResponse = (output: any, context: __SerdeContext): PublishResponse => {
   let contents: any = {
-    __type: "PublishResponse",
     MessageId: undefined,
   };
   if (output["MessageId"] !== undefined) {
@@ -5066,7 +5005,6 @@ const deserializeAws_queryResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   let contents: any = {
-    __type: "ResourceNotFoundException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5079,15 +5017,12 @@ const deserializeAws_querySetSMSAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): SetSMSAttributesResponse => {
-  let contents: any = {
-    __type: "SetSMSAttributesResponse",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryStaleTagException = (output: any, context: __SerdeContext): StaleTagException => {
   let contents: any = {
-    __type: "StaleTagException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5098,7 +5033,6 @@ const deserializeAws_queryStaleTagException = (output: any, context: __SerdeCont
 
 const deserializeAws_querySubscribeResponse = (output: any, context: __SerdeContext): SubscribeResponse => {
   let contents: any = {
-    __type: "SubscribeResponse",
     SubscriptionArn: undefined,
   };
   if (output["SubscriptionArn"] !== undefined) {
@@ -5109,7 +5043,6 @@ const deserializeAws_querySubscribeResponse = (output: any, context: __SerdeCont
 
 const deserializeAws_querySubscription = (output: any, context: __SerdeContext): Subscription => {
   let contents: any = {
-    __type: "Subscription",
     Protocol: undefined,
     Owner: undefined,
     SubscriptionArn: undefined,
@@ -5152,7 +5085,6 @@ const deserializeAws_querySubscriptionLimitExceededException = (
   context: __SerdeContext
 ): SubscriptionLimitExceededException => {
   let contents: any = {
-    __type: "SubscriptionLimitExceededException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5167,7 +5099,6 @@ const deserializeAws_querySubscriptionsList = (output: any, context: __SerdeCont
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
-    __type: "Tag",
     Key: undefined,
     Value: undefined,
   };
@@ -5185,7 +5116,6 @@ const deserializeAws_queryTagLimitExceededException = (
   context: __SerdeContext
 ): TagLimitExceededException => {
   let contents: any = {
-    __type: "TagLimitExceededException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5200,7 +5130,6 @@ const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[
 
 const deserializeAws_queryTagPolicyException = (output: any, context: __SerdeContext): TagPolicyException => {
   let contents: any = {
-    __type: "TagPolicyException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5210,15 +5139,12 @@ const deserializeAws_queryTagPolicyException = (output: any, context: __SerdeCon
 };
 
 const deserializeAws_queryTagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  let contents: any = {
-    __type: "TagResourceResponse",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryThrottledException = (output: any, context: __SerdeContext): ThrottledException => {
   let contents: any = {
-    __type: "ThrottledException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5229,7 +5155,6 @@ const deserializeAws_queryThrottledException = (output: any, context: __SerdeCon
 
 const deserializeAws_queryTopic = (output: any, context: __SerdeContext): Topic => {
   let contents: any = {
-    __type: "Topic",
     TopicArn: undefined,
   };
   if (output["TopicArn"] !== undefined) {
@@ -5253,7 +5178,6 @@ const deserializeAws_queryTopicLimitExceededException = (
   context: __SerdeContext
 ): TopicLimitExceededException => {
   let contents: any = {
-    __type: "TopicLimitExceededException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -5267,9 +5191,7 @@ const deserializeAws_queryTopicsList = (output: any, context: __SerdeContext): T
 };
 
 const deserializeAws_queryUntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  let contents: any = {
-    __type: "UntagResourceResponse",
-  };
+  let contents: any = {};
   return contents;
 };
 

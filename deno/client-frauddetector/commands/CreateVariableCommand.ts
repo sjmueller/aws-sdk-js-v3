@@ -1,6 +1,6 @@
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient.ts";
-import { CreateVariableRequest, CreateVariableResult } from "../models/index.ts";
+import { CreateVariableRequest, CreateVariableResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateVariableCommand,
   serializeAws_json1_1CreateVariableCommand,

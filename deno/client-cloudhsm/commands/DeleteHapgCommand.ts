@@ -1,6 +1,6 @@
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient.ts";
-import { DeleteHapgRequest, DeleteHapgResponse } from "../models/index.ts";
+import { DeleteHapgRequest, DeleteHapgResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteHapgCommand,
   serializeAws_json1_1DeleteHapgCommand,

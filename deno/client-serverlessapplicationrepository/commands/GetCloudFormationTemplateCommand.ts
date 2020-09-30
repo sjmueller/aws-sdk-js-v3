@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient.ts";
-import { GetCloudFormationTemplateRequest, GetCloudFormationTemplateResponse } from "../models/index.ts";
+import { GetCloudFormationTemplateRequest, GetCloudFormationTemplateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetCloudFormationTemplateCommand,
   serializeAws_restJson1GetCloudFormationTemplateCommand,

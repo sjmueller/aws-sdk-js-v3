@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { DisassociatePrincipalFromPortfolioInput, DisassociatePrincipalFromPortfolioOutput } from "../models/index.ts";
+import { DisassociatePrincipalFromPortfolioInput, DisassociatePrincipalFromPortfolioOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommand,
   serializeAws_json1_1DisassociatePrincipalFromPortfolioCommand,

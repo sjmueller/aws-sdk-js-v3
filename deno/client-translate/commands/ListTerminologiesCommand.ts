@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } from "../TranslateClient.ts";
-import { ListTerminologiesRequest, ListTerminologiesResponse } from "../models/index.ts";
+import { ListTerminologiesRequest, ListTerminologiesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListTerminologiesCommand,
   serializeAws_json1_1ListTerminologiesCommand,

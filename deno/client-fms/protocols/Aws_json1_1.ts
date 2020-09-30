@@ -134,7 +134,7 @@ import {
   UntagResourceRequest,
   UntagResourceResponse,
   ViolationDetail,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -911,7 +911,6 @@ export const deserializeAws_json1_1GetAdminAccountCommand = async (
   contents = deserializeAws_json1_1GetAdminAccountResponse(data, context);
   const response: GetAdminAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAdminAccountResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -983,7 +982,6 @@ export const deserializeAws_json1_1GetAppsListCommand = async (
   contents = deserializeAws_json1_1GetAppsListResponse(data, context);
   const response: GetAppsListCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAppsListResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1055,7 +1053,6 @@ export const deserializeAws_json1_1GetComplianceDetailCommand = async (
   contents = deserializeAws_json1_1GetComplianceDetailResponse(data, context);
   const response: GetComplianceDetailCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetComplianceDetailResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1135,7 +1132,6 @@ export const deserializeAws_json1_1GetNotificationChannelCommand = async (
   contents = deserializeAws_json1_1GetNotificationChannelResponse(data, context);
   const response: GetNotificationChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetNotificationChannelResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1207,7 +1203,6 @@ export const deserializeAws_json1_1GetPolicyCommand = async (
   contents = deserializeAws_json1_1GetPolicyResponse(data, context);
   const response: GetPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1287,7 +1282,6 @@ export const deserializeAws_json1_1GetProtectionStatusCommand = async (
   contents = deserializeAws_json1_1GetProtectionStatusResponse(data, context);
   const response: GetProtectionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetProtectionStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1359,7 +1353,6 @@ export const deserializeAws_json1_1GetProtocolsListCommand = async (
   contents = deserializeAws_json1_1GetProtocolsListResponse(data, context);
   const response: GetProtocolsListCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetProtocolsListResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1431,7 +1424,6 @@ export const deserializeAws_json1_1GetViolationDetailsCommand = async (
   contents = deserializeAws_json1_1GetViolationDetailsResponse(data, context);
   const response: GetViolationDetailsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetViolationDetailsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1503,7 +1495,6 @@ export const deserializeAws_json1_1ListAppsListsCommand = async (
   contents = deserializeAws_json1_1ListAppsListsResponse(data, context);
   const response: ListAppsListsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAppsListsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1583,7 +1574,6 @@ export const deserializeAws_json1_1ListComplianceStatusCommand = async (
   contents = deserializeAws_json1_1ListComplianceStatusResponse(data, context);
   const response: ListComplianceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListComplianceStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1647,7 +1637,6 @@ export const deserializeAws_json1_1ListMemberAccountsCommand = async (
   contents = deserializeAws_json1_1ListMemberAccountsResponse(data, context);
   const response: ListMemberAccountsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMemberAccountsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1711,7 +1700,6 @@ export const deserializeAws_json1_1ListPoliciesCommand = async (
   contents = deserializeAws_json1_1ListPoliciesResponse(data, context);
   const response: ListPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1791,7 +1779,6 @@ export const deserializeAws_json1_1ListProtocolsListsCommand = async (
   contents = deserializeAws_json1_1ListProtocolsListsResponse(data, context);
   const response: ListProtocolsListsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProtocolsListsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1863,7 +1850,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1943,7 +1929,6 @@ export const deserializeAws_json1_1PutAppsListCommand = async (
   contents = deserializeAws_json1_1PutAppsListResponse(data, context);
   const response: PutAppsListCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutAppsListResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2099,7 +2084,6 @@ export const deserializeAws_json1_1PutPolicyCommand = async (
   contents = deserializeAws_json1_1PutPolicyResponse(data, context);
   const response: PutPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2195,7 +2179,6 @@ export const deserializeAws_json1_1PutProtocolsListCommand = async (
   contents = deserializeAws_json1_1PutProtocolsListResponse(data, context);
   const response: PutProtocolsListCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutProtocolsListResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2283,7 +2266,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2371,7 +2353,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2901,7 +2882,6 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
 
 const deserializeAws_json1_1App = (output: any, context: __SerdeContext): App => {
   return {
-    __type: "App",
     AppName: output.AppName !== undefined && output.AppName !== null ? output.AppName : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
     Protocol: output.Protocol !== undefined && output.Protocol !== null ? output.Protocol : undefined,
@@ -2914,7 +2894,6 @@ const deserializeAws_json1_1AppsList = (output: any, context: __SerdeContext): A
 
 const deserializeAws_json1_1AppsListData = (output: any, context: __SerdeContext): AppsListData => {
   return {
-    __type: "AppsListData",
     AppsList:
       output.AppsList !== undefined && output.AppsList !== null
         ? deserializeAws_json1_1AppsList(output.AppsList, context)
@@ -2940,7 +2919,6 @@ const deserializeAws_json1_1AppsListData = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1AppsListDataSummary = (output: any, context: __SerdeContext): AppsListDataSummary => {
   return {
-    __type: "AppsListDataSummary",
     AppsList:
       output.AppsList !== undefined && output.AppsList !== null
         ? deserializeAws_json1_1AppsList(output.AppsList, context)
@@ -2960,7 +2938,6 @@ const deserializeAws_json1_1AwsEc2InstanceViolation = (
   context: __SerdeContext
 ): AwsEc2InstanceViolation => {
   return {
-    __type: "AwsEc2InstanceViolation",
     AwsEc2NetworkInterfaceViolations:
       output.AwsEc2NetworkInterfaceViolations !== undefined && output.AwsEc2NetworkInterfaceViolations !== null
         ? deserializeAws_json1_1AwsEc2NetworkInterfaceViolations(output.AwsEc2NetworkInterfaceViolations, context)
@@ -2975,7 +2952,6 @@ const deserializeAws_json1_1AwsEc2NetworkInterfaceViolation = (
   context: __SerdeContext
 ): AwsEc2NetworkInterfaceViolation => {
   return {
-    __type: "AwsEc2NetworkInterfaceViolation",
     ViolatingSecurityGroups:
       output.ViolatingSecurityGroups !== undefined && output.ViolatingSecurityGroups !== null
         ? deserializeAws_json1_1ResourceIdList(output.ViolatingSecurityGroups, context)
@@ -2997,7 +2973,6 @@ const deserializeAws_json1_1AwsVPCSecurityGroupViolation = (
   context: __SerdeContext
 ): AwsVPCSecurityGroupViolation => {
   return {
-    __type: "AwsVPCSecurityGroupViolation",
     PartialMatches:
       output.PartialMatches !== undefined && output.PartialMatches !== null
         ? deserializeAws_json1_1PartialMatches(output.PartialMatches, context)
@@ -3018,7 +2993,6 @@ const deserializeAws_json1_1AwsVPCSecurityGroupViolation = (
 
 const deserializeAws_json1_1ComplianceViolator = (output: any, context: __SerdeContext): ComplianceViolator => {
   return {
-    __type: "ComplianceViolator",
     ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
     ViolationReason:
@@ -3049,7 +3023,6 @@ const deserializeAws_json1_1CustomerPolicyScopeMap = (
 
 const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   return {
-    __type: "EvaluationResult",
     ComplianceStatus:
       output.ComplianceStatus !== undefined && output.ComplianceStatus !== null ? output.ComplianceStatus : undefined,
     EvaluationLimitExceeded:
@@ -3070,7 +3043,6 @@ const deserializeAws_json1_1GetAdminAccountResponse = (
   context: __SerdeContext
 ): GetAdminAccountResponse => {
   return {
-    __type: "GetAdminAccountResponse",
     AdminAccount: output.AdminAccount !== undefined && output.AdminAccount !== null ? output.AdminAccount : undefined,
     RoleStatus: output.RoleStatus !== undefined && output.RoleStatus !== null ? output.RoleStatus : undefined,
   } as any;
@@ -3078,7 +3050,6 @@ const deserializeAws_json1_1GetAdminAccountResponse = (
 
 const deserializeAws_json1_1GetAppsListResponse = (output: any, context: __SerdeContext): GetAppsListResponse => {
   return {
-    __type: "GetAppsListResponse",
     AppsList:
       output.AppsList !== undefined && output.AppsList !== null
         ? deserializeAws_json1_1AppsListData(output.AppsList, context)
@@ -3092,7 +3063,6 @@ const deserializeAws_json1_1GetComplianceDetailResponse = (
   context: __SerdeContext
 ): GetComplianceDetailResponse => {
   return {
-    __type: "GetComplianceDetailResponse",
     PolicyComplianceDetail:
       output.PolicyComplianceDetail !== undefined && output.PolicyComplianceDetail !== null
         ? deserializeAws_json1_1PolicyComplianceDetail(output.PolicyComplianceDetail, context)
@@ -3105,7 +3075,6 @@ const deserializeAws_json1_1GetNotificationChannelResponse = (
   context: __SerdeContext
 ): GetNotificationChannelResponse => {
   return {
-    __type: "GetNotificationChannelResponse",
     SnsRoleName: output.SnsRoleName !== undefined && output.SnsRoleName !== null ? output.SnsRoleName : undefined,
     SnsTopicArn: output.SnsTopicArn !== undefined && output.SnsTopicArn !== null ? output.SnsTopicArn : undefined,
   } as any;
@@ -3113,7 +3082,6 @@ const deserializeAws_json1_1GetNotificationChannelResponse = (
 
 const deserializeAws_json1_1GetPolicyResponse = (output: any, context: __SerdeContext): GetPolicyResponse => {
   return {
-    __type: "GetPolicyResponse",
     Policy:
       output.Policy !== undefined && output.Policy !== null
         ? deserializeAws_json1_1Policy(output.Policy, context)
@@ -3127,7 +3095,6 @@ const deserializeAws_json1_1GetProtectionStatusResponse = (
   context: __SerdeContext
 ): GetProtectionStatusResponse => {
   return {
-    __type: "GetProtectionStatusResponse",
     AdminAccountId:
       output.AdminAccountId !== undefined && output.AdminAccountId !== null ? output.AdminAccountId : undefined,
     Data: output.Data !== undefined && output.Data !== null ? output.Data : undefined,
@@ -3141,7 +3108,6 @@ const deserializeAws_json1_1GetProtocolsListResponse = (
   context: __SerdeContext
 ): GetProtocolsListResponse => {
   return {
-    __type: "GetProtocolsListResponse",
     ProtocolsList:
       output.ProtocolsList !== undefined && output.ProtocolsList !== null
         ? deserializeAws_json1_1ProtocolsListData(output.ProtocolsList, context)
@@ -3156,7 +3122,6 @@ const deserializeAws_json1_1GetViolationDetailsResponse = (
   context: __SerdeContext
 ): GetViolationDetailsResponse => {
   return {
-    __type: "GetViolationDetailsResponse",
     ViolationDetail:
       output.ViolationDetail !== undefined && output.ViolationDetail !== null
         ? deserializeAws_json1_1ViolationDetail(output.ViolationDetail, context)
@@ -3166,14 +3131,12 @@ const deserializeAws_json1_1GetViolationDetailsResponse = (
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
-    __type: "InternalErrorException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    __type: "InvalidInputException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3183,14 +3146,12 @@ const deserializeAws_json1_1InvalidOperationException = (
   context: __SerdeContext
 ): InvalidOperationException => {
   return {
-    __type: "InvalidOperationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidTypeException = (output: any, context: __SerdeContext): InvalidTypeException => {
   return {
-    __type: "InvalidTypeException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3207,14 +3168,12 @@ const deserializeAws_json1_1IssueInfoMap = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListAppsListsResponse = (output: any, context: __SerdeContext): ListAppsListsResponse => {
   return {
-    __type: "ListAppsListsResponse",
     AppsLists:
       output.AppsLists !== undefined && output.AppsLists !== null
         ? deserializeAws_json1_1AppsListsData(output.AppsLists, context)
@@ -3228,7 +3187,6 @@ const deserializeAws_json1_1ListComplianceStatusResponse = (
   context: __SerdeContext
 ): ListComplianceStatusResponse => {
   return {
-    __type: "ListComplianceStatusResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     PolicyComplianceStatusList:
       output.PolicyComplianceStatusList !== undefined && output.PolicyComplianceStatusList !== null
@@ -3242,7 +3200,6 @@ const deserializeAws_json1_1ListMemberAccountsResponse = (
   context: __SerdeContext
 ): ListMemberAccountsResponse => {
   return {
-    __type: "ListMemberAccountsResponse",
     MemberAccounts:
       output.MemberAccounts !== undefined && output.MemberAccounts !== null
         ? deserializeAws_json1_1MemberAccounts(output.MemberAccounts, context)
@@ -3253,7 +3210,6 @@ const deserializeAws_json1_1ListMemberAccountsResponse = (
 
 const deserializeAws_json1_1ListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
   return {
-    __type: "ListPoliciesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     PolicyList:
       output.PolicyList !== undefined && output.PolicyList !== null
@@ -3267,7 +3223,6 @@ const deserializeAws_json1_1ListProtocolsListsResponse = (
   context: __SerdeContext
 ): ListProtocolsListsResponse => {
   return {
-    __type: "ListProtocolsListsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ProtocolsLists:
       output.ProtocolsLists !== undefined && output.ProtocolsLists !== null
@@ -3281,7 +3236,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     TagList:
       output.TagList !== undefined && output.TagList !== null
         ? deserializeAws_json1_1TagList(output.TagList, context)
@@ -3295,7 +3249,6 @@ const deserializeAws_json1_1MemberAccounts = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1PartialMatch = (output: any, context: __SerdeContext): PartialMatch => {
   return {
-    __type: "PartialMatch",
     Reference: output.Reference !== undefined && output.Reference !== null ? output.Reference : undefined,
     TargetViolationReasons:
       output.TargetViolationReasons !== undefined && output.TargetViolationReasons !== null
@@ -3310,7 +3263,6 @@ const deserializeAws_json1_1PartialMatches = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Policy = (output: any, context: __SerdeContext): Policy => {
   return {
-    __type: "Policy",
     ExcludeMap:
       output.ExcludeMap !== undefined && output.ExcludeMap !== null
         ? deserializeAws_json1_1CustomerPolicyScopeMap(output.ExcludeMap, context)
@@ -3351,7 +3303,6 @@ const deserializeAws_json1_1Policy = (output: any, context: __SerdeContext): Pol
 
 const deserializeAws_json1_1PolicyComplianceDetail = (output: any, context: __SerdeContext): PolicyComplianceDetail => {
   return {
-    __type: "PolicyComplianceDetail",
     EvaluationLimitExceeded:
       output.EvaluationLimitExceeded !== undefined && output.EvaluationLimitExceeded !== null
         ? output.EvaluationLimitExceeded
@@ -3377,7 +3328,6 @@ const deserializeAws_json1_1PolicyComplianceDetail = (output: any, context: __Se
 
 const deserializeAws_json1_1PolicyComplianceStatus = (output: any, context: __SerdeContext): PolicyComplianceStatus => {
   return {
-    __type: "PolicyComplianceStatus",
     EvaluationResults:
       output.EvaluationResults !== undefined && output.EvaluationResults !== null
         ? deserializeAws_json1_1EvaluationResults(output.EvaluationResults, context)
@@ -3407,7 +3357,6 @@ const deserializeAws_json1_1PolicyComplianceStatusList = (
 
 const deserializeAws_json1_1PolicySummary = (output: any, context: __SerdeContext): PolicySummary => {
   return {
-    __type: "PolicySummary",
     PolicyArn: output.PolicyArn !== undefined && output.PolicyArn !== null ? output.PolicyArn : undefined,
     PolicyId: output.PolicyId !== undefined && output.PolicyId !== null ? output.PolicyId : undefined,
     PolicyName: output.PolicyName !== undefined && output.PolicyName !== null ? output.PolicyName : undefined,
@@ -3456,7 +3405,6 @@ const deserializeAws_json1_1ProtocolsList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ProtocolsListData = (output: any, context: __SerdeContext): ProtocolsListData => {
   return {
-    __type: "ProtocolsListData",
     CreateTime:
       output.CreateTime !== undefined && output.CreateTime !== null
         ? new Date(Math.round(output.CreateTime * 1000))
@@ -3485,7 +3433,6 @@ const deserializeAws_json1_1ProtocolsListDataSummary = (
   context: __SerdeContext
 ): ProtocolsListDataSummary => {
   return {
-    __type: "ProtocolsListDataSummary",
     ListArn: output.ListArn !== undefined && output.ListArn !== null ? output.ListArn : undefined,
     ListId: output.ListId !== undefined && output.ListId !== null ? output.ListId : undefined,
     ListName: output.ListName !== undefined && output.ListName !== null ? output.ListName : undefined,
@@ -3502,7 +3449,6 @@ const deserializeAws_json1_1ProtocolsListsData = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1PutAppsListResponse = (output: any, context: __SerdeContext): PutAppsListResponse => {
   return {
-    __type: "PutAppsListResponse",
     AppsList:
       output.AppsList !== undefined && output.AppsList !== null
         ? deserializeAws_json1_1AppsListData(output.AppsList, context)
@@ -3513,7 +3459,6 @@ const deserializeAws_json1_1PutAppsListResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1PutPolicyResponse = (output: any, context: __SerdeContext): PutPolicyResponse => {
   return {
-    __type: "PutPolicyResponse",
     Policy:
       output.Policy !== undefined && output.Policy !== null
         ? deserializeAws_json1_1Policy(output.Policy, context)
@@ -3527,7 +3472,6 @@ const deserializeAws_json1_1PutProtocolsListResponse = (
   context: __SerdeContext
 ): PutProtocolsListResponse => {
   return {
-    __type: "PutProtocolsListResponse",
     ProtocolsList:
       output.ProtocolsList !== undefined && output.ProtocolsList !== null
         ? deserializeAws_json1_1ProtocolsListData(output.ProtocolsList, context)
@@ -3546,14 +3490,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
   return {
-    __type: "ResourceTag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -3569,7 +3511,6 @@ const deserializeAws_json1_1ResourceTypeList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ResourceViolation = (output: any, context: __SerdeContext): ResourceViolation => {
   return {
-    __type: "ResourceViolation",
     AwsEc2InstanceViolation:
       output.AwsEc2InstanceViolation !== undefined && output.AwsEc2InstanceViolation !== null
         ? deserializeAws_json1_1AwsEc2InstanceViolation(output.AwsEc2InstanceViolation, context)
@@ -3594,7 +3535,6 @@ const deserializeAws_json1_1SecurityGroupRemediationAction = (
   context: __SerdeContext
 ): SecurityGroupRemediationAction => {
   return {
-    __type: "SecurityGroupRemediationAction",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     IsDefaultAction:
       output.IsDefaultAction !== undefined && output.IsDefaultAction !== null ? output.IsDefaultAction : undefined,
@@ -3621,7 +3561,6 @@ const deserializeAws_json1_1SecurityGroupRuleDescription = (
   context: __SerdeContext
 ): SecurityGroupRuleDescription => {
   return {
-    __type: "SecurityGroupRuleDescription",
     FromPort: output.FromPort !== undefined && output.FromPort !== null ? output.FromPort : undefined,
     IPV4Range: output.IPV4Range !== undefined && output.IPV4Range !== null ? output.IPV4Range : undefined,
     IPV6Range: output.IPV6Range !== undefined && output.IPV6Range !== null ? output.IPV6Range : undefined,
@@ -3636,7 +3575,6 @@ const deserializeAws_json1_1SecurityServicePolicyData = (
   context: __SerdeContext
 ): SecurityServicePolicyData => {
   return {
-    __type: "SecurityServicePolicyData",
     ManagedServiceData:
       output.ManagedServiceData !== undefined && output.ManagedServiceData !== null
         ? output.ManagedServiceData
@@ -3647,7 +3585,6 @@ const deserializeAws_json1_1SecurityServicePolicyData = (
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -3658,9 +3595,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TargetViolationReasons = (output: any, context: __SerdeContext): string[] => {
@@ -3668,14 +3603,11 @@ const deserializeAws_json1_1TargetViolationReasons = (output: any, context: __Se
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ViolationDetail = (output: any, context: __SerdeContext): ViolationDetail => {
   return {
-    __type: "ViolationDetail",
     MemberAccount:
       output.MemberAccount !== undefined && output.MemberAccount !== null ? output.MemberAccount : undefined,
     PolicyId: output.PolicyId !== undefined && output.PolicyId !== null ? output.PolicyId : undefined,

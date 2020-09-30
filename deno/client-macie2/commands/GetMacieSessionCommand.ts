@@ -1,6 +1,6 @@
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client.ts";
-import { GetMacieSessionRequest, GetMacieSessionResponse } from "../models/index.ts";
+import { GetMacieSessionRequest, GetMacieSessionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetMacieSessionCommand,
   serializeAws_restJson1GetMacieSessionCommand,

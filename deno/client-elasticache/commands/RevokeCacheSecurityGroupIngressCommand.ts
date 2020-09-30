@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { RevokeCacheSecurityGroupIngressMessage, RevokeCacheSecurityGroupIngressResult } from "../models/index.ts";
+import { RevokeCacheSecurityGroupIngressMessage, RevokeCacheSecurityGroupIngressResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryRevokeCacheSecurityGroupIngressCommand,
   serializeAws_queryRevokeCacheSecurityGroupIngressCommand,

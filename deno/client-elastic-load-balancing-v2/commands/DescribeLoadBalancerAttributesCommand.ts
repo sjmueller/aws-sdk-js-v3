@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client.ts";
-import { DescribeLoadBalancerAttributesInput, DescribeLoadBalancerAttributesOutput } from "../models/index.ts";
+import { DescribeLoadBalancerAttributesInput, DescribeLoadBalancerAttributesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeLoadBalancerAttributesCommand,
   serializeAws_queryDescribeLoadBalancerAttributesCommand,

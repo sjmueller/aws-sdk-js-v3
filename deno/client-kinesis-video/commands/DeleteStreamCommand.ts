@@ -1,6 +1,6 @@
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient.ts";
-import { DeleteStreamInput, DeleteStreamOutput } from "../models/index.ts";
+import { DeleteStreamInput, DeleteStreamOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteStreamCommand,
   serializeAws_restJson1DeleteStreamCommand,

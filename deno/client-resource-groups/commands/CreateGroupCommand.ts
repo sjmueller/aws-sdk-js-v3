@@ -1,6 +1,6 @@
 
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient.ts";
-import { CreateGroupInput, CreateGroupOutput } from "../models/index.ts";
+import { CreateGroupInput, CreateGroupOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateGroupCommand,
   serializeAws_restJson1CreateGroupCommand,

@@ -1,6 +1,6 @@
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient.ts";
-import { UpdateMeshInput, UpdateMeshOutput } from "../models/index.ts";
+import { UpdateMeshInput, UpdateMeshOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateMeshCommand,
   serializeAws_restJson1UpdateMeshCommand,

@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { ListChildrenRequest, ListChildrenResponse } from "../models/index.ts";
+import { ListChildrenRequest, ListChildrenResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListChildrenCommand,
   serializeAws_json1_1ListChildrenCommand,

@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { DeleteNetworkProfileRequest, DeleteNetworkProfileResponse } from "../models/index.ts";
+import { DeleteNetworkProfileRequest, DeleteNetworkProfileResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteNetworkProfileCommand,
   serializeAws_json1_1DeleteNetworkProfileCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { CreateTapesInput, CreateTapesOutput } from "../models/index.ts";
+import { CreateTapesInput, CreateTapesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateTapesCommand,
   serializeAws_json1_1CreateTapesCommand,

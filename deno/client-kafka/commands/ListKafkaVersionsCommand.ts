@@ -1,6 +1,6 @@
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient.ts";
-import { ListKafkaVersionsRequest, ListKafkaVersionsResponse } from "../models/index.ts";
+import { ListKafkaVersionsRequest, ListKafkaVersionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListKafkaVersionsCommand,
   serializeAws_restJson1ListKafkaVersionsCommand,

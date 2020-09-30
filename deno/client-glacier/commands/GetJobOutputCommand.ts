@@ -1,6 +1,6 @@
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
-import { GetJobOutputInput, GetJobOutputOutput } from "../models/index.ts";
+import { GetJobOutputInput, GetJobOutputOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetJobOutputCommand,
   serializeAws_restJson1GetJobOutputCommand,

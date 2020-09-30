@@ -1,6 +1,6 @@
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient.ts";
-import { ListDomainsRequest, ListDomainsResult } from "../models/index.ts";
+import { ListDomainsRequest, ListDomainsResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListDomainsCommand,
   serializeAws_restJson1ListDomainsCommand,

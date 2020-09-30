@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { PutProvisionedConcurrencyConfigRequest, PutProvisionedConcurrencyConfigResponse } from "../models/index.ts";
+import { PutProvisionedConcurrencyConfigRequest, PutProvisionedConcurrencyConfigResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand,
   serializeAws_restJson1PutProvisionedConcurrencyConfigCommand,

@@ -1,6 +1,6 @@
 
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient.ts";
-import { SendMessageRequest, SendMessageResult } from "../models/index.ts";
+import { SendMessageRequest, SendMessageResult } from "../models/models_0.ts";
 import { deserializeAws_querySendMessageCommand, serializeAws_querySendMessageCommand } from "../protocols/Aws_query.ts";
 import { getSendMessagePlugin } from "../../middleware-sdk-sqs/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";

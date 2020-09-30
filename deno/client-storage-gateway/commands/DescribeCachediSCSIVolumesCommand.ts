@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { DescribeCachediSCSIVolumesInput, DescribeCachediSCSIVolumesOutput } from "../models/index.ts";
+import { DescribeCachediSCSIVolumesInput, DescribeCachediSCSIVolumesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeCachediSCSIVolumesCommand,
   serializeAws_json1_1DescribeCachediSCSIVolumesCommand,

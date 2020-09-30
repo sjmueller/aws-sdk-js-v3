@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { DescribeTagOptionInput, DescribeTagOptionOutput } from "../models/index.ts";
+import { DescribeTagOptionInput, DescribeTagOptionOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeTagOptionCommand,
   serializeAws_json1_1DescribeTagOptionCommand,

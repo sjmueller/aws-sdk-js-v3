@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { ListFunctionEventInvokeConfigsRequest, ListFunctionEventInvokeConfigsResponse } from "../models/index.ts";
+import { ListFunctionEventInvokeConfigsRequest, ListFunctionEventInvokeConfigsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListFunctionEventInvokeConfigsCommand,
   serializeAws_restJson1ListFunctionEventInvokeConfigsCommand,

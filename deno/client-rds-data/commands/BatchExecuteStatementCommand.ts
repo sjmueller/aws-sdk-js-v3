@@ -1,6 +1,6 @@
 
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient.ts";
-import { BatchExecuteStatementRequest, BatchExecuteStatementResponse } from "../models/index.ts";
+import { BatchExecuteStatementRequest, BatchExecuteStatementResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1BatchExecuteStatementCommand,
   serializeAws_restJson1BatchExecuteStatementCommand,

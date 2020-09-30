@@ -1,6 +1,6 @@
 
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
-import { ListStreamProcessorsRequest, ListStreamProcessorsResponse } from "../models/index.ts";
+import { ListStreamProcessorsRequest, ListStreamProcessorsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListStreamProcessorsCommand,
   serializeAws_json1_1ListStreamProcessorsCommand,

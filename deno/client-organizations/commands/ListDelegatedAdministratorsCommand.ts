@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { ListDelegatedAdministratorsRequest, ListDelegatedAdministratorsResponse } from "../models/index.ts";
+import { ListDelegatedAdministratorsRequest, ListDelegatedAdministratorsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListDelegatedAdministratorsCommand,
   serializeAws_json1_1ListDelegatedAdministratorsCommand,

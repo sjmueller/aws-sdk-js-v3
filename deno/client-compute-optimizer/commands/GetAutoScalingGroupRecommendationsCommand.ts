@@ -1,6 +1,9 @@
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient.ts";
-import { GetAutoScalingGroupRecommendationsRequest, GetAutoScalingGroupRecommendationsResponse } from "../models/index.ts";
+import {
+  GetAutoScalingGroupRecommendationsRequest,
+  GetAutoScalingGroupRecommendationsResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_0GetAutoScalingGroupRecommendationsCommand,
   serializeAws_json1_0GetAutoScalingGroupRecommendationsCommand,

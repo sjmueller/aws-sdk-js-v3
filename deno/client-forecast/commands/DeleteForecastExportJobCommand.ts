@@ -1,6 +1,6 @@
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient.ts";
-import { DeleteForecastExportJobRequest } from "../models/index.ts";
+import { DeleteForecastExportJobRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteForecastExportJobCommand,
   serializeAws_json1_1DeleteForecastExportJobCommand,

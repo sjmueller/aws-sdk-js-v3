@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { DeleteDocumentationPartRequest } from "../models/index.ts";
+import { DeleteDocumentationPartRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteDocumentationPartCommand,
   serializeAws_restJson1DeleteDocumentationPartCommand,

@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { CreateInstancesFromSnapshotRequest, CreateInstancesFromSnapshotResult } from "../models/index.ts";
+import { CreateInstancesFromSnapshotRequest, CreateInstancesFromSnapshotResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateInstancesFromSnapshotCommand,
   serializeAws_json1_1CreateInstancesFromSnapshotCommand,

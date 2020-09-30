@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { BatchStopJobRunRequest, BatchStopJobRunResponse } from "../models/index.ts";
+import { BatchStopJobRunRequest, BatchStopJobRunResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchStopJobRunCommand,
   serializeAws_json1_1BatchStopJobRunCommand,

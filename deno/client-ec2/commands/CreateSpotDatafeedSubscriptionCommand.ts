@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CreateSpotDatafeedSubscriptionRequest, CreateSpotDatafeedSubscriptionResult } from "../models/index.ts";
+import { CreateSpotDatafeedSubscriptionRequest, CreateSpotDatafeedSubscriptionResult } from "../models/models_1.ts";
 import {
   deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
   serializeAws_ec2CreateSpotDatafeedSubscriptionCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { UpdateXssMatchSetRequest, UpdateXssMatchSetResponse } from "../models/index.ts";
+import { UpdateXssMatchSetRequest, UpdateXssMatchSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateXssMatchSetCommand,
   serializeAws_json1_1UpdateXssMatchSetCommand,

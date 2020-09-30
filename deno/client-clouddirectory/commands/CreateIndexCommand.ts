@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { CreateIndexRequest, CreateIndexResponse } from "../models/index.ts";
+import { CreateIndexRequest, CreateIndexResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateIndexCommand,
   serializeAws_restJson1CreateIndexCommand,

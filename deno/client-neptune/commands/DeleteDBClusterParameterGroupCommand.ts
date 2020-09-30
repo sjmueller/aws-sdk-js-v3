@@ -1,6 +1,6 @@
 
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient.ts";
-import { DeleteDBClusterParameterGroupMessage } from "../models/index.ts";
+import { DeleteDBClusterParameterGroupMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteDBClusterParameterGroupCommand,
   serializeAws_queryDeleteDBClusterParameterGroupCommand,

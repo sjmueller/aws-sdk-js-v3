@@ -1,6 +1,6 @@
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
-import { DeleteFilterRequest, DeleteFilterResponse } from "../models/index.ts";
+import { DeleteFilterRequest, DeleteFilterResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteFilterCommand,
   serializeAws_restJson1DeleteFilterCommand,

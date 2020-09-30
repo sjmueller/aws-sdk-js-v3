@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { CreateRemoteAccessSessionRequest, CreateRemoteAccessSessionResult } from "../models/index.ts";
+import { CreateRemoteAccessSessionRequest, CreateRemoteAccessSessionResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateRemoteAccessSessionCommand,
   serializeAws_json1_1CreateRemoteAccessSessionCommand,

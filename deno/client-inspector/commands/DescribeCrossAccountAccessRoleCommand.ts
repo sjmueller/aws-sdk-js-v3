@@ -1,6 +1,6 @@
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
-import { DescribeCrossAccountAccessRoleResponse } from "../models/index.ts";
+import { DescribeCrossAccountAccessRoleResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeCrossAccountAccessRoleCommand,
   serializeAws_json1_1DescribeCrossAccountAccessRoleCommand,

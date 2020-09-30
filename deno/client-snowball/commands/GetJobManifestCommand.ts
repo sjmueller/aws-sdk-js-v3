@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient.ts";
-import { GetJobManifestRequest, GetJobManifestResult } from "../models/index.ts";
+import { GetJobManifestRequest, GetJobManifestResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetJobManifestCommand,
   serializeAws_json1_1GetJobManifestCommand,

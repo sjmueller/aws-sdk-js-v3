@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { DeleteReplicationInstanceMessage, DeleteReplicationInstanceResponse } from "../models/index.ts";
+import { DeleteReplicationInstanceMessage, DeleteReplicationInstanceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteReplicationInstanceCommand,
   serializeAws_json1_1DeleteReplicationInstanceCommand,

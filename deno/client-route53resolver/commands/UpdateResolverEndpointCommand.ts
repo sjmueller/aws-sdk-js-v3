@@ -1,6 +1,6 @@
 
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient.ts";
-import { UpdateResolverEndpointRequest, UpdateResolverEndpointResponse } from "../models/index.ts";
+import { UpdateResolverEndpointRequest, UpdateResolverEndpointResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateResolverEndpointCommand,
   serializeAws_json1_1UpdateResolverEndpointCommand,

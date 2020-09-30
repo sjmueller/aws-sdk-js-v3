@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { CreateResourceRequest, CreateResourceResponse } from "../models/index.ts";
+import { CreateResourceRequest, CreateResourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateResourceCommand,
   serializeAws_json1_1CreateResourceCommand,

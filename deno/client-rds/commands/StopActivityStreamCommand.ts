@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { StopActivityStreamRequest, StopActivityStreamResponse } from "../models/index.ts";
+import { StopActivityStreamRequest, StopActivityStreamResponse } from "../models/models_1.ts";
 import {
   deserializeAws_queryStopActivityStreamCommand,
   serializeAws_queryStopActivityStreamCommand,

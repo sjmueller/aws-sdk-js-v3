@@ -1,6 +1,6 @@
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient.ts";
-import { DeleteSignalingChannelInput, DeleteSignalingChannelOutput } from "../models/index.ts";
+import { DeleteSignalingChannelInput, DeleteSignalingChannelOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteSignalingChannelCommand,
   serializeAws_restJson1DeleteSignalingChannelCommand,

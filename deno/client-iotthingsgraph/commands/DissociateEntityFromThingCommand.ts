@@ -1,6 +1,6 @@
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
-import { DissociateEntityFromThingRequest, DissociateEntityFromThingResponse } from "../models/index.ts";
+import { DissociateEntityFromThingRequest, DissociateEntityFromThingResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DissociateEntityFromThingCommand,
   serializeAws_json1_1DissociateEntityFromThingCommand,

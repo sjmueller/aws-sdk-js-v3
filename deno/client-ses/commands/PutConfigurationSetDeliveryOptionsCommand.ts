@@ -1,6 +1,9 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { PutConfigurationSetDeliveryOptionsRequest, PutConfigurationSetDeliveryOptionsResponse } from "../models/index.ts";
+import {
+  PutConfigurationSetDeliveryOptionsRequest,
+  PutConfigurationSetDeliveryOptionsResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_queryPutConfigurationSetDeliveryOptionsCommand,
   serializeAws_queryPutConfigurationSetDeliveryOptionsCommand,

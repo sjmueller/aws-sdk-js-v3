@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DeleteJobExecutionRequest } from "../models/index.ts";
+import { DeleteJobExecutionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteJobExecutionCommand,
   serializeAws_restJson1DeleteJobExecutionCommand,

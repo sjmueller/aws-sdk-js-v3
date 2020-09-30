@@ -1,6 +1,6 @@
 
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
-import { SetPlatformApplicationAttributesInput } from "../models/index.ts";
+import { SetPlatformApplicationAttributesInput } from "../models/models_0.ts";
 import {
   deserializeAws_querySetPlatformApplicationAttributesCommand,
   serializeAws_querySetPlatformApplicationAttributesCommand,

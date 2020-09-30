@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { CreateWebACLRequest, CreateWebACLResponse } from "../models/index.ts";
+import { CreateWebACLRequest, CreateWebACLResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateWebACLCommand,
   serializeAws_json1_1CreateWebACLCommand,

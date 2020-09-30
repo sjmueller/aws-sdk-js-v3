@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { DeletePermissionPolicyRequest, DeletePermissionPolicyResponse } from "../models/index.ts";
+import { DeletePermissionPolicyRequest, DeletePermissionPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeletePermissionPolicyCommand,
   serializeAws_json1_1DeletePermissionPolicyCommand,

@@ -1,6 +1,6 @@
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient.ts";
-import { BatchGetVariableRequest, BatchGetVariableResult } from "../models/index.ts";
+import { BatchGetVariableRequest, BatchGetVariableResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchGetVariableCommand,
   serializeAws_json1_1BatchGetVariableCommand,

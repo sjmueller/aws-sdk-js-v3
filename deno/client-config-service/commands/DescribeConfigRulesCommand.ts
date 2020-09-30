@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { DescribeConfigRulesRequest, DescribeConfigRulesResponse } from "../models/index.ts";
+import { DescribeConfigRulesRequest, DescribeConfigRulesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeConfigRulesCommand,
   serializeAws_json1_1DescribeConfigRulesCommand,

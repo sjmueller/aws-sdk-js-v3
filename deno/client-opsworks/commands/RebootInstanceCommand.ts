@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { RebootInstanceRequest } from "../models/index.ts";
+import { RebootInstanceRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RebootInstanceCommand,
   serializeAws_json1_1RebootInstanceCommand,

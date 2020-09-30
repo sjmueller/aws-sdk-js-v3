@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { DeleteSmsTemplateRequest, DeleteSmsTemplateResponse } from "../models/index.ts";
+import { DeleteSmsTemplateRequest, DeleteSmsTemplateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteSmsTemplateCommand,
   serializeAws_restJson1DeleteSmsTemplateCommand,

@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { DeleteTypedLinkFacetRequest, DeleteTypedLinkFacetResponse } from "../models/index.ts";
+import { DeleteTypedLinkFacetRequest, DeleteTypedLinkFacetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteTypedLinkFacetCommand,
   serializeAws_restJson1DeleteTypedLinkFacetCommand,

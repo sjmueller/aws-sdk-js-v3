@@ -1,6 +1,6 @@
 
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient.ts";
-import { DeleteServiceRequest, DeleteServiceResponse } from "../models/index.ts";
+import { DeleteServiceRequest, DeleteServiceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteServiceCommand,
   serializeAws_json1_1DeleteServiceCommand,

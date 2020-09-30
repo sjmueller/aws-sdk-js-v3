@@ -1,6 +1,6 @@
 
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient.ts";
-import { ListSecretsRequest, ListSecretsResponse } from "../models/index.ts";
+import { ListSecretsRequest, ListSecretsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListSecretsCommand,
   serializeAws_json1_1ListSecretsCommand,

@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { DeleteApplicationVersionMessage } from "../models/index.ts";
+import { DeleteApplicationVersionMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteApplicationVersionCommand,
   serializeAws_queryDeleteApplicationVersionCommand,

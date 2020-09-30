@@ -1,6 +1,6 @@
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
-import { DescribeFindingsRequest, DescribeFindingsResponse } from "../models/index.ts";
+import { DescribeFindingsRequest, DescribeFindingsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeFindingsCommand,
   serializeAws_json1_1DescribeFindingsCommand,

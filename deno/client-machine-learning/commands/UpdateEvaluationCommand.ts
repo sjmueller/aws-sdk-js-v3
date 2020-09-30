@@ -1,6 +1,6 @@
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient.ts";
-import { UpdateEvaluationInput, UpdateEvaluationOutput } from "../models/index.ts";
+import { UpdateEvaluationInput, UpdateEvaluationOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateEvaluationCommand,
   serializeAws_json1_1UpdateEvaluationCommand,

@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { DeleteMaintenanceWindowRequest, DeleteMaintenanceWindowResult } from "../models/index.ts";
+import { DeleteMaintenanceWindowRequest, DeleteMaintenanceWindowResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteMaintenanceWindowCommand,
   serializeAws_json1_1DeleteMaintenanceWindowCommand,

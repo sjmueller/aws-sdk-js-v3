@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { CreateLabelingJobRequest, CreateLabelingJobResponse } from "../models/index.ts";
+import { CreateLabelingJobRequest, CreateLabelingJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateLabelingJobCommand,
   serializeAws_json1_1CreateLabelingJobCommand,

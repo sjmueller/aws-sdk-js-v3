@@ -1,6 +1,6 @@
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
-import { ExecuteChangeSetInput, ExecuteChangeSetOutput } from "../models/index.ts";
+import { ExecuteChangeSetInput, ExecuteChangeSetOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryExecuteChangeSetCommand,
   serializeAws_queryExecuteChangeSetCommand,

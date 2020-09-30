@@ -3,7 +3,7 @@ import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 import {
   ExecuteProvisionedProductServiceActionInput,
   ExecuteProvisionedProductServiceActionOutput,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommand,
   serializeAws_json1_1ExecuteProvisionedProductServiceActionCommand,

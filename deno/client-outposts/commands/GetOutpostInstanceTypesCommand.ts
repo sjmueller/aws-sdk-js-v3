@@ -1,6 +1,6 @@
 
 import { OutpostsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OutpostsClient.ts";
-import { GetOutpostInstanceTypesInput, GetOutpostInstanceTypesOutput } from "../models/index.ts";
+import { GetOutpostInstanceTypesInput, GetOutpostInstanceTypesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetOutpostInstanceTypesCommand,
   serializeAws_restJson1GetOutpostInstanceTypesCommand,

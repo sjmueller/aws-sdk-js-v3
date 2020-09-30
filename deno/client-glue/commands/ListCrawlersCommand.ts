@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { ListCrawlersRequest, ListCrawlersResponse } from "../models/index.ts";
+import { ListCrawlersRequest, ListCrawlersResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ListCrawlersCommand,
   serializeAws_json1_1ListCrawlersCommand,

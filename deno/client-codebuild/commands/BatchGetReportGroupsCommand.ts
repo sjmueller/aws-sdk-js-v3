@@ -1,6 +1,6 @@
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient.ts";
-import { BatchGetReportGroupsInput, BatchGetReportGroupsOutput } from "../models/index.ts";
+import { BatchGetReportGroupsInput, BatchGetReportGroupsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchGetReportGroupsCommand,
   serializeAws_json1_1BatchGetReportGroupsCommand,

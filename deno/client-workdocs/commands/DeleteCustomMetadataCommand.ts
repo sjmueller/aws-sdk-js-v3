@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { DeleteCustomMetadataRequest, DeleteCustomMetadataResponse } from "../models/index.ts";
+import { DeleteCustomMetadataRequest, DeleteCustomMetadataResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteCustomMetadataCommand,
   serializeAws_restJson1DeleteCustomMetadataCommand,

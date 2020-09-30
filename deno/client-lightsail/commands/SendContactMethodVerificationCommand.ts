@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { SendContactMethodVerificationRequest, SendContactMethodVerificationResult } from "../models/index.ts";
+import { SendContactMethodVerificationRequest, SendContactMethodVerificationResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1SendContactMethodVerificationCommand,
   serializeAws_json1_1SendContactMethodVerificationCommand,

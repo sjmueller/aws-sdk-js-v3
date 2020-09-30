@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { DescribeDataSourcePermissionsRequest, DescribeDataSourcePermissionsResponse } from "../models/index.ts";
+import { DescribeDataSourcePermissionsRequest, DescribeDataSourcePermissionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeDataSourcePermissionsCommand,
   serializeAws_restJson1DescribeDataSourcePermissionsCommand,

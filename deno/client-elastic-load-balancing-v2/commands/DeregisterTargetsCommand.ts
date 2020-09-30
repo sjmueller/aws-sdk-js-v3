@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client.ts";
-import { DeregisterTargetsInput, DeregisterTargetsOutput } from "../models/index.ts";
+import { DeregisterTargetsInput, DeregisterTargetsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeregisterTargetsCommand,
   serializeAws_queryDeregisterTargetsCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import { ApplySecurityGroupsToLoadBalancerInput, ApplySecurityGroupsToLoadBalancerOutput } from "../models/index.ts";
+import { ApplySecurityGroupsToLoadBalancerInput, ApplySecurityGroupsToLoadBalancerOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryApplySecurityGroupsToLoadBalancerCommand,
   serializeAws_queryApplySecurityGroupsToLoadBalancerCommand,

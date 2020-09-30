@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { UpdateTemplateActiveVersionRequest, UpdateTemplateActiveVersionResponse } from "../models/index.ts";
+import { UpdateTemplateActiveVersionRequest, UpdateTemplateActiveVersionResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UpdateTemplateActiveVersionCommand,
   serializeAws_restJson1UpdateTemplateActiveVersionCommand,

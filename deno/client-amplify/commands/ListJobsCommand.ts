@@ -1,6 +1,6 @@
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
-import { ListJobsRequest, ListJobsResult } from "../models/index.ts";
+import { ListJobsRequest, ListJobsResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListJobsCommand,
   serializeAws_restJson1ListJobsCommand,

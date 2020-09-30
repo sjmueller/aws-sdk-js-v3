@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { CreateThingRequest, CreateThingResponse } from "../models/index.ts";
+import { CreateThingRequest, CreateThingResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateThingCommand,
   serializeAws_restJson1CreateThingCommand,

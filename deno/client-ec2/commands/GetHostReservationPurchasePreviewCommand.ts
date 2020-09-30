@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { GetHostReservationPurchasePreviewRequest, GetHostReservationPurchasePreviewResult } from "../models/index.ts";
+import { GetHostReservationPurchasePreviewRequest, GetHostReservationPurchasePreviewResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2GetHostReservationPurchasePreviewCommand,
   serializeAws_ec2GetHostReservationPurchasePreviewCommand,

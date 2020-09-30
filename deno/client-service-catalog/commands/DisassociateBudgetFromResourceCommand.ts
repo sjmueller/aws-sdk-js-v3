@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { DisassociateBudgetFromResourceInput, DisassociateBudgetFromResourceOutput } from "../models/index.ts";
+import { DisassociateBudgetFromResourceInput, DisassociateBudgetFromResourceOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateBudgetFromResourceCommand,
   serializeAws_json1_1DisassociateBudgetFromResourceCommand,

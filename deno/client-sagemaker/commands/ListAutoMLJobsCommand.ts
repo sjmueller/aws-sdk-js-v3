@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { ListAutoMLJobsRequest, ListAutoMLJobsResponse } from "../models/index.ts";
+import { ListAutoMLJobsRequest, ListAutoMLJobsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ListAutoMLJobsCommand,
   serializeAws_json1_1ListAutoMLJobsCommand,

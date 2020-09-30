@@ -1,6 +1,6 @@
 
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
-import { SearchFacesRequest, SearchFacesResponse } from "../models/index.ts";
+import { SearchFacesRequest, SearchFacesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SearchFacesCommand,
   serializeAws_json1_1SearchFacesCommand,

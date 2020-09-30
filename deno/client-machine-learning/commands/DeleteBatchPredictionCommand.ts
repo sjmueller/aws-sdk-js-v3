@@ -1,6 +1,6 @@
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient.ts";
-import { DeleteBatchPredictionInput, DeleteBatchPredictionOutput } from "../models/index.ts";
+import { DeleteBatchPredictionInput, DeleteBatchPredictionOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteBatchPredictionCommand,
   serializeAws_json1_1DeleteBatchPredictionCommand,

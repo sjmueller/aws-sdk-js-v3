@@ -1,6 +1,6 @@
 
 import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53Client.ts";
-import { ChangeTagsForResourceRequest, ChangeTagsForResourceResponse } from "../models/index.ts";
+import { ChangeTagsForResourceRequest, ChangeTagsForResourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlChangeTagsForResourceCommand,
   serializeAws_restXmlChangeTagsForResourceCommand,

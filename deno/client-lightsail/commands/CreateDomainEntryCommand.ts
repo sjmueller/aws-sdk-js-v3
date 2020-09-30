@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { CreateDomainEntryRequest, CreateDomainEntryResult } from "../models/index.ts";
+import { CreateDomainEntryRequest, CreateDomainEntryResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateDomainEntryCommand,
   serializeAws_json1_1CreateDomainEntryCommand,

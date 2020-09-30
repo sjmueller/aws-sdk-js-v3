@@ -1,6 +1,6 @@
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
-import { GetFindingsStatisticsRequest, GetFindingsStatisticsResponse } from "../models/index.ts";
+import { GetFindingsStatisticsRequest, GetFindingsStatisticsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetFindingsStatisticsCommand,
   serializeAws_restJson1GetFindingsStatisticsCommand,

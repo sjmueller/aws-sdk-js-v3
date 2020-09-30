@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { GrantAccessRequest, GrantAccessResult } from "../models/index.ts";
+import { GrantAccessRequest, GrantAccessResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GrantAccessCommand,
   serializeAws_json1_1GrantAccessCommand,

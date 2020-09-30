@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { GetLoginProfileRequest, GetLoginProfileResponse } from "../models/index.ts";
+import { GetLoginProfileRequest, GetLoginProfileResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetLoginProfileCommand,
   serializeAws_queryGetLoginProfileCommand,

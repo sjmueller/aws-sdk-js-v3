@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { DetachUserPolicyRequest } from "../models/index.ts";
+import { DetachUserPolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryDetachUserPolicyCommand,
   serializeAws_queryDetachUserPolicyCommand,

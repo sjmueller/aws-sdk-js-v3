@@ -51,7 +51,7 @@ import {
   TagResourceResponse,
   UntagResourceRequest,
   UntagResourceResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -243,7 +243,6 @@ export const deserializeAws_json1_1CopyBackupToRegionCommand = async (
   contents = deserializeAws_json1_1CopyBackupToRegionResponse(data, context);
   const response: CopyBackupToRegionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CopyBackupToRegionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -339,7 +338,6 @@ export const deserializeAws_json1_1CreateClusterCommand = async (
   contents = deserializeAws_json1_1CreateClusterResponse(data, context);
   const response: CreateClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateClusterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -435,7 +433,6 @@ export const deserializeAws_json1_1CreateHsmCommand = async (
   contents = deserializeAws_json1_1CreateHsmResponse(data, context);
   const response: CreateHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHsmResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -523,7 +520,6 @@ export const deserializeAws_json1_1DeleteBackupCommand = async (
   contents = deserializeAws_json1_1DeleteBackupResponse(data, context);
   const response: DeleteBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBackupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -611,7 +607,6 @@ export const deserializeAws_json1_1DeleteClusterCommand = async (
   contents = deserializeAws_json1_1DeleteClusterResponse(data, context);
   const response: DeleteClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteClusterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -707,7 +702,6 @@ export const deserializeAws_json1_1DeleteHsmCommand = async (
   contents = deserializeAws_json1_1DeleteHsmResponse(data, context);
   const response: DeleteHsmCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteHsmResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -795,7 +789,6 @@ export const deserializeAws_json1_1DescribeBackupsCommand = async (
   contents = deserializeAws_json1_1DescribeBackupsResponse(data, context);
   const response: DescribeBackupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBackupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -891,7 +884,6 @@ export const deserializeAws_json1_1DescribeClustersCommand = async (
   contents = deserializeAws_json1_1DescribeClustersResponse(data, context);
   const response: DescribeClustersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClustersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -979,7 +971,6 @@ export const deserializeAws_json1_1InitializeClusterCommand = async (
   contents = deserializeAws_json1_1InitializeClusterResponse(data, context);
   const response: InitializeClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InitializeClusterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1067,7 +1058,6 @@ export const deserializeAws_json1_1ListTagsCommand = async (
   contents = deserializeAws_json1_1ListTagsResponse(data, context);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1163,7 +1153,6 @@ export const deserializeAws_json1_1RestoreBackupCommand = async (
   contents = deserializeAws_json1_1RestoreBackupResponse(data, context);
   const response: RestoreBackupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreBackupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1251,7 +1240,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1347,7 +1335,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1661,7 +1648,6 @@ const serializeAws_json1_1UntagResourceRequest = (input: UntagResourceRequest, c
 
 const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Backup => {
   return {
-    __type: "Backup",
     BackupId: output.BackupId !== undefined && output.BackupId !== null ? output.BackupId : undefined,
     BackupState: output.BackupState !== undefined && output.BackupState !== null ? output.BackupState : undefined,
     ClusterId: output.ClusterId !== undefined && output.ClusterId !== null ? output.ClusterId : undefined,
@@ -1694,7 +1680,6 @@ const deserializeAws_json1_1Backups = (output: any, context: __SerdeContext): Ba
 
 const deserializeAws_json1_1Certificates = (output: any, context: __SerdeContext): Certificates => {
   return {
-    __type: "Certificates",
     AwsHardwareCertificate:
       output.AwsHardwareCertificate !== undefined && output.AwsHardwareCertificate !== null
         ? output.AwsHardwareCertificate
@@ -1718,7 +1703,6 @@ const deserializeAws_json1_1CloudHsmAccessDeniedException = (
   context: __SerdeContext
 ): CloudHsmAccessDeniedException => {
   return {
-    __type: "CloudHsmAccessDeniedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1728,7 +1712,6 @@ const deserializeAws_json1_1CloudHsmInternalFailureException = (
   context: __SerdeContext
 ): CloudHsmInternalFailureException => {
   return {
-    __type: "CloudHsmInternalFailureException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1738,7 +1721,6 @@ const deserializeAws_json1_1CloudHsmInvalidRequestException = (
   context: __SerdeContext
 ): CloudHsmInvalidRequestException => {
   return {
-    __type: "CloudHsmInvalidRequestException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1748,7 +1730,6 @@ const deserializeAws_json1_1CloudHsmResourceNotFoundException = (
   context: __SerdeContext
 ): CloudHsmResourceNotFoundException => {
   return {
-    __type: "CloudHsmResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1758,21 +1739,18 @@ const deserializeAws_json1_1CloudHsmServiceException = (
   context: __SerdeContext
 ): CloudHsmServiceException => {
   return {
-    __type: "CloudHsmServiceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CloudHsmTagException = (output: any, context: __SerdeContext): CloudHsmTagException => {
   return {
-    __type: "CloudHsmTagException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cluster => {
   return {
-    __type: "Cluster",
     BackupPolicy: output.BackupPolicy !== undefined && output.BackupPolicy !== null ? output.BackupPolicy : undefined,
     Certificates:
       output.Certificates !== undefined && output.Certificates !== null
@@ -1815,7 +1793,6 @@ const deserializeAws_json1_1CopyBackupToRegionResponse = (
   context: __SerdeContext
 ): CopyBackupToRegionResponse => {
   return {
-    __type: "CopyBackupToRegionResponse",
     DestinationBackup:
       output.DestinationBackup !== undefined && output.DestinationBackup !== null
         ? deserializeAws_json1_1DestinationBackup(output.DestinationBackup, context)
@@ -1825,7 +1802,6 @@ const deserializeAws_json1_1CopyBackupToRegionResponse = (
 
 const deserializeAws_json1_1CreateClusterResponse = (output: any, context: __SerdeContext): CreateClusterResponse => {
   return {
-    __type: "CreateClusterResponse",
     Cluster:
       output.Cluster !== undefined && output.Cluster !== null
         ? deserializeAws_json1_1Cluster(output.Cluster, context)
@@ -1835,14 +1811,12 @@ const deserializeAws_json1_1CreateClusterResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1CreateHsmResponse = (output: any, context: __SerdeContext): CreateHsmResponse => {
   return {
-    __type: "CreateHsmResponse",
     Hsm: output.Hsm !== undefined && output.Hsm !== null ? deserializeAws_json1_1Hsm(output.Hsm, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteBackupResponse = (output: any, context: __SerdeContext): DeleteBackupResponse => {
   return {
-    __type: "DeleteBackupResponse",
     Backup:
       output.Backup !== undefined && output.Backup !== null
         ? deserializeAws_json1_1Backup(output.Backup, context)
@@ -1852,7 +1826,6 @@ const deserializeAws_json1_1DeleteBackupResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1DeleteClusterResponse = (output: any, context: __SerdeContext): DeleteClusterResponse => {
   return {
-    __type: "DeleteClusterResponse",
     Cluster:
       output.Cluster !== undefined && output.Cluster !== null
         ? deserializeAws_json1_1Cluster(output.Cluster, context)
@@ -1862,7 +1835,6 @@ const deserializeAws_json1_1DeleteClusterResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1DeleteHsmResponse = (output: any, context: __SerdeContext): DeleteHsmResponse => {
   return {
-    __type: "DeleteHsmResponse",
     HsmId: output.HsmId !== undefined && output.HsmId !== null ? output.HsmId : undefined,
   } as any;
 };
@@ -1872,7 +1844,6 @@ const deserializeAws_json1_1DescribeBackupsResponse = (
   context: __SerdeContext
 ): DescribeBackupsResponse => {
   return {
-    __type: "DescribeBackupsResponse",
     Backups:
       output.Backups !== undefined && output.Backups !== null
         ? deserializeAws_json1_1Backups(output.Backups, context)
@@ -1886,7 +1857,6 @@ const deserializeAws_json1_1DescribeClustersResponse = (
   context: __SerdeContext
 ): DescribeClustersResponse => {
   return {
-    __type: "DescribeClustersResponse",
     Clusters:
       output.Clusters !== undefined && output.Clusters !== null
         ? deserializeAws_json1_1Clusters(output.Clusters, context)
@@ -1897,7 +1867,6 @@ const deserializeAws_json1_1DescribeClustersResponse = (
 
 const deserializeAws_json1_1DestinationBackup = (output: any, context: __SerdeContext): DestinationBackup => {
   return {
-    __type: "DestinationBackup",
     CreateTimestamp:
       output.CreateTimestamp !== undefined && output.CreateTimestamp !== null
         ? new Date(Math.round(output.CreateTimestamp * 1000))
@@ -1924,7 +1893,6 @@ const deserializeAws_json1_1ExternalSubnetMapping = (
 
 const deserializeAws_json1_1Hsm = (output: any, context: __SerdeContext): Hsm => {
   return {
-    __type: "Hsm",
     AvailabilityZone:
       output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
     ClusterId: output.ClusterId !== undefined && output.ClusterId !== null ? output.ClusterId : undefined,
@@ -1946,7 +1914,6 @@ const deserializeAws_json1_1InitializeClusterResponse = (
   context: __SerdeContext
 ): InitializeClusterResponse => {
   return {
-    __type: "InitializeClusterResponse",
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateMessage: output.StateMessage !== undefined && output.StateMessage !== null ? output.StateMessage : undefined,
   } as any;
@@ -1954,7 +1921,6 @@ const deserializeAws_json1_1InitializeClusterResponse = (
 
 const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeContext): ListTagsResponse => {
   return {
-    __type: "ListTagsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TagList:
       output.TagList !== undefined && output.TagList !== null
@@ -1965,7 +1931,6 @@ const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1RestoreBackupResponse = (output: any, context: __SerdeContext): RestoreBackupResponse => {
   return {
-    __type: "RestoreBackupResponse",
     Backup:
       output.Backup !== undefined && output.Backup !== null
         ? deserializeAws_json1_1Backup(output.Backup, context)
@@ -1975,7 +1940,6 @@ const deserializeAws_json1_1RestoreBackupResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -1986,15 +1950,11 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

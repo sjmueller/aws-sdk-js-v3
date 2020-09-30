@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { TagLogGroupRequest } from "../models/index.ts";
+import { TagLogGroupRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1TagLogGroupCommand,
   serializeAws_json1_1TagLogGroupCommand,

@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { PurchaseOfferingRequest, PurchaseOfferingResponse } from "../models/index.ts";
+import { PurchaseOfferingRequest, PurchaseOfferingResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1PurchaseOfferingCommand,
   serializeAws_restJson1PurchaseOfferingCommand,

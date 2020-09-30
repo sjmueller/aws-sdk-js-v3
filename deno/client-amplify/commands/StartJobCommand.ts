@@ -1,6 +1,6 @@
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
-import { StartJobRequest, StartJobResult } from "../models/index.ts";
+import { StartJobRequest, StartJobResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StartJobCommand,
   serializeAws_restJson1StartJobCommand,

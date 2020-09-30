@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { DeleteLifecycleHookAnswer, DeleteLifecycleHookType } from "../models/index.ts";
+import { DeleteLifecycleHookAnswer, DeleteLifecycleHookType } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteLifecycleHookCommand,
   serializeAws_queryDeleteLifecycleHookCommand,

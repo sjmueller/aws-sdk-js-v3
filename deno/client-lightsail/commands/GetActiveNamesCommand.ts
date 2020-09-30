@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { GetActiveNamesRequest, GetActiveNamesResult } from "../models/index.ts";
+import { GetActiveNamesRequest, GetActiveNamesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetActiveNamesCommand,
   serializeAws_json1_1GetActiveNamesCommand,

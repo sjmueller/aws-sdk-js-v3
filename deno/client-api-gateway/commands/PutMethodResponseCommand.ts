@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { MethodResponse, PutMethodResponseRequest } from "../models/index.ts";
+import { MethodResponse, PutMethodResponseRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutMethodResponseCommand,
   serializeAws_restJson1PutMethodResponseCommand,

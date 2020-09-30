@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/index.ts";
+import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryListTagsForResourceCommand,
   serializeAws_queryListTagsForResourceCommand,

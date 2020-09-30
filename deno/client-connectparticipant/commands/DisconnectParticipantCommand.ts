@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient.ts";
-import { DisconnectParticipantRequest, DisconnectParticipantResponse } from "../models/index.ts";
+import { DisconnectParticipantRequest, DisconnectParticipantResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DisconnectParticipantCommand,
   serializeAws_restJson1DisconnectParticipantCommand,

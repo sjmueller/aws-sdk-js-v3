@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient.ts";
-import { DescribeCommunicationsRequest, DescribeCommunicationsResponse } from "../models/index.ts";
+import { DescribeCommunicationsRequest, DescribeCommunicationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeCommunicationsCommand,
   serializeAws_json1_1DescribeCommunicationsCommand,

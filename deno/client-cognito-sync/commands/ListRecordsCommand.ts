@@ -1,6 +1,6 @@
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient.ts";
-import { ListRecordsRequest, ListRecordsResponse } from "../models/index.ts";
+import { ListRecordsRequest, ListRecordsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListRecordsCommand,
   serializeAws_restJson1ListRecordsCommand,

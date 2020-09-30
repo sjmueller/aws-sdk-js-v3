@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { ClusterVersionsMessage, DescribeClusterVersionsMessage } from "../models/index.ts";
+import { ClusterVersionsMessage, DescribeClusterVersionsMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeClusterVersionsCommand,
   serializeAws_queryDescribeClusterVersionsCommand,

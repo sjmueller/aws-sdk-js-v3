@@ -1,6 +1,6 @@
 
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient.ts";
-import { DisassociateLinkRequest, DisassociateLinkResponse } from "../models/index.ts";
+import { DisassociateLinkRequest, DisassociateLinkResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DisassociateLinkCommand,
   serializeAws_restJson1DisassociateLinkCommand,

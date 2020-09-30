@@ -1,6 +1,6 @@
 
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient.ts";
-import { PutResolverRulePolicyRequest, PutResolverRulePolicyResponse } from "../models/index.ts";
+import { PutResolverRulePolicyRequest, PutResolverRulePolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutResolverRulePolicyCommand,
   serializeAws_json1_1PutResolverRulePolicyCommand,

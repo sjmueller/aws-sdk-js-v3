@@ -1,6 +1,6 @@
 
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient.ts";
-import { RespondDecisionTaskCompletedInput } from "../models/index.ts";
+import { RespondDecisionTaskCompletedInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0RespondDecisionTaskCompletedCommand,
   serializeAws_json1_0RespondDecisionTaskCompletedCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient.ts";
-import { InferRxNormRequest, InferRxNormResponse } from "../models/index.ts";
+import { InferRxNormRequest, InferRxNormResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1InferRxNormCommand,
   serializeAws_json1_1InferRxNormCommand,

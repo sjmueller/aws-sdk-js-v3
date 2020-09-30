@@ -3,7 +3,7 @@ import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   AssociatePhoneNumbersWithVoiceConnectorGroupRequest,
   AssociatePhoneNumbersWithVoiceConnectorGroupResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorGroupCommand,
   serializeAws_restJson1AssociatePhoneNumbersWithVoiceConnectorGroupCommand,

@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { GetRequestValidatorsRequest, RequestValidators } from "../models/index.ts";
+import { GetRequestValidatorsRequest, RequestValidators } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetRequestValidatorsCommand,
   serializeAws_restJson1GetRequestValidatorsCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient.ts";
-import { UpdateNotificationRuleRequest, UpdateNotificationRuleResult } from "../models/index.ts";
+import { UpdateNotificationRuleRequest, UpdateNotificationRuleResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateNotificationRuleCommand,
   serializeAws_restJson1UpdateNotificationRuleCommand,

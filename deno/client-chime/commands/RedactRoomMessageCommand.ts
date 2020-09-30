@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { RedactRoomMessageRequest, RedactRoomMessageResponse } from "../models/index.ts";
+import { RedactRoomMessageRequest, RedactRoomMessageResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1RedactRoomMessageCommand,
   serializeAws_restJson1RedactRoomMessageCommand,

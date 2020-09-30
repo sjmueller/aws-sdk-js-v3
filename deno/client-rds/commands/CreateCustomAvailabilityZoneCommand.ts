@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { CreateCustomAvailabilityZoneMessage, CreateCustomAvailabilityZoneResult } from "../models/index.ts";
+import { CreateCustomAvailabilityZoneMessage, CreateCustomAvailabilityZoneResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateCustomAvailabilityZoneCommand,
   serializeAws_queryCreateCustomAvailabilityZoneCommand,

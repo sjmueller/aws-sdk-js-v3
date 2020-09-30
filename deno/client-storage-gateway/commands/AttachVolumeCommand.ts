@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { AttachVolumeInput, AttachVolumeOutput } from "../models/index.ts";
+import { AttachVolumeInput, AttachVolumeOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AttachVolumeCommand,
   serializeAws_json1_1AttachVolumeCommand,

@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeAccountAttributesRequest, DescribeAccountAttributesResult } from "../models/index.ts";
+import { DescribeAccountAttributesRequest, DescribeAccountAttributesResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeAccountAttributesCommand,
   serializeAws_ec2DescribeAccountAttributesCommand,

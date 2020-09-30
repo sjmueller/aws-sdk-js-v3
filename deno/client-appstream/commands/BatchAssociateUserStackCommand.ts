@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { BatchAssociateUserStackRequest, BatchAssociateUserStackResult } from "../models/index.ts";
+import { BatchAssociateUserStackRequest, BatchAssociateUserStackResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchAssociateUserStackCommand,
   serializeAws_json1_1BatchAssociateUserStackCommand,

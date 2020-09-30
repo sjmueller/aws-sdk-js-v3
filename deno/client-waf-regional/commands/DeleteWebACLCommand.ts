@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { DeleteWebACLRequest, DeleteWebACLResponse } from "../models/index.ts";
+import { DeleteWebACLRequest, DeleteWebACLResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteWebACLCommand,
   serializeAws_json1_1DeleteWebACLCommand,

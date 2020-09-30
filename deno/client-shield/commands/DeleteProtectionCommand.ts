@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient.ts";
-import { DeleteProtectionRequest, DeleteProtectionResponse } from "../models/index.ts";
+import { DeleteProtectionRequest, DeleteProtectionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteProtectionCommand,
   serializeAws_json1_1DeleteProtectionCommand,

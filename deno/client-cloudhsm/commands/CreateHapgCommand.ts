@@ -1,6 +1,6 @@
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient.ts";
-import { CreateHapgRequest, CreateHapgResponse } from "../models/index.ts";
+import { CreateHapgRequest, CreateHapgResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateHapgCommand,
   serializeAws_json1_1CreateHapgCommand,

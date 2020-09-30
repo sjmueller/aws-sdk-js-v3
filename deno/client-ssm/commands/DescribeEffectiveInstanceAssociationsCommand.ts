@@ -3,7 +3,7 @@ import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeEffectiveInstanceAssociationsRequest,
   DescribeEffectiveInstanceAssociationsResult,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand,
   serializeAws_json1_1DescribeEffectiveInstanceAssociationsCommand,

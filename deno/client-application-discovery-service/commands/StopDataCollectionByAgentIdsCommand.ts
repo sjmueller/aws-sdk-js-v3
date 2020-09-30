@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient.ts";
-import { StopDataCollectionByAgentIdsRequest, StopDataCollectionByAgentIdsResponse } from "../models/index.ts";
+import { StopDataCollectionByAgentIdsRequest, StopDataCollectionByAgentIdsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopDataCollectionByAgentIdsCommand,
   serializeAws_json1_1StopDataCollectionByAgentIdsCommand,

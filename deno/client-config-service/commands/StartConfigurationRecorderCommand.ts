@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { StartConfigurationRecorderRequest } from "../models/index.ts";
+import { StartConfigurationRecorderRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartConfigurationRecorderCommand,
   serializeAws_json1_1StartConfigurationRecorderCommand,

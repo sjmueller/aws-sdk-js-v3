@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { CreatePatchBaselineRequest, CreatePatchBaselineResult } from "../models/index.ts";
+import { CreatePatchBaselineRequest, CreatePatchBaselineResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreatePatchBaselineCommand,
   serializeAws_json1_1CreatePatchBaselineCommand,

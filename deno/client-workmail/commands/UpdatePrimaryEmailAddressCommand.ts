@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { UpdatePrimaryEmailAddressRequest, UpdatePrimaryEmailAddressResponse } from "../models/index.ts";
+import { UpdatePrimaryEmailAddressRequest, UpdatePrimaryEmailAddressResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdatePrimaryEmailAddressCommand,
   serializeAws_json1_1UpdatePrimaryEmailAddressCommand,

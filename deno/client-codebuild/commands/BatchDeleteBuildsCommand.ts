@@ -1,6 +1,6 @@
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient.ts";
-import { BatchDeleteBuildsInput, BatchDeleteBuildsOutput } from "../models/index.ts";
+import { BatchDeleteBuildsInput, BatchDeleteBuildsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchDeleteBuildsCommand,
   serializeAws_json1_1BatchDeleteBuildsCommand,

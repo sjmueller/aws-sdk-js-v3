@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient.ts";
-import { DeleteIntentVersionRequest } from "../models/index.ts";
+import { DeleteIntentVersionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteIntentVersionCommand,
   serializeAws_restJson1DeleteIntentVersionCommand,

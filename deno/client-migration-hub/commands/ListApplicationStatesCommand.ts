@@ -1,6 +1,6 @@
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient.ts";
-import { ListApplicationStatesRequest, ListApplicationStatesResult } from "../models/index.ts";
+import { ListApplicationStatesRequest, ListApplicationStatesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListApplicationStatesCommand,
   serializeAws_json1_1ListApplicationStatesCommand,

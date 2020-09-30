@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { DescribeInventoryDeletionsRequest, DescribeInventoryDeletionsResult } from "../models/index.ts";
+import { DescribeInventoryDeletionsRequest, DescribeInventoryDeletionsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeInventoryDeletionsCommand,
   serializeAws_json1_1DescribeInventoryDeletionsCommand,

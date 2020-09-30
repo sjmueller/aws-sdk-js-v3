@@ -1,6 +1,7 @@
 
 const name = "@aws-sdk/client-transcribe-streaming";
-const version = "1.0.0-gamma.8";
+const version = "1.0.0-gamma.10";
+
 import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";
 import { eventStreamSerdeProvider } from "../eventstream-serde-browser/mod.ts";
 import { streamCollector } from "../fetch-http-handler/mod.ts";

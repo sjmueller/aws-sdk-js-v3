@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { CreateUserPoolClientRequest, CreateUserPoolClientResponse } from "../models/index.ts";
+import { CreateUserPoolClientRequest, CreateUserPoolClientResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateUserPoolClientCommand,
   serializeAws_json1_1CreateUserPoolClientCommand,

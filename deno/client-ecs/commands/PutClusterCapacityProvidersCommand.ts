@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse } from "../models/index.ts";
+import { PutClusterCapacityProvidersRequest, PutClusterCapacityProvidersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutClusterCapacityProvidersCommand,
   serializeAws_json1_1PutClusterCapacityProvidersCommand,

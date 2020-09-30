@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { ListCachePoliciesRequest, ListCachePoliciesResult } from "../models/index.ts";
+import { ListCachePoliciesRequest, ListCachePoliciesResult } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlListCachePoliciesCommand,
   serializeAws_restXmlListCachePoliciesCommand,

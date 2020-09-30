@@ -1,6 +1,6 @@
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient.ts";
-import { ListAssetsRequest, ListAssetsResponse } from "../models/index.ts";
+import { ListAssetsRequest, ListAssetsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListAssetsCommand,
   serializeAws_restJson1ListAssetsCommand,

@@ -1,6 +1,6 @@
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient.ts";
-import { ListTagsForStreamInput, ListTagsForStreamOutput } from "../models/index.ts";
+import { ListTagsForStreamInput, ListTagsForStreamOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListTagsForStreamCommand,
   serializeAws_json1_1ListTagsForStreamCommand,

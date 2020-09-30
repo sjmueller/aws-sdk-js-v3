@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { UpdateSigningCertificateRequest } from "../models/index.ts";
+import { UpdateSigningCertificateRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryUpdateSigningCertificateCommand,
   serializeAws_queryUpdateSigningCertificateCommand,

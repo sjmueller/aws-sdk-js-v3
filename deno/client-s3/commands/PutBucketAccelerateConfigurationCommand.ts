@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { PutBucketAccelerateConfigurationRequest } from "../models/index.ts";
+import { PutBucketAccelerateConfigurationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlPutBucketAccelerateConfigurationCommand,
   serializeAws_restXmlPutBucketAccelerateConfigurationCommand,

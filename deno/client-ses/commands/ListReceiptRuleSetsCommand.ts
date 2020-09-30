@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { ListReceiptRuleSetsRequest, ListReceiptRuleSetsResponse } from "../models/index.ts";
+import { ListReceiptRuleSetsRequest, ListReceiptRuleSetsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryListReceiptRuleSetsCommand,
   serializeAws_queryListReceiptRuleSetsCommand,

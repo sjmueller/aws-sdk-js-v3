@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { DeleteDevicePoolRequest, DeleteDevicePoolResult } from "../models/index.ts";
+import { DeleteDevicePoolRequest, DeleteDevicePoolResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteDevicePoolCommand,
   serializeAws_json1_1DeleteDevicePoolCommand,

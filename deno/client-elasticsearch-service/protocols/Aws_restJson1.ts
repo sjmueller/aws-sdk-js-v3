@@ -184,7 +184,7 @@ import {
   VPCOptions,
   ValidationException,
   ZoneAwarenessConfig,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -1359,7 +1359,6 @@ export const deserializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCo
   }
   const contents: AcceptInboundCrossClusterSearchConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptInboundCrossClusterSearchConnectionResponse",
     CrossClusterSearchConnection: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1509,7 +1508,6 @@ export const deserializeAws_restJson1AssociatePackageCommand = async (
   }
   const contents: AssociatePackageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociatePackageResponse",
     DomainPackageDetails: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1605,7 +1603,6 @@ export const deserializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCom
   }
   const contents: CancelElasticsearchServiceSoftwareUpdateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelElasticsearchServiceSoftwareUpdateResponse",
     ServiceSoftwareOptions: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1688,7 +1685,6 @@ export const deserializeAws_restJson1CreateElasticsearchDomainCommand = async (
   }
   const contents: CreateElasticsearchDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateElasticsearchDomainResponse",
     DomainStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1792,7 +1788,6 @@ export const deserializeAws_restJson1CreateOutboundCrossClusterSearchConnectionC
   }
   const contents: CreateOutboundCrossClusterSearchConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateOutboundCrossClusterSearchConnectionResponse",
     ConnectionAlias: undefined,
     ConnectionStatus: undefined,
     CrossClusterSearchConnectionId: undefined,
@@ -1891,7 +1886,6 @@ export const deserializeAws_restJson1CreatePackageCommand = async (
   }
   const contents: CreatePackageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePackageResponse",
     PackageDetails: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1995,7 +1989,6 @@ export const deserializeAws_restJson1DeleteElasticsearchDomainCommand = async (
   }
   const contents: DeleteElasticsearchDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteElasticsearchDomainResponse",
     DomainStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2142,7 +2135,6 @@ export const deserializeAws_restJson1DeleteInboundCrossClusterSearchConnectionCo
   }
   const contents: DeleteInboundCrossClusterSearchConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteInboundCrossClusterSearchConnectionResponse",
     CrossClusterSearchConnection: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2209,7 +2201,6 @@ export const deserializeAws_restJson1DeleteOutboundCrossClusterSearchConnectionC
   }
   const contents: DeleteOutboundCrossClusterSearchConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteOutboundCrossClusterSearchConnectionResponse",
     CrossClusterSearchConnection: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2276,7 +2267,6 @@ export const deserializeAws_restJson1DeletePackageCommand = async (
   }
   const contents: DeletePackageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePackageResponse",
     PackageDetails: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2372,7 +2362,6 @@ export const deserializeAws_restJson1DescribeElasticsearchDomainCommand = async 
   }
   const contents: DescribeElasticsearchDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeElasticsearchDomainResponse",
     DomainStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2452,7 +2441,6 @@ export const deserializeAws_restJson1DescribeElasticsearchDomainConfigCommand = 
   }
   const contents: DescribeElasticsearchDomainConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeElasticsearchDomainConfigResponse",
     DomainConfig: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2532,7 +2520,6 @@ export const deserializeAws_restJson1DescribeElasticsearchDomainsCommand = async
   }
   const contents: DescribeElasticsearchDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeElasticsearchDomainsResponse",
     DomainStatusList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2604,7 +2591,6 @@ export const deserializeAws_restJson1DescribeElasticsearchInstanceTypeLimitsComm
   }
   const contents: DescribeElasticsearchInstanceTypeLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeElasticsearchInstanceTypeLimitsResponse",
     LimitsByRole: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2700,7 +2686,6 @@ export const deserializeAws_restJson1DescribeInboundCrossClusterSearchConnection
   }
   const contents: DescribeInboundCrossClusterSearchConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInboundCrossClusterSearchConnectionsResponse",
     CrossClusterSearchConnections: undefined,
     NextToken: undefined,
   };
@@ -2771,7 +2756,6 @@ export const deserializeAws_restJson1DescribeOutboundCrossClusterSearchConnectio
   }
   const contents: DescribeOutboundCrossClusterSearchConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOutboundCrossClusterSearchConnectionsResponse",
     CrossClusterSearchConnections: undefined,
     NextToken: undefined,
   };
@@ -2842,7 +2826,6 @@ export const deserializeAws_restJson1DescribePackagesCommand = async (
   }
   const contents: DescribePackagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePackagesResponse",
     NextToken: undefined,
     PackageDetailsList: undefined,
   };
@@ -2934,7 +2917,6 @@ export const deserializeAws_restJson1DescribeReservedElasticsearchInstanceOfferi
   }
   const contents: DescribeReservedElasticsearchInstanceOfferingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReservedElasticsearchInstanceOfferingsResponse",
     NextToken: undefined,
     ReservedElasticsearchInstanceOfferings: undefined,
   };
@@ -3024,7 +3006,6 @@ export const deserializeAws_restJson1DescribeReservedElasticsearchInstancesComma
   }
   const contents: DescribeReservedElasticsearchInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReservedElasticsearchInstancesResponse",
     NextToken: undefined,
     ReservedElasticsearchInstances: undefined,
   };
@@ -3111,7 +3092,6 @@ export const deserializeAws_restJson1DissociatePackageCommand = async (
   }
   const contents: DissociatePackageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DissociatePackageResponse",
     DomainPackageDetails: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3207,7 +3187,6 @@ export const deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand =
   }
   const contents: GetCompatibleElasticsearchVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCompatibleElasticsearchVersionsResponse",
     CompatibleElasticsearchVersions: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3298,7 +3277,6 @@ export const deserializeAws_restJson1GetUpgradeHistoryCommand = async (
   }
   const contents: GetUpgradeHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUpgradeHistoryResponse",
     NextToken: undefined,
     UpgradeHistories: undefined,
   };
@@ -3390,7 +3368,6 @@ export const deserializeAws_restJson1GetUpgradeStatusCommand = async (
   }
   const contents: GetUpgradeStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUpgradeStatusResponse",
     StepStatus: undefined,
     UpgradeName: undefined,
     UpgradeStep: undefined,
@@ -3486,7 +3463,6 @@ export const deserializeAws_restJson1ListDomainNamesCommand = async (
   }
   const contents: ListDomainNamesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDomainNamesResponse",
     DomainNames: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3550,7 +3526,6 @@ export const deserializeAws_restJson1ListDomainsForPackageCommand = async (
   }
   const contents: ListDomainsForPackageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDomainsForPackageResponse",
     DomainPackageDetailsList: undefined,
     NextToken: undefined,
   };
@@ -3645,7 +3620,6 @@ export const deserializeAws_restJson1ListElasticsearchInstanceTypesCommand = asy
   }
   const contents: ListElasticsearchInstanceTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListElasticsearchInstanceTypesResponse",
     ElasticsearchInstanceTypes: undefined,
     NextToken: undefined,
   };
@@ -3732,7 +3706,6 @@ export const deserializeAws_restJson1ListElasticsearchVersionsCommand = async (
   }
   const contents: ListElasticsearchVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListElasticsearchVersionsResponse",
     ElasticsearchVersions: undefined,
     NextToken: undefined,
   };
@@ -3819,7 +3792,6 @@ export const deserializeAws_restJson1ListPackagesForDomainCommand = async (
   }
   const contents: ListPackagesForDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPackagesForDomainResponse",
     DomainPackageDetailsList: undefined,
     NextToken: undefined,
   };
@@ -3914,7 +3886,6 @@ export const deserializeAws_restJson1ListTagsCommand = async (
   }
   const contents: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsResponse",
     TagList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3994,7 +3965,6 @@ export const deserializeAws_restJson1PurchaseReservedElasticsearchInstanceOfferi
   }
   const contents: PurchaseReservedElasticsearchInstanceOfferingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PurchaseReservedElasticsearchInstanceOfferingResponse",
     ReservationName: undefined,
     ReservedElasticsearchInstanceId: undefined,
   };
@@ -4094,7 +4064,6 @@ export const deserializeAws_restJson1RejectInboundCrossClusterSearchConnectionCo
   }
   const contents: RejectInboundCrossClusterSearchConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectInboundCrossClusterSearchConnectionResponse",
     CrossClusterSearchConnection: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4228,7 +4197,6 @@ export const deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateComm
   }
   const contents: StartElasticsearchServiceSoftwareUpdateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartElasticsearchServiceSoftwareUpdateResponse",
     ServiceSoftwareOptions: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4311,7 +4279,6 @@ export const deserializeAws_restJson1UpdateElasticsearchDomainConfigCommand = as
   }
   const contents: UpdateElasticsearchDomainConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateElasticsearchDomainConfigResponse",
     DomainConfig: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4407,7 +4374,6 @@ export const deserializeAws_restJson1UpgradeElasticsearchDomainCommand = async (
   }
   const contents: UpgradeElasticsearchDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpgradeElasticsearchDomainResponse",
     DomainName: undefined,
     PerformCheckOnly: undefined,
     TargetVersion: undefined,
@@ -4902,7 +4868,6 @@ const serializeAws_restJson1ZoneAwarenessConfig = (input: ZoneAwarenessConfig, c
 
 const deserializeAws_restJson1AccessPoliciesStatus = (output: any, context: __SerdeContext): AccessPoliciesStatus => {
   return {
-    __type: "AccessPoliciesStatus",
     Options: output.Options !== undefined && output.Options !== null ? output.Options : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
@@ -4913,7 +4878,6 @@ const deserializeAws_restJson1AccessPoliciesStatus = (output: any, context: __Se
 
 const deserializeAws_restJson1AdditionalLimit = (output: any, context: __SerdeContext): AdditionalLimit => {
   return {
-    __type: "AdditionalLimit",
     LimitName: output.LimitName !== undefined && output.LimitName !== null ? output.LimitName : undefined,
     LimitValues:
       output.LimitValues !== undefined && output.LimitValues !== null
@@ -4938,7 +4902,6 @@ const deserializeAws_restJson1AdvancedOptions = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1AdvancedOptionsStatus = (output: any, context: __SerdeContext): AdvancedOptionsStatus => {
   return {
-    __type: "AdvancedOptionsStatus",
     Options:
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_restJson1AdvancedOptions(output.Options, context)
@@ -4955,7 +4918,6 @@ const deserializeAws_restJson1AdvancedSecurityOptions = (
   context: __SerdeContext
 ): AdvancedSecurityOptions => {
   return {
-    __type: "AdvancedSecurityOptions",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     InternalUserDatabaseEnabled:
       output.InternalUserDatabaseEnabled !== undefined && output.InternalUserDatabaseEnabled !== null
@@ -4969,7 +4931,6 @@ const deserializeAws_restJson1AdvancedSecurityOptionsStatus = (
   context: __SerdeContext
 ): AdvancedSecurityOptionsStatus => {
   return {
-    __type: "AdvancedSecurityOptionsStatus",
     Options:
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_restJson1AdvancedSecurityOptions(output.Options, context)
@@ -4983,7 +4944,6 @@ const deserializeAws_restJson1AdvancedSecurityOptionsStatus = (
 
 const deserializeAws_restJson1CognitoOptions = (output: any, context: __SerdeContext): CognitoOptions => {
   return {
-    __type: "CognitoOptions",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     IdentityPoolId:
       output.IdentityPoolId !== undefined && output.IdentityPoolId !== null ? output.IdentityPoolId : undefined,
@@ -4994,7 +4954,6 @@ const deserializeAws_restJson1CognitoOptions = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1CognitoOptionsStatus = (output: any, context: __SerdeContext): CognitoOptionsStatus => {
   return {
-    __type: "CognitoOptionsStatus",
     Options:
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_restJson1CognitoOptions(output.Options, context)
@@ -5015,7 +4974,6 @@ const deserializeAws_restJson1CompatibleElasticsearchVersionsList = (
 
 const deserializeAws_restJson1CompatibleVersionsMap = (output: any, context: __SerdeContext): CompatibleVersionsMap => {
   return {
-    __type: "CompatibleVersionsMap",
     SourceVersion:
       output.SourceVersion !== undefined && output.SourceVersion !== null ? output.SourceVersion : undefined,
     TargetVersions:
@@ -5027,7 +4985,6 @@ const deserializeAws_restJson1CompatibleVersionsMap = (output: any, context: __S
 
 const deserializeAws_restJson1DomainEndpointOptions = (output: any, context: __SerdeContext): DomainEndpointOptions => {
   return {
-    __type: "DomainEndpointOptions",
     EnforceHTTPS: output.EnforceHTTPS !== undefined && output.EnforceHTTPS !== null ? output.EnforceHTTPS : undefined,
     TLSSecurityPolicy:
       output.TLSSecurityPolicy !== undefined && output.TLSSecurityPolicy !== null
@@ -5041,7 +4998,6 @@ const deserializeAws_restJson1DomainEndpointOptionsStatus = (
   context: __SerdeContext
 ): DomainEndpointOptionsStatus => {
   return {
-    __type: "DomainEndpointOptionsStatus",
     Options:
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_restJson1DomainEndpointOptions(output.Options, context)
@@ -5055,7 +5011,6 @@ const deserializeAws_restJson1DomainEndpointOptionsStatus = (
 
 const deserializeAws_restJson1DomainInfo = (output: any, context: __SerdeContext): DomainInfo => {
   return {
-    __type: "DomainInfo",
     DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
   } as any;
 };
@@ -5066,7 +5021,6 @@ const deserializeAws_restJson1DomainInfoList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1DomainInformation = (output: any, context: __SerdeContext): DomainInformation => {
   return {
-    __type: "DomainInformation",
     DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
     Region: output.Region !== undefined && output.Region !== null ? output.Region : undefined,
@@ -5075,7 +5029,6 @@ const deserializeAws_restJson1DomainInformation = (output: any, context: __Serde
 
 const deserializeAws_restJson1DomainPackageDetails = (output: any, context: __SerdeContext): DomainPackageDetails => {
   return {
-    __type: "DomainPackageDetails",
     DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     DomainPackageStatus:
       output.DomainPackageStatus !== undefined && output.DomainPackageStatus !== null
@@ -5106,7 +5059,6 @@ const deserializeAws_restJson1DomainPackageDetailsList = (
 
 const deserializeAws_restJson1EBSOptions = (output: any, context: __SerdeContext): EBSOptions => {
   return {
-    __type: "EBSOptions",
     EBSEnabled: output.EBSEnabled !== undefined && output.EBSEnabled !== null ? output.EBSEnabled : undefined,
     Iops: output.Iops !== undefined && output.Iops !== null ? output.Iops : undefined,
     VolumeSize: output.VolumeSize !== undefined && output.VolumeSize !== null ? output.VolumeSize : undefined,
@@ -5116,7 +5068,6 @@ const deserializeAws_restJson1EBSOptions = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1EBSOptionsStatus = (output: any, context: __SerdeContext): EBSOptionsStatus => {
   return {
-    __type: "EBSOptionsStatus",
     Options:
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_restJson1EBSOptions(output.Options, context)
@@ -5133,7 +5084,6 @@ const deserializeAws_restJson1ElasticsearchClusterConfig = (
   context: __SerdeContext
 ): ElasticsearchClusterConfig => {
   return {
-    __type: "ElasticsearchClusterConfig",
     DedicatedMasterCount:
       output.DedicatedMasterCount !== undefined && output.DedicatedMasterCount !== null
         ? output.DedicatedMasterCount
@@ -5168,7 +5118,6 @@ const deserializeAws_restJson1ElasticsearchClusterConfigStatus = (
   context: __SerdeContext
 ): ElasticsearchClusterConfigStatus => {
   return {
-    __type: "ElasticsearchClusterConfigStatus",
     Options:
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_restJson1ElasticsearchClusterConfig(output.Options, context)
@@ -5185,7 +5134,6 @@ const deserializeAws_restJson1ElasticsearchDomainConfig = (
   context: __SerdeContext
 ): ElasticsearchDomainConfig => {
   return {
-    __type: "ElasticsearchDomainConfig",
     AccessPolicies:
       output.AccessPolicies !== undefined && output.AccessPolicies !== null
         ? deserializeAws_restJson1AccessPoliciesStatus(output.AccessPolicies, context)
@@ -5246,7 +5194,6 @@ const deserializeAws_restJson1ElasticsearchDomainStatus = (
   context: __SerdeContext
 ): ElasticsearchDomainStatus => {
   return {
-    __type: "ElasticsearchDomainStatus",
     ARN: output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
     AccessPolicies:
       output.AccessPolicies !== undefined && output.AccessPolicies !== null ? output.AccessPolicies : undefined,
@@ -5342,7 +5289,6 @@ const deserializeAws_restJson1ElasticsearchVersionStatus = (
   context: __SerdeContext
 ): ElasticsearchVersionStatus => {
   return {
-    __type: "ElasticsearchVersionStatus",
     Options: output.Options !== undefined && output.Options !== null ? output.Options : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
@@ -5356,7 +5302,6 @@ const deserializeAws_restJson1EncryptionAtRestOptions = (
   context: __SerdeContext
 ): EncryptionAtRestOptions => {
   return {
-    __type: "EncryptionAtRestOptions",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
   } as any;
@@ -5367,7 +5312,6 @@ const deserializeAws_restJson1EncryptionAtRestOptionsStatus = (
   context: __SerdeContext
 ): EncryptionAtRestOptionsStatus => {
   return {
-    __type: "EncryptionAtRestOptionsStatus",
     Options:
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_restJson1EncryptionAtRestOptions(output.Options, context)
@@ -5391,7 +5335,6 @@ const deserializeAws_restJson1EndpointsMap = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
   return {
-    __type: "ErrorDetails",
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     ErrorType: output.ErrorType !== undefined && output.ErrorType !== null ? output.ErrorType : undefined,
   } as any;
@@ -5402,7 +5345,6 @@ const deserializeAws_restJson1InboundCrossClusterSearchConnection = (
   context: __SerdeContext
 ): InboundCrossClusterSearchConnection => {
   return {
-    __type: "InboundCrossClusterSearchConnection",
     ConnectionStatus:
       output.ConnectionStatus !== undefined && output.ConnectionStatus !== null
         ? deserializeAws_restJson1InboundCrossClusterSearchConnectionStatus(output.ConnectionStatus, context)
@@ -5436,7 +5378,6 @@ const deserializeAws_restJson1InboundCrossClusterSearchConnectionStatus = (
   context: __SerdeContext
 ): InboundCrossClusterSearchConnectionStatus => {
   return {
-    __type: "InboundCrossClusterSearchConnectionStatus",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     StatusCode: output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined,
   } as any;
@@ -5444,7 +5385,6 @@ const deserializeAws_restJson1InboundCrossClusterSearchConnectionStatus = (
 
 const deserializeAws_restJson1InstanceCountLimits = (output: any, context: __SerdeContext): InstanceCountLimits => {
   return {
-    __type: "InstanceCountLimits",
     MaximumInstanceCount:
       output.MaximumInstanceCount !== undefined && output.MaximumInstanceCount !== null
         ? output.MaximumInstanceCount
@@ -5458,7 +5398,6 @@ const deserializeAws_restJson1InstanceCountLimits = (output: any, context: __Ser
 
 const deserializeAws_restJson1InstanceLimits = (output: any, context: __SerdeContext): InstanceLimits => {
   return {
-    __type: "InstanceLimits",
     InstanceCountLimits:
       output.InstanceCountLimits !== undefined && output.InstanceCountLimits !== null
         ? deserializeAws_restJson1InstanceCountLimits(output.InstanceCountLimits, context)
@@ -5472,7 +5411,6 @@ const deserializeAws_restJson1Issues = (output: any, context: __SerdeContext): s
 
 const deserializeAws_restJson1Limits = (output: any, context: __SerdeContext): Limits => {
   return {
-    __type: "Limits",
     AdditionalLimits:
       output.AdditionalLimits !== undefined && output.AdditionalLimits !== null
         ? deserializeAws_restJson1AdditionalLimitList(output.AdditionalLimits, context)
@@ -5504,7 +5442,6 @@ const deserializeAws_restJson1LimitValueList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1LogPublishingOption = (output: any, context: __SerdeContext): LogPublishingOption => {
   return {
-    __type: "LogPublishingOption",
     CloudWatchLogsLogGroupArn:
       output.CloudWatchLogsLogGroupArn !== undefined && output.CloudWatchLogsLogGroupArn !== null
         ? output.CloudWatchLogsLogGroupArn
@@ -5531,7 +5468,6 @@ const deserializeAws_restJson1LogPublishingOptionsStatus = (
   context: __SerdeContext
 ): LogPublishingOptionsStatus => {
   return {
-    __type: "LogPublishingOptionsStatus",
     Options:
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_restJson1LogPublishingOptions(output.Options, context)
@@ -5548,7 +5484,6 @@ const deserializeAws_restJson1NodeToNodeEncryptionOptions = (
   context: __SerdeContext
 ): NodeToNodeEncryptionOptions => {
   return {
-    __type: "NodeToNodeEncryptionOptions",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
   } as any;
 };
@@ -5558,7 +5493,6 @@ const deserializeAws_restJson1NodeToNodeEncryptionOptionsStatus = (
   context: __SerdeContext
 ): NodeToNodeEncryptionOptionsStatus => {
   return {
-    __type: "NodeToNodeEncryptionOptionsStatus",
     Options:
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_restJson1NodeToNodeEncryptionOptions(output.Options, context)
@@ -5572,7 +5506,6 @@ const deserializeAws_restJson1NodeToNodeEncryptionOptionsStatus = (
 
 const deserializeAws_restJson1OptionStatus = (output: any, context: __SerdeContext): OptionStatus => {
   return {
-    __type: "OptionStatus",
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
@@ -5594,7 +5527,6 @@ const deserializeAws_restJson1OutboundCrossClusterSearchConnection = (
   context: __SerdeContext
 ): OutboundCrossClusterSearchConnection => {
   return {
-    __type: "OutboundCrossClusterSearchConnection",
     ConnectionAlias:
       output.ConnectionAlias !== undefined && output.ConnectionAlias !== null ? output.ConnectionAlias : undefined,
     ConnectionStatus:
@@ -5630,7 +5562,6 @@ const deserializeAws_restJson1OutboundCrossClusterSearchConnectionStatus = (
   context: __SerdeContext
 ): OutboundCrossClusterSearchConnectionStatus => {
   return {
-    __type: "OutboundCrossClusterSearchConnectionStatus",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     StatusCode: output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined,
   } as any;
@@ -5638,7 +5569,6 @@ const deserializeAws_restJson1OutboundCrossClusterSearchConnectionStatus = (
 
 const deserializeAws_restJson1PackageDetails = (output: any, context: __SerdeContext): PackageDetails => {
   return {
-    __type: "PackageDetails",
     CreatedAt:
       output.CreatedAt !== undefined && output.CreatedAt !== null
         ? new Date(Math.round(output.CreatedAt * 1000))
@@ -5665,7 +5595,6 @@ const deserializeAws_restJson1PackageDetailsList = (output: any, context: __Serd
 
 const deserializeAws_restJson1RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
   return {
-    __type: "RecurringCharge",
     RecurringChargeAmount:
       output.RecurringChargeAmount !== undefined && output.RecurringChargeAmount !== null
         ? output.RecurringChargeAmount
@@ -5686,7 +5615,6 @@ const deserializeAws_restJson1ReservedElasticsearchInstance = (
   context: __SerdeContext
 ): ReservedElasticsearchInstance => {
   return {
-    __type: "ReservedElasticsearchInstance",
     CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
     Duration: output.Duration !== undefined && output.Duration !== null ? output.Duration : undefined,
     ElasticsearchInstanceCount:
@@ -5736,7 +5664,6 @@ const deserializeAws_restJson1ReservedElasticsearchInstanceOffering = (
   context: __SerdeContext
 ): ReservedElasticsearchInstanceOffering => {
   return {
-    __type: "ReservedElasticsearchInstanceOffering",
     CurrencyCode: output.CurrencyCode !== undefined && output.CurrencyCode !== null ? output.CurrencyCode : undefined,
     Duration: output.Duration !== undefined && output.Duration !== null ? output.Duration : undefined,
     ElasticsearchInstanceType:
@@ -5773,7 +5700,6 @@ const deserializeAws_restJson1ServiceSoftwareOptions = (
   context: __SerdeContext
 ): ServiceSoftwareOptions => {
   return {
-    __type: "ServiceSoftwareOptions",
     AutomatedUpdateDate:
       output.AutomatedUpdateDate !== undefined && output.AutomatedUpdateDate !== null
         ? new Date(Math.round(output.AutomatedUpdateDate * 1000))
@@ -5795,7 +5721,6 @@ const deserializeAws_restJson1ServiceSoftwareOptions = (
 
 const deserializeAws_restJson1SnapshotOptions = (output: any, context: __SerdeContext): SnapshotOptions => {
   return {
-    __type: "SnapshotOptions",
     AutomatedSnapshotStartHour:
       output.AutomatedSnapshotStartHour !== undefined && output.AutomatedSnapshotStartHour !== null
         ? output.AutomatedSnapshotStartHour
@@ -5805,7 +5730,6 @@ const deserializeAws_restJson1SnapshotOptions = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1SnapshotOptionsStatus = (output: any, context: __SerdeContext): SnapshotOptionsStatus => {
   return {
-    __type: "SnapshotOptionsStatus",
     Options:
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_restJson1SnapshotOptions(output.Options, context)
@@ -5819,7 +5743,6 @@ const deserializeAws_restJson1SnapshotOptionsStatus = (output: any, context: __S
 
 const deserializeAws_restJson1StorageType = (output: any, context: __SerdeContext): StorageType => {
   return {
-    __type: "StorageType",
     StorageSubTypeName:
       output.StorageSubTypeName !== undefined && output.StorageSubTypeName !== null
         ? output.StorageSubTypeName
@@ -5835,7 +5758,6 @@ const deserializeAws_restJson1StorageType = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1StorageTypeLimit = (output: any, context: __SerdeContext): StorageTypeLimit => {
   return {
-    __type: "StorageTypeLimit",
     LimitName: output.LimitName !== undefined && output.LimitName !== null ? output.LimitName : undefined,
     LimitValues:
       output.LimitValues !== undefined && output.LimitValues !== null
@@ -5858,7 +5780,6 @@ const deserializeAws_restJson1StringList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -5870,7 +5791,6 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1UpgradeHistory = (output: any, context: __SerdeContext): UpgradeHistory => {
   return {
-    __type: "UpgradeHistory",
     StartTimestamp:
       output.StartTimestamp !== undefined && output.StartTimestamp !== null
         ? new Date(Math.round(output.StartTimestamp * 1000))
@@ -5891,7 +5811,6 @@ const deserializeAws_restJson1UpgradeHistoryList = (output: any, context: __Serd
 
 const deserializeAws_restJson1UpgradeStepItem = (output: any, context: __SerdeContext): UpgradeStepItem => {
   return {
-    __type: "UpgradeStepItem",
     Issues:
       output.Issues !== undefined && output.Issues !== null
         ? deserializeAws_restJson1Issues(output.Issues, context)
@@ -5912,7 +5831,6 @@ const deserializeAws_restJson1UpgradeStepsList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1VPCDerivedInfo = (output: any, context: __SerdeContext): VPCDerivedInfo => {
   return {
-    __type: "VPCDerivedInfo",
     AvailabilityZones:
       output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
         ? deserializeAws_restJson1StringList(output.AvailabilityZones, context)
@@ -5931,7 +5849,6 @@ const deserializeAws_restJson1VPCDerivedInfo = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1VPCDerivedInfoStatus = (output: any, context: __SerdeContext): VPCDerivedInfoStatus => {
   return {
-    __type: "VPCDerivedInfoStatus",
     Options:
       output.Options !== undefined && output.Options !== null
         ? deserializeAws_restJson1VPCDerivedInfo(output.Options, context)
@@ -5945,7 +5862,6 @@ const deserializeAws_restJson1VPCDerivedInfoStatus = (output: any, context: __Se
 
 const deserializeAws_restJson1ZoneAwarenessConfig = (output: any, context: __SerdeContext): ZoneAwarenessConfig => {
   return {
-    __type: "ZoneAwarenessConfig",
     AvailabilityZoneCount:
       output.AvailabilityZoneCount !== undefined && output.AvailabilityZoneCount !== null
         ? output.AvailabilityZoneCount

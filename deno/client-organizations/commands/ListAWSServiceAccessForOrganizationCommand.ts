@@ -3,7 +3,7 @@ import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import {
   ListAWSServiceAccessForOrganizationRequest,
   ListAWSServiceAccessForOrganizationResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand,
   serializeAws_json1_1ListAWSServiceAccessForOrganizationCommand,

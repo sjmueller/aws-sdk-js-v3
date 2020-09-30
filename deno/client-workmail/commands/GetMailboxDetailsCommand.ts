@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { GetMailboxDetailsRequest, GetMailboxDetailsResponse } from "../models/index.ts";
+import { GetMailboxDetailsRequest, GetMailboxDetailsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetMailboxDetailsCommand,
   serializeAws_json1_1GetMailboxDetailsCommand,

@@ -20,7 +20,7 @@ import {
   ThrottlingException,
   ValidationException,
   Websocket,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -176,7 +176,6 @@ export const deserializeAws_restJson1CreateParticipantConnectionCommand = async 
   }
   const contents: CreateParticipantConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateParticipantConnectionResponse",
     ConnectionCredentials: undefined,
     Websocket: undefined,
   };
@@ -260,7 +259,6 @@ export const deserializeAws_restJson1DisconnectParticipantCommand = async (
   }
   const contents: DisconnectParticipantCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisconnectParticipantResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -336,7 +334,6 @@ export const deserializeAws_restJson1GetTranscriptCommand = async (
   }
   const contents: GetTranscriptCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTranscriptResponse",
     InitialContactId: undefined,
     NextToken: undefined,
     Transcript: undefined,
@@ -424,7 +421,6 @@ export const deserializeAws_restJson1SendEventCommand = async (
   }
   const contents: SendEventCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendEventResponse",
     AbsoluteTime: undefined,
     Id: undefined,
   };
@@ -508,7 +504,6 @@ export const deserializeAws_restJson1SendMessageCommand = async (
   }
   const contents: SendMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendMessageResponse",
     AbsoluteTime: undefined,
     Id: undefined,
   };
@@ -665,7 +660,6 @@ const serializeAws_restJson1StartPosition = (input: StartPosition, context: __Se
 
 const deserializeAws_restJson1ConnectionCredentials = (output: any, context: __SerdeContext): ConnectionCredentials => {
   return {
-    __type: "ConnectionCredentials",
     ConnectionToken:
       output.ConnectionToken !== undefined && output.ConnectionToken !== null ? output.ConnectionToken : undefined,
     Expiry: output.Expiry !== undefined && output.Expiry !== null ? output.Expiry : undefined,
@@ -674,7 +668,6 @@ const deserializeAws_restJson1ConnectionCredentials = (output: any, context: __S
 
 const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Item => {
   return {
-    __type: "Item",
     AbsoluteTime: output.AbsoluteTime !== undefined && output.AbsoluteTime !== null ? output.AbsoluteTime : undefined,
     Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
     ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
@@ -694,7 +687,6 @@ const deserializeAws_restJson1Transcript = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Websocket = (output: any, context: __SerdeContext): Websocket => {
   return {
-    __type: "Websocket",
     ConnectionExpiry:
       output.ConnectionExpiry !== undefined && output.ConnectionExpiry !== null ? output.ConnectionExpiry : undefined,
     Url: output.Url !== undefined && output.Url !== null ? output.Url : undefined,

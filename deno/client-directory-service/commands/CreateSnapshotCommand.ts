@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { CreateSnapshotRequest, CreateSnapshotResult } from "../models/index.ts";
+import { CreateSnapshotRequest, CreateSnapshotResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateSnapshotCommand,
   serializeAws_json1_1CreateSnapshotCommand,

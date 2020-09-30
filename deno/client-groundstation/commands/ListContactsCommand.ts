@@ -1,6 +1,6 @@
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient.ts";
-import { ListContactsRequest, ListContactsResponse } from "../models/index.ts";
+import { ListContactsRequest, ListContactsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListContactsCommand,
   serializeAws_restJson1ListContactsCommand,

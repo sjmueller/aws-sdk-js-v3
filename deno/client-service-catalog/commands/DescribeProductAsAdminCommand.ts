@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { DescribeProductAsAdminInput, DescribeProductAsAdminOutput } from "../models/index.ts";
+import { DescribeProductAsAdminInput, DescribeProductAsAdminOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeProductAsAdminCommand,
   serializeAws_json1_1DescribeProductAsAdminCommand,

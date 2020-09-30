@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { GetSdkTypeRequest, SdkType } from "../models/index.ts";
+import { GetSdkTypeRequest, SdkType } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetSdkTypeCommand,
   serializeAws_restJson1GetSdkTypeCommand,

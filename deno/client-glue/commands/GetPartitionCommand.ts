@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { GetPartitionRequest, GetPartitionResponse } from "../models/index.ts";
+import { GetPartitionRequest, GetPartitionResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetPartitionCommand,
   serializeAws_json1_1GetPartitionCommand,

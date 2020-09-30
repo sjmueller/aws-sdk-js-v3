@@ -50,7 +50,7 @@ import {
   Source,
   ThrottlingException,
   ValidationException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -522,7 +522,6 @@ export const deserializeAws_restJson1DescribeSigningJobCommand = async (
   }
   const contents: DescribeSigningJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSigningJobResponse",
     completedAt: undefined,
     createdAt: undefined,
     jobId: undefined,
@@ -642,7 +641,6 @@ export const deserializeAws_restJson1GetSigningPlatformCommand = async (
   }
   const contents: GetSigningPlatformCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSigningPlatformResponse",
     category: undefined,
     displayName: undefined,
     maxSizeInMB: undefined,
@@ -742,7 +740,6 @@ export const deserializeAws_restJson1GetSigningProfileCommand = async (
   }
   const contents: GetSigningProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSigningProfileResponse",
     arn: undefined,
     overrides: undefined,
     platformId: undefined,
@@ -850,7 +847,6 @@ export const deserializeAws_restJson1ListSigningJobsCommand = async (
   }
   const contents: ListSigningJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSigningJobsResponse",
     jobs: undefined,
     nextToken: undefined,
   };
@@ -934,7 +930,6 @@ export const deserializeAws_restJson1ListSigningPlatformsCommand = async (
   }
   const contents: ListSigningPlatformsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSigningPlatformsResponse",
     nextToken: undefined,
     platforms: undefined,
   };
@@ -1018,7 +1013,6 @@ export const deserializeAws_restJson1ListSigningProfilesCommand = async (
   }
   const contents: ListSigningProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSigningProfilesResponse",
     nextToken: undefined,
     profiles: undefined,
   };
@@ -1094,7 +1088,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1166,7 +1159,6 @@ export const deserializeAws_restJson1PutSigningProfileCommand = async (
   }
   const contents: PutSigningProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutSigningProfileResponse",
     arn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1254,7 +1246,6 @@ export const deserializeAws_restJson1StartSigningJobCommand = async (
   }
   const contents: StartSigningJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartSigningJobResponse",
     jobId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1342,7 +1333,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1410,7 +1400,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1668,7 +1657,6 @@ const deserializeAws_restJson1EncryptionAlgorithmOptions = (
   context: __SerdeContext
 ): EncryptionAlgorithmOptions => {
   return {
-    __type: "EncryptionAlgorithmOptions",
     allowedValues:
       output.allowedValues !== undefined && output.allowedValues !== null
         ? deserializeAws_restJson1EncryptionAlgorithms(output.allowedValues, context)
@@ -1686,7 +1674,6 @@ const deserializeAws_restJson1EncryptionAlgorithms = (
 
 const deserializeAws_restJson1HashAlgorithmOptions = (output: any, context: __SerdeContext): HashAlgorithmOptions => {
   return {
-    __type: "HashAlgorithmOptions",
     allowedValues:
       output.allowedValues !== undefined && output.allowedValues !== null
         ? deserializeAws_restJson1HashAlgorithms(output.allowedValues, context)
@@ -1705,7 +1692,6 @@ const deserializeAws_restJson1ImageFormats = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1S3SignedObject = (output: any, context: __SerdeContext): S3SignedObject => {
   return {
-    __type: "S3SignedObject",
     bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
   } as any;
@@ -1713,7 +1699,6 @@ const deserializeAws_restJson1S3SignedObject = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1S3Source = (output: any, context: __SerdeContext): S3Source => {
   return {
-    __type: "S3Source",
     bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
@@ -1722,7 +1707,6 @@ const deserializeAws_restJson1S3Source = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1SignedObject = (output: any, context: __SerdeContext): SignedObject => {
   return {
-    __type: "SignedObject",
     s3:
       output.s3 !== undefined && output.s3 !== null
         ? deserializeAws_restJson1S3SignedObject(output.s3, context)
@@ -1732,7 +1716,6 @@ const deserializeAws_restJson1SignedObject = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1SigningConfiguration = (output: any, context: __SerdeContext): SigningConfiguration => {
   return {
-    __type: "SigningConfiguration",
     encryptionAlgorithmOptions:
       output.encryptionAlgorithmOptions !== undefined && output.encryptionAlgorithmOptions !== null
         ? deserializeAws_restJson1EncryptionAlgorithmOptions(output.encryptionAlgorithmOptions, context)
@@ -1749,7 +1732,6 @@ const deserializeAws_restJson1SigningConfigurationOverrides = (
   context: __SerdeContext
 ): SigningConfigurationOverrides => {
   return {
-    __type: "SigningConfigurationOverrides",
     encryptionAlgorithm:
       output.encryptionAlgorithm !== undefined && output.encryptionAlgorithm !== null
         ? output.encryptionAlgorithm
@@ -1761,7 +1743,6 @@ const deserializeAws_restJson1SigningConfigurationOverrides = (
 
 const deserializeAws_restJson1SigningImageFormat = (output: any, context: __SerdeContext): SigningImageFormat => {
   return {
-    __type: "SigningImageFormat",
     defaultFormat:
       output.defaultFormat !== undefined && output.defaultFormat !== null ? output.defaultFormat : undefined,
     supportedFormats:
@@ -1773,7 +1754,6 @@ const deserializeAws_restJson1SigningImageFormat = (output: any, context: __Serd
 
 const deserializeAws_restJson1SigningJob = (output: any, context: __SerdeContext): SigningJob => {
   return {
-    __type: "SigningJob",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -1801,7 +1781,6 @@ const deserializeAws_restJson1SigningJobs = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1SigningMaterial = (output: any, context: __SerdeContext): SigningMaterial => {
   return {
-    __type: "SigningMaterial",
     certificateArn:
       output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
   } as any;
@@ -1819,7 +1798,6 @@ const deserializeAws_restJson1SigningParameters = (output: any, context: __Serde
 
 const deserializeAws_restJson1SigningPlatform = (output: any, context: __SerdeContext): SigningPlatform => {
   return {
-    __type: "SigningPlatform",
     category: output.category !== undefined && output.category !== null ? output.category : undefined,
     displayName: output.displayName !== undefined && output.displayName !== null ? output.displayName : undefined,
     maxSizeInMB: output.maxSizeInMB !== undefined && output.maxSizeInMB !== null ? output.maxSizeInMB : undefined,
@@ -1842,7 +1820,6 @@ const deserializeAws_restJson1SigningPlatformOverrides = (
   context: __SerdeContext
 ): SigningPlatformOverrides => {
   return {
-    __type: "SigningPlatformOverrides",
     signingConfiguration:
       output.signingConfiguration !== undefined && output.signingConfiguration !== null
         ? deserializeAws_restJson1SigningConfigurationOverrides(output.signingConfiguration, context)
@@ -1860,7 +1837,6 @@ const deserializeAws_restJson1SigningPlatforms = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SigningProfile = (output: any, context: __SerdeContext): SigningProfile => {
   return {
-    __type: "SigningProfile",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     platformId: output.platformId !== undefined && output.platformId !== null ? output.platformId : undefined,
     profileName: output.profileName !== undefined && output.profileName !== null ? output.profileName : undefined,
@@ -1886,7 +1862,6 @@ const deserializeAws_restJson1SigningProfiles = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): Source => {
   return {
-    __type: "Source",
     s3:
       output.s3 !== undefined && output.s3 !== null ? deserializeAws_restJson1S3Source(output.s3, context) : undefined,
   } as any;

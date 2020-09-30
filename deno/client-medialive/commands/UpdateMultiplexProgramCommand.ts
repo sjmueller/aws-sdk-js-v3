@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { UpdateMultiplexProgramRequest, UpdateMultiplexProgramResponse } from "../models/index.ts";
+import { UpdateMultiplexProgramRequest, UpdateMultiplexProgramResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UpdateMultiplexProgramCommand,
   serializeAws_restJson1UpdateMultiplexProgramCommand,

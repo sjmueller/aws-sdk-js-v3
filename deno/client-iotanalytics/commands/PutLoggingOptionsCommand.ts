@@ -1,6 +1,6 @@
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient.ts";
-import { PutLoggingOptionsRequest } from "../models/index.ts";
+import { PutLoggingOptionsRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutLoggingOptionsCommand,
   serializeAws_restJson1PutLoggingOptionsCommand,

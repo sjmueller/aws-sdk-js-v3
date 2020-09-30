@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient.ts";
-import { CreateParticipantConnectionRequest, CreateParticipantConnectionResponse } from "../models/index.ts";
+import { CreateParticipantConnectionRequest, CreateParticipantConnectionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateParticipantConnectionCommand,
   serializeAws_restJson1CreateParticipantConnectionCommand,

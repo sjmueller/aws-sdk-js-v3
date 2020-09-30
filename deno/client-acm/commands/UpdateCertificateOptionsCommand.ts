@@ -1,6 +1,6 @@
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient.ts";
-import { UpdateCertificateOptionsRequest } from "../models/index.ts";
+import { UpdateCertificateOptionsRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateCertificateOptionsCommand,
   serializeAws_json1_1UpdateCertificateOptionsCommand,

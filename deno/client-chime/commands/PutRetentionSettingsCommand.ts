@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { PutRetentionSettingsRequest, PutRetentionSettingsResponse } from "../models/index.ts";
+import { PutRetentionSettingsRequest, PutRetentionSettingsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutRetentionSettingsCommand,
   serializeAws_restJson1PutRetentionSettingsCommand,

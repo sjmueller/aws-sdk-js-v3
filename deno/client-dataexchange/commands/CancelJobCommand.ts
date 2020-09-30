@@ -1,6 +1,6 @@
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient.ts";
-import { CancelJobRequest } from "../models/index.ts";
+import { CancelJobRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CancelJobCommand,
   serializeAws_restJson1CancelJobCommand,

@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { ListTypedLinkFacetNamesRequest, ListTypedLinkFacetNamesResponse } from "../models/index.ts";
+import { ListTypedLinkFacetNamesRequest, ListTypedLinkFacetNamesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListTypedLinkFacetNamesCommand,
   serializeAws_restJson1ListTypedLinkFacetNamesCommand,

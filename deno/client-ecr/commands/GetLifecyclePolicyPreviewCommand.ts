@@ -1,6 +1,6 @@
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
-import { GetLifecyclePolicyPreviewRequest, GetLifecyclePolicyPreviewResponse } from "../models/index.ts";
+import { GetLifecyclePolicyPreviewRequest, GetLifecyclePolicyPreviewResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetLifecyclePolicyPreviewCommand,
   serializeAws_json1_1GetLifecyclePolicyPreviewCommand,

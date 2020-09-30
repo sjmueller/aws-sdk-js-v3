@@ -7,7 +7,7 @@ import {
 import {
   StartElasticsearchServiceSoftwareUpdateRequest,
   StartElasticsearchServiceSoftwareUpdateResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand,
   serializeAws_restJson1StartElasticsearchServiceSoftwareUpdateCommand,

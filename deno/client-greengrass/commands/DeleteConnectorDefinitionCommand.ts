@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { DeleteConnectorDefinitionRequest, DeleteConnectorDefinitionResponse } from "../models/index.ts";
+import { DeleteConnectorDefinitionRequest, DeleteConnectorDefinitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteConnectorDefinitionCommand,
   serializeAws_restJson1DeleteConnectorDefinitionCommand,

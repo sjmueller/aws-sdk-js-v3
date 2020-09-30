@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { CreatePlatformVersionRequest, CreatePlatformVersionResult } from "../models/index.ts";
+import { CreatePlatformVersionRequest, CreatePlatformVersionResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreatePlatformVersionCommand,
   serializeAws_queryCreatePlatformVersionCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient.ts";
-import { CreateHttpNamespaceRequest, CreateHttpNamespaceResponse } from "../models/index.ts";
+import { CreateHttpNamespaceRequest, CreateHttpNamespaceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateHttpNamespaceCommand,
   serializeAws_json1_1CreateHttpNamespaceCommand,

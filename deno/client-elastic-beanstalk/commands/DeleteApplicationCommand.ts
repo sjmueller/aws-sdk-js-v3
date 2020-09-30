@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { DeleteApplicationMessage } from "../models/index.ts";
+import { DeleteApplicationMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteApplicationCommand,
   serializeAws_queryDeleteApplicationCommand,

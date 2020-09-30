@@ -3,7 +3,7 @@ import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetDeployablePatchSnapshotForInstanceRequest,
   GetDeployablePatchSnapshotForInstanceResult,
-} from "../models/index.ts";
+} from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand,
   serializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand,

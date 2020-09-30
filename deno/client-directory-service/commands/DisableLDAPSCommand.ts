@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { DisableLDAPSRequest, DisableLDAPSResult } from "../models/index.ts";
+import { DisableLDAPSRequest, DisableLDAPSResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisableLDAPSCommand,
   serializeAws_json1_1DisableLDAPSCommand,

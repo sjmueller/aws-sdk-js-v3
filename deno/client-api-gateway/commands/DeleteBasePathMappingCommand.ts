@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { DeleteBasePathMappingRequest } from "../models/index.ts";
+import { DeleteBasePathMappingRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteBasePathMappingCommand,
   serializeAws_restJson1DeleteBasePathMappingCommand,

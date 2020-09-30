@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { GetModelsRequest, Models } from "../models/index.ts";
+import { GetModelsRequest, Models } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetModelsCommand,
   serializeAws_restJson1GetModelsCommand,

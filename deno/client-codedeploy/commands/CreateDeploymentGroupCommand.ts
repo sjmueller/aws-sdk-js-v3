@@ -1,6 +1,6 @@
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient.ts";
-import { CreateDeploymentGroupInput, CreateDeploymentGroupOutput } from "../models/index.ts";
+import { CreateDeploymentGroupInput, CreateDeploymentGroupOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateDeploymentGroupCommand,
   serializeAws_json1_1CreateDeploymentGroupCommand,

@@ -1,6 +1,6 @@
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient.ts";
-import { DeleteReportInput, DeleteReportOutput } from "../models/index.ts";
+import { DeleteReportInput, DeleteReportOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteReportCommand,
   serializeAws_json1_1DeleteReportCommand,

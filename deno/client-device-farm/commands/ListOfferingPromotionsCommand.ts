@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { ListOfferingPromotionsRequest, ListOfferingPromotionsResult } from "../models/index.ts";
+import { ListOfferingPromotionsRequest, ListOfferingPromotionsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListOfferingPromotionsCommand,
   serializeAws_json1_1ListOfferingPromotionsCommand,

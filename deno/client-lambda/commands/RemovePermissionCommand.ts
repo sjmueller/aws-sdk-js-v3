@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { RemovePermissionRequest } from "../models/index.ts";
+import { RemovePermissionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1RemovePermissionCommand,
   serializeAws_restJson1RemovePermissionCommand,

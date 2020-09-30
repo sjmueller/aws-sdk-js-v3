@@ -1,6 +1,6 @@
 
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
-import { CreateDatasetImportJobRequest, CreateDatasetImportJobResponse } from "../models/index.ts";
+import { CreateDatasetImportJobRequest, CreateDatasetImportJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateDatasetImportJobCommand,
   serializeAws_json1_1CreateDatasetImportJobCommand,

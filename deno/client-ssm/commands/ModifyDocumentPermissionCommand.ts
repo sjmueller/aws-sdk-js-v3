@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { ModifyDocumentPermissionRequest, ModifyDocumentPermissionResponse } from "../models/index.ts";
+import { ModifyDocumentPermissionRequest, ModifyDocumentPermissionResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ModifyDocumentPermissionCommand,
   serializeAws_json1_1ModifyDocumentPermissionCommand,

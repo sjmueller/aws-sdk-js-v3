@@ -1,6 +1,6 @@
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
-import { ModifyInstanceGroupsInput } from "../models/index.ts";
+import { ModifyInstanceGroupsInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ModifyInstanceGroupsCommand,
   serializeAws_json1_1ModifyInstanceGroupsCommand,

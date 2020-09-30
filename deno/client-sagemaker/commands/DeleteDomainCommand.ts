@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { DeleteDomainRequest } from "../models/index.ts";
+import { DeleteDomainRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteDomainCommand,
   serializeAws_json1_1DeleteDomainCommand,

@@ -1,6 +1,6 @@
 
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
-import { ListPlatformApplicationsInput, ListPlatformApplicationsResponse } from "../models/index.ts";
+import { ListPlatformApplicationsInput, ListPlatformApplicationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryListPlatformApplicationsCommand,
   serializeAws_queryListPlatformApplicationsCommand,

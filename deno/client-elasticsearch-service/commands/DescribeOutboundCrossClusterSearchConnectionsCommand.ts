@@ -7,7 +7,7 @@ import {
 import {
   DescribeOutboundCrossClusterSearchConnectionsRequest,
   DescribeOutboundCrossClusterSearchConnectionsResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsCommand,
   serializeAws_restJson1DescribeOutboundCrossClusterSearchConnectionsCommand,

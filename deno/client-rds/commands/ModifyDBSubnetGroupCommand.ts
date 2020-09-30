@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { ModifyDBSubnetGroupMessage, ModifyDBSubnetGroupResult } from "../models/index.ts";
+import { ModifyDBSubnetGroupMessage, ModifyDBSubnetGroupResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryModifyDBSubnetGroupCommand,
   serializeAws_queryModifyDBSubnetGroupCommand,

@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { GetDirectoryLimitsRequest, GetDirectoryLimitsResult } from "../models/index.ts";
+import { GetDirectoryLimitsRequest, GetDirectoryLimitsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetDirectoryLimitsCommand,
   serializeAws_json1_1GetDirectoryLimitsCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { DescribeActivitiesRequest, DescribeActivitiesResponse } from "../models/index.ts";
+import { DescribeActivitiesRequest, DescribeActivitiesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeActivitiesCommand,
   serializeAws_restJson1DescribeActivitiesCommand,

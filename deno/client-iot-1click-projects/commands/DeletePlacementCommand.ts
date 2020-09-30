@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient.ts";
-import { DeletePlacementRequest, DeletePlacementResponse } from "../models/index.ts";
+import { DeletePlacementRequest, DeletePlacementResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeletePlacementCommand,
   serializeAws_restJson1DeletePlacementCommand,

@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { CreateUserRequest, CreateUserResult } from "../models/index.ts";
+import { CreateUserRequest, CreateUserResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateUserCommand,
   serializeAws_json1_1CreateUserCommand,

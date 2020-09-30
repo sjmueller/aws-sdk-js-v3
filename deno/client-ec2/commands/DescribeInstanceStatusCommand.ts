@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeInstanceStatusRequest, DescribeInstanceStatusResult } from "../models/index.ts";
+import { DescribeInstanceStatusRequest, DescribeInstanceStatusResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeInstanceStatusCommand,
   serializeAws_ec2DescribeInstanceStatusCommand,

@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { BatchGetJobsRequest, BatchGetJobsResponse } from "../models/index.ts";
+import { BatchGetJobsRequest, BatchGetJobsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchGetJobsCommand,
   serializeAws_json1_1BatchGetJobsCommand,

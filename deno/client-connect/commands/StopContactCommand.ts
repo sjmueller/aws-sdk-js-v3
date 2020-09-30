@@ -1,6 +1,6 @@
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
-import { StopContactRequest, StopContactResponse } from "../models/index.ts";
+import { StopContactRequest, StopContactResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StopContactCommand,
   serializeAws_restJson1StopContactCommand,

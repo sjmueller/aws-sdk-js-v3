@@ -1,6 +1,6 @@
 
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient.ts";
-import { ListConfigurationSetsRequest, ListConfigurationSetsResponse } from "../models/index.ts";
+import { ListConfigurationSetsRequest, ListConfigurationSetsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListConfigurationSetsCommand,
   serializeAws_restJson1ListConfigurationSetsCommand,

@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { AddUserToGroupRequest } from "../models/index.ts";
+import { AddUserToGroupRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryAddUserToGroupCommand,
   serializeAws_queryAddUserToGroupCommand,

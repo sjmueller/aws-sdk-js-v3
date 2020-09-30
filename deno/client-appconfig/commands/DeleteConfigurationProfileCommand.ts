@@ -1,6 +1,6 @@
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient.ts";
-import { DeleteConfigurationProfileRequest } from "../models/index.ts";
+import { DeleteConfigurationProfileRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteConfigurationProfileCommand,
   serializeAws_restJson1DeleteConfigurationProfileCommand,

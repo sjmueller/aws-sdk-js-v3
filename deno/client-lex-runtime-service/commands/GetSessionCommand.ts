@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexRuntimeServiceClient.ts";
-import { GetSessionRequest, GetSessionResponse } from "../models/index.ts";
+import { GetSessionRequest, GetSessionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetSessionCommand,
   serializeAws_restJson1GetSessionCommand,

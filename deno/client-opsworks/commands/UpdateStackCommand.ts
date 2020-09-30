@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { UpdateStackRequest } from "../models/index.ts";
+import { UpdateStackRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateStackCommand,
   serializeAws_json1_1UpdateStackCommand,

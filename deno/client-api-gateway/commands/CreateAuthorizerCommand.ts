@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { Authorizer, CreateAuthorizerRequest } from "../models/index.ts";
+import { Authorizer, CreateAuthorizerRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateAuthorizerCommand,
   serializeAws_restJson1CreateAuthorizerCommand,

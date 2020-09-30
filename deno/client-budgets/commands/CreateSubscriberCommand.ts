@@ -1,6 +1,6 @@
 
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient.ts";
-import { CreateSubscriberRequest, CreateSubscriberResponse } from "../models/index.ts";
+import { CreateSubscriberRequest, CreateSubscriberResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateSubscriberCommand,
   serializeAws_json1_1CreateSubscriberCommand,

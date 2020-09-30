@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { ListAttachedGroupPoliciesRequest, ListAttachedGroupPoliciesResponse } from "../models/index.ts";
+import { ListAttachedGroupPoliciesRequest, ListAttachedGroupPoliciesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryListAttachedGroupPoliciesCommand,
   serializeAws_queryListAttachedGroupPoliciesCommand,

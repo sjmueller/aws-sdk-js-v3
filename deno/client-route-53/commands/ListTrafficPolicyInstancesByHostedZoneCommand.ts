@@ -3,7 +3,7 @@ import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import {
   ListTrafficPolicyInstancesByHostedZoneRequest,
   ListTrafficPolicyInstancesByHostedZoneResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand,
   serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand,

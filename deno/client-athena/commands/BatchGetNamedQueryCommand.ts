@@ -1,6 +1,6 @@
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
-import { BatchGetNamedQueryInput, BatchGetNamedQueryOutput } from "../models/index.ts";
+import { BatchGetNamedQueryInput, BatchGetNamedQueryOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchGetNamedQueryCommand,
   serializeAws_json1_1BatchGetNamedQueryCommand,

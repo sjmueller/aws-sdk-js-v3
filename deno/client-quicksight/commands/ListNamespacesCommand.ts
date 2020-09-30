@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { ListNamespacesRequest, ListNamespacesResponse } from "../models/index.ts";
+import { ListNamespacesRequest, ListNamespacesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListNamespacesCommand,
   serializeAws_restJson1ListNamespacesCommand,

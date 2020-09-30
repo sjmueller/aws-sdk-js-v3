@@ -1,6 +1,6 @@
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
-import { UpdateDomainEndpointOptionsRequest, UpdateDomainEndpointOptionsResponse } from "../models/index.ts";
+import { UpdateDomainEndpointOptionsRequest, UpdateDomainEndpointOptionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryUpdateDomainEndpointOptionsCommand,
   serializeAws_queryUpdateDomainEndpointOptionsCommand,

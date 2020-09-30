@@ -1,6 +1,6 @@
 
 import { PricingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PricingClient.ts";
-import { DescribeServicesRequest, DescribeServicesResponse } from "../models/index.ts";
+import { DescribeServicesRequest, DescribeServicesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeServicesCommand,
   serializeAws_json1_1DescribeServicesCommand,

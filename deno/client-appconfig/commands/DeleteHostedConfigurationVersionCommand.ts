@@ -1,6 +1,6 @@
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient.ts";
-import { DeleteHostedConfigurationVersionRequest } from "../models/index.ts";
+import { DeleteHostedConfigurationVersionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteHostedConfigurationVersionCommand,
   serializeAws_restJson1DeleteHostedConfigurationVersionCommand,

@@ -1,6 +1,6 @@
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client.ts";
-import { DeleteEnvironmentMembershipRequest, DeleteEnvironmentMembershipResult } from "../models/index.ts";
+import { DeleteEnvironmentMembershipRequest, DeleteEnvironmentMembershipResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteEnvironmentMembershipCommand,
   serializeAws_json1_1DeleteEnvironmentMembershipCommand,

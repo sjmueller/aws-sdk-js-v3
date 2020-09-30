@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CreateInstanceExportTaskRequest, CreateInstanceExportTaskResult } from "../models/index.ts";
+import { CreateInstanceExportTaskRequest, CreateInstanceExportTaskResult } from "../models/models_0.ts";
 import {
   deserializeAws_ec2CreateInstanceExportTaskCommand,
   serializeAws_ec2CreateInstanceExportTaskCommand,

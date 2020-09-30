@@ -1,6 +1,6 @@
 
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient.ts";
-import { CreateConfigurationSetRequest, CreateConfigurationSetResponse } from "../models/index.ts";
+import { CreateConfigurationSetRequest, CreateConfigurationSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateConfigurationSetCommand,
   serializeAws_restJson1CreateConfigurationSetCommand,

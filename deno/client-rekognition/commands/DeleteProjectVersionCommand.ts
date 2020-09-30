@@ -1,6 +1,6 @@
 
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
-import { DeleteProjectVersionRequest, DeleteProjectVersionResponse } from "../models/index.ts";
+import { DeleteProjectVersionRequest, DeleteProjectVersionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteProjectVersionCommand,
   serializeAws_json1_1DeleteProjectVersionCommand,

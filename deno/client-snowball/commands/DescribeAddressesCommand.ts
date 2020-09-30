@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient.ts";
-import { DescribeAddressesRequest, DescribeAddressesResult } from "../models/index.ts";
+import { DescribeAddressesRequest, DescribeAddressesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeAddressesCommand,
   serializeAws_json1_1DescribeAddressesCommand,

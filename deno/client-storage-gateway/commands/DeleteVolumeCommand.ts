@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { DeleteVolumeInput, DeleteVolumeOutput } from "../models/index.ts";
+import { DeleteVolumeInput, DeleteVolumeOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteVolumeCommand,
   serializeAws_json1_1DeleteVolumeCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { CreateNotificationSubscriptionRequest, CreateNotificationSubscriptionResponse } from "../models/index.ts";
+import { CreateNotificationSubscriptionRequest, CreateNotificationSubscriptionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateNotificationSubscriptionCommand,
   serializeAws_restJson1CreateNotificationSubscriptionCommand,

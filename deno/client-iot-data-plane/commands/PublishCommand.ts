@@ -1,6 +1,6 @@
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient.ts";
-import { PublishRequest } from "../models/index.ts";
+import { PublishRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PublishCommand,
   serializeAws_restJson1PublishCommand,

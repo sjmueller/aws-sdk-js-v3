@@ -1,6 +1,6 @@
 
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { BatchUpdateFindingsRequest, BatchUpdateFindingsResponse } from "../models/index.ts";
+import { BatchUpdateFindingsRequest, BatchUpdateFindingsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1BatchUpdateFindingsCommand,
   serializeAws_restJson1BatchUpdateFindingsCommand,

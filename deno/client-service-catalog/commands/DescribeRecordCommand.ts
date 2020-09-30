@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { DescribeRecordInput, DescribeRecordOutput } from "../models/index.ts";
+import { DescribeRecordInput, DescribeRecordOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeRecordCommand,
   serializeAws_json1_1DescribeRecordCommand,

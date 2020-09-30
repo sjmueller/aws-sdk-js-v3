@@ -1,6 +1,6 @@
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient.ts";
-import { DeleteEventRequest, DeleteEventResult } from "../models/index.ts";
+import { DeleteEventRequest, DeleteEventResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteEventCommand,
   serializeAws_json1_1DeleteEventCommand,

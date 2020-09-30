@@ -1,6 +1,6 @@
 
 import { OpsWorksCMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksCMClient.ts";
-import { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/index.ts";
+import { DescribeBackupsRequest, DescribeBackupsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeBackupsCommand,
   serializeAws_json1_1DescribeBackupsCommand,

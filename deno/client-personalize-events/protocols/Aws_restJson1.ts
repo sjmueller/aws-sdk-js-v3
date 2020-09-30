@@ -1,6 +1,6 @@
 
 import { PutEventsCommandInput, PutEventsCommandOutput } from "../commands/PutEventsCommand.ts";
-import { Event, InvalidInputException } from "../models/index.ts";
+import { Event, InvalidInputException } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { LazyJsonString as __LazyJsonString, SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {

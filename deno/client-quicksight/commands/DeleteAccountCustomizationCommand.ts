@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { DeleteAccountCustomizationRequest, DeleteAccountCustomizationResponse } from "../models/index.ts";
+import { DeleteAccountCustomizationRequest, DeleteAccountCustomizationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteAccountCustomizationCommand,
   serializeAws_restJson1DeleteAccountCustomizationCommand,

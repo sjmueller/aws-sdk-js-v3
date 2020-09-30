@@ -1,6 +1,6 @@
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient.ts";
-import { DescribePackagingGroupRequest, DescribePackagingGroupResponse } from "../models/index.ts";
+import { DescribePackagingGroupRequest, DescribePackagingGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribePackagingGroupCommand,
   serializeAws_restJson1DescribePackagingGroupCommand,

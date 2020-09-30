@@ -1,6 +1,6 @@
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
-import { ListTableMetadataInput, ListTableMetadataOutput } from "../models/index.ts";
+import { ListTableMetadataInput, ListTableMetadataOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListTableMetadataCommand,
   serializeAws_json1_1ListTableMetadataCommand,

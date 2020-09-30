@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { CancelRetrievalInput, CancelRetrievalOutput } from "../models/index.ts";
+import { CancelRetrievalInput, CancelRetrievalOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CancelRetrievalCommand,
   serializeAws_json1_1CancelRetrievalCommand,

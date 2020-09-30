@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { DescribeEnvironmentsMessage, EnvironmentDescriptionsMessage } from "../models/index.ts";
+import { DescribeEnvironmentsMessage, EnvironmentDescriptionsMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeEnvironmentsCommand,
   serializeAws_queryDescribeEnvironmentsCommand,

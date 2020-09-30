@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient.ts";
-import { CreateServerRequest, CreateServerResponse } from "../models/index.ts";
+import { CreateServerRequest, CreateServerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateServerCommand,
   serializeAws_json1_1CreateServerCommand,

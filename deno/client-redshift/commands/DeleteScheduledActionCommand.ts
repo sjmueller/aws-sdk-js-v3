@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { DeleteScheduledActionMessage } from "../models/index.ts";
+import { DeleteScheduledActionMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteScheduledActionCommand,
   serializeAws_queryDeleteScheduledActionCommand,

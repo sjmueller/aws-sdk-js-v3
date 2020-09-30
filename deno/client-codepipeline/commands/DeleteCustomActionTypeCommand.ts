@@ -1,6 +1,6 @@
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
-import { DeleteCustomActionTypeInput } from "../models/index.ts";
+import { DeleteCustomActionTypeInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteCustomActionTypeCommand,
   serializeAws_json1_1DeleteCustomActionTypeCommand,

@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeIdentityIdFormatRequest, DescribeIdentityIdFormatResult } from "../models/index.ts";
+import { DescribeIdentityIdFormatRequest, DescribeIdentityIdFormatResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeIdentityIdFormatCommand,
   serializeAws_ec2DescribeIdentityIdFormatCommand,

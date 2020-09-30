@@ -1,6 +1,6 @@
 
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient.ts";
-import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/index.ts";
+import { GetResourcePolicyRequest, GetResourcePolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetResourcePolicyCommand,
   serializeAws_restJson1GetResourcePolicyCommand,

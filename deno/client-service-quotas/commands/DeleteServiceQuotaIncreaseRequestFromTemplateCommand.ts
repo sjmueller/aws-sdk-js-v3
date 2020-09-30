@@ -3,7 +3,7 @@ import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfi
 import {
   DeleteServiceQuotaIncreaseRequestFromTemplateRequest,
   DeleteServiceQuotaIncreaseRequestFromTemplateResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand,
   serializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateCommand,

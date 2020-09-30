@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { ListIndicesRequest, ListIndicesResponse } from "../models/index.ts";
+import { ListIndicesRequest, ListIndicesResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1ListIndicesCommand,
   serializeAws_restJson1ListIndicesCommand,

@@ -1,6 +1,6 @@
 
 import { ACMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMClient.ts";
-import { RenewCertificateRequest } from "../models/index.ts";
+import { RenewCertificateRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RenewCertificateCommand,
   serializeAws_json1_1RenewCertificateCommand,

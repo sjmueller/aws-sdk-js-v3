@@ -3,7 +3,7 @@ import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   DeleteCustomVerificationEmailTemplateRequest,
   DeleteCustomVerificationEmailTemplateResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteCustomVerificationEmailTemplateCommand,
   serializeAws_restJson1DeleteCustomVerificationEmailTemplateCommand,

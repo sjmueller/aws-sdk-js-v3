@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { GetDiskSnapshotsRequest, GetDiskSnapshotsResult } from "../models/index.ts";
+import { GetDiskSnapshotsRequest, GetDiskSnapshotsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetDiskSnapshotsCommand,
   serializeAws_json1_1GetDiskSnapshotsCommand,

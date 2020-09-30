@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { DescribeUploadBufferInput, DescribeUploadBufferOutput } from "../models/index.ts";
+import { DescribeUploadBufferInput, DescribeUploadBufferOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeUploadBufferCommand,
   serializeAws_json1_1DescribeUploadBufferCommand,

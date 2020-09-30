@@ -1,6 +1,6 @@
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient.ts";
-import { UpdateCostCategoryDefinitionRequest, UpdateCostCategoryDefinitionResponse } from "../models/index.ts";
+import { UpdateCostCategoryDefinitionRequest, UpdateCostCategoryDefinitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateCostCategoryDefinitionCommand,
   serializeAws_json1_1UpdateCostCategoryDefinitionCommand,

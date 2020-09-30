@@ -1,6 +1,6 @@
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
-import { RecordHandlerProgressInput, RecordHandlerProgressOutput } from "../models/index.ts";
+import { RecordHandlerProgressInput, RecordHandlerProgressOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryRecordHandlerProgressCommand,
   serializeAws_queryRecordHandlerProgressCommand,

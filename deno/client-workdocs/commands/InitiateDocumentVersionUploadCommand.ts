@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { InitiateDocumentVersionUploadRequest, InitiateDocumentVersionUploadResponse } from "../models/index.ts";
+import { InitiateDocumentVersionUploadRequest, InitiateDocumentVersionUploadResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1InitiateDocumentVersionUploadCommand,
   serializeAws_restJson1InitiateDocumentVersionUploadCommand,

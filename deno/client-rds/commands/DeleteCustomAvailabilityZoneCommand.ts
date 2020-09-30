@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DeleteCustomAvailabilityZoneMessage, DeleteCustomAvailabilityZoneResult } from "../models/index.ts";
+import { DeleteCustomAvailabilityZoneMessage, DeleteCustomAvailabilityZoneResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteCustomAvailabilityZoneCommand,
   serializeAws_queryDeleteCustomAvailabilityZoneCommand,

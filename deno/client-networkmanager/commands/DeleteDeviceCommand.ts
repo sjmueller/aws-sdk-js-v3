@@ -1,6 +1,6 @@
 
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient.ts";
-import { DeleteDeviceRequest, DeleteDeviceResponse } from "../models/index.ts";
+import { DeleteDeviceRequest, DeleteDeviceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteDeviceCommand,
   serializeAws_restJson1DeleteDeviceCommand,

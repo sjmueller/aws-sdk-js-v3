@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { UpdateManagedInstanceRoleRequest, UpdateManagedInstanceRoleResult } from "../models/index.ts";
+import { UpdateManagedInstanceRoleRequest, UpdateManagedInstanceRoleResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1UpdateManagedInstanceRoleCommand,
   serializeAws_json1_1UpdateManagedInstanceRoleCommand,

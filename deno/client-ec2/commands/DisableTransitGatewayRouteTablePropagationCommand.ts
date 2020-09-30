@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DisableTransitGatewayRouteTablePropagationRequest,
   DisableTransitGatewayRouteTablePropagationResult,
-} from "../models/index.ts";
+} from "../models/models_3.ts";
 import {
   deserializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand,
   serializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand,

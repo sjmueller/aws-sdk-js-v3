@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { DeleteResourceDataSyncRequest, DeleteResourceDataSyncResult } from "../models/index.ts";
+import { DeleteResourceDataSyncRequest, DeleteResourceDataSyncResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteResourceDataSyncCommand,
   serializeAws_json1_1DeleteResourceDataSyncCommand,

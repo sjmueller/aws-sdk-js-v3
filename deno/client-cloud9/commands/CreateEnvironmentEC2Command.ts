@@ -1,6 +1,6 @@
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client.ts";
-import { CreateEnvironmentEC2Request, CreateEnvironmentEC2Result } from "../models/index.ts";
+import { CreateEnvironmentEC2Request, CreateEnvironmentEC2Result } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateEnvironmentEC2Command,
   serializeAws_json1_1CreateEnvironmentEC2Command,

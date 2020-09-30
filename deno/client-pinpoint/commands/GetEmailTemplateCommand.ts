@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { GetEmailTemplateRequest, GetEmailTemplateResponse } from "../models/index.ts";
+import { GetEmailTemplateRequest, GetEmailTemplateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetEmailTemplateCommand,
   serializeAws_restJson1GetEmailTemplateCommand,

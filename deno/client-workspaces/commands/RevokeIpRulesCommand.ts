@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { RevokeIpRulesRequest, RevokeIpRulesResult } from "../models/index.ts";
+import { RevokeIpRulesRequest, RevokeIpRulesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RevokeIpRulesCommand,
   serializeAws_json1_1RevokeIpRulesCommand,

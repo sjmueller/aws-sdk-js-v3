@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { DeleteThemeAliasRequest, DeleteThemeAliasResponse } from "../models/index.ts";
+import { DeleteThemeAliasRequest, DeleteThemeAliasResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteThemeAliasCommand,
   serializeAws_restJson1DeleteThemeAliasCommand,

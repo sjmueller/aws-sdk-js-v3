@@ -1,6 +1,6 @@
 
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient.ts";
-import { SetQueueAttributesRequest } from "../models/index.ts";
+import { SetQueueAttributesRequest } from "../models/models_0.ts";
 import {
   deserializeAws_querySetQueueAttributesCommand,
   serializeAws_querySetQueueAttributesCommand,

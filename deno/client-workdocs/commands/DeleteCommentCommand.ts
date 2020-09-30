@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { DeleteCommentRequest } from "../models/index.ts";
+import { DeleteCommentRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteCommentCommand,
   serializeAws_restJson1DeleteCommentCommand,

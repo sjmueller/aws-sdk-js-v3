@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { GetCalendarStateRequest, GetCalendarStateResponse } from "../models/index.ts";
+import { GetCalendarStateRequest, GetCalendarStateResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetCalendarStateCommand,
   serializeAws_json1_1GetCalendarStateCommand,

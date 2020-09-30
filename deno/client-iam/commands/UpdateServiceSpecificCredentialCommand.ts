@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { UpdateServiceSpecificCredentialRequest } from "../models/index.ts";
+import { UpdateServiceSpecificCredentialRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryUpdateServiceSpecificCredentialCommand,
   serializeAws_queryUpdateServiceSpecificCredentialCommand,

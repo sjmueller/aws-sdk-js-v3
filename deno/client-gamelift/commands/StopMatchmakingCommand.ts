@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { StopMatchmakingInput, StopMatchmakingOutput } from "../models/index.ts";
+import { StopMatchmakingInput, StopMatchmakingOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopMatchmakingCommand,
   serializeAws_json1_1StopMatchmakingCommand,

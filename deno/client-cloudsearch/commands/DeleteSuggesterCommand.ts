@@ -1,6 +1,6 @@
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
-import { DeleteSuggesterRequest, DeleteSuggesterResponse } from "../models/index.ts";
+import { DeleteSuggesterRequest, DeleteSuggesterResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteSuggesterCommand,
   serializeAws_queryDeleteSuggesterCommand,

@@ -1,6 +1,6 @@
 
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient.ts";
-import { DeleteResourcePolicyRequest } from "../models/index.ts";
+import { DeleteResourcePolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteResourcePolicyCommand,
   serializeAws_restJson1DeleteResourcePolicyCommand,

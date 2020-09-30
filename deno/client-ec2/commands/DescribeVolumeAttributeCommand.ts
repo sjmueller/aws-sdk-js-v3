@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeVolumeAttributeRequest, DescribeVolumeAttributeResult } from "../models/index.ts";
+import { DescribeVolumeAttributeRequest, DescribeVolumeAttributeResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2DescribeVolumeAttributeCommand,
   serializeAws_ec2DescribeVolumeAttributeCommand,

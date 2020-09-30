@@ -1,6 +1,6 @@
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient.ts";
-import { ListPermissionsRequest, ListPermissionsResponse } from "../models/index.ts";
+import { ListPermissionsRequest, ListPermissionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListPermissionsCommand,
   serializeAws_json1_1ListPermissionsCommand,

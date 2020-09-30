@@ -1,6 +1,6 @@
 
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient.ts";
-import { DescribeFleetRequest, DescribeFleetResponse } from "../models/index.ts";
+import { DescribeFleetRequest, DescribeFleetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeFleetCommand,
   serializeAws_restJson1DescribeFleetCommand,

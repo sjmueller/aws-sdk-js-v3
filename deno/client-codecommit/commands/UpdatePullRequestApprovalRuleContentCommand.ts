@@ -1,6 +1,9 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { UpdatePullRequestApprovalRuleContentInput, UpdatePullRequestApprovalRuleContentOutput } from "../models/index.ts";
+import {
+  UpdatePullRequestApprovalRuleContentInput,
+  UpdatePullRequestApprovalRuleContentOutput,
+} from "../models/models_1.ts";
 import {
   deserializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand,
   serializeAws_json1_1UpdatePullRequestApprovalRuleContentCommand,

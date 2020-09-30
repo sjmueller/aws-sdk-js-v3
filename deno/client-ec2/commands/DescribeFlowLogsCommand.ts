@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeFlowLogsRequest, DescribeFlowLogsResult } from "../models/index.ts";
+import { DescribeFlowLogsRequest, DescribeFlowLogsResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeFlowLogsCommand,
   serializeAws_ec2DescribeFlowLogsCommand,

@@ -340,7 +340,6 @@ import {
   CodeMismatchException,
   CompromisedCredentialsActionsType,
   CompromisedCredentialsRiskConfigurationType,
-  ConcurrentModificationException,
   ConfirmDeviceRequest,
   ConfirmDeviceResponse,
   ConfirmForgotPasswordRequest,
@@ -394,7 +393,6 @@ import {
   DomainDescriptionType,
   DuplicateProviderException,
   EmailConfigurationType,
-  EnableSoftwareTokenMFAException,
   EventContextDataType,
   EventFeedbackType,
   EventFilterType,
@@ -525,19 +523,6 @@ import {
   UpdateDeviceStatusRequest,
   UpdateDeviceStatusResponse,
   UpdateGroupRequest,
-  UpdateGroupResponse,
-  UpdateIdentityProviderRequest,
-  UpdateIdentityProviderResponse,
-  UpdateResourceServerRequest,
-  UpdateResourceServerResponse,
-  UpdateUserAttributesRequest,
-  UpdateUserAttributesResponse,
-  UpdateUserPoolClientRequest,
-  UpdateUserPoolClientResponse,
-  UpdateUserPoolDomainRequest,
-  UpdateUserPoolDomainResponse,
-  UpdateUserPoolRequest,
-  UpdateUserPoolResponse,
   UserContextDataType,
   UserImportInProgressException,
   UserImportJobType,
@@ -558,11 +543,28 @@ import {
   UsernameExistsException,
   VerificationMessageTemplateType,
   VerifiedAttributeType,
+} from "../models/models_0.ts";
+import {
+  ConcurrentModificationException,
+  EnableSoftwareTokenMFAException,
+  UpdateGroupResponse,
+  UpdateIdentityProviderRequest,
+  UpdateIdentityProviderResponse,
+  UpdateResourceServerRequest,
+  UpdateResourceServerResponse,
+  UpdateUserAttributesRequest,
+  UpdateUserAttributesResponse,
+  UpdateUserPoolClientRequest,
+  UpdateUserPoolClientResponse,
+  UpdateUserPoolDomainRequest,
+  UpdateUserPoolDomainResponse,
+  UpdateUserPoolRequest,
+  UpdateUserPoolResponse,
   VerifySoftwareTokenRequest,
   VerifySoftwareTokenResponse,
   VerifyUserAttributeRequest,
   VerifyUserAttributeResponse,
-} from "../models/index.ts";
+} from "../models/models_1.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -1885,7 +1887,6 @@ export const deserializeAws_json1_1AddCustomAttributesCommand = async (
   contents = deserializeAws_json1_1AddCustomAttributesResponse(data, context);
   const response: AddCustomAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddCustomAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2073,7 +2074,6 @@ export const deserializeAws_json1_1AdminConfirmSignUpCommand = async (
   contents = deserializeAws_json1_1AdminConfirmSignUpResponse(data, context);
   const response: AdminConfirmSignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminConfirmSignUpResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2209,7 +2209,6 @@ export const deserializeAws_json1_1AdminCreateUserCommand = async (
   contents = deserializeAws_json1_1AdminCreateUserResponse(data, context);
   const response: AdminCreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminCreateUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2477,7 +2476,6 @@ export const deserializeAws_json1_1AdminDeleteUserAttributesCommand = async (
   contents = deserializeAws_json1_1AdminDeleteUserAttributesResponse(data, context);
   const response: AdminDeleteUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminDeleteUserAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2573,7 +2571,6 @@ export const deserializeAws_json1_1AdminDisableProviderForUserCommand = async (
   contents = deserializeAws_json1_1AdminDisableProviderForUserResponse(data, context);
   const response: AdminDisableProviderForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminDisableProviderForUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2677,7 +2674,6 @@ export const deserializeAws_json1_1AdminDisableUserCommand = async (
   contents = deserializeAws_json1_1AdminDisableUserResponse(data, context);
   const response: AdminDisableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminDisableUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2773,7 +2769,6 @@ export const deserializeAws_json1_1AdminEnableUserCommand = async (
   contents = deserializeAws_json1_1AdminEnableUserResponse(data, context);
   const response: AdminEnableUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminEnableUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2969,7 +2964,6 @@ export const deserializeAws_json1_1AdminGetDeviceCommand = async (
   contents = deserializeAws_json1_1AdminGetDeviceResponse(data, context);
   const response: AdminGetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminGetDeviceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3065,7 +3059,6 @@ export const deserializeAws_json1_1AdminGetUserCommand = async (
   contents = deserializeAws_json1_1AdminGetUserResponse(data, context);
   const response: AdminGetUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminGetUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3161,7 +3154,6 @@ export const deserializeAws_json1_1AdminInitiateAuthCommand = async (
   contents = deserializeAws_json1_1AdminInitiateAuthResponse(data, context);
   const response: AdminInitiateAuthCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminInitiateAuthResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3329,7 +3321,6 @@ export const deserializeAws_json1_1AdminLinkProviderForUserCommand = async (
   contents = deserializeAws_json1_1AdminLinkProviderForUserResponse(data, context);
   const response: AdminLinkProviderForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminLinkProviderForUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3441,7 +3432,6 @@ export const deserializeAws_json1_1AdminListDevicesCommand = async (
   contents = deserializeAws_json1_1AdminListDevicesResponse(data, context);
   const response: AdminListDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminListDevicesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3537,7 +3527,6 @@ export const deserializeAws_json1_1AdminListGroupsForUserCommand = async (
   contents = deserializeAws_json1_1AdminListGroupsForUserResponse(data, context);
   const response: AdminListGroupsForUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminListGroupsForUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3633,7 +3622,6 @@ export const deserializeAws_json1_1AdminListUserAuthEventsCommand = async (
   contents = deserializeAws_json1_1AdminListUserAuthEventsResponse(data, context);
   const response: AdminListUserAuthEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminListUserAuthEventsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3829,7 +3817,6 @@ export const deserializeAws_json1_1AdminResetUserPasswordCommand = async (
   contents = deserializeAws_json1_1AdminResetUserPasswordResponse(data, context);
   const response: AdminResetUserPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminResetUserPasswordResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3981,7 +3968,6 @@ export const deserializeAws_json1_1AdminRespondToAuthChallengeCommand = async (
   contents = deserializeAws_json1_1AdminRespondToAuthChallengeResponse(data, context);
   const response: AdminRespondToAuthChallengeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminRespondToAuthChallengeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4189,7 +4175,6 @@ export const deserializeAws_json1_1AdminSetUserMFAPreferenceCommand = async (
   contents = deserializeAws_json1_1AdminSetUserMFAPreferenceResponse(data, context);
   const response: AdminSetUserMFAPreferenceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminSetUserMFAPreferenceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4293,7 +4278,6 @@ export const deserializeAws_json1_1AdminSetUserPasswordCommand = async (
   contents = deserializeAws_json1_1AdminSetUserPasswordResponse(data, context);
   const response: AdminSetUserPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminSetUserPasswordResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4397,7 +4381,6 @@ export const deserializeAws_json1_1AdminSetUserSettingsCommand = async (
   contents = deserializeAws_json1_1AdminSetUserSettingsResponse(data, context);
   const response: AdminSetUserSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminSetUserSettingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4485,7 +4468,6 @@ export const deserializeAws_json1_1AdminUpdateAuthEventFeedbackCommand = async (
   contents = deserializeAws_json1_1AdminUpdateAuthEventFeedbackResponse(data, context);
   const response: AdminUpdateAuthEventFeedbackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminUpdateAuthEventFeedbackResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4589,7 +4571,6 @@ export const deserializeAws_json1_1AdminUpdateDeviceStatusCommand = async (
   contents = deserializeAws_json1_1AdminUpdateDeviceStatusResponse(data, context);
   const response: AdminUpdateDeviceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminUpdateDeviceStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4693,7 +4674,6 @@ export const deserializeAws_json1_1AdminUpdateUserAttributesCommand = async (
   contents = deserializeAws_json1_1AdminUpdateUserAttributesResponse(data, context);
   const response: AdminUpdateUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminUpdateUserAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4845,7 +4825,6 @@ export const deserializeAws_json1_1AdminUserGlobalSignOutCommand = async (
   contents = deserializeAws_json1_1AdminUserGlobalSignOutResponse(data, context);
   const response: AdminUserGlobalSignOutCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdminUserGlobalSignOutResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4941,7 +4920,6 @@ export const deserializeAws_json1_1AssociateSoftwareTokenCommand = async (
   contents = deserializeAws_json1_1AssociateSoftwareTokenResponse(data, context);
   const response: AssociateSoftwareTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateSoftwareTokenResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5029,7 +5007,6 @@ export const deserializeAws_json1_1ChangePasswordCommand = async (
   contents = deserializeAws_json1_1ChangePasswordResponse(data, context);
   const response: ChangePasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ChangePasswordResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5157,7 +5134,6 @@ export const deserializeAws_json1_1ConfirmDeviceCommand = async (
   contents = deserializeAws_json1_1ConfirmDeviceResponse(data, context);
   const response: ConfirmDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfirmDeviceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5301,7 +5277,6 @@ export const deserializeAws_json1_1ConfirmForgotPasswordCommand = async (
   contents = deserializeAws_json1_1ConfirmForgotPasswordResponse(data, context);
   const response: ConfirmForgotPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfirmForgotPasswordResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5469,7 +5444,6 @@ export const deserializeAws_json1_1ConfirmSignUpCommand = async (
   contents = deserializeAws_json1_1ConfirmSignUpResponse(data, context);
   const response: ConfirmSignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfirmSignUpResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5629,7 +5603,6 @@ export const deserializeAws_json1_1CreateGroupCommand = async (
   contents = deserializeAws_json1_1CreateGroupResponse(data, context);
   const response: CreateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5733,7 +5706,6 @@ export const deserializeAws_json1_1CreateIdentityProviderCommand = async (
   contents = deserializeAws_json1_1CreateIdentityProviderResponse(data, context);
   const response: CreateIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateIdentityProviderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5837,7 +5809,6 @@ export const deserializeAws_json1_1CreateResourceServerCommand = async (
   contents = deserializeAws_json1_1CreateResourceServerResponse(data, context);
   const response: CreateResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateResourceServerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5933,7 +5904,6 @@ export const deserializeAws_json1_1CreateUserImportJobCommand = async (
   contents = deserializeAws_json1_1CreateUserImportJobResponse(data, context);
   const response: CreateUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserImportJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6037,7 +6007,6 @@ export const deserializeAws_json1_1CreateUserPoolCommand = async (
   contents = deserializeAws_json1_1CreateUserPoolResponse(data, context);
   const response: CreateUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserPoolResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6157,7 +6126,6 @@ export const deserializeAws_json1_1CreateUserPoolClientCommand = async (
   contents = deserializeAws_json1_1CreateUserPoolClientResponse(data, context);
   const response: CreateUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserPoolClientResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6269,7 +6237,6 @@ export const deserializeAws_json1_1CreateUserPoolDomainCommand = async (
   contents = deserializeAws_json1_1CreateUserPoolDomainResponse(data, context);
   const response: CreateUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserPoolDomainResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6725,7 +6692,6 @@ export const deserializeAws_json1_1DeleteUserAttributesCommand = async (
   contents = deserializeAws_json1_1DeleteUserAttributesResponse(data, context);
   const response: DeleteUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteUserAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7013,7 +6979,6 @@ export const deserializeAws_json1_1DeleteUserPoolDomainCommand = async (
   contents = deserializeAws_json1_1DeleteUserPoolDomainResponse(data, context);
   const response: DeleteUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteUserPoolDomainResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7093,7 +7058,6 @@ export const deserializeAws_json1_1DescribeIdentityProviderCommand = async (
   contents = deserializeAws_json1_1DescribeIdentityProviderResponse(data, context);
   const response: DescribeIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeIdentityProviderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7181,7 +7145,6 @@ export const deserializeAws_json1_1DescribeResourceServerCommand = async (
   contents = deserializeAws_json1_1DescribeResourceServerResponse(data, context);
   const response: DescribeResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeResourceServerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7269,7 +7232,6 @@ export const deserializeAws_json1_1DescribeRiskConfigurationCommand = async (
   contents = deserializeAws_json1_1DescribeRiskConfigurationResponse(data, context);
   const response: DescribeRiskConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRiskConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7365,7 +7327,6 @@ export const deserializeAws_json1_1DescribeUserImportJobCommand = async (
   contents = deserializeAws_json1_1DescribeUserImportJobResponse(data, context);
   const response: DescribeUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUserImportJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7453,7 +7414,6 @@ export const deserializeAws_json1_1DescribeUserPoolCommand = async (
   contents = deserializeAws_json1_1DescribeUserPoolResponse(data, context);
   const response: DescribeUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUserPoolResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7549,7 +7509,6 @@ export const deserializeAws_json1_1DescribeUserPoolClientCommand = async (
   contents = deserializeAws_json1_1DescribeUserPoolClientResponse(data, context);
   const response: DescribeUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUserPoolClientResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7637,7 +7596,6 @@ export const deserializeAws_json1_1DescribeUserPoolDomainCommand = async (
   contents = deserializeAws_json1_1DescribeUserPoolDomainResponse(data, context);
   const response: DescribeUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeUserPoolDomainResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7833,7 +7791,6 @@ export const deserializeAws_json1_1ForgotPasswordCommand = async (
   contents = deserializeAws_json1_1ForgotPasswordResponse(data, context);
   const response: ForgotPasswordCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ForgotPasswordResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8001,7 +7958,6 @@ export const deserializeAws_json1_1GetCSVHeaderCommand = async (
   contents = deserializeAws_json1_1GetCSVHeaderResponse(data, context);
   const response: GetCSVHeaderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCSVHeaderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8089,7 +8045,6 @@ export const deserializeAws_json1_1GetDeviceCommand = async (
   contents = deserializeAws_json1_1GetDeviceResponse(data, context);
   const response: GetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDeviceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8209,7 +8164,6 @@ export const deserializeAws_json1_1GetGroupCommand = async (
   contents = deserializeAws_json1_1GetGroupResponse(data, context);
   const response: GetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8297,7 +8251,6 @@ export const deserializeAws_json1_1GetIdentityProviderByIdentifierCommand = asyn
   contents = deserializeAws_json1_1GetIdentityProviderByIdentifierResponse(data, context);
   const response: GetIdentityProviderByIdentifierCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetIdentityProviderByIdentifierResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8385,7 +8338,6 @@ export const deserializeAws_json1_1GetSigningCertificateCommand = async (
   contents = deserializeAws_json1_1GetSigningCertificateResponse(data, context);
   const response: GetSigningCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSigningCertificateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8457,7 +8409,6 @@ export const deserializeAws_json1_1GetUICustomizationCommand = async (
   contents = deserializeAws_json1_1GetUICustomizationResponse(data, context);
   const response: GetUICustomizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUICustomizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8545,7 +8496,6 @@ export const deserializeAws_json1_1GetUserCommand = async (
   contents = deserializeAws_json1_1GetUserResponse(data, context);
   const response: GetUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8657,7 +8607,6 @@ export const deserializeAws_json1_1GetUserAttributeVerificationCodeCommand = asy
   contents = deserializeAws_json1_1GetUserAttributeVerificationCodeResponse(data, context);
   const response: GetUserAttributeVerificationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUserAttributeVerificationCodeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8833,7 +8782,6 @@ export const deserializeAws_json1_1GetUserPoolMfaConfigCommand = async (
   contents = deserializeAws_json1_1GetUserPoolMfaConfigResponse(data, context);
   const response: GetUserPoolMfaConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUserPoolMfaConfigResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8921,7 +8869,6 @@ export const deserializeAws_json1_1GlobalSignOutCommand = async (
   contents = deserializeAws_json1_1GlobalSignOutResponse(data, context);
   const response: GlobalSignOutCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GlobalSignOutResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9025,7 +8972,6 @@ export const deserializeAws_json1_1InitiateAuthCommand = async (
   contents = deserializeAws_json1_1InitiateAuthResponse(data, context);
   const response: InitiateAuthCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InitiateAuthResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9185,7 +9131,6 @@ export const deserializeAws_json1_1ListDevicesCommand = async (
   contents = deserializeAws_json1_1ListDevicesResponse(data, context);
   const response: ListDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDevicesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9305,7 +9250,6 @@ export const deserializeAws_json1_1ListGroupsCommand = async (
   contents = deserializeAws_json1_1ListGroupsResponse(data, context);
   const response: ListGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9393,7 +9337,6 @@ export const deserializeAws_json1_1ListIdentityProvidersCommand = async (
   contents = deserializeAws_json1_1ListIdentityProvidersResponse(data, context);
   const response: ListIdentityProvidersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListIdentityProvidersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9481,7 +9424,6 @@ export const deserializeAws_json1_1ListResourceServersCommand = async (
   contents = deserializeAws_json1_1ListResourceServersResponse(data, context);
   const response: ListResourceServersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListResourceServersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9569,7 +9511,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9657,7 +9598,6 @@ export const deserializeAws_json1_1ListUserImportJobsCommand = async (
   contents = deserializeAws_json1_1ListUserImportJobsResponse(data, context);
   const response: ListUserImportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUserImportJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9745,7 +9685,6 @@ export const deserializeAws_json1_1ListUserPoolClientsCommand = async (
   contents = deserializeAws_json1_1ListUserPoolClientsResponse(data, context);
   const response: ListUserPoolClientsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUserPoolClientsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9833,7 +9772,6 @@ export const deserializeAws_json1_1ListUserPoolsCommand = async (
   contents = deserializeAws_json1_1ListUserPoolsResponse(data, context);
   const response: ListUserPoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUserPoolsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9913,7 +9851,6 @@ export const deserializeAws_json1_1ListUsersCommand = async (
   contents = deserializeAws_json1_1ListUsersResponse(data, context);
   const response: ListUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUsersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10001,7 +9938,6 @@ export const deserializeAws_json1_1ListUsersInGroupCommand = async (
   contents = deserializeAws_json1_1ListUsersInGroupResponse(data, context);
   const response: ListUsersInGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListUsersInGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10089,7 +10025,6 @@ export const deserializeAws_json1_1ResendConfirmationCodeCommand = async (
   contents = deserializeAws_json1_1ResendConfirmationCodeResponse(data, context);
   const response: ResendConfirmationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResendConfirmationCodeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10249,7 +10184,6 @@ export const deserializeAws_json1_1RespondToAuthChallengeCommand = async (
   contents = deserializeAws_json1_1RespondToAuthChallengeResponse(data, context);
   const response: RespondToAuthChallengeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RespondToAuthChallengeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10457,7 +10391,6 @@ export const deserializeAws_json1_1SetRiskConfigurationCommand = async (
   contents = deserializeAws_json1_1SetRiskConfigurationResponse(data, context);
   const response: SetRiskConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetRiskConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10569,7 +10502,6 @@ export const deserializeAws_json1_1SetUICustomizationCommand = async (
   contents = deserializeAws_json1_1SetUICustomizationResponse(data, context);
   const response: SetUICustomizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetUICustomizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10657,7 +10589,6 @@ export const deserializeAws_json1_1SetUserMFAPreferenceCommand = async (
   contents = deserializeAws_json1_1SetUserMFAPreferenceResponse(data, context);
   const response: SetUserMFAPreferenceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetUserMFAPreferenceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10761,7 +10692,6 @@ export const deserializeAws_json1_1SetUserPoolMfaConfigCommand = async (
   contents = deserializeAws_json1_1SetUserPoolMfaConfigResponse(data, context);
   const response: SetUserPoolMfaConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetUserPoolMfaConfigResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10865,7 +10795,6 @@ export const deserializeAws_json1_1SetUserSettingsCommand = async (
   contents = deserializeAws_json1_1SetUserSettingsResponse(data, context);
   const response: SetUserSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetUserSettingsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10969,7 +10898,6 @@ export const deserializeAws_json1_1SignUpCommand = async (
   contents = deserializeAws_json1_1SignUpResponse(data, context);
   const response: SignUpCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SignUpResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11129,7 +11057,6 @@ export const deserializeAws_json1_1StartUserImportJobCommand = async (
   contents = deserializeAws_json1_1StartUserImportJobResponse(data, context);
   const response: StartUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartUserImportJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11225,7 +11152,6 @@ export const deserializeAws_json1_1StopUserImportJobCommand = async (
   contents = deserializeAws_json1_1StopUserImportJobResponse(data, context);
   const response: StopUserImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopUserImportJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11321,7 +11247,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11409,7 +11334,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11497,7 +11421,6 @@ export const deserializeAws_json1_1UpdateAuthEventFeedbackCommand = async (
   contents = deserializeAws_json1_1UpdateAuthEventFeedbackResponse(data, context);
   const response: UpdateAuthEventFeedbackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAuthEventFeedbackResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11601,7 +11524,6 @@ export const deserializeAws_json1_1UpdateDeviceStatusCommand = async (
   contents = deserializeAws_json1_1UpdateDeviceStatusResponse(data, context);
   const response: UpdateDeviceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDeviceStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11721,7 +11643,6 @@ export const deserializeAws_json1_1UpdateGroupCommand = async (
   contents = deserializeAws_json1_1UpdateGroupResponse(data, context);
   const response: UpdateGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11809,7 +11730,6 @@ export const deserializeAws_json1_1UpdateIdentityProviderCommand = async (
   contents = deserializeAws_json1_1UpdateIdentityProviderResponse(data, context);
   const response: UpdateIdentityProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateIdentityProviderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11905,7 +11825,6 @@ export const deserializeAws_json1_1UpdateResourceServerCommand = async (
   contents = deserializeAws_json1_1UpdateResourceServerResponse(data, context);
   const response: UpdateResourceServerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateResourceServerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11993,7 +11912,6 @@ export const deserializeAws_json1_1UpdateUserAttributesCommand = async (
   contents = deserializeAws_json1_1UpdateUserAttributesResponse(data, context);
   const response: UpdateUserAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateUserAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12185,7 +12103,6 @@ export const deserializeAws_json1_1UpdateUserPoolCommand = async (
   contents = deserializeAws_json1_1UpdateUserPoolResponse(data, context);
   const response: UpdateUserPoolCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateUserPoolResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12321,7 +12238,6 @@ export const deserializeAws_json1_1UpdateUserPoolClientCommand = async (
   contents = deserializeAws_json1_1UpdateUserPoolClientResponse(data, context);
   const response: UpdateUserPoolClientCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateUserPoolClientResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12433,7 +12349,6 @@ export const deserializeAws_json1_1UpdateUserPoolDomainCommand = async (
   contents = deserializeAws_json1_1UpdateUserPoolDomainResponse(data, context);
   const response: UpdateUserPoolDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateUserPoolDomainResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12521,7 +12436,6 @@ export const deserializeAws_json1_1VerifySoftwareTokenCommand = async (
   contents = deserializeAws_json1_1VerifySoftwareTokenResponse(data, context);
   const response: VerifySoftwareTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VerifySoftwareTokenResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12665,7 +12579,6 @@ export const deserializeAws_json1_1VerifyUserAttributeCommand = async (
   contents = deserializeAws_json1_1VerifyUserAttributeResponse(data, context);
   const response: VerifyUserAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VerifyUserAttributeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15276,7 +15189,6 @@ const deserializeAws_json1_1AccountRecoverySettingType = (
   context: __SerdeContext
 ): AccountRecoverySettingType => {
   return {
-    __type: "AccountRecoverySettingType",
     RecoveryMechanisms:
       output.RecoveryMechanisms !== undefined && output.RecoveryMechanisms !== null
         ? deserializeAws_json1_1RecoveryMechanismsType(output.RecoveryMechanisms, context)
@@ -15289,7 +15201,6 @@ const deserializeAws_json1_1AccountTakeoverActionsType = (
   context: __SerdeContext
 ): AccountTakeoverActionsType => {
   return {
-    __type: "AccountTakeoverActionsType",
     HighAction:
       output.HighAction !== undefined && output.HighAction !== null
         ? deserializeAws_json1_1AccountTakeoverActionType(output.HighAction, context)
@@ -15310,7 +15221,6 @@ const deserializeAws_json1_1AccountTakeoverActionType = (
   context: __SerdeContext
 ): AccountTakeoverActionType => {
   return {
-    __type: "AccountTakeoverActionType",
     EventAction: output.EventAction !== undefined && output.EventAction !== null ? output.EventAction : undefined,
     Notify: output.Notify !== undefined && output.Notify !== null ? output.Notify : undefined,
   } as any;
@@ -15321,7 +15231,6 @@ const deserializeAws_json1_1AccountTakeoverRiskConfigurationType = (
   context: __SerdeContext
 ): AccountTakeoverRiskConfigurationType => {
   return {
-    __type: "AccountTakeoverRiskConfigurationType",
     Actions:
       output.Actions !== undefined && output.Actions !== null
         ? deserializeAws_json1_1AccountTakeoverActionsType(output.Actions, context)
@@ -15337,18 +15246,14 @@ const deserializeAws_json1_1AddCustomAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): AddCustomAttributesResponse => {
-  return {
-    __type: "AddCustomAttributesResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminConfirmSignUpResponse = (
   output: any,
   context: __SerdeContext
 ): AdminConfirmSignUpResponse => {
-  return {
-    __type: "AdminConfirmSignUpResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminCreateUserConfigType = (
@@ -15356,7 +15261,6 @@ const deserializeAws_json1_1AdminCreateUserConfigType = (
   context: __SerdeContext
 ): AdminCreateUserConfigType => {
   return {
-    __type: "AdminCreateUserConfigType",
     AllowAdminCreateUserOnly:
       output.AllowAdminCreateUserOnly !== undefined && output.AllowAdminCreateUserOnly !== null
         ? output.AllowAdminCreateUserOnly
@@ -15377,7 +15281,6 @@ const deserializeAws_json1_1AdminCreateUserResponse = (
   context: __SerdeContext
 ): AdminCreateUserResponse => {
   return {
-    __type: "AdminCreateUserResponse",
     User:
       output.User !== undefined && output.User !== null
         ? deserializeAws_json1_1UserType(output.User, context)
@@ -15389,41 +15292,32 @@ const deserializeAws_json1_1AdminDeleteUserAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): AdminDeleteUserAttributesResponse => {
-  return {
-    __type: "AdminDeleteUserAttributesResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminDisableProviderForUserResponse = (
   output: any,
   context: __SerdeContext
 ): AdminDisableProviderForUserResponse => {
-  return {
-    __type: "AdminDisableProviderForUserResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminDisableUserResponse = (
   output: any,
   context: __SerdeContext
 ): AdminDisableUserResponse => {
-  return {
-    __type: "AdminDisableUserResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminEnableUserResponse = (
   output: any,
   context: __SerdeContext
 ): AdminEnableUserResponse => {
-  return {
-    __type: "AdminEnableUserResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminGetDeviceResponse = (output: any, context: __SerdeContext): AdminGetDeviceResponse => {
   return {
-    __type: "AdminGetDeviceResponse",
     Device:
       output.Device !== undefined && output.Device !== null
         ? deserializeAws_json1_1DeviceType(output.Device, context)
@@ -15433,7 +15327,6 @@ const deserializeAws_json1_1AdminGetDeviceResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1AdminGetUserResponse = (output: any, context: __SerdeContext): AdminGetUserResponse => {
   return {
-    __type: "AdminGetUserResponse",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     MFAOptions:
       output.MFAOptions !== undefined && output.MFAOptions !== null
@@ -15469,7 +15362,6 @@ const deserializeAws_json1_1AdminInitiateAuthResponse = (
   context: __SerdeContext
 ): AdminInitiateAuthResponse => {
   return {
-    __type: "AdminInitiateAuthResponse",
     AuthenticationResult:
       output.AuthenticationResult !== undefined && output.AuthenticationResult !== null
         ? deserializeAws_json1_1AuthenticationResultType(output.AuthenticationResult, context)
@@ -15488,9 +15380,7 @@ const deserializeAws_json1_1AdminLinkProviderForUserResponse = (
   output: any,
   context: __SerdeContext
 ): AdminLinkProviderForUserResponse => {
-  return {
-    __type: "AdminLinkProviderForUserResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminListDevicesResponse = (
@@ -15498,7 +15388,6 @@ const deserializeAws_json1_1AdminListDevicesResponse = (
   context: __SerdeContext
 ): AdminListDevicesResponse => {
   return {
-    __type: "AdminListDevicesResponse",
     Devices:
       output.Devices !== undefined && output.Devices !== null
         ? deserializeAws_json1_1DeviceListType(output.Devices, context)
@@ -15513,7 +15402,6 @@ const deserializeAws_json1_1AdminListGroupsForUserResponse = (
   context: __SerdeContext
 ): AdminListGroupsForUserResponse => {
   return {
-    __type: "AdminListGroupsForUserResponse",
     Groups:
       output.Groups !== undefined && output.Groups !== null
         ? deserializeAws_json1_1GroupListType(output.Groups, context)
@@ -15527,7 +15415,6 @@ const deserializeAws_json1_1AdminListUserAuthEventsResponse = (
   context: __SerdeContext
 ): AdminListUserAuthEventsResponse => {
   return {
-    __type: "AdminListUserAuthEventsResponse",
     AuthEvents:
       output.AuthEvents !== undefined && output.AuthEvents !== null
         ? deserializeAws_json1_1AuthEventsType(output.AuthEvents, context)
@@ -15540,9 +15427,7 @@ const deserializeAws_json1_1AdminResetUserPasswordResponse = (
   output: any,
   context: __SerdeContext
 ): AdminResetUserPasswordResponse => {
-  return {
-    __type: "AdminResetUserPasswordResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminRespondToAuthChallengeResponse = (
@@ -15550,7 +15435,6 @@ const deserializeAws_json1_1AdminRespondToAuthChallengeResponse = (
   context: __SerdeContext
 ): AdminRespondToAuthChallengeResponse => {
   return {
-    __type: "AdminRespondToAuthChallengeResponse",
     AuthenticationResult:
       output.AuthenticationResult !== undefined && output.AuthenticationResult !== null
         ? deserializeAws_json1_1AuthenticationResultType(output.AuthenticationResult, context)
@@ -15569,63 +15453,49 @@ const deserializeAws_json1_1AdminSetUserMFAPreferenceResponse = (
   output: any,
   context: __SerdeContext
 ): AdminSetUserMFAPreferenceResponse => {
-  return {
-    __type: "AdminSetUserMFAPreferenceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminSetUserPasswordResponse = (
   output: any,
   context: __SerdeContext
 ): AdminSetUserPasswordResponse => {
-  return {
-    __type: "AdminSetUserPasswordResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminSetUserSettingsResponse = (
   output: any,
   context: __SerdeContext
 ): AdminSetUserSettingsResponse => {
-  return {
-    __type: "AdminSetUserSettingsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminUpdateAuthEventFeedbackResponse = (
   output: any,
   context: __SerdeContext
 ): AdminUpdateAuthEventFeedbackResponse => {
-  return {
-    __type: "AdminUpdateAuthEventFeedbackResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminUpdateDeviceStatusResponse = (
   output: any,
   context: __SerdeContext
 ): AdminUpdateDeviceStatusResponse => {
-  return {
-    __type: "AdminUpdateDeviceStatusResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminUpdateUserAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): AdminUpdateUserAttributesResponse => {
-  return {
-    __type: "AdminUpdateUserAttributesResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AdminUserGlobalSignOutResponse = (
   output: any,
   context: __SerdeContext
 ): AdminUserGlobalSignOutResponse => {
-  return {
-    __type: "AdminUserGlobalSignOutResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AliasAttributesListType = (
@@ -15637,7 +15507,6 @@ const deserializeAws_json1_1AliasAttributesListType = (
 
 const deserializeAws_json1_1AliasExistsException = (output: any, context: __SerdeContext): AliasExistsException => {
   return {
-    __type: "AliasExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -15647,7 +15516,6 @@ const deserializeAws_json1_1AnalyticsConfigurationType = (
   context: __SerdeContext
 ): AnalyticsConfigurationType => {
   return {
-    __type: "AnalyticsConfigurationType",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     ExternalId: output.ExternalId !== undefined && output.ExternalId !== null ? output.ExternalId : undefined,
@@ -15662,7 +15530,6 @@ const deserializeAws_json1_1AssociateSoftwareTokenResponse = (
   context: __SerdeContext
 ): AssociateSoftwareTokenResponse => {
   return {
-    __type: "AssociateSoftwareTokenResponse",
     SecretCode: output.SecretCode !== undefined && output.SecretCode !== null ? output.SecretCode : undefined,
     Session: output.Session !== undefined && output.Session !== null ? output.Session : undefined,
   } as any;
@@ -15687,7 +15554,6 @@ const deserializeAws_json1_1AttributeMappingType = (
 
 const deserializeAws_json1_1AttributeType = (output: any, context: __SerdeContext): AttributeType => {
   return {
-    __type: "AttributeType",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -15698,7 +15564,6 @@ const deserializeAws_json1_1AuthenticationResultType = (
   context: __SerdeContext
 ): AuthenticationResultType => {
   return {
-    __type: "AuthenticationResultType",
     AccessToken: output.AccessToken !== undefined && output.AccessToken !== null ? output.AccessToken : undefined,
     ExpiresIn: output.ExpiresIn !== undefined && output.ExpiresIn !== null ? output.ExpiresIn : undefined,
     IdToken: output.IdToken !== undefined && output.IdToken !== null ? output.IdToken : undefined,
@@ -15717,7 +15582,6 @@ const deserializeAws_json1_1AuthEventsType = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1AuthEventType = (output: any, context: __SerdeContext): AuthEventType => {
   return {
-    __type: "AuthEventType",
     ChallengeResponses:
       output.ChallengeResponses !== undefined && output.ChallengeResponses !== null
         ? deserializeAws_json1_1ChallengeResponseListType(output.ChallengeResponses, context)
@@ -15775,7 +15639,6 @@ const deserializeAws_json1_1ChallengeResponseListType = (
 
 const deserializeAws_json1_1ChallengeResponseType = (output: any, context: __SerdeContext): ChallengeResponseType => {
   return {
-    __type: "ChallengeResponseType",
     ChallengeName:
       output.ChallengeName !== undefined && output.ChallengeName !== null ? output.ChallengeName : undefined,
     ChallengeResponse:
@@ -15786,9 +15649,7 @@ const deserializeAws_json1_1ChallengeResponseType = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1ChangePasswordResponse = (output: any, context: __SerdeContext): ChangePasswordResponse => {
-  return {
-    __type: "ChangePasswordResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ClientPermissionListType = (output: any, context: __SerdeContext): string[] => {
@@ -15807,7 +15668,6 @@ const deserializeAws_json1_1CodeDeliveryDetailsType = (
   context: __SerdeContext
 ): CodeDeliveryDetailsType => {
   return {
-    __type: "CodeDeliveryDetailsType",
     AttributeName:
       output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
     DeliveryMedium:
@@ -15821,14 +15681,12 @@ const deserializeAws_json1_1CodeDeliveryFailureException = (
   context: __SerdeContext
 ): CodeDeliveryFailureException => {
   return {
-    __type: "CodeDeliveryFailureException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CodeMismatchException = (output: any, context: __SerdeContext): CodeMismatchException => {
   return {
-    __type: "CodeMismatchException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -15838,7 +15696,6 @@ const deserializeAws_json1_1CompromisedCredentialsActionsType = (
   context: __SerdeContext
 ): CompromisedCredentialsActionsType => {
   return {
-    __type: "CompromisedCredentialsActionsType",
     EventAction: output.EventAction !== undefined && output.EventAction !== null ? output.EventAction : undefined,
   } as any;
 };
@@ -15848,7 +15705,6 @@ const deserializeAws_json1_1CompromisedCredentialsRiskConfigurationType = (
   context: __SerdeContext
 ): CompromisedCredentialsRiskConfigurationType => {
   return {
-    __type: "CompromisedCredentialsRiskConfigurationType",
     Actions:
       output.Actions !== undefined && output.Actions !== null
         ? deserializeAws_json1_1CompromisedCredentialsActionsType(output.Actions, context)
@@ -15865,14 +15721,12 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    __type: "ConcurrentModificationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ConfirmDeviceResponse = (output: any, context: __SerdeContext): ConfirmDeviceResponse => {
   return {
-    __type: "ConfirmDeviceResponse",
     UserConfirmationNecessary:
       output.UserConfirmationNecessary !== undefined && output.UserConfirmationNecessary !== null
         ? output.UserConfirmationNecessary
@@ -15884,20 +15738,15 @@ const deserializeAws_json1_1ConfirmForgotPasswordResponse = (
   output: any,
   context: __SerdeContext
 ): ConfirmForgotPasswordResponse => {
-  return {
-    __type: "ConfirmForgotPasswordResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ConfirmSignUpResponse = (output: any, context: __SerdeContext): ConfirmSignUpResponse => {
-  return {
-    __type: "ConfirmSignUpResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateGroupResponse = (output: any, context: __SerdeContext): CreateGroupResponse => {
   return {
-    __type: "CreateGroupResponse",
     Group:
       output.Group !== undefined && output.Group !== null
         ? deserializeAws_json1_1GroupType(output.Group, context)
@@ -15910,7 +15759,6 @@ const deserializeAws_json1_1CreateIdentityProviderResponse = (
   context: __SerdeContext
 ): CreateIdentityProviderResponse => {
   return {
-    __type: "CreateIdentityProviderResponse",
     IdentityProvider:
       output.IdentityProvider !== undefined && output.IdentityProvider !== null
         ? deserializeAws_json1_1IdentityProviderType(output.IdentityProvider, context)
@@ -15923,7 +15771,6 @@ const deserializeAws_json1_1CreateResourceServerResponse = (
   context: __SerdeContext
 ): CreateResourceServerResponse => {
   return {
-    __type: "CreateResourceServerResponse",
     ResourceServer:
       output.ResourceServer !== undefined && output.ResourceServer !== null
         ? deserializeAws_json1_1ResourceServerType(output.ResourceServer, context)
@@ -15936,7 +15783,6 @@ const deserializeAws_json1_1CreateUserImportJobResponse = (
   context: __SerdeContext
 ): CreateUserImportJobResponse => {
   return {
-    __type: "CreateUserImportJobResponse",
     UserImportJob:
       output.UserImportJob !== undefined && output.UserImportJob !== null
         ? deserializeAws_json1_1UserImportJobType(output.UserImportJob, context)
@@ -15949,7 +15795,6 @@ const deserializeAws_json1_1CreateUserPoolClientResponse = (
   context: __SerdeContext
 ): CreateUserPoolClientResponse => {
   return {
-    __type: "CreateUserPoolClientResponse",
     UserPoolClient:
       output.UserPoolClient !== undefined && output.UserPoolClient !== null
         ? deserializeAws_json1_1UserPoolClientType(output.UserPoolClient, context)
@@ -15962,7 +15807,6 @@ const deserializeAws_json1_1CreateUserPoolDomainResponse = (
   context: __SerdeContext
 ): CreateUserPoolDomainResponse => {
   return {
-    __type: "CreateUserPoolDomainResponse",
     CloudFrontDomain:
       output.CloudFrontDomain !== undefined && output.CloudFrontDomain !== null ? output.CloudFrontDomain : undefined,
   } as any;
@@ -15970,7 +15814,6 @@ const deserializeAws_json1_1CreateUserPoolDomainResponse = (
 
 const deserializeAws_json1_1CreateUserPoolResponse = (output: any, context: __SerdeContext): CreateUserPoolResponse => {
   return {
-    __type: "CreateUserPoolResponse",
     UserPool:
       output.UserPool !== undefined && output.UserPool !== null
         ? deserializeAws_json1_1UserPoolType(output.UserPool, context)
@@ -15980,7 +15823,6 @@ const deserializeAws_json1_1CreateUserPoolResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1CustomDomainConfigType = (output: any, context: __SerdeContext): CustomDomainConfigType => {
   return {
-    __type: "CustomDomainConfigType",
     CertificateArn:
       output.CertificateArn !== undefined && output.CertificateArn !== null ? output.CertificateArn : undefined,
   } as any;
@@ -15990,18 +15832,14 @@ const deserializeAws_json1_1DeleteUserAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteUserAttributesResponse => {
-  return {
-    __type: "DeleteUserAttributesResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteUserPoolDomainResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteUserPoolDomainResponse => {
-  return {
-    __type: "DeleteUserPoolDomainResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeIdentityProviderResponse = (
@@ -16009,7 +15847,6 @@ const deserializeAws_json1_1DescribeIdentityProviderResponse = (
   context: __SerdeContext
 ): DescribeIdentityProviderResponse => {
   return {
-    __type: "DescribeIdentityProviderResponse",
     IdentityProvider:
       output.IdentityProvider !== undefined && output.IdentityProvider !== null
         ? deserializeAws_json1_1IdentityProviderType(output.IdentityProvider, context)
@@ -16022,7 +15859,6 @@ const deserializeAws_json1_1DescribeResourceServerResponse = (
   context: __SerdeContext
 ): DescribeResourceServerResponse => {
   return {
-    __type: "DescribeResourceServerResponse",
     ResourceServer:
       output.ResourceServer !== undefined && output.ResourceServer !== null
         ? deserializeAws_json1_1ResourceServerType(output.ResourceServer, context)
@@ -16035,7 +15871,6 @@ const deserializeAws_json1_1DescribeRiskConfigurationResponse = (
   context: __SerdeContext
 ): DescribeRiskConfigurationResponse => {
   return {
-    __type: "DescribeRiskConfigurationResponse",
     RiskConfiguration:
       output.RiskConfiguration !== undefined && output.RiskConfiguration !== null
         ? deserializeAws_json1_1RiskConfigurationType(output.RiskConfiguration, context)
@@ -16048,7 +15883,6 @@ const deserializeAws_json1_1DescribeUserImportJobResponse = (
   context: __SerdeContext
 ): DescribeUserImportJobResponse => {
   return {
-    __type: "DescribeUserImportJobResponse",
     UserImportJob:
       output.UserImportJob !== undefined && output.UserImportJob !== null
         ? deserializeAws_json1_1UserImportJobType(output.UserImportJob, context)
@@ -16061,7 +15895,6 @@ const deserializeAws_json1_1DescribeUserPoolClientResponse = (
   context: __SerdeContext
 ): DescribeUserPoolClientResponse => {
   return {
-    __type: "DescribeUserPoolClientResponse",
     UserPoolClient:
       output.UserPoolClient !== undefined && output.UserPoolClient !== null
         ? deserializeAws_json1_1UserPoolClientType(output.UserPoolClient, context)
@@ -16074,7 +15907,6 @@ const deserializeAws_json1_1DescribeUserPoolDomainResponse = (
   context: __SerdeContext
 ): DescribeUserPoolDomainResponse => {
   return {
-    __type: "DescribeUserPoolDomainResponse",
     DomainDescription:
       output.DomainDescription !== undefined && output.DomainDescription !== null
         ? deserializeAws_json1_1DomainDescriptionType(output.DomainDescription, context)
@@ -16087,7 +15919,6 @@ const deserializeAws_json1_1DescribeUserPoolResponse = (
   context: __SerdeContext
 ): DescribeUserPoolResponse => {
   return {
-    __type: "DescribeUserPoolResponse",
     UserPool:
       output.UserPool !== undefined && output.UserPool !== null
         ? deserializeAws_json1_1UserPoolType(output.UserPool, context)
@@ -16100,7 +15931,6 @@ const deserializeAws_json1_1DeviceConfigurationType = (
   context: __SerdeContext
 ): DeviceConfigurationType => {
   return {
-    __type: "DeviceConfigurationType",
     ChallengeRequiredOnNewDevice:
       output.ChallengeRequiredOnNewDevice !== undefined && output.ChallengeRequiredOnNewDevice !== null
         ? output.ChallengeRequiredOnNewDevice
@@ -16118,7 +15948,6 @@ const deserializeAws_json1_1DeviceListType = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1DeviceType = (output: any, context: __SerdeContext): DeviceType => {
   return {
-    __type: "DeviceType",
     DeviceAttributes:
       output.DeviceAttributes !== undefined && output.DeviceAttributes !== null
         ? deserializeAws_json1_1AttributeListType(output.DeviceAttributes, context)
@@ -16141,7 +15970,6 @@ const deserializeAws_json1_1DeviceType = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1DomainDescriptionType = (output: any, context: __SerdeContext): DomainDescriptionType => {
   return {
-    __type: "DomainDescriptionType",
     AWSAccountId: output.AWSAccountId !== undefined && output.AWSAccountId !== null ? output.AWSAccountId : undefined,
     CloudFrontDistribution:
       output.CloudFrontDistribution !== undefined && output.CloudFrontDistribution !== null
@@ -16164,14 +15992,12 @@ const deserializeAws_json1_1DuplicateProviderException = (
   context: __SerdeContext
 ): DuplicateProviderException => {
   return {
-    __type: "DuplicateProviderException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1EmailConfigurationType = (output: any, context: __SerdeContext): EmailConfigurationType => {
   return {
-    __type: "EmailConfigurationType",
     ConfigurationSet:
       output.ConfigurationSet !== undefined && output.ConfigurationSet !== null ? output.ConfigurationSet : undefined,
     EmailSendingAccount:
@@ -16192,14 +16018,12 @@ const deserializeAws_json1_1EnableSoftwareTokenMFAException = (
   context: __SerdeContext
 ): EnableSoftwareTokenMFAException => {
   return {
-    __type: "EnableSoftwareTokenMFAException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1EventContextDataType = (output: any, context: __SerdeContext): EventContextDataType => {
   return {
-    __type: "EventContextDataType",
     City: output.City !== undefined && output.City !== null ? output.City : undefined,
     Country: output.Country !== undefined && output.Country !== null ? output.Country : undefined,
     DeviceName: output.DeviceName !== undefined && output.DeviceName !== null ? output.DeviceName : undefined,
@@ -16210,7 +16034,6 @@ const deserializeAws_json1_1EventContextDataType = (output: any, context: __Serd
 
 const deserializeAws_json1_1EventFeedbackType = (output: any, context: __SerdeContext): EventFeedbackType => {
   return {
-    __type: "EventFeedbackType",
     FeedbackDate:
       output.FeedbackDate !== undefined && output.FeedbackDate !== null
         ? new Date(Math.round(output.FeedbackDate * 1000))
@@ -16227,7 +16050,6 @@ const deserializeAws_json1_1EventFiltersType = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1EventRiskType = (output: any, context: __SerdeContext): EventRiskType => {
   return {
-    __type: "EventRiskType",
     CompromisedCredentialsDetected:
       output.CompromisedCredentialsDetected !== undefined && output.CompromisedCredentialsDetected !== null
         ? output.CompromisedCredentialsDetected
@@ -16239,7 +16061,6 @@ const deserializeAws_json1_1EventRiskType = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ExpiredCodeException = (output: any, context: __SerdeContext): ExpiredCodeException => {
   return {
-    __type: "ExpiredCodeException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16253,7 +16074,6 @@ const deserializeAws_json1_1ExplicitAuthFlowsListType = (
 
 const deserializeAws_json1_1ForgotPasswordResponse = (output: any, context: __SerdeContext): ForgotPasswordResponse => {
   return {
-    __type: "ForgotPasswordResponse",
     CodeDeliveryDetails:
       output.CodeDeliveryDetails !== undefined && output.CodeDeliveryDetails !== null
         ? deserializeAws_json1_1CodeDeliveryDetailsType(output.CodeDeliveryDetails, context)
@@ -16263,7 +16083,6 @@ const deserializeAws_json1_1ForgotPasswordResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1GetCSVHeaderResponse = (output: any, context: __SerdeContext): GetCSVHeaderResponse => {
   return {
-    __type: "GetCSVHeaderResponse",
     CSVHeader:
       output.CSVHeader !== undefined && output.CSVHeader !== null
         ? deserializeAws_json1_1ListOfStringTypes(output.CSVHeader, context)
@@ -16274,7 +16093,6 @@ const deserializeAws_json1_1GetCSVHeaderResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1GetDeviceResponse = (output: any, context: __SerdeContext): GetDeviceResponse => {
   return {
-    __type: "GetDeviceResponse",
     Device:
       output.Device !== undefined && output.Device !== null
         ? deserializeAws_json1_1DeviceType(output.Device, context)
@@ -16284,7 +16102,6 @@ const deserializeAws_json1_1GetDeviceResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1GetGroupResponse = (output: any, context: __SerdeContext): GetGroupResponse => {
   return {
-    __type: "GetGroupResponse",
     Group:
       output.Group !== undefined && output.Group !== null
         ? deserializeAws_json1_1GroupType(output.Group, context)
@@ -16297,7 +16114,6 @@ const deserializeAws_json1_1GetIdentityProviderByIdentifierResponse = (
   context: __SerdeContext
 ): GetIdentityProviderByIdentifierResponse => {
   return {
-    __type: "GetIdentityProviderByIdentifierResponse",
     IdentityProvider:
       output.IdentityProvider !== undefined && output.IdentityProvider !== null
         ? deserializeAws_json1_1IdentityProviderType(output.IdentityProvider, context)
@@ -16310,7 +16126,6 @@ const deserializeAws_json1_1GetSigningCertificateResponse = (
   context: __SerdeContext
 ): GetSigningCertificateResponse => {
   return {
-    __type: "GetSigningCertificateResponse",
     Certificate: output.Certificate !== undefined && output.Certificate !== null ? output.Certificate : undefined,
   } as any;
 };
@@ -16320,7 +16135,6 @@ const deserializeAws_json1_1GetUICustomizationResponse = (
   context: __SerdeContext
 ): GetUICustomizationResponse => {
   return {
-    __type: "GetUICustomizationResponse",
     UICustomization:
       output.UICustomization !== undefined && output.UICustomization !== null
         ? deserializeAws_json1_1UICustomizationType(output.UICustomization, context)
@@ -16333,7 +16147,6 @@ const deserializeAws_json1_1GetUserAttributeVerificationCodeResponse = (
   context: __SerdeContext
 ): GetUserAttributeVerificationCodeResponse => {
   return {
-    __type: "GetUserAttributeVerificationCodeResponse",
     CodeDeliveryDetails:
       output.CodeDeliveryDetails !== undefined && output.CodeDeliveryDetails !== null
         ? deserializeAws_json1_1CodeDeliveryDetailsType(output.CodeDeliveryDetails, context)
@@ -16346,7 +16159,6 @@ const deserializeAws_json1_1GetUserPoolMfaConfigResponse = (
   context: __SerdeContext
 ): GetUserPoolMfaConfigResponse => {
   return {
-    __type: "GetUserPoolMfaConfigResponse",
     MfaConfiguration:
       output.MfaConfiguration !== undefined && output.MfaConfiguration !== null ? output.MfaConfiguration : undefined,
     SmsMfaConfiguration:
@@ -16362,7 +16174,6 @@ const deserializeAws_json1_1GetUserPoolMfaConfigResponse = (
 
 const deserializeAws_json1_1GetUserResponse = (output: any, context: __SerdeContext): GetUserResponse => {
   return {
-    __type: "GetUserResponse",
     MFAOptions:
       output.MFAOptions !== undefined && output.MFAOptions !== null
         ? deserializeAws_json1_1MFAOptionListType(output.MFAOptions, context)
@@ -16384,14 +16195,11 @@ const deserializeAws_json1_1GetUserResponse = (output: any, context: __SerdeCont
 };
 
 const deserializeAws_json1_1GlobalSignOutResponse = (output: any, context: __SerdeContext): GlobalSignOutResponse => {
-  return {
-    __type: "GlobalSignOutResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1GroupExistsException = (output: any, context: __SerdeContext): GroupExistsException => {
   return {
-    __type: "GroupExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16402,7 +16210,6 @@ const deserializeAws_json1_1GroupListType = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1GroupType = (output: any, context: __SerdeContext): GroupType => {
   return {
-    __type: "GroupType",
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
@@ -16421,7 +16228,6 @@ const deserializeAws_json1_1GroupType = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1IdentityProviderType = (output: any, context: __SerdeContext): IdentityProviderType => {
   return {
-    __type: "IdentityProviderType",
     AttributeMapping:
       output.AttributeMapping !== undefined && output.AttributeMapping !== null
         ? deserializeAws_json1_1AttributeMappingType(output.AttributeMapping, context)
@@ -16454,7 +16260,6 @@ const deserializeAws_json1_1IdpIdentifiersListType = (output: any, context: __Se
 
 const deserializeAws_json1_1InitiateAuthResponse = (output: any, context: __SerdeContext): InitiateAuthResponse => {
   return {
-    __type: "InitiateAuthResponse",
     AuthenticationResult:
       output.AuthenticationResult !== undefined && output.AuthenticationResult !== null
         ? deserializeAws_json1_1AuthenticationResultType(output.AuthenticationResult, context)
@@ -16471,7 +16276,6 @@ const deserializeAws_json1_1InitiateAuthResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1InternalErrorException = (output: any, context: __SerdeContext): InternalErrorException => {
   return {
-    __type: "InternalErrorException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16481,7 +16285,6 @@ const deserializeAws_json1_1InvalidEmailRoleAccessPolicyException = (
   context: __SerdeContext
 ): InvalidEmailRoleAccessPolicyException => {
   return {
-    __type: "InvalidEmailRoleAccessPolicyException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16491,7 +16294,6 @@ const deserializeAws_json1_1InvalidLambdaResponseException = (
   context: __SerdeContext
 ): InvalidLambdaResponseException => {
   return {
-    __type: "InvalidLambdaResponseException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16501,7 +16303,6 @@ const deserializeAws_json1_1InvalidOAuthFlowException = (
   context: __SerdeContext
 ): InvalidOAuthFlowException => {
   return {
-    __type: "InvalidOAuthFlowException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16511,7 +16312,6 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16521,7 +16321,6 @@ const deserializeAws_json1_1InvalidPasswordException = (
   context: __SerdeContext
 ): InvalidPasswordException => {
   return {
-    __type: "InvalidPasswordException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16531,7 +16330,6 @@ const deserializeAws_json1_1InvalidSmsRoleAccessPolicyException = (
   context: __SerdeContext
 ): InvalidSmsRoleAccessPolicyException => {
   return {
-    __type: "InvalidSmsRoleAccessPolicyException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16541,7 +16339,6 @@ const deserializeAws_json1_1InvalidSmsRoleTrustRelationshipException = (
   context: __SerdeContext
 ): InvalidSmsRoleTrustRelationshipException => {
   return {
-    __type: "InvalidSmsRoleTrustRelationshipException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16551,14 +16348,12 @@ const deserializeAws_json1_1InvalidUserPoolConfigurationException = (
   context: __SerdeContext
 ): InvalidUserPoolConfigurationException => {
   return {
-    __type: "InvalidUserPoolConfigurationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LambdaConfigType = (output: any, context: __SerdeContext): LambdaConfigType => {
   return {
-    __type: "LambdaConfigType",
     CreateAuthChallenge:
       output.CreateAuthChallenge !== undefined && output.CreateAuthChallenge !== null
         ? output.CreateAuthChallenge
@@ -16595,14 +16390,12 @@ const deserializeAws_json1_1LambdaConfigType = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListDevicesResponse = (output: any, context: __SerdeContext): ListDevicesResponse => {
   return {
-    __type: "ListDevicesResponse",
     Devices:
       output.Devices !== undefined && output.Devices !== null
         ? deserializeAws_json1_1DeviceListType(output.Devices, context)
@@ -16614,7 +16407,6 @@ const deserializeAws_json1_1ListDevicesResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1ListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
   return {
-    __type: "ListGroupsResponse",
     Groups:
       output.Groups !== undefined && output.Groups !== null
         ? deserializeAws_json1_1GroupListType(output.Groups, context)
@@ -16628,7 +16420,6 @@ const deserializeAws_json1_1ListIdentityProvidersResponse = (
   context: __SerdeContext
 ): ListIdentityProvidersResponse => {
   return {
-    __type: "ListIdentityProvidersResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Providers:
       output.Providers !== undefined && output.Providers !== null
@@ -16646,7 +16437,6 @@ const deserializeAws_json1_1ListResourceServersResponse = (
   context: __SerdeContext
 ): ListResourceServersResponse => {
   return {
-    __type: "ListResourceServersResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ResourceServers:
       output.ResourceServers !== undefined && output.ResourceServers !== null
@@ -16660,7 +16450,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1UserPoolTagsType(output.Tags, context)
@@ -16673,7 +16462,6 @@ const deserializeAws_json1_1ListUserImportJobsResponse = (
   context: __SerdeContext
 ): ListUserImportJobsResponse => {
   return {
-    __type: "ListUserImportJobsResponse",
     PaginationToken:
       output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
     UserImportJobs:
@@ -16688,7 +16476,6 @@ const deserializeAws_json1_1ListUserPoolClientsResponse = (
   context: __SerdeContext
 ): ListUserPoolClientsResponse => {
   return {
-    __type: "ListUserPoolClientsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     UserPoolClients:
       output.UserPoolClients !== undefined && output.UserPoolClients !== null
@@ -16699,7 +16486,6 @@ const deserializeAws_json1_1ListUserPoolClientsResponse = (
 
 const deserializeAws_json1_1ListUserPoolsResponse = (output: any, context: __SerdeContext): ListUserPoolsResponse => {
   return {
-    __type: "ListUserPoolsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     UserPools:
       output.UserPools !== undefined && output.UserPools !== null
@@ -16713,7 +16499,6 @@ const deserializeAws_json1_1ListUsersInGroupResponse = (
   context: __SerdeContext
 ): ListUsersInGroupResponse => {
   return {
-    __type: "ListUsersInGroupResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Users:
       output.Users !== undefined && output.Users !== null
@@ -16724,7 +16509,6 @@ const deserializeAws_json1_1ListUsersInGroupResponse = (
 
 const deserializeAws_json1_1ListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   return {
-    __type: "ListUsersResponse",
     PaginationToken:
       output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
     Users:
@@ -16740,7 +16524,6 @@ const deserializeAws_json1_1LogoutURLsListType = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1MessageTemplateType = (output: any, context: __SerdeContext): MessageTemplateType => {
   return {
-    __type: "MessageTemplateType",
     EmailMessage: output.EmailMessage !== undefined && output.EmailMessage !== null ? output.EmailMessage : undefined,
     EmailSubject: output.EmailSubject !== undefined && output.EmailSubject !== null ? output.EmailSubject : undefined,
     SMSMessage: output.SMSMessage !== undefined && output.SMSMessage !== null ? output.SMSMessage : undefined,
@@ -16752,7 +16535,6 @@ const deserializeAws_json1_1MFAMethodNotFoundException = (
   context: __SerdeContext
 ): MFAMethodNotFoundException => {
   return {
-    __type: "MFAMethodNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16763,7 +16545,6 @@ const deserializeAws_json1_1MFAOptionListType = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1MFAOptionType = (output: any, context: __SerdeContext): MFAOptionType => {
   return {
-    __type: "MFAOptionType",
     AttributeName:
       output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
     DeliveryMedium:
@@ -16773,7 +16554,6 @@ const deserializeAws_json1_1MFAOptionType = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1NewDeviceMetadataType = (output: any, context: __SerdeContext): NewDeviceMetadataType => {
   return {
-    __type: "NewDeviceMetadataType",
     DeviceGroupKey:
       output.DeviceGroupKey !== undefined && output.DeviceGroupKey !== null ? output.DeviceGroupKey : undefined,
     DeviceKey: output.DeviceKey !== undefined && output.DeviceKey !== null ? output.DeviceKey : undefined,
@@ -16782,7 +16562,6 @@ const deserializeAws_json1_1NewDeviceMetadataType = (output: any, context: __Ser
 
 const deserializeAws_json1_1NotAuthorizedException = (output: any, context: __SerdeContext): NotAuthorizedException => {
   return {
-    __type: "NotAuthorizedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16792,7 +16571,6 @@ const deserializeAws_json1_1NotifyConfigurationType = (
   context: __SerdeContext
 ): NotifyConfigurationType => {
   return {
-    __type: "NotifyConfigurationType",
     BlockEmail:
       output.BlockEmail !== undefined && output.BlockEmail !== null
         ? deserializeAws_json1_1NotifyEmailType(output.BlockEmail, context)
@@ -16813,7 +16591,6 @@ const deserializeAws_json1_1NotifyConfigurationType = (
 
 const deserializeAws_json1_1NotifyEmailType = (output: any, context: __SerdeContext): NotifyEmailType => {
   return {
-    __type: "NotifyEmailType",
     HtmlBody: output.HtmlBody !== undefined && output.HtmlBody !== null ? output.HtmlBody : undefined,
     Subject: output.Subject !== undefined && output.Subject !== null ? output.Subject : undefined,
     TextBody: output.TextBody !== undefined && output.TextBody !== null ? output.TextBody : undefined,
@@ -16825,7 +16602,6 @@ const deserializeAws_json1_1NumberAttributeConstraintsType = (
   context: __SerdeContext
 ): NumberAttributeConstraintsType => {
   return {
-    __type: "NumberAttributeConstraintsType",
     MaxValue: output.MaxValue !== undefined && output.MaxValue !== null ? output.MaxValue : undefined,
     MinValue: output.MinValue !== undefined && output.MinValue !== null ? output.MinValue : undefined,
   } as any;
@@ -16837,7 +16613,6 @@ const deserializeAws_json1_1OAuthFlowsType = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1PasswordPolicyType = (output: any, context: __SerdeContext): PasswordPolicyType => {
   return {
-    __type: "PasswordPolicyType",
     MinimumLength:
       output.MinimumLength !== undefined && output.MinimumLength !== null ? output.MinimumLength : undefined,
     RequireLowercase:
@@ -16860,7 +16635,6 @@ const deserializeAws_json1_1PasswordResetRequiredException = (
   context: __SerdeContext
 ): PasswordResetRequiredException => {
   return {
-    __type: "PasswordResetRequiredException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16870,14 +16644,12 @@ const deserializeAws_json1_1PreconditionNotMetException = (
   context: __SerdeContext
 ): PreconditionNotMetException => {
   return {
-    __type: "PreconditionNotMetException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ProviderDescription = (output: any, context: __SerdeContext): ProviderDescription => {
   return {
-    __type: "ProviderDescription",
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
@@ -16911,7 +16683,6 @@ const deserializeAws_json1_1RecoveryMechanismsType = (output: any, context: __Se
 
 const deserializeAws_json1_1RecoveryOptionType = (output: any, context: __SerdeContext): RecoveryOptionType => {
   return {
-    __type: "RecoveryOptionType",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Priority: output.Priority !== undefined && output.Priority !== null ? output.Priority : undefined,
   } as any;
@@ -16922,7 +16693,6 @@ const deserializeAws_json1_1ResendConfirmationCodeResponse = (
   context: __SerdeContext
 ): ResendConfirmationCodeResponse => {
   return {
-    __type: "ResendConfirmationCodeResponse",
     CodeDeliveryDetails:
       output.CodeDeliveryDetails !== undefined && output.CodeDeliveryDetails !== null
         ? deserializeAws_json1_1CodeDeliveryDetailsType(output.CodeDeliveryDetails, context)
@@ -16935,7 +16705,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -16952,7 +16721,6 @@ const deserializeAws_json1_1ResourceServerScopeType = (
   context: __SerdeContext
 ): ResourceServerScopeType => {
   return {
-    __type: "ResourceServerScopeType",
     ScopeDescription:
       output.ScopeDescription !== undefined && output.ScopeDescription !== null ? output.ScopeDescription : undefined,
     ScopeName: output.ScopeName !== undefined && output.ScopeName !== null ? output.ScopeName : undefined,
@@ -16965,7 +16733,6 @@ const deserializeAws_json1_1ResourceServersListType = (output: any, context: __S
 
 const deserializeAws_json1_1ResourceServerType = (output: any, context: __SerdeContext): ResourceServerType => {
   return {
-    __type: "ResourceServerType",
     Identifier: output.Identifier !== undefined && output.Identifier !== null ? output.Identifier : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Scopes:
@@ -16981,7 +16748,6 @@ const deserializeAws_json1_1RespondToAuthChallengeResponse = (
   context: __SerdeContext
 ): RespondToAuthChallengeResponse => {
   return {
-    __type: "RespondToAuthChallengeResponse",
     AuthenticationResult:
       output.AuthenticationResult !== undefined && output.AuthenticationResult !== null
         ? deserializeAws_json1_1AuthenticationResultType(output.AuthenticationResult, context)
@@ -16998,7 +16764,6 @@ const deserializeAws_json1_1RespondToAuthChallengeResponse = (
 
 const deserializeAws_json1_1RiskConfigurationType = (output: any, context: __SerdeContext): RiskConfigurationType => {
   return {
-    __type: "RiskConfigurationType",
     AccountTakeoverRiskConfiguration:
       output.AccountTakeoverRiskConfiguration !== undefined && output.AccountTakeoverRiskConfiguration !== null
         ? deserializeAws_json1_1AccountTakeoverRiskConfigurationType(output.AccountTakeoverRiskConfiguration, context)
@@ -17029,7 +16794,6 @@ const deserializeAws_json1_1RiskExceptionConfigurationType = (
   context: __SerdeContext
 ): RiskExceptionConfigurationType => {
   return {
-    __type: "RiskExceptionConfigurationType",
     BlockedIPRangeList:
       output.BlockedIPRangeList !== undefined && output.BlockedIPRangeList !== null
         ? deserializeAws_json1_1BlockedIPRangeListType(output.BlockedIPRangeList, context)
@@ -17050,7 +16814,6 @@ const deserializeAws_json1_1SchemaAttributesListType = (
 
 const deserializeAws_json1_1SchemaAttributeType = (output: any, context: __SerdeContext): SchemaAttributeType => {
   return {
-    __type: "SchemaAttributeType",
     AttributeDataType:
       output.AttributeDataType !== undefined && output.AttributeDataType !== null
         ? output.AttributeDataType
@@ -17078,7 +16841,6 @@ const deserializeAws_json1_1ScopeDoesNotExistException = (
   context: __SerdeContext
 ): ScopeDoesNotExistException => {
   return {
-    __type: "ScopeDoesNotExistException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -17092,7 +16854,6 @@ const deserializeAws_json1_1SetRiskConfigurationResponse = (
   context: __SerdeContext
 ): SetRiskConfigurationResponse => {
   return {
-    __type: "SetRiskConfigurationResponse",
     RiskConfiguration:
       output.RiskConfiguration !== undefined && output.RiskConfiguration !== null
         ? deserializeAws_json1_1RiskConfigurationType(output.RiskConfiguration, context)
@@ -17105,7 +16866,6 @@ const deserializeAws_json1_1SetUICustomizationResponse = (
   context: __SerdeContext
 ): SetUICustomizationResponse => {
   return {
-    __type: "SetUICustomizationResponse",
     UICustomization:
       output.UICustomization !== undefined && output.UICustomization !== null
         ? deserializeAws_json1_1UICustomizationType(output.UICustomization, context)
@@ -17117,9 +16877,7 @@ const deserializeAws_json1_1SetUserMFAPreferenceResponse = (
   output: any,
   context: __SerdeContext
 ): SetUserMFAPreferenceResponse => {
-  return {
-    __type: "SetUserMFAPreferenceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1SetUserPoolMfaConfigResponse = (
@@ -17127,7 +16885,6 @@ const deserializeAws_json1_1SetUserPoolMfaConfigResponse = (
   context: __SerdeContext
 ): SetUserPoolMfaConfigResponse => {
   return {
-    __type: "SetUserPoolMfaConfigResponse",
     MfaConfiguration:
       output.MfaConfiguration !== undefined && output.MfaConfiguration !== null ? output.MfaConfiguration : undefined,
     SmsMfaConfiguration:
@@ -17145,14 +16902,11 @@ const deserializeAws_json1_1SetUserSettingsResponse = (
   output: any,
   context: __SerdeContext
 ): SetUserSettingsResponse => {
-  return {
-    __type: "SetUserSettingsResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1SignUpResponse = (output: any, context: __SerdeContext): SignUpResponse => {
   return {
-    __type: "SignUpResponse",
     CodeDeliveryDetails:
       output.CodeDeliveryDetails !== undefined && output.CodeDeliveryDetails !== null
         ? deserializeAws_json1_1CodeDeliveryDetailsType(output.CodeDeliveryDetails, context)
@@ -17169,7 +16923,6 @@ const deserializeAws_json1_1SkippedIPRangeListType = (output: any, context: __Se
 
 const deserializeAws_json1_1SmsConfigurationType = (output: any, context: __SerdeContext): SmsConfigurationType => {
   return {
-    __type: "SmsConfigurationType",
     ExternalId: output.ExternalId !== undefined && output.ExternalId !== null ? output.ExternalId : undefined,
     SnsCallerArn: output.SnsCallerArn !== undefined && output.SnsCallerArn !== null ? output.SnsCallerArn : undefined,
   } as any;
@@ -17177,7 +16930,6 @@ const deserializeAws_json1_1SmsConfigurationType = (output: any, context: __Serd
 
 const deserializeAws_json1_1SmsMfaConfigType = (output: any, context: __SerdeContext): SmsMfaConfigType => {
   return {
-    __type: "SmsMfaConfigType",
     SmsAuthenticationMessage:
       output.SmsAuthenticationMessage !== undefined && output.SmsAuthenticationMessage !== null
         ? output.SmsAuthenticationMessage
@@ -17194,7 +16946,6 @@ const deserializeAws_json1_1SoftwareTokenMfaConfigType = (
   context: __SerdeContext
 ): SoftwareTokenMfaConfigType => {
   return {
-    __type: "SoftwareTokenMfaConfigType",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
   } as any;
 };
@@ -17204,7 +16955,6 @@ const deserializeAws_json1_1SoftwareTokenMFANotFoundException = (
   context: __SerdeContext
 ): SoftwareTokenMFANotFoundException => {
   return {
-    __type: "SoftwareTokenMFANotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -17214,7 +16964,6 @@ const deserializeAws_json1_1StartUserImportJobResponse = (
   context: __SerdeContext
 ): StartUserImportJobResponse => {
   return {
-    __type: "StartUserImportJobResponse",
     UserImportJob:
       output.UserImportJob !== undefined && output.UserImportJob !== null
         ? deserializeAws_json1_1UserImportJobType(output.UserImportJob, context)
@@ -17227,7 +16976,6 @@ const deserializeAws_json1_1StopUserImportJobResponse = (
   context: __SerdeContext
 ): StopUserImportJobResponse => {
   return {
-    __type: "StopUserImportJobResponse",
     UserImportJob:
       output.UserImportJob !== undefined && output.UserImportJob !== null
         ? deserializeAws_json1_1UserImportJobType(output.UserImportJob, context)
@@ -17240,7 +16988,6 @@ const deserializeAws_json1_1StringAttributeConstraintsType = (
   context: __SerdeContext
 ): StringAttributeConstraintsType => {
   return {
-    __type: "StringAttributeConstraintsType",
     MaxLength: output.MaxLength !== undefined && output.MaxLength !== null ? output.MaxLength : undefined,
     MinLength: output.MinLength !== undefined && output.MinLength !== null ? output.MinLength : undefined,
   } as any;
@@ -17251,9 +16998,7 @@ const deserializeAws_json1_1SupportedIdentityProvidersListType = (output: any, c
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TooManyFailedAttemptsException = (
@@ -17261,7 +17006,6 @@ const deserializeAws_json1_1TooManyFailedAttemptsException = (
   context: __SerdeContext
 ): TooManyFailedAttemptsException => {
   return {
-    __type: "TooManyFailedAttemptsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -17271,14 +17015,12 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    __type: "TooManyRequestsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UICustomizationType = (output: any, context: __SerdeContext): UICustomizationType => {
   return {
-    __type: "UICustomizationType",
     CSS: output.CSS !== undefined && output.CSS !== null ? output.CSS : undefined,
     CSSVersion: output.CSSVersion !== undefined && output.CSSVersion !== null ? output.CSSVersion : undefined,
     ClientId: output.ClientId !== undefined && output.ClientId !== null ? output.ClientId : undefined,
@@ -17300,7 +17042,6 @@ const deserializeAws_json1_1UnexpectedLambdaException = (
   context: __SerdeContext
 ): UnexpectedLambdaException => {
   return {
-    __type: "UnexpectedLambdaException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -17310,7 +17051,6 @@ const deserializeAws_json1_1UnsupportedIdentityProviderException = (
   context: __SerdeContext
 ): UnsupportedIdentityProviderException => {
   return {
-    __type: "UnsupportedIdentityProviderException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -17320,38 +17060,30 @@ const deserializeAws_json1_1UnsupportedUserStateException = (
   context: __SerdeContext
 ): UnsupportedUserStateException => {
   return {
-    __type: "UnsupportedUserStateException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateAuthEventFeedbackResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateAuthEventFeedbackResponse => {
-  return {
-    __type: "UpdateAuthEventFeedbackResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateDeviceStatusResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateDeviceStatusResponse => {
-  return {
-    __type: "UpdateDeviceStatusResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateGroupResponse = (output: any, context: __SerdeContext): UpdateGroupResponse => {
   return {
-    __type: "UpdateGroupResponse",
     Group:
       output.Group !== undefined && output.Group !== null
         ? deserializeAws_json1_1GroupType(output.Group, context)
@@ -17364,7 +17096,6 @@ const deserializeAws_json1_1UpdateIdentityProviderResponse = (
   context: __SerdeContext
 ): UpdateIdentityProviderResponse => {
   return {
-    __type: "UpdateIdentityProviderResponse",
     IdentityProvider:
       output.IdentityProvider !== undefined && output.IdentityProvider !== null
         ? deserializeAws_json1_1IdentityProviderType(output.IdentityProvider, context)
@@ -17377,7 +17108,6 @@ const deserializeAws_json1_1UpdateResourceServerResponse = (
   context: __SerdeContext
 ): UpdateResourceServerResponse => {
   return {
-    __type: "UpdateResourceServerResponse",
     ResourceServer:
       output.ResourceServer !== undefined && output.ResourceServer !== null
         ? deserializeAws_json1_1ResourceServerType(output.ResourceServer, context)
@@ -17390,7 +17120,6 @@ const deserializeAws_json1_1UpdateUserAttributesResponse = (
   context: __SerdeContext
 ): UpdateUserAttributesResponse => {
   return {
-    __type: "UpdateUserAttributesResponse",
     CodeDeliveryDetailsList:
       output.CodeDeliveryDetailsList !== undefined && output.CodeDeliveryDetailsList !== null
         ? deserializeAws_json1_1CodeDeliveryDetailsListType(output.CodeDeliveryDetailsList, context)
@@ -17403,7 +17132,6 @@ const deserializeAws_json1_1UpdateUserPoolClientResponse = (
   context: __SerdeContext
 ): UpdateUserPoolClientResponse => {
   return {
-    __type: "UpdateUserPoolClientResponse",
     UserPoolClient:
       output.UserPoolClient !== undefined && output.UserPoolClient !== null
         ? deserializeAws_json1_1UserPoolClientType(output.UserPoolClient, context)
@@ -17416,16 +17144,13 @@ const deserializeAws_json1_1UpdateUserPoolDomainResponse = (
   context: __SerdeContext
 ): UpdateUserPoolDomainResponse => {
   return {
-    __type: "UpdateUserPoolDomainResponse",
     CloudFrontDomain:
       output.CloudFrontDomain !== undefined && output.CloudFrontDomain !== null ? output.CloudFrontDomain : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UpdateUserPoolResponse = (output: any, context: __SerdeContext): UpdateUserPoolResponse => {
-  return {
-    __type: "UpdateUserPoolResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UserImportInProgressException = (
@@ -17433,7 +17158,6 @@ const deserializeAws_json1_1UserImportInProgressException = (
   context: __SerdeContext
 ): UserImportInProgressException => {
   return {
-    __type: "UserImportInProgressException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -17444,7 +17168,6 @@ const deserializeAws_json1_1UserImportJobsListType = (output: any, context: __Se
 
 const deserializeAws_json1_1UserImportJobType = (output: any, context: __SerdeContext): UserImportJobType => {
   return {
-    __type: "UserImportJobType",
     CloudWatchLogsRoleArn:
       output.CloudWatchLogsRoleArn !== undefined && output.CloudWatchLogsRoleArn !== null
         ? output.CloudWatchLogsRoleArn
@@ -17482,7 +17205,6 @@ const deserializeAws_json1_1UserLambdaValidationException = (
   context: __SerdeContext
 ): UserLambdaValidationException => {
   return {
-    __type: "UserLambdaValidationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -17503,7 +17225,6 @@ const deserializeAws_json1_1UsernameConfigurationType = (
   context: __SerdeContext
 ): UsernameConfigurationType => {
   return {
-    __type: "UsernameConfigurationType",
     CaseSensitive:
       output.CaseSensitive !== undefined && output.CaseSensitive !== null ? output.CaseSensitive : undefined,
   } as any;
@@ -17514,7 +17235,6 @@ const deserializeAws_json1_1UsernameExistsException = (
   context: __SerdeContext
 ): UsernameExistsException => {
   return {
-    __type: "UsernameExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -17524,14 +17244,12 @@ const deserializeAws_json1_1UserNotConfirmedException = (
   context: __SerdeContext
 ): UserNotConfirmedException => {
   return {
-    __type: "UserNotConfirmedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UserNotFoundException = (output: any, context: __SerdeContext): UserNotFoundException => {
   return {
-    __type: "UserNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -17541,14 +17259,12 @@ const deserializeAws_json1_1UserPoolAddOnNotEnabledException = (
   context: __SerdeContext
 ): UserPoolAddOnNotEnabledException => {
   return {
-    __type: "UserPoolAddOnNotEnabledException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UserPoolAddOnsType = (output: any, context: __SerdeContext): UserPoolAddOnsType => {
   return {
-    __type: "UserPoolAddOnsType",
     AdvancedSecurityMode:
       output.AdvancedSecurityMode !== undefined && output.AdvancedSecurityMode !== null
         ? output.AdvancedSecurityMode
@@ -17561,7 +17277,6 @@ const deserializeAws_json1_1UserPoolClientDescription = (
   context: __SerdeContext
 ): UserPoolClientDescription => {
   return {
-    __type: "UserPoolClientDescription",
     ClientId: output.ClientId !== undefined && output.ClientId !== null ? output.ClientId : undefined,
     ClientName: output.ClientName !== undefined && output.ClientName !== null ? output.ClientName : undefined,
     UserPoolId: output.UserPoolId !== undefined && output.UserPoolId !== null ? output.UserPoolId : undefined,
@@ -17577,7 +17292,6 @@ const deserializeAws_json1_1UserPoolClientListType = (
 
 const deserializeAws_json1_1UserPoolClientType = (output: any, context: __SerdeContext): UserPoolClientType => {
   return {
-    __type: "UserPoolClientType",
     AllowedOAuthFlows:
       output.AllowedOAuthFlows !== undefined && output.AllowedOAuthFlows !== null
         ? deserializeAws_json1_1OAuthFlowsType(output.AllowedOAuthFlows, context)
@@ -17650,7 +17364,6 @@ const deserializeAws_json1_1UserPoolDescriptionType = (
   context: __SerdeContext
 ): UserPoolDescriptionType => {
   return {
-    __type: "UserPoolDescriptionType",
     CreationDate:
       output.CreationDate !== undefined && output.CreationDate !== null
         ? new Date(Math.round(output.CreationDate * 1000))
@@ -17675,7 +17388,6 @@ const deserializeAws_json1_1UserPoolListType = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1UserPoolPolicyType = (output: any, context: __SerdeContext): UserPoolPolicyType => {
   return {
-    __type: "UserPoolPolicyType",
     PasswordPolicy:
       output.PasswordPolicy !== undefined && output.PasswordPolicy !== null
         ? deserializeAws_json1_1PasswordPolicyType(output.PasswordPolicy, context)
@@ -17688,7 +17400,6 @@ const deserializeAws_json1_1UserPoolTaggingException = (
   context: __SerdeContext
 ): UserPoolTaggingException => {
   return {
-    __type: "UserPoolTaggingException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -17705,7 +17416,6 @@ const deserializeAws_json1_1UserPoolTagsType = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1UserPoolType = (output: any, context: __SerdeContext): UserPoolType => {
   return {
-    __type: "UserPoolType",
     AccountRecoverySetting:
       output.AccountRecoverySetting !== undefined && output.AccountRecoverySetting !== null
         ? deserializeAws_json1_1AccountRecoverySettingType(output.AccountRecoverySetting, context)
@@ -17819,7 +17529,6 @@ const deserializeAws_json1_1UsersListType = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1UserType = (output: any, context: __SerdeContext): UserType => {
   return {
-    __type: "UserType",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1AttributeListType(output.Attributes, context)
@@ -17847,7 +17556,6 @@ const deserializeAws_json1_1VerificationMessageTemplateType = (
   context: __SerdeContext
 ): VerificationMessageTemplateType => {
   return {
-    __type: "VerificationMessageTemplateType",
     DefaultEmailOption:
       output.DefaultEmailOption !== undefined && output.DefaultEmailOption !== null
         ? output.DefaultEmailOption
@@ -17878,7 +17586,6 @@ const deserializeAws_json1_1VerifySoftwareTokenResponse = (
   context: __SerdeContext
 ): VerifySoftwareTokenResponse => {
   return {
-    __type: "VerifySoftwareTokenResponse",
     Session: output.Session !== undefined && output.Session !== null ? output.Session : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
@@ -17888,9 +17595,7 @@ const deserializeAws_json1_1VerifyUserAttributeResponse = (
   output: any,
   context: __SerdeContext
 ): VerifyUserAttributeResponse => {
-  return {
-    __type: "VerifyUserAttributeResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

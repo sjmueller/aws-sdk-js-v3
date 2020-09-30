@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { DeleteFolderContentsRequest } from "../models/index.ts";
+import { DeleteFolderContentsRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteFolderContentsCommand,
   serializeAws_restJson1DeleteFolderContentsCommand,

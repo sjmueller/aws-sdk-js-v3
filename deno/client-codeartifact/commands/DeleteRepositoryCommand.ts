@@ -1,6 +1,6 @@
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient.ts";
-import { DeleteRepositoryRequest, DeleteRepositoryResult } from "../models/index.ts";
+import { DeleteRepositoryRequest, DeleteRepositoryResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteRepositoryCommand,
   serializeAws_restJson1DeleteRepositoryCommand,

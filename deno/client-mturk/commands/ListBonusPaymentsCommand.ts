@@ -1,6 +1,6 @@
 
 import { MTurkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MTurkClient.ts";
-import { ListBonusPaymentsRequest, ListBonusPaymentsResponse } from "../models/index.ts";
+import { ListBonusPaymentsRequest, ListBonusPaymentsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListBonusPaymentsCommand,
   serializeAws_json1_1ListBonusPaymentsCommand,

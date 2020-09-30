@@ -1,6 +1,6 @@
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient.ts";
-import { DeleteAssetRequest, DeleteAssetResponse } from "../models/index.ts";
+import { DeleteAssetRequest, DeleteAssetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteAssetCommand,
   serializeAws_restJson1DeleteAssetCommand,

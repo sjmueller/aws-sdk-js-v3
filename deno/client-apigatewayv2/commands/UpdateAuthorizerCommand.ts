@@ -1,6 +1,6 @@
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
-import { UpdateAuthorizerRequest, UpdateAuthorizerResponse } from "../models/index.ts";
+import { UpdateAuthorizerRequest, UpdateAuthorizerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateAuthorizerCommand,
   serializeAws_restJson1UpdateAuthorizerCommand,

@@ -1,6 +1,6 @@
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
-import { ListQueuesRequest, ListQueuesResponse } from "../models/index.ts";
+import { ListQueuesRequest, ListQueuesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListQueuesCommand,
   serializeAws_restJson1ListQueuesCommand,

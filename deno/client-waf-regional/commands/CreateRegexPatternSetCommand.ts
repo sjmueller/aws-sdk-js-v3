@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { CreateRegexPatternSetRequest, CreateRegexPatternSetResponse } from "../models/index.ts";
+import { CreateRegexPatternSetRequest, CreateRegexPatternSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateRegexPatternSetCommand,
   serializeAws_json1_1CreateRegexPatternSetCommand,

@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { DeleteFieldLevelEncryptionConfigRequest } from "../models/index.ts";
+import { DeleteFieldLevelEncryptionConfigRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand,
   serializeAws_restXmlDeleteFieldLevelEncryptionConfigCommand,

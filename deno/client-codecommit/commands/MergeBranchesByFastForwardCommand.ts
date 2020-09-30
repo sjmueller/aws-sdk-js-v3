@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { MergeBranchesByFastForwardInput, MergeBranchesByFastForwardOutput } from "../models/index.ts";
+import { MergeBranchesByFastForwardInput, MergeBranchesByFastForwardOutput } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1MergeBranchesByFastForwardCommand,
   serializeAws_json1_1MergeBranchesByFastForwardCommand,

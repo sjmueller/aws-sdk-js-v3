@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient.ts";
-import { StartExportTaskRequest, StartExportTaskResponse } from "../models/index.ts";
+import { StartExportTaskRequest, StartExportTaskResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartExportTaskCommand,
   serializeAws_json1_1StartExportTaskCommand,

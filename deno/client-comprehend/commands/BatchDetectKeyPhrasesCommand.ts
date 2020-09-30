@@ -1,6 +1,6 @@
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
-import { BatchDetectKeyPhrasesRequest, BatchDetectKeyPhrasesResponse } from "../models/index.ts";
+import { BatchDetectKeyPhrasesRequest, BatchDetectKeyPhrasesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchDetectKeyPhrasesCommand,
   serializeAws_json1_1BatchDetectKeyPhrasesCommand,

@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { EnableMFADeviceRequest } from "../models/index.ts";
+import { EnableMFADeviceRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryEnableMFADeviceCommand,
   serializeAws_queryEnableMFADeviceCommand,

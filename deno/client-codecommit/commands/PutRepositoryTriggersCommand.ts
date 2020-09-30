@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { PutRepositoryTriggersInput, PutRepositoryTriggersOutput } from "../models/index.ts";
+import { PutRepositoryTriggersInput, PutRepositoryTriggersOutput } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1PutRepositoryTriggersCommand,
   serializeAws_json1_1PutRepositoryTriggersCommand,

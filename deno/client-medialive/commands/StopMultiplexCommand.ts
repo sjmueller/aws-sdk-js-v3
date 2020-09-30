@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { StopMultiplexRequest, StopMultiplexResponse } from "../models/index.ts";
+import { StopMultiplexRequest, StopMultiplexResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1StopMultiplexCommand,
   serializeAws_restJson1StopMultiplexCommand,

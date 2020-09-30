@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { CancelInstanceRefreshAnswer, CancelInstanceRefreshType } from "../models/index.ts";
+import { CancelInstanceRefreshAnswer, CancelInstanceRefreshType } from "../models/models_0.ts";
 import {
   deserializeAws_queryCancelInstanceRefreshCommand,
   serializeAws_queryCancelInstanceRefreshCommand,

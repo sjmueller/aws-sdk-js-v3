@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { ListModelsInput, ListModelsOutput } from "../models/index.ts";
+import { ListModelsInput, ListModelsOutput } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ListModelsCommand,
   serializeAws_json1_1ListModelsCommand,

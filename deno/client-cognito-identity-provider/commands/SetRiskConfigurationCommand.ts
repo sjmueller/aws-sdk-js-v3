@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { SetRiskConfigurationRequest, SetRiskConfigurationResponse } from "../models/index.ts";
+import { SetRiskConfigurationRequest, SetRiskConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SetRiskConfigurationCommand,
   serializeAws_json1_1SetRiskConfigurationCommand,

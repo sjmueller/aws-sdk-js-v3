@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { ClearDefaultAuthorizerRequest, ClearDefaultAuthorizerResponse } from "../models/index.ts";
+import { ClearDefaultAuthorizerRequest, ClearDefaultAuthorizerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ClearDefaultAuthorizerCommand,
   serializeAws_restJson1ClearDefaultAuthorizerCommand,

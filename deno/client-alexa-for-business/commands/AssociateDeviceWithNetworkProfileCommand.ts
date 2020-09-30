@@ -1,6 +1,9 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { AssociateDeviceWithNetworkProfileRequest, AssociateDeviceWithNetworkProfileResponse } from "../models/index.ts";
+import {
+  AssociateDeviceWithNetworkProfileRequest,
+  AssociateDeviceWithNetworkProfileResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommand,
   serializeAws_json1_1AssociateDeviceWithNetworkProfileCommand,

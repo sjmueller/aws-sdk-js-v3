@@ -1,6 +1,9 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { DeregisterTaskFromMaintenanceWindowRequest, DeregisterTaskFromMaintenanceWindowResult } from "../models/index.ts";
+import {
+  DeregisterTaskFromMaintenanceWindowRequest,
+  DeregisterTaskFromMaintenanceWindowResult,
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommand,
   serializeAws_json1_1DeregisterTaskFromMaintenanceWindowCommand,

@@ -1,6 +1,6 @@
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient.ts";
-import { GetFindingRequest, GetFindingResponse } from "../models/index.ts";
+import { GetFindingRequest, GetFindingResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetFindingCommand,
   serializeAws_restJson1GetFindingCommand,

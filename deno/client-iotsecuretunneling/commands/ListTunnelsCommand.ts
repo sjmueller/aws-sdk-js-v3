@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient.ts";
-import { ListTunnelsRequest, ListTunnelsResponse } from "../models/index.ts";
+import { ListTunnelsRequest, ListTunnelsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListTunnelsCommand,
   serializeAws_json1_1ListTunnelsCommand,

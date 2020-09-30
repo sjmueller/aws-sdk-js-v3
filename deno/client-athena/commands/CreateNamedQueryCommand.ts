@@ -1,6 +1,6 @@
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
-import { CreateNamedQueryInput, CreateNamedQueryOutput } from "../models/index.ts";
+import { CreateNamedQueryInput, CreateNamedQueryOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateNamedQueryCommand,
   serializeAws_json1_1CreateNamedQueryCommand,

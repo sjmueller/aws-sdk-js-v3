@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { UpdateResourceServerRequest, UpdateResourceServerResponse } from "../models/index.ts";
+import { UpdateResourceServerRequest, UpdateResourceServerResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1UpdateResourceServerCommand,
   serializeAws_json1_1UpdateResourceServerCommand,

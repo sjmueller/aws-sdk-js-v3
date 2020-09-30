@@ -1,6 +1,6 @@
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
-import { RemoveTagsFromResourceMessage } from "../models/index.ts";
+import { RemoveTagsFromResourceMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryRemoveTagsFromResourceCommand,
   serializeAws_queryRemoveTagsFromResourceCommand,

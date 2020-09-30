@@ -1,6 +1,6 @@
 
 import { ECRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECRClient.ts";
-import { DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse } from "../models/index.ts";
+import { DeleteLifecyclePolicyRequest, DeleteLifecyclePolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteLifecyclePolicyCommand,
   serializeAws_json1_1DeleteLifecyclePolicyCommand,

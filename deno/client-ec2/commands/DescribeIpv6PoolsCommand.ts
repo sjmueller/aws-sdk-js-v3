@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/index.ts";
+import { DescribeIpv6PoolsRequest, DescribeIpv6PoolsResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeIpv6PoolsCommand,
   serializeAws_ec2DescribeIpv6PoolsCommand,

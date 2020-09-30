@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient.ts";
-import { StopContinuousExportRequest, StopContinuousExportResponse } from "../models/index.ts";
+import { StopContinuousExportRequest, StopContinuousExportResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopContinuousExportCommand,
   serializeAws_json1_1StopContinuousExportCommand,

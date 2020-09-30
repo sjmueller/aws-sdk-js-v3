@@ -37,7 +37,7 @@ import {
   RangeNotSatisfiableException,
   ResourceConflictException,
   ResourceNotFoundException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -476,7 +476,6 @@ export const deserializeAws_restJson1ClaimDevicesByClaimCodeCommand = async (
   }
   const contents: ClaimDevicesByClaimCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClaimDevicesByClaimCodeResponse",
     ClaimCode: undefined,
     Total: undefined,
   };
@@ -552,7 +551,6 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
   }
   const contents: DescribeDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDeviceResponse",
     DeviceDescription: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -624,7 +622,6 @@ export const deserializeAws_restJson1FinalizeDeviceClaimCommand = async (
   }
   const contents: FinalizeDeviceClaimCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "FinalizeDeviceClaimResponse",
     State: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -712,7 +709,6 @@ export const deserializeAws_restJson1GetDeviceMethodsCommand = async (
   }
   const contents: GetDeviceMethodsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDeviceMethodsResponse",
     DeviceMethods: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -784,7 +780,6 @@ export const deserializeAws_restJson1InitiateDeviceClaimCommand = async (
   }
   const contents: InitiateDeviceClaimCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InitiateDeviceClaimResponse",
     State: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -864,7 +859,6 @@ export const deserializeAws_restJson1InvokeDeviceMethodCommand = async (
   }
   const contents: InvokeDeviceMethodCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InvokeDeviceMethodResponse",
     DeviceMethodResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -960,7 +954,6 @@ export const deserializeAws_restJson1ListDeviceEventsCommand = async (
   }
   const contents: ListDeviceEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDeviceEventsResponse",
     Events: undefined,
     NextToken: undefined,
   };
@@ -1044,7 +1037,6 @@ export const deserializeAws_restJson1ListDevicesCommand = async (
   }
   const contents: ListDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDevicesResponse",
     Devices: undefined,
     NextToken: undefined,
   };
@@ -1120,7 +1112,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1251,7 +1242,6 @@ export const deserializeAws_restJson1UnclaimDeviceCommand = async (
   }
   const contents: UnclaimDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UnclaimDeviceResponse",
     State: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1390,7 +1380,6 @@ export const deserializeAws_restJson1UpdateDeviceStateCommand = async (
   }
   const contents: UpdateDeviceStateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDeviceStateResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1639,14 +1628,11 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
 };
 
 const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext): Attributes => {
-  return {
-    __type: "Attributes",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1Device = (output: any, context: __SerdeContext): Device => {
   return {
-    __type: "Device",
     Attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1Attributes(output.attributes, context)
@@ -1668,7 +1654,6 @@ const deserializeAws_restJson1DeviceAttributes = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1DeviceDescription = (output: any, context: __SerdeContext): DeviceDescription => {
   return {
-    __type: "DeviceDescription",
     Arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     Attributes:
       output.attributes !== undefined && output.attributes !== null
@@ -1688,7 +1673,6 @@ const deserializeAws_restJson1DeviceDescription = (output: any, context: __Serde
 
 const deserializeAws_restJson1DeviceEvent = (output: any, context: __SerdeContext): DeviceEvent => {
   return {
-    __type: "DeviceEvent",
     Device:
       output.device !== undefined && output.device !== null
         ? deserializeAws_restJson1Device(output.device, context)
@@ -1699,7 +1683,6 @@ const deserializeAws_restJson1DeviceEvent = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1DeviceMethod = (output: any, context: __SerdeContext): DeviceMethod => {
   return {
-    __type: "DeviceMethod",
     DeviceType: output.deviceType !== undefined && output.deviceType !== null ? output.deviceType : undefined,
     MethodName: output.methodName !== undefined && output.methodName !== null ? output.methodName : undefined,
   } as any;

@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { PurchaseHostReservationRequest, PurchaseHostReservationResult } from "../models/index.ts";
+import { PurchaseHostReservationRequest, PurchaseHostReservationResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2PurchaseHostReservationCommand,
   serializeAws_ec2PurchaseHostReservationCommand,

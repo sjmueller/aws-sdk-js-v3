@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { DescribeSnapshotsListMessage, DescribeSnapshotsMessage } from "../models/index.ts";
+import { DescribeSnapshotsListMessage, DescribeSnapshotsMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeSnapshotsCommand,
   serializeAws_queryDescribeSnapshotsCommand,

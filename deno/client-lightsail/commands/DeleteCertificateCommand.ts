@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { DeleteCertificateRequest, DeleteCertificateResult } from "../models/index.ts";
+import { DeleteCertificateRequest, DeleteCertificateResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteCertificateCommand,
   serializeAws_json1_1DeleteCertificateCommand,

@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ApplySecurityGroupsToClientVpnTargetNetworkRequest,
   ApplySecurityGroupsToClientVpnTargetNetworkResult,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand,
   serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand,

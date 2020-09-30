@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import { CreateLogPatternRequest, CreateLogPatternResponse } from "../models/index.ts";
+import { CreateLogPatternRequest, CreateLogPatternResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateLogPatternCommand,
   serializeAws_json1_1CreateLogPatternCommand,

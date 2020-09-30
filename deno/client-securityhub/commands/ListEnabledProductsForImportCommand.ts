@@ -1,6 +1,6 @@
 
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/index.ts";
+import { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListEnabledProductsForImportCommand,
   serializeAws_restJson1ListEnabledProductsForImportCommand,

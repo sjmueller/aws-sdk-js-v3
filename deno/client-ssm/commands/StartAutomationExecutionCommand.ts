@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { StartAutomationExecutionRequest, StartAutomationExecutionResult } from "../models/index.ts";
+import { StartAutomationExecutionRequest, StartAutomationExecutionResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1StartAutomationExecutionCommand,
   serializeAws_json1_1StartAutomationExecutionCommand,

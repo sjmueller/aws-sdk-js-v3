@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { ScalingProcessQuery } from "../models/index.ts";
+import { ScalingProcessQuery } from "../models/models_0.ts";
 import {
   deserializeAws_queryResumeProcessesCommand,
   serializeAws_queryResumeProcessesCommand,

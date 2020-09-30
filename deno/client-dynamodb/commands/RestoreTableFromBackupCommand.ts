@@ -1,6 +1,6 @@
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
-import { RestoreTableFromBackupInput, RestoreTableFromBackupOutput } from "../models/index.ts";
+import { RestoreTableFromBackupInput, RestoreTableFromBackupOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0RestoreTableFromBackupCommand,
   serializeAws_json1_0RestoreTableFromBackupCommand,

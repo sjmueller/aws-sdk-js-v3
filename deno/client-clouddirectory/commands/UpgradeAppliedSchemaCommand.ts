@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { UpgradeAppliedSchemaRequest, UpgradeAppliedSchemaResponse } from "../models/index.ts";
+import { UpgradeAppliedSchemaRequest, UpgradeAppliedSchemaResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpgradeAppliedSchemaCommand,
   serializeAws_restJson1UpgradeAppliedSchemaCommand,

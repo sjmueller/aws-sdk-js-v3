@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { UpdateAssociationStatusRequest, UpdateAssociationStatusResult } from "../models/index.ts";
+import { UpdateAssociationStatusRequest, UpdateAssociationStatusResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1UpdateAssociationStatusCommand,
   serializeAws_json1_1UpdateAssociationStatusCommand,

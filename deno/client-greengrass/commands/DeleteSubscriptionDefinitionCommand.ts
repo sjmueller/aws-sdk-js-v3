@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { DeleteSubscriptionDefinitionRequest, DeleteSubscriptionDefinitionResponse } from "../models/index.ts";
+import { DeleteSubscriptionDefinitionRequest, DeleteSubscriptionDefinitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteSubscriptionDefinitionCommand,
   serializeAws_restJson1DeleteSubscriptionDefinitionCommand,

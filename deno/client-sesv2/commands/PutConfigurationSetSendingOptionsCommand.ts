@@ -1,6 +1,9 @@
 
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
-import { PutConfigurationSetSendingOptionsRequest, PutConfigurationSetSendingOptionsResponse } from "../models/index.ts";
+import {
+  PutConfigurationSetSendingOptionsRequest,
+  PutConfigurationSetSendingOptionsResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutConfigurationSetSendingOptionsCommand,
   serializeAws_restJson1PutConfigurationSetSendingOptionsCommand,

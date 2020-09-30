@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { Model, UpdateModelRequest } from "../models/index.ts";
+import { Model, UpdateModelRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateModelCommand,
   serializeAws_restJson1UpdateModelCommand,

@@ -1,6 +1,6 @@
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient.ts";
-import { RetrieveTimeSeriesRequest, RetrieveTimeSeriesResponse } from "../models/index.ts";
+import { RetrieveTimeSeriesRequest, RetrieveTimeSeriesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1RetrieveTimeSeriesCommand,
   serializeAws_restJson1RetrieveTimeSeriesCommand,

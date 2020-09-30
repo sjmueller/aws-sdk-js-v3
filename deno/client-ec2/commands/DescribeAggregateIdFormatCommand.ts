@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeAggregateIdFormatRequest, DescribeAggregateIdFormatResult } from "../models/index.ts";
+import { DescribeAggregateIdFormatRequest, DescribeAggregateIdFormatResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeAggregateIdFormatCommand,
   serializeAws_ec2DescribeAggregateIdFormatCommand,

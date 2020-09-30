@@ -1,6 +1,6 @@
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient.ts";
-import { RemovePermissionRequest, RemovePermissionResponse } from "../models/index.ts";
+import { RemovePermissionRequest, RemovePermissionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1RemovePermissionCommand,
   serializeAws_restJson1RemovePermissionCommand,

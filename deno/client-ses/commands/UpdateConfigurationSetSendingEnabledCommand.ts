@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { UpdateConfigurationSetSendingEnabledRequest } from "../models/index.ts";
+import { UpdateConfigurationSetSendingEnabledRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryUpdateConfigurationSetSendingEnabledCommand,
   serializeAws_queryUpdateConfigurationSetSendingEnabledCommand,

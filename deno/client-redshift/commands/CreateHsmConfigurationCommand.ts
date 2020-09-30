@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { CreateHsmConfigurationMessage, CreateHsmConfigurationResult } from "../models/index.ts";
+import { CreateHsmConfigurationMessage, CreateHsmConfigurationResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateHsmConfigurationCommand,
   serializeAws_queryCreateHsmConfigurationCommand,

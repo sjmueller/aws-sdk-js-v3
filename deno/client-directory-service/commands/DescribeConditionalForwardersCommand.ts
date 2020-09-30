@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { DescribeConditionalForwardersRequest, DescribeConditionalForwardersResult } from "../models/index.ts";
+import { DescribeConditionalForwardersRequest, DescribeConditionalForwardersResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeConditionalForwardersCommand,
   serializeAws_json1_1DescribeConditionalForwardersCommand,

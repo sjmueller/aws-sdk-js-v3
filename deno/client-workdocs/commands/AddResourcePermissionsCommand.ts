@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { AddResourcePermissionsRequest, AddResourcePermissionsResponse } from "../models/index.ts";
+import { AddResourcePermissionsRequest, AddResourcePermissionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AddResourcePermissionsCommand,
   serializeAws_restJson1AddResourcePermissionsCommand,

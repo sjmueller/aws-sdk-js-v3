@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { RevokeInvitationRequest, RevokeInvitationResponse } from "../models/index.ts";
+import { RevokeInvitationRequest, RevokeInvitationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RevokeInvitationCommand,
   serializeAws_json1_1RevokeInvitationCommand,

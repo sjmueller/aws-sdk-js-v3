@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { PutRetentionPolicyRequest } from "../models/index.ts";
+import { PutRetentionPolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutRetentionPolicyCommand,
   serializeAws_json1_1PutRetentionPolicyCommand,

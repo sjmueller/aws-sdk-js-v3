@@ -25,7 +25,7 @@ import {
   UpdateDetectorRequest,
   Variable,
   VariableDefinition,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -167,7 +167,6 @@ export const deserializeAws_restJson1BatchPutMessageCommand = async (
   }
   const contents: BatchPutMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchPutMessageResponse",
     BatchPutMessageErrorEntries: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -250,7 +249,6 @@ export const deserializeAws_restJson1BatchUpdateDetectorCommand = async (
   }
   const contents: BatchUpdateDetectorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchUpdateDetectorResponse",
     batchUpdateDetectorErrorEntries: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -333,7 +331,6 @@ export const deserializeAws_restJson1DescribeDetectorCommand = async (
   }
   const contents: DescribeDetectorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDetectorResponse",
     detector: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -421,7 +418,6 @@ export const deserializeAws_restJson1ListDetectorsCommand = async (
   }
   const contents: ListDetectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDetectorsResponse",
     detectorSummaries: undefined,
     nextToken: undefined,
   };
@@ -661,7 +657,6 @@ const deserializeAws_restJson1BatchPutMessageErrorEntry = (
   context: __SerdeContext
 ): BatchPutMessageErrorEntry => {
   return {
-    __type: "BatchPutMessageErrorEntry",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
     messageId: output.messageId !== undefined && output.messageId !== null ? output.messageId : undefined,
@@ -680,7 +675,6 @@ const deserializeAws_restJson1BatchUpdateDetectorErrorEntry = (
   context: __SerdeContext
 ): BatchUpdateDetectorErrorEntry => {
   return {
-    __type: "BatchUpdateDetectorErrorEntry",
     errorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
     errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
     messageId: output.messageId !== undefined && output.messageId !== null ? output.messageId : undefined,
@@ -689,7 +683,6 @@ const deserializeAws_restJson1BatchUpdateDetectorErrorEntry = (
 
 const deserializeAws_restJson1Detector = (output: any, context: __SerdeContext): Detector => {
   return {
-    __type: "Detector",
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
@@ -716,7 +709,6 @@ const deserializeAws_restJson1Detector = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1DetectorState = (output: any, context: __SerdeContext): DetectorState => {
   return {
-    __type: "DetectorState",
     stateName: output.stateName !== undefined && output.stateName !== null ? output.stateName : undefined,
     timers:
       output.timers !== undefined && output.timers !== null
@@ -731,7 +723,6 @@ const deserializeAws_restJson1DetectorState = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1DetectorStateSummary = (output: any, context: __SerdeContext): DetectorStateSummary => {
   return {
-    __type: "DetectorStateSummary",
     stateName: output.stateName !== undefined && output.stateName !== null ? output.stateName : undefined,
   } as any;
 };
@@ -742,7 +733,6 @@ const deserializeAws_restJson1DetectorSummaries = (output: any, context: __Serde
 
 const deserializeAws_restJson1DetectorSummary = (output: any, context: __SerdeContext): DetectorSummary => {
   return {
-    __type: "DetectorSummary",
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
@@ -769,7 +759,6 @@ const deserializeAws_restJson1DetectorSummary = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Timer = (output: any, context: __SerdeContext): Timer => {
   return {
-    __type: "Timer",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
@@ -784,7 +773,6 @@ const deserializeAws_restJson1Timers = (output: any, context: __SerdeContext): T
 
 const deserializeAws_restJson1Variable = (output: any, context: __SerdeContext): Variable => {
   return {
-    __type: "Variable",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;

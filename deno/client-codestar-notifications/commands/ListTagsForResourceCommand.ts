@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient.ts";
-import { ListTagsForResourceRequest, ListTagsForResourceResult } from "../models/index.ts";
+import { ListTagsForResourceRequest, ListTagsForResourceResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListTagsForResourceCommand,
   serializeAws_restJson1ListTagsForResourceCommand,

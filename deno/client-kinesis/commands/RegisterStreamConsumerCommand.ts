@@ -1,6 +1,6 @@
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient.ts";
-import { RegisterStreamConsumerInput, RegisterStreamConsumerOutput } from "../models/index.ts";
+import { RegisterStreamConsumerInput, RegisterStreamConsumerOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RegisterStreamConsumerCommand,
   serializeAws_json1_1RegisterStreamConsumerCommand,

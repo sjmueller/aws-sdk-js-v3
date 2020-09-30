@@ -1,6 +1,6 @@
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
-import { DescribeLimitsInput, DescribeLimitsOutput } from "../models/index.ts";
+import { DescribeLimitsInput, DescribeLimitsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0DescribeLimitsCommand,
   serializeAws_json1_0DescribeLimitsCommand,

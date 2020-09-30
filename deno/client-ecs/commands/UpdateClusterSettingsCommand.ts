@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { UpdateClusterSettingsRequest, UpdateClusterSettingsResponse } from "../models/index.ts";
+import { UpdateClusterSettingsRequest, UpdateClusterSettingsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateClusterSettingsCommand,
   serializeAws_json1_1UpdateClusterSettingsCommand,

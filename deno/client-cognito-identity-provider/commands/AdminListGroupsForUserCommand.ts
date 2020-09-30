@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { AdminListGroupsForUserRequest, AdminListGroupsForUserResponse } from "../models/index.ts";
+import { AdminListGroupsForUserRequest, AdminListGroupsForUserResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AdminListGroupsForUserCommand,
   serializeAws_json1_1AdminListGroupsForUserCommand,

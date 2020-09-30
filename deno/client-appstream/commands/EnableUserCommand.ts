@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { EnableUserRequest, EnableUserResult } from "../models/index.ts";
+import { EnableUserRequest, EnableUserResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1EnableUserCommand,
   serializeAws_json1_1EnableUserCommand,

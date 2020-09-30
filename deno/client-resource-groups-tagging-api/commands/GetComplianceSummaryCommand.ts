@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient.ts";
-import { GetComplianceSummaryInput, GetComplianceSummaryOutput } from "../models/index.ts";
+import { GetComplianceSummaryInput, GetComplianceSummaryOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetComplianceSummaryCommand,
   serializeAws_json1_1GetComplianceSummaryCommand,

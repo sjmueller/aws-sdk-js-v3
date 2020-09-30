@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { EnableDirectoryRequest, EnableDirectoryResponse } from "../models/index.ts";
+import { EnableDirectoryRequest, EnableDirectoryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1EnableDirectoryCommand,
   serializeAws_restJson1EnableDirectoryCommand,

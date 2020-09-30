@@ -1,6 +1,6 @@
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient.ts";
-import { DeleteDomainRequest, DeleteDomainResult } from "../models/index.ts";
+import { DeleteDomainRequest, DeleteDomainResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteDomainCommand,
   serializeAws_restJson1DeleteDomainCommand,

@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { CreatePolicyVersionRequest, CreatePolicyVersionResponse } from "../models/index.ts";
+import { CreatePolicyVersionRequest, CreatePolicyVersionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreatePolicyVersionCommand,
   serializeAws_restJson1CreatePolicyVersionCommand,

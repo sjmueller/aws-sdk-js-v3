@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { ResetPasswordRequest, ResetPasswordResponse } from "../models/index.ts";
+import { ResetPasswordRequest, ResetPasswordResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ResetPasswordCommand,
   serializeAws_json1_1ResetPasswordCommand,

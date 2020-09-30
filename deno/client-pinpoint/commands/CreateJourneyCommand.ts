@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { CreateJourneyRequest, CreateJourneyResponse } from "../models/index.ts";
+import { CreateJourneyRequest, CreateJourneyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateJourneyCommand,
   serializeAws_restJson1CreateJourneyCommand,

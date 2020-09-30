@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { GetOTAUpdateRequest, GetOTAUpdateResponse } from "../models/index.ts";
+import { GetOTAUpdateRequest, GetOTAUpdateResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1GetOTAUpdateCommand,
   serializeAws_restJson1GetOTAUpdateCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { GetUICustomizationRequest, GetUICustomizationResponse } from "../models/index.ts";
+import { GetUICustomizationRequest, GetUICustomizationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetUICustomizationCommand,
   serializeAws_json1_1GetUICustomizationCommand,

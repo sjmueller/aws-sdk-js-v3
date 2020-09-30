@@ -1,6 +1,6 @@
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client.ts";
-import { CreateClusterRequest, CreateClusterResponse } from "../models/index.ts";
+import { CreateClusterRequest, CreateClusterResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateClusterCommand,
   serializeAws_json1_1CreateClusterCommand,

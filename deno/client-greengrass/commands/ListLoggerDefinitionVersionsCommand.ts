@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { ListLoggerDefinitionVersionsRequest, ListLoggerDefinitionVersionsResponse } from "../models/index.ts";
+import { ListLoggerDefinitionVersionsRequest, ListLoggerDefinitionVersionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListLoggerDefinitionVersionsCommand,
   serializeAws_restJson1ListLoggerDefinitionVersionsCommand,

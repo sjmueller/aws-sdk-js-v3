@@ -1,6 +1,6 @@
 
 import { GroundStationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GroundStationClient.ts";
-import { ContactIdResponse, ReserveContactRequest } from "../models/index.ts";
+import { ContactIdResponse, ReserveContactRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ReserveContactCommand,
   serializeAws_restJson1ReserveContactCommand,

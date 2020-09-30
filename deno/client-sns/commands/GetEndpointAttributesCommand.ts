@@ -1,6 +1,6 @@
 
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
-import { GetEndpointAttributesInput, GetEndpointAttributesResponse } from "../models/index.ts";
+import { GetEndpointAttributesInput, GetEndpointAttributesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetEndpointAttributesCommand,
   serializeAws_queryGetEndpointAttributesCommand,

@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { DeleteProvisionedConcurrencyConfigRequest } from "../models/index.ts";
+import { DeleteProvisionedConcurrencyConfigRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand,
   serializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand,

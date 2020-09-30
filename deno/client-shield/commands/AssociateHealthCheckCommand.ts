@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient.ts";
-import { AssociateHealthCheckRequest, AssociateHealthCheckResponse } from "../models/index.ts";
+import { AssociateHealthCheckRequest, AssociateHealthCheckResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AssociateHealthCheckCommand,
   serializeAws_json1_1AssociateHealthCheckCommand,

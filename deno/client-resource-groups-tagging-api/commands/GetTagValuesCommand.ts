@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ResourceGroupsTaggingAPIClient.ts";
-import { GetTagValuesInput, GetTagValuesOutput } from "../models/index.ts";
+import { GetTagValuesInput, GetTagValuesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetTagValuesCommand,
   serializeAws_json1_1GetTagValuesCommand,

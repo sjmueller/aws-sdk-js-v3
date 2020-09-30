@@ -1,6 +1,6 @@
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient.ts";
-import { CreateRealtimeEndpointInput, CreateRealtimeEndpointOutput } from "../models/index.ts";
+import { CreateRealtimeEndpointInput, CreateRealtimeEndpointOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateRealtimeEndpointCommand,
   serializeAws_json1_1CreateRealtimeEndpointCommand,

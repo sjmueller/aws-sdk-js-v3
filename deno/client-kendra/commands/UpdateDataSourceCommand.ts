@@ -1,6 +1,6 @@
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient.ts";
-import { UpdateDataSourceRequest } from "../models/index.ts";
+import { UpdateDataSourceRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateDataSourceCommand,
   serializeAws_json1_1UpdateDataSourceCommand,

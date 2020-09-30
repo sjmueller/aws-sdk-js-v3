@@ -1,6 +1,6 @@
 
 import { IoTEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTEventsClient.ts";
-import { DeleteDetectorModelRequest, DeleteDetectorModelResponse } from "../models/index.ts";
+import { DeleteDetectorModelRequest, DeleteDetectorModelResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteDetectorModelCommand,
   serializeAws_restJson1DeleteDetectorModelCommand,

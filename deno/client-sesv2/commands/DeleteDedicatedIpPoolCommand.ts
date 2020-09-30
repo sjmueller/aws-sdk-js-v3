@@ -1,6 +1,6 @@
 
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
-import { DeleteDedicatedIpPoolRequest, DeleteDedicatedIpPoolResponse } from "../models/index.ts";
+import { DeleteDedicatedIpPoolRequest, DeleteDedicatedIpPoolResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteDedicatedIpPoolCommand,
   serializeAws_restJson1DeleteDedicatedIpPoolCommand,

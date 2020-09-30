@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoTSecureTunnelingClient.ts";
-import { CloseTunnelRequest, CloseTunnelResponse } from "../models/index.ts";
+import { CloseTunnelRequest, CloseTunnelResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CloseTunnelCommand,
   serializeAws_json1_1CloseTunnelCommand,

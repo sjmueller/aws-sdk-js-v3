@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { ListObjectsOutput, ListObjectsRequest } from "../models/index.ts";
+import { ListObjectsOutput, ListObjectsRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlListObjectsCommand,
   serializeAws_restXmlListObjectsCommand,

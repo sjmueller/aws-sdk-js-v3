@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { AttachObjectRequest, AttachObjectResponse } from "../models/index.ts";
+import { AttachObjectRequest, AttachObjectResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AttachObjectCommand,
   serializeAws_restJson1AttachObjectCommand,

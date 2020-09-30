@@ -1,6 +1,6 @@
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
-import { StartImagePipelineExecutionRequest, StartImagePipelineExecutionResponse } from "../models/index.ts";
+import { StartImagePipelineExecutionRequest, StartImagePipelineExecutionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StartImagePipelineExecutionCommand,
   serializeAws_restJson1StartImagePipelineExecutionCommand,

@@ -1,6 +1,6 @@
 
 import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SchemasClient.ts";
-import { DeleteSchemaVersionRequest } from "../models/index.ts";
+import { DeleteSchemaVersionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteSchemaVersionCommand,
   serializeAws_restJson1DeleteSchemaVersionCommand,

@@ -1,6 +1,6 @@
 
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient.ts";
-import { GetGroupQueryInput, GetGroupQueryOutput } from "../models/index.ts";
+import { GetGroupQueryInput, GetGroupQueryOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetGroupQueryCommand,
   serializeAws_restJson1GetGroupQueryCommand,

@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { GetResourceConfigHistoryRequest, GetResourceConfigHistoryResponse } from "../models/index.ts";
+import { GetResourceConfigHistoryRequest, GetResourceConfigHistoryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetResourceConfigHistoryCommand,
   serializeAws_json1_1GetResourceConfigHistoryCommand,

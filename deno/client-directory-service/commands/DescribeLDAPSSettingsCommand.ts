@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { DescribeLDAPSSettingsRequest, DescribeLDAPSSettingsResult } from "../models/index.ts";
+import { DescribeLDAPSSettingsRequest, DescribeLDAPSSettingsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeLDAPSSettingsCommand,
   serializeAws_json1_1DescribeLDAPSSettingsCommand,

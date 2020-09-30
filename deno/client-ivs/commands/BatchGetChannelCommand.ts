@@ -1,6 +1,6 @@
 
 import { IvsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IvsClient.ts";
-import { BatchGetChannelRequest, BatchGetChannelResponse } from "../models/index.ts";
+import { BatchGetChannelRequest, BatchGetChannelResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1BatchGetChannelCommand,
   serializeAws_restJson1BatchGetChannelCommand,

@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { UpdateInputSecurityGroupRequest, UpdateInputSecurityGroupResponse } from "../models/index.ts";
+import { UpdateInputSecurityGroupRequest, UpdateInputSecurityGroupResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UpdateInputSecurityGroupCommand,
   serializeAws_restJson1UpdateInputSecurityGroupCommand,

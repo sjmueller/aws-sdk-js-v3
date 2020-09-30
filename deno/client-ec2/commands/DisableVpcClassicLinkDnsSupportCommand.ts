@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DisableVpcClassicLinkDnsSupportRequest, DisableVpcClassicLinkDnsSupportResult } from "../models/index.ts";
+import { DisableVpcClassicLinkDnsSupportRequest, DisableVpcClassicLinkDnsSupportResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommand,
   serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand,

@@ -1,6 +1,6 @@
 
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
-import { DisableDomainAutoRenewRequest, DisableDomainAutoRenewResponse } from "../models/index.ts";
+import { DisableDomainAutoRenewRequest, DisableDomainAutoRenewResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisableDomainAutoRenewCommand,
   serializeAws_json1_1DisableDomainAutoRenewCommand,

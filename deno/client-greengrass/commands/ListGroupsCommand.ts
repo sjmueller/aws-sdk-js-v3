@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { ListGroupsRequest, ListGroupsResponse } from "../models/index.ts";
+import { ListGroupsRequest, ListGroupsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListGroupsCommand,
   serializeAws_restJson1ListGroupsCommand,

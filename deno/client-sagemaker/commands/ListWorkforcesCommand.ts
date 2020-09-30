@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { ListWorkforcesRequest, ListWorkforcesResponse } from "../models/index.ts";
+import { ListWorkforcesRequest, ListWorkforcesResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ListWorkforcesCommand,
   serializeAws_json1_1ListWorkforcesCommand,

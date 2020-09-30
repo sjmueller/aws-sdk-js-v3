@@ -1,6 +1,6 @@
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
-import { CreateBackendEnvironmentRequest, CreateBackendEnvironmentResult } from "../models/index.ts";
+import { CreateBackendEnvironmentRequest, CreateBackendEnvironmentResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateBackendEnvironmentCommand,
   serializeAws_restJson1CreateBackendEnvironmentCommand,

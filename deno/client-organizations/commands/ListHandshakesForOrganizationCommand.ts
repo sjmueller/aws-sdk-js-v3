@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { ListHandshakesForOrganizationRequest, ListHandshakesForOrganizationResponse } from "../models/index.ts";
+import { ListHandshakesForOrganizationRequest, ListHandshakesForOrganizationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListHandshakesForOrganizationCommand,
   serializeAws_json1_1ListHandshakesForOrganizationCommand,

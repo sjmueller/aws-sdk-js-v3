@@ -38,7 +38,7 @@ import {
   ThrottlingException,
   ValidationException,
   _Stream,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -534,7 +534,6 @@ export const deserializeAws_restJson1BatchGetChannelCommand = async (
   }
   const contents: BatchGetChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGetChannelResponse",
     channels: undefined,
     errors: undefined,
   };
@@ -586,7 +585,6 @@ export const deserializeAws_restJson1BatchGetStreamKeyCommand = async (
   }
   const contents: BatchGetStreamKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGetStreamKeyResponse",
     errors: undefined,
     streamKeys: undefined,
   };
@@ -638,7 +636,6 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
   }
   const contents: CreateChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateChannelResponse",
     channel: undefined,
     streamKey: undefined,
   };
@@ -722,7 +719,6 @@ export const deserializeAws_restJson1CreateStreamKeyCommand = async (
   }
   const contents: CreateStreamKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStreamKeyResponse",
     streamKey: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -968,7 +964,6 @@ export const deserializeAws_restJson1GetChannelCommand = async (
   }
   const contents: GetChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetChannelResponse",
     channel: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1040,7 +1035,6 @@ export const deserializeAws_restJson1GetStreamCommand = async (
   }
   const contents: GetStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetStreamResponse",
     stream: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1120,7 +1114,6 @@ export const deserializeAws_restJson1GetStreamKeyCommand = async (
   }
   const contents: GetStreamKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetStreamKeyResponse",
     streamKey: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1192,7 +1185,6 @@ export const deserializeAws_restJson1ListChannelsCommand = async (
   }
   const contents: ListChannelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListChannelsResponse",
     channels: undefined,
     nextToken: undefined,
   };
@@ -1260,7 +1252,6 @@ export const deserializeAws_restJson1ListStreamKeysCommand = async (
   }
   const contents: ListStreamKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStreamKeysResponse",
     nextToken: undefined,
     streamKeys: undefined,
   };
@@ -1336,7 +1327,6 @@ export const deserializeAws_restJson1ListStreamsCommand = async (
   }
   const contents: ListStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStreamsResponse",
     nextToken: undefined,
     streams: undefined,
   };
@@ -1396,7 +1386,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     nextToken: undefined,
     tags: undefined,
   };
@@ -1555,7 +1544,6 @@ export const deserializeAws_restJson1StopStreamCommand = async (
   }
   const contents: StopStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopStreamResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1639,7 +1627,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1707,7 +1694,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1775,7 +1761,6 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
   }
   const contents: UpdateChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateChannelResponse",
     channel: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2044,7 +2029,6 @@ const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: _
 
 const deserializeAws_restJson1BatchError = (output: any, context: __SerdeContext): BatchError => {
   return {
-    __type: "BatchError",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
@@ -2057,7 +2041,6 @@ const deserializeAws_restJson1BatchErrors = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
   return {
-    __type: "Channel",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     ingestEndpoint:
       output.ingestEndpoint !== undefined && output.ingestEndpoint !== null ? output.ingestEndpoint : undefined,
@@ -2082,7 +2065,6 @@ const deserializeAws_restJson1Channels = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
   return {
-    __type: "ChannelSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     latencyMode: output.latencyMode !== undefined && output.latencyMode !== null ? output.latencyMode : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -2095,7 +2077,6 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): _Stream => {
   return {
-    __type: "Stream",
     channelArn: output.channelArn !== undefined && output.channelArn !== null ? output.channelArn : undefined,
     health: output.health !== undefined && output.health !== null ? output.health : undefined,
     playbackUrl: output.playbackUrl !== undefined && output.playbackUrl !== null ? output.playbackUrl : undefined,
@@ -2110,7 +2091,6 @@ const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1StreamKey = (output: any, context: __SerdeContext): StreamKey => {
   return {
-    __type: "StreamKey",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     channelArn: output.channelArn !== undefined && output.channelArn !== null ? output.channelArn : undefined,
     tags:
@@ -2131,7 +2111,6 @@ const deserializeAws_restJson1StreamKeys = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1StreamKeySummary = (output: any, context: __SerdeContext): StreamKeySummary => {
   return {
-    __type: "StreamKeySummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     channelArn: output.channelArn !== undefined && output.channelArn !== null ? output.channelArn : undefined,
     tags:
@@ -2147,7 +2126,6 @@ const deserializeAws_restJson1StreamList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeContext): StreamSummary => {
   return {
-    __type: "StreamSummary",
     channelArn: output.channelArn !== undefined && output.channelArn !== null ? output.channelArn : undefined,
     health: output.health !== undefined && output.health !== null ? output.health : undefined,
     startTime:

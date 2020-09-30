@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { DeregisterDelegatedAdministratorRequest } from "../models/index.ts";
+import { DeregisterDelegatedAdministratorRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeregisterDelegatedAdministratorCommand,
   serializeAws_json1_1DeregisterDelegatedAdministratorCommand,

@@ -1,6 +1,6 @@
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
-import { CreateCustomActionTypeInput, CreateCustomActionTypeOutput } from "../models/index.ts";
+import { CreateCustomActionTypeInput, CreateCustomActionTypeOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateCustomActionTypeCommand,
   serializeAws_json1_1CreateCustomActionTypeCommand,

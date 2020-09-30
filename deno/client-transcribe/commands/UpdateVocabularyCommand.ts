@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig } from "../TranscribeClient.ts";
-import { UpdateVocabularyRequest, UpdateVocabularyResponse } from "../models/index.ts";
+import { UpdateVocabularyRequest, UpdateVocabularyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateVocabularyCommand,
   serializeAws_json1_1UpdateVocabularyCommand,

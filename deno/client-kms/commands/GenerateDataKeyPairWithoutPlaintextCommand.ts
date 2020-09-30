@@ -3,7 +3,7 @@ import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GenerateDataKeyPairWithoutPlaintextRequest,
   GenerateDataKeyPairWithoutPlaintextResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand,
   serializeAws_json1_1GenerateDataKeyPairWithoutPlaintextCommand,

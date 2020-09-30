@@ -1,6 +1,6 @@
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient.ts";
-import { CreateDataSourceFromRDSInput, CreateDataSourceFromRDSOutput } from "../models/index.ts";
+import { CreateDataSourceFromRDSInput, CreateDataSourceFromRDSOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateDataSourceFromRDSCommand,
   serializeAws_json1_1CreateDataSourceFromRDSCommand,

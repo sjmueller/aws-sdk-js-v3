@@ -1,6 +1,6 @@
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
-import { DescribeDomainEndpointOptionsRequest, DescribeDomainEndpointOptionsResponse } from "../models/index.ts";
+import { DescribeDomainEndpointOptionsRequest, DescribeDomainEndpointOptionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeDomainEndpointOptionsCommand,
   serializeAws_queryDescribeDomainEndpointOptionsCommand,

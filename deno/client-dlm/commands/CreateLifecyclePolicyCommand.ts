@@ -1,6 +1,6 @@
 
 import { DLMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DLMClient.ts";
-import { CreateLifecyclePolicyRequest, CreateLifecyclePolicyResponse } from "../models/index.ts";
+import { CreateLifecyclePolicyRequest, CreateLifecyclePolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateLifecyclePolicyCommand,
   serializeAws_restJson1CreateLifecyclePolicyCommand,

@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { CreateCommitInput, CreateCommitOutput } from "../models/index.ts";
+import { CreateCommitInput, CreateCommitOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateCommitCommand,
   serializeAws_json1_1CreateCommitCommand,

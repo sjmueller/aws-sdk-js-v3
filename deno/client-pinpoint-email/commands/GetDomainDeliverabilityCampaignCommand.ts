@@ -1,6 +1,6 @@
 
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
-import { GetDomainDeliverabilityCampaignRequest, GetDomainDeliverabilityCampaignResponse } from "../models/index.ts";
+import { GetDomainDeliverabilityCampaignRequest, GetDomainDeliverabilityCampaignResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetDomainDeliverabilityCampaignCommand,
   serializeAws_restJson1GetDomainDeliverabilityCampaignCommand,

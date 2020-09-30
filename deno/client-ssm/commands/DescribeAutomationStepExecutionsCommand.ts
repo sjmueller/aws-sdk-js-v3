@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { DescribeAutomationStepExecutionsRequest, DescribeAutomationStepExecutionsResult } from "../models/index.ts";
+import { DescribeAutomationStepExecutionsRequest, DescribeAutomationStepExecutionsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeAutomationStepExecutionsCommand,
   serializeAws_json1_1DescribeAutomationStepExecutionsCommand,

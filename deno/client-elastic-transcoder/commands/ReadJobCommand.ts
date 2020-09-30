@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient.ts";
-import { ReadJobRequest, ReadJobResponse } from "../models/index.ts";
+import { ReadJobRequest, ReadJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ReadJobCommand,
   serializeAws_restJson1ReadJobCommand,

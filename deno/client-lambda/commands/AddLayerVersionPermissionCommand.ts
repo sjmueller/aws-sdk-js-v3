@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { AddLayerVersionPermissionRequest, AddLayerVersionPermissionResponse } from "../models/index.ts";
+import { AddLayerVersionPermissionRequest, AddLayerVersionPermissionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AddLayerVersionPermissionCommand,
   serializeAws_restJson1AddLayerVersionPermissionCommand,

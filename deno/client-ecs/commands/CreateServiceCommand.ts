@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { CreateServiceRequest, CreateServiceResponse } from "../models/index.ts";
+import { CreateServiceRequest, CreateServiceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateServiceCommand,
   serializeAws_json1_1CreateServiceCommand,

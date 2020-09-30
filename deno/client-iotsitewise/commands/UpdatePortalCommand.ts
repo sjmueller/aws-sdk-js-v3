@@ -1,6 +1,6 @@
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
-import { UpdatePortalRequest, UpdatePortalResponse } from "../models/index.ts";
+import { UpdatePortalRequest, UpdatePortalResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdatePortalCommand,
   serializeAws_restJson1UpdatePortalCommand,

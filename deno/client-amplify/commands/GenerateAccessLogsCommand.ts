@@ -1,6 +1,6 @@
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
-import { GenerateAccessLogsRequest, GenerateAccessLogsResult } from "../models/index.ts";
+import { GenerateAccessLogsRequest, GenerateAccessLogsResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GenerateAccessLogsCommand,
   serializeAws_restJson1GenerateAccessLogsCommand,

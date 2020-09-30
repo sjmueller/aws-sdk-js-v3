@@ -1,6 +1,6 @@
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
-import { DeleteAccessLogSettingsRequest } from "../models/index.ts";
+import { DeleteAccessLogSettingsRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteAccessLogSettingsCommand,
   serializeAws_restJson1DeleteAccessLogSettingsCommand,

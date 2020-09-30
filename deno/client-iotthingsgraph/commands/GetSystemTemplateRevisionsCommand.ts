@@ -1,6 +1,6 @@
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
-import { GetSystemTemplateRevisionsRequest, GetSystemTemplateRevisionsResponse } from "../models/index.ts";
+import { GetSystemTemplateRevisionsRequest, GetSystemTemplateRevisionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetSystemTemplateRevisionsCommand,
   serializeAws_json1_1GetSystemTemplateRevisionsCommand,

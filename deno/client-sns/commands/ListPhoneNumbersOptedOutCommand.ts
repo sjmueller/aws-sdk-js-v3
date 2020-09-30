@@ -1,6 +1,6 @@
 
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
-import { ListPhoneNumbersOptedOutInput, ListPhoneNumbersOptedOutResponse } from "../models/index.ts";
+import { ListPhoneNumbersOptedOutInput, ListPhoneNumbersOptedOutResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryListPhoneNumbersOptedOutCommand,
   serializeAws_queryListPhoneNumbersOptedOutCommand,

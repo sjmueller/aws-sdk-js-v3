@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisVideoArchivedMediaClient.ts";
-import { GetClipInput, GetClipOutput } from "../models/index.ts";
+import { GetClipInput, GetClipOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetClipCommand,
   serializeAws_restJson1GetClipCommand,

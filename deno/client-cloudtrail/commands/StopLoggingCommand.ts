@@ -1,6 +1,6 @@
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient.ts";
-import { StopLoggingRequest, StopLoggingResponse } from "../models/index.ts";
+import { StopLoggingRequest, StopLoggingResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopLoggingCommand,
   serializeAws_json1_1StopLoggingCommand,

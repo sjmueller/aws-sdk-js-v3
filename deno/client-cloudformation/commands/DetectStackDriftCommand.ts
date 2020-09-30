@@ -1,6 +1,6 @@
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
-import { DetectStackDriftInput, DetectStackDriftOutput } from "../models/index.ts";
+import { DetectStackDriftInput, DetectStackDriftOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDetectStackDriftCommand,
   serializeAws_queryDetectStackDriftCommand,

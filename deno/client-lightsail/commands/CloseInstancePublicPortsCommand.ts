@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { CloseInstancePublicPortsRequest, CloseInstancePublicPortsResult } from "../models/index.ts";
+import { CloseInstancePublicPortsRequest, CloseInstancePublicPortsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CloseInstancePublicPortsCommand,
   serializeAws_json1_1CloseInstancePublicPortsCommand,

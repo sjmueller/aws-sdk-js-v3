@@ -1,6 +1,6 @@
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
-import { DescribeLoggingOptionsRequest, DescribeLoggingOptionsResponse } from "../models/index.ts";
+import { DescribeLoggingOptionsRequest, DescribeLoggingOptionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeLoggingOptionsCommand,
   serializeAws_restJson1DescribeLoggingOptionsCommand,

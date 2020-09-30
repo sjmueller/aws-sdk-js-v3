@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../EC2InstanceConnectClient.ts";
-import { SendSSHPublicKeyRequest, SendSSHPublicKeyResponse } from "../models/index.ts";
+import { SendSSHPublicKeyRequest, SendSSHPublicKeyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SendSSHPublicKeyCommand,
   serializeAws_json1_1SendSSHPublicKeyCommand,

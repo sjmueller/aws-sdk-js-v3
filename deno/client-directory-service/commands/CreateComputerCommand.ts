@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { CreateComputerRequest, CreateComputerResult } from "../models/index.ts";
+import { CreateComputerRequest, CreateComputerResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateComputerCommand,
   serializeAws_json1_1CreateComputerCommand,

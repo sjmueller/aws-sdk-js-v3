@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { GetComplianceDetailsByResourceRequest, GetComplianceDetailsByResourceResponse } from "../models/index.ts";
+import { GetComplianceDetailsByResourceRequest, GetComplianceDetailsByResourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetComplianceDetailsByResourceCommand,
   serializeAws_json1_1GetComplianceDetailsByResourceCommand,

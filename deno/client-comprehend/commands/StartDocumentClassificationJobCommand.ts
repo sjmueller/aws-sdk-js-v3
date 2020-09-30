@@ -1,6 +1,6 @@
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
-import { StartDocumentClassificationJobRequest, StartDocumentClassificationJobResponse } from "../models/index.ts";
+import { StartDocumentClassificationJobRequest, StartDocumentClassificationJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartDocumentClassificationJobCommand,
   serializeAws_json1_1StartDocumentClassificationJobCommand,

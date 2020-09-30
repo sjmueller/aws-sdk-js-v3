@@ -1,6 +1,7 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DescribeCACertificateRequest, DescribeCACertificateResponse } from "../models/index.ts";
+import { DescribeCACertificateRequest } from "../models/models_0.ts";
+import { DescribeCACertificateResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DescribeCACertificateCommand,
   serializeAws_restJson1DescribeCACertificateCommand,

@@ -1,6 +1,6 @@
 
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient.ts";
-import { CreateRobotApplicationVersionRequest, CreateRobotApplicationVersionResponse } from "../models/index.ts";
+import { CreateRobotApplicationVersionRequest, CreateRobotApplicationVersionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateRobotApplicationVersionCommand,
   serializeAws_restJson1CreateRobotApplicationVersionCommand,

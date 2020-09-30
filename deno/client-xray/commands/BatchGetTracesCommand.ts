@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from "../XRayClient.ts";
-import { BatchGetTracesRequest, BatchGetTracesResult } from "../models/index.ts";
+import { BatchGetTracesRequest, BatchGetTracesResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1BatchGetTracesCommand,
   serializeAws_restJson1BatchGetTracesCommand,

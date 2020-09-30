@@ -1,6 +1,6 @@
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
-import { StartMonitoringMembersRequest, StartMonitoringMembersResponse } from "../models/index.ts";
+import { StartMonitoringMembersRequest, StartMonitoringMembersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StartMonitoringMembersCommand,
   serializeAws_restJson1StartMonitoringMembersCommand,

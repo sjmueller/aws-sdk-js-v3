@@ -8,7 +8,7 @@ import {
   NotAuthorizedException,
   ResourceNotFoundException,
   StartSelector,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -55,7 +55,6 @@ export const deserializeAws_restJson1GetMediaCommand = async (
   }
   const contents: GetMediaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMediaOutput",
     ContentType: undefined,
     Payload: undefined,
   };

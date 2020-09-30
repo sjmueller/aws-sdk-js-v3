@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { DescribeServiceUpdatesMessage, ServiceUpdatesMessage } from "../models/index.ts";
+import { DescribeServiceUpdatesMessage, ServiceUpdatesMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeServiceUpdatesCommand,
   serializeAws_queryDescribeServiceUpdatesCommand,

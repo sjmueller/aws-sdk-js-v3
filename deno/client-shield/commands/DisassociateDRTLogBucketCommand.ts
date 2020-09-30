@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient.ts";
-import { DisassociateDRTLogBucketRequest, DisassociateDRTLogBucketResponse } from "../models/index.ts";
+import { DisassociateDRTLogBucketRequest, DisassociateDRTLogBucketResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateDRTLogBucketCommand,
   serializeAws_json1_1DisassociateDRTLogBucketCommand,

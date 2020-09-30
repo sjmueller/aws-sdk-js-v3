@@ -1,6 +1,6 @@
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient.ts";
-import { ListDatasetImportJobsRequest, ListDatasetImportJobsResponse } from "../models/index.ts";
+import { ListDatasetImportJobsRequest, ListDatasetImportJobsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListDatasetImportJobsCommand,
   serializeAws_json1_1ListDatasetImportJobsCommand,

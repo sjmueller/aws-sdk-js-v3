@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { ListScriptsInput, ListScriptsOutput } from "../models/index.ts";
+import { ListScriptsInput, ListScriptsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListScriptsCommand,
   serializeAws_json1_1ListScriptsCommand,

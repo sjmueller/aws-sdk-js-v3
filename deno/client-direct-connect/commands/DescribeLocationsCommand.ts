@@ -1,6 +1,6 @@
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
-import { Locations } from "../models/index.ts";
+import { Locations } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeLocationsCommand,
   serializeAws_json1_1DescribeLocationsCommand,

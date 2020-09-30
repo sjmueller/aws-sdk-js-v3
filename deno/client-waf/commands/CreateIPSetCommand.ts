@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { CreateIPSetRequest, CreateIPSetResponse } from "../models/index.ts";
+import { CreateIPSetRequest, CreateIPSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateIPSetCommand,
   serializeAws_json1_1CreateIPSetCommand,

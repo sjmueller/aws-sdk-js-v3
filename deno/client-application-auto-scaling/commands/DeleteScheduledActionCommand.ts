@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient.ts";
-import { DeleteScheduledActionRequest, DeleteScheduledActionResponse } from "../models/index.ts";
+import { DeleteScheduledActionRequest, DeleteScheduledActionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteScheduledActionCommand,
   serializeAws_json1_1DeleteScheduledActionCommand,

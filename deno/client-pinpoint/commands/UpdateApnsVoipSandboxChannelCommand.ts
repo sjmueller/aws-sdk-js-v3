@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { UpdateApnsVoipSandboxChannelRequest, UpdateApnsVoipSandboxChannelResponse } from "../models/index.ts";
+import { UpdateApnsVoipSandboxChannelRequest, UpdateApnsVoipSandboxChannelResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommand,
   serializeAws_restJson1UpdateApnsVoipSandboxChannelCommand,

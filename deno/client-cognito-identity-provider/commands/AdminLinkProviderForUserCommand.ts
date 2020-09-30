@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { AdminLinkProviderForUserRequest, AdminLinkProviderForUserResponse } from "../models/index.ts";
+import { AdminLinkProviderForUserRequest, AdminLinkProviderForUserResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AdminLinkProviderForUserCommand,
   serializeAws_json1_1AdminLinkProviderForUserCommand,

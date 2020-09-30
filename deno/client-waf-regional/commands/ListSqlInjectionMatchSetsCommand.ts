@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { ListSqlInjectionMatchSetsRequest, ListSqlInjectionMatchSetsResponse } from "../models/index.ts";
+import { ListSqlInjectionMatchSetsRequest, ListSqlInjectionMatchSetsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListSqlInjectionMatchSetsCommand,
   serializeAws_json1_1ListSqlInjectionMatchSetsCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { ListActivatedRulesInRuleGroupRequest, ListActivatedRulesInRuleGroupResponse } from "../models/index.ts";
+import { ListActivatedRulesInRuleGroupRequest, ListActivatedRulesInRuleGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand,
   serializeAws_json1_1ListActivatedRulesInRuleGroupCommand,

@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { FlushStageAuthorizersCacheRequest } from "../models/index.ts";
+import { FlushStageAuthorizersCacheRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1FlushStageAuthorizersCacheCommand,
   serializeAws_restJson1FlushStageAuthorizersCacheCommand,

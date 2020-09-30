@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { ListGeoMatchSetsRequest, ListGeoMatchSetsResponse } from "../models/index.ts";
+import { ListGeoMatchSetsRequest, ListGeoMatchSetsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListGeoMatchSetsCommand,
   serializeAws_json1_1ListGeoMatchSetsCommand,

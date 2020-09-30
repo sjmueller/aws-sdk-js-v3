@@ -1,6 +1,6 @@
 
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient.ts";
-import { GetBlockRequest, GetBlockResponse } from "../models/index.ts";
+import { GetBlockRequest, GetBlockResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetBlockCommand,
   serializeAws_restJson1GetBlockCommand,

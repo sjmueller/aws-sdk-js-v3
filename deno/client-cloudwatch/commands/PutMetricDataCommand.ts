@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { PutMetricDataInput } from "../models/index.ts";
+import { PutMetricDataInput } from "../models/models_0.ts";
 import {
   deserializeAws_queryPutMetricDataCommand,
   serializeAws_queryPutMetricDataCommand,

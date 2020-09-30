@@ -1,6 +1,6 @@
 
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient.ts";
-import { ListPendingInvitationResourcesRequest, ListPendingInvitationResourcesResponse } from "../models/index.ts";
+import { ListPendingInvitationResourcesRequest, ListPendingInvitationResourcesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListPendingInvitationResourcesCommand,
   serializeAws_restJson1ListPendingInvitationResourcesCommand,

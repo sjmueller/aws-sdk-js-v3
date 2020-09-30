@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { DisableInsightRulesInput, DisableInsightRulesOutput } from "../models/index.ts";
+import { DisableInsightRulesInput, DisableInsightRulesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDisableInsightRulesCommand,
   serializeAws_queryDisableInsightRulesCommand,

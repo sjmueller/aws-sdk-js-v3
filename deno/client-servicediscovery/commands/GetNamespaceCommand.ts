@@ -1,6 +1,6 @@
 
 import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceDiscoveryClient.ts";
-import { GetNamespaceRequest, GetNamespaceResponse } from "../models/index.ts";
+import { GetNamespaceRequest, GetNamespaceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetNamespaceCommand,
   serializeAws_json1_1GetNamespaceCommand,

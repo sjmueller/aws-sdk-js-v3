@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { ListMFADevicesRequest, ListMFADevicesResponse } from "../models/index.ts";
+import { ListMFADevicesRequest, ListMFADevicesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryListMFADevicesCommand,
   serializeAws_queryListMFADevicesCommand,

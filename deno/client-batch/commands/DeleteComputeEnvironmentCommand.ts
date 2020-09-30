@@ -1,6 +1,6 @@
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient.ts";
-import { DeleteComputeEnvironmentRequest, DeleteComputeEnvironmentResponse } from "../models/index.ts";
+import { DeleteComputeEnvironmentRequest, DeleteComputeEnvironmentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteComputeEnvironmentCommand,
   serializeAws_restJson1DeleteComputeEnvironmentCommand,

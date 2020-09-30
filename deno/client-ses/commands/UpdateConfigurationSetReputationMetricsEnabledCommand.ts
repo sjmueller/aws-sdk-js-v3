@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { UpdateConfigurationSetReputationMetricsEnabledRequest } from "../models/index.ts";
+import { UpdateConfigurationSetReputationMetricsEnabledRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand,
   serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCommand,

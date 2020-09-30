@@ -1,6 +1,6 @@
 import { Buffer } from "../../buffer/mod.ts";
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient.ts";
-import { PutObjectRequest, PutObjectResponse } from "../models/index.ts";
+import { PutObjectRequest, PutObjectResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutObjectCommand,
   serializeAws_restJson1PutObjectCommand,

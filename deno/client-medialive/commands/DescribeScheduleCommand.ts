@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { DescribeScheduleRequest, DescribeScheduleResponse } from "../models/index.ts";
+import { DescribeScheduleRequest, DescribeScheduleResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DescribeScheduleCommand,
   serializeAws_restJson1DescribeScheduleCommand,

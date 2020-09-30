@@ -1,6 +1,6 @@
 
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
-import { PutAppReplicationConfigurationRequest, PutAppReplicationConfigurationResponse } from "../models/index.ts";
+import { PutAppReplicationConfigurationRequest, PutAppReplicationConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutAppReplicationConfigurationCommand,
   serializeAws_json1_1PutAppReplicationConfigurationCommand,

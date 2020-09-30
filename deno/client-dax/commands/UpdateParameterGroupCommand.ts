@@ -1,6 +1,6 @@
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient.ts";
-import { UpdateParameterGroupRequest, UpdateParameterGroupResponse } from "../models/index.ts";
+import { UpdateParameterGroupRequest, UpdateParameterGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateParameterGroupCommand,
   serializeAws_json1_1UpdateParameterGroupCommand,

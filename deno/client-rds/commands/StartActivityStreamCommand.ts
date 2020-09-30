@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { StartActivityStreamRequest, StartActivityStreamResponse } from "../models/index.ts";
+import { StartActivityStreamRequest, StartActivityStreamResponse } from "../models/models_1.ts";
 import {
   deserializeAws_queryStartActivityStreamCommand,
   serializeAws_queryStartActivityStreamCommand,

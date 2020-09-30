@@ -3,7 +3,7 @@ import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   ListVoiceConnectorTerminationCredentialsRequest,
   ListVoiceConnectorTerminationCredentialsResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommand,
   serializeAws_restJson1ListVoiceConnectorTerminationCredentialsCommand,

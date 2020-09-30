@@ -1,6 +1,6 @@
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient.ts";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/index.ts";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UntagResourceCommand,
   serializeAws_json1_1UntagResourceCommand,

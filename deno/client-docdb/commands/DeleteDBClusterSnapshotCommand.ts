@@ -1,6 +1,6 @@
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
-import { DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult } from "../models/index.ts";
+import { DeleteDBClusterSnapshotMessage, DeleteDBClusterSnapshotResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteDBClusterSnapshotCommand,
   serializeAws_queryDeleteDBClusterSnapshotCommand,

@@ -1,6 +1,6 @@
 
 import { IoTDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTDataPlaneClient.ts";
-import { DeleteThingShadowRequest, DeleteThingShadowResponse } from "../models/index.ts";
+import { DeleteThingShadowRequest, DeleteThingShadowResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteThingShadowCommand,
   serializeAws_restJson1DeleteThingShadowCommand,

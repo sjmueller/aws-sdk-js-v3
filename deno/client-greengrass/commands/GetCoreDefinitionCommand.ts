@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { GetCoreDefinitionRequest, GetCoreDefinitionResponse } from "../models/index.ts";
+import { GetCoreDefinitionRequest, GetCoreDefinitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetCoreDefinitionCommand,
   serializeAws_restJson1GetCoreDefinitionCommand,

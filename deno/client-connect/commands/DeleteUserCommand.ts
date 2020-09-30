@@ -1,6 +1,6 @@
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
-import { DeleteUserRequest } from "../models/index.ts";
+import { DeleteUserRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteUserCommand,
   serializeAws_restJson1DeleteUserCommand,

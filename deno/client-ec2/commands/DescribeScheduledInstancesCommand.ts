@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeScheduledInstancesRequest, DescribeScheduledInstancesResult } from "../models/index.ts";
+import { DescribeScheduledInstancesRequest, DescribeScheduledInstancesResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2DescribeScheduledInstancesCommand,
   serializeAws_ec2DescribeScheduledInstancesCommand,

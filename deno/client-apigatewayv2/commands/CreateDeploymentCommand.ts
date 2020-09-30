@@ -1,6 +1,6 @@
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
-import { CreateDeploymentRequest, CreateDeploymentResponse } from "../models/index.ts";
+import { CreateDeploymentRequest, CreateDeploymentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateDeploymentCommand,
   serializeAws_restJson1CreateDeploymentCommand,

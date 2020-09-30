@@ -1,6 +1,6 @@
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
-import { DeactivateEventSourceRequest } from "../models/index.ts";
+import { DeactivateEventSourceRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeactivateEventSourceCommand,
   serializeAws_json1_1DeactivateEventSourceCommand,

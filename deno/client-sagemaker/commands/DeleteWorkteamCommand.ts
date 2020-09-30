@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { DeleteWorkteamRequest, DeleteWorkteamResponse } from "../models/index.ts";
+import { DeleteWorkteamRequest, DeleteWorkteamResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1DeleteWorkteamCommand,
   serializeAws_json1_1DeleteWorkteamCommand,

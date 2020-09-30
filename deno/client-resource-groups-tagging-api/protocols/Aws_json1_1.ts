@@ -46,7 +46,7 @@ import {
   ThrottledException,
   UntagResourcesInput,
   UntagResourcesOutput,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -173,7 +173,6 @@ export const deserializeAws_json1_1DescribeReportCreationCommand = async (
   contents = deserializeAws_json1_1DescribeReportCreationOutput(data, context);
   const response: DescribeReportCreationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReportCreationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -253,7 +252,6 @@ export const deserializeAws_json1_1GetComplianceSummaryCommand = async (
   contents = deserializeAws_json1_1GetComplianceSummaryOutput(data, context);
   const response: GetComplianceSummaryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetComplianceSummaryOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -333,7 +331,6 @@ export const deserializeAws_json1_1GetResourcesCommand = async (
   contents = deserializeAws_json1_1GetResourcesOutput(data, context);
   const response: GetResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetResourcesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -413,7 +410,6 @@ export const deserializeAws_json1_1GetTagKeysCommand = async (
   contents = deserializeAws_json1_1GetTagKeysOutput(data, context);
   const response: GetTagKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTagKeysOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -493,7 +489,6 @@ export const deserializeAws_json1_1GetTagValuesCommand = async (
   contents = deserializeAws_json1_1GetTagValuesOutput(data, context);
   const response: GetTagValuesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTagValuesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -573,7 +568,6 @@ export const deserializeAws_json1_1StartReportCreationCommand = async (
   contents = deserializeAws_json1_1StartReportCreationOutput(data, context);
   const response: StartReportCreationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartReportCreationOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -661,7 +655,6 @@ export const deserializeAws_json1_1TagResourcesCommand = async (
   contents = deserializeAws_json1_1TagResourcesOutput(data, context);
   const response: TagResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourcesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -733,7 +726,6 @@ export const deserializeAws_json1_1UntagResourcesCommand = async (
   contents = deserializeAws_json1_1UntagResourcesOutput(data, context);
   const response: UntagResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourcesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1026,7 +1018,6 @@ const serializeAws_json1_1UntagResourcesInput = (input: UntagResourcesInput, con
 
 const deserializeAws_json1_1ComplianceDetails = (output: any, context: __SerdeContext): ComplianceDetails => {
   return {
-    __type: "ComplianceDetails",
     ComplianceStatus:
       output.ComplianceStatus !== undefined && output.ComplianceStatus !== null ? output.ComplianceStatus : undefined,
     KeysWithNoncompliantValues:
@@ -1045,7 +1036,6 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    __type: "ConcurrentModificationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1055,7 +1045,6 @@ const deserializeAws_json1_1ConstraintViolationException = (
   context: __SerdeContext
 ): ConstraintViolationException => {
   return {
-    __type: "ConstraintViolationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1065,7 +1054,6 @@ const deserializeAws_json1_1DescribeReportCreationOutput = (
   context: __SerdeContext
 ): DescribeReportCreationOutput => {
   return {
-    __type: "DescribeReportCreationOutput",
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     S3Location: output.S3Location !== undefined && output.S3Location !== null ? output.S3Location : undefined,
     StartDate: output.StartDate !== undefined && output.StartDate !== null ? output.StartDate : undefined,
@@ -1088,7 +1076,6 @@ const deserializeAws_json1_1FailedResourcesMap = (
 
 const deserializeAws_json1_1FailureInfo = (output: any, context: __SerdeContext): FailureInfo => {
   return {
-    __type: "FailureInfo",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     StatusCode: output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined,
@@ -1100,7 +1087,6 @@ const deserializeAws_json1_1GetComplianceSummaryOutput = (
   context: __SerdeContext
 ): GetComplianceSummaryOutput => {
   return {
-    __type: "GetComplianceSummaryOutput",
     PaginationToken:
       output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
     SummaryList:
@@ -1112,7 +1098,6 @@ const deserializeAws_json1_1GetComplianceSummaryOutput = (
 
 const deserializeAws_json1_1GetResourcesOutput = (output: any, context: __SerdeContext): GetResourcesOutput => {
   return {
-    __type: "GetResourcesOutput",
     PaginationToken:
       output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
     ResourceTagMappingList:
@@ -1124,7 +1109,6 @@ const deserializeAws_json1_1GetResourcesOutput = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1GetTagKeysOutput = (output: any, context: __SerdeContext): GetTagKeysOutput => {
   return {
-    __type: "GetTagKeysOutput",
     PaginationToken:
       output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
     TagKeys:
@@ -1136,7 +1120,6 @@ const deserializeAws_json1_1GetTagKeysOutput = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1GetTagValuesOutput = (output: any, context: __SerdeContext): GetTagValuesOutput => {
   return {
-    __type: "GetTagValuesOutput",
     PaginationToken:
       output.PaginationToken !== undefined && output.PaginationToken !== null ? output.PaginationToken : undefined,
     TagValues:
@@ -1151,7 +1134,6 @@ const deserializeAws_json1_1InternalServiceException = (
   context: __SerdeContext
 ): InternalServiceException => {
   return {
-    __type: "InternalServiceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1161,7 +1143,6 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
-    __type: "InvalidParameterException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -1171,14 +1152,12 @@ const deserializeAws_json1_1PaginationTokenExpiredException = (
   context: __SerdeContext
 ): PaginationTokenExpiredException => {
   return {
-    __type: "PaginationTokenExpiredException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResourceTagMapping = (output: any, context: __SerdeContext): ResourceTagMapping => {
   return {
-    __type: "ResourceTagMapping",
     ComplianceDetails:
       output.ComplianceDetails !== undefined && output.ComplianceDetails !== null
         ? deserializeAws_json1_1ComplianceDetails(output.ComplianceDetails, context)
@@ -1199,14 +1178,11 @@ const deserializeAws_json1_1StartReportCreationOutput = (
   output: any,
   context: __SerdeContext
 ): StartReportCreationOutput => {
-  return {
-    __type: "StartReportCreationOutput",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Summary = (output: any, context: __SerdeContext): Summary => {
   return {
-    __type: "Summary",
     LastUpdated: output.LastUpdated !== undefined && output.LastUpdated !== null ? output.LastUpdated : undefined,
     NonCompliantResources:
       output.NonCompliantResources !== undefined && output.NonCompliantResources !== null
@@ -1225,7 +1201,6 @@ const deserializeAws_json1_1SummaryList = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -1241,7 +1216,6 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TagResourcesOutput = (output: any, context: __SerdeContext): TagResourcesOutput => {
   return {
-    __type: "TagResourcesOutput",
     FailedResourcesMap:
       output.FailedResourcesMap !== undefined && output.FailedResourcesMap !== null
         ? deserializeAws_json1_1FailedResourcesMap(output.FailedResourcesMap, context)
@@ -1255,14 +1229,12 @@ const deserializeAws_json1_1TagValuesOutputList = (output: any, context: __Serde
 
 const deserializeAws_json1_1ThrottledException = (output: any, context: __SerdeContext): ThrottledException => {
   return {
-    __type: "ThrottledException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UntagResourcesOutput = (output: any, context: __SerdeContext): UntagResourcesOutput => {
   return {
-    __type: "UntagResourcesOutput",
     FailedResourcesMap:
       output.FailedResourcesMap !== undefined && output.FailedResourcesMap !== null
         ? deserializeAws_json1_1FailedResourcesMap(output.FailedResourcesMap, context)

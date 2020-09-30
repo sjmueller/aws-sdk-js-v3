@@ -1,6 +1,6 @@
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient.ts";
-import { DeleteFileSystemRequest, DeleteFileSystemResponse } from "../models/index.ts";
+import { DeleteFileSystemRequest, DeleteFileSystemResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteFileSystemCommand,
   serializeAws_json1_1DeleteFileSystemCommand,

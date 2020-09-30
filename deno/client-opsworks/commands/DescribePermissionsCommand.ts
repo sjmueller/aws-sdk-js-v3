@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { DescribePermissionsRequest, DescribePermissionsResult } from "../models/index.ts";
+import { DescribePermissionsRequest, DescribePermissionsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribePermissionsCommand,
   serializeAws_json1_1DescribePermissionsCommand,

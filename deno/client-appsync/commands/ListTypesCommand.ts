@@ -1,6 +1,6 @@
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient.ts";
-import { ListTypesRequest, ListTypesResponse } from "../models/index.ts";
+import { ListTypesRequest, ListTypesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListTypesCommand,
   serializeAws_restJson1ListTypesCommand,

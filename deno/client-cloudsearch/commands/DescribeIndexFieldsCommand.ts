@@ -1,6 +1,6 @@
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
-import { DescribeIndexFieldsRequest, DescribeIndexFieldsResponse } from "../models/index.ts";
+import { DescribeIndexFieldsRequest, DescribeIndexFieldsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeIndexFieldsCommand,
   serializeAws_queryDescribeIndexFieldsCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient.ts";
-import { DeleteCanaryRequest, DeleteCanaryResponse } from "../models/index.ts";
+import { DeleteCanaryRequest, DeleteCanaryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteCanaryCommand,
   serializeAws_restJson1DeleteCanaryCommand,

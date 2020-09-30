@@ -1,6 +1,6 @@
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
-import { DeleteRuleRequest } from "../models/index.ts";
+import { DeleteRuleRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteRuleCommand,
   serializeAws_json1_1DeleteRuleCommand,

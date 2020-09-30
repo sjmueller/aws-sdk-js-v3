@@ -1,6 +1,6 @@
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
-import { CreateEventBusRequest, CreateEventBusResponse } from "../models/index.ts";
+import { CreateEventBusRequest, CreateEventBusResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateEventBusCommand,
   serializeAws_json1_1CreateEventBusCommand,

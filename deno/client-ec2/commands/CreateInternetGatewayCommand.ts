@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CreateInternetGatewayRequest, CreateInternetGatewayResult } from "../models/index.ts";
+import { CreateInternetGatewayRequest, CreateInternetGatewayResult } from "../models/models_0.ts";
 import {
   deserializeAws_ec2CreateInternetGatewayCommand,
   serializeAws_ec2CreateInternetGatewayCommand,

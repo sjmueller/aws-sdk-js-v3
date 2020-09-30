@@ -1,6 +1,6 @@
 
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
-import { GetAppLaunchConfigurationRequest, GetAppLaunchConfigurationResponse } from "../models/index.ts";
+import { GetAppLaunchConfigurationRequest, GetAppLaunchConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetAppLaunchConfigurationCommand,
   serializeAws_json1_1GetAppLaunchConfigurationCommand,

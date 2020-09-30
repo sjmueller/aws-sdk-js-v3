@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { CancelExportTaskRequest } from "../models/index.ts";
+import { CancelExportTaskRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CancelExportTaskCommand,
   serializeAws_json1_1CancelExportTaskCommand,

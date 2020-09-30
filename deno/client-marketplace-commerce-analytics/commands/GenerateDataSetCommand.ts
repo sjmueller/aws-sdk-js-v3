@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCommerceAnalyticsClient.ts";
-import { GenerateDataSetRequest, GenerateDataSetResult } from "../models/index.ts";
+import { GenerateDataSetRequest, GenerateDataSetResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GenerateDataSetCommand,
   serializeAws_json1_1GenerateDataSetCommand,

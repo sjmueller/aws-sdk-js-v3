@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { SendAnnouncementRequest, SendAnnouncementResponse } from "../models/index.ts";
+import { SendAnnouncementRequest, SendAnnouncementResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SendAnnouncementCommand,
   serializeAws_json1_1SendAnnouncementCommand,

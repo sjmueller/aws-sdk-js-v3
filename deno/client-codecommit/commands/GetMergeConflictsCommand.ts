@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { GetMergeConflictsInput, GetMergeConflictsOutput } from "../models/index.ts";
+import { GetMergeConflictsInput, GetMergeConflictsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetMergeConflictsCommand,
   serializeAws_json1_1GetMergeConflictsCommand,

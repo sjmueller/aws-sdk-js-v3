@@ -1,6 +1,6 @@
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
-import { ModifyDBClusterSnapshotAttributeMessage, ModifyDBClusterSnapshotAttributeResult } from "../models/index.ts";
+import { ModifyDBClusterSnapshotAttributeMessage, ModifyDBClusterSnapshotAttributeResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryModifyDBClusterSnapshotAttributeCommand,
   serializeAws_queryModifyDBClusterSnapshotAttributeCommand,

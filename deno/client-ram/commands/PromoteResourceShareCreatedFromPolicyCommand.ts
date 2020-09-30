@@ -3,7 +3,7 @@ import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   PromoteResourceShareCreatedFromPolicyRequest,
   PromoteResourceShareCreatedFromPolicyResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand,
   serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand,

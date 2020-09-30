@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { CreateFunctionRequest, FunctionConfiguration } from "../models/index.ts";
+import { CreateFunctionRequest, FunctionConfiguration } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateFunctionCommand,
   serializeAws_restJson1CreateFunctionCommand,

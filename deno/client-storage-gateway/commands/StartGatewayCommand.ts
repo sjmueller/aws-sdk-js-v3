@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { StartGatewayInput, StartGatewayOutput } from "../models/index.ts";
+import { StartGatewayInput, StartGatewayOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartGatewayCommand,
   serializeAws_json1_1StartGatewayCommand,

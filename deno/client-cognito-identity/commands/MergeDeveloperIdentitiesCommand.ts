@@ -1,6 +1,6 @@
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient.ts";
-import { MergeDeveloperIdentitiesInput, MergeDeveloperIdentitiesResponse } from "../models/index.ts";
+import { MergeDeveloperIdentitiesInput, MergeDeveloperIdentitiesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1MergeDeveloperIdentitiesCommand,
   serializeAws_json1_1MergeDeveloperIdentitiesCommand,

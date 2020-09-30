@@ -1,6 +1,6 @@
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
-import { EnableKeyRotationRequest } from "../models/index.ts";
+import { EnableKeyRotationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1EnableKeyRotationCommand,
   serializeAws_json1_1EnableKeyRotationCommand,

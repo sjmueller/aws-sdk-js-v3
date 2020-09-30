@@ -1,6 +1,6 @@
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
-import { DisassociateMembersRequest, DisassociateMembersResponse } from "../models/index.ts";
+import { DisassociateMembersRequest, DisassociateMembersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DisassociateMembersCommand,
   serializeAws_restJson1DisassociateMembersCommand,

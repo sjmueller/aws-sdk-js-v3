@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import { DeleteComponentRequest, DeleteComponentResponse } from "../models/index.ts";
+import { DeleteComponentRequest, DeleteComponentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteComponentCommand,
   serializeAws_json1_1DeleteComponentCommand,

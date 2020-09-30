@@ -1,6 +1,6 @@
 
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { GetInsightsRequest, GetInsightsResponse } from "../models/index.ts";
+import { GetInsightsRequest, GetInsightsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetInsightsCommand,
   serializeAws_restJson1GetInsightsCommand,

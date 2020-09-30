@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { UpdateContainerInstancesStateRequest, UpdateContainerInstancesStateResponse } from "../models/index.ts";
+import { UpdateContainerInstancesStateRequest, UpdateContainerInstancesStateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateContainerInstancesStateCommand,
   serializeAws_json1_1UpdateContainerInstancesStateCommand,

@@ -3,7 +3,7 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 import {
   CreateSnapshotFromVolumeRecoveryPointInput,
   CreateSnapshotFromVolumeRecoveryPointOutput,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand,
   serializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointCommand,

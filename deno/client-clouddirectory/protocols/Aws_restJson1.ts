@@ -274,7 +274,7 @@ import {
   TypedLinkSpecifier,
   UnsupportedIndexTypeException,
   ValidationException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -2137,7 +2137,6 @@ export const deserializeAws_restJson1AddFacetToObjectCommand = async (
   }
   const contents: AddFacetToObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddFacetToObjectResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2253,7 +2252,6 @@ export const deserializeAws_restJson1ApplySchemaCommand = async (
   }
   const contents: ApplySchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ApplySchemaResponse",
     AppliedSchemaArn: undefined,
     DirectoryArn: undefined,
   };
@@ -2377,7 +2375,6 @@ export const deserializeAws_restJson1AttachObjectCommand = async (
   }
   const contents: AttachObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachObjectResponse",
     AttachedObjectIdentifier: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2513,7 +2510,6 @@ export const deserializeAws_restJson1AttachPolicyCommand = async (
   }
   const contents: AttachPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachPolicyResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2629,7 +2625,6 @@ export const deserializeAws_restJson1AttachToIndexCommand = async (
   }
   const contents: AttachToIndexCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachToIndexResponse",
     AttachedObjectIdentifier: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2773,7 +2768,6 @@ export const deserializeAws_restJson1AttachTypedLinkCommand = async (
   }
   const contents: AttachTypedLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachTypedLinkResponse",
     TypedLinkSpecifier: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2901,7 +2895,6 @@ export const deserializeAws_restJson1BatchReadCommand = async (
   }
   const contents: BatchReadCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchReadResponse",
     Responses: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3005,7 +2998,6 @@ export const deserializeAws_restJson1BatchWriteCommand = async (
   }
   const contents: BatchWriteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchWriteResponse",
     Responses: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3117,7 +3109,6 @@ export const deserializeAws_restJson1CreateDirectoryCommand = async (
   }
   const contents: CreateDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDirectoryResponse",
     AppliedSchemaArn: undefined,
     DirectoryArn: undefined,
     Name: undefined,
@@ -3241,7 +3232,6 @@ export const deserializeAws_restJson1CreateFacetCommand = async (
   }
   const contents: CreateFacetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFacetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3365,7 +3355,6 @@ export const deserializeAws_restJson1CreateIndexCommand = async (
   }
   const contents: CreateIndexCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateIndexResponse",
     ObjectIdentifier: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3501,7 +3490,6 @@ export const deserializeAws_restJson1CreateObjectCommand = async (
   }
   const contents: CreateObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateObjectResponse",
     ObjectIdentifier: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3637,7 +3625,6 @@ export const deserializeAws_restJson1CreateSchemaCommand = async (
   }
   const contents: CreateSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSchemaResponse",
     SchemaArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3741,7 +3728,6 @@ export const deserializeAws_restJson1CreateTypedLinkFacetCommand = async (
   }
   const contents: CreateTypedLinkFacetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTypedLinkFacetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3865,7 +3851,6 @@ export const deserializeAws_restJson1DeleteDirectoryCommand = async (
   }
   const contents: DeleteDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDirectoryResponse",
     DirectoryArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3985,7 +3970,6 @@ export const deserializeAws_restJson1DeleteFacetCommand = async (
   }
   const contents: DeleteFacetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFacetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4101,7 +4085,6 @@ export const deserializeAws_restJson1DeleteObjectCommand = async (
   }
   const contents: DeleteObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteObjectResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4217,7 +4200,6 @@ export const deserializeAws_restJson1DeleteSchemaCommand = async (
   }
   const contents: DeleteSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSchemaResponse",
     SchemaArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4329,7 +4311,6 @@ export const deserializeAws_restJson1DeleteTypedLinkFacetCommand = async (
   }
   const contents: DeleteTypedLinkFacetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTypedLinkFacetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4437,7 +4418,6 @@ export const deserializeAws_restJson1DetachFromIndexCommand = async (
   }
   const contents: DetachFromIndexCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachFromIndexResponse",
     DetachedObjectIdentifier: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4565,7 +4545,6 @@ export const deserializeAws_restJson1DetachObjectCommand = async (
   }
   const contents: DetachObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachObjectResponse",
     DetachedObjectIdentifier: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4685,7 +4664,6 @@ export const deserializeAws_restJson1DetachPolicyCommand = async (
   }
   const contents: DetachPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachPolicyResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4916,7 +4894,6 @@ export const deserializeAws_restJson1DisableDirectoryCommand = async (
   }
   const contents: DisableDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableDirectoryResponse",
     DirectoryArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5028,7 +5005,6 @@ export const deserializeAws_restJson1EnableDirectoryCommand = async (
   }
   const contents: EnableDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableDirectoryResponse",
     DirectoryArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5140,7 +5116,6 @@ export const deserializeAws_restJson1GetAppliedSchemaVersionCommand = async (
   }
   const contents: GetAppliedSchemaVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAppliedSchemaVersionResponse",
     AppliedSchemaArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5244,7 +5219,6 @@ export const deserializeAws_restJson1GetDirectoryCommand = async (
   }
   const contents: GetDirectoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDirectoryResponse",
     Directory: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5340,7 +5314,6 @@ export const deserializeAws_restJson1GetFacetCommand = async (
   }
   const contents: GetFacetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFacetResponse",
     Facet: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5452,7 +5425,6 @@ export const deserializeAws_restJson1GetLinkAttributesCommand = async (
   }
   const contents: GetLinkAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLinkAttributesResponse",
     Attributes: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5572,7 +5544,6 @@ export const deserializeAws_restJson1GetObjectAttributesCommand = async (
   }
   const contents: GetObjectAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetObjectAttributesResponse",
     Attributes: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5692,7 +5663,6 @@ export const deserializeAws_restJson1GetObjectInformationCommand = async (
   }
   const contents: GetObjectInformationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetObjectInformationResponse",
     ObjectIdentifier: undefined,
     SchemaFacets: undefined,
   };
@@ -5808,7 +5778,6 @@ export const deserializeAws_restJson1GetSchemaAsJsonCommand = async (
   }
   const contents: GetSchemaAsJsonCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSchemaAsJsonResponse",
     Document: undefined,
     Name: undefined,
   };
@@ -5916,7 +5885,6 @@ export const deserializeAws_restJson1GetTypedLinkFacetInformationCommand = async
   }
   const contents: GetTypedLinkFacetInformationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTypedLinkFacetInformationResponse",
     IdentityAttributeOrder: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6036,7 +6004,6 @@ export const deserializeAws_restJson1ListAppliedSchemaArnsCommand = async (
   }
   const contents: ListAppliedSchemaArnsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAppliedSchemaArnsResponse",
     NextToken: undefined,
     SchemaArns: undefined,
   };
@@ -6152,7 +6119,6 @@ export const deserializeAws_restJson1ListAttachedIndicesCommand = async (
   }
   const contents: ListAttachedIndicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAttachedIndicesResponse",
     IndexAttachments: undefined,
     NextToken: undefined,
   };
@@ -6268,7 +6234,6 @@ export const deserializeAws_restJson1ListDevelopmentSchemaArnsCommand = async (
   }
   const contents: ListDevelopmentSchemaArnsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDevelopmentSchemaArnsResponse",
     NextToken: undefined,
     SchemaArns: undefined,
   };
@@ -6384,7 +6349,6 @@ export const deserializeAws_restJson1ListDirectoriesCommand = async (
   }
   const contents: ListDirectoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDirectoriesResponse",
     Directories: undefined,
     NextToken: undefined,
   };
@@ -6492,7 +6456,6 @@ export const deserializeAws_restJson1ListFacetAttributesCommand = async (
   }
   const contents: ListFacetAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFacetAttributesResponse",
     Attributes: undefined,
     NextToken: undefined,
   };
@@ -6616,7 +6579,6 @@ export const deserializeAws_restJson1ListFacetNamesCommand = async (
   }
   const contents: ListFacetNamesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFacetNamesResponse",
     FacetNames: undefined,
     NextToken: undefined,
   };
@@ -6732,7 +6694,6 @@ export const deserializeAws_restJson1ListIncomingTypedLinksCommand = async (
   }
   const contents: ListIncomingTypedLinksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListIncomingTypedLinksResponse",
     LinkSpecifiers: undefined,
     NextToken: undefined,
   };
@@ -6864,7 +6825,6 @@ export const deserializeAws_restJson1ListIndexCommand = async (
   }
   const contents: ListIndexCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListIndexResponse",
     IndexAttachments: undefined,
     NextToken: undefined,
   };
@@ -7004,7 +6964,6 @@ export const deserializeAws_restJson1ListManagedSchemaArnsCommand = async (
   }
   const contents: ListManagedSchemaArnsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListManagedSchemaArnsResponse",
     NextToken: undefined,
     SchemaArns: undefined,
   };
@@ -7104,7 +7063,6 @@ export const deserializeAws_restJson1ListObjectAttributesCommand = async (
   }
   const contents: ListObjectAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListObjectAttributesResponse",
     Attributes: undefined,
     NextToken: undefined,
   };
@@ -7236,7 +7194,6 @@ export const deserializeAws_restJson1ListObjectChildrenCommand = async (
   }
   const contents: ListObjectChildrenCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListObjectChildrenResponse",
     Children: undefined,
     NextToken: undefined,
   };
@@ -7368,7 +7325,6 @@ export const deserializeAws_restJson1ListObjectParentPathsCommand = async (
   }
   const contents: ListObjectParentPathsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListObjectParentPathsResponse",
     NextToken: undefined,
     PathToObjectIdentifiersList: undefined,
   };
@@ -7495,7 +7451,6 @@ export const deserializeAws_restJson1ListObjectParentsCommand = async (
   }
   const contents: ListObjectParentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListObjectParentsResponse",
     NextToken: undefined,
     ParentLinks: undefined,
     Parents: undefined,
@@ -7631,7 +7586,6 @@ export const deserializeAws_restJson1ListObjectPoliciesCommand = async (
   }
   const contents: ListObjectPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListObjectPoliciesResponse",
     AttachedPolicyIds: undefined,
     NextToken: undefined,
   };
@@ -7755,7 +7709,6 @@ export const deserializeAws_restJson1ListOutgoingTypedLinksCommand = async (
   }
   const contents: ListOutgoingTypedLinksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListOutgoingTypedLinksResponse",
     NextToken: undefined,
     TypedLinkSpecifiers: undefined,
   };
@@ -7887,7 +7840,6 @@ export const deserializeAws_restJson1ListPolicyAttachmentsCommand = async (
   }
   const contents: ListPolicyAttachmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPolicyAttachmentsResponse",
     NextToken: undefined,
     ObjectIdentifiers: undefined,
   };
@@ -8019,7 +7971,6 @@ export const deserializeAws_restJson1ListPublishedSchemaArnsCommand = async (
   }
   const contents: ListPublishedSchemaArnsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPublishedSchemaArnsResponse",
     NextToken: undefined,
     SchemaArns: undefined,
   };
@@ -8135,7 +8086,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     NextToken: undefined,
     Tags: undefined,
   };
@@ -8251,7 +8201,6 @@ export const deserializeAws_restJson1ListTypedLinkFacetAttributesCommand = async
   }
   const contents: ListTypedLinkFacetAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTypedLinkFacetAttributesResponse",
     Attributes: undefined,
     NextToken: undefined,
   };
@@ -8375,7 +8324,6 @@ export const deserializeAws_restJson1ListTypedLinkFacetNamesCommand = async (
   }
   const contents: ListTypedLinkFacetNamesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTypedLinkFacetNamesResponse",
     FacetNames: undefined,
     NextToken: undefined,
   };
@@ -8491,7 +8439,6 @@ export const deserializeAws_restJson1LookupPolicyCommand = async (
   }
   const contents: LookupPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "LookupPolicyResponse",
     NextToken: undefined,
     PolicyToPathList: undefined,
   };
@@ -8615,7 +8562,6 @@ export const deserializeAws_restJson1PublishSchemaCommand = async (
   }
   const contents: PublishSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PublishSchemaResponse",
     PublishedSchemaArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8727,7 +8673,6 @@ export const deserializeAws_restJson1PutSchemaFromJsonCommand = async (
   }
   const contents: PutSchemaFromJsonCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutSchemaFromJsonResponse",
     Arn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8839,7 +8784,6 @@ export const deserializeAws_restJson1RemoveFacetFromObjectCommand = async (
   }
   const contents: RemoveFacetFromObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveFacetFromObjectResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8955,7 +8899,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -9063,7 +9006,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -9171,7 +9113,6 @@ export const deserializeAws_restJson1UpdateFacetCommand = async (
   }
   const contents: UpdateFacetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFacetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -9303,7 +9244,6 @@ export const deserializeAws_restJson1UpdateLinkAttributesCommand = async (
   }
   const contents: UpdateLinkAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateLinkAttributesResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -9419,7 +9359,6 @@ export const deserializeAws_restJson1UpdateObjectAttributesCommand = async (
   }
   const contents: UpdateObjectAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateObjectAttributesResponse",
     ObjectIdentifier: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9547,7 +9486,6 @@ export const deserializeAws_restJson1UpdateSchemaCommand = async (
   }
   const contents: UpdateSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSchemaResponse",
     SchemaArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9651,7 +9589,6 @@ export const deserializeAws_restJson1UpdateTypedLinkFacetCommand = async (
   }
   const contents: UpdateTypedLinkFacetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTypedLinkFacetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -9783,7 +9720,6 @@ export const deserializeAws_restJson1UpgradeAppliedSchemaCommand = async (
   }
   const contents: UpgradeAppliedSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpgradeAppliedSchemaResponse",
     DirectoryArn: undefined,
     UpgradedSchemaArn: undefined,
   };
@@ -9907,7 +9843,6 @@ export const deserializeAws_restJson1UpgradePublishedSchemaCommand = async (
   }
   const contents: UpgradePublishedSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpgradePublishedSchemaResponse",
     UpgradedSchemaArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11459,7 +11394,6 @@ const deserializeAws_restJson1Arns = (output: any, context: __SerdeContext): str
 
 const deserializeAws_restJson1AttributeKey = (output: any, context: __SerdeContext): AttributeKey => {
   return {
-    __type: "AttributeKey",
     FacetName: output.FacetName !== undefined && output.FacetName !== null ? output.FacetName : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
@@ -11468,7 +11402,6 @@ const deserializeAws_restJson1AttributeKey = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1AttributeKeyAndValue = (output: any, context: __SerdeContext): AttributeKeyAndValue => {
   return {
-    __type: "AttributeKeyAndValue",
     Key:
       output.Key !== undefined && output.Key !== null
         ? deserializeAws_restJson1AttributeKey(output.Key, context)
@@ -11489,7 +11422,6 @@ const deserializeAws_restJson1AttributeKeyAndValueList = (
 
 const deserializeAws_restJson1AttributeNameAndValue = (output: any, context: __SerdeContext): AttributeNameAndValue => {
   return {
-    __type: "AttributeNameAndValue",
     AttributeName:
       output.AttributeName !== undefined && output.AttributeName !== null ? output.AttributeName : undefined,
     Value:
@@ -11514,9 +11446,7 @@ const deserializeAws_restJson1BatchAddFacetToObjectResponse = (
   output: any,
   context: __SerdeContext
 ): BatchAddFacetToObjectResponse => {
-  return {
-    __type: "BatchAddFacetToObjectResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1BatchAttachObjectResponse = (
@@ -11524,7 +11454,6 @@ const deserializeAws_restJson1BatchAttachObjectResponse = (
   context: __SerdeContext
 ): BatchAttachObjectResponse => {
   return {
-    __type: "BatchAttachObjectResponse",
     attachedObjectIdentifier:
       output.attachedObjectIdentifier !== undefined && output.attachedObjectIdentifier !== null
         ? output.attachedObjectIdentifier
@@ -11536,9 +11465,7 @@ const deserializeAws_restJson1BatchAttachPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): BatchAttachPolicyResponse => {
-  return {
-    __type: "BatchAttachPolicyResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1BatchAttachToIndexResponse = (
@@ -11546,7 +11473,6 @@ const deserializeAws_restJson1BatchAttachToIndexResponse = (
   context: __SerdeContext
 ): BatchAttachToIndexResponse => {
   return {
-    __type: "BatchAttachToIndexResponse",
     AttachedObjectIdentifier:
       output.AttachedObjectIdentifier !== undefined && output.AttachedObjectIdentifier !== null
         ? output.AttachedObjectIdentifier
@@ -11559,7 +11485,6 @@ const deserializeAws_restJson1BatchAttachTypedLinkResponse = (
   context: __SerdeContext
 ): BatchAttachTypedLinkResponse => {
   return {
-    __type: "BatchAttachTypedLinkResponse",
     TypedLinkSpecifier:
       output.TypedLinkSpecifier !== undefined && output.TypedLinkSpecifier !== null
         ? deserializeAws_restJson1TypedLinkSpecifier(output.TypedLinkSpecifier, context)
@@ -11572,7 +11497,6 @@ const deserializeAws_restJson1BatchCreateIndexResponse = (
   context: __SerdeContext
 ): BatchCreateIndexResponse => {
   return {
-    __type: "BatchCreateIndexResponse",
     ObjectIdentifier:
       output.ObjectIdentifier !== undefined && output.ObjectIdentifier !== null ? output.ObjectIdentifier : undefined,
   } as any;
@@ -11583,7 +11507,6 @@ const deserializeAws_restJson1BatchCreateObjectResponse = (
   context: __SerdeContext
 ): BatchCreateObjectResponse => {
   return {
-    __type: "BatchCreateObjectResponse",
     ObjectIdentifier:
       output.ObjectIdentifier !== undefined && output.ObjectIdentifier !== null ? output.ObjectIdentifier : undefined,
   } as any;
@@ -11593,9 +11516,7 @@ const deserializeAws_restJson1BatchDeleteObjectResponse = (
   output: any,
   context: __SerdeContext
 ): BatchDeleteObjectResponse => {
-  return {
-    __type: "BatchDeleteObjectResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1BatchDetachFromIndexResponse = (
@@ -11603,7 +11524,6 @@ const deserializeAws_restJson1BatchDetachFromIndexResponse = (
   context: __SerdeContext
 ): BatchDetachFromIndexResponse => {
   return {
-    __type: "BatchDetachFromIndexResponse",
     DetachedObjectIdentifier:
       output.DetachedObjectIdentifier !== undefined && output.DetachedObjectIdentifier !== null
         ? output.DetachedObjectIdentifier
@@ -11616,7 +11536,6 @@ const deserializeAws_restJson1BatchDetachObjectResponse = (
   context: __SerdeContext
 ): BatchDetachObjectResponse => {
   return {
-    __type: "BatchDetachObjectResponse",
     detachedObjectIdentifier:
       output.detachedObjectIdentifier !== undefined && output.detachedObjectIdentifier !== null
         ? output.detachedObjectIdentifier
@@ -11628,18 +11547,14 @@ const deserializeAws_restJson1BatchDetachPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): BatchDetachPolicyResponse => {
-  return {
-    __type: "BatchDetachPolicyResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1BatchDetachTypedLinkResponse = (
   output: any,
   context: __SerdeContext
 ): BatchDetachTypedLinkResponse => {
-  return {
-    __type: "BatchDetachTypedLinkResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1BatchGetLinkAttributesResponse = (
@@ -11647,7 +11562,6 @@ const deserializeAws_restJson1BatchGetLinkAttributesResponse = (
   context: __SerdeContext
 ): BatchGetLinkAttributesResponse => {
   return {
-    __type: "BatchGetLinkAttributesResponse",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_restJson1AttributeKeyAndValueList(output.Attributes, context)
@@ -11660,7 +11574,6 @@ const deserializeAws_restJson1BatchGetObjectAttributesResponse = (
   context: __SerdeContext
 ): BatchGetObjectAttributesResponse => {
   return {
-    __type: "BatchGetObjectAttributesResponse",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_restJson1AttributeKeyAndValueList(output.Attributes, context)
@@ -11673,7 +11586,6 @@ const deserializeAws_restJson1BatchGetObjectInformationResponse = (
   context: __SerdeContext
 ): BatchGetObjectInformationResponse => {
   return {
-    __type: "BatchGetObjectInformationResponse",
     ObjectIdentifier:
       output.ObjectIdentifier !== undefined && output.ObjectIdentifier !== null ? output.ObjectIdentifier : undefined,
     SchemaFacets:
@@ -11688,7 +11600,6 @@ const deserializeAws_restJson1BatchListAttachedIndicesResponse = (
   context: __SerdeContext
 ): BatchListAttachedIndicesResponse => {
   return {
-    __type: "BatchListAttachedIndicesResponse",
     IndexAttachments:
       output.IndexAttachments !== undefined && output.IndexAttachments !== null
         ? deserializeAws_restJson1IndexAttachmentList(output.IndexAttachments, context)
@@ -11702,7 +11613,6 @@ const deserializeAws_restJson1BatchListIncomingTypedLinksResponse = (
   context: __SerdeContext
 ): BatchListIncomingTypedLinksResponse => {
   return {
-    __type: "BatchListIncomingTypedLinksResponse",
     LinkSpecifiers:
       output.LinkSpecifiers !== undefined && output.LinkSpecifiers !== null
         ? deserializeAws_restJson1TypedLinkSpecifierList(output.LinkSpecifiers, context)
@@ -11716,7 +11626,6 @@ const deserializeAws_restJson1BatchListIndexResponse = (
   context: __SerdeContext
 ): BatchListIndexResponse => {
   return {
-    __type: "BatchListIndexResponse",
     IndexAttachments:
       output.IndexAttachments !== undefined && output.IndexAttachments !== null
         ? deserializeAws_restJson1IndexAttachmentList(output.IndexAttachments, context)
@@ -11730,7 +11639,6 @@ const deserializeAws_restJson1BatchListObjectAttributesResponse = (
   context: __SerdeContext
 ): BatchListObjectAttributesResponse => {
   return {
-    __type: "BatchListObjectAttributesResponse",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_restJson1AttributeKeyAndValueList(output.Attributes, context)
@@ -11744,7 +11652,6 @@ const deserializeAws_restJson1BatchListObjectChildrenResponse = (
   context: __SerdeContext
 ): BatchListObjectChildrenResponse => {
   return {
-    __type: "BatchListObjectChildrenResponse",
     Children:
       output.Children !== undefined && output.Children !== null
         ? deserializeAws_restJson1LinkNameToObjectIdentifierMap(output.Children, context)
@@ -11758,7 +11665,6 @@ const deserializeAws_restJson1BatchListObjectParentPathsResponse = (
   context: __SerdeContext
 ): BatchListObjectParentPathsResponse => {
   return {
-    __type: "BatchListObjectParentPathsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     PathToObjectIdentifiersList:
       output.PathToObjectIdentifiersList !== undefined && output.PathToObjectIdentifiersList !== null
@@ -11772,7 +11678,6 @@ const deserializeAws_restJson1BatchListObjectParentsResponse = (
   context: __SerdeContext
 ): BatchListObjectParentsResponse => {
   return {
-    __type: "BatchListObjectParentsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ParentLinks:
       output.ParentLinks !== undefined && output.ParentLinks !== null
@@ -11786,7 +11691,6 @@ const deserializeAws_restJson1BatchListObjectPoliciesResponse = (
   context: __SerdeContext
 ): BatchListObjectPoliciesResponse => {
   return {
-    __type: "BatchListObjectPoliciesResponse",
     AttachedPolicyIds:
       output.AttachedPolicyIds !== undefined && output.AttachedPolicyIds !== null
         ? deserializeAws_restJson1ObjectIdentifierList(output.AttachedPolicyIds, context)
@@ -11800,7 +11704,6 @@ const deserializeAws_restJson1BatchListOutgoingTypedLinksResponse = (
   context: __SerdeContext
 ): BatchListOutgoingTypedLinksResponse => {
   return {
-    __type: "BatchListOutgoingTypedLinksResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TypedLinkSpecifiers:
       output.TypedLinkSpecifiers !== undefined && output.TypedLinkSpecifiers !== null
@@ -11814,7 +11717,6 @@ const deserializeAws_restJson1BatchListPolicyAttachmentsResponse = (
   context: __SerdeContext
 ): BatchListPolicyAttachmentsResponse => {
   return {
-    __type: "BatchListPolicyAttachmentsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ObjectIdentifiers:
       output.ObjectIdentifiers !== undefined && output.ObjectIdentifiers !== null
@@ -11828,7 +11730,6 @@ const deserializeAws_restJson1BatchLookupPolicyResponse = (
   context: __SerdeContext
 ): BatchLookupPolicyResponse => {
   return {
-    __type: "BatchLookupPolicyResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     PolicyToPathList:
       output.PolicyToPathList !== undefined && output.PolicyToPathList !== null
@@ -11839,7 +11740,6 @@ const deserializeAws_restJson1BatchLookupPolicyResponse = (
 
 const deserializeAws_restJson1BatchReadException = (output: any, context: __SerdeContext): BatchReadException => {
   return {
-    __type: "BatchReadException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -11850,7 +11750,6 @@ const deserializeAws_restJson1BatchReadOperationResponse = (
   context: __SerdeContext
 ): BatchReadOperationResponse => {
   return {
-    __type: "BatchReadOperationResponse",
     ExceptionResponse:
       output.ExceptionResponse !== undefined && output.ExceptionResponse !== null
         ? deserializeAws_restJson1BatchReadException(output.ExceptionResponse, context)
@@ -11874,7 +11773,6 @@ const deserializeAws_restJson1BatchReadSuccessfulResponse = (
   context: __SerdeContext
 ): BatchReadSuccessfulResponse => {
   return {
-    __type: "BatchReadSuccessfulResponse",
     GetLinkAttributes:
       output.GetLinkAttributes !== undefined && output.GetLinkAttributes !== null
         ? deserializeAws_restJson1BatchGetLinkAttributesResponse(output.GetLinkAttributes, context)
@@ -11938,18 +11836,14 @@ const deserializeAws_restJson1BatchRemoveFacetFromObjectResponse = (
   output: any,
   context: __SerdeContext
 ): BatchRemoveFacetFromObjectResponse => {
-  return {
-    __type: "BatchRemoveFacetFromObjectResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1BatchUpdateLinkAttributesResponse = (
   output: any,
   context: __SerdeContext
 ): BatchUpdateLinkAttributesResponse => {
-  return {
-    __type: "BatchUpdateLinkAttributesResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_restJson1BatchUpdateObjectAttributesResponse = (
@@ -11957,7 +11851,6 @@ const deserializeAws_restJson1BatchUpdateObjectAttributesResponse = (
   context: __SerdeContext
 ): BatchUpdateObjectAttributesResponse => {
   return {
-    __type: "BatchUpdateObjectAttributesResponse",
     ObjectIdentifier:
       output.ObjectIdentifier !== undefined && output.ObjectIdentifier !== null ? output.ObjectIdentifier : undefined,
   } as any;
@@ -11968,7 +11861,6 @@ const deserializeAws_restJson1BatchWriteOperationResponse = (
   context: __SerdeContext
 ): BatchWriteOperationResponse => {
   return {
-    __type: "BatchWriteOperationResponse",
     AddFacetToObject:
       output.AddFacetToObject !== undefined && output.AddFacetToObject !== null
         ? deserializeAws_restJson1BatchAddFacetToObjectResponse(output.AddFacetToObject, context)
@@ -12041,7 +11933,6 @@ const deserializeAws_restJson1BatchWriteOperationResponseList = (
 
 const deserializeAws_restJson1Directory = (output: any, context: __SerdeContext): Directory => {
   return {
-    __type: "Directory",
     CreationDateTime:
       output.CreationDateTime !== undefined && output.CreationDateTime !== null
         ? new Date(Math.round(output.CreationDateTime * 1000))
@@ -12058,7 +11949,6 @@ const deserializeAws_restJson1DirectoryList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Facet = (output: any, context: __SerdeContext): Facet => {
   return {
-    __type: "Facet",
     FacetStyle: output.FacetStyle !== undefined && output.FacetStyle !== null ? output.FacetStyle : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ObjectType: output.ObjectType !== undefined && output.ObjectType !== null ? output.ObjectType : undefined,
@@ -12067,7 +11957,6 @@ const deserializeAws_restJson1Facet = (output: any, context: __SerdeContext): Fa
 
 const deserializeAws_restJson1FacetAttribute = (output: any, context: __SerdeContext): FacetAttribute => {
   return {
-    __type: "FacetAttribute",
     AttributeDefinition:
       output.AttributeDefinition !== undefined && output.AttributeDefinition !== null
         ? deserializeAws_restJson1FacetAttributeDefinition(output.AttributeDefinition, context)
@@ -12087,7 +11976,6 @@ const deserializeAws_restJson1FacetAttributeDefinition = (
   context: __SerdeContext
 ): FacetAttributeDefinition => {
   return {
-    __type: "FacetAttributeDefinition",
     DefaultValue:
       output.DefaultValue !== undefined && output.DefaultValue !== null
         ? deserializeAws_restJson1TypedAttributeValue(output.DefaultValue, context)
@@ -12110,7 +11998,6 @@ const deserializeAws_restJson1FacetAttributeReference = (
   context: __SerdeContext
 ): FacetAttributeReference => {
   return {
-    __type: "FacetAttributeReference",
     TargetAttributeName:
       output.TargetAttributeName !== undefined && output.TargetAttributeName !== null
         ? output.TargetAttributeName
@@ -12126,7 +12013,6 @@ const deserializeAws_restJson1FacetNameList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1IndexAttachment = (output: any, context: __SerdeContext): IndexAttachment => {
   return {
-    __type: "IndexAttachment",
     IndexedAttributes:
       output.IndexedAttributes !== undefined && output.IndexedAttributes !== null
         ? deserializeAws_restJson1AttributeKeyAndValueList(output.IndexedAttributes, context)
@@ -12165,7 +12051,6 @@ const deserializeAws_restJson1ObjectIdentifierAndLinkNameTuple = (
   context: __SerdeContext
 ): ObjectIdentifierAndLinkNameTuple => {
   return {
-    __type: "ObjectIdentifierAndLinkNameTuple",
     LinkName: output.LinkName !== undefined && output.LinkName !== null ? output.LinkName : undefined,
     ObjectIdentifier:
       output.ObjectIdentifier !== undefined && output.ObjectIdentifier !== null ? output.ObjectIdentifier : undefined,
@@ -12191,7 +12076,6 @@ const deserializeAws_restJson1ObjectIdentifierToLinkNameMap = (
 
 const deserializeAws_restJson1ObjectReference = (output: any, context: __SerdeContext): ObjectReference => {
   return {
-    __type: "ObjectReference",
     Selector: output.Selector !== undefined && output.Selector !== null ? output.Selector : undefined,
   } as any;
 };
@@ -12201,7 +12085,6 @@ const deserializeAws_restJson1PathToObjectIdentifiers = (
   context: __SerdeContext
 ): PathToObjectIdentifiers => {
   return {
-    __type: "PathToObjectIdentifiers",
     ObjectIdentifiers:
       output.ObjectIdentifiers !== undefined && output.ObjectIdentifiers !== null
         ? deserializeAws_restJson1ObjectIdentifierList(output.ObjectIdentifiers, context)
@@ -12219,7 +12102,6 @@ const deserializeAws_restJson1PathToObjectIdentifiersList = (
 
 const deserializeAws_restJson1PolicyAttachment = (output: any, context: __SerdeContext): PolicyAttachment => {
   return {
-    __type: "PolicyAttachment",
     ObjectIdentifier:
       output.ObjectIdentifier !== undefined && output.ObjectIdentifier !== null ? output.ObjectIdentifier : undefined,
     PolicyId: output.PolicyId !== undefined && output.PolicyId !== null ? output.PolicyId : undefined,
@@ -12233,7 +12115,6 @@ const deserializeAws_restJson1PolicyAttachmentList = (output: any, context: __Se
 
 const deserializeAws_restJson1PolicyToPath = (output: any, context: __SerdeContext): PolicyToPath => {
   return {
-    __type: "PolicyToPath",
     Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
     Policies:
       output.Policies !== undefined && output.Policies !== null
@@ -12248,7 +12129,6 @@ const deserializeAws_restJson1PolicyToPathList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Rule = (output: any, context: __SerdeContext): Rule => {
   return {
-    __type: "Rule",
     Parameters:
       output.Parameters !== undefined && output.Parameters !== null
         ? deserializeAws_restJson1RuleParameterMap(output.Parameters, context)
@@ -12279,7 +12159,6 @@ const deserializeAws_restJson1RuleParameterMap = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SchemaFacet = (output: any, context: __SerdeContext): SchemaFacet => {
   return {
-    __type: "SchemaFacet",
     FacetName: output.FacetName !== undefined && output.FacetName !== null ? output.FacetName : undefined,
     SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
   } as any;
@@ -12291,7 +12170,6 @@ const deserializeAws_restJson1SchemaFacetList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -12303,7 +12181,6 @@ const deserializeAws_restJson1TagList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1TypedAttributeValue = (output: any, context: __SerdeContext): TypedAttributeValue => {
   return {
-    __type: "TypedAttributeValue",
     BinaryValue:
       output.BinaryValue !== undefined && output.BinaryValue !== null
         ? context.base64Decoder(output.BinaryValue)
@@ -12323,7 +12200,6 @@ const deserializeAws_restJson1TypedLinkAttributeDefinition = (
   context: __SerdeContext
 ): TypedLinkAttributeDefinition => {
   return {
-    __type: "TypedLinkAttributeDefinition",
     DefaultValue:
       output.DefaultValue !== undefined && output.DefaultValue !== null
         ? deserializeAws_restJson1TypedAttributeValue(output.DefaultValue, context)
@@ -12356,7 +12232,6 @@ const deserializeAws_restJson1TypedLinkSchemaAndFacetName = (
   context: __SerdeContext
 ): TypedLinkSchemaAndFacetName => {
   return {
-    __type: "TypedLinkSchemaAndFacetName",
     SchemaArn: output.SchemaArn !== undefined && output.SchemaArn !== null ? output.SchemaArn : undefined,
     TypedLinkName:
       output.TypedLinkName !== undefined && output.TypedLinkName !== null ? output.TypedLinkName : undefined,
@@ -12365,7 +12240,6 @@ const deserializeAws_restJson1TypedLinkSchemaAndFacetName = (
 
 const deserializeAws_restJson1TypedLinkSpecifier = (output: any, context: __SerdeContext): TypedLinkSpecifier => {
   return {
-    __type: "TypedLinkSpecifier",
     IdentityAttributeValues:
       output.IdentityAttributeValues !== undefined && output.IdentityAttributeValues !== null
         ? deserializeAws_restJson1AttributeNameAndValueList(output.IdentityAttributeValues, context)

@@ -209,7 +209,7 @@ import {
   TunedHPOParams,
   UpdateCampaignRequest,
   UpdateCampaignResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -791,7 +791,6 @@ export const deserializeAws_json1_1CreateBatchInferenceJobCommand = async (
   contents = deserializeAws_json1_1CreateBatchInferenceJobResponse(data, context);
   const response: CreateBatchInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBatchInferenceJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -879,7 +878,6 @@ export const deserializeAws_json1_1CreateCampaignCommand = async (
   contents = deserializeAws_json1_1CreateCampaignResponse(data, context);
   const response: CreateCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCampaignResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -967,7 +965,6 @@ export const deserializeAws_json1_1CreateDatasetCommand = async (
   contents = deserializeAws_json1_1CreateDatasetResponse(data, context);
   const response: CreateDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDatasetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1055,7 +1052,6 @@ export const deserializeAws_json1_1CreateDatasetGroupCommand = async (
   contents = deserializeAws_json1_1CreateDatasetGroupResponse(data, context);
   const response: CreateDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDatasetGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1127,7 +1123,6 @@ export const deserializeAws_json1_1CreateDatasetImportJobCommand = async (
   contents = deserializeAws_json1_1CreateDatasetImportJobResponse(data, context);
   const response: CreateDatasetImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDatasetImportJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1215,7 +1210,6 @@ export const deserializeAws_json1_1CreateEventTrackerCommand = async (
   contents = deserializeAws_json1_1CreateEventTrackerResponse(data, context);
   const response: CreateEventTrackerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEventTrackerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1303,7 +1297,6 @@ export const deserializeAws_json1_1CreateFilterCommand = async (
   contents = deserializeAws_json1_1CreateFilterResponse(data, context);
   const response: CreateFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFilterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1383,7 +1376,6 @@ export const deserializeAws_json1_1CreateSchemaCommand = async (
   contents = deserializeAws_json1_1CreateSchemaResponse(data, context);
   const response: CreateSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSchemaResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1455,7 +1447,6 @@ export const deserializeAws_json1_1CreateSolutionCommand = async (
   contents = deserializeAws_json1_1CreateSolutionResponse(data, context);
   const response: CreateSolutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSolutionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1543,7 +1534,6 @@ export const deserializeAws_json1_1CreateSolutionVersionCommand = async (
   contents = deserializeAws_json1_1CreateSolutionVersionResponse(data, context);
   const response: CreateSolutionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSolutionVersionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2083,7 +2073,6 @@ export const deserializeAws_json1_1DescribeAlgorithmCommand = async (
   contents = deserializeAws_json1_1DescribeAlgorithmResponse(data, context);
   const response: DescribeAlgorithmCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAlgorithmResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2147,7 +2136,6 @@ export const deserializeAws_json1_1DescribeBatchInferenceJobCommand = async (
   contents = deserializeAws_json1_1DescribeBatchInferenceJobResponse(data, context);
   const response: DescribeBatchInferenceJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBatchInferenceJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2211,7 +2199,6 @@ export const deserializeAws_json1_1DescribeCampaignCommand = async (
   contents = deserializeAws_json1_1DescribeCampaignResponse(data, context);
   const response: DescribeCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCampaignResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2275,7 +2262,6 @@ export const deserializeAws_json1_1DescribeDatasetCommand = async (
   contents = deserializeAws_json1_1DescribeDatasetResponse(data, context);
   const response: DescribeDatasetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDatasetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2339,7 +2325,6 @@ export const deserializeAws_json1_1DescribeDatasetGroupCommand = async (
   contents = deserializeAws_json1_1DescribeDatasetGroupResponse(data, context);
   const response: DescribeDatasetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDatasetGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2403,7 +2388,6 @@ export const deserializeAws_json1_1DescribeDatasetImportJobCommand = async (
   contents = deserializeAws_json1_1DescribeDatasetImportJobResponse(data, context);
   const response: DescribeDatasetImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDatasetImportJobResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2467,7 +2451,6 @@ export const deserializeAws_json1_1DescribeEventTrackerCommand = async (
   contents = deserializeAws_json1_1DescribeEventTrackerResponse(data, context);
   const response: DescribeEventTrackerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventTrackerResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2531,7 +2514,6 @@ export const deserializeAws_json1_1DescribeFeatureTransformationCommand = async 
   contents = deserializeAws_json1_1DescribeFeatureTransformationResponse(data, context);
   const response: DescribeFeatureTransformationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFeatureTransformationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2595,7 +2577,6 @@ export const deserializeAws_json1_1DescribeFilterCommand = async (
   contents = deserializeAws_json1_1DescribeFilterResponse(data, context);
   const response: DescribeFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFilterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2659,7 +2640,6 @@ export const deserializeAws_json1_1DescribeRecipeCommand = async (
   contents = deserializeAws_json1_1DescribeRecipeResponse(data, context);
   const response: DescribeRecipeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRecipeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2723,7 +2703,6 @@ export const deserializeAws_json1_1DescribeSchemaCommand = async (
   contents = deserializeAws_json1_1DescribeSchemaResponse(data, context);
   const response: DescribeSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSchemaResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2787,7 +2766,6 @@ export const deserializeAws_json1_1DescribeSolutionCommand = async (
   contents = deserializeAws_json1_1DescribeSolutionResponse(data, context);
   const response: DescribeSolutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSolutionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2851,7 +2829,6 @@ export const deserializeAws_json1_1DescribeSolutionVersionCommand = async (
   contents = deserializeAws_json1_1DescribeSolutionVersionResponse(data, context);
   const response: DescribeSolutionVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSolutionVersionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2915,7 +2892,6 @@ export const deserializeAws_json1_1GetSolutionMetricsCommand = async (
   contents = deserializeAws_json1_1GetSolutionMetricsResponse(data, context);
   const response: GetSolutionMetricsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSolutionMetricsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2987,7 +2963,6 @@ export const deserializeAws_json1_1ListBatchInferenceJobsCommand = async (
   contents = deserializeAws_json1_1ListBatchInferenceJobsResponse(data, context);
   const response: ListBatchInferenceJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBatchInferenceJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3051,7 +3026,6 @@ export const deserializeAws_json1_1ListCampaignsCommand = async (
   contents = deserializeAws_json1_1ListCampaignsResponse(data, context);
   const response: ListCampaignsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCampaignsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3115,7 +3089,6 @@ export const deserializeAws_json1_1ListDatasetGroupsCommand = async (
   contents = deserializeAws_json1_1ListDatasetGroupsResponse(data, context);
   const response: ListDatasetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDatasetGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3171,7 +3144,6 @@ export const deserializeAws_json1_1ListDatasetImportJobsCommand = async (
   contents = deserializeAws_json1_1ListDatasetImportJobsResponse(data, context);
   const response: ListDatasetImportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDatasetImportJobsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3235,7 +3207,6 @@ export const deserializeAws_json1_1ListDatasetsCommand = async (
   contents = deserializeAws_json1_1ListDatasetsResponse(data, context);
   const response: ListDatasetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDatasetsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3299,7 +3270,6 @@ export const deserializeAws_json1_1ListEventTrackersCommand = async (
   contents = deserializeAws_json1_1ListEventTrackersResponse(data, context);
   const response: ListEventTrackersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEventTrackersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3363,7 +3333,6 @@ export const deserializeAws_json1_1ListFiltersCommand = async (
   contents = deserializeAws_json1_1ListFiltersResponse(data, context);
   const response: ListFiltersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFiltersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3427,7 +3396,6 @@ export const deserializeAws_json1_1ListRecipesCommand = async (
   contents = deserializeAws_json1_1ListRecipesResponse(data, context);
   const response: ListRecipesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRecipesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3483,7 +3451,6 @@ export const deserializeAws_json1_1ListSchemasCommand = async (
   contents = deserializeAws_json1_1ListSchemasResponse(data, context);
   const response: ListSchemasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSchemasResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3539,7 +3506,6 @@ export const deserializeAws_json1_1ListSolutionsCommand = async (
   contents = deserializeAws_json1_1ListSolutionsResponse(data, context);
   const response: ListSolutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSolutionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3603,7 +3569,6 @@ export const deserializeAws_json1_1ListSolutionVersionsCommand = async (
   contents = deserializeAws_json1_1ListSolutionVersionsResponse(data, context);
   const response: ListSolutionVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSolutionVersionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3675,7 +3640,6 @@ export const deserializeAws_json1_1UpdateCampaignCommand = async (
   contents = deserializeAws_json1_1UpdateCampaignResponse(data, context);
   const response: UpdateCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateCampaignResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4394,7 +4358,6 @@ const serializeAws_json1_1UpdateCampaignRequest = (input: UpdateCampaignRequest,
 
 const deserializeAws_json1_1Algorithm = (output: any, context: __SerdeContext): Algorithm => {
   return {
-    __type: "Algorithm",
     algorithmArn: output.algorithmArn !== undefined && output.algorithmArn !== null ? output.algorithmArn : undefined,
     algorithmImage:
       output.algorithmImage !== undefined && output.algorithmImage !== null
@@ -4431,7 +4394,6 @@ const deserializeAws_json1_1Algorithm = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1AlgorithmImage = (output: any, context: __SerdeContext): AlgorithmImage => {
   return {
-    __type: "AlgorithmImage",
     dockerURI: output.dockerURI !== undefined && output.dockerURI !== null ? output.dockerURI : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
@@ -4443,7 +4405,6 @@ const deserializeAws_json1_1ArnList = (output: any, context: __SerdeContext): st
 
 const deserializeAws_json1_1AutoMLConfig = (output: any, context: __SerdeContext): AutoMLConfig => {
   return {
-    __type: "AutoMLConfig",
     metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
     recipeList:
       output.recipeList !== undefined && output.recipeList !== null
@@ -4454,7 +4415,6 @@ const deserializeAws_json1_1AutoMLConfig = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1AutoMLResult = (output: any, context: __SerdeContext): AutoMLResult => {
   return {
-    __type: "AutoMLResult",
     bestRecipeArn:
       output.bestRecipeArn !== undefined && output.bestRecipeArn !== null ? output.bestRecipeArn : undefined,
   } as any;
@@ -4462,7 +4422,6 @@ const deserializeAws_json1_1AutoMLResult = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeContext): BatchInferenceJob => {
   return {
-    __type: "BatchInferenceJob",
     batchInferenceJobArn:
       output.batchInferenceJobArn !== undefined && output.batchInferenceJobArn !== null
         ? output.batchInferenceJobArn
@@ -4499,7 +4458,6 @@ const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1BatchInferenceJobInput = (output: any, context: __SerdeContext): BatchInferenceJobInput => {
   return {
-    __type: "BatchInferenceJobInput",
     s3DataSource:
       output.s3DataSource !== undefined && output.s3DataSource !== null
         ? deserializeAws_json1_1S3DataConfig(output.s3DataSource, context)
@@ -4512,7 +4470,6 @@ const deserializeAws_json1_1BatchInferenceJobOutput = (
   context: __SerdeContext
 ): BatchInferenceJobOutput => {
   return {
-    __type: "BatchInferenceJobOutput",
     s3DataDestination:
       output.s3DataDestination !== undefined && output.s3DataDestination !== null
         ? deserializeAws_json1_1S3DataConfig(output.s3DataDestination, context)
@@ -4529,7 +4486,6 @@ const deserializeAws_json1_1BatchInferenceJobSummary = (
   context: __SerdeContext
 ): BatchInferenceJobSummary => {
   return {
-    __type: "BatchInferenceJobSummary",
     batchInferenceJobArn:
       output.batchInferenceJobArn !== undefined && output.batchInferenceJobArn !== null
         ? output.batchInferenceJobArn
@@ -4555,7 +4511,6 @@ const deserializeAws_json1_1BatchInferenceJobSummary = (
 
 const deserializeAws_json1_1Campaign = (output: any, context: __SerdeContext): Campaign => {
   return {
-    __type: "Campaign",
     campaignArn: output.campaignArn !== undefined && output.campaignArn !== null ? output.campaignArn : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
@@ -4590,7 +4545,6 @@ const deserializeAws_json1_1Campaigns = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1CampaignSummary = (output: any, context: __SerdeContext): CampaignSummary => {
   return {
-    __type: "CampaignSummary",
     campaignArn: output.campaignArn !== undefined && output.campaignArn !== null ? output.campaignArn : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
@@ -4609,7 +4563,6 @@ const deserializeAws_json1_1CampaignSummary = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1CampaignUpdateSummary = (output: any, context: __SerdeContext): CampaignUpdateSummary => {
   return {
-    __type: "CampaignUpdateSummary",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -4637,7 +4590,6 @@ const deserializeAws_json1_1CategoricalHyperParameterRange = (
   context: __SerdeContext
 ): CategoricalHyperParameterRange => {
   return {
-    __type: "CategoricalHyperParameterRange",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     values:
       output.values !== undefined && output.values !== null
@@ -4662,7 +4614,6 @@ const deserializeAws_json1_1ContinuousHyperParameterRange = (
   context: __SerdeContext
 ): ContinuousHyperParameterRange => {
   return {
-    __type: "ContinuousHyperParameterRange",
     maxValue: output.maxValue !== undefined && output.maxValue !== null ? output.maxValue : undefined,
     minValue: output.minValue !== undefined && output.minValue !== null ? output.minValue : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -4681,7 +4632,6 @@ const deserializeAws_json1_1CreateBatchInferenceJobResponse = (
   context: __SerdeContext
 ): CreateBatchInferenceJobResponse => {
   return {
-    __type: "CreateBatchInferenceJobResponse",
     batchInferenceJobArn:
       output.batchInferenceJobArn !== undefined && output.batchInferenceJobArn !== null
         ? output.batchInferenceJobArn
@@ -4691,7 +4641,6 @@ const deserializeAws_json1_1CreateBatchInferenceJobResponse = (
 
 const deserializeAws_json1_1CreateCampaignResponse = (output: any, context: __SerdeContext): CreateCampaignResponse => {
   return {
-    __type: "CreateCampaignResponse",
     campaignArn: output.campaignArn !== undefined && output.campaignArn !== null ? output.campaignArn : undefined,
   } as any;
 };
@@ -4701,7 +4650,6 @@ const deserializeAws_json1_1CreateDatasetGroupResponse = (
   context: __SerdeContext
 ): CreateDatasetGroupResponse => {
   return {
-    __type: "CreateDatasetGroupResponse",
     datasetGroupArn:
       output.datasetGroupArn !== undefined && output.datasetGroupArn !== null ? output.datasetGroupArn : undefined,
   } as any;
@@ -4712,7 +4660,6 @@ const deserializeAws_json1_1CreateDatasetImportJobResponse = (
   context: __SerdeContext
 ): CreateDatasetImportJobResponse => {
   return {
-    __type: "CreateDatasetImportJobResponse",
     datasetImportJobArn:
       output.datasetImportJobArn !== undefined && output.datasetImportJobArn !== null
         ? output.datasetImportJobArn
@@ -4722,7 +4669,6 @@ const deserializeAws_json1_1CreateDatasetImportJobResponse = (
 
 const deserializeAws_json1_1CreateDatasetResponse = (output: any, context: __SerdeContext): CreateDatasetResponse => {
   return {
-    __type: "CreateDatasetResponse",
     datasetArn: output.datasetArn !== undefined && output.datasetArn !== null ? output.datasetArn : undefined,
   } as any;
 };
@@ -4732,7 +4678,6 @@ const deserializeAws_json1_1CreateEventTrackerResponse = (
   context: __SerdeContext
 ): CreateEventTrackerResponse => {
   return {
-    __type: "CreateEventTrackerResponse",
     eventTrackerArn:
       output.eventTrackerArn !== undefined && output.eventTrackerArn !== null ? output.eventTrackerArn : undefined,
     trackingId: output.trackingId !== undefined && output.trackingId !== null ? output.trackingId : undefined,
@@ -4741,21 +4686,18 @@ const deserializeAws_json1_1CreateEventTrackerResponse = (
 
 const deserializeAws_json1_1CreateFilterResponse = (output: any, context: __SerdeContext): CreateFilterResponse => {
   return {
-    __type: "CreateFilterResponse",
     filterArn: output.filterArn !== undefined && output.filterArn !== null ? output.filterArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateSchemaResponse = (output: any, context: __SerdeContext): CreateSchemaResponse => {
   return {
-    __type: "CreateSchemaResponse",
     schemaArn: output.schemaArn !== undefined && output.schemaArn !== null ? output.schemaArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateSolutionResponse = (output: any, context: __SerdeContext): CreateSolutionResponse => {
   return {
-    __type: "CreateSolutionResponse",
     solutionArn: output.solutionArn !== undefined && output.solutionArn !== null ? output.solutionArn : undefined,
   } as any;
 };
@@ -4765,7 +4707,6 @@ const deserializeAws_json1_1CreateSolutionVersionResponse = (
   context: __SerdeContext
 ): CreateSolutionVersionResponse => {
   return {
-    __type: "CreateSolutionVersionResponse",
     solutionVersionArn:
       output.solutionVersionArn !== undefined && output.solutionVersionArn !== null
         ? output.solutionVersionArn
@@ -4775,7 +4716,6 @@ const deserializeAws_json1_1CreateSolutionVersionResponse = (
 
 const deserializeAws_json1_1Dataset = (output: any, context: __SerdeContext): Dataset => {
   return {
-    __type: "Dataset",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -4796,7 +4736,6 @@ const deserializeAws_json1_1Dataset = (output: any, context: __SerdeContext): Da
 
 const deserializeAws_json1_1DatasetGroup = (output: any, context: __SerdeContext): DatasetGroup => {
   return {
-    __type: "DatasetGroup",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -4822,7 +4761,6 @@ const deserializeAws_json1_1DatasetGroups = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1DatasetGroupSummary = (output: any, context: __SerdeContext): DatasetGroupSummary => {
   return {
-    __type: "DatasetGroupSummary",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -4842,7 +4780,6 @@ const deserializeAws_json1_1DatasetGroupSummary = (output: any, context: __Serde
 
 const deserializeAws_json1_1DatasetImportJob = (output: any, context: __SerdeContext): DatasetImportJob => {
   return {
-    __type: "DatasetImportJob",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -4877,7 +4814,6 @@ const deserializeAws_json1_1DatasetImportJobSummary = (
   context: __SerdeContext
 ): DatasetImportJobSummary => {
   return {
-    __type: "DatasetImportJobSummary",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -4903,7 +4839,6 @@ const deserializeAws_json1_1Datasets = (output: any, context: __SerdeContext): D
 
 const deserializeAws_json1_1DatasetSchema = (output: any, context: __SerdeContext): DatasetSchema => {
   return {
-    __type: "DatasetSchema",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -4920,7 +4855,6 @@ const deserializeAws_json1_1DatasetSchema = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1DatasetSchemaSummary = (output: any, context: __SerdeContext): DatasetSchemaSummary => {
   return {
-    __type: "DatasetSchemaSummary",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -4936,7 +4870,6 @@ const deserializeAws_json1_1DatasetSchemaSummary = (output: any, context: __Serd
 
 const deserializeAws_json1_1DatasetSummary = (output: any, context: __SerdeContext): DatasetSummary => {
   return {
-    __type: "DatasetSummary",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -4954,7 +4887,6 @@ const deserializeAws_json1_1DatasetSummary = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1DataSource = (output: any, context: __SerdeContext): DataSource => {
   return {
-    __type: "DataSource",
     dataLocation: output.dataLocation !== undefined && output.dataLocation !== null ? output.dataLocation : undefined,
   } as any;
 };
@@ -4964,7 +4896,6 @@ const deserializeAws_json1_1DefaultCategoricalHyperParameterRange = (
   context: __SerdeContext
 ): DefaultCategoricalHyperParameterRange => {
   return {
-    __type: "DefaultCategoricalHyperParameterRange",
     isTunable: output.isTunable !== undefined && output.isTunable !== null ? output.isTunable : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     values:
@@ -4988,7 +4919,6 @@ const deserializeAws_json1_1DefaultContinuousHyperParameterRange = (
   context: __SerdeContext
 ): DefaultContinuousHyperParameterRange => {
   return {
-    __type: "DefaultContinuousHyperParameterRange",
     isTunable: output.isTunable !== undefined && output.isTunable !== null ? output.isTunable : undefined,
     maxValue: output.maxValue !== undefined && output.maxValue !== null ? output.maxValue : undefined,
     minValue: output.minValue !== undefined && output.minValue !== null ? output.minValue : undefined,
@@ -5008,7 +4938,6 @@ const deserializeAws_json1_1DefaultHyperParameterRanges = (
   context: __SerdeContext
 ): DefaultHyperParameterRanges => {
   return {
-    __type: "DefaultHyperParameterRanges",
     categoricalHyperParameterRanges:
       output.categoricalHyperParameterRanges !== undefined && output.categoricalHyperParameterRanges !== null
         ? deserializeAws_json1_1DefaultCategoricalHyperParameterRanges(output.categoricalHyperParameterRanges, context)
@@ -5029,7 +4958,6 @@ const deserializeAws_json1_1DefaultIntegerHyperParameterRange = (
   context: __SerdeContext
 ): DefaultIntegerHyperParameterRange => {
   return {
-    __type: "DefaultIntegerHyperParameterRange",
     isTunable: output.isTunable !== undefined && output.isTunable !== null ? output.isTunable : undefined,
     maxValue: output.maxValue !== undefined && output.maxValue !== null ? output.maxValue : undefined,
     minValue: output.minValue !== undefined && output.minValue !== null ? output.minValue : undefined,
@@ -5049,7 +4977,6 @@ const deserializeAws_json1_1DescribeAlgorithmResponse = (
   context: __SerdeContext
 ): DescribeAlgorithmResponse => {
   return {
-    __type: "DescribeAlgorithmResponse",
     algorithm:
       output.algorithm !== undefined && output.algorithm !== null
         ? deserializeAws_json1_1Algorithm(output.algorithm, context)
@@ -5062,7 +4989,6 @@ const deserializeAws_json1_1DescribeBatchInferenceJobResponse = (
   context: __SerdeContext
 ): DescribeBatchInferenceJobResponse => {
   return {
-    __type: "DescribeBatchInferenceJobResponse",
     batchInferenceJob:
       output.batchInferenceJob !== undefined && output.batchInferenceJob !== null
         ? deserializeAws_json1_1BatchInferenceJob(output.batchInferenceJob, context)
@@ -5075,7 +5001,6 @@ const deserializeAws_json1_1DescribeCampaignResponse = (
   context: __SerdeContext
 ): DescribeCampaignResponse => {
   return {
-    __type: "DescribeCampaignResponse",
     campaign:
       output.campaign !== undefined && output.campaign !== null
         ? deserializeAws_json1_1Campaign(output.campaign, context)
@@ -5088,7 +5013,6 @@ const deserializeAws_json1_1DescribeDatasetGroupResponse = (
   context: __SerdeContext
 ): DescribeDatasetGroupResponse => {
   return {
-    __type: "DescribeDatasetGroupResponse",
     datasetGroup:
       output.datasetGroup !== undefined && output.datasetGroup !== null
         ? deserializeAws_json1_1DatasetGroup(output.datasetGroup, context)
@@ -5101,7 +5025,6 @@ const deserializeAws_json1_1DescribeDatasetImportJobResponse = (
   context: __SerdeContext
 ): DescribeDatasetImportJobResponse => {
   return {
-    __type: "DescribeDatasetImportJobResponse",
     datasetImportJob:
       output.datasetImportJob !== undefined && output.datasetImportJob !== null
         ? deserializeAws_json1_1DatasetImportJob(output.datasetImportJob, context)
@@ -5114,7 +5037,6 @@ const deserializeAws_json1_1DescribeDatasetResponse = (
   context: __SerdeContext
 ): DescribeDatasetResponse => {
   return {
-    __type: "DescribeDatasetResponse",
     dataset:
       output.dataset !== undefined && output.dataset !== null
         ? deserializeAws_json1_1Dataset(output.dataset, context)
@@ -5127,7 +5049,6 @@ const deserializeAws_json1_1DescribeEventTrackerResponse = (
   context: __SerdeContext
 ): DescribeEventTrackerResponse => {
   return {
-    __type: "DescribeEventTrackerResponse",
     eventTracker:
       output.eventTracker !== undefined && output.eventTracker !== null
         ? deserializeAws_json1_1EventTracker(output.eventTracker, context)
@@ -5140,7 +5061,6 @@ const deserializeAws_json1_1DescribeFeatureTransformationResponse = (
   context: __SerdeContext
 ): DescribeFeatureTransformationResponse => {
   return {
-    __type: "DescribeFeatureTransformationResponse",
     featureTransformation:
       output.featureTransformation !== undefined && output.featureTransformation !== null
         ? deserializeAws_json1_1FeatureTransformation(output.featureTransformation, context)
@@ -5150,7 +5070,6 @@ const deserializeAws_json1_1DescribeFeatureTransformationResponse = (
 
 const deserializeAws_json1_1DescribeFilterResponse = (output: any, context: __SerdeContext): DescribeFilterResponse => {
   return {
-    __type: "DescribeFilterResponse",
     filter:
       output.filter !== undefined && output.filter !== null
         ? deserializeAws_json1_1Filter(output.filter, context)
@@ -5160,7 +5079,6 @@ const deserializeAws_json1_1DescribeFilterResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1DescribeRecipeResponse = (output: any, context: __SerdeContext): DescribeRecipeResponse => {
   return {
-    __type: "DescribeRecipeResponse",
     recipe:
       output.recipe !== undefined && output.recipe !== null
         ? deserializeAws_json1_1Recipe(output.recipe, context)
@@ -5170,7 +5088,6 @@ const deserializeAws_json1_1DescribeRecipeResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1DescribeSchemaResponse = (output: any, context: __SerdeContext): DescribeSchemaResponse => {
   return {
-    __type: "DescribeSchemaResponse",
     schema:
       output.schema !== undefined && output.schema !== null
         ? deserializeAws_json1_1DatasetSchema(output.schema, context)
@@ -5183,7 +5100,6 @@ const deserializeAws_json1_1DescribeSolutionResponse = (
   context: __SerdeContext
 ): DescribeSolutionResponse => {
   return {
-    __type: "DescribeSolutionResponse",
     solution:
       output.solution !== undefined && output.solution !== null
         ? deserializeAws_json1_1Solution(output.solution, context)
@@ -5196,7 +5112,6 @@ const deserializeAws_json1_1DescribeSolutionVersionResponse = (
   context: __SerdeContext
 ): DescribeSolutionVersionResponse => {
   return {
-    __type: "DescribeSolutionVersionResponse",
     solutionVersion:
       output.solutionVersion !== undefined && output.solutionVersion !== null
         ? deserializeAws_json1_1SolutionVersion(output.solutionVersion, context)
@@ -5206,7 +5121,6 @@ const deserializeAws_json1_1DescribeSolutionVersionResponse = (
 
 const deserializeAws_json1_1EventTracker = (output: any, context: __SerdeContext): EventTracker => {
   return {
-    __type: "EventTracker",
     accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
@@ -5232,7 +5146,6 @@ const deserializeAws_json1_1EventTrackers = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1EventTrackerSummary = (output: any, context: __SerdeContext): EventTrackerSummary => {
   return {
-    __type: "EventTrackerSummary",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -5250,7 +5163,6 @@ const deserializeAws_json1_1EventTrackerSummary = (output: any, context: __Serde
 
 const deserializeAws_json1_1FeatureTransformation = (output: any, context: __SerdeContext): FeatureTransformation => {
   return {
-    __type: "FeatureTransformation",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -5300,7 +5212,6 @@ const deserializeAws_json1_1FeaturizationParameters = (
 
 const deserializeAws_json1_1Filter = (output: any, context: __SerdeContext): Filter => {
   return {
-    __type: "Filter",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -5327,7 +5238,6 @@ const deserializeAws_json1_1Filters = (output: any, context: __SerdeContext): Fi
 
 const deserializeAws_json1_1FilterSummary = (output: any, context: __SerdeContext): FilterSummary => {
   return {
-    __type: "FilterSummary",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -5351,7 +5261,6 @@ const deserializeAws_json1_1GetSolutionMetricsResponse = (
   context: __SerdeContext
 ): GetSolutionMetricsResponse => {
   return {
-    __type: "GetSolutionMetricsResponse",
     metrics:
       output.metrics !== undefined && output.metrics !== null
         ? deserializeAws_json1_1Metrics(output.metrics, context)
@@ -5365,7 +5274,6 @@ const deserializeAws_json1_1GetSolutionMetricsResponse = (
 
 const deserializeAws_json1_1HPOConfig = (output: any, context: __SerdeContext): HPOConfig => {
   return {
-    __type: "HPOConfig",
     algorithmHyperParameterRanges:
       output.algorithmHyperParameterRanges !== undefined && output.algorithmHyperParameterRanges !== null
         ? deserializeAws_json1_1HyperParameterRanges(output.algorithmHyperParameterRanges, context)
@@ -5383,7 +5291,6 @@ const deserializeAws_json1_1HPOConfig = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1HPOObjective = (output: any, context: __SerdeContext): HPOObjective => {
   return {
-    __type: "HPOObjective",
     metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
     metricRegex: output.metricRegex !== undefined && output.metricRegex !== null ? output.metricRegex : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
@@ -5392,7 +5299,6 @@ const deserializeAws_json1_1HPOObjective = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1HPOResourceConfig = (output: any, context: __SerdeContext): HPOResourceConfig => {
   return {
-    __type: "HPOResourceConfig",
     maxNumberOfTrainingJobs:
       output.maxNumberOfTrainingJobs !== undefined && output.maxNumberOfTrainingJobs !== null
         ? output.maxNumberOfTrainingJobs
@@ -5406,7 +5312,6 @@ const deserializeAws_json1_1HPOResourceConfig = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1HyperParameterRanges = (output: any, context: __SerdeContext): HyperParameterRanges => {
   return {
-    __type: "HyperParameterRanges",
     categoricalHyperParameterRanges:
       output.categoricalHyperParameterRanges !== undefined && output.categoricalHyperParameterRanges !== null
         ? deserializeAws_json1_1CategoricalHyperParameterRanges(output.categoricalHyperParameterRanges, context)
@@ -5437,7 +5342,6 @@ const deserializeAws_json1_1IntegerHyperParameterRange = (
   context: __SerdeContext
 ): IntegerHyperParameterRange => {
   return {
-    __type: "IntegerHyperParameterRange",
     maxValue: output.maxValue !== undefined && output.maxValue !== null ? output.maxValue : undefined,
     minValue: output.minValue !== undefined && output.minValue !== null ? output.minValue : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -5453,7 +5357,6 @@ const deserializeAws_json1_1IntegerHyperParameterRanges = (
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    __type: "InvalidInputException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5463,14 +5366,12 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5480,7 +5381,6 @@ const deserializeAws_json1_1ListBatchInferenceJobsResponse = (
   context: __SerdeContext
 ): ListBatchInferenceJobsResponse => {
   return {
-    __type: "ListBatchInferenceJobsResponse",
     batchInferenceJobs:
       output.batchInferenceJobs !== undefined && output.batchInferenceJobs !== null
         ? deserializeAws_json1_1BatchInferenceJobs(output.batchInferenceJobs, context)
@@ -5491,7 +5391,6 @@ const deserializeAws_json1_1ListBatchInferenceJobsResponse = (
 
 const deserializeAws_json1_1ListCampaignsResponse = (output: any, context: __SerdeContext): ListCampaignsResponse => {
   return {
-    __type: "ListCampaignsResponse",
     campaigns:
       output.campaigns !== undefined && output.campaigns !== null
         ? deserializeAws_json1_1Campaigns(output.campaigns, context)
@@ -5505,7 +5404,6 @@ const deserializeAws_json1_1ListDatasetGroupsResponse = (
   context: __SerdeContext
 ): ListDatasetGroupsResponse => {
   return {
-    __type: "ListDatasetGroupsResponse",
     datasetGroups:
       output.datasetGroups !== undefined && output.datasetGroups !== null
         ? deserializeAws_json1_1DatasetGroups(output.datasetGroups, context)
@@ -5519,7 +5417,6 @@ const deserializeAws_json1_1ListDatasetImportJobsResponse = (
   context: __SerdeContext
 ): ListDatasetImportJobsResponse => {
   return {
-    __type: "ListDatasetImportJobsResponse",
     datasetImportJobs:
       output.datasetImportJobs !== undefined && output.datasetImportJobs !== null
         ? deserializeAws_json1_1DatasetImportJobs(output.datasetImportJobs, context)
@@ -5530,7 +5427,6 @@ const deserializeAws_json1_1ListDatasetImportJobsResponse = (
 
 const deserializeAws_json1_1ListDatasetsResponse = (output: any, context: __SerdeContext): ListDatasetsResponse => {
   return {
-    __type: "ListDatasetsResponse",
     datasets:
       output.datasets !== undefined && output.datasets !== null
         ? deserializeAws_json1_1Datasets(output.datasets, context)
@@ -5544,7 +5440,6 @@ const deserializeAws_json1_1ListEventTrackersResponse = (
   context: __SerdeContext
 ): ListEventTrackersResponse => {
   return {
-    __type: "ListEventTrackersResponse",
     eventTrackers:
       output.eventTrackers !== undefined && output.eventTrackers !== null
         ? deserializeAws_json1_1EventTrackers(output.eventTrackers, context)
@@ -5555,7 +5450,6 @@ const deserializeAws_json1_1ListEventTrackersResponse = (
 
 const deserializeAws_json1_1ListFiltersResponse = (output: any, context: __SerdeContext): ListFiltersResponse => {
   return {
-    __type: "ListFiltersResponse",
     Filters:
       output.Filters !== undefined && output.Filters !== null
         ? deserializeAws_json1_1Filters(output.Filters, context)
@@ -5566,7 +5460,6 @@ const deserializeAws_json1_1ListFiltersResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1ListRecipesResponse = (output: any, context: __SerdeContext): ListRecipesResponse => {
   return {
-    __type: "ListRecipesResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     recipes:
       output.recipes !== undefined && output.recipes !== null
@@ -5577,7 +5470,6 @@ const deserializeAws_json1_1ListRecipesResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1ListSchemasResponse = (output: any, context: __SerdeContext): ListSchemasResponse => {
   return {
-    __type: "ListSchemasResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     schemas:
       output.schemas !== undefined && output.schemas !== null
@@ -5588,7 +5480,6 @@ const deserializeAws_json1_1ListSchemasResponse = (output: any, context: __Serde
 
 const deserializeAws_json1_1ListSolutionsResponse = (output: any, context: __SerdeContext): ListSolutionsResponse => {
   return {
-    __type: "ListSolutionsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     solutions:
       output.solutions !== undefined && output.solutions !== null
@@ -5602,7 +5493,6 @@ const deserializeAws_json1_1ListSolutionVersionsResponse = (
   context: __SerdeContext
 ): ListSolutionVersionsResponse => {
   return {
-    __type: "ListSolutionVersionsResponse",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     solutionVersions:
       output.solutionVersions !== undefined && output.solutionVersions !== null
@@ -5623,7 +5513,6 @@ const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): { 
 
 const deserializeAws_json1_1Recipe = (output: any, context: __SerdeContext): Recipe => {
   return {
-    __type: "Recipe",
     algorithmArn: output.algorithmArn !== undefined && output.algorithmArn !== null ? output.algorithmArn : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
@@ -5651,7 +5540,6 @@ const deserializeAws_json1_1Recipes = (output: any, context: __SerdeContext): Re
 
 const deserializeAws_json1_1RecipeSummary = (output: any, context: __SerdeContext): RecipeSummary => {
   return {
-    __type: "RecipeSummary",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -5671,7 +5559,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
   return {
-    __type: "ResourceAlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5688,7 +5575,6 @@ const deserializeAws_json1_1ResourceConfig = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    __type: "ResourceInUseException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5698,14 +5584,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1S3DataConfig = (output: any, context: __SerdeContext): S3DataConfig => {
   return {
-    __type: "S3DataConfig",
     kmsKeyArn: output.kmsKeyArn !== undefined && output.kmsKeyArn !== null ? output.kmsKeyArn : undefined,
     path: output.path !== undefined && output.path !== null ? output.path : undefined,
   } as any;
@@ -5717,7 +5601,6 @@ const deserializeAws_json1_1Schemas = (output: any, context: __SerdeContext): Da
 
 const deserializeAws_json1_1Solution = (output: any, context: __SerdeContext): Solution => {
   return {
-    __type: "Solution",
     autoMLResult:
       output.autoMLResult !== undefined && output.autoMLResult !== null
         ? deserializeAws_json1_1AutoMLResult(output.autoMLResult, context)
@@ -5753,7 +5636,6 @@ const deserializeAws_json1_1Solution = (output: any, context: __SerdeContext): S
 
 const deserializeAws_json1_1SolutionConfig = (output: any, context: __SerdeContext): SolutionConfig => {
   return {
-    __type: "SolutionConfig",
     algorithmHyperParameters:
       output.algorithmHyperParameters !== undefined && output.algorithmHyperParameters !== null
         ? deserializeAws_json1_1HyperParameters(output.algorithmHyperParameters, context)
@@ -5783,7 +5665,6 @@ const deserializeAws_json1_1Solutions = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1SolutionSummary = (output: any, context: __SerdeContext): SolutionSummary => {
   return {
-    __type: "SolutionSummary",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -5800,7 +5681,6 @@ const deserializeAws_json1_1SolutionSummary = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1SolutionVersion = (output: any, context: __SerdeContext): SolutionVersion => {
   return {
-    __type: "SolutionVersion",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -5844,7 +5724,6 @@ const deserializeAws_json1_1SolutionVersions = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1SolutionVersionSummary = (output: any, context: __SerdeContext): SolutionVersionSummary => {
   return {
-    __type: "SolutionVersionSummary",
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -5865,7 +5744,6 @@ const deserializeAws_json1_1SolutionVersionSummary = (output: any, context: __Se
 
 const deserializeAws_json1_1TunedHPOParams = (output: any, context: __SerdeContext): TunedHPOParams => {
   return {
-    __type: "TunedHPOParams",
     algorithmHyperParameters:
       output.algorithmHyperParameters !== undefined && output.algorithmHyperParameters !== null
         ? deserializeAws_json1_1HyperParameters(output.algorithmHyperParameters, context)
@@ -5875,7 +5753,6 @@ const deserializeAws_json1_1TunedHPOParams = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1UpdateCampaignResponse = (output: any, context: __SerdeContext): UpdateCampaignResponse => {
   return {
-    __type: "UpdateCampaignResponse",
     campaignArn: output.campaignArn !== undefined && output.campaignArn !== null ? output.campaignArn : undefined,
   } as any;
 };

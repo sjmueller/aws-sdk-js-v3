@@ -1,6 +1,6 @@
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
-import { DeleteBranchRequest, DeleteBranchResult } from "../models/index.ts";
+import { DeleteBranchRequest, DeleteBranchResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteBranchCommand,
   serializeAws_restJson1DeleteBranchCommand,

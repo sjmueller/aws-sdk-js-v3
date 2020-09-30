@@ -1,6 +1,6 @@
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient.ts";
-import { GetQueueRequest, GetQueueResponse } from "../models/index.ts";
+import { GetQueueRequest, GetQueueResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1GetQueueCommand,
   serializeAws_restJson1GetQueueCommand,

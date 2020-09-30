@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient.ts";
-import { DeleteElasticsearchDomainRequest, DeleteElasticsearchDomainResponse } from "../models/index.ts";
+import { DeleteElasticsearchDomainRequest, DeleteElasticsearchDomainResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteElasticsearchDomainCommand,
   serializeAws_restJson1DeleteElasticsearchDomainCommand,

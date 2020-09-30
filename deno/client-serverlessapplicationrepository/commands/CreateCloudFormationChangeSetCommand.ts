@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient.ts";
-import { CreateCloudFormationChangeSetRequest, CreateCloudFormationChangeSetResponse } from "../models/index.ts";
+import { CreateCloudFormationChangeSetRequest, CreateCloudFormationChangeSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateCloudFormationChangeSetCommand,
   serializeAws_restJson1CreateCloudFormationChangeSetCommand,

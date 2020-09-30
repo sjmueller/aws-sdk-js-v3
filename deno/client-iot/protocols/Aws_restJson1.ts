@@ -598,11 +598,7 @@ import {
   BehaviorCriteria,
   BillingGroupMetadata,
   BillingGroupProperties,
-  CACertificate,
   CACertificateDescription,
-  Certificate,
-  CertificateConflictException,
-  CertificateDescription,
   CertificateStateException,
   CertificateValidationException,
   CertificateValidity,
@@ -612,107 +608,65 @@ import {
   CodeSigning,
   CodeSigningCertificateChain,
   CodeSigningSignature,
-  Configuration,
   ConflictingResourceUpdateException,
   CustomCodeSigning,
   DeleteConflictException,
   Denied,
   Destination,
-  DomainConfigurationSummary,
   DynamoDBAction,
   DynamoDBv2Action,
-  EffectivePolicy,
   ElasticsearchAction,
   EnableIoTLoggingParams,
-  ErrorInfo,
-  EventType,
   ExplicitDeny,
   ExponentialRolloutRate,
-  Field,
   FileLocation,
   FirehoseAction,
-  GroupNameAndArn,
   HttpAction,
   HttpActionHeader,
   HttpAuthorization,
-  HttpContext,
   HttpUrlDestinationConfiguration,
   HttpUrlDestinationProperties,
-  HttpUrlDestinationSummary,
   ImplicitDeny,
-  IndexNotReadyException,
   InternalException,
   InternalFailureException,
-  InvalidAggregationException,
   InvalidQueryException,
   InvalidRequestException,
-  InvalidResponseException,
   InvalidStateTransitionException,
   IotAnalyticsAction,
   IotEventsAction,
   IotSiteWiseAction,
-  Job,
-  JobExecution,
-  JobExecutionStatusDetails,
-  JobExecutionSummary,
-  JobExecutionSummaryForJob,
-  JobExecutionSummaryForThing,
   JobExecutionsRolloutConfig,
-  JobProcessDetails,
-  JobSummary,
   KeyPair,
   KinesisAction,
   LambdaAction,
   LimitExceededException,
-  LogTarget,
-  LogTargetConfiguration,
-  LoggingOptionsPayload,
   MalformedPolicyException,
   MetricDimension,
   MetricToRetain,
   MetricValue,
   MitigationAction,
-  MitigationActionIdentifier,
   MitigationActionParams,
-  MqttContext,
   NonCompliantResource,
-  NotConfiguredException,
   OTAUpdateFile,
-  OTAUpdateInfo,
-  OTAUpdateSummary,
-  OutgoingCertificate,
-  PercentPair,
   Policy,
-  PolicyVersion,
   PolicyVersionIdentifier,
   PresignedUrlConfig,
   Protocol,
   ProvisioningHook,
-  ProvisioningTemplateSummary,
-  ProvisioningTemplateVersionSummary,
   PublishFindingToSnsParams,
   PutAssetPropertyValueEntry,
   PutItemInput,
   RateIncreaseCriteria,
-  RegistrationCodeValidationException,
-  RegistrationConfig,
   RelatedResource,
   ReplaceDefaultPolicyVersionParams,
   RepublishAction,
   ResourceAlreadyExistsException,
   ResourceIdentifier,
   ResourceNotFoundException,
-  ResourceRegistrationFailureException,
-  RoleAliasDescription,
   S3Action,
   S3Destination,
   S3Location,
   SalesforceAction,
-  ScheduledAuditMetadata,
-  SecurityProfileIdentifier,
-  SecurityProfileTarget,
-  SecurityProfileTargetMapping,
-  ServerCertificateSummary,
   ServiceUnavailableException,
   SigV4Authorization,
   SigningProfileParameter,
@@ -721,47 +675,95 @@ import {
   SqsAction,
   StartSigningJobParameter,
   StatisticalThreshold,
-  Statistics,
   StepFunctionsAction,
   StreamFile,
-  StreamInfo,
-  StreamSummary,
   Tag,
-  TaskAlreadyExistsException,
   TaskStatistics,
   TaskStatisticsForAuditCheck,
+  ThingGroupProperties,
+  ThingTypeProperties,
+  ThrottlingException,
+  TimeoutConfig,
+  TopicRuleDestination,
+  TopicRuleDestinationConfiguration,
+  TopicRulePayload,
+  TransferAlreadyCompletedException,
+  UnauthorizedException,
+  UpdateCACertificateParams,
+  UpdateDeviceCertificateParams,
+  VersionConflictException,
+  VersionsLimitExceededException,
+  _Stream,
+} from "../models/models_0.ts";
+import {
+  CACertificate,
+  Certificate,
+  CertificateConflictException,
+  CertificateDescription,
+  Configuration,
+  DomainConfigurationSummary,
+  EffectivePolicy,
+  ErrorInfo,
+  EventType,
+  Field,
+  GroupNameAndArn,
+  HttpContext,
+  HttpUrlDestinationSummary,
+  IndexNotReadyException,
+  InvalidAggregationException,
+  InvalidResponseException,
+  Job,
+  JobExecution,
+  JobExecutionStatusDetails,
+  JobExecutionSummary,
+  JobExecutionSummaryForJob,
+  JobExecutionSummaryForThing,
+  JobProcessDetails,
+  JobSummary,
+  LogTarget,
+  LogTargetConfiguration,
+  LoggingOptionsPayload,
+  MitigationActionIdentifier,
+  MqttContext,
+  NotConfiguredException,
+  OTAUpdateInfo,
+  OTAUpdateSummary,
+  OutgoingCertificate,
+  PercentPair,
+  PolicyVersion,
+  ProvisioningTemplateSummary,
+  ProvisioningTemplateVersionSummary,
+  RegistrationCodeValidationException,
+  RegistrationConfig,
+  ResourceRegistrationFailureException,
+  RoleAliasDescription,
+  ScheduledAuditMetadata,
+  SecurityProfileIdentifier,
+  SecurityProfileTarget,
+  SecurityProfileTargetMapping,
+  ServerCertificateSummary,
+  Statistics,
+  StreamInfo,
+  StreamSummary,
+  TaskAlreadyExistsException,
   ThingAttribute,
   ThingConnectivity,
   ThingDocument,
   ThingGroupDocument,
   ThingGroupIndexingConfiguration,
   ThingGroupMetadata,
-  ThingGroupProperties,
   ThingIndexingConfiguration,
   ThingTypeDefinition,
   ThingTypeMetadata,
-  ThingTypeProperties,
-  ThrottlingException,
-  TimeoutConfig,
   TlsContext,
   TopicRule,
-  TopicRuleDestination,
-  TopicRuleDestinationConfiguration,
   TopicRuleDestinationSummary,
   TopicRuleListItem,
-  TopicRulePayload,
-  TransferAlreadyCompletedException,
   TransferConflictException,
   TransferData,
-  UnauthorizedException,
-  UpdateCACertificateParams,
-  UpdateDeviceCertificateParams,
-  ValidationError,
-  VersionConflictException,
-  VersionsLimitExceededException,
   ViolationEvent,
-  _Stream,
-} from "../models/index.ts";
+} from "../models/models_1.ts";
+import { ValidationError } from "../models/models_2.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -7493,7 +7495,6 @@ export const deserializeAws_restJson1AddThingToBillingGroupCommand = async (
   }
   const contents: AddThingToBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddThingToBillingGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -7569,7 +7570,6 @@ export const deserializeAws_restJson1AddThingToThingGroupCommand = async (
   }
   const contents: AddThingToThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddThingToThingGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -7645,7 +7645,6 @@ export const deserializeAws_restJson1AssociateTargetsWithJobCommand = async (
   }
   const contents: AssociateTargetsWithJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateTargetsWithJobResponse",
     description: undefined,
     jobArn: undefined,
     jobId: undefined,
@@ -7939,7 +7938,6 @@ export const deserializeAws_restJson1AttachSecurityProfileCommand = async (
   }
   const contents: AttachSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachSecurityProfileResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8031,7 +8029,6 @@ export const deserializeAws_restJson1AttachThingPrincipalCommand = async (
   }
   const contents: AttachThingPrincipalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachThingPrincipalResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8123,7 +8120,6 @@ export const deserializeAws_restJson1CancelAuditMitigationActionsTaskCommand = a
   }
   const contents: CancelAuditMitigationActionsTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelAuditMitigationActionsTaskResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8199,7 +8195,6 @@ export const deserializeAws_restJson1CancelAuditTaskCommand = async (
   }
   const contents: CancelAuditTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelAuditTaskResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8374,7 +8369,6 @@ export const deserializeAws_restJson1CancelJobCommand = async (
   }
   const contents: CancelJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelJobResponse",
     description: undefined,
     jobArn: undefined,
     jobId: undefined,
@@ -8553,7 +8547,6 @@ export const deserializeAws_restJson1ClearDefaultAuthorizerCommand = async (
   }
   const contents: ClearDefaultAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClearDefaultAuthorizerResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8645,7 +8638,6 @@ export const deserializeAws_restJson1ConfirmTopicRuleDestinationCommand = async 
   }
   const contents: ConfirmTopicRuleDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfirmTopicRuleDestinationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -8729,7 +8721,6 @@ export const deserializeAws_restJson1CreateAuthorizerCommand = async (
   }
   const contents: CreateAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAuthorizerResponse",
     authorizerArn: undefined,
     authorizerName: undefined,
   };
@@ -8837,7 +8828,6 @@ export const deserializeAws_restJson1CreateBillingGroupCommand = async (
   }
   const contents: CreateBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBillingGroupResponse",
     billingGroupArn: undefined,
     billingGroupId: undefined,
     billingGroupName: undefined,
@@ -8925,7 +8915,6 @@ export const deserializeAws_restJson1CreateCertificateFromCsrCommand = async (
   }
   const contents: CreateCertificateFromCsrCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCertificateFromCsrResponse",
     certificateArn: undefined,
     certificateId: undefined,
     certificatePem: undefined,
@@ -9021,7 +9010,6 @@ export const deserializeAws_restJson1CreateDimensionCommand = async (
   }
   const contents: CreateDimensionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDimensionResponse",
     arn: undefined,
     name: undefined,
   };
@@ -9113,7 +9101,6 @@ export const deserializeAws_restJson1CreateDomainConfigurationCommand = async (
   }
   const contents: CreateDomainConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDomainConfigurationResponse",
     domainConfigurationArn: undefined,
     domainConfigurationName: undefined,
   };
@@ -9229,7 +9216,6 @@ export const deserializeAws_restJson1CreateDynamicThingGroupCommand = async (
   }
   const contents: CreateDynamicThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDynamicThingGroupResponse",
     indexName: undefined,
     queryString: undefined,
     queryVersion: undefined,
@@ -9353,7 +9339,6 @@ export const deserializeAws_restJson1CreateJobCommand = async (
   }
   const contents: CreateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateJobResponse",
     description: undefined,
     jobArn: undefined,
     jobId: undefined,
@@ -9457,7 +9442,6 @@ export const deserializeAws_restJson1CreateKeysAndCertificateCommand = async (
   }
   const contents: CreateKeysAndCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateKeysAndCertificateResponse",
     certificateArn: undefined,
     certificateId: undefined,
     certificatePem: undefined,
@@ -9557,7 +9541,6 @@ export const deserializeAws_restJson1CreateMitigationActionCommand = async (
   }
   const contents: CreateMitigationActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMitigationActionResponse",
     actionArn: undefined,
     actionId: undefined,
   };
@@ -9649,7 +9632,6 @@ export const deserializeAws_restJson1CreateOTAUpdateCommand = async (
   }
   const contents: CreateOTAUpdateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateOTAUpdateResponse",
     awsIotJobArn: undefined,
     awsIotJobId: undefined,
     otaUpdateArn: undefined,
@@ -9777,7 +9759,6 @@ export const deserializeAws_restJson1CreatePolicyCommand = async (
   }
   const contents: CreatePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePolicyResponse",
     policyArn: undefined,
     policyDocument: undefined,
     policyName: undefined,
@@ -9893,7 +9874,6 @@ export const deserializeAws_restJson1CreatePolicyVersionCommand = async (
   }
   const contents: CreatePolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePolicyVersionResponse",
     isDefaultVersion: undefined,
     policyArn: undefined,
     policyDocument: undefined,
@@ -10017,7 +9997,6 @@ export const deserializeAws_restJson1CreateProvisioningClaimCommand = async (
   }
   const contents: CreateProvisioningClaimCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProvisioningClaimResponse",
     certificateId: undefined,
     certificatePem: undefined,
     expiration: undefined,
@@ -10125,7 +10104,6 @@ export const deserializeAws_restJson1CreateProvisioningTemplateCommand = async (
   }
   const contents: CreateProvisioningTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProvisioningTemplateResponse",
     defaultVersionId: undefined,
     templateArn: undefined,
     templateName: undefined,
@@ -10229,7 +10207,6 @@ export const deserializeAws_restJson1CreateProvisioningTemplateVersionCommand = 
   }
   const contents: CreateProvisioningTemplateVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProvisioningTemplateVersionResponse",
     isDefaultVersion: undefined,
     templateArn: undefined,
     templateName: undefined,
@@ -10345,7 +10322,6 @@ export const deserializeAws_restJson1CreateRoleAliasCommand = async (
   }
   const contents: CreateRoleAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRoleAliasResponse",
     roleAlias: undefined,
     roleAliasArn: undefined,
   };
@@ -10453,7 +10429,6 @@ export const deserializeAws_restJson1CreateScheduledAuditCommand = async (
   }
   const contents: CreateScheduledAuditCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateScheduledAuditResponse",
     scheduledAuditArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10541,7 +10516,6 @@ export const deserializeAws_restJson1CreateSecurityProfileCommand = async (
   }
   const contents: CreateSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSecurityProfileResponse",
     securityProfileArn: undefined,
     securityProfileName: undefined,
   };
@@ -10625,7 +10599,6 @@ export const deserializeAws_restJson1CreateStreamCommand = async (
   }
   const contents: CreateStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStreamResponse",
     description: undefined,
     streamArn: undefined,
     streamId: undefined,
@@ -10749,7 +10722,6 @@ export const deserializeAws_restJson1CreateThingCommand = async (
   }
   const contents: CreateThingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateThingResponse",
     thingArn: undefined,
     thingId: undefined,
     thingName: undefined,
@@ -10861,7 +10833,6 @@ export const deserializeAws_restJson1CreateThingGroupCommand = async (
   }
   const contents: CreateThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateThingGroupResponse",
     thingGroupArn: undefined,
     thingGroupId: undefined,
     thingGroupName: undefined,
@@ -10949,7 +10920,6 @@ export const deserializeAws_restJson1CreateThingTypeCommand = async (
   }
   const contents: CreateThingTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateThingTypeResponse",
     thingTypeArn: undefined,
     thingTypeId: undefined,
     thingTypeName: undefined,
@@ -11144,7 +11114,6 @@ export const deserializeAws_restJson1CreateTopicRuleDestinationCommand = async (
   }
   const contents: CreateTopicRuleDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTopicRuleDestinationResponse",
     topicRuleDestination: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11232,7 +11201,6 @@ export const deserializeAws_restJson1DeleteAccountAuditConfigurationCommand = as
   }
   const contents: DeleteAccountAuditConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAccountAuditConfigurationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -11308,7 +11276,6 @@ export const deserializeAws_restJson1DeleteAuthorizerCommand = async (
   }
   const contents: DeleteAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAuthorizerResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -11408,7 +11375,6 @@ export const deserializeAws_restJson1DeleteBillingGroupCommand = async (
   }
   const contents: DeleteBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBillingGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -11484,7 +11450,6 @@ export const deserializeAws_restJson1DeleteCACertificateCommand = async (
   }
   const contents: DeleteCACertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCACertificateResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -11691,7 +11656,6 @@ export const deserializeAws_restJson1DeleteDimensionCommand = async (
   }
   const contents: DeleteDimensionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDimensionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -11759,7 +11723,6 @@ export const deserializeAws_restJson1DeleteDomainConfigurationCommand = async (
   }
   const contents: DeleteDomainConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDomainConfigurationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -11851,7 +11814,6 @@ export const deserializeAws_restJson1DeleteDynamicThingGroupCommand = async (
   }
   const contents: DeleteDynamicThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDynamicThingGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -12101,7 +12063,6 @@ export const deserializeAws_restJson1DeleteMitigationActionCommand = async (
   }
   const contents: DeleteMitigationActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMitigationActionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -12169,7 +12130,6 @@ export const deserializeAws_restJson1DeleteOTAUpdateCommand = async (
   }
   const contents: DeleteOTAUpdateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteOTAUpdateResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -12467,7 +12427,6 @@ export const deserializeAws_restJson1DeleteProvisioningTemplateCommand = async (
   }
   const contents: DeleteProvisioningTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProvisioningTemplateResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -12559,7 +12518,6 @@ export const deserializeAws_restJson1DeleteProvisioningTemplateVersionCommand = 
   }
   const contents: DeleteProvisioningTemplateVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProvisioningTemplateVersionResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -12651,7 +12609,6 @@ export const deserializeAws_restJson1DeleteRegistrationCodeCommand = async (
   }
   const contents: DeleteRegistrationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRegistrationCodeResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -12735,7 +12692,6 @@ export const deserializeAws_restJson1DeleteRoleAliasCommand = async (
   }
   const contents: DeleteRoleAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRoleAliasResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -12835,7 +12791,6 @@ export const deserializeAws_restJson1DeleteScheduledAuditCommand = async (
   }
   const contents: DeleteScheduledAuditCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteScheduledAuditResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -12911,7 +12866,6 @@ export const deserializeAws_restJson1DeleteSecurityProfileCommand = async (
   }
   const contents: DeleteSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSecurityProfileResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -12987,7 +12941,6 @@ export const deserializeAws_restJson1DeleteStreamCommand = async (
   }
   const contents: DeleteStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteStreamResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -13087,7 +13040,6 @@ export const deserializeAws_restJson1DeleteThingCommand = async (
   }
   const contents: DeleteThingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteThingResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -13187,7 +13139,6 @@ export const deserializeAws_restJson1DeleteThingGroupCommand = async (
   }
   const contents: DeleteThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteThingGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -13263,7 +13214,6 @@ export const deserializeAws_restJson1DeleteThingTypeCommand = async (
   }
   const contents: DeleteThingTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteThingTypeResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -13438,7 +13388,6 @@ export const deserializeAws_restJson1DeleteTopicRuleDestinationCommand = async (
   }
   const contents: DeleteTopicRuleDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTopicRuleDestinationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -13589,7 +13538,6 @@ export const deserializeAws_restJson1DeprecateThingTypeCommand = async (
   }
   const contents: DeprecateThingTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeprecateThingTypeResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -13681,7 +13629,6 @@ export const deserializeAws_restJson1DescribeAccountAuditConfigurationCommand = 
   }
   const contents: DescribeAccountAuditConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAccountAuditConfigurationResponse",
     auditCheckConfigurations: undefined,
     auditNotificationTargetConfigurations: undefined,
     roleArn: undefined,
@@ -13759,7 +13706,6 @@ export const deserializeAws_restJson1DescribeAuditFindingCommand = async (
   }
   const contents: DescribeAuditFindingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAuditFindingResponse",
     finding: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13839,7 +13785,6 @@ export const deserializeAws_restJson1DescribeAuditMitigationActionsTaskCommand =
   }
   const contents: DescribeAuditMitigationActionsTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAuditMitigationActionsTaskResponse",
     actionsDefinition: undefined,
     auditCheckToActionsMapping: undefined,
     endTime: undefined,
@@ -13949,7 +13894,6 @@ export const deserializeAws_restJson1DescribeAuditTaskCommand = async (
   }
   const contents: DescribeAuditTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAuditTaskResponse",
     auditDetails: undefined,
     scheduledAuditName: undefined,
     taskStartTime: undefined,
@@ -14049,7 +13993,6 @@ export const deserializeAws_restJson1DescribeAuthorizerCommand = async (
   }
   const contents: DescribeAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAuthorizerResponse",
     authorizerDescription: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14145,7 +14088,6 @@ export const deserializeAws_restJson1DescribeBillingGroupCommand = async (
   }
   const contents: DescribeBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBillingGroupResponse",
     billingGroupArn: undefined,
     billingGroupId: undefined,
     billingGroupMetadata: undefined,
@@ -14248,7 +14190,6 @@ export const deserializeAws_restJson1DescribeCACertificateCommand = async (
   }
   const contents: DescribeCACertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCACertificateResponse",
     certificateDescription: undefined,
     registrationConfig: undefined,
   };
@@ -14351,7 +14292,6 @@ export const deserializeAws_restJson1DescribeCertificateCommand = async (
   }
   const contents: DescribeCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCertificateResponse",
     certificateDescription: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14450,7 +14390,6 @@ export const deserializeAws_restJson1DescribeDefaultAuthorizerCommand = async (
   }
   const contents: DescribeDefaultAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDefaultAuthorizerResponse",
     authorizerDescription: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14546,7 +14485,6 @@ export const deserializeAws_restJson1DescribeDimensionCommand = async (
   }
   const contents: DescribeDimensionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDimensionResponse",
     arn: undefined,
     creationDate: undefined,
     lastModifiedDate: undefined,
@@ -14646,7 +14584,6 @@ export const deserializeAws_restJson1DescribeDomainConfigurationCommand = async 
   }
   const contents: DescribeDomainConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDomainConfigurationResponse",
     authorizerConfig: undefined,
     domainConfigurationArn: undefined,
     domainConfigurationName: undefined,
@@ -14770,7 +14707,6 @@ export const deserializeAws_restJson1DescribeEndpointCommand = async (
   }
   const contents: DescribeEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEndpointResponse",
     endpointAddress: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14850,7 +14786,6 @@ export const deserializeAws_restJson1DescribeEventConfigurationsCommand = async 
   }
   const contents: DescribeEventConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventConfigurationsResponse",
     creationDate: undefined,
     eventConfigurations: undefined,
     lastModifiedDate: undefined,
@@ -14922,7 +14857,6 @@ export const deserializeAws_restJson1DescribeIndexCommand = async (
   }
   const contents: DescribeIndexCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeIndexResponse",
     indexName: undefined,
     indexStatus: undefined,
     schema: undefined,
@@ -15026,7 +14960,6 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
   }
   const contents: DescribeJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeJobResponse",
     documentSource: undefined,
     job: undefined,
   };
@@ -15110,7 +15043,6 @@ export const deserializeAws_restJson1DescribeJobExecutionCommand = async (
   }
   const contents: DescribeJobExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeJobExecutionResponse",
     execution: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -15190,7 +15122,6 @@ export const deserializeAws_restJson1DescribeMitigationActionCommand = async (
   }
   const contents: DescribeMitigationActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMitigationActionResponse",
     actionArn: undefined,
     actionId: undefined,
     actionName: undefined,
@@ -15298,7 +15229,6 @@ export const deserializeAws_restJson1DescribeProvisioningTemplateCommand = async
   }
   const contents: DescribeProvisioningTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProvisioningTemplateResponse",
     creationDate: undefined,
     defaultVersionId: undefined,
     description: undefined,
@@ -15422,7 +15352,6 @@ export const deserializeAws_restJson1DescribeProvisioningTemplateVersionCommand 
   }
   const contents: DescribeProvisioningTemplateVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProvisioningTemplateVersionResponse",
     creationDate: undefined,
     isDefaultVersion: undefined,
     templateBody: undefined,
@@ -15522,7 +15451,6 @@ export const deserializeAws_restJson1DescribeRoleAliasCommand = async (
   }
   const contents: DescribeRoleAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRoleAliasResponse",
     roleAliasDescription: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -15618,7 +15546,6 @@ export const deserializeAws_restJson1DescribeScheduledAuditCommand = async (
   }
   const contents: DescribeScheduledAuditCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeScheduledAuditResponse",
     dayOfMonth: undefined,
     dayOfWeek: undefined,
     frequency: undefined,
@@ -15718,7 +15645,6 @@ export const deserializeAws_restJson1DescribeSecurityProfileCommand = async (
   }
   const contents: DescribeSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSecurityProfileResponse",
     additionalMetricsToRetain: undefined,
     additionalMetricsToRetainV2: undefined,
     alertTargets: undefined,
@@ -15840,7 +15766,6 @@ export const deserializeAws_restJson1DescribeStreamCommand = async (
   }
   const contents: DescribeStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStreamResponse",
     streamInfo: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -15936,7 +15861,6 @@ export const deserializeAws_restJson1DescribeThingCommand = async (
   }
   const contents: DescribeThingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeThingResponse",
     attributes: undefined,
     billingGroupName: undefined,
     defaultClientId: undefined,
@@ -16060,7 +15984,6 @@ export const deserializeAws_restJson1DescribeThingGroupCommand = async (
   }
   const contents: DescribeThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeThingGroupResponse",
     indexName: undefined,
     queryString: undefined,
     queryVersion: undefined,
@@ -16176,7 +16099,6 @@ export const deserializeAws_restJson1DescribeThingRegistrationTaskCommand = asyn
   }
   const contents: DescribeThingRegistrationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeThingRegistrationTaskResponse",
     creationDate: undefined,
     failureCount: undefined,
     inputFileBucket: undefined,
@@ -16308,7 +16230,6 @@ export const deserializeAws_restJson1DescribeThingTypeCommand = async (
   }
   const contents: DescribeThingTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeThingTypeResponse",
     thingTypeArn: undefined,
     thingTypeId: undefined,
     thingTypeMetadata: undefined,
@@ -16602,7 +16523,6 @@ export const deserializeAws_restJson1DetachSecurityProfileCommand = async (
   }
   const contents: DetachSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachSecurityProfileResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -16678,7 +16598,6 @@ export const deserializeAws_restJson1DetachThingPrincipalCommand = async (
   }
   const contents: DetachThingPrincipalCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachThingPrincipalResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -16936,7 +16855,6 @@ export const deserializeAws_restJson1GetCardinalityCommand = async (
   }
   const contents: GetCardinalityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCardinalityResponse",
     cardinality: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -17056,7 +16974,6 @@ export const deserializeAws_restJson1GetEffectivePoliciesCommand = async (
   }
   const contents: GetEffectivePoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEffectivePoliciesResponse",
     effectivePolicies: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -17160,7 +17077,6 @@ export const deserializeAws_restJson1GetIndexingConfigurationCommand = async (
   }
   const contents: GetIndexingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetIndexingConfigurationResponse",
     thingGroupIndexingConfiguration: undefined,
     thingIndexingConfiguration: undefined,
   };
@@ -17258,7 +17174,6 @@ export const deserializeAws_restJson1GetJobDocumentCommand = async (
   }
   const contents: GetJobDocumentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetJobDocumentResponse",
     document: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -17338,7 +17253,6 @@ export const deserializeAws_restJson1GetLoggingOptionsCommand = async (
   }
   const contents: GetLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLoggingOptionsResponse",
     logLevel: undefined,
     roleArn: undefined,
   };
@@ -17414,7 +17328,6 @@ export const deserializeAws_restJson1GetOTAUpdateCommand = async (
   }
   const contents: GetOTAUpdateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOTAUpdateResponse",
     otaUpdateInfo: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -17510,7 +17423,6 @@ export const deserializeAws_restJson1GetPercentilesCommand = async (
   }
   const contents: GetPercentilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPercentilesResponse",
     percentiles: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -17630,7 +17542,6 @@ export const deserializeAws_restJson1GetPolicyCommand = async (
   }
   const contents: GetPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPolicyResponse",
     creationDate: undefined,
     defaultVersionId: undefined,
     generationId: undefined,
@@ -17750,7 +17661,6 @@ export const deserializeAws_restJson1GetPolicyVersionCommand = async (
   }
   const contents: GetPolicyVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPolicyVersionResponse",
     creationDate: undefined,
     generationId: undefined,
     isDefaultVersion: undefined,
@@ -17874,7 +17784,6 @@ export const deserializeAws_restJson1GetRegistrationCodeCommand = async (
   }
   const contents: GetRegistrationCodeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRegistrationCodeResponse",
     registrationCode: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -17962,7 +17871,6 @@ export const deserializeAws_restJson1GetStatisticsCommand = async (
   }
   const contents: GetStatisticsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetStatisticsResponse",
     statistics: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -18082,7 +17990,6 @@ export const deserializeAws_restJson1GetTopicRuleCommand = async (
   }
   const contents: GetTopicRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTopicRuleResponse",
     rule: undefined,
     ruleArn: undefined,
   };
@@ -18166,7 +18073,6 @@ export const deserializeAws_restJson1GetTopicRuleDestinationCommand = async (
   }
   const contents: GetTopicRuleDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTopicRuleDestinationResponse",
     topicRuleDestination: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -18246,7 +18152,6 @@ export const deserializeAws_restJson1GetV2LoggingOptionsCommand = async (
   }
   const contents: GetV2LoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetV2LoggingOptionsResponse",
     defaultLogLevel: undefined,
     disableAllLogs: undefined,
     roleArn: undefined,
@@ -18326,7 +18231,6 @@ export const deserializeAws_restJson1ListActiveViolationsCommand = async (
   }
   const contents: ListActiveViolationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListActiveViolationsResponse",
     activeViolations: undefined,
     nextToken: undefined,
   };
@@ -18410,7 +18314,6 @@ export const deserializeAws_restJson1ListAttachedPoliciesCommand = async (
   }
   const contents: ListAttachedPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAttachedPoliciesResponse",
     nextMarker: undefined,
     policies: undefined,
   };
@@ -18518,7 +18421,6 @@ export const deserializeAws_restJson1ListAuditFindingsCommand = async (
   }
   const contents: ListAuditFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAuditFindingsResponse",
     findings: undefined,
     nextToken: undefined,
   };
@@ -18594,7 +18496,6 @@ export const deserializeAws_restJson1ListAuditMitigationActionsExecutionsCommand
   }
   const contents: ListAuditMitigationActionsExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAuditMitigationActionsExecutionsResponse",
     actionsExecutions: undefined,
     nextToken: undefined,
   };
@@ -18673,7 +18574,6 @@ export const deserializeAws_restJson1ListAuditMitigationActionsTasksCommand = as
   }
   const contents: ListAuditMitigationActionsTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAuditMitigationActionsTasksResponse",
     nextToken: undefined,
     tasks: undefined,
   };
@@ -18749,7 +18649,6 @@ export const deserializeAws_restJson1ListAuditTasksCommand = async (
   }
   const contents: ListAuditTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAuditTasksResponse",
     nextToken: undefined,
     tasks: undefined,
   };
@@ -18825,7 +18724,6 @@ export const deserializeAws_restJson1ListAuthorizersCommand = async (
   }
   const contents: ListAuthorizersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAuthorizersResponse",
     authorizers: undefined,
     nextMarker: undefined,
   };
@@ -18917,7 +18815,6 @@ export const deserializeAws_restJson1ListBillingGroupsCommand = async (
   }
   const contents: ListBillingGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBillingGroupsResponse",
     billingGroups: undefined,
     nextToken: undefined,
   };
@@ -19001,7 +18898,6 @@ export const deserializeAws_restJson1ListCACertificatesCommand = async (
   }
   const contents: ListCACertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCACertificatesResponse",
     certificates: undefined,
     nextMarker: undefined,
   };
@@ -19093,7 +18989,6 @@ export const deserializeAws_restJson1ListCertificatesCommand = async (
   }
   const contents: ListCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCertificatesResponse",
     certificates: undefined,
     nextMarker: undefined,
   };
@@ -19185,7 +19080,6 @@ export const deserializeAws_restJson1ListCertificatesByCACommand = async (
   }
   const contents: ListCertificatesByCACommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCertificatesByCAResponse",
     certificates: undefined,
     nextMarker: undefined,
   };
@@ -19277,7 +19171,6 @@ export const deserializeAws_restJson1ListDimensionsCommand = async (
   }
   const contents: ListDimensionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDimensionsResponse",
     dimensionNames: undefined,
     nextToken: undefined,
   };
@@ -19353,7 +19246,6 @@ export const deserializeAws_restJson1ListDomainConfigurationsCommand = async (
   }
   const contents: ListDomainConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDomainConfigurationsResponse",
     domainConfigurations: undefined,
     nextMarker: undefined,
   };
@@ -19445,7 +19337,6 @@ export const deserializeAws_restJson1ListIndicesCommand = async (
   }
   const contents: ListIndicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListIndicesResponse",
     indexNames: undefined,
     nextToken: undefined,
   };
@@ -19537,7 +19428,6 @@ export const deserializeAws_restJson1ListJobExecutionsForJobCommand = async (
   }
   const contents: ListJobExecutionsForJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJobExecutionsForJobResponse",
     executionSummaries: undefined,
     nextToken: undefined,
   };
@@ -19624,7 +19514,6 @@ export const deserializeAws_restJson1ListJobExecutionsForThingCommand = async (
   }
   const contents: ListJobExecutionsForThingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJobExecutionsForThingResponse",
     executionSummaries: undefined,
     nextToken: undefined,
   };
@@ -19711,7 +19600,6 @@ export const deserializeAws_restJson1ListJobsCommand = async (
   }
   const contents: ListJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJobsResponse",
     jobs: undefined,
     nextToken: undefined,
   };
@@ -19795,7 +19683,6 @@ export const deserializeAws_restJson1ListMitigationActionsCommand = async (
   }
   const contents: ListMitigationActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMitigationActionsResponse",
     actionIdentifiers: undefined,
     nextToken: undefined,
   };
@@ -19874,7 +19761,6 @@ export const deserializeAws_restJson1ListOTAUpdatesCommand = async (
   }
   const contents: ListOTAUpdatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListOTAUpdatesResponse",
     nextToken: undefined,
     otaUpdates: undefined,
   };
@@ -19966,7 +19852,6 @@ export const deserializeAws_restJson1ListOutgoingCertificatesCommand = async (
   }
   const contents: ListOutgoingCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListOutgoingCertificatesResponse",
     nextMarker: undefined,
     outgoingCertificates: undefined,
   };
@@ -20058,7 +19943,6 @@ export const deserializeAws_restJson1ListPoliciesCommand = async (
   }
   const contents: ListPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPoliciesResponse",
     nextMarker: undefined,
     policies: undefined,
   };
@@ -20150,7 +20034,6 @@ export const deserializeAws_restJson1ListPolicyPrincipalsCommand = async (
   }
   const contents: ListPolicyPrincipalsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPolicyPrincipalsResponse",
     nextMarker: undefined,
     principals: undefined,
   };
@@ -20250,7 +20133,6 @@ export const deserializeAws_restJson1ListPolicyVersionsCommand = async (
   }
   const contents: ListPolicyVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPolicyVersionsResponse",
     policyVersions: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -20346,7 +20228,6 @@ export const deserializeAws_restJson1ListPrincipalPoliciesCommand = async (
   }
   const contents: ListPrincipalPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPrincipalPoliciesResponse",
     nextMarker: undefined,
     policies: undefined,
   };
@@ -20446,7 +20327,6 @@ export const deserializeAws_restJson1ListPrincipalThingsCommand = async (
   }
   const contents: ListPrincipalThingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPrincipalThingsResponse",
     nextToken: undefined,
     things: undefined,
   };
@@ -20546,7 +20426,6 @@ export const deserializeAws_restJson1ListProvisioningTemplatesCommand = async (
   }
   const contents: ListProvisioningTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProvisioningTemplatesResponse",
     nextToken: undefined,
     templates: undefined,
   };
@@ -20630,7 +20509,6 @@ export const deserializeAws_restJson1ListProvisioningTemplateVersionsCommand = a
   }
   const contents: ListProvisioningTemplateVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProvisioningTemplateVersionsResponse",
     nextToken: undefined,
     versions: undefined,
   };
@@ -20722,7 +20600,6 @@ export const deserializeAws_restJson1ListRoleAliasesCommand = async (
   }
   const contents: ListRoleAliasesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRoleAliasesResponse",
     nextMarker: undefined,
     roleAliases: undefined,
   };
@@ -20814,7 +20691,6 @@ export const deserializeAws_restJson1ListScheduledAuditsCommand = async (
   }
   const contents: ListScheduledAuditsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListScheduledAuditsResponse",
     nextToken: undefined,
     scheduledAudits: undefined,
   };
@@ -20890,7 +20766,6 @@ export const deserializeAws_restJson1ListSecurityProfilesCommand = async (
   }
   const contents: ListSecurityProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSecurityProfilesResponse",
     nextToken: undefined,
     securityProfileIdentifiers: undefined,
   };
@@ -20977,7 +20852,6 @@ export const deserializeAws_restJson1ListSecurityProfilesForTargetCommand = asyn
   }
   const contents: ListSecurityProfilesForTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSecurityProfilesForTargetResponse",
     nextToken: undefined,
     securityProfileTargetMappings: undefined,
   };
@@ -21064,7 +20938,6 @@ export const deserializeAws_restJson1ListStreamsCommand = async (
   }
   const contents: ListStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListStreamsResponse",
     nextToken: undefined,
     streams: undefined,
   };
@@ -21156,7 +21029,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     nextToken: undefined,
     tags: undefined,
   };
@@ -21240,7 +21112,6 @@ export const deserializeAws_restJson1ListTargetsForPolicyCommand = async (
   }
   const contents: ListTargetsForPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTargetsForPolicyResponse",
     nextMarker: undefined,
     targets: undefined,
   };
@@ -21348,7 +21219,6 @@ export const deserializeAws_restJson1ListTargetsForSecurityProfileCommand = asyn
   }
   const contents: ListTargetsForSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTargetsForSecurityProfileResponse",
     nextToken: undefined,
     securityProfileTargets: undefined,
   };
@@ -21435,7 +21305,6 @@ export const deserializeAws_restJson1ListThingGroupsCommand = async (
   }
   const contents: ListThingGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListThingGroupsResponse",
     nextToken: undefined,
     thingGroups: undefined,
   };
@@ -21511,7 +21380,6 @@ export const deserializeAws_restJson1ListThingGroupsForThingCommand = async (
   }
   const contents: ListThingGroupsForThingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListThingGroupsForThingResponse",
     nextToken: undefined,
     thingGroups: undefined,
   };
@@ -21587,7 +21455,6 @@ export const deserializeAws_restJson1ListThingPrincipalsCommand = async (
   }
   const contents: ListThingPrincipalsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListThingPrincipalsResponse",
     principals: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -21683,7 +21550,6 @@ export const deserializeAws_restJson1ListThingRegistrationTaskReportsCommand = a
   }
   const contents: ListThingRegistrationTaskReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListThingRegistrationTaskReportsResponse",
     nextToken: undefined,
     reportType: undefined,
     resourceLinks: undefined,
@@ -21771,7 +21637,6 @@ export const deserializeAws_restJson1ListThingRegistrationTasksCommand = async (
   }
   const contents: ListThingRegistrationTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListThingRegistrationTasksResponse",
     nextToken: undefined,
     taskIds: undefined,
   };
@@ -21855,7 +21720,6 @@ export const deserializeAws_restJson1ListThingsCommand = async (
   }
   const contents: ListThingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListThingsResponse",
     nextToken: undefined,
     things: undefined,
   };
@@ -21947,7 +21811,6 @@ export const deserializeAws_restJson1ListThingsInBillingGroupCommand = async (
   }
   const contents: ListThingsInBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListThingsInBillingGroupResponse",
     nextToken: undefined,
     things: undefined,
   };
@@ -22031,7 +21894,6 @@ export const deserializeAws_restJson1ListThingsInThingGroupCommand = async (
   }
   const contents: ListThingsInThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListThingsInThingGroupResponse",
     nextToken: undefined,
     things: undefined,
   };
@@ -22107,7 +21969,6 @@ export const deserializeAws_restJson1ListThingTypesCommand = async (
   }
   const contents: ListThingTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListThingTypesResponse",
     nextToken: undefined,
     thingTypes: undefined,
   };
@@ -22199,7 +22060,6 @@ export const deserializeAws_restJson1ListTopicRuleDestinationsCommand = async (
   }
   const contents: ListTopicRuleDestinationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTopicRuleDestinationsResponse",
     destinationSummaries: undefined,
     nextToken: undefined,
   };
@@ -22286,7 +22146,6 @@ export const deserializeAws_restJson1ListTopicRulesCommand = async (
   }
   const contents: ListTopicRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTopicRulesResponse",
     nextToken: undefined,
     rules: undefined,
   };
@@ -22362,7 +22221,6 @@ export const deserializeAws_restJson1ListV2LoggingLevelsCommand = async (
   }
   const contents: ListV2LoggingLevelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListV2LoggingLevelsResponse",
     logTargetConfigurations: undefined,
     nextToken: undefined,
   };
@@ -22449,7 +22307,6 @@ export const deserializeAws_restJson1ListViolationEventsCommand = async (
   }
   const contents: ListViolationEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListViolationEventsResponse",
     nextToken: undefined,
     violationEvents: undefined,
   };
@@ -22525,7 +22382,6 @@ export const deserializeAws_restJson1RegisterCACertificateCommand = async (
   }
   const contents: RegisterCACertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterCACertificateResponse",
     certificateArn: undefined,
     certificateId: undefined,
   };
@@ -22649,7 +22505,6 @@ export const deserializeAws_restJson1RegisterCertificateCommand = async (
   }
   const contents: RegisterCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterCertificateResponse",
     certificateArn: undefined,
     certificateId: undefined,
   };
@@ -22773,7 +22628,6 @@ export const deserializeAws_restJson1RegisterCertificateWithoutCACommand = async
   }
   const contents: RegisterCertificateWithoutCACommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterCertificateWithoutCAResponse",
     certificateArn: undefined,
     certificateId: undefined,
   };
@@ -22889,7 +22743,6 @@ export const deserializeAws_restJson1RegisterThingCommand = async (
   }
   const contents: RegisterThingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterThingResponse",
     certificatePem: undefined,
     resourceArns: undefined,
   };
@@ -23096,7 +22949,6 @@ export const deserializeAws_restJson1RemoveThingFromBillingGroupCommand = async 
   }
   const contents: RemoveThingFromBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveThingFromBillingGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -23172,7 +23024,6 @@ export const deserializeAws_restJson1RemoveThingFromThingGroupCommand = async (
   }
   const contents: RemoveThingFromThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveThingFromThingGroupResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -23339,7 +23190,6 @@ export const deserializeAws_restJson1SearchIndexCommand = async (
   }
   const contents: SearchIndexCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchIndexResponse",
     nextToken: undefined,
     thingGroups: undefined,
     things: undefined,
@@ -23459,7 +23309,6 @@ export const deserializeAws_restJson1SetDefaultAuthorizerCommand = async (
   }
   const contents: SetDefaultAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetDefaultAuthorizerResponse",
     authorizerArn: undefined,
     authorizerName: undefined,
   };
@@ -23867,7 +23716,6 @@ export const deserializeAws_restJson1StartAuditMitigationActionsTaskCommand = as
   }
   const contents: StartAuditMitigationActionsTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartAuditMitigationActionsTaskResponse",
     taskId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -23955,7 +23803,6 @@ export const deserializeAws_restJson1StartOnDemandAuditTaskCommand = async (
   }
   const contents: StartOnDemandAuditTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartOnDemandAuditTaskResponse",
     taskId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -24035,7 +23882,6 @@ export const deserializeAws_restJson1StartThingRegistrationTaskCommand = async (
   }
   const contents: StartThingRegistrationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartThingRegistrationTaskResponse",
     taskId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -24115,7 +23961,6 @@ export const deserializeAws_restJson1StopThingRegistrationTaskCommand = async (
   }
   const contents: StopThingRegistrationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopThingRegistrationTaskResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -24199,7 +24044,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -24283,7 +24127,6 @@ export const deserializeAws_restJson1TestAuthorizationCommand = async (
   }
   const contents: TestAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TestAuthorizationResponse",
     authResults: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -24387,7 +24230,6 @@ export const deserializeAws_restJson1TestInvokeAuthorizerCommand = async (
   }
   const contents: TestInvokeAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TestInvokeAuthorizerResponse",
     disconnectAfterInSeconds: undefined,
     isAuthenticated: undefined,
     policyDocuments: undefined,
@@ -24507,7 +24349,6 @@ export const deserializeAws_restJson1TransferCertificateCommand = async (
   }
   const contents: TransferCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TransferCertificateResponse",
     transferredCertificateArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -24619,7 +24460,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -24695,7 +24535,6 @@ export const deserializeAws_restJson1UpdateAccountAuditConfigurationCommand = as
   }
   const contents: UpdateAccountAuditConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAccountAuditConfigurationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -24763,7 +24602,6 @@ export const deserializeAws_restJson1UpdateAuthorizerCommand = async (
   }
   const contents: UpdateAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAuthorizerResponse",
     authorizerArn: undefined,
     authorizerName: undefined,
   };
@@ -24871,7 +24709,6 @@ export const deserializeAws_restJson1UpdateBillingGroupCommand = async (
   }
   const contents: UpdateBillingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateBillingGroupResponse",
     version: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -25149,7 +24986,6 @@ export const deserializeAws_restJson1UpdateDimensionCommand = async (
   }
   const contents: UpdateDimensionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDimensionResponse",
     arn: undefined,
     creationDate: undefined,
     lastModifiedDate: undefined,
@@ -25249,7 +25085,6 @@ export const deserializeAws_restJson1UpdateDomainConfigurationCommand = async (
   }
   const contents: UpdateDomainConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDomainConfigurationResponse",
     domainConfigurationArn: undefined,
     domainConfigurationName: undefined,
   };
@@ -25357,7 +25192,6 @@ export const deserializeAws_restJson1UpdateDynamicThingGroupCommand = async (
   }
   const contents: UpdateDynamicThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDynamicThingGroupResponse",
     version: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -25453,7 +25287,6 @@ export const deserializeAws_restJson1UpdateEventConfigurationsCommand = async (
   }
   const contents: UpdateEventConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateEventConfigurationsResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -25521,7 +25354,6 @@ export const deserializeAws_restJson1UpdateIndexingConfigurationCommand = async 
   }
   const contents: UpdateIndexingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateIndexingConfigurationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -25680,7 +25512,6 @@ export const deserializeAws_restJson1UpdateMitigationActionCommand = async (
   }
   const contents: UpdateMitigationActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateMitigationActionResponse",
     actionArn: undefined,
     actionId: undefined,
   };
@@ -25764,7 +25595,6 @@ export const deserializeAws_restJson1UpdateProvisioningTemplateCommand = async (
   }
   const contents: UpdateProvisioningTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateProvisioningTemplateResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -25848,7 +25678,6 @@ export const deserializeAws_restJson1UpdateRoleAliasCommand = async (
   }
   const contents: UpdateRoleAliasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRoleAliasResponse",
     roleAlias: undefined,
     roleAliasArn: undefined,
   };
@@ -25948,7 +25777,6 @@ export const deserializeAws_restJson1UpdateScheduledAuditCommand = async (
   }
   const contents: UpdateScheduledAuditCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateScheduledAuditResponse",
     scheduledAuditArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -26028,7 +25856,6 @@ export const deserializeAws_restJson1UpdateSecurityProfileCommand = async (
   }
   const contents: UpdateSecurityProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSecurityProfileResponse",
     additionalMetricsToRetain: undefined,
     additionalMetricsToRetainV2: undefined,
     alertTargets: undefined,
@@ -26158,7 +25985,6 @@ export const deserializeAws_restJson1UpdateStreamCommand = async (
   }
   const contents: UpdateStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateStreamResponse",
     description: undefined,
     streamArn: undefined,
     streamId: undefined,
@@ -26266,7 +26092,6 @@ export const deserializeAws_restJson1UpdateThingCommand = async (
   }
   const contents: UpdateThingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateThingResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -26366,7 +26191,6 @@ export const deserializeAws_restJson1UpdateThingGroupCommand = async (
   }
   const contents: UpdateThingGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateThingGroupResponse",
     version: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -26454,7 +26278,6 @@ export const deserializeAws_restJson1UpdateThingGroupsForThingCommand = async (
   }
   const contents: UpdateThingGroupsForThingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateThingGroupsForThingResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -26530,7 +26353,6 @@ export const deserializeAws_restJson1UpdateTopicRuleDestinationCommand = async (
   }
   const contents: UpdateTopicRuleDestinationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTopicRuleDestinationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -26614,7 +26436,6 @@ export const deserializeAws_restJson1ValidateSecurityProfileBehaviorsCommand = a
   }
   const contents: ValidateSecurityProfileBehaviorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ValidateSecurityProfileBehaviorsResponse",
     valid: undefined,
     validationErrors: undefined,
   };
@@ -28404,7 +28225,6 @@ const serializeAws_restJson1UpdateDeviceCertificateParams = (
 
 const deserializeAws_restJson1AbortConfig = (output: any, context: __SerdeContext): AbortConfig => {
   return {
-    __type: "AbortConfig",
     criteriaList:
       output.criteriaList !== undefined && output.criteriaList !== null
         ? deserializeAws_restJson1AbortCriteriaList(output.criteriaList, context)
@@ -28414,7 +28234,6 @@ const deserializeAws_restJson1AbortConfig = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1AbortCriteria = (output: any, context: __SerdeContext): AbortCriteria => {
   return {
-    __type: "AbortCriteria",
     action: output.action !== undefined && output.action !== null ? output.action : undefined,
     failureType: output.failureType !== undefined && output.failureType !== null ? output.failureType : undefined,
     minNumberOfExecutedThings:
@@ -28434,7 +28253,6 @@ const deserializeAws_restJson1AbortCriteriaList = (output: any, context: __Serde
 
 const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): Action => {
   return {
-    __type: "Action",
     cloudwatchAlarm:
       output.cloudwatchAlarm !== undefined && output.cloudwatchAlarm !== null
         ? deserializeAws_restJson1CloudwatchAlarmAction(output.cloudwatchAlarm, context)
@@ -28518,7 +28336,6 @@ const deserializeAws_restJson1ActionList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1ActiveViolation = (output: any, context: __SerdeContext): ActiveViolation => {
   return {
-    __type: "ActiveViolation",
     behavior:
       output.behavior !== undefined && output.behavior !== null
         ? deserializeAws_restJson1Behavior(output.behavior, context)
@@ -28577,7 +28394,6 @@ const deserializeAws_restJson1AddThingsToThingGroupParams = (
   context: __SerdeContext
 ): AddThingsToThingGroupParams => {
   return {
-    __type: "AddThingsToThingGroupParams",
     overrideDynamicGroups:
       output.overrideDynamicGroups !== undefined && output.overrideDynamicGroups !== null
         ? output.overrideDynamicGroups
@@ -28591,7 +28407,6 @@ const deserializeAws_restJson1AddThingsToThingGroupParams = (
 
 const deserializeAws_restJson1AlertTarget = (output: any, context: __SerdeContext): AlertTarget => {
   return {
-    __type: "AlertTarget",
     alertTargetArn:
       output.alertTargetArn !== undefined && output.alertTargetArn !== null ? output.alertTargetArn : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
@@ -28610,7 +28425,6 @@ const deserializeAws_restJson1AlertTargets = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Allowed = (output: any, context: __SerdeContext): Allowed => {
   return {
-    __type: "Allowed",
     policies:
       output.policies !== undefined && output.policies !== null
         ? deserializeAws_restJson1Policies(output.policies, context)
@@ -28623,7 +28437,6 @@ const deserializeAws_restJson1AssetPropertyTimestamp = (
   context: __SerdeContext
 ): AssetPropertyTimestamp => {
   return {
-    __type: "AssetPropertyTimestamp",
     offsetInNanos:
       output.offsetInNanos !== undefined && output.offsetInNanos !== null ? output.offsetInNanos : undefined,
     timeInSeconds:
@@ -28633,7 +28446,6 @@ const deserializeAws_restJson1AssetPropertyTimestamp = (
 
 const deserializeAws_restJson1AssetPropertyValue = (output: any, context: __SerdeContext): AssetPropertyValue => {
   return {
-    __type: "AssetPropertyValue",
     quality: output.quality !== undefined && output.quality !== null ? output.quality : undefined,
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
@@ -28652,7 +28464,6 @@ const deserializeAws_restJson1AssetPropertyValueList = (output: any, context: __
 
 const deserializeAws_restJson1AssetPropertyVariant = (output: any, context: __SerdeContext): AssetPropertyVariant => {
   return {
-    __type: "AssetPropertyVariant",
     booleanValue: output.booleanValue !== undefined && output.booleanValue !== null ? output.booleanValue : undefined,
     doubleValue: output.doubleValue !== undefined && output.doubleValue !== null ? output.doubleValue : undefined,
     integerValue: output.integerValue !== undefined && output.integerValue !== null ? output.integerValue : undefined,
@@ -28662,7 +28473,6 @@ const deserializeAws_restJson1AssetPropertyVariant = (output: any, context: __Se
 
 const deserializeAws_restJson1AttributePayload = (output: any, context: __SerdeContext): AttributePayload => {
   return {
-    __type: "AttributePayload",
     attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1Attributes(output.attributes, context)
@@ -28696,7 +28506,6 @@ const deserializeAws_restJson1AuditCheckConfiguration = (
   context: __SerdeContext
 ): AuditCheckConfiguration => {
   return {
-    __type: "AuditCheckConfiguration",
     enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
   } as any;
 };
@@ -28716,7 +28525,6 @@ const deserializeAws_restJson1AuditCheckConfigurations = (
 
 const deserializeAws_restJson1AuditCheckDetails = (output: any, context: __SerdeContext): AuditCheckDetails => {
   return {
-    __type: "AuditCheckDetails",
     checkCompliant:
       output.checkCompliant !== undefined && output.checkCompliant !== null ? output.checkCompliant : undefined,
     checkRunStatus:
@@ -28775,7 +28583,6 @@ const deserializeAws_restJson1AuditDetails = (
 
 const deserializeAws_restJson1AuditFinding = (output: any, context: __SerdeContext): AuditFinding => {
   return {
-    __type: "AuditFinding",
     checkName: output.checkName !== undefined && output.checkName !== null ? output.checkName : undefined,
     findingId: output.findingId !== undefined && output.findingId !== null ? output.findingId : undefined,
     findingTime:
@@ -28816,7 +28623,6 @@ const deserializeAws_restJson1AuditMitigationActionExecutionMetadata = (
   context: __SerdeContext
 ): AuditMitigationActionExecutionMetadata => {
   return {
-    __type: "AuditMitigationActionExecutionMetadata",
     actionId: output.actionId !== undefined && output.actionId !== null ? output.actionId : undefined,
     actionName: output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
     endTime:
@@ -28847,7 +28653,6 @@ const deserializeAws_restJson1AuditMitigationActionsTaskMetadata = (
   context: __SerdeContext
 ): AuditMitigationActionsTaskMetadata => {
   return {
-    __type: "AuditMitigationActionsTaskMetadata",
     startTime:
       output.startTime !== undefined && output.startTime !== null
         ? new Date(Math.round(output.startTime * 1000))
@@ -28882,7 +28687,6 @@ const deserializeAws_restJson1AuditMitigationActionsTaskTarget = (
   context: __SerdeContext
 ): AuditMitigationActionsTaskTarget => {
   return {
-    __type: "AuditMitigationActionsTaskTarget",
     auditCheckToReasonCodeFilter:
       output.auditCheckToReasonCodeFilter !== undefined && output.auditCheckToReasonCodeFilter !== null
         ? deserializeAws_restJson1AuditCheckToReasonCodeFilter(output.auditCheckToReasonCodeFilter, context)
@@ -28900,7 +28704,6 @@ const deserializeAws_restJson1AuditNotificationTarget = (
   context: __SerdeContext
 ): AuditNotificationTarget => {
   return {
-    __type: "AuditNotificationTarget",
     enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     targetArn: output.targetArn !== undefined && output.targetArn !== null ? output.targetArn : undefined,
@@ -28922,7 +28725,6 @@ const deserializeAws_restJson1AuditNotificationTargetConfigurations = (
 
 const deserializeAws_restJson1AuditTaskMetadata = (output: any, context: __SerdeContext): AuditTaskMetadata => {
   return {
-    __type: "AuditTaskMetadata",
     taskId: output.taskId !== undefined && output.taskId !== null ? output.taskId : undefined,
     taskStatus: output.taskStatus !== undefined && output.taskStatus !== null ? output.taskStatus : undefined,
     taskType: output.taskType !== undefined && output.taskType !== null ? output.taskType : undefined,
@@ -28935,7 +28737,6 @@ const deserializeAws_restJson1AuditTaskMetadataList = (output: any, context: __S
 
 const deserializeAws_restJson1AuthInfo = (output: any, context: __SerdeContext): AuthInfo => {
   return {
-    __type: "AuthInfo",
     actionType: output.actionType !== undefined && output.actionType !== null ? output.actionType : undefined,
     resources:
       output.resources !== undefined && output.resources !== null
@@ -28946,7 +28747,6 @@ const deserializeAws_restJson1AuthInfo = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1AuthorizerConfig = (output: any, context: __SerdeContext): AuthorizerConfig => {
   return {
-    __type: "AuthorizerConfig",
     allowAuthorizerOverride:
       output.allowAuthorizerOverride !== undefined && output.allowAuthorizerOverride !== null
         ? output.allowAuthorizerOverride
@@ -28960,7 +28760,6 @@ const deserializeAws_restJson1AuthorizerConfig = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1AuthorizerDescription = (output: any, context: __SerdeContext): AuthorizerDescription => {
   return {
-    __type: "AuthorizerDescription",
     authorizerArn:
       output.authorizerArn !== undefined && output.authorizerArn !== null ? output.authorizerArn : undefined,
     authorizerFunctionArn:
@@ -28994,7 +28793,6 @@ const deserializeAws_restJson1Authorizers = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1AuthorizerSummary = (output: any, context: __SerdeContext): AuthorizerSummary => {
   return {
-    __type: "AuthorizerSummary",
     authorizerArn:
       output.authorizerArn !== undefined && output.authorizerArn !== null ? output.authorizerArn : undefined,
     authorizerName:
@@ -29004,7 +28802,6 @@ const deserializeAws_restJson1AuthorizerSummary = (output: any, context: __Serde
 
 const deserializeAws_restJson1AuthResult = (output: any, context: __SerdeContext): AuthResult => {
   return {
-    __type: "AuthResult",
     allowed:
       output.allowed !== undefined && output.allowed !== null
         ? deserializeAws_restJson1Allowed(output.allowed, context)
@@ -29034,7 +28831,6 @@ const deserializeAws_restJson1AwsJobExecutionsRolloutConfig = (
   context: __SerdeContext
 ): AwsJobExecutionsRolloutConfig => {
   return {
-    __type: "AwsJobExecutionsRolloutConfig",
     exponentialRate:
       output.exponentialRate !== undefined && output.exponentialRate !== null
         ? deserializeAws_restJson1AwsJobExponentialRolloutRate(output.exponentialRate, context)
@@ -29049,7 +28845,6 @@ const deserializeAws_restJson1AwsJobExponentialRolloutRate = (
   context: __SerdeContext
 ): AwsJobExponentialRolloutRate => {
   return {
-    __type: "AwsJobExponentialRolloutRate",
     baseRatePerMinute:
       output.baseRatePerMinute !== undefined && output.baseRatePerMinute !== null
         ? output.baseRatePerMinute
@@ -29068,7 +28863,6 @@ const deserializeAws_restJson1AwsJobPresignedUrlConfig = (
   context: __SerdeContext
 ): AwsJobPresignedUrlConfig => {
   return {
-    __type: "AwsJobPresignedUrlConfig",
     expiresInSec: output.expiresInSec !== undefined && output.expiresInSec !== null ? output.expiresInSec : undefined,
   } as any;
 };
@@ -29078,7 +28872,6 @@ const deserializeAws_restJson1AwsJobRateIncreaseCriteria = (
   context: __SerdeContext
 ): AwsJobRateIncreaseCriteria => {
   return {
-    __type: "AwsJobRateIncreaseCriteria",
     numberOfNotifiedThings:
       output.numberOfNotifiedThings !== undefined && output.numberOfNotifiedThings !== null
         ? output.numberOfNotifiedThings
@@ -29092,7 +28885,6 @@ const deserializeAws_restJson1AwsJobRateIncreaseCriteria = (
 
 const deserializeAws_restJson1Behavior = (output: any, context: __SerdeContext): Behavior => {
   return {
-    __type: "Behavior",
     criteria:
       output.criteria !== undefined && output.criteria !== null
         ? deserializeAws_restJson1BehaviorCriteria(output.criteria, context)
@@ -29108,7 +28900,6 @@ const deserializeAws_restJson1Behavior = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1BehaviorCriteria = (output: any, context: __SerdeContext): BehaviorCriteria => {
   return {
-    __type: "BehaviorCriteria",
     comparisonOperator:
       output.comparisonOperator !== undefined && output.comparisonOperator !== null
         ? output.comparisonOperator
@@ -29140,7 +28931,6 @@ const deserializeAws_restJson1Behaviors = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1BillingGroupMetadata = (output: any, context: __SerdeContext): BillingGroupMetadata => {
   return {
-    __type: "BillingGroupMetadata",
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -29160,7 +28950,6 @@ const deserializeAws_restJson1BillingGroupProperties = (
   context: __SerdeContext
 ): BillingGroupProperties => {
   return {
-    __type: "BillingGroupProperties",
     billingGroupDescription:
       output.billingGroupDescription !== undefined && output.billingGroupDescription !== null
         ? output.billingGroupDescription
@@ -29170,7 +28959,6 @@ const deserializeAws_restJson1BillingGroupProperties = (
 
 const deserializeAws_restJson1CACertificate = (output: any, context: __SerdeContext): CACertificate => {
   return {
-    __type: "CACertificate",
     certificateArn:
       output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
     certificateId:
@@ -29188,7 +28976,6 @@ const deserializeAws_restJson1CACertificateDescription = (
   context: __SerdeContext
 ): CACertificateDescription => {
   return {
-    __type: "CACertificateDescription",
     autoRegistrationStatus:
       output.autoRegistrationStatus !== undefined && output.autoRegistrationStatus !== null
         ? output.autoRegistrationStatus
@@ -29225,7 +29012,6 @@ const deserializeAws_restJson1CACertificates = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Certificate = (output: any, context: __SerdeContext): Certificate => {
   return {
-    __type: "Certificate",
     certificateArn:
       output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
     certificateId:
@@ -29245,7 +29031,6 @@ const deserializeAws_restJson1CertificateDescription = (
   context: __SerdeContext
 ): CertificateDescription => {
   return {
-    __type: "CertificateDescription",
     caCertificateId:
       output.caCertificateId !== undefined && output.caCertificateId !== null ? output.caCertificateId : undefined,
     certificateArn:
@@ -29288,7 +29073,6 @@ const deserializeAws_restJson1Certificates = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1CertificateValidity = (output: any, context: __SerdeContext): CertificateValidity => {
   return {
-    __type: "CertificateValidity",
     notAfter:
       output.notAfter !== undefined && output.notAfter !== null
         ? new Date(Math.round(output.notAfter * 1000))
@@ -29306,7 +29090,6 @@ const deserializeAws_restJson1Cidrs = (output: any, context: __SerdeContext): st
 
 const deserializeAws_restJson1CloudwatchAlarmAction = (output: any, context: __SerdeContext): CloudwatchAlarmAction => {
   return {
-    __type: "CloudwatchAlarmAction",
     alarmName: output.alarmName !== undefined && output.alarmName !== null ? output.alarmName : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     stateReason: output.stateReason !== undefined && output.stateReason !== null ? output.stateReason : undefined,
@@ -29316,7 +29099,6 @@ const deserializeAws_restJson1CloudwatchAlarmAction = (output: any, context: __S
 
 const deserializeAws_restJson1CloudwatchLogsAction = (output: any, context: __SerdeContext): CloudwatchLogsAction => {
   return {
-    __type: "CloudwatchLogsAction",
     logGroupName: output.logGroupName !== undefined && output.logGroupName !== null ? output.logGroupName : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
   } as any;
@@ -29327,7 +29109,6 @@ const deserializeAws_restJson1CloudwatchMetricAction = (
   context: __SerdeContext
 ): CloudwatchMetricAction => {
   return {
-    __type: "CloudwatchMetricAction",
     metricName: output.metricName !== undefined && output.metricName !== null ? output.metricName : undefined,
     metricNamespace:
       output.metricNamespace !== undefined && output.metricNamespace !== null ? output.metricNamespace : undefined,
@@ -29341,7 +29122,6 @@ const deserializeAws_restJson1CloudwatchMetricAction = (
 
 const deserializeAws_restJson1CodeSigning = (output: any, context: __SerdeContext): CodeSigning => {
   return {
-    __type: "CodeSigning",
     awsSignerJobId:
       output.awsSignerJobId !== undefined && output.awsSignerJobId !== null ? output.awsSignerJobId : undefined,
     customCodeSigning:
@@ -29360,7 +29140,6 @@ const deserializeAws_restJson1CodeSigningCertificateChain = (
   context: __SerdeContext
 ): CodeSigningCertificateChain => {
   return {
-    __type: "CodeSigningCertificateChain",
     certificateName:
       output.certificateName !== undefined && output.certificateName !== null ? output.certificateName : undefined,
     inlineDocument:
@@ -29370,7 +29149,6 @@ const deserializeAws_restJson1CodeSigningCertificateChain = (
 
 const deserializeAws_restJson1CodeSigningSignature = (output: any, context: __SerdeContext): CodeSigningSignature => {
   return {
-    __type: "CodeSigningSignature",
     inlineDocument:
       output.inlineDocument !== undefined && output.inlineDocument !== null
         ? context.base64Decoder(output.inlineDocument)
@@ -29380,14 +29158,12 @@ const deserializeAws_restJson1CodeSigningSignature = (output: any, context: __Se
 
 const deserializeAws_restJson1Configuration = (output: any, context: __SerdeContext): Configuration => {
   return {
-    __type: "Configuration",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1CustomCodeSigning = (output: any, context: __SerdeContext): CustomCodeSigning => {
   return {
-    __type: "CustomCodeSigning",
     certificateChain:
       output.certificateChain !== undefined && output.certificateChain !== null
         ? deserializeAws_restJson1CodeSigningCertificateChain(output.certificateChain, context)
@@ -29407,7 +29183,6 @@ const deserializeAws_restJson1CustomCodeSigning = (output: any, context: __Serde
 
 const deserializeAws_restJson1Denied = (output: any, context: __SerdeContext): Denied => {
   return {
-    __type: "Denied",
     explicitDeny:
       output.explicitDeny !== undefined && output.explicitDeny !== null
         ? deserializeAws_restJson1ExplicitDeny(output.explicitDeny, context)
@@ -29421,7 +29196,6 @@ const deserializeAws_restJson1Denied = (output: any, context: __SerdeContext): D
 
 const deserializeAws_restJson1Destination = (output: any, context: __SerdeContext): Destination => {
   return {
-    __type: "Destination",
     s3Destination:
       output.s3Destination !== undefined && output.s3Destination !== null
         ? deserializeAws_restJson1S3Destination(output.s3Destination, context)
@@ -29459,7 +29233,6 @@ const deserializeAws_restJson1DomainConfigurationSummary = (
   context: __SerdeContext
 ): DomainConfigurationSummary => {
   return {
-    __type: "DomainConfigurationSummary",
     domainConfigurationArn:
       output.domainConfigurationArn !== undefined && output.domainConfigurationArn !== null
         ? output.domainConfigurationArn
@@ -29474,7 +29247,6 @@ const deserializeAws_restJson1DomainConfigurationSummary = (
 
 const deserializeAws_restJson1DynamoDBAction = (output: any, context: __SerdeContext): DynamoDBAction => {
   return {
-    __type: "DynamoDBAction",
     hashKeyField: output.hashKeyField !== undefined && output.hashKeyField !== null ? output.hashKeyField : undefined,
     hashKeyType: output.hashKeyType !== undefined && output.hashKeyType !== null ? output.hashKeyType : undefined,
     hashKeyValue: output.hashKeyValue !== undefined && output.hashKeyValue !== null ? output.hashKeyValue : undefined,
@@ -29492,7 +29264,6 @@ const deserializeAws_restJson1DynamoDBAction = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1DynamoDBv2Action = (output: any, context: __SerdeContext): DynamoDBv2Action => {
   return {
-    __type: "DynamoDBv2Action",
     putItem:
       output.putItem !== undefined && output.putItem !== null
         ? deserializeAws_restJson1PutItemInput(output.putItem, context)
@@ -29507,7 +29278,6 @@ const deserializeAws_restJson1EffectivePolicies = (output: any, context: __Serde
 
 const deserializeAws_restJson1EffectivePolicy = (output: any, context: __SerdeContext): EffectivePolicy => {
   return {
-    __type: "EffectivePolicy",
     policyArn: output.policyArn !== undefined && output.policyArn !== null ? output.policyArn : undefined,
     policyDocument:
       output.policyDocument !== undefined && output.policyDocument !== null ? output.policyDocument : undefined,
@@ -29517,7 +29287,6 @@ const deserializeAws_restJson1EffectivePolicy = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ElasticsearchAction = (output: any, context: __SerdeContext): ElasticsearchAction => {
   return {
-    __type: "ElasticsearchAction",
     endpoint: output.endpoint !== undefined && output.endpoint !== null ? output.endpoint : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     index: output.index !== undefined && output.index !== null ? output.index : undefined,
@@ -29531,7 +29300,6 @@ const deserializeAws_restJson1EnableIoTLoggingParams = (
   context: __SerdeContext
 ): EnableIoTLoggingParams => {
   return {
-    __type: "EnableIoTLoggingParams",
     logLevel: output.logLevel !== undefined && output.logLevel !== null ? output.logLevel : undefined,
     roleArnForLogging:
       output.roleArnForLogging !== undefined && output.roleArnForLogging !== null
@@ -29542,7 +29310,6 @@ const deserializeAws_restJson1EnableIoTLoggingParams = (
 
 const deserializeAws_restJson1ErrorInfo = (output: any, context: __SerdeContext): ErrorInfo => {
   return {
-    __type: "ErrorInfo",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -29563,7 +29330,6 @@ const deserializeAws_restJson1EventConfigurations = (
 
 const deserializeAws_restJson1ExplicitDeny = (output: any, context: __SerdeContext): ExplicitDeny => {
   return {
-    __type: "ExplicitDeny",
     policies:
       output.policies !== undefined && output.policies !== null
         ? deserializeAws_restJson1Policies(output.policies, context)
@@ -29576,7 +29342,6 @@ const deserializeAws_restJson1ExponentialRolloutRate = (
   context: __SerdeContext
 ): ExponentialRolloutRate => {
   return {
-    __type: "ExponentialRolloutRate",
     baseRatePerMinute:
       output.baseRatePerMinute !== undefined && output.baseRatePerMinute !== null
         ? output.baseRatePerMinute
@@ -29592,7 +29357,6 @@ const deserializeAws_restJson1ExponentialRolloutRate = (
 
 const deserializeAws_restJson1Field = (output: any, context: __SerdeContext): Field => {
   return {
-    __type: "Field",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
@@ -29604,7 +29368,6 @@ const deserializeAws_restJson1Fields = (output: any, context: __SerdeContext): F
 
 const deserializeAws_restJson1FileLocation = (output: any, context: __SerdeContext): FileLocation => {
   return {
-    __type: "FileLocation",
     s3Location:
       output.s3Location !== undefined && output.s3Location !== null
         ? deserializeAws_restJson1S3Location(output.s3Location, context)
@@ -29622,7 +29385,6 @@ const deserializeAws_restJson1FindingIds = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1FirehoseAction = (output: any, context: __SerdeContext): FirehoseAction => {
   return {
-    __type: "FirehoseAction",
     deliveryStreamName:
       output.deliveryStreamName !== undefined && output.deliveryStreamName !== null
         ? output.deliveryStreamName
@@ -29634,7 +29396,6 @@ const deserializeAws_restJson1FirehoseAction = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1GroupNameAndArn = (output: any, context: __SerdeContext): GroupNameAndArn => {
   return {
-    __type: "GroupNameAndArn",
     groupArn: output.groupArn !== undefined && output.groupArn !== null ? output.groupArn : undefined,
     groupName: output.groupName !== undefined && output.groupName !== null ? output.groupName : undefined,
   } as any;
@@ -29646,7 +29407,6 @@ const deserializeAws_restJson1HeaderList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1HttpAction = (output: any, context: __SerdeContext): HttpAction => {
   return {
-    __type: "HttpAction",
     auth:
       output.auth !== undefined && output.auth !== null
         ? deserializeAws_restJson1HttpAuthorization(output.auth, context)
@@ -29663,7 +29423,6 @@ const deserializeAws_restJson1HttpAction = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1HttpActionHeader = (output: any, context: __SerdeContext): HttpActionHeader => {
   return {
-    __type: "HttpActionHeader",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -29671,7 +29430,6 @@ const deserializeAws_restJson1HttpActionHeader = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1HttpAuthorization = (output: any, context: __SerdeContext): HttpAuthorization => {
   return {
-    __type: "HttpAuthorization",
     sigv4:
       output.sigv4 !== undefined && output.sigv4 !== null
         ? deserializeAws_restJson1SigV4Authorization(output.sigv4, context)
@@ -29684,7 +29442,6 @@ const deserializeAws_restJson1HttpUrlDestinationProperties = (
   context: __SerdeContext
 ): HttpUrlDestinationProperties => {
   return {
-    __type: "HttpUrlDestinationProperties",
     confirmationUrl:
       output.confirmationUrl !== undefined && output.confirmationUrl !== null ? output.confirmationUrl : undefined,
   } as any;
@@ -29695,7 +29452,6 @@ const deserializeAws_restJson1HttpUrlDestinationSummary = (
   context: __SerdeContext
 ): HttpUrlDestinationSummary => {
   return {
-    __type: "HttpUrlDestinationSummary",
     confirmationUrl:
       output.confirmationUrl !== undefined && output.confirmationUrl !== null ? output.confirmationUrl : undefined,
   } as any;
@@ -29703,7 +29459,6 @@ const deserializeAws_restJson1HttpUrlDestinationSummary = (
 
 const deserializeAws_restJson1ImplicitDeny = (output: any, context: __SerdeContext): ImplicitDeny => {
   return {
-    __type: "ImplicitDeny",
     policies:
       output.policies !== undefined && output.policies !== null
         ? deserializeAws_restJson1Policies(output.policies, context)
@@ -29717,7 +29472,6 @@ const deserializeAws_restJson1IndexNamesList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1IotAnalyticsAction = (output: any, context: __SerdeContext): IotAnalyticsAction => {
   return {
-    __type: "IotAnalyticsAction",
     channelArn: output.channelArn !== undefined && output.channelArn !== null ? output.channelArn : undefined,
     channelName: output.channelName !== undefined && output.channelName !== null ? output.channelName : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
@@ -29726,7 +29480,6 @@ const deserializeAws_restJson1IotAnalyticsAction = (output: any, context: __Serd
 
 const deserializeAws_restJson1IotEventsAction = (output: any, context: __SerdeContext): IotEventsAction => {
   return {
-    __type: "IotEventsAction",
     inputName: output.inputName !== undefined && output.inputName !== null ? output.inputName : undefined,
     messageId: output.messageId !== undefined && output.messageId !== null ? output.messageId : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
@@ -29735,7 +29488,6 @@ const deserializeAws_restJson1IotEventsAction = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1IotSiteWiseAction = (output: any, context: __SerdeContext): IotSiteWiseAction => {
   return {
-    __type: "IotSiteWiseAction",
     putAssetPropertyValueEntries:
       output.putAssetPropertyValueEntries !== undefined && output.putAssetPropertyValueEntries !== null
         ? deserializeAws_restJson1PutAssetPropertyValueEntryList(output.putAssetPropertyValueEntries, context)
@@ -29746,7 +29498,6 @@ const deserializeAws_restJson1IotSiteWiseAction = (output: any, context: __Serde
 
 const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job => {
   return {
-    __type: "Job",
     abortConfig:
       output.abortConfig !== undefined && output.abortConfig !== null
         ? deserializeAws_restJson1AbortConfig(output.abortConfig, context)
@@ -29798,7 +29549,6 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
 
 const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeContext): JobExecution => {
   return {
-    __type: "JobExecution",
     approximateSecondsBeforeTimedOut:
       output.approximateSecondsBeforeTimedOut !== undefined && output.approximateSecondsBeforeTimedOut !== null
         ? output.approximateSecondsBeforeTimedOut
@@ -29836,7 +29586,6 @@ const deserializeAws_restJson1JobExecutionsRolloutConfig = (
   context: __SerdeContext
 ): JobExecutionsRolloutConfig => {
   return {
-    __type: "JobExecutionsRolloutConfig",
     exponentialRate:
       output.exponentialRate !== undefined && output.exponentialRate !== null
         ? deserializeAws_restJson1ExponentialRolloutRate(output.exponentialRate, context)
@@ -29851,7 +29600,6 @@ const deserializeAws_restJson1JobExecutionStatusDetails = (
   context: __SerdeContext
 ): JobExecutionStatusDetails => {
   return {
-    __type: "JobExecutionStatusDetails",
     detailsMap:
       output.detailsMap !== undefined && output.detailsMap !== null
         ? deserializeAws_restJson1DetailsMap(output.detailsMap, context)
@@ -29861,7 +29609,6 @@ const deserializeAws_restJson1JobExecutionStatusDetails = (
 
 const deserializeAws_restJson1JobExecutionSummary = (output: any, context: __SerdeContext): JobExecutionSummary => {
   return {
-    __type: "JobExecutionSummary",
     executionNumber:
       output.executionNumber !== undefined && output.executionNumber !== null ? output.executionNumber : undefined,
     lastUpdatedAt:
@@ -29885,7 +29632,6 @@ const deserializeAws_restJson1JobExecutionSummaryForJob = (
   context: __SerdeContext
 ): JobExecutionSummaryForJob => {
   return {
-    __type: "JobExecutionSummaryForJob",
     jobExecutionSummary:
       output.jobExecutionSummary !== undefined && output.jobExecutionSummary !== null
         ? deserializeAws_restJson1JobExecutionSummary(output.jobExecutionSummary, context)
@@ -29906,7 +29652,6 @@ const deserializeAws_restJson1JobExecutionSummaryForThing = (
   context: __SerdeContext
 ): JobExecutionSummaryForThing => {
   return {
-    __type: "JobExecutionSummaryForThing",
     jobExecutionSummary:
       output.jobExecutionSummary !== undefined && output.jobExecutionSummary !== null
         ? deserializeAws_restJson1JobExecutionSummary(output.jobExecutionSummary, context)
@@ -29924,7 +29669,6 @@ const deserializeAws_restJson1JobExecutionSummaryForThingList = (
 
 const deserializeAws_restJson1JobProcessDetails = (output: any, context: __SerdeContext): JobProcessDetails => {
   return {
-    __type: "JobProcessDetails",
     numberOfCanceledThings:
       output.numberOfCanceledThings !== undefined && output.numberOfCanceledThings !== null
         ? output.numberOfCanceledThings
@@ -29966,7 +29710,6 @@ const deserializeAws_restJson1JobProcessDetails = (output: any, context: __Serde
 
 const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext): JobSummary => {
   return {
-    __type: "JobSummary",
     completedAt:
       output.completedAt !== undefined && output.completedAt !== null
         ? new Date(Math.round(output.completedAt * 1000))
@@ -29998,7 +29741,6 @@ const deserializeAws_restJson1JobTargets = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1KeyPair = (output: any, context: __SerdeContext): KeyPair => {
   return {
-    __type: "KeyPair",
     PrivateKey: output.PrivateKey !== undefined && output.PrivateKey !== null ? output.PrivateKey : undefined,
     PublicKey: output.PublicKey !== undefined && output.PublicKey !== null ? output.PublicKey : undefined,
   } as any;
@@ -30006,7 +29748,6 @@ const deserializeAws_restJson1KeyPair = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1KinesisAction = (output: any, context: __SerdeContext): KinesisAction => {
   return {
-    __type: "KinesisAction",
     partitionKey: output.partitionKey !== undefined && output.partitionKey !== null ? output.partitionKey : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     streamName: output.streamName !== undefined && output.streamName !== null ? output.streamName : undefined,
@@ -30015,14 +29756,12 @@ const deserializeAws_restJson1KinesisAction = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1LambdaAction = (output: any, context: __SerdeContext): LambdaAction => {
   return {
-    __type: "LambdaAction",
     functionArn: output.functionArn !== undefined && output.functionArn !== null ? output.functionArn : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1LogTarget = (output: any, context: __SerdeContext): LogTarget => {
   return {
-    __type: "LogTarget",
     targetName: output.targetName !== undefined && output.targetName !== null ? output.targetName : undefined,
     targetType: output.targetType !== undefined && output.targetType !== null ? output.targetType : undefined,
   } as any;
@@ -30033,7 +29772,6 @@ const deserializeAws_restJson1LogTargetConfiguration = (
   context: __SerdeContext
 ): LogTargetConfiguration => {
   return {
-    __type: "LogTargetConfiguration",
     logLevel: output.logLevel !== undefined && output.logLevel !== null ? output.logLevel : undefined,
     logTarget:
       output.logTarget !== undefined && output.logTarget !== null
@@ -30051,7 +29789,6 @@ const deserializeAws_restJson1LogTargetConfigurations = (
 
 const deserializeAws_restJson1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   return {
-    __type: "MetricDimension",
     dimensionName:
       output.dimensionName !== undefined && output.dimensionName !== null ? output.dimensionName : undefined,
     operator: output.operator !== undefined && output.operator !== null ? output.operator : undefined,
@@ -30060,7 +29797,6 @@ const deserializeAws_restJson1MetricDimension = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1MetricToRetain = (output: any, context: __SerdeContext): MetricToRetain => {
   return {
-    __type: "MetricToRetain",
     metric: output.metric !== undefined && output.metric !== null ? output.metric : undefined,
     metricDimension:
       output.metricDimension !== undefined && output.metricDimension !== null
@@ -30071,7 +29807,6 @@ const deserializeAws_restJson1MetricToRetain = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1MetricValue = (output: any, context: __SerdeContext): MetricValue => {
   return {
-    __type: "MetricValue",
     cidrs:
       output.cidrs !== undefined && output.cidrs !== null
         ? deserializeAws_restJson1Cidrs(output.cidrs, context)
@@ -30090,7 +29825,6 @@ const deserializeAws_restJson1MissingContextValues = (output: any, context: __Se
 
 const deserializeAws_restJson1MitigationAction = (output: any, context: __SerdeContext): MitigationAction => {
   return {
-    __type: "MitigationAction",
     actionParams:
       output.actionParams !== undefined && output.actionParams !== null
         ? deserializeAws_restJson1MitigationActionParams(output.actionParams, context)
@@ -30106,7 +29840,6 @@ const deserializeAws_restJson1MitigationActionIdentifier = (
   context: __SerdeContext
 ): MitigationActionIdentifier => {
   return {
-    __type: "MitigationActionIdentifier",
     actionArn: output.actionArn !== undefined && output.actionArn !== null ? output.actionArn : undefined,
     actionName: output.actionName !== undefined && output.actionName !== null ? output.actionName : undefined,
     creationDate:
@@ -30136,7 +29869,6 @@ const deserializeAws_restJson1MitigationActionParams = (
   context: __SerdeContext
 ): MitigationActionParams => {
   return {
-    __type: "MitigationActionParams",
     addThingsToThingGroupParams:
       output.addThingsToThingGroupParams !== undefined && output.addThingsToThingGroupParams !== null
         ? deserializeAws_restJson1AddThingsToThingGroupParams(output.addThingsToThingGroupParams, context)
@@ -30166,7 +29898,6 @@ const deserializeAws_restJson1MitigationActionParams = (
 
 const deserializeAws_restJson1NonCompliantResource = (output: any, context: __SerdeContext): NonCompliantResource => {
   return {
-    __type: "NonCompliantResource",
     additionalInfo:
       output.additionalInfo !== undefined && output.additionalInfo !== null
         ? deserializeAws_restJson1StringMap(output.additionalInfo, context)
@@ -30181,7 +29912,6 @@ const deserializeAws_restJson1NonCompliantResource = (output: any, context: __Se
 
 const deserializeAws_restJson1OTAUpdateFile = (output: any, context: __SerdeContext): OTAUpdateFile => {
   return {
-    __type: "OTAUpdateFile",
     attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1AttributesMap(output.attributes, context)
@@ -30205,7 +29935,6 @@ const deserializeAws_restJson1OTAUpdateFiles = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1OTAUpdateInfo = (output: any, context: __SerdeContext): OTAUpdateInfo => {
   return {
-    __type: "OTAUpdateInfo",
     additionalParameters:
       output.additionalParameters !== undefined && output.additionalParameters !== null
         ? deserializeAws_restJson1AdditionalParameterMap(output.additionalParameters, context)
@@ -30260,7 +29989,6 @@ const deserializeAws_restJson1OTAUpdatesSummary = (output: any, context: __Serde
 
 const deserializeAws_restJson1OTAUpdateSummary = (output: any, context: __SerdeContext): OTAUpdateSummary => {
   return {
-    __type: "OTAUpdateSummary",
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -30272,7 +30000,6 @@ const deserializeAws_restJson1OTAUpdateSummary = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1OutgoingCertificate = (output: any, context: __SerdeContext): OutgoingCertificate => {
   return {
-    __type: "OutgoingCertificate",
     certificateArn:
       output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
     certificateId:
@@ -30302,7 +30029,6 @@ const deserializeAws_restJson1Percentiles = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1PercentPair = (output: any, context: __SerdeContext): PercentPair => {
   return {
-    __type: "PercentPair",
     percent: output.percent !== undefined && output.percent !== null ? output.percent : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -30314,7 +30040,6 @@ const deserializeAws_restJson1Policies = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Policy = (output: any, context: __SerdeContext): Policy => {
   return {
-    __type: "Policy",
     policyArn: output.policyArn !== undefined && output.policyArn !== null ? output.policyArn : undefined,
     policyName: output.policyName !== undefined && output.policyName !== null ? output.policyName : undefined,
   } as any;
@@ -30330,7 +30055,6 @@ const deserializeAws_restJson1PolicyTargets = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1PolicyVersion = (output: any, context: __SerdeContext): PolicyVersion => {
   return {
-    __type: "PolicyVersion",
     createDate:
       output.createDate !== undefined && output.createDate !== null
         ? new Date(Math.round(output.createDate * 1000))
@@ -30346,7 +30070,6 @@ const deserializeAws_restJson1PolicyVersionIdentifier = (
   context: __SerdeContext
 ): PolicyVersionIdentifier => {
   return {
-    __type: "PolicyVersionIdentifier",
     policyName: output.policyName !== undefined && output.policyName !== null ? output.policyName : undefined,
     policyVersionId:
       output.policyVersionId !== undefined && output.policyVersionId !== null ? output.policyVersionId : undefined,
@@ -30363,7 +30086,6 @@ const deserializeAws_restJson1Ports = (output: any, context: __SerdeContext): nu
 
 const deserializeAws_restJson1PresignedUrlConfig = (output: any, context: __SerdeContext): PresignedUrlConfig => {
   return {
-    __type: "PresignedUrlConfig",
     expiresInSec: output.expiresInSec !== undefined && output.expiresInSec !== null ? output.expiresInSec : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
   } as any;
@@ -30383,7 +30105,6 @@ const deserializeAws_restJson1Protocols = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1ProvisioningHook = (output: any, context: __SerdeContext): ProvisioningHook => {
   return {
-    __type: "ProvisioningHook",
     payloadVersion:
       output.payloadVersion !== undefined && output.payloadVersion !== null ? output.payloadVersion : undefined,
     targetArn: output.targetArn !== undefined && output.targetArn !== null ? output.targetArn : undefined,
@@ -30402,7 +30123,6 @@ const deserializeAws_restJson1ProvisioningTemplateSummary = (
   context: __SerdeContext
 ): ProvisioningTemplateSummary => {
   return {
-    __type: "ProvisioningTemplateSummary",
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -30430,7 +30150,6 @@ const deserializeAws_restJson1ProvisioningTemplateVersionSummary = (
   context: __SerdeContext
 ): ProvisioningTemplateVersionSummary => {
   return {
-    __type: "ProvisioningTemplateVersionSummary",
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -30456,7 +30175,6 @@ const deserializeAws_restJson1PublishFindingToSnsParams = (
   context: __SerdeContext
 ): PublishFindingToSnsParams => {
   return {
-    __type: "PublishFindingToSnsParams",
     topicArn: output.topicArn !== undefined && output.topicArn !== null ? output.topicArn : undefined,
   } as any;
 };
@@ -30466,7 +30184,6 @@ const deserializeAws_restJson1PutAssetPropertyValueEntry = (
   context: __SerdeContext
 ): PutAssetPropertyValueEntry => {
   return {
-    __type: "PutAssetPropertyValueEntry",
     assetId: output.assetId !== undefined && output.assetId !== null ? output.assetId : undefined,
     entryId: output.entryId !== undefined && output.entryId !== null ? output.entryId : undefined,
     propertyAlias:
@@ -30488,14 +30205,12 @@ const deserializeAws_restJson1PutAssetPropertyValueEntryList = (
 
 const deserializeAws_restJson1PutItemInput = (output: any, context: __SerdeContext): PutItemInput => {
   return {
-    __type: "PutItemInput",
     tableName: output.tableName !== undefined && output.tableName !== null ? output.tableName : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1RateIncreaseCriteria = (output: any, context: __SerdeContext): RateIncreaseCriteria => {
   return {
-    __type: "RateIncreaseCriteria",
     numberOfNotifiedThings:
       output.numberOfNotifiedThings !== undefined && output.numberOfNotifiedThings !== null
         ? output.numberOfNotifiedThings
@@ -30513,7 +30228,6 @@ const deserializeAws_restJson1ReasonForNonComplianceCodes = (output: any, contex
 
 const deserializeAws_restJson1RegistrationConfig = (output: any, context: __SerdeContext): RegistrationConfig => {
   return {
-    __type: "RegistrationConfig",
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     templateBody: output.templateBody !== undefined && output.templateBody !== null ? output.templateBody : undefined,
   } as any;
@@ -30521,7 +30235,6 @@ const deserializeAws_restJson1RegistrationConfig = (output: any, context: __Serd
 
 const deserializeAws_restJson1RelatedResource = (output: any, context: __SerdeContext): RelatedResource => {
   return {
-    __type: "RelatedResource",
     additionalInfo:
       output.additionalInfo !== undefined && output.additionalInfo !== null
         ? deserializeAws_restJson1StringMap(output.additionalInfo, context)
@@ -30543,14 +30256,12 @@ const deserializeAws_restJson1ReplaceDefaultPolicyVersionParams = (
   context: __SerdeContext
 ): ReplaceDefaultPolicyVersionParams => {
   return {
-    __type: "ReplaceDefaultPolicyVersionParams",
     templateName: output.templateName !== undefined && output.templateName !== null ? output.templateName : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1RepublishAction = (output: any, context: __SerdeContext): RepublishAction => {
   return {
-    __type: "RepublishAction",
     qos: output.qos !== undefined && output.qos !== null ? output.qos : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     topic: output.topic !== undefined && output.topic !== null ? output.topic : undefined,
@@ -30569,7 +30280,6 @@ const deserializeAws_restJson1ResourceArns = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1ResourceIdentifier = (output: any, context: __SerdeContext): ResourceIdentifier => {
   return {
-    __type: "ResourceIdentifier",
     account: output.account !== undefined && output.account !== null ? output.account : undefined,
     caCertificateId:
       output.caCertificateId !== undefined && output.caCertificateId !== null ? output.caCertificateId : undefined,
@@ -30597,7 +30307,6 @@ const deserializeAws_restJson1Resources = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1RoleAliasDescription = (output: any, context: __SerdeContext): RoleAliasDescription => {
   return {
-    __type: "RoleAliasDescription",
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -30623,7 +30332,6 @@ const deserializeAws_restJson1RoleAliases = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1S3Action = (output: any, context: __SerdeContext): S3Action => {
   return {
-    __type: "S3Action",
     bucketName: output.bucketName !== undefined && output.bucketName !== null ? output.bucketName : undefined,
     cannedAcl: output.cannedAcl !== undefined && output.cannedAcl !== null ? output.cannedAcl : undefined,
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
@@ -30633,7 +30341,6 @@ const deserializeAws_restJson1S3Action = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1S3Destination = (output: any, context: __SerdeContext): S3Destination => {
   return {
-    __type: "S3Destination",
     bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
     prefix: output.prefix !== undefined && output.prefix !== null ? output.prefix : undefined,
   } as any;
@@ -30645,7 +30352,6 @@ const deserializeAws_restJson1S3FileUrlList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
-    __type: "S3Location",
     bucket: output.bucket !== undefined && output.bucket !== null ? output.bucket : undefined,
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
@@ -30654,7 +30360,6 @@ const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1SalesforceAction = (output: any, context: __SerdeContext): SalesforceAction => {
   return {
-    __type: "SalesforceAction",
     token: output.token !== undefined && output.token !== null ? output.token : undefined,
     url: output.url !== undefined && output.url !== null ? output.url : undefined,
   } as any;
@@ -30665,7 +30370,6 @@ const deserializeAws_restJson1ScheduledAuditMetadata = (
   context: __SerdeContext
 ): ScheduledAuditMetadata => {
   return {
-    __type: "ScheduledAuditMetadata",
     dayOfMonth: output.dayOfMonth !== undefined && output.dayOfMonth !== null ? output.dayOfMonth : undefined,
     dayOfWeek: output.dayOfWeek !== undefined && output.dayOfWeek !== null ? output.dayOfWeek : undefined,
     frequency: output.frequency !== undefined && output.frequency !== null ? output.frequency : undefined,
@@ -30696,7 +30400,6 @@ const deserializeAws_restJson1SecurityProfileIdentifier = (
   context: __SerdeContext
 ): SecurityProfileIdentifier => {
   return {
-    __type: "SecurityProfileIdentifier",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
@@ -30711,7 +30414,6 @@ const deserializeAws_restJson1SecurityProfileIdentifiers = (
 
 const deserializeAws_restJson1SecurityProfileTarget = (output: any, context: __SerdeContext): SecurityProfileTarget => {
   return {
-    __type: "SecurityProfileTarget",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
   } as any;
 };
@@ -30721,7 +30423,6 @@ const deserializeAws_restJson1SecurityProfileTargetMapping = (
   context: __SerdeContext
 ): SecurityProfileTargetMapping => {
   return {
-    __type: "SecurityProfileTargetMapping",
     securityProfileIdentifier:
       output.securityProfileIdentifier !== undefined && output.securityProfileIdentifier !== null
         ? deserializeAws_restJson1SecurityProfileIdentifier(output.securityProfileIdentifier, context)
@@ -30759,7 +30460,6 @@ const deserializeAws_restJson1ServerCertificateSummary = (
   context: __SerdeContext
 ): ServerCertificateSummary => {
   return {
-    __type: "ServerCertificateSummary",
     serverCertificateArn:
       output.serverCertificateArn !== undefined && output.serverCertificateArn !== null
         ? output.serverCertificateArn
@@ -30780,7 +30480,6 @@ const deserializeAws_restJson1SigningProfileParameter = (
   context: __SerdeContext
 ): SigningProfileParameter => {
   return {
-    __type: "SigningProfileParameter",
     certificateArn:
       output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
     certificatePathOnDevice:
@@ -30793,7 +30492,6 @@ const deserializeAws_restJson1SigningProfileParameter = (
 
 const deserializeAws_restJson1SigV4Authorization = (output: any, context: __SerdeContext): SigV4Authorization => {
   return {
-    __type: "SigV4Authorization",
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     serviceName: output.serviceName !== undefined && output.serviceName !== null ? output.serviceName : undefined,
     signingRegion:
@@ -30803,7 +30501,6 @@ const deserializeAws_restJson1SigV4Authorization = (output: any, context: __Serd
 
 const deserializeAws_restJson1SnsAction = (output: any, context: __SerdeContext): SnsAction => {
   return {
-    __type: "SnsAction",
     messageFormat:
       output.messageFormat !== undefined && output.messageFormat !== null ? output.messageFormat : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
@@ -30813,7 +30510,6 @@ const deserializeAws_restJson1SnsAction = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1SqsAction = (output: any, context: __SerdeContext): SqsAction => {
   return {
-    __type: "SqsAction",
     queueUrl: output.queueUrl !== undefined && output.queueUrl !== null ? output.queueUrl : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     useBase64: output.useBase64 !== undefined && output.useBase64 !== null ? output.useBase64 : undefined,
@@ -30825,7 +30521,6 @@ const deserializeAws_restJson1StartSigningJobParameter = (
   context: __SerdeContext
 ): StartSigningJobParameter => {
   return {
-    __type: "StartSigningJobParameter",
     destination:
       output.destination !== undefined && output.destination !== null
         ? deserializeAws_restJson1Destination(output.destination, context)
@@ -30843,14 +30538,12 @@ const deserializeAws_restJson1StartSigningJobParameter = (
 
 const deserializeAws_restJson1StatisticalThreshold = (output: any, context: __SerdeContext): StatisticalThreshold => {
   return {
-    __type: "StatisticalThreshold",
     statistic: output.statistic !== undefined && output.statistic !== null ? output.statistic : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Statistics = (output: any, context: __SerdeContext): Statistics => {
   return {
-    __type: "Statistics",
     average: output.average !== undefined && output.average !== null ? output.average : undefined,
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
     maximum: output.maximum !== undefined && output.maximum !== null ? output.maximum : undefined,
@@ -30864,7 +30557,6 @@ const deserializeAws_restJson1Statistics = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1StepFunctionsAction = (output: any, context: __SerdeContext): StepFunctionsAction => {
   return {
-    __type: "StepFunctionsAction",
     executionNamePrefix:
       output.executionNamePrefix !== undefined && output.executionNamePrefix !== null
         ? output.executionNamePrefix
@@ -30877,7 +30569,6 @@ const deserializeAws_restJson1StepFunctionsAction = (output: any, context: __Ser
 
 const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): _Stream => {
   return {
-    __type: "Stream",
     fileId: output.fileId !== undefined && output.fileId !== null ? output.fileId : undefined,
     streamId: output.streamId !== undefined && output.streamId !== null ? output.streamId : undefined,
   } as any;
@@ -30885,7 +30576,6 @@ const deserializeAws_restJson1_Stream = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1StreamFile = (output: any, context: __SerdeContext): StreamFile => {
   return {
-    __type: "StreamFile",
     fileId: output.fileId !== undefined && output.fileId !== null ? output.fileId : undefined,
     s3Location:
       output.s3Location !== undefined && output.s3Location !== null
@@ -30900,7 +30590,6 @@ const deserializeAws_restJson1StreamFiles = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1StreamInfo = (output: any, context: __SerdeContext): StreamInfo => {
   return {
-    __type: "StreamInfo",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -30928,7 +30617,6 @@ const deserializeAws_restJson1StreamsSummary = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1StreamSummary = (output: any, context: __SerdeContext): StreamSummary => {
   return {
-    __type: "StreamSummary",
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     streamArn: output.streamArn !== undefined && output.streamArn !== null ? output.streamArn : undefined,
     streamId: output.streamId !== undefined && output.streamId !== null ? output.streamId : undefined,
@@ -30949,7 +30637,6 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -30973,7 +30660,6 @@ const deserializeAws_restJson1TaskIdList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1TaskStatistics = (output: any, context: __SerdeContext): TaskStatistics => {
   return {
-    __type: "TaskStatistics",
     canceledChecks:
       output.canceledChecks !== undefined && output.canceledChecks !== null ? output.canceledChecks : undefined,
     compliantChecks:
@@ -30998,7 +30684,6 @@ const deserializeAws_restJson1TaskStatisticsForAuditCheck = (
   context: __SerdeContext
 ): TaskStatisticsForAuditCheck => {
   return {
-    __type: "TaskStatisticsForAuditCheck",
     canceledFindingsCount:
       output.canceledFindingsCount !== undefined && output.canceledFindingsCount !== null
         ? output.canceledFindingsCount
@@ -31024,7 +30709,6 @@ const deserializeAws_restJson1TaskStatisticsForAuditCheck = (
 
 const deserializeAws_restJson1ThingAttribute = (output: any, context: __SerdeContext): ThingAttribute => {
   return {
-    __type: "ThingAttribute",
     attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1Attributes(output.attributes, context)
@@ -31043,7 +30727,6 @@ const deserializeAws_restJson1ThingAttributeList = (output: any, context: __Serd
 
 const deserializeAws_restJson1ThingConnectivity = (output: any, context: __SerdeContext): ThingConnectivity => {
   return {
-    __type: "ThingConnectivity",
     connected: output.connected !== undefined && output.connected !== null ? output.connected : undefined,
     timestamp: output.timestamp !== undefined && output.timestamp !== null ? output.timestamp : undefined,
   } as any;
@@ -31051,7 +30734,6 @@ const deserializeAws_restJson1ThingConnectivity = (output: any, context: __Serde
 
 const deserializeAws_restJson1ThingDocument = (output: any, context: __SerdeContext): ThingDocument => {
   return {
-    __type: "ThingDocument",
     attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1Attributes(output.attributes, context)
@@ -31078,7 +30760,6 @@ const deserializeAws_restJson1ThingDocumentList = (output: any, context: __Serde
 
 const deserializeAws_restJson1ThingGroupDocument = (output: any, context: __SerdeContext): ThingGroupDocument => {
   return {
-    __type: "ThingGroupDocument",
     attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1Attributes(output.attributes, context)
@@ -31106,7 +30787,6 @@ const deserializeAws_restJson1ThingGroupIndexingConfiguration = (
   context: __SerdeContext
 ): ThingGroupIndexingConfiguration => {
   return {
-    __type: "ThingGroupIndexingConfiguration",
     customFields:
       output.customFields !== undefined && output.customFields !== null
         ? deserializeAws_restJson1Fields(output.customFields, context)
@@ -31124,7 +30804,6 @@ const deserializeAws_restJson1ThingGroupIndexingConfiguration = (
 
 const deserializeAws_restJson1ThingGroupMetadata = (output: any, context: __SerdeContext): ThingGroupMetadata => {
   return {
-    __type: "ThingGroupMetadata",
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -31152,7 +30831,6 @@ const deserializeAws_restJson1ThingGroupNames = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ThingGroupProperties = (output: any, context: __SerdeContext): ThingGroupProperties => {
   return {
-    __type: "ThingGroupProperties",
     attributePayload:
       output.attributePayload !== undefined && output.attributePayload !== null
         ? deserializeAws_restJson1AttributePayload(output.attributePayload, context)
@@ -31169,7 +30847,6 @@ const deserializeAws_restJson1ThingIndexingConfiguration = (
   context: __SerdeContext
 ): ThingIndexingConfiguration => {
   return {
-    __type: "ThingIndexingConfiguration",
     customFields:
       output.customFields !== undefined && output.customFields !== null
         ? deserializeAws_restJson1Fields(output.customFields, context)
@@ -31195,7 +30872,6 @@ const deserializeAws_restJson1ThingNameList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1ThingTypeDefinition = (output: any, context: __SerdeContext): ThingTypeDefinition => {
   return {
-    __type: "ThingTypeDefinition",
     thingTypeArn: output.thingTypeArn !== undefined && output.thingTypeArn !== null ? output.thingTypeArn : undefined,
     thingTypeMetadata:
       output.thingTypeMetadata !== undefined && output.thingTypeMetadata !== null
@@ -31216,7 +30892,6 @@ const deserializeAws_restJson1ThingTypeList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1ThingTypeMetadata = (output: any, context: __SerdeContext): ThingTypeMetadata => {
   return {
-    __type: "ThingTypeMetadata",
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -31231,7 +30906,6 @@ const deserializeAws_restJson1ThingTypeMetadata = (output: any, context: __Serde
 
 const deserializeAws_restJson1ThingTypeProperties = (output: any, context: __SerdeContext): ThingTypeProperties => {
   return {
-    __type: "ThingTypeProperties",
     searchableAttributes:
       output.searchableAttributes !== undefined && output.searchableAttributes !== null
         ? deserializeAws_restJson1SearchableAttributes(output.searchableAttributes, context)
@@ -31245,7 +30919,6 @@ const deserializeAws_restJson1ThingTypeProperties = (output: any, context: __Ser
 
 const deserializeAws_restJson1TimeoutConfig = (output: any, context: __SerdeContext): TimeoutConfig => {
   return {
-    __type: "TimeoutConfig",
     inProgressTimeoutInMinutes:
       output.inProgressTimeoutInMinutes !== undefined && output.inProgressTimeoutInMinutes !== null
         ? output.inProgressTimeoutInMinutes
@@ -31255,7 +30928,6 @@ const deserializeAws_restJson1TimeoutConfig = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1TopicRule = (output: any, context: __SerdeContext): TopicRule => {
   return {
-    __type: "TopicRule",
     actions:
       output.actions !== undefined && output.actions !== null
         ? deserializeAws_restJson1ActionList(output.actions, context)
@@ -31279,7 +30951,6 @@ const deserializeAws_restJson1TopicRule = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1TopicRuleDestination = (output: any, context: __SerdeContext): TopicRuleDestination => {
   return {
-    __type: "TopicRuleDestination",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     httpUrlProperties:
       output.httpUrlProperties !== undefined && output.httpUrlProperties !== null
@@ -31302,7 +30973,6 @@ const deserializeAws_restJson1TopicRuleDestinationSummary = (
   context: __SerdeContext
 ): TopicRuleDestinationSummary => {
   return {
-    __type: "TopicRuleDestinationSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     httpUrlSummary:
       output.httpUrlSummary !== undefined && output.httpUrlSummary !== null
@@ -31319,7 +30989,6 @@ const deserializeAws_restJson1TopicRuleList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1TopicRuleListItem = (output: any, context: __SerdeContext): TopicRuleListItem => {
   return {
-    __type: "TopicRuleListItem",
     createdAt:
       output.createdAt !== undefined && output.createdAt !== null
         ? new Date(Math.round(output.createdAt * 1000))
@@ -31333,7 +31002,6 @@ const deserializeAws_restJson1TopicRuleListItem = (output: any, context: __Serde
 
 const deserializeAws_restJson1TransferData = (output: any, context: __SerdeContext): TransferData => {
   return {
-    __type: "TransferData",
     acceptDate:
       output.acceptDate !== undefined && output.acceptDate !== null
         ? new Date(Math.round(output.acceptDate * 1000))
@@ -31357,7 +31025,6 @@ const deserializeAws_restJson1UpdateCACertificateParams = (
   context: __SerdeContext
 ): UpdateCACertificateParams => {
   return {
-    __type: "UpdateCACertificateParams",
     action: output.action !== undefined && output.action !== null ? output.action : undefined,
   } as any;
 };
@@ -31367,14 +31034,12 @@ const deserializeAws_restJson1UpdateDeviceCertificateParams = (
   context: __SerdeContext
 ): UpdateDeviceCertificateParams => {
   return {
-    __type: "UpdateDeviceCertificateParams",
     action: output.action !== undefined && output.action !== null ? output.action : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1ValidationError = (output: any, context: __SerdeContext): ValidationError => {
   return {
-    __type: "ValidationError",
     errorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
   } as any;
 };
@@ -31385,7 +31050,6 @@ const deserializeAws_restJson1ValidationErrors = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1ViolationEvent = (output: any, context: __SerdeContext): ViolationEvent => {
   return {
-    __type: "ViolationEvent",
     behavior:
       output.behavior !== undefined && output.behavior !== null
         ? deserializeAws_restJson1Behavior(output.behavior, context)

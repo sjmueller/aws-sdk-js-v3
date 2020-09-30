@@ -1,6 +1,6 @@
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient.ts";
-import { ListGraphsRequest, ListGraphsResponse } from "../models/index.ts";
+import { ListGraphsRequest, ListGraphsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListGraphsCommand,
   serializeAws_restJson1ListGraphsCommand,

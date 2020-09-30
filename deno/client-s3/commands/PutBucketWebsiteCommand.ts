@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { PutBucketWebsiteRequest } from "../models/index.ts";
+import { PutBucketWebsiteRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlPutBucketWebsiteCommand,
   serializeAws_restXmlPutBucketWebsiteCommand,

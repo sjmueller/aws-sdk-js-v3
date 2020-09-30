@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { SetAlarmStateInput } from "../models/index.ts";
+import { SetAlarmStateInput } from "../models/models_0.ts";
 import {
   deserializeAws_querySetAlarmStateCommand,
   serializeAws_querySetAlarmStateCommand,

@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { GetSecurityConfigurationRequest, GetSecurityConfigurationResponse } from "../models/index.ts";
+import { GetSecurityConfigurationRequest, GetSecurityConfigurationResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetSecurityConfigurationCommand,
   serializeAws_json1_1GetSecurityConfigurationCommand,

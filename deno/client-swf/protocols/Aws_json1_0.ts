@@ -272,7 +272,7 @@ import {
   WorkflowTypeFilter,
   WorkflowTypeInfo,
   WorkflowTypeInfos,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -776,7 +776,6 @@ export const deserializeAws_json1_0CountClosedWorkflowExecutionsCommand = async 
   contents = deserializeAws_json1_0WorkflowExecutionCount(data, context);
   const response: CountClosedWorkflowExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "WorkflowExecutionCount",
     ...contents,
   };
   return Promise.resolve(response);
@@ -840,7 +839,6 @@ export const deserializeAws_json1_0CountOpenWorkflowExecutionsCommand = async (
   contents = deserializeAws_json1_0WorkflowExecutionCount(data, context);
   const response: CountOpenWorkflowExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "WorkflowExecutionCount",
     ...contents,
   };
   return Promise.resolve(response);
@@ -904,7 +902,6 @@ export const deserializeAws_json1_0CountPendingActivityTasksCommand = async (
   contents = deserializeAws_json1_0PendingTaskCount(data, context);
   const response: CountPendingActivityTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PendingTaskCount",
     ...contents,
   };
   return Promise.resolve(response);
@@ -968,7 +965,6 @@ export const deserializeAws_json1_0CountPendingDecisionTasksCommand = async (
   contents = deserializeAws_json1_0PendingTaskCount(data, context);
   const response: CountPendingDecisionTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PendingTaskCount",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1236,7 +1232,6 @@ export const deserializeAws_json1_0DescribeActivityTypeCommand = async (
   contents = deserializeAws_json1_0ActivityTypeDetail(data, context);
   const response: DescribeActivityTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ActivityTypeDetail",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1300,7 +1295,6 @@ export const deserializeAws_json1_0DescribeDomainCommand = async (
   contents = deserializeAws_json1_0DomainDetail(data, context);
   const response: DescribeDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DomainDetail",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1364,7 +1358,6 @@ export const deserializeAws_json1_0DescribeWorkflowExecutionCommand = async (
   contents = deserializeAws_json1_0WorkflowExecutionDetail(data, context);
   const response: DescribeWorkflowExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "WorkflowExecutionDetail",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1428,7 +1421,6 @@ export const deserializeAws_json1_0DescribeWorkflowTypeCommand = async (
   contents = deserializeAws_json1_0WorkflowTypeDetail(data, context);
   const response: DescribeWorkflowTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "WorkflowTypeDetail",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1492,7 +1484,6 @@ export const deserializeAws_json1_0GetWorkflowExecutionHistoryCommand = async (
   contents = deserializeAws_json1_0History(data, context);
   const response: GetWorkflowExecutionHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "History",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1556,7 +1547,6 @@ export const deserializeAws_json1_0ListActivityTypesCommand = async (
   contents = deserializeAws_json1_0ActivityTypeInfos(data, context);
   const response: ListActivityTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ActivityTypeInfos",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1620,7 +1610,6 @@ export const deserializeAws_json1_0ListClosedWorkflowExecutionsCommand = async (
   contents = deserializeAws_json1_0WorkflowExecutionInfos(data, context);
   const response: ListClosedWorkflowExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "WorkflowExecutionInfos",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1684,7 +1673,6 @@ export const deserializeAws_json1_0ListDomainsCommand = async (
   contents = deserializeAws_json1_0DomainInfos(data, context);
   const response: ListDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DomainInfos",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1740,7 +1728,6 @@ export const deserializeAws_json1_0ListOpenWorkflowExecutionsCommand = async (
   contents = deserializeAws_json1_0WorkflowExecutionInfos(data, context);
   const response: ListOpenWorkflowExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "WorkflowExecutionInfos",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1804,7 +1791,6 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_0ListTagsForResourceOutput(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1876,7 +1862,6 @@ export const deserializeAws_json1_0ListWorkflowTypesCommand = async (
   contents = deserializeAws_json1_0WorkflowTypeInfos(data, context);
   const response: ListWorkflowTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "WorkflowTypeInfos",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1940,7 +1925,6 @@ export const deserializeAws_json1_0PollForActivityTaskCommand = async (
   contents = deserializeAws_json1_0ActivityTask(data, context);
   const response: PollForActivityTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ActivityTask",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2012,7 +1996,6 @@ export const deserializeAws_json1_0PollForDecisionTaskCommand = async (
   contents = deserializeAws_json1_0DecisionTask(data, context);
   const response: PollForDecisionTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DecisionTask",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2084,7 +2067,6 @@ export const deserializeAws_json1_0RecordActivityTaskHeartbeatCommand = async (
   contents = deserializeAws_json1_0ActivityTaskStatus(data, context);
   const response: RecordActivityTaskHeartbeatCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ActivityTaskStatus",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2736,7 +2718,6 @@ export const deserializeAws_json1_0StartWorkflowExecutionCommand = async (
   contents = deserializeAws_json1_0Run(data, context);
   const response: StartWorkflowExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Run",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4198,7 +4179,6 @@ const serializeAws_json1_0WorkflowTypeFilter = (input: WorkflowTypeFilter, conte
 
 const deserializeAws_json1_0ActivityTask = (output: any, context: __SerdeContext): ActivityTask => {
   return {
-    __type: "ActivityTask",
     activityId: output.activityId !== undefined && output.activityId !== null ? output.activityId : undefined,
     activityType:
       output.activityType !== undefined && output.activityType !== null
@@ -4220,7 +4200,6 @@ const deserializeAws_json1_0ActivityTaskCanceledEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskCanceledEventAttributes => {
   return {
-    __type: "ActivityTaskCanceledEventAttributes",
     details: output.details !== undefined && output.details !== null ? output.details : undefined,
     latestCancelRequestedEventId:
       output.latestCancelRequestedEventId !== undefined && output.latestCancelRequestedEventId !== null
@@ -4238,7 +4217,6 @@ const deserializeAws_json1_0ActivityTaskCancelRequestedEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskCancelRequestedEventAttributes => {
   return {
-    __type: "ActivityTaskCancelRequestedEventAttributes",
     activityId: output.activityId !== undefined && output.activityId !== null ? output.activityId : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -4252,7 +4230,6 @@ const deserializeAws_json1_0ActivityTaskCompletedEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskCompletedEventAttributes => {
   return {
-    __type: "ActivityTaskCompletedEventAttributes",
     result: output.result !== undefined && output.result !== null ? output.result : undefined,
     scheduledEventId:
       output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
@@ -4266,7 +4243,6 @@ const deserializeAws_json1_0ActivityTaskFailedEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskFailedEventAttributes => {
   return {
-    __type: "ActivityTaskFailedEventAttributes",
     details: output.details !== undefined && output.details !== null ? output.details : undefined,
     reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
     scheduledEventId:
@@ -4281,7 +4257,6 @@ const deserializeAws_json1_0ActivityTaskScheduledEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskScheduledEventAttributes => {
   return {
-    __type: "ActivityTaskScheduledEventAttributes",
     activityId: output.activityId !== undefined && output.activityId !== null ? output.activityId : undefined,
     activityType:
       output.activityType !== undefined && output.activityType !== null
@@ -4320,7 +4295,6 @@ const deserializeAws_json1_0ActivityTaskStartedEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskStartedEventAttributes => {
   return {
-    __type: "ActivityTaskStartedEventAttributes",
     identity: output.identity !== undefined && output.identity !== null ? output.identity : undefined,
     scheduledEventId:
       output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
@@ -4329,7 +4303,6 @@ const deserializeAws_json1_0ActivityTaskStartedEventAttributes = (
 
 const deserializeAws_json1_0ActivityTaskStatus = (output: any, context: __SerdeContext): ActivityTaskStatus => {
   return {
-    __type: "ActivityTaskStatus",
     cancelRequested:
       output.cancelRequested !== undefined && output.cancelRequested !== null ? output.cancelRequested : undefined,
   } as any;
@@ -4340,7 +4313,6 @@ const deserializeAws_json1_0ActivityTaskTimedOutEventAttributes = (
   context: __SerdeContext
 ): ActivityTaskTimedOutEventAttributes => {
   return {
-    __type: "ActivityTaskTimedOutEventAttributes",
     details: output.details !== undefined && output.details !== null ? output.details : undefined,
     scheduledEventId:
       output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
@@ -4352,7 +4324,6 @@ const deserializeAws_json1_0ActivityTaskTimedOutEventAttributes = (
 
 const deserializeAws_json1_0ActivityType = (output: any, context: __SerdeContext): ActivityType => {
   return {
-    __type: "ActivityType",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
@@ -4363,7 +4334,6 @@ const deserializeAws_json1_0ActivityTypeConfiguration = (
   context: __SerdeContext
 ): ActivityTypeConfiguration => {
   return {
-    __type: "ActivityTypeConfiguration",
     defaultTaskHeartbeatTimeout:
       output.defaultTaskHeartbeatTimeout !== undefined && output.defaultTaskHeartbeatTimeout !== null
         ? output.defaultTaskHeartbeatTimeout
@@ -4393,7 +4363,6 @@ const deserializeAws_json1_0ActivityTypeConfiguration = (
 
 const deserializeAws_json1_0ActivityTypeDetail = (output: any, context: __SerdeContext): ActivityTypeDetail => {
   return {
-    __type: "ActivityTypeDetail",
     configuration:
       output.configuration !== undefined && output.configuration !== null
         ? deserializeAws_json1_0ActivityTypeConfiguration(output.configuration, context)
@@ -4407,7 +4376,6 @@ const deserializeAws_json1_0ActivityTypeDetail = (output: any, context: __SerdeC
 
 const deserializeAws_json1_0ActivityTypeInfo = (output: any, context: __SerdeContext): ActivityTypeInfo => {
   return {
-    __type: "ActivityTypeInfo",
     activityType:
       output.activityType !== undefined && output.activityType !== null
         ? deserializeAws_json1_0ActivityType(output.activityType, context)
@@ -4431,7 +4399,6 @@ const deserializeAws_json1_0ActivityTypeInfoList = (output: any, context: __Serd
 
 const deserializeAws_json1_0ActivityTypeInfos = (output: any, context: __SerdeContext): ActivityTypeInfos => {
   return {
-    __type: "ActivityTypeInfos",
     nextPageToken:
       output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
     typeInfos:
@@ -4446,7 +4413,6 @@ const deserializeAws_json1_0CancelTimerFailedEventAttributes = (
   context: __SerdeContext
 ): CancelTimerFailedEventAttributes => {
   return {
-    __type: "CancelTimerFailedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -4461,7 +4427,6 @@ const deserializeAws_json1_0CancelWorkflowExecutionFailedEventAttributes = (
   context: __SerdeContext
 ): CancelWorkflowExecutionFailedEventAttributes => {
   return {
-    __type: "CancelWorkflowExecutionFailedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -4475,7 +4440,6 @@ const deserializeAws_json1_0ChildWorkflowExecutionCanceledEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionCanceledEventAttributes => {
   return {
-    __type: "ChildWorkflowExecutionCanceledEventAttributes",
     details: output.details !== undefined && output.details !== null ? output.details : undefined,
     initiatedEventId:
       output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
@@ -4497,7 +4461,6 @@ const deserializeAws_json1_0ChildWorkflowExecutionCompletedEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionCompletedEventAttributes => {
   return {
-    __type: "ChildWorkflowExecutionCompletedEventAttributes",
     initiatedEventId:
       output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
     result: output.result !== undefined && output.result !== null ? output.result : undefined,
@@ -4519,7 +4482,6 @@ const deserializeAws_json1_0ChildWorkflowExecutionFailedEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionFailedEventAttributes => {
   return {
-    __type: "ChildWorkflowExecutionFailedEventAttributes",
     details: output.details !== undefined && output.details !== null ? output.details : undefined,
     initiatedEventId:
       output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
@@ -4542,7 +4504,6 @@ const deserializeAws_json1_0ChildWorkflowExecutionStartedEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionStartedEventAttributes => {
   return {
-    __type: "ChildWorkflowExecutionStartedEventAttributes",
     initiatedEventId:
       output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
     workflowExecution:
@@ -4561,7 +4522,6 @@ const deserializeAws_json1_0ChildWorkflowExecutionTerminatedEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionTerminatedEventAttributes => {
   return {
-    __type: "ChildWorkflowExecutionTerminatedEventAttributes",
     initiatedEventId:
       output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
     startedEventId:
@@ -4582,7 +4542,6 @@ const deserializeAws_json1_0ChildWorkflowExecutionTimedOutEventAttributes = (
   context: __SerdeContext
 ): ChildWorkflowExecutionTimedOutEventAttributes => {
   return {
-    __type: "ChildWorkflowExecutionTimedOutEventAttributes",
     initiatedEventId:
       output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
     startedEventId:
@@ -4604,7 +4563,6 @@ const deserializeAws_json1_0CompleteWorkflowExecutionFailedEventAttributes = (
   context: __SerdeContext
 ): CompleteWorkflowExecutionFailedEventAttributes => {
   return {
-    __type: "CompleteWorkflowExecutionFailedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -4618,7 +4576,6 @@ const deserializeAws_json1_0ContinueAsNewWorkflowExecutionFailedEventAttributes 
   context: __SerdeContext
 ): ContinueAsNewWorkflowExecutionFailedEventAttributes => {
   return {
-    __type: "ContinueAsNewWorkflowExecutionFailedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -4629,7 +4586,6 @@ const deserializeAws_json1_0ContinueAsNewWorkflowExecutionFailedEventAttributes 
 
 const deserializeAws_json1_0DecisionTask = (output: any, context: __SerdeContext): DecisionTask => {
   return {
-    __type: "DecisionTask",
     events:
       output.events !== undefined && output.events !== null
         ? deserializeAws_json1_0HistoryEventList(output.events, context)
@@ -4659,7 +4615,6 @@ const deserializeAws_json1_0DecisionTaskCompletedEventAttributes = (
   context: __SerdeContext
 ): DecisionTaskCompletedEventAttributes => {
   return {
-    __type: "DecisionTaskCompletedEventAttributes",
     executionContext:
       output.executionContext !== undefined && output.executionContext !== null ? output.executionContext : undefined,
     scheduledEventId:
@@ -4674,7 +4629,6 @@ const deserializeAws_json1_0DecisionTaskScheduledEventAttributes = (
   context: __SerdeContext
 ): DecisionTaskScheduledEventAttributes => {
   return {
-    __type: "DecisionTaskScheduledEventAttributes",
     startToCloseTimeout:
       output.startToCloseTimeout !== undefined && output.startToCloseTimeout !== null
         ? output.startToCloseTimeout
@@ -4692,7 +4646,6 @@ const deserializeAws_json1_0DecisionTaskStartedEventAttributes = (
   context: __SerdeContext
 ): DecisionTaskStartedEventAttributes => {
   return {
-    __type: "DecisionTaskStartedEventAttributes",
     identity: output.identity !== undefined && output.identity !== null ? output.identity : undefined,
     scheduledEventId:
       output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
@@ -4704,7 +4657,6 @@ const deserializeAws_json1_0DecisionTaskTimedOutEventAttributes = (
   context: __SerdeContext
 ): DecisionTaskTimedOutEventAttributes => {
   return {
-    __type: "DecisionTaskTimedOutEventAttributes",
     scheduledEventId:
       output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
     startedEventId:
@@ -4715,7 +4667,6 @@ const deserializeAws_json1_0DecisionTaskTimedOutEventAttributes = (
 
 const deserializeAws_json1_0DefaultUndefinedFault = (output: any, context: __SerdeContext): DefaultUndefinedFault => {
   return {
-    __type: "DefaultUndefinedFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -4725,14 +4676,12 @@ const deserializeAws_json1_0DomainAlreadyExistsFault = (
   context: __SerdeContext
 ): DomainAlreadyExistsFault => {
   return {
-    __type: "DomainAlreadyExistsFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0DomainConfiguration = (output: any, context: __SerdeContext): DomainConfiguration => {
   return {
-    __type: "DomainConfiguration",
     workflowExecutionRetentionPeriodInDays:
       output.workflowExecutionRetentionPeriodInDays !== undefined &&
       output.workflowExecutionRetentionPeriodInDays !== null
@@ -4743,14 +4692,12 @@ const deserializeAws_json1_0DomainConfiguration = (output: any, context: __Serde
 
 const deserializeAws_json1_0DomainDeprecatedFault = (output: any, context: __SerdeContext): DomainDeprecatedFault => {
   return {
-    __type: "DomainDeprecatedFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0DomainDetail = (output: any, context: __SerdeContext): DomainDetail => {
   return {
-    __type: "DomainDetail",
     configuration:
       output.configuration !== undefined && output.configuration !== null
         ? deserializeAws_json1_0DomainConfiguration(output.configuration, context)
@@ -4764,7 +4711,6 @@ const deserializeAws_json1_0DomainDetail = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_0DomainInfo = (output: any, context: __SerdeContext): DomainInfo => {
   return {
-    __type: "DomainInfo",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -4778,7 +4724,6 @@ const deserializeAws_json1_0DomainInfoList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_0DomainInfos = (output: any, context: __SerdeContext): DomainInfos => {
   return {
-    __type: "DomainInfos",
     domainInfos:
       output.domainInfos !== undefined && output.domainInfos !== null
         ? deserializeAws_json1_0DomainInfoList(output.domainInfos, context)
@@ -4793,7 +4738,6 @@ const deserializeAws_json1_0ExternalWorkflowExecutionCancelRequestedEventAttribu
   context: __SerdeContext
 ): ExternalWorkflowExecutionCancelRequestedEventAttributes => {
   return {
-    __type: "ExternalWorkflowExecutionCancelRequestedEventAttributes",
     initiatedEventId:
       output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
     workflowExecution:
@@ -4808,7 +4752,6 @@ const deserializeAws_json1_0ExternalWorkflowExecutionSignaledEventAttributes = (
   context: __SerdeContext
 ): ExternalWorkflowExecutionSignaledEventAttributes => {
   return {
-    __type: "ExternalWorkflowExecutionSignaledEventAttributes",
     initiatedEventId:
       output.initiatedEventId !== undefined && output.initiatedEventId !== null ? output.initiatedEventId : undefined,
     workflowExecution:
@@ -4823,7 +4766,6 @@ const deserializeAws_json1_0FailWorkflowExecutionFailedEventAttributes = (
   context: __SerdeContext
 ): FailWorkflowExecutionFailedEventAttributes => {
   return {
-    __type: "FailWorkflowExecutionFailedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -4834,7 +4776,6 @@ const deserializeAws_json1_0FailWorkflowExecutionFailedEventAttributes = (
 
 const deserializeAws_json1_0History = (output: any, context: __SerdeContext): History => {
   return {
-    __type: "History",
     events:
       output.events !== undefined && output.events !== null
         ? deserializeAws_json1_0HistoryEventList(output.events, context)
@@ -4846,7 +4787,6 @@ const deserializeAws_json1_0History = (output: any, context: __SerdeContext): Hi
 
 const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext): HistoryEvent => {
   return {
-    __type: "HistoryEvent",
     activityTaskCancelRequestedEventAttributes:
       output.activityTaskCancelRequestedEventAttributes !== undefined &&
       output.activityTaskCancelRequestedEventAttributes !== null
@@ -5236,7 +5176,6 @@ const deserializeAws_json1_0LambdaFunctionCompletedEventAttributes = (
   context: __SerdeContext
 ): LambdaFunctionCompletedEventAttributes => {
   return {
-    __type: "LambdaFunctionCompletedEventAttributes",
     result: output.result !== undefined && output.result !== null ? output.result : undefined,
     scheduledEventId:
       output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
@@ -5250,7 +5189,6 @@ const deserializeAws_json1_0LambdaFunctionFailedEventAttributes = (
   context: __SerdeContext
 ): LambdaFunctionFailedEventAttributes => {
   return {
-    __type: "LambdaFunctionFailedEventAttributes",
     details: output.details !== undefined && output.details !== null ? output.details : undefined,
     reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
     scheduledEventId:
@@ -5265,7 +5203,6 @@ const deserializeAws_json1_0LambdaFunctionScheduledEventAttributes = (
   context: __SerdeContext
 ): LambdaFunctionScheduledEventAttributes => {
   return {
-    __type: "LambdaFunctionScheduledEventAttributes",
     control: output.control !== undefined && output.control !== null ? output.control : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -5286,7 +5223,6 @@ const deserializeAws_json1_0LambdaFunctionStartedEventAttributes = (
   context: __SerdeContext
 ): LambdaFunctionStartedEventAttributes => {
   return {
-    __type: "LambdaFunctionStartedEventAttributes",
     scheduledEventId:
       output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
   } as any;
@@ -5297,7 +5233,6 @@ const deserializeAws_json1_0LambdaFunctionTimedOutEventAttributes = (
   context: __SerdeContext
 ): LambdaFunctionTimedOutEventAttributes => {
   return {
-    __type: "LambdaFunctionTimedOutEventAttributes",
     scheduledEventId:
       output.scheduledEventId !== undefined && output.scheduledEventId !== null ? output.scheduledEventId : undefined,
     startedEventId:
@@ -5308,7 +5243,6 @@ const deserializeAws_json1_0LambdaFunctionTimedOutEventAttributes = (
 
 const deserializeAws_json1_0LimitExceededFault = (output: any, context: __SerdeContext): LimitExceededFault => {
   return {
-    __type: "LimitExceededFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5318,7 +5252,6 @@ const deserializeAws_json1_0ListTagsForResourceOutput = (
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
   return {
-    __type: "ListTagsForResourceOutput",
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_json1_0ResourceTagList(output.tags, context)
@@ -5331,7 +5264,6 @@ const deserializeAws_json1_0MarkerRecordedEventAttributes = (
   context: __SerdeContext
 ): MarkerRecordedEventAttributes => {
   return {
-    __type: "MarkerRecordedEventAttributes",
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
         ? output.decisionTaskCompletedEventId
@@ -5346,14 +5278,12 @@ const deserializeAws_json1_0OperationNotPermittedFault = (
   context: __SerdeContext
 ): OperationNotPermittedFault => {
   return {
-    __type: "OperationNotPermittedFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0PendingTaskCount = (output: any, context: __SerdeContext): PendingTaskCount => {
   return {
-    __type: "PendingTaskCount",
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
     truncated: output.truncated !== undefined && output.truncated !== null ? output.truncated : undefined,
   } as any;
@@ -5364,7 +5294,6 @@ const deserializeAws_json1_0RecordMarkerFailedEventAttributes = (
   context: __SerdeContext
 ): RecordMarkerFailedEventAttributes => {
   return {
-    __type: "RecordMarkerFailedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -5379,7 +5308,6 @@ const deserializeAws_json1_0RequestCancelActivityTaskFailedEventAttributes = (
   context: __SerdeContext
 ): RequestCancelActivityTaskFailedEventAttributes => {
   return {
-    __type: "RequestCancelActivityTaskFailedEventAttributes",
     activityId: output.activityId !== undefined && output.activityId !== null ? output.activityId : undefined,
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     decisionTaskCompletedEventId:
@@ -5394,7 +5322,6 @@ const deserializeAws_json1_0RequestCancelExternalWorkflowExecutionFailedEventAtt
   context: __SerdeContext
 ): RequestCancelExternalWorkflowExecutionFailedEventAttributes => {
   return {
-    __type: "RequestCancelExternalWorkflowExecutionFailedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     control: output.control !== undefined && output.control !== null ? output.control : undefined,
     decisionTaskCompletedEventId:
@@ -5413,7 +5340,6 @@ const deserializeAws_json1_0RequestCancelExternalWorkflowExecutionInitiatedEvent
   context: __SerdeContext
 ): RequestCancelExternalWorkflowExecutionInitiatedEventAttributes => {
   return {
-    __type: "RequestCancelExternalWorkflowExecutionInitiatedEventAttributes",
     control: output.control !== undefined && output.control !== null ? output.control : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -5426,7 +5352,6 @@ const deserializeAws_json1_0RequestCancelExternalWorkflowExecutionInitiatedEvent
 
 const deserializeAws_json1_0ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
   return {
-    __type: "ResourceTag",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -5438,7 +5363,6 @@ const deserializeAws_json1_0ResourceTagList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_0Run = (output: any, context: __SerdeContext): Run => {
   return {
-    __type: "Run",
     runId: output.runId !== undefined && output.runId !== null ? output.runId : undefined,
   } as any;
 };
@@ -5448,7 +5372,6 @@ const deserializeAws_json1_0ScheduleActivityTaskFailedEventAttributes = (
   context: __SerdeContext
 ): ScheduleActivityTaskFailedEventAttributes => {
   return {
-    __type: "ScheduleActivityTaskFailedEventAttributes",
     activityId: output.activityId !== undefined && output.activityId !== null ? output.activityId : undefined,
     activityType:
       output.activityType !== undefined && output.activityType !== null
@@ -5467,7 +5390,6 @@ const deserializeAws_json1_0ScheduleLambdaFunctionFailedEventAttributes = (
   context: __SerdeContext
 ): ScheduleLambdaFunctionFailedEventAttributes => {
   return {
-    __type: "ScheduleLambdaFunctionFailedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -5483,7 +5405,6 @@ const deserializeAws_json1_0SignalExternalWorkflowExecutionFailedEventAttributes
   context: __SerdeContext
 ): SignalExternalWorkflowExecutionFailedEventAttributes => {
   return {
-    __type: "SignalExternalWorkflowExecutionFailedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     control: output.control !== undefined && output.control !== null ? output.control : undefined,
     decisionTaskCompletedEventId:
@@ -5502,7 +5423,6 @@ const deserializeAws_json1_0SignalExternalWorkflowExecutionInitiatedEventAttribu
   context: __SerdeContext
 ): SignalExternalWorkflowExecutionInitiatedEventAttributes => {
   return {
-    __type: "SignalExternalWorkflowExecutionInitiatedEventAttributes",
     control: output.control !== undefined && output.control !== null ? output.control : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -5520,7 +5440,6 @@ const deserializeAws_json1_0StartChildWorkflowExecutionFailedEventAttributes = (
   context: __SerdeContext
 ): StartChildWorkflowExecutionFailedEventAttributes => {
   return {
-    __type: "StartChildWorkflowExecutionFailedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     control: output.control !== undefined && output.control !== null ? output.control : undefined,
     decisionTaskCompletedEventId:
@@ -5542,7 +5461,6 @@ const deserializeAws_json1_0StartChildWorkflowExecutionInitiatedEventAttributes 
   context: __SerdeContext
 ): StartChildWorkflowExecutionInitiatedEventAttributes => {
   return {
-    __type: "StartChildWorkflowExecutionInitiatedEventAttributes",
     childPolicy: output.childPolicy !== undefined && output.childPolicy !== null ? output.childPolicy : undefined,
     control: output.control !== undefined && output.control !== null ? output.control : undefined,
     decisionTaskCompletedEventId:
@@ -5581,7 +5499,6 @@ const deserializeAws_json1_0StartLambdaFunctionFailedEventAttributes = (
   context: __SerdeContext
 ): StartLambdaFunctionFailedEventAttributes => {
   return {
-    __type: "StartLambdaFunctionFailedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     scheduledEventId:
@@ -5594,7 +5511,6 @@ const deserializeAws_json1_0StartTimerFailedEventAttributes = (
   context: __SerdeContext
 ): StartTimerFailedEventAttributes => {
   return {
-    __type: "StartTimerFailedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -5610,7 +5526,6 @@ const deserializeAws_json1_0TagList = (output: any, context: __SerdeContext): st
 
 const deserializeAws_json1_0TaskList = (output: any, context: __SerdeContext): TaskList => {
   return {
-    __type: "TaskList",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
 };
@@ -5620,7 +5535,6 @@ const deserializeAws_json1_0TimerCanceledEventAttributes = (
   context: __SerdeContext
 ): TimerCanceledEventAttributes => {
   return {
-    __type: "TimerCanceledEventAttributes",
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
         ? output.decisionTaskCompletedEventId
@@ -5636,7 +5550,6 @@ const deserializeAws_json1_0TimerFiredEventAttributes = (
   context: __SerdeContext
 ): TimerFiredEventAttributes => {
   return {
-    __type: "TimerFiredEventAttributes",
     startedEventId:
       output.startedEventId !== undefined && output.startedEventId !== null ? output.startedEventId : undefined,
     timerId: output.timerId !== undefined && output.timerId !== null ? output.timerId : undefined,
@@ -5648,7 +5561,6 @@ const deserializeAws_json1_0TimerStartedEventAttributes = (
   context: __SerdeContext
 ): TimerStartedEventAttributes => {
   return {
-    __type: "TimerStartedEventAttributes",
     control: output.control !== undefined && output.control !== null ? output.control : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -5664,35 +5576,30 @@ const deserializeAws_json1_0TimerStartedEventAttributes = (
 
 const deserializeAws_json1_0TooManyTagsFault = (output: any, context: __SerdeContext): TooManyTagsFault => {
   return {
-    __type: "TooManyTagsFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0TypeAlreadyExistsFault = (output: any, context: __SerdeContext): TypeAlreadyExistsFault => {
   return {
-    __type: "TypeAlreadyExistsFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0TypeDeprecatedFault = (output: any, context: __SerdeContext): TypeDeprecatedFault => {
   return {
-    __type: "TypeDeprecatedFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0UnknownResourceFault = (output: any, context: __SerdeContext): UnknownResourceFault => {
   return {
-    __type: "UnknownResourceFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_0WorkflowExecution = (output: any, context: __SerdeContext): WorkflowExecution => {
   return {
-    __type: "WorkflowExecution",
     runId: output.runId !== undefined && output.runId !== null ? output.runId : undefined,
     workflowId: output.workflowId !== undefined && output.workflowId !== null ? output.workflowId : undefined,
   } as any;
@@ -5703,7 +5610,6 @@ const deserializeAws_json1_0WorkflowExecutionAlreadyStartedFault = (
   context: __SerdeContext
 ): WorkflowExecutionAlreadyStartedFault => {
   return {
-    __type: "WorkflowExecutionAlreadyStartedFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5713,7 +5619,6 @@ const deserializeAws_json1_0WorkflowExecutionCanceledEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionCanceledEventAttributes => {
   return {
-    __type: "WorkflowExecutionCanceledEventAttributes",
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
         ? output.decisionTaskCompletedEventId
@@ -5727,7 +5632,6 @@ const deserializeAws_json1_0WorkflowExecutionCancelRequestedEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionCancelRequestedEventAttributes => {
   return {
-    __type: "WorkflowExecutionCancelRequestedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     externalInitiatedEventId:
       output.externalInitiatedEventId !== undefined && output.externalInitiatedEventId !== null
@@ -5745,7 +5649,6 @@ const deserializeAws_json1_0WorkflowExecutionCompletedEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionCompletedEventAttributes => {
   return {
-    __type: "WorkflowExecutionCompletedEventAttributes",
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
         ? output.decisionTaskCompletedEventId
@@ -5759,7 +5662,6 @@ const deserializeAws_json1_0WorkflowExecutionConfiguration = (
   context: __SerdeContext
 ): WorkflowExecutionConfiguration => {
   return {
-    __type: "WorkflowExecutionConfiguration",
     childPolicy: output.childPolicy !== undefined && output.childPolicy !== null ? output.childPolicy : undefined,
     executionStartToCloseTimeout:
       output.executionStartToCloseTimeout !== undefined && output.executionStartToCloseTimeout !== null
@@ -5783,7 +5685,6 @@ const deserializeAws_json1_0WorkflowExecutionContinuedAsNewEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionContinuedAsNewEventAttributes => {
   return {
-    __type: "WorkflowExecutionContinuedAsNewEventAttributes",
     childPolicy: output.childPolicy !== undefined && output.childPolicy !== null ? output.childPolicy : undefined,
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
@@ -5821,7 +5722,6 @@ const deserializeAws_json1_0WorkflowExecutionContinuedAsNewEventAttributes = (
 
 const deserializeAws_json1_0WorkflowExecutionCount = (output: any, context: __SerdeContext): WorkflowExecutionCount => {
   return {
-    __type: "WorkflowExecutionCount",
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
     truncated: output.truncated !== undefined && output.truncated !== null ? output.truncated : undefined,
   } as any;
@@ -5832,7 +5732,6 @@ const deserializeAws_json1_0WorkflowExecutionDetail = (
   context: __SerdeContext
 ): WorkflowExecutionDetail => {
   return {
-    __type: "WorkflowExecutionDetail",
     executionConfiguration:
       output.executionConfiguration !== undefined && output.executionConfiguration !== null
         ? deserializeAws_json1_0WorkflowExecutionConfiguration(output.executionConfiguration, context)
@@ -5861,7 +5760,6 @@ const deserializeAws_json1_0WorkflowExecutionFailedEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionFailedEventAttributes => {
   return {
-    __type: "WorkflowExecutionFailedEventAttributes",
     decisionTaskCompletedEventId:
       output.decisionTaskCompletedEventId !== undefined && output.decisionTaskCompletedEventId !== null
         ? output.decisionTaskCompletedEventId
@@ -5873,7 +5771,6 @@ const deserializeAws_json1_0WorkflowExecutionFailedEventAttributes = (
 
 const deserializeAws_json1_0WorkflowExecutionInfo = (output: any, context: __SerdeContext): WorkflowExecutionInfo => {
   return {
-    __type: "WorkflowExecutionInfo",
     cancelRequested:
       output.cancelRequested !== undefined && output.cancelRequested !== null ? output.cancelRequested : undefined,
     closeStatus: output.closeStatus !== undefined && output.closeStatus !== null ? output.closeStatus : undefined,
@@ -5915,7 +5812,6 @@ const deserializeAws_json1_0WorkflowExecutionInfoList = (
 
 const deserializeAws_json1_0WorkflowExecutionInfos = (output: any, context: __SerdeContext): WorkflowExecutionInfos => {
   return {
-    __type: "WorkflowExecutionInfos",
     executionInfos:
       output.executionInfos !== undefined && output.executionInfos !== null
         ? deserializeAws_json1_0WorkflowExecutionInfoList(output.executionInfos, context)
@@ -5930,7 +5826,6 @@ const deserializeAws_json1_0WorkflowExecutionOpenCounts = (
   context: __SerdeContext
 ): WorkflowExecutionOpenCounts => {
   return {
-    __type: "WorkflowExecutionOpenCounts",
     openActivityTasks:
       output.openActivityTasks !== undefined && output.openActivityTasks !== null
         ? output.openActivityTasks
@@ -5956,7 +5851,6 @@ const deserializeAws_json1_0WorkflowExecutionSignaledEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionSignaledEventAttributes => {
   return {
-    __type: "WorkflowExecutionSignaledEventAttributes",
     externalInitiatedEventId:
       output.externalInitiatedEventId !== undefined && output.externalInitiatedEventId !== null
         ? output.externalInitiatedEventId
@@ -5975,7 +5869,6 @@ const deserializeAws_json1_0WorkflowExecutionStartedEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionStartedEventAttributes => {
   return {
-    __type: "WorkflowExecutionStartedEventAttributes",
     childPolicy: output.childPolicy !== undefined && output.childPolicy !== null ? output.childPolicy : undefined,
     continuedExecutionRunId:
       output.continuedExecutionRunId !== undefined && output.continuedExecutionRunId !== null
@@ -6020,7 +5913,6 @@ const deserializeAws_json1_0WorkflowExecutionTerminatedEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionTerminatedEventAttributes => {
   return {
-    __type: "WorkflowExecutionTerminatedEventAttributes",
     cause: output.cause !== undefined && output.cause !== null ? output.cause : undefined,
     childPolicy: output.childPolicy !== undefined && output.childPolicy !== null ? output.childPolicy : undefined,
     details: output.details !== undefined && output.details !== null ? output.details : undefined,
@@ -6033,7 +5925,6 @@ const deserializeAws_json1_0WorkflowExecutionTimedOutEventAttributes = (
   context: __SerdeContext
 ): WorkflowExecutionTimedOutEventAttributes => {
   return {
-    __type: "WorkflowExecutionTimedOutEventAttributes",
     childPolicy: output.childPolicy !== undefined && output.childPolicy !== null ? output.childPolicy : undefined,
     timeoutType: output.timeoutType !== undefined && output.timeoutType !== null ? output.timeoutType : undefined,
   } as any;
@@ -6041,7 +5932,6 @@ const deserializeAws_json1_0WorkflowExecutionTimedOutEventAttributes = (
 
 const deserializeAws_json1_0WorkflowType = (output: any, context: __SerdeContext): WorkflowType => {
   return {
-    __type: "WorkflowType",
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     version: output.version !== undefined && output.version !== null ? output.version : undefined,
   } as any;
@@ -6052,7 +5942,6 @@ const deserializeAws_json1_0WorkflowTypeConfiguration = (
   context: __SerdeContext
 ): WorkflowTypeConfiguration => {
   return {
-    __type: "WorkflowTypeConfiguration",
     defaultChildPolicy:
       output.defaultChildPolicy !== undefined && output.defaultChildPolicy !== null
         ? output.defaultChildPolicy
@@ -6082,7 +5971,6 @@ const deserializeAws_json1_0WorkflowTypeConfiguration = (
 
 const deserializeAws_json1_0WorkflowTypeDetail = (output: any, context: __SerdeContext): WorkflowTypeDetail => {
   return {
-    __type: "WorkflowTypeDetail",
     configuration:
       output.configuration !== undefined && output.configuration !== null
         ? deserializeAws_json1_0WorkflowTypeConfiguration(output.configuration, context)
@@ -6096,7 +5984,6 @@ const deserializeAws_json1_0WorkflowTypeDetail = (output: any, context: __SerdeC
 
 const deserializeAws_json1_0WorkflowTypeInfo = (output: any, context: __SerdeContext): WorkflowTypeInfo => {
   return {
-    __type: "WorkflowTypeInfo",
     creationDate:
       output.creationDate !== undefined && output.creationDate !== null
         ? new Date(Math.round(output.creationDate * 1000))
@@ -6120,7 +6007,6 @@ const deserializeAws_json1_0WorkflowTypeInfoList = (output: any, context: __Serd
 
 const deserializeAws_json1_0WorkflowTypeInfos = (output: any, context: __SerdeContext): WorkflowTypeInfos => {
   return {
-    __type: "WorkflowTypeInfos",
     nextPageToken:
       output.nextPageToken !== undefined && output.nextPageToken !== null ? output.nextPageToken : undefined,
     typeInfos:

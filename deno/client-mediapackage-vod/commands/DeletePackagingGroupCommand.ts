@@ -1,6 +1,6 @@
 
 import { MediaPackageVodClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaPackageVodClient.ts";
-import { DeletePackagingGroupRequest, DeletePackagingGroupResponse } from "../models/index.ts";
+import { DeletePackagingGroupRequest, DeletePackagingGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeletePackagingGroupCommand,
   serializeAws_restJson1DeletePackagingGroupCommand,

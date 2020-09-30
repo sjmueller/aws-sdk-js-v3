@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { DeregisterEventTopicRequest, DeregisterEventTopicResult } from "../models/index.ts";
+import { DeregisterEventTopicRequest, DeregisterEventTopicResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeregisterEventTopicCommand,
   serializeAws_json1_1DeregisterEventTopicCommand,

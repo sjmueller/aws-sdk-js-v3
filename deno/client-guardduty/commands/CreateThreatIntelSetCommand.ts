@@ -1,6 +1,6 @@
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
-import { CreateThreatIntelSetRequest, CreateThreatIntelSetResponse } from "../models/index.ts";
+import { CreateThreatIntelSetRequest, CreateThreatIntelSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateThreatIntelSetCommand,
   serializeAws_restJson1CreateThreatIntelSetCommand,

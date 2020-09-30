@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { DescribeDirectoryConfigsRequest, DescribeDirectoryConfigsResult } from "../models/index.ts";
+import { DescribeDirectoryConfigsRequest, DescribeDirectoryConfigsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeDirectoryConfigsCommand,
   serializeAws_json1_1DescribeDirectoryConfigsCommand,

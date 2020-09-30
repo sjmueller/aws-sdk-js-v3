@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { DeleteUploadRequest, DeleteUploadResult } from "../models/index.ts";
+import { DeleteUploadRequest, DeleteUploadResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteUploadCommand,
   serializeAws_json1_1DeleteUploadCommand,

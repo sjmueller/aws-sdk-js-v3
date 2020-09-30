@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { DeletePartitionRequest, DeletePartitionResponse } from "../models/index.ts";
+import { DeletePartitionRequest, DeletePartitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeletePartitionCommand,
   serializeAws_json1_1DeletePartitionCommand,

@@ -1,6 +1,6 @@
 
 import { MediaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConnectClient.ts";
-import { RemoveFlowOutputRequest, RemoveFlowOutputResponse } from "../models/index.ts";
+import { RemoveFlowOutputRequest, RemoveFlowOutputResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1RemoveFlowOutputCommand,
   serializeAws_restJson1RemoveFlowOutputCommand,

@@ -47,7 +47,7 @@ import {
   ThrottlingException,
   ValidationException,
   ValidationExceptionField,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -651,7 +651,6 @@ export const deserializeAws_restJson1CreateAnalyzerCommand = async (
   }
   const contents: CreateAnalyzerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAnalyzerResponse",
     arn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1012,7 +1011,6 @@ export const deserializeAws_restJson1GetAnalyzedResourceCommand = async (
   }
   const contents: GetAnalyzedResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAnalyzedResourceResponse",
     resource: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1100,7 +1098,6 @@ export const deserializeAws_restJson1GetAnalyzerCommand = async (
   }
   const contents: GetAnalyzerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAnalyzerResponse",
     analyzer: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1188,7 +1185,6 @@ export const deserializeAws_restJson1GetArchiveRuleCommand = async (
   }
   const contents: GetArchiveRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetArchiveRuleResponse",
     archiveRule: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1276,7 +1272,6 @@ export const deserializeAws_restJson1GetFindingCommand = async (
   }
   const contents: GetFindingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFindingResponse",
     finding: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1364,7 +1359,6 @@ export const deserializeAws_restJson1ListAnalyzedResourcesCommand = async (
   }
   const contents: ListAnalyzedResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAnalyzedResourcesResponse",
     analyzedResources: undefined,
     nextToken: undefined,
   };
@@ -1456,7 +1450,6 @@ export const deserializeAws_restJson1ListAnalyzersCommand = async (
   }
   const contents: ListAnalyzersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAnalyzersResponse",
     analyzers: undefined,
     nextToken: undefined,
   };
@@ -1540,7 +1533,6 @@ export const deserializeAws_restJson1ListArchiveRulesCommand = async (
   }
   const contents: ListArchiveRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListArchiveRulesResponse",
     archiveRules: undefined,
     nextToken: undefined,
   };
@@ -1624,7 +1616,6 @@ export const deserializeAws_restJson1ListFindingsCommand = async (
   }
   const contents: ListFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFindingsResponse",
     findings: undefined,
     nextToken: undefined,
   };
@@ -1716,7 +1707,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1887,7 +1877,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1971,7 +1960,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2434,7 +2422,6 @@ const deserializeAws_restJson1ActionList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1AnalyzedResource = (output: any, context: __SerdeContext): AnalyzedResource => {
   return {
-    __type: "AnalyzedResource",
     actions:
       output.actions !== undefined && output.actions !== null
         ? deserializeAws_restJson1ActionList(output.actions, context)
@@ -2470,7 +2457,6 @@ const deserializeAws_restJson1AnalyzedResourceSummary = (
   context: __SerdeContext
 ): AnalyzedResourceSummary => {
   return {
-    __type: "AnalyzedResourceSummary",
     resourceArn: output.resourceArn !== undefined && output.resourceArn !== null ? output.resourceArn : undefined,
     resourceOwnerAccount:
       output.resourceOwnerAccount !== undefined && output.resourceOwnerAccount !== null
@@ -2486,7 +2472,6 @@ const deserializeAws_restJson1AnalyzersList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1AnalyzerSummary = (output: any, context: __SerdeContext): AnalyzerSummary => {
   return {
-    __type: "AnalyzerSummary",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
     lastResourceAnalyzed:
@@ -2517,7 +2502,6 @@ const deserializeAws_restJson1ArchiveRulesList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1ArchiveRuleSummary = (output: any, context: __SerdeContext): ArchiveRuleSummary => {
   return {
-    __type: "ArchiveRuleSummary",
     createdAt: output.createdAt !== undefined && output.createdAt !== null ? new Date(output.createdAt) : undefined,
     filter:
       output.filter !== undefined && output.filter !== null
@@ -2540,7 +2524,6 @@ const deserializeAws_restJson1ConditionKeyMap = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Criterion = (output: any, context: __SerdeContext): Criterion => {
   return {
-    __type: "Criterion",
     contains:
       output.contains !== undefined && output.contains !== null
         ? deserializeAws_restJson1ValueList(output.contains, context)
@@ -2570,7 +2553,6 @@ const deserializeAws_restJson1FilterCriteriaMap = (
 
 const deserializeAws_restJson1Finding = (output: any, context: __SerdeContext): Finding => {
   return {
-    __type: "Finding",
     action:
       output.action !== undefined && output.action !== null
         ? deserializeAws_restJson1ActionList(output.action, context)
@@ -2609,7 +2591,6 @@ const deserializeAws_restJson1FindingsList = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1FindingSource = (output: any, context: __SerdeContext): FindingSource => {
   return {
-    __type: "FindingSource",
     detail:
       output.detail !== undefined && output.detail !== null
         ? deserializeAws_restJson1FindingSourceDetail(output.detail, context)
@@ -2620,7 +2601,6 @@ const deserializeAws_restJson1FindingSource = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1FindingSourceDetail = (output: any, context: __SerdeContext): FindingSourceDetail => {
   return {
-    __type: "FindingSourceDetail",
     accessPointArn:
       output.accessPointArn !== undefined && output.accessPointArn !== null ? output.accessPointArn : undefined,
   } as any;
@@ -2632,7 +2612,6 @@ const deserializeAws_restJson1FindingSourceList = (output: any, context: __Serde
 
 const deserializeAws_restJson1FindingSummary = (output: any, context: __SerdeContext): FindingSummary => {
   return {
-    __type: "FindingSummary",
     action:
       output.action !== undefined && output.action !== null
         ? deserializeAws_restJson1ActionList(output.action, context)
@@ -2681,7 +2660,6 @@ const deserializeAws_restJson1SharedViaList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1StatusReason = (output: any, context: __SerdeContext): StatusReason => {
   return {
-    __type: "StatusReason",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
   } as any;
 };
@@ -2701,7 +2679,6 @@ const deserializeAws_restJson1ValidationExceptionField = (
   context: __SerdeContext
 ): ValidationExceptionField => {
   return {
-    __type: "ValidationExceptionField",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;

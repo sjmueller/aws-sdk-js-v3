@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   AssociateTransitGatewayMulticastDomainRequest,
   AssociateTransitGatewayMulticastDomainResult,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommand,
   serializeAws_ec2AssociateTransitGatewayMulticastDomainCommand,

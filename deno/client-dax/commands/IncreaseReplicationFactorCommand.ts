@@ -1,6 +1,6 @@
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient.ts";
-import { IncreaseReplicationFactorRequest, IncreaseReplicationFactorResponse } from "../models/index.ts";
+import { IncreaseReplicationFactorRequest, IncreaseReplicationFactorResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1IncreaseReplicationFactorCommand,
   serializeAws_json1_1IncreaseReplicationFactorCommand,

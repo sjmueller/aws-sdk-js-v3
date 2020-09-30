@@ -1,6 +1,6 @@
 
 import { AppMeshClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppMeshClient.ts";
-import { CreateMeshInput, CreateMeshOutput } from "../models/index.ts";
+import { CreateMeshInput, CreateMeshOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateMeshCommand,
   serializeAws_restJson1CreateMeshCommand,

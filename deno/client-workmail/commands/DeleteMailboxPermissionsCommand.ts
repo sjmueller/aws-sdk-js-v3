@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { DeleteMailboxPermissionsRequest, DeleteMailboxPermissionsResponse } from "../models/index.ts";
+import { DeleteMailboxPermissionsRequest, DeleteMailboxPermissionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteMailboxPermissionsCommand,
   serializeAws_json1_1DeleteMailboxPermissionsCommand,

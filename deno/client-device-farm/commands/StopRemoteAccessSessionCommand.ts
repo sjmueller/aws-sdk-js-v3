@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { StopRemoteAccessSessionRequest, StopRemoteAccessSessionResult } from "../models/index.ts";
+import { StopRemoteAccessSessionRequest, StopRemoteAccessSessionResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopRemoteAccessSessionCommand,
   serializeAws_json1_1StopRemoteAccessSessionCommand,

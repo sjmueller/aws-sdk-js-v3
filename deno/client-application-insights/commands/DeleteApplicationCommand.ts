@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import { DeleteApplicationRequest, DeleteApplicationResponse } from "../models/index.ts";
+import { DeleteApplicationRequest, DeleteApplicationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteApplicationCommand,
   serializeAws_json1_1DeleteApplicationCommand,

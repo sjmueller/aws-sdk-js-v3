@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { DeregisterWorkspaceDirectoryRequest, DeregisterWorkspaceDirectoryResult } from "../models/index.ts";
+import { DeregisterWorkspaceDirectoryRequest, DeregisterWorkspaceDirectoryResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeregisterWorkspaceDirectoryCommand,
   serializeAws_json1_1DeregisterWorkspaceDirectoryCommand,

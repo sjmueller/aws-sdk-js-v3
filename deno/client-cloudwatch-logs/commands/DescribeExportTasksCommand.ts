@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { DescribeExportTasksRequest, DescribeExportTasksResponse } from "../models/index.ts";
+import { DescribeExportTasksRequest, DescribeExportTasksResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeExportTasksCommand,
   serializeAws_json1_1DescribeExportTasksCommand,

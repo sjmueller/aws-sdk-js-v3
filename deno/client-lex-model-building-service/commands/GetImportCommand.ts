@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient.ts";
-import { GetImportRequest, GetImportResponse } from "../models/index.ts";
+import { GetImportRequest, GetImportResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetImportCommand,
   serializeAws_restJson1GetImportCommand,

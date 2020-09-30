@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/index.ts";
+import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ListTagsForResourceCommand,
   serializeAws_json1_1ListTagsForResourceCommand,

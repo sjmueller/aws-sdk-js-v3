@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { DisableAlarmActionsInput } from "../models/index.ts";
+import { DisableAlarmActionsInput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDisableAlarmActionsCommand,
   serializeAws_queryDisableAlarmActionsCommand,

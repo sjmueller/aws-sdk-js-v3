@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { DescribeInputDeviceThumbnailRequest, DescribeInputDeviceThumbnailResponse } from "../models/index.ts";
+import { DescribeInputDeviceThumbnailRequest, DescribeInputDeviceThumbnailResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DescribeInputDeviceThumbnailCommand,
   serializeAws_restJson1DescribeInputDeviceThumbnailCommand,

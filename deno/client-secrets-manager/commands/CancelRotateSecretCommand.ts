@@ -1,6 +1,6 @@
 
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient.ts";
-import { CancelRotateSecretRequest, CancelRotateSecretResponse } from "../models/index.ts";
+import { CancelRotateSecretRequest, CancelRotateSecretResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CancelRotateSecretCommand,
   serializeAws_json1_1CancelRotateSecretCommand,

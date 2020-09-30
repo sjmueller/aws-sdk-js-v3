@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { UpdateUserPoolRequest, UpdateUserPoolResponse } from "../models/index.ts";
+import { UpdateUserPoolRequest, UpdateUserPoolResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1UpdateUserPoolCommand,
   serializeAws_json1_1UpdateUserPoolCommand,

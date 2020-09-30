@@ -1,6 +1,6 @@
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
-import { ListHoursOfOperationsRequest, ListHoursOfOperationsResponse } from "../models/index.ts";
+import { ListHoursOfOperationsRequest, ListHoursOfOperationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListHoursOfOperationsCommand,
   serializeAws_restJson1ListHoursOfOperationsCommand,

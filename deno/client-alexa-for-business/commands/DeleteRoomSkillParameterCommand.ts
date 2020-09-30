@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { DeleteRoomSkillParameterRequest, DeleteRoomSkillParameterResponse } from "../models/index.ts";
+import { DeleteRoomSkillParameterRequest, DeleteRoomSkillParameterResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteRoomSkillParameterCommand,
   serializeAws_json1_1DeleteRoomSkillParameterCommand,

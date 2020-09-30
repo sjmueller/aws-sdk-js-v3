@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { GetInstancePortStatesRequest, GetInstancePortStatesResult } from "../models/index.ts";
+import { GetInstancePortStatesRequest, GetInstancePortStatesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetInstancePortStatesCommand,
   serializeAws_json1_1GetInstancePortStatesCommand,

@@ -1,6 +1,6 @@
 
 import { KendraClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KendraClient.ts";
-import { StartDataSourceSyncJobRequest, StartDataSourceSyncJobResponse } from "../models/index.ts";
+import { StartDataSourceSyncJobRequest, StartDataSourceSyncJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartDataSourceSyncJobCommand,
   serializeAws_json1_1StartDataSourceSyncJobCommand,

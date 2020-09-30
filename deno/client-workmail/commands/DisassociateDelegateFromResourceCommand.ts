@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { DisassociateDelegateFromResourceRequest, DisassociateDelegateFromResourceResponse } from "../models/index.ts";
+import { DisassociateDelegateFromResourceRequest, DisassociateDelegateFromResourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateDelegateFromResourceCommand,
   serializeAws_json1_1DisassociateDelegateFromResourceCommand,

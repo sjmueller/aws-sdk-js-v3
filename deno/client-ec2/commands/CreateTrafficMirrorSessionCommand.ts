@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CreateTrafficMirrorSessionRequest, CreateTrafficMirrorSessionResult } from "../models/index.ts";
+import { CreateTrafficMirrorSessionRequest, CreateTrafficMirrorSessionResult } from "../models/models_1.ts";
 import {
   deserializeAws_ec2CreateTrafficMirrorSessionCommand,
   serializeAws_ec2CreateTrafficMirrorSessionCommand,

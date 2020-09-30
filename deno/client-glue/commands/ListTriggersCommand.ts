@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { ListTriggersRequest, ListTriggersResponse } from "../models/index.ts";
+import { ListTriggersRequest, ListTriggersResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ListTriggersCommand,
   serializeAws_json1_1ListTriggersCommand,

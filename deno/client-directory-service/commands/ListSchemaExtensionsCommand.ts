@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { ListSchemaExtensionsRequest, ListSchemaExtensionsResult } from "../models/index.ts";
+import { ListSchemaExtensionsRequest, ListSchemaExtensionsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListSchemaExtensionsCommand,
   serializeAws_json1_1ListSchemaExtensionsCommand,

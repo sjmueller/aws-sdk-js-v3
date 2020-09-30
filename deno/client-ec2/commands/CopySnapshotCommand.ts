@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CopySnapshotRequest, CopySnapshotResult } from "../models/index.ts";
+import { CopySnapshotRequest, CopySnapshotResult } from "../models/models_0.ts";
 import { deserializeAws_ec2CopySnapshotCommand, serializeAws_ec2CopySnapshotCommand } from "../protocols/Aws_ec2.ts";
 import { getCopySnapshotPresignedUrlPlugin } from "../../middleware-sdk-ec2/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";

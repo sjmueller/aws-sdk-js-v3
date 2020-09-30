@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { CreateUsagePlanKeyRequest, UsagePlanKey } from "../models/index.ts";
+import { CreateUsagePlanKeyRequest, UsagePlanKey } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateUsagePlanKeyCommand,
   serializeAws_restJson1CreateUsagePlanKeyCommand,

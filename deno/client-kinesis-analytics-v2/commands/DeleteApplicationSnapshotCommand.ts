@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client.ts";
-import { DeleteApplicationSnapshotRequest, DeleteApplicationSnapshotResponse } from "../models/index.ts";
+import { DeleteApplicationSnapshotRequest, DeleteApplicationSnapshotResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteApplicationSnapshotCommand,
   serializeAws_json1_1DeleteApplicationSnapshotCommand,

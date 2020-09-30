@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { UpdatePublicKeyRequest, UpdatePublicKeyResult } from "../models/index.ts";
+import { UpdatePublicKeyRequest, UpdatePublicKeyResult } from "../models/models_1.ts";
 import {
   deserializeAws_restXmlUpdatePublicKeyCommand,
   serializeAws_restXmlUpdatePublicKeyCommand,

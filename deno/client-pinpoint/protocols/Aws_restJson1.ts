@@ -317,34 +317,23 @@ import {
   JourneyCustomMessage,
   JourneyDateRangeKpiResponse,
   JourneyEmailMessage,
-  JourneyExecutionActivityMetricsResponse,
-  JourneyExecutionMetricsResponse,
   JourneyLimits,
   JourneyPushMessage,
   JourneyResponse,
   JourneySMSMessage,
   JourneySchedule,
-  JourneyStateRequest,
-  JourneysResponse,
-  ListRecommenderConfigurationsResponse,
   Message,
   MessageBody,
   MessageConfiguration,
-  MessageRequest,
-  MessageResponse,
-  MessageResult,
   MethodNotAllowedException,
   MetricDimension,
   MultiConditionalBranch,
   MultiConditionalSplitActivity,
   NotFoundException,
-  NumberValidateRequest,
-  NumberValidateResponse,
   PayloadTooLargeException,
   PublicEndpoint,
   PushMessageActivity,
   PushNotificationTemplateRequest,
-  PushNotificationTemplateResponse,
   QuietTime,
   RandomSplitActivity,
   RandomSplitEntry,
@@ -353,12 +342,10 @@ import {
   RecommenderConfigurationResponse,
   ResultRow,
   ResultRowValue,
-  SMSChannelRequest,
   SMSChannelResponse,
   SMSMessage,
   SMSMessageActivity,
   SMSTemplateRequest,
-  SMSTemplateResponse,
   Schedule,
   SegmentBehaviors,
   SegmentCondition,
@@ -370,42 +357,57 @@ import {
   SegmentLocation,
   SegmentReference,
   SegmentResponse,
-  SegmentsResponse,
-  SendUsersMessageRequest,
-  SendUsersMessageResponse,
   Session,
   SetDimension,
   SimpleCondition,
   SimpleEmail,
   SimpleEmailPart,
   StartCondition,
-  TagsModel,
   Template,
-  TemplateActiveVersionRequest,
   TemplateConfiguration,
-  TemplateResponse,
-  TemplateVersionResponse,
-  TemplateVersionsResponse,
-  TemplatesResponse,
   TooManyRequestsException,
   TreatmentResource,
-  UpdateAttributesRequest,
-  UpdateRecommenderConfigurationShape,
-  VoiceChannelRequest,
   VoiceChannelResponse,
   VoiceMessage,
   VoiceTemplateRequest,
-  VoiceTemplateResponse,
   WaitActivity,
   WaitTime,
-  WriteApplicationSettingsRequest,
   WriteCampaignRequest,
-  WriteEventStream,
   WriteJourneyRequest,
   WriteSegmentRequest,
   WriteTreatmentResource,
   __EndpointTypesElement,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
+import {
+  JourneyExecutionActivityMetricsResponse,
+  JourneyExecutionMetricsResponse,
+  JourneyStateRequest,
+  JourneysResponse,
+  ListRecommenderConfigurationsResponse,
+  MessageRequest,
+  MessageResponse,
+  MessageResult,
+  NumberValidateRequest,
+  NumberValidateResponse,
+  PushNotificationTemplateResponse,
+  SMSChannelRequest,
+  SMSTemplateResponse,
+  SegmentsResponse,
+  SendUsersMessageRequest,
+  SendUsersMessageResponse,
+  TagsModel,
+  TemplateActiveVersionRequest,
+  TemplateResponse,
+  TemplateVersionResponse,
+  TemplateVersionsResponse,
+  TemplatesResponse,
+  UpdateAttributesRequest,
+  UpdateRecommenderConfigurationShape,
+  VoiceChannelRequest,
+  VoiceTemplateResponse,
+  WriteApplicationSettingsRequest,
+  WriteEventStream,
+} from "../models/models_1.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -4518,7 +4520,6 @@ export const deserializeAws_restJson1CreateAppCommand = async (
   }
   const contents: CreateAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAppResponse",
     ApplicationResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4620,7 +4621,6 @@ export const deserializeAws_restJson1CreateCampaignCommand = async (
   }
   const contents: CreateCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCampaignResponse",
     CampaignResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4722,7 +4722,6 @@ export const deserializeAws_restJson1CreateEmailTemplateCommand = async (
   }
   const contents: CreateEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEmailTemplateResponse",
     CreateTemplateMessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4808,7 +4807,6 @@ export const deserializeAws_restJson1CreateExportJobCommand = async (
   }
   const contents: CreateExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateExportJobResponse",
     ExportJobResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4910,7 +4908,6 @@ export const deserializeAws_restJson1CreateImportJobCommand = async (
   }
   const contents: CreateImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateImportJobResponse",
     ImportJobResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5012,7 +5009,6 @@ export const deserializeAws_restJson1CreateJourneyCommand = async (
   }
   const contents: CreateJourneyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateJourneyResponse",
     JourneyResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5114,7 +5110,6 @@ export const deserializeAws_restJson1CreatePushTemplateCommand = async (
   }
   const contents: CreatePushTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePushTemplateResponse",
     CreateTemplateMessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5200,7 +5195,6 @@ export const deserializeAws_restJson1CreateRecommenderConfigurationCommand = asy
   }
   const contents: CreateRecommenderConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRecommenderConfigurationResponse",
     RecommenderConfigurationResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5302,7 +5296,6 @@ export const deserializeAws_restJson1CreateSegmentCommand = async (
   }
   const contents: CreateSegmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSegmentResponse",
     SegmentResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5404,7 +5397,6 @@ export const deserializeAws_restJson1CreateSmsTemplateCommand = async (
   }
   const contents: CreateSmsTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSmsTemplateResponse",
     CreateTemplateMessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5490,7 +5482,6 @@ export const deserializeAws_restJson1CreateVoiceTemplateCommand = async (
   }
   const contents: CreateVoiceTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVoiceTemplateResponse",
     CreateTemplateMessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5576,7 +5567,6 @@ export const deserializeAws_restJson1DeleteAdmChannelCommand = async (
   }
   const contents: DeleteAdmChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAdmChannelResponse",
     ADMChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5678,7 +5668,6 @@ export const deserializeAws_restJson1DeleteApnsChannelCommand = async (
   }
   const contents: DeleteApnsChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteApnsChannelResponse",
     APNSChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5780,7 +5769,6 @@ export const deserializeAws_restJson1DeleteApnsSandboxChannelCommand = async (
   }
   const contents: DeleteApnsSandboxChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteApnsSandboxChannelResponse",
     APNSSandboxChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5882,7 +5870,6 @@ export const deserializeAws_restJson1DeleteApnsVoipChannelCommand = async (
   }
   const contents: DeleteApnsVoipChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteApnsVoipChannelResponse",
     APNSVoipChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5984,7 +5971,6 @@ export const deserializeAws_restJson1DeleteApnsVoipSandboxChannelCommand = async
   }
   const contents: DeleteApnsVoipSandboxChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteApnsVoipSandboxChannelResponse",
     APNSVoipSandboxChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6086,7 +6072,6 @@ export const deserializeAws_restJson1DeleteAppCommand = async (
   }
   const contents: DeleteAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAppResponse",
     ApplicationResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6188,7 +6173,6 @@ export const deserializeAws_restJson1DeleteBaiduChannelCommand = async (
   }
   const contents: DeleteBaiduChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBaiduChannelResponse",
     BaiduChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6290,7 +6274,6 @@ export const deserializeAws_restJson1DeleteCampaignCommand = async (
   }
   const contents: DeleteCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCampaignResponse",
     CampaignResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6392,7 +6375,6 @@ export const deserializeAws_restJson1DeleteEmailChannelCommand = async (
   }
   const contents: DeleteEmailChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEmailChannelResponse",
     EmailChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6494,7 +6476,6 @@ export const deserializeAws_restJson1DeleteEmailTemplateCommand = async (
   }
   const contents: DeleteEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEmailTemplateResponse",
     MessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6596,7 +6577,6 @@ export const deserializeAws_restJson1DeleteEndpointCommand = async (
   }
   const contents: DeleteEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEndpointResponse",
     EndpointResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6698,7 +6678,6 @@ export const deserializeAws_restJson1DeleteEventStreamCommand = async (
   }
   const contents: DeleteEventStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEventStreamResponse",
     EventStream: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6800,7 +6779,6 @@ export const deserializeAws_restJson1DeleteGcmChannelCommand = async (
   }
   const contents: DeleteGcmChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteGcmChannelResponse",
     GCMChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6902,7 +6880,6 @@ export const deserializeAws_restJson1DeleteJourneyCommand = async (
   }
   const contents: DeleteJourneyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteJourneyResponse",
     JourneyResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7004,7 +6981,6 @@ export const deserializeAws_restJson1DeletePushTemplateCommand = async (
   }
   const contents: DeletePushTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeletePushTemplateResponse",
     MessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7106,7 +7082,6 @@ export const deserializeAws_restJson1DeleteRecommenderConfigurationCommand = asy
   }
   const contents: DeleteRecommenderConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRecommenderConfigurationResponse",
     RecommenderConfigurationResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7208,7 +7183,6 @@ export const deserializeAws_restJson1DeleteSegmentCommand = async (
   }
   const contents: DeleteSegmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSegmentResponse",
     SegmentResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7310,7 +7284,6 @@ export const deserializeAws_restJson1DeleteSmsChannelCommand = async (
   }
   const contents: DeleteSmsChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSmsChannelResponse",
     SMSChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7412,7 +7385,6 @@ export const deserializeAws_restJson1DeleteSmsTemplateCommand = async (
   }
   const contents: DeleteSmsTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSmsTemplateResponse",
     MessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7514,7 +7486,6 @@ export const deserializeAws_restJson1DeleteUserEndpointsCommand = async (
   }
   const contents: DeleteUserEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteUserEndpointsResponse",
     EndpointsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7616,7 +7587,6 @@ export const deserializeAws_restJson1DeleteVoiceChannelCommand = async (
   }
   const contents: DeleteVoiceChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVoiceChannelResponse",
     VoiceChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7718,7 +7688,6 @@ export const deserializeAws_restJson1DeleteVoiceTemplateCommand = async (
   }
   const contents: DeleteVoiceTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVoiceTemplateResponse",
     MessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7820,7 +7789,6 @@ export const deserializeAws_restJson1GetAdmChannelCommand = async (
   }
   const contents: GetAdmChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAdmChannelResponse",
     ADMChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7922,7 +7890,6 @@ export const deserializeAws_restJson1GetApnsChannelCommand = async (
   }
   const contents: GetApnsChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetApnsChannelResponse",
     APNSChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8024,7 +7991,6 @@ export const deserializeAws_restJson1GetApnsSandboxChannelCommand = async (
   }
   const contents: GetApnsSandboxChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetApnsSandboxChannelResponse",
     APNSSandboxChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8126,7 +8092,6 @@ export const deserializeAws_restJson1GetApnsVoipChannelCommand = async (
   }
   const contents: GetApnsVoipChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetApnsVoipChannelResponse",
     APNSVoipChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8228,7 +8193,6 @@ export const deserializeAws_restJson1GetApnsVoipSandboxChannelCommand = async (
   }
   const contents: GetApnsVoipSandboxChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetApnsVoipSandboxChannelResponse",
     APNSVoipSandboxChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8330,7 +8294,6 @@ export const deserializeAws_restJson1GetAppCommand = async (
   }
   const contents: GetAppCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAppResponse",
     ApplicationResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8432,7 +8395,6 @@ export const deserializeAws_restJson1GetApplicationDateRangeKpiCommand = async (
   }
   const contents: GetApplicationDateRangeKpiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetApplicationDateRangeKpiResponse",
     ApplicationDateRangeKpiResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8534,7 +8496,6 @@ export const deserializeAws_restJson1GetApplicationSettingsCommand = async (
   }
   const contents: GetApplicationSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetApplicationSettingsResponse",
     ApplicationSettingsResource: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8636,7 +8597,6 @@ export const deserializeAws_restJson1GetAppsCommand = async (
   }
   const contents: GetAppsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAppsResponse",
     ApplicationsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8738,7 +8698,6 @@ export const deserializeAws_restJson1GetBaiduChannelCommand = async (
   }
   const contents: GetBaiduChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBaiduChannelResponse",
     BaiduChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8840,7 +8799,6 @@ export const deserializeAws_restJson1GetCampaignCommand = async (
   }
   const contents: GetCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCampaignResponse",
     CampaignResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -8942,7 +8900,6 @@ export const deserializeAws_restJson1GetCampaignActivitiesCommand = async (
   }
   const contents: GetCampaignActivitiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCampaignActivitiesResponse",
     ActivitiesResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9044,7 +9001,6 @@ export const deserializeAws_restJson1GetCampaignDateRangeKpiCommand = async (
   }
   const contents: GetCampaignDateRangeKpiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCampaignDateRangeKpiResponse",
     CampaignDateRangeKpiResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9146,7 +9102,6 @@ export const deserializeAws_restJson1GetCampaignsCommand = async (
   }
   const contents: GetCampaignsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCampaignsResponse",
     CampaignsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9248,7 +9203,6 @@ export const deserializeAws_restJson1GetCampaignVersionCommand = async (
   }
   const contents: GetCampaignVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCampaignVersionResponse",
     CampaignResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9350,7 +9304,6 @@ export const deserializeAws_restJson1GetCampaignVersionsCommand = async (
   }
   const contents: GetCampaignVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCampaignVersionsResponse",
     CampaignsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9452,7 +9405,6 @@ export const deserializeAws_restJson1GetChannelsCommand = async (
   }
   const contents: GetChannelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetChannelsResponse",
     ChannelsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9554,7 +9506,6 @@ export const deserializeAws_restJson1GetEmailChannelCommand = async (
   }
   const contents: GetEmailChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEmailChannelResponse",
     EmailChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9656,7 +9607,6 @@ export const deserializeAws_restJson1GetEmailTemplateCommand = async (
   }
   const contents: GetEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEmailTemplateResponse",
     EmailTemplateResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9758,7 +9708,6 @@ export const deserializeAws_restJson1GetEndpointCommand = async (
   }
   const contents: GetEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEndpointResponse",
     EndpointResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9860,7 +9809,6 @@ export const deserializeAws_restJson1GetEventStreamCommand = async (
   }
   const contents: GetEventStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEventStreamResponse",
     EventStream: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -9962,7 +9910,6 @@ export const deserializeAws_restJson1GetExportJobCommand = async (
   }
   const contents: GetExportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetExportJobResponse",
     ExportJobResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10064,7 +10011,6 @@ export const deserializeAws_restJson1GetExportJobsCommand = async (
   }
   const contents: GetExportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetExportJobsResponse",
     ExportJobsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10166,7 +10112,6 @@ export const deserializeAws_restJson1GetGcmChannelCommand = async (
   }
   const contents: GetGcmChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGcmChannelResponse",
     GCMChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10268,7 +10213,6 @@ export const deserializeAws_restJson1GetImportJobCommand = async (
   }
   const contents: GetImportJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetImportJobResponse",
     ImportJobResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10370,7 +10314,6 @@ export const deserializeAws_restJson1GetImportJobsCommand = async (
   }
   const contents: GetImportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetImportJobsResponse",
     ImportJobsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10472,7 +10415,6 @@ export const deserializeAws_restJson1GetJourneyCommand = async (
   }
   const contents: GetJourneyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetJourneyResponse",
     JourneyResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10574,7 +10516,6 @@ export const deserializeAws_restJson1GetJourneyDateRangeKpiCommand = async (
   }
   const contents: GetJourneyDateRangeKpiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetJourneyDateRangeKpiResponse",
     JourneyDateRangeKpiResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10676,7 +10617,6 @@ export const deserializeAws_restJson1GetJourneyExecutionActivityMetricsCommand =
   }
   const contents: GetJourneyExecutionActivityMetricsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetJourneyExecutionActivityMetricsResponse",
     JourneyExecutionActivityMetricsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10781,7 +10721,6 @@ export const deserializeAws_restJson1GetJourneyExecutionMetricsCommand = async (
   }
   const contents: GetJourneyExecutionMetricsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetJourneyExecutionMetricsResponse",
     JourneyExecutionMetricsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10883,7 +10822,6 @@ export const deserializeAws_restJson1GetPushTemplateCommand = async (
   }
   const contents: GetPushTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPushTemplateResponse",
     PushNotificationTemplateResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -10985,7 +10923,6 @@ export const deserializeAws_restJson1GetRecommenderConfigurationCommand = async 
   }
   const contents: GetRecommenderConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRecommenderConfigurationResponse",
     RecommenderConfigurationResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11087,7 +11024,6 @@ export const deserializeAws_restJson1GetRecommenderConfigurationsCommand = async
   }
   const contents: GetRecommenderConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRecommenderConfigurationsResponse",
     ListRecommenderConfigurationsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11192,7 +11128,6 @@ export const deserializeAws_restJson1GetSegmentCommand = async (
   }
   const contents: GetSegmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSegmentResponse",
     SegmentResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11294,7 +11229,6 @@ export const deserializeAws_restJson1GetSegmentExportJobsCommand = async (
   }
   const contents: GetSegmentExportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSegmentExportJobsResponse",
     ExportJobsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11396,7 +11330,6 @@ export const deserializeAws_restJson1GetSegmentImportJobsCommand = async (
   }
   const contents: GetSegmentImportJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSegmentImportJobsResponse",
     ImportJobsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11498,7 +11431,6 @@ export const deserializeAws_restJson1GetSegmentsCommand = async (
   }
   const contents: GetSegmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSegmentsResponse",
     SegmentsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11600,7 +11532,6 @@ export const deserializeAws_restJson1GetSegmentVersionCommand = async (
   }
   const contents: GetSegmentVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSegmentVersionResponse",
     SegmentResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11702,7 +11633,6 @@ export const deserializeAws_restJson1GetSegmentVersionsCommand = async (
   }
   const contents: GetSegmentVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSegmentVersionsResponse",
     SegmentsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11804,7 +11734,6 @@ export const deserializeAws_restJson1GetSmsChannelCommand = async (
   }
   const contents: GetSmsChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSmsChannelResponse",
     SMSChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11906,7 +11835,6 @@ export const deserializeAws_restJson1GetSmsTemplateCommand = async (
   }
   const contents: GetSmsTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSmsTemplateResponse",
     SMSTemplateResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12008,7 +11936,6 @@ export const deserializeAws_restJson1GetUserEndpointsCommand = async (
   }
   const contents: GetUserEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetUserEndpointsResponse",
     EndpointsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12110,7 +12037,6 @@ export const deserializeAws_restJson1GetVoiceChannelCommand = async (
   }
   const contents: GetVoiceChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVoiceChannelResponse",
     VoiceChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12212,7 +12138,6 @@ export const deserializeAws_restJson1GetVoiceTemplateCommand = async (
   }
   const contents: GetVoiceTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVoiceTemplateResponse",
     VoiceTemplateResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12314,7 +12239,6 @@ export const deserializeAws_restJson1ListJourneysCommand = async (
   }
   const contents: ListJourneysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJourneysResponse",
     JourneysResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12416,7 +12340,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     TagsModel: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12462,7 +12385,6 @@ export const deserializeAws_restJson1ListTemplatesCommand = async (
   }
   const contents: ListTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTemplatesResponse",
     TemplatesResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12548,7 +12470,6 @@ export const deserializeAws_restJson1ListTemplateVersionsCommand = async (
   }
   const contents: ListTemplateVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTemplateVersionsResponse",
     TemplateVersionsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12650,7 +12571,6 @@ export const deserializeAws_restJson1PhoneNumberValidateCommand = async (
   }
   const contents: PhoneNumberValidateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PhoneNumberValidateResponse",
     NumberValidateResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12752,7 +12672,6 @@ export const deserializeAws_restJson1PutEventsCommand = async (
   }
   const contents: PutEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutEventsResponse",
     EventsResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12854,7 +12773,6 @@ export const deserializeAws_restJson1PutEventStreamCommand = async (
   }
   const contents: PutEventStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutEventStreamResponse",
     EventStream: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12956,7 +12874,6 @@ export const deserializeAws_restJson1RemoveAttributesCommand = async (
   }
   const contents: RemoveAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveAttributesResponse",
     AttributesResource: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13058,7 +12975,6 @@ export const deserializeAws_restJson1SendMessagesCommand = async (
   }
   const contents: SendMessagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendMessagesResponse",
     MessageResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13160,7 +13076,6 @@ export const deserializeAws_restJson1SendUsersMessagesCommand = async (
   }
   const contents: SendUsersMessagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendUsersMessagesResponse",
     SendUsersMessageResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13348,7 +13263,6 @@ export const deserializeAws_restJson1UpdateAdmChannelCommand = async (
   }
   const contents: UpdateAdmChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAdmChannelResponse",
     ADMChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13450,7 +13364,6 @@ export const deserializeAws_restJson1UpdateApnsChannelCommand = async (
   }
   const contents: UpdateApnsChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateApnsChannelResponse",
     APNSChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13552,7 +13465,6 @@ export const deserializeAws_restJson1UpdateApnsSandboxChannelCommand = async (
   }
   const contents: UpdateApnsSandboxChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateApnsSandboxChannelResponse",
     APNSSandboxChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13654,7 +13566,6 @@ export const deserializeAws_restJson1UpdateApnsVoipChannelCommand = async (
   }
   const contents: UpdateApnsVoipChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateApnsVoipChannelResponse",
     APNSVoipChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13756,7 +13667,6 @@ export const deserializeAws_restJson1UpdateApnsVoipSandboxChannelCommand = async
   }
   const contents: UpdateApnsVoipSandboxChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateApnsVoipSandboxChannelResponse",
     APNSVoipSandboxChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13858,7 +13768,6 @@ export const deserializeAws_restJson1UpdateApplicationSettingsCommand = async (
   }
   const contents: UpdateApplicationSettingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateApplicationSettingsResponse",
     ApplicationSettingsResource: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13960,7 +13869,6 @@ export const deserializeAws_restJson1UpdateBaiduChannelCommand = async (
   }
   const contents: UpdateBaiduChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateBaiduChannelResponse",
     BaiduChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14062,7 +13970,6 @@ export const deserializeAws_restJson1UpdateCampaignCommand = async (
   }
   const contents: UpdateCampaignCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateCampaignResponse",
     CampaignResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14164,7 +14071,6 @@ export const deserializeAws_restJson1UpdateEmailChannelCommand = async (
   }
   const contents: UpdateEmailChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateEmailChannelResponse",
     EmailChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14266,7 +14172,6 @@ export const deserializeAws_restJson1UpdateEmailTemplateCommand = async (
   }
   const contents: UpdateEmailTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateEmailTemplateResponse",
     MessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14368,7 +14273,6 @@ export const deserializeAws_restJson1UpdateEndpointCommand = async (
   }
   const contents: UpdateEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateEndpointResponse",
     MessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14470,7 +14374,6 @@ export const deserializeAws_restJson1UpdateEndpointsBatchCommand = async (
   }
   const contents: UpdateEndpointsBatchCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateEndpointsBatchResponse",
     MessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14572,7 +14475,6 @@ export const deserializeAws_restJson1UpdateGcmChannelCommand = async (
   }
   const contents: UpdateGcmChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGcmChannelResponse",
     GCMChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14674,7 +14576,6 @@ export const deserializeAws_restJson1UpdateJourneyCommand = async (
   }
   const contents: UpdateJourneyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateJourneyResponse",
     JourneyResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14776,7 +14677,6 @@ export const deserializeAws_restJson1UpdateJourneyStateCommand = async (
   }
   const contents: UpdateJourneyStateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateJourneyStateResponse",
     JourneyResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14878,7 +14778,6 @@ export const deserializeAws_restJson1UpdatePushTemplateCommand = async (
   }
   const contents: UpdatePushTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdatePushTemplateResponse",
     MessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -14980,7 +14879,6 @@ export const deserializeAws_restJson1UpdateRecommenderConfigurationCommand = asy
   }
   const contents: UpdateRecommenderConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRecommenderConfigurationResponse",
     RecommenderConfigurationResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -15082,7 +14980,6 @@ export const deserializeAws_restJson1UpdateSegmentCommand = async (
   }
   const contents: UpdateSegmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSegmentResponse",
     SegmentResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -15184,7 +15081,6 @@ export const deserializeAws_restJson1UpdateSmsChannelCommand = async (
   }
   const contents: UpdateSmsChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSmsChannelResponse",
     SMSChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -15286,7 +15182,6 @@ export const deserializeAws_restJson1UpdateSmsTemplateCommand = async (
   }
   const contents: UpdateSmsTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSmsTemplateResponse",
     MessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -15388,7 +15283,6 @@ export const deserializeAws_restJson1UpdateTemplateActiveVersionCommand = async 
   }
   const contents: UpdateTemplateActiveVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateTemplateActiveVersionResponse",
     MessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -15490,7 +15384,6 @@ export const deserializeAws_restJson1UpdateVoiceChannelCommand = async (
   }
   const contents: UpdateVoiceChannelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateVoiceChannelResponse",
     VoiceChannelResponse: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -15592,7 +15485,6 @@ export const deserializeAws_restJson1UpdateVoiceTemplateCommand = async (
   }
   const contents: UpdateVoiceTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateVoiceTemplateResponse",
     MessageBody: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -17380,7 +17272,6 @@ const serializeAws_restJson1WriteTreatmentResource = (input: WriteTreatmentResou
 
 const deserializeAws_restJson1ActivitiesResponse = (output: any, context: __SerdeContext): ActivitiesResponse => {
   return {
-    __type: "ActivitiesResponse",
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_restJson1ListOfActivityResponse(output.Item, context)
@@ -17391,7 +17282,6 @@ const deserializeAws_restJson1ActivitiesResponse = (output: any, context: __Serd
 
 const deserializeAws_restJson1Activity = (output: any, context: __SerdeContext): Activity => {
   return {
-    __type: "Activity",
     CUSTOM:
       output.CUSTOM !== undefined && output.CUSTOM !== null
         ? deserializeAws_restJson1CustomMessageActivity(output.CUSTOM, context)
@@ -17434,7 +17324,6 @@ const deserializeAws_restJson1Activity = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1ActivityResponse = (output: any, context: __SerdeContext): ActivityResponse => {
   return {
-    __type: "ActivityResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CampaignId: output.CampaignId !== undefined && output.CampaignId !== null ? output.CampaignId : undefined,
@@ -17467,7 +17356,6 @@ const deserializeAws_restJson1ActivityResponse = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1ADMChannelResponse = (output: any, context: __SerdeContext): ADMChannelResponse => {
   return {
-    __type: "ADMChannelResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
@@ -17490,7 +17378,6 @@ const deserializeAws_restJson1AndroidPushNotificationTemplate = (
   context: __SerdeContext
 ): AndroidPushNotificationTemplate => {
   return {
-    __type: "AndroidPushNotificationTemplate",
     Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
     Body: output.Body !== undefined && output.Body !== null ? output.Body : undefined,
     ImageIconUrl: output.ImageIconUrl !== undefined && output.ImageIconUrl !== null ? output.ImageIconUrl : undefined,
@@ -17508,7 +17395,6 @@ const deserializeAws_restJson1AndroidPushNotificationTemplate = (
 
 const deserializeAws_restJson1APNSChannelResponse = (output: any, context: __SerdeContext): APNSChannelResponse => {
   return {
-    __type: "APNSChannelResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
@@ -17536,7 +17422,6 @@ const deserializeAws_restJson1APNSPushNotificationTemplate = (
   context: __SerdeContext
 ): APNSPushNotificationTemplate => {
   return {
-    __type: "APNSPushNotificationTemplate",
     Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
     Body: output.Body !== undefined && output.Body !== null ? output.Body : undefined,
     MediaUrl: output.MediaUrl !== undefined && output.MediaUrl !== null ? output.MediaUrl : undefined,
@@ -17552,7 +17437,6 @@ const deserializeAws_restJson1APNSSandboxChannelResponse = (
   context: __SerdeContext
 ): APNSSandboxChannelResponse => {
   return {
-    __type: "APNSSandboxChannelResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
@@ -17580,7 +17464,6 @@ const deserializeAws_restJson1APNSVoipChannelResponse = (
   context: __SerdeContext
 ): APNSVoipChannelResponse => {
   return {
-    __type: "APNSVoipChannelResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
@@ -17608,7 +17491,6 @@ const deserializeAws_restJson1APNSVoipSandboxChannelResponse = (
   context: __SerdeContext
 ): APNSVoipSandboxChannelResponse => {
   return {
-    __type: "APNSVoipSandboxChannelResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
@@ -17636,7 +17518,6 @@ const deserializeAws_restJson1ApplicationDateRangeKpiResponse = (
   context: __SerdeContext
 ): ApplicationDateRangeKpiResponse => {
   return {
-    __type: "ApplicationDateRangeKpiResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     EndTime: output.EndTime !== undefined && output.EndTime !== null ? new Date(output.EndTime) : undefined,
@@ -17652,7 +17533,6 @@ const deserializeAws_restJson1ApplicationDateRangeKpiResponse = (
 
 const deserializeAws_restJson1ApplicationResponse = (output: any, context: __SerdeContext): ApplicationResponse => {
   return {
-    __type: "ApplicationResponse",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -17668,7 +17548,6 @@ const deserializeAws_restJson1ApplicationSettingsResource = (
   context: __SerdeContext
 ): ApplicationSettingsResource => {
   return {
-    __type: "ApplicationSettingsResource",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CampaignHook:
@@ -17690,7 +17569,6 @@ const deserializeAws_restJson1ApplicationSettingsResource = (
 
 const deserializeAws_restJson1ApplicationsResponse = (output: any, context: __SerdeContext): ApplicationsResponse => {
   return {
-    __type: "ApplicationsResponse",
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_restJson1ListOfApplicationResponse(output.Item, context)
@@ -17701,7 +17579,6 @@ const deserializeAws_restJson1ApplicationsResponse = (output: any, context: __Se
 
 const deserializeAws_restJson1AttributeDimension = (output: any, context: __SerdeContext): AttributeDimension => {
   return {
-    __type: "AttributeDimension",
     AttributeType:
       output.AttributeType !== undefined && output.AttributeType !== null ? output.AttributeType : undefined,
     Values:
@@ -17713,7 +17590,6 @@ const deserializeAws_restJson1AttributeDimension = (output: any, context: __Serd
 
 const deserializeAws_restJson1AttributesResource = (output: any, context: __SerdeContext): AttributesResource => {
   return {
-    __type: "AttributesResource",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     AttributeType:
@@ -17727,7 +17603,6 @@ const deserializeAws_restJson1AttributesResource = (output: any, context: __Serd
 
 const deserializeAws_restJson1BaiduChannelResponse = (output: any, context: __SerdeContext): BaiduChannelResponse => {
   return {
-    __type: "BaiduChannelResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
@@ -17748,7 +17623,6 @@ const deserializeAws_restJson1BaiduChannelResponse = (output: any, context: __Se
 
 const deserializeAws_restJson1BaseKpiResult = (output: any, context: __SerdeContext): BaseKpiResult => {
   return {
-    __type: "BaseKpiResult",
     Rows:
       output.Rows !== undefined && output.Rows !== null
         ? deserializeAws_restJson1ListOfResultRow(output.Rows, context)
@@ -17758,7 +17632,6 @@ const deserializeAws_restJson1BaseKpiResult = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1CampaignCustomMessage = (output: any, context: __SerdeContext): CampaignCustomMessage => {
   return {
-    __type: "CampaignCustomMessage",
     Data: output.Data !== undefined && output.Data !== null ? output.Data : undefined,
   } as any;
 };
@@ -17768,7 +17641,6 @@ const deserializeAws_restJson1CampaignDateRangeKpiResponse = (
   context: __SerdeContext
 ): CampaignDateRangeKpiResponse => {
   return {
-    __type: "CampaignDateRangeKpiResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CampaignId: output.CampaignId !== undefined && output.CampaignId !== null ? output.CampaignId : undefined,
@@ -17785,7 +17657,6 @@ const deserializeAws_restJson1CampaignDateRangeKpiResponse = (
 
 const deserializeAws_restJson1CampaignEmailMessage = (output: any, context: __SerdeContext): CampaignEmailMessage => {
   return {
-    __type: "CampaignEmailMessage",
     Body: output.Body !== undefined && output.Body !== null ? output.Body : undefined,
     FromAddress: output.FromAddress !== undefined && output.FromAddress !== null ? output.FromAddress : undefined,
     HtmlBody: output.HtmlBody !== undefined && output.HtmlBody !== null ? output.HtmlBody : undefined,
@@ -17795,7 +17666,6 @@ const deserializeAws_restJson1CampaignEmailMessage = (output: any, context: __Se
 
 const deserializeAws_restJson1CampaignEventFilter = (output: any, context: __SerdeContext): CampaignEventFilter => {
   return {
-    __type: "CampaignEventFilter",
     Dimensions:
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_restJson1EventDimensions(output.Dimensions, context)
@@ -17806,7 +17676,6 @@ const deserializeAws_restJson1CampaignEventFilter = (output: any, context: __Ser
 
 const deserializeAws_restJson1CampaignHook = (output: any, context: __SerdeContext): CampaignHook => {
   return {
-    __type: "CampaignHook",
     LambdaFunctionName:
       output.LambdaFunctionName !== undefined && output.LambdaFunctionName !== null
         ? output.LambdaFunctionName
@@ -17818,7 +17687,6 @@ const deserializeAws_restJson1CampaignHook = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1CampaignLimits = (output: any, context: __SerdeContext): CampaignLimits => {
   return {
-    __type: "CampaignLimits",
     Daily: output.Daily !== undefined && output.Daily !== null ? output.Daily : undefined,
     MaximumDuration:
       output.MaximumDuration !== undefined && output.MaximumDuration !== null ? output.MaximumDuration : undefined,
@@ -17832,7 +17700,6 @@ const deserializeAws_restJson1CampaignLimits = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1CampaignResponse = (output: any, context: __SerdeContext): CampaignResponse => {
   return {
-    __type: "CampaignResponse",
     AdditionalTreatments:
       output.AdditionalTreatments !== undefined && output.AdditionalTreatments !== null
         ? deserializeAws_restJson1ListOfTreatmentResource(output.AdditionalTreatments, context)
@@ -17900,7 +17767,6 @@ const deserializeAws_restJson1CampaignResponse = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1CampaignSmsMessage = (output: any, context: __SerdeContext): CampaignSmsMessage => {
   return {
-    __type: "CampaignSmsMessage",
     Body: output.Body !== undefined && output.Body !== null ? output.Body : undefined,
     MessageType: output.MessageType !== undefined && output.MessageType !== null ? output.MessageType : undefined,
     SenderId: output.SenderId !== undefined && output.SenderId !== null ? output.SenderId : undefined,
@@ -17909,7 +17775,6 @@ const deserializeAws_restJson1CampaignSmsMessage = (output: any, context: __Serd
 
 const deserializeAws_restJson1CampaignsResponse = (output: any, context: __SerdeContext): CampaignsResponse => {
   return {
-    __type: "CampaignsResponse",
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_restJson1ListOfCampaignResponse(output.Item, context)
@@ -17920,7 +17785,6 @@ const deserializeAws_restJson1CampaignsResponse = (output: any, context: __Serde
 
 const deserializeAws_restJson1CampaignState = (output: any, context: __SerdeContext): CampaignState => {
   return {
-    __type: "CampaignState",
     CampaignStatus:
       output.CampaignStatus !== undefined && output.CampaignStatus !== null ? output.CampaignStatus : undefined,
   } as any;
@@ -17928,7 +17792,6 @@ const deserializeAws_restJson1CampaignState = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1ChannelResponse = (output: any, context: __SerdeContext): ChannelResponse => {
   return {
-    __type: "ChannelResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
@@ -17947,7 +17810,6 @@ const deserializeAws_restJson1ChannelResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ChannelsResponse = (output: any, context: __SerdeContext): ChannelsResponse => {
   return {
-    __type: "ChannelsResponse",
     Channels:
       output.Channels !== undefined && output.Channels !== null
         ? deserializeAws_restJson1MapOfChannelResponse(output.Channels, context)
@@ -17957,7 +17819,6 @@ const deserializeAws_restJson1ChannelsResponse = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Condition = (output: any, context: __SerdeContext): Condition => {
   return {
-    __type: "Condition",
     Conditions:
       output.Conditions !== undefined && output.Conditions !== null
         ? deserializeAws_restJson1ListOfSimpleCondition(output.Conditions, context)
@@ -17971,7 +17832,6 @@ const deserializeAws_restJson1ConditionalSplitActivity = (
   context: __SerdeContext
 ): ConditionalSplitActivity => {
   return {
-    __type: "ConditionalSplitActivity",
     Condition:
       output.Condition !== undefined && output.Condition !== null
         ? deserializeAws_restJson1Condition(output.Condition, context)
@@ -17991,7 +17851,6 @@ const deserializeAws_restJson1CreateTemplateMessageBody = (
   context: __SerdeContext
 ): CreateTemplateMessageBody => {
   return {
-    __type: "CreateTemplateMessageBody",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestID: output.RequestID !== undefined && output.RequestID !== null ? output.RequestID : undefined,
@@ -18003,7 +17862,6 @@ const deserializeAws_restJson1CustomDeliveryConfiguration = (
   context: __SerdeContext
 ): CustomDeliveryConfiguration => {
   return {
-    __type: "CustomDeliveryConfiguration",
     DeliveryUri: output.DeliveryUri !== undefined && output.DeliveryUri !== null ? output.DeliveryUri : undefined,
     EndpointTypes:
       output.EndpointTypes !== undefined && output.EndpointTypes !== null
@@ -18014,7 +17872,6 @@ const deserializeAws_restJson1CustomDeliveryConfiguration = (
 
 const deserializeAws_restJson1CustomMessageActivity = (output: any, context: __SerdeContext): CustomMessageActivity => {
   return {
-    __type: "CustomMessageActivity",
     DeliveryUri: output.DeliveryUri !== undefined && output.DeliveryUri !== null ? output.DeliveryUri : undefined,
     EndpointTypes:
       output.EndpointTypes !== undefined && output.EndpointTypes !== null
@@ -18036,7 +17893,6 @@ const deserializeAws_restJson1DefaultPushNotificationTemplate = (
   context: __SerdeContext
 ): DefaultPushNotificationTemplate => {
   return {
-    __type: "DefaultPushNotificationTemplate",
     Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
     Body: output.Body !== undefined && output.Body !== null ? output.Body : undefined,
     Sound: output.Sound !== undefined && output.Sound !== null ? output.Sound : undefined,
@@ -18047,7 +17903,6 @@ const deserializeAws_restJson1DefaultPushNotificationTemplate = (
 
 const deserializeAws_restJson1EmailChannelResponse = (output: any, context: __SerdeContext): EmailChannelResponse => {
   return {
-    __type: "EmailChannelResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     ConfigurationSet:
@@ -18076,7 +17931,6 @@ const deserializeAws_restJson1EmailChannelResponse = (output: any, context: __Se
 
 const deserializeAws_restJson1EmailMessageActivity = (output: any, context: __SerdeContext): EmailMessageActivity => {
   return {
-    __type: "EmailMessageActivity",
     MessageConfig:
       output.MessageConfig !== undefined && output.MessageConfig !== null
         ? deserializeAws_restJson1JourneyEmailMessage(output.MessageConfig, context)
@@ -18090,7 +17944,6 @@ const deserializeAws_restJson1EmailMessageActivity = (output: any, context: __Se
 
 const deserializeAws_restJson1EmailTemplateResponse = (output: any, context: __SerdeContext): EmailTemplateResponse => {
   return {
-    __type: "EmailTemplateResponse",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
     DefaultSubstitutions:
@@ -18120,7 +17973,6 @@ const deserializeAws_restJson1EmailTemplateResponse = (output: any, context: __S
 
 const deserializeAws_restJson1EndpointDemographic = (output: any, context: __SerdeContext): EndpointDemographic => {
   return {
-    __type: "EndpointDemographic",
     AppVersion: output.AppVersion !== undefined && output.AppVersion !== null ? output.AppVersion : undefined,
     Locale: output.Locale !== undefined && output.Locale !== null ? output.Locale : undefined,
     Make: output.Make !== undefined && output.Make !== null ? output.Make : undefined,
@@ -18135,7 +17987,6 @@ const deserializeAws_restJson1EndpointDemographic = (output: any, context: __Ser
 
 const deserializeAws_restJson1EndpointItemResponse = (output: any, context: __SerdeContext): EndpointItemResponse => {
   return {
-    __type: "EndpointItemResponse",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     StatusCode: output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined,
   } as any;
@@ -18143,7 +17994,6 @@ const deserializeAws_restJson1EndpointItemResponse = (output: any, context: __Se
 
 const deserializeAws_restJson1EndpointLocation = (output: any, context: __SerdeContext): EndpointLocation => {
   return {
-    __type: "EndpointLocation",
     City: output.City !== undefined && output.City !== null ? output.City : undefined,
     Country: output.Country !== undefined && output.Country !== null ? output.Country : undefined,
     Latitude: output.Latitude !== undefined && output.Latitude !== null ? output.Latitude : undefined,
@@ -18155,7 +18005,6 @@ const deserializeAws_restJson1EndpointLocation = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1EndpointMessageResult = (output: any, context: __SerdeContext): EndpointMessageResult => {
   return {
-    __type: "EndpointMessageResult",
     Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
     DeliveryStatus:
       output.DeliveryStatus !== undefined && output.DeliveryStatus !== null ? output.DeliveryStatus : undefined,
@@ -18169,7 +18018,6 @@ const deserializeAws_restJson1EndpointMessageResult = (output: any, context: __S
 
 const deserializeAws_restJson1EndpointResponse = (output: any, context: __SerdeContext): EndpointResponse => {
   return {
-    __type: "EndpointResponse",
     Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
@@ -18208,7 +18056,6 @@ const deserializeAws_restJson1EndpointResponse = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1EndpointsResponse = (output: any, context: __SerdeContext): EndpointsResponse => {
   return {
-    __type: "EndpointsResponse",
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_restJson1ListOfEndpointResponse(output.Item, context)
@@ -18218,7 +18065,6 @@ const deserializeAws_restJson1EndpointsResponse = (output: any, context: __Serde
 
 const deserializeAws_restJson1EndpointUser = (output: any, context: __SerdeContext): EndpointUser => {
   return {
-    __type: "EndpointUser",
     UserAttributes:
       output.UserAttributes !== undefined && output.UserAttributes !== null
         ? deserializeAws_restJson1MapOfListOf__string(output.UserAttributes, context)
@@ -18229,7 +18075,6 @@ const deserializeAws_restJson1EndpointUser = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1EventCondition = (output: any, context: __SerdeContext): EventCondition => {
   return {
-    __type: "EventCondition",
     Dimensions:
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_restJson1EventDimensions(output.Dimensions, context)
@@ -18241,7 +18086,6 @@ const deserializeAws_restJson1EventCondition = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1EventDimensions = (output: any, context: __SerdeContext): EventDimensions => {
   return {
-    __type: "EventDimensions",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_restJson1MapOfAttributeDimension(output.Attributes, context)
@@ -18259,7 +18103,6 @@ const deserializeAws_restJson1EventDimensions = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1EventItemResponse = (output: any, context: __SerdeContext): EventItemResponse => {
   return {
-    __type: "EventItemResponse",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     StatusCode: output.StatusCode !== undefined && output.StatusCode !== null ? output.StatusCode : undefined,
   } as any;
@@ -18267,7 +18110,6 @@ const deserializeAws_restJson1EventItemResponse = (output: any, context: __Serde
 
 const deserializeAws_restJson1EventsResponse = (output: any, context: __SerdeContext): EventsResponse => {
   return {
-    __type: "EventsResponse",
     Results:
       output.Results !== undefined && output.Results !== null
         ? deserializeAws_restJson1MapOfItemResponse(output.Results, context)
@@ -18277,7 +18119,6 @@ const deserializeAws_restJson1EventsResponse = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1EventStream = (output: any, context: __SerdeContext): EventStream => {
   return {
-    __type: "EventStream",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     DestinationStreamArn:
@@ -18295,7 +18136,6 @@ const deserializeAws_restJson1EventStream = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1ExportJobResource = (output: any, context: __SerdeContext): ExportJobResource => {
   return {
-    __type: "ExportJobResource",
     RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
     S3UrlPrefix: output.S3UrlPrefix !== undefined && output.S3UrlPrefix !== null ? output.S3UrlPrefix : undefined,
     SegmentId: output.SegmentId !== undefined && output.SegmentId !== null ? output.SegmentId : undefined,
@@ -18306,7 +18146,6 @@ const deserializeAws_restJson1ExportJobResource = (output: any, context: __Serde
 
 const deserializeAws_restJson1ExportJobResponse = (output: any, context: __SerdeContext): ExportJobResponse => {
   return {
-    __type: "ExportJobResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CompletedPieces:
@@ -18336,7 +18175,6 @@ const deserializeAws_restJson1ExportJobResponse = (output: any, context: __Serde
 
 const deserializeAws_restJson1ExportJobsResponse = (output: any, context: __SerdeContext): ExportJobsResponse => {
   return {
-    __type: "ExportJobsResponse",
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_restJson1ListOfExportJobResponse(output.Item, context)
@@ -18347,7 +18185,6 @@ const deserializeAws_restJson1ExportJobsResponse = (output: any, context: __Serd
 
 const deserializeAws_restJson1GCMChannelResponse = (output: any, context: __SerdeContext): GCMChannelResponse => {
   return {
-    __type: "GCMChannelResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
@@ -18368,7 +18205,6 @@ const deserializeAws_restJson1GCMChannelResponse = (output: any, context: __Serd
 
 const deserializeAws_restJson1GPSCoordinates = (output: any, context: __SerdeContext): GPSCoordinates => {
   return {
-    __type: "GPSCoordinates",
     Latitude: output.Latitude !== undefined && output.Latitude !== null ? output.Latitude : undefined,
     Longitude: output.Longitude !== undefined && output.Longitude !== null ? output.Longitude : undefined,
   } as any;
@@ -18376,7 +18212,6 @@ const deserializeAws_restJson1GPSCoordinates = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1GPSPointDimension = (output: any, context: __SerdeContext): GPSPointDimension => {
   return {
-    __type: "GPSPointDimension",
     Coordinates:
       output.Coordinates !== undefined && output.Coordinates !== null
         ? deserializeAws_restJson1GPSCoordinates(output.Coordinates, context)
@@ -18390,7 +18225,6 @@ const deserializeAws_restJson1GPSPointDimension = (output: any, context: __Serde
 
 const deserializeAws_restJson1HoldoutActivity = (output: any, context: __SerdeContext): HoldoutActivity => {
   return {
-    __type: "HoldoutActivity",
     NextActivity: output.NextActivity !== undefined && output.NextActivity !== null ? output.NextActivity : undefined,
     Percentage: output.Percentage !== undefined && output.Percentage !== null ? output.Percentage : undefined,
   } as any;
@@ -18398,7 +18232,6 @@ const deserializeAws_restJson1HoldoutActivity = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ImportJobResource = (output: any, context: __SerdeContext): ImportJobResource => {
   return {
-    __type: "ImportJobResource",
     DefineSegment:
       output.DefineSegment !== undefined && output.DefineSegment !== null ? output.DefineSegment : undefined,
     ExternalId: output.ExternalId !== undefined && output.ExternalId !== null ? output.ExternalId : undefined,
@@ -18416,7 +18249,6 @@ const deserializeAws_restJson1ImportJobResource = (output: any, context: __Serde
 
 const deserializeAws_restJson1ImportJobResponse = (output: any, context: __SerdeContext): ImportJobResponse => {
   return {
-    __type: "ImportJobResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CompletedPieces:
@@ -18446,7 +18278,6 @@ const deserializeAws_restJson1ImportJobResponse = (output: any, context: __Serde
 
 const deserializeAws_restJson1ImportJobsResponse = (output: any, context: __SerdeContext): ImportJobsResponse => {
   return {
-    __type: "ImportJobsResponse",
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_restJson1ListOfImportJobResponse(output.Item, context)
@@ -18457,7 +18288,6 @@ const deserializeAws_restJson1ImportJobsResponse = (output: any, context: __Serd
 
 const deserializeAws_restJson1ItemResponse = (output: any, context: __SerdeContext): ItemResponse => {
   return {
-    __type: "ItemResponse",
     EndpointItemResponse:
       output.EndpointItemResponse !== undefined && output.EndpointItemResponse !== null
         ? deserializeAws_restJson1EndpointItemResponse(output.EndpointItemResponse, context)
@@ -18471,7 +18301,6 @@ const deserializeAws_restJson1ItemResponse = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1JourneyCustomMessage = (output: any, context: __SerdeContext): JourneyCustomMessage => {
   return {
-    __type: "JourneyCustomMessage",
     Data: output.Data !== undefined && output.Data !== null ? output.Data : undefined,
   } as any;
 };
@@ -18481,7 +18310,6 @@ const deserializeAws_restJson1JourneyDateRangeKpiResponse = (
   context: __SerdeContext
 ): JourneyDateRangeKpiResponse => {
   return {
-    __type: "JourneyDateRangeKpiResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     EndTime: output.EndTime !== undefined && output.EndTime !== null ? new Date(output.EndTime) : undefined,
@@ -18498,7 +18326,6 @@ const deserializeAws_restJson1JourneyDateRangeKpiResponse = (
 
 const deserializeAws_restJson1JourneyEmailMessage = (output: any, context: __SerdeContext): JourneyEmailMessage => {
   return {
-    __type: "JourneyEmailMessage",
     FromAddress: output.FromAddress !== undefined && output.FromAddress !== null ? output.FromAddress : undefined,
   } as any;
 };
@@ -18508,7 +18335,6 @@ const deserializeAws_restJson1JourneyExecutionActivityMetricsResponse = (
   context: __SerdeContext
 ): JourneyExecutionActivityMetricsResponse => {
   return {
-    __type: "JourneyExecutionActivityMetricsResponse",
     ActivityType: output.ActivityType !== undefined && output.ActivityType !== null ? output.ActivityType : undefined,
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
@@ -18533,7 +18359,6 @@ const deserializeAws_restJson1JourneyExecutionMetricsResponse = (
   context: __SerdeContext
 ): JourneyExecutionMetricsResponse => {
   return {
-    __type: "JourneyExecutionMetricsResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     JourneyId: output.JourneyId !== undefined && output.JourneyId !== null ? output.JourneyId : undefined,
@@ -18550,7 +18375,6 @@ const deserializeAws_restJson1JourneyExecutionMetricsResponse = (
 
 const deserializeAws_restJson1JourneyLimits = (output: any, context: __SerdeContext): JourneyLimits => {
   return {
-    __type: "JourneyLimits",
     DailyCap: output.DailyCap !== undefined && output.DailyCap !== null ? output.DailyCap : undefined,
     EndpointReentryCap:
       output.EndpointReentryCap !== undefined && output.EndpointReentryCap !== null
@@ -18565,14 +18389,12 @@ const deserializeAws_restJson1JourneyLimits = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1JourneyPushMessage = (output: any, context: __SerdeContext): JourneyPushMessage => {
   return {
-    __type: "JourneyPushMessage",
     TimeToLive: output.TimeToLive !== undefined && output.TimeToLive !== null ? output.TimeToLive : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1JourneyResponse = (output: any, context: __SerdeContext): JourneyResponse => {
   return {
-    __type: "JourneyResponse",
     Activities:
       output.Activities !== undefined && output.Activities !== null
         ? deserializeAws_restJson1MapOfActivity(output.Activities, context)
@@ -18615,7 +18437,6 @@ const deserializeAws_restJson1JourneyResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1JourneySchedule = (output: any, context: __SerdeContext): JourneySchedule => {
   return {
-    __type: "JourneySchedule",
     EndTime: output.EndTime !== undefined && output.EndTime !== null ? new Date(output.EndTime) : undefined,
     StartTime: output.StartTime !== undefined && output.StartTime !== null ? new Date(output.StartTime) : undefined,
     Timezone: output.Timezone !== undefined && output.Timezone !== null ? output.Timezone : undefined,
@@ -18624,7 +18445,6 @@ const deserializeAws_restJson1JourneySchedule = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1JourneySMSMessage = (output: any, context: __SerdeContext): JourneySMSMessage => {
   return {
-    __type: "JourneySMSMessage",
     MessageType: output.MessageType !== undefined && output.MessageType !== null ? output.MessageType : undefined,
     SenderId: output.SenderId !== undefined && output.SenderId !== null ? output.SenderId : undefined,
   } as any;
@@ -18632,7 +18452,6 @@ const deserializeAws_restJson1JourneySMSMessage = (output: any, context: __Serde
 
 const deserializeAws_restJson1JourneysResponse = (output: any, context: __SerdeContext): JourneysResponse => {
   return {
-    __type: "JourneysResponse",
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_restJson1ListOfJourneyResponse(output.Item, context)
@@ -18749,7 +18568,6 @@ const deserializeAws_restJson1ListRecommenderConfigurationsResponse = (
   context: __SerdeContext
 ): ListRecommenderConfigurationsResponse => {
   return {
-    __type: "ListRecommenderConfigurationsResponse",
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_restJson1ListOfRecommenderConfigurationResponse(output.Item, context)
@@ -18917,7 +18735,6 @@ const deserializeAws_restJson1MapOfMetricDimension = (
 
 const deserializeAws_restJson1Message = (output: any, context: __SerdeContext): Message => {
   return {
-    __type: "Message",
     Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
     Body: output.Body !== undefined && output.Body !== null ? output.Body : undefined,
     ImageIconUrl: output.ImageIconUrl !== undefined && output.ImageIconUrl !== null ? output.ImageIconUrl : undefined,
@@ -18938,7 +18755,6 @@ const deserializeAws_restJson1Message = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1MessageBody = (output: any, context: __SerdeContext): MessageBody => {
   return {
-    __type: "MessageBody",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RequestID: output.RequestID !== undefined && output.RequestID !== null ? output.RequestID : undefined,
   } as any;
@@ -18946,7 +18762,6 @@ const deserializeAws_restJson1MessageBody = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1MessageConfiguration = (output: any, context: __SerdeContext): MessageConfiguration => {
   return {
-    __type: "MessageConfiguration",
     ADMMessage:
       output.ADMMessage !== undefined && output.ADMMessage !== null
         ? deserializeAws_restJson1Message(output.ADMMessage, context)
@@ -18984,7 +18799,6 @@ const deserializeAws_restJson1MessageConfiguration = (output: any, context: __Se
 
 const deserializeAws_restJson1MessageResponse = (output: any, context: __SerdeContext): MessageResponse => {
   return {
-    __type: "MessageResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     EndpointResult:
@@ -19001,7 +18815,6 @@ const deserializeAws_restJson1MessageResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1MessageResult = (output: any, context: __SerdeContext): MessageResult => {
   return {
-    __type: "MessageResult",
     DeliveryStatus:
       output.DeliveryStatus !== undefined && output.DeliveryStatus !== null ? output.DeliveryStatus : undefined,
     MessageId: output.MessageId !== undefined && output.MessageId !== null ? output.MessageId : undefined,
@@ -19014,7 +18827,6 @@ const deserializeAws_restJson1MessageResult = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1MetricDimension = (output: any, context: __SerdeContext): MetricDimension => {
   return {
-    __type: "MetricDimension",
     ComparisonOperator:
       output.ComparisonOperator !== undefined && output.ComparisonOperator !== null
         ? output.ComparisonOperator
@@ -19028,7 +18840,6 @@ const deserializeAws_restJson1MultiConditionalBranch = (
   context: __SerdeContext
 ): MultiConditionalBranch => {
   return {
-    __type: "MultiConditionalBranch",
     Condition:
       output.Condition !== undefined && output.Condition !== null
         ? deserializeAws_restJson1SimpleCondition(output.Condition, context)
@@ -19042,7 +18853,6 @@ const deserializeAws_restJson1MultiConditionalSplitActivity = (
   context: __SerdeContext
 ): MultiConditionalSplitActivity => {
   return {
-    __type: "MultiConditionalSplitActivity",
     Branches:
       output.Branches !== undefined && output.Branches !== null
         ? deserializeAws_restJson1ListOfMultiConditionalBranch(output.Branches, context)
@@ -19061,7 +18871,6 @@ const deserializeAws_restJson1NumberValidateResponse = (
   context: __SerdeContext
 ): NumberValidateResponse => {
   return {
-    __type: "NumberValidateResponse",
     Carrier: output.Carrier !== undefined && output.Carrier !== null ? output.Carrier : undefined,
     City: output.City !== undefined && output.City !== null ? output.City : undefined,
     CleansedPhoneNumberE164:
@@ -19098,7 +18907,6 @@ const deserializeAws_restJson1NumberValidateResponse = (
 
 const deserializeAws_restJson1PushMessageActivity = (output: any, context: __SerdeContext): PushMessageActivity => {
   return {
-    __type: "PushMessageActivity",
     MessageConfig:
       output.MessageConfig !== undefined && output.MessageConfig !== null
         ? deserializeAws_restJson1JourneyPushMessage(output.MessageConfig, context)
@@ -19115,7 +18923,6 @@ const deserializeAws_restJson1PushNotificationTemplateResponse = (
   context: __SerdeContext
 ): PushNotificationTemplateResponse => {
   return {
-    __type: "PushNotificationTemplateResponse",
     ADM:
       output.ADM !== undefined && output.ADM !== null
         ? deserializeAws_restJson1AndroidPushNotificationTemplate(output.ADM, context)
@@ -19162,7 +18969,6 @@ const deserializeAws_restJson1PushNotificationTemplateResponse = (
 
 const deserializeAws_restJson1QuietTime = (output: any, context: __SerdeContext): QuietTime => {
   return {
-    __type: "QuietTime",
     End: output.End !== undefined && output.End !== null ? output.End : undefined,
     Start: output.Start !== undefined && output.Start !== null ? output.Start : undefined,
   } as any;
@@ -19170,7 +18976,6 @@ const deserializeAws_restJson1QuietTime = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1RandomSplitActivity = (output: any, context: __SerdeContext): RandomSplitActivity => {
   return {
-    __type: "RandomSplitActivity",
     Branches:
       output.Branches !== undefined && output.Branches !== null
         ? deserializeAws_restJson1ListOfRandomSplitEntry(output.Branches, context)
@@ -19180,7 +18985,6 @@ const deserializeAws_restJson1RandomSplitActivity = (output: any, context: __Ser
 
 const deserializeAws_restJson1RandomSplitEntry = (output: any, context: __SerdeContext): RandomSplitEntry => {
   return {
-    __type: "RandomSplitEntry",
     NextActivity: output.NextActivity !== undefined && output.NextActivity !== null ? output.NextActivity : undefined,
     Percentage: output.Percentage !== undefined && output.Percentage !== null ? output.Percentage : undefined,
   } as any;
@@ -19188,7 +18992,6 @@ const deserializeAws_restJson1RandomSplitEntry = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1RecencyDimension = (output: any, context: __SerdeContext): RecencyDimension => {
   return {
-    __type: "RecencyDimension",
     Duration: output.Duration !== undefined && output.Duration !== null ? output.Duration : undefined,
     RecencyType: output.RecencyType !== undefined && output.RecencyType !== null ? output.RecencyType : undefined,
   } as any;
@@ -19199,7 +19002,6 @@ const deserializeAws_restJson1RecommenderConfigurationResponse = (
   context: __SerdeContext
 ): RecommenderConfigurationResponse => {
   return {
-    __type: "RecommenderConfigurationResponse",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_restJson1MapOf__string(output.Attributes, context)
@@ -19239,7 +19041,6 @@ const deserializeAws_restJson1RecommenderConfigurationResponse = (
 
 const deserializeAws_restJson1ResultRow = (output: any, context: __SerdeContext): ResultRow => {
   return {
-    __type: "ResultRow",
     GroupedBys:
       output.GroupedBys !== undefined && output.GroupedBys !== null
         ? deserializeAws_restJson1ListOfResultRowValue(output.GroupedBys, context)
@@ -19253,7 +19054,6 @@ const deserializeAws_restJson1ResultRow = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1ResultRowValue = (output: any, context: __SerdeContext): ResultRowValue => {
   return {
-    __type: "ResultRowValue",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
@@ -19262,7 +19062,6 @@ const deserializeAws_restJson1ResultRowValue = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext): Schedule => {
   return {
-    __type: "Schedule",
     EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
     EventFilter:
       output.EventFilter !== undefined && output.EventFilter !== null
@@ -19281,7 +19080,6 @@ const deserializeAws_restJson1Schedule = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1SegmentBehaviors = (output: any, context: __SerdeContext): SegmentBehaviors => {
   return {
-    __type: "SegmentBehaviors",
     Recency:
       output.Recency !== undefined && output.Recency !== null
         ? deserializeAws_restJson1RecencyDimension(output.Recency, context)
@@ -19291,14 +19089,12 @@ const deserializeAws_restJson1SegmentBehaviors = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SegmentCondition = (output: any, context: __SerdeContext): SegmentCondition => {
   return {
-    __type: "SegmentCondition",
     SegmentId: output.SegmentId !== undefined && output.SegmentId !== null ? output.SegmentId : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1SegmentDemographics = (output: any, context: __SerdeContext): SegmentDemographics => {
   return {
-    __type: "SegmentDemographics",
     AppVersion:
       output.AppVersion !== undefined && output.AppVersion !== null
         ? deserializeAws_restJson1SetDimension(output.AppVersion, context)
@@ -19328,7 +19124,6 @@ const deserializeAws_restJson1SegmentDemographics = (output: any, context: __Ser
 
 const deserializeAws_restJson1SegmentDimensions = (output: any, context: __SerdeContext): SegmentDimensions => {
   return {
-    __type: "SegmentDimensions",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_restJson1MapOfAttributeDimension(output.Attributes, context)
@@ -19358,7 +19153,6 @@ const deserializeAws_restJson1SegmentDimensions = (output: any, context: __Serde
 
 const deserializeAws_restJson1SegmentGroup = (output: any, context: __SerdeContext): SegmentGroup => {
   return {
-    __type: "SegmentGroup",
     Dimensions:
       output.Dimensions !== undefined && output.Dimensions !== null
         ? deserializeAws_restJson1ListOfSegmentDimensions(output.Dimensions, context)
@@ -19374,7 +19168,6 @@ const deserializeAws_restJson1SegmentGroup = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1SegmentGroupList = (output: any, context: __SerdeContext): SegmentGroupList => {
   return {
-    __type: "SegmentGroupList",
     Groups:
       output.Groups !== undefined && output.Groups !== null
         ? deserializeAws_restJson1ListOfSegmentGroup(output.Groups, context)
@@ -19385,7 +19178,6 @@ const deserializeAws_restJson1SegmentGroupList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SegmentImportResource = (output: any, context: __SerdeContext): SegmentImportResource => {
   return {
-    __type: "SegmentImportResource",
     ChannelCounts:
       output.ChannelCounts !== undefined && output.ChannelCounts !== null
         ? deserializeAws_restJson1MapOf__integer(output.ChannelCounts, context)
@@ -19400,7 +19192,6 @@ const deserializeAws_restJson1SegmentImportResource = (output: any, context: __S
 
 const deserializeAws_restJson1SegmentLocation = (output: any, context: __SerdeContext): SegmentLocation => {
   return {
-    __type: "SegmentLocation",
     Country:
       output.Country !== undefined && output.Country !== null
         ? deserializeAws_restJson1SetDimension(output.Country, context)
@@ -19414,7 +19205,6 @@ const deserializeAws_restJson1SegmentLocation = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1SegmentReference = (output: any, context: __SerdeContext): SegmentReference => {
   return {
-    __type: "SegmentReference",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
   } as any;
@@ -19422,7 +19212,6 @@ const deserializeAws_restJson1SegmentReference = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SegmentResponse = (output: any, context: __SerdeContext): SegmentResponse => {
   return {
-    __type: "SegmentResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
@@ -19454,7 +19243,6 @@ const deserializeAws_restJson1SegmentResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1SegmentsResponse = (output: any, context: __SerdeContext): SegmentsResponse => {
   return {
-    __type: "SegmentsResponse",
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_restJson1ListOfSegmentResponse(output.Item, context)
@@ -19468,7 +19256,6 @@ const deserializeAws_restJson1SendUsersMessageResponse = (
   context: __SerdeContext
 ): SendUsersMessageResponse => {
   return {
-    __type: "SendUsersMessageResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     RequestId: output.RequestId !== undefined && output.RequestId !== null ? output.RequestId : undefined,
@@ -19481,7 +19268,6 @@ const deserializeAws_restJson1SendUsersMessageResponse = (
 
 const deserializeAws_restJson1SetDimension = (output: any, context: __SerdeContext): SetDimension => {
   return {
-    __type: "SetDimension",
     DimensionType:
       output.DimensionType !== undefined && output.DimensionType !== null ? output.DimensionType : undefined,
     Values:
@@ -19493,7 +19279,6 @@ const deserializeAws_restJson1SetDimension = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1SimpleCondition = (output: any, context: __SerdeContext): SimpleCondition => {
   return {
-    __type: "SimpleCondition",
     EventCondition:
       output.EventCondition !== undefined && output.EventCondition !== null
         ? deserializeAws_restJson1EventCondition(output.EventCondition, context)
@@ -19511,7 +19296,6 @@ const deserializeAws_restJson1SimpleCondition = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1SMSChannelResponse = (output: any, context: __SerdeContext): SMSChannelResponse => {
   return {
-    __type: "SMSChannelResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
@@ -19541,7 +19325,6 @@ const deserializeAws_restJson1SMSChannelResponse = (output: any, context: __Serd
 
 const deserializeAws_restJson1SMSMessageActivity = (output: any, context: __SerdeContext): SMSMessageActivity => {
   return {
-    __type: "SMSMessageActivity",
     MessageConfig:
       output.MessageConfig !== undefined && output.MessageConfig !== null
         ? deserializeAws_restJson1JourneySMSMessage(output.MessageConfig, context)
@@ -19555,7 +19338,6 @@ const deserializeAws_restJson1SMSMessageActivity = (output: any, context: __Serd
 
 const deserializeAws_restJson1SMSTemplateResponse = (output: any, context: __SerdeContext): SMSTemplateResponse => {
   return {
-    __type: "SMSTemplateResponse",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Body: output.Body !== undefined && output.Body !== null ? output.Body : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
@@ -19583,7 +19365,6 @@ const deserializeAws_restJson1SMSTemplateResponse = (output: any, context: __Ser
 
 const deserializeAws_restJson1StartCondition = (output: any, context: __SerdeContext): StartCondition => {
   return {
-    __type: "StartCondition",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     SegmentStartCondition:
       output.SegmentStartCondition !== undefined && output.SegmentStartCondition !== null
@@ -19594,7 +19375,6 @@ const deserializeAws_restJson1StartCondition = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1TagsModel = (output: any, context: __SerdeContext): TagsModel => {
   return {
-    __type: "TagsModel",
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1MapOf__string(output.tags, context)
@@ -19604,7 +19384,6 @@ const deserializeAws_restJson1TagsModel = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1Template = (output: any, context: __SerdeContext): Template => {
   return {
-    __type: "Template",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
   } as any;
@@ -19612,7 +19391,6 @@ const deserializeAws_restJson1Template = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1TemplateConfiguration = (output: any, context: __SerdeContext): TemplateConfiguration => {
   return {
-    __type: "TemplateConfiguration",
     EmailTemplate:
       output.EmailTemplate !== undefined && output.EmailTemplate !== null
         ? deserializeAws_restJson1Template(output.EmailTemplate, context)
@@ -19634,7 +19412,6 @@ const deserializeAws_restJson1TemplateConfiguration = (output: any, context: __S
 
 const deserializeAws_restJson1TemplateResponse = (output: any, context: __SerdeContext): TemplateResponse => {
   return {
-    __type: "TemplateResponse",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
     DefaultSubstitutions:
@@ -19659,7 +19436,6 @@ const deserializeAws_restJson1TemplateResponse = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1TemplatesResponse = (output: any, context: __SerdeContext): TemplatesResponse => {
   return {
-    __type: "TemplatesResponse",
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_restJson1ListOfTemplateResponse(output.Item, context)
@@ -19673,7 +19449,6 @@ const deserializeAws_restJson1TemplateVersionResponse = (
   context: __SerdeContext
 ): TemplateVersionResponse => {
   return {
-    __type: "TemplateVersionResponse",
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
     DefaultSubstitutions:
       output.DefaultSubstitutions !== undefined && output.DefaultSubstitutions !== null
@@ -19696,7 +19471,6 @@ const deserializeAws_restJson1TemplateVersionsResponse = (
   context: __SerdeContext
 ): TemplateVersionsResponse => {
   return {
-    __type: "TemplateVersionsResponse",
     Item:
       output.Item !== undefined && output.Item !== null
         ? deserializeAws_restJson1ListOfTemplateVersionResponse(output.Item, context)
@@ -19709,7 +19483,6 @@ const deserializeAws_restJson1TemplateVersionsResponse = (
 
 const deserializeAws_restJson1TreatmentResource = (output: any, context: __SerdeContext): TreatmentResource => {
   return {
-    __type: "TreatmentResource",
     CustomDeliveryConfiguration:
       output.CustomDeliveryConfiguration !== undefined && output.CustomDeliveryConfiguration !== null
         ? deserializeAws_restJson1CustomDeliveryConfiguration(output.CustomDeliveryConfiguration, context)
@@ -19743,7 +19516,6 @@ const deserializeAws_restJson1TreatmentResource = (output: any, context: __Serde
 
 const deserializeAws_restJson1VoiceChannelResponse = (output: any, context: __SerdeContext): VoiceChannelResponse => {
   return {
-    __type: "VoiceChannelResponse",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
@@ -19763,7 +19535,6 @@ const deserializeAws_restJson1VoiceChannelResponse = (output: any, context: __Se
 
 const deserializeAws_restJson1VoiceTemplateResponse = (output: any, context: __SerdeContext): VoiceTemplateResponse => {
   return {
-    __type: "VoiceTemplateResponse",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Body: output.Body !== undefined && output.Body !== null ? output.Body : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
@@ -19791,7 +19562,6 @@ const deserializeAws_restJson1VoiceTemplateResponse = (output: any, context: __S
 
 const deserializeAws_restJson1WaitActivity = (output: any, context: __SerdeContext): WaitActivity => {
   return {
-    __type: "WaitActivity",
     NextActivity: output.NextActivity !== undefined && output.NextActivity !== null ? output.NextActivity : undefined,
     WaitTime:
       output.WaitTime !== undefined && output.WaitTime !== null
@@ -19802,7 +19572,6 @@ const deserializeAws_restJson1WaitActivity = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1WaitTime = (output: any, context: __SerdeContext): WaitTime => {
   return {
-    __type: "WaitTime",
     WaitFor: output.WaitFor !== undefined && output.WaitFor !== null ? output.WaitFor : undefined,
     WaitUntil: output.WaitUntil !== undefined && output.WaitUntil !== null ? output.WaitUntil : undefined,
   } as any;

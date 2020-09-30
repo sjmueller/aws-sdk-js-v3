@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { AcceptHandshakeRequest, AcceptHandshakeResponse } from "../models/index.ts";
+import { AcceptHandshakeRequest, AcceptHandshakeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AcceptHandshakeCommand,
   serializeAws_json1_1AcceptHandshakeCommand,

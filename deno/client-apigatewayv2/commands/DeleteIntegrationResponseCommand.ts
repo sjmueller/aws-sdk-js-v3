@@ -1,6 +1,6 @@
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
-import { DeleteIntegrationResponseRequest } from "../models/index.ts";
+import { DeleteIntegrationResponseRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteIntegrationResponseCommand,
   serializeAws_restJson1DeleteIntegrationResponseCommand,

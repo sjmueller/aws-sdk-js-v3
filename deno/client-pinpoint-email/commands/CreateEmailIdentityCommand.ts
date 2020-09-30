@@ -1,6 +1,6 @@
 
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
-import { CreateEmailIdentityRequest, CreateEmailIdentityResponse } from "../models/index.ts";
+import { CreateEmailIdentityRequest, CreateEmailIdentityResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateEmailIdentityCommand,
   serializeAws_restJson1CreateEmailIdentityCommand,

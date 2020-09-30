@@ -3,7 +3,7 @@ import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   DisassociateSigninDelegateGroupsFromAccountRequest,
   DisassociateSigninDelegateGroupsFromAccountResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCommand,
   serializeAws_restJson1DisassociateSigninDelegateGroupsFromAccountCommand,

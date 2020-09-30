@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DeleteCertificateRequest } from "../models/index.ts";
+import { DeleteCertificateRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteCertificateCommand,
   serializeAws_restJson1DeleteCertificateCommand,

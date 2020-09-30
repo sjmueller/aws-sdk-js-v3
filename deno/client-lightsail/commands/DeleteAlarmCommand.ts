@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { DeleteAlarmRequest, DeleteAlarmResult } from "../models/index.ts";
+import { DeleteAlarmRequest, DeleteAlarmResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteAlarmCommand,
   serializeAws_json1_1DeleteAlarmCommand,

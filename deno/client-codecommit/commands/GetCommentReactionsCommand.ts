@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { GetCommentReactionsInput, GetCommentReactionsOutput } from "../models/index.ts";
+import { GetCommentReactionsInput, GetCommentReactionsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetCommentReactionsCommand,
   serializeAws_json1_1GetCommentReactionsCommand,

@@ -1,6 +1,6 @@
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient.ts";
-import { ListPredictorsRequest, ListPredictorsResponse } from "../models/index.ts";
+import { ListPredictorsRequest, ListPredictorsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListPredictorsCommand,
   serializeAws_json1_1ListPredictorsCommand,

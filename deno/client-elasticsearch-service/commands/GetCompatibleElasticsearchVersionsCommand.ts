@@ -4,7 +4,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticsearchServiceClient.ts";
-import { GetCompatibleElasticsearchVersionsRequest, GetCompatibleElasticsearchVersionsResponse } from "../models/index.ts";
+import {
+  GetCompatibleElasticsearchVersionsRequest,
+  GetCompatibleElasticsearchVersionsResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetCompatibleElasticsearchVersionsCommand,
   serializeAws_restJson1GetCompatibleElasticsearchVersionsCommand,

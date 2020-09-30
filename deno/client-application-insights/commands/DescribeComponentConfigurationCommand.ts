@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import { DescribeComponentConfigurationRequest, DescribeComponentConfigurationResponse } from "../models/index.ts";
+import { DescribeComponentConfigurationRequest, DescribeComponentConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeComponentConfigurationCommand,
   serializeAws_json1_1DescribeComponentConfigurationCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient.ts";
-import { DeleteTargetRequest, DeleteTargetResult } from "../models/index.ts";
+import { DeleteTargetRequest, DeleteTargetResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteTargetCommand,
   serializeAws_restJson1DeleteTargetCommand,

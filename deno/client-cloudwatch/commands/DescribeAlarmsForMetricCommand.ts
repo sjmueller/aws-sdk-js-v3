@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { DescribeAlarmsForMetricInput, DescribeAlarmsForMetricOutput } from "../models/index.ts";
+import { DescribeAlarmsForMetricInput, DescribeAlarmsForMetricOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeAlarmsForMetricCommand,
   serializeAws_queryDescribeAlarmsForMetricCommand,

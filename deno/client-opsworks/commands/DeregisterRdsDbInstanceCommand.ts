@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { DeregisterRdsDbInstanceRequest } from "../models/index.ts";
+import { DeregisterRdsDbInstanceRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeregisterRdsDbInstanceCommand,
   serializeAws_json1_1DeregisterRdsDbInstanceCommand,

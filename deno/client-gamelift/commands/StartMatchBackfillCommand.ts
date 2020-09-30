@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { StartMatchBackfillInput, StartMatchBackfillOutput } from "../models/index.ts";
+import { StartMatchBackfillInput, StartMatchBackfillOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartMatchBackfillCommand,
   serializeAws_json1_1StartMatchBackfillCommand,

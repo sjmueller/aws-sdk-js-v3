@@ -206,7 +206,7 @@ import {
   ValidationException,
   Variable,
   VariableEntry,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -812,7 +812,6 @@ export const deserializeAws_json1_1BatchCreateVariableCommand = async (
   contents = deserializeAws_json1_1BatchCreateVariableResult(data, context);
   const response: BatchCreateVariableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchCreateVariableResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -892,7 +891,6 @@ export const deserializeAws_json1_1BatchGetVariableCommand = async (
   contents = deserializeAws_json1_1BatchGetVariableResult(data, context);
   const response: BatchGetVariableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchGetVariableResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -972,7 +970,6 @@ export const deserializeAws_json1_1CreateDetectorVersionCommand = async (
   contents = deserializeAws_json1_1CreateDetectorVersionResult(data, context);
   const response: CreateDetectorVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDetectorVersionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1060,7 +1057,6 @@ export const deserializeAws_json1_1CreateModelCommand = async (
   contents = deserializeAws_json1_1CreateModelResult(data, context);
   const response: CreateModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateModelResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1132,7 +1128,6 @@ export const deserializeAws_json1_1CreateModelVersionCommand = async (
   contents = deserializeAws_json1_1CreateModelVersionResult(data, context);
   const response: CreateModelVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateModelVersionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1212,7 +1207,6 @@ export const deserializeAws_json1_1CreateRuleCommand = async (
   contents = deserializeAws_json1_1CreateRuleResult(data, context);
   const response: CreateRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRuleResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1292,7 +1286,6 @@ export const deserializeAws_json1_1CreateVariableCommand = async (
   contents = deserializeAws_json1_1CreateVariableResult(data, context);
   const response: CreateVariableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVariableResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1372,7 +1365,6 @@ export const deserializeAws_json1_1DeleteDetectorCommand = async (
   contents = deserializeAws_json1_1DeleteDetectorResult(data, context);
   const response: DeleteDetectorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDetectorResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1460,7 +1452,6 @@ export const deserializeAws_json1_1DeleteDetectorVersionCommand = async (
   contents = deserializeAws_json1_1DeleteDetectorVersionResult(data, context);
   const response: DeleteDetectorVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDetectorVersionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1556,7 +1547,6 @@ export const deserializeAws_json1_1DeleteEventCommand = async (
   contents = deserializeAws_json1_1DeleteEventResult(data, context);
   const response: DeleteEventCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEventResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1628,7 +1618,6 @@ export const deserializeAws_json1_1DeleteRuleCommand = async (
   contents = deserializeAws_json1_1DeleteRuleResult(data, context);
   const response: DeleteRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRuleResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1716,7 +1705,6 @@ export const deserializeAws_json1_1DescribeDetectorCommand = async (
   contents = deserializeAws_json1_1DescribeDetectorResult(data, context);
   const response: DescribeDetectorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDetectorResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1804,7 +1792,6 @@ export const deserializeAws_json1_1DescribeModelVersionsCommand = async (
   contents = deserializeAws_json1_1DescribeModelVersionsResult(data, context);
   const response: DescribeModelVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeModelVersionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1884,7 +1871,6 @@ export const deserializeAws_json1_1GetDetectorsCommand = async (
   contents = deserializeAws_json1_1GetDetectorsResult(data, context);
   const response: GetDetectorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDetectorsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1972,7 +1958,6 @@ export const deserializeAws_json1_1GetDetectorVersionCommand = async (
   contents = deserializeAws_json1_1GetDetectorVersionResult(data, context);
   const response: GetDetectorVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDetectorVersionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2060,7 +2045,6 @@ export const deserializeAws_json1_1GetEntityTypesCommand = async (
   contents = deserializeAws_json1_1GetEntityTypesResult(data, context);
   const response: GetEntityTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEntityTypesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2140,7 +2124,6 @@ export const deserializeAws_json1_1GetEventPredictionCommand = async (
   contents = deserializeAws_json1_1GetEventPredictionResult(data, context);
   const response: GetEventPredictionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEventPredictionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2228,7 +2211,6 @@ export const deserializeAws_json1_1GetEventTypesCommand = async (
   contents = deserializeAws_json1_1GetEventTypesResult(data, context);
   const response: GetEventTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEventTypesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2308,7 +2290,6 @@ export const deserializeAws_json1_1GetExternalModelsCommand = async (
   contents = deserializeAws_json1_1GetExternalModelsResult(data, context);
   const response: GetExternalModelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetExternalModelsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2396,7 +2377,6 @@ export const deserializeAws_json1_1GetKMSEncryptionKeyCommand = async (
   contents = deserializeAws_json1_1GetKMSEncryptionKeyResult(data, context);
   const response: GetKMSEncryptionKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetKMSEncryptionKeyResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2468,7 +2448,6 @@ export const deserializeAws_json1_1GetLabelsCommand = async (
   contents = deserializeAws_json1_1GetLabelsResult(data, context);
   const response: GetLabelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLabelsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2548,7 +2527,6 @@ export const deserializeAws_json1_1GetModelsCommand = async (
   contents = deserializeAws_json1_1GetModelsResult(data, context);
   const response: GetModelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetModelsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2628,7 +2606,6 @@ export const deserializeAws_json1_1GetModelVersionCommand = async (
   contents = deserializeAws_json1_1GetModelVersionResult(data, context);
   const response: GetModelVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetModelVersionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2708,7 +2685,6 @@ export const deserializeAws_json1_1GetOutcomesCommand = async (
   contents = deserializeAws_json1_1GetOutcomesResult(data, context);
   const response: GetOutcomesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOutcomesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2796,7 +2772,6 @@ export const deserializeAws_json1_1GetRulesCommand = async (
   contents = deserializeAws_json1_1GetRulesResult(data, context);
   const response: GetRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRulesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2884,7 +2859,6 @@ export const deserializeAws_json1_1GetVariablesCommand = async (
   contents = deserializeAws_json1_1GetVariablesResult(data, context);
   const response: GetVariablesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVariablesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2972,7 +2946,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResult(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3044,7 +3017,6 @@ export const deserializeAws_json1_1PutDetectorCommand = async (
   contents = deserializeAws_json1_1PutDetectorResult(data, context);
   const response: PutDetectorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutDetectorResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3124,7 +3096,6 @@ export const deserializeAws_json1_1PutEntityTypeCommand = async (
   contents = deserializeAws_json1_1PutEntityTypeResult(data, context);
   const response: PutEntityTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutEntityTypeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3196,7 +3167,6 @@ export const deserializeAws_json1_1PutEventTypeCommand = async (
   contents = deserializeAws_json1_1PutEventTypeResult(data, context);
   const response: PutEventTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutEventTypeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3268,7 +3238,6 @@ export const deserializeAws_json1_1PutExternalModelCommand = async (
   contents = deserializeAws_json1_1PutExternalModelResult(data, context);
   const response: PutExternalModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutExternalModelResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3348,7 +3317,6 @@ export const deserializeAws_json1_1PutKMSEncryptionKeyCommand = async (
   contents = deserializeAws_json1_1PutKMSEncryptionKeyResult(data, context);
   const response: PutKMSEncryptionKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutKMSEncryptionKeyResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3428,7 +3396,6 @@ export const deserializeAws_json1_1PutLabelCommand = async (
   contents = deserializeAws_json1_1PutLabelResult(data, context);
   const response: PutLabelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutLabelResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3500,7 +3467,6 @@ export const deserializeAws_json1_1PutOutcomeCommand = async (
   contents = deserializeAws_json1_1PutOutcomeResult(data, context);
   const response: PutOutcomeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutOutcomeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3580,7 +3546,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResult(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3652,7 +3617,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResult(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3724,7 +3688,6 @@ export const deserializeAws_json1_1UpdateDetectorVersionCommand = async (
   contents = deserializeAws_json1_1UpdateDetectorVersionResult(data, context);
   const response: UpdateDetectorVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDetectorVersionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3812,7 +3775,6 @@ export const deserializeAws_json1_1UpdateDetectorVersionMetadataCommand = async 
   contents = deserializeAws_json1_1UpdateDetectorVersionMetadataResult(data, context);
   const response: UpdateDetectorVersionMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDetectorVersionMetadataResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3892,7 +3854,6 @@ export const deserializeAws_json1_1UpdateDetectorVersionStatusCommand = async (
   contents = deserializeAws_json1_1UpdateDetectorVersionStatusResult(data, context);
   const response: UpdateDetectorVersionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDetectorVersionStatusResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3980,7 +3941,6 @@ export const deserializeAws_json1_1UpdateModelCommand = async (
   contents = deserializeAws_json1_1UpdateModelResult(data, context);
   const response: UpdateModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateModelResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4060,7 +4020,6 @@ export const deserializeAws_json1_1UpdateModelVersionCommand = async (
   contents = deserializeAws_json1_1UpdateModelVersionResult(data, context);
   const response: UpdateModelVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateModelVersionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4140,7 +4099,6 @@ export const deserializeAws_json1_1UpdateModelVersionStatusCommand = async (
   contents = deserializeAws_json1_1UpdateModelVersionStatusResult(data, context);
   const response: UpdateModelVersionStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateModelVersionStatusResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4220,7 +4178,6 @@ export const deserializeAws_json1_1UpdateRuleMetadataCommand = async (
   contents = deserializeAws_json1_1UpdateRuleMetadataResult(data, context);
   const response: UpdateRuleMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRuleMetadataResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4308,7 +4265,6 @@ export const deserializeAws_json1_1UpdateRuleVersionCommand = async (
   contents = deserializeAws_json1_1UpdateRuleVersionResult(data, context);
   const response: UpdateRuleVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRuleVersionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4396,7 +4352,6 @@ export const deserializeAws_json1_1UpdateVariableCommand = async (
   contents = deserializeAws_json1_1UpdateVariableResult(data, context);
   const response: UpdateVariableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateVariableResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5224,7 +5179,6 @@ const serializeAws_json1_1VariableEntryList = (input: VariableEntry[], context: 
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5234,7 +5188,6 @@ const deserializeAws_json1_1BatchCreateVariableError = (
   context: __SerdeContext
 ): BatchCreateVariableError => {
   return {
-    __type: "BatchCreateVariableError",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -5253,7 +5206,6 @@ const deserializeAws_json1_1BatchCreateVariableResult = (
   context: __SerdeContext
 ): BatchCreateVariableResult => {
   return {
-    __type: "BatchCreateVariableResult",
     errors:
       output.errors !== undefined && output.errors !== null
         ? deserializeAws_json1_1BatchCreateVariableErrorList(output.errors, context)
@@ -5263,7 +5215,6 @@ const deserializeAws_json1_1BatchCreateVariableResult = (
 
 const deserializeAws_json1_1BatchGetVariableError = (output: any, context: __SerdeContext): BatchGetVariableError => {
   return {
-    __type: "BatchGetVariableError",
     code: output.code !== undefined && output.code !== null ? output.code : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
@@ -5279,7 +5230,6 @@ const deserializeAws_json1_1BatchGetVariableErrorList = (
 
 const deserializeAws_json1_1BatchGetVariableResult = (output: any, context: __SerdeContext): BatchGetVariableResult => {
   return {
-    __type: "BatchGetVariableResult",
     errors:
       output.errors !== undefined && output.errors !== null
         ? deserializeAws_json1_1BatchGetVariableErrorList(output.errors, context)
@@ -5293,7 +5243,6 @@ const deserializeAws_json1_1BatchGetVariableResult = (output: any, context: __Se
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
-    __type: "ConflictException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5303,7 +5252,6 @@ const deserializeAws_json1_1CreateDetectorVersionResult = (
   context: __SerdeContext
 ): CreateDetectorVersionResult => {
   return {
-    __type: "CreateDetectorVersionResult",
     detectorId: output.detectorId !== undefined && output.detectorId !== null ? output.detectorId : undefined,
     detectorVersionId:
       output.detectorVersionId !== undefined && output.detectorVersionId !== null
@@ -5314,9 +5262,7 @@ const deserializeAws_json1_1CreateDetectorVersionResult = (
 };
 
 const deserializeAws_json1_1CreateModelResult = (output: any, context: __SerdeContext): CreateModelResult => {
-  return {
-    __type: "CreateModelResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateModelVersionResult = (
@@ -5324,7 +5270,6 @@ const deserializeAws_json1_1CreateModelVersionResult = (
   context: __SerdeContext
 ): CreateModelVersionResult => {
   return {
-    __type: "CreateModelVersionResult",
     modelId: output.modelId !== undefined && output.modelId !== null ? output.modelId : undefined,
     modelType: output.modelType !== undefined && output.modelType !== null ? output.modelType : undefined,
     modelVersionNumber:
@@ -5337,16 +5282,13 @@ const deserializeAws_json1_1CreateModelVersionResult = (
 
 const deserializeAws_json1_1CreateRuleResult = (output: any, context: __SerdeContext): CreateRuleResult => {
   return {
-    __type: "CreateRuleResult",
     rule:
       output.rule !== undefined && output.rule !== null ? deserializeAws_json1_1Rule(output.rule, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateVariableResult = (output: any, context: __SerdeContext): CreateVariableResult => {
-  return {
-    __type: "CreateVariableResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CsvIndexToVariableMap = (
@@ -5364,7 +5306,6 @@ const deserializeAws_json1_1CsvIndexToVariableMap = (
 
 const deserializeAws_json1_1DataValidationMetrics = (output: any, context: __SerdeContext): DataValidationMetrics => {
   return {
-    __type: "DataValidationMetrics",
     fieldLevelMessages:
       output.fieldLevelMessages !== undefined && output.fieldLevelMessages !== null
         ? deserializeAws_json1_1fieldValidationMessageList(output.fieldLevelMessages, context)
@@ -5377,35 +5318,26 @@ const deserializeAws_json1_1DataValidationMetrics = (output: any, context: __Ser
 };
 
 const deserializeAws_json1_1DeleteDetectorResult = (output: any, context: __SerdeContext): DeleteDetectorResult => {
-  return {
-    __type: "DeleteDetectorResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteDetectorVersionResult = (
   output: any,
   context: __SerdeContext
 ): DeleteDetectorVersionResult => {
-  return {
-    __type: "DeleteDetectorVersionResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteEventResult = (output: any, context: __SerdeContext): DeleteEventResult => {
-  return {
-    __type: "DeleteEventResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteRuleResult = (output: any, context: __SerdeContext): DeleteRuleResult => {
-  return {
-    __type: "DeleteRuleResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeDetectorResult = (output: any, context: __SerdeContext): DescribeDetectorResult => {
   return {
-    __type: "DescribeDetectorResult",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     detectorId: output.detectorId !== undefined && output.detectorId !== null ? output.detectorId : undefined,
     detectorVersionSummaries:
@@ -5421,7 +5353,6 @@ const deserializeAws_json1_1DescribeModelVersionsResult = (
   context: __SerdeContext
 ): DescribeModelVersionsResult => {
   return {
-    __type: "DescribeModelVersionsResult",
     modelVersionDetails:
       output.modelVersionDetails !== undefined && output.modelVersionDetails !== null
         ? deserializeAws_json1_1modelVersionDetailList(output.modelVersionDetails, context)
@@ -5432,7 +5363,6 @@ const deserializeAws_json1_1DescribeModelVersionsResult = (
 
 const deserializeAws_json1_1Detector = (output: any, context: __SerdeContext): Detector => {
   return {
-    __type: "Detector",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdTime: output.createdTime !== undefined && output.createdTime !== null ? output.createdTime : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
@@ -5450,7 +5380,6 @@ const deserializeAws_json1_1DetectorList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1DetectorVersionSummary = (output: any, context: __SerdeContext): DetectorVersionSummary => {
   return {
-    __type: "DetectorVersionSummary",
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     detectorVersionId:
       output.detectorVersionId !== undefined && output.detectorVersionId !== null
@@ -5471,7 +5400,6 @@ const deserializeAws_json1_1DetectorVersionSummaryList = (
 
 const deserializeAws_json1_1EntityType = (output: any, context: __SerdeContext): EntityType => {
   return {
-    __type: "EntityType",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdTime: output.createdTime !== undefined && output.createdTime !== null ? output.createdTime : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
@@ -5487,7 +5415,6 @@ const deserializeAws_json1_1entityTypeList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1EventType = (output: any, context: __SerdeContext): EventType => {
   return {
-    __type: "EventType",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdTime: output.createdTime !== undefined && output.createdTime !== null ? output.createdTime : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
@@ -5515,7 +5442,6 @@ const deserializeAws_json1_1eventTypeList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1ExternalEventsDetail = (output: any, context: __SerdeContext): ExternalEventsDetail => {
   return {
-    __type: "ExternalEventsDetail",
     dataAccessRoleArn:
       output.dataAccessRoleArn !== undefined && output.dataAccessRoleArn !== null
         ? output.dataAccessRoleArn
@@ -5526,7 +5452,6 @@ const deserializeAws_json1_1ExternalEventsDetail = (output: any, context: __Serd
 
 const deserializeAws_json1_1ExternalModel = (output: any, context: __SerdeContext): ExternalModel => {
   return {
-    __type: "ExternalModel",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdTime: output.createdTime !== undefined && output.createdTime !== null ? output.createdTime : undefined,
     inputConfiguration:
@@ -5559,7 +5484,6 @@ const deserializeAws_json1_1ExternalModelList = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1FieldValidationMessage = (output: any, context: __SerdeContext): FieldValidationMessage => {
   return {
-    __type: "FieldValidationMessage",
     content: output.content !== undefined && output.content !== null ? output.content : undefined,
     fieldName: output.fieldName !== undefined && output.fieldName !== null ? output.fieldName : undefined,
     identifier: output.identifier !== undefined && output.identifier !== null ? output.identifier : undefined,
@@ -5577,7 +5501,6 @@ const deserializeAws_json1_1fieldValidationMessageList = (
 
 const deserializeAws_json1_1FileValidationMessage = (output: any, context: __SerdeContext): FileValidationMessage => {
   return {
-    __type: "FileValidationMessage",
     content: output.content !== undefined && output.content !== null ? output.content : undefined,
     title: output.title !== undefined && output.title !== null ? output.title : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
@@ -5593,7 +5516,6 @@ const deserializeAws_json1_1fileValidationMessageList = (
 
 const deserializeAws_json1_1GetDetectorsResult = (output: any, context: __SerdeContext): GetDetectorsResult => {
   return {
-    __type: "GetDetectorsResult",
     detectors:
       output.detectors !== undefined && output.detectors !== null
         ? deserializeAws_json1_1DetectorList(output.detectors, context)
@@ -5607,7 +5529,6 @@ const deserializeAws_json1_1GetDetectorVersionResult = (
   context: __SerdeContext
 ): GetDetectorVersionResult => {
   return {
-    __type: "GetDetectorVersionResult",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdTime: output.createdTime !== undefined && output.createdTime !== null ? output.createdTime : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
@@ -5640,7 +5561,6 @@ const deserializeAws_json1_1GetDetectorVersionResult = (
 
 const deserializeAws_json1_1GetEntityTypesResult = (output: any, context: __SerdeContext): GetEntityTypesResult => {
   return {
-    __type: "GetEntityTypesResult",
     entityTypes:
       output.entityTypes !== undefined && output.entityTypes !== null
         ? deserializeAws_json1_1entityTypeList(output.entityTypes, context)
@@ -5654,7 +5574,6 @@ const deserializeAws_json1_1GetEventPredictionResult = (
   context: __SerdeContext
 ): GetEventPredictionResult => {
   return {
-    __type: "GetEventPredictionResult",
     modelScores:
       output.modelScores !== undefined && output.modelScores !== null
         ? deserializeAws_json1_1ListOfModelScores(output.modelScores, context)
@@ -5668,7 +5587,6 @@ const deserializeAws_json1_1GetEventPredictionResult = (
 
 const deserializeAws_json1_1GetEventTypesResult = (output: any, context: __SerdeContext): GetEventTypesResult => {
   return {
-    __type: "GetEventTypesResult",
     eventTypes:
       output.eventTypes !== undefined && output.eventTypes !== null
         ? deserializeAws_json1_1eventTypeList(output.eventTypes, context)
@@ -5682,7 +5600,6 @@ const deserializeAws_json1_1GetExternalModelsResult = (
   context: __SerdeContext
 ): GetExternalModelsResult => {
   return {
-    __type: "GetExternalModelsResult",
     externalModels:
       output.externalModels !== undefined && output.externalModels !== null
         ? deserializeAws_json1_1ExternalModelList(output.externalModels, context)
@@ -5696,7 +5613,6 @@ const deserializeAws_json1_1GetKMSEncryptionKeyResult = (
   context: __SerdeContext
 ): GetKMSEncryptionKeyResult => {
   return {
-    __type: "GetKMSEncryptionKeyResult",
     kmsKey:
       output.kmsKey !== undefined && output.kmsKey !== null
         ? deserializeAws_json1_1KMSKey(output.kmsKey, context)
@@ -5706,7 +5622,6 @@ const deserializeAws_json1_1GetKMSEncryptionKeyResult = (
 
 const deserializeAws_json1_1GetLabelsResult = (output: any, context: __SerdeContext): GetLabelsResult => {
   return {
-    __type: "GetLabelsResult",
     labels:
       output.labels !== undefined && output.labels !== null
         ? deserializeAws_json1_1labelList(output.labels, context)
@@ -5717,7 +5632,6 @@ const deserializeAws_json1_1GetLabelsResult = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1GetModelsResult = (output: any, context: __SerdeContext): GetModelsResult => {
   return {
-    __type: "GetModelsResult",
     models:
       output.models !== undefined && output.models !== null
         ? deserializeAws_json1_1modelList(output.models, context)
@@ -5728,7 +5642,6 @@ const deserializeAws_json1_1GetModelsResult = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1GetModelVersionResult = (output: any, context: __SerdeContext): GetModelVersionResult => {
   return {
-    __type: "GetModelVersionResult",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     externalEventsDetail:
       output.externalEventsDetail !== undefined && output.externalEventsDetail !== null
@@ -5754,7 +5667,6 @@ const deserializeAws_json1_1GetModelVersionResult = (output: any, context: __Ser
 
 const deserializeAws_json1_1GetOutcomesResult = (output: any, context: __SerdeContext): GetOutcomesResult => {
   return {
-    __type: "GetOutcomesResult",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     outcomes:
       output.outcomes !== undefined && output.outcomes !== null
@@ -5765,7 +5677,6 @@ const deserializeAws_json1_1GetOutcomesResult = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1GetRulesResult = (output: any, context: __SerdeContext): GetRulesResult => {
   return {
-    __type: "GetRulesResult",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     ruleDetails:
       output.ruleDetails !== undefined && output.ruleDetails !== null
@@ -5776,7 +5687,6 @@ const deserializeAws_json1_1GetRulesResult = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1GetVariablesResult = (output: any, context: __SerdeContext): GetVariablesResult => {
   return {
-    __type: "GetVariablesResult",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     variables:
       output.variables !== undefined && output.variables !== null
@@ -5790,7 +5700,6 @@ const deserializeAws_json1_1InternalServerException = (
   context: __SerdeContext
 ): InternalServerException => {
   return {
-    __type: "InternalServerException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -5810,7 +5719,6 @@ const deserializeAws_json1_1JsonKeyToVariableMap = (
 
 const deserializeAws_json1_1KMSKey = (output: any, context: __SerdeContext): KMSKey => {
   return {
-    __type: "KMSKey",
     kmsEncryptionKeyArn:
       output.kmsEncryptionKeyArn !== undefined && output.kmsEncryptionKeyArn !== null
         ? output.kmsEncryptionKeyArn
@@ -5820,7 +5728,6 @@ const deserializeAws_json1_1KMSKey = (output: any, context: __SerdeContext): KMS
 
 const deserializeAws_json1_1Label = (output: any, context: __SerdeContext): Label => {
   return {
-    __type: "Label",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdTime: output.createdTime !== undefined && output.createdTime !== null ? output.createdTime : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
@@ -5846,7 +5753,6 @@ const deserializeAws_json1_1labelMapper = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1LabelSchema = (output: any, context: __SerdeContext): LabelSchema => {
   return {
-    __type: "LabelSchema",
     labelMapper:
       output.labelMapper !== undefined && output.labelMapper !== null
         ? deserializeAws_json1_1labelMapper(output.labelMapper, context)
@@ -5875,7 +5781,6 @@ const deserializeAws_json1_1ListTagsForResourceResult = (
   context: __SerdeContext
 ): ListTagsForResourceResult => {
   return {
-    __type: "ListTagsForResourceResult",
     nextToken: output.nextToken !== undefined && output.nextToken !== null ? output.nextToken : undefined,
     tags:
       output.tags !== undefined && output.tags !== null
@@ -5886,7 +5791,6 @@ const deserializeAws_json1_1ListTagsForResourceResult = (
 
 const deserializeAws_json1_1MetricDataPoint = (output: any, context: __SerdeContext): MetricDataPoint => {
   return {
-    __type: "MetricDataPoint",
     fpr: output.fpr !== undefined && output.fpr !== null ? output.fpr : undefined,
     precision: output.precision !== undefined && output.precision !== null ? output.precision : undefined,
     threshold: output.threshold !== undefined && output.threshold !== null ? output.threshold : undefined,
@@ -5900,7 +5804,6 @@ const deserializeAws_json1_1metricDataPointsList = (output: any, context: __Serd
 
 const deserializeAws_json1_1Model = (output: any, context: __SerdeContext): Model => {
   return {
-    __type: "Model",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdTime: output.createdTime !== undefined && output.createdTime !== null ? output.createdTime : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
@@ -5918,7 +5821,6 @@ const deserializeAws_json1_1ModelInputConfiguration = (
   context: __SerdeContext
 ): ModelInputConfiguration => {
   return {
-    __type: "ModelInputConfiguration",
     csvInputTemplate:
       output.csvInputTemplate !== undefined && output.csvInputTemplate !== null ? output.csvInputTemplate : undefined,
     eventTypeName:
@@ -5944,7 +5846,6 @@ const deserializeAws_json1_1ModelOutputConfiguration = (
   context: __SerdeContext
 ): ModelOutputConfiguration => {
   return {
-    __type: "ModelOutputConfiguration",
     csvIndexToVariableMap:
       output.csvIndexToVariableMap !== undefined && output.csvIndexToVariableMap !== null
         ? deserializeAws_json1_1CsvIndexToVariableMap(output.csvIndexToVariableMap, context)
@@ -5969,7 +5870,6 @@ const deserializeAws_json1_1ModelPredictionMap = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1ModelScores = (output: any, context: __SerdeContext): ModelScores => {
   return {
-    __type: "ModelScores",
     modelVersion:
       output.modelVersion !== undefined && output.modelVersion !== null
         ? deserializeAws_json1_1ModelVersion(output.modelVersion, context)
@@ -5983,7 +5883,6 @@ const deserializeAws_json1_1ModelScores = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1ModelVersion = (output: any, context: __SerdeContext): ModelVersion => {
   return {
-    __type: "ModelVersion",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     modelId: output.modelId !== undefined && output.modelId !== null ? output.modelId : undefined,
     modelType: output.modelType !== undefined && output.modelType !== null ? output.modelType : undefined,
@@ -5996,7 +5895,6 @@ const deserializeAws_json1_1ModelVersion = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ModelVersionDetail = (output: any, context: __SerdeContext): ModelVersionDetail => {
   return {
-    __type: "ModelVersionDetail",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdTime: output.createdTime !== undefined && output.createdTime !== null ? output.createdTime : undefined,
     externalEventsDetail:
@@ -6037,7 +5935,6 @@ const deserializeAws_json1_1NonEmptyListOfStrings = (output: any, context: __Ser
 
 const deserializeAws_json1_1Outcome = (output: any, context: __SerdeContext): Outcome => {
   return {
-    __type: "Outcome",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdTime: output.createdTime !== undefined && output.createdTime !== null ? output.createdTime : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
@@ -6052,48 +5949,34 @@ const deserializeAws_json1_1OutcomeList = (output: any, context: __SerdeContext)
 };
 
 const deserializeAws_json1_1PutDetectorResult = (output: any, context: __SerdeContext): PutDetectorResult => {
-  return {
-    __type: "PutDetectorResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutEntityTypeResult = (output: any, context: __SerdeContext): PutEntityTypeResult => {
-  return {
-    __type: "PutEntityTypeResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutEventTypeResult = (output: any, context: __SerdeContext): PutEventTypeResult => {
-  return {
-    __type: "PutEventTypeResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutExternalModelResult = (output: any, context: __SerdeContext): PutExternalModelResult => {
-  return {
-    __type: "PutExternalModelResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutKMSEncryptionKeyResult = (
   output: any,
   context: __SerdeContext
 ): PutKMSEncryptionKeyResult => {
-  return {
-    __type: "PutKMSEncryptionKeyResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutLabelResult = (output: any, context: __SerdeContext): PutLabelResult => {
-  return {
-    __type: "PutLabelResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutOutcomeResult = (output: any, context: __SerdeContext): PutOutcomeResult => {
-  return {
-    __type: "PutOutcomeResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
@@ -6101,14 +5984,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule => {
   return {
-    __type: "Rule",
     detectorId: output.detectorId !== undefined && output.detectorId !== null ? output.detectorId : undefined,
     ruleId: output.ruleId !== undefined && output.ruleId !== null ? output.ruleId : undefined,
     ruleVersion: output.ruleVersion !== undefined && output.ruleVersion !== null ? output.ruleVersion : undefined,
@@ -6117,7 +5998,6 @@ const deserializeAws_json1_1Rule = (output: any, context: __SerdeContext): Rule 
 
 const deserializeAws_json1_1RuleDetail = (output: any, context: __SerdeContext): RuleDetail => {
   return {
-    __type: "RuleDetail",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdTime: output.createdTime !== undefined && output.createdTime !== null ? output.createdTime : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
@@ -6145,7 +6025,6 @@ const deserializeAws_json1_1RuleList = (output: any, context: __SerdeContext): R
 
 const deserializeAws_json1_1RuleResult = (output: any, context: __SerdeContext): RuleResult => {
   return {
-    __type: "RuleResult",
     outcomes:
       output.outcomes !== undefined && output.outcomes !== null
         ? deserializeAws_json1_1ListOfStrings(output.outcomes, context)
@@ -6156,7 +6035,6 @@ const deserializeAws_json1_1RuleResult = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -6167,21 +6045,17 @@ const deserializeAws_json1_1tagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResult = (output: any, context: __SerdeContext): TagResourceResult => {
-  return {
-    __type: "TagResourceResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    __type: "ThrottlingException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1TrainingDataSchema = (output: any, context: __SerdeContext): TrainingDataSchema => {
   return {
-    __type: "TrainingDataSchema",
     labelSchema:
       output.labelSchema !== undefined && output.labelSchema !== null
         ? deserializeAws_json1_1LabelSchema(output.labelSchema, context)
@@ -6195,7 +6069,6 @@ const deserializeAws_json1_1TrainingDataSchema = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1TrainingMetrics = (output: any, context: __SerdeContext): TrainingMetrics => {
   return {
-    __type: "TrainingMetrics",
     auc: output.auc !== undefined && output.auc !== null ? output.auc : undefined,
     metricDataPoints:
       output.metricDataPoints !== undefined && output.metricDataPoints !== null
@@ -6206,7 +6079,6 @@ const deserializeAws_json1_1TrainingMetrics = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1TrainingResult = (output: any, context: __SerdeContext): TrainingResult => {
   return {
-    __type: "TrainingResult",
     dataValidationMetrics:
       output.dataValidationMetrics !== undefined && output.dataValidationMetrics !== null
         ? deserializeAws_json1_1DataValidationMetrics(output.dataValidationMetrics, context)
@@ -6219,42 +6091,32 @@ const deserializeAws_json1_1TrainingResult = (output: any, context: __SerdeConte
 };
 
 const deserializeAws_json1_1UntagResourceResult = (output: any, context: __SerdeContext): UntagResourceResult => {
-  return {
-    __type: "UntagResourceResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateDetectorVersionMetadataResult = (
   output: any,
   context: __SerdeContext
 ): UpdateDetectorVersionMetadataResult => {
-  return {
-    __type: "UpdateDetectorVersionMetadataResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateDetectorVersionResult = (
   output: any,
   context: __SerdeContext
 ): UpdateDetectorVersionResult => {
-  return {
-    __type: "UpdateDetectorVersionResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateDetectorVersionStatusResult = (
   output: any,
   context: __SerdeContext
 ): UpdateDetectorVersionStatusResult => {
-  return {
-    __type: "UpdateDetectorVersionStatusResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateModelResult = (output: any, context: __SerdeContext): UpdateModelResult => {
-  return {
-    __type: "UpdateModelResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateModelVersionResult = (
@@ -6262,7 +6124,6 @@ const deserializeAws_json1_1UpdateModelVersionResult = (
   context: __SerdeContext
 ): UpdateModelVersionResult => {
   return {
-    __type: "UpdateModelVersionResult",
     modelId: output.modelId !== undefined && output.modelId !== null ? output.modelId : undefined,
     modelType: output.modelType !== undefined && output.modelType !== null ? output.modelType : undefined,
     modelVersionNumber:
@@ -6277,18 +6138,14 @@ const deserializeAws_json1_1UpdateModelVersionStatusResult = (
   output: any,
   context: __SerdeContext
 ): UpdateModelVersionStatusResult => {
-  return {
-    __type: "UpdateModelVersionStatusResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateRuleMetadataResult = (
   output: any,
   context: __SerdeContext
 ): UpdateRuleMetadataResult => {
-  return {
-    __type: "UpdateRuleMetadataResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateRuleVersionResult = (
@@ -6296,28 +6153,23 @@ const deserializeAws_json1_1UpdateRuleVersionResult = (
   context: __SerdeContext
 ): UpdateRuleVersionResult => {
   return {
-    __type: "UpdateRuleVersionResult",
     rule:
       output.rule !== undefined && output.rule !== null ? deserializeAws_json1_1Rule(output.rule, context) : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UpdateVariableResult = (output: any, context: __SerdeContext): UpdateVariableResult => {
-  return {
-    __type: "UpdateVariableResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ValidationException = (output: any, context: __SerdeContext): ValidationException => {
   return {
-    __type: "ValidationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Variable = (output: any, context: __SerdeContext): Variable => {
   return {
-    __type: "Variable",
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     createdTime: output.createdTime !== undefined && output.createdTime !== null ? output.createdTime : undefined,
     dataSource: output.dataSource !== undefined && output.dataSource !== null ? output.dataSource : undefined,

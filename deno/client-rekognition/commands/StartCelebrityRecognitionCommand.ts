@@ -1,6 +1,6 @@
 
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
-import { StartCelebrityRecognitionRequest, StartCelebrityRecognitionResponse } from "../models/index.ts";
+import { StartCelebrityRecognitionRequest, StartCelebrityRecognitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartCelebrityRecognitionCommand,
   serializeAws_json1_1StartCelebrityRecognitionCommand,

@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DeleteRoleAliasRequest, DeleteRoleAliasResponse } from "../models/index.ts";
+import { DeleteRoleAliasRequest, DeleteRoleAliasResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteRoleAliasCommand,
   serializeAws_restJson1DeleteRoleAliasCommand,

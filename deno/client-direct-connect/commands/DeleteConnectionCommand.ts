@@ -1,6 +1,6 @@
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
-import { Connection, DeleteConnectionRequest } from "../models/index.ts";
+import { Connection, DeleteConnectionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteConnectionCommand,
   serializeAws_json1_1DeleteConnectionCommand,

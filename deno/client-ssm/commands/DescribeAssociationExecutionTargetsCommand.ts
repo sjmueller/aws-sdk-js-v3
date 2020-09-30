@@ -1,6 +1,9 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { DescribeAssociationExecutionTargetsRequest, DescribeAssociationExecutionTargetsResult } from "../models/index.ts";
+import {
+  DescribeAssociationExecutionTargetsRequest,
+  DescribeAssociationExecutionTargetsResult,
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeAssociationExecutionTargetsCommand,
   serializeAws_json1_1DescribeAssociationExecutionTargetsCommand,

@@ -1,6 +1,6 @@
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient.ts";
-import { ListGitHubAccountTokenNamesInput, ListGitHubAccountTokenNamesOutput } from "../models/index.ts";
+import { ListGitHubAccountTokenNamesInput, ListGitHubAccountTokenNamesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListGitHubAccountTokenNamesCommand,
   serializeAws_json1_1ListGitHubAccountTokenNamesCommand,

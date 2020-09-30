@@ -1,6 +1,6 @@
 
 import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient.ts";
-import { GetFederationTokenRequest, GetFederationTokenResponse } from "../models/index.ts";
+import { GetFederationTokenRequest, GetFederationTokenResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetFederationTokenCommand,
   serializeAws_queryGetFederationTokenCommand,

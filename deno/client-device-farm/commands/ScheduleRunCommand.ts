@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { ScheduleRunRequest, ScheduleRunResult } from "../models/index.ts";
+import { ScheduleRunRequest, ScheduleRunResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ScheduleRunCommand,
   serializeAws_json1_1ScheduleRunCommand,

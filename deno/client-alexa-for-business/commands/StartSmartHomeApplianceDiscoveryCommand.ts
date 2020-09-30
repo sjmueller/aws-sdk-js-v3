@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { StartSmartHomeApplianceDiscoveryRequest, StartSmartHomeApplianceDiscoveryResponse } from "../models/index.ts";
+import { StartSmartHomeApplianceDiscoveryRequest, StartSmartHomeApplianceDiscoveryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand,
   serializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand,

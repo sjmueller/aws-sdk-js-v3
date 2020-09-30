@@ -1,6 +1,6 @@
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
-import { UpdateUserSecurityProfilesRequest } from "../models/index.ts";
+import { UpdateUserSecurityProfilesRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateUserSecurityProfilesCommand,
   serializeAws_restJson1UpdateUserSecurityProfilesCommand,

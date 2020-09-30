@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { GetObjectLockConfigurationOutput, GetObjectLockConfigurationRequest } from "../models/index.ts";
+import { GetObjectLockConfigurationOutput, GetObjectLockConfigurationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlGetObjectLockConfigurationCommand,
   serializeAws_restXmlGetObjectLockConfigurationCommand,

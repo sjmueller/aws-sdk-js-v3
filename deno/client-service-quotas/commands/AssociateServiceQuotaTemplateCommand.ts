@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient.ts";
-import { AssociateServiceQuotaTemplateRequest, AssociateServiceQuotaTemplateResponse } from "../models/index.ts";
+import { AssociateServiceQuotaTemplateRequest, AssociateServiceQuotaTemplateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AssociateServiceQuotaTemplateCommand,
   serializeAws_json1_1AssociateServiceQuotaTemplateCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodestarNotificationsClient.ts";
-import { DeleteNotificationRuleRequest, DeleteNotificationRuleResult } from "../models/index.ts";
+import { DeleteNotificationRuleRequest, DeleteNotificationRuleResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteNotificationRuleCommand,
   serializeAws_restJson1DeleteNotificationRuleCommand,

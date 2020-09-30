@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../GlobalAcceleratorClient.ts";
-import { DescribeEndpointGroupRequest, DescribeEndpointGroupResponse } from "../models/index.ts";
+import { DescribeEndpointGroupRequest, DescribeEndpointGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeEndpointGroupCommand,
   serializeAws_json1_1DescribeEndpointGroupCommand,

@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DeleteDBProxyRequest, DeleteDBProxyResponse } from "../models/index.ts";
+import { DeleteDBProxyRequest, DeleteDBProxyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteDBProxyCommand,
   serializeAws_queryDeleteDBProxyCommand,

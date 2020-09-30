@@ -1,6 +1,6 @@
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient.ts";
-import { PutPartnerEventsRequest, PutPartnerEventsResponse } from "../models/index.ts";
+import { PutPartnerEventsRequest, PutPartnerEventsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutPartnerEventsCommand,
   serializeAws_json1_1PutPartnerEventsCommand,
@@ -44,8 +44,11 @@ export class PutPartnerEventsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: PutPartnerEventsRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: PutPartnerEventsResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

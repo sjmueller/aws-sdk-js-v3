@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { GetLayerVersionPolicyRequest, GetLayerVersionPolicyResponse } from "../models/index.ts";
+import { GetLayerVersionPolicyRequest, GetLayerVersionPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetLayerVersionPolicyCommand,
   serializeAws_restJson1GetLayerVersionPolicyCommand,

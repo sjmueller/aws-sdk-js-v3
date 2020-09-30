@@ -1,6 +1,6 @@
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient.ts";
-import { UpdateUserProfileRequest, UpdateUserProfileResult } from "../models/index.ts";
+import { UpdateUserProfileRequest, UpdateUserProfileResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateUserProfileCommand,
   serializeAws_json1_1UpdateUserProfileCommand,

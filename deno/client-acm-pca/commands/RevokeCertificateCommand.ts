@@ -1,6 +1,6 @@
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient.ts";
-import { RevokeCertificateRequest } from "../models/index.ts";
+import { RevokeCertificateRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RevokeCertificateCommand,
   serializeAws_json1_1RevokeCertificateCommand,

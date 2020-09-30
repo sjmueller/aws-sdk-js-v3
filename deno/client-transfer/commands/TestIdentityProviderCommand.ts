@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } from "../TransferClient.ts";
-import { TestIdentityProviderRequest, TestIdentityProviderResponse } from "../models/index.ts";
+import { TestIdentityProviderRequest, TestIdentityProviderResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1TestIdentityProviderCommand,
   serializeAws_json1_1TestIdentityProviderCommand,

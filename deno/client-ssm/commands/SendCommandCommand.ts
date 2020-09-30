@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { SendCommandRequest, SendCommandResult } from "../models/index.ts";
+import { SendCommandRequest, SendCommandResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1SendCommandCommand,
   serializeAws_json1_1SendCommandCommand,

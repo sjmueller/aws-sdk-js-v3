@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { CacheEngineVersionMessage, DescribeCacheEngineVersionsMessage } from "../models/index.ts";
+import { CacheEngineVersionMessage, DescribeCacheEngineVersionsMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeCacheEngineVersionsCommand,
   serializeAws_queryDescribeCacheEngineVersionsCommand,

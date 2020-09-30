@@ -43,7 +43,7 @@ import {
   PolicyDescriptorType,
   RegionDisabledException,
   Tag,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -199,7 +199,6 @@ export const deserializeAws_queryAssumeRoleCommand = async (
   contents = deserializeAws_queryAssumeRoleResponse(data.AssumeRoleResult, context);
   const response: AssumeRoleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssumeRoleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -270,7 +269,6 @@ export const deserializeAws_queryAssumeRoleWithSAMLCommand = async (
   contents = deserializeAws_queryAssumeRoleWithSAMLResponse(data.AssumeRoleWithSAMLResult, context);
   const response: AssumeRoleWithSAMLCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssumeRoleWithSAMLResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -365,7 +363,6 @@ export const deserializeAws_queryAssumeRoleWithWebIdentityCommand = async (
   contents = deserializeAws_queryAssumeRoleWithWebIdentityResponse(data.AssumeRoleWithWebIdentityResult, context);
   const response: AssumeRoleWithWebIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssumeRoleWithWebIdentityResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -468,7 +465,6 @@ export const deserializeAws_queryDecodeAuthorizationMessageCommand = async (
   contents = deserializeAws_queryDecodeAuthorizationMessageResponse(data.DecodeAuthorizationMessageResult, context);
   const response: DecodeAuthorizationMessageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DecodeAuthorizationMessageResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -523,7 +519,6 @@ export const deserializeAws_queryGetAccessKeyInfoCommand = async (
   contents = deserializeAws_queryGetAccessKeyInfoResponse(data.GetAccessKeyInfoResult, context);
   const response: GetAccessKeyInfoCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAccessKeyInfoResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -570,7 +565,6 @@ export const deserializeAws_queryGetCallerIdentityCommand = async (
   contents = deserializeAws_queryGetCallerIdentityResponse(data.GetCallerIdentityResult, context);
   const response: GetCallerIdentityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCallerIdentityResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -617,7 +611,6 @@ export const deserializeAws_queryGetFederationTokenCommand = async (
   contents = deserializeAws_queryGetFederationTokenResponse(data.GetFederationTokenResult, context);
   const response: GetFederationTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFederationTokenResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -688,7 +681,6 @@ export const deserializeAws_queryGetSessionTokenCommand = async (
   contents = deserializeAws_queryGetSessionTokenResponse(data.GetSessionTokenResult, context);
   const response: GetSessionTokenCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSessionTokenResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1087,7 +1079,6 @@ const serializeAws_querytagListType = (input: Tag[], context: __SerdeContext): a
 
 const deserializeAws_queryAssumedRoleUser = (output: any, context: __SerdeContext): AssumedRoleUser => {
   let contents: any = {
-    __type: "AssumedRoleUser",
     Arn: undefined,
     AssumedRoleId: undefined,
   };
@@ -1102,7 +1093,6 @@ const deserializeAws_queryAssumedRoleUser = (output: any, context: __SerdeContex
 
 const deserializeAws_queryAssumeRoleResponse = (output: any, context: __SerdeContext): AssumeRoleResponse => {
   let contents: any = {
-    __type: "AssumeRoleResponse",
     Credentials: undefined,
     AssumedRoleUser: undefined,
     PackedPolicySize: undefined,
@@ -1124,7 +1114,6 @@ const deserializeAws_queryAssumeRoleWithSAMLResponse = (
   context: __SerdeContext
 ): AssumeRoleWithSAMLResponse => {
   let contents: any = {
-    __type: "AssumeRoleWithSAMLResponse",
     Audience: undefined,
     PackedPolicySize: undefined,
     SubjectType: undefined,
@@ -1166,7 +1155,6 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
   context: __SerdeContext
 ): AssumeRoleWithWebIdentityResponse => {
   let contents: any = {
-    __type: "AssumeRoleWithWebIdentityResponse",
     PackedPolicySize: undefined,
     Audience: undefined,
     Provider: undefined,
@@ -1197,7 +1185,6 @@ const deserializeAws_queryAssumeRoleWithWebIdentityResponse = (
 
 const deserializeAws_queryCredentials = (output: any, context: __SerdeContext): Credentials => {
   let contents: any = {
-    __type: "Credentials",
     AccessKeyId: undefined,
     SessionToken: undefined,
     SecretAccessKey: undefined,
@@ -1223,7 +1210,6 @@ const deserializeAws_queryDecodeAuthorizationMessageResponse = (
   context: __SerdeContext
 ): DecodeAuthorizationMessageResponse => {
   let contents: any = {
-    __type: "DecodeAuthorizationMessageResponse",
     DecodedMessage: undefined,
   };
   if (output["DecodedMessage"] !== undefined) {
@@ -1234,7 +1220,6 @@ const deserializeAws_queryDecodeAuthorizationMessageResponse = (
 
 const deserializeAws_queryExpiredTokenException = (output: any, context: __SerdeContext): ExpiredTokenException => {
   let contents: any = {
-    __type: "ExpiredTokenException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1245,7 +1230,6 @@ const deserializeAws_queryExpiredTokenException = (output: any, context: __Serde
 
 const deserializeAws_queryFederatedUser = (output: any, context: __SerdeContext): FederatedUser => {
   let contents: any = {
-    __type: "FederatedUser",
     Arn: undefined,
     FederatedUserId: undefined,
   };
@@ -1263,7 +1247,6 @@ const deserializeAws_queryGetAccessKeyInfoResponse = (
   context: __SerdeContext
 ): GetAccessKeyInfoResponse => {
   let contents: any = {
-    __type: "GetAccessKeyInfoResponse",
     Account: undefined,
   };
   if (output["Account"] !== undefined) {
@@ -1277,7 +1260,6 @@ const deserializeAws_queryGetCallerIdentityResponse = (
   context: __SerdeContext
 ): GetCallerIdentityResponse => {
   let contents: any = {
-    __type: "GetCallerIdentityResponse",
     Arn: undefined,
     Account: undefined,
     UserId: undefined,
@@ -1299,7 +1281,6 @@ const deserializeAws_queryGetFederationTokenResponse = (
   context: __SerdeContext
 ): GetFederationTokenResponse => {
   let contents: any = {
-    __type: "GetFederationTokenResponse",
     FederatedUser: undefined,
     Credentials: undefined,
     PackedPolicySize: undefined,
@@ -1318,7 +1299,6 @@ const deserializeAws_queryGetFederationTokenResponse = (
 
 const deserializeAws_queryGetSessionTokenResponse = (output: any, context: __SerdeContext): GetSessionTokenResponse => {
   let contents: any = {
-    __type: "GetSessionTokenResponse",
     Credentials: undefined,
   };
   if (output["Credentials"] !== undefined) {
@@ -1332,7 +1312,6 @@ const deserializeAws_queryIDPCommunicationErrorException = (
   context: __SerdeContext
 ): IDPCommunicationErrorException => {
   let contents: any = {
-    __type: "IDPCommunicationErrorException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1346,7 +1325,6 @@ const deserializeAws_queryIDPRejectedClaimException = (
   context: __SerdeContext
 ): IDPRejectedClaimException => {
   let contents: any = {
-    __type: "IDPRejectedClaimException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1360,7 +1338,6 @@ const deserializeAws_queryInvalidAuthorizationMessageException = (
   context: __SerdeContext
 ): InvalidAuthorizationMessageException => {
   let contents: any = {
-    __type: "InvalidAuthorizationMessageException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1374,7 +1351,6 @@ const deserializeAws_queryInvalidIdentityTokenException = (
   context: __SerdeContext
 ): InvalidIdentityTokenException => {
   let contents: any = {
-    __type: "InvalidIdentityTokenException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1388,7 +1364,6 @@ const deserializeAws_queryMalformedPolicyDocumentException = (
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
   let contents: any = {
-    __type: "MalformedPolicyDocumentException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1402,7 +1377,6 @@ const deserializeAws_queryPackedPolicyTooLargeException = (
   context: __SerdeContext
 ): PackedPolicyTooLargeException => {
   let contents: any = {
-    __type: "PackedPolicyTooLargeException",
     message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -1413,7 +1387,6 @@ const deserializeAws_queryPackedPolicyTooLargeException = (
 
 const deserializeAws_queryRegionDisabledException = (output: any, context: __SerdeContext): RegionDisabledException => {
   let contents: any = {
-    __type: "RegionDisabledException",
     message: undefined,
   };
   if (output["message"] !== undefined) {

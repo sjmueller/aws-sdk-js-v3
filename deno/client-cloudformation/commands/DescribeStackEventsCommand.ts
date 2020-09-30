@@ -1,6 +1,6 @@
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
-import { DescribeStackEventsInput, DescribeStackEventsOutput } from "../models/index.ts";
+import { DescribeStackEventsInput, DescribeStackEventsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeStackEventsCommand,
   serializeAws_queryDescribeStackEventsCommand,

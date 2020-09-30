@@ -1,6 +1,6 @@
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient.ts";
-import { DescribeHsmRequest, DescribeHsmResponse } from "../models/index.ts";
+import { DescribeHsmRequest, DescribeHsmResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeHsmCommand,
   serializeAws_json1_1DescribeHsmCommand,

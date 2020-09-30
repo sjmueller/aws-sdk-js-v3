@@ -1,6 +1,6 @@
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
-import { ListProtectedResourcesInput, ListProtectedResourcesOutput } from "../models/index.ts";
+import { ListProtectedResourcesInput, ListProtectedResourcesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListProtectedResourcesCommand,
   serializeAws_restJson1ListProtectedResourcesCommand,

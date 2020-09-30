@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { DeleteIdentityRequest, DeleteIdentityResponse } from "../models/index.ts";
+import { DeleteIdentityRequest, DeleteIdentityResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteIdentityCommand,
   serializeAws_queryDeleteIdentityCommand,

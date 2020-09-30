@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { DescribeTagsRequest, DescribeTagsResult } from "../models/index.ts";
+import { DescribeTagsRequest, DescribeTagsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeTagsCommand,
   serializeAws_json1_1DescribeTagsCommand,

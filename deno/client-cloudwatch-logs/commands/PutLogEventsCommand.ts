@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { PutLogEventsRequest, PutLogEventsResponse } from "../models/index.ts";
+import { PutLogEventsRequest, PutLogEventsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutLogEventsCommand,
   serializeAws_json1_1PutLogEventsCommand,

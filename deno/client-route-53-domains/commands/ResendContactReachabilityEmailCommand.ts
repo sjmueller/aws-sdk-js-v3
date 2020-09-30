@@ -1,6 +1,6 @@
 
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
-import { ResendContactReachabilityEmailRequest, ResendContactReachabilityEmailResponse } from "../models/index.ts";
+import { ResendContactReachabilityEmailRequest, ResendContactReachabilityEmailResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ResendContactReachabilityEmailCommand,
   serializeAws_json1_1ResendContactReachabilityEmailCommand,

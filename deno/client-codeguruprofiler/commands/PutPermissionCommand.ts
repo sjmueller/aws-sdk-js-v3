@@ -1,6 +1,6 @@
 
 import { CodeGuruProfilerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeGuruProfilerClient.ts";
-import { PutPermissionRequest, PutPermissionResponse } from "../models/index.ts";
+import { PutPermissionRequest, PutPermissionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutPermissionCommand,
   serializeAws_restJson1PutPermissionCommand,

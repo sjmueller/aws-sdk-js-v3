@@ -1,6 +1,6 @@
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
-import { ListFindingsRequest, ListFindingsResponse } from "../models/index.ts";
+import { ListFindingsRequest, ListFindingsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListFindingsCommand,
   serializeAws_restJson1ListFindingsCommand,

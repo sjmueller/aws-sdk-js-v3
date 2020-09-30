@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { CreateTransformJobRequest, CreateTransformJobResponse } from "../models/index.ts";
+import { CreateTransformJobRequest, CreateTransformJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateTransformJobCommand,
   serializeAws_json1_1CreateTransformJobCommand,

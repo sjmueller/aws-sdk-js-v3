@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { AllowedNodeTypeModificationsMessage, ListAllowedNodeTypeModificationsMessage } from "../models/index.ts";
+import { AllowedNodeTypeModificationsMessage, ListAllowedNodeTypeModificationsMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryListAllowedNodeTypeModificationsCommand,
   serializeAws_queryListAllowedNodeTypeModificationsCommand,

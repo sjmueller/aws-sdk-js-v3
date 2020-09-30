@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { GetEffectivePoliciesRequest, GetEffectivePoliciesResponse } from "../models/index.ts";
+import { GetEffectivePoliciesRequest, GetEffectivePoliciesResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1GetEffectivePoliciesCommand,
   serializeAws_restJson1GetEffectivePoliciesCommand,

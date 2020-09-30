@@ -1,6 +1,6 @@
 
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
-import { StartOnDemandReplicationRunRequest, StartOnDemandReplicationRunResponse } from "../models/index.ts";
+import { StartOnDemandReplicationRunRequest, StartOnDemandReplicationRunResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartOnDemandReplicationRunCommand,
   serializeAws_json1_1StartOnDemandReplicationRunCommand,

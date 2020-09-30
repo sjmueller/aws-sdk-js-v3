@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { DeleteCachePolicyRequest } from "../models/index.ts";
+import { DeleteCachePolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlDeleteCachePolicyCommand,
   serializeAws_restXmlDeleteCachePolicyCommand,

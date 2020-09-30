@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient.ts";
-import { StartICD10CMInferenceJobRequest, StartICD10CMInferenceJobResponse } from "../models/index.ts";
+import { StartICD10CMInferenceJobRequest, StartICD10CMInferenceJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartICD10CMInferenceJobCommand,
   serializeAws_json1_1StartICD10CMInferenceJobCommand,

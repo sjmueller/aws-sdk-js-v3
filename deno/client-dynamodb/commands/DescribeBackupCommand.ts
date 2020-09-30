@@ -1,6 +1,6 @@
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
-import { DescribeBackupInput, DescribeBackupOutput } from "../models/index.ts";
+import { DescribeBackupInput, DescribeBackupOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0DescribeBackupCommand,
   serializeAws_json1_0DescribeBackupCommand,

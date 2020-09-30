@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { PutIdentityPolicyRequest, PutIdentityPolicyResponse } from "../models/index.ts";
+import { PutIdentityPolicyRequest, PutIdentityPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryPutIdentityPolicyCommand,
   serializeAws_queryPutIdentityPolicyCommand,

@@ -1,6 +1,6 @@
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient.ts";
-import { DeleteProtocolsListRequest } from "../models/index.ts";
+import { DeleteProtocolsListRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteProtocolsListCommand,
   serializeAws_json1_1DeleteProtocolsListCommand,

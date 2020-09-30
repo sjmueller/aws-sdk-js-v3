@@ -1,6 +1,6 @@
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
-import { UpdateUserIdentityInfoRequest } from "../models/index.ts";
+import { UpdateUserIdentityInfoRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateUserIdentityInfoCommand,
   serializeAws_restJson1UpdateUserIdentityInfoCommand,

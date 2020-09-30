@@ -1,6 +1,6 @@
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
-import { ListBackupPlanTemplatesInput, ListBackupPlanTemplatesOutput } from "../models/index.ts";
+import { ListBackupPlanTemplatesInput, ListBackupPlanTemplatesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListBackupPlanTemplatesCommand,
   serializeAws_restJson1ListBackupPlanTemplatesCommand,

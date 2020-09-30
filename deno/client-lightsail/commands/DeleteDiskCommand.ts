@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { DeleteDiskRequest, DeleteDiskResult } from "../models/index.ts";
+import { DeleteDiskRequest, DeleteDiskResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteDiskCommand,
   serializeAws_json1_1DeleteDiskCommand,

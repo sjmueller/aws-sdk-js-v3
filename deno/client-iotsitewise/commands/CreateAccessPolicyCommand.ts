@@ -1,6 +1,6 @@
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
-import { CreateAccessPolicyRequest, CreateAccessPolicyResponse } from "../models/index.ts";
+import { CreateAccessPolicyRequest, CreateAccessPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateAccessPolicyCommand,
   serializeAws_restJson1CreateAccessPolicyCommand,

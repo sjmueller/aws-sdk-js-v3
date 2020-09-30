@@ -7,7 +7,7 @@ import {
 import {
   AcceptInboundCrossClusterSearchConnectionRequest,
   AcceptInboundCrossClusterSearchConnectionResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommand,
   serializeAws_restJson1AcceptInboundCrossClusterSearchConnectionCommand,

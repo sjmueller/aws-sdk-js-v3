@@ -1,6 +1,6 @@
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
-import { StopQueryExecutionInput, StopQueryExecutionOutput } from "../models/index.ts";
+import { StopQueryExecutionInput, StopQueryExecutionOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopQueryExecutionCommand,
   serializeAws_json1_1StopQueryExecutionCommand,

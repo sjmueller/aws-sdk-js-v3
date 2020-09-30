@@ -1,6 +1,6 @@
 
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient.ts";
-import { CreateBrokerRequest, CreateBrokerResponse } from "../models/index.ts";
+import { CreateBrokerRequest, CreateBrokerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateBrokerCommand,
   serializeAws_restJson1CreateBrokerCommand,

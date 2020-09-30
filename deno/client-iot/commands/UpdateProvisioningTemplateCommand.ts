@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { UpdateProvisioningTemplateRequest, UpdateProvisioningTemplateResponse } from "../models/index.ts";
+import { UpdateProvisioningTemplateRequest, UpdateProvisioningTemplateResponse } from "../models/models_2.ts";
 import {
   deserializeAws_restJson1UpdateProvisioningTemplateCommand,
   serializeAws_restJson1UpdateProvisioningTemplateCommand,

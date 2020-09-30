@@ -1,6 +1,6 @@
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient.ts";
-import { RemoveTagsFromOnPremisesInstancesInput } from "../models/index.ts";
+import { RemoveTagsFromOnPremisesInstancesInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand,
   serializeAws_json1_1RemoveTagsFromOnPremisesInstancesCommand,

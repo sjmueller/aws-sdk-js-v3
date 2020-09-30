@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { GetAccountSummaryResponse } from "../models/index.ts";
+import { GetAccountSummaryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetAccountSummaryCommand,
   serializeAws_queryGetAccountSummaryCommand,

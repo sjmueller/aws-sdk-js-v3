@@ -1,6 +1,6 @@
 
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient.ts";
-import { GetQueueAttributesRequest, GetQueueAttributesResult } from "../models/index.ts";
+import { GetQueueAttributesRequest, GetQueueAttributesResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetQueueAttributesCommand,
   serializeAws_queryGetQueueAttributesCommand,

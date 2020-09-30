@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { DescribeConfigurationSetRequest, DescribeConfigurationSetResponse } from "../models/index.ts";
+import { DescribeConfigurationSetRequest, DescribeConfigurationSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeConfigurationSetCommand,
   serializeAws_queryDescribeConfigurationSetCommand,

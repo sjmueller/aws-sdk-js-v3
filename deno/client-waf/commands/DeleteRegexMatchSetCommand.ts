@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { DeleteRegexMatchSetRequest, DeleteRegexMatchSetResponse } from "../models/index.ts";
+import { DeleteRegexMatchSetRequest, DeleteRegexMatchSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteRegexMatchSetCommand,
   serializeAws_json1_1DeleteRegexMatchSetCommand,

@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { DisassociateRoleFromGroupRequest, DisassociateRoleFromGroupResponse } from "../models/index.ts";
+import { DisassociateRoleFromGroupRequest, DisassociateRoleFromGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DisassociateRoleFromGroupCommand,
   serializeAws_restJson1DisassociateRoleFromGroupCommand,

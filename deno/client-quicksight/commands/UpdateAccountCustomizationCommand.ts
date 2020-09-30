@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { UpdateAccountCustomizationRequest, UpdateAccountCustomizationResponse } from "../models/index.ts";
+import { UpdateAccountCustomizationRequest, UpdateAccountCustomizationResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UpdateAccountCustomizationCommand,
   serializeAws_restJson1UpdateAccountCustomizationCommand,

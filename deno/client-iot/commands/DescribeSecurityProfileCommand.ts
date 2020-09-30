@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DescribeSecurityProfileRequest, DescribeSecurityProfileResponse } from "../models/index.ts";
+import { DescribeSecurityProfileRequest, DescribeSecurityProfileResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DescribeSecurityProfileCommand,
   serializeAws_restJson1DescribeSecurityProfileCommand,

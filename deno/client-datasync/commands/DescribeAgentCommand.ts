@@ -1,6 +1,6 @@
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient.ts";
-import { DescribeAgentRequest, DescribeAgentResponse } from "../models/index.ts";
+import { DescribeAgentRequest, DescribeAgentResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeAgentCommand,
   serializeAws_json1_1DescribeAgentCommand,

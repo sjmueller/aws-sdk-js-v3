@@ -23,7 +23,7 @@ import {
   ServiceUnavailableException,
   TerminalStateException,
   ThrottlingException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -205,7 +205,6 @@ export const deserializeAws_restJson1DescribeJobExecutionCommand = async (
   }
   const contents: DescribeJobExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeJobExecutionResponse",
     execution: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -301,7 +300,6 @@ export const deserializeAws_restJson1GetPendingJobExecutionsCommand = async (
   }
   const contents: GetPendingJobExecutionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPendingJobExecutionsResponse",
     inProgressJobs: undefined,
     queuedJobs: undefined,
   };
@@ -393,7 +391,6 @@ export const deserializeAws_restJson1StartNextPendingJobExecutionCommand = async
   }
   const contents: StartNextPendingJobExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartNextPendingJobExecutionResponse",
     execution: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -481,7 +478,6 @@ export const deserializeAws_restJson1UpdateJobExecutionCommand = async (
   }
   const contents: UpdateJobExecutionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateJobExecutionResponse",
     executionState: undefined,
     jobDocument: undefined,
   };
@@ -717,7 +713,6 @@ const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeContext): JobExecution => {
   return {
-    __type: "JobExecution",
     approximateSecondsBeforeTimedOut:
       output.approximateSecondsBeforeTimedOut !== undefined && output.approximateSecondsBeforeTimedOut !== null
         ? output.approximateSecondsBeforeTimedOut
@@ -743,7 +738,6 @@ const deserializeAws_restJson1JobExecution = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1JobExecutionState = (output: any, context: __SerdeContext): JobExecutionState => {
   return {
-    __type: "JobExecutionState",
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
     statusDetails:
       output.statusDetails !== undefined && output.statusDetails !== null
@@ -756,7 +750,6 @@ const deserializeAws_restJson1JobExecutionState = (output: any, context: __Serde
 
 const deserializeAws_restJson1JobExecutionSummary = (output: any, context: __SerdeContext): JobExecutionSummary => {
   return {
-    __type: "JobExecutionSummary",
     executionNumber:
       output.executionNumber !== undefined && output.executionNumber !== null ? output.executionNumber : undefined,
     jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,

@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { AddThingToBillingGroupRequest, AddThingToBillingGroupResponse } from "../models/index.ts";
+import { AddThingToBillingGroupRequest, AddThingToBillingGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AddThingToBillingGroupCommand,
   serializeAws_restJson1AddThingToBillingGroupCommand,

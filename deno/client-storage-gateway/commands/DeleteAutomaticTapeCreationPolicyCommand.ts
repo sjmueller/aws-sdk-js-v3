@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { DeleteAutomaticTapeCreationPolicyInput, DeleteAutomaticTapeCreationPolicyOutput } from "../models/index.ts";
+import { DeleteAutomaticTapeCreationPolicyInput, DeleteAutomaticTapeCreationPolicyOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand,
   serializeAws_json1_1DeleteAutomaticTapeCreationPolicyCommand,

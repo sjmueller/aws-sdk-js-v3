@@ -1,6 +1,6 @@
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
-import { StartChatContactRequest, StartChatContactResponse } from "../models/index.ts";
+import { StartChatContactRequest, StartChatContactResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StartChatContactCommand,
   serializeAws_restJson1StartChatContactCommand,

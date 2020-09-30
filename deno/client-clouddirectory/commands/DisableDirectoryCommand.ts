@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { DisableDirectoryRequest, DisableDirectoryResponse } from "../models/index.ts";
+import { DisableDirectoryRequest, DisableDirectoryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DisableDirectoryCommand,
   serializeAws_restJson1DisableDirectoryCommand,

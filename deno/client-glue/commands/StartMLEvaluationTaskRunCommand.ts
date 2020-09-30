@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { StartMLEvaluationTaskRunRequest, StartMLEvaluationTaskRunResponse } from "../models/index.ts";
+import { StartMLEvaluationTaskRunRequest, StartMLEvaluationTaskRunResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1StartMLEvaluationTaskRunCommand,
   serializeAws_json1_1StartMLEvaluationTaskRunCommand,

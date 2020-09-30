@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { ListTestGridSessionsRequest, ListTestGridSessionsResult } from "../models/index.ts";
+import { ListTestGridSessionsRequest, ListTestGridSessionsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListTestGridSessionsCommand,
   serializeAws_json1_1ListTestGridSessionsCommand,

@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { PutBucketNotificationConfigurationRequest } from "../models/index.ts";
+import { PutBucketNotificationConfigurationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlPutBucketNotificationConfigurationCommand,
   serializeAws_restXmlPutBucketNotificationConfigurationCommand,

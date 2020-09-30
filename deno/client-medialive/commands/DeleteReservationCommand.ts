@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { DeleteReservationRequest, DeleteReservationResponse } from "../models/index.ts";
+import { DeleteReservationRequest, DeleteReservationResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DeleteReservationCommand,
   serializeAws_restJson1DeleteReservationCommand,

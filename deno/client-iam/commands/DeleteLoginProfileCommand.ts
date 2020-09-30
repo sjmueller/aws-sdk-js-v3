@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { DeleteLoginProfileRequest } from "../models/index.ts";
+import { DeleteLoginProfileRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteLoginProfileCommand,
   serializeAws_queryDeleteLoginProfileCommand,

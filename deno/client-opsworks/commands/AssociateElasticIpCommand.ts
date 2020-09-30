@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { AssociateElasticIpRequest } from "../models/index.ts";
+import { AssociateElasticIpRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AssociateElasticIpCommand,
   serializeAws_json1_1AssociateElasticIpCommand,

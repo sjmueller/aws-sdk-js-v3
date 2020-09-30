@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { StopInstanceRequest, StopInstanceResult } from "../models/index.ts";
+import { StopInstanceRequest, StopInstanceResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1StopInstanceCommand,
   serializeAws_json1_1StopInstanceCommand,

@@ -1,6 +1,6 @@
 
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient.ts";
-import { DeleteAnalyzerRequest } from "../models/index.ts";
+import { DeleteAnalyzerRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteAnalyzerCommand,
   serializeAws_restJson1DeleteAnalyzerCommand,

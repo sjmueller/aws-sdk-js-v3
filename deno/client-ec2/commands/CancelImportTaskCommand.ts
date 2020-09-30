@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CancelImportTaskRequest, CancelImportTaskResult } from "../models/index.ts";
+import { CancelImportTaskRequest, CancelImportTaskResult } from "../models/models_0.ts";
 import {
   deserializeAws_ec2CancelImportTaskCommand,
   serializeAws_ec2CancelImportTaskCommand,

@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { CreateLoadBalancerTlsCertificateRequest, CreateLoadBalancerTlsCertificateResult } from "../models/index.ts";
+import { CreateLoadBalancerTlsCertificateRequest, CreateLoadBalancerTlsCertificateResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateLoadBalancerTlsCertificateCommand,
   serializeAws_json1_1CreateLoadBalancerTlsCertificateCommand,

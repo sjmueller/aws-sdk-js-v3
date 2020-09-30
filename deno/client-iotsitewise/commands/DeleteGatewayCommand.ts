@@ -1,6 +1,6 @@
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
-import { DeleteGatewayRequest } from "../models/index.ts";
+import { DeleteGatewayRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteGatewayCommand,
   serializeAws_restJson1DeleteGatewayCommand,

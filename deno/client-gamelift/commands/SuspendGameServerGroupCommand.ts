@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { SuspendGameServerGroupInput, SuspendGameServerGroupOutput } from "../models/index.ts";
+import { SuspendGameServerGroupInput, SuspendGameServerGroupOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SuspendGameServerGroupCommand,
   serializeAws_json1_1SuspendGameServerGroupCommand,

@@ -4,7 +4,10 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { DescribePendingMaintenanceActionsMessage, DescribePendingMaintenanceActionsResponse } from "../models/index.ts";
+import {
+  DescribePendingMaintenanceActionsMessage,
+  DescribePendingMaintenanceActionsResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribePendingMaintenanceActionsCommand,
   serializeAws_json1_1DescribePendingMaintenanceActionsCommand,

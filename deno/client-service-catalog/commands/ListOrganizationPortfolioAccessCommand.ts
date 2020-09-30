@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { ListOrganizationPortfolioAccessInput, ListOrganizationPortfolioAccessOutput } from "../models/index.ts";
+import { ListOrganizationPortfolioAccessInput, ListOrganizationPortfolioAccessOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListOrganizationPortfolioAccessCommand,
   serializeAws_json1_1ListOrganizationPortfolioAccessCommand,

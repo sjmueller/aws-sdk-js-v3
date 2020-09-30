@@ -1,6 +1,6 @@
 
 import { OrganizationsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OrganizationsClient.ts";
-import { RemoveAccountFromOrganizationRequest } from "../models/index.ts";
+import { RemoveAccountFromOrganizationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RemoveAccountFromOrganizationCommand,
   serializeAws_json1_1RemoveAccountFromOrganizationCommand,

@@ -1,6 +1,6 @@
 
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient.ts";
-import { DBClusterParameterGroupNameMessage, ResetDBClusterParameterGroupMessage } from "../models/index.ts";
+import { DBClusterParameterGroupNameMessage, ResetDBClusterParameterGroupMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryResetDBClusterParameterGroupCommand,
   serializeAws_queryResetDBClusterParameterGroupCommand,

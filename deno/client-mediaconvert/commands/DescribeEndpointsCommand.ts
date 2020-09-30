@@ -1,6 +1,6 @@
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient.ts";
-import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/index.ts";
+import { DescribeEndpointsRequest, DescribeEndpointsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DescribeEndpointsCommand,
   serializeAws_restJson1DescribeEndpointsCommand,

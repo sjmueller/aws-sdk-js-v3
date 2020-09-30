@@ -1,6 +1,6 @@
 
 import { ForecastClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ForecastClient.ts";
-import { DescribeForecastExportJobRequest, DescribeForecastExportJobResponse } from "../models/index.ts";
+import { DescribeForecastExportJobRequest, DescribeForecastExportJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeForecastExportJobCommand,
   serializeAws_json1_1DescribeForecastExportJobCommand,

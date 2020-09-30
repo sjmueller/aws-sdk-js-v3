@@ -1,6 +1,6 @@
 
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
-import { StartLabelDetectionRequest, StartLabelDetectionResponse } from "../models/index.ts";
+import { StartLabelDetectionRequest, StartLabelDetectionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartLabelDetectionCommand,
   serializeAws_json1_1StartLabelDetectionCommand,

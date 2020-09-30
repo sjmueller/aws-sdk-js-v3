@@ -1,6 +1,6 @@
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
-import { DescribeDocumentClassifierRequest, DescribeDocumentClassifierResponse } from "../models/index.ts";
+import { DescribeDocumentClassifierRequest, DescribeDocumentClassifierResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeDocumentClassifierCommand,
   serializeAws_json1_1DescribeDocumentClassifierCommand,

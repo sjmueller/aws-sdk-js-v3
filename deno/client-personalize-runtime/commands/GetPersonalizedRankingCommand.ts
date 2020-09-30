@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../PersonalizeRuntimeClient.ts";
-import { GetPersonalizedRankingRequest, GetPersonalizedRankingResponse } from "../models/index.ts";
+import { GetPersonalizedRankingRequest, GetPersonalizedRankingResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetPersonalizedRankingCommand,
   serializeAws_restJson1GetPersonalizedRankingCommand,

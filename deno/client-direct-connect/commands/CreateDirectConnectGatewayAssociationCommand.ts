@@ -3,7 +3,7 @@ import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 import {
   CreateDirectConnectGatewayAssociationRequest,
   CreateDirectConnectGatewayAssociationResult,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommand,
   serializeAws_json1_1CreateDirectConnectGatewayAssociationCommand,

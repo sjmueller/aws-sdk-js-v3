@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { ModifyClusterMessage, ModifyClusterResult } from "../models/index.ts";
+import { ModifyClusterMessage, ModifyClusterResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryModifyClusterCommand,
   serializeAws_queryModifyClusterCommand,

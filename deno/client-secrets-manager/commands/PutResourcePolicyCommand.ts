@@ -1,6 +1,6 @@
 
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient.ts";
-import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/index.ts";
+import { PutResourcePolicyRequest, PutResourcePolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutResourcePolicyCommand,
   serializeAws_json1_1PutResourcePolicyCommand,

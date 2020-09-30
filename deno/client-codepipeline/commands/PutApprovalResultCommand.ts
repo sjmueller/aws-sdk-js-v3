@@ -1,6 +1,6 @@
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
-import { PutApprovalResultInput, PutApprovalResultOutput } from "../models/index.ts";
+import { PutApprovalResultInput, PutApprovalResultOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutApprovalResultCommand,
   serializeAws_json1_1PutApprovalResultCommand,

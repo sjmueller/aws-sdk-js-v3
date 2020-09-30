@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { RejectSharedDirectoryRequest, RejectSharedDirectoryResult } from "../models/index.ts";
+import { RejectSharedDirectoryRequest, RejectSharedDirectoryResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RejectSharedDirectoryCommand,
   serializeAws_json1_1RejectSharedDirectoryCommand,

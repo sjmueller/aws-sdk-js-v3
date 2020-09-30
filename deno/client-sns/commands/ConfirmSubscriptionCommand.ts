@@ -1,6 +1,6 @@
 
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
-import { ConfirmSubscriptionInput, ConfirmSubscriptionResponse } from "../models/index.ts";
+import { ConfirmSubscriptionInput, ConfirmSubscriptionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryConfirmSubscriptionCommand,
   serializeAws_queryConfirmSubscriptionCommand,

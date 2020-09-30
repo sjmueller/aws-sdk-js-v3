@@ -3,7 +3,7 @@ import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 import {
   RemoveSourceIdentifierFromSubscriptionMessage,
   RemoveSourceIdentifierFromSubscriptionResult,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,
   serializeAws_queryRemoveSourceIdentifierFromSubscriptionCommand,

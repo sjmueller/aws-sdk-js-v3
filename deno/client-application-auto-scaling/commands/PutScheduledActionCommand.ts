@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient.ts";
-import { PutScheduledActionRequest, PutScheduledActionResponse } from "../models/index.ts";
+import { PutScheduledActionRequest, PutScheduledActionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutScheduledActionCommand,
   serializeAws_json1_1PutScheduledActionCommand,

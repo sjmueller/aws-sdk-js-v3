@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { PutObjectTaggingOutput, PutObjectTaggingRequest } from "../models/index.ts";
+import { PutObjectTaggingOutput, PutObjectTaggingRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlPutObjectTaggingCommand,
   serializeAws_restXmlPutObjectTaggingCommand,

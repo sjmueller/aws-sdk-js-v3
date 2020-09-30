@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DeleteThingRequest, DeleteThingResponse } from "../models/index.ts";
+import { DeleteThingRequest, DeleteThingResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteThingCommand,
   serializeAws_restJson1DeleteThingCommand,

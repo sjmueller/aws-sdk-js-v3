@@ -1,6 +1,6 @@
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient.ts";
-import { DeleteCostCategoryDefinitionRequest, DeleteCostCategoryDefinitionResponse } from "../models/index.ts";
+import { DeleteCostCategoryDefinitionRequest, DeleteCostCategoryDefinitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteCostCategoryDefinitionCommand,
   serializeAws_json1_1DeleteCostCategoryDefinitionCommand,

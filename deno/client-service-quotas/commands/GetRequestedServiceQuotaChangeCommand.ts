@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfig } from "../ServiceQuotasClient.ts";
-import { GetRequestedServiceQuotaChangeRequest, GetRequestedServiceQuotaChangeResponse } from "../models/index.ts";
+import { GetRequestedServiceQuotaChangeRequest, GetRequestedServiceQuotaChangeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetRequestedServiceQuotaChangeCommand,
   serializeAws_json1_1GetRequestedServiceQuotaChangeCommand,

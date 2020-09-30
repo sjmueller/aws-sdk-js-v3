@@ -1,6 +1,6 @@
 
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient.ts";
-import { ListWorkflowTypesInput, WorkflowTypeInfos } from "../models/index.ts";
+import { ListWorkflowTypesInput, WorkflowTypeInfos } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0ListWorkflowTypesCommand,
   serializeAws_json1_0ListWorkflowTypesCommand,

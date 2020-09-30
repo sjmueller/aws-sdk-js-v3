@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { DeletePolicyVersionRequest } from "../models/index.ts";
+import { DeletePolicyVersionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeletePolicyVersionCommand,
   serializeAws_queryDeletePolicyVersionCommand,

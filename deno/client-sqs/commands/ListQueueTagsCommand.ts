@@ -1,6 +1,6 @@
 
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient.ts";
-import { ListQueueTagsRequest, ListQueueTagsResult } from "../models/index.ts";
+import { ListQueueTagsRequest, ListQueueTagsResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryListQueueTagsCommand,
   serializeAws_queryListQueueTagsCommand,

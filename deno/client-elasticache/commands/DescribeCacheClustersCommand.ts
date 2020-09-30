@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { CacheClusterMessage, DescribeCacheClustersMessage } from "../models/index.ts";
+import { CacheClusterMessage, DescribeCacheClustersMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeCacheClustersCommand,
   serializeAws_queryDescribeCacheClustersCommand,

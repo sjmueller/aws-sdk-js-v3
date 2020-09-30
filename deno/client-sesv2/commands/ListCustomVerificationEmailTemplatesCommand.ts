@@ -3,7 +3,7 @@ import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   ListCustomVerificationEmailTemplatesRequest,
   ListCustomVerificationEmailTemplatesResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListCustomVerificationEmailTemplatesCommand,
   serializeAws_restJson1ListCustomVerificationEmailTemplatesCommand,

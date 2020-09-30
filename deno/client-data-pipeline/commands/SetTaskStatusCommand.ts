@@ -1,6 +1,6 @@
 
 import { DataPipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataPipelineClient.ts";
-import { SetTaskStatusInput, SetTaskStatusOutput } from "../models/index.ts";
+import { SetTaskStatusInput, SetTaskStatusOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SetTaskStatusCommand,
   serializeAws_json1_1SetTaskStatusCommand,

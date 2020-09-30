@@ -1,6 +1,6 @@
 
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
-import { ListSchemasRequest, ListSchemasResponse } from "../models/index.ts";
+import { ListSchemasRequest, ListSchemasResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListSchemasCommand,
   serializeAws_json1_1ListSchemasCommand,

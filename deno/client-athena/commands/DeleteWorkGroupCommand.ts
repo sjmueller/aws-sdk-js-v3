@@ -1,6 +1,6 @@
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
-import { DeleteWorkGroupInput, DeleteWorkGroupOutput } from "../models/index.ts";
+import { DeleteWorkGroupInput, DeleteWorkGroupOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteWorkGroupCommand,
   serializeAws_json1_1DeleteWorkGroupCommand,

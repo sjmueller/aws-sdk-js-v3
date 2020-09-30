@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { SetV2LoggingOptionsRequest } from "../models/index.ts";
+import { SetV2LoggingOptionsRequest } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1SetV2LoggingOptionsCommand,
   serializeAws_restJson1SetV2LoggingOptionsCommand,

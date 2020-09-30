@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient.ts";
-import { DescribePlacementRequest, DescribePlacementResponse } from "../models/index.ts";
+import { DescribePlacementRequest, DescribePlacementResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribePlacementCommand,
   serializeAws_restJson1DescribePlacementCommand,

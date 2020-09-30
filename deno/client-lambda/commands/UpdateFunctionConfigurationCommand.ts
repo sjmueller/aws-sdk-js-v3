@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { FunctionConfiguration, UpdateFunctionConfigurationRequest } from "../models/index.ts";
+import { FunctionConfiguration, UpdateFunctionConfigurationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateFunctionConfigurationCommand,
   serializeAws_restJson1UpdateFunctionConfigurationCommand,

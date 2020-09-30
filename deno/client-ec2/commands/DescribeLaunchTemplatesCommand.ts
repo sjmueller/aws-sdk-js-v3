@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeLaunchTemplatesRequest, DescribeLaunchTemplatesResult } from "../models/index.ts";
+import { DescribeLaunchTemplatesRequest, DescribeLaunchTemplatesResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeLaunchTemplatesCommand,
   serializeAws_ec2DescribeLaunchTemplatesCommand,

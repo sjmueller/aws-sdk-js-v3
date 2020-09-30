@@ -83,7 +83,7 @@ import {
   ThrottlingException,
   TransitionEvent,
   UnsupportedOperationException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -578,7 +578,6 @@ export const deserializeAws_restJson1CreateDetectorModelCommand = async (
   }
   const contents: CreateDetectorModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDetectorModelResponse",
     detectorModelConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -685,7 +684,6 @@ export const deserializeAws_restJson1CreateInputCommand = async (
   }
   const contents: CreateInputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateInputResponse",
     inputConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -773,7 +771,6 @@ export const deserializeAws_restJson1DeleteDetectorModelCommand = async (
   }
   const contents: DeleteDetectorModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDetectorModelResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -865,7 +862,6 @@ export const deserializeAws_restJson1DeleteInputCommand = async (
   }
   const contents: DeleteInputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteInputResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -957,7 +953,6 @@ export const deserializeAws_restJson1DescribeDetectorModelCommand = async (
   }
   const contents: DescribeDetectorModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDetectorModelResponse",
     detectorModel: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1045,7 +1040,6 @@ export const deserializeAws_restJson1DescribeInputCommand = async (
   }
   const contents: DescribeInputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInputResponse",
     input: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1133,7 +1127,6 @@ export const deserializeAws_restJson1DescribeLoggingOptionsCommand = async (
   }
   const contents: DescribeLoggingOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLoggingOptionsResponse",
     loggingOptions: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1229,7 +1222,6 @@ export const deserializeAws_restJson1ListDetectorModelsCommand = async (
   }
   const contents: ListDetectorModelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDetectorModelsResponse",
     detectorModelSummaries: undefined,
     nextToken: undefined,
   };
@@ -1316,7 +1308,6 @@ export const deserializeAws_restJson1ListDetectorModelVersionsCommand = async (
   }
   const contents: ListDetectorModelVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDetectorModelVersionsResponse",
     detectorModelVersionSummaries: undefined,
     nextToken: undefined,
   };
@@ -1411,7 +1402,6 @@ export const deserializeAws_restJson1ListInputsCommand = async (
   }
   const contents: ListInputsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInputsResponse",
     inputSummaries: undefined,
     nextToken: undefined,
   };
@@ -1495,7 +1485,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1674,7 +1663,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1766,7 +1754,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1850,7 +1837,6 @@ export const deserializeAws_restJson1UpdateDetectorModelCommand = async (
   }
   const contents: UpdateDetectorModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDetectorModelResponse",
     detectorModelConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1949,7 +1935,6 @@ export const deserializeAws_restJson1UpdateInputCommand = async (
   }
   const contents: UpdateInputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateInputResponse",
     inputConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2491,7 +2476,6 @@ const serializeAws_restJson1TransitionEvents = (input: TransitionEvent[], contex
 
 const deserializeAws_restJson1Action = (output: any, context: __SerdeContext): Action => {
   return {
-    __type: "Action",
     clearTimer:
       output.clearTimer !== undefined && output.clearTimer !== null
         ? deserializeAws_restJson1ClearTimerAction(output.clearTimer, context)
@@ -2556,7 +2540,6 @@ const deserializeAws_restJson1AssetPropertyTimestamp = (
   context: __SerdeContext
 ): AssetPropertyTimestamp => {
   return {
-    __type: "AssetPropertyTimestamp",
     offsetInNanos:
       output.offsetInNanos !== undefined && output.offsetInNanos !== null ? output.offsetInNanos : undefined,
     timeInSeconds:
@@ -2566,7 +2549,6 @@ const deserializeAws_restJson1AssetPropertyTimestamp = (
 
 const deserializeAws_restJson1AssetPropertyValue = (output: any, context: __SerdeContext): AssetPropertyValue => {
   return {
-    __type: "AssetPropertyValue",
     quality: output.quality !== undefined && output.quality !== null ? output.quality : undefined,
     timestamp:
       output.timestamp !== undefined && output.timestamp !== null
@@ -2581,7 +2563,6 @@ const deserializeAws_restJson1AssetPropertyValue = (output: any, context: __Serd
 
 const deserializeAws_restJson1AssetPropertyVariant = (output: any, context: __SerdeContext): AssetPropertyVariant => {
   return {
-    __type: "AssetPropertyVariant",
     booleanValue: output.booleanValue !== undefined && output.booleanValue !== null ? output.booleanValue : undefined,
     doubleValue: output.doubleValue !== undefined && output.doubleValue !== null ? output.doubleValue : undefined,
     integerValue: output.integerValue !== undefined && output.integerValue !== null ? output.integerValue : undefined,
@@ -2591,7 +2572,6 @@ const deserializeAws_restJson1AssetPropertyVariant = (output: any, context: __Se
 
 const deserializeAws_restJson1Attribute = (output: any, context: __SerdeContext): Attribute => {
   return {
-    __type: "Attribute",
     jsonPath: output.jsonPath !== undefined && output.jsonPath !== null ? output.jsonPath : undefined,
   } as any;
 };
@@ -2602,14 +2582,12 @@ const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1ClearTimerAction = (output: any, context: __SerdeContext): ClearTimerAction => {
   return {
-    __type: "ClearTimerAction",
     timerName: output.timerName !== undefined && output.timerName !== null ? output.timerName : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1DetectorDebugOption = (output: any, context: __SerdeContext): DetectorDebugOption => {
   return {
-    __type: "DetectorDebugOption",
     detectorModelName:
       output.detectorModelName !== undefined && output.detectorModelName !== null
         ? output.detectorModelName
@@ -2624,7 +2602,6 @@ const deserializeAws_restJson1DetectorDebugOptions = (output: any, context: __Se
 
 const deserializeAws_restJson1DetectorModel = (output: any, context: __SerdeContext): DetectorModel => {
   return {
-    __type: "DetectorModel",
     detectorModelConfiguration:
       output.detectorModelConfiguration !== undefined && output.detectorModelConfiguration !== null
         ? deserializeAws_restJson1DetectorModelConfiguration(output.detectorModelConfiguration, context)
@@ -2641,7 +2618,6 @@ const deserializeAws_restJson1DetectorModelConfiguration = (
   context: __SerdeContext
 ): DetectorModelConfiguration => {
   return {
-    __type: "DetectorModelConfiguration",
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
@@ -2677,7 +2653,6 @@ const deserializeAws_restJson1DetectorModelDefinition = (
   context: __SerdeContext
 ): DetectorModelDefinition => {
   return {
-    __type: "DetectorModelDefinition",
     initialStateName:
       output.initialStateName !== undefined && output.initialStateName !== null ? output.initialStateName : undefined,
     states:
@@ -2696,7 +2671,6 @@ const deserializeAws_restJson1DetectorModelSummaries = (
 
 const deserializeAws_restJson1DetectorModelSummary = (output: any, context: __SerdeContext): DetectorModelSummary => {
   return {
-    __type: "DetectorModelSummary",
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
@@ -2724,7 +2698,6 @@ const deserializeAws_restJson1DetectorModelVersionSummary = (
   context: __SerdeContext
 ): DetectorModelVersionSummary => {
   return {
-    __type: "DetectorModelVersionSummary",
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
@@ -2752,7 +2725,6 @@ const deserializeAws_restJson1DetectorModelVersionSummary = (
 
 const deserializeAws_restJson1DynamoDBAction = (output: any, context: __SerdeContext): DynamoDBAction => {
   return {
-    __type: "DynamoDBAction",
     hashKeyField: output.hashKeyField !== undefined && output.hashKeyField !== null ? output.hashKeyField : undefined,
     hashKeyType: output.hashKeyType !== undefined && output.hashKeyType !== null ? output.hashKeyType : undefined,
     hashKeyValue: output.hashKeyValue !== undefined && output.hashKeyValue !== null ? output.hashKeyValue : undefined,
@@ -2773,7 +2745,6 @@ const deserializeAws_restJson1DynamoDBAction = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1DynamoDBv2Action = (output: any, context: __SerdeContext): DynamoDBv2Action => {
   return {
-    __type: "DynamoDBv2Action",
     payload:
       output.payload !== undefined && output.payload !== null
         ? deserializeAws_restJson1Payload(output.payload, context)
@@ -2784,7 +2755,6 @@ const deserializeAws_restJson1DynamoDBv2Action = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Event = (output: any, context: __SerdeContext): Event => {
   return {
-    __type: "Event",
     actions:
       output.actions !== undefined && output.actions !== null
         ? deserializeAws_restJson1Actions(output.actions, context)
@@ -2800,7 +2770,6 @@ const deserializeAws_restJson1Events = (output: any, context: __SerdeContext): E
 
 const deserializeAws_restJson1FirehoseAction = (output: any, context: __SerdeContext): FirehoseAction => {
   return {
-    __type: "FirehoseAction",
     deliveryStreamName:
       output.deliveryStreamName !== undefined && output.deliveryStreamName !== null
         ? output.deliveryStreamName
@@ -2815,7 +2784,6 @@ const deserializeAws_restJson1FirehoseAction = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Input = (output: any, context: __SerdeContext): Input => {
   return {
-    __type: "Input",
     inputConfiguration:
       output.inputConfiguration !== undefined && output.inputConfiguration !== null
         ? deserializeAws_restJson1InputConfiguration(output.inputConfiguration, context)
@@ -2829,7 +2797,6 @@ const deserializeAws_restJson1Input = (output: any, context: __SerdeContext): In
 
 const deserializeAws_restJson1InputConfiguration = (output: any, context: __SerdeContext): InputConfiguration => {
   return {
-    __type: "InputConfiguration",
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
@@ -2848,7 +2815,6 @@ const deserializeAws_restJson1InputConfiguration = (output: any, context: __Serd
 
 const deserializeAws_restJson1InputDefinition = (output: any, context: __SerdeContext): InputDefinition => {
   return {
-    __type: "InputDefinition",
     attributes:
       output.attributes !== undefined && output.attributes !== null
         ? deserializeAws_restJson1Attributes(output.attributes, context)
@@ -2862,7 +2828,6 @@ const deserializeAws_restJson1InputSummaries = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1InputSummary = (output: any, context: __SerdeContext): InputSummary => {
   return {
-    __type: "InputSummary",
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
@@ -2881,7 +2846,6 @@ const deserializeAws_restJson1InputSummary = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1IotEventsAction = (output: any, context: __SerdeContext): IotEventsAction => {
   return {
-    __type: "IotEventsAction",
     inputName: output.inputName !== undefined && output.inputName !== null ? output.inputName : undefined,
     payload:
       output.payload !== undefined && output.payload !== null
@@ -2892,7 +2856,6 @@ const deserializeAws_restJson1IotEventsAction = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1IotSiteWiseAction = (output: any, context: __SerdeContext): IotSiteWiseAction => {
   return {
-    __type: "IotSiteWiseAction",
     assetId: output.assetId !== undefined && output.assetId !== null ? output.assetId : undefined,
     entryId: output.entryId !== undefined && output.entryId !== null ? output.entryId : undefined,
     propertyAlias:
@@ -2907,7 +2870,6 @@ const deserializeAws_restJson1IotSiteWiseAction = (output: any, context: __Serde
 
 const deserializeAws_restJson1IotTopicPublishAction = (output: any, context: __SerdeContext): IotTopicPublishAction => {
   return {
-    __type: "IotTopicPublishAction",
     mqttTopic: output.mqttTopic !== undefined && output.mqttTopic !== null ? output.mqttTopic : undefined,
     payload:
       output.payload !== undefined && output.payload !== null
@@ -2918,7 +2880,6 @@ const deserializeAws_restJson1IotTopicPublishAction = (output: any, context: __S
 
 const deserializeAws_restJson1LambdaAction = (output: any, context: __SerdeContext): LambdaAction => {
   return {
-    __type: "LambdaAction",
     functionArn: output.functionArn !== undefined && output.functionArn !== null ? output.functionArn : undefined,
     payload:
       output.payload !== undefined && output.payload !== null
@@ -2929,7 +2890,6 @@ const deserializeAws_restJson1LambdaAction = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1LoggingOptions = (output: any, context: __SerdeContext): LoggingOptions => {
   return {
-    __type: "LoggingOptions",
     detectorDebugOptions:
       output.detectorDebugOptions !== undefined && output.detectorDebugOptions !== null
         ? deserializeAws_restJson1DetectorDebugOptions(output.detectorDebugOptions, context)
@@ -2942,7 +2902,6 @@ const deserializeAws_restJson1LoggingOptions = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1OnEnterLifecycle = (output: any, context: __SerdeContext): OnEnterLifecycle => {
   return {
-    __type: "OnEnterLifecycle",
     events:
       output.events !== undefined && output.events !== null
         ? deserializeAws_restJson1Events(output.events, context)
@@ -2952,7 +2911,6 @@ const deserializeAws_restJson1OnEnterLifecycle = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1OnExitLifecycle = (output: any, context: __SerdeContext): OnExitLifecycle => {
   return {
-    __type: "OnExitLifecycle",
     events:
       output.events !== undefined && output.events !== null
         ? deserializeAws_restJson1Events(output.events, context)
@@ -2962,7 +2920,6 @@ const deserializeAws_restJson1OnExitLifecycle = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1OnInputLifecycle = (output: any, context: __SerdeContext): OnInputLifecycle => {
   return {
-    __type: "OnInputLifecycle",
     events:
       output.events !== undefined && output.events !== null
         ? deserializeAws_restJson1Events(output.events, context)
@@ -2976,7 +2933,6 @@ const deserializeAws_restJson1OnInputLifecycle = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Payload = (output: any, context: __SerdeContext): Payload => {
   return {
-    __type: "Payload",
     contentExpression:
       output.contentExpression !== undefined && output.contentExpression !== null
         ? output.contentExpression
@@ -2987,14 +2943,12 @@ const deserializeAws_restJson1Payload = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1ResetTimerAction = (output: any, context: __SerdeContext): ResetTimerAction => {
   return {
-    __type: "ResetTimerAction",
     timerName: output.timerName !== undefined && output.timerName !== null ? output.timerName : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1SetTimerAction = (output: any, context: __SerdeContext): SetTimerAction => {
   return {
-    __type: "SetTimerAction",
     durationExpression:
       output.durationExpression !== undefined && output.durationExpression !== null
         ? output.durationExpression
@@ -3006,7 +2960,6 @@ const deserializeAws_restJson1SetTimerAction = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1SetVariableAction = (output: any, context: __SerdeContext): SetVariableAction => {
   return {
-    __type: "SetVariableAction",
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
     variableName: output.variableName !== undefined && output.variableName !== null ? output.variableName : undefined,
   } as any;
@@ -3014,7 +2967,6 @@ const deserializeAws_restJson1SetVariableAction = (output: any, context: __Serde
 
 const deserializeAws_restJson1SNSTopicPublishAction = (output: any, context: __SerdeContext): SNSTopicPublishAction => {
   return {
-    __type: "SNSTopicPublishAction",
     payload:
       output.payload !== undefined && output.payload !== null
         ? deserializeAws_restJson1Payload(output.payload, context)
@@ -3025,7 +2977,6 @@ const deserializeAws_restJson1SNSTopicPublishAction = (output: any, context: __S
 
 const deserializeAws_restJson1SqsAction = (output: any, context: __SerdeContext): SqsAction => {
   return {
-    __type: "SqsAction",
     payload:
       output.payload !== undefined && output.payload !== null
         ? deserializeAws_restJson1Payload(output.payload, context)
@@ -3037,7 +2988,6 @@ const deserializeAws_restJson1SqsAction = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1State = (output: any, context: __SerdeContext): State => {
   return {
-    __type: "State",
     onEnter:
       output.onEnter !== undefined && output.onEnter !== null
         ? deserializeAws_restJson1OnEnterLifecycle(output.onEnter, context)
@@ -3060,7 +3010,6 @@ const deserializeAws_restJson1States = (output: any, context: __SerdeContext): S
 
 const deserializeAws_restJson1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     key: output.key !== undefined && output.key !== null ? output.key : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -3072,7 +3021,6 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Tag
 
 const deserializeAws_restJson1TransitionEvent = (output: any, context: __SerdeContext): TransitionEvent => {
   return {
-    __type: "TransitionEvent",
     actions:
       output.actions !== undefined && output.actions !== null
         ? deserializeAws_restJson1Actions(output.actions, context)

@@ -1,6 +1,6 @@
 
 import { NetworkManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NetworkManagerClient.ts";
-import { AssociateLinkRequest, AssociateLinkResponse } from "../models/index.ts";
+import { AssociateLinkRequest, AssociateLinkResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AssociateLinkCommand,
   serializeAws_restJson1AssociateLinkCommand,

@@ -1,6 +1,6 @@
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient.ts";
-import { DeleteAssetRequest } from "../models/index.ts";
+import { DeleteAssetRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteAssetCommand,
   serializeAws_restJson1DeleteAssetCommand,

@@ -1,6 +1,6 @@
 
 import { SSOOIDCClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOOIDCClient.ts";
-import { RegisterClientRequest, RegisterClientResponse } from "../models/index.ts";
+import { RegisterClientRequest, RegisterClientResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1RegisterClientCommand,
   serializeAws_restJson1RegisterClientCommand,

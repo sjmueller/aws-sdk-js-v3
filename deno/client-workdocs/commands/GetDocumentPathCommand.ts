@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { GetDocumentPathRequest, GetDocumentPathResponse } from "../models/index.ts";
+import { GetDocumentPathRequest, GetDocumentPathResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetDocumentPathCommand,
   serializeAws_restJson1GetDocumentPathCommand,

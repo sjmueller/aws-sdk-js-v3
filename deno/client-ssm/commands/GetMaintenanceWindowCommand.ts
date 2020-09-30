@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { GetMaintenanceWindowRequest, GetMaintenanceWindowResult } from "../models/index.ts";
+import { GetMaintenanceWindowRequest, GetMaintenanceWindowResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetMaintenanceWindowCommand,
   serializeAws_json1_1GetMaintenanceWindowCommand,

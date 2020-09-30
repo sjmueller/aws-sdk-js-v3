@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } from "../WorkDocsClient.ts";
-import { CreateUserRequest, CreateUserResponse } from "../models/index.ts";
+import { CreateUserRequest, CreateUserResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateUserCommand,
   serializeAws_restJson1CreateUserCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { UpdateRateBasedRuleRequest, UpdateRateBasedRuleResponse } from "../models/index.ts";
+import { UpdateRateBasedRuleRequest, UpdateRateBasedRuleResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateRateBasedRuleCommand,
   serializeAws_json1_1UpdateRateBasedRuleCommand,

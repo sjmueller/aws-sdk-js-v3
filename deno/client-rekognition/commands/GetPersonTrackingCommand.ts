@@ -1,6 +1,6 @@
 
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
-import { GetPersonTrackingRequest, GetPersonTrackingResponse } from "../models/index.ts";
+import { GetPersonTrackingRequest, GetPersonTrackingResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetPersonTrackingCommand,
   serializeAws_json1_1GetPersonTrackingCommand,

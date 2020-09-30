@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { StartDBInstanceMessage, StartDBInstanceResult } from "../models/index.ts";
+import { StartDBInstanceMessage, StartDBInstanceResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryStartDBInstanceCommand,
   serializeAws_queryStartDBInstanceCommand,

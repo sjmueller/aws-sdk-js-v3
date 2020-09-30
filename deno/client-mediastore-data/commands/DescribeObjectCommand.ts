@@ -1,6 +1,6 @@
 
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient.ts";
-import { DescribeObjectRequest, DescribeObjectResponse } from "../models/index.ts";
+import { DescribeObjectRequest, DescribeObjectResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeObjectCommand,
   serializeAws_restJson1DescribeObjectCommand,

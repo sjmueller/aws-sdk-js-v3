@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { TerminateSessionRequest, TerminateSessionResponse } from "../models/index.ts";
+import { TerminateSessionRequest, TerminateSessionResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1TerminateSessionCommand,
   serializeAws_json1_1TerminateSessionCommand,

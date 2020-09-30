@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { DeleteRemediationExceptionsRequest, DeleteRemediationExceptionsResponse } from "../models/index.ts";
+import { DeleteRemediationExceptionsRequest, DeleteRemediationExceptionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteRemediationExceptionsCommand,
   serializeAws_json1_1DeleteRemediationExceptionsCommand,

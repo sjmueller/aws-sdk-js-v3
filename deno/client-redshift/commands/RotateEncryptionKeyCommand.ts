@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { RotateEncryptionKeyMessage, RotateEncryptionKeyResult } from "../models/index.ts";
+import { RotateEncryptionKeyMessage, RotateEncryptionKeyResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryRotateEncryptionKeyCommand,
   serializeAws_queryRotateEncryptionKeyCommand,

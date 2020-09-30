@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { GetLogGroupFieldsRequest, GetLogGroupFieldsResponse } from "../models/index.ts";
+import { GetLogGroupFieldsRequest, GetLogGroupFieldsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetLogGroupFieldsCommand,
   serializeAws_json1_1GetLogGroupFieldsCommand,

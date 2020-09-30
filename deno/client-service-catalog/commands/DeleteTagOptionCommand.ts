@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { DeleteTagOptionInput, DeleteTagOptionOutput } from "../models/index.ts";
+import { DeleteTagOptionInput, DeleteTagOptionOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteTagOptionCommand,
   serializeAws_json1_1DeleteTagOptionCommand,

@@ -1,6 +1,6 @@
 
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
-import { DeleteSchemaRequest } from "../models/index.ts";
+import { DeleteSchemaRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteSchemaCommand,
   serializeAws_json1_1DeleteSchemaCommand,

@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { ConfigurationOptionsDescription, DescribeConfigurationOptionsMessage } from "../models/index.ts";
+import { ConfigurationOptionsDescription, DescribeConfigurationOptionsMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeConfigurationOptionsCommand,
   serializeAws_queryDescribeConfigurationOptionsCommand,

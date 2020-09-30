@@ -1,6 +1,6 @@
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
-import { TagResourceInput } from "../models/index.ts";
+import { TagResourceInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0TagResourceCommand,
   serializeAws_json1_0TagResourceCommand,

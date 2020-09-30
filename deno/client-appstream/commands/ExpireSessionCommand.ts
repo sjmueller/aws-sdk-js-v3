@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { ExpireSessionRequest, ExpireSessionResult } from "../models/index.ts";
+import { ExpireSessionRequest, ExpireSessionResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ExpireSessionCommand,
   serializeAws_json1_1ExpireSessionCommand,

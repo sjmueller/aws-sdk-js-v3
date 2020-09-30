@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { UpdateVpcLinkRequest, VpcLink } from "../models/index.ts";
+import { UpdateVpcLinkRequest, VpcLink } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateVpcLinkCommand,
   serializeAws_restJson1UpdateVpcLinkCommand,

@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { DeleteUserPermissionsBoundaryRequest } from "../models/index.ts";
+import { DeleteUserPermissionsBoundaryRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteUserPermissionsBoundaryCommand,
   serializeAws_queryDeleteUserPermissionsBoundaryCommand,

@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ModifyVpcEndpointConnectionNotificationRequest,
   ModifyVpcEndpointConnectionNotificationResult,
-} from "../models/index.ts";
+} from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand,
   serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand,

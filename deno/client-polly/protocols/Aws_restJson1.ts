@@ -47,7 +47,7 @@ import {
   UnsupportedPlsAlphabetException,
   UnsupportedPlsLanguageException,
   Voice,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -349,7 +349,6 @@ export const deserializeAws_restJson1DeleteLexiconCommand = async (
   }
   const contents: DeleteLexiconCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLexiconOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -409,7 +408,6 @@ export const deserializeAws_restJson1DescribeVoicesCommand = async (
   }
   const contents: DescribeVoicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVoicesOutput",
     NextToken: undefined,
     Voices: undefined,
   };
@@ -477,7 +475,6 @@ export const deserializeAws_restJson1GetLexiconCommand = async (
   }
   const contents: GetLexiconCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLexiconOutput",
     Lexicon: undefined,
     LexiconAttributes: undefined,
   };
@@ -545,7 +542,6 @@ export const deserializeAws_restJson1GetSpeechSynthesisTaskCommand = async (
   }
   const contents: GetSpeechSynthesisTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSpeechSynthesisTaskOutput",
     SynthesisTask: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -617,7 +613,6 @@ export const deserializeAws_restJson1ListLexiconsCommand = async (
   }
   const contents: ListLexiconsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListLexiconsOutput",
     Lexicons: undefined,
     NextToken: undefined,
   };
@@ -685,7 +680,6 @@ export const deserializeAws_restJson1ListSpeechSynthesisTasksCommand = async (
   }
   const contents: ListSpeechSynthesisTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSpeechSynthesisTasksOutput",
     NextToken: undefined,
     SynthesisTasks: undefined,
   };
@@ -753,7 +747,6 @@ export const deserializeAws_restJson1PutLexiconCommand = async (
   }
   const contents: PutLexiconCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutLexiconOutput",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -853,7 +846,6 @@ export const deserializeAws_restJson1StartSpeechSynthesisTaskCommand = async (
   }
   const contents: StartSpeechSynthesisTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartSpeechSynthesisTaskOutput",
     SynthesisTask: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -997,7 +989,6 @@ export const deserializeAws_restJson1SynthesizeSpeechCommand = async (
   }
   const contents: SynthesizeSpeechCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SynthesizeSpeechOutput",
     AudioStream: undefined,
     ContentType: undefined,
     RequestCharacters: undefined,
@@ -1489,7 +1480,6 @@ const deserializeAws_restJson1LanguageCodeList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Lexicon = (output: any, context: __SerdeContext): Lexicon => {
   return {
-    __type: "Lexicon",
     Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
@@ -1497,7 +1487,6 @@ const deserializeAws_restJson1Lexicon = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1LexiconAttributes = (output: any, context: __SerdeContext): LexiconAttributes => {
   return {
-    __type: "LexiconAttributes",
     Alphabet: output.Alphabet !== undefined && output.Alphabet !== null ? output.Alphabet : undefined,
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
     LastModified:
@@ -1512,7 +1501,6 @@ const deserializeAws_restJson1LexiconAttributes = (output: any, context: __Serde
 
 const deserializeAws_restJson1LexiconDescription = (output: any, context: __SerdeContext): LexiconDescription => {
   return {
-    __type: "LexiconDescription",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_restJson1LexiconAttributes(output.Attributes, context)
@@ -1538,7 +1526,6 @@ const deserializeAws_restJson1SpeechMarkTypeList = (
 
 const deserializeAws_restJson1SynthesisTask = (output: any, context: __SerdeContext): SynthesisTask => {
   return {
-    __type: "SynthesisTask",
     CreationTime:
       output.CreationTime !== undefined && output.CreationTime !== null
         ? new Date(Math.round(output.CreationTime * 1000))
@@ -1576,7 +1563,6 @@ const deserializeAws_restJson1SynthesisTasks = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Voice = (output: any, context: __SerdeContext): Voice => {
   return {
-    __type: "Voice",
     AdditionalLanguageCodes:
       output.AdditionalLanguageCodes !== undefined && output.AdditionalLanguageCodes !== null
         ? deserializeAws_restJson1LanguageCodeList(output.AdditionalLanguageCodes, context)

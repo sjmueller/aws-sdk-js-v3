@@ -1,6 +1,6 @@
 
 import { ImagebuilderClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ImagebuilderClient.ts";
-import { ListComponentBuildVersionsRequest, ListComponentBuildVersionsResponse } from "../models/index.ts";
+import { ListComponentBuildVersionsRequest, ListComponentBuildVersionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListComponentBuildVersionsCommand,
   serializeAws_restJson1ListComponentBuildVersionsCommand,

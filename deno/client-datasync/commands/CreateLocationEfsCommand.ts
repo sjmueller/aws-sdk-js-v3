@@ -1,6 +1,6 @@
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient.ts";
-import { CreateLocationEfsRequest, CreateLocationEfsResponse } from "../models/index.ts";
+import { CreateLocationEfsRequest, CreateLocationEfsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateLocationEfsCommand,
   serializeAws_json1_1CreateLocationEfsCommand,

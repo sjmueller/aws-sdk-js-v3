@@ -3,7 +3,7 @@ import { KinesisAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 import {
   DeleteApplicationInputProcessingConfigurationRequest,
   DeleteApplicationInputProcessingConfigurationResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand,
   serializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommand,

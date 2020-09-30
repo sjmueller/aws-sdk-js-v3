@@ -1,6 +1,6 @@
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
-import { DescribeAssessmentTemplatesRequest, DescribeAssessmentTemplatesResponse } from "../models/index.ts";
+import { DescribeAssessmentTemplatesRequest, DescribeAssessmentTemplatesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeAssessmentTemplatesCommand,
   serializeAws_json1_1DescribeAssessmentTemplatesCommand,

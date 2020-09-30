@@ -1,6 +1,9 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { AuthorizeCacheSecurityGroupIngressMessage, AuthorizeCacheSecurityGroupIngressResult } from "../models/index.ts";
+import {
+  AuthorizeCacheSecurityGroupIngressMessage,
+  AuthorizeCacheSecurityGroupIngressResult,
+} from "../models/models_0.ts";
 import {
   deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand,
   serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand,

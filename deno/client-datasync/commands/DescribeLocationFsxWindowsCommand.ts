@@ -1,6 +1,6 @@
 
 import { DataSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataSyncClient.ts";
-import { DescribeLocationFsxWindowsRequest, DescribeLocationFsxWindowsResponse } from "../models/index.ts";
+import { DescribeLocationFsxWindowsRequest, DescribeLocationFsxWindowsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeLocationFsxWindowsCommand,
   serializeAws_json1_1DescribeLocationFsxWindowsCommand,

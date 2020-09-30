@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { DeleteConditionalForwarderRequest, DeleteConditionalForwarderResult } from "../models/index.ts";
+import { DeleteConditionalForwarderRequest, DeleteConditionalForwarderResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteConditionalForwarderCommand,
   serializeAws_json1_1DeleteConditionalForwarderCommand,

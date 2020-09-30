@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { PurchaseReservedInstancesOfferingRequest, PurchaseReservedInstancesOfferingResult } from "../models/index.ts";
+import { PurchaseReservedInstancesOfferingRequest, PurchaseReservedInstancesOfferingResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2PurchaseReservedInstancesOfferingCommand,
   serializeAws_ec2PurchaseReservedInstancesOfferingCommand,

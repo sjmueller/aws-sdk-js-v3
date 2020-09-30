@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient.ts";
-import { CancelClusterRequest, CancelClusterResult } from "../models/index.ts";
+import { CancelClusterRequest, CancelClusterResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CancelClusterCommand,
   serializeAws_json1_1CancelClusterCommand,

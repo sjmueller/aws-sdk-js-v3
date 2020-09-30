@@ -1,6 +1,6 @@
 
 import { SWFClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SWFClient.ts";
-import { DeprecateDomainInput } from "../models/index.ts";
+import { DeprecateDomainInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0DeprecateDomainCommand,
   serializeAws_json1_0DeprecateDomainCommand,

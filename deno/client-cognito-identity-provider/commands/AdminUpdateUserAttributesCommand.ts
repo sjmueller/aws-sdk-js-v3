@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { AdminUpdateUserAttributesRequest, AdminUpdateUserAttributesResponse } from "../models/index.ts";
+import { AdminUpdateUserAttributesRequest, AdminUpdateUserAttributesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AdminUpdateUserAttributesCommand,
   serializeAws_json1_1AdminUpdateUserAttributesCommand,

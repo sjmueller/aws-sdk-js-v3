@@ -1,6 +1,6 @@
 
 import { CodeStarClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeStarClient.ts";
-import { DeleteUserProfileRequest, DeleteUserProfileResult } from "../models/index.ts";
+import { DeleteUserProfileRequest, DeleteUserProfileResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteUserProfileCommand,
   serializeAws_json1_1DeleteUserProfileCommand,

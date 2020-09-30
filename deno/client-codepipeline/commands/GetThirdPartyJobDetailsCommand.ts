@@ -1,6 +1,6 @@
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
-import { GetThirdPartyJobDetailsInput, GetThirdPartyJobDetailsOutput } from "../models/index.ts";
+import { GetThirdPartyJobDetailsInput, GetThirdPartyJobDetailsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetThirdPartyJobDetailsCommand,
   serializeAws_json1_1GetThirdPartyJobDetailsCommand,

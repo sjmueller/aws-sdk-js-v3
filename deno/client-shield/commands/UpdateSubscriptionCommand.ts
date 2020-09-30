@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient.ts";
-import { UpdateSubscriptionRequest, UpdateSubscriptionResponse } from "../models/index.ts";
+import { UpdateSubscriptionRequest, UpdateSubscriptionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateSubscriptionCommand,
   serializeAws_json1_1UpdateSubscriptionCommand,

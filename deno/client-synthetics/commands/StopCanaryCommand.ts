@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig } from "../SyntheticsClient.ts";
-import { StopCanaryRequest, StopCanaryResponse } from "../models/index.ts";
+import { StopCanaryRequest, StopCanaryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StopCanaryCommand,
   serializeAws_restJson1StopCanaryCommand,

@@ -1,6 +1,6 @@
 
 import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RoboMakerClient.ts";
-import { DeregisterRobotRequest, DeregisterRobotResponse } from "../models/index.ts";
+import { DeregisterRobotRequest, DeregisterRobotResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeregisterRobotCommand,
   serializeAws_restJson1DeregisterRobotCommand,

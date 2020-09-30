@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { AttachPolicyRequest, AttachPolicyResponse } from "../models/index.ts";
+import { AttachPolicyRequest, AttachPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AttachPolicyCommand,
   serializeAws_restJson1AttachPolicyCommand,

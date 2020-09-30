@@ -1,6 +1,6 @@
 
 import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESClient.ts";
-import { DeleteVerifiedEmailAddressRequest } from "../models/index.ts";
+import { DeleteVerifiedEmailAddressRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteVerifiedEmailAddressCommand,
   serializeAws_queryDeleteVerifiedEmailAddressCommand,

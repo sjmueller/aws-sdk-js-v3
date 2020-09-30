@@ -1,6 +1,6 @@
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient.ts";
-import { DeleteApplicationInput } from "../models/index.ts";
+import { DeleteApplicationInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteApplicationCommand,
   serializeAws_json1_1DeleteApplicationCommand,

@@ -1,6 +1,6 @@
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient.ts";
-import { GetAssetRequest, GetAssetResponse } from "../models/index.ts";
+import { GetAssetRequest, GetAssetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetAssetCommand,
   serializeAws_restJson1GetAssetCommand,

@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { DeleteLogGroupRequest } from "../models/index.ts";
+import { DeleteLogGroupRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteLogGroupCommand,
   serializeAws_json1_1DeleteLogGroupCommand,

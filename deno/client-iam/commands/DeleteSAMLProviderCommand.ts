@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { DeleteSAMLProviderRequest } from "../models/index.ts";
+import { DeleteSAMLProviderRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteSAMLProviderCommand,
   serializeAws_queryDeleteSAMLProviderCommand,

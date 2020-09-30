@@ -1,6 +1,6 @@
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
-import { StartSentimentDetectionJobRequest, StartSentimentDetectionJobResponse } from "../models/index.ts";
+import { StartSentimentDetectionJobRequest, StartSentimentDetectionJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartSentimentDetectionJobCommand,
   serializeAws_json1_1StartSentimentDetectionJobCommand,

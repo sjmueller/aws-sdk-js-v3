@@ -104,7 +104,7 @@ import {
   UnauthorizedException,
   WebsiteAuthorizationProviderSummary,
   WebsiteCaSummary,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -992,7 +992,6 @@ export const deserializeAws_restJson1AssociateDomainCommand = async (
   }
   const contents: AssociateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateDomainResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1084,7 +1083,6 @@ export const deserializeAws_restJson1AssociateWebsiteAuthorizationProviderComman
   }
   const contents: AssociateWebsiteAuthorizationProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateWebsiteAuthorizationProviderResponse",
     AuthorizationProviderId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1180,7 +1178,6 @@ export const deserializeAws_restJson1AssociateWebsiteCertificateAuthorityCommand
   }
   const contents: AssociateWebsiteCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateWebsiteCertificateAuthorityResponse",
     WebsiteCaId: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1276,7 +1273,6 @@ export const deserializeAws_restJson1CreateFleetCommand = async (
   }
   const contents: CreateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFleetResponse",
     FleetArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1372,7 +1368,6 @@ export const deserializeAws_restJson1DeleteFleetCommand = async (
   }
   const contents: DeleteFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFleetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1456,7 +1451,6 @@ export const deserializeAws_restJson1DescribeAuditStreamConfigurationCommand = a
   }
   const contents: DescribeAuditStreamConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAuditStreamConfigurationResponse",
     AuditStreamArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1544,7 +1538,6 @@ export const deserializeAws_restJson1DescribeCompanyNetworkConfigurationCommand 
   }
   const contents: DescribeCompanyNetworkConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCompanyNetworkConfigurationResponse",
     SecurityGroupIds: undefined,
     SubnetIds: undefined,
     VpcId: undefined,
@@ -1640,7 +1633,6 @@ export const deserializeAws_restJson1DescribeDeviceCommand = async (
   }
   const contents: DescribeDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDeviceResponse",
     FirstAccessedTime: undefined,
     LastAccessedTime: undefined,
     Manufacturer: undefined,
@@ -1760,7 +1752,6 @@ export const deserializeAws_restJson1DescribeDevicePolicyConfigurationCommand = 
   }
   const contents: DescribeDevicePolicyConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDevicePolicyConfigurationResponse",
     DeviceCaCertificate: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1848,7 +1839,6 @@ export const deserializeAws_restJson1DescribeDomainCommand = async (
   }
   const contents: DescribeDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDomainResponse",
     AcmCertificateArn: undefined,
     CreatedTime: undefined,
     DisplayName: undefined,
@@ -1952,7 +1942,6 @@ export const deserializeAws_restJson1DescribeFleetMetadataCommand = async (
   }
   const contents: DescribeFleetMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFleetMetadataResponse",
     CompanyCode: undefined,
     CreatedTime: undefined,
     DisplayName: undefined,
@@ -2068,7 +2057,6 @@ export const deserializeAws_restJson1DescribeIdentityProviderConfigurationComman
   }
   const contents: DescribeIdentityProviderConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeIdentityProviderConfigurationResponse",
     IdentityProviderSamlMetadata: undefined,
     IdentityProviderType: undefined,
     ServiceProviderSamlMetadata: undefined,
@@ -2164,7 +2152,6 @@ export const deserializeAws_restJson1DescribeWebsiteCertificateAuthorityCommand 
   }
   const contents: DescribeWebsiteCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeWebsiteCertificateAuthorityResponse",
     Certificate: undefined,
     CreatedTime: undefined,
     DisplayName: undefined,
@@ -2260,7 +2247,6 @@ export const deserializeAws_restJson1DisassociateDomainCommand = async (
   }
   const contents: DisassociateDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateDomainResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2344,7 +2330,6 @@ export const deserializeAws_restJson1DisassociateWebsiteAuthorizationProviderCom
   }
   const contents: DisassociateWebsiteAuthorizationProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateWebsiteAuthorizationProviderResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2436,7 +2421,6 @@ export const deserializeAws_restJson1DisassociateWebsiteCertificateAuthorityComm
   }
   const contents: DisassociateWebsiteCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateWebsiteCertificateAuthorityResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -2520,7 +2504,6 @@ export const deserializeAws_restJson1ListDevicesCommand = async (
   }
   const contents: ListDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDevicesResponse",
     Devices: undefined,
     NextToken: undefined,
   };
@@ -2612,7 +2595,6 @@ export const deserializeAws_restJson1ListDomainsCommand = async (
   }
   const contents: ListDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDomainsResponse",
     Domains: undefined,
     NextToken: undefined,
   };
@@ -2704,7 +2686,6 @@ export const deserializeAws_restJson1ListFleetsCommand = async (
   }
   const contents: ListFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFleetsResponse",
     FleetSummaryList: undefined,
     NextToken: undefined,
   };
@@ -2788,7 +2769,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2844,7 +2824,6 @@ export const deserializeAws_restJson1ListWebsiteAuthorizationProvidersCommand = 
   }
   const contents: ListWebsiteAuthorizationProvidersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListWebsiteAuthorizationProvidersResponse",
     NextToken: undefined,
     WebsiteAuthorizationProviders: undefined,
   };
@@ -2939,7 +2918,6 @@ export const deserializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand = 
   }
   const contents: ListWebsiteCertificateAuthoritiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListWebsiteCertificateAuthoritiesResponse",
     NextToken: undefined,
     WebsiteCertificateAuthorities: undefined,
   };
@@ -3026,7 +3004,6 @@ export const deserializeAws_restJson1RestoreDomainAccessCommand = async (
   }
   const contents: RestoreDomainAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreDomainAccessResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3110,7 +3087,6 @@ export const deserializeAws_restJson1RevokeDomainAccessCommand = async (
   }
   const contents: RevokeDomainAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RevokeDomainAccessResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3194,7 +3170,6 @@ export const deserializeAws_restJson1SignOutUserCommand = async (
   }
   const contents: SignOutUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SignOutUserResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3278,7 +3253,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3330,7 +3304,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3382,7 +3355,6 @@ export const deserializeAws_restJson1UpdateAuditStreamConfigurationCommand = asy
   }
   const contents: UpdateAuditStreamConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAuditStreamConfigurationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3466,7 +3438,6 @@ export const deserializeAws_restJson1UpdateCompanyNetworkConfigurationCommand = 
   }
   const contents: UpdateCompanyNetworkConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateCompanyNetworkConfigurationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3550,7 +3521,6 @@ export const deserializeAws_restJson1UpdateDevicePolicyConfigurationCommand = as
   }
   const contents: UpdateDevicePolicyConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDevicePolicyConfigurationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3634,7 +3604,6 @@ export const deserializeAws_restJson1UpdateDomainMetadataCommand = async (
   }
   const contents: UpdateDomainMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDomainMetadataResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3718,7 +3687,6 @@ export const deserializeAws_restJson1UpdateFleetMetadataCommand = async (
   }
   const contents: UpdateFleetMetadataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFleetMetadataResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3802,7 +3770,6 @@ export const deserializeAws_restJson1UpdateIdentityProviderConfigurationCommand 
   }
   const contents: UpdateIdentityProviderConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateIdentityProviderConfigurationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3999,7 +3966,6 @@ const serializeAws_restJson1TagMap = (input: { [key: string]: string }, context:
 
 const deserializeAws_restJson1DeviceSummary = (output: any, context: __SerdeContext): DeviceSummary => {
   return {
-    __type: "DeviceSummary",
     DeviceId: output.DeviceId !== undefined && output.DeviceId !== null ? output.DeviceId : undefined,
     DeviceStatus: output.DeviceStatus !== undefined && output.DeviceStatus !== null ? output.DeviceStatus : undefined,
   } as any;
@@ -4011,7 +3977,6 @@ const deserializeAws_restJson1DeviceSummaryList = (output: any, context: __Serde
 
 const deserializeAws_restJson1DomainSummary = (output: any, context: __SerdeContext): DomainSummary => {
   return {
-    __type: "DomainSummary",
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
@@ -4028,7 +3993,6 @@ const deserializeAws_restJson1DomainSummaryList = (output: any, context: __Serde
 
 const deserializeAws_restJson1FleetSummary = (output: any, context: __SerdeContext): FleetSummary => {
   return {
-    __type: "FleetSummary",
     CompanyCode: output.CompanyCode !== undefined && output.CompanyCode !== null ? output.CompanyCode : undefined,
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
@@ -4085,7 +4049,6 @@ const deserializeAws_restJson1WebsiteAuthorizationProviderSummary = (
   context: __SerdeContext
 ): WebsiteAuthorizationProviderSummary => {
   return {
-    __type: "WebsiteAuthorizationProviderSummary",
     AuthorizationProviderId:
       output.AuthorizationProviderId !== undefined && output.AuthorizationProviderId !== null
         ? output.AuthorizationProviderId
@@ -4104,7 +4067,6 @@ const deserializeAws_restJson1WebsiteAuthorizationProviderSummary = (
 
 const deserializeAws_restJson1WebsiteCaSummary = (output: any, context: __SerdeContext): WebsiteCaSummary => {
   return {
-    __type: "WebsiteCaSummary",
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))

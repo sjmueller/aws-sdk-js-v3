@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { TagResourceRequest, TagResourceResponse } from "../models/index.ts";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1TagResourceCommand,
   serializeAws_restJson1TagResourceCommand,

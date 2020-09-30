@@ -1,6 +1,6 @@
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
-import { DeleteSecurityConfigurationInput, DeleteSecurityConfigurationOutput } from "../models/index.ts";
+import { DeleteSecurityConfigurationInput, DeleteSecurityConfigurationOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteSecurityConfigurationCommand,
   serializeAws_json1_1DeleteSecurityConfigurationCommand,

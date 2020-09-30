@@ -1,6 +1,6 @@
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient.ts";
-import { HostedConfigurationVersions, ListHostedConfigurationVersionsRequest } from "../models/index.ts";
+import { HostedConfigurationVersions, ListHostedConfigurationVersionsRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListHostedConfigurationVersionsCommand,
   serializeAws_restJson1ListHostedConfigurationVersionsCommand,

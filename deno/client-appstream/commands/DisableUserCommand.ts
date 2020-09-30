@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { DisableUserRequest, DisableUserResult } from "../models/index.ts";
+import { DisableUserRequest, DisableUserResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisableUserCommand,
   serializeAws_json1_1DisableUserCommand,

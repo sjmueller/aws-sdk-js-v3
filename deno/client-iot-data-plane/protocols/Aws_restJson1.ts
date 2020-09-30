@@ -18,7 +18,7 @@ import {
   ThrottlingException,
   UnauthorizedException,
   UnsupportedDocumentEncodingException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -217,7 +217,6 @@ export const deserializeAws_restJson1DeleteThingShadowCommand = async (
   }
   const contents: DeleteThingShadowCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteThingShadowResponse",
     payload: undefined,
   };
   const data: any = await collectBody(output.body, context);
@@ -327,7 +326,6 @@ export const deserializeAws_restJson1GetThingShadowCommand = async (
   }
   const contents: GetThingShadowCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetThingShadowResponse",
     payload: undefined,
   };
   const data: any = await collectBody(output.body, context);
@@ -437,7 +435,6 @@ export const deserializeAws_restJson1ListNamedShadowsForThingCommand = async (
   }
   const contents: ListNamedShadowsForThingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListNamedShadowsForThingResponse",
     nextToken: undefined,
     results: undefined,
     timestamp: undefined,
@@ -624,7 +621,6 @@ export const deserializeAws_restJson1UpdateThingShadowCommand = async (
   }
   const contents: UpdateThingShadowCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateThingShadowResponse",
     payload: undefined,
   };
   const data: any = await collectBody(output.body, context);

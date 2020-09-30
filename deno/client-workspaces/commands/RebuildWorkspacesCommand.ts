@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { RebuildWorkspacesRequest, RebuildWorkspacesResult } from "../models/index.ts";
+import { RebuildWorkspacesRequest, RebuildWorkspacesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RebuildWorkspacesCommand,
   serializeAws_json1_1RebuildWorkspacesCommand,

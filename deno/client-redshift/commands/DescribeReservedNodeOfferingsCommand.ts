@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { DescribeReservedNodeOfferingsMessage, ReservedNodeOfferingsMessage } from "../models/index.ts";
+import { DescribeReservedNodeOfferingsMessage, ReservedNodeOfferingsMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeReservedNodeOfferingsCommand,
   serializeAws_queryDescribeReservedNodeOfferingsCommand,

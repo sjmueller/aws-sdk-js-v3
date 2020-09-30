@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage } from "../models/index.ts";
+import { DescribeOrderableDBInstanceOptionsMessage, OrderableDBInstanceOptionsMessage } from "../models/models_1.ts";
 import {
   deserializeAws_queryDescribeOrderableDBInstanceOptionsCommand,
   serializeAws_queryDescribeOrderableDBInstanceOptionsCommand,

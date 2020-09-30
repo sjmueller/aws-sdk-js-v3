@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { GetPhoneNumberRequest, GetPhoneNumberResponse } from "../models/index.ts";
+import { GetPhoneNumberRequest, GetPhoneNumberResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetPhoneNumberCommand,
   serializeAws_restJson1GetPhoneNumberCommand,

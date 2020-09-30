@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient.ts";
-import { RegisterUsageRequest, RegisterUsageResult } from "../models/index.ts";
+import { RegisterUsageRequest, RegisterUsageResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RegisterUsageCommand,
   serializeAws_json1_1RegisterUsageCommand,

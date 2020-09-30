@@ -212,7 +212,7 @@ import {
   TooManyTargetsException,
   TooManyUniqueTargetGroupsPerLoadBalancerException,
   UnsupportedProtocolException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -785,7 +785,6 @@ export const deserializeAws_queryAddListenerCertificatesCommand = async (
   contents = deserializeAws_queryAddListenerCertificatesOutput(data.AddListenerCertificatesResult, context);
   const response: AddListenerCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddListenerCertificatesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -856,7 +855,6 @@ export const deserializeAws_queryAddTagsCommand = async (
   contents = deserializeAws_queryAddTagsOutput(data.AddTagsResult, context);
   const response: AddTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddTagsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -935,7 +933,6 @@ export const deserializeAws_queryCreateListenerCommand = async (
   contents = deserializeAws_queryCreateListenerOutput(data.CreateListenerResult, context);
   const response: CreateListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateListenerOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1118,7 +1115,6 @@ export const deserializeAws_queryCreateLoadBalancerCommand = async (
   contents = deserializeAws_queryCreateLoadBalancerOutput(data.CreateLoadBalancerResult, context);
   const response: CreateLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLoadBalancerOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1269,7 +1265,6 @@ export const deserializeAws_queryCreateRuleCommand = async (
   contents = deserializeAws_queryCreateRuleOutput(data.CreateRuleResult, context);
   const response: CreateRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRuleOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1428,7 +1423,6 @@ export const deserializeAws_queryCreateTargetGroupCommand = async (
   contents = deserializeAws_queryCreateTargetGroupOutput(data.CreateTargetGroupResult, context);
   const response: CreateTargetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTargetGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1499,7 +1493,6 @@ export const deserializeAws_queryDeleteListenerCommand = async (
   contents = deserializeAws_queryDeleteListenerOutput(data.DeleteListenerResult, context);
   const response: DeleteListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteListenerOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1554,7 +1547,6 @@ export const deserializeAws_queryDeleteLoadBalancerCommand = async (
   contents = deserializeAws_queryDeleteLoadBalancerOutput(data.DeleteLoadBalancerResult, context);
   const response: DeleteLoadBalancerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLoadBalancerOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1625,7 +1617,6 @@ export const deserializeAws_queryDeleteRuleCommand = async (
   contents = deserializeAws_queryDeleteRuleOutput(data.DeleteRuleResult, context);
   const response: DeleteRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRuleOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1688,7 +1679,6 @@ export const deserializeAws_queryDeleteTargetGroupCommand = async (
   contents = deserializeAws_queryDeleteTargetGroupOutput(data.DeleteTargetGroupResult, context);
   const response: DeleteTargetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTargetGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1743,7 +1733,6 @@ export const deserializeAws_queryDeregisterTargetsCommand = async (
   contents = deserializeAws_queryDeregisterTargetsOutput(data.DeregisterTargetsResult, context);
   const response: DeregisterTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterTargetsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1806,7 +1795,6 @@ export const deserializeAws_queryDescribeAccountLimitsCommand = async (
   contents = deserializeAws_queryDescribeAccountLimitsOutput(data.DescribeAccountLimitsResult, context);
   const response: DescribeAccountLimitsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAccountLimitsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1853,7 +1841,6 @@ export const deserializeAws_queryDescribeListenerCertificatesCommand = async (
   contents = deserializeAws_queryDescribeListenerCertificatesOutput(data.DescribeListenerCertificatesResult, context);
   const response: DescribeListenerCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeListenerCertificatesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1908,7 +1895,6 @@ export const deserializeAws_queryDescribeListenersCommand = async (
   contents = deserializeAws_queryDescribeListenersOutput(data.DescribeListenersResult, context);
   const response: DescribeListenersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeListenersOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1982,7 +1968,6 @@ export const deserializeAws_queryDescribeLoadBalancerAttributesCommand = async (
   );
   const response: DescribeLoadBalancerAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLoadBalancerAttributesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2037,7 +2022,6 @@ export const deserializeAws_queryDescribeLoadBalancersCommand = async (
   contents = deserializeAws_queryDescribeLoadBalancersOutput(data.DescribeLoadBalancersResult, context);
   const response: DescribeLoadBalancersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLoadBalancersOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2092,7 +2076,6 @@ export const deserializeAws_queryDescribeRulesCommand = async (
   contents = deserializeAws_queryDescribeRulesOutput(data.DescribeRulesResult, context);
   const response: DescribeRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRulesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2163,7 +2146,6 @@ export const deserializeAws_queryDescribeSSLPoliciesCommand = async (
   contents = deserializeAws_queryDescribeSSLPoliciesOutput(data.DescribeSSLPoliciesResult, context);
   const response: DescribeSSLPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSSLPoliciesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2218,7 +2200,6 @@ export const deserializeAws_queryDescribeTagsCommand = async (
   contents = deserializeAws_queryDescribeTagsOutput(data.DescribeTagsResult, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTagsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2297,7 +2278,6 @@ export const deserializeAws_queryDescribeTargetGroupAttributesCommand = async (
   contents = deserializeAws_queryDescribeTargetGroupAttributesOutput(data.DescribeTargetGroupAttributesResult, context);
   const response: DescribeTargetGroupAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTargetGroupAttributesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2352,7 +2332,6 @@ export const deserializeAws_queryDescribeTargetGroupsCommand = async (
   contents = deserializeAws_queryDescribeTargetGroupsOutput(data.DescribeTargetGroupsResult, context);
   const response: DescribeTargetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTargetGroupsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2415,7 +2394,6 @@ export const deserializeAws_queryDescribeTargetHealthCommand = async (
   contents = deserializeAws_queryDescribeTargetHealthOutput(data.DescribeTargetHealthResult, context);
   const response: DescribeTargetHealthCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTargetHealthOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2486,7 +2464,6 @@ export const deserializeAws_queryModifyListenerCommand = async (
   contents = deserializeAws_queryModifyListenerOutput(data.ModifyListenerResult, context);
   const response: ModifyListenerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyListenerOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2669,7 +2646,6 @@ export const deserializeAws_queryModifyLoadBalancerAttributesCommand = async (
   contents = deserializeAws_queryModifyLoadBalancerAttributesOutput(data.ModifyLoadBalancerAttributesResult, context);
   const response: ModifyLoadBalancerAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyLoadBalancerAttributesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2732,7 +2708,6 @@ export const deserializeAws_queryModifyRuleCommand = async (
   contents = deserializeAws_queryModifyRuleOutput(data.ModifyRuleResult, context);
   const response: ModifyRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyRuleOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2867,7 +2842,6 @@ export const deserializeAws_queryModifyTargetGroupCommand = async (
   contents = deserializeAws_queryModifyTargetGroupOutput(data.ModifyTargetGroupResult, context);
   const response: ModifyTargetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyTargetGroupOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2930,7 +2904,6 @@ export const deserializeAws_queryModifyTargetGroupAttributesCommand = async (
   contents = deserializeAws_queryModifyTargetGroupAttributesOutput(data.ModifyTargetGroupAttributesResult, context);
   const response: ModifyTargetGroupAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyTargetGroupAttributesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2993,7 +2966,6 @@ export const deserializeAws_queryRegisterTargetsCommand = async (
   contents = deserializeAws_queryRegisterTargetsOutput(data.RegisterTargetsResult, context);
   const response: RegisterTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterTargetsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3072,7 +3044,6 @@ export const deserializeAws_queryRemoveListenerCertificatesCommand = async (
   contents = deserializeAws_queryRemoveListenerCertificatesOutput(data.RemoveListenerCertificatesResult, context);
   const response: RemoveListenerCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveListenerCertificatesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3135,7 +3106,6 @@ export const deserializeAws_queryRemoveTagsCommand = async (
   contents = deserializeAws_queryRemoveTagsOutput(data.RemoveTagsResult, context);
   const response: RemoveTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveTagsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3222,7 +3192,6 @@ export const deserializeAws_querySetIpAddressTypeCommand = async (
   contents = deserializeAws_querySetIpAddressTypeOutput(data.SetIpAddressTypeResult, context);
   const response: SetIpAddressTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetIpAddressTypeOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3293,7 +3262,6 @@ export const deserializeAws_querySetRulePrioritiesCommand = async (
   contents = deserializeAws_querySetRulePrioritiesOutput(data.SetRulePrioritiesResult, context);
   const response: SetRulePrioritiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetRulePrioritiesOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3364,7 +3332,6 @@ export const deserializeAws_querySetSecurityGroupsCommand = async (
   contents = deserializeAws_querySetSecurityGroupsOutput(data.SetSecurityGroupsResult, context);
   const response: SetSecurityGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetSecurityGroupsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3435,7 +3402,6 @@ export const deserializeAws_querySetSubnetsCommand = async (
   contents = deserializeAws_querySetSubnetsOutput(data.SetSubnetsResult, context);
   const response: SetSubnetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SetSubnetsOutput",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5543,7 +5509,6 @@ const serializeAws_queryTargetGroupTuple = (input: TargetGroupTuple, context: __
 
 const deserializeAws_queryAction = (output: any, context: __SerdeContext): Action => {
   let contents: any = {
-    __type: "Action",
     ForwardConfig: undefined,
     RedirectConfig: undefined,
     FixedResponseConfig: undefined,
@@ -5598,7 +5563,6 @@ const deserializeAws_queryAddListenerCertificatesOutput = (
   context: __SerdeContext
 ): AddListenerCertificatesOutput => {
   let contents: any = {
-    __type: "AddListenerCertificatesOutput",
     Certificates: undefined,
   };
   if (output.Certificates === "") {
@@ -5614,9 +5578,7 @@ const deserializeAws_queryAddListenerCertificatesOutput = (
 };
 
 const deserializeAws_queryAddTagsOutput = (output: any, context: __SerdeContext): AddTagsOutput => {
-  let contents: any = {
-    __type: "AddTagsOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -5625,7 +5587,6 @@ const deserializeAws_queryAllocationIdNotFoundException = (
   context: __SerdeContext
 ): AllocationIdNotFoundException => {
   let contents: any = {
-    __type: "AllocationIdNotFoundException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -5643,7 +5604,6 @@ const deserializeAws_queryALPNPolicyNotSupportedException = (
   context: __SerdeContext
 ): ALPNPolicyNotSupportedException => {
   let contents: any = {
-    __type: "ALPNPolicyNotSupportedException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -5670,7 +5630,6 @@ const deserializeAws_queryAuthenticateCognitoActionConfig = (
   context: __SerdeContext
 ): AuthenticateCognitoActionConfig => {
   let contents: any = {
-    __type: "AuthenticateCognitoActionConfig",
     AuthenticationRequestExtraParams: undefined,
     UserPoolArn: undefined,
     UserPoolClientId: undefined,
@@ -5734,7 +5693,6 @@ const deserializeAws_queryAuthenticateOidcActionConfig = (
   context: __SerdeContext
 ): AuthenticateOidcActionConfig => {
   let contents: any = {
-    __type: "AuthenticateOidcActionConfig",
     ClientSecret: undefined,
     TokenEndpoint: undefined,
     Issuer: undefined,
@@ -5798,7 +5756,6 @@ const deserializeAws_queryAuthenticateOidcActionConfig = (
 
 const deserializeAws_queryAvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   let contents: any = {
-    __type: "AvailabilityZone",
     LoadBalancerAddresses: undefined,
     SubnetId: undefined,
     ZoneName: undefined,
@@ -5826,7 +5783,6 @@ const deserializeAws_queryAvailabilityZoneNotSupportedException = (
   context: __SerdeContext
 ): AvailabilityZoneNotSupportedException => {
   let contents: any = {
-    __type: "AvailabilityZoneNotSupportedException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -5841,7 +5797,6 @@ const deserializeAws_queryAvailabilityZones = (output: any, context: __SerdeCont
 
 const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): Certificate => {
   let contents: any = {
-    __type: "Certificate",
     IsDefault: undefined,
     CertificateArn: undefined,
   };
@@ -5863,7 +5818,6 @@ const deserializeAws_queryCertificateNotFoundException = (
   context: __SerdeContext
 ): CertificateNotFoundException => {
   let contents: any = {
-    __type: "CertificateNotFoundException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -5874,7 +5828,6 @@ const deserializeAws_queryCertificateNotFoundException = (
 
 const deserializeAws_queryCipher = (output: any, context: __SerdeContext): Cipher => {
   let contents: any = {
-    __type: "Cipher",
     Name: undefined,
     Priority: undefined,
   };
@@ -5893,7 +5846,6 @@ const deserializeAws_queryCiphers = (output: any, context: __SerdeContext): Ciph
 
 const deserializeAws_queryCreateListenerOutput = (output: any, context: __SerdeContext): CreateListenerOutput => {
   let contents: any = {
-    __type: "CreateListenerOutput",
     Listeners: undefined,
   };
   if (output.Listeners === "") {
@@ -5910,7 +5862,6 @@ const deserializeAws_queryCreateLoadBalancerOutput = (
   context: __SerdeContext
 ): CreateLoadBalancerOutput => {
   let contents: any = {
-    __type: "CreateLoadBalancerOutput",
     LoadBalancers: undefined,
   };
   if (output.LoadBalancers === "") {
@@ -5927,7 +5878,6 @@ const deserializeAws_queryCreateLoadBalancerOutput = (
 
 const deserializeAws_queryCreateRuleOutput = (output: any, context: __SerdeContext): CreateRuleOutput => {
   let contents: any = {
-    __type: "CreateRuleOutput",
     Rules: undefined,
   };
   if (output.Rules === "") {
@@ -5941,7 +5891,6 @@ const deserializeAws_queryCreateRuleOutput = (output: any, context: __SerdeConte
 
 const deserializeAws_queryCreateTargetGroupOutput = (output: any, context: __SerdeContext): CreateTargetGroupOutput => {
   let contents: any = {
-    __type: "CreateTargetGroupOutput",
     TargetGroups: undefined,
   };
   if (output.TargetGroups === "") {
@@ -5957,9 +5906,7 @@ const deserializeAws_queryCreateTargetGroupOutput = (output: any, context: __Ser
 };
 
 const deserializeAws_queryDeleteListenerOutput = (output: any, context: __SerdeContext): DeleteListenerOutput => {
-  let contents: any = {
-    __type: "DeleteListenerOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -5967,30 +5914,22 @@ const deserializeAws_queryDeleteLoadBalancerOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteLoadBalancerOutput => {
-  let contents: any = {
-    __type: "DeleteLoadBalancerOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryDeleteRuleOutput = (output: any, context: __SerdeContext): DeleteRuleOutput => {
-  let contents: any = {
-    __type: "DeleteRuleOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryDeleteTargetGroupOutput = (output: any, context: __SerdeContext): DeleteTargetGroupOutput => {
-  let contents: any = {
-    __type: "DeleteTargetGroupOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryDeregisterTargetsOutput = (output: any, context: __SerdeContext): DeregisterTargetsOutput => {
-  let contents: any = {
-    __type: "DeregisterTargetsOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -5999,7 +5938,6 @@ const deserializeAws_queryDescribeAccountLimitsOutput = (
   context: __SerdeContext
 ): DescribeAccountLimitsOutput => {
   let contents: any = {
-    __type: "DescribeAccountLimitsOutput",
     Limits: undefined,
     NextMarker: undefined,
   };
@@ -6020,7 +5958,6 @@ const deserializeAws_queryDescribeListenerCertificatesOutput = (
   context: __SerdeContext
 ): DescribeListenerCertificatesOutput => {
   let contents: any = {
-    __type: "DescribeListenerCertificatesOutput",
     Certificates: undefined,
     NextMarker: undefined,
   };
@@ -6041,7 +5978,6 @@ const deserializeAws_queryDescribeListenerCertificatesOutput = (
 
 const deserializeAws_queryDescribeListenersOutput = (output: any, context: __SerdeContext): DescribeListenersOutput => {
   let contents: any = {
-    __type: "DescribeListenersOutput",
     Listeners: undefined,
     NextMarker: undefined,
   };
@@ -6062,7 +5998,6 @@ const deserializeAws_queryDescribeLoadBalancerAttributesOutput = (
   context: __SerdeContext
 ): DescribeLoadBalancerAttributesOutput => {
   let contents: any = {
-    __type: "DescribeLoadBalancerAttributesOutput",
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -6082,7 +6017,6 @@ const deserializeAws_queryDescribeLoadBalancersOutput = (
   context: __SerdeContext
 ): DescribeLoadBalancersOutput => {
   let contents: any = {
-    __type: "DescribeLoadBalancersOutput",
     LoadBalancers: undefined,
     NextMarker: undefined,
   };
@@ -6103,7 +6037,6 @@ const deserializeAws_queryDescribeLoadBalancersOutput = (
 
 const deserializeAws_queryDescribeRulesOutput = (output: any, context: __SerdeContext): DescribeRulesOutput => {
   let contents: any = {
-    __type: "DescribeRulesOutput",
     Rules: undefined,
     NextMarker: undefined,
   };
@@ -6124,7 +6057,6 @@ const deserializeAws_queryDescribeSSLPoliciesOutput = (
   context: __SerdeContext
 ): DescribeSSLPoliciesOutput => {
   let contents: any = {
-    __type: "DescribeSSLPoliciesOutput",
     SslPolicies: undefined,
     NextMarker: undefined,
   };
@@ -6145,7 +6077,6 @@ const deserializeAws_queryDescribeSSLPoliciesOutput = (
 
 const deserializeAws_queryDescribeTagsOutput = (output: any, context: __SerdeContext): DescribeTagsOutput => {
   let contents: any = {
-    __type: "DescribeTagsOutput",
     TagDescriptions: undefined,
   };
   if (output.TagDescriptions === "") {
@@ -6165,7 +6096,6 @@ const deserializeAws_queryDescribeTargetGroupAttributesOutput = (
   context: __SerdeContext
 ): DescribeTargetGroupAttributesOutput => {
   let contents: any = {
-    __type: "DescribeTargetGroupAttributesOutput",
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -6185,7 +6115,6 @@ const deserializeAws_queryDescribeTargetGroupsOutput = (
   context: __SerdeContext
 ): DescribeTargetGroupsOutput => {
   let contents: any = {
-    __type: "DescribeTargetGroupsOutput",
     NextMarker: undefined,
     TargetGroups: undefined,
   };
@@ -6209,7 +6138,6 @@ const deserializeAws_queryDescribeTargetHealthOutput = (
   context: __SerdeContext
 ): DescribeTargetHealthOutput => {
   let contents: any = {
-    __type: "DescribeTargetHealthOutput",
     TargetHealthDescriptions: undefined,
   };
   if (output.TargetHealthDescriptions === "") {
@@ -6229,7 +6157,6 @@ const deserializeAws_queryDuplicateListenerException = (
   context: __SerdeContext
 ): DuplicateListenerException => {
   let contents: any = {
-    __type: "DuplicateListenerException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6243,7 +6170,6 @@ const deserializeAws_queryDuplicateLoadBalancerNameException = (
   context: __SerdeContext
 ): DuplicateLoadBalancerNameException => {
   let contents: any = {
-    __type: "DuplicateLoadBalancerNameException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6257,7 +6183,6 @@ const deserializeAws_queryDuplicateTagKeysException = (
   context: __SerdeContext
 ): DuplicateTagKeysException => {
   let contents: any = {
-    __type: "DuplicateTagKeysException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6271,7 +6196,6 @@ const deserializeAws_queryDuplicateTargetGroupNameException = (
   context: __SerdeContext
 ): DuplicateTargetGroupNameException => {
   let contents: any = {
-    __type: "DuplicateTargetGroupNameException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6285,7 +6209,6 @@ const deserializeAws_queryFixedResponseActionConfig = (
   context: __SerdeContext
 ): FixedResponseActionConfig => {
   let contents: any = {
-    __type: "FixedResponseActionConfig",
     StatusCode: undefined,
     MessageBody: undefined,
     ContentType: undefined,
@@ -6304,7 +6227,6 @@ const deserializeAws_queryFixedResponseActionConfig = (
 
 const deserializeAws_queryForwardActionConfig = (output: any, context: __SerdeContext): ForwardActionConfig => {
   let contents: any = {
-    __type: "ForwardActionConfig",
     TargetGroupStickinessConfig: undefined,
     TargetGroups: undefined,
   };
@@ -6331,7 +6253,6 @@ const deserializeAws_queryHealthUnavailableException = (
   context: __SerdeContext
 ): HealthUnavailableException => {
   let contents: any = {
-    __type: "HealthUnavailableException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6345,7 +6266,6 @@ const deserializeAws_queryHostHeaderConditionConfig = (
   context: __SerdeContext
 ): HostHeaderConditionConfig => {
   let contents: any = {
-    __type: "HostHeaderConditionConfig",
     Values: undefined,
   };
   if (output.Values === "") {
@@ -6362,7 +6282,6 @@ const deserializeAws_queryHttpHeaderConditionConfig = (
   context: __SerdeContext
 ): HttpHeaderConditionConfig => {
   let contents: any = {
-    __type: "HttpHeaderConditionConfig",
     HttpHeaderName: undefined,
     Values: undefined,
   };
@@ -6383,7 +6302,6 @@ const deserializeAws_queryHttpRequestMethodConditionConfig = (
   context: __SerdeContext
 ): HttpRequestMethodConditionConfig => {
   let contents: any = {
-    __type: "HttpRequestMethodConditionConfig",
     Values: undefined,
   };
   if (output.Values === "") {
@@ -6400,7 +6318,6 @@ const deserializeAws_queryIncompatibleProtocolsException = (
   context: __SerdeContext
 ): IncompatibleProtocolsException => {
   let contents: any = {
-    __type: "IncompatibleProtocolsException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6414,7 +6331,6 @@ const deserializeAws_queryInvalidConfigurationRequestException = (
   context: __SerdeContext
 ): InvalidConfigurationRequestException => {
   let contents: any = {
-    __type: "InvalidConfigurationRequestException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6428,7 +6344,6 @@ const deserializeAws_queryInvalidLoadBalancerActionException = (
   context: __SerdeContext
 ): InvalidLoadBalancerActionException => {
   let contents: any = {
-    __type: "InvalidLoadBalancerActionException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6439,7 +6354,6 @@ const deserializeAws_queryInvalidLoadBalancerActionException = (
 
 const deserializeAws_queryInvalidSchemeException = (output: any, context: __SerdeContext): InvalidSchemeException => {
   let contents: any = {
-    __type: "InvalidSchemeException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6453,7 +6367,6 @@ const deserializeAws_queryInvalidSecurityGroupException = (
   context: __SerdeContext
 ): InvalidSecurityGroupException => {
   let contents: any = {
-    __type: "InvalidSecurityGroupException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6464,7 +6377,6 @@ const deserializeAws_queryInvalidSecurityGroupException = (
 
 const deserializeAws_queryInvalidSubnetException = (output: any, context: __SerdeContext): InvalidSubnetException => {
   let contents: any = {
-    __type: "InvalidSubnetException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6475,7 +6387,6 @@ const deserializeAws_queryInvalidSubnetException = (output: any, context: __Serd
 
 const deserializeAws_queryInvalidTargetException = (output: any, context: __SerdeContext): InvalidTargetException => {
   let contents: any = {
-    __type: "InvalidTargetException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6486,7 +6397,6 @@ const deserializeAws_queryInvalidTargetException = (output: any, context: __Serd
 
 const deserializeAws_queryLimit = (output: any, context: __SerdeContext): Limit => {
   let contents: any = {
-    __type: "Limit",
     Max: undefined,
     Name: undefined,
   };
@@ -6505,7 +6415,6 @@ const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limit
 
 const deserializeAws_queryListener = (output: any, context: __SerdeContext): Listener => {
   let contents: any = {
-    __type: "Listener",
     Certificates: undefined,
     Port: undefined,
     Protocol: undefined,
@@ -6565,7 +6474,6 @@ const deserializeAws_queryListenerNotFoundException = (
   context: __SerdeContext
 ): ListenerNotFoundException => {
   let contents: any = {
-    __type: "ListenerNotFoundException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6584,7 +6492,6 @@ const deserializeAws_queryListOfString = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryLoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => {
   let contents: any = {
-    __type: "LoadBalancer",
     State: undefined,
     CanonicalHostedZoneId: undefined,
     LoadBalancerName: undefined,
@@ -6651,7 +6558,6 @@ const deserializeAws_queryLoadBalancer = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryLoadBalancerAddress = (output: any, context: __SerdeContext): LoadBalancerAddress => {
   let contents: any = {
-    __type: "LoadBalancerAddress",
     IpAddress: undefined,
     AllocationId: undefined,
     PrivateIPv4Address: undefined,
@@ -6678,7 +6584,6 @@ const deserializeAws_queryLoadBalancerArns = (output: any, context: __SerdeConte
 
 const deserializeAws_queryLoadBalancerAttribute = (output: any, context: __SerdeContext): LoadBalancerAttribute => {
   let contents: any = {
-    __type: "LoadBalancerAttribute",
     Key: undefined,
     Value: undefined,
   };
@@ -6700,7 +6605,6 @@ const deserializeAws_queryLoadBalancerNotFoundException = (
   context: __SerdeContext
 ): LoadBalancerNotFoundException => {
   let contents: any = {
-    __type: "LoadBalancerNotFoundException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6715,7 +6619,6 @@ const deserializeAws_queryLoadBalancers = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryLoadBalancerState = (output: any, context: __SerdeContext): LoadBalancerState => {
   let contents: any = {
-    __type: "LoadBalancerState",
     Code: undefined,
     Reason: undefined,
   };
@@ -6730,7 +6633,6 @@ const deserializeAws_queryLoadBalancerState = (output: any, context: __SerdeCont
 
 const deserializeAws_queryMatcher = (output: any, context: __SerdeContext): Matcher => {
   let contents: any = {
-    __type: "Matcher",
     HttpCode: undefined,
   };
   if (output["HttpCode"] !== undefined) {
@@ -6741,7 +6643,6 @@ const deserializeAws_queryMatcher = (output: any, context: __SerdeContext): Matc
 
 const deserializeAws_queryModifyListenerOutput = (output: any, context: __SerdeContext): ModifyListenerOutput => {
   let contents: any = {
-    __type: "ModifyListenerOutput",
     Listeners: undefined,
   };
   if (output.Listeners === "") {
@@ -6758,7 +6659,6 @@ const deserializeAws_queryModifyLoadBalancerAttributesOutput = (
   context: __SerdeContext
 ): ModifyLoadBalancerAttributesOutput => {
   let contents: any = {
-    __type: "ModifyLoadBalancerAttributesOutput",
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -6775,7 +6675,6 @@ const deserializeAws_queryModifyLoadBalancerAttributesOutput = (
 
 const deserializeAws_queryModifyRuleOutput = (output: any, context: __SerdeContext): ModifyRuleOutput => {
   let contents: any = {
-    __type: "ModifyRuleOutput",
     Rules: undefined,
   };
   if (output.Rules === "") {
@@ -6792,7 +6691,6 @@ const deserializeAws_queryModifyTargetGroupAttributesOutput = (
   context: __SerdeContext
 ): ModifyTargetGroupAttributesOutput => {
   let contents: any = {
-    __type: "ModifyTargetGroupAttributesOutput",
     Attributes: undefined,
   };
   if (output.Attributes === "") {
@@ -6809,7 +6707,6 @@ const deserializeAws_queryModifyTargetGroupAttributesOutput = (
 
 const deserializeAws_queryModifyTargetGroupOutput = (output: any, context: __SerdeContext): ModifyTargetGroupOutput => {
   let contents: any = {
-    __type: "ModifyTargetGroupOutput",
     TargetGroups: undefined,
   };
   if (output.TargetGroups === "") {
@@ -6829,7 +6726,6 @@ const deserializeAws_queryOperationNotPermittedException = (
   context: __SerdeContext
 ): OperationNotPermittedException => {
   let contents: any = {
-    __type: "OperationNotPermittedException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6843,7 +6739,6 @@ const deserializeAws_queryPathPatternConditionConfig = (
   context: __SerdeContext
 ): PathPatternConditionConfig => {
   let contents: any = {
-    __type: "PathPatternConditionConfig",
     Values: undefined,
   };
   if (output.Values === "") {
@@ -6857,7 +6752,6 @@ const deserializeAws_queryPathPatternConditionConfig = (
 
 const deserializeAws_queryPriorityInUseException = (output: any, context: __SerdeContext): PriorityInUseException => {
   let contents: any = {
-    __type: "PriorityInUseException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6871,7 +6765,6 @@ const deserializeAws_queryQueryStringConditionConfig = (
   context: __SerdeContext
 ): QueryStringConditionConfig => {
   let contents: any = {
-    __type: "QueryStringConditionConfig",
     Values: undefined,
   };
   if (output.Values === "") {
@@ -6888,7 +6781,6 @@ const deserializeAws_queryQueryStringConditionConfig = (
 
 const deserializeAws_queryQueryStringKeyValuePair = (output: any, context: __SerdeContext): QueryStringKeyValuePair => {
   let contents: any = {
-    __type: "QueryStringKeyValuePair",
     Key: undefined,
     Value: undefined,
   };
@@ -6910,7 +6802,6 @@ const deserializeAws_queryQueryStringKeyValuePairList = (
 
 const deserializeAws_queryRedirectActionConfig = (output: any, context: __SerdeContext): RedirectActionConfig => {
   let contents: any = {
-    __type: "RedirectActionConfig",
     Protocol: undefined,
     StatusCode: undefined,
     Query: undefined,
@@ -6940,9 +6831,7 @@ const deserializeAws_queryRedirectActionConfig = (output: any, context: __SerdeC
 };
 
 const deserializeAws_queryRegisterTargetsOutput = (output: any, context: __SerdeContext): RegisterTargetsOutput => {
-  let contents: any = {
-    __type: "RegisterTargetsOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
@@ -6950,22 +6839,17 @@ const deserializeAws_queryRemoveListenerCertificatesOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveListenerCertificatesOutput => {
-  let contents: any = {
-    __type: "RemoveListenerCertificatesOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryRemoveTagsOutput = (output: any, context: __SerdeContext): RemoveTagsOutput => {
-  let contents: any = {
-    __type: "RemoveTagsOutput",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_queryResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   let contents: any = {
-    __type: "ResourceInUseException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -6976,7 +6860,6 @@ const deserializeAws_queryResourceInUseException = (output: any, context: __Serd
 
 const deserializeAws_queryRule = (output: any, context: __SerdeContext): Rule => {
   let contents: any = {
-    __type: "Rule",
     IsDefault: undefined,
     RuleArn: undefined,
     Priority: undefined,
@@ -7012,7 +6895,6 @@ const deserializeAws_queryRule = (output: any, context: __SerdeContext): Rule =>
 
 const deserializeAws_queryRuleCondition = (output: any, context: __SerdeContext): RuleCondition => {
   let contents: any = {
-    __type: "RuleCondition",
     HttpHeaderConfig: undefined,
     HttpRequestMethodConfig: undefined,
     Values: undefined,
@@ -7061,7 +6943,6 @@ const deserializeAws_queryRuleConditionList = (output: any, context: __SerdeCont
 
 const deserializeAws_queryRuleNotFoundException = (output: any, context: __SerdeContext): RuleNotFoundException => {
   let contents: any = {
-    __type: "RuleNotFoundException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7080,7 +6961,6 @@ const deserializeAws_querySecurityGroups = (output: any, context: __SerdeContext
 
 const deserializeAws_querySetIpAddressTypeOutput = (output: any, context: __SerdeContext): SetIpAddressTypeOutput => {
   let contents: any = {
-    __type: "SetIpAddressTypeOutput",
     IpAddressType: undefined,
   };
   if (output["IpAddressType"] !== undefined) {
@@ -7091,7 +6971,6 @@ const deserializeAws_querySetIpAddressTypeOutput = (output: any, context: __Serd
 
 const deserializeAws_querySetRulePrioritiesOutput = (output: any, context: __SerdeContext): SetRulePrioritiesOutput => {
   let contents: any = {
-    __type: "SetRulePrioritiesOutput",
     Rules: undefined,
   };
   if (output.Rules === "") {
@@ -7105,7 +6984,6 @@ const deserializeAws_querySetRulePrioritiesOutput = (output: any, context: __Ser
 
 const deserializeAws_querySetSecurityGroupsOutput = (output: any, context: __SerdeContext): SetSecurityGroupsOutput => {
   let contents: any = {
-    __type: "SetSecurityGroupsOutput",
     SecurityGroupIds: undefined,
   };
   if (output.SecurityGroupIds === "") {
@@ -7122,7 +7000,6 @@ const deserializeAws_querySetSecurityGroupsOutput = (output: any, context: __Ser
 
 const deserializeAws_querySetSubnetsOutput = (output: any, context: __SerdeContext): SetSubnetsOutput => {
   let contents: any = {
-    __type: "SetSubnetsOutput",
     AvailabilityZones: undefined,
   };
   if (output.AvailabilityZones === "") {
@@ -7139,7 +7016,6 @@ const deserializeAws_querySetSubnetsOutput = (output: any, context: __SerdeConte
 
 const deserializeAws_querySourceIpConditionConfig = (output: any, context: __SerdeContext): SourceIpConditionConfig => {
   let contents: any = {
-    __type: "SourceIpConditionConfig",
     Values: undefined,
   };
   if (output.Values === "") {
@@ -7157,7 +7033,6 @@ const deserializeAws_querySslPolicies = (output: any, context: __SerdeContext): 
 
 const deserializeAws_querySslPolicy = (output: any, context: __SerdeContext): SslPolicy => {
   let contents: any = {
-    __type: "SslPolicy",
     Ciphers: undefined,
     SslProtocols: undefined,
     Name: undefined,
@@ -7188,7 +7063,6 @@ const deserializeAws_querySSLPolicyNotFoundException = (
   context: __SerdeContext
 ): SSLPolicyNotFoundException => {
   let contents: any = {
-    __type: "SSLPolicyNotFoundException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7203,7 +7077,6 @@ const deserializeAws_querySslProtocols = (output: any, context: __SerdeContext):
 
 const deserializeAws_querySubnetNotFoundException = (output: any, context: __SerdeContext): SubnetNotFoundException => {
   let contents: any = {
-    __type: "SubnetNotFoundException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7214,7 +7087,6 @@ const deserializeAws_querySubnetNotFoundException = (output: any, context: __Ser
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
-    __type: "Tag",
     Value: undefined,
     Key: undefined,
   };
@@ -7229,7 +7101,6 @@ const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
 
 const deserializeAws_queryTagDescription = (output: any, context: __SerdeContext): TagDescription => {
   let contents: any = {
-    __type: "TagDescription",
     ResourceArn: undefined,
     Tags: undefined,
   };
@@ -7255,7 +7126,6 @@ const deserializeAws_queryTagList = (output: any, context: __SerdeContext): Tag[
 
 const deserializeAws_queryTargetDescription = (output: any, context: __SerdeContext): TargetDescription => {
   let contents: any = {
-    __type: "TargetDescription",
     Id: undefined,
     Port: undefined,
     AvailabilityZone: undefined,
@@ -7274,7 +7144,6 @@ const deserializeAws_queryTargetDescription = (output: any, context: __SerdeCont
 
 const deserializeAws_queryTargetGroup = (output: any, context: __SerdeContext): TargetGroup => {
   let contents: any = {
-    __type: "TargetGroup",
     UnhealthyThresholdCount: undefined,
     HealthCheckTimeoutSeconds: undefined,
     HealthyThresholdCount: undefined,
@@ -7354,7 +7223,6 @@ const deserializeAws_queryTargetGroupAssociationLimitException = (
   context: __SerdeContext
 ): TargetGroupAssociationLimitException => {
   let contents: any = {
-    __type: "TargetGroupAssociationLimitException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7365,7 +7233,6 @@ const deserializeAws_queryTargetGroupAssociationLimitException = (
 
 const deserializeAws_queryTargetGroupAttribute = (output: any, context: __SerdeContext): TargetGroupAttribute => {
   let contents: any = {
-    __type: "TargetGroupAttribute",
     Value: undefined,
     Key: undefined,
   };
@@ -7391,7 +7258,6 @@ const deserializeAws_queryTargetGroupNotFoundException = (
   context: __SerdeContext
 ): TargetGroupNotFoundException => {
   let contents: any = {
-    __type: "TargetGroupNotFoundException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7409,7 +7275,6 @@ const deserializeAws_queryTargetGroupStickinessConfig = (
   context: __SerdeContext
 ): TargetGroupStickinessConfig => {
   let contents: any = {
-    __type: "TargetGroupStickinessConfig",
     Enabled: undefined,
     DurationSeconds: undefined,
   };
@@ -7424,7 +7289,6 @@ const deserializeAws_queryTargetGroupStickinessConfig = (
 
 const deserializeAws_queryTargetGroupTuple = (output: any, context: __SerdeContext): TargetGroupTuple => {
   let contents: any = {
-    __type: "TargetGroupTuple",
     TargetGroupArn: undefined,
     Weight: undefined,
   };
@@ -7439,7 +7303,6 @@ const deserializeAws_queryTargetGroupTuple = (output: any, context: __SerdeConte
 
 const deserializeAws_queryTargetHealth = (output: any, context: __SerdeContext): TargetHealth => {
   let contents: any = {
-    __type: "TargetHealth",
     Reason: undefined,
     Description: undefined,
     State: undefined,
@@ -7458,7 +7321,6 @@ const deserializeAws_queryTargetHealth = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryTargetHealthDescription = (output: any, context: __SerdeContext): TargetHealthDescription => {
   let contents: any = {
-    __type: "TargetHealthDescription",
     HealthCheckPort: undefined,
     Target: undefined,
     TargetHealth: undefined,
@@ -7484,7 +7346,6 @@ const deserializeAws_queryTargetHealthDescriptions = (
 
 const deserializeAws_queryTooManyActionsException = (output: any, context: __SerdeContext): TooManyActionsException => {
   let contents: any = {
-    __type: "TooManyActionsException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7498,7 +7359,6 @@ const deserializeAws_queryTooManyCertificatesException = (
   context: __SerdeContext
 ): TooManyCertificatesException => {
   let contents: any = {
-    __type: "TooManyCertificatesException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7512,7 +7372,6 @@ const deserializeAws_queryTooManyListenersException = (
   context: __SerdeContext
 ): TooManyListenersException => {
   let contents: any = {
-    __type: "TooManyListenersException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7526,7 +7385,6 @@ const deserializeAws_queryTooManyLoadBalancersException = (
   context: __SerdeContext
 ): TooManyLoadBalancersException => {
   let contents: any = {
-    __type: "TooManyLoadBalancersException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7540,7 +7398,6 @@ const deserializeAws_queryTooManyRegistrationsForTargetIdException = (
   context: __SerdeContext
 ): TooManyRegistrationsForTargetIdException => {
   let contents: any = {
-    __type: "TooManyRegistrationsForTargetIdException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7551,7 +7408,6 @@ const deserializeAws_queryTooManyRegistrationsForTargetIdException = (
 
 const deserializeAws_queryTooManyRulesException = (output: any, context: __SerdeContext): TooManyRulesException => {
   let contents: any = {
-    __type: "TooManyRulesException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7562,7 +7418,6 @@ const deserializeAws_queryTooManyRulesException = (output: any, context: __Serde
 
 const deserializeAws_queryTooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   let contents: any = {
-    __type: "TooManyTagsException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7576,7 +7431,6 @@ const deserializeAws_queryTooManyTargetGroupsException = (
   context: __SerdeContext
 ): TooManyTargetGroupsException => {
   let contents: any = {
-    __type: "TooManyTargetGroupsException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7587,7 +7441,6 @@ const deserializeAws_queryTooManyTargetGroupsException = (
 
 const deserializeAws_queryTooManyTargetsException = (output: any, context: __SerdeContext): TooManyTargetsException => {
   let contents: any = {
-    __type: "TooManyTargetsException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7601,7 +7454,6 @@ const deserializeAws_queryTooManyUniqueTargetGroupsPerLoadBalancerException = (
   context: __SerdeContext
 ): TooManyUniqueTargetGroupsPerLoadBalancerException => {
   let contents: any = {
-    __type: "TooManyUniqueTargetGroupsPerLoadBalancerException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {
@@ -7615,7 +7467,6 @@ const deserializeAws_queryUnsupportedProtocolException = (
   context: __SerdeContext
 ): UnsupportedProtocolException => {
   let contents: any = {
-    __type: "UnsupportedProtocolException",
     Message: undefined,
   };
   if (output["Message"] !== undefined) {

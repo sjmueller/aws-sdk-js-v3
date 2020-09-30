@@ -1,6 +1,6 @@
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
-import { GetSupportedResourceTypesOutput } from "../models/index.ts";
+import { GetSupportedResourceTypesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetSupportedResourceTypesCommand,
   serializeAws_restJson1GetSupportedResourceTypesCommand,

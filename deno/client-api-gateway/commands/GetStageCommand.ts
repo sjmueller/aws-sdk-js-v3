@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { GetStageRequest, Stage } from "../models/index.ts";
+import { GetStageRequest, Stage } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetStageCommand,
   serializeAws_restJson1GetStageCommand,

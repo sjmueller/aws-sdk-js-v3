@@ -3,7 +3,7 @@ import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 import {
   DescribeAffectedAccountsForOrganizationRequest,
   DescribeAffectedAccountsForOrganizationResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand,
   serializeAws_json1_1DescribeAffectedAccountsForOrganizationCommand,

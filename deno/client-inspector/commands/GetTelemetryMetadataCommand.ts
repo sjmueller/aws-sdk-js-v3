@@ -1,6 +1,6 @@
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
-import { GetTelemetryMetadataRequest, GetTelemetryMetadataResponse } from "../models/index.ts";
+import { GetTelemetryMetadataRequest, GetTelemetryMetadataResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetTelemetryMetadataCommand,
   serializeAws_json1_1GetTelemetryMetadataCommand,

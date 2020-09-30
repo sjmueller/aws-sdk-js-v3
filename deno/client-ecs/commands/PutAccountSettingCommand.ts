@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { PutAccountSettingRequest, PutAccountSettingResponse } from "../models/index.ts";
+import { PutAccountSettingRequest, PutAccountSettingResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutAccountSettingCommand,
   serializeAws_json1_1PutAccountSettingCommand,

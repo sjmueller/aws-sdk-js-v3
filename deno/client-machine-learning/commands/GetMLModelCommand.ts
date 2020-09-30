@@ -1,6 +1,6 @@
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient.ts";
-import { GetMLModelInput, GetMLModelOutput } from "../models/index.ts";
+import { GetMLModelInput, GetMLModelOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetMLModelCommand,
   serializeAws_json1_1GetMLModelCommand,

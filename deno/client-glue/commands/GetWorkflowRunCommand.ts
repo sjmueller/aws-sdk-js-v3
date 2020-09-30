@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { GetWorkflowRunRequest, GetWorkflowRunResponse } from "../models/index.ts";
+import { GetWorkflowRunRequest, GetWorkflowRunResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetWorkflowRunCommand,
   serializeAws_json1_1GetWorkflowRunCommand,

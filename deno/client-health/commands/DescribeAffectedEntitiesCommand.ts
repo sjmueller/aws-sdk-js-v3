@@ -1,6 +1,6 @@
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient.ts";
-import { DescribeAffectedEntitiesRequest, DescribeAffectedEntitiesResponse } from "../models/index.ts";
+import { DescribeAffectedEntitiesRequest, DescribeAffectedEntitiesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeAffectedEntitiesCommand,
   serializeAws_json1_1DescribeAffectedEntitiesCommand,

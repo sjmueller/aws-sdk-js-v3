@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/index.ts";
+import { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,
   serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand,

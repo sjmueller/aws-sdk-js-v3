@@ -1,6 +1,6 @@
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient.ts";
-import { ListResolversRequest, ListResolversResponse } from "../models/index.ts";
+import { ListResolversRequest, ListResolversResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListResolversCommand,
   serializeAws_restJson1ListResolversCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../KinesisAnalyticsV2Client.ts";
-import { AddApplicationOutputRequest, AddApplicationOutputResponse } from "../models/index.ts";
+import { AddApplicationOutputRequest, AddApplicationOutputResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AddApplicationOutputCommand,
   serializeAws_json1_1AddApplicationOutputCommand,

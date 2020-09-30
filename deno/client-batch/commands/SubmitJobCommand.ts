@@ -1,6 +1,6 @@
 
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient.ts";
-import { SubmitJobRequest, SubmitJobResponse } from "../models/index.ts";
+import { SubmitJobRequest, SubmitJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SubmitJobCommand,
   serializeAws_restJson1SubmitJobCommand,

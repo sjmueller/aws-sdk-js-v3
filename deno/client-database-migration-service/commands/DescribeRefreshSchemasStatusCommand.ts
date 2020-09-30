@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { DescribeRefreshSchemasStatusMessage, DescribeRefreshSchemasStatusResponse } from "../models/index.ts";
+import { DescribeRefreshSchemasStatusMessage, DescribeRefreshSchemasStatusResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeRefreshSchemasStatusCommand,
   serializeAws_json1_1DescribeRefreshSchemasStatusCommand,

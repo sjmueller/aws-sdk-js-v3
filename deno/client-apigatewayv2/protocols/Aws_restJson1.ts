@@ -132,7 +132,7 @@ import {
   TlsConfigInput,
   TooManyRequestsException,
   VpcLink,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -3001,7 +3001,6 @@ export const deserializeAws_restJson1CreateApiCommand = async (
   }
   const contents: CreateApiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateApiResponse",
     ApiEndpoint: undefined,
     ApiId: undefined,
     ApiKeySelectionExpression: undefined,
@@ -3133,7 +3132,6 @@ export const deserializeAws_restJson1CreateApiMappingCommand = async (
   }
   const contents: CreateApiMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateApiMappingResponse",
     ApiId: undefined,
     ApiMappingId: undefined,
     ApiMappingKey: undefined,
@@ -3225,7 +3223,6 @@ export const deserializeAws_restJson1CreateAuthorizerCommand = async (
   }
   const contents: CreateAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAuthorizerResponse",
     AuthorizerCredentialsArn: undefined,
     AuthorizerId: undefined,
     AuthorizerResultTtlInSeconds: undefined,
@@ -3337,7 +3334,6 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
   }
   const contents: CreateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDeploymentResponse",
     AutoDeployed: undefined,
     CreatedDate: undefined,
     DeploymentId: undefined,
@@ -3437,7 +3433,6 @@ export const deserializeAws_restJson1CreateDomainNameCommand = async (
   }
   const contents: CreateDomainNameCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDomainNameResponse",
     ApiMappingSelectionExpression: undefined,
     DomainName: undefined,
     DomainNameConfigurations: undefined,
@@ -3540,7 +3535,6 @@ export const deserializeAws_restJson1CreateIntegrationCommand = async (
   }
   const contents: CreateIntegrationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateIntegrationResult",
     ApiGatewayManaged: undefined,
     ConnectionId: undefined,
     ConnectionType: undefined,
@@ -3691,7 +3685,6 @@ export const deserializeAws_restJson1CreateIntegrationResponseCommand = async (
   }
   const contents: CreateIntegrationResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateIntegrationResponseResponse",
     ContentHandlingStrategy: undefined,
     IntegrationResponseId: undefined,
     IntegrationResponseKey: undefined,
@@ -3791,7 +3784,6 @@ export const deserializeAws_restJson1CreateModelCommand = async (
   }
   const contents: CreateModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateModelResponse",
     ContentType: undefined,
     Description: undefined,
     ModelId: undefined,
@@ -3887,7 +3879,6 @@ export const deserializeAws_restJson1CreateRouteCommand = async (
   }
   const contents: CreateRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRouteResult",
     ApiGatewayManaged: undefined,
     ApiKeyRequired: undefined,
     AuthorizationScopes: undefined,
@@ -4015,7 +4006,6 @@ export const deserializeAws_restJson1CreateRouteResponseCommand = async (
   }
   const contents: CreateRouteResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRouteResponseResponse",
     ModelSelectionExpression: undefined,
     ResponseModels: undefined,
     ResponseParameters: undefined,
@@ -4111,7 +4101,6 @@ export const deserializeAws_restJson1CreateStageCommand = async (
   }
   const contents: CreateStageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateStageResponse",
     AccessLogSettings: undefined,
     ApiGatewayManaged: undefined,
     AutoDeploy: undefined,
@@ -4243,7 +4232,6 @@ export const deserializeAws_restJson1CreateVpcLinkCommand = async (
   }
   const contents: CreateVpcLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVpcLinkResponse",
     CreatedDate: undefined,
     Name: undefined,
     SecurityGroupIds: undefined,
@@ -5232,7 +5220,6 @@ export const deserializeAws_restJson1DeleteVpcLinkCommand = async (
   }
   const contents: DeleteVpcLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVpcLinkResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5292,7 +5279,6 @@ export const deserializeAws_restJson1ExportApiCommand = async (
   }
   const contents: ExportApiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportApiResponse",
     body: undefined,
   };
   const data: any = await collectBody(output.body, context);
@@ -5362,7 +5348,6 @@ export const deserializeAws_restJson1GetApiCommand = async (
   }
   const contents: GetApiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetApiResponse",
     ApiEndpoint: undefined,
     ApiId: undefined,
     ApiKeySelectionExpression: undefined,
@@ -5478,7 +5463,6 @@ export const deserializeAws_restJson1GetApiMappingCommand = async (
   }
   const contents: GetApiMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetApiMappingResponse",
     ApiId: undefined,
     ApiMappingId: undefined,
     ApiMappingKey: undefined,
@@ -5562,7 +5546,6 @@ export const deserializeAws_restJson1GetApiMappingsCommand = async (
   }
   const contents: GetApiMappingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetApiMappingsResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -5638,7 +5621,6 @@ export const deserializeAws_restJson1GetApisCommand = async (
   }
   const contents: GetApisCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetApisResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -5714,7 +5696,6 @@ export const deserializeAws_restJson1GetAuthorizerCommand = async (
   }
   const contents: GetAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAuthorizerResponse",
     AuthorizerCredentialsArn: undefined,
     AuthorizerId: undefined,
     AuthorizerResultTtlInSeconds: undefined,
@@ -5810,7 +5791,6 @@ export const deserializeAws_restJson1GetAuthorizersCommand = async (
   }
   const contents: GetAuthorizersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAuthorizersResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -5886,7 +5866,6 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
   }
   const contents: GetDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDeploymentResponse",
     AutoDeployed: undefined,
     CreatedDate: undefined,
     DeploymentId: undefined,
@@ -5970,7 +5949,6 @@ export const deserializeAws_restJson1GetDeploymentsCommand = async (
   }
   const contents: GetDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDeploymentsResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -6046,7 +6024,6 @@ export const deserializeAws_restJson1GetDomainNameCommand = async (
   }
   const contents: GetDomainNameCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDomainNameResponse",
     ApiMappingSelectionExpression: undefined,
     DomainName: undefined,
     DomainNameConfigurations: undefined,
@@ -6125,7 +6102,6 @@ export const deserializeAws_restJson1GetDomainNamesCommand = async (
   }
   const contents: GetDomainNamesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDomainNamesResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -6201,7 +6177,6 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
   }
   const contents: GetIntegrationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetIntegrationResult",
     ApiGatewayManaged: undefined,
     ConnectionId: undefined,
     ConnectionType: undefined,
@@ -6336,7 +6311,6 @@ export const deserializeAws_restJson1GetIntegrationResponseCommand = async (
   }
   const contents: GetIntegrationResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetIntegrationResponseResponse",
     ContentHandlingStrategy: undefined,
     IntegrationResponseId: undefined,
     IntegrationResponseKey: undefined,
@@ -6420,7 +6394,6 @@ export const deserializeAws_restJson1GetIntegrationResponsesCommand = async (
   }
   const contents: GetIntegrationResponsesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetIntegrationResponsesResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -6496,7 +6469,6 @@ export const deserializeAws_restJson1GetIntegrationsCommand = async (
   }
   const contents: GetIntegrationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetIntegrationsResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -6572,7 +6544,6 @@ export const deserializeAws_restJson1GetModelCommand = async (
   }
   const contents: GetModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetModelResponse",
     ContentType: undefined,
     Description: undefined,
     ModelId: undefined,
@@ -6652,7 +6623,6 @@ export const deserializeAws_restJson1GetModelsCommand = async (
   }
   const contents: GetModelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetModelsResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -6728,7 +6698,6 @@ export const deserializeAws_restJson1GetModelTemplateCommand = async (
   }
   const contents: GetModelTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetModelTemplateResponse",
     Value: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6792,7 +6761,6 @@ export const deserializeAws_restJson1GetRouteCommand = async (
   }
   const contents: GetRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRouteResult",
     ApiGatewayManaged: undefined,
     ApiKeyRequired: undefined,
     AuthorizationScopes: undefined,
@@ -6904,7 +6872,6 @@ export const deserializeAws_restJson1GetRouteResponseCommand = async (
   }
   const contents: GetRouteResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRouteResponseResponse",
     ModelSelectionExpression: undefined,
     ResponseModels: undefined,
     ResponseParameters: undefined,
@@ -6984,7 +6951,6 @@ export const deserializeAws_restJson1GetRouteResponsesCommand = async (
   }
   const contents: GetRouteResponsesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRouteResponsesResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -7060,7 +7026,6 @@ export const deserializeAws_restJson1GetRoutesCommand = async (
   }
   const contents: GetRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRoutesResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -7136,7 +7101,6 @@ export const deserializeAws_restJson1GetStageCommand = async (
   }
   const contents: GetStageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetStageResponse",
     AccessLogSettings: undefined,
     ApiGatewayManaged: undefined,
     AutoDeploy: undefined,
@@ -7252,7 +7216,6 @@ export const deserializeAws_restJson1GetStagesCommand = async (
   }
   const contents: GetStagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetStagesResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -7328,7 +7291,6 @@ export const deserializeAws_restJson1GetTagsCommand = async (
   }
   const contents: GetTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTagsResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -7408,7 +7370,6 @@ export const deserializeAws_restJson1GetVpcLinkCommand = async (
   }
   const contents: GetVpcLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVpcLinkResponse",
     CreatedDate: undefined,
     Name: undefined,
     SecurityGroupIds: undefined,
@@ -7504,7 +7465,6 @@ export const deserializeAws_restJson1GetVpcLinksCommand = async (
   }
   const contents: GetVpcLinksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVpcLinksResponse",
     Items: undefined,
     NextToken: undefined,
   };
@@ -7572,7 +7532,6 @@ export const deserializeAws_restJson1ImportApiCommand = async (
   }
   const contents: ImportApiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportApiResponse",
     ApiEndpoint: undefined,
     ApiId: undefined,
     ApiKeySelectionExpression: undefined,
@@ -7704,7 +7663,6 @@ export const deserializeAws_restJson1ReimportApiCommand = async (
   }
   const contents: ReimportApiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReimportApiResponse",
     ApiEndpoint: undefined,
     ApiId: undefined,
     ApiKeySelectionExpression: undefined,
@@ -7836,7 +7794,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -7987,7 +7944,6 @@ export const deserializeAws_restJson1UpdateApiCommand = async (
   }
   const contents: UpdateApiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateApiResponse",
     ApiEndpoint: undefined,
     ApiId: undefined,
     ApiKeySelectionExpression: undefined,
@@ -8119,7 +8075,6 @@ export const deserializeAws_restJson1UpdateApiMappingCommand = async (
   }
   const contents: UpdateApiMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateApiMappingResponse",
     ApiId: undefined,
     ApiMappingId: undefined,
     ApiMappingKey: undefined,
@@ -8211,7 +8166,6 @@ export const deserializeAws_restJson1UpdateAuthorizerCommand = async (
   }
   const contents: UpdateAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAuthorizerResponse",
     AuthorizerCredentialsArn: undefined,
     AuthorizerId: undefined,
     AuthorizerResultTtlInSeconds: undefined,
@@ -8323,7 +8277,6 @@ export const deserializeAws_restJson1UpdateDeploymentCommand = async (
   }
   const contents: UpdateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDeploymentResponse",
     AutoDeployed: undefined,
     CreatedDate: undefined,
     DeploymentId: undefined,
@@ -8423,7 +8376,6 @@ export const deserializeAws_restJson1UpdateDomainNameCommand = async (
   }
   const contents: UpdateDomainNameCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDomainNameResponse",
     ApiMappingSelectionExpression: undefined,
     DomainName: undefined,
     DomainNameConfigurations: undefined,
@@ -8518,7 +8470,6 @@ export const deserializeAws_restJson1UpdateIntegrationCommand = async (
   }
   const contents: UpdateIntegrationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateIntegrationResult",
     ApiGatewayManaged: undefined,
     ConnectionId: undefined,
     ConnectionType: undefined,
@@ -8669,7 +8620,6 @@ export const deserializeAws_restJson1UpdateIntegrationResponseCommand = async (
   }
   const contents: UpdateIntegrationResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateIntegrationResponseResponse",
     ContentHandlingStrategy: undefined,
     IntegrationResponseId: undefined,
     IntegrationResponseKey: undefined,
@@ -8769,7 +8719,6 @@ export const deserializeAws_restJson1UpdateModelCommand = async (
   }
   const contents: UpdateModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateModelResponse",
     ContentType: undefined,
     Description: undefined,
     ModelId: undefined,
@@ -8865,7 +8814,6 @@ export const deserializeAws_restJson1UpdateRouteCommand = async (
   }
   const contents: UpdateRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRouteResult",
     ApiGatewayManaged: undefined,
     ApiKeyRequired: undefined,
     AuthorizationScopes: undefined,
@@ -8993,7 +8941,6 @@ export const deserializeAws_restJson1UpdateRouteResponseCommand = async (
   }
   const contents: UpdateRouteResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRouteResponseResponse",
     ModelSelectionExpression: undefined,
     ResponseModels: undefined,
     ResponseParameters: undefined,
@@ -9089,7 +9036,6 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
   }
   const contents: UpdateStageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateStageResponse",
     AccessLogSettings: undefined,
     ApiGatewayManaged: undefined,
     AutoDeploy: undefined,
@@ -9221,7 +9167,6 @@ export const deserializeAws_restJson1UpdateVpcLinkCommand = async (
   }
   const contents: UpdateVpcLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateVpcLinkResponse",
     CreatedDate: undefined,
     Name: undefined,
     SecurityGroupIds: undefined,
@@ -9658,7 +9603,6 @@ const deserializeAws_restJson1__listOfVpcLink = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1AccessLogSettings = (output: any, context: __SerdeContext): AccessLogSettings => {
   return {
-    __type: "AccessLogSettings",
     DestinationArn:
       output.destinationArn !== undefined && output.destinationArn !== null ? output.destinationArn : undefined,
     Format: output.format !== undefined && output.format !== null ? output.format : undefined,
@@ -9667,7 +9611,6 @@ const deserializeAws_restJson1AccessLogSettings = (output: any, context: __Serde
 
 const deserializeAws_restJson1Api = (output: any, context: __SerdeContext): Api => {
   return {
-    __type: "Api",
     ApiEndpoint: output.apiEndpoint !== undefined && output.apiEndpoint !== null ? output.apiEndpoint : undefined,
     ApiId: output.apiId !== undefined && output.apiId !== null ? output.apiId : undefined,
     ApiKeySelectionExpression:
@@ -9709,7 +9652,6 @@ const deserializeAws_restJson1Api = (output: any, context: __SerdeContext): Api 
 
 const deserializeAws_restJson1ApiMapping = (output: any, context: __SerdeContext): ApiMapping => {
   return {
-    __type: "ApiMapping",
     ApiId: output.apiId !== undefined && output.apiId !== null ? output.apiId : undefined,
     ApiMappingId: output.apiMappingId !== undefined && output.apiMappingId !== null ? output.apiMappingId : undefined,
     ApiMappingKey:
@@ -9724,7 +9666,6 @@ const deserializeAws_restJson1AuthorizationScopes = (output: any, context: __Ser
 
 const deserializeAws_restJson1Authorizer = (output: any, context: __SerdeContext): Authorizer => {
   return {
-    __type: "Authorizer",
     AuthorizerCredentialsArn:
       output.authorizerCredentialsArn !== undefined && output.authorizerCredentialsArn !== null
         ? output.authorizerCredentialsArn
@@ -9756,7 +9697,6 @@ const deserializeAws_restJson1Authorizer = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Cors = (output: any, context: __SerdeContext): Cors => {
   return {
-    __type: "Cors",
     AllowCredentials:
       output.allowCredentials !== undefined && output.allowCredentials !== null ? output.allowCredentials : undefined,
     AllowHeaders:
@@ -9793,7 +9733,6 @@ const deserializeAws_restJson1CorsOriginList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext): Deployment => {
   return {
-    __type: "Deployment",
     AutoDeployed: output.autoDeployed !== undefined && output.autoDeployed !== null ? output.autoDeployed : undefined,
     CreatedDate:
       output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
@@ -9810,7 +9749,6 @@ const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1DomainName = (output: any, context: __SerdeContext): DomainName => {
   return {
-    __type: "DomainName",
     ApiMappingSelectionExpression:
       output.apiMappingSelectionExpression !== undefined && output.apiMappingSelectionExpression !== null
         ? output.apiMappingSelectionExpression
@@ -9832,7 +9770,6 @@ const deserializeAws_restJson1DomainNameConfiguration = (
   context: __SerdeContext
 ): DomainNameConfiguration => {
   return {
-    __type: "DomainNameConfiguration",
     ApiGatewayDomainName:
       output.apiGatewayDomainName !== undefined && output.apiGatewayDomainName !== null
         ? output.apiGatewayDomainName
@@ -9871,7 +9808,6 @@ const deserializeAws_restJson1IdentitySourceList = (output: any, context: __Serd
 
 const deserializeAws_restJson1Integration = (output: any, context: __SerdeContext): Integration => {
   return {
-    __type: "Integration",
     ApiGatewayManaged:
       output.apiGatewayManaged !== undefined && output.apiGatewayManaged !== null
         ? output.apiGatewayManaged
@@ -9945,7 +9881,6 @@ const deserializeAws_restJson1IntegrationParameters = (
 
 const deserializeAws_restJson1IntegrationResponse = (output: any, context: __SerdeContext): IntegrationResponse => {
   return {
-    __type: "IntegrationResponse",
     ContentHandlingStrategy:
       output.contentHandlingStrategy !== undefined && output.contentHandlingStrategy !== null
         ? output.contentHandlingStrategy
@@ -9975,7 +9910,6 @@ const deserializeAws_restJson1IntegrationResponse = (output: any, context: __Ser
 
 const deserializeAws_restJson1JWTConfiguration = (output: any, context: __SerdeContext): JWTConfiguration => {
   return {
-    __type: "JWTConfiguration",
     Audience:
       output.audience !== undefined && output.audience !== null
         ? deserializeAws_restJson1__listOf__string(output.audience, context)
@@ -9986,7 +9920,6 @@ const deserializeAws_restJson1JWTConfiguration = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Model = (output: any, context: __SerdeContext): Model => {
   return {
-    __type: "Model",
     ContentType: output.contentType !== undefined && output.contentType !== null ? output.contentType : undefined,
     Description: output.description !== undefined && output.description !== null ? output.description : undefined,
     ModelId: output.modelId !== undefined && output.modelId !== null ? output.modelId : undefined,
@@ -9997,14 +9930,12 @@ const deserializeAws_restJson1Model = (output: any, context: __SerdeContext): Mo
 
 const deserializeAws_restJson1ParameterConstraints = (output: any, context: __SerdeContext): ParameterConstraints => {
   return {
-    __type: "ParameterConstraints",
     Required: output.required !== undefined && output.required !== null ? output.required : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Route = (output: any, context: __SerdeContext): Route => {
   return {
-    __type: "Route",
     ApiGatewayManaged:
       output.apiGatewayManaged !== undefined && output.apiGatewayManaged !== null
         ? output.apiGatewayManaged
@@ -10069,7 +10000,6 @@ const deserializeAws_restJson1RouteParameters = (
 
 const deserializeAws_restJson1RouteResponse = (output: any, context: __SerdeContext): RouteResponse => {
   return {
-    __type: "RouteResponse",
     ModelSelectionExpression:
       output.modelSelectionExpression !== undefined && output.modelSelectionExpression !== null
         ? output.modelSelectionExpression
@@ -10091,7 +10021,6 @@ const deserializeAws_restJson1RouteResponse = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1RouteSettings = (output: any, context: __SerdeContext): RouteSettings => {
   return {
-    __type: "RouteSettings",
     DataTraceEnabled:
       output.dataTraceEnabled !== undefined && output.dataTraceEnabled !== null ? output.dataTraceEnabled : undefined,
     DetailedMetricsEnabled:
@@ -10129,7 +10058,6 @@ const deserializeAws_restJson1SecurityGroupIdList = (output: any, context: __Ser
 
 const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): Stage => {
   return {
-    __type: "Stage",
     AccessLogSettings:
       output.accessLogSettings !== undefined && output.accessLogSettings !== null
         ? deserializeAws_restJson1AccessLogSettings(output.accessLogSettings, context)
@@ -10211,7 +10139,6 @@ const deserializeAws_restJson1TemplateMap = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1TlsConfig = (output: any, context: __SerdeContext): TlsConfig => {
   return {
-    __type: "TlsConfig",
     ServerNameToVerify:
       output.serverNameToVerify !== undefined && output.serverNameToVerify !== null
         ? output.serverNameToVerify
@@ -10221,7 +10148,6 @@ const deserializeAws_restJson1TlsConfig = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1VpcLink = (output: any, context: __SerdeContext): VpcLink => {
   return {
-    __type: "VpcLink",
     CreatedDate:
       output.createdDate !== undefined && output.createdDate !== null ? new Date(output.createdDate) : undefined,
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,

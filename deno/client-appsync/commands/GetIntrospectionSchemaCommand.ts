@@ -1,6 +1,6 @@
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient.ts";
-import { GetIntrospectionSchemaRequest, GetIntrospectionSchemaResponse } from "../models/index.ts";
+import { GetIntrospectionSchemaRequest, GetIntrospectionSchemaResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetIntrospectionSchemaCommand,
   serializeAws_restJson1GetIntrospectionSchemaCommand,

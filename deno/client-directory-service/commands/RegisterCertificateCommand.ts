@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { RegisterCertificateRequest, RegisterCertificateResult } from "../models/index.ts";
+import { RegisterCertificateRequest, RegisterCertificateResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RegisterCertificateCommand,
   serializeAws_json1_1RegisterCertificateCommand,

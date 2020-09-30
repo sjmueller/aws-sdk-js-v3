@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { DeleteDeviceDefinitionRequest, DeleteDeviceDefinitionResponse } from "../models/index.ts";
+import { DeleteDeviceDefinitionRequest, DeleteDeviceDefinitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteDeviceDefinitionCommand,
   serializeAws_restJson1DeleteDeviceDefinitionCommand,

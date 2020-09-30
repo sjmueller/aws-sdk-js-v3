@@ -1,6 +1,6 @@
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
-import { DeleteDomainAssociationRequest, DeleteDomainAssociationResult } from "../models/index.ts";
+import { DeleteDomainAssociationRequest, DeleteDomainAssociationResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteDomainAssociationCommand,
   serializeAws_restJson1DeleteDomainAssociationCommand,

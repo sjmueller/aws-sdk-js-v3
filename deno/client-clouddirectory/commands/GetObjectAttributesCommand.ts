@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { GetObjectAttributesRequest, GetObjectAttributesResponse } from "../models/index.ts";
+import { GetObjectAttributesRequest, GetObjectAttributesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetObjectAttributesCommand,
   serializeAws_restJson1GetObjectAttributesCommand,

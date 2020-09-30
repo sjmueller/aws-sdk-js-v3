@@ -1,6 +1,6 @@
 
 import { HoneycodeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HoneycodeClient.ts";
-import { GetScreenDataRequest, GetScreenDataResult } from "../models/index.ts";
+import { GetScreenDataRequest, GetScreenDataResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetScreenDataCommand,
   serializeAws_restJson1GetScreenDataCommand,

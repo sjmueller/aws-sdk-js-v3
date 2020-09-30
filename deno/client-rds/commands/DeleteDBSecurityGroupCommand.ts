@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DeleteDBSecurityGroupMessage } from "../models/index.ts";
+import { DeleteDBSecurityGroupMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteDBSecurityGroupCommand,
   serializeAws_queryDeleteDBSecurityGroupCommand,

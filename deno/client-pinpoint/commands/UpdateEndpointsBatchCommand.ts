@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { UpdateEndpointsBatchRequest, UpdateEndpointsBatchResponse } from "../models/index.ts";
+import { UpdateEndpointsBatchRequest, UpdateEndpointsBatchResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UpdateEndpointsBatchCommand,
   serializeAws_restJson1UpdateEndpointsBatchCommand,

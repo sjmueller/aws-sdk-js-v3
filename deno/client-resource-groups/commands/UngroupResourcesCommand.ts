@@ -1,6 +1,6 @@
 
 import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ResourceGroupsClient.ts";
-import { UngroupResourcesInput, UngroupResourcesOutput } from "../models/index.ts";
+import { UngroupResourcesInput, UngroupResourcesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UngroupResourcesCommand,
   serializeAws_restJson1UngroupResourcesCommand,

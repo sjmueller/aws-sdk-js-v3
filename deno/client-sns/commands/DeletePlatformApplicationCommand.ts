@@ -1,6 +1,6 @@
 
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
-import { DeletePlatformApplicationInput } from "../models/index.ts";
+import { DeletePlatformApplicationInput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeletePlatformApplicationCommand,
   serializeAws_queryDeletePlatformApplicationCommand,

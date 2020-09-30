@@ -1,6 +1,6 @@
 
 import { CloudSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudSearchClient.ts";
-import { BuildSuggestersRequest, BuildSuggestersResponse } from "../models/index.ts";
+import { BuildSuggestersRequest, BuildSuggestersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryBuildSuggestersCommand,
   serializeAws_queryBuildSuggestersCommand,

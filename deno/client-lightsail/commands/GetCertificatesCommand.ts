@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { GetCertificatesRequest, GetCertificatesResult } from "../models/index.ts";
+import { GetCertificatesRequest, GetCertificatesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetCertificatesCommand,
   serializeAws_json1_1GetCertificatesCommand,

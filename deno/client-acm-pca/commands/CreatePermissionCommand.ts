@@ -1,6 +1,6 @@
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient.ts";
-import { CreatePermissionRequest } from "../models/index.ts";
+import { CreatePermissionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreatePermissionCommand,
   serializeAws_json1_1CreatePermissionCommand,

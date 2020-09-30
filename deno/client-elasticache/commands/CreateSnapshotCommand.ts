@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { CreateSnapshotMessage, CreateSnapshotResult } from "../models/index.ts";
+import { CreateSnapshotMessage, CreateSnapshotResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateSnapshotCommand,
   serializeAws_queryCreateSnapshotCommand,

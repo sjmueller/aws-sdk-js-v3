@@ -1,6 +1,6 @@
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
-import { ListVaultsInput, ListVaultsOutput } from "../models/index.ts";
+import { ListVaultsInput, ListVaultsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListVaultsCommand,
   serializeAws_restJson1ListVaultsCommand,

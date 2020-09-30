@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import { DescribeObservationRequest, DescribeObservationResponse } from "../models/index.ts";
+import { DescribeObservationRequest, DescribeObservationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeObservationCommand,
   serializeAws_json1_1DescribeObservationCommand,

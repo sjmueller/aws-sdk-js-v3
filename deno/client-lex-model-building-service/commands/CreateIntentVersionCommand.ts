@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient.ts";
-import { CreateIntentVersionRequest, CreateIntentVersionResponse } from "../models/index.ts";
+import { CreateIntentVersionRequest, CreateIntentVersionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateIntentVersionCommand,
   serializeAws_restJson1CreateIntentVersionCommand,

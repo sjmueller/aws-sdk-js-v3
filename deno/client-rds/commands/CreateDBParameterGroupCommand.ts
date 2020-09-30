@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { CreateDBParameterGroupMessage, CreateDBParameterGroupResult } from "../models/index.ts";
+import { CreateDBParameterGroupMessage, CreateDBParameterGroupResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateDBParameterGroupCommand,
   serializeAws_queryCreateDBParameterGroupCommand,

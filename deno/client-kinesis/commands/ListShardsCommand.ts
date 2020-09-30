@@ -1,6 +1,6 @@
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient.ts";
-import { ListShardsInput, ListShardsOutput } from "../models/index.ts";
+import { ListShardsInput, ListShardsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListShardsCommand,
   serializeAws_json1_1ListShardsCommand,

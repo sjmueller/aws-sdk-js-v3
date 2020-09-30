@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { DeleteAlarmsInput } from "../models/index.ts";
+import { DeleteAlarmsInput } from "../models/models_0.ts";
 import { deserializeAws_queryDeleteAlarmsCommand, serializeAws_queryDeleteAlarmsCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";

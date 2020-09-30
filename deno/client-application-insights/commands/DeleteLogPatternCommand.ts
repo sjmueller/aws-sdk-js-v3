@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import { DeleteLogPatternRequest, DeleteLogPatternResponse } from "../models/index.ts";
+import { DeleteLogPatternRequest, DeleteLogPatternResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteLogPatternCommand,
   serializeAws_json1_1DeleteLogPatternCommand,

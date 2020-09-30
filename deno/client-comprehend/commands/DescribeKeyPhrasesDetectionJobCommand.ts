@@ -1,6 +1,6 @@
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
-import { DescribeKeyPhrasesDetectionJobRequest, DescribeKeyPhrasesDetectionJobResponse } from "../models/index.ts";
+import { DescribeKeyPhrasesDetectionJobRequest, DescribeKeyPhrasesDetectionJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand,
   serializeAws_json1_1DescribeKeyPhrasesDetectionJobCommand,

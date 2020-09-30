@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { DescribeCompilationJobRequest, DescribeCompilationJobResponse } from "../models/index.ts";
+import { DescribeCompilationJobRequest, DescribeCompilationJobResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1DescribeCompilationJobCommand,
   serializeAws_json1_1DescribeCompilationJobCommand,

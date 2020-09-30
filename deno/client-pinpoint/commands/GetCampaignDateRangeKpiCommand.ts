@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { GetCampaignDateRangeKpiRequest, GetCampaignDateRangeKpiResponse } from "../models/index.ts";
+import { GetCampaignDateRangeKpiRequest, GetCampaignDateRangeKpiResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetCampaignDateRangeKpiCommand,
   serializeAws_restJson1GetCampaignDateRangeKpiCommand,

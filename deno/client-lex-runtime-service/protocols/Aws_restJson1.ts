@@ -22,7 +22,7 @@ import {
   ResponseCard,
   SentimentResponse,
   UnsupportedMediaTypeException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   LazyJsonString as __LazyJsonString,
@@ -322,7 +322,6 @@ export const deserializeAws_restJson1DeleteSessionCommand = async (
   }
   const contents: DeleteSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSessionResponse",
     botAlias: undefined,
     botName: undefined,
     sessionId: undefined,
@@ -422,7 +421,6 @@ export const deserializeAws_restJson1GetSessionCommand = async (
   }
   const contents: GetSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSessionResponse",
     dialogAction: undefined,
     recentIntentSummaryView: undefined,
     sessionAttributes: undefined,
@@ -514,7 +512,6 @@ export const deserializeAws_restJson1PostContentCommand = async (
   }
   const contents: PostContentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PostContentResponse",
     audioStream: undefined,
     contentType: undefined,
     dialogState: undefined,
@@ -692,7 +689,6 @@ export const deserializeAws_restJson1PostTextCommand = async (
   }
   const contents: PostTextCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PostTextResponse",
     dialogState: undefined,
     intentName: undefined,
     message: undefined,
@@ -840,7 +836,6 @@ export const deserializeAws_restJson1PutSessionCommand = async (
   }
   const contents: PutSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutSessionResponse",
     audioStream: undefined,
     contentType: undefined,
     dialogState: undefined,
@@ -1208,7 +1203,6 @@ const serializeAws_restJson1StringMap = (input: { [key: string]: string }, conte
 
 const deserializeAws_restJson1Button = (output: any, context: __SerdeContext): Button => {
   return {
-    __type: "Button",
     text: output.text !== undefined && output.text !== null ? output.text : undefined,
     value: output.value !== undefined && output.value !== null ? output.value : undefined,
   } as any;
@@ -1216,7 +1210,6 @@ const deserializeAws_restJson1Button = (output: any, context: __SerdeContext): B
 
 const deserializeAws_restJson1DialogAction = (output: any, context: __SerdeContext): DialogAction => {
   return {
-    __type: "DialogAction",
     fulfillmentState:
       output.fulfillmentState !== undefined && output.fulfillmentState !== null ? output.fulfillmentState : undefined,
     intentName: output.intentName !== undefined && output.intentName !== null ? output.intentName : undefined,
@@ -1234,7 +1227,6 @@ const deserializeAws_restJson1DialogAction = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1GenericAttachment = (output: any, context: __SerdeContext): GenericAttachment => {
   return {
-    __type: "GenericAttachment",
     attachmentLinkUrl:
       output.attachmentLinkUrl !== undefined && output.attachmentLinkUrl !== null
         ? output.attachmentLinkUrl
@@ -1255,7 +1247,6 @@ const deserializeAws_restJson1genericAttachmentList = (output: any, context: __S
 
 const deserializeAws_restJson1IntentSummary = (output: any, context: __SerdeContext): IntentSummary => {
   return {
-    __type: "IntentSummary",
     checkpointLabel:
       output.checkpointLabel !== undefined && output.checkpointLabel !== null ? output.checkpointLabel : undefined,
     confirmationStatus:
@@ -1285,7 +1276,6 @@ const deserializeAws_restJson1listOfButtons = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1ResponseCard = (output: any, context: __SerdeContext): ResponseCard => {
   return {
-    __type: "ResponseCard",
     contentType: output.contentType !== undefined && output.contentType !== null ? output.contentType : undefined,
     genericAttachments:
       output.genericAttachments !== undefined && output.genericAttachments !== null
@@ -1297,7 +1287,6 @@ const deserializeAws_restJson1ResponseCard = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1SentimentResponse = (output: any, context: __SerdeContext): SentimentResponse => {
   return {
-    __type: "SentimentResponse",
     sentimentLabel:
       output.sentimentLabel !== undefined && output.sentimentLabel !== null ? output.sentimentLabel : undefined,
     sentimentScore:

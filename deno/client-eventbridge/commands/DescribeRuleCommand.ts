@@ -1,6 +1,6 @@
 
 import { EventBridgeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EventBridgeClient.ts";
-import { DescribeRuleRequest, DescribeRuleResponse } from "../models/index.ts";
+import { DescribeRuleRequest, DescribeRuleResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeRuleCommand,
   serializeAws_json1_1DescribeRuleCommand,

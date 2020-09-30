@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/index.ts";
+import { DeleteNamespaceRequest, DeleteNamespaceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteNamespaceCommand,
   serializeAws_restJson1DeleteNamespaceCommand,

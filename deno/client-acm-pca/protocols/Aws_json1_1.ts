@@ -117,7 +117,7 @@ import {
   UntagCertificateAuthorityRequest,
   UpdateCertificateAuthorityRequest,
   Validity,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -400,7 +400,6 @@ export const deserializeAws_json1_1CreateCertificateAuthorityCommand = async (
   contents = deserializeAws_json1_1CreateCertificateAuthorityResponse(data, context);
   const response: CreateCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCertificateAuthorityResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -480,7 +479,6 @@ export const deserializeAws_json1_1CreateCertificateAuthorityAuditReportCommand 
   contents = deserializeAws_json1_1CreateCertificateAuthorityAuditReportResponse(data, context);
   const response: CreateCertificateAuthorityAuditReportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCertificateAuthorityAuditReportResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -820,7 +818,6 @@ export const deserializeAws_json1_1DescribeCertificateAuthorityCommand = async (
   contents = deserializeAws_json1_1DescribeCertificateAuthorityResponse(data, context);
   const response: DescribeCertificateAuthorityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCertificateAuthorityResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -884,7 +881,6 @@ export const deserializeAws_json1_1DescribeCertificateAuthorityAuditReportComman
   contents = deserializeAws_json1_1DescribeCertificateAuthorityAuditReportResponse(data, context);
   const response: DescribeCertificateAuthorityAuditReportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCertificateAuthorityAuditReportResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -956,7 +952,6 @@ export const deserializeAws_json1_1GetCertificateCommand = async (
   contents = deserializeAws_json1_1GetCertificateResponse(data, context);
   const response: GetCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCertificateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1044,7 +1039,6 @@ export const deserializeAws_json1_1GetCertificateAuthorityCertificateCommand = a
   contents = deserializeAws_json1_1GetCertificateAuthorityCertificateResponse(data, context);
   const response: GetCertificateAuthorityCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCertificateAuthorityCertificateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1116,7 +1110,6 @@ export const deserializeAws_json1_1GetCertificateAuthorityCsrCommand = async (
   contents = deserializeAws_json1_1GetCertificateAuthorityCsrResponse(data, context);
   const response: GetCertificateAuthorityCsrCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCertificateAuthorityCsrResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1320,7 +1313,6 @@ export const deserializeAws_json1_1IssueCertificateCommand = async (
   contents = deserializeAws_json1_1IssueCertificateResponse(data, context);
   const response: IssueCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "IssueCertificateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1416,7 +1408,6 @@ export const deserializeAws_json1_1ListCertificateAuthoritiesCommand = async (
   contents = deserializeAws_json1_1ListCertificateAuthoritiesResponse(data, context);
   const response: ListCertificateAuthoritiesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCertificateAuthoritiesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1472,7 +1463,6 @@ export const deserializeAws_json1_1ListPermissionsCommand = async (
   contents = deserializeAws_json1_1ListPermissionsResponse(data, context);
   const response: ListPermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPermissionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1560,7 +1550,6 @@ export const deserializeAws_json1_1ListTagsCommand = async (
   contents = deserializeAws_json1_1ListTagsResponse(data, context);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2610,7 +2599,6 @@ const deserializeAws_json1_1ActionList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1ASN1Subject = (output: any, context: __SerdeContext): ASN1Subject => {
   return {
-    __type: "ASN1Subject",
     CommonName: output.CommonName !== undefined && output.CommonName !== null ? output.CommonName : undefined,
     Country: output.Country !== undefined && output.Country !== null ? output.Country : undefined,
     DistinguishedNameQualifier:
@@ -2643,7 +2631,6 @@ const deserializeAws_json1_1CertificateAuthorities = (output: any, context: __Se
 
 const deserializeAws_json1_1CertificateAuthority = (output: any, context: __SerdeContext): CertificateAuthority => {
   return {
-    __type: "CertificateAuthority",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CertificateAuthorityConfiguration:
       output.CertificateAuthorityConfiguration !== undefined && output.CertificateAuthorityConfiguration !== null
@@ -2686,7 +2673,6 @@ const deserializeAws_json1_1CertificateAuthorityConfiguration = (
   context: __SerdeContext
 ): CertificateAuthorityConfiguration => {
   return {
-    __type: "CertificateAuthorityConfiguration",
     KeyAlgorithm: output.KeyAlgorithm !== undefined && output.KeyAlgorithm !== null ? output.KeyAlgorithm : undefined,
     SigningAlgorithm:
       output.SigningAlgorithm !== undefined && output.SigningAlgorithm !== null ? output.SigningAlgorithm : undefined,
@@ -2702,7 +2688,6 @@ const deserializeAws_json1_1CertificateMismatchException = (
   context: __SerdeContext
 ): CertificateMismatchException => {
   return {
-    __type: "CertificateMismatchException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2712,7 +2697,6 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    __type: "ConcurrentModificationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2722,7 +2706,6 @@ const deserializeAws_json1_1CreateCertificateAuthorityAuditReportResponse = (
   context: __SerdeContext
 ): CreateCertificateAuthorityAuditReportResponse => {
   return {
-    __type: "CreateCertificateAuthorityAuditReportResponse",
     AuditReportId:
       output.AuditReportId !== undefined && output.AuditReportId !== null ? output.AuditReportId : undefined,
     S3Key: output.S3Key !== undefined && output.S3Key !== null ? output.S3Key : undefined,
@@ -2734,7 +2717,6 @@ const deserializeAws_json1_1CreateCertificateAuthorityResponse = (
   context: __SerdeContext
 ): CreateCertificateAuthorityResponse => {
   return {
-    __type: "CreateCertificateAuthorityResponse",
     CertificateAuthorityArn:
       output.CertificateAuthorityArn !== undefined && output.CertificateAuthorityArn !== null
         ? output.CertificateAuthorityArn
@@ -2744,7 +2726,6 @@ const deserializeAws_json1_1CreateCertificateAuthorityResponse = (
 
 const deserializeAws_json1_1CrlConfiguration = (output: any, context: __SerdeContext): CrlConfiguration => {
   return {
-    __type: "CrlConfiguration",
     CustomCname: output.CustomCname !== undefined && output.CustomCname !== null ? output.CustomCname : undefined,
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     ExpirationInDays:
@@ -2758,7 +2739,6 @@ const deserializeAws_json1_1DescribeCertificateAuthorityAuditReportResponse = (
   context: __SerdeContext
 ): DescribeCertificateAuthorityAuditReportResponse => {
   return {
-    __type: "DescribeCertificateAuthorityAuditReportResponse",
     AuditReportStatus:
       output.AuditReportStatus !== undefined && output.AuditReportStatus !== null
         ? output.AuditReportStatus
@@ -2777,7 +2757,6 @@ const deserializeAws_json1_1DescribeCertificateAuthorityResponse = (
   context: __SerdeContext
 ): DescribeCertificateAuthorityResponse => {
   return {
-    __type: "DescribeCertificateAuthorityResponse",
     CertificateAuthority:
       output.CertificateAuthority !== undefined && output.CertificateAuthority !== null
         ? deserializeAws_json1_1CertificateAuthority(output.CertificateAuthority, context)
@@ -2790,7 +2769,6 @@ const deserializeAws_json1_1GetCertificateAuthorityCertificateResponse = (
   context: __SerdeContext
 ): GetCertificateAuthorityCertificateResponse => {
   return {
-    __type: "GetCertificateAuthorityCertificateResponse",
     Certificate: output.Certificate !== undefined && output.Certificate !== null ? output.Certificate : undefined,
     CertificateChain:
       output.CertificateChain !== undefined && output.CertificateChain !== null ? output.CertificateChain : undefined,
@@ -2802,14 +2780,12 @@ const deserializeAws_json1_1GetCertificateAuthorityCsrResponse = (
   context: __SerdeContext
 ): GetCertificateAuthorityCsrResponse => {
   return {
-    __type: "GetCertificateAuthorityCsrResponse",
     Csr: output.Csr !== undefined && output.Csr !== null ? output.Csr : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1GetCertificateResponse = (output: any, context: __SerdeContext): GetCertificateResponse => {
   return {
-    __type: "GetCertificateResponse",
     Certificate: output.Certificate !== undefined && output.Certificate !== null ? output.Certificate : undefined,
     CertificateChain:
       output.CertificateChain !== undefined && output.CertificateChain !== null ? output.CertificateChain : undefined,
@@ -2818,14 +2794,12 @@ const deserializeAws_json1_1GetCertificateResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1InvalidArgsException = (output: any, context: __SerdeContext): InvalidArgsException => {
   return {
-    __type: "InvalidArgsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidArnException = (output: any, context: __SerdeContext): InvalidArnException => {
   return {
-    __type: "InvalidArnException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2835,14 +2809,12 @@ const deserializeAws_json1_1InvalidNextTokenException = (
   context: __SerdeContext
 ): InvalidNextTokenException => {
   return {
-    __type: "InvalidNextTokenException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidPolicyException = (output: any, context: __SerdeContext): InvalidPolicyException => {
   return {
-    __type: "InvalidPolicyException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2852,21 +2824,18 @@ const deserializeAws_json1_1InvalidRequestException = (
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
-    __type: "InvalidRequestException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidStateException = (output: any, context: __SerdeContext): InvalidStateException => {
   return {
-    __type: "InvalidStateException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidTagException = (output: any, context: __SerdeContext): InvalidTagException => {
   return {
-    __type: "InvalidTagException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2876,7 +2845,6 @@ const deserializeAws_json1_1IssueCertificateResponse = (
   context: __SerdeContext
 ): IssueCertificateResponse => {
   return {
-    __type: "IssueCertificateResponse",
     CertificateArn:
       output.CertificateArn !== undefined && output.CertificateArn !== null ? output.CertificateArn : undefined,
   } as any;
@@ -2884,7 +2852,6 @@ const deserializeAws_json1_1IssueCertificateResponse = (
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2894,7 +2861,6 @@ const deserializeAws_json1_1ListCertificateAuthoritiesResponse = (
   context: __SerdeContext
 ): ListCertificateAuthoritiesResponse => {
   return {
-    __type: "ListCertificateAuthoritiesResponse",
     CertificateAuthorities:
       output.CertificateAuthorities !== undefined && output.CertificateAuthorities !== null
         ? deserializeAws_json1_1CertificateAuthorities(output.CertificateAuthorities, context)
@@ -2908,7 +2874,6 @@ const deserializeAws_json1_1ListPermissionsResponse = (
   context: __SerdeContext
 ): ListPermissionsResponse => {
   return {
-    __type: "ListPermissionsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
@@ -2919,7 +2884,6 @@ const deserializeAws_json1_1ListPermissionsResponse = (
 
 const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeContext): ListTagsResponse => {
   return {
-    __type: "ListTagsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -2933,21 +2897,18 @@ const deserializeAws_json1_1MalformedCertificateException = (
   context: __SerdeContext
 ): MalformedCertificateException => {
   return {
-    __type: "MalformedCertificateException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1MalformedCSRException = (output: any, context: __SerdeContext): MalformedCSRException => {
   return {
-    __type: "MalformedCSRException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Permission = (output: any, context: __SerdeContext): Permission => {
   return {
-    __type: "Permission",
     Actions:
       output.Actions !== undefined && output.Actions !== null
         ? deserializeAws_json1_1ActionList(output.Actions, context)
@@ -2972,7 +2933,6 @@ const deserializeAws_json1_1PermissionAlreadyExistsException = (
   context: __SerdeContext
 ): PermissionAlreadyExistsException => {
   return {
-    __type: "PermissionAlreadyExistsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -2986,14 +2946,12 @@ const deserializeAws_json1_1RequestAlreadyProcessedException = (
   context: __SerdeContext
 ): RequestAlreadyProcessedException => {
   return {
-    __type: "RequestAlreadyProcessedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RequestFailedException = (output: any, context: __SerdeContext): RequestFailedException => {
   return {
-    __type: "RequestFailedException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3003,7 +2961,6 @@ const deserializeAws_json1_1RequestInProgressException = (
   context: __SerdeContext
 ): RequestInProgressException => {
   return {
-    __type: "RequestInProgressException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3013,7 +2970,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3023,7 +2979,6 @@ const deserializeAws_json1_1RevocationConfiguration = (
   context: __SerdeContext
 ): RevocationConfiguration => {
   return {
-    __type: "RevocationConfiguration",
     CrlConfiguration:
       output.CrlConfiguration !== undefined && output.CrlConfiguration !== null
         ? deserializeAws_json1_1CrlConfiguration(output.CrlConfiguration, context)
@@ -3033,7 +2988,6 @@ const deserializeAws_json1_1RevocationConfiguration = (
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -3045,7 +2999,6 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
-    __type: "TooManyTagsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };

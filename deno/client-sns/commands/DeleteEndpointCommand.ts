@@ -1,6 +1,6 @@
 
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
-import { DeleteEndpointInput } from "../models/index.ts";
+import { DeleteEndpointInput } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteEndpointCommand,
   serializeAws_queryDeleteEndpointCommand,

@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { DeleteGroupRequest, DeleteGroupResponse } from "../models/index.ts";
+import { DeleteGroupRequest, DeleteGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteGroupCommand,
   serializeAws_restJson1DeleteGroupCommand,

@@ -1,6 +1,6 @@
 
 import { IoTJobsDataPlaneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTJobsDataPlaneClient.ts";
-import { DescribeJobExecutionRequest, DescribeJobExecutionResponse } from "../models/index.ts";
+import { DescribeJobExecutionRequest, DescribeJobExecutionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeJobExecutionCommand,
   serializeAws_restJson1DescribeJobExecutionCommand,

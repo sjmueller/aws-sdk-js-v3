@@ -1,6 +1,6 @@
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient.ts";
-import { StartLoggingRequest, StartLoggingResponse } from "../models/index.ts";
+import { StartLoggingRequest, StartLoggingResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartLoggingCommand,
   serializeAws_json1_1StartLoggingCommand,

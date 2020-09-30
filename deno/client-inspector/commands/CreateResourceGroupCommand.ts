@@ -1,6 +1,6 @@
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
-import { CreateResourceGroupRequest, CreateResourceGroupResponse } from "../models/index.ts";
+import { CreateResourceGroupRequest, CreateResourceGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateResourceGroupCommand,
   serializeAws_json1_1CreateResourceGroupCommand,

@@ -1,6 +1,6 @@
 
 import { EKSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EKSClient.ts";
-import { UpdateNodegroupConfigRequest, UpdateNodegroupConfigResponse } from "../models/index.ts";
+import { UpdateNodegroupConfigRequest, UpdateNodegroupConfigResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateNodegroupConfigCommand,
   serializeAws_restJson1UpdateNodegroupConfigCommand,

@@ -1,6 +1,6 @@
 
 import { CloudWatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchClient.ts";
-import { ListDashboardsInput, ListDashboardsOutput } from "../models/index.ts";
+import { ListDashboardsInput, ListDashboardsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryListDashboardsCommand,
   serializeAws_queryListDashboardsCommand,

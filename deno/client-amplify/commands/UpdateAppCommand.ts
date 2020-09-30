@@ -1,6 +1,6 @@
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
-import { UpdateAppRequest, UpdateAppResult } from "../models/index.ts";
+import { UpdateAppRequest, UpdateAppResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateAppCommand,
   serializeAws_restJson1UpdateAppCommand,

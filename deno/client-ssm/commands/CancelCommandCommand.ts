@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { CancelCommandRequest, CancelCommandResult } from "../models/index.ts";
+import { CancelCommandRequest, CancelCommandResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CancelCommandCommand,
   serializeAws_json1_1CancelCommandCommand,

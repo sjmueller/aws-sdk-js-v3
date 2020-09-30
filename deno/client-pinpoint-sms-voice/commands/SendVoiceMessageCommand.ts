@@ -1,6 +1,6 @@
 
 import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointSMSVoiceClient.ts";
-import { SendVoiceMessageRequest, SendVoiceMessageResponse } from "../models/index.ts";
+import { SendVoiceMessageRequest, SendVoiceMessageResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SendVoiceMessageCommand,
   serializeAws_restJson1SendVoiceMessageCommand,

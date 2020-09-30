@@ -1,6 +1,6 @@
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient.ts";
-import { UpdateClusterConfigurationRequest, UpdateClusterConfigurationResponse } from "../models/index.ts";
+import { UpdateClusterConfigurationRequest, UpdateClusterConfigurationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateClusterConfigurationCommand,
   serializeAws_restJson1UpdateClusterConfigurationCommand,

@@ -1,6 +1,6 @@
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
-import { DescribeTopicsDetectionJobRequest, DescribeTopicsDetectionJobResponse } from "../models/index.ts";
+import { DescribeTopicsDetectionJobRequest, DescribeTopicsDetectionJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeTopicsDetectionJobCommand,
   serializeAws_json1_1DescribeTopicsDetectionJobCommand,

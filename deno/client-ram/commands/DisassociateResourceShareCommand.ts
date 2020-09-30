@@ -1,6 +1,6 @@
 
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient.ts";
-import { DisassociateResourceShareRequest, DisassociateResourceShareResponse } from "../models/index.ts";
+import { DisassociateResourceShareRequest, DisassociateResourceShareResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DisassociateResourceShareCommand,
   serializeAws_restJson1DisassociateResourceShareCommand,

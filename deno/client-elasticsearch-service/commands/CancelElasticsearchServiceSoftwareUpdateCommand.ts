@@ -7,7 +7,7 @@ import {
 import {
   CancelElasticsearchServiceSoftwareUpdateRequest,
   CancelElasticsearchServiceSoftwareUpdateResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand,
   serializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand,

@@ -1,6 +1,6 @@
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient.ts";
-import { ListDeploymentTargetsInput, ListDeploymentTargetsOutput } from "../models/index.ts";
+import { ListDeploymentTargetsInput, ListDeploymentTargetsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListDeploymentTargetsCommand,
   serializeAws_json1_1ListDeploymentTargetsCommand,

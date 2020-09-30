@@ -1,6 +1,6 @@
 
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient.ts";
-import { DescribeAlgorithmRequest, DescribeAlgorithmResponse } from "../models/index.ts";
+import { DescribeAlgorithmRequest, DescribeAlgorithmResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeAlgorithmCommand,
   serializeAws_json1_1DescribeAlgorithmCommand,

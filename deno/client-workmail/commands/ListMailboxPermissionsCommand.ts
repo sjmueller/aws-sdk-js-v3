@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { ListMailboxPermissionsRequest, ListMailboxPermissionsResponse } from "../models/index.ts";
+import { ListMailboxPermissionsRequest, ListMailboxPermissionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListMailboxPermissionsCommand,
   serializeAws_json1_1ListMailboxPermissionsCommand,

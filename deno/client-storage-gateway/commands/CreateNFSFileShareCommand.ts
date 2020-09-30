@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { CreateNFSFileShareInput, CreateNFSFileShareOutput } from "../models/index.ts";
+import { CreateNFSFileShareInput, CreateNFSFileShareOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateNFSFileShareCommand,
   serializeAws_json1_1CreateNFSFileShareCommand,

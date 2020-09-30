@@ -1,6 +1,6 @@
 
 import { CodeDeployClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeDeployClient.ts";
-import { CreateApplicationInput, CreateApplicationOutput } from "../models/index.ts";
+import { CreateApplicationInput, CreateApplicationOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateApplicationCommand,
   serializeAws_json1_1CreateApplicationCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResponse } from "../models/index.ts";
+import { DeleteEventSubscriptionMessage, DeleteEventSubscriptionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteEventSubscriptionCommand,
   serializeAws_json1_1DeleteEventSubscriptionCommand,

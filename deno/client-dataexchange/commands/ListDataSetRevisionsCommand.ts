@@ -1,6 +1,6 @@
 
 import { DataExchangeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataExchangeClient.ts";
-import { ListDataSetRevisionsRequest, ListDataSetRevisionsResponse } from "../models/index.ts";
+import { ListDataSetRevisionsRequest, ListDataSetRevisionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListDataSetRevisionsCommand,
   serializeAws_restJson1ListDataSetRevisionsCommand,

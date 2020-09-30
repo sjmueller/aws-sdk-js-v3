@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeHostReservationOfferingsRequest, DescribeHostReservationOfferingsResult } from "../models/index.ts";
+import { DescribeHostReservationOfferingsRequest, DescribeHostReservationOfferingsResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DescribeHostReservationOfferingsCommand,
   serializeAws_ec2DescribeHostReservationOfferingsCommand,

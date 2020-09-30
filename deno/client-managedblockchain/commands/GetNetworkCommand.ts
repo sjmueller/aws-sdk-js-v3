@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient.ts";
-import { GetNetworkInput, GetNetworkOutput } from "../models/index.ts";
+import { GetNetworkInput, GetNetworkOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetNetworkCommand,
   serializeAws_restJson1GetNetworkCommand,

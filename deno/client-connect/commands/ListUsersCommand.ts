@@ -1,6 +1,6 @@
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
-import { ListUsersRequest, ListUsersResponse } from "../models/index.ts";
+import { ListUsersRequest, ListUsersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListUsersCommand,
   serializeAws_restJson1ListUsersCommand,

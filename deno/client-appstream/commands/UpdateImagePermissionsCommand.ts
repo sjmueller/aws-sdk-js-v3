@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { UpdateImagePermissionsRequest, UpdateImagePermissionsResult } from "../models/index.ts";
+import { UpdateImagePermissionsRequest, UpdateImagePermissionsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateImagePermissionsCommand,
   serializeAws_json1_1UpdateImagePermissionsCommand,

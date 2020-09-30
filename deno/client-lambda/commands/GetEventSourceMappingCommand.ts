@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { EventSourceMappingConfiguration, GetEventSourceMappingRequest } from "../models/index.ts";
+import { EventSourceMappingConfiguration, GetEventSourceMappingRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetEventSourceMappingCommand,
   serializeAws_restJson1GetEventSourceMappingCommand,

@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { ListDistributionsByWebACLIdRequest, ListDistributionsByWebACLIdResult } from "../models/index.ts";
+import { ListDistributionsByWebACLIdRequest, ListDistributionsByWebACLIdResult } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlListDistributionsByWebACLIdCommand,
   serializeAws_restXmlListDistributionsByWebACLIdCommand,

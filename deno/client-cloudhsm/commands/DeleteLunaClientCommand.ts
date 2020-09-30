@@ -1,6 +1,6 @@
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient.ts";
-import { DeleteLunaClientRequest, DeleteLunaClientResponse } from "../models/index.ts";
+import { DeleteLunaClientRequest, DeleteLunaClientResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteLunaClientCommand,
   serializeAws_json1_1DeleteLunaClientCommand,

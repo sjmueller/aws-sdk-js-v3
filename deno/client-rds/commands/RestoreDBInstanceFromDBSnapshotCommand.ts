@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { RestoreDBInstanceFromDBSnapshotMessage, RestoreDBInstanceFromDBSnapshotResult } from "../models/index.ts";
+import { RestoreDBInstanceFromDBSnapshotMessage, RestoreDBInstanceFromDBSnapshotResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommand,
   serializeAws_queryRestoreDBInstanceFromDBSnapshotCommand,

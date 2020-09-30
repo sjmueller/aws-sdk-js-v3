@@ -1,6 +1,6 @@
 
 import { DirectConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectConnectClient.ts";
-import { ConfirmPrivateVirtualInterfaceRequest, ConfirmPrivateVirtualInterfaceResponse } from "../models/index.ts";
+import { ConfirmPrivateVirtualInterfaceRequest, ConfirmPrivateVirtualInterfaceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand,
   serializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand,

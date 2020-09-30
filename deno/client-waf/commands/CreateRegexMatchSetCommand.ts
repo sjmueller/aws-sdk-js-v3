@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { CreateRegexMatchSetRequest, CreateRegexMatchSetResponse } from "../models/index.ts";
+import { CreateRegexMatchSetRequest, CreateRegexMatchSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateRegexMatchSetCommand,
   serializeAws_json1_1CreateRegexMatchSetCommand,

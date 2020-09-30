@@ -1,6 +1,6 @@
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient.ts";
-import { RetryBuildInput, RetryBuildOutput } from "../models/index.ts";
+import { RetryBuildInput, RetryBuildOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RetryBuildCommand,
   serializeAws_json1_1RetryBuildCommand,

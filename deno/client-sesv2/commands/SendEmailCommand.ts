@@ -1,6 +1,6 @@
 
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
-import { SendEmailRequest, SendEmailResponse } from "../models/index.ts";
+import { SendEmailRequest, SendEmailResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SendEmailCommand,
   serializeAws_restJson1SendEmailCommand,

@@ -1,6 +1,6 @@
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient.ts";
-import { ListTagsForResourceRequest, ResourceTags } from "../models/index.ts";
+import { ListTagsForResourceRequest, ResourceTags } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListTagsForResourceCommand,
   serializeAws_restJson1ListTagsForResourceCommand,

@@ -1,6 +1,6 @@
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient.ts";
-import { ListNodesRequest, ListNodesResponse } from "../models/index.ts";
+import { ListNodesRequest, ListNodesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListNodesCommand,
   serializeAws_restJson1ListNodesCommand,

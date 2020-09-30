@@ -1,6 +1,6 @@
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
-import { BatchDisassociateProjectAssetsRequest, BatchDisassociateProjectAssetsResponse } from "../models/index.ts";
+import { BatchDisassociateProjectAssetsRequest, BatchDisassociateProjectAssetsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1BatchDisassociateProjectAssetsCommand,
   serializeAws_restJson1BatchDisassociateProjectAssetsCommand,

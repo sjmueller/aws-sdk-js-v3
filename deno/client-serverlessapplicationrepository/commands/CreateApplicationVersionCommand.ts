@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ServerlessApplicationRepositoryClient.ts";
-import { CreateApplicationVersionRequest, CreateApplicationVersionResponse } from "../models/index.ts";
+import { CreateApplicationVersionRequest, CreateApplicationVersionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateApplicationVersionCommand,
   serializeAws_restJson1CreateApplicationVersionCommand,

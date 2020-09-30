@@ -3,7 +3,7 @@ import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import {
   CreateRelationalDatabaseFromSnapshotRequest,
   CreateRelationalDatabaseFromSnapshotResult,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand,
   serializeAws_json1_1CreateRelationalDatabaseFromSnapshotCommand,

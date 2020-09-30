@@ -346,7 +346,7 @@ import {
   TestConnectionResponse,
   UpgradeDependencyFailureFault,
   VpcSecurityGroupMembership,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -1058,7 +1058,6 @@ export const deserializeAws_json1_1AddTagsToResourceCommand = async (
   contents = deserializeAws_json1_1AddTagsToResourceResponse(data, context);
   const response: AddTagsToResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddTagsToResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1114,7 +1113,6 @@ export const deserializeAws_json1_1ApplyPendingMaintenanceActionCommand = async 
   contents = deserializeAws_json1_1ApplyPendingMaintenanceActionResponse(data, context);
   const response: ApplyPendingMaintenanceActionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ApplyPendingMaintenanceActionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1170,7 +1168,6 @@ export const deserializeAws_json1_1CancelReplicationTaskAssessmentRunCommand = a
   contents = deserializeAws_json1_1CancelReplicationTaskAssessmentRunResponse(data, context);
   const response: CancelReplicationTaskAssessmentRunCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelReplicationTaskAssessmentRunResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1242,7 +1239,6 @@ export const deserializeAws_json1_1CreateEndpointCommand = async (
   contents = deserializeAws_json1_1CreateEndpointResponse(data, context);
   const response: CreateEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEndpointResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1338,7 +1334,6 @@ export const deserializeAws_json1_1CreateEventSubscriptionCommand = async (
   contents = deserializeAws_json1_1CreateEventSubscriptionResponse(data, context);
   const response: CreateEventSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEventSubscriptionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1466,7 +1461,6 @@ export const deserializeAws_json1_1CreateReplicationInstanceCommand = async (
   contents = deserializeAws_json1_1CreateReplicationInstanceResponse(data, context);
   const response: CreateReplicationInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateReplicationInstanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1594,7 +1588,6 @@ export const deserializeAws_json1_1CreateReplicationSubnetGroupCommand = async (
   contents = deserializeAws_json1_1CreateReplicationSubnetGroupResponse(data, context);
   const response: CreateReplicationSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateReplicationSubnetGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1690,7 +1683,6 @@ export const deserializeAws_json1_1CreateReplicationTaskCommand = async (
   contents = deserializeAws_json1_1CreateReplicationTaskResponse(data, context);
   const response: CreateReplicationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateReplicationTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1786,7 +1778,6 @@ export const deserializeAws_json1_1DeleteCertificateCommand = async (
   contents = deserializeAws_json1_1DeleteCertificateResponse(data, context);
   const response: DeleteCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteCertificateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1850,7 +1841,6 @@ export const deserializeAws_json1_1DeleteConnectionCommand = async (
   contents = deserializeAws_json1_1DeleteConnectionResponse(data, context);
   const response: DeleteConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteConnectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1922,7 +1912,6 @@ export const deserializeAws_json1_1DeleteEndpointCommand = async (
   contents = deserializeAws_json1_1DeleteEndpointResponse(data, context);
   const response: DeleteEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEndpointResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1986,7 +1975,6 @@ export const deserializeAws_json1_1DeleteEventSubscriptionCommand = async (
   contents = deserializeAws_json1_1DeleteEventSubscriptionResponse(data, context);
   const response: DeleteEventSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEventSubscriptionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2050,7 +2038,6 @@ export const deserializeAws_json1_1DeleteReplicationInstanceCommand = async (
   contents = deserializeAws_json1_1DeleteReplicationInstanceResponse(data, context);
   const response: DeleteReplicationInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteReplicationInstanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2114,7 +2101,6 @@ export const deserializeAws_json1_1DeleteReplicationSubnetGroupCommand = async (
   contents = deserializeAws_json1_1DeleteReplicationSubnetGroupResponse(data, context);
   const response: DeleteReplicationSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteReplicationSubnetGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2178,7 +2164,6 @@ export const deserializeAws_json1_1DeleteReplicationTaskCommand = async (
   contents = deserializeAws_json1_1DeleteReplicationTaskResponse(data, context);
   const response: DeleteReplicationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteReplicationTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2242,7 +2227,6 @@ export const deserializeAws_json1_1DeleteReplicationTaskAssessmentRunCommand = a
   contents = deserializeAws_json1_1DeleteReplicationTaskAssessmentRunResponse(data, context);
   const response: DeleteReplicationTaskAssessmentRunCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteReplicationTaskAssessmentRunResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2314,7 +2298,6 @@ export const deserializeAws_json1_1DescribeAccountAttributesCommand = async (
   contents = deserializeAws_json1_1DescribeAccountAttributesResponse(data, context);
   const response: DescribeAccountAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAccountAttributesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2362,7 +2345,6 @@ export const deserializeAws_json1_1DescribeApplicableIndividualAssessmentsComman
   contents = deserializeAws_json1_1DescribeApplicableIndividualAssessmentsResponse(data, context);
   const response: DescribeApplicableIndividualAssessmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeApplicableIndividualAssessmentsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2434,7 +2416,6 @@ export const deserializeAws_json1_1DescribeCertificatesCommand = async (
   contents = deserializeAws_json1_1DescribeCertificatesResponse(data, context);
   const response: DescribeCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCertificatesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2490,7 +2471,6 @@ export const deserializeAws_json1_1DescribeConnectionsCommand = async (
   contents = deserializeAws_json1_1DescribeConnectionsResponse(data, context);
   const response: DescribeConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConnectionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2546,7 +2526,6 @@ export const deserializeAws_json1_1DescribeEndpointsCommand = async (
   contents = deserializeAws_json1_1DescribeEndpointsResponse(data, context);
   const response: DescribeEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEndpointsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2602,7 +2581,6 @@ export const deserializeAws_json1_1DescribeEndpointTypesCommand = async (
   contents = deserializeAws_json1_1DescribeEndpointTypesResponse(data, context);
   const response: DescribeEndpointTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEndpointTypesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2650,7 +2628,6 @@ export const deserializeAws_json1_1DescribeEventCategoriesCommand = async (
   contents = deserializeAws_json1_1DescribeEventCategoriesResponse(data, context);
   const response: DescribeEventCategoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventCategoriesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2698,7 +2675,6 @@ export const deserializeAws_json1_1DescribeEventsCommand = async (
   contents = deserializeAws_json1_1DescribeEventsResponse(data, context);
   const response: DescribeEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2746,7 +2722,6 @@ export const deserializeAws_json1_1DescribeEventSubscriptionsCommand = async (
   contents = deserializeAws_json1_1DescribeEventSubscriptionsResponse(data, context);
   const response: DescribeEventSubscriptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEventSubscriptionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2802,7 +2777,6 @@ export const deserializeAws_json1_1DescribeOrderableReplicationInstancesCommand 
   contents = deserializeAws_json1_1DescribeOrderableReplicationInstancesResponse(data, context);
   const response: DescribeOrderableReplicationInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOrderableReplicationInstancesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2850,7 +2824,6 @@ export const deserializeAws_json1_1DescribePendingMaintenanceActionsCommand = as
   contents = deserializeAws_json1_1DescribePendingMaintenanceActionsResponse(data, context);
   const response: DescribePendingMaintenanceActionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePendingMaintenanceActionsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2906,7 +2879,6 @@ export const deserializeAws_json1_1DescribeRefreshSchemasStatusCommand = async (
   contents = deserializeAws_json1_1DescribeRefreshSchemasStatusResponse(data, context);
   const response: DescribeRefreshSchemasStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRefreshSchemasStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2970,7 +2942,6 @@ export const deserializeAws_json1_1DescribeReplicationInstancesCommand = async (
   contents = deserializeAws_json1_1DescribeReplicationInstancesResponse(data, context);
   const response: DescribeReplicationInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReplicationInstancesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3026,7 +2997,6 @@ export const deserializeAws_json1_1DescribeReplicationInstanceTaskLogsCommand = 
   contents = deserializeAws_json1_1DescribeReplicationInstanceTaskLogsResponse(data, context);
   const response: DescribeReplicationInstanceTaskLogsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReplicationInstanceTaskLogsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3090,7 +3060,6 @@ export const deserializeAws_json1_1DescribeReplicationSubnetGroupsCommand = asyn
   contents = deserializeAws_json1_1DescribeReplicationSubnetGroupsResponse(data, context);
   const response: DescribeReplicationSubnetGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReplicationSubnetGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3146,7 +3115,6 @@ export const deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsComma
   contents = deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsResponse(data, context);
   const response: DescribeReplicationTaskAssessmentResultsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReplicationTaskAssessmentResultsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3202,7 +3170,6 @@ export const deserializeAws_json1_1DescribeReplicationTaskAssessmentRunsCommand 
   contents = deserializeAws_json1_1DescribeReplicationTaskAssessmentRunsResponse(data, context);
   const response: DescribeReplicationTaskAssessmentRunsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReplicationTaskAssessmentRunsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3258,7 +3225,6 @@ export const deserializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsC
   contents = deserializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsResponse(data, context);
   const response: DescribeReplicationTaskIndividualAssessmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReplicationTaskIndividualAssessmentsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3314,7 +3280,6 @@ export const deserializeAws_json1_1DescribeReplicationTasksCommand = async (
   contents = deserializeAws_json1_1DescribeReplicationTasksResponse(data, context);
   const response: DescribeReplicationTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReplicationTasksResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3370,7 +3335,6 @@ export const deserializeAws_json1_1DescribeSchemasCommand = async (
   contents = deserializeAws_json1_1DescribeSchemasResponse(data, context);
   const response: DescribeSchemasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSchemasResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3434,7 +3398,6 @@ export const deserializeAws_json1_1DescribeTableStatisticsCommand = async (
   contents = deserializeAws_json1_1DescribeTableStatisticsResponse(data, context);
   const response: DescribeTableStatisticsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTableStatisticsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3498,7 +3461,6 @@ export const deserializeAws_json1_1ImportCertificateCommand = async (
   contents = deserializeAws_json1_1ImportCertificateResponse(data, context);
   const response: ImportCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportCertificateResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3570,7 +3532,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3626,7 +3587,6 @@ export const deserializeAws_json1_1ModifyEndpointCommand = async (
   contents = deserializeAws_json1_1ModifyEndpointResponse(data, context);
   const response: ModifyEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyEndpointResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3714,7 +3674,6 @@ export const deserializeAws_json1_1ModifyEventSubscriptionCommand = async (
   contents = deserializeAws_json1_1ModifyEventSubscriptionResponse(data, context);
   const response: ModifyEventSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyEventSubscriptionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3834,7 +3793,6 @@ export const deserializeAws_json1_1ModifyReplicationInstanceCommand = async (
   contents = deserializeAws_json1_1ModifyReplicationInstanceResponse(data, context);
   const response: ModifyReplicationInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyReplicationInstanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3938,7 +3896,6 @@ export const deserializeAws_json1_1ModifyReplicationSubnetGroupCommand = async (
   contents = deserializeAws_json1_1ModifyReplicationSubnetGroupResponse(data, context);
   const response: ModifyReplicationSubnetGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyReplicationSubnetGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4034,7 +3991,6 @@ export const deserializeAws_json1_1ModifyReplicationTaskCommand = async (
   contents = deserializeAws_json1_1ModifyReplicationTaskResponse(data, context);
   const response: ModifyReplicationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyReplicationTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4114,7 +4070,6 @@ export const deserializeAws_json1_1RebootReplicationInstanceCommand = async (
   contents = deserializeAws_json1_1RebootReplicationInstanceResponse(data, context);
   const response: RebootReplicationInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RebootReplicationInstanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4178,7 +4133,6 @@ export const deserializeAws_json1_1RefreshSchemasCommand = async (
   contents = deserializeAws_json1_1RefreshSchemasResponse(data, context);
   const response: RefreshSchemasCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RefreshSchemasResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4258,7 +4212,6 @@ export const deserializeAws_json1_1ReloadTablesCommand = async (
   contents = deserializeAws_json1_1ReloadTablesResponse(data, context);
   const response: ReloadTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReloadTablesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4322,7 +4275,6 @@ export const deserializeAws_json1_1RemoveTagsFromResourceCommand = async (
   contents = deserializeAws_json1_1RemoveTagsFromResourceResponse(data, context);
   const response: RemoveTagsFromResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveTagsFromResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4378,7 +4330,6 @@ export const deserializeAws_json1_1StartReplicationTaskCommand = async (
   contents = deserializeAws_json1_1StartReplicationTaskResponse(data, context);
   const response: StartReplicationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartReplicationTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4450,7 +4401,6 @@ export const deserializeAws_json1_1StartReplicationTaskAssessmentCommand = async
   contents = deserializeAws_json1_1StartReplicationTaskAssessmentResponse(data, context);
   const response: StartReplicationTaskAssessmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartReplicationTaskAssessmentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4514,7 +4464,6 @@ export const deserializeAws_json1_1StartReplicationTaskAssessmentRunCommand = as
   contents = deserializeAws_json1_1StartReplicationTaskAssessmentRunResponse(data, context);
   const response: StartReplicationTaskAssessmentRunCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartReplicationTaskAssessmentRunResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4658,7 +4607,6 @@ export const deserializeAws_json1_1StopReplicationTaskCommand = async (
   contents = deserializeAws_json1_1StopReplicationTaskResponse(data, context);
   const response: StopReplicationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopReplicationTaskResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4722,7 +4670,6 @@ export const deserializeAws_json1_1TestConnectionCommand = async (
   contents = deserializeAws_json1_1TestConnectionResponse(data, context);
   const response: TestConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TestConnectionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6172,14 +6119,12 @@ const serializeAws_json1_1VpcSecurityGroupIdList = (input: string[], context: __
 
 const deserializeAws_json1_1AccessDeniedFault = (output: any, context: __SerdeContext): AccessDeniedFault => {
   return {
-    __type: "AccessDeniedFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1AccountQuota = (output: any, context: __SerdeContext): AccountQuota => {
   return {
-    __type: "AccountQuota",
     AccountQuotaName:
       output.AccountQuotaName !== undefined && output.AccountQuotaName !== null ? output.AccountQuotaName : undefined,
     Max: output.Max !== undefined && output.Max !== null ? output.Max : undefined,
@@ -6195,9 +6140,7 @@ const deserializeAws_json1_1AddTagsToResourceResponse = (
   output: any,
   context: __SerdeContext
 ): AddTagsToResourceResponse => {
-  return {
-    __type: "AddTagsToResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ApplyPendingMaintenanceActionResponse = (
@@ -6205,7 +6148,6 @@ const deserializeAws_json1_1ApplyPendingMaintenanceActionResponse = (
   context: __SerdeContext
 ): ApplyPendingMaintenanceActionResponse => {
   return {
-    __type: "ApplyPendingMaintenanceActionResponse",
     ResourcePendingMaintenanceActions:
       output.ResourcePendingMaintenanceActions !== undefined && output.ResourcePendingMaintenanceActions !== null
         ? deserializeAws_json1_1ResourcePendingMaintenanceActions(output.ResourcePendingMaintenanceActions, context)
@@ -6215,7 +6157,6 @@ const deserializeAws_json1_1ApplyPendingMaintenanceActionResponse = (
 
 const deserializeAws_json1_1AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   return {
-    __type: "AvailabilityZone",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
 };
@@ -6229,7 +6170,6 @@ const deserializeAws_json1_1CancelReplicationTaskAssessmentRunResponse = (
   context: __SerdeContext
 ): CancelReplicationTaskAssessmentRunResponse => {
   return {
-    __type: "CancelReplicationTaskAssessmentRunResponse",
     ReplicationTaskAssessmentRun:
       output.ReplicationTaskAssessmentRun !== undefined && output.ReplicationTaskAssessmentRun !== null
         ? deserializeAws_json1_1ReplicationTaskAssessmentRun(output.ReplicationTaskAssessmentRun, context)
@@ -6239,7 +6179,6 @@ const deserializeAws_json1_1CancelReplicationTaskAssessmentRunResponse = (
 
 const deserializeAws_json1_1Certificate = (output: any, context: __SerdeContext): Certificate => {
   return {
-    __type: "Certificate",
     CertificateArn:
       output.CertificateArn !== undefined && output.CertificateArn !== null ? output.CertificateArn : undefined,
     CertificateCreationDate:
@@ -6278,7 +6217,6 @@ const deserializeAws_json1_1CertificateList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1Connection = (output: any, context: __SerdeContext): Connection => {
   return {
-    __type: "Connection",
     EndpointArn: output.EndpointArn !== undefined && output.EndpointArn !== null ? output.EndpointArn : undefined,
     EndpointIdentifier:
       output.EndpointIdentifier !== undefined && output.EndpointIdentifier !== null
@@ -6306,7 +6244,6 @@ const deserializeAws_json1_1ConnectionList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1CreateEndpointResponse = (output: any, context: __SerdeContext): CreateEndpointResponse => {
   return {
-    __type: "CreateEndpointResponse",
     Endpoint:
       output.Endpoint !== undefined && output.Endpoint !== null
         ? deserializeAws_json1_1Endpoint(output.Endpoint, context)
@@ -6319,7 +6256,6 @@ const deserializeAws_json1_1CreateEventSubscriptionResponse = (
   context: __SerdeContext
 ): CreateEventSubscriptionResponse => {
   return {
-    __type: "CreateEventSubscriptionResponse",
     EventSubscription:
       output.EventSubscription !== undefined && output.EventSubscription !== null
         ? deserializeAws_json1_1EventSubscription(output.EventSubscription, context)
@@ -6332,7 +6268,6 @@ const deserializeAws_json1_1CreateReplicationInstanceResponse = (
   context: __SerdeContext
 ): CreateReplicationInstanceResponse => {
   return {
-    __type: "CreateReplicationInstanceResponse",
     ReplicationInstance:
       output.ReplicationInstance !== undefined && output.ReplicationInstance !== null
         ? deserializeAws_json1_1ReplicationInstance(output.ReplicationInstance, context)
@@ -6345,7 +6280,6 @@ const deserializeAws_json1_1CreateReplicationSubnetGroupResponse = (
   context: __SerdeContext
 ): CreateReplicationSubnetGroupResponse => {
   return {
-    __type: "CreateReplicationSubnetGroupResponse",
     ReplicationSubnetGroup:
       output.ReplicationSubnetGroup !== undefined && output.ReplicationSubnetGroup !== null
         ? deserializeAws_json1_1ReplicationSubnetGroup(output.ReplicationSubnetGroup, context)
@@ -6358,7 +6292,6 @@ const deserializeAws_json1_1CreateReplicationTaskResponse = (
   context: __SerdeContext
 ): CreateReplicationTaskResponse => {
   return {
-    __type: "CreateReplicationTaskResponse",
     ReplicationTask:
       output.ReplicationTask !== undefined && output.ReplicationTask !== null
         ? deserializeAws_json1_1ReplicationTask(output.ReplicationTask, context)
@@ -6371,7 +6304,6 @@ const deserializeAws_json1_1DeleteCertificateResponse = (
   context: __SerdeContext
 ): DeleteCertificateResponse => {
   return {
-    __type: "DeleteCertificateResponse",
     Certificate:
       output.Certificate !== undefined && output.Certificate !== null
         ? deserializeAws_json1_1Certificate(output.Certificate, context)
@@ -6384,7 +6316,6 @@ const deserializeAws_json1_1DeleteConnectionResponse = (
   context: __SerdeContext
 ): DeleteConnectionResponse => {
   return {
-    __type: "DeleteConnectionResponse",
     Connection:
       output.Connection !== undefined && output.Connection !== null
         ? deserializeAws_json1_1Connection(output.Connection, context)
@@ -6394,7 +6325,6 @@ const deserializeAws_json1_1DeleteConnectionResponse = (
 
 const deserializeAws_json1_1DeleteEndpointResponse = (output: any, context: __SerdeContext): DeleteEndpointResponse => {
   return {
-    __type: "DeleteEndpointResponse",
     Endpoint:
       output.Endpoint !== undefined && output.Endpoint !== null
         ? deserializeAws_json1_1Endpoint(output.Endpoint, context)
@@ -6407,7 +6337,6 @@ const deserializeAws_json1_1DeleteEventSubscriptionResponse = (
   context: __SerdeContext
 ): DeleteEventSubscriptionResponse => {
   return {
-    __type: "DeleteEventSubscriptionResponse",
     EventSubscription:
       output.EventSubscription !== undefined && output.EventSubscription !== null
         ? deserializeAws_json1_1EventSubscription(output.EventSubscription, context)
@@ -6420,7 +6349,6 @@ const deserializeAws_json1_1DeleteReplicationInstanceResponse = (
   context: __SerdeContext
 ): DeleteReplicationInstanceResponse => {
   return {
-    __type: "DeleteReplicationInstanceResponse",
     ReplicationInstance:
       output.ReplicationInstance !== undefined && output.ReplicationInstance !== null
         ? deserializeAws_json1_1ReplicationInstance(output.ReplicationInstance, context)
@@ -6432,9 +6360,7 @@ const deserializeAws_json1_1DeleteReplicationSubnetGroupResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteReplicationSubnetGroupResponse => {
-  return {
-    __type: "DeleteReplicationSubnetGroupResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteReplicationTaskAssessmentRunResponse = (
@@ -6442,7 +6368,6 @@ const deserializeAws_json1_1DeleteReplicationTaskAssessmentRunResponse = (
   context: __SerdeContext
 ): DeleteReplicationTaskAssessmentRunResponse => {
   return {
-    __type: "DeleteReplicationTaskAssessmentRunResponse",
     ReplicationTaskAssessmentRun:
       output.ReplicationTaskAssessmentRun !== undefined && output.ReplicationTaskAssessmentRun !== null
         ? deserializeAws_json1_1ReplicationTaskAssessmentRun(output.ReplicationTaskAssessmentRun, context)
@@ -6455,7 +6380,6 @@ const deserializeAws_json1_1DeleteReplicationTaskResponse = (
   context: __SerdeContext
 ): DeleteReplicationTaskResponse => {
   return {
-    __type: "DeleteReplicationTaskResponse",
     ReplicationTask:
       output.ReplicationTask !== undefined && output.ReplicationTask !== null
         ? deserializeAws_json1_1ReplicationTask(output.ReplicationTask, context)
@@ -6468,7 +6392,6 @@ const deserializeAws_json1_1DescribeAccountAttributesResponse = (
   context: __SerdeContext
 ): DescribeAccountAttributesResponse => {
   return {
-    __type: "DescribeAccountAttributesResponse",
     AccountQuotas:
       output.AccountQuotas !== undefined && output.AccountQuotas !== null
         ? deserializeAws_json1_1AccountQuotaList(output.AccountQuotas, context)
@@ -6485,7 +6408,6 @@ const deserializeAws_json1_1DescribeApplicableIndividualAssessmentsResponse = (
   context: __SerdeContext
 ): DescribeApplicableIndividualAssessmentsResponse => {
   return {
-    __type: "DescribeApplicableIndividualAssessmentsResponse",
     IndividualAssessmentNames:
       output.IndividualAssessmentNames !== undefined && output.IndividualAssessmentNames !== null
         ? deserializeAws_json1_1IndividualAssessmentNameList(output.IndividualAssessmentNames, context)
@@ -6499,7 +6421,6 @@ const deserializeAws_json1_1DescribeCertificatesResponse = (
   context: __SerdeContext
 ): DescribeCertificatesResponse => {
   return {
-    __type: "DescribeCertificatesResponse",
     Certificates:
       output.Certificates !== undefined && output.Certificates !== null
         ? deserializeAws_json1_1CertificateList(output.Certificates, context)
@@ -6513,7 +6434,6 @@ const deserializeAws_json1_1DescribeConnectionsResponse = (
   context: __SerdeContext
 ): DescribeConnectionsResponse => {
   return {
-    __type: "DescribeConnectionsResponse",
     Connections:
       output.Connections !== undefined && output.Connections !== null
         ? deserializeAws_json1_1ConnectionList(output.Connections, context)
@@ -6527,7 +6447,6 @@ const deserializeAws_json1_1DescribeEndpointsResponse = (
   context: __SerdeContext
 ): DescribeEndpointsResponse => {
   return {
-    __type: "DescribeEndpointsResponse",
     Endpoints:
       output.Endpoints !== undefined && output.Endpoints !== null
         ? deserializeAws_json1_1EndpointList(output.Endpoints, context)
@@ -6541,7 +6460,6 @@ const deserializeAws_json1_1DescribeEndpointTypesResponse = (
   context: __SerdeContext
 ): DescribeEndpointTypesResponse => {
   return {
-    __type: "DescribeEndpointTypesResponse",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     SupportedEndpointTypes:
       output.SupportedEndpointTypes !== undefined && output.SupportedEndpointTypes !== null
@@ -6555,7 +6473,6 @@ const deserializeAws_json1_1DescribeEventCategoriesResponse = (
   context: __SerdeContext
 ): DescribeEventCategoriesResponse => {
   return {
-    __type: "DescribeEventCategoriesResponse",
     EventCategoryGroupList:
       output.EventCategoryGroupList !== undefined && output.EventCategoryGroupList !== null
         ? deserializeAws_json1_1EventCategoryGroupList(output.EventCategoryGroupList, context)
@@ -6565,7 +6482,6 @@ const deserializeAws_json1_1DescribeEventCategoriesResponse = (
 
 const deserializeAws_json1_1DescribeEventsResponse = (output: any, context: __SerdeContext): DescribeEventsResponse => {
   return {
-    __type: "DescribeEventsResponse",
     Events:
       output.Events !== undefined && output.Events !== null
         ? deserializeAws_json1_1EventList(output.Events, context)
@@ -6579,7 +6495,6 @@ const deserializeAws_json1_1DescribeEventSubscriptionsResponse = (
   context: __SerdeContext
 ): DescribeEventSubscriptionsResponse => {
   return {
-    __type: "DescribeEventSubscriptionsResponse",
     EventSubscriptionsList:
       output.EventSubscriptionsList !== undefined && output.EventSubscriptionsList !== null
         ? deserializeAws_json1_1EventSubscriptionsList(output.EventSubscriptionsList, context)
@@ -6593,7 +6508,6 @@ const deserializeAws_json1_1DescribeOrderableReplicationInstancesResponse = (
   context: __SerdeContext
 ): DescribeOrderableReplicationInstancesResponse => {
   return {
-    __type: "DescribeOrderableReplicationInstancesResponse",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     OrderableReplicationInstances:
       output.OrderableReplicationInstances !== undefined && output.OrderableReplicationInstances !== null
@@ -6607,7 +6521,6 @@ const deserializeAws_json1_1DescribePendingMaintenanceActionsResponse = (
   context: __SerdeContext
 ): DescribePendingMaintenanceActionsResponse => {
   return {
-    __type: "DescribePendingMaintenanceActionsResponse",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     PendingMaintenanceActions:
       output.PendingMaintenanceActions !== undefined && output.PendingMaintenanceActions !== null
@@ -6621,7 +6534,6 @@ const deserializeAws_json1_1DescribeRefreshSchemasStatusResponse = (
   context: __SerdeContext
 ): DescribeRefreshSchemasStatusResponse => {
   return {
-    __type: "DescribeRefreshSchemasStatusResponse",
     RefreshSchemasStatus:
       output.RefreshSchemasStatus !== undefined && output.RefreshSchemasStatus !== null
         ? deserializeAws_json1_1RefreshSchemasStatus(output.RefreshSchemasStatus, context)
@@ -6634,7 +6546,6 @@ const deserializeAws_json1_1DescribeReplicationInstancesResponse = (
   context: __SerdeContext
 ): DescribeReplicationInstancesResponse => {
   return {
-    __type: "DescribeReplicationInstancesResponse",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     ReplicationInstances:
       output.ReplicationInstances !== undefined && output.ReplicationInstances !== null
@@ -6648,7 +6559,6 @@ const deserializeAws_json1_1DescribeReplicationInstanceTaskLogsResponse = (
   context: __SerdeContext
 ): DescribeReplicationInstanceTaskLogsResponse => {
   return {
-    __type: "DescribeReplicationInstanceTaskLogsResponse",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     ReplicationInstanceArn:
       output.ReplicationInstanceArn !== undefined && output.ReplicationInstanceArn !== null
@@ -6666,7 +6576,6 @@ const deserializeAws_json1_1DescribeReplicationSubnetGroupsResponse = (
   context: __SerdeContext
 ): DescribeReplicationSubnetGroupsResponse => {
   return {
-    __type: "DescribeReplicationSubnetGroupsResponse",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     ReplicationSubnetGroups:
       output.ReplicationSubnetGroups !== undefined && output.ReplicationSubnetGroups !== null
@@ -6680,7 +6589,6 @@ const deserializeAws_json1_1DescribeReplicationTaskAssessmentResultsResponse = (
   context: __SerdeContext
 ): DescribeReplicationTaskAssessmentResultsResponse => {
   return {
-    __type: "DescribeReplicationTaskAssessmentResultsResponse",
     BucketName: output.BucketName !== undefined && output.BucketName !== null ? output.BucketName : undefined,
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     ReplicationTaskAssessmentResults:
@@ -6695,7 +6603,6 @@ const deserializeAws_json1_1DescribeReplicationTaskAssessmentRunsResponse = (
   context: __SerdeContext
 ): DescribeReplicationTaskAssessmentRunsResponse => {
   return {
-    __type: "DescribeReplicationTaskAssessmentRunsResponse",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     ReplicationTaskAssessmentRuns:
       output.ReplicationTaskAssessmentRuns !== undefined && output.ReplicationTaskAssessmentRuns !== null
@@ -6709,7 +6616,6 @@ const deserializeAws_json1_1DescribeReplicationTaskIndividualAssessmentsResponse
   context: __SerdeContext
 ): DescribeReplicationTaskIndividualAssessmentsResponse => {
   return {
-    __type: "DescribeReplicationTaskIndividualAssessmentsResponse",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     ReplicationTaskIndividualAssessments:
       output.ReplicationTaskIndividualAssessments !== undefined && output.ReplicationTaskIndividualAssessments !== null
@@ -6726,7 +6632,6 @@ const deserializeAws_json1_1DescribeReplicationTasksResponse = (
   context: __SerdeContext
 ): DescribeReplicationTasksResponse => {
   return {
-    __type: "DescribeReplicationTasksResponse",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     ReplicationTasks:
       output.ReplicationTasks !== undefined && output.ReplicationTasks !== null
@@ -6740,7 +6645,6 @@ const deserializeAws_json1_1DescribeSchemasResponse = (
   context: __SerdeContext
 ): DescribeSchemasResponse => {
   return {
-    __type: "DescribeSchemasResponse",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     Schemas:
       output.Schemas !== undefined && output.Schemas !== null
@@ -6754,7 +6658,6 @@ const deserializeAws_json1_1DescribeTableStatisticsResponse = (
   context: __SerdeContext
 ): DescribeTableStatisticsResponse => {
   return {
-    __type: "DescribeTableStatisticsResponse",
     Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
     ReplicationTaskArn:
       output.ReplicationTaskArn !== undefined && output.ReplicationTaskArn !== null
@@ -6769,7 +6672,6 @@ const deserializeAws_json1_1DescribeTableStatisticsResponse = (
 
 const deserializeAws_json1_1DmsTransferSettings = (output: any, context: __SerdeContext): DmsTransferSettings => {
   return {
-    __type: "DmsTransferSettings",
     BucketName: output.BucketName !== undefined && output.BucketName !== null ? output.BucketName : undefined,
     ServiceAccessRoleArn:
       output.ServiceAccessRoleArn !== undefined && output.ServiceAccessRoleArn !== null
@@ -6780,7 +6682,6 @@ const deserializeAws_json1_1DmsTransferSettings = (output: any, context: __Serde
 
 const deserializeAws_json1_1DynamoDbSettings = (output: any, context: __SerdeContext): DynamoDbSettings => {
   return {
-    __type: "DynamoDbSettings",
     ServiceAccessRoleArn:
       output.ServiceAccessRoleArn !== undefined && output.ServiceAccessRoleArn !== null
         ? output.ServiceAccessRoleArn
@@ -6790,7 +6691,6 @@ const deserializeAws_json1_1DynamoDbSettings = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1ElasticsearchSettings = (output: any, context: __SerdeContext): ElasticsearchSettings => {
   return {
-    __type: "ElasticsearchSettings",
     EndpointUri: output.EndpointUri !== undefined && output.EndpointUri !== null ? output.EndpointUri : undefined,
     ErrorRetryDuration:
       output.ErrorRetryDuration !== undefined && output.ErrorRetryDuration !== null
@@ -6809,7 +6709,6 @@ const deserializeAws_json1_1ElasticsearchSettings = (output: any, context: __Ser
 
 const deserializeAws_json1_1Endpoint = (output: any, context: __SerdeContext): Endpoint => {
   return {
-    __type: "Endpoint",
     CertificateArn:
       output.CertificateArn !== undefined && output.CertificateArn !== null ? output.CertificateArn : undefined,
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
@@ -6912,7 +6811,6 @@ const deserializeAws_json1_1EndpointList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1Event = (output: any, context: __SerdeContext): Event => {
   return {
-    __type: "Event",
     Date: output.Date !== undefined && output.Date !== null ? new Date(Math.round(output.Date * 1000)) : undefined,
     EventCategories:
       output.EventCategories !== undefined && output.EventCategories !== null
@@ -6931,7 +6829,6 @@ const deserializeAws_json1_1EventCategoriesList = (output: any, context: __Serde
 
 const deserializeAws_json1_1EventCategoryGroup = (output: any, context: __SerdeContext): EventCategoryGroup => {
   return {
-    __type: "EventCategoryGroup",
     EventCategories:
       output.EventCategories !== undefined && output.EventCategories !== null
         ? deserializeAws_json1_1EventCategoriesList(output.EventCategories, context)
@@ -6950,7 +6847,6 @@ const deserializeAws_json1_1EventList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1EventSubscription = (output: any, context: __SerdeContext): EventSubscription => {
   return {
-    __type: "EventSubscription",
     CustSubscriptionId:
       output.CustSubscriptionId !== undefined && output.CustSubscriptionId !== null
         ? output.CustSubscriptionId
@@ -6982,7 +6878,6 @@ const deserializeAws_json1_1EventSubscriptionsList = (output: any, context: __Se
 
 const deserializeAws_json1_1IBMDb2Settings = (output: any, context: __SerdeContext): IBMDb2Settings => {
   return {
-    __type: "IBMDb2Settings",
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
@@ -6996,7 +6891,6 @@ const deserializeAws_json1_1ImportCertificateResponse = (
   context: __SerdeContext
 ): ImportCertificateResponse => {
   return {
-    __type: "ImportCertificateResponse",
     Certificate:
       output.Certificate !== undefined && output.Certificate !== null
         ? deserializeAws_json1_1Certificate(output.Certificate, context)
@@ -7013,7 +6907,6 @@ const deserializeAws_json1_1InsufficientResourceCapacityFault = (
   context: __SerdeContext
 ): InsufficientResourceCapacityFault => {
   return {
-    __type: "InsufficientResourceCapacityFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7023,7 +6916,6 @@ const deserializeAws_json1_1InvalidCertificateFault = (
   context: __SerdeContext
 ): InvalidCertificateFault => {
   return {
-    __type: "InvalidCertificateFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7033,21 +6925,18 @@ const deserializeAws_json1_1InvalidResourceStateFault = (
   context: __SerdeContext
 ): InvalidResourceStateFault => {
   return {
-    __type: "InvalidResourceStateFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidSubnet = (output: any, context: __SerdeContext): InvalidSubnet => {
   return {
-    __type: "InvalidSubnet",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1KafkaSettings = (output: any, context: __SerdeContext): KafkaSettings => {
   return {
-    __type: "KafkaSettings",
     Broker: output.Broker !== undefined && output.Broker !== null ? output.Broker : undefined,
     IncludeControlDetails:
       output.IncludeControlDetails !== undefined && output.IncludeControlDetails !== null
@@ -7077,7 +6966,6 @@ const deserializeAws_json1_1KafkaSettings = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1KinesisSettings = (output: any, context: __SerdeContext): KinesisSettings => {
   return {
-    __type: "KinesisSettings",
     IncludeControlDetails:
       output.IncludeControlDetails !== undefined && output.IncludeControlDetails !== null
         ? output.IncludeControlDetails
@@ -7110,28 +6998,24 @@ const deserializeAws_json1_1KinesisSettings = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1KMSAccessDeniedFault = (output: any, context: __SerdeContext): KMSAccessDeniedFault => {
   return {
-    __type: "KMSAccessDeniedFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1KMSDisabledFault = (output: any, context: __SerdeContext): KMSDisabledFault => {
   return {
-    __type: "KMSDisabledFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1KMSFault = (output: any, context: __SerdeContext): KMSFault => {
   return {
-    __type: "KMSFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1KMSInvalidStateFault = (output: any, context: __SerdeContext): KMSInvalidStateFault => {
   return {
-    __type: "KMSInvalidStateFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7141,21 +7025,18 @@ const deserializeAws_json1_1KMSKeyNotAccessibleFault = (
   context: __SerdeContext
 ): KMSKeyNotAccessibleFault => {
   return {
-    __type: "KMSKeyNotAccessibleFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1KMSNotFoundFault = (output: any, context: __SerdeContext): KMSNotFoundFault => {
   return {
-    __type: "KMSNotFoundFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1KMSThrottlingFault = (output: any, context: __SerdeContext): KMSThrottlingFault => {
   return {
-    __type: "KMSThrottlingFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7165,7 +7046,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     TagList:
       output.TagList !== undefined && output.TagList !== null
         ? deserializeAws_json1_1TagList(output.TagList, context)
@@ -7178,7 +7058,6 @@ const deserializeAws_json1_1MicrosoftSQLServerSettings = (
   context: __SerdeContext
 ): MicrosoftSQLServerSettings => {
   return {
-    __type: "MicrosoftSQLServerSettings",
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
@@ -7189,7 +7068,6 @@ const deserializeAws_json1_1MicrosoftSQLServerSettings = (
 
 const deserializeAws_json1_1ModifyEndpointResponse = (output: any, context: __SerdeContext): ModifyEndpointResponse => {
   return {
-    __type: "ModifyEndpointResponse",
     Endpoint:
       output.Endpoint !== undefined && output.Endpoint !== null
         ? deserializeAws_json1_1Endpoint(output.Endpoint, context)
@@ -7202,7 +7080,6 @@ const deserializeAws_json1_1ModifyEventSubscriptionResponse = (
   context: __SerdeContext
 ): ModifyEventSubscriptionResponse => {
   return {
-    __type: "ModifyEventSubscriptionResponse",
     EventSubscription:
       output.EventSubscription !== undefined && output.EventSubscription !== null
         ? deserializeAws_json1_1EventSubscription(output.EventSubscription, context)
@@ -7215,7 +7092,6 @@ const deserializeAws_json1_1ModifyReplicationInstanceResponse = (
   context: __SerdeContext
 ): ModifyReplicationInstanceResponse => {
   return {
-    __type: "ModifyReplicationInstanceResponse",
     ReplicationInstance:
       output.ReplicationInstance !== undefined && output.ReplicationInstance !== null
         ? deserializeAws_json1_1ReplicationInstance(output.ReplicationInstance, context)
@@ -7228,7 +7104,6 @@ const deserializeAws_json1_1ModifyReplicationSubnetGroupResponse = (
   context: __SerdeContext
 ): ModifyReplicationSubnetGroupResponse => {
   return {
-    __type: "ModifyReplicationSubnetGroupResponse",
     ReplicationSubnetGroup:
       output.ReplicationSubnetGroup !== undefined && output.ReplicationSubnetGroup !== null
         ? deserializeAws_json1_1ReplicationSubnetGroup(output.ReplicationSubnetGroup, context)
@@ -7241,7 +7116,6 @@ const deserializeAws_json1_1ModifyReplicationTaskResponse = (
   context: __SerdeContext
 ): ModifyReplicationTaskResponse => {
   return {
-    __type: "ModifyReplicationTaskResponse",
     ReplicationTask:
       output.ReplicationTask !== undefined && output.ReplicationTask !== null
         ? deserializeAws_json1_1ReplicationTask(output.ReplicationTask, context)
@@ -7251,7 +7125,6 @@ const deserializeAws_json1_1ModifyReplicationTaskResponse = (
 
 const deserializeAws_json1_1MongoDbSettings = (output: any, context: __SerdeContext): MongoDbSettings => {
   return {
-    __type: "MongoDbSettings",
     AuthMechanism:
       output.AuthMechanism !== undefined && output.AuthMechanism !== null ? output.AuthMechanism : undefined,
     AuthSource: output.AuthSource !== undefined && output.AuthSource !== null ? output.AuthSource : undefined,
@@ -7273,7 +7146,6 @@ const deserializeAws_json1_1MongoDbSettings = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1MySQLSettings = (output: any, context: __SerdeContext): MySQLSettings => {
   return {
-    __type: "MySQLSettings",
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
@@ -7284,7 +7156,6 @@ const deserializeAws_json1_1MySQLSettings = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1NeptuneSettings = (output: any, context: __SerdeContext): NeptuneSettings => {
   return {
-    __type: "NeptuneSettings",
     ErrorRetryDuration:
       output.ErrorRetryDuration !== undefined && output.ErrorRetryDuration !== null
         ? output.ErrorRetryDuration
@@ -7306,7 +7177,6 @@ const deserializeAws_json1_1NeptuneSettings = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1OracleSettings = (output: any, context: __SerdeContext): OracleSettings => {
   return {
-    __type: "OracleSettings",
     AsmPassword: output.AsmPassword !== undefined && output.AsmPassword !== null ? output.AsmPassword : undefined,
     AsmServer: output.AsmServer !== undefined && output.AsmServer !== null ? output.AsmServer : undefined,
     AsmUser: output.AsmUser !== undefined && output.AsmUser !== null ? output.AsmUser : undefined,
@@ -7331,7 +7201,6 @@ const deserializeAws_json1_1OrderableReplicationInstance = (
   context: __SerdeContext
 ): OrderableReplicationInstance => {
   return {
-    __type: "OrderableReplicationInstance",
     AvailabilityZones:
       output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
         ? deserializeAws_json1_1AvailabilityZonesList(output.AvailabilityZones, context)
@@ -7376,7 +7245,6 @@ const deserializeAws_json1_1PendingMaintenanceAction = (
   context: __SerdeContext
 ): PendingMaintenanceAction => {
   return {
-    __type: "PendingMaintenanceAction",
     Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
     AutoAppliedAfterDate:
       output.AutoAppliedAfterDate !== undefined && output.AutoAppliedAfterDate !== null
@@ -7411,7 +7279,6 @@ const deserializeAws_json1_1PendingMaintenanceActions = (
 
 const deserializeAws_json1_1PostgreSQLSettings = (output: any, context: __SerdeContext): PostgreSQLSettings => {
   return {
-    __type: "PostgreSQLSettings",
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
@@ -7425,7 +7292,6 @@ const deserializeAws_json1_1RebootReplicationInstanceResponse = (
   context: __SerdeContext
 ): RebootReplicationInstanceResponse => {
   return {
-    __type: "RebootReplicationInstanceResponse",
     ReplicationInstance:
       output.ReplicationInstance !== undefined && output.ReplicationInstance !== null
         ? deserializeAws_json1_1ReplicationInstance(output.ReplicationInstance, context)
@@ -7435,7 +7301,6 @@ const deserializeAws_json1_1RebootReplicationInstanceResponse = (
 
 const deserializeAws_json1_1RedshiftSettings = (output: any, context: __SerdeContext): RedshiftSettings => {
   return {
-    __type: "RedshiftSettings",
     AcceptAnyDate:
       output.AcceptAnyDate !== undefined && output.AcceptAnyDate !== null ? output.AcceptAnyDate : undefined,
     AfterConnectScript:
@@ -7488,7 +7353,6 @@ const deserializeAws_json1_1RedshiftSettings = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1RefreshSchemasResponse = (output: any, context: __SerdeContext): RefreshSchemasResponse => {
   return {
-    __type: "RefreshSchemasResponse",
     RefreshSchemasStatus:
       output.RefreshSchemasStatus !== undefined && output.RefreshSchemasStatus !== null
         ? deserializeAws_json1_1RefreshSchemasStatus(output.RefreshSchemasStatus, context)
@@ -7498,7 +7362,6 @@ const deserializeAws_json1_1RefreshSchemasResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1RefreshSchemasStatus = (output: any, context: __SerdeContext): RefreshSchemasStatus => {
   return {
-    __type: "RefreshSchemasStatus",
     EndpointArn: output.EndpointArn !== undefined && output.EndpointArn !== null ? output.EndpointArn : undefined,
     LastFailureMessage:
       output.LastFailureMessage !== undefined && output.LastFailureMessage !== null
@@ -7518,7 +7381,6 @@ const deserializeAws_json1_1RefreshSchemasStatus = (output: any, context: __Serd
 
 const deserializeAws_json1_1ReloadTablesResponse = (output: any, context: __SerdeContext): ReloadTablesResponse => {
   return {
-    __type: "ReloadTablesResponse",
     ReplicationTaskArn:
       output.ReplicationTaskArn !== undefined && output.ReplicationTaskArn !== null
         ? output.ReplicationTaskArn
@@ -7530,14 +7392,11 @@ const deserializeAws_json1_1RemoveTagsFromResourceResponse = (
   output: any,
   context: __SerdeContext
 ): RemoveTagsFromResourceResponse => {
-  return {
-    __type: "RemoveTagsFromResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ReplicationInstance = (output: any, context: __SerdeContext): ReplicationInstance => {
   return {
-    __type: "ReplicationInstance",
     AllocatedStorage:
       output.AllocatedStorage !== undefined && output.AllocatedStorage !== null ? output.AllocatedStorage : undefined,
     AutoMinorVersionUpgrade:
@@ -7649,7 +7508,6 @@ const deserializeAws_json1_1ReplicationInstanceTaskLog = (
   context: __SerdeContext
 ): ReplicationInstanceTaskLog => {
   return {
-    __type: "ReplicationInstanceTaskLog",
     ReplicationInstanceTaskLogSize:
       output.ReplicationInstanceTaskLogSize !== undefined && output.ReplicationInstanceTaskLogSize !== null
         ? output.ReplicationInstanceTaskLogSize
@@ -7677,7 +7535,6 @@ const deserializeAws_json1_1ReplicationPendingModifiedValues = (
   context: __SerdeContext
 ): ReplicationPendingModifiedValues => {
   return {
-    __type: "ReplicationPendingModifiedValues",
     AllocatedStorage:
       output.AllocatedStorage !== undefined && output.AllocatedStorage !== null ? output.AllocatedStorage : undefined,
     EngineVersion:
@@ -7692,7 +7549,6 @@ const deserializeAws_json1_1ReplicationPendingModifiedValues = (
 
 const deserializeAws_json1_1ReplicationSubnetGroup = (output: any, context: __SerdeContext): ReplicationSubnetGroup => {
   return {
-    __type: "ReplicationSubnetGroup",
     ReplicationSubnetGroupDescription:
       output.ReplicationSubnetGroupDescription !== undefined && output.ReplicationSubnetGroupDescription !== null
         ? output.ReplicationSubnetGroupDescription
@@ -7718,7 +7574,6 @@ const deserializeAws_json1_1ReplicationSubnetGroupDoesNotCoverEnoughAZs = (
   context: __SerdeContext
 ): ReplicationSubnetGroupDoesNotCoverEnoughAZs => {
   return {
-    __type: "ReplicationSubnetGroupDoesNotCoverEnoughAZs",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -7732,7 +7587,6 @@ const deserializeAws_json1_1ReplicationSubnetGroups = (
 
 const deserializeAws_json1_1ReplicationTask = (output: any, context: __SerdeContext): ReplicationTask => {
   return {
-    __type: "ReplicationTask",
     CdcStartPosition:
       output.CdcStartPosition !== undefined && output.CdcStartPosition !== null ? output.CdcStartPosition : undefined,
     CdcStopPosition:
@@ -7796,7 +7650,6 @@ const deserializeAws_json1_1ReplicationTaskAssessmentResult = (
   context: __SerdeContext
 ): ReplicationTaskAssessmentResult => {
   return {
-    __type: "ReplicationTaskAssessmentResult",
     AssessmentResults:
       output.AssessmentResults !== undefined && output.AssessmentResults !== null
         ? output.AssessmentResults
@@ -7835,7 +7688,6 @@ const deserializeAws_json1_1ReplicationTaskAssessmentRun = (
   context: __SerdeContext
 ): ReplicationTaskAssessmentRun => {
   return {
-    __type: "ReplicationTaskAssessmentRun",
     AssessmentProgress:
       output.AssessmentProgress !== undefined && output.AssessmentProgress !== null
         ? deserializeAws_json1_1ReplicationTaskAssessmentRunProgress(output.AssessmentProgress, context)
@@ -7895,7 +7747,6 @@ const deserializeAws_json1_1ReplicationTaskAssessmentRunProgress = (
   context: __SerdeContext
 ): ReplicationTaskAssessmentRunProgress => {
   return {
-    __type: "ReplicationTaskAssessmentRunProgress",
     IndividualAssessmentCompletedCount:
       output.IndividualAssessmentCompletedCount !== undefined && output.IndividualAssessmentCompletedCount !== null
         ? output.IndividualAssessmentCompletedCount
@@ -7912,7 +7763,6 @@ const deserializeAws_json1_1ReplicationTaskIndividualAssessment = (
   context: __SerdeContext
 ): ReplicationTaskIndividualAssessment => {
   return {
-    __type: "ReplicationTaskIndividualAssessment",
     IndividualAssessmentName:
       output.IndividualAssessmentName !== undefined && output.IndividualAssessmentName !== null
         ? output.IndividualAssessmentName
@@ -7948,7 +7798,6 @@ const deserializeAws_json1_1ReplicationTaskList = (output: any, context: __Serde
 
 const deserializeAws_json1_1ReplicationTaskStats = (output: any, context: __SerdeContext): ReplicationTaskStats => {
   return {
-    __type: "ReplicationTaskStats",
     ElapsedTimeMillis:
       output.ElapsedTimeMillis !== undefined && output.ElapsedTimeMillis !== null
         ? output.ElapsedTimeMillis
@@ -7991,7 +7840,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsFault = (
   context: __SerdeContext
 ): ResourceAlreadyExistsFault => {
   return {
-    __type: "ResourceAlreadyExistsFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     resourceArn: output.resourceArn !== undefined && output.resourceArn !== null ? output.resourceArn : undefined,
   } as any;
@@ -7999,7 +7847,6 @@ const deserializeAws_json1_1ResourceAlreadyExistsFault = (
 
 const deserializeAws_json1_1ResourceNotFoundFault = (output: any, context: __SerdeContext): ResourceNotFoundFault => {
   return {
-    __type: "ResourceNotFoundFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -8009,7 +7856,6 @@ const deserializeAws_json1_1ResourcePendingMaintenanceActions = (
   context: __SerdeContext
 ): ResourcePendingMaintenanceActions => {
   return {
-    __type: "ResourcePendingMaintenanceActions",
     PendingMaintenanceActionDetails:
       output.PendingMaintenanceActionDetails !== undefined && output.PendingMaintenanceActionDetails !== null
         ? deserializeAws_json1_1PendingMaintenanceActionDetails(output.PendingMaintenanceActionDetails, context)
@@ -8026,14 +7872,12 @@ const deserializeAws_json1_1ResourceQuotaExceededFault = (
   context: __SerdeContext
 ): ResourceQuotaExceededFault => {
   return {
-    __type: "ResourceQuotaExceededFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1S3AccessDeniedFault = (output: any, context: __SerdeContext): S3AccessDeniedFault => {
   return {
-    __type: "S3AccessDeniedFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -8043,14 +7887,12 @@ const deserializeAws_json1_1S3ResourceNotFoundFault = (
   context: __SerdeContext
 ): S3ResourceNotFoundFault => {
   return {
-    __type: "S3ResourceNotFoundFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1S3Settings = (output: any, context: __SerdeContext): S3Settings => {
   return {
-    __type: "S3Settings",
     BucketFolder: output.BucketFolder !== undefined && output.BucketFolder !== null ? output.BucketFolder : undefined,
     BucketName: output.BucketName !== undefined && output.BucketName !== null ? output.BucketName : undefined,
     CdcInsertsAndUpdates:
@@ -8112,7 +7954,6 @@ const deserializeAws_json1_1SchemaList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1SNSInvalidTopicFault = (output: any, context: __SerdeContext): SNSInvalidTopicFault => {
   return {
-    __type: "SNSInvalidTopicFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -8122,7 +7963,6 @@ const deserializeAws_json1_1SNSNoAuthorizationFault = (
   context: __SerdeContext
 ): SNSNoAuthorizationFault => {
   return {
-    __type: "SNSNoAuthorizationFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -8136,7 +7976,6 @@ const deserializeAws_json1_1StartReplicationTaskAssessmentResponse = (
   context: __SerdeContext
 ): StartReplicationTaskAssessmentResponse => {
   return {
-    __type: "StartReplicationTaskAssessmentResponse",
     ReplicationTask:
       output.ReplicationTask !== undefined && output.ReplicationTask !== null
         ? deserializeAws_json1_1ReplicationTask(output.ReplicationTask, context)
@@ -8149,7 +7988,6 @@ const deserializeAws_json1_1StartReplicationTaskAssessmentRunResponse = (
   context: __SerdeContext
 ): StartReplicationTaskAssessmentRunResponse => {
   return {
-    __type: "StartReplicationTaskAssessmentRunResponse",
     ReplicationTaskAssessmentRun:
       output.ReplicationTaskAssessmentRun !== undefined && output.ReplicationTaskAssessmentRun !== null
         ? deserializeAws_json1_1ReplicationTaskAssessmentRun(output.ReplicationTaskAssessmentRun, context)
@@ -8162,7 +8000,6 @@ const deserializeAws_json1_1StartReplicationTaskResponse = (
   context: __SerdeContext
 ): StartReplicationTaskResponse => {
   return {
-    __type: "StartReplicationTaskResponse",
     ReplicationTask:
       output.ReplicationTask !== undefined && output.ReplicationTask !== null
         ? deserializeAws_json1_1ReplicationTask(output.ReplicationTask, context)
@@ -8175,7 +8012,6 @@ const deserializeAws_json1_1StopReplicationTaskResponse = (
   context: __SerdeContext
 ): StopReplicationTaskResponse => {
   return {
-    __type: "StopReplicationTaskResponse",
     ReplicationTask:
       output.ReplicationTask !== undefined && output.ReplicationTask !== null
         ? deserializeAws_json1_1ReplicationTask(output.ReplicationTask, context)
@@ -8188,14 +8024,12 @@ const deserializeAws_json1_1StorageQuotaExceededFault = (
   context: __SerdeContext
 ): StorageQuotaExceededFault => {
   return {
-    __type: "StorageQuotaExceededFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Subnet = (output: any, context: __SerdeContext): Subnet => {
   return {
-    __type: "Subnet",
     SubnetAvailabilityZone:
       output.SubnetAvailabilityZone !== undefined && output.SubnetAvailabilityZone !== null
         ? deserializeAws_json1_1AvailabilityZone(output.SubnetAvailabilityZone, context)
@@ -8208,7 +8042,6 @@ const deserializeAws_json1_1Subnet = (output: any, context: __SerdeContext): Sub
 
 const deserializeAws_json1_1SubnetAlreadyInUse = (output: any, context: __SerdeContext): SubnetAlreadyInUse => {
   return {
-    __type: "SubnetAlreadyInUse",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -8219,7 +8052,6 @@ const deserializeAws_json1_1SubnetList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1SupportedEndpointType = (output: any, context: __SerdeContext): SupportedEndpointType => {
   return {
-    __type: "SupportedEndpointType",
     EndpointType: output.EndpointType !== undefined && output.EndpointType !== null ? output.EndpointType : undefined,
     EngineDisplayName:
       output.EngineDisplayName !== undefined && output.EngineDisplayName !== null
@@ -8244,7 +8076,6 @@ const deserializeAws_json1_1SupportedEndpointTypeList = (
 
 const deserializeAws_json1_1SybaseSettings = (output: any, context: __SerdeContext): SybaseSettings => {
   return {
-    __type: "SybaseSettings",
     DatabaseName: output.DatabaseName !== undefined && output.DatabaseName !== null ? output.DatabaseName : undefined,
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
@@ -8255,7 +8086,6 @@ const deserializeAws_json1_1SybaseSettings = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1TableStatistics = (output: any, context: __SerdeContext): TableStatistics => {
   return {
-    __type: "TableStatistics",
     Ddls: output.Ddls !== undefined && output.Ddls !== null ? output.Ddls : undefined,
     Deletes: output.Deletes !== undefined && output.Deletes !== null ? output.Deletes : undefined,
     FullLoadCondtnlChkFailedRows:
@@ -8313,7 +8143,6 @@ const deserializeAws_json1_1TableStatisticsList = (output: any, context: __Serde
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -8325,7 +8154,6 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 
 const deserializeAws_json1_1TestConnectionResponse = (output: any, context: __SerdeContext): TestConnectionResponse => {
   return {
-    __type: "TestConnectionResponse",
     Connection:
       output.Connection !== undefined && output.Connection !== null
         ? deserializeAws_json1_1Connection(output.Connection, context)
@@ -8338,7 +8166,6 @@ const deserializeAws_json1_1UpgradeDependencyFailureFault = (
   context: __SerdeContext
 ): UpgradeDependencyFailureFault => {
   return {
-    __type: "UpgradeDependencyFailureFault",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -8348,7 +8175,6 @@ const deserializeAws_json1_1VpcSecurityGroupMembership = (
   context: __SerdeContext
 ): VpcSecurityGroupMembership => {
   return {
-    __type: "VpcSecurityGroupMembership",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     VpcSecurityGroupId:
       output.VpcSecurityGroupId !== undefined && output.VpcSecurityGroupId !== null

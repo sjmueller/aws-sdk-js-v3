@@ -1,6 +1,6 @@
 
 import { IoTThingsGraphClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTThingsGraphClient.ts";
-import { SearchFlowExecutionsRequest, SearchFlowExecutionsResponse } from "../models/index.ts";
+import { SearchFlowExecutionsRequest, SearchFlowExecutionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SearchFlowExecutionsCommand,
   serializeAws_json1_1SearchFlowExecutionsCommand,

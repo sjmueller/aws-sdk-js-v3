@@ -1,6 +1,6 @@
 
 import { ComputeOptimizerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComputeOptimizerClient.ts";
-import { GetRecommendationSummariesRequest, GetRecommendationSummariesResponse } from "../models/index.ts";
+import { GetRecommendationSummariesRequest, GetRecommendationSummariesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0GetRecommendationSummariesCommand,
   serializeAws_json1_0GetRecommendationSummariesCommand,

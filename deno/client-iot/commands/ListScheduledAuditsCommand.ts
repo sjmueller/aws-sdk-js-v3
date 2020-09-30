@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { ListScheduledAuditsRequest, ListScheduledAuditsResponse } from "../models/index.ts";
+import { ListScheduledAuditsRequest, ListScheduledAuditsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1ListScheduledAuditsCommand,
   serializeAws_restJson1ListScheduledAuditsCommand,

@@ -112,7 +112,7 @@ import {
   VaultAccessPolicy,
   VaultLockPolicy,
   VaultNotificationConfig,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -1767,7 +1767,6 @@ export const deserializeAws_restJson1CompleteMultipartUploadCommand = async (
   }
   const contents: CompleteMultipartUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ArchiveCreationOutput",
     archiveId: undefined,
     checksum: undefined,
     location: undefined,
@@ -1930,7 +1929,6 @@ export const deserializeAws_restJson1CreateVaultCommand = async (
   }
   const contents: CreateVaultCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVaultOutput",
     location: undefined,
   };
   if (output.headers["location"] !== undefined) {
@@ -2310,7 +2308,6 @@ export const deserializeAws_restJson1DescribeJobCommand = async (
   }
   const contents: DescribeJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GlacierJobDescription",
     Action: undefined,
     ArchiveId: undefined,
     ArchiveSHA256TreeHash: undefined,
@@ -2473,7 +2470,6 @@ export const deserializeAws_restJson1DescribeVaultCommand = async (
   }
   const contents: DescribeVaultCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVaultOutput",
     CreationDate: undefined,
     LastInventoryDate: undefined,
     NumberOfArchives: undefined,
@@ -2573,7 +2569,6 @@ export const deserializeAws_restJson1GetDataRetrievalPolicyCommand = async (
   }
   const contents: GetDataRetrievalPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDataRetrievalPolicyOutput",
     Policy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2645,7 +2640,6 @@ export const deserializeAws_restJson1GetJobOutputCommand = async (
   }
   const contents: GetJobOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetJobOutputOutput",
     acceptRanges: undefined,
     archiveDescription: undefined,
     body: undefined,
@@ -2743,7 +2737,6 @@ export const deserializeAws_restJson1GetVaultAccessPolicyCommand = async (
   }
   const contents: GetVaultAccessPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVaultAccessPolicyOutput",
     policy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2821,7 +2814,6 @@ export const deserializeAws_restJson1GetVaultLockCommand = async (
   }
   const contents: GetVaultLockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVaultLockOutput",
     CreationDate: undefined,
     ExpirationDate: undefined,
     Policy: undefined,
@@ -2913,7 +2905,6 @@ export const deserializeAws_restJson1GetVaultNotificationsCommand = async (
   }
   const contents: GetVaultNotificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetVaultNotificationsOutput",
     vaultNotificationConfig: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2991,7 +2982,6 @@ export const deserializeAws_restJson1InitiateJobCommand = async (
   }
   const contents: InitiateJobCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InitiateJobOutput",
     jobId: undefined,
     jobOutputPath: undefined,
     location: undefined,
@@ -3095,7 +3085,6 @@ export const deserializeAws_restJson1InitiateMultipartUploadCommand = async (
   }
   const contents: InitiateMultipartUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InitiateMultipartUploadOutput",
     location: undefined,
     uploadId: undefined,
   };
@@ -3179,7 +3168,6 @@ export const deserializeAws_restJson1InitiateVaultLockCommand = async (
   }
   const contents: InitiateVaultLockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InitiateVaultLockOutput",
     lockId: undefined,
   };
   if (output.headers["x-amz-lock-id"] !== undefined) {
@@ -3259,7 +3247,6 @@ export const deserializeAws_restJson1ListJobsCommand = async (
   }
   const contents: ListJobsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListJobsOutput",
     JobList: undefined,
     Marker: undefined,
   };
@@ -3343,7 +3330,6 @@ export const deserializeAws_restJson1ListMultipartUploadsCommand = async (
   }
   const contents: ListMultipartUploadsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMultipartUploadsOutput",
     Marker: undefined,
     UploadsList: undefined,
   };
@@ -3427,7 +3413,6 @@ export const deserializeAws_restJson1ListPartsCommand = async (
   }
   const contents: ListPartsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPartsOutput",
     ArchiveDescription: undefined,
     CreationDate: undefined,
     Marker: undefined,
@@ -3531,7 +3516,6 @@ export const deserializeAws_restJson1ListProvisionedCapacityCommand = async (
   }
   const contents: ListProvisionedCapacityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProvisionedCapacityOutput",
     ProvisionedCapacityList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3606,7 +3590,6 @@ export const deserializeAws_restJson1ListTagsForVaultCommand = async (
   }
   const contents: ListTagsForVaultCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForVaultOutput",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3686,7 +3669,6 @@ export const deserializeAws_restJson1ListVaultsCommand = async (
   }
   const contents: ListVaultsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListVaultsOutput",
     Marker: undefined,
     VaultList: undefined,
   };
@@ -3770,7 +3752,6 @@ export const deserializeAws_restJson1PurchaseProvisionedCapacityCommand = async 
   }
   const contents: PurchaseProvisionedCapacityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PurchaseProvisionedCapacityOutput",
     capacityId: undefined,
   };
   if (output.headers["x-amz-capacity-id"] !== undefined) {
@@ -4142,7 +4123,6 @@ export const deserializeAws_restJson1UploadArchiveCommand = async (
   }
   const contents: UploadArchiveCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ArchiveCreationOutput",
     archiveId: undefined,
     checksum: undefined,
     location: undefined,
@@ -4238,7 +4218,6 @@ export const deserializeAws_restJson1UploadMultipartPartCommand = async (
   }
   const contents: UploadMultipartPartCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UploadMultipartPartOutput",
     checksum: undefined,
   };
   if (output.headers["x-amz-sha256-tree-hash"] !== undefined) {
@@ -4724,7 +4703,6 @@ const deserializeAws_restJson1AccessControlPolicyList = (output: any, context: _
 
 const deserializeAws_restJson1CSVInput = (output: any, context: __SerdeContext): CSVInput => {
   return {
-    __type: "CSVInput",
     Comments: output.Comments !== undefined && output.Comments !== null ? output.Comments : undefined,
     FieldDelimiter:
       output.FieldDelimiter !== undefined && output.FieldDelimiter !== null ? output.FieldDelimiter : undefined,
@@ -4743,7 +4721,6 @@ const deserializeAws_restJson1CSVInput = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1CSVOutput = (output: any, context: __SerdeContext): CSVOutput => {
   return {
-    __type: "CSVOutput",
     FieldDelimiter:
       output.FieldDelimiter !== undefined && output.FieldDelimiter !== null ? output.FieldDelimiter : undefined,
     QuoteCharacter:
@@ -4760,7 +4737,6 @@ const deserializeAws_restJson1CSVOutput = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1DataRetrievalPolicy = (output: any, context: __SerdeContext): DataRetrievalPolicy => {
   return {
-    __type: "DataRetrievalPolicy",
     Rules:
       output.Rules !== undefined && output.Rules !== null
         ? deserializeAws_restJson1DataRetrievalRulesList(output.Rules, context)
@@ -4770,7 +4746,6 @@ const deserializeAws_restJson1DataRetrievalPolicy = (output: any, context: __Ser
 
 const deserializeAws_restJson1DataRetrievalRule = (output: any, context: __SerdeContext): DataRetrievalRule => {
   return {
-    __type: "DataRetrievalRule",
     BytesPerHour: output.BytesPerHour !== undefined && output.BytesPerHour !== null ? output.BytesPerHour : undefined,
     Strategy: output.Strategy !== undefined && output.Strategy !== null ? output.Strategy : undefined,
   } as any;
@@ -4782,7 +4757,6 @@ const deserializeAws_restJson1DataRetrievalRulesList = (output: any, context: __
 
 const deserializeAws_restJson1DescribeVaultOutput = (output: any, context: __SerdeContext): DescribeVaultOutput => {
   return {
-    __type: "DescribeVaultOutput",
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
     LastInventoryDate:
       output.LastInventoryDate !== undefined && output.LastInventoryDate !== null
@@ -4798,7 +4772,6 @@ const deserializeAws_restJson1DescribeVaultOutput = (output: any, context: __Ser
 
 const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext): Encryption => {
   return {
-    __type: "Encryption",
     EncryptionType:
       output.EncryptionType !== undefined && output.EncryptionType !== null ? output.EncryptionType : undefined,
     KMSContext: output.KMSContext !== undefined && output.KMSContext !== null ? output.KMSContext : undefined,
@@ -4808,7 +4781,6 @@ const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1GlacierJobDescription = (output: any, context: __SerdeContext): GlacierJobDescription => {
   return {
-    __type: "GlacierJobDescription",
     Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
     ArchiveId: output.ArchiveId !== undefined && output.ArchiveId !== null ? output.ArchiveId : undefined,
     ArchiveSHA256TreeHash:
@@ -4861,7 +4833,6 @@ const deserializeAws_restJson1GlacierJobDescription = (output: any, context: __S
 
 const deserializeAws_restJson1Grant = (output: any, context: __SerdeContext): Grant => {
   return {
-    __type: "Grant",
     Grantee:
       output.Grantee !== undefined && output.Grantee !== null
         ? deserializeAws_restJson1Grantee(output.Grantee, context)
@@ -4872,7 +4843,6 @@ const deserializeAws_restJson1Grant = (output: any, context: __SerdeContext): Gr
 
 const deserializeAws_restJson1Grantee = (output: any, context: __SerdeContext): Grantee => {
   return {
-    __type: "Grantee",
     DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
     EmailAddress: output.EmailAddress !== undefined && output.EmailAddress !== null ? output.EmailAddress : undefined,
     ID: output.ID !== undefined && output.ID !== null ? output.ID : undefined,
@@ -4893,7 +4863,6 @@ const deserializeAws_restJson1hashmap = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1InputSerialization = (output: any, context: __SerdeContext): InputSerialization => {
   return {
-    __type: "InputSerialization",
     csv:
       output.csv !== undefined && output.csv !== null
         ? deserializeAws_restJson1CSVInput(output.csv, context)
@@ -4906,7 +4875,6 @@ const deserializeAws_restJson1InventoryRetrievalJobDescription = (
   context: __SerdeContext
 ): InventoryRetrievalJobDescription => {
   return {
-    __type: "InventoryRetrievalJobDescription",
     EndDate: output.EndDate !== undefined && output.EndDate !== null ? output.EndDate : undefined,
     Format: output.Format !== undefined && output.Format !== null ? output.Format : undefined,
     Limit: output.Limit !== undefined && output.Limit !== null ? output.Limit : undefined,
@@ -4925,7 +4893,6 @@ const deserializeAws_restJson1NotificationEventList = (output: any, context: __S
 
 const deserializeAws_restJson1OutputLocation = (output: any, context: __SerdeContext): OutputLocation => {
   return {
-    __type: "OutputLocation",
     S3:
       output.S3 !== undefined && output.S3 !== null
         ? deserializeAws_restJson1S3Location(output.S3, context)
@@ -4935,7 +4902,6 @@ const deserializeAws_restJson1OutputLocation = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1OutputSerialization = (output: any, context: __SerdeContext): OutputSerialization => {
   return {
-    __type: "OutputSerialization",
     csv:
       output.csv !== undefined && output.csv !== null
         ? deserializeAws_restJson1CSVOutput(output.csv, context)
@@ -4949,7 +4915,6 @@ const deserializeAws_restJson1PartList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1PartListElement = (output: any, context: __SerdeContext): PartListElement => {
   return {
-    __type: "PartListElement",
     RangeInBytes: output.RangeInBytes !== undefined && output.RangeInBytes !== null ? output.RangeInBytes : undefined,
     SHA256TreeHash:
       output.SHA256TreeHash !== undefined && output.SHA256TreeHash !== null ? output.SHA256TreeHash : undefined,
@@ -4961,7 +4926,6 @@ const deserializeAws_restJson1ProvisionedCapacityDescription = (
   context: __SerdeContext
 ): ProvisionedCapacityDescription => {
   return {
-    __type: "ProvisionedCapacityDescription",
     CapacityId: output.CapacityId !== undefined && output.CapacityId !== null ? output.CapacityId : undefined,
     ExpirationDate:
       output.ExpirationDate !== undefined && output.ExpirationDate !== null ? output.ExpirationDate : undefined,
@@ -4978,7 +4942,6 @@ const deserializeAws_restJson1ProvisionedCapacityList = (
 
 const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext): S3Location => {
   return {
-    __type: "S3Location",
     AccessControlList:
       output.AccessControlList !== undefined && output.AccessControlList !== null
         ? deserializeAws_restJson1AccessControlPolicyList(output.AccessControlList, context)
@@ -5004,7 +4967,6 @@ const deserializeAws_restJson1S3Location = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1SelectParameters = (output: any, context: __SerdeContext): SelectParameters => {
   return {
-    __type: "SelectParameters",
     Expression: output.Expression !== undefined && output.Expression !== null ? output.Expression : undefined,
     ExpressionType:
       output.ExpressionType !== undefined && output.ExpressionType !== null ? output.ExpressionType : undefined,
@@ -5031,7 +4993,6 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1UploadListElement = (output: any, context: __SerdeContext): UploadListElement => {
   return {
-    __type: "UploadListElement",
     ArchiveDescription:
       output.ArchiveDescription !== undefined && output.ArchiveDescription !== null
         ? output.ArchiveDescription
@@ -5053,7 +5014,6 @@ const deserializeAws_restJson1UploadsList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1VaultAccessPolicy = (output: any, context: __SerdeContext): VaultAccessPolicy => {
   return {
-    __type: "VaultAccessPolicy",
     Policy: output.Policy !== undefined && output.Policy !== null ? output.Policy : undefined,
   } as any;
 };
@@ -5067,7 +5027,6 @@ const deserializeAws_restJson1VaultNotificationConfig = (
   context: __SerdeContext
 ): VaultNotificationConfig => {
   return {
-    __type: "VaultNotificationConfig",
     Events:
       output.Events !== undefined && output.Events !== null
         ? deserializeAws_restJson1NotificationEventList(output.Events, context)

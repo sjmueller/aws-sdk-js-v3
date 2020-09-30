@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { PutVoiceConnectorProxyRequest, PutVoiceConnectorProxyResponse } from "../models/index.ts";
+import { PutVoiceConnectorProxyRequest, PutVoiceConnectorProxyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutVoiceConnectorProxyCommand,
   serializeAws_restJson1PutVoiceConnectorProxyCommand,

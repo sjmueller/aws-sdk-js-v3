@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { MergePullRequestBySquashInput, MergePullRequestBySquashOutput } from "../models/index.ts";
+import { MergePullRequestBySquashInput, MergePullRequestBySquashOutput } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1MergePullRequestBySquashCommand,
   serializeAws_json1_1MergePullRequestBySquashCommand,

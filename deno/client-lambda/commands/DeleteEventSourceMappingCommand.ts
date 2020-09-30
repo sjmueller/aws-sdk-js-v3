@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { DeleteEventSourceMappingRequest, EventSourceMappingConfiguration } from "../models/index.ts";
+import { DeleteEventSourceMappingRequest, EventSourceMappingConfiguration } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteEventSourceMappingCommand,
   serializeAws_restJson1DeleteEventSourceMappingCommand,

@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { CacheParameterGroupsMessage, DescribeCacheParameterGroupsMessage } from "../models/index.ts";
+import { CacheParameterGroupsMessage, DescribeCacheParameterGroupsMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeCacheParameterGroupsCommand,
   serializeAws_queryDescribeCacheParameterGroupsCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ComprehendMedicalClient.ts";
-import { StartRxNormInferenceJobRequest, StartRxNormInferenceJobResponse } from "../models/index.ts";
+import { StartRxNormInferenceJobRequest, StartRxNormInferenceJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartRxNormInferenceJobCommand,
   serializeAws_json1_1StartRxNormInferenceJobCommand,

@@ -1,6 +1,6 @@
 
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient.ts";
-import { RemovePermissionRequest } from "../models/index.ts";
+import { RemovePermissionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryRemovePermissionCommand,
   serializeAws_queryRemovePermissionCommand,

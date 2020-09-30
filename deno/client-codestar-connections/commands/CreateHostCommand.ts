@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CodeStarConnectionsClient.ts";
-import { CreateHostInput, CreateHostOutput } from "../models/index.ts";
+import { CreateHostInput, CreateHostOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0CreateHostCommand,
   serializeAws_json1_0CreateHostCommand,

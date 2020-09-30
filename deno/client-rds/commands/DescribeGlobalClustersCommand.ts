@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DescribeGlobalClustersMessage, GlobalClustersMessage } from "../models/index.ts";
+import { DescribeGlobalClustersMessage, GlobalClustersMessage } from "../models/models_1.ts";
 import {
   deserializeAws_queryDescribeGlobalClustersCommand,
   serializeAws_queryDescribeGlobalClustersCommand,

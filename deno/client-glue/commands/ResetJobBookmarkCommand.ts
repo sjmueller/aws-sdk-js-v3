@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { ResetJobBookmarkRequest, ResetJobBookmarkResponse } from "../models/index.ts";
+import { ResetJobBookmarkRequest, ResetJobBookmarkResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ResetJobBookmarkCommand,
   serializeAws_json1_1ResetJobBookmarkCommand,

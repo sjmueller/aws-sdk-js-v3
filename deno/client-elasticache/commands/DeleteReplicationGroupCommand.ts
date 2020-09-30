@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { DeleteReplicationGroupMessage, DeleteReplicationGroupResult } from "../models/index.ts";
+import { DeleteReplicationGroupMessage, DeleteReplicationGroupResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteReplicationGroupCommand,
   serializeAws_queryDeleteReplicationGroupCommand,

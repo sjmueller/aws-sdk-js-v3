@@ -1,6 +1,6 @@
 
 import { DAXClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DAXClient.ts";
-import { DeleteParameterGroupRequest, DeleteParameterGroupResponse } from "../models/index.ts";
+import { DeleteParameterGroupRequest, DeleteParameterGroupResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteParameterGroupCommand,
   serializeAws_json1_1DeleteParameterGroupCommand,

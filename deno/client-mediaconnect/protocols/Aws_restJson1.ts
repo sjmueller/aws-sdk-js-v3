@@ -67,7 +67,7 @@ import {
   VpcInterface,
   VpcInterfaceAttachment,
   VpcInterfaceRequest,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -890,7 +890,6 @@ export const deserializeAws_restJson1AddFlowOutputsCommand = async (
   }
   const contents: AddFlowOutputsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddFlowOutputsResponse",
     FlowArn: undefined,
     Outputs: undefined,
   };
@@ -998,7 +997,6 @@ export const deserializeAws_restJson1AddFlowSourcesCommand = async (
   }
   const contents: AddFlowSourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddFlowSourcesResponse",
     FlowArn: undefined,
     Sources: undefined,
   };
@@ -1098,7 +1096,6 @@ export const deserializeAws_restJson1AddFlowVpcInterfacesCommand = async (
   }
   const contents: AddFlowVpcInterfacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddFlowVpcInterfacesResponse",
     FlowArn: undefined,
     VpcInterfaces: undefined,
   };
@@ -1198,7 +1195,6 @@ export const deserializeAws_restJson1CreateFlowCommand = async (
   }
   const contents: CreateFlowCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFlowResponse",
     Flow: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1294,7 +1290,6 @@ export const deserializeAws_restJson1DeleteFlowCommand = async (
   }
   const contents: DeleteFlowCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFlowResponse",
     FlowArn: undefined,
     Status: undefined,
   };
@@ -1394,7 +1389,6 @@ export const deserializeAws_restJson1DescribeFlowCommand = async (
   }
   const contents: DescribeFlowCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFlowResponse",
     Flow: undefined,
     Messages: undefined,
   };
@@ -1494,7 +1488,6 @@ export const deserializeAws_restJson1GrantFlowEntitlementsCommand = async (
   }
   const contents: GrantFlowEntitlementsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GrantFlowEntitlementsResponse",
     Entitlements: undefined,
     FlowArn: undefined,
   };
@@ -1602,7 +1595,6 @@ export const deserializeAws_restJson1ListEntitlementsCommand = async (
   }
   const contents: ListEntitlementsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEntitlementsResponse",
     Entitlements: undefined,
     NextToken: undefined,
   };
@@ -1686,7 +1678,6 @@ export const deserializeAws_restJson1ListFlowsCommand = async (
   }
   const contents: ListFlowsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListFlowsResponse",
     Flows: undefined,
     NextToken: undefined,
   };
@@ -1770,7 +1761,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1842,7 +1832,6 @@ export const deserializeAws_restJson1RemoveFlowOutputCommand = async (
   }
   const contents: RemoveFlowOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveFlowOutputResponse",
     FlowArn: undefined,
     OutputArn: undefined,
   };
@@ -1942,7 +1931,6 @@ export const deserializeAws_restJson1RemoveFlowSourceCommand = async (
   }
   const contents: RemoveFlowSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveFlowSourceResponse",
     FlowArn: undefined,
     SourceArn: undefined,
   };
@@ -2042,7 +2030,6 @@ export const deserializeAws_restJson1RemoveFlowVpcInterfaceCommand = async (
   }
   const contents: RemoveFlowVpcInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RemoveFlowVpcInterfaceResponse",
     FlowArn: undefined,
     NonDeletedNetworkInterfaceIds: undefined,
     VpcInterfaceName: undefined,
@@ -2149,7 +2136,6 @@ export const deserializeAws_restJson1RevokeFlowEntitlementCommand = async (
   }
   const contents: RevokeFlowEntitlementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RevokeFlowEntitlementResponse",
     EntitlementArn: undefined,
     FlowArn: undefined,
   };
@@ -2249,7 +2235,6 @@ export const deserializeAws_restJson1StartFlowCommand = async (
   }
   const contents: StartFlowCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartFlowResponse",
     FlowArn: undefined,
     Status: undefined,
   };
@@ -2349,7 +2334,6 @@ export const deserializeAws_restJson1StopFlowCommand = async (
   }
   const contents: StopFlowCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopFlowResponse",
     FlowArn: undefined,
     Status: undefined,
   };
@@ -2583,7 +2567,6 @@ export const deserializeAws_restJson1UpdateFlowCommand = async (
   }
   const contents: UpdateFlowCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFlowResponse",
     Flow: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2679,7 +2662,6 @@ export const deserializeAws_restJson1UpdateFlowEntitlementCommand = async (
   }
   const contents: UpdateFlowEntitlementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFlowEntitlementResponse",
     Entitlement: undefined,
     FlowArn: undefined,
   };
@@ -2779,7 +2761,6 @@ export const deserializeAws_restJson1UpdateFlowOutputCommand = async (
   }
   const contents: UpdateFlowOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFlowOutputResponse",
     FlowArn: undefined,
     Output: undefined,
   };
@@ -2879,7 +2860,6 @@ export const deserializeAws_restJson1UpdateFlowSourceCommand = async (
   }
   const contents: UpdateFlowSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFlowSourceResponse",
     FlowArn: undefined,
     Source: undefined,
   };
@@ -3320,7 +3300,6 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext): Encryption => {
   return {
-    __type: "Encryption",
     Algorithm: output.algorithm !== undefined && output.algorithm !== null ? output.algorithm : undefined,
     ConstantInitializationVector:
       output.constantInitializationVector !== undefined && output.constantInitializationVector !== null
@@ -3338,7 +3317,6 @@ const deserializeAws_restJson1Encryption = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Entitlement = (output: any, context: __SerdeContext): Entitlement => {
   return {
-    __type: "Entitlement",
     DataTransferSubscriberFeePercent:
       output.dataTransferSubscriberFeePercent !== undefined && output.dataTransferSubscriberFeePercent !== null
         ? output.dataTransferSubscriberFeePercent
@@ -3364,7 +3342,6 @@ const deserializeAws_restJson1Entitlement = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1FailoverConfig = (output: any, context: __SerdeContext): FailoverConfig => {
   return {
-    __type: "FailoverConfig",
     RecoveryWindow:
       output.recoveryWindow !== undefined && output.recoveryWindow !== null ? output.recoveryWindow : undefined,
     State: output.state !== undefined && output.state !== null ? output.state : undefined,
@@ -3373,7 +3350,6 @@ const deserializeAws_restJson1FailoverConfig = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Flow = (output: any, context: __SerdeContext): Flow => {
   return {
-    __type: "Flow",
     AvailabilityZone:
       output.availabilityZone !== undefined && output.availabilityZone !== null ? output.availabilityZone : undefined,
     Description: output.description !== undefined && output.description !== null ? output.description : undefined,
@@ -3410,7 +3386,6 @@ const deserializeAws_restJson1Flow = (output: any, context: __SerdeContext): Flo
 
 const deserializeAws_restJson1ListedEntitlement = (output: any, context: __SerdeContext): ListedEntitlement => {
   return {
-    __type: "ListedEntitlement",
     DataTransferSubscriberFeePercent:
       output.dataTransferSubscriberFeePercent !== undefined && output.dataTransferSubscriberFeePercent !== null
         ? output.dataTransferSubscriberFeePercent
@@ -3424,7 +3399,6 @@ const deserializeAws_restJson1ListedEntitlement = (output: any, context: __Serde
 
 const deserializeAws_restJson1ListedFlow = (output: any, context: __SerdeContext): ListedFlow => {
   return {
-    __type: "ListedFlow",
     AvailabilityZone:
       output.availabilityZone !== undefined && output.availabilityZone !== null ? output.availabilityZone : undefined,
     Description: output.description !== undefined && output.description !== null ? output.description : undefined,
@@ -3437,7 +3411,6 @@ const deserializeAws_restJson1ListedFlow = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Messages = (output: any, context: __SerdeContext): Messages => {
   return {
-    __type: "Messages",
     Errors:
       output.errors !== undefined && output.errors !== null
         ? deserializeAws_restJson1__listOf__string(output.errors, context)
@@ -3447,7 +3420,6 @@ const deserializeAws_restJson1Messages = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): Output => {
   return {
-    __type: "Output",
     DataTransferSubscriberFeePercent:
       output.dataTransferSubscriberFeePercent !== undefined && output.dataTransferSubscriberFeePercent !== null
         ? output.dataTransferSubscriberFeePercent
@@ -3480,7 +3452,6 @@ const deserializeAws_restJson1Output = (output: any, context: __SerdeContext): O
 
 const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): Source => {
   return {
-    __type: "Source",
     DataTransferSubscriberFeePercent:
       output.dataTransferSubscriberFeePercent !== undefined && output.dataTransferSubscriberFeePercent !== null
         ? output.dataTransferSubscriberFeePercent
@@ -3509,7 +3480,6 @@ const deserializeAws_restJson1Source = (output: any, context: __SerdeContext): S
 
 const deserializeAws_restJson1Transport = (output: any, context: __SerdeContext): Transport => {
   return {
-    __type: "Transport",
     CidrAllowList:
       output.cidrAllowList !== undefined && output.cidrAllowList !== null
         ? deserializeAws_restJson1__listOf__string(output.cidrAllowList, context)
@@ -3526,7 +3496,6 @@ const deserializeAws_restJson1Transport = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1VpcInterface = (output: any, context: __SerdeContext): VpcInterface => {
   return {
-    __type: "VpcInterface",
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
     NetworkInterfaceIds:
       output.networkInterfaceIds !== undefined && output.networkInterfaceIds !== null
@@ -3546,7 +3515,6 @@ const deserializeAws_restJson1VpcInterfaceAttachment = (
   context: __SerdeContext
 ): VpcInterfaceAttachment => {
   return {
-    __type: "VpcInterfaceAttachment",
     VpcInterfaceName:
       output.vpcInterfaceName !== undefined && output.vpcInterfaceName !== null ? output.vpcInterfaceName : undefined,
   } as any;

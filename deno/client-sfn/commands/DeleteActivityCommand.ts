@@ -1,6 +1,6 @@
 
 import { SFNClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SFNClient.ts";
-import { DeleteActivityInput, DeleteActivityOutput } from "../models/index.ts";
+import { DeleteActivityInput, DeleteActivityOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0DeleteActivityCommand,
   serializeAws_json1_0DeleteActivityCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { ListAvailableManagementCidrRangesRequest, ListAvailableManagementCidrRangesResult } from "../models/index.ts";
+import { ListAvailableManagementCidrRangesRequest, ListAvailableManagementCidrRangesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListAvailableManagementCidrRangesCommand,
   serializeAws_json1_1ListAvailableManagementCidrRangesCommand,

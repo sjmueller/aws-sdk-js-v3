@@ -3,7 +3,7 @@ import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import {
   GetRelationalDatabaseMasterUserPasswordRequest,
   GetRelationalDatabaseMasterUserPasswordResult,
-} from "../models/index.ts";
+} from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetRelationalDatabaseMasterUserPasswordCommand,
   serializeAws_json1_1GetRelationalDatabaseMasterUserPasswordCommand,

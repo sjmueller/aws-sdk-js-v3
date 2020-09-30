@@ -1,6 +1,6 @@
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient.ts";
-import { BackupPolicyDescription, DescribeBackupPolicyRequest } from "../models/index.ts";
+import { BackupPolicyDescription, DescribeBackupPolicyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeBackupPolicyCommand,
   serializeAws_restJson1DescribeBackupPolicyCommand,

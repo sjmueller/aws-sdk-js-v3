@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DeleteNatGatewayRequest, DeleteNatGatewayResult } from "../models/index.ts";
+import { DeleteNatGatewayRequest, DeleteNatGatewayResult } from "../models/models_1.ts";
 import {
   deserializeAws_ec2DeleteNatGatewayCommand,
   serializeAws_ec2DeleteNatGatewayCommand,

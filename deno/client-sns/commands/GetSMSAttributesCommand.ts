@@ -1,6 +1,6 @@
 
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
-import { GetSMSAttributesInput, GetSMSAttributesResponse } from "../models/index.ts";
+import { GetSMSAttributesInput, GetSMSAttributesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetSMSAttributesCommand,
   serializeAws_queryGetSMSAttributesCommand,

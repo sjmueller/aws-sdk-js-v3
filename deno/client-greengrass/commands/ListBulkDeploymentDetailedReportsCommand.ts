@@ -1,6 +1,9 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { ListBulkDeploymentDetailedReportsRequest, ListBulkDeploymentDetailedReportsResponse } from "../models/index.ts";
+import {
+  ListBulkDeploymentDetailedReportsRequest,
+  ListBulkDeploymentDetailedReportsResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListBulkDeploymentDetailedReportsCommand,
   serializeAws_restJson1ListBulkDeploymentDetailedReportsCommand,

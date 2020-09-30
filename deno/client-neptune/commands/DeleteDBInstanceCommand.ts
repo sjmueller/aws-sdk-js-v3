@@ -1,6 +1,6 @@
 
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient.ts";
-import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/index.ts";
+import { DeleteDBInstanceMessage, DeleteDBInstanceResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteDBInstanceCommand,
   serializeAws_queryDeleteDBInstanceCommand,

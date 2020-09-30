@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CloudSearchDomainClient.ts";
-import { UploadDocumentsRequest, UploadDocumentsResponse } from "../models/index.ts";
+import { UploadDocumentsRequest, UploadDocumentsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UploadDocumentsCommand,
   serializeAws_restJson1UploadDocumentsCommand,

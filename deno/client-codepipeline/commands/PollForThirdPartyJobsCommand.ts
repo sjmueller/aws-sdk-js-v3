@@ -1,6 +1,6 @@
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
-import { PollForThirdPartyJobsInput, PollForThirdPartyJobsOutput } from "../models/index.ts";
+import { PollForThirdPartyJobsInput, PollForThirdPartyJobsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PollForThirdPartyJobsCommand,
   serializeAws_json1_1PollForThirdPartyJobsCommand,

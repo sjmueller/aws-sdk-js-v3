@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { RevokeDBSecurityGroupIngressMessage, RevokeDBSecurityGroupIngressResult } from "../models/index.ts";
+import { RevokeDBSecurityGroupIngressMessage, RevokeDBSecurityGroupIngressResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryRevokeDBSecurityGroupIngressCommand,
   serializeAws_queryRevokeDBSecurityGroupIngressCommand,

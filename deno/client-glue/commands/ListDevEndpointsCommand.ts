@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { ListDevEndpointsRequest, ListDevEndpointsResponse } from "../models/index.ts";
+import { ListDevEndpointsRequest, ListDevEndpointsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1ListDevEndpointsCommand,
   serializeAws_json1_1ListDevEndpointsCommand,

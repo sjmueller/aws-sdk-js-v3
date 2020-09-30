@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { CreateVoiceTemplateRequest, CreateVoiceTemplateResponse } from "../models/index.ts";
+import { CreateVoiceTemplateRequest, CreateVoiceTemplateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateVoiceTemplateCommand,
   serializeAws_restJson1CreateVoiceTemplateCommand,

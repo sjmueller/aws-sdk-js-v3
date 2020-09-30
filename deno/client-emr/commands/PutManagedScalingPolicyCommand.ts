@@ -1,6 +1,6 @@
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
-import { PutManagedScalingPolicyInput, PutManagedScalingPolicyOutput } from "../models/index.ts";
+import { PutManagedScalingPolicyInput, PutManagedScalingPolicyOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutManagedScalingPolicyCommand,
   serializeAws_json1_1PutManagedScalingPolicyCommand,

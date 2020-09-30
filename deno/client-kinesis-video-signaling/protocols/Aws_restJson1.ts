@@ -12,7 +12,7 @@ import {
   NotAuthorizedException,
   ResourceNotFoundException,
   SessionExpiredException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -84,7 +84,6 @@ export const deserializeAws_restJson1GetIceServerConfigCommand = async (
   }
   const contents: GetIceServerConfigCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetIceServerConfigResponse",
     IceServerList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -180,7 +179,6 @@ export const deserializeAws_restJson1SendAlexaOfferToMasterCommand = async (
   }
   const contents: SendAlexaOfferToMasterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendAlexaOfferToMasterResponse",
     Answer: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -355,7 +353,6 @@ const deserializeAws_restJson1SessionExpiredExceptionResponse = async (
 
 const deserializeAws_restJson1IceServer = (output: any, context: __SerdeContext): IceServer => {
   return {
-    __type: "IceServer",
     Password: output.Password !== undefined && output.Password !== null ? output.Password : undefined,
     Ttl: output.Ttl !== undefined && output.Ttl !== null ? output.Ttl : undefined,
     Uris:

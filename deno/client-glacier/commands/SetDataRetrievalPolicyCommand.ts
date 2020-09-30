@@ -1,6 +1,6 @@
 
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
-import { SetDataRetrievalPolicyInput } from "../models/index.ts";
+import { SetDataRetrievalPolicyInput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SetDataRetrievalPolicyCommand,
   serializeAws_restJson1SetDataRetrievalPolicyCommand,

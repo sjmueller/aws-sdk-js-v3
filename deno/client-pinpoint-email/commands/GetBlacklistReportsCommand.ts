@@ -1,6 +1,6 @@
 
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
-import { GetBlacklistReportsRequest, GetBlacklistReportsResponse } from "../models/index.ts";
+import { GetBlacklistReportsRequest, GetBlacklistReportsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetBlacklistReportsCommand,
   serializeAws_restJson1GetBlacklistReportsCommand,

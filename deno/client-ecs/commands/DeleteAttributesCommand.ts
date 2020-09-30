@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { DeleteAttributesRequest, DeleteAttributesResponse } from "../models/index.ts";
+import { DeleteAttributesRequest, DeleteAttributesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteAttributesCommand,
   serializeAws_json1_1DeleteAttributesCommand,

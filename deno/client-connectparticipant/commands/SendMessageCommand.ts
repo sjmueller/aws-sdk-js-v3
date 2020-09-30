@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ConnectParticipantClient.ts";
-import { SendMessageRequest, SendMessageResponse } from "../models/index.ts";
+import { SendMessageRequest, SendMessageResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SendMessageCommand,
   serializeAws_restJson1SendMessageCommand,

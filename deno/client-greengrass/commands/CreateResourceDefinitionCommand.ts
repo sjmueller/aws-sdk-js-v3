@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { CreateResourceDefinitionRequest, CreateResourceDefinitionResponse } from "../models/index.ts";
+import { CreateResourceDefinitionRequest, CreateResourceDefinitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateResourceDefinitionCommand,
   serializeAws_restJson1CreateResourceDefinitionCommand,

@@ -1,6 +1,6 @@
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient.ts";
-import { AcceptInvitationRequest } from "../models/index.ts";
+import { AcceptInvitationRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AcceptInvitationCommand,
   serializeAws_restJson1AcceptInvitationCommand,

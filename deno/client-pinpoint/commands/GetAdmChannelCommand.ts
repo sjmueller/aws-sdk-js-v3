@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { GetAdmChannelRequest, GetAdmChannelResponse } from "../models/index.ts";
+import { GetAdmChannelRequest, GetAdmChannelResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetAdmChannelCommand,
   serializeAws_restJson1GetAdmChannelCommand,

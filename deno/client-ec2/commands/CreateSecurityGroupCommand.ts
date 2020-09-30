@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CreateSecurityGroupRequest, CreateSecurityGroupResult } from "../models/index.ts";
+import { CreateSecurityGroupRequest, CreateSecurityGroupResult } from "../models/models_1.ts";
 import {
   deserializeAws_ec2CreateSecurityGroupCommand,
   serializeAws_ec2CreateSecurityGroupCommand,

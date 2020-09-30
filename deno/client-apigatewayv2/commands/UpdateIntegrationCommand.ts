@@ -1,6 +1,6 @@
 
 import { ApiGatewayV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ApiGatewayV2Client.ts";
-import { UpdateIntegrationRequest, UpdateIntegrationResult } from "../models/index.ts";
+import { UpdateIntegrationRequest, UpdateIntegrationResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateIntegrationCommand,
   serializeAws_restJson1UpdateIntegrationCommand,

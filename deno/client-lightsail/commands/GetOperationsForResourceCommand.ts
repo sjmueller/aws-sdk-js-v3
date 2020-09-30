@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { GetOperationsForResourceRequest, GetOperationsForResourceResult } from "../models/index.ts";
+import { GetOperationsForResourceRequest, GetOperationsForResourceResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetOperationsForResourceCommand,
   serializeAws_json1_1GetOperationsForResourceCommand,

@@ -1,6 +1,6 @@
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
-import { DeleteItemInput, DeleteItemOutput } from "../models/index.ts";
+import { DeleteItemInput, DeleteItemOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0DeleteItemCommand,
   serializeAws_json1_0DeleteItemCommand,

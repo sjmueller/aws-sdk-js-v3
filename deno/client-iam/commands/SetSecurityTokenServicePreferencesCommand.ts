@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { SetSecurityTokenServicePreferencesRequest } from "../models/index.ts";
+import { SetSecurityTokenServicePreferencesRequest } from "../models/models_0.ts";
 import {
   deserializeAws_querySetSecurityTokenServicePreferencesCommand,
   serializeAws_querySetSecurityTokenServicePreferencesCommand,

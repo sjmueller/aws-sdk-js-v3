@@ -161,7 +161,7 @@ import {
   UntagResourceResponse,
   UpdateApplicationRequest,
   UpdateApplicationResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -444,7 +444,6 @@ export const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand 
   contents = deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionResponse(data, context);
   const response: AddApplicationCloudWatchLoggingOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddApplicationCloudWatchLoggingOptionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -532,7 +531,6 @@ export const deserializeAws_json1_1AddApplicationInputCommand = async (
   contents = deserializeAws_json1_1AddApplicationInputResponse(data, context);
   const response: AddApplicationInputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddApplicationInputResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -628,7 +626,6 @@ export const deserializeAws_json1_1AddApplicationInputProcessingConfigurationCom
   contents = deserializeAws_json1_1AddApplicationInputProcessingConfigurationResponse(data, context);
   const response: AddApplicationInputProcessingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddApplicationInputProcessingConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -716,7 +713,6 @@ export const deserializeAws_json1_1AddApplicationOutputCommand = async (
   contents = deserializeAws_json1_1AddApplicationOutputResponse(data, context);
   const response: AddApplicationOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddApplicationOutputResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -804,7 +800,6 @@ export const deserializeAws_json1_1AddApplicationReferenceDataSourceCommand = as
   contents = deserializeAws_json1_1AddApplicationReferenceDataSourceResponse(data, context);
   const response: AddApplicationReferenceDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AddApplicationReferenceDataSourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -892,7 +887,6 @@ export const deserializeAws_json1_1CreateApplicationCommand = async (
   contents = deserializeAws_json1_1CreateApplicationResponse(data, context);
   const response: CreateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateApplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -988,7 +982,6 @@ export const deserializeAws_json1_1DeleteApplicationCommand = async (
   contents = deserializeAws_json1_1DeleteApplicationResponse(data, context);
   const response: DeleteApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteApplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1068,7 +1061,6 @@ export const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionComma
   contents = deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionResponse(data, context);
   const response: DeleteApplicationCloudWatchLoggingOptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteApplicationCloudWatchLoggingOptionResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1156,7 +1148,6 @@ export const deserializeAws_json1_1DeleteApplicationInputProcessingConfiguration
   contents = deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationResponse(data, context);
   const response: DeleteApplicationInputProcessingConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteApplicationInputProcessingConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1244,7 +1235,6 @@ export const deserializeAws_json1_1DeleteApplicationOutputCommand = async (
   contents = deserializeAws_json1_1DeleteApplicationOutputResponse(data, context);
   const response: DeleteApplicationOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteApplicationOutputResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1332,7 +1322,6 @@ export const deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommand =
   contents = deserializeAws_json1_1DeleteApplicationReferenceDataSourceResponse(data, context);
   const response: DeleteApplicationReferenceDataSourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteApplicationReferenceDataSourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1420,7 +1409,6 @@ export const deserializeAws_json1_1DescribeApplicationCommand = async (
   contents = deserializeAws_json1_1DescribeApplicationResponse(data, context);
   const response: DescribeApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeApplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1484,7 +1472,6 @@ export const deserializeAws_json1_1DiscoverInputSchemaCommand = async (
   contents = deserializeAws_json1_1DiscoverInputSchemaResponse(data, context);
   const response: DiscoverInputSchemaCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DiscoverInputSchemaResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1564,7 +1551,6 @@ export const deserializeAws_json1_1ListApplicationsCommand = async (
   contents = deserializeAws_json1_1ListApplicationsResponse(data, context);
   const response: ListApplicationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListApplicationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1612,7 +1598,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1684,7 +1669,6 @@ export const deserializeAws_json1_1StartApplicationCommand = async (
   contents = deserializeAws_json1_1StartApplicationResponse(data, context);
   const response: StartApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartApplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1772,7 +1756,6 @@ export const deserializeAws_json1_1StopApplicationCommand = async (
   contents = deserializeAws_json1_1StopApplicationResponse(data, context);
   const response: StopApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopApplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1844,7 +1827,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1932,7 +1914,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2020,7 +2001,6 @@ export const deserializeAws_json1_1UpdateApplicationCommand = async (
   contents = deserializeAws_json1_1UpdateApplicationResponse(data, context);
   const response: UpdateApplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateApplicationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3028,50 +3008,39 @@ const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionResponse = (
   output: any,
   context: __SerdeContext
 ): AddApplicationCloudWatchLoggingOptionResponse => {
-  return {
-    __type: "AddApplicationCloudWatchLoggingOptionResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AddApplicationInputProcessingConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): AddApplicationInputProcessingConfigurationResponse => {
-  return {
-    __type: "AddApplicationInputProcessingConfigurationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AddApplicationInputResponse = (
   output: any,
   context: __SerdeContext
 ): AddApplicationInputResponse => {
-  return {
-    __type: "AddApplicationInputResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AddApplicationOutputResponse = (
   output: any,
   context: __SerdeContext
 ): AddApplicationOutputResponse => {
-  return {
-    __type: "AddApplicationOutputResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AddApplicationReferenceDataSourceResponse = (
   output: any,
   context: __SerdeContext
 ): AddApplicationReferenceDataSourceResponse => {
-  return {
-    __type: "AddApplicationReferenceDataSourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ApplicationDetail = (output: any, context: __SerdeContext): ApplicationDetail => {
   return {
-    __type: "ApplicationDetail",
     ApplicationARN:
       output.ApplicationARN !== undefined && output.ApplicationARN !== null ? output.ApplicationARN : undefined,
     ApplicationCode:
@@ -3123,7 +3092,6 @@ const deserializeAws_json1_1ApplicationSummaries = (output: any, context: __Serd
 
 const deserializeAws_json1_1ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
   return {
-    __type: "ApplicationSummary",
     ApplicationARN:
       output.ApplicationARN !== undefined && output.ApplicationARN !== null ? output.ApplicationARN : undefined,
     ApplicationName:
@@ -3140,7 +3108,6 @@ const deserializeAws_json1_1CloudWatchLoggingOptionDescription = (
   context: __SerdeContext
 ): CloudWatchLoggingOptionDescription => {
   return {
-    __type: "CloudWatchLoggingOptionDescription",
     CloudWatchLoggingOptionId:
       output.CloudWatchLoggingOptionId !== undefined && output.CloudWatchLoggingOptionId !== null
         ? output.CloudWatchLoggingOptionId
@@ -3162,7 +3129,6 @@ const deserializeAws_json1_1CodeValidationException = (
   context: __SerdeContext
 ): CodeValidationException => {
   return {
-    __type: "CodeValidationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3172,7 +3138,6 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    __type: "ConcurrentModificationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3182,7 +3147,6 @@ const deserializeAws_json1_1CreateApplicationResponse = (
   context: __SerdeContext
 ): CreateApplicationResponse => {
   return {
-    __type: "CreateApplicationResponse",
     ApplicationSummary:
       output.ApplicationSummary !== undefined && output.ApplicationSummary !== null
         ? deserializeAws_json1_1ApplicationSummary(output.ApplicationSummary, context)
@@ -3192,7 +3156,6 @@ const deserializeAws_json1_1CreateApplicationResponse = (
 
 const deserializeAws_json1_1CSVMappingParameters = (output: any, context: __SerdeContext): CSVMappingParameters => {
   return {
-    __type: "CSVMappingParameters",
     RecordColumnDelimiter:
       output.RecordColumnDelimiter !== undefined && output.RecordColumnDelimiter !== null
         ? output.RecordColumnDelimiter
@@ -3208,45 +3171,35 @@ const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteApplicationCloudWatchLoggingOptionResponse => {
-  return {
-    __type: "DeleteApplicationCloudWatchLoggingOptionResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteApplicationInputProcessingConfigurationResponse => {
-  return {
-    __type: "DeleteApplicationInputProcessingConfigurationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteApplicationOutputResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteApplicationOutputResponse => {
-  return {
-    __type: "DeleteApplicationOutputResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteApplicationReferenceDataSourceResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteApplicationReferenceDataSourceResponse => {
-  return {
-    __type: "DeleteApplicationReferenceDataSourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteApplicationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteApplicationResponse => {
-  return {
-    __type: "DeleteApplicationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeApplicationResponse = (
@@ -3254,7 +3207,6 @@ const deserializeAws_json1_1DescribeApplicationResponse = (
   context: __SerdeContext
 ): DescribeApplicationResponse => {
   return {
-    __type: "DescribeApplicationResponse",
     ApplicationDetail:
       output.ApplicationDetail !== undefined && output.ApplicationDetail !== null
         ? deserializeAws_json1_1ApplicationDetail(output.ApplicationDetail, context)
@@ -3264,7 +3216,6 @@ const deserializeAws_json1_1DescribeApplicationResponse = (
 
 const deserializeAws_json1_1DestinationSchema = (output: any, context: __SerdeContext): DestinationSchema => {
   return {
-    __type: "DestinationSchema",
     RecordFormatType:
       output.RecordFormatType !== undefined && output.RecordFormatType !== null ? output.RecordFormatType : undefined,
   } as any;
@@ -3275,7 +3226,6 @@ const deserializeAws_json1_1DiscoverInputSchemaResponse = (
   context: __SerdeContext
 ): DiscoverInputSchemaResponse => {
   return {
-    __type: "DiscoverInputSchemaResponse",
     InputSchema:
       output.InputSchema !== undefined && output.InputSchema !== null
         ? deserializeAws_json1_1SourceSchema(output.InputSchema, context)
@@ -3301,7 +3251,6 @@ const deserializeAws_json1_1InAppStreamNames = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1InputDescription = (output: any, context: __SerdeContext): InputDescription => {
   return {
-    __type: "InputDescription",
     InAppStreamNames:
       output.InAppStreamNames !== undefined && output.InAppStreamNames !== null
         ? deserializeAws_json1_1InAppStreamNames(output.InAppStreamNames, context)
@@ -3348,7 +3297,6 @@ const deserializeAws_json1_1InputLambdaProcessorDescription = (
   context: __SerdeContext
 ): InputLambdaProcessorDescription => {
   return {
-    __type: "InputLambdaProcessorDescription",
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
     RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined,
   } as any;
@@ -3356,7 +3304,6 @@ const deserializeAws_json1_1InputLambdaProcessorDescription = (
 
 const deserializeAws_json1_1InputParallelism = (output: any, context: __SerdeContext): InputParallelism => {
   return {
-    __type: "InputParallelism",
     Count: output.Count !== undefined && output.Count !== null ? output.Count : undefined,
   } as any;
 };
@@ -3366,7 +3313,6 @@ const deserializeAws_json1_1InputProcessingConfigurationDescription = (
   context: __SerdeContext
 ): InputProcessingConfigurationDescription => {
   return {
-    __type: "InputProcessingConfigurationDescription",
     InputLambdaProcessorDescription:
       output.InputLambdaProcessorDescription !== undefined && output.InputLambdaProcessorDescription !== null
         ? deserializeAws_json1_1InputLambdaProcessorDescription(output.InputLambdaProcessorDescription, context)
@@ -3379,7 +3325,6 @@ const deserializeAws_json1_1InputStartingPositionConfiguration = (
   context: __SerdeContext
 ): InputStartingPositionConfiguration => {
   return {
-    __type: "InputStartingPositionConfiguration",
     InputStartingPosition:
       output.InputStartingPosition !== undefined && output.InputStartingPosition !== null
         ? output.InputStartingPosition
@@ -3392,7 +3337,6 @@ const deserializeAws_json1_1InvalidApplicationConfigurationException = (
   context: __SerdeContext
 ): InvalidApplicationConfigurationException => {
   return {
-    __type: "InvalidApplicationConfigurationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3402,14 +3346,12 @@ const deserializeAws_json1_1InvalidArgumentException = (
   context: __SerdeContext
 ): InvalidArgumentException => {
   return {
-    __type: "InvalidArgumentException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1JSONMappingParameters = (output: any, context: __SerdeContext): JSONMappingParameters => {
   return {
-    __type: "JSONMappingParameters",
     RecordRowPath:
       output.RecordRowPath !== undefined && output.RecordRowPath !== null ? output.RecordRowPath : undefined,
   } as any;
@@ -3420,7 +3362,6 @@ const deserializeAws_json1_1KinesisFirehoseInputDescription = (
   context: __SerdeContext
 ): KinesisFirehoseInputDescription => {
   return {
-    __type: "KinesisFirehoseInputDescription",
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
     RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined,
   } as any;
@@ -3431,7 +3372,6 @@ const deserializeAws_json1_1KinesisFirehoseOutputDescription = (
   context: __SerdeContext
 ): KinesisFirehoseOutputDescription => {
   return {
-    __type: "KinesisFirehoseOutputDescription",
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
     RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined,
   } as any;
@@ -3442,7 +3382,6 @@ const deserializeAws_json1_1KinesisStreamsInputDescription = (
   context: __SerdeContext
 ): KinesisStreamsInputDescription => {
   return {
-    __type: "KinesisStreamsInputDescription",
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
     RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined,
   } as any;
@@ -3453,7 +3392,6 @@ const deserializeAws_json1_1KinesisStreamsOutputDescription = (
   context: __SerdeContext
 ): KinesisStreamsOutputDescription => {
   return {
-    __type: "KinesisStreamsOutputDescription",
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
     RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined,
   } as any;
@@ -3464,7 +3402,6 @@ const deserializeAws_json1_1LambdaOutputDescription = (
   context: __SerdeContext
 ): LambdaOutputDescription => {
   return {
-    __type: "LambdaOutputDescription",
     ResourceARN: output.ResourceARN !== undefined && output.ResourceARN !== null ? output.ResourceARN : undefined,
     RoleARN: output.RoleARN !== undefined && output.RoleARN !== null ? output.RoleARN : undefined,
   } as any;
@@ -3472,7 +3409,6 @@ const deserializeAws_json1_1LambdaOutputDescription = (
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3482,7 +3418,6 @@ const deserializeAws_json1_1ListApplicationsResponse = (
   context: __SerdeContext
 ): ListApplicationsResponse => {
   return {
-    __type: "ListApplicationsResponse",
     ApplicationSummaries:
       output.ApplicationSummaries !== undefined && output.ApplicationSummaries !== null
         ? deserializeAws_json1_1ApplicationSummaries(output.ApplicationSummaries, context)
@@ -3499,7 +3434,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
@@ -3507,7 +3441,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1MappingParameters = (output: any, context: __SerdeContext): MappingParameters => {
   return {
-    __type: "MappingParameters",
     CSVMappingParameters:
       output.CSVMappingParameters !== undefined && output.CSVMappingParameters !== null
         ? deserializeAws_json1_1CSVMappingParameters(output.CSVMappingParameters, context)
@@ -3521,7 +3454,6 @@ const deserializeAws_json1_1MappingParameters = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1OutputDescription = (output: any, context: __SerdeContext): OutputDescription => {
   return {
-    __type: "OutputDescription",
     DestinationSchema:
       output.DestinationSchema !== undefined && output.DestinationSchema !== null
         ? deserializeAws_json1_1DestinationSchema(output.DestinationSchema, context)
@@ -3565,7 +3497,6 @@ const deserializeAws_json1_1RawInputRecords = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1RecordColumn = (output: any, context: __SerdeContext): RecordColumn => {
   return {
-    __type: "RecordColumn",
     Mapping: output.Mapping !== undefined && output.Mapping !== null ? output.Mapping : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     SqlType: output.SqlType !== undefined && output.SqlType !== null ? output.SqlType : undefined,
@@ -3578,7 +3509,6 @@ const deserializeAws_json1_1RecordColumns = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1RecordFormat = (output: any, context: __SerdeContext): RecordFormat => {
   return {
-    __type: "RecordFormat",
     MappingParameters:
       output.MappingParameters !== undefined && output.MappingParameters !== null
         ? deserializeAws_json1_1MappingParameters(output.MappingParameters, context)
@@ -3593,7 +3523,6 @@ const deserializeAws_json1_1ReferenceDataSourceDescription = (
   context: __SerdeContext
 ): ReferenceDataSourceDescription => {
   return {
-    __type: "ReferenceDataSourceDescription",
     ReferenceId: output.ReferenceId !== undefined && output.ReferenceId !== null ? output.ReferenceId : undefined,
     ReferenceSchema:
       output.ReferenceSchema !== undefined && output.ReferenceSchema !== null
@@ -3616,7 +3545,6 @@ const deserializeAws_json1_1ReferenceDataSourceDescriptions = (
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    __type: "ResourceInUseException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3626,7 +3554,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3636,7 +3563,6 @@ const deserializeAws_json1_1ResourceProvisionedThroughputExceededException = (
   context: __SerdeContext
 ): ResourceProvisionedThroughputExceededException => {
   return {
-    __type: "ResourceProvisionedThroughputExceededException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3646,7 +3572,6 @@ const deserializeAws_json1_1S3ReferenceDataSourceDescription = (
   context: __SerdeContext
 ): S3ReferenceDataSourceDescription => {
   return {
-    __type: "S3ReferenceDataSourceDescription",
     BucketARN: output.BucketARN !== undefined && output.BucketARN !== null ? output.BucketARN : undefined,
     FileKey: output.FileKey !== undefined && output.FileKey !== null ? output.FileKey : undefined,
     ReferenceRoleARN:
@@ -3659,14 +3584,12 @@ const deserializeAws_json1_1ServiceUnavailableException = (
   context: __SerdeContext
 ): ServiceUnavailableException => {
   return {
-    __type: "ServiceUnavailableException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SourceSchema = (output: any, context: __SerdeContext): SourceSchema => {
   return {
-    __type: "SourceSchema",
     RecordColumns:
       output.RecordColumns !== undefined && output.RecordColumns !== null
         ? deserializeAws_json1_1RecordColumns(output.RecordColumns, context)
@@ -3684,32 +3607,25 @@ const deserializeAws_json1_1StartApplicationResponse = (
   output: any,
   context: __SerdeContext
 ): StartApplicationResponse => {
-  return {
-    __type: "StartApplicationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StopApplicationResponse = (
   output: any,
   context: __SerdeContext
 ): StopApplicationResponse => {
-  return {
-    __type: "StopApplicationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[] => {
@@ -3718,7 +3634,6 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Tag[]
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
-    __type: "TooManyTagsException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
@@ -3728,7 +3643,6 @@ const deserializeAws_json1_1UnableToDetectSchemaException = (
   context: __SerdeContext
 ): UnableToDetectSchemaException => {
   return {
-    __type: "UnableToDetectSchemaException",
     ProcessedInputRecords:
       output.ProcessedInputRecords !== undefined && output.ProcessedInputRecords !== null
         ? deserializeAws_json1_1ProcessedInputRecords(output.ProcessedInputRecords, context)
@@ -3746,24 +3660,19 @@ const deserializeAws_json1_1UnsupportedOperationException = (
   context: __SerdeContext
 ): UnsupportedOperationException => {
   return {
-    __type: "UnsupportedOperationException",
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateApplicationResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateApplicationResponse => {
-  return {
-    __type: "UpdateApplicationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

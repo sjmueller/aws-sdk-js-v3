@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { DeleteImageRequest, DeleteImageResult } from "../models/index.ts";
+import { DeleteImageRequest, DeleteImageResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteImageCommand,
   serializeAws_json1_1DeleteImageCommand,

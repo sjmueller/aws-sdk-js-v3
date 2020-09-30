@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { ListAttributesRequest, ListAttributesResponse } from "../models/index.ts";
+import { ListAttributesRequest, ListAttributesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListAttributesCommand,
   serializeAws_json1_1ListAttributesCommand,

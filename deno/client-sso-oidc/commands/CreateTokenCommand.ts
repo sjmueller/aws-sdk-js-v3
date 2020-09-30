@@ -1,6 +1,6 @@
 
 import { SSOOIDCClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSOOIDCClient.ts";
-import { CreateTokenRequest, CreateTokenResponse } from "../models/index.ts";
+import { CreateTokenRequest, CreateTokenResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateTokenCommand,
   serializeAws_restJson1CreateTokenCommand,

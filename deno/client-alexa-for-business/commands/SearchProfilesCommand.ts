@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { SearchProfilesRequest, SearchProfilesResponse } from "../models/index.ts";
+import { SearchProfilesRequest, SearchProfilesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SearchProfilesCommand,
   serializeAws_json1_1SearchProfilesCommand,

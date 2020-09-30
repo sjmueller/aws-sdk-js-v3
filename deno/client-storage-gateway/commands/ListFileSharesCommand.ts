@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { ListFileSharesInput, ListFileSharesOutput } from "../models/index.ts";
+import { ListFileSharesInput, ListFileSharesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListFileSharesCommand,
   serializeAws_json1_1ListFileSharesCommand,

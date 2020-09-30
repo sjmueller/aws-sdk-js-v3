@@ -1,6 +1,6 @@
 
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient.ts";
-import { GetResourcePoliciesRequest, GetResourcePoliciesResponse } from "../models/index.ts";
+import { GetResourcePoliciesRequest, GetResourcePoliciesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetResourcePoliciesCommand,
   serializeAws_restJson1GetResourcePoliciesCommand,

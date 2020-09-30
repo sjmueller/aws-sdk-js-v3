@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { CreateMitigationActionRequest, CreateMitigationActionResponse } from "../models/index.ts";
+import { CreateMitigationActionRequest, CreateMitigationActionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateMitigationActionCommand,
   serializeAws_restJson1CreateMitigationActionCommand,

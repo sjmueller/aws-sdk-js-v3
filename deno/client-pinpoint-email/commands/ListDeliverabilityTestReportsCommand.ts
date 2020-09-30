@@ -1,6 +1,6 @@
 
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
-import { ListDeliverabilityTestReportsRequest, ListDeliverabilityTestReportsResponse } from "../models/index.ts";
+import { ListDeliverabilityTestReportsRequest, ListDeliverabilityTestReportsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListDeliverabilityTestReportsCommand,
   serializeAws_restJson1ListDeliverabilityTestReportsCommand,

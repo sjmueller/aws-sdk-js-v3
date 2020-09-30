@@ -1,6 +1,6 @@
 
 import { KinesisClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisClient.ts";
-import { DescribeLimitsInput, DescribeLimitsOutput } from "../models/index.ts";
+import { DescribeLimitsInput, DescribeLimitsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeLimitsCommand,
   serializeAws_json1_1DescribeLimitsCommand,

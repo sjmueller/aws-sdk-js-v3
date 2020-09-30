@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { StartDeviceSyncRequest, StartDeviceSyncResponse } from "../models/index.ts";
+import { StartDeviceSyncRequest, StartDeviceSyncResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartDeviceSyncCommand,
   serializeAws_json1_1StartDeviceSyncCommand,

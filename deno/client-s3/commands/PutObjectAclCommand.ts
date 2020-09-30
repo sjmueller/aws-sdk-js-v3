@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { PutObjectAclOutput, PutObjectAclRequest } from "../models/index.ts";
+import { PutObjectAclOutput, PutObjectAclRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlPutObjectAclCommand,
   serializeAws_restXmlPutObjectAclCommand,

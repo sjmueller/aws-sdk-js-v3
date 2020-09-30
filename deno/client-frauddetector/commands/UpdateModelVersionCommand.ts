@@ -1,6 +1,6 @@
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient.ts";
-import { UpdateModelVersionRequest, UpdateModelVersionResult } from "../models/index.ts";
+import { UpdateModelVersionRequest, UpdateModelVersionResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateModelVersionCommand,
   serializeAws_json1_1UpdateModelVersionCommand,

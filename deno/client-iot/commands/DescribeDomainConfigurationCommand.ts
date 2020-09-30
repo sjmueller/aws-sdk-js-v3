@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DescribeDomainConfigurationRequest, DescribeDomainConfigurationResponse } from "../models/index.ts";
+import { DescribeDomainConfigurationRequest, DescribeDomainConfigurationResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DescribeDomainConfigurationCommand,
   serializeAws_restJson1DescribeDomainConfigurationCommand,

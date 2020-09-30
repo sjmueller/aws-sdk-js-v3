@@ -1,6 +1,6 @@
 
 import { ComprehendClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ComprehendClient.ts";
-import { StopEntitiesDetectionJobRequest, StopEntitiesDetectionJobResponse } from "../models/index.ts";
+import { StopEntitiesDetectionJobRequest, StopEntitiesDetectionJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopEntitiesDetectionJobCommand,
   serializeAws_json1_1StopEntitiesDetectionJobCommand,

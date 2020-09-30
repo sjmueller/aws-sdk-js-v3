@@ -1,6 +1,6 @@
 
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient.ts";
-import { StopGameSessionPlacementInput, StopGameSessionPlacementOutput } from "../models/index.ts";
+import { StopGameSessionPlacementInput, StopGameSessionPlacementOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopGameSessionPlacementCommand,
   serializeAws_json1_1StopGameSessionPlacementCommand,

@@ -3,7 +3,7 @@ import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   IncreaseNodeGroupsInGlobalReplicationGroupMessage,
   IncreaseNodeGroupsInGlobalReplicationGroupResult,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand,
   serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommand,

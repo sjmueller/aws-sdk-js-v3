@@ -1,6 +1,6 @@
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient.ts";
-import { UpdateChannelClassRequest, UpdateChannelClassResponse } from "../models/index.ts";
+import { UpdateChannelClassRequest, UpdateChannelClassResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UpdateChannelClassCommand,
   serializeAws_restJson1UpdateChannelClassCommand,

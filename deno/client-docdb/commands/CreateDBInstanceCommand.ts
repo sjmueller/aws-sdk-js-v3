@@ -1,6 +1,6 @@
 
 import { DocDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBClient.ts";
-import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/index.ts";
+import { CreateDBInstanceMessage, CreateDBInstanceResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateDBInstanceCommand,
   serializeAws_queryCreateDBInstanceCommand,

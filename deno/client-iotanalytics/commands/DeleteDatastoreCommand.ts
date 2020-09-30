@@ -1,6 +1,6 @@
 
 import { IoTAnalyticsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTAnalyticsClient.ts";
-import { DeleteDatastoreRequest } from "../models/index.ts";
+import { DeleteDatastoreRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteDatastoreCommand,
   serializeAws_restJson1DeleteDatastoreCommand,

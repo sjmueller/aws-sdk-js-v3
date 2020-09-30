@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { ListIAMPolicyAssignmentsForUserRequest, ListIAMPolicyAssignmentsForUserResponse } from "../models/index.ts";
+import { ListIAMPolicyAssignmentsForUserRequest, ListIAMPolicyAssignmentsForUserResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand,
   serializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand,

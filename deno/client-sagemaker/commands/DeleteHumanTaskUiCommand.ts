@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { DeleteHumanTaskUiRequest, DeleteHumanTaskUiResponse } from "../models/index.ts";
+import { DeleteHumanTaskUiRequest, DeleteHumanTaskUiResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteHumanTaskUiCommand,
   serializeAws_json1_1DeleteHumanTaskUiCommand,

@@ -1,6 +1,6 @@
 
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
-import { DetectCustomLabelsRequest, DetectCustomLabelsResponse } from "../models/index.ts";
+import { DetectCustomLabelsRequest, DetectCustomLabelsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DetectCustomLabelsCommand,
   serializeAws_json1_1DetectCustomLabelsCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { GetRateBasedRuleManagedKeysRequest, GetRateBasedRuleManagedKeysResponse } from "../models/index.ts";
+import { GetRateBasedRuleManagedKeysRequest, GetRateBasedRuleManagedKeysResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetRateBasedRuleManagedKeysCommand,
   serializeAws_json1_1GetRateBasedRuleManagedKeysCommand,

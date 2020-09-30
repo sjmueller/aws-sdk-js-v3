@@ -3,7 +3,7 @@ import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   CreateSubscriptionDefinitionVersionRequest,
   CreateSubscriptionDefinitionVersionResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateSubscriptionDefinitionVersionCommand,
   serializeAws_restJson1CreateSubscriptionDefinitionVersionCommand,

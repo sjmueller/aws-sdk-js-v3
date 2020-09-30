@@ -1,6 +1,6 @@
 
 import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecretsManagerClient.ts";
-import { GetRandomPasswordRequest, GetRandomPasswordResponse } from "../models/index.ts";
+import { GetRandomPasswordRequest, GetRandomPasswordResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetRandomPasswordCommand,
   serializeAws_json1_1GetRandomPasswordCommand,

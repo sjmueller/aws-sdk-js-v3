@@ -1,6 +1,6 @@
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
-import { DeregisterWebhookWithThirdPartyInput, DeregisterWebhookWithThirdPartyOutput } from "../models/index.ts";
+import { DeregisterWebhookWithThirdPartyInput, DeregisterWebhookWithThirdPartyOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommand,
   serializeAws_json1_1DeregisterWebhookWithThirdPartyCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { DisableGatewayInput, DisableGatewayOutput } from "../models/index.ts";
+import { DisableGatewayInput, DisableGatewayOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisableGatewayCommand,
   serializeAws_json1_1DisableGatewayCommand,

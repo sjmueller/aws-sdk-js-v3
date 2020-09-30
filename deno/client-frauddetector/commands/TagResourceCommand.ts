@@ -1,6 +1,6 @@
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient.ts";
-import { TagResourceRequest, TagResourceResult } from "../models/index.ts";
+import { TagResourceRequest, TagResourceResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1TagResourceCommand,
   serializeAws_json1_1TagResourceCommand,

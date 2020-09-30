@@ -1,6 +1,6 @@
 
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient.ts";
-import { DescribeDataRepositoryTasksRequest, DescribeDataRepositoryTasksResponse } from "../models/index.ts";
+import { DescribeDataRepositoryTasksRequest, DescribeDataRepositoryTasksResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeDataRepositoryTasksCommand,
   serializeAws_json1_1DescribeDataRepositoryTasksCommand,

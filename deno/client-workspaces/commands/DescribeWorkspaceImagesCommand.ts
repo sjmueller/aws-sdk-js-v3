@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient.ts";
-import { DescribeWorkspaceImagesRequest, DescribeWorkspaceImagesResult } from "../models/index.ts";
+import { DescribeWorkspaceImagesRequest, DescribeWorkspaceImagesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeWorkspaceImagesCommand,
   serializeAws_json1_1DescribeWorkspaceImagesCommand,

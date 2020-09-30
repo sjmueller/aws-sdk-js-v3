@@ -1,6 +1,6 @@
 
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
-import { GetContentModerationRequest, GetContentModerationResponse } from "../models/index.ts";
+import { GetContentModerationRequest, GetContentModerationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetContentModerationCommand,
   serializeAws_json1_1GetContentModerationCommand,

@@ -3,7 +3,7 @@ import { PinpointSMSVoiceClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 import {
   DeleteConfigurationSetEventDestinationRequest,
   DeleteConfigurationSetEventDestinationResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteConfigurationSetEventDestinationCommand,
   serializeAws_restJson1DeleteConfigurationSetEventDestinationCommand,

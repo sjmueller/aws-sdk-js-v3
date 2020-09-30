@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { RestartAppServerMessage } from "../models/index.ts";
+import { RestartAppServerMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryRestartAppServerCommand,
   serializeAws_queryRestartAppServerCommand,

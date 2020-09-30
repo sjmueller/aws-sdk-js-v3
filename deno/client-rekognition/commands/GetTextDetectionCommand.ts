@@ -1,6 +1,6 @@
 
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient.ts";
-import { GetTextDetectionRequest, GetTextDetectionResponse } from "../models/index.ts";
+import { GetTextDetectionRequest, GetTextDetectionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetTextDetectionCommand,
   serializeAws_json1_1GetTextDetectionCommand,

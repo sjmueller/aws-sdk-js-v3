@@ -1,6 +1,6 @@
 
 import { MigrationHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MigrationHubClient.ts";
-import { ImportMigrationTaskRequest, ImportMigrationTaskResult } from "../models/index.ts";
+import { ImportMigrationTaskRequest, ImportMigrationTaskResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ImportMigrationTaskCommand,
   serializeAws_json1_1ImportMigrationTaskCommand,

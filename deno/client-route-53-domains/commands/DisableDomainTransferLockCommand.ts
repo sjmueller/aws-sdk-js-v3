@@ -1,6 +1,6 @@
 
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
-import { DisableDomainTransferLockRequest, DisableDomainTransferLockResponse } from "../models/index.ts";
+import { DisableDomainTransferLockRequest, DisableDomainTransferLockResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisableDomainTransferLockCommand,
   serializeAws_json1_1DisableDomainTransferLockCommand,

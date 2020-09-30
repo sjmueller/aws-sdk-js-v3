@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { DeleteFunctionEventInvokeConfigRequest } from "../models/index.ts";
+import { DeleteFunctionEventInvokeConfigRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommand,
   serializeAws_restJson1DeleteFunctionEventInvokeConfigCommand,

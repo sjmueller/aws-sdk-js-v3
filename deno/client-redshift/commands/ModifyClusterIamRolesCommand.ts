@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { ModifyClusterIamRolesMessage, ModifyClusterIamRolesResult } from "../models/index.ts";
+import { ModifyClusterIamRolesMessage, ModifyClusterIamRolesResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryModifyClusterIamRolesCommand,
   serializeAws_queryModifyClusterIamRolesCommand,

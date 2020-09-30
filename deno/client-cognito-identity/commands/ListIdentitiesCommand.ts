@@ -1,6 +1,6 @@
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient.ts";
-import { ListIdentitiesInput, ListIdentitiesResponse } from "../models/index.ts";
+import { ListIdentitiesInput, ListIdentitiesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListIdentitiesCommand,
   serializeAws_json1_1ListIdentitiesCommand,

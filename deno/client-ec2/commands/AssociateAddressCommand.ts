@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { AssociateAddressRequest, AssociateAddressResult } from "../models/index.ts";
+import { AssociateAddressRequest, AssociateAddressResult } from "../models/models_0.ts";
 import {
   deserializeAws_ec2AssociateAddressCommand,
   serializeAws_ec2AssociateAddressCommand,

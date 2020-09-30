@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { ListThingRegistrationTaskReportsRequest, ListThingRegistrationTaskReportsResponse } from "../models/index.ts";
+import { ListThingRegistrationTaskReportsRequest, ListThingRegistrationTaskReportsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1ListThingRegistrationTaskReportsCommand,
   serializeAws_restJson1ListThingRegistrationTaskReportsCommand,

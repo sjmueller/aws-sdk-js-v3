@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { DeleteLogSubscriptionRequest, DeleteLogSubscriptionResult } from "../models/index.ts";
+import { DeleteLogSubscriptionRequest, DeleteLogSubscriptionResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteLogSubscriptionCommand,
   serializeAws_json1_1DeleteLogSubscriptionCommand,

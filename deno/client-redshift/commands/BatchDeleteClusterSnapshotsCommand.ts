@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { BatchDeleteClusterSnapshotsRequest, BatchDeleteClusterSnapshotsResult } from "../models/index.ts";
+import { BatchDeleteClusterSnapshotsRequest, BatchDeleteClusterSnapshotsResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryBatchDeleteClusterSnapshotsCommand,
   serializeAws_queryBatchDeleteClusterSnapshotsCommand,

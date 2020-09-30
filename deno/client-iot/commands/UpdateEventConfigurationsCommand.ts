@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { UpdateEventConfigurationsRequest, UpdateEventConfigurationsResponse } from "../models/index.ts";
+import { UpdateEventConfigurationsRequest, UpdateEventConfigurationsResponse } from "../models/models_2.ts";
 import {
   deserializeAws_restJson1UpdateEventConfigurationsCommand,
   serializeAws_restJson1UpdateEventConfigurationsCommand,

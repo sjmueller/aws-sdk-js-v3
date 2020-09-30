@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { DescribeReplicationTasksMessage, DescribeReplicationTasksResponse } from "../models/index.ts";
+import { DescribeReplicationTasksMessage, DescribeReplicationTasksResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeReplicationTasksCommand,
   serializeAws_json1_1DescribeReplicationTasksCommand,

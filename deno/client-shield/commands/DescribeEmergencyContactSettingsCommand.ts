@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient.ts";
-import { DescribeEmergencyContactSettingsRequest, DescribeEmergencyContactSettingsResponse } from "../models/index.ts";
+import { DescribeEmergencyContactSettingsRequest, DescribeEmergencyContactSettingsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeEmergencyContactSettingsCommand,
   serializeAws_json1_1DescribeEmergencyContactSettingsCommand,

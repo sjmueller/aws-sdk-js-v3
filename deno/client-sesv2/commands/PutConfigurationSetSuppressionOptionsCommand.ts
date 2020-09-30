@@ -3,7 +3,7 @@ import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   PutConfigurationSetSuppressionOptionsRequest,
   PutConfigurationSetSuppressionOptionsResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutConfigurationSetSuppressionOptionsCommand,
   serializeAws_restJson1PutConfigurationSetSuppressionOptionsCommand,

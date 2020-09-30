@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { DeleteSSHPublicKeyRequest } from "../models/index.ts";
+import { DeleteSSHPublicKeyRequest } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteSSHPublicKeyCommand,
   serializeAws_queryDeleteSSHPublicKeyCommand,

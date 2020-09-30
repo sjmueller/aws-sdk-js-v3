@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { DeleteAutoSnapshotRequest, DeleteAutoSnapshotResult } from "../models/index.ts";
+import { DeleteAutoSnapshotRequest, DeleteAutoSnapshotResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteAutoSnapshotCommand,
   serializeAws_json1_1DeleteAutoSnapshotCommand,

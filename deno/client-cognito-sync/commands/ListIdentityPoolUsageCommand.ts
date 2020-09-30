@@ -1,6 +1,6 @@
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient.ts";
-import { ListIdentityPoolUsageRequest, ListIdentityPoolUsageResponse } from "../models/index.ts";
+import { ListIdentityPoolUsageRequest, ListIdentityPoolUsageResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListIdentityPoolUsageCommand,
   serializeAws_restJson1ListIdentityPoolUsageCommand,

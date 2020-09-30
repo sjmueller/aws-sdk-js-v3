@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { ListDashboardsRequest, ListDashboardsResponse } from "../models/index.ts";
+import { ListDashboardsRequest, ListDashboardsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListDashboardsCommand,
   serializeAws_restJson1ListDashboardsCommand,

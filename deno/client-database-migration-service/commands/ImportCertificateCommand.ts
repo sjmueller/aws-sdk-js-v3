@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { ImportCertificateMessage, ImportCertificateResponse } from "../models/index.ts";
+import { ImportCertificateMessage, ImportCertificateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ImportCertificateCommand,
   serializeAws_json1_1ImportCertificateCommand,

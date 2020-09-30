@@ -1,6 +1,6 @@
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
-import { UpdateAssessmentTargetRequest } from "../models/index.ts";
+import { UpdateAssessmentTargetRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateAssessmentTargetCommand,
   serializeAws_json1_1UpdateAssessmentTargetCommand,

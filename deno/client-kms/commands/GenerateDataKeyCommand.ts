@@ -1,6 +1,6 @@
 
 import { KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KMSClient.ts";
-import { GenerateDataKeyRequest, GenerateDataKeyResponse } from "../models/index.ts";
+import { GenerateDataKeyRequest, GenerateDataKeyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GenerateDataKeyCommand,
   serializeAws_json1_1GenerateDataKeyCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { ListRecordHistoryInput, ListRecordHistoryOutput } from "../models/index.ts";
+import { ListRecordHistoryInput, ListRecordHistoryOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListRecordHistoryCommand,
   serializeAws_json1_1ListRecordHistoryCommand,

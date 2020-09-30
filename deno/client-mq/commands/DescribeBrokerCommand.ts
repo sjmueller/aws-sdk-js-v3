@@ -1,6 +1,6 @@
 
 import { MqClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MqClient.ts";
-import { DescribeBrokerRequest, DescribeBrokerResponse } from "../models/index.ts";
+import { DescribeBrokerRequest, DescribeBrokerResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeBrokerCommand,
   serializeAws_restJson1DescribeBrokerCommand,

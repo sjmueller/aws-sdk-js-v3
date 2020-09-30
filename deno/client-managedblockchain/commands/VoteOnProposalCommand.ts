@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient.ts";
-import { VoteOnProposalInput, VoteOnProposalOutput } from "../models/index.ts";
+import { VoteOnProposalInput, VoteOnProposalOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1VoteOnProposalCommand,
   serializeAws_restJson1VoteOnProposalCommand,

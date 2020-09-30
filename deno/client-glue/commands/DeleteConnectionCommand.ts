@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { DeleteConnectionRequest, DeleteConnectionResponse } from "../models/index.ts";
+import { DeleteConnectionRequest, DeleteConnectionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteConnectionCommand,
   serializeAws_json1_1DeleteConnectionCommand,

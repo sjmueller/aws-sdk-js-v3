@@ -1,6 +1,6 @@
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient.ts";
-import { DeleteRealtimeEndpointInput, DeleteRealtimeEndpointOutput } from "../models/index.ts";
+import { DeleteRealtimeEndpointInput, DeleteRealtimeEndpointOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteRealtimeEndpointCommand,
   serializeAws_json1_1DeleteRealtimeEndpointCommand,

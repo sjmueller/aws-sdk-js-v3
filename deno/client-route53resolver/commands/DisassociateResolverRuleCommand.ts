@@ -1,6 +1,6 @@
 
 import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53ResolverClient.ts";
-import { DisassociateResolverRuleRequest, DisassociateResolverRuleResponse } from "../models/index.ts";
+import { DisassociateResolverRuleRequest, DisassociateResolverRuleResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateResolverRuleCommand,
   serializeAws_json1_1DisassociateResolverRuleCommand,

@@ -3,7 +3,7 @@ import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 import {
   PutClassificationExportConfigurationRequest,
   PutClassificationExportConfigurationResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutClassificationExportConfigurationCommand,
   serializeAws_restJson1PutClassificationExportConfigurationCommand,

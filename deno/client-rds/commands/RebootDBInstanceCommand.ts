@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/index.ts";
+import { RebootDBInstanceMessage, RebootDBInstanceResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryRebootDBInstanceCommand,
   serializeAws_queryRebootDBInstanceCommand,

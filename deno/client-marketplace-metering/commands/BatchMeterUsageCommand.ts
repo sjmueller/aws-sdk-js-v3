@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceMeteringClient.ts";
-import { BatchMeterUsageRequest, BatchMeterUsageResult } from "../models/index.ts";
+import { BatchMeterUsageRequest, BatchMeterUsageResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1BatchMeterUsageCommand,
   serializeAws_json1_1BatchMeterUsageCommand,

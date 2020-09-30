@@ -7,7 +7,7 @@ import {
 import {
   DescribeApplicableIndividualAssessmentsMessage,
   DescribeApplicableIndividualAssessmentsResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand,
   serializeAws_json1_1DescribeApplicableIndividualAssessmentsCommand,

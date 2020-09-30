@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig } from "../WAFRegionalClient.ts";
-import { DeleteSqlInjectionMatchSetRequest, DeleteSqlInjectionMatchSetResponse } from "../models/index.ts";
+import { DeleteSqlInjectionMatchSetRequest, DeleteSqlInjectionMatchSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteSqlInjectionMatchSetCommand,
   serializeAws_json1_1DeleteSqlInjectionMatchSetCommand,

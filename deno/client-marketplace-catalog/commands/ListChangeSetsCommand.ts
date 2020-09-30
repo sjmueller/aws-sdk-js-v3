@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient.ts";
-import { ListChangeSetsRequest, ListChangeSetsResponse } from "../models/index.ts";
+import { ListChangeSetsRequest, ListChangeSetsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListChangeSetsCommand,
   serializeAws_restJson1ListChangeSetsCommand,

@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { DeleteTagsInput, DeleteTagsOutput } from "../models/index.ts";
+import { DeleteTagsInput, DeleteTagsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteTagsCommand,
   serializeAws_json1_1DeleteTagsCommand,

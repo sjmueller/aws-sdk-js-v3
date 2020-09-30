@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { SendUsersMessagesRequest, SendUsersMessagesResponse } from "../models/index.ts";
+import { SendUsersMessagesRequest, SendUsersMessagesResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1SendUsersMessagesCommand,
   serializeAws_restJson1SendUsersMessagesCommand,

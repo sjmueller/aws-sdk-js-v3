@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { DeleteParameterRequest, DeleteParameterResult } from "../models/index.ts";
+import { DeleteParameterRequest, DeleteParameterResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteParameterCommand,
   serializeAws_json1_1DeleteParameterCommand,

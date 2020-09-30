@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCommerceAnalyticsClient.ts";
-import { StartSupportDataExportRequest, StartSupportDataExportResult } from "../models/index.ts";
+import { StartSupportDataExportRequest, StartSupportDataExportResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StartSupportDataExportCommand,
   serializeAws_json1_1StartSupportDataExportCommand,

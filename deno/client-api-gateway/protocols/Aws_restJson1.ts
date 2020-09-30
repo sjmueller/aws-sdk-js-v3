@@ -272,7 +272,7 @@ import {
   UsagePlan,
   UsagePlanKey,
   VpcLink,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -5863,7 +5863,6 @@ export const deserializeAws_restJson1CreateApiKeyCommand = async (
   }
   const contents: CreateApiKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ApiKey",
     createdDate: undefined,
     customerId: undefined,
     description: undefined,
@@ -5995,7 +5994,6 @@ export const deserializeAws_restJson1CreateAuthorizerCommand = async (
   }
   const contents: CreateAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Authorizer",
     authType: undefined,
     authorizerCredentials: undefined,
     authorizerResultTtlInSeconds: undefined,
@@ -6119,7 +6117,6 @@ export const deserializeAws_restJson1CreateBasePathMappingCommand = async (
   }
   const contents: CreateBasePathMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BasePathMapping",
     basePath: undefined,
     restApiId: undefined,
     stage: undefined,
@@ -6215,7 +6212,6 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
   }
   const contents: CreateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Deployment",
     apiSummary: undefined,
     createdDate: undefined,
     description: undefined,
@@ -6331,7 +6327,6 @@ export const deserializeAws_restJson1CreateDocumentationPartCommand = async (
   }
   const contents: CreateDocumentationPartCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DocumentationPart",
     id: undefined,
     location: undefined,
     properties: undefined,
@@ -6435,7 +6430,6 @@ export const deserializeAws_restJson1CreateDocumentationVersionCommand = async (
   }
   const contents: CreateDocumentationVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DocumentationVersion",
     createdDate: undefined,
     description: undefined,
     version: undefined,
@@ -6539,7 +6533,6 @@ export const deserializeAws_restJson1CreateDomainNameCommand = async (
   }
   const contents: CreateDomainNameCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DomainName",
     certificateArn: undefined,
     certificateName: undefined,
     certificateUploadDate: undefined,
@@ -6675,7 +6668,6 @@ export const deserializeAws_restJson1CreateModelCommand = async (
   }
   const contents: CreateModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Model",
     contentType: undefined,
     description: undefined,
     id: undefined,
@@ -6787,7 +6779,6 @@ export const deserializeAws_restJson1CreateRequestValidatorCommand = async (
   }
   const contents: CreateRequestValidatorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RequestValidator",
     id: undefined,
     name: undefined,
     validateRequestBody: undefined,
@@ -6887,7 +6878,6 @@ export const deserializeAws_restJson1CreateResourceCommand = async (
   }
   const contents: CreateResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Resource",
     id: undefined,
     parentId: undefined,
     path: undefined,
@@ -6999,7 +6989,6 @@ export const deserializeAws_restJson1CreateRestApiCommand = async (
   }
   const contents: CreateRestApiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestApi",
     apiKeySource: undefined,
     binaryMediaTypes: undefined,
     createdDate: undefined,
@@ -7123,7 +7112,6 @@ export const deserializeAws_restJson1CreateStageCommand = async (
   }
   const contents: CreateStageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Stage",
     accessLogSettings: undefined,
     cacheClusterEnabled: undefined,
     cacheClusterSize: undefined,
@@ -7283,7 +7271,6 @@ export const deserializeAws_restJson1CreateUsagePlanCommand = async (
   }
   const contents: CreateUsagePlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UsagePlan",
     apiStages: undefined,
     description: undefined,
     id: undefined,
@@ -7407,7 +7394,6 @@ export const deserializeAws_restJson1CreateUsagePlanKeyCommand = async (
   }
   const contents: CreateUsagePlanKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UsagePlanKey",
     id: undefined,
     name: undefined,
     type: undefined,
@@ -7507,7 +7493,6 @@ export const deserializeAws_restJson1CreateVpcLinkCommand = async (
   }
   const contents: CreateVpcLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VpcLink",
     description: undefined,
     id: undefined,
     name: undefined,
@@ -9408,7 +9393,6 @@ export const deserializeAws_restJson1GenerateClientCertificateCommand = async (
   }
   const contents: GenerateClientCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClientCertificate",
     clientCertificateId: undefined,
     createdDate: undefined,
     description: undefined,
@@ -9500,7 +9484,6 @@ export const deserializeAws_restJson1GetAccountCommand = async (
   }
   const contents: GetAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Account",
     apiKeyVersion: undefined,
     cloudwatchRoleArn: undefined,
     features: undefined,
@@ -9584,7 +9567,6 @@ export const deserializeAws_restJson1GetApiKeyCommand = async (
   }
   const contents: GetApiKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ApiKey",
     createdDate: undefined,
     customerId: undefined,
     description: undefined,
@@ -9692,7 +9674,6 @@ export const deserializeAws_restJson1GetApiKeysCommand = async (
   }
   const contents: GetApiKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ApiKeys",
     items: undefined,
     position: undefined,
     warnings: undefined,
@@ -9772,7 +9753,6 @@ export const deserializeAws_restJson1GetAuthorizerCommand = async (
   }
   const contents: GetAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Authorizer",
     authType: undefined,
     authorizerCredentials: undefined,
     authorizerResultTtlInSeconds: undefined,
@@ -9880,7 +9860,6 @@ export const deserializeAws_restJson1GetAuthorizersCommand = async (
   }
   const contents: GetAuthorizersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Authorizers",
     items: undefined,
     position: undefined,
   };
@@ -9964,7 +9943,6 @@ export const deserializeAws_restJson1GetBasePathMappingCommand = async (
   }
   const contents: GetBasePathMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BasePathMapping",
     basePath: undefined,
     restApiId: undefined,
     stage: undefined,
@@ -10044,7 +10022,6 @@ export const deserializeAws_restJson1GetBasePathMappingsCommand = async (
   }
   const contents: GetBasePathMappingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BasePathMappings",
     items: undefined,
     position: undefined,
   };
@@ -10120,7 +10097,6 @@ export const deserializeAws_restJson1GetClientCertificateCommand = async (
   }
   const contents: GetClientCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClientCertificate",
     clientCertificateId: undefined,
     createdDate: undefined,
     description: undefined,
@@ -10212,7 +10188,6 @@ export const deserializeAws_restJson1GetClientCertificatesCommand = async (
   }
   const contents: GetClientCertificatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClientCertificates",
     items: undefined,
     position: undefined,
   };
@@ -10288,7 +10263,6 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
   }
   const contents: GetDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Deployment",
     apiSummary: undefined,
     createdDate: undefined,
     description: undefined,
@@ -10380,7 +10354,6 @@ export const deserializeAws_restJson1GetDeploymentsCommand = async (
   }
   const contents: GetDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Deployments",
     items: undefined,
     position: undefined,
   };
@@ -10464,7 +10437,6 @@ export const deserializeAws_restJson1GetDocumentationPartCommand = async (
   }
   const contents: GetDocumentationPartCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DocumentationPart",
     id: undefined,
     location: undefined,
     properties: undefined,
@@ -10544,7 +10516,6 @@ export const deserializeAws_restJson1GetDocumentationPartsCommand = async (
   }
   const contents: GetDocumentationPartsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DocumentationParts",
     items: undefined,
     position: undefined,
   };
@@ -10628,7 +10599,6 @@ export const deserializeAws_restJson1GetDocumentationVersionCommand = async (
   }
   const contents: GetDocumentationVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DocumentationVersion",
     createdDate: undefined,
     description: undefined,
     version: undefined,
@@ -10708,7 +10678,6 @@ export const deserializeAws_restJson1GetDocumentationVersionsCommand = async (
   }
   const contents: GetDocumentationVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DocumentationVersions",
     items: undefined,
     position: undefined,
   };
@@ -10792,7 +10761,6 @@ export const deserializeAws_restJson1GetDomainNameCommand = async (
   }
   const contents: GetDomainNameCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DomainName",
     certificateArn: undefined,
     certificateName: undefined,
     certificateUploadDate: undefined,
@@ -10928,7 +10896,6 @@ export const deserializeAws_restJson1GetDomainNamesCommand = async (
   }
   const contents: GetDomainNamesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DomainNames",
     items: undefined,
     position: undefined,
   };
@@ -11004,7 +10971,6 @@ export const deserializeAws_restJson1GetExportCommand = async (
   }
   const contents: GetExportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportResponse",
     body: undefined,
     contentDisposition: undefined,
     contentType: undefined,
@@ -11098,7 +11064,6 @@ export const deserializeAws_restJson1GetGatewayResponseCommand = async (
   }
   const contents: GetGatewayResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GatewayResponse",
     defaultResponse: undefined,
     responseParameters: undefined,
     responseTemplates: undefined,
@@ -11186,7 +11151,6 @@ export const deserializeAws_restJson1GetGatewayResponsesCommand = async (
   }
   const contents: GetGatewayResponsesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GatewayResponses",
     items: undefined,
     position: undefined,
   };
@@ -11270,7 +11234,6 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
   }
   const contents: GetIntegrationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Integration",
     cacheKeyParameters: undefined,
     cacheNamespace: undefined,
     connectionId: undefined,
@@ -11401,7 +11364,6 @@ export const deserializeAws_restJson1GetIntegrationResponseCommand = async (
   }
   const contents: GetIntegrationResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "IntegrationResponse",
     contentHandling: undefined,
     responseParameters: undefined,
     responseTemplates: undefined,
@@ -11489,7 +11451,6 @@ export const deserializeAws_restJson1GetMethodCommand = async (
   }
   const contents: GetMethodCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Method",
     apiKeyRequired: undefined,
     authorizationScopes: undefined,
     authorizationType: undefined,
@@ -11601,7 +11562,6 @@ export const deserializeAws_restJson1GetMethodResponseCommand = async (
   }
   const contents: GetMethodResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "MethodResponse",
     responseModels: undefined,
     responseParameters: undefined,
     statusCode: undefined,
@@ -11681,7 +11641,6 @@ export const deserializeAws_restJson1GetModelCommand = async (
   }
   const contents: GetModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Model",
     contentType: undefined,
     description: undefined,
     id: undefined,
@@ -11769,7 +11728,6 @@ export const deserializeAws_restJson1GetModelsCommand = async (
   }
   const contents: GetModelsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Models",
     items: undefined,
     position: undefined,
   };
@@ -11853,7 +11811,6 @@ export const deserializeAws_restJson1GetModelTemplateCommand = async (
   }
   const contents: GetModelTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Template",
     value: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -11933,7 +11890,6 @@ export const deserializeAws_restJson1GetRequestValidatorCommand = async (
   }
   const contents: GetRequestValidatorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RequestValidator",
     id: undefined,
     name: undefined,
     validateRequestBody: undefined,
@@ -12017,7 +11973,6 @@ export const deserializeAws_restJson1GetRequestValidatorsCommand = async (
   }
   const contents: GetRequestValidatorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RequestValidators",
     items: undefined,
     position: undefined,
   };
@@ -12101,7 +12056,6 @@ export const deserializeAws_restJson1GetResourceCommand = async (
   }
   const contents: GetResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Resource",
     id: undefined,
     parentId: undefined,
     path: undefined,
@@ -12189,7 +12143,6 @@ export const deserializeAws_restJson1GetResourcesCommand = async (
   }
   const contents: GetResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Resources",
     items: undefined,
     position: undefined,
   };
@@ -12273,7 +12226,6 @@ export const deserializeAws_restJson1GetRestApiCommand = async (
   }
   const contents: GetRestApiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestApi",
     apiKeySource: undefined,
     binaryMediaTypes: undefined,
     createdDate: undefined,
@@ -12389,7 +12341,6 @@ export const deserializeAws_restJson1GetRestApisCommand = async (
   }
   const contents: GetRestApisCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestApis",
     items: undefined,
     position: undefined,
   };
@@ -12465,7 +12416,6 @@ export const deserializeAws_restJson1GetSdkCommand = async (
   }
   const contents: GetSdkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SdkResponse",
     body: undefined,
     contentDisposition: undefined,
     contentType: undefined,
@@ -12559,7 +12509,6 @@ export const deserializeAws_restJson1GetSdkTypeCommand = async (
   }
   const contents: GetSdkTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SdkType",
     configurationProperties: undefined,
     description: undefined,
     friendlyName: undefined,
@@ -12646,7 +12595,6 @@ export const deserializeAws_restJson1GetSdkTypesCommand = async (
   }
   const contents: GetSdkTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SdkTypes",
     items: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12710,7 +12658,6 @@ export const deserializeAws_restJson1GetStageCommand = async (
   }
   const contents: GetStageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Stage",
     accessLogSettings: undefined,
     cacheClusterEnabled: undefined,
     cacheClusterSize: undefined,
@@ -12846,7 +12793,6 @@ export const deserializeAws_restJson1GetStagesCommand = async (
   }
   const contents: GetStagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Stages",
     item: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -12918,7 +12864,6 @@ export const deserializeAws_restJson1GetTagsCommand = async (
   }
   const contents: GetTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Tags",
     tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -13006,7 +12951,6 @@ export const deserializeAws_restJson1GetUsageCommand = async (
   }
   const contents: GetUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Usage",
     endDate: undefined,
     items: undefined,
     position: undefined,
@@ -13102,7 +13046,6 @@ export const deserializeAws_restJson1GetUsagePlanCommand = async (
   }
   const contents: GetUsagePlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UsagePlan",
     apiStages: undefined,
     description: undefined,
     id: undefined,
@@ -13210,7 +13153,6 @@ export const deserializeAws_restJson1GetUsagePlanKeyCommand = async (
   }
   const contents: GetUsagePlanKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UsagePlanKey",
     id: undefined,
     name: undefined,
     type: undefined,
@@ -13302,7 +13244,6 @@ export const deserializeAws_restJson1GetUsagePlanKeysCommand = async (
   }
   const contents: GetUsagePlanKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UsagePlanKeys",
     items: undefined,
     position: undefined,
   };
@@ -13386,7 +13327,6 @@ export const deserializeAws_restJson1GetUsagePlansCommand = async (
   }
   const contents: GetUsagePlansCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UsagePlans",
     items: undefined,
     position: undefined,
   };
@@ -13478,7 +13418,6 @@ export const deserializeAws_restJson1GetVpcLinkCommand = async (
   }
   const contents: GetVpcLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VpcLink",
     description: undefined,
     id: undefined,
     name: undefined,
@@ -13574,7 +13513,6 @@ export const deserializeAws_restJson1GetVpcLinksCommand = async (
   }
   const contents: GetVpcLinksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VpcLinks",
     items: undefined,
     position: undefined,
   };
@@ -13650,7 +13588,6 @@ export const deserializeAws_restJson1ImportApiKeysCommand = async (
   }
   const contents: ImportApiKeysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ApiKeyIds",
     ids: undefined,
     warnings: undefined,
   };
@@ -13750,7 +13687,6 @@ export const deserializeAws_restJson1ImportDocumentationPartsCommand = async (
   }
   const contents: ImportDocumentationPartsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DocumentationPartIds",
     ids: undefined,
     warnings: undefined,
   };
@@ -13842,7 +13778,6 @@ export const deserializeAws_restJson1ImportRestApiCommand = async (
   }
   const contents: ImportRestApiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestApi",
     apiKeySource: undefined,
     binaryMediaTypes: undefined,
     createdDate: undefined,
@@ -13974,7 +13909,6 @@ export const deserializeAws_restJson1PutGatewayResponseCommand = async (
   }
   const contents: PutGatewayResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GatewayResponse",
     defaultResponse: undefined,
     responseParameters: undefined,
     responseTemplates: undefined,
@@ -14078,7 +14012,6 @@ export const deserializeAws_restJson1PutIntegrationCommand = async (
   }
   const contents: PutIntegrationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Integration",
     cacheKeyParameters: undefined,
     cacheNamespace: undefined,
     connectionId: undefined,
@@ -14225,7 +14158,6 @@ export const deserializeAws_restJson1PutIntegrationResponseCommand = async (
   }
   const contents: PutIntegrationResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "IntegrationResponse",
     contentHandling: undefined,
     responseParameters: undefined,
     responseTemplates: undefined,
@@ -14337,7 +14269,6 @@ export const deserializeAws_restJson1PutMethodCommand = async (
   }
   const contents: PutMethodCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Method",
     apiKeyRequired: undefined,
     authorizationScopes: undefined,
     authorizationType: undefined,
@@ -14473,7 +14404,6 @@ export const deserializeAws_restJson1PutMethodResponseCommand = async (
   }
   const contents: PutMethodResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "MethodResponse",
     responseModels: undefined,
     responseParameters: undefined,
     statusCode: undefined,
@@ -14577,7 +14507,6 @@ export const deserializeAws_restJson1PutRestApiCommand = async (
   }
   const contents: PutRestApiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestApi",
     apiKeySource: undefined,
     binaryMediaTypes: undefined,
     createdDate: undefined,
@@ -14808,7 +14737,6 @@ export const deserializeAws_restJson1TestInvokeAuthorizerCommand = async (
   }
   const contents: TestInvokeAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TestInvokeAuthorizerResponse",
     authorization: undefined,
     claims: undefined,
     clientStatus: undefined,
@@ -14912,7 +14840,6 @@ export const deserializeAws_restJson1TestInvokeMethodCommand = async (
   }
   const contents: TestInvokeMethodCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TestInvokeMethodResponse",
     body: undefined,
     headers: undefined,
     latency: undefined,
@@ -15095,7 +15022,6 @@ export const deserializeAws_restJson1UpdateAccountCommand = async (
   }
   const contents: UpdateAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Account",
     apiKeyVersion: undefined,
     cloudwatchRoleArn: undefined,
     features: undefined,
@@ -15187,7 +15113,6 @@ export const deserializeAws_restJson1UpdateApiKeyCommand = async (
   }
   const contents: UpdateApiKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ApiKey",
     createdDate: undefined,
     customerId: undefined,
     description: undefined,
@@ -15311,7 +15236,6 @@ export const deserializeAws_restJson1UpdateAuthorizerCommand = async (
   }
   const contents: UpdateAuthorizerCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Authorizer",
     authType: undefined,
     authorizerCredentials: undefined,
     authorizerResultTtlInSeconds: undefined,
@@ -15427,7 +15351,6 @@ export const deserializeAws_restJson1UpdateBasePathMappingCommand = async (
   }
   const contents: UpdateBasePathMappingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BasePathMapping",
     basePath: undefined,
     restApiId: undefined,
     stage: undefined,
@@ -15523,7 +15446,6 @@ export const deserializeAws_restJson1UpdateClientCertificateCommand = async (
   }
   const contents: UpdateClientCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ClientCertificate",
     clientCertificateId: undefined,
     createdDate: undefined,
     description: undefined,
@@ -15623,7 +15545,6 @@ export const deserializeAws_restJson1UpdateDeploymentCommand = async (
   }
   const contents: UpdateDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Deployment",
     apiSummary: undefined,
     createdDate: undefined,
     description: undefined,
@@ -15723,7 +15644,6 @@ export const deserializeAws_restJson1UpdateDocumentationPartCommand = async (
   }
   const contents: UpdateDocumentationPartCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DocumentationPart",
     id: undefined,
     location: undefined,
     properties: undefined,
@@ -15827,7 +15747,6 @@ export const deserializeAws_restJson1UpdateDocumentationVersionCommand = async (
   }
   const contents: UpdateDocumentationVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DocumentationVersion",
     createdDate: undefined,
     description: undefined,
     version: undefined,
@@ -15923,7 +15842,6 @@ export const deserializeAws_restJson1UpdateDomainNameCommand = async (
   }
   const contents: UpdateDomainNameCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DomainName",
     certificateArn: undefined,
     certificateName: undefined,
     certificateUploadDate: undefined,
@@ -16067,7 +15985,6 @@ export const deserializeAws_restJson1UpdateGatewayResponseCommand = async (
   }
   const contents: UpdateGatewayResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GatewayResponse",
     defaultResponse: undefined,
     responseParameters: undefined,
     responseTemplates: undefined,
@@ -16163,7 +16080,6 @@ export const deserializeAws_restJson1UpdateIntegrationCommand = async (
   }
   const contents: UpdateIntegrationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Integration",
     cacheKeyParameters: undefined,
     cacheNamespace: undefined,
     connectionId: undefined,
@@ -16310,7 +16226,6 @@ export const deserializeAws_restJson1UpdateIntegrationResponseCommand = async (
   }
   const contents: UpdateIntegrationResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "IntegrationResponse",
     contentHandling: undefined,
     responseParameters: undefined,
     responseTemplates: undefined,
@@ -16414,7 +16329,6 @@ export const deserializeAws_restJson1UpdateMethodCommand = async (
   }
   const contents: UpdateMethodCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Method",
     apiKeyRequired: undefined,
     authorizationScopes: undefined,
     authorizationType: undefined,
@@ -16542,7 +16456,6 @@ export const deserializeAws_restJson1UpdateMethodResponseCommand = async (
   }
   const contents: UpdateMethodResponseCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "MethodResponse",
     responseModels: undefined,
     responseParameters: undefined,
     statusCode: undefined,
@@ -16646,7 +16559,6 @@ export const deserializeAws_restJson1UpdateModelCommand = async (
   }
   const contents: UpdateModelCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Model",
     contentType: undefined,
     description: undefined,
     id: undefined,
@@ -16750,7 +16662,6 @@ export const deserializeAws_restJson1UpdateRequestValidatorCommand = async (
   }
   const contents: UpdateRequestValidatorCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RequestValidator",
     id: undefined,
     name: undefined,
     validateRequestBody: undefined,
@@ -16842,7 +16753,6 @@ export const deserializeAws_restJson1UpdateResourceCommand = async (
   }
   const contents: UpdateResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Resource",
     id: undefined,
     parentId: undefined,
     path: undefined,
@@ -16946,7 +16856,6 @@ export const deserializeAws_restJson1UpdateRestApiCommand = async (
   }
   const contents: UpdateRestApiCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestApi",
     apiKeySource: undefined,
     binaryMediaTypes: undefined,
     createdDate: undefined,
@@ -17078,7 +16987,6 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
   }
   const contents: UpdateStageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Stage",
     accessLogSettings: undefined,
     cacheClusterEnabled: undefined,
     cacheClusterSize: undefined,
@@ -17230,7 +17138,6 @@ export const deserializeAws_restJson1UpdateUsageCommand = async (
   }
   const contents: UpdateUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Usage",
     endDate: undefined,
     items: undefined,
     position: undefined,
@@ -17326,7 +17233,6 @@ export const deserializeAws_restJson1UpdateUsagePlanCommand = async (
   }
   const contents: UpdateUsagePlanCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UsagePlan",
     apiStages: undefined,
     description: undefined,
     id: undefined,
@@ -17442,7 +17348,6 @@ export const deserializeAws_restJson1UpdateVpcLinkCommand = async (
   }
   const contents: UpdateVpcLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VpcLink",
     description: undefined,
     id: undefined,
     name: undefined,
@@ -17841,7 +17746,6 @@ const serializeAws_restJson1TlsConfig = (input: TlsConfig, context: __SerdeConte
 
 const deserializeAws_restJson1AccessLogSettings = (output: any, context: __SerdeContext): AccessLogSettings => {
   return {
-    __type: "AccessLogSettings",
     destinationArn:
       output.destinationArn !== undefined && output.destinationArn !== null ? output.destinationArn : undefined,
     format: output.format !== undefined && output.format !== null ? output.format : undefined,
@@ -17850,7 +17754,6 @@ const deserializeAws_restJson1AccessLogSettings = (output: any, context: __Serde
 
 const deserializeAws_restJson1ApiKey = (output: any, context: __SerdeContext): ApiKey => {
   return {
-    __type: "ApiKey",
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
@@ -17878,7 +17781,6 @@ const deserializeAws_restJson1ApiKey = (output: any, context: __SerdeContext): A
 
 const deserializeAws_restJson1ApiStage = (output: any, context: __SerdeContext): ApiStage => {
   return {
-    __type: "ApiStage",
     apiId: output.apiId !== undefined && output.apiId !== null ? output.apiId : undefined,
     stage: output.stage !== undefined && output.stage !== null ? output.stage : undefined,
     throttle:
@@ -17890,7 +17792,6 @@ const deserializeAws_restJson1ApiStage = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Authorizer = (output: any, context: __SerdeContext): Authorizer => {
   return {
-    __type: "Authorizer",
     authType: output.authType !== undefined && output.authType !== null ? output.authType : undefined,
     authorizerCredentials:
       output.authorizerCredentials !== undefined && output.authorizerCredentials !== null
@@ -17920,7 +17821,6 @@ const deserializeAws_restJson1Authorizer = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1BasePathMapping = (output: any, context: __SerdeContext): BasePathMapping => {
   return {
-    __type: "BasePathMapping",
     basePath: output.basePath !== undefined && output.basePath !== null ? output.basePath : undefined,
     restApiId: output.restApiId !== undefined && output.restApiId !== null ? output.restApiId : undefined,
     stage: output.stage !== undefined && output.stage !== null ? output.stage : undefined,
@@ -17929,7 +17829,6 @@ const deserializeAws_restJson1BasePathMapping = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1CanarySettings = (output: any, context: __SerdeContext): CanarySettings => {
   return {
-    __type: "CanarySettings",
     deploymentId: output.deploymentId !== undefined && output.deploymentId !== null ? output.deploymentId : undefined,
     percentTraffic:
       output.percentTraffic !== undefined && output.percentTraffic !== null ? output.percentTraffic : undefined,
@@ -17944,7 +17843,6 @@ const deserializeAws_restJson1CanarySettings = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1ClientCertificate = (output: any, context: __SerdeContext): ClientCertificate => {
   return {
-    __type: "ClientCertificate",
     clientCertificateId:
       output.clientCertificateId !== undefined && output.clientCertificateId !== null
         ? output.clientCertificateId
@@ -17971,7 +17869,6 @@ const deserializeAws_restJson1ClientCertificate = (output: any, context: __Serde
 
 const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext): Deployment => {
   return {
-    __type: "Deployment",
     apiSummary:
       output.apiSummary !== undefined && output.apiSummary !== null
         ? deserializeAws_restJson1PathToMapOfMethodSnapshot(output.apiSummary, context)
@@ -17987,7 +17884,6 @@ const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1DocumentationPart = (output: any, context: __SerdeContext): DocumentationPart => {
   return {
-    __type: "DocumentationPart",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     location:
       output.location !== undefined && output.location !== null
@@ -18002,7 +17898,6 @@ const deserializeAws_restJson1DocumentationPartLocation = (
   context: __SerdeContext
 ): DocumentationPartLocation => {
   return {
-    __type: "DocumentationPartLocation",
     method: output.method !== undefined && output.method !== null ? output.method : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     path: output.path !== undefined && output.path !== null ? output.path : undefined,
@@ -18013,7 +17908,6 @@ const deserializeAws_restJson1DocumentationPartLocation = (
 
 const deserializeAws_restJson1DocumentationVersion = (output: any, context: __SerdeContext): DocumentationVersion => {
   return {
-    __type: "DocumentationVersion",
     createdDate:
       output.createdDate !== undefined && output.createdDate !== null
         ? new Date(Math.round(output.createdDate * 1000))
@@ -18025,7 +17919,6 @@ const deserializeAws_restJson1DocumentationVersion = (output: any, context: __Se
 
 const deserializeAws_restJson1DomainName = (output: any, context: __SerdeContext): DomainName => {
   return {
-    __type: "DomainName",
     certificateArn:
       output.certificateArn !== undefined && output.certificateArn !== null ? output.certificateArn : undefined,
     certificateName:
@@ -18080,7 +17973,6 @@ const deserializeAws_restJson1DomainName = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1EndpointConfiguration = (output: any, context: __SerdeContext): EndpointConfiguration => {
   return {
-    __type: "EndpointConfiguration",
     types:
       output.types !== undefined && output.types !== null
         ? deserializeAws_restJson1ListOfEndpointType(output.types, context)
@@ -18094,7 +17986,6 @@ const deserializeAws_restJson1EndpointConfiguration = (output: any, context: __S
 
 const deserializeAws_restJson1GatewayResponse = (output: any, context: __SerdeContext): GatewayResponse => {
   return {
-    __type: "GatewayResponse",
     defaultResponse:
       output.defaultResponse !== undefined && output.defaultResponse !== null ? output.defaultResponse : undefined,
     responseParameters:
@@ -18112,7 +18003,6 @@ const deserializeAws_restJson1GatewayResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1Integration = (output: any, context: __SerdeContext): Integration => {
   return {
-    __type: "Integration",
     cacheKeyParameters:
       output.cacheKeyParameters !== undefined && output.cacheKeyParameters !== null
         ? deserializeAws_restJson1ListOfString(output.cacheKeyParameters, context)
@@ -18155,7 +18045,6 @@ const deserializeAws_restJson1Integration = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1IntegrationResponse = (output: any, context: __SerdeContext): IntegrationResponse => {
   return {
-    __type: "IntegrationResponse",
     contentHandling:
       output.contentHandling !== undefined && output.contentHandling !== null ? output.contentHandling : undefined,
     responseParameters:
@@ -18410,7 +18299,6 @@ const deserializeAws_restJson1MapOfStringToString = (
 
 const deserializeAws_restJson1Method = (output: any, context: __SerdeContext): Method => {
   return {
-    __type: "Method",
     apiKeyRequired:
       output.apiKeyRequired !== undefined && output.apiKeyRequired !== null ? output.apiKeyRequired : undefined,
     authorizationScopes:
@@ -18450,7 +18338,6 @@ const deserializeAws_restJson1Method = (output: any, context: __SerdeContext): M
 
 const deserializeAws_restJson1MethodResponse = (output: any, context: __SerdeContext): MethodResponse => {
   return {
-    __type: "MethodResponse",
     responseModels:
       output.responseModels !== undefined && output.responseModels !== null
         ? deserializeAws_restJson1MapOfStringToString(output.responseModels, context)
@@ -18465,7 +18352,6 @@ const deserializeAws_restJson1MethodResponse = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1MethodSetting = (output: any, context: __SerdeContext): MethodSetting => {
   return {
-    __type: "MethodSetting",
     cacheDataEncrypted:
       output.cacheDataEncrypted !== undefined && output.cacheDataEncrypted !== null
         ? output.cacheDataEncrypted
@@ -18503,7 +18389,6 @@ const deserializeAws_restJson1MethodSetting = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1MethodSnapshot = (output: any, context: __SerdeContext): MethodSnapshot => {
   return {
-    __type: "MethodSnapshot",
     apiKeyRequired:
       output.apiKeyRequired !== undefined && output.apiKeyRequired !== null ? output.apiKeyRequired : undefined,
     authorizationType:
@@ -18515,7 +18400,6 @@ const deserializeAws_restJson1MethodSnapshot = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Model = (output: any, context: __SerdeContext): Model => {
   return {
-    __type: "Model",
     contentType: output.contentType !== undefined && output.contentType !== null ? output.contentType : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
@@ -18539,7 +18423,6 @@ const deserializeAws_restJson1PathToMapOfMethodSnapshot = (
 
 const deserializeAws_restJson1QuotaSettings = (output: any, context: __SerdeContext): QuotaSettings => {
   return {
-    __type: "QuotaSettings",
     limit: output.limit !== undefined && output.limit !== null ? output.limit : undefined,
     offset: output.offset !== undefined && output.offset !== null ? output.offset : undefined,
     period: output.period !== undefined && output.period !== null ? output.period : undefined,
@@ -18548,7 +18431,6 @@ const deserializeAws_restJson1QuotaSettings = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1RequestValidator = (output: any, context: __SerdeContext): RequestValidator => {
   return {
-    __type: "RequestValidator",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     validateRequestBody:
@@ -18564,7 +18446,6 @@ const deserializeAws_restJson1RequestValidator = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    __type: "Resource",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     parentId: output.parentId !== undefined && output.parentId !== null ? output.parentId : undefined,
     path: output.path !== undefined && output.path !== null ? output.path : undefined,
@@ -18578,7 +18459,6 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1RestApi = (output: any, context: __SerdeContext): RestApi => {
   return {
-    __type: "RestApi",
     apiKeySource: output.apiKeySource !== undefined && output.apiKeySource !== null ? output.apiKeySource : undefined,
     binaryMediaTypes:
       output.binaryMediaTypes !== undefined && output.binaryMediaTypes !== null
@@ -18617,7 +18497,6 @@ const deserializeAws_restJson1SdkConfigurationProperty = (
   context: __SerdeContext
 ): SdkConfigurationProperty => {
   return {
-    __type: "SdkConfigurationProperty",
     defaultValue: output.defaultValue !== undefined && output.defaultValue !== null ? output.defaultValue : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     friendlyName: output.friendlyName !== undefined && output.friendlyName !== null ? output.friendlyName : undefined,
@@ -18628,7 +18507,6 @@ const deserializeAws_restJson1SdkConfigurationProperty = (
 
 const deserializeAws_restJson1SdkType = (output: any, context: __SerdeContext): SdkType => {
   return {
-    __type: "SdkType",
     configurationProperties:
       output.configurationProperties !== undefined && output.configurationProperties !== null
         ? deserializeAws_restJson1ListOfSdkConfigurationProperty(output.configurationProperties, context)
@@ -18641,7 +18519,6 @@ const deserializeAws_restJson1SdkType = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): Stage => {
   return {
-    __type: "Stage",
     accessLogSettings:
       output.accessLogSettings !== undefined && output.accessLogSettings !== null
         ? deserializeAws_restJson1AccessLogSettings(output.accessLogSettings, context)
@@ -18699,7 +18576,6 @@ const deserializeAws_restJson1Stage = (output: any, context: __SerdeContext): St
 
 const deserializeAws_restJson1ThrottleSettings = (output: any, context: __SerdeContext): ThrottleSettings => {
   return {
-    __type: "ThrottleSettings",
     burstLimit: output.burstLimit !== undefined && output.burstLimit !== null ? output.burstLimit : undefined,
     rateLimit: output.rateLimit !== undefined && output.rateLimit !== null ? output.rateLimit : undefined,
   } as any;
@@ -18707,7 +18583,6 @@ const deserializeAws_restJson1ThrottleSettings = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1TlsConfig = (output: any, context: __SerdeContext): TlsConfig => {
   return {
-    __type: "TlsConfig",
     insecureSkipVerification:
       output.insecureSkipVerification !== undefined && output.insecureSkipVerification !== null
         ? output.insecureSkipVerification
@@ -18717,7 +18592,6 @@ const deserializeAws_restJson1TlsConfig = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1UsagePlan = (output: any, context: __SerdeContext): UsagePlan => {
   return {
-    __type: "UsagePlan",
     apiStages:
       output.apiStages !== undefined && output.apiStages !== null
         ? deserializeAws_restJson1ListOfApiStage(output.apiStages, context)
@@ -18743,7 +18617,6 @@ const deserializeAws_restJson1UsagePlan = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1UsagePlanKey = (output: any, context: __SerdeContext): UsagePlanKey => {
   return {
-    __type: "UsagePlanKey",
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
@@ -18753,7 +18626,6 @@ const deserializeAws_restJson1UsagePlanKey = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1VpcLink = (output: any, context: __SerdeContext): VpcLink => {
   return {
-    __type: "VpcLink",
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient.ts";
-import { ListEntitiesRequest, ListEntitiesResponse } from "../models/index.ts";
+import { ListEntitiesRequest, ListEntitiesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListEntitiesCommand,
   serializeAws_restJson1ListEntitiesCommand,

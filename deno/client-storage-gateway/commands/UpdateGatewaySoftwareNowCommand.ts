@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput } from "../models/index.ts";
+import { UpdateGatewaySoftwareNowInput, UpdateGatewaySoftwareNowOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateGatewaySoftwareNowCommand,
   serializeAws_json1_1UpdateGatewaySoftwareNowCommand,

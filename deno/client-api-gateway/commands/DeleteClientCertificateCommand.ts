@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { DeleteClientCertificateRequest } from "../models/index.ts";
+import { DeleteClientCertificateRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteClientCertificateCommand,
   serializeAws_restJson1DeleteClientCertificateCommand,

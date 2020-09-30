@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingV2Client.ts";
-import { ModifyTargetGroupAttributesInput, ModifyTargetGroupAttributesOutput } from "../models/index.ts";
+import { ModifyTargetGroupAttributesInput, ModifyTargetGroupAttributesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryModifyTargetGroupAttributesCommand,
   serializeAws_queryModifyTargetGroupAttributesCommand,

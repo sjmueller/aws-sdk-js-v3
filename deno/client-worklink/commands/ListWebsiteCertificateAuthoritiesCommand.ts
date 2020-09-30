@@ -1,6 +1,9 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient.ts";
-import { ListWebsiteCertificateAuthoritiesRequest, ListWebsiteCertificateAuthoritiesResponse } from "../models/index.ts";
+import {
+  ListWebsiteCertificateAuthoritiesRequest,
+  ListWebsiteCertificateAuthoritiesResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand,
   serializeAws_restJson1ListWebsiteCertificateAuthoritiesCommand,

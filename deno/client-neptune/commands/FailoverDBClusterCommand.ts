@@ -1,6 +1,6 @@
 
 import { NeptuneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NeptuneClient.ts";
-import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/index.ts";
+import { FailoverDBClusterMessage, FailoverDBClusterResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryFailoverDBClusterCommand,
   serializeAws_queryFailoverDBClusterCommand,

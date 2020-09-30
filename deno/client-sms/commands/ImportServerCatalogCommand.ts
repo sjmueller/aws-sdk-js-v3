@@ -1,6 +1,6 @@
 
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
-import { ImportServerCatalogRequest, ImportServerCatalogResponse } from "../models/index.ts";
+import { ImportServerCatalogRequest, ImportServerCatalogResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ImportServerCatalogCommand,
   serializeAws_json1_1ImportServerCatalogCommand,

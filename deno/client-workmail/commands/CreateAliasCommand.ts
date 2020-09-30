@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { CreateAliasRequest, CreateAliasResponse } from "../models/index.ts";
+import { CreateAliasRequest, CreateAliasResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateAliasCommand,
   serializeAws_json1_1CreateAliasCommand,

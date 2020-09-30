@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { UpdateRecommenderConfigurationRequest, UpdateRecommenderConfigurationResponse } from "../models/index.ts";
+import { UpdateRecommenderConfigurationRequest, UpdateRecommenderConfigurationResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UpdateRecommenderConfigurationCommand,
   serializeAws_restJson1UpdateRecommenderConfigurationCommand,

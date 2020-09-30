@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { UpdateConnectivityInfoRequest, UpdateConnectivityInfoResponse } from "../models/index.ts";
+import { UpdateConnectivityInfoRequest, UpdateConnectivityInfoResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateConnectivityInfoCommand,
   serializeAws_restJson1UpdateConnectivityInfoCommand,

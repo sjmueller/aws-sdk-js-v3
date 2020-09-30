@@ -1,6 +1,6 @@
 
 import { PinpointEmailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointEmailClient.ts";
-import { GetAccountRequest, GetAccountResponse } from "../models/index.ts";
+import { GetAccountRequest, GetAccountResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetAccountCommand,
   serializeAws_restJson1GetAccountCommand,

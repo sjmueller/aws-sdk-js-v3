@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../LexModelBuildingServiceClient.ts";
-import { DeleteSlotTypeRequest } from "../models/index.ts";
+import { DeleteSlotTypeRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteSlotTypeCommand,
   serializeAws_restJson1DeleteSlotTypeCommand,

@@ -1,6 +1,9 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DescribeDBClusterSnapshotAttributesMessage, DescribeDBClusterSnapshotAttributesResult } from "../models/index.ts";
+import {
+  DescribeDBClusterSnapshotAttributesMessage,
+  DescribeDBClusterSnapshotAttributesResult,
+} from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeDBClusterSnapshotAttributesCommand,
   serializeAws_queryDescribeDBClusterSnapshotAttributesCommand,

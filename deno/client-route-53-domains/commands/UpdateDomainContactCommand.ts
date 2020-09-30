@@ -1,6 +1,6 @@
 
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient.ts";
-import { UpdateDomainContactRequest, UpdateDomainContactResponse } from "../models/index.ts";
+import { UpdateDomainContactRequest, UpdateDomainContactResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateDomainContactCommand,
   serializeAws_json1_1UpdateDomainContactCommand,

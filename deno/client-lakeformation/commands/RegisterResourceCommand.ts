@@ -1,6 +1,6 @@
 
 import { LakeFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LakeFormationClient.ts";
-import { RegisterResourceRequest, RegisterResourceResponse } from "../models/index.ts";
+import { RegisterResourceRequest, RegisterResourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RegisterResourceCommand,
   serializeAws_json1_1RegisterResourceCommand,

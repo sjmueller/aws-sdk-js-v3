@@ -1,6 +1,6 @@
 
 import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QLDBClient.ts";
-import { ListJournalS3ExportsRequest, ListJournalS3ExportsResponse } from "../models/index.ts";
+import { ListJournalS3ExportsRequest, ListJournalS3ExportsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListJournalS3ExportsCommand,
   serializeAws_restJson1ListJournalS3ExportsCommand,

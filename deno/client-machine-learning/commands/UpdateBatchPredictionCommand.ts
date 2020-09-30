@@ -1,6 +1,6 @@
 
 import { MachineLearningClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MachineLearningClient.ts";
-import { UpdateBatchPredictionInput, UpdateBatchPredictionOutput } from "../models/index.ts";
+import { UpdateBatchPredictionInput, UpdateBatchPredictionOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateBatchPredictionCommand,
   serializeAws_json1_1UpdateBatchPredictionCommand,

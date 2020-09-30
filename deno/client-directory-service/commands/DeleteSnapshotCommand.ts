@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { DeleteSnapshotRequest, DeleteSnapshotResult } from "../models/index.ts";
+import { DeleteSnapshotRequest, DeleteSnapshotResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteSnapshotCommand,
   serializeAws_json1_1DeleteSnapshotCommand,

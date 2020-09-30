@@ -1,6 +1,7 @@
 
 const name = "@aws-sdk/client-glacier";
-const version = "1.0.0-gamma.8";
+const version = "1.0.0-gamma.10";
+
 import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";
 import { bodyChecksumGenerator } from "../body-checksum-browser/mod.ts";
 import { FetchHttpHandler, streamCollector } from "../fetch-http-handler/mod.ts";

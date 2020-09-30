@@ -1,6 +1,6 @@
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
-import { TerminateJobFlowsInput } from "../models/index.ts";
+import { TerminateJobFlowsInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1TerminateJobFlowsCommand,
   serializeAws_json1_1TerminateJobFlowsCommand,

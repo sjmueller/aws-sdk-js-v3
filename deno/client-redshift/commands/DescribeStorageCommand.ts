@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { CustomerStorageMessage } from "../models/index.ts";
+import { CustomerStorageMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeStorageCommand,
   serializeAws_queryDescribeStorageCommand,

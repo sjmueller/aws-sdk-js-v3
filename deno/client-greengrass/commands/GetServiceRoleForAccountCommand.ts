@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { GetServiceRoleForAccountRequest, GetServiceRoleForAccountResponse } from "../models/index.ts";
+import { GetServiceRoleForAccountRequest, GetServiceRoleForAccountResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetServiceRoleForAccountCommand,
   serializeAws_restJson1GetServiceRoleForAccountCommand,

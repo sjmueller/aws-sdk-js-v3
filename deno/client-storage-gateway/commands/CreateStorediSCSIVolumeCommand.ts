@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { CreateStorediSCSIVolumeInput, CreateStorediSCSIVolumeOutput } from "../models/index.ts";
+import { CreateStorediSCSIVolumeInput, CreateStorediSCSIVolumeOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateStorediSCSIVolumeCommand,
   serializeAws_json1_1CreateStorediSCSIVolumeCommand,

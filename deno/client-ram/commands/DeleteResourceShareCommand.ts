@@ -1,6 +1,6 @@
 
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient.ts";
-import { DeleteResourceShareRequest, DeleteResourceShareResponse } from "../models/index.ts";
+import { DeleteResourceShareRequest, DeleteResourceShareResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteResourceShareCommand,
   serializeAws_restJson1DeleteResourceShareCommand,

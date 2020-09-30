@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { GetContextKeysForCustomPolicyRequest, GetContextKeysForPolicyResponse } from "../models/index.ts";
+import { GetContextKeysForCustomPolicyRequest, GetContextKeysForPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetContextKeysForCustomPolicyCommand,
   serializeAws_queryGetContextKeysForCustomPolicyCommand,

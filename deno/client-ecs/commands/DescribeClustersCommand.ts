@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { DescribeClustersRequest, DescribeClustersResponse } from "../models/index.ts";
+import { DescribeClustersRequest, DescribeClustersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeClustersCommand,
   serializeAws_json1_1DescribeClustersCommand,

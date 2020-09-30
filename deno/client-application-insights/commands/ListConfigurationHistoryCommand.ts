@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationInsightsClient.ts";
-import { ListConfigurationHistoryRequest, ListConfigurationHistoryResponse } from "../models/index.ts";
+import { ListConfigurationHistoryRequest, ListConfigurationHistoryResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListConfigurationHistoryCommand,
   serializeAws_json1_1ListConfigurationHistoryCommand,

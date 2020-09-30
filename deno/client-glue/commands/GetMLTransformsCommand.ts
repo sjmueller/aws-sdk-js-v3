@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { GetMLTransformsRequest, GetMLTransformsResponse } from "../models/index.ts";
+import { GetMLTransformsRequest, GetMLTransformsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetMLTransformsCommand,
   serializeAws_json1_1GetMLTransformsCommand,

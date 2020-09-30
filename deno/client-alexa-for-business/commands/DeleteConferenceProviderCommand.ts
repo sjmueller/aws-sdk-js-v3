@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { DeleteConferenceProviderRequest, DeleteConferenceProviderResponse } from "../models/index.ts";
+import { DeleteConferenceProviderRequest, DeleteConferenceProviderResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteConferenceProviderCommand,
   serializeAws_json1_1DeleteConferenceProviderCommand,

@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DeleteVpcEndpointsRequest, DeleteVpcEndpointsResult } from "../models/index.ts";
+import { DeleteVpcEndpointsRequest, DeleteVpcEndpointsResult } from "../models/models_1.ts";
 import {
   deserializeAws_ec2DeleteVpcEndpointsCommand,
   serializeAws_ec2DeleteVpcEndpointsCommand,

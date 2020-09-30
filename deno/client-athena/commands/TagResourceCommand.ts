@@ -1,6 +1,6 @@
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
-import { TagResourceInput, TagResourceOutput } from "../models/index.ts";
+import { TagResourceInput, TagResourceOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1TagResourceCommand,
   serializeAws_json1_1TagResourceCommand,

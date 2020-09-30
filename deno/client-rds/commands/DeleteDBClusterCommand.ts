@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/index.ts";
+import { DeleteDBClusterMessage, DeleteDBClusterResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteDBClusterCommand,
   serializeAws_queryDeleteDBClusterCommand,

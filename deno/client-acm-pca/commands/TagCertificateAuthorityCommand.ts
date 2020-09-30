@@ -1,6 +1,6 @@
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient.ts";
-import { TagCertificateAuthorityRequest } from "../models/index.ts";
+import { TagCertificateAuthorityRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1TagCertificateAuthorityCommand,
   serializeAws_json1_1TagCertificateAuthorityCommand,

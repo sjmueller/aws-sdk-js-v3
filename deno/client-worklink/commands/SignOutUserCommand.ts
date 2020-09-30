@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient.ts";
-import { SignOutUserRequest, SignOutUserResponse } from "../models/index.ts";
+import { SignOutUserRequest, SignOutUserResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SignOutUserCommand,
   serializeAws_restJson1SignOutUserCommand,

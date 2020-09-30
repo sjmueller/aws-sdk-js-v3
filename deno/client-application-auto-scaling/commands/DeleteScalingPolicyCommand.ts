@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient.ts";
-import { DeleteScalingPolicyRequest, DeleteScalingPolicyResponse } from "../models/index.ts";
+import { DeleteScalingPolicyRequest, DeleteScalingPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteScalingPolicyCommand,
   serializeAws_json1_1DeleteScalingPolicyCommand,

@@ -1,6 +1,6 @@
 
 import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient.ts";
-import { DecodeAuthorizationMessageRequest, DecodeAuthorizationMessageResponse } from "../models/index.ts";
+import { DecodeAuthorizationMessageRequest, DecodeAuthorizationMessageResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryDecodeAuthorizationMessageCommand,
   serializeAws_queryDecodeAuthorizationMessageCommand,

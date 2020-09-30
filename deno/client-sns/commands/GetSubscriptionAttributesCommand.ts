@@ -1,6 +1,6 @@
 
 import { SNSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SNSClient.ts";
-import { GetSubscriptionAttributesInput, GetSubscriptionAttributesResponse } from "../models/index.ts";
+import { GetSubscriptionAttributesInput, GetSubscriptionAttributesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetSubscriptionAttributesCommand,
   serializeAws_queryGetSubscriptionAttributesCommand,

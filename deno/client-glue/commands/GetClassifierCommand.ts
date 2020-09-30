@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { GetClassifierRequest, GetClassifierResponse } from "../models/index.ts";
+import { GetClassifierRequest, GetClassifierResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetClassifierCommand,
   serializeAws_json1_1GetClassifierCommand,

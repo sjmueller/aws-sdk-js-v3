@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApiGatewayManagementApiClient.ts";
-import { PostToConnectionRequest } from "../models/index.ts";
+import { PostToConnectionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PostToConnectionCommand,
   serializeAws_restJson1PostToConnectionCommand,

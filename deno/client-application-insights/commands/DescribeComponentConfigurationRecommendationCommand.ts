@@ -7,7 +7,7 @@ import {
 import {
   DescribeComponentConfigurationRecommendationRequest,
   DescribeComponentConfigurationRecommendationResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeComponentConfigurationRecommendationCommand,
   serializeAws_json1_1DescribeComponentConfigurationRecommendationCommand,

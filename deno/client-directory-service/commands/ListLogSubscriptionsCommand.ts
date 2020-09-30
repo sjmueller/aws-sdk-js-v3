@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { ListLogSubscriptionsRequest, ListLogSubscriptionsResult } from "../models/index.ts";
+import { ListLogSubscriptionsRequest, ListLogSubscriptionsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListLogSubscriptionsCommand,
   serializeAws_json1_1ListLogSubscriptionsCommand,

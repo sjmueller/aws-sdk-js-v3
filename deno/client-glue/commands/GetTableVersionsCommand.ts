@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { GetTableVersionsRequest, GetTableVersionsResponse } from "../models/index.ts";
+import { GetTableVersionsRequest, GetTableVersionsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetTableVersionsCommand,
   serializeAws_json1_1GetTableVersionsCommand,

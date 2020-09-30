@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { DescribeDeliveryChannelsRequest, DescribeDeliveryChannelsResponse } from "../models/index.ts";
+import { DescribeDeliveryChannelsRequest, DescribeDeliveryChannelsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeDeliveryChannelsCommand,
   serializeAws_json1_1DescribeDeliveryChannelsCommand,

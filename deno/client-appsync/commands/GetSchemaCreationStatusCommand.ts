@@ -1,6 +1,6 @@
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient.ts";
-import { GetSchemaCreationStatusRequest, GetSchemaCreationStatusResponse } from "../models/index.ts";
+import { GetSchemaCreationStatusRequest, GetSchemaCreationStatusResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetSchemaCreationStatusCommand,
   serializeAws_restJson1GetSchemaCreationStatusCommand,

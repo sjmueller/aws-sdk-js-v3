@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { ListTemplateVersionsRequest, ListTemplateVersionsResponse } from "../models/index.ts";
+import { ListTemplateVersionsRequest, ListTemplateVersionsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1ListTemplateVersionsCommand,
   serializeAws_restJson1ListTemplateVersionsCommand,

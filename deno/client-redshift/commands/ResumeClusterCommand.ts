@@ -1,6 +1,7 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { ResumeClusterMessage, ResumeClusterResult } from "../models/index.ts";
+import { ResumeClusterMessage } from "../models/models_0.ts";
+import { ResumeClusterResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryResumeClusterCommand,
   serializeAws_queryResumeClusterCommand,

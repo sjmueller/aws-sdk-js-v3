@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { RevokeClusterSecurityGroupIngressMessage, RevokeClusterSecurityGroupIngressResult } from "../models/index.ts";
+import { RevokeClusterSecurityGroupIngressMessage, RevokeClusterSecurityGroupIngressResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryRevokeClusterSecurityGroupIngressCommand,
   serializeAws_queryRevokeClusterSecurityGroupIngressCommand,

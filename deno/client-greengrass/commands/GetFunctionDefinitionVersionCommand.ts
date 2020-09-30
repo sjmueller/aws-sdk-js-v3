@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { GetFunctionDefinitionVersionRequest, GetFunctionDefinitionVersionResponse } from "../models/index.ts";
+import { GetFunctionDefinitionVersionRequest, GetFunctionDefinitionVersionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetFunctionDefinitionVersionCommand,
   serializeAws_restJson1GetFunctionDefinitionVersionCommand,

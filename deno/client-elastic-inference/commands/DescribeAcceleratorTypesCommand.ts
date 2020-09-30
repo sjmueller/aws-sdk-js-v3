@@ -1,6 +1,6 @@
 
 import { ElasticInferenceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticInferenceClient.ts";
-import { DescribeAcceleratorTypesRequest, DescribeAcceleratorTypesResponse } from "../models/index.ts";
+import { DescribeAcceleratorTypesRequest, DescribeAcceleratorTypesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeAcceleratorTypesCommand,
   serializeAws_restJson1DescribeAcceleratorTypesCommand,

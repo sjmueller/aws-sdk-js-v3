@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   RejectTransitGatewayPeeringAttachmentRequest,
   RejectTransitGatewayPeeringAttachmentResult,
-} from "../models/index.ts";
+} from "../models/models_4.ts";
 import {
   deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand,
   serializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand,

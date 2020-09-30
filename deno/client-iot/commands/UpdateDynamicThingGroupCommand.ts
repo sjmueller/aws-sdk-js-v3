@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { UpdateDynamicThingGroupRequest, UpdateDynamicThingGroupResponse } from "../models/index.ts";
+import { UpdateDynamicThingGroupRequest, UpdateDynamicThingGroupResponse } from "../models/models_2.ts";
 import {
   deserializeAws_restJson1UpdateDynamicThingGroupCommand,
   serializeAws_restJson1UpdateDynamicThingGroupCommand,

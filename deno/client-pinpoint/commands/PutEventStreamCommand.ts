@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { PutEventStreamRequest, PutEventStreamResponse } from "../models/index.ts";
+import { PutEventStreamRequest, PutEventStreamResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1PutEventStreamCommand,
   serializeAws_restJson1PutEventStreamCommand,

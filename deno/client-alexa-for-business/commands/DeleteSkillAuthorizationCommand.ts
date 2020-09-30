@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { DeleteSkillAuthorizationRequest, DeleteSkillAuthorizationResponse } from "../models/index.ts";
+import { DeleteSkillAuthorizationRequest, DeleteSkillAuthorizationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteSkillAuthorizationCommand,
   serializeAws_json1_1DeleteSkillAuthorizationCommand,

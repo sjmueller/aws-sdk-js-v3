@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickDevicesServiceClient.ts";
-import { ClaimDevicesByClaimCodeRequest, ClaimDevicesByClaimCodeResponse } from "../models/index.ts";
+import { ClaimDevicesByClaimCodeRequest, ClaimDevicesByClaimCodeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ClaimDevicesByClaimCodeCommand,
   serializeAws_restJson1ClaimDevicesByClaimCodeCommand,

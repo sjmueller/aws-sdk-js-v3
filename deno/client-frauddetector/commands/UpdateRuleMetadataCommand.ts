@@ -1,6 +1,6 @@
 
 import { FraudDetectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FraudDetectorClient.ts";
-import { UpdateRuleMetadataRequest, UpdateRuleMetadataResult } from "../models/index.ts";
+import { UpdateRuleMetadataRequest, UpdateRuleMetadataResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateRuleMetadataCommand,
   serializeAws_json1_1UpdateRuleMetadataCommand,

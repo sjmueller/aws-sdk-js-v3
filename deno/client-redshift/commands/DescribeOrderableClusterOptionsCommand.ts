@@ -1,6 +1,6 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { DescribeOrderableClusterOptionsMessage, OrderableClusterOptionsMessage } from "../models/index.ts";
+import { DescribeOrderableClusterOptionsMessage, OrderableClusterOptionsMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeOrderableClusterOptionsCommand,
   serializeAws_queryDescribeOrderableClusterOptionsCommand,

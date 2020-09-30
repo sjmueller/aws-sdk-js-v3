@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient.ts";
-import { TestRoleRequest, TestRoleResponse } from "../models/index.ts";
+import { TestRoleRequest, TestRoleResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1TestRoleCommand,
   serializeAws_restJson1TestRoleCommand,

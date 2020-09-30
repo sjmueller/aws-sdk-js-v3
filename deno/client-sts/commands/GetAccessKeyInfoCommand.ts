@@ -1,6 +1,6 @@
 
 import { STSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../STSClient.ts";
-import { GetAccessKeyInfoRequest, GetAccessKeyInfoResponse } from "../models/index.ts";
+import { GetAccessKeyInfoRequest, GetAccessKeyInfoResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetAccessKeyInfoCommand,
   serializeAws_queryGetAccessKeyInfoCommand,

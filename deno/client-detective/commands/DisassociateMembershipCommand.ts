@@ -1,6 +1,6 @@
 
 import { DetectiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DetectiveClient.ts";
-import { DisassociateMembershipRequest } from "../models/index.ts";
+import { DisassociateMembershipRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DisassociateMembershipCommand,
   serializeAws_restJson1DisassociateMembershipCommand,

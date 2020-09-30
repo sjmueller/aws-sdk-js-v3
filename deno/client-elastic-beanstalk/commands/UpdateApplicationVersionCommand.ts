@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { ApplicationVersionDescriptionMessage, UpdateApplicationVersionMessage } from "../models/index.ts";
+import { ApplicationVersionDescriptionMessage, UpdateApplicationVersionMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryUpdateApplicationVersionCommand,
   serializeAws_queryUpdateApplicationVersionCommand,

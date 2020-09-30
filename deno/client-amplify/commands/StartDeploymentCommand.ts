@@ -1,6 +1,6 @@
 
 import { AmplifyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AmplifyClient.ts";
-import { StartDeploymentRequest, StartDeploymentResult } from "../models/index.ts";
+import { StartDeploymentRequest, StartDeploymentResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1StartDeploymentCommand,
   serializeAws_restJson1StartDeploymentCommand,

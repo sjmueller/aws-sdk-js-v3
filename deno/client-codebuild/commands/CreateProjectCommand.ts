@@ -1,6 +1,6 @@
 
 import { CodeBuildClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeBuildClient.ts";
-import { CreateProjectInput, CreateProjectOutput } from "../models/index.ts";
+import { CreateProjectInput, CreateProjectOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateProjectCommand,
   serializeAws_json1_1CreateProjectCommand,

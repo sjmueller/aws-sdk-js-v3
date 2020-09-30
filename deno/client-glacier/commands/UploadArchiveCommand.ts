@@ -1,6 +1,6 @@
 import { Buffer } from "../../buffer/mod.ts";
 import { GlacierClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlacierClient.ts";
-import { ArchiveCreationOutput, UploadArchiveInput } from "../models/index.ts";
+import { ArchiveCreationOutput, UploadArchiveInput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UploadArchiveCommand,
   serializeAws_restJson1UploadArchiveCommand,

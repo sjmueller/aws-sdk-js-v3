@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { ListVPCEConfigurationsRequest, ListVPCEConfigurationsResult } from "../models/index.ts";
+import { ListVPCEConfigurationsRequest, ListVPCEConfigurationsResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListVPCEConfigurationsCommand,
   serializeAws_json1_1ListVPCEConfigurationsCommand,

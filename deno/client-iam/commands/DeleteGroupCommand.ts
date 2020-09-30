@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { DeleteGroupRequest } from "../models/index.ts";
+import { DeleteGroupRequest } from "../models/models_0.ts";
 import { deserializeAws_queryDeleteGroupCommand, serializeAws_queryDeleteGroupCommand } from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";

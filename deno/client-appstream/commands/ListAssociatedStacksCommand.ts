@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { ListAssociatedStacksRequest, ListAssociatedStacksResult } from "../models/index.ts";
+import { ListAssociatedStacksRequest, ListAssociatedStacksResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListAssociatedStacksCommand,
   serializeAws_json1_1ListAssociatedStacksCommand,

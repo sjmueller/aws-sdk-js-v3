@@ -1,6 +1,6 @@
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient.ts";
-import { DescribeResourcePoliciesRequest, DescribeResourcePoliciesResponse } from "../models/index.ts";
+import { DescribeResourcePoliciesRequest, DescribeResourcePoliciesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeResourcePoliciesCommand,
   serializeAws_json1_1DescribeResourcePoliciesCommand,

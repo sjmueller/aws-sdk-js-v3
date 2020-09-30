@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { DeleteAliasRequest, DeleteAliasResponse } from "../models/index.ts";
+import { DeleteAliasRequest, DeleteAliasResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteAliasCommand,
   serializeAws_json1_1DeleteAliasCommand,

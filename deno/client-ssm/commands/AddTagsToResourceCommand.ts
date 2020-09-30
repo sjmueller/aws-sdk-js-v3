@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { AddTagsToResourceRequest, AddTagsToResourceResult } from "../models/index.ts";
+import { AddTagsToResourceRequest, AddTagsToResourceResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AddTagsToResourceCommand,
   serializeAws_json1_1AddTagsToResourceCommand,

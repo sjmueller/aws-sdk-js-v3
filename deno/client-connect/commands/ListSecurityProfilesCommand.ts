@@ -1,6 +1,6 @@
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
-import { ListSecurityProfilesRequest, ListSecurityProfilesResponse } from "../models/index.ts";
+import { ListSecurityProfilesRequest, ListSecurityProfilesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListSecurityProfilesCommand,
   serializeAws_restJson1ListSecurityProfilesCommand,

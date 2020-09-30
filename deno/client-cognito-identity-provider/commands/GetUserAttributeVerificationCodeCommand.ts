@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { GetUserAttributeVerificationCodeRequest, GetUserAttributeVerificationCodeResponse } from "../models/index.ts";
+import { GetUserAttributeVerificationCodeRequest, GetUserAttributeVerificationCodeResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetUserAttributeVerificationCodeCommand,
   serializeAws_json1_1GetUserAttributeVerificationCodeCommand,

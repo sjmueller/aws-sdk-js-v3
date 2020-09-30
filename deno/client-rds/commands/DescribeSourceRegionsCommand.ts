@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { DescribeSourceRegionsMessage, SourceRegionMessage } from "../models/index.ts";
+import { DescribeSourceRegionsMessage, SourceRegionMessage } from "../models/models_1.ts";
 import {
   deserializeAws_queryDescribeSourceRegionsCommand,
   serializeAws_queryDescribeSourceRegionsCommand,

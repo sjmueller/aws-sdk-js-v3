@@ -3,7 +3,7 @@ import { SESClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeleteConfigurationSetEventDestinationRequest,
   DeleteConfigurationSetEventDestinationResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_queryDeleteConfigurationSetEventDestinationCommand,
   serializeAws_queryDeleteConfigurationSetEventDestinationCommand,

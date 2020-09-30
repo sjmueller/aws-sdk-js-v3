@@ -1,6 +1,6 @@
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient.ts";
-import { DescribeEventSourceRequest, DescribeEventSourceResponse } from "../models/index.ts";
+import { DescribeEventSourceRequest, DescribeEventSourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeEventSourceCommand,
   serializeAws_json1_1DescribeEventSourceCommand,
@@ -44,8 +44,11 @@ export class DescribeEventSourceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeEventSourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

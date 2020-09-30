@@ -1,6 +1,6 @@
 
 import { DynamoDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DynamoDBClient.ts";
-import { UpdateContinuousBackupsInput, UpdateContinuousBackupsOutput } from "../models/index.ts";
+import { UpdateContinuousBackupsInput, UpdateContinuousBackupsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_0UpdateContinuousBackupsCommand,
   serializeAws_json1_0UpdateContinuousBackupsCommand,

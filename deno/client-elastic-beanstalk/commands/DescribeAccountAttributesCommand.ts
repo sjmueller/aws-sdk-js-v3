@@ -1,6 +1,6 @@
 
 import { ElasticBeanstalkClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElasticBeanstalkClient.ts";
-import { DescribeAccountAttributesResult } from "../models/index.ts";
+import { DescribeAccountAttributesResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeAccountAttributesCommand,
   serializeAws_queryDescribeAccountAttributesCommand,

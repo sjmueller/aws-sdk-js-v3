@@ -1,6 +1,6 @@
 
 import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SESv2Client.ts";
-import { PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse } from "../models/index.ts";
+import { PutAccountSendingAttributesRequest, PutAccountSendingAttributesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutAccountSendingAttributesCommand,
   serializeAws_restJson1PutAccountSendingAttributesCommand,

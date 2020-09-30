@@ -1,6 +1,6 @@
 
 import { HealthClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../HealthClient.ts";
-import { DescribeHealthServiceStatusForOrganizationResponse } from "../models/index.ts";
+import { DescribeHealthServiceStatusForOrganizationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand,
   serializeAws_json1_1DescribeHealthServiceStatusForOrganizationCommand,

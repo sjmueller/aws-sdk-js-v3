@@ -1,6 +1,6 @@
 
 import { CognitoSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoSyncClient.ts";
-import { SubscribeToDatasetRequest, SubscribeToDatasetResponse } from "../models/index.ts";
+import { SubscribeToDatasetRequest, SubscribeToDatasetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1SubscribeToDatasetCommand,
   serializeAws_restJson1SubscribeToDatasetCommand,

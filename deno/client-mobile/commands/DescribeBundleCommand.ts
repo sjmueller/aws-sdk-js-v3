@@ -1,6 +1,6 @@
 
 import { MobileClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MobileClient.ts";
-import { DescribeBundleRequest, DescribeBundleResult } from "../models/index.ts";
+import { DescribeBundleRequest, DescribeBundleResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeBundleCommand,
   serializeAws_restJson1DescribeBundleCommand,

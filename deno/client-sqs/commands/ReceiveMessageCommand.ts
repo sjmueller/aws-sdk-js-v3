@@ -1,6 +1,6 @@
 
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient.ts";
-import { ReceiveMessageRequest, ReceiveMessageResult } from "../models/index.ts";
+import { ReceiveMessageRequest, ReceiveMessageResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryReceiveMessageCommand,
   serializeAws_queryReceiveMessageCommand,

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { RefreshCacheInput, RefreshCacheOutput } from "../models/index.ts";
+import { RefreshCacheInput, RefreshCacheOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RefreshCacheCommand,
   serializeAws_json1_1RefreshCacheCommand,

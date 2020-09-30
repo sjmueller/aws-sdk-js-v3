@@ -1,6 +1,6 @@
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient.ts";
-import { Deployment, GetDeploymentRequest } from "../models/index.ts";
+import { Deployment, GetDeploymentRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetDeploymentCommand,
   serializeAws_restJson1GetDeploymentCommand,

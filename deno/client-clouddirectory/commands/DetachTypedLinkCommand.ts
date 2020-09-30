@@ -1,6 +1,6 @@
 
 import { CloudDirectoryClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudDirectoryClient.ts";
-import { DetachTypedLinkRequest } from "../models/index.ts";
+import { DetachTypedLinkRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DetachTypedLinkCommand,
   serializeAws_restJson1DetachTypedLinkCommand,

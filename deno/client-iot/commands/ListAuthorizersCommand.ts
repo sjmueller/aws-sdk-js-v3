@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { ListAuthorizersRequest, ListAuthorizersResponse } from "../models/index.ts";
+import { ListAuthorizersRequest, ListAuthorizersResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1ListAuthorizersCommand,
   serializeAws_restJson1ListAuthorizersCommand,

@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { DeleteAccountRequest, DeleteAccountResponse } from "../models/index.ts";
+import { DeleteAccountRequest, DeleteAccountResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeleteAccountCommand,
   serializeAws_restJson1DeleteAccountCommand,

@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { AddSourceIdentifierToSubscriptionMessage, AddSourceIdentifierToSubscriptionResult } from "../models/index.ts";
+import { AddSourceIdentifierToSubscriptionMessage, AddSourceIdentifierToSubscriptionResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryAddSourceIdentifierToSubscriptionCommand,
   serializeAws_queryAddSourceIdentifierToSubscriptionCommand,

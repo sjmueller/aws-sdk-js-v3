@@ -1,6 +1,6 @@
 
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient.ts";
-import { CreateFilterRequest, CreateFilterResponse } from "../models/index.ts";
+import { CreateFilterRequest, CreateFilterResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateFilterCommand,
   serializeAws_restJson1CreateFilterCommand,

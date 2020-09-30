@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient.ts";
-import { UpdatePipelineStatusRequest, UpdatePipelineStatusResponse } from "../models/index.ts";
+import { UpdatePipelineStatusRequest, UpdatePipelineStatusResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdatePipelineStatusCommand,
   serializeAws_restJson1UpdatePipelineStatusCommand,

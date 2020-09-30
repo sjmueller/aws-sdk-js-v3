@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { AddPermissionRequest, AddPermissionResponse } from "../models/index.ts";
+import { AddPermissionRequest, AddPermissionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AddPermissionCommand,
   serializeAws_restJson1AddPermissionCommand,

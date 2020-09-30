@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { CreateDocumentRequest, CreateDocumentResult } from "../models/index.ts";
+import { CreateDocumentRequest, CreateDocumentResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateDocumentCommand,
   serializeAws_json1_1CreateDocumentCommand,

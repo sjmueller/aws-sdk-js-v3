@@ -117,7 +117,7 @@ import {
   Task,
   ThrottlingException,
   UnauthorizedOperation,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -361,7 +361,6 @@ export const deserializeAws_json1_1AssociateCreatedArtifactCommand = async (
   contents = deserializeAws_json1_1AssociateCreatedArtifactResult(data, context);
   const response: AssociateCreatedArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateCreatedArtifactResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -481,7 +480,6 @@ export const deserializeAws_json1_1AssociateDiscoveredResourceCommand = async (
   contents = deserializeAws_json1_1AssociateDiscoveredResourceResult(data, context);
   const response: AssociateDiscoveredResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateDiscoveredResourceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -609,7 +607,6 @@ export const deserializeAws_json1_1CreateProgressUpdateStreamCommand = async (
   contents = deserializeAws_json1_1CreateProgressUpdateStreamResult(data, context);
   const response: CreateProgressUpdateStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProgressUpdateStreamResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -721,7 +718,6 @@ export const deserializeAws_json1_1DeleteProgressUpdateStreamCommand = async (
   contents = deserializeAws_json1_1DeleteProgressUpdateStreamResult(data, context);
   const response: DeleteProgressUpdateStreamCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProgressUpdateStreamResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -841,7 +837,6 @@ export const deserializeAws_json1_1DescribeApplicationStateCommand = async (
   contents = deserializeAws_json1_1DescribeApplicationStateResult(data, context);
   const response: DescribeApplicationStateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeApplicationStateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -953,7 +948,6 @@ export const deserializeAws_json1_1DescribeMigrationTaskCommand = async (
   contents = deserializeAws_json1_1DescribeMigrationTaskResult(data, context);
   const response: DescribeMigrationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMigrationTaskResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1057,7 +1051,6 @@ export const deserializeAws_json1_1DisassociateCreatedArtifactCommand = async (
   contents = deserializeAws_json1_1DisassociateCreatedArtifactResult(data, context);
   const response: DisassociateCreatedArtifactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateCreatedArtifactResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1177,7 +1170,6 @@ export const deserializeAws_json1_1DisassociateDiscoveredResourceCommand = async
   contents = deserializeAws_json1_1DisassociateDiscoveredResourceResult(data, context);
   const response: DisassociateDiscoveredResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateDiscoveredResourceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1297,7 +1289,6 @@ export const deserializeAws_json1_1ImportMigrationTaskCommand = async (
   contents = deserializeAws_json1_1ImportMigrationTaskResult(data, context);
   const response: ImportMigrationTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportMigrationTaskResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1417,7 +1408,6 @@ export const deserializeAws_json1_1ListApplicationStatesCommand = async (
   contents = deserializeAws_json1_1ListApplicationStatesResult(data, context);
   const response: ListApplicationStatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListApplicationStatesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1513,7 +1503,6 @@ export const deserializeAws_json1_1ListCreatedArtifactsCommand = async (
   contents = deserializeAws_json1_1ListCreatedArtifactsResult(data, context);
   const response: ListCreatedArtifactsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCreatedArtifactsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1617,7 +1606,6 @@ export const deserializeAws_json1_1ListDiscoveredResourcesCommand = async (
   contents = deserializeAws_json1_1ListDiscoveredResourcesResult(data, context);
   const response: ListDiscoveredResourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDiscoveredResourcesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1721,7 +1709,6 @@ export const deserializeAws_json1_1ListMigrationTasksCommand = async (
   contents = deserializeAws_json1_1ListMigrationTasksResult(data, context);
   const response: ListMigrationTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMigrationTasksResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1833,7 +1820,6 @@ export const deserializeAws_json1_1ListProgressUpdateStreamsCommand = async (
   contents = deserializeAws_json1_1ListProgressUpdateStreamsResult(data, context);
   const response: ListProgressUpdateStreamsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListProgressUpdateStreamsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1929,7 +1915,6 @@ export const deserializeAws_json1_1NotifyApplicationStateCommand = async (
   contents = deserializeAws_json1_1NotifyApplicationStateResult(data, context);
   const response: NotifyApplicationStateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "NotifyApplicationStateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2057,7 +2042,6 @@ export const deserializeAws_json1_1NotifyMigrationTaskStateCommand = async (
   contents = deserializeAws_json1_1NotifyMigrationTaskStateResult(data, context);
   const response: NotifyMigrationTaskStateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "NotifyMigrationTaskStateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2177,7 +2161,6 @@ export const deserializeAws_json1_1PutResourceAttributesCommand = async (
   contents = deserializeAws_json1_1PutResourceAttributesResult(data, context);
   const response: PutResourceAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutResourceAttributesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2674,14 +2657,12 @@ const serializeAws_json1_1Task = (input: Task, context: __SerdeContext): any => 
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ApplicationState = (output: any, context: __SerdeContext): ApplicationState => {
   return {
-    __type: "ApplicationState",
     ApplicationId:
       output.ApplicationId !== undefined && output.ApplicationId !== null ? output.ApplicationId : undefined,
     ApplicationStatus:
@@ -2703,23 +2684,18 @@ const deserializeAws_json1_1AssociateCreatedArtifactResult = (
   output: any,
   context: __SerdeContext
 ): AssociateCreatedArtifactResult => {
-  return {
-    __type: "AssociateCreatedArtifactResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateDiscoveredResourceResult = (
   output: any,
   context: __SerdeContext
 ): AssociateDiscoveredResourceResult => {
-  return {
-    __type: "AssociateDiscoveredResourceResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreatedArtifact = (output: any, context: __SerdeContext): CreatedArtifact => {
   return {
-    __type: "CreatedArtifact",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
   } as any;
@@ -2733,18 +2709,14 @@ const deserializeAws_json1_1CreateProgressUpdateStreamResult = (
   output: any,
   context: __SerdeContext
 ): CreateProgressUpdateStreamResult => {
-  return {
-    __type: "CreateProgressUpdateStreamResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteProgressUpdateStreamResult = (
   output: any,
   context: __SerdeContext
 ): DeleteProgressUpdateStreamResult => {
-  return {
-    __type: "DeleteProgressUpdateStreamResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DescribeApplicationStateResult = (
@@ -2752,7 +2724,6 @@ const deserializeAws_json1_1DescribeApplicationStateResult = (
   context: __SerdeContext
 ): DescribeApplicationStateResult => {
   return {
-    __type: "DescribeApplicationStateResult",
     ApplicationStatus:
       output.ApplicationStatus !== undefined && output.ApplicationStatus !== null
         ? output.ApplicationStatus
@@ -2769,7 +2740,6 @@ const deserializeAws_json1_1DescribeMigrationTaskResult = (
   context: __SerdeContext
 ): DescribeMigrationTaskResult => {
   return {
-    __type: "DescribeMigrationTaskResult",
     MigrationTask:
       output.MigrationTask !== undefined && output.MigrationTask !== null
         ? deserializeAws_json1_1MigrationTask(output.MigrationTask, context)
@@ -2781,23 +2751,18 @@ const deserializeAws_json1_1DisassociateCreatedArtifactResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateCreatedArtifactResult => {
-  return {
-    __type: "DisassociateCreatedArtifactResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateDiscoveredResourceResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateDiscoveredResourceResult => {
-  return {
-    __type: "DisassociateDiscoveredResourceResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DiscoveredResource = (output: any, context: __SerdeContext): DiscoveredResource => {
   return {
-    __type: "DiscoveredResource",
     ConfigurationId:
       output.ConfigurationId !== undefined && output.ConfigurationId !== null ? output.ConfigurationId : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -2810,7 +2775,6 @@ const deserializeAws_json1_1DiscoveredResourceList = (output: any, context: __Se
 
 const deserializeAws_json1_1DryRunOperation = (output: any, context: __SerdeContext): DryRunOperation => {
   return {
-    __type: "DryRunOperation",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2820,7 +2784,6 @@ const deserializeAws_json1_1HomeRegionNotSetException = (
   context: __SerdeContext
 ): HomeRegionNotSetException => {
   return {
-    __type: "HomeRegionNotSetException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2829,21 +2792,17 @@ const deserializeAws_json1_1ImportMigrationTaskResult = (
   output: any,
   context: __SerdeContext
 ): ImportMigrationTaskResult => {
-  return {
-    __type: "ImportMigrationTaskResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1InternalServerError = (output: any, context: __SerdeContext): InternalServerError => {
   return {
-    __type: "InternalServerError",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    __type: "InvalidInputException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2860,7 +2819,6 @@ const deserializeAws_json1_1ListApplicationStatesResult = (
   context: __SerdeContext
 ): ListApplicationStatesResult => {
   return {
-    __type: "ListApplicationStatesResult",
     ApplicationStateList:
       output.ApplicationStateList !== undefined && output.ApplicationStateList !== null
         ? deserializeAws_json1_1ApplicationStateList(output.ApplicationStateList, context)
@@ -2874,7 +2832,6 @@ const deserializeAws_json1_1ListCreatedArtifactsResult = (
   context: __SerdeContext
 ): ListCreatedArtifactsResult => {
   return {
-    __type: "ListCreatedArtifactsResult",
     CreatedArtifactList:
       output.CreatedArtifactList !== undefined && output.CreatedArtifactList !== null
         ? deserializeAws_json1_1CreatedArtifactList(output.CreatedArtifactList, context)
@@ -2888,7 +2845,6 @@ const deserializeAws_json1_1ListDiscoveredResourcesResult = (
   context: __SerdeContext
 ): ListDiscoveredResourcesResult => {
   return {
-    __type: "ListDiscoveredResourcesResult",
     DiscoveredResourceList:
       output.DiscoveredResourceList !== undefined && output.DiscoveredResourceList !== null
         ? deserializeAws_json1_1DiscoveredResourceList(output.DiscoveredResourceList, context)
@@ -2902,7 +2858,6 @@ const deserializeAws_json1_1ListMigrationTasksResult = (
   context: __SerdeContext
 ): ListMigrationTasksResult => {
   return {
-    __type: "ListMigrationTasksResult",
     MigrationTaskSummaryList:
       output.MigrationTaskSummaryList !== undefined && output.MigrationTaskSummaryList !== null
         ? deserializeAws_json1_1MigrationTaskSummaryList(output.MigrationTaskSummaryList, context)
@@ -2916,7 +2871,6 @@ const deserializeAws_json1_1ListProgressUpdateStreamsResult = (
   context: __SerdeContext
 ): ListProgressUpdateStreamsResult => {
   return {
-    __type: "ListProgressUpdateStreamsResult",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     ProgressUpdateStreamSummaryList:
       output.ProgressUpdateStreamSummaryList !== undefined && output.ProgressUpdateStreamSummaryList !== null
@@ -2927,7 +2881,6 @@ const deserializeAws_json1_1ListProgressUpdateStreamsResult = (
 
 const deserializeAws_json1_1MigrationTask = (output: any, context: __SerdeContext): MigrationTask => {
   return {
-    __type: "MigrationTask",
     MigrationTaskName:
       output.MigrationTaskName !== undefined && output.MigrationTaskName !== null
         ? output.MigrationTaskName
@@ -2951,7 +2904,6 @@ const deserializeAws_json1_1MigrationTask = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1MigrationTaskSummary = (output: any, context: __SerdeContext): MigrationTaskSummary => {
   return {
-    __type: "MigrationTaskSummary",
     MigrationTaskName:
       output.MigrationTaskName !== undefined && output.MigrationTaskName !== null
         ? output.MigrationTaskName
@@ -2982,23 +2934,18 @@ const deserializeAws_json1_1NotifyApplicationStateResult = (
   output: any,
   context: __SerdeContext
 ): NotifyApplicationStateResult => {
-  return {
-    __type: "NotifyApplicationStateResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1NotifyMigrationTaskStateResult = (
   output: any,
   context: __SerdeContext
 ): NotifyMigrationTaskStateResult => {
-  return {
-    __type: "NotifyMigrationTaskStateResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PolicyErrorException = (output: any, context: __SerdeContext): PolicyErrorException => {
   return {
-    __type: "PolicyErrorException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3008,7 +2955,6 @@ const deserializeAws_json1_1ProgressUpdateStreamSummary = (
   context: __SerdeContext
 ): ProgressUpdateStreamSummary => {
   return {
-    __type: "ProgressUpdateStreamSummary",
     ProgressUpdateStreamName:
       output.ProgressUpdateStreamName !== undefined && output.ProgressUpdateStreamName !== null
         ? output.ProgressUpdateStreamName
@@ -3027,14 +2973,11 @@ const deserializeAws_json1_1PutResourceAttributesResult = (
   output: any,
   context: __SerdeContext
 ): PutResourceAttributesResult => {
-  return {
-    __type: "PutResourceAttributesResult",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ResourceAttribute = (output: any, context: __SerdeContext): ResourceAttribute => {
   return {
-    __type: "ResourceAttribute",
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -3045,7 +2988,6 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3055,14 +2997,12 @@ const deserializeAws_json1_1ServiceUnavailableException = (
   context: __SerdeContext
 ): ServiceUnavailableException => {
   return {
-    __type: "ServiceUnavailableException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Task = (output: any, context: __SerdeContext): Task => {
   return {
-    __type: "Task",
     ProgressPercent:
       output.ProgressPercent !== undefined && output.ProgressPercent !== null ? output.ProgressPercent : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
@@ -3072,7 +3012,6 @@ const deserializeAws_json1_1Task = (output: any, context: __SerdeContext): Task 
 
 const deserializeAws_json1_1ThrottlingException = (output: any, context: __SerdeContext): ThrottlingException => {
   return {
-    __type: "ThrottlingException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     RetryAfterSeconds:
       output.RetryAfterSeconds !== undefined && output.RetryAfterSeconds !== null
@@ -3083,7 +3022,6 @@ const deserializeAws_json1_1ThrottlingException = (output: any, context: __Serde
 
 const deserializeAws_json1_1UnauthorizedOperation = (output: any, context: __SerdeContext): UnauthorizedOperation => {
   return {
-    __type: "UnauthorizedOperation",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };

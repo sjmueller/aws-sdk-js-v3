@@ -1,6 +1,6 @@
 
 import { CloudHSMV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMV2Client.ts";
-import { CopyBackupToRegionRequest, CopyBackupToRegionResponse } from "../models/index.ts";
+import { CopyBackupToRegionRequest, CopyBackupToRegionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CopyBackupToRegionCommand,
   serializeAws_json1_1CopyBackupToRegionCommand,

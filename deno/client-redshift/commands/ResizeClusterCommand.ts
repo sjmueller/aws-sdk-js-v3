@@ -1,6 +1,7 @@
 
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient.ts";
-import { ResizeClusterMessage, ResizeClusterResult } from "../models/index.ts";
+import { ResizeClusterMessage } from "../models/models_0.ts";
+import { ResizeClusterResult } from "../models/models_1.ts";
 import {
   deserializeAws_queryResizeClusterCommand,
   serializeAws_queryResizeClusterCommand,

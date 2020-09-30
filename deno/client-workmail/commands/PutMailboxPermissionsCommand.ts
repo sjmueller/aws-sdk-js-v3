@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient.ts";
-import { PutMailboxPermissionsRequest, PutMailboxPermissionsResponse } from "../models/index.ts";
+import { PutMailboxPermissionsRequest, PutMailboxPermissionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutMailboxPermissionsCommand,
   serializeAws_json1_1PutMailboxPermissionsCommand,

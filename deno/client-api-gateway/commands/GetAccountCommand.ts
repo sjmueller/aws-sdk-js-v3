@@ -1,6 +1,6 @@
 
 import { APIGatewayClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../APIGatewayClient.ts";
-import { Account, GetAccountRequest } from "../models/index.ts";
+import { Account, GetAccountRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetAccountCommand,
   serializeAws_restJson1GetAccountCommand,

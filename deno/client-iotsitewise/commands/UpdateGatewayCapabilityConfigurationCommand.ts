@@ -3,7 +3,7 @@ import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   UpdateGatewayCapabilityConfigurationRequest,
   UpdateGatewayCapabilityConfigurationResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand,
   serializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand,

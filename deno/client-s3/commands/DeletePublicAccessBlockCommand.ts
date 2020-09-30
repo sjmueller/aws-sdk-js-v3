@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { DeletePublicAccessBlockRequest } from "../models/index.ts";
+import { DeletePublicAccessBlockRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlDeletePublicAccessBlockCommand,
   serializeAws_restXmlDeletePublicAccessBlockCommand,

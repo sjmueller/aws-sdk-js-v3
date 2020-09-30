@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { ListVoiceConnectorsRequest, ListVoiceConnectorsResponse } from "../models/index.ts";
+import { ListVoiceConnectorsRequest, ListVoiceConnectorsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListVoiceConnectorsCommand,
   serializeAws_restJson1ListVoiceConnectorsCommand,

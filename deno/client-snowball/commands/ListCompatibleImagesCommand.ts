@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } from "../SnowballClient.ts";
-import { ListCompatibleImagesRequest, ListCompatibleImagesResult } from "../models/index.ts";
+import { ListCompatibleImagesRequest, ListCompatibleImagesResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListCompatibleImagesCommand,
   serializeAws_json1_1ListCompatibleImagesCommand,

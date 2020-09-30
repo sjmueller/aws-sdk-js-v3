@@ -1,6 +1,6 @@
 
 import { FMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FMSClient.ts";
-import { AssociateAdminAccountRequest } from "../models/index.ts";
+import { AssociateAdminAccountRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AssociateAdminAccountCommand,
   serializeAws_json1_1AssociateAdminAccountCommand,

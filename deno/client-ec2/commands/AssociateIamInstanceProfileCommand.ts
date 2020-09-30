@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { AssociateIamInstanceProfileRequest, AssociateIamInstanceProfileResult } from "../models/index.ts";
+import { AssociateIamInstanceProfileRequest, AssociateIamInstanceProfileResult } from "../models/models_0.ts";
 import {
   deserializeAws_ec2AssociateIamInstanceProfileCommand,
   serializeAws_ec2AssociateIamInstanceProfileCommand,

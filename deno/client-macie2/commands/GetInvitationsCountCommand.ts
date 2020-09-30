@@ -1,6 +1,6 @@
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client.ts";
-import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/index.ts";
+import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetInvitationsCountCommand,
   serializeAws_restJson1GetInvitationsCountCommand,

@@ -1,6 +1,6 @@
 
 import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RAMClient.ts";
-import { EnableSharingWithAwsOrganizationRequest, EnableSharingWithAwsOrganizationResponse } from "../models/index.ts";
+import { EnableSharingWithAwsOrganizationRequest, EnableSharingWithAwsOrganizationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1EnableSharingWithAwsOrganizationCommand,
   serializeAws_restJson1EnableSharingWithAwsOrganizationCommand,

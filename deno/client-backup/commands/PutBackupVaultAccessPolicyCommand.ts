@@ -1,6 +1,6 @@
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
-import { PutBackupVaultAccessPolicyInput } from "../models/index.ts";
+import { PutBackupVaultAccessPolicyInput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1PutBackupVaultAccessPolicyCommand,
   serializeAws_restJson1PutBackupVaultAccessPolicyCommand,

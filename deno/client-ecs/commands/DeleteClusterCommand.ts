@@ -1,6 +1,6 @@
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient.ts";
-import { DeleteClusterRequest, DeleteClusterResponse } from "../models/index.ts";
+import { DeleteClusterRequest, DeleteClusterResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteClusterCommand,
   serializeAws_json1_1DeleteClusterCommand,

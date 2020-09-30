@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { UpdateMyUserProfileRequest } from "../models/index.ts";
+import { UpdateMyUserProfileRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateMyUserProfileCommand,
   serializeAws_json1_1UpdateMyUserProfileCommand,

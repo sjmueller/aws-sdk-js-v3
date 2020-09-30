@@ -124,7 +124,7 @@ import {
   UpdateInstanceCustomHealthStatusRequest,
   UpdateServiceRequest,
   UpdateServiceResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   HttpRequest as __HttpRequest,
   HttpResponse as __HttpResponse,
@@ -458,7 +458,6 @@ export const deserializeAws_json1_1CreateHttpNamespaceCommand = async (
   contents = deserializeAws_json1_1CreateHttpNamespaceResponse(data, context);
   const response: CreateHttpNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateHttpNamespaceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -546,7 +545,6 @@ export const deserializeAws_json1_1CreatePrivateDnsNamespaceCommand = async (
   contents = deserializeAws_json1_1CreatePrivateDnsNamespaceResponse(data, context);
   const response: CreatePrivateDnsNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePrivateDnsNamespaceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -634,7 +632,6 @@ export const deserializeAws_json1_1CreatePublicDnsNamespaceCommand = async (
   contents = deserializeAws_json1_1CreatePublicDnsNamespaceResponse(data, context);
   const response: CreatePublicDnsNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePublicDnsNamespaceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -722,7 +719,6 @@ export const deserializeAws_json1_1CreateServiceCommand = async (
   contents = deserializeAws_json1_1CreateServiceResponse(data, context);
   const response: CreateServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateServiceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -810,7 +806,6 @@ export const deserializeAws_json1_1DeleteNamespaceCommand = async (
   contents = deserializeAws_json1_1DeleteNamespaceResponse(data, context);
   const response: DeleteNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteNamespaceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -890,7 +885,6 @@ export const deserializeAws_json1_1DeleteServiceCommand = async (
   contents = deserializeAws_json1_1DeleteServiceResponse(data, context);
   const response: DeleteServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteServiceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -962,7 +956,6 @@ export const deserializeAws_json1_1DeregisterInstanceCommand = async (
   contents = deserializeAws_json1_1DeregisterInstanceResponse(data, context);
   const response: DeregisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterInstanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1050,7 +1043,6 @@ export const deserializeAws_json1_1DiscoverInstancesCommand = async (
   contents = deserializeAws_json1_1DiscoverInstancesResponse(data, context);
   const response: DiscoverInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DiscoverInstancesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1130,7 +1122,6 @@ export const deserializeAws_json1_1GetInstanceCommand = async (
   contents = deserializeAws_json1_1GetInstanceResponse(data, context);
   const response: GetInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInstanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1202,7 +1193,6 @@ export const deserializeAws_json1_1GetInstancesHealthStatusCommand = async (
   contents = deserializeAws_json1_1GetInstancesHealthStatusResponse(data, context);
   const response: GetInstancesHealthStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInstancesHealthStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1274,7 +1264,6 @@ export const deserializeAws_json1_1GetNamespaceCommand = async (
   contents = deserializeAws_json1_1GetNamespaceResponse(data, context);
   const response: GetNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetNamespaceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1338,7 +1327,6 @@ export const deserializeAws_json1_1GetOperationCommand = async (
   contents = deserializeAws_json1_1GetOperationResponse(data, context);
   const response: GetOperationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetOperationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1402,7 +1390,6 @@ export const deserializeAws_json1_1GetServiceCommand = async (
   contents = deserializeAws_json1_1GetServiceResponse(data, context);
   const response: GetServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetServiceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1466,7 +1453,6 @@ export const deserializeAws_json1_1ListInstancesCommand = async (
   contents = deserializeAws_json1_1ListInstancesResponse(data, context);
   const response: ListInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInstancesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1530,7 +1516,6 @@ export const deserializeAws_json1_1ListNamespacesCommand = async (
   contents = deserializeAws_json1_1ListNamespacesResponse(data, context);
   const response: ListNamespacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListNamespacesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1586,7 +1571,6 @@ export const deserializeAws_json1_1ListOperationsCommand = async (
   contents = deserializeAws_json1_1ListOperationsResponse(data, context);
   const response: ListOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListOperationsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1642,7 +1626,6 @@ export const deserializeAws_json1_1ListServicesCommand = async (
   contents = deserializeAws_json1_1ListServicesResponse(data, context);
   const response: ListServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListServicesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1698,7 +1681,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1762,7 +1744,6 @@ export const deserializeAws_json1_1RegisterInstanceCommand = async (
   contents = deserializeAws_json1_1RegisterInstanceResponse(data, context);
   const response: RegisterInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterInstanceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1850,7 +1831,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1922,7 +1902,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2062,7 +2041,6 @@ export const deserializeAws_json1_1UpdateServiceCommand = async (
   contents = deserializeAws_json1_1UpdateServiceResponse(data, context);
   const response: UpdateServiceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateServiceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2675,7 +2653,6 @@ const deserializeAws_json1_1CreateHttpNamespaceResponse = (
   context: __SerdeContext
 ): CreateHttpNamespaceResponse => {
   return {
-    __type: "CreateHttpNamespaceResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
@@ -2685,7 +2662,6 @@ const deserializeAws_json1_1CreatePrivateDnsNamespaceResponse = (
   context: __SerdeContext
 ): CreatePrivateDnsNamespaceResponse => {
   return {
-    __type: "CreatePrivateDnsNamespaceResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
@@ -2695,14 +2671,12 @@ const deserializeAws_json1_1CreatePublicDnsNamespaceResponse = (
   context: __SerdeContext
 ): CreatePublicDnsNamespaceResponse => {
   return {
-    __type: "CreatePublicDnsNamespaceResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateServiceResponse = (output: any, context: __SerdeContext): CreateServiceResponse => {
   return {
-    __type: "CreateServiceResponse",
     Service:
       output.Service !== undefined && output.Service !== null
         ? deserializeAws_json1_1Service(output.Service, context)
@@ -2712,7 +2686,6 @@ const deserializeAws_json1_1CreateServiceResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1CustomHealthNotFound = (output: any, context: __SerdeContext): CustomHealthNotFound => {
   return {
-    __type: "CustomHealthNotFound",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -2722,15 +2695,12 @@ const deserializeAws_json1_1DeleteNamespaceResponse = (
   context: __SerdeContext
 ): DeleteNamespaceResponse => {
   return {
-    __type: "DeleteNamespaceResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeleteServiceResponse = (output: any, context: __SerdeContext): DeleteServiceResponse => {
-  return {
-    __type: "DeleteServiceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeregisterInstanceResponse = (
@@ -2738,7 +2708,6 @@ const deserializeAws_json1_1DeregisterInstanceResponse = (
   context: __SerdeContext
 ): DeregisterInstanceResponse => {
   return {
-    __type: "DeregisterInstanceResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
@@ -2748,7 +2717,6 @@ const deserializeAws_json1_1DiscoverInstancesResponse = (
   context: __SerdeContext
 ): DiscoverInstancesResponse => {
   return {
-    __type: "DiscoverInstancesResponse",
     Instances:
       output.Instances !== undefined && output.Instances !== null
         ? deserializeAws_json1_1HttpInstanceSummaryList(output.Instances, context)
@@ -2758,7 +2726,6 @@ const deserializeAws_json1_1DiscoverInstancesResponse = (
 
 const deserializeAws_json1_1DnsConfig = (output: any, context: __SerdeContext): DnsConfig => {
   return {
-    __type: "DnsConfig",
     DnsRecords:
       output.DnsRecords !== undefined && output.DnsRecords !== null
         ? deserializeAws_json1_1DnsRecordList(output.DnsRecords, context)
@@ -2771,14 +2738,12 @@ const deserializeAws_json1_1DnsConfig = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1DnsProperties = (output: any, context: __SerdeContext): DnsProperties => {
   return {
-    __type: "DnsProperties",
     HostedZoneId: output.HostedZoneId !== undefined && output.HostedZoneId !== null ? output.HostedZoneId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DnsRecord = (output: any, context: __SerdeContext): DnsRecord => {
   return {
-    __type: "DnsRecord",
     TTL: output.TTL !== undefined && output.TTL !== null ? output.TTL : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -2790,7 +2755,6 @@ const deserializeAws_json1_1DnsRecordList = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1DuplicateRequest = (output: any, context: __SerdeContext): DuplicateRequest => {
   return {
-    __type: "DuplicateRequest",
     DuplicateOperationId:
       output.DuplicateOperationId !== undefined && output.DuplicateOperationId !== null
         ? output.DuplicateOperationId
@@ -2801,7 +2765,6 @@ const deserializeAws_json1_1DuplicateRequest = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1GetInstanceResponse = (output: any, context: __SerdeContext): GetInstanceResponse => {
   return {
-    __type: "GetInstanceResponse",
     Instance:
       output.Instance !== undefined && output.Instance !== null
         ? deserializeAws_json1_1Instance(output.Instance, context)
@@ -2814,7 +2777,6 @@ const deserializeAws_json1_1GetInstancesHealthStatusResponse = (
   context: __SerdeContext
 ): GetInstancesHealthStatusResponse => {
   return {
-    __type: "GetInstancesHealthStatusResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
@@ -2825,7 +2787,6 @@ const deserializeAws_json1_1GetInstancesHealthStatusResponse = (
 
 const deserializeAws_json1_1GetNamespaceResponse = (output: any, context: __SerdeContext): GetNamespaceResponse => {
   return {
-    __type: "GetNamespaceResponse",
     Namespace:
       output.Namespace !== undefined && output.Namespace !== null
         ? deserializeAws_json1_1Namespace(output.Namespace, context)
@@ -2835,7 +2796,6 @@ const deserializeAws_json1_1GetNamespaceResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1GetOperationResponse = (output: any, context: __SerdeContext): GetOperationResponse => {
   return {
-    __type: "GetOperationResponse",
     Operation:
       output.Operation !== undefined && output.Operation !== null
         ? deserializeAws_json1_1Operation(output.Operation, context)
@@ -2845,7 +2805,6 @@ const deserializeAws_json1_1GetOperationResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1GetServiceResponse = (output: any, context: __SerdeContext): GetServiceResponse => {
   return {
-    __type: "GetServiceResponse",
     Service:
       output.Service !== undefined && output.Service !== null
         ? deserializeAws_json1_1Service(output.Service, context)
@@ -2855,7 +2814,6 @@ const deserializeAws_json1_1GetServiceResponse = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1HealthCheckConfig = (output: any, context: __SerdeContext): HealthCheckConfig => {
   return {
-    __type: "HealthCheckConfig",
     FailureThreshold:
       output.FailureThreshold !== undefined && output.FailureThreshold !== null ? output.FailureThreshold : undefined,
     ResourcePath: output.ResourcePath !== undefined && output.ResourcePath !== null ? output.ResourcePath : undefined,
@@ -2868,7 +2826,6 @@ const deserializeAws_json1_1HealthCheckCustomConfig = (
   context: __SerdeContext
 ): HealthCheckCustomConfig => {
   return {
-    __type: "HealthCheckCustomConfig",
     FailureThreshold:
       output.FailureThreshold !== undefined && output.FailureThreshold !== null ? output.FailureThreshold : undefined,
   } as any;
@@ -2876,7 +2833,6 @@ const deserializeAws_json1_1HealthCheckCustomConfig = (
 
 const deserializeAws_json1_1HttpInstanceSummary = (output: any, context: __SerdeContext): HttpInstanceSummary => {
   return {
-    __type: "HttpInstanceSummary",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1Attributes(output.Attributes, context)
@@ -2895,14 +2851,12 @@ const deserializeAws_json1_1HttpInstanceSummaryList = (output: any, context: __S
 
 const deserializeAws_json1_1HttpProperties = (output: any, context: __SerdeContext): HttpProperties => {
   return {
-    __type: "HttpProperties",
     HttpName: output.HttpName !== undefined && output.HttpName !== null ? output.HttpName : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): Instance => {
   return {
-    __type: "Instance",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1Attributes(output.Attributes, context)
@@ -2928,14 +2882,12 @@ const deserializeAws_json1_1InstanceHealthStatusMap = (
 
 const deserializeAws_json1_1InstanceNotFound = (output: any, context: __SerdeContext): InstanceNotFound => {
   return {
-    __type: "InstanceNotFound",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InstanceSummary = (output: any, context: __SerdeContext): InstanceSummary => {
   return {
-    __type: "InstanceSummary",
     Attributes:
       output.Attributes !== undefined && output.Attributes !== null
         ? deserializeAws_json1_1Attributes(output.Attributes, context)
@@ -2950,14 +2902,12 @@ const deserializeAws_json1_1InstanceSummaryList = (output: any, context: __Serde
 
 const deserializeAws_json1_1InvalidInput = (output: any, context: __SerdeContext): InvalidInput => {
   return {
-    __type: "InvalidInput",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ListInstancesResponse = (output: any, context: __SerdeContext): ListInstancesResponse => {
   return {
-    __type: "ListInstancesResponse",
     Instances:
       output.Instances !== undefined && output.Instances !== null
         ? deserializeAws_json1_1InstanceSummaryList(output.Instances, context)
@@ -2968,7 +2918,6 @@ const deserializeAws_json1_1ListInstancesResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1ListNamespacesResponse = (output: any, context: __SerdeContext): ListNamespacesResponse => {
   return {
-    __type: "ListNamespacesResponse",
     Namespaces:
       output.Namespaces !== undefined && output.Namespaces !== null
         ? deserializeAws_json1_1NamespaceSummariesList(output.Namespaces, context)
@@ -2979,7 +2928,6 @@ const deserializeAws_json1_1ListNamespacesResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1ListOperationsResponse = (output: any, context: __SerdeContext): ListOperationsResponse => {
   return {
-    __type: "ListOperationsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Operations:
       output.Operations !== undefined && output.Operations !== null
@@ -2990,7 +2938,6 @@ const deserializeAws_json1_1ListOperationsResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1ListServicesResponse = (output: any, context: __SerdeContext): ListServicesResponse => {
   return {
-    __type: "ListServicesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Services:
       output.Services !== undefined && output.Services !== null
@@ -3004,7 +2951,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     Tags:
       output.Tags !== undefined && output.Tags !== null
         ? deserializeAws_json1_1TagList(output.Tags, context)
@@ -3014,7 +2960,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1Namespace = (output: any, context: __SerdeContext): Namespace => {
   return {
-    __type: "Namespace",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreateDate:
       output.CreateDate !== undefined && output.CreateDate !== null
@@ -3036,7 +2981,6 @@ const deserializeAws_json1_1Namespace = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1NamespaceAlreadyExists = (output: any, context: __SerdeContext): NamespaceAlreadyExists => {
   return {
-    __type: "NamespaceAlreadyExists",
     CreatorRequestId:
       output.CreatorRequestId !== undefined && output.CreatorRequestId !== null ? output.CreatorRequestId : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -3046,14 +2990,12 @@ const deserializeAws_json1_1NamespaceAlreadyExists = (output: any, context: __Se
 
 const deserializeAws_json1_1NamespaceNotFound = (output: any, context: __SerdeContext): NamespaceNotFound => {
   return {
-    __type: "NamespaceNotFound",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1NamespaceProperties = (output: any, context: __SerdeContext): NamespaceProperties => {
   return {
-    __type: "NamespaceProperties",
     DnsProperties:
       output.DnsProperties !== undefined && output.DnsProperties !== null
         ? deserializeAws_json1_1DnsProperties(output.DnsProperties, context)
@@ -3071,7 +3013,6 @@ const deserializeAws_json1_1NamespaceSummariesList = (output: any, context: __Se
 
 const deserializeAws_json1_1NamespaceSummary = (output: any, context: __SerdeContext): NamespaceSummary => {
   return {
-    __type: "NamespaceSummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreateDate:
       output.CreateDate !== undefined && output.CreateDate !== null
@@ -3091,7 +3032,6 @@ const deserializeAws_json1_1NamespaceSummary = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1Operation = (output: any, context: __SerdeContext): Operation => {
   return {
-    __type: "Operation",
     CreateDate:
       output.CreateDate !== undefined && output.CreateDate !== null
         ? new Date(Math.round(output.CreateDate * 1000))
@@ -3114,14 +3054,12 @@ const deserializeAws_json1_1Operation = (output: any, context: __SerdeContext): 
 
 const deserializeAws_json1_1OperationNotFound = (output: any, context: __SerdeContext): OperationNotFound => {
   return {
-    __type: "OperationNotFound",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
   return {
-    __type: "OperationSummary",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
@@ -3146,28 +3084,24 @@ const deserializeAws_json1_1RegisterInstanceResponse = (
   context: __SerdeContext
 ): RegisterInstanceResponse => {
   return {
-    __type: "RegisterInstanceResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RequestLimitExceeded = (output: any, context: __SerdeContext): RequestLimitExceeded => {
   return {
-    __type: "RequestLimitExceeded",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResourceInUse = (output: any, context: __SerdeContext): ResourceInUse => {
   return {
-    __type: "ResourceInUse",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResourceLimitExceeded = (output: any, context: __SerdeContext): ResourceLimitExceeded => {
   return {
-    __type: "ResourceLimitExceeded",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3177,14 +3111,12 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   context: __SerdeContext
 ): ResourceNotFoundException => {
   return {
-    __type: "ResourceNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Service => {
   return {
-    __type: "Service",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreateDate:
       output.CreateDate !== undefined && output.CreateDate !== null
@@ -3215,7 +3147,6 @@ const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Se
 
 const deserializeAws_json1_1ServiceAlreadyExists = (output: any, context: __SerdeContext): ServiceAlreadyExists => {
   return {
-    __type: "ServiceAlreadyExists",
     CreatorRequestId:
       output.CreatorRequestId !== undefined && output.CreatorRequestId !== null ? output.CreatorRequestId : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -3225,7 +3156,6 @@ const deserializeAws_json1_1ServiceAlreadyExists = (output: any, context: __Serd
 
 const deserializeAws_json1_1ServiceNotFound = (output: any, context: __SerdeContext): ServiceNotFound => {
   return {
-    __type: "ServiceNotFound",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -3236,7 +3166,6 @@ const deserializeAws_json1_1ServiceSummariesList = (output: any, context: __Serd
 
 const deserializeAws_json1_1ServiceSummary = (output: any, context: __SerdeContext): ServiceSummary => {
   return {
-    __type: "ServiceSummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CreateDate:
       output.CreateDate !== undefined && output.CreateDate !== null
@@ -3264,7 +3193,6 @@ const deserializeAws_json1_1ServiceSummary = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -3275,28 +3203,22 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TooManyTagsException = (output: any, context: __SerdeContext): TooManyTagsException => {
   return {
-    __type: "TooManyTagsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     ResourceName: output.ResourceName !== undefined && output.ResourceName !== null ? output.ResourceName : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateServiceResponse = (output: any, context: __SerdeContext): UpdateServiceResponse => {
   return {
-    __type: "UpdateServiceResponse",
     OperationId: output.OperationId !== undefined && output.OperationId !== null ? output.OperationId : undefined,
   } as any;
 };

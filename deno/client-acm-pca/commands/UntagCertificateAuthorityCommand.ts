@@ -1,6 +1,6 @@
 
 import { ACMPCAClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ACMPCAClient.ts";
-import { UntagCertificateAuthorityRequest } from "../models/index.ts";
+import { UntagCertificateAuthorityRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UntagCertificateAuthorityCommand,
   serializeAws_json1_1UntagCertificateAuthorityCommand,

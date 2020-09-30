@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { TagResourceRequest, TagResourceResponse } from "../models/index.ts";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1TagResourceCommand,
   serializeAws_json1_1TagResourceCommand,

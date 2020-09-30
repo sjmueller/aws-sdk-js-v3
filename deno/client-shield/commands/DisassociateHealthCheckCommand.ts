@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient.ts";
-import { DisassociateHealthCheckRequest, DisassociateHealthCheckResponse } from "../models/index.ts";
+import { DisassociateHealthCheckRequest, DisassociateHealthCheckResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateHealthCheckCommand,
   serializeAws_json1_1DisassociateHealthCheckCommand,

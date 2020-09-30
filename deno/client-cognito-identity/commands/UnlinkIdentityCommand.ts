@@ -1,6 +1,6 @@
 
 import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CognitoIdentityClient.ts";
-import { UnlinkIdentityInput } from "../models/index.ts";
+import { UnlinkIdentityInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UnlinkIdentityCommand,
   serializeAws_json1_1UnlinkIdentityCommand,

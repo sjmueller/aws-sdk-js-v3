@@ -1,6 +1,6 @@
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient.ts";
-import { CreateCacheSubnetGroupMessage, CreateCacheSubnetGroupResult } from "../models/index.ts";
+import { CreateCacheSubnetGroupMessage, CreateCacheSubnetGroupResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryCreateCacheSubnetGroupCommand,
   serializeAws_queryCreateCacheSubnetGroupCommand,

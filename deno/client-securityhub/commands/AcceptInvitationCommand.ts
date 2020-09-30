@@ -1,6 +1,6 @@
 
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { AcceptInvitationRequest, AcceptInvitationResponse } from "../models/index.ts";
+import { AcceptInvitationRequest, AcceptInvitationResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AcceptInvitationCommand,
   serializeAws_restJson1AcceptInvitationCommand,

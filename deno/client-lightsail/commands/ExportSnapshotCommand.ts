@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { ExportSnapshotRequest, ExportSnapshotResult } from "../models/index.ts";
+import { ExportSnapshotRequest, ExportSnapshotResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ExportSnapshotCommand,
   serializeAws_json1_1ExportSnapshotCommand,

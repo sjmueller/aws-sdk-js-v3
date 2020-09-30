@@ -1,6 +1,6 @@
 
 import { EFSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EFSClient.ts";
-import { DescribeFileSystemsRequest, DescribeFileSystemsResponse } from "../models/index.ts";
+import { DescribeFileSystemsRequest, DescribeFileSystemsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeFileSystemsCommand,
   serializeAws_restJson1DescribeFileSystemsCommand,

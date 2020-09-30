@@ -1,6 +1,6 @@
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
-import { ModifyClusterInput, ModifyClusterOutput } from "../models/index.ts";
+import { ModifyClusterInput, ModifyClusterOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ModifyClusterCommand,
   serializeAws_json1_1ModifyClusterCommand,

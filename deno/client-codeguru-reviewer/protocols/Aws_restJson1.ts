@@ -56,7 +56,7 @@ import {
   ThirdPartySourceRepository,
   ThrottlingException,
   ValidationException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -391,7 +391,6 @@ export const deserializeAws_restJson1AssociateRepositoryCommand = async (
   }
   const contents: AssociateRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateRepositoryResponse",
     RepositoryAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -479,7 +478,6 @@ export const deserializeAws_restJson1DescribeCodeReviewCommand = async (
   }
   const contents: DescribeCodeReviewCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCodeReviewResponse",
     CodeReview: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -567,7 +565,6 @@ export const deserializeAws_restJson1DescribeRecommendationFeedbackCommand = asy
   }
   const contents: DescribeRecommendationFeedbackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRecommendationFeedbackResponse",
     RecommendationFeedback: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -658,7 +655,6 @@ export const deserializeAws_restJson1DescribeRepositoryAssociationCommand = asyn
   }
   const contents: DescribeRepositoryAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRepositoryAssociationResponse",
     RepositoryAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -746,7 +742,6 @@ export const deserializeAws_restJson1DisassociateRepositoryCommand = async (
   }
   const contents: DisassociateRepositoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateRepositoryResponse",
     RepositoryAssociation: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -842,7 +837,6 @@ export const deserializeAws_restJson1ListCodeReviewsCommand = async (
   }
   const contents: ListCodeReviewsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCodeReviewsResponse",
     CodeReviewSummaries: undefined,
     NextToken: undefined,
   };
@@ -926,7 +920,6 @@ export const deserializeAws_restJson1ListRecommendationFeedbackCommand = async (
   }
   const contents: ListRecommendationFeedbackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRecommendationFeedbackResponse",
     NextToken: undefined,
     RecommendationFeedbackSummaries: undefined,
   };
@@ -1021,7 +1014,6 @@ export const deserializeAws_restJson1ListRecommendationsCommand = async (
   }
   const contents: ListRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRecommendationsResponse",
     NextToken: undefined,
     RecommendationSummaries: undefined,
   };
@@ -1116,7 +1108,6 @@ export const deserializeAws_restJson1ListRepositoryAssociationsCommand = async (
   }
   const contents: ListRepositoryAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRepositoryAssociationsResponse",
     NextToken: undefined,
     RepositoryAssociationSummaries: undefined,
   };
@@ -1195,7 +1186,6 @@ export const deserializeAws_restJson1PutRecommendationFeedbackCommand = async (
   }
   const contents: PutRecommendationFeedbackCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutRecommendationFeedbackResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1426,7 +1416,6 @@ const serializeAws_restJson1ThirdPartySourceRepository = (
 
 const deserializeAws_restJson1CodeReview = (output: any, context: __SerdeContext): CodeReview => {
   return {
-    __type: "CodeReview",
     CodeReviewArn:
       output.CodeReviewArn !== undefined && output.CodeReviewArn !== null ? output.CodeReviewArn : undefined,
     CreatedTimeStamp:
@@ -1464,7 +1453,6 @@ const deserializeAws_restJson1CodeReviewSummaries = (output: any, context: __Ser
 
 const deserializeAws_restJson1CodeReviewSummary = (output: any, context: __SerdeContext): CodeReviewSummary => {
   return {
-    __type: "CodeReviewSummary",
     CodeReviewArn:
       output.CodeReviewArn !== undefined && output.CodeReviewArn !== null ? output.CodeReviewArn : undefined,
     CreatedTimeStamp:
@@ -1496,7 +1484,6 @@ const deserializeAws_restJson1CommitDiffSourceCodeType = (
   context: __SerdeContext
 ): CommitDiffSourceCodeType => {
   return {
-    __type: "CommitDiffSourceCodeType",
     DestinationCommit:
       output.DestinationCommit !== undefined && output.DestinationCommit !== null
         ? output.DestinationCommit
@@ -1507,7 +1494,6 @@ const deserializeAws_restJson1CommitDiffSourceCodeType = (
 
 const deserializeAws_restJson1Metrics = (output: any, context: __SerdeContext): Metrics => {
   return {
-    __type: "Metrics",
     FindingsCount:
       output.FindingsCount !== undefined && output.FindingsCount !== null ? output.FindingsCount : undefined,
     MeteredLinesOfCodeCount:
@@ -1519,7 +1505,6 @@ const deserializeAws_restJson1Metrics = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1MetricsSummary = (output: any, context: __SerdeContext): MetricsSummary => {
   return {
-    __type: "MetricsSummary",
     FindingsCount:
       output.FindingsCount !== undefined && output.FindingsCount !== null ? output.FindingsCount : undefined,
     MeteredLinesOfCodeCount:
@@ -1538,7 +1523,6 @@ const deserializeAws_restJson1RecommendationFeedback = (
   context: __SerdeContext
 ): RecommendationFeedback => {
   return {
-    __type: "RecommendationFeedback",
     CodeReviewArn:
       output.CodeReviewArn !== undefined && output.CodeReviewArn !== null ? output.CodeReviewArn : undefined,
     CreatedTimeStamp:
@@ -1571,7 +1555,6 @@ const deserializeAws_restJson1RecommendationFeedbackSummary = (
   context: __SerdeContext
 ): RecommendationFeedbackSummary => {
   return {
-    __type: "RecommendationFeedbackSummary",
     Reactions:
       output.Reactions !== undefined && output.Reactions !== null
         ? deserializeAws_restJson1Reactions(output.Reactions, context)
@@ -1591,7 +1574,6 @@ const deserializeAws_restJson1RecommendationSummaries = (
 
 const deserializeAws_restJson1RecommendationSummary = (output: any, context: __SerdeContext): RecommendationSummary => {
   return {
-    __type: "RecommendationSummary",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     EndLine: output.EndLine !== undefined && output.EndLine !== null ? output.EndLine : undefined,
     FilePath: output.FilePath !== undefined && output.FilePath !== null ? output.FilePath : undefined,
@@ -1603,7 +1585,6 @@ const deserializeAws_restJson1RecommendationSummary = (output: any, context: __S
 
 const deserializeAws_restJson1RepositoryAssociation = (output: any, context: __SerdeContext): RepositoryAssociation => {
   return {
-    __type: "RepositoryAssociation",
     AssociationArn:
       output.AssociationArn !== undefined && output.AssociationArn !== null ? output.AssociationArn : undefined,
     AssociationId:
@@ -1638,7 +1619,6 @@ const deserializeAws_restJson1RepositoryAssociationSummary = (
   context: __SerdeContext
 ): RepositoryAssociationSummary => {
   return {
-    __type: "RepositoryAssociationSummary",
     AssociationArn:
       output.AssociationArn !== undefined && output.AssociationArn !== null ? output.AssociationArn : undefined,
     AssociationId:
@@ -1658,7 +1638,6 @@ const deserializeAws_restJson1RepositoryAssociationSummary = (
 
 const deserializeAws_restJson1SourceCodeType = (output: any, context: __SerdeContext): SourceCodeType => {
   return {
-    __type: "SourceCodeType",
     CommitDiff:
       output.CommitDiff !== undefined && output.CommitDiff !== null
         ? deserializeAws_restJson1CommitDiffSourceCodeType(output.CommitDiff, context)

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../IoT1ClickProjectsClient.ts";
-import { AssociateDeviceWithPlacementRequest, AssociateDeviceWithPlacementResponse } from "../models/index.ts";
+import { AssociateDeviceWithPlacementRequest, AssociateDeviceWithPlacementResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AssociateDeviceWithPlacementCommand,
   serializeAws_restJson1AssociateDeviceWithPlacementCommand,

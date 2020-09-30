@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } from "../SupportClient.ts";
-import { DescribeSeverityLevelsRequest, DescribeSeverityLevelsResponse } from "../models/index.ts";
+import { DescribeSeverityLevelsRequest, DescribeSeverityLevelsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeSeverityLevelsCommand,
   serializeAws_json1_1DescribeSeverityLevelsCommand,

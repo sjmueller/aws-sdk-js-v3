@@ -1,6 +1,6 @@
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client.ts";
-import { UpdateFindingsFilterRequest, UpdateFindingsFilterResponse } from "../models/index.ts";
+import { UpdateFindingsFilterRequest, UpdateFindingsFilterResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateFindingsFilterCommand,
   serializeAws_restJson1UpdateFindingsFilterCommand,

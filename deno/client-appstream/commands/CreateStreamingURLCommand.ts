@@ -1,6 +1,6 @@
 
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
-import { CreateStreamingURLRequest, CreateStreamingURLResult } from "../models/index.ts";
+import { CreateStreamingURLRequest, CreateStreamingURLResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateStreamingURLCommand,
   serializeAws_json1_1CreateStreamingURLCommand,

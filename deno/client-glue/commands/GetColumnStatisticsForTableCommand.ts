@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { GetColumnStatisticsForTableRequest, GetColumnStatisticsForTableResponse } from "../models/index.ts";
+import { GetColumnStatisticsForTableRequest, GetColumnStatisticsForTableResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetColumnStatisticsForTableCommand,
   serializeAws_json1_1GetColumnStatisticsForTableCommand,

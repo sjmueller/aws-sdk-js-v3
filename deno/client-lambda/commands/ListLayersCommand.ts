@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { ListLayersRequest, ListLayersResponse } from "../models/index.ts";
+import { ListLayersRequest, ListLayersResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListLayersCommand,
   serializeAws_restJson1ListLayersCommand,

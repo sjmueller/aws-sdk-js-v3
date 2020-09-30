@@ -1,6 +1,6 @@
 
 import { CodeCommitClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeCommitClient.ts";
-import { DeleteBranchInput, DeleteBranchOutput } from "../models/index.ts";
+import { DeleteBranchInput, DeleteBranchOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteBranchCommand,
   serializeAws_json1_1DeleteBranchCommand,

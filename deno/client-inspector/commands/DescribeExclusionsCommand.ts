@@ -1,6 +1,6 @@
 
 import { InspectorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../InspectorClient.ts";
-import { DescribeExclusionsRequest, DescribeExclusionsResponse } from "../models/index.ts";
+import { DescribeExclusionsRequest, DescribeExclusionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeExclusionsCommand,
   serializeAws_json1_1DescribeExclusionsCommand,

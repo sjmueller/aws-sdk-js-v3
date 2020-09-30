@@ -46,7 +46,7 @@ import {
   Target,
   TargetSummary,
   ValidationException,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -410,7 +410,6 @@ export const deserializeAws_restJson1CreateNotificationRuleCommand = async (
   }
   const contents: CreateNotificationRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateNotificationRuleResult",
     Arn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -506,7 +505,6 @@ export const deserializeAws_restJson1DeleteNotificationRuleCommand = async (
   }
   const contents: DeleteNotificationRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteNotificationRuleResult",
     Arn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -578,7 +576,6 @@ export const deserializeAws_restJson1DeleteTargetCommand = async (
   }
   const contents: DeleteTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTargetResult",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -630,7 +627,6 @@ export const deserializeAws_restJson1DescribeNotificationRuleCommand = async (
   }
   const contents: DescribeNotificationRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeNotificationRuleResult",
     Arn: undefined,
     CreatedBy: undefined,
     CreatedTimestamp: undefined,
@@ -734,7 +730,6 @@ export const deserializeAws_restJson1ListEventTypesCommand = async (
   }
   const contents: ListEventTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEventTypesResult",
     EventTypes: undefined,
     NextToken: undefined,
   };
@@ -802,7 +797,6 @@ export const deserializeAws_restJson1ListNotificationRulesCommand = async (
   }
   const contents: ListNotificationRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListNotificationRulesResult",
     NextToken: undefined,
     NotificationRules: undefined,
   };
@@ -870,7 +864,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResult",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -934,7 +927,6 @@ export const deserializeAws_restJson1ListTargetsCommand = async (
   }
   const contents: ListTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTargetsResult",
     NextToken: undefined,
     Targets: undefined,
   };
@@ -1002,7 +994,6 @@ export const deserializeAws_restJson1SubscribeCommand = async (
   }
   const contents: SubscribeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SubscribeResult",
     Arn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1066,7 +1057,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResult",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1138,7 +1128,6 @@ export const deserializeAws_restJson1UnsubscribeCommand = async (
   }
   const contents: UnsubscribeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UnsubscribeResult",
     Arn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1194,7 +1183,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResult",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1262,7 +1250,6 @@ export const deserializeAws_restJson1UpdateNotificationRuleCommand = async (
   }
   const contents: UpdateNotificationRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateNotificationRuleResult",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1523,7 +1510,6 @@ const deserializeAws_restJson1EventTypeBatch = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1EventTypeSummary = (output: any, context: __SerdeContext): EventTypeSummary => {
   return {
-    __type: "EventTypeSummary",
     EventTypeId: output.EventTypeId !== undefined && output.EventTypeId !== null ? output.EventTypeId : undefined,
     EventTypeName:
       output.EventTypeName !== undefined && output.EventTypeName !== null ? output.EventTypeName : undefined,
@@ -1544,7 +1530,6 @@ const deserializeAws_restJson1NotificationRuleSummary = (
   context: __SerdeContext
 ): NotificationRuleSummary => {
   return {
-    __type: "NotificationRuleSummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
   } as any;
@@ -1566,7 +1551,6 @@ const deserializeAws_restJson1TargetsBatch = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1TargetSummary = (output: any, context: __SerdeContext): TargetSummary => {
   return {
-    __type: "TargetSummary",
     TargetAddress:
       output.TargetAddress !== undefined && output.TargetAddress !== null ? output.TargetAddress : undefined,
     TargetStatus: output.TargetStatus !== undefined && output.TargetStatus !== null ? output.TargetStatus : undefined,

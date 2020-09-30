@@ -1,6 +1,6 @@
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient.ts";
-import { PutRemediationConfigurationsRequest, PutRemediationConfigurationsResponse } from "../models/index.ts";
+import { PutRemediationConfigurationsRequest, PutRemediationConfigurationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutRemediationConfigurationsCommand,
   serializeAws_json1_1PutRemediationConfigurationsCommand,

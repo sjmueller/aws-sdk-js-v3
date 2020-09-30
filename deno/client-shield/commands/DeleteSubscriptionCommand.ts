@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } from "../ShieldClient.ts";
-import { DeleteSubscriptionRequest, DeleteSubscriptionResponse } from "../models/index.ts";
+import { DeleteSubscriptionRequest, DeleteSubscriptionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteSubscriptionCommand,
   serializeAws_json1_1DeleteSubscriptionCommand,

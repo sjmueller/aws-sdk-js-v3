@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { GetBaiduChannelRequest, GetBaiduChannelResponse } from "../models/index.ts";
+import { GetBaiduChannelRequest, GetBaiduChannelResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetBaiduChannelCommand,
   serializeAws_restJson1GetBaiduChannelCommand,

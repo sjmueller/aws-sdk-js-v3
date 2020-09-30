@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { GenerateCredentialReportResponse } from "../models/index.ts";
+import { GenerateCredentialReportResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryGenerateCredentialReportCommand,
   serializeAws_queryGenerateCredentialReportCommand,

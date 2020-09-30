@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { ListLoggingConfigurationsRequest, ListLoggingConfigurationsResponse } from "../models/index.ts";
+import { ListLoggingConfigurationsRequest, ListLoggingConfigurationsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListLoggingConfigurationsCommand,
   serializeAws_json1_1ListLoggingConfigurationsCommand,

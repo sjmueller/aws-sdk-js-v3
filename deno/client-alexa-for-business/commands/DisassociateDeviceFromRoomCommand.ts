@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { DisassociateDeviceFromRoomRequest, DisassociateDeviceFromRoomResponse } from "../models/index.ts";
+import { DisassociateDeviceFromRoomRequest, DisassociateDeviceFromRoomResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateDeviceFromRoomCommand,
   serializeAws_json1_1DisassociateDeviceFromRoomCommand,

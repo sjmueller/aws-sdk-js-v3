@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { ResetUserPasswordRequest, ResetUserPasswordResult } from "../models/index.ts";
+import { ResetUserPasswordRequest, ResetUserPasswordResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ResetUserPasswordCommand,
   serializeAws_json1_1ResetUserPasswordCommand,

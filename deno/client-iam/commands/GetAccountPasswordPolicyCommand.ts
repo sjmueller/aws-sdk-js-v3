@@ -1,6 +1,6 @@
 
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient.ts";
-import { GetAccountPasswordPolicyResponse } from "../models/index.ts";
+import { GetAccountPasswordPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_queryGetAccountPasswordPolicyCommand,
   serializeAws_queryGetAccountPasswordPolicyCommand,

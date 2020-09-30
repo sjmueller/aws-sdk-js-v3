@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { GetBucketCorsOutput, GetBucketCorsRequest } from "../models/index.ts";
+import { GetBucketCorsOutput, GetBucketCorsRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlGetBucketCorsCommand,
   serializeAws_restXmlGetBucketCorsCommand,

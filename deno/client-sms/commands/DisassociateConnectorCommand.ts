@@ -1,6 +1,6 @@
 
 import { SMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SMSClient.ts";
-import { DisassociateConnectorRequest, DisassociateConnectorResponse } from "../models/index.ts";
+import { DisassociateConnectorRequest, DisassociateConnectorResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateConnectorCommand,
   serializeAws_json1_1DisassociateConnectorCommand,

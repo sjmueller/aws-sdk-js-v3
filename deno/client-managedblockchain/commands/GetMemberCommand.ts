@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ManagedBlockchainClient.ts";
-import { GetMemberInput, GetMemberOutput } from "../models/index.ts";
+import { GetMemberInput, GetMemberOutput } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetMemberCommand,
   serializeAws_restJson1GetMemberCommand,

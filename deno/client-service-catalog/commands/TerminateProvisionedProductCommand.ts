@@ -1,6 +1,6 @@
 
 import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ServiceCatalogClient.ts";
-import { TerminateProvisionedProductInput, TerminateProvisionedProductOutput } from "../models/index.ts";
+import { TerminateProvisionedProductInput, TerminateProvisionedProductOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1TerminateProvisionedProductCommand,
   serializeAws_json1_1TerminateProvisionedProductCommand,

@@ -1,6 +1,6 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { HeadObjectOutput, HeadObjectRequest } from "../models/index.ts";
+import { HeadObjectOutput, HeadObjectRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlHeadObjectCommand,
   serializeAws_restXmlHeadObjectCommand,

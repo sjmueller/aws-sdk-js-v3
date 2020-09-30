@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   ModifyVpcEndpointServiceConfigurationRequest,
   ModifyVpcEndpointServiceConfigurationResult,
-} from "../models/index.ts";
+} from "../models/models_4.ts";
 import {
   deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand,
   serializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand,

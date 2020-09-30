@@ -1,6 +1,6 @@
 
 import { DeviceFarmClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeviceFarmClient.ts";
-import { GetInstanceProfileRequest, GetInstanceProfileResult } from "../models/index.ts";
+import { GetInstanceProfileRequest, GetInstanceProfileResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetInstanceProfileCommand,
   serializeAws_json1_1GetInstanceProfileCommand,

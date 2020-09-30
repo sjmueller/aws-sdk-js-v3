@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubConfigClient.ts";
-import { GetHomeRegionRequest, GetHomeRegionResult } from "../models/index.ts";
+import { GetHomeRegionRequest, GetHomeRegionResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetHomeRegionCommand,
   serializeAws_json1_1GetHomeRegionCommand,

@@ -1,6 +1,6 @@
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient.ts";
-import { GetMappingRequest, GetMappingResponse } from "../models/index.ts";
+import { GetMappingRequest, GetMappingResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetMappingCommand,
   serializeAws_json1_1GetMappingCommand,

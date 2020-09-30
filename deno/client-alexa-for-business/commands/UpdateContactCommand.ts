@@ -1,6 +1,6 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { UpdateContactRequest, UpdateContactResponse } from "../models/index.ts";
+import { UpdateContactRequest, UpdateContactResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateContactCommand,
   serializeAws_json1_1UpdateContactCommand,

@@ -1,7 +1,7 @@
 
 import { ProviderError } from "../../property-provider/mod.ts";
 import { createServer } from "http.ts";
-import * as nock from "nock.ts";
+import nock from "nock.ts";
 
 import { httpRequest } from "./httpRequest.ts";
 

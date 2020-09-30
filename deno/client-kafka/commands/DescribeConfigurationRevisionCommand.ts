@@ -1,6 +1,6 @@
 
 import { KafkaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaClient.ts";
-import { DescribeConfigurationRevisionRequest, DescribeConfigurationRevisionResponse } from "../models/index.ts";
+import { DescribeConfigurationRevisionRequest, DescribeConfigurationRevisionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeConfigurationRevisionCommand,
   serializeAws_restJson1DescribeConfigurationRevisionCommand,

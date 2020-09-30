@@ -1,6 +1,6 @@
 
 import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSDataClient.ts";
-import { CommitTransactionRequest, CommitTransactionResponse } from "../models/index.ts";
+import { CommitTransactionRequest, CommitTransactionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CommitTransactionCommand,
   serializeAws_restJson1CommitTransactionCommand,

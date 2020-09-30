@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { AssociateTargetsWithJobRequest, AssociateTargetsWithJobResponse } from "../models/index.ts";
+import { AssociateTargetsWithJobRequest, AssociateTargetsWithJobResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1AssociateTargetsWithJobCommand,
   serializeAws_restJson1AssociateTargetsWithJobCommand,

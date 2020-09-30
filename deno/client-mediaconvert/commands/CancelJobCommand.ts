@@ -1,6 +1,6 @@
 
 import { MediaConvertClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaConvertClient.ts";
-import { CancelJobRequest, CancelJobResponse } from "../models/index.ts";
+import { CancelJobRequest, CancelJobResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1CancelJobCommand,
   serializeAws_restJson1CancelJobCommand,

@@ -1,6 +1,6 @@
 
 import { SQSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SQSClient.ts";
-import { ChangeMessageVisibilityBatchRequest, ChangeMessageVisibilityBatchResult } from "../models/index.ts";
+import { ChangeMessageVisibilityBatchRequest, ChangeMessageVisibilityBatchResult } from "../models/models_0.ts";
 import {
   deserializeAws_queryChangeMessageVisibilityBatchCommand,
   serializeAws_queryChangeMessageVisibilityBatchCommand,

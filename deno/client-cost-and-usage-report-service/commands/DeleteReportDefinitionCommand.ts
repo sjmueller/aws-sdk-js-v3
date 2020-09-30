@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CostAndUsageReportServiceClient.ts";
-import { DeleteReportDefinitionRequest, DeleteReportDefinitionResponse } from "../models/index.ts";
+import { DeleteReportDefinitionRequest, DeleteReportDefinitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DeleteReportDefinitionCommand,
   serializeAws_json1_1DeleteReportDefinitionCommand,

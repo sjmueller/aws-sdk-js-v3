@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationDiscoveryServiceClient.ts";
-import { ListServerNeighborsRequest, ListServerNeighborsResponse } from "../models/index.ts";
+import { ListServerNeighborsRequest, ListServerNeighborsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListServerNeighborsCommand,
   serializeAws_json1_1ListServerNeighborsCommand,

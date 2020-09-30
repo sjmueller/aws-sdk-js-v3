@@ -1,6 +1,6 @@
 
 import { GreengrassClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GreengrassClient.ts";
-import { GetAssociatedRoleRequest, GetAssociatedRoleResponse } from "../models/index.ts";
+import { GetAssociatedRoleRequest, GetAssociatedRoleResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetAssociatedRoleCommand,
   serializeAws_restJson1GetAssociatedRoleCommand,

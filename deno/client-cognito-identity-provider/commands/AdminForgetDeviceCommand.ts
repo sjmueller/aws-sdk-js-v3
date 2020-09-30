@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { AdminForgetDeviceRequest } from "../models/index.ts";
+import { AdminForgetDeviceRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AdminForgetDeviceCommand,
   serializeAws_json1_1AdminForgetDeviceCommand,

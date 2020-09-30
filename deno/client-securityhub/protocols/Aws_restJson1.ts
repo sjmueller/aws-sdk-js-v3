@@ -213,7 +213,7 @@ import {
   WafOverrideAction,
   Workflow,
   WorkflowUpdate,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import {
   SmithyException as __SmithyException,
@@ -1485,7 +1485,6 @@ export const deserializeAws_restJson1AcceptInvitationCommand = async (
   }
   const contents: AcceptInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptInvitationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -1569,7 +1568,6 @@ export const deserializeAws_restJson1BatchDisableStandardsCommand = async (
   }
   const contents: BatchDisableStandardsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchDisableStandardsResponse",
     StandardsSubscriptions: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1652,7 +1650,6 @@ export const deserializeAws_restJson1BatchEnableStandardsCommand = async (
   }
   const contents: BatchEnableStandardsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchEnableStandardsResponse",
     StandardsSubscriptions: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -1735,7 +1732,6 @@ export const deserializeAws_restJson1BatchImportFindingsCommand = async (
   }
   const contents: BatchImportFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchImportFindingsResponse",
     FailedCount: undefined,
     FailedFindings: undefined,
     SuccessCount: undefined,
@@ -1823,7 +1819,6 @@ export const deserializeAws_restJson1BatchUpdateFindingsCommand = async (
   }
   const contents: BatchUpdateFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BatchUpdateFindingsResponse",
     ProcessedFindings: undefined,
     UnprocessedFindings: undefined,
   };
@@ -1913,7 +1908,6 @@ export const deserializeAws_restJson1CreateActionTargetCommand = async (
   }
   const contents: CreateActionTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateActionTargetResponse",
     ActionTargetArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2001,7 +1995,6 @@ export const deserializeAws_restJson1CreateInsightCommand = async (
   }
   const contents: CreateInsightCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateInsightResponse",
     InsightArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2089,7 +2082,6 @@ export const deserializeAws_restJson1CreateMembersCommand = async (
   }
   const contents: CreateMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMembersResponse",
     UnprocessedAccounts: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2177,7 +2169,6 @@ export const deserializeAws_restJson1DeclineInvitationsCommand = async (
   }
   const contents: DeclineInvitationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeclineInvitationsResponse",
     UnprocessedAccounts: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2257,7 +2248,6 @@ export const deserializeAws_restJson1DeleteActionTargetCommand = async (
   }
   const contents: DeleteActionTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteActionTargetResponse",
     ActionTargetArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2337,7 +2327,6 @@ export const deserializeAws_restJson1DeleteInsightCommand = async (
   }
   const contents: DeleteInsightCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteInsightResponse",
     InsightArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2425,7 +2414,6 @@ export const deserializeAws_restJson1DeleteInvitationsCommand = async (
   }
   const contents: DeleteInvitationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteInvitationsResponse",
     UnprocessedAccounts: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2513,7 +2501,6 @@ export const deserializeAws_restJson1DeleteMembersCommand = async (
   }
   const contents: DeleteMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteMembersResponse",
     UnprocessedAccounts: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2601,7 +2588,6 @@ export const deserializeAws_restJson1DescribeActionTargetsCommand = async (
   }
   const contents: DescribeActionTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeActionTargetsResponse",
     ActionTargets: undefined,
     NextToken: undefined,
   };
@@ -2685,7 +2671,6 @@ export const deserializeAws_restJson1DescribeHubCommand = async (
   }
   const contents: DescribeHubCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeHubResponse",
     AutoEnableControls: undefined,
     HubArn: undefined,
     SubscribedAt: undefined,
@@ -2781,7 +2766,6 @@ export const deserializeAws_restJson1DescribeProductsCommand = async (
   }
   const contents: DescribeProductsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeProductsResponse",
     NextToken: undefined,
     Products: undefined,
   };
@@ -2865,7 +2849,6 @@ export const deserializeAws_restJson1DescribeStandardsCommand = async (
   }
   const contents: DescribeStandardsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStandardsResponse",
     NextToken: undefined,
     Standards: undefined,
   };
@@ -2941,7 +2924,6 @@ export const deserializeAws_restJson1DescribeStandardsControlsCommand = async (
   }
   const contents: DescribeStandardsControlsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStandardsControlsResponse",
     Controls: undefined,
     NextToken: undefined,
   };
@@ -3025,7 +3007,6 @@ export const deserializeAws_restJson1DisableImportFindingsForProductCommand = as
   }
   const contents: DisableImportFindingsForProductCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableImportFindingsForProductResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3109,7 +3090,6 @@ export const deserializeAws_restJson1DisableSecurityHubCommand = async (
   }
   const contents: DisableSecurityHubCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableSecurityHubResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3185,7 +3165,6 @@ export const deserializeAws_restJson1DisassociateFromMasterAccountCommand = asyn
   }
   const contents: DisassociateFromMasterAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateFromMasterAccountResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3269,7 +3248,6 @@ export const deserializeAws_restJson1DisassociateMembersCommand = async (
   }
   const contents: DisassociateMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateMembersResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3353,7 +3331,6 @@ export const deserializeAws_restJson1EnableImportFindingsForProductCommand = asy
   }
   const contents: EnableImportFindingsForProductCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableImportFindingsForProductResponse",
     ProductSubscriptionArn: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3441,7 +3418,6 @@ export const deserializeAws_restJson1EnableSecurityHubCommand = async (
   }
   const contents: EnableSecurityHubCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableSecurityHubResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -3525,7 +3501,6 @@ export const deserializeAws_restJson1GetEnabledStandardsCommand = async (
   }
   const contents: GetEnabledStandardsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEnabledStandardsResponse",
     NextToken: undefined,
     StandardsSubscriptions: undefined,
   };
@@ -3612,7 +3587,6 @@ export const deserializeAws_restJson1GetFindingsCommand = async (
   }
   const contents: GetFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetFindingsResponse",
     Findings: undefined,
     NextToken: undefined,
   };
@@ -3696,7 +3670,6 @@ export const deserializeAws_restJson1GetInsightResultsCommand = async (
   }
   const contents: GetInsightResultsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInsightResultsResponse",
     InsightResults: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3784,7 +3757,6 @@ export const deserializeAws_restJson1GetInsightsCommand = async (
   }
   const contents: GetInsightsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInsightsResponse",
     Insights: undefined,
     NextToken: undefined,
   };
@@ -3876,7 +3848,6 @@ export const deserializeAws_restJson1GetInvitationsCountCommand = async (
   }
   const contents: GetInvitationsCountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInvitationsCountResponse",
     InvitationsCount: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3956,7 +3927,6 @@ export const deserializeAws_restJson1GetMasterAccountCommand = async (
   }
   const contents: GetMasterAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMasterAccountResponse",
     Master: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4044,7 +4014,6 @@ export const deserializeAws_restJson1GetMembersCommand = async (
   }
   const contents: GetMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetMembersResponse",
     Members: undefined,
     UnprocessedAccounts: undefined,
   };
@@ -4136,7 +4105,6 @@ export const deserializeAws_restJson1InviteMembersCommand = async (
   }
   const contents: InviteMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InviteMembersResponse",
     UnprocessedAccounts: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4224,7 +4192,6 @@ export const deserializeAws_restJson1ListEnabledProductsForImportCommand = async
   }
   const contents: ListEnabledProductsForImportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListEnabledProductsForImportResponse",
     NextToken: undefined,
     ProductSubscriptions: undefined,
   };
@@ -4303,7 +4270,6 @@ export const deserializeAws_restJson1ListInvitationsCommand = async (
   }
   const contents: ListInvitationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListInvitationsResponse",
     Invitations: undefined,
     NextToken: undefined,
   };
@@ -4387,7 +4353,6 @@ export const deserializeAws_restJson1ListMembersCommand = async (
   }
   const contents: ListMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMembersResponse",
     Members: undefined,
     NextToken: undefined,
   };
@@ -4471,7 +4436,6 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   }
   const contents: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     Tags: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -4543,7 +4507,6 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   }
   const contents: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4611,7 +4574,6 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   }
   const contents: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4679,7 +4641,6 @@ export const deserializeAws_restJson1UpdateActionTargetCommand = async (
   }
   const contents: UpdateActionTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateActionTargetResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4755,7 +4716,6 @@ export const deserializeAws_restJson1UpdateFindingsCommand = async (
   }
   const contents: UpdateFindingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateFindingsResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4839,7 +4799,6 @@ export const deserializeAws_restJson1UpdateInsightCommand = async (
   }
   const contents: UpdateInsightCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateInsightResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4923,7 +4882,6 @@ export const deserializeAws_restJson1UpdateSecurityHubConfigurationCommand = asy
   }
   const contents: UpdateSecurityHubConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSecurityHubConfigurationResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -5007,7 +4965,6 @@ export const deserializeAws_restJson1UpdateStandardsControlCommand = async (
   }
   const contents: UpdateStandardsControlCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateStandardsControlResponse",
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -7056,7 +7013,6 @@ const serializeAws_restJson1WorkflowUpdate = (input: WorkflowUpdate, context: __
 
 const deserializeAws_restJson1ActionTarget = (output: any, context: __SerdeContext): ActionTarget => {
   return {
-    __type: "ActionTarget",
     ActionTargetArn:
       output.ActionTargetArn !== undefined && output.ActionTargetArn !== null ? output.ActionTargetArn : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -7070,7 +7026,6 @@ const deserializeAws_restJson1ActionTargetList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   return {
-    __type: "AvailabilityZone",
     SubnetId: output.SubnetId !== undefined && output.SubnetId !== null ? output.SubnetId : undefined,
     ZoneName: output.ZoneName !== undefined && output.ZoneName !== null ? output.ZoneName : undefined,
   } as any;
@@ -7085,7 +7040,6 @@ const deserializeAws_restJson1AwsAutoScalingAutoScalingGroupDetails = (
   context: __SerdeContext
 ): AwsAutoScalingAutoScalingGroupDetails => {
   return {
-    __type: "AwsAutoScalingAutoScalingGroupDetails",
     CreatedTime: output.CreatedTime !== undefined && output.CreatedTime !== null ? output.CreatedTime : undefined,
     HealthCheckGracePeriod:
       output.HealthCheckGracePeriod !== undefined && output.HealthCheckGracePeriod !== null
@@ -7109,7 +7063,6 @@ const deserializeAws_restJson1AwsCloudFrontDistributionDetails = (
   context: __SerdeContext
 ): AwsCloudFrontDistributionDetails => {
   return {
-    __type: "AwsCloudFrontDistributionDetails",
     DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     ETag: output.ETag !== undefined && output.ETag !== null ? output.ETag : undefined,
     LastModifiedTime:
@@ -7132,7 +7085,6 @@ const deserializeAws_restJson1AwsCloudFrontDistributionLogging = (
   context: __SerdeContext
 ): AwsCloudFrontDistributionLogging => {
   return {
-    __type: "AwsCloudFrontDistributionLogging",
     Bucket: output.Bucket !== undefined && output.Bucket !== null ? output.Bucket : undefined,
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     IncludeCookies:
@@ -7146,7 +7098,6 @@ const deserializeAws_restJson1AwsCloudFrontDistributionOriginItem = (
   context: __SerdeContext
 ): AwsCloudFrontDistributionOriginItem => {
   return {
-    __type: "AwsCloudFrontDistributionOriginItem",
     DomainName: output.DomainName !== undefined && output.DomainName !== null ? output.DomainName : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     OriginPath: output.OriginPath !== undefined && output.OriginPath !== null ? output.OriginPath : undefined,
@@ -7167,7 +7118,6 @@ const deserializeAws_restJson1AwsCloudFrontDistributionOrigins = (
   context: __SerdeContext
 ): AwsCloudFrontDistributionOrigins => {
   return {
-    __type: "AwsCloudFrontDistributionOrigins",
     Items:
       output.Items !== undefined && output.Items !== null
         ? deserializeAws_restJson1AwsCloudFrontDistributionOriginItemList(output.Items, context)
@@ -7180,7 +7130,6 @@ const deserializeAws_restJson1AwsCodeBuildProjectDetails = (
   context: __SerdeContext
 ): AwsCodeBuildProjectDetails => {
   return {
-    __type: "AwsCodeBuildProjectDetails",
     EncryptionKey:
       output.EncryptionKey !== undefined && output.EncryptionKey !== null ? output.EncryptionKey : undefined,
     Environment:
@@ -7205,7 +7154,6 @@ const deserializeAws_restJson1AwsCodeBuildProjectEnvironment = (
   context: __SerdeContext
 ): AwsCodeBuildProjectEnvironment => {
   return {
-    __type: "AwsCodeBuildProjectEnvironment",
     Certificate: output.Certificate !== undefined && output.Certificate !== null ? output.Certificate : undefined,
     ImagePullCredentialsType:
       output.ImagePullCredentialsType !== undefined && output.ImagePullCredentialsType !== null
@@ -7224,7 +7172,6 @@ const deserializeAws_restJson1AwsCodeBuildProjectEnvironmentRegistryCredential =
   context: __SerdeContext
 ): AwsCodeBuildProjectEnvironmentRegistryCredential => {
   return {
-    __type: "AwsCodeBuildProjectEnvironmentRegistryCredential",
     Credential: output.Credential !== undefined && output.Credential !== null ? output.Credential : undefined,
     CredentialProvider:
       output.CredentialProvider !== undefined && output.CredentialProvider !== null
@@ -7238,7 +7185,6 @@ const deserializeAws_restJson1AwsCodeBuildProjectSource = (
   context: __SerdeContext
 ): AwsCodeBuildProjectSource => {
   return {
-    __type: "AwsCodeBuildProjectSource",
     GitCloneDepth:
       output.GitCloneDepth !== undefined && output.GitCloneDepth !== null ? output.GitCloneDepth : undefined,
     InsecureSsl: output.InsecureSsl !== undefined && output.InsecureSsl !== null ? output.InsecureSsl : undefined,
@@ -7252,7 +7198,6 @@ const deserializeAws_restJson1AwsCodeBuildProjectVpcConfig = (
   context: __SerdeContext
 ): AwsCodeBuildProjectVpcConfig => {
   return {
-    __type: "AwsCodeBuildProjectVpcConfig",
     SecurityGroupIds:
       output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
         ? deserializeAws_restJson1NonEmptyStringList(output.SecurityGroupIds, context)
@@ -7267,7 +7212,6 @@ const deserializeAws_restJson1AwsCodeBuildProjectVpcConfig = (
 
 const deserializeAws_restJson1AwsEc2InstanceDetails = (output: any, context: __SerdeContext): AwsEc2InstanceDetails => {
   return {
-    __type: "AwsEc2InstanceDetails",
     IamInstanceProfileArn:
       output.IamInstanceProfileArn !== undefined && output.IamInstanceProfileArn !== null
         ? output.IamInstanceProfileArn
@@ -7294,7 +7238,6 @@ const deserializeAws_restJson1AwsEc2NetworkInterfaceAttachment = (
   context: __SerdeContext
 ): AwsEc2NetworkInterfaceAttachment => {
   return {
-    __type: "AwsEc2NetworkInterfaceAttachment",
     AttachTime: output.AttachTime !== undefined && output.AttachTime !== null ? output.AttachTime : undefined,
     AttachmentId: output.AttachmentId !== undefined && output.AttachmentId !== null ? output.AttachmentId : undefined,
     DeleteOnTermination:
@@ -7314,7 +7257,6 @@ const deserializeAws_restJson1AwsEc2NetworkInterfaceDetails = (
   context: __SerdeContext
 ): AwsEc2NetworkInterfaceDetails => {
   return {
-    __type: "AwsEc2NetworkInterfaceDetails",
     Attachment:
       output.Attachment !== undefined && output.Attachment !== null
         ? deserializeAws_restJson1AwsEc2NetworkInterfaceAttachment(output.Attachment, context)
@@ -7337,7 +7279,6 @@ const deserializeAws_restJson1AwsEc2NetworkInterfaceSecurityGroup = (
   context: __SerdeContext
 ): AwsEc2NetworkInterfaceSecurityGroup => {
   return {
-    __type: "AwsEc2NetworkInterfaceSecurityGroup",
     GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined,
     GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
   } as any;
@@ -7357,7 +7298,6 @@ const deserializeAws_restJson1AwsEc2SecurityGroupDetails = (
   context: __SerdeContext
 ): AwsEc2SecurityGroupDetails => {
   return {
-    __type: "AwsEc2SecurityGroupDetails",
     GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined,
     GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
     IpPermissions:
@@ -7378,7 +7318,6 @@ const deserializeAws_restJson1AwsEc2SecurityGroupIpPermission = (
   context: __SerdeContext
 ): AwsEc2SecurityGroupIpPermission => {
   return {
-    __type: "AwsEc2SecurityGroupIpPermission",
     FromPort: output.FromPort !== undefined && output.FromPort !== null ? output.FromPort : undefined,
     IpProtocol: output.IpProtocol !== undefined && output.IpProtocol !== null ? output.IpProtocol : undefined,
     IpRanges:
@@ -7413,7 +7352,6 @@ const deserializeAws_restJson1AwsEc2SecurityGroupIpRange = (
   context: __SerdeContext
 ): AwsEc2SecurityGroupIpRange => {
   return {
-    __type: "AwsEc2SecurityGroupIpRange",
     CidrIp: output.CidrIp !== undefined && output.CidrIp !== null ? output.CidrIp : undefined,
   } as any;
 };
@@ -7430,7 +7368,6 @@ const deserializeAws_restJson1AwsEc2SecurityGroupIpv6Range = (
   context: __SerdeContext
 ): AwsEc2SecurityGroupIpv6Range => {
   return {
-    __type: "AwsEc2SecurityGroupIpv6Range",
     CidrIpv6: output.CidrIpv6 !== undefined && output.CidrIpv6 !== null ? output.CidrIpv6 : undefined,
   } as any;
 };
@@ -7447,7 +7384,6 @@ const deserializeAws_restJson1AwsEc2SecurityGroupPrefixListId = (
   context: __SerdeContext
 ): AwsEc2SecurityGroupPrefixListId => {
   return {
-    __type: "AwsEc2SecurityGroupPrefixListId",
     PrefixListId: output.PrefixListId !== undefined && output.PrefixListId !== null ? output.PrefixListId : undefined,
   } as any;
 };
@@ -7464,7 +7400,6 @@ const deserializeAws_restJson1AwsEc2SecurityGroupUserIdGroupPair = (
   context: __SerdeContext
 ): AwsEc2SecurityGroupUserIdGroupPair => {
   return {
-    __type: "AwsEc2SecurityGroupUserIdGroupPair",
     GroupId: output.GroupId !== undefined && output.GroupId !== null ? output.GroupId : undefined,
     GroupName: output.GroupName !== undefined && output.GroupName !== null ? output.GroupName : undefined,
     PeeringStatus:
@@ -7490,7 +7425,6 @@ const deserializeAws_restJson1AwsEc2VolumeAttachment = (
   context: __SerdeContext
 ): AwsEc2VolumeAttachment => {
   return {
-    __type: "AwsEc2VolumeAttachment",
     AttachTime: output.AttachTime !== undefined && output.AttachTime !== null ? output.AttachTime : undefined,
     DeleteOnTermination:
       output.DeleteOnTermination !== undefined && output.DeleteOnTermination !== null
@@ -7510,7 +7444,6 @@ const deserializeAws_restJson1AwsEc2VolumeAttachmentList = (
 
 const deserializeAws_restJson1AwsEc2VolumeDetails = (output: any, context: __SerdeContext): AwsEc2VolumeDetails => {
   return {
-    __type: "AwsEc2VolumeDetails",
     Attachments:
       output.Attachments !== undefined && output.Attachments !== null
         ? deserializeAws_restJson1AwsEc2VolumeAttachmentList(output.Attachments, context)
@@ -7526,7 +7459,6 @@ const deserializeAws_restJson1AwsEc2VolumeDetails = (output: any, context: __Ser
 
 const deserializeAws_restJson1AwsEc2VpcDetails = (output: any, context: __SerdeContext): AwsEc2VpcDetails => {
   return {
-    __type: "AwsEc2VpcDetails",
     CidrBlockAssociationSet:
       output.CidrBlockAssociationSet !== undefined && output.CidrBlockAssociationSet !== null
         ? deserializeAws_restJson1CidrBlockAssociationList(output.CidrBlockAssociationSet, context)
@@ -7546,7 +7478,6 @@ const deserializeAws_restJson1AwsElasticsearchDomainDetails = (
   context: __SerdeContext
 ): AwsElasticsearchDomainDetails => {
   return {
-    __type: "AwsElasticsearchDomainDetails",
     AccessPolicies:
       output.AccessPolicies !== undefined && output.AccessPolicies !== null ? output.AccessPolicies : undefined,
     DomainEndpointOptions:
@@ -7587,7 +7518,6 @@ const deserializeAws_restJson1AwsElasticsearchDomainDomainEndpointOptions = (
   context: __SerdeContext
 ): AwsElasticsearchDomainDomainEndpointOptions => {
   return {
-    __type: "AwsElasticsearchDomainDomainEndpointOptions",
     EnforceHTTPS: output.EnforceHTTPS !== undefined && output.EnforceHTTPS !== null ? output.EnforceHTTPS : undefined,
     TLSSecurityPolicy:
       output.TLSSecurityPolicy !== undefined && output.TLSSecurityPolicy !== null
@@ -7601,7 +7531,6 @@ const deserializeAws_restJson1AwsElasticsearchDomainEncryptionAtRestOptions = (
   context: __SerdeContext
 ): AwsElasticsearchDomainEncryptionAtRestOptions => {
   return {
-    __type: "AwsElasticsearchDomainEncryptionAtRestOptions",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     KmsKeyId: output.KmsKeyId !== undefined && output.KmsKeyId !== null ? output.KmsKeyId : undefined,
   } as any;
@@ -7612,7 +7541,6 @@ const deserializeAws_restJson1AwsElasticsearchDomainNodeToNodeEncryptionOptions 
   context: __SerdeContext
 ): AwsElasticsearchDomainNodeToNodeEncryptionOptions => {
   return {
-    __type: "AwsElasticsearchDomainNodeToNodeEncryptionOptions",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
   } as any;
 };
@@ -7622,7 +7550,6 @@ const deserializeAws_restJson1AwsElasticsearchDomainVPCOptions = (
   context: __SerdeContext
 ): AwsElasticsearchDomainVPCOptions => {
   return {
-    __type: "AwsElasticsearchDomainVPCOptions",
     AvailabilityZones:
       output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
         ? deserializeAws_restJson1NonEmptyStringList(output.AvailabilityZones, context)
@@ -7644,7 +7571,6 @@ const deserializeAws_restJson1AwsElbv2LoadBalancerDetails = (
   context: __SerdeContext
 ): AwsElbv2LoadBalancerDetails => {
   return {
-    __type: "AwsElbv2LoadBalancerDetails",
     AvailabilityZones:
       output.AvailabilityZones !== undefined && output.AvailabilityZones !== null
         ? deserializeAws_restJson1AvailabilityZones(output.AvailabilityZones, context)
@@ -7676,7 +7602,6 @@ const deserializeAws_restJson1AwsIamAccessKeyDetails = (
   context: __SerdeContext
 ): AwsIamAccessKeyDetails => {
   return {
-    __type: "AwsIamAccessKeyDetails",
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? output.CreatedAt : undefined,
     PrincipalId: output.PrincipalId !== undefined && output.PrincipalId !== null ? output.PrincipalId : undefined,
     PrincipalName:
@@ -7690,7 +7615,6 @@ const deserializeAws_restJson1AwsIamAccessKeyDetails = (
 
 const deserializeAws_restJson1AwsIamRoleDetails = (output: any, context: __SerdeContext): AwsIamRoleDetails => {
   return {
-    __type: "AwsIamRoleDetails",
     AssumeRolePolicyDocument:
       output.AssumeRolePolicyDocument !== undefined && output.AssumeRolePolicyDocument !== null
         ? output.AssumeRolePolicyDocument
@@ -7708,7 +7632,6 @@ const deserializeAws_restJson1AwsIamRoleDetails = (output: any, context: __Serde
 
 const deserializeAws_restJson1AwsKmsKeyDetails = (output: any, context: __SerdeContext): AwsKmsKeyDetails => {
   return {
-    __type: "AwsKmsKeyDetails",
     AWSAccountId: output.AWSAccountId !== undefined && output.AWSAccountId !== null ? output.AWSAccountId : undefined,
     CreationDate: output.CreationDate !== undefined && output.CreationDate !== null ? output.CreationDate : undefined,
     KeyId: output.KeyId !== undefined && output.KeyId !== null ? output.KeyId : undefined,
@@ -7720,7 +7643,6 @@ const deserializeAws_restJson1AwsKmsKeyDetails = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1AwsLambdaFunctionCode = (output: any, context: __SerdeContext): AwsLambdaFunctionCode => {
   return {
-    __type: "AwsLambdaFunctionCode",
     S3Bucket: output.S3Bucket !== undefined && output.S3Bucket !== null ? output.S3Bucket : undefined,
     S3Key: output.S3Key !== undefined && output.S3Key !== null ? output.S3Key : undefined,
     S3ObjectVersion:
@@ -7734,7 +7656,6 @@ const deserializeAws_restJson1AwsLambdaFunctionDeadLetterConfig = (
   context: __SerdeContext
 ): AwsLambdaFunctionDeadLetterConfig => {
   return {
-    __type: "AwsLambdaFunctionDeadLetterConfig",
     TargetArn: output.TargetArn !== undefined && output.TargetArn !== null ? output.TargetArn : undefined,
   } as any;
 };
@@ -7744,7 +7665,6 @@ const deserializeAws_restJson1AwsLambdaFunctionDetails = (
   context: __SerdeContext
 ): AwsLambdaFunctionDetails => {
   return {
-    __type: "AwsLambdaFunctionDetails",
     Code:
       output.Code !== undefined && output.Code !== null
         ? deserializeAws_restJson1AwsLambdaFunctionCode(output.Code, context)
@@ -7789,7 +7709,6 @@ const deserializeAws_restJson1AwsLambdaFunctionEnvironment = (
   context: __SerdeContext
 ): AwsLambdaFunctionEnvironment => {
   return {
-    __type: "AwsLambdaFunctionEnvironment",
     Error:
       output.Error !== undefined && output.Error !== null
         ? deserializeAws_restJson1AwsLambdaFunctionEnvironmentError(output.Error, context)
@@ -7806,7 +7725,6 @@ const deserializeAws_restJson1AwsLambdaFunctionEnvironmentError = (
   context: __SerdeContext
 ): AwsLambdaFunctionEnvironmentError => {
   return {
-    __type: "AwsLambdaFunctionEnvironmentError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
@@ -7817,7 +7735,6 @@ const deserializeAws_restJson1AwsLambdaFunctionLayer = (
   context: __SerdeContext
 ): AwsLambdaFunctionLayer => {
   return {
-    __type: "AwsLambdaFunctionLayer",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     CodeSize: output.CodeSize !== undefined && output.CodeSize !== null ? output.CodeSize : undefined,
   } as any;
@@ -7835,7 +7752,6 @@ const deserializeAws_restJson1AwsLambdaFunctionTracingConfig = (
   context: __SerdeContext
 ): AwsLambdaFunctionTracingConfig => {
   return {
-    __type: "AwsLambdaFunctionTracingConfig",
     Mode: output.Mode !== undefined && output.Mode !== null ? output.Mode : undefined,
   } as any;
 };
@@ -7845,7 +7761,6 @@ const deserializeAws_restJson1AwsLambdaFunctionVpcConfig = (
   context: __SerdeContext
 ): AwsLambdaFunctionVpcConfig => {
   return {
-    __type: "AwsLambdaFunctionVpcConfig",
     SecurityGroupIds:
       output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
         ? deserializeAws_restJson1NonEmptyStringList(output.SecurityGroupIds, context)
@@ -7863,7 +7778,6 @@ const deserializeAws_restJson1AwsLambdaLayerVersionDetails = (
   context: __SerdeContext
 ): AwsLambdaLayerVersionDetails => {
   return {
-    __type: "AwsLambdaLayerVersionDetails",
     CompatibleRuntimes:
       output.CompatibleRuntimes !== undefined && output.CompatibleRuntimes !== null
         ? deserializeAws_restJson1NonEmptyStringList(output.CompatibleRuntimes, context)
@@ -7878,7 +7792,6 @@ const deserializeAws_restJson1AwsRdsDbInstanceAssociatedRole = (
   context: __SerdeContext
 ): AwsRdsDbInstanceAssociatedRole => {
   return {
-    __type: "AwsRdsDbInstanceAssociatedRole",
     FeatureName: output.FeatureName !== undefined && output.FeatureName !== null ? output.FeatureName : undefined,
     RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
@@ -7897,7 +7810,6 @@ const deserializeAws_restJson1AwsRdsDbInstanceDetails = (
   context: __SerdeContext
 ): AwsRdsDbInstanceDetails => {
   return {
-    __type: "AwsRdsDbInstanceDetails",
     AssociatedRoles:
       output.AssociatedRoles !== undefined && output.AssociatedRoles !== null
         ? deserializeAws_restJson1AwsRdsDbInstanceAssociatedRoles(output.AssociatedRoles, context)
@@ -7961,7 +7873,6 @@ const deserializeAws_restJson1AwsRdsDbInstanceEndpoint = (
   context: __SerdeContext
 ): AwsRdsDbInstanceEndpoint => {
   return {
-    __type: "AwsRdsDbInstanceEndpoint",
     Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
     HostedZoneId: output.HostedZoneId !== undefined && output.HostedZoneId !== null ? output.HostedZoneId : undefined,
     Port: output.Port !== undefined && output.Port !== null ? output.Port : undefined,
@@ -7973,7 +7884,6 @@ const deserializeAws_restJson1AwsRdsDbInstanceVpcSecurityGroup = (
   context: __SerdeContext
 ): AwsRdsDbInstanceVpcSecurityGroup => {
   return {
-    __type: "AwsRdsDbInstanceVpcSecurityGroup",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     VpcSecurityGroupId:
       output.VpcSecurityGroupId !== undefined && output.VpcSecurityGroupId !== null
@@ -7991,7 +7901,6 @@ const deserializeAws_restJson1AwsRdsDbInstanceVpcSecurityGroups = (
 
 const deserializeAws_restJson1AwsS3BucketDetails = (output: any, context: __SerdeContext): AwsS3BucketDetails => {
   return {
-    __type: "AwsS3BucketDetails",
     CreatedAt: output.CreatedAt !== undefined && output.CreatedAt !== null ? output.CreatedAt : undefined,
     OwnerId: output.OwnerId !== undefined && output.OwnerId !== null ? output.OwnerId : undefined,
     OwnerName: output.OwnerName !== undefined && output.OwnerName !== null ? output.OwnerName : undefined,
@@ -8010,7 +7919,6 @@ const deserializeAws_restJson1AwsS3BucketServerSideEncryptionByDefault = (
   context: __SerdeContext
 ): AwsS3BucketServerSideEncryptionByDefault => {
   return {
-    __type: "AwsS3BucketServerSideEncryptionByDefault",
     KMSMasterKeyID:
       output.KMSMasterKeyID !== undefined && output.KMSMasterKeyID !== null ? output.KMSMasterKeyID : undefined,
     SSEAlgorithm: output.SSEAlgorithm !== undefined && output.SSEAlgorithm !== null ? output.SSEAlgorithm : undefined,
@@ -8022,7 +7930,6 @@ const deserializeAws_restJson1AwsS3BucketServerSideEncryptionConfiguration = (
   context: __SerdeContext
 ): AwsS3BucketServerSideEncryptionConfiguration => {
   return {
-    __type: "AwsS3BucketServerSideEncryptionConfiguration",
     Rules:
       output.Rules !== undefined && output.Rules !== null
         ? deserializeAws_restJson1AwsS3BucketServerSideEncryptionRules(output.Rules, context)
@@ -8035,7 +7942,6 @@ const deserializeAws_restJson1AwsS3BucketServerSideEncryptionRule = (
   context: __SerdeContext
 ): AwsS3BucketServerSideEncryptionRule => {
   return {
-    __type: "AwsS3BucketServerSideEncryptionRule",
     ApplyServerSideEncryptionByDefault:
       output.ApplyServerSideEncryptionByDefault !== undefined && output.ApplyServerSideEncryptionByDefault !== null
         ? deserializeAws_restJson1AwsS3BucketServerSideEncryptionByDefault(
@@ -8057,7 +7963,6 @@ const deserializeAws_restJson1AwsS3BucketServerSideEncryptionRules = (
 
 const deserializeAws_restJson1AwsS3ObjectDetails = (output: any, context: __SerdeContext): AwsS3ObjectDetails => {
   return {
-    __type: "AwsS3ObjectDetails",
     ContentType: output.ContentType !== undefined && output.ContentType !== null ? output.ContentType : undefined,
     ETag: output.ETag !== undefined && output.ETag !== null ? output.ETag : undefined,
     LastModified: output.LastModified !== undefined && output.LastModified !== null ? output.LastModified : undefined,
@@ -8072,7 +7977,6 @@ const deserializeAws_restJson1AwsS3ObjectDetails = (output: any, context: __Serd
 
 const deserializeAws_restJson1AwsSecurityFinding = (output: any, context: __SerdeContext): AwsSecurityFinding => {
   return {
-    __type: "AwsSecurityFinding",
     AwsAccountId: output.AwsAccountId !== undefined && output.AwsAccountId !== null ? output.AwsAccountId : undefined,
     Compliance:
       output.Compliance !== undefined && output.Compliance !== null
@@ -8169,7 +8073,6 @@ const deserializeAws_restJson1AwsSecurityFindingFilters = (
   context: __SerdeContext
 ): AwsSecurityFindingFilters => {
   return {
-    __type: "AwsSecurityFindingFilters",
     AwsAccountId:
       output.AwsAccountId !== undefined && output.AwsAccountId !== null
         ? deserializeAws_restJson1StringFilterList(output.AwsAccountId, context)
@@ -8515,7 +8418,6 @@ const deserializeAws_restJson1AwsSecurityFindingIdentifier = (
   context: __SerdeContext
 ): AwsSecurityFindingIdentifier => {
   return {
-    __type: "AwsSecurityFindingIdentifier",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     ProductArn: output.ProductArn !== undefined && output.ProductArn !== null ? output.ProductArn : undefined,
   } as any;
@@ -8534,7 +8436,6 @@ const deserializeAws_restJson1AwsSecurityFindingList = (output: any, context: __
 
 const deserializeAws_restJson1AwsSnsTopicDetails = (output: any, context: __SerdeContext): AwsSnsTopicDetails => {
   return {
-    __type: "AwsSnsTopicDetails",
     KmsMasterKeyId:
       output.KmsMasterKeyId !== undefined && output.KmsMasterKeyId !== null ? output.KmsMasterKeyId : undefined,
     Owner: output.Owner !== undefined && output.Owner !== null ? output.Owner : undefined,
@@ -8551,7 +8452,6 @@ const deserializeAws_restJson1AwsSnsTopicSubscription = (
   context: __SerdeContext
 ): AwsSnsTopicSubscription => {
   return {
-    __type: "AwsSnsTopicSubscription",
     Endpoint: output.Endpoint !== undefined && output.Endpoint !== null ? output.Endpoint : undefined,
     Protocol: output.Protocol !== undefined && output.Protocol !== null ? output.Protocol : undefined,
   } as any;
@@ -8566,7 +8466,6 @@ const deserializeAws_restJson1AwsSnsTopicSubscriptionList = (
 
 const deserializeAws_restJson1AwsSqsQueueDetails = (output: any, context: __SerdeContext): AwsSqsQueueDetails => {
   return {
-    __type: "AwsSqsQueueDetails",
     DeadLetterTargetArn:
       output.DeadLetterTargetArn !== undefined && output.DeadLetterTargetArn !== null
         ? output.DeadLetterTargetArn
@@ -8583,7 +8482,6 @@ const deserializeAws_restJson1AwsSqsQueueDetails = (output: any, context: __Serd
 
 const deserializeAws_restJson1AwsWafWebAclDetails = (output: any, context: __SerdeContext): AwsWafWebAclDetails => {
   return {
-    __type: "AwsWafWebAclDetails",
     DefaultAction:
       output.DefaultAction !== undefined && output.DefaultAction !== null ? output.DefaultAction : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -8597,7 +8495,6 @@ const deserializeAws_restJson1AwsWafWebAclDetails = (output: any, context: __Ser
 
 const deserializeAws_restJson1AwsWafWebAclRule = (output: any, context: __SerdeContext): AwsWafWebAclRule => {
   return {
-    __type: "AwsWafWebAclRule",
     Action:
       output.Action !== undefined && output.Action !== null
         ? deserializeAws_restJson1WafAction(output.Action, context)
@@ -8625,7 +8522,6 @@ const deserializeAws_restJson1BatchUpdateFindingsUnprocessedFinding = (
   context: __SerdeContext
 ): BatchUpdateFindingsUnprocessedFinding => {
   return {
-    __type: "BatchUpdateFindingsUnprocessedFinding",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     FindingIdentifier:
@@ -8650,7 +8546,6 @@ const deserializeAws_restJson1CategoryList = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1CidrBlockAssociation = (output: any, context: __SerdeContext): CidrBlockAssociation => {
   return {
-    __type: "CidrBlockAssociation",
     AssociationId:
       output.AssociationId !== undefined && output.AssociationId !== null ? output.AssociationId : undefined,
     CidrBlock: output.CidrBlock !== undefined && output.CidrBlock !== null ? output.CidrBlock : undefined,
@@ -8668,7 +8563,6 @@ const deserializeAws_restJson1CidrBlockAssociationList = (
 
 const deserializeAws_restJson1Compliance = (output: any, context: __SerdeContext): Compliance => {
   return {
-    __type: "Compliance",
     RelatedRequirements:
       output.RelatedRequirements !== undefined && output.RelatedRequirements !== null
         ? deserializeAws_restJson1RelatedRequirementsList(output.RelatedRequirements, context)
@@ -8683,7 +8577,6 @@ const deserializeAws_restJson1Compliance = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1ContainerDetails = (output: any, context: __SerdeContext): ContainerDetails => {
   return {
-    __type: "ContainerDetails",
     ImageId: output.ImageId !== undefined && output.ImageId !== null ? output.ImageId : undefined,
     ImageName: output.ImageName !== undefined && output.ImageName !== null ? output.ImageName : undefined,
     LaunchedAt: output.LaunchedAt !== undefined && output.LaunchedAt !== null ? output.LaunchedAt : undefined,
@@ -8693,7 +8586,6 @@ const deserializeAws_restJson1ContainerDetails = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1Cvss = (output: any, context: __SerdeContext): Cvss => {
   return {
-    __type: "Cvss",
     BaseScore: output.BaseScore !== undefined && output.BaseScore !== null ? output.BaseScore : undefined,
     BaseVector: output.BaseVector !== undefined && output.BaseVector !== null ? output.BaseVector : undefined,
     Version: output.Version !== undefined && output.Version !== null ? output.Version : undefined,
@@ -8706,7 +8598,6 @@ const deserializeAws_restJson1CvssList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1DateFilter = (output: any, context: __SerdeContext): DateFilter => {
   return {
-    __type: "DateFilter",
     DateRange:
       output.DateRange !== undefined && output.DateRange !== null
         ? deserializeAws_restJson1DateRange(output.DateRange, context)
@@ -8722,7 +8613,6 @@ const deserializeAws_restJson1DateFilterList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1DateRange = (output: any, context: __SerdeContext): DateRange => {
   return {
-    __type: "DateRange",
     Unit: output.Unit !== undefined && output.Unit !== null ? output.Unit : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -8740,7 +8630,6 @@ const deserializeAws_restJson1FieldMap = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1ImportFindingsError = (output: any, context: __SerdeContext): ImportFindingsError => {
   return {
-    __type: "ImportFindingsError",
     ErrorCode: output.ErrorCode !== undefined && output.ErrorCode !== null ? output.ErrorCode : undefined,
     ErrorMessage: output.ErrorMessage !== undefined && output.ErrorMessage !== null ? output.ErrorMessage : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -8756,7 +8645,6 @@ const deserializeAws_restJson1ImportFindingsErrorList = (
 
 const deserializeAws_restJson1Insight = (output: any, context: __SerdeContext): Insight => {
   return {
-    __type: "Insight",
     Filters:
       output.Filters !== undefined && output.Filters !== null
         ? deserializeAws_restJson1AwsSecurityFindingFilters(output.Filters, context)
@@ -8774,7 +8662,6 @@ const deserializeAws_restJson1InsightList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1InsightResults = (output: any, context: __SerdeContext): InsightResults => {
   return {
-    __type: "InsightResults",
     GroupByAttribute:
       output.GroupByAttribute !== undefined && output.GroupByAttribute !== null ? output.GroupByAttribute : undefined,
     InsightArn: output.InsightArn !== undefined && output.InsightArn !== null ? output.InsightArn : undefined,
@@ -8787,7 +8674,6 @@ const deserializeAws_restJson1InsightResults = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1InsightResultValue = (output: any, context: __SerdeContext): InsightResultValue => {
   return {
-    __type: "InsightResultValue",
     Count: output.Count !== undefined && output.Count !== null ? output.Count : undefined,
     GroupByAttributeValue:
       output.GroupByAttributeValue !== undefined && output.GroupByAttributeValue !== null
@@ -8809,7 +8695,6 @@ const deserializeAws_restJson1IntegrationTypeList = (
 
 const deserializeAws_restJson1Invitation = (output: any, context: __SerdeContext): Invitation => {
   return {
-    __type: "Invitation",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     InvitationId: output.InvitationId !== undefined && output.InvitationId !== null ? output.InvitationId : undefined,
     InvitedAt: output.InvitedAt !== undefined && output.InvitedAt !== null ? new Date(output.InvitedAt) : undefined,
@@ -8823,7 +8708,6 @@ const deserializeAws_restJson1InvitationList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1IpFilter = (output: any, context: __SerdeContext): IpFilter => {
   return {
-    __type: "IpFilter",
     Cidr: output.Cidr !== undefined && output.Cidr !== null ? output.Cidr : undefined,
   } as any;
 };
@@ -8837,7 +8721,6 @@ const deserializeAws_restJson1Ipv6CidrBlockAssociation = (
   context: __SerdeContext
 ): Ipv6CidrBlockAssociation => {
   return {
-    __type: "Ipv6CidrBlockAssociation",
     AssociationId:
       output.AssociationId !== undefined && output.AssociationId !== null ? output.AssociationId : undefined,
     CidrBlockState:
@@ -8856,7 +8739,6 @@ const deserializeAws_restJson1Ipv6CidrBlockAssociationList = (
 
 const deserializeAws_restJson1KeywordFilter = (output: any, context: __SerdeContext): KeywordFilter => {
   return {
-    __type: "KeywordFilter",
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
 };
@@ -8867,7 +8749,6 @@ const deserializeAws_restJson1KeywordFilterList = (output: any, context: __Serde
 
 const deserializeAws_restJson1LoadBalancerState = (output: any, context: __SerdeContext): LoadBalancerState => {
   return {
-    __type: "LoadBalancerState",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
   } as any;
@@ -8875,7 +8756,6 @@ const deserializeAws_restJson1LoadBalancerState = (output: any, context: __Serde
 
 const deserializeAws_restJson1Malware = (output: any, context: __SerdeContext): Malware => {
   return {
-    __type: "Malware",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
@@ -8889,7 +8769,6 @@ const deserializeAws_restJson1MalwareList = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1MapFilter = (output: any, context: __SerdeContext): MapFilter => {
   return {
-    __type: "MapFilter",
     Comparison: output.Comparison !== undefined && output.Comparison !== null ? output.Comparison : undefined,
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
@@ -8902,7 +8781,6 @@ const deserializeAws_restJson1MapFilterList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): Member => {
   return {
-    __type: "Member",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
     InvitedAt: output.InvitedAt !== undefined && output.InvitedAt !== null ? new Date(output.InvitedAt) : undefined,
@@ -8918,7 +8796,6 @@ const deserializeAws_restJson1MemberList = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1Network = (output: any, context: __SerdeContext): Network => {
   return {
-    __type: "Network",
     DestinationDomain:
       output.DestinationDomain !== undefined && output.DestinationDomain !== null
         ? output.DestinationDomain
@@ -8945,7 +8822,6 @@ const deserializeAws_restJson1Network = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restJson1NetworkHeader = (output: any, context: __SerdeContext): NetworkHeader => {
   return {
-    __type: "NetworkHeader",
     Destination:
       output.Destination !== undefined && output.Destination !== null
         ? deserializeAws_restJson1NetworkPathComponentDetails(output.Destination, context)
@@ -8960,7 +8836,6 @@ const deserializeAws_restJson1NetworkHeader = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1NetworkPathComponent = (output: any, context: __SerdeContext): NetworkPathComponent => {
   return {
-    __type: "NetworkPathComponent",
     ComponentId: output.ComponentId !== undefined && output.ComponentId !== null ? output.ComponentId : undefined,
     ComponentType:
       output.ComponentType !== undefined && output.ComponentType !== null ? output.ComponentType : undefined,
@@ -8980,7 +8855,6 @@ const deserializeAws_restJson1NetworkPathComponentDetails = (
   context: __SerdeContext
 ): NetworkPathComponentDetails => {
   return {
-    __type: "NetworkPathComponentDetails",
     Address:
       output.Address !== undefined && output.Address !== null
         ? deserializeAws_restJson1StringList(output.Address, context)
@@ -9002,7 +8876,6 @@ const deserializeAws_restJson1NonEmptyStringList = (output: any, context: __Serd
 
 const deserializeAws_restJson1Note = (output: any, context: __SerdeContext): Note => {
   return {
-    __type: "Note",
     Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
     UpdatedAt: output.UpdatedAt !== undefined && output.UpdatedAt !== null ? output.UpdatedAt : undefined,
     UpdatedBy: output.UpdatedBy !== undefined && output.UpdatedBy !== null ? output.UpdatedBy : undefined,
@@ -9011,7 +8884,6 @@ const deserializeAws_restJson1Note = (output: any, context: __SerdeContext): Not
 
 const deserializeAws_restJson1NumberFilter = (output: any, context: __SerdeContext): NumberFilter => {
   return {
-    __type: "NumberFilter",
     Eq: output.Eq !== undefined && output.Eq !== null ? output.Eq : undefined,
     Gte: output.Gte !== undefined && output.Gte !== null ? output.Gte : undefined,
     Lte: output.Lte !== undefined && output.Lte !== null ? output.Lte : undefined,
@@ -9024,7 +8896,6 @@ const deserializeAws_restJson1NumberFilterList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1PortRange = (output: any, context: __SerdeContext): PortRange => {
   return {
-    __type: "PortRange",
     Begin: output.Begin !== undefined && output.Begin !== null ? output.Begin : undefined,
     End: output.End !== undefined && output.End !== null ? output.End : undefined,
   } as any;
@@ -9036,7 +8907,6 @@ const deserializeAws_restJson1PortRangeList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1ProcessDetails = (output: any, context: __SerdeContext): ProcessDetails => {
   return {
-    __type: "ProcessDetails",
     LaunchedAt: output.LaunchedAt !== undefined && output.LaunchedAt !== null ? output.LaunchedAt : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ParentPid: output.ParentPid !== undefined && output.ParentPid !== null ? output.ParentPid : undefined,
@@ -9048,7 +8918,6 @@ const deserializeAws_restJson1ProcessDetails = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Product = (output: any, context: __SerdeContext): Product => {
   return {
-    __type: "Product",
     ActivationUrl:
       output.ActivationUrl !== undefined && output.ActivationUrl !== null ? output.ActivationUrl : undefined,
     Categories:
@@ -9082,7 +8951,6 @@ const deserializeAws_restJson1ProductSubscriptionArnList = (output: any, context
 
 const deserializeAws_restJson1Recommendation = (output: any, context: __SerdeContext): Recommendation => {
   return {
-    __type: "Recommendation",
     Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
     Url: output.Url !== undefined && output.Url !== null ? output.Url : undefined,
   } as any;
@@ -9090,7 +8958,6 @@ const deserializeAws_restJson1Recommendation = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1RelatedFinding = (output: any, context: __SerdeContext): RelatedFinding => {
   return {
-    __type: "RelatedFinding",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     ProductArn: output.ProductArn !== undefined && output.ProductArn !== null ? output.ProductArn : undefined,
   } as any;
@@ -9106,7 +8973,6 @@ const deserializeAws_restJson1RelatedRequirementsList = (output: any, context: _
 
 const deserializeAws_restJson1Remediation = (output: any, context: __SerdeContext): Remediation => {
   return {
-    __type: "Remediation",
     Recommendation:
       output.Recommendation !== undefined && output.Recommendation !== null
         ? deserializeAws_restJson1Recommendation(output.Recommendation, context)
@@ -9116,7 +8982,6 @@ const deserializeAws_restJson1Remediation = (output: any, context: __SerdeContex
 
 const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
-    __type: "Resource",
     Details:
       output.Details !== undefined && output.Details !== null
         ? deserializeAws_restJson1ResourceDetails(output.Details, context)
@@ -9134,7 +8999,6 @@ const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
   return {
-    __type: "ResourceDetails",
     AwsAutoScalingAutoScalingGroup:
       output.AwsAutoScalingAutoScalingGroup !== undefined && output.AwsAutoScalingAutoScalingGroup !== null
         ? deserializeAws_restJson1AwsAutoScalingAutoScalingGroupDetails(output.AwsAutoScalingAutoScalingGroup, context)
@@ -9236,7 +9100,6 @@ const deserializeAws_restJson1ResourceList = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): Result => {
   return {
-    __type: "Result",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     ProcessingResult:
       output.ProcessingResult !== undefined && output.ProcessingResult !== null ? output.ProcessingResult : undefined,
@@ -9253,7 +9116,6 @@ const deserializeAws_restJson1SecurityGroups = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1Severity = (output: any, context: __SerdeContext): Severity => {
   return {
-    __type: "Severity",
     Label: output.Label !== undefined && output.Label !== null ? output.Label : undefined,
     Normalized: output.Normalized !== undefined && output.Normalized !== null ? output.Normalized : undefined,
     Original: output.Original !== undefined && output.Original !== null ? output.Original : undefined,
@@ -9263,7 +9125,6 @@ const deserializeAws_restJson1Severity = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1SoftwarePackage = (output: any, context: __SerdeContext): SoftwarePackage => {
   return {
-    __type: "SoftwarePackage",
     Architecture: output.Architecture !== undefined && output.Architecture !== null ? output.Architecture : undefined,
     Epoch: output.Epoch !== undefined && output.Epoch !== null ? output.Epoch : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -9278,7 +9139,6 @@ const deserializeAws_restJson1SoftwarePackageList = (output: any, context: __Ser
 
 const deserializeAws_restJson1Standard = (output: any, context: __SerdeContext): Standard => {
   return {
-    __type: "Standard",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     EnabledByDefault:
       output.EnabledByDefault !== undefined && output.EnabledByDefault !== null ? output.EnabledByDefault : undefined,
@@ -9293,7 +9153,6 @@ const deserializeAws_restJson1Standards = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1StandardsControl = (output: any, context: __SerdeContext): StandardsControl => {
   return {
-    __type: "StandardsControl",
     ControlId: output.ControlId !== undefined && output.ControlId !== null ? output.ControlId : undefined,
     ControlStatus:
       output.ControlStatus !== undefined && output.ControlStatus !== null ? output.ControlStatus : undefined,
@@ -9339,7 +9198,6 @@ const deserializeAws_restJson1StandardsInputParameterMap = (
 
 const deserializeAws_restJson1StandardsSubscription = (output: any, context: __SerdeContext): StandardsSubscription => {
   return {
-    __type: "StandardsSubscription",
     StandardsArn: output.StandardsArn !== undefined && output.StandardsArn !== null ? output.StandardsArn : undefined,
     StandardsInput:
       output.StandardsInput !== undefined && output.StandardsInput !== null
@@ -9363,7 +9221,6 @@ const deserializeAws_restJson1StandardsSubscriptions = (
 
 const deserializeAws_restJson1StatusReason = (output: any, context: __SerdeContext): StatusReason => {
   return {
-    __type: "StatusReason",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     ReasonCode: output.ReasonCode !== undefined && output.ReasonCode !== null ? output.ReasonCode : undefined,
   } as any;
@@ -9375,7 +9232,6 @@ const deserializeAws_restJson1StatusReasonsList = (output: any, context: __Serde
 
 const deserializeAws_restJson1StringFilter = (output: any, context: __SerdeContext): StringFilter => {
   return {
-    __type: "StringFilter",
     Comparison: output.Comparison !== undefined && output.Comparison !== null ? output.Comparison : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -9401,7 +9257,6 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): {
 
 const deserializeAws_restJson1ThreatIntelIndicator = (output: any, context: __SerdeContext): ThreatIntelIndicator => {
   return {
-    __type: "ThreatIntelIndicator",
     Category: output.Category !== undefined && output.Category !== null ? output.Category : undefined,
     LastObservedAt:
       output.LastObservedAt !== undefined && output.LastObservedAt !== null ? output.LastObservedAt : undefined,
@@ -9425,7 +9280,6 @@ const deserializeAws_restJson1TypeList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1Vulnerability = (output: any, context: __SerdeContext): Vulnerability => {
   return {
-    __type: "Vulnerability",
     Cvss:
       output.Cvss !== undefined && output.Cvss !== null
         ? deserializeAws_restJson1CvssList(output.Cvss, context)
@@ -9456,7 +9310,6 @@ const deserializeAws_restJson1VulnerabilityList = (output: any, context: __Serde
 
 const deserializeAws_restJson1VulnerabilityVendor = (output: any, context: __SerdeContext): VulnerabilityVendor => {
   return {
-    __type: "VulnerabilityVendor",
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Url: output.Url !== undefined && output.Url !== null ? output.Url : undefined,
     VendorCreatedAt:
@@ -9470,14 +9323,12 @@ const deserializeAws_restJson1VulnerabilityVendor = (output: any, context: __Ser
 
 const deserializeAws_restJson1WafAction = (output: any, context: __SerdeContext): WafAction => {
   return {
-    __type: "WafAction",
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1WafExcludedRule = (output: any, context: __SerdeContext): WafExcludedRule => {
   return {
-    __type: "WafExcludedRule",
     RuleId: output.RuleId !== undefined && output.RuleId !== null ? output.RuleId : undefined,
   } as any;
 };
@@ -9488,14 +9339,12 @@ const deserializeAws_restJson1WafExcludedRuleList = (output: any, context: __Ser
 
 const deserializeAws_restJson1WafOverrideAction = (output: any, context: __SerdeContext): WafOverrideAction => {
   return {
-    __type: "WafOverrideAction",
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
 };
 
 const deserializeAws_restJson1Workflow = (output: any, context: __SerdeContext): Workflow => {
   return {
-    __type: "Workflow",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };

@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "../WAFClient.ts";
-import { CreateSqlInjectionMatchSetRequest, CreateSqlInjectionMatchSetResponse } from "../models/index.ts";
+import { CreateSqlInjectionMatchSetRequest, CreateSqlInjectionMatchSetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateSqlInjectionMatchSetCommand,
   serializeAws_json1_1CreateSqlInjectionMatchSetCommand,

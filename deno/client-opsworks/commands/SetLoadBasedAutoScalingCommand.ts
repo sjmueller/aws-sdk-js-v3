@@ -1,6 +1,6 @@
 
 import { OpsWorksClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpsWorksClient.ts";
-import { SetLoadBasedAutoScalingRequest } from "../models/index.ts";
+import { SetLoadBasedAutoScalingRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1SetLoadBasedAutoScalingCommand,
   serializeAws_json1_1SetLoadBasedAutoScalingCommand,

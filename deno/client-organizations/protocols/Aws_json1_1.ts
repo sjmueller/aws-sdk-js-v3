@@ -276,7 +276,7 @@ import {
   UpdateOrganizationalUnitResponse,
   UpdatePolicyRequest,
   UpdatePolicyResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -956,7 +956,6 @@ export const deserializeAws_json1_1AcceptHandshakeCommand = async (
   contents = deserializeAws_json1_1AcceptHandshakeResponse(data, context);
   const response: AcceptHandshakeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptHandshakeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1240,7 +1239,6 @@ export const deserializeAws_json1_1CancelHandshakeCommand = async (
   contents = deserializeAws_json1_1CancelHandshakeResponse(data, context);
   const response: CancelHandshakeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelHandshakeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1352,7 +1350,6 @@ export const deserializeAws_json1_1CreateAccountCommand = async (
   contents = deserializeAws_json1_1CreateAccountResponse(data, context);
   const response: CreateAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAccountResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1472,7 +1469,6 @@ export const deserializeAws_json1_1CreateGovCloudAccountCommand = async (
   contents = deserializeAws_json1_1CreateGovCloudAccountResponse(data, context);
   const response: CreateGovCloudAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGovCloudAccountResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1592,7 +1588,6 @@ export const deserializeAws_json1_1CreateOrganizationCommand = async (
   contents = deserializeAws_json1_1CreateOrganizationResponse(data, context);
   const response: CreateOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateOrganizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1704,7 +1699,6 @@ export const deserializeAws_json1_1CreateOrganizationalUnitCommand = async (
   contents = deserializeAws_json1_1CreateOrganizationalUnitResponse(data, context);
   const response: CreateOrganizationalUnitCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateOrganizationalUnitResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1824,7 +1818,6 @@ export const deserializeAws_json1_1CreatePolicyCommand = async (
   contents = deserializeAws_json1_1CreatePolicyResponse(data, context);
   const response: CreatePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1960,7 +1953,6 @@ export const deserializeAws_json1_1DeclineHandshakeCommand = async (
   contents = deserializeAws_json1_1DeclineHandshakeResponse(data, context);
   const response: DeclineHandshakeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeclineHandshakeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2520,7 +2512,6 @@ export const deserializeAws_json1_1DescribeAccountCommand = async (
   contents = deserializeAws_json1_1DescribeAccountResponse(data, context);
   const response: DescribeAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAccountResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2616,7 +2607,6 @@ export const deserializeAws_json1_1DescribeCreateAccountStatusCommand = async (
   contents = deserializeAws_json1_1DescribeCreateAccountStatusResponse(data, context);
   const response: DescribeCreateAccountStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCreateAccountStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2720,7 +2710,6 @@ export const deserializeAws_json1_1DescribeEffectivePolicyCommand = async (
   contents = deserializeAws_json1_1DescribeEffectivePolicyResponse(data, context);
   const response: DescribeEffectivePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEffectivePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2840,7 +2829,6 @@ export const deserializeAws_json1_1DescribeHandshakeCommand = async (
   contents = deserializeAws_json1_1DescribeHandshakeResponse(data, context);
   const response: DescribeHandshakeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeHandshakeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2936,7 +2924,6 @@ export const deserializeAws_json1_1DescribeOrganizationCommand = async (
   contents = deserializeAws_json1_1DescribeOrganizationResponse(data, context);
   const response: DescribeOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOrganizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3024,7 +3011,6 @@ export const deserializeAws_json1_1DescribeOrganizationalUnitCommand = async (
   contents = deserializeAws_json1_1DescribeOrganizationalUnitResponse(data, context);
   const response: DescribeOrganizationalUnitCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeOrganizationalUnitResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3120,7 +3106,6 @@ export const deserializeAws_json1_1DescribePolicyCommand = async (
   contents = deserializeAws_json1_1DescribePolicyResponse(data, context);
   const response: DescribePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3472,7 +3457,6 @@ export const deserializeAws_json1_1DisablePolicyTypeCommand = async (
   contents = deserializeAws_json1_1DisablePolicyTypeResponse(data, context);
   const response: DisablePolicyTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisablePolicyTypeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3608,7 +3592,6 @@ export const deserializeAws_json1_1EnableAllFeaturesCommand = async (
   contents = deserializeAws_json1_1EnableAllFeaturesResponse(data, context);
   const response: EnableAllFeaturesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableAllFeaturesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3820,7 +3803,6 @@ export const deserializeAws_json1_1EnablePolicyTypeCommand = async (
   contents = deserializeAws_json1_1EnablePolicyTypeResponse(data, context);
   const response: EnablePolicyTypeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnablePolicyTypeResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3964,7 +3946,6 @@ export const deserializeAws_json1_1InviteAccountToOrganizationCommand = async (
   contents = deserializeAws_json1_1InviteAccountToOrganizationResponse(data, context);
   const response: InviteAccountToOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InviteAccountToOrganizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4208,7 +4189,6 @@ export const deserializeAws_json1_1ListAccountsCommand = async (
   contents = deserializeAws_json1_1ListAccountsResponse(data, context);
   const response: ListAccountsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAccountsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4296,7 +4276,6 @@ export const deserializeAws_json1_1ListAccountsForParentCommand = async (
   contents = deserializeAws_json1_1ListAccountsForParentResponse(data, context);
   const response: ListAccountsForParentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAccountsForParentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4392,7 +4371,6 @@ export const deserializeAws_json1_1ListAWSServiceAccessForOrganizationCommand = 
   contents = deserializeAws_json1_1ListAWSServiceAccessForOrganizationResponse(data, context);
   const response: ListAWSServiceAccessForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListAWSServiceAccessForOrganizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4496,7 +4474,6 @@ export const deserializeAws_json1_1ListChildrenCommand = async (
   contents = deserializeAws_json1_1ListChildrenResponse(data, context);
   const response: ListChildrenCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListChildrenResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4592,7 +4569,6 @@ export const deserializeAws_json1_1ListCreateAccountStatusCommand = async (
   contents = deserializeAws_json1_1ListCreateAccountStatusResponse(data, context);
   const response: ListCreateAccountStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListCreateAccountStatusResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4688,7 +4664,6 @@ export const deserializeAws_json1_1ListDelegatedAdministratorsCommand = async (
   contents = deserializeAws_json1_1ListDelegatedAdministratorsResponse(data, context);
   const response: ListDelegatedAdministratorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDelegatedAdministratorsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4792,7 +4767,6 @@ export const deserializeAws_json1_1ListDelegatedServicesForAccountCommand = asyn
   contents = deserializeAws_json1_1ListDelegatedServicesForAccountResponse(data, context);
   const response: ListDelegatedServicesForAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDelegatedServicesForAccountResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4912,7 +4886,6 @@ export const deserializeAws_json1_1ListHandshakesForAccountCommand = async (
   contents = deserializeAws_json1_1ListHandshakesForAccountResponse(data, context);
   const response: ListHandshakesForAccountCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHandshakesForAccountResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5000,7 +4973,6 @@ export const deserializeAws_json1_1ListHandshakesForOrganizationCommand = async 
   contents = deserializeAws_json1_1ListHandshakesForOrganizationResponse(data, context);
   const response: ListHandshakesForOrganizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListHandshakesForOrganizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5096,7 +5068,6 @@ export const deserializeAws_json1_1ListOrganizationalUnitsForParentCommand = asy
   contents = deserializeAws_json1_1ListOrganizationalUnitsForParentResponse(data, context);
   const response: ListOrganizationalUnitsForParentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListOrganizationalUnitsForParentResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5192,7 +5163,6 @@ export const deserializeAws_json1_1ListParentsCommand = async (
   contents = deserializeAws_json1_1ListParentsResponse(data, context);
   const response: ListParentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListParentsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5288,7 +5258,6 @@ export const deserializeAws_json1_1ListPoliciesCommand = async (
   contents = deserializeAws_json1_1ListPoliciesResponse(data, context);
   const response: ListPoliciesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPoliciesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5384,7 +5353,6 @@ export const deserializeAws_json1_1ListPoliciesForTargetCommand = async (
   contents = deserializeAws_json1_1ListPoliciesForTargetResponse(data, context);
   const response: ListPoliciesForTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPoliciesForTargetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5488,7 +5456,6 @@ export const deserializeAws_json1_1ListRootsCommand = async (
   contents = deserializeAws_json1_1ListRootsResponse(data, context);
   const response: ListRootsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListRootsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5576,7 +5543,6 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   contents = deserializeAws_json1_1ListTagsForResourceResponse(data, context);
   const response: ListTagsForResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsForResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5672,7 +5638,6 @@ export const deserializeAws_json1_1ListTargetsForPolicyCommand = async (
   contents = deserializeAws_json1_1ListTargetsForPolicyResponse(data, context);
   const response: ListTargetsForPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTargetsForPolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6356,7 +6321,6 @@ export const deserializeAws_json1_1UpdateOrganizationalUnitCommand = async (
   contents = deserializeAws_json1_1UpdateOrganizationalUnitResponse(data, context);
   const response: UpdateOrganizationalUnitCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateOrganizationalUnitResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6468,7 +6432,6 @@ export const deserializeAws_json1_1UpdatePolicyCommand = async (
   contents = deserializeAws_json1_1UpdatePolicyResponse(data, context);
   const response: UpdatePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdatePolicyResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7727,7 +7690,6 @@ const deserializeAws_json1_1AcceptHandshakeResponse = (
   context: __SerdeContext
 ): AcceptHandshakeResponse => {
   return {
-    __type: "AcceptHandshakeResponse",
     Handshake:
       output.Handshake !== undefined && output.Handshake !== null
         ? deserializeAws_json1_1Handshake(output.Handshake, context)
@@ -7737,7 +7699,6 @@ const deserializeAws_json1_1AcceptHandshakeResponse = (
 
 const deserializeAws_json1_1AccessDeniedException = (output: any, context: __SerdeContext): AccessDeniedException => {
   return {
-    __type: "AccessDeniedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7747,7 +7708,6 @@ const deserializeAws_json1_1AccessDeniedForDependencyException = (
   context: __SerdeContext
 ): AccessDeniedForDependencyException => {
   return {
-    __type: "AccessDeniedForDependencyException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
   } as any;
@@ -7755,7 +7715,6 @@ const deserializeAws_json1_1AccessDeniedForDependencyException = (
 
 const deserializeAws_json1_1Account = (output: any, context: __SerdeContext): Account => {
   return {
-    __type: "Account",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
@@ -7774,7 +7733,6 @@ const deserializeAws_json1_1AccountAlreadyRegisteredException = (
   context: __SerdeContext
 ): AccountAlreadyRegisteredException => {
   return {
-    __type: "AccountAlreadyRegisteredException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7784,7 +7742,6 @@ const deserializeAws_json1_1AccountNotFoundException = (
   context: __SerdeContext
 ): AccountNotFoundException => {
   return {
-    __type: "AccountNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7794,7 +7751,6 @@ const deserializeAws_json1_1AccountNotRegisteredException = (
   context: __SerdeContext
 ): AccountNotRegisteredException => {
   return {
-    __type: "AccountNotRegisteredException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7804,7 +7760,6 @@ const deserializeAws_json1_1AccountOwnerNotVerifiedException = (
   context: __SerdeContext
 ): AccountOwnerNotVerifiedException => {
   return {
-    __type: "AccountOwnerNotVerifiedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7818,7 +7773,6 @@ const deserializeAws_json1_1AlreadyInOrganizationException = (
   context: __SerdeContext
 ): AlreadyInOrganizationException => {
   return {
-    __type: "AlreadyInOrganizationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7828,7 +7782,6 @@ const deserializeAws_json1_1AWSOrganizationsNotInUseException = (
   context: __SerdeContext
 ): AWSOrganizationsNotInUseException => {
   return {
-    __type: "AWSOrganizationsNotInUseException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7838,7 +7791,6 @@ const deserializeAws_json1_1CancelHandshakeResponse = (
   context: __SerdeContext
 ): CancelHandshakeResponse => {
   return {
-    __type: "CancelHandshakeResponse",
     Handshake:
       output.Handshake !== undefined && output.Handshake !== null
         ? deserializeAws_json1_1Handshake(output.Handshake, context)
@@ -7848,7 +7800,6 @@ const deserializeAws_json1_1CancelHandshakeResponse = (
 
 const deserializeAws_json1_1Child = (output: any, context: __SerdeContext): Child => {
   return {
-    __type: "Child",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -7856,7 +7807,6 @@ const deserializeAws_json1_1Child = (output: any, context: __SerdeContext): Chil
 
 const deserializeAws_json1_1ChildNotFoundException = (output: any, context: __SerdeContext): ChildNotFoundException => {
   return {
-    __type: "ChildNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7870,7 +7820,6 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    __type: "ConcurrentModificationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7880,7 +7829,6 @@ const deserializeAws_json1_1ConstraintViolationException = (
   context: __SerdeContext
 ): ConstraintViolationException => {
   return {
-    __type: "ConstraintViolationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
   } as any;
@@ -7888,7 +7836,6 @@ const deserializeAws_json1_1ConstraintViolationException = (
 
 const deserializeAws_json1_1CreateAccountResponse = (output: any, context: __SerdeContext): CreateAccountResponse => {
   return {
-    __type: "CreateAccountResponse",
     CreateAccountStatus:
       output.CreateAccountStatus !== undefined && output.CreateAccountStatus !== null
         ? deserializeAws_json1_1CreateAccountStatus(output.CreateAccountStatus, context)
@@ -7898,7 +7845,6 @@ const deserializeAws_json1_1CreateAccountResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1CreateAccountStatus = (output: any, context: __SerdeContext): CreateAccountStatus => {
   return {
-    __type: "CreateAccountStatus",
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     AccountName: output.AccountName !== undefined && output.AccountName !== null ? output.AccountName : undefined,
     CompletedTimestamp:
@@ -7929,7 +7875,6 @@ const deserializeAws_json1_1CreateAccountStatusNotFoundException = (
   context: __SerdeContext
 ): CreateAccountStatusNotFoundException => {
   return {
-    __type: "CreateAccountStatusNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -7939,7 +7884,6 @@ const deserializeAws_json1_1CreateGovCloudAccountResponse = (
   context: __SerdeContext
 ): CreateGovCloudAccountResponse => {
   return {
-    __type: "CreateGovCloudAccountResponse",
     CreateAccountStatus:
       output.CreateAccountStatus !== undefined && output.CreateAccountStatus !== null
         ? deserializeAws_json1_1CreateAccountStatus(output.CreateAccountStatus, context)
@@ -7952,7 +7896,6 @@ const deserializeAws_json1_1CreateOrganizationalUnitResponse = (
   context: __SerdeContext
 ): CreateOrganizationalUnitResponse => {
   return {
-    __type: "CreateOrganizationalUnitResponse",
     OrganizationalUnit:
       output.OrganizationalUnit !== undefined && output.OrganizationalUnit !== null
         ? deserializeAws_json1_1OrganizationalUnit(output.OrganizationalUnit, context)
@@ -7965,7 +7908,6 @@ const deserializeAws_json1_1CreateOrganizationResponse = (
   context: __SerdeContext
 ): CreateOrganizationResponse => {
   return {
-    __type: "CreateOrganizationResponse",
     Organization:
       output.Organization !== undefined && output.Organization !== null
         ? deserializeAws_json1_1Organization(output.Organization, context)
@@ -7975,7 +7917,6 @@ const deserializeAws_json1_1CreateOrganizationResponse = (
 
 const deserializeAws_json1_1CreatePolicyResponse = (output: any, context: __SerdeContext): CreatePolicyResponse => {
   return {
-    __type: "CreatePolicyResponse",
     Policy:
       output.Policy !== undefined && output.Policy !== null
         ? deserializeAws_json1_1Policy(output.Policy, context)
@@ -7988,7 +7929,6 @@ const deserializeAws_json1_1DeclineHandshakeResponse = (
   context: __SerdeContext
 ): DeclineHandshakeResponse => {
   return {
-    __type: "DeclineHandshakeResponse",
     Handshake:
       output.Handshake !== undefined && output.Handshake !== null
         ? deserializeAws_json1_1Handshake(output.Handshake, context)
@@ -7998,7 +7938,6 @@ const deserializeAws_json1_1DeclineHandshakeResponse = (
 
 const deserializeAws_json1_1DelegatedAdministrator = (output: any, context: __SerdeContext): DelegatedAdministrator => {
   return {
-    __type: "DelegatedAdministrator",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     DelegationEnabledDate:
       output.DelegationEnabledDate !== undefined && output.DelegationEnabledDate !== null
@@ -8025,7 +7964,6 @@ const deserializeAws_json1_1DelegatedAdministrators = (
 
 const deserializeAws_json1_1DelegatedService = (output: any, context: __SerdeContext): DelegatedService => {
   return {
-    __type: "DelegatedService",
     DelegationEnabledDate:
       output.DelegationEnabledDate !== undefined && output.DelegationEnabledDate !== null
         ? new Date(Math.round(output.DelegationEnabledDate * 1000))
@@ -8044,7 +7982,6 @@ const deserializeAws_json1_1DescribeAccountResponse = (
   context: __SerdeContext
 ): DescribeAccountResponse => {
   return {
-    __type: "DescribeAccountResponse",
     Account:
       output.Account !== undefined && output.Account !== null
         ? deserializeAws_json1_1Account(output.Account, context)
@@ -8057,7 +7994,6 @@ const deserializeAws_json1_1DescribeCreateAccountStatusResponse = (
   context: __SerdeContext
 ): DescribeCreateAccountStatusResponse => {
   return {
-    __type: "DescribeCreateAccountStatusResponse",
     CreateAccountStatus:
       output.CreateAccountStatus !== undefined && output.CreateAccountStatus !== null
         ? deserializeAws_json1_1CreateAccountStatus(output.CreateAccountStatus, context)
@@ -8070,7 +8006,6 @@ const deserializeAws_json1_1DescribeEffectivePolicyResponse = (
   context: __SerdeContext
 ): DescribeEffectivePolicyResponse => {
   return {
-    __type: "DescribeEffectivePolicyResponse",
     EffectivePolicy:
       output.EffectivePolicy !== undefined && output.EffectivePolicy !== null
         ? deserializeAws_json1_1EffectivePolicy(output.EffectivePolicy, context)
@@ -8083,7 +8018,6 @@ const deserializeAws_json1_1DescribeHandshakeResponse = (
   context: __SerdeContext
 ): DescribeHandshakeResponse => {
   return {
-    __type: "DescribeHandshakeResponse",
     Handshake:
       output.Handshake !== undefined && output.Handshake !== null
         ? deserializeAws_json1_1Handshake(output.Handshake, context)
@@ -8096,7 +8030,6 @@ const deserializeAws_json1_1DescribeOrganizationalUnitResponse = (
   context: __SerdeContext
 ): DescribeOrganizationalUnitResponse => {
   return {
-    __type: "DescribeOrganizationalUnitResponse",
     OrganizationalUnit:
       output.OrganizationalUnit !== undefined && output.OrganizationalUnit !== null
         ? deserializeAws_json1_1OrganizationalUnit(output.OrganizationalUnit, context)
@@ -8109,7 +8042,6 @@ const deserializeAws_json1_1DescribeOrganizationResponse = (
   context: __SerdeContext
 ): DescribeOrganizationResponse => {
   return {
-    __type: "DescribeOrganizationResponse",
     Organization:
       output.Organization !== undefined && output.Organization !== null
         ? deserializeAws_json1_1Organization(output.Organization, context)
@@ -8119,7 +8051,6 @@ const deserializeAws_json1_1DescribeOrganizationResponse = (
 
 const deserializeAws_json1_1DescribePolicyResponse = (output: any, context: __SerdeContext): DescribePolicyResponse => {
   return {
-    __type: "DescribePolicyResponse",
     Policy:
       output.Policy !== undefined && output.Policy !== null
         ? deserializeAws_json1_1Policy(output.Policy, context)
@@ -8132,7 +8063,6 @@ const deserializeAws_json1_1DestinationParentNotFoundException = (
   context: __SerdeContext
 ): DestinationParentNotFoundException => {
   return {
-    __type: "DestinationParentNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8142,7 +8072,6 @@ const deserializeAws_json1_1DisablePolicyTypeResponse = (
   context: __SerdeContext
 ): DisablePolicyTypeResponse => {
   return {
-    __type: "DisablePolicyTypeResponse",
     Root:
       output.Root !== undefined && output.Root !== null ? deserializeAws_json1_1Root(output.Root, context) : undefined,
   } as any;
@@ -8153,7 +8082,6 @@ const deserializeAws_json1_1DuplicateAccountException = (
   context: __SerdeContext
 ): DuplicateAccountException => {
   return {
-    __type: "DuplicateAccountException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8163,7 +8091,6 @@ const deserializeAws_json1_1DuplicateHandshakeException = (
   context: __SerdeContext
 ): DuplicateHandshakeException => {
   return {
-    __type: "DuplicateHandshakeException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8173,7 +8100,6 @@ const deserializeAws_json1_1DuplicateOrganizationalUnitException = (
   context: __SerdeContext
 ): DuplicateOrganizationalUnitException => {
   return {
-    __type: "DuplicateOrganizationalUnitException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8183,7 +8109,6 @@ const deserializeAws_json1_1DuplicatePolicyAttachmentException = (
   context: __SerdeContext
 ): DuplicatePolicyAttachmentException => {
   return {
-    __type: "DuplicatePolicyAttachmentException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8193,14 +8118,12 @@ const deserializeAws_json1_1DuplicatePolicyException = (
   context: __SerdeContext
 ): DuplicatePolicyException => {
   return {
-    __type: "DuplicatePolicyException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1EffectivePolicy = (output: any, context: __SerdeContext): EffectivePolicy => {
   return {
-    __type: "EffectivePolicy",
     LastUpdatedTimestamp:
       output.LastUpdatedTimestamp !== undefined && output.LastUpdatedTimestamp !== null
         ? new Date(Math.round(output.LastUpdatedTimestamp * 1000))
@@ -8217,7 +8140,6 @@ const deserializeAws_json1_1EffectivePolicyNotFoundException = (
   context: __SerdeContext
 ): EffectivePolicyNotFoundException => {
   return {
-    __type: "EffectivePolicyNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8227,7 +8149,6 @@ const deserializeAws_json1_1EnableAllFeaturesResponse = (
   context: __SerdeContext
 ): EnableAllFeaturesResponse => {
   return {
-    __type: "EnableAllFeaturesResponse",
     Handshake:
       output.Handshake !== undefined && output.Handshake !== null
         ? deserializeAws_json1_1Handshake(output.Handshake, context)
@@ -8240,7 +8161,6 @@ const deserializeAws_json1_1EnabledServicePrincipal = (
   context: __SerdeContext
 ): EnabledServicePrincipal => {
   return {
-    __type: "EnabledServicePrincipal",
     DateEnabled:
       output.DateEnabled !== undefined && output.DateEnabled !== null
         ? new Date(Math.round(output.DateEnabled * 1000))
@@ -8262,7 +8182,6 @@ const deserializeAws_json1_1EnablePolicyTypeResponse = (
   context: __SerdeContext
 ): EnablePolicyTypeResponse => {
   return {
-    __type: "EnablePolicyTypeResponse",
     Root:
       output.Root !== undefined && output.Root !== null ? deserializeAws_json1_1Root(output.Root, context) : undefined,
   } as any;
@@ -8273,14 +8192,12 @@ const deserializeAws_json1_1FinalizingOrganizationException = (
   context: __SerdeContext
 ): FinalizingOrganizationException => {
   return {
-    __type: "FinalizingOrganizationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Handshake = (output: any, context: __SerdeContext): Handshake => {
   return {
-    __type: "Handshake",
     Action: output.Action !== undefined && output.Action !== null ? output.Action : undefined,
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     ExpirationTimestamp:
@@ -8309,7 +8226,6 @@ const deserializeAws_json1_1HandshakeAlreadyInStateException = (
   context: __SerdeContext
 ): HandshakeAlreadyInStateException => {
   return {
-    __type: "HandshakeAlreadyInStateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8319,7 +8235,6 @@ const deserializeAws_json1_1HandshakeConstraintViolationException = (
   context: __SerdeContext
 ): HandshakeConstraintViolationException => {
   return {
-    __type: "HandshakeConstraintViolationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
   } as any;
@@ -8330,7 +8245,6 @@ const deserializeAws_json1_1HandshakeNotFoundException = (
   context: __SerdeContext
 ): HandshakeNotFoundException => {
   return {
-    __type: "HandshakeNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8341,7 +8255,6 @@ const deserializeAws_json1_1HandshakeParties = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1HandshakeParty = (output: any, context: __SerdeContext): HandshakeParty => {
   return {
-    __type: "HandshakeParty",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -8349,7 +8262,6 @@ const deserializeAws_json1_1HandshakeParty = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1HandshakeResource = (output: any, context: __SerdeContext): HandshakeResource => {
   return {
-    __type: "HandshakeResource",
     Resources:
       output.Resources !== undefined && output.Resources !== null
         ? deserializeAws_json1_1HandshakeResources(output.Resources, context)
@@ -8372,14 +8284,12 @@ const deserializeAws_json1_1InvalidHandshakeTransitionException = (
   context: __SerdeContext
 ): InvalidHandshakeTransitionException => {
   return {
-    __type: "InvalidHandshakeTransitionException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (output: any, context: __SerdeContext): InvalidInputException => {
   return {
-    __type: "InvalidInputException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Reason: output.Reason !== undefined && output.Reason !== null ? output.Reason : undefined,
   } as any;
@@ -8390,7 +8300,6 @@ const deserializeAws_json1_1InviteAccountToOrganizationResponse = (
   context: __SerdeContext
 ): InviteAccountToOrganizationResponse => {
   return {
-    __type: "InviteAccountToOrganizationResponse",
     Handshake:
       output.Handshake !== undefined && output.Handshake !== null
         ? deserializeAws_json1_1Handshake(output.Handshake, context)
@@ -8403,7 +8312,6 @@ const deserializeAws_json1_1ListAccountsForParentResponse = (
   context: __SerdeContext
 ): ListAccountsForParentResponse => {
   return {
-    __type: "ListAccountsForParentResponse",
     Accounts:
       output.Accounts !== undefined && output.Accounts !== null
         ? deserializeAws_json1_1Accounts(output.Accounts, context)
@@ -8414,7 +8322,6 @@ const deserializeAws_json1_1ListAccountsForParentResponse = (
 
 const deserializeAws_json1_1ListAccountsResponse = (output: any, context: __SerdeContext): ListAccountsResponse => {
   return {
-    __type: "ListAccountsResponse",
     Accounts:
       output.Accounts !== undefined && output.Accounts !== null
         ? deserializeAws_json1_1Accounts(output.Accounts, context)
@@ -8428,7 +8335,6 @@ const deserializeAws_json1_1ListAWSServiceAccessForOrganizationResponse = (
   context: __SerdeContext
 ): ListAWSServiceAccessForOrganizationResponse => {
   return {
-    __type: "ListAWSServiceAccessForOrganizationResponse",
     EnabledServicePrincipals:
       output.EnabledServicePrincipals !== undefined && output.EnabledServicePrincipals !== null
         ? deserializeAws_json1_1EnabledServicePrincipals(output.EnabledServicePrincipals, context)
@@ -8439,7 +8345,6 @@ const deserializeAws_json1_1ListAWSServiceAccessForOrganizationResponse = (
 
 const deserializeAws_json1_1ListChildrenResponse = (output: any, context: __SerdeContext): ListChildrenResponse => {
   return {
-    __type: "ListChildrenResponse",
     Children:
       output.Children !== undefined && output.Children !== null
         ? deserializeAws_json1_1Children(output.Children, context)
@@ -8453,7 +8358,6 @@ const deserializeAws_json1_1ListCreateAccountStatusResponse = (
   context: __SerdeContext
 ): ListCreateAccountStatusResponse => {
   return {
-    __type: "ListCreateAccountStatusResponse",
     CreateAccountStatuses:
       output.CreateAccountStatuses !== undefined && output.CreateAccountStatuses !== null
         ? deserializeAws_json1_1CreateAccountStatuses(output.CreateAccountStatuses, context)
@@ -8467,7 +8371,6 @@ const deserializeAws_json1_1ListDelegatedAdministratorsResponse = (
   context: __SerdeContext
 ): ListDelegatedAdministratorsResponse => {
   return {
-    __type: "ListDelegatedAdministratorsResponse",
     DelegatedAdministrators:
       output.DelegatedAdministrators !== undefined && output.DelegatedAdministrators !== null
         ? deserializeAws_json1_1DelegatedAdministrators(output.DelegatedAdministrators, context)
@@ -8481,7 +8384,6 @@ const deserializeAws_json1_1ListDelegatedServicesForAccountResponse = (
   context: __SerdeContext
 ): ListDelegatedServicesForAccountResponse => {
   return {
-    __type: "ListDelegatedServicesForAccountResponse",
     DelegatedServices:
       output.DelegatedServices !== undefined && output.DelegatedServices !== null
         ? deserializeAws_json1_1DelegatedServices(output.DelegatedServices, context)
@@ -8495,7 +8397,6 @@ const deserializeAws_json1_1ListHandshakesForAccountResponse = (
   context: __SerdeContext
 ): ListHandshakesForAccountResponse => {
   return {
-    __type: "ListHandshakesForAccountResponse",
     Handshakes:
       output.Handshakes !== undefined && output.Handshakes !== null
         ? deserializeAws_json1_1Handshakes(output.Handshakes, context)
@@ -8509,7 +8410,6 @@ const deserializeAws_json1_1ListHandshakesForOrganizationResponse = (
   context: __SerdeContext
 ): ListHandshakesForOrganizationResponse => {
   return {
-    __type: "ListHandshakesForOrganizationResponse",
     Handshakes:
       output.Handshakes !== undefined && output.Handshakes !== null
         ? deserializeAws_json1_1Handshakes(output.Handshakes, context)
@@ -8523,7 +8423,6 @@ const deserializeAws_json1_1ListOrganizationalUnitsForParentResponse = (
   context: __SerdeContext
 ): ListOrganizationalUnitsForParentResponse => {
   return {
-    __type: "ListOrganizationalUnitsForParentResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     OrganizationalUnits:
       output.OrganizationalUnits !== undefined && output.OrganizationalUnits !== null
@@ -8534,7 +8433,6 @@ const deserializeAws_json1_1ListOrganizationalUnitsForParentResponse = (
 
 const deserializeAws_json1_1ListParentsResponse = (output: any, context: __SerdeContext): ListParentsResponse => {
   return {
-    __type: "ListParentsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Parents:
       output.Parents !== undefined && output.Parents !== null
@@ -8548,7 +8446,6 @@ const deserializeAws_json1_1ListPoliciesForTargetResponse = (
   context: __SerdeContext
 ): ListPoliciesForTargetResponse => {
   return {
-    __type: "ListPoliciesForTargetResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Policies:
       output.Policies !== undefined && output.Policies !== null
@@ -8559,7 +8456,6 @@ const deserializeAws_json1_1ListPoliciesForTargetResponse = (
 
 const deserializeAws_json1_1ListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
   return {
-    __type: "ListPoliciesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Policies:
       output.Policies !== undefined && output.Policies !== null
@@ -8570,7 +8466,6 @@ const deserializeAws_json1_1ListPoliciesResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1ListRootsResponse = (output: any, context: __SerdeContext): ListRootsResponse => {
   return {
-    __type: "ListRootsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Roots:
       output.Roots !== undefined && output.Roots !== null
@@ -8584,7 +8479,6 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
   return {
-    __type: "ListTagsForResourceResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
@@ -8596,7 +8490,6 @@ const deserializeAws_json1_1ListTargetsForPolicyResponse = (
   context: __SerdeContext
 ): ListTargetsForPolicyResponse => {
   return {
-    __type: "ListTargetsForPolicyResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Targets:
       output.Targets !== undefined && output.Targets !== null
@@ -8610,7 +8503,6 @@ const deserializeAws_json1_1MalformedPolicyDocumentException = (
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
   return {
-    __type: "MalformedPolicyDocumentException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8620,14 +8512,12 @@ const deserializeAws_json1_1MasterCannotLeaveOrganizationException = (
   context: __SerdeContext
 ): MasterCannotLeaveOrganizationException => {
   return {
-    __type: "MasterCannotLeaveOrganizationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Organization = (output: any, context: __SerdeContext): Organization => {
   return {
-    __type: "Organization",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     AvailablePolicyTypes:
       output.AvailablePolicyTypes !== undefined && output.AvailablePolicyTypes !== null
@@ -8648,7 +8538,6 @@ const deserializeAws_json1_1Organization = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1OrganizationalUnit = (output: any, context: __SerdeContext): OrganizationalUnit => {
   return {
-    __type: "OrganizationalUnit",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -8660,7 +8549,6 @@ const deserializeAws_json1_1OrganizationalUnitNotEmptyException = (
   context: __SerdeContext
 ): OrganizationalUnitNotEmptyException => {
   return {
-    __type: "OrganizationalUnitNotEmptyException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8670,7 +8558,6 @@ const deserializeAws_json1_1OrganizationalUnitNotFoundException = (
   context: __SerdeContext
 ): OrganizationalUnitNotFoundException => {
   return {
-    __type: "OrganizationalUnitNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8684,14 +8571,12 @@ const deserializeAws_json1_1OrganizationNotEmptyException = (
   context: __SerdeContext
 ): OrganizationNotEmptyException => {
   return {
-    __type: "OrganizationNotEmptyException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Parent = (output: any, context: __SerdeContext): Parent => {
   return {
-    __type: "Parent",
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -8702,7 +8587,6 @@ const deserializeAws_json1_1ParentNotFoundException = (
   context: __SerdeContext
 ): ParentNotFoundException => {
   return {
-    __type: "ParentNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8717,7 +8601,6 @@ const deserializeAws_json1_1Policies = (output: any, context: __SerdeContext): P
 
 const deserializeAws_json1_1Policy = (output: any, context: __SerdeContext): Policy => {
   return {
-    __type: "Policy",
     Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
     PolicySummary:
       output.PolicySummary !== undefined && output.PolicySummary !== null
@@ -8731,14 +8614,12 @@ const deserializeAws_json1_1PolicyChangesInProgressException = (
   context: __SerdeContext
 ): PolicyChangesInProgressException => {
   return {
-    __type: "PolicyChangesInProgressException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1PolicyInUseException = (output: any, context: __SerdeContext): PolicyInUseException => {
   return {
-    __type: "PolicyInUseException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8748,7 +8629,6 @@ const deserializeAws_json1_1PolicyNotAttachedException = (
   context: __SerdeContext
 ): PolicyNotAttachedException => {
   return {
-    __type: "PolicyNotAttachedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8758,14 +8638,12 @@ const deserializeAws_json1_1PolicyNotFoundException = (
   context: __SerdeContext
 ): PolicyNotFoundException => {
   return {
-    __type: "PolicyNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1PolicySummary = (output: any, context: __SerdeContext): PolicySummary => {
   return {
-    __type: "PolicySummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     AwsManaged: output.AwsManaged !== undefined && output.AwsManaged !== null ? output.AwsManaged : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -8781,7 +8659,6 @@ const deserializeAws_json1_1PolicyTargets = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1PolicyTargetSummary = (output: any, context: __SerdeContext): PolicyTargetSummary => {
   return {
-    __type: "PolicyTargetSummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     TargetId: output.TargetId !== undefined && output.TargetId !== null ? output.TargetId : undefined,
@@ -8794,7 +8671,6 @@ const deserializeAws_json1_1PolicyTypeAlreadyEnabledException = (
   context: __SerdeContext
 ): PolicyTypeAlreadyEnabledException => {
   return {
-    __type: "PolicyTypeAlreadyEnabledException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8804,7 +8680,6 @@ const deserializeAws_json1_1PolicyTypeNotAvailableForOrganizationException = (
   context: __SerdeContext
 ): PolicyTypeNotAvailableForOrganizationException => {
   return {
-    __type: "PolicyTypeNotAvailableForOrganizationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8814,7 +8689,6 @@ const deserializeAws_json1_1PolicyTypeNotEnabledException = (
   context: __SerdeContext
 ): PolicyTypeNotEnabledException => {
   return {
-    __type: "PolicyTypeNotEnabledException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8825,7 +8699,6 @@ const deserializeAws_json1_1PolicyTypes = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1PolicyTypeSummary = (output: any, context: __SerdeContext): PolicyTypeSummary => {
   return {
-    __type: "PolicyTypeSummary",
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -8833,7 +8706,6 @@ const deserializeAws_json1_1PolicyTypeSummary = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1Root = (output: any, context: __SerdeContext): Root => {
   return {
-    __type: "Root",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -8846,7 +8718,6 @@ const deserializeAws_json1_1Root = (output: any, context: __SerdeContext): Root 
 
 const deserializeAws_json1_1RootNotFoundException = (output: any, context: __SerdeContext): RootNotFoundException => {
   return {
-    __type: "RootNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8857,7 +8728,6 @@ const deserializeAws_json1_1Roots = (output: any, context: __SerdeContext): Root
 
 const deserializeAws_json1_1ServiceException = (output: any, context: __SerdeContext): ServiceException => {
   return {
-    __type: "ServiceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8867,14 +8737,12 @@ const deserializeAws_json1_1SourceParentNotFoundException = (
   context: __SerdeContext
 ): SourceParentNotFoundException => {
   return {
-    __type: "SourceParentNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -8889,7 +8757,6 @@ const deserializeAws_json1_1TargetNotFoundException = (
   context: __SerdeContext
 ): TargetNotFoundException => {
   return {
-    __type: "TargetNotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8899,7 +8766,6 @@ const deserializeAws_json1_1TooManyRequestsException = (
   context: __SerdeContext
 ): TooManyRequestsException => {
   return {
-    __type: "TooManyRequestsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -8910,7 +8776,6 @@ const deserializeAws_json1_1UnsupportedAPIEndpointException = (
   context: __SerdeContext
 ): UnsupportedAPIEndpointException => {
   return {
-    __type: "UnsupportedAPIEndpointException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -8920,7 +8785,6 @@ const deserializeAws_json1_1UpdateOrganizationalUnitResponse = (
   context: __SerdeContext
 ): UpdateOrganizationalUnitResponse => {
   return {
-    __type: "UpdateOrganizationalUnitResponse",
     OrganizationalUnit:
       output.OrganizationalUnit !== undefined && output.OrganizationalUnit !== null
         ? deserializeAws_json1_1OrganizationalUnit(output.OrganizationalUnit, context)
@@ -8930,7 +8794,6 @@ const deserializeAws_json1_1UpdateOrganizationalUnitResponse = (
 
 const deserializeAws_json1_1UpdatePolicyResponse = (output: any, context: __SerdeContext): UpdatePolicyResponse => {
   return {
-    __type: "UpdatePolicyResponse",
     Policy:
       output.Policy !== undefined && output.Policy !== null
         ? deserializeAws_json1_1Policy(output.Policy, context)

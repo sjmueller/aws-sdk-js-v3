@@ -1,6 +1,6 @@
 
 import { CloudHSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudHSMClient.ts";
-import { AddTagsToResourceRequest, AddTagsToResourceResponse } from "../models/index.ts";
+import { AddTagsToResourceRequest, AddTagsToResourceResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1AddTagsToResourceCommand,
   serializeAws_json1_1AddTagsToResourceCommand,

@@ -1,6 +1,6 @@
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { PutScheduledUpdateGroupActionType } from "../models/index.ts";
+import { PutScheduledUpdateGroupActionType } from "../models/models_0.ts";
 import {
   deserializeAws_queryPutScheduledUpdateGroupActionCommand,
   serializeAws_queryPutScheduledUpdateGroupActionCommand,

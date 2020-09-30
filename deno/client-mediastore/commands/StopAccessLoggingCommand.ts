@@ -1,6 +1,6 @@
 
 import { MediaStoreClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreClient.ts";
-import { StopAccessLoggingInput, StopAccessLoggingOutput } from "../models/index.ts";
+import { StopAccessLoggingInput, StopAccessLoggingOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1StopAccessLoggingCommand,
   serializeAws_json1_1StopAccessLoggingCommand,

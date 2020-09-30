@@ -1,6 +1,6 @@
 
 import { CodeartifactClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodeartifactClient.ts";
-import { GetAuthorizationTokenRequest, GetAuthorizationTokenResult } from "../models/index.ts";
+import { GetAuthorizationTokenRequest, GetAuthorizationTokenResult } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetAuthorizationTokenCommand,
   serializeAws_restJson1GetAuthorizationTokenCommand,

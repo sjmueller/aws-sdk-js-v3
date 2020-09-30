@@ -1,6 +1,6 @@
 
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient.ts";
-import { DescribeAssetModelRequest, DescribeAssetModelResponse } from "../models/index.ts";
+import { DescribeAssetModelRequest, DescribeAssetModelResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DescribeAssetModelCommand,
   serializeAws_restJson1DescribeAssetModelCommand,

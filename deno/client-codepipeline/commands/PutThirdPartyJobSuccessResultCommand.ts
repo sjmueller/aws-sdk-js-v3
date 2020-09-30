@@ -1,6 +1,6 @@
 
 import { CodePipelineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CodePipelineClient.ts";
-import { PutThirdPartyJobSuccessResultInput } from "../models/index.ts";
+import { PutThirdPartyJobSuccessResultInput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1PutThirdPartyJobSuccessResultCommand,
   serializeAws_json1_1PutThirdPartyJobSuccessResultCommand,

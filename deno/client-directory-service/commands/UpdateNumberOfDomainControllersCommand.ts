@@ -1,6 +1,6 @@
 
 import { DirectoryServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DirectoryServiceClient.ts";
-import { UpdateNumberOfDomainControllersRequest, UpdateNumberOfDomainControllersResult } from "../models/index.ts";
+import { UpdateNumberOfDomainControllersRequest, UpdateNumberOfDomainControllersResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateNumberOfDomainControllersCommand,
   serializeAws_json1_1UpdateNumberOfDomainControllersCommand,

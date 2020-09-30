@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient.ts";
-import { DescribeEventSubscriptionsMessage, DescribeEventSubscriptionsResponse } from "../models/index.ts";
+import { DescribeEventSubscriptionsMessage, DescribeEventSubscriptionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeEventSubscriptionsCommand,
   serializeAws_json1_1DescribeEventSubscriptionsCommand,

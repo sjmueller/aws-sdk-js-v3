@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } from "../TextractClient.ts";
-import { GetDocumentAnalysisRequest, GetDocumentAnalysisResponse } from "../models/index.ts";
+import { GetDocumentAnalysisRequest, GetDocumentAnalysisResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1GetDocumentAnalysisCommand,
   serializeAws_json1_1GetDocumentAnalysisCommand,

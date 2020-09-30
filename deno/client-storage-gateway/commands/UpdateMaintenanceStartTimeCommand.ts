@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConfig } from "../StorageGatewayClient.ts";
-import { UpdateMaintenanceStartTimeInput, UpdateMaintenanceStartTimeOutput } from "../models/index.ts";
+import { UpdateMaintenanceStartTimeInput, UpdateMaintenanceStartTimeOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateMaintenanceStartTimeCommand,
   serializeAws_json1_1UpdateMaintenanceStartTimeCommand,

@@ -1,6 +1,6 @@
 
 import { EMRClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EMRClient.ts";
-import { ListInstanceGroupsInput, ListInstanceGroupsOutput } from "../models/index.ts";
+import { ListInstanceGroupsInput, ListInstanceGroupsOutput } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1ListInstanceGroupsCommand,
   serializeAws_json1_1ListInstanceGroupsCommand,

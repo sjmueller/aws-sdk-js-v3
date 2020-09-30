@@ -1,6 +1,6 @@
 
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient.ts";
-import { AddRoleToDBClusterMessage } from "../models/index.ts";
+import { AddRoleToDBClusterMessage } from "../models/models_0.ts";
 import {
   deserializeAws_queryAddRoleToDBClusterCommand,
   serializeAws_queryAddRoleToDBClusterCommand,

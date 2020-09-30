@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DeletePolicyVersionRequest } from "../models/index.ts";
+import { DeletePolicyVersionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1DeletePolicyVersionCommand,
   serializeAws_restJson1DeletePolicyVersionCommand,

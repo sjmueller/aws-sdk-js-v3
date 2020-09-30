@@ -1,6 +1,6 @@
 
 import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } from "../WorkLinkClient.ts";
-import { ListDevicesRequest, ListDevicesResponse } from "../models/index.ts";
+import { ListDevicesRequest, ListDevicesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListDevicesCommand,
   serializeAws_restJson1ListDevicesCommand,

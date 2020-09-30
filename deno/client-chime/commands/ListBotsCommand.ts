@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { ListBotsRequest, ListBotsResponse } from "../models/index.ts";
+import { ListBotsRequest, ListBotsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListBotsCommand,
   serializeAws_restJson1ListBotsCommand,

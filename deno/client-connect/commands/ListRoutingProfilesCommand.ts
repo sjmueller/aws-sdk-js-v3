@@ -1,6 +1,6 @@
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient.ts";
-import { ListRoutingProfilesRequest, ListRoutingProfilesResponse } from "../models/index.ts";
+import { ListRoutingProfilesRequest, ListRoutingProfilesResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ListRoutingProfilesCommand,
   serializeAws_restJson1ListRoutingProfilesCommand,

@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { CreateFlowDefinitionRequest, CreateFlowDefinitionResponse } from "../models/index.ts";
+import { CreateFlowDefinitionRequest, CreateFlowDefinitionResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CreateFlowDefinitionCommand,
   serializeAws_json1_1CreateFlowDefinitionCommand,

@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CostAndUsageReportServiceClient.ts";
-import { DescribeReportDefinitionsRequest, DescribeReportDefinitionsResponse } from "../models/index.ts";
+import { DescribeReportDefinitionsRequest, DescribeReportDefinitionsResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeReportDefinitionsCommand,
   serializeAws_json1_1DescribeReportDefinitionsCommand,

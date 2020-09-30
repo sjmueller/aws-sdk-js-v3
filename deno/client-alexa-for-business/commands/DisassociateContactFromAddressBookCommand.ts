@@ -1,6 +1,9 @@
 
 import { AlexaForBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AlexaForBusinessClient.ts";
-import { DisassociateContactFromAddressBookRequest, DisassociateContactFromAddressBookResponse } from "../models/index.ts";
+import {
+  DisassociateContactFromAddressBookRequest,
+  DisassociateContactFromAddressBookResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DisassociateContactFromAddressBookCommand,
   serializeAws_json1_1DisassociateContactFromAddressBookCommand,

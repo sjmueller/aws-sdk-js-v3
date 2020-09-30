@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticLoadBalancingClient.ts";
-import { AddAvailabilityZonesInput, AddAvailabilityZonesOutput } from "../models/index.ts";
+import { AddAvailabilityZonesInput, AddAvailabilityZonesOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand,
   serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand,

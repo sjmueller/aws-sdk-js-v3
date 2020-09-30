@@ -1,6 +1,6 @@
 
 import { SSMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SSMClient.ts";
-import { CancelMaintenanceWindowExecutionRequest, CancelMaintenanceWindowExecutionResult } from "../models/index.ts";
+import { CancelMaintenanceWindowExecutionRequest, CancelMaintenanceWindowExecutionResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1CancelMaintenanceWindowExecutionCommand,
   serializeAws_json1_1CancelMaintenanceWindowExecutionCommand,

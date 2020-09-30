@@ -3,7 +3,7 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkLinkClientResolvedConfig } f
 import {
   UpdateIdentityProviderConfigurationRequest,
   UpdateIdentityProviderConfigurationResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1UpdateIdentityProviderConfigurationCommand,
   serializeAws_restJson1UpdateIdentityProviderConfigurationCommand,

@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { CreateKeysAndCertificateRequest, CreateKeysAndCertificateResponse } from "../models/index.ts";
+import { CreateKeysAndCertificateRequest, CreateKeysAndCertificateResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateKeysAndCertificateCommand,
   serializeAws_restJson1CreateKeysAndCertificateCommand,

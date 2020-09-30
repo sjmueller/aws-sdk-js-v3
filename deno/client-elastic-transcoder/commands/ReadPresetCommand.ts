@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ElasticTranscoderClient.ts";
-import { ReadPresetRequest, ReadPresetResponse } from "../models/index.ts";
+import { ReadPresetRequest, ReadPresetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1ReadPresetCommand,
   serializeAws_restJson1ReadPresetCommand,

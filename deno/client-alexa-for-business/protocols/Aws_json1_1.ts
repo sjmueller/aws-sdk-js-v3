@@ -473,7 +473,7 @@ import {
   UpdateSkillGroupRequest,
   UpdateSkillGroupResponse,
   UserData,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import {
@@ -1706,7 +1706,6 @@ export const deserializeAws_json1_1ApproveSkillCommand = async (
   contents = deserializeAws_json1_1ApproveSkillResponse(data, context);
   const response: ApproveSkillCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ApproveSkillResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1778,7 +1777,6 @@ export const deserializeAws_json1_1AssociateContactWithAddressBookCommand = asyn
   contents = deserializeAws_json1_1AssociateContactWithAddressBookResponse(data, context);
   const response: AssociateContactWithAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateContactWithAddressBookResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1834,7 +1832,6 @@ export const deserializeAws_json1_1AssociateDeviceWithNetworkProfileCommand = as
   contents = deserializeAws_json1_1AssociateDeviceWithNetworkProfileResponse(data, context);
   const response: AssociateDeviceWithNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateDeviceWithNetworkProfileResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1906,7 +1903,6 @@ export const deserializeAws_json1_1AssociateDeviceWithRoomCommand = async (
   contents = deserializeAws_json1_1AssociateDeviceWithRoomResponse(data, context);
   const response: AssociateDeviceWithRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateDeviceWithRoomResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -1978,7 +1974,6 @@ export const deserializeAws_json1_1AssociateSkillGroupWithRoomCommand = async (
   contents = deserializeAws_json1_1AssociateSkillGroupWithRoomResponse(data, context);
   const response: AssociateSkillGroupWithRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateSkillGroupWithRoomResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2034,7 +2029,6 @@ export const deserializeAws_json1_1AssociateSkillWithSkillGroupCommand = async (
   contents = deserializeAws_json1_1AssociateSkillWithSkillGroupResponse(data, context);
   const response: AssociateSkillWithSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateSkillWithSkillGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2106,7 +2100,6 @@ export const deserializeAws_json1_1AssociateSkillWithUsersCommand = async (
   contents = deserializeAws_json1_1AssociateSkillWithUsersResponse(data, context);
   const response: AssociateSkillWithUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateSkillWithUsersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2170,7 +2163,6 @@ export const deserializeAws_json1_1CreateAddressBookCommand = async (
   contents = deserializeAws_json1_1CreateAddressBookResponse(data, context);
   const response: CreateAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateAddressBookResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2234,7 +2226,6 @@ export const deserializeAws_json1_1CreateBusinessReportScheduleCommand = async (
   contents = deserializeAws_json1_1CreateBusinessReportScheduleResponse(data, context);
   const response: CreateBusinessReportScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBusinessReportScheduleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2290,7 +2281,6 @@ export const deserializeAws_json1_1CreateConferenceProviderCommand = async (
   contents = deserializeAws_json1_1CreateConferenceProviderResponse(data, context);
   const response: CreateConferenceProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateConferenceProviderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2346,7 +2336,6 @@ export const deserializeAws_json1_1CreateContactCommand = async (
   contents = deserializeAws_json1_1CreateContactResponse(data, context);
   const response: CreateContactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateContactResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2410,7 +2399,6 @@ export const deserializeAws_json1_1CreateGatewayGroupCommand = async (
   contents = deserializeAws_json1_1CreateGatewayGroupResponse(data, context);
   const response: CreateGatewayGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateGatewayGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2474,7 +2462,6 @@ export const deserializeAws_json1_1CreateNetworkProfileCommand = async (
   contents = deserializeAws_json1_1CreateNetworkProfileResponse(data, context);
   const response: CreateNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateNetworkProfileResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2562,7 +2549,6 @@ export const deserializeAws_json1_1CreateProfileCommand = async (
   contents = deserializeAws_json1_1CreateProfileResponse(data, context);
   const response: CreateProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateProfileResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2634,7 +2620,6 @@ export const deserializeAws_json1_1CreateRoomCommand = async (
   contents = deserializeAws_json1_1CreateRoomResponse(data, context);
   const response: CreateRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRoomResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2698,7 +2683,6 @@ export const deserializeAws_json1_1CreateSkillGroupCommand = async (
   contents = deserializeAws_json1_1CreateSkillGroupResponse(data, context);
   const response: CreateSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSkillGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2770,7 +2754,6 @@ export const deserializeAws_json1_1CreateUserCommand = async (
   contents = deserializeAws_json1_1CreateUserResponse(data, context);
   const response: CreateUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2842,7 +2825,6 @@ export const deserializeAws_json1_1DeleteAddressBookCommand = async (
   contents = deserializeAws_json1_1DeleteAddressBookResponse(data, context);
   const response: DeleteAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteAddressBookResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2906,7 +2888,6 @@ export const deserializeAws_json1_1DeleteBusinessReportScheduleCommand = async (
   contents = deserializeAws_json1_1DeleteBusinessReportScheduleResponse(data, context);
   const response: DeleteBusinessReportScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteBusinessReportScheduleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -2970,7 +2951,6 @@ export const deserializeAws_json1_1DeleteConferenceProviderCommand = async (
   contents = deserializeAws_json1_1DeleteConferenceProviderResponse(data, context);
   const response: DeleteConferenceProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteConferenceProviderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3026,7 +3006,6 @@ export const deserializeAws_json1_1DeleteContactCommand = async (
   contents = deserializeAws_json1_1DeleteContactResponse(data, context);
   const response: DeleteContactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteContactResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3090,7 +3069,6 @@ export const deserializeAws_json1_1DeleteDeviceCommand = async (
   contents = deserializeAws_json1_1DeleteDeviceResponse(data, context);
   const response: DeleteDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDeviceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3162,7 +3140,6 @@ export const deserializeAws_json1_1DeleteDeviceUsageDataCommand = async (
   contents = deserializeAws_json1_1DeleteDeviceUsageDataResponse(data, context);
   const response: DeleteDeviceUsageDataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteDeviceUsageDataResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3234,7 +3211,6 @@ export const deserializeAws_json1_1DeleteGatewayGroupCommand = async (
   contents = deserializeAws_json1_1DeleteGatewayGroupResponse(data, context);
   const response: DeleteGatewayGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteGatewayGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3290,7 +3266,6 @@ export const deserializeAws_json1_1DeleteNetworkProfileCommand = async (
   contents = deserializeAws_json1_1DeleteNetworkProfileResponse(data, context);
   const response: DeleteNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteNetworkProfileResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3362,7 +3337,6 @@ export const deserializeAws_json1_1DeleteProfileCommand = async (
   contents = deserializeAws_json1_1DeleteProfileResponse(data, context);
   const response: DeleteProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteProfileResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3426,7 +3400,6 @@ export const deserializeAws_json1_1DeleteRoomCommand = async (
   contents = deserializeAws_json1_1DeleteRoomResponse(data, context);
   const response: DeleteRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRoomResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3490,7 +3463,6 @@ export const deserializeAws_json1_1DeleteRoomSkillParameterCommand = async (
   contents = deserializeAws_json1_1DeleteRoomSkillParameterResponse(data, context);
   const response: DeleteRoomSkillParameterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteRoomSkillParameterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3546,7 +3518,6 @@ export const deserializeAws_json1_1DeleteSkillAuthorizationCommand = async (
   contents = deserializeAws_json1_1DeleteSkillAuthorizationResponse(data, context);
   const response: DeleteSkillAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSkillAuthorizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3610,7 +3581,6 @@ export const deserializeAws_json1_1DeleteSkillGroupCommand = async (
   contents = deserializeAws_json1_1DeleteSkillGroupResponse(data, context);
   const response: DeleteSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteSkillGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3674,7 +3644,6 @@ export const deserializeAws_json1_1DeleteUserCommand = async (
   contents = deserializeAws_json1_1DeleteUserResponse(data, context);
   const response: DeleteUserCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteUserResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3738,7 +3707,6 @@ export const deserializeAws_json1_1DisassociateContactFromAddressBookCommand = a
   contents = deserializeAws_json1_1DisassociateContactFromAddressBookResponse(data, context);
   const response: DisassociateContactFromAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateContactFromAddressBookResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3786,7 +3754,6 @@ export const deserializeAws_json1_1DisassociateDeviceFromRoomCommand = async (
   contents = deserializeAws_json1_1DisassociateDeviceFromRoomResponse(data, context);
   const response: DisassociateDeviceFromRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateDeviceFromRoomResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3850,7 +3817,6 @@ export const deserializeAws_json1_1DisassociateSkillFromSkillGroupCommand = asyn
   contents = deserializeAws_json1_1DisassociateSkillFromSkillGroupResponse(data, context);
   const response: DisassociateSkillFromSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateSkillFromSkillGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3914,7 +3880,6 @@ export const deserializeAws_json1_1DisassociateSkillFromUsersCommand = async (
   contents = deserializeAws_json1_1DisassociateSkillFromUsersResponse(data, context);
   const response: DisassociateSkillFromUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateSkillFromUsersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -3978,7 +3943,6 @@ export const deserializeAws_json1_1DisassociateSkillGroupFromRoomCommand = async
   contents = deserializeAws_json1_1DisassociateSkillGroupFromRoomResponse(data, context);
   const response: DisassociateSkillGroupFromRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateSkillGroupFromRoomResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4034,7 +3998,6 @@ export const deserializeAws_json1_1ForgetSmartHomeAppliancesCommand = async (
   contents = deserializeAws_json1_1ForgetSmartHomeAppliancesResponse(data, context);
   const response: ForgetSmartHomeAppliancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ForgetSmartHomeAppliancesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4090,7 +4053,6 @@ export const deserializeAws_json1_1GetAddressBookCommand = async (
   contents = deserializeAws_json1_1GetAddressBookResponse(data, context);
   const response: GetAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAddressBookResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4146,7 +4108,6 @@ export const deserializeAws_json1_1GetConferencePreferenceCommand = async (
   contents = deserializeAws_json1_1GetConferencePreferenceResponse(data, context);
   const response: GetConferencePreferenceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConferencePreferenceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4202,7 +4163,6 @@ export const deserializeAws_json1_1GetConferenceProviderCommand = async (
   contents = deserializeAws_json1_1GetConferenceProviderResponse(data, context);
   const response: GetConferenceProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConferenceProviderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4258,7 +4218,6 @@ export const deserializeAws_json1_1GetContactCommand = async (
   contents = deserializeAws_json1_1GetContactResponse(data, context);
   const response: GetContactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetContactResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4314,7 +4273,6 @@ export const deserializeAws_json1_1GetDeviceCommand = async (
   contents = deserializeAws_json1_1GetDeviceResponse(data, context);
   const response: GetDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDeviceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4370,7 +4328,6 @@ export const deserializeAws_json1_1GetGatewayCommand = async (
   contents = deserializeAws_json1_1GetGatewayResponse(data, context);
   const response: GetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGatewayResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4426,7 +4383,6 @@ export const deserializeAws_json1_1GetGatewayGroupCommand = async (
   contents = deserializeAws_json1_1GetGatewayGroupResponse(data, context);
   const response: GetGatewayGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGatewayGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4482,7 +4438,6 @@ export const deserializeAws_json1_1GetInvitationConfigurationCommand = async (
   contents = deserializeAws_json1_1GetInvitationConfigurationResponse(data, context);
   const response: GetInvitationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetInvitationConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4538,7 +4493,6 @@ export const deserializeAws_json1_1GetNetworkProfileCommand = async (
   contents = deserializeAws_json1_1GetNetworkProfileResponse(data, context);
   const response: GetNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetNetworkProfileResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4602,7 +4556,6 @@ export const deserializeAws_json1_1GetProfileCommand = async (
   contents = deserializeAws_json1_1GetProfileResponse(data, context);
   const response: GetProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetProfileResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4658,7 +4611,6 @@ export const deserializeAws_json1_1GetRoomCommand = async (
   contents = deserializeAws_json1_1GetRoomResponse(data, context);
   const response: GetRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRoomResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4714,7 +4666,6 @@ export const deserializeAws_json1_1GetRoomSkillParameterCommand = async (
   contents = deserializeAws_json1_1GetRoomSkillParameterResponse(data, context);
   const response: GetRoomSkillParameterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRoomSkillParameterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4770,7 +4721,6 @@ export const deserializeAws_json1_1GetSkillGroupCommand = async (
   contents = deserializeAws_json1_1GetSkillGroupResponse(data, context);
   const response: GetSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetSkillGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4826,7 +4776,6 @@ export const deserializeAws_json1_1ListBusinessReportSchedulesCommand = async (
   contents = deserializeAws_json1_1ListBusinessReportSchedulesResponse(data, context);
   const response: ListBusinessReportSchedulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBusinessReportSchedulesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4874,7 +4823,6 @@ export const deserializeAws_json1_1ListConferenceProvidersCommand = async (
   contents = deserializeAws_json1_1ListConferenceProvidersResponse(data, context);
   const response: ListConferenceProvidersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListConferenceProvidersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4922,7 +4870,6 @@ export const deserializeAws_json1_1ListDeviceEventsCommand = async (
   contents = deserializeAws_json1_1ListDeviceEventsResponse(data, context);
   const response: ListDeviceEventsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListDeviceEventsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -4978,7 +4925,6 @@ export const deserializeAws_json1_1ListGatewayGroupsCommand = async (
   contents = deserializeAws_json1_1ListGatewayGroupsResponse(data, context);
   const response: ListGatewayGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGatewayGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5026,7 +4972,6 @@ export const deserializeAws_json1_1ListGatewaysCommand = async (
   contents = deserializeAws_json1_1ListGatewaysResponse(data, context);
   const response: ListGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListGatewaysResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5074,7 +5019,6 @@ export const deserializeAws_json1_1ListSkillsCommand = async (
   contents = deserializeAws_json1_1ListSkillsResponse(data, context);
   const response: ListSkillsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSkillsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5122,7 +5066,6 @@ export const deserializeAws_json1_1ListSkillsStoreCategoriesCommand = async (
   contents = deserializeAws_json1_1ListSkillsStoreCategoriesResponse(data, context);
   const response: ListSkillsStoreCategoriesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSkillsStoreCategoriesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5170,7 +5113,6 @@ export const deserializeAws_json1_1ListSkillsStoreSkillsByCategoryCommand = asyn
   contents = deserializeAws_json1_1ListSkillsStoreSkillsByCategoryResponse(data, context);
   const response: ListSkillsStoreSkillsByCategoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSkillsStoreSkillsByCategoryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5218,7 +5160,6 @@ export const deserializeAws_json1_1ListSmartHomeAppliancesCommand = async (
   contents = deserializeAws_json1_1ListSmartHomeAppliancesResponse(data, context);
   const response: ListSmartHomeAppliancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListSmartHomeAppliancesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5274,7 +5215,6 @@ export const deserializeAws_json1_1ListTagsCommand = async (
   contents = deserializeAws_json1_1ListTagsResponse(data, context);
   const response: ListTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListTagsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5330,7 +5270,6 @@ export const deserializeAws_json1_1PutConferencePreferenceCommand = async (
   contents = deserializeAws_json1_1PutConferencePreferenceResponse(data, context);
   const response: PutConferencePreferenceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutConferencePreferenceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5386,7 +5325,6 @@ export const deserializeAws_json1_1PutInvitationConfigurationCommand = async (
   contents = deserializeAws_json1_1PutInvitationConfigurationResponse(data, context);
   const response: PutInvitationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutInvitationConfigurationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5450,7 +5388,6 @@ export const deserializeAws_json1_1PutRoomSkillParameterCommand = async (
   contents = deserializeAws_json1_1PutRoomSkillParameterResponse(data, context);
   const response: PutRoomSkillParameterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutRoomSkillParameterResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5506,7 +5443,6 @@ export const deserializeAws_json1_1PutSkillAuthorizationCommand = async (
   contents = deserializeAws_json1_1PutSkillAuthorizationResponse(data, context);
   const response: PutSkillAuthorizationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutSkillAuthorizationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5570,7 +5506,6 @@ export const deserializeAws_json1_1RegisterAVSDeviceCommand = async (
   contents = deserializeAws_json1_1RegisterAVSDeviceResponse(data, context);
   const response: RegisterAVSDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterAVSDeviceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5650,7 +5585,6 @@ export const deserializeAws_json1_1RejectSkillCommand = async (
   contents = deserializeAws_json1_1RejectSkillResponse(data, context);
   const response: RejectSkillCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectSkillResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5714,7 +5648,6 @@ export const deserializeAws_json1_1ResolveRoomCommand = async (
   contents = deserializeAws_json1_1ResolveRoomResponse(data, context);
   const response: ResolveRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResolveRoomResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5770,7 +5703,6 @@ export const deserializeAws_json1_1RevokeInvitationCommand = async (
   contents = deserializeAws_json1_1RevokeInvitationResponse(data, context);
   const response: RevokeInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RevokeInvitationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5834,7 +5766,6 @@ export const deserializeAws_json1_1SearchAddressBooksCommand = async (
   contents = deserializeAws_json1_1SearchAddressBooksResponse(data, context);
   const response: SearchAddressBooksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchAddressBooksResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5882,7 +5813,6 @@ export const deserializeAws_json1_1SearchContactsCommand = async (
   contents = deserializeAws_json1_1SearchContactsResponse(data, context);
   const response: SearchContactsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchContactsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5930,7 +5860,6 @@ export const deserializeAws_json1_1SearchDevicesCommand = async (
   contents = deserializeAws_json1_1SearchDevicesResponse(data, context);
   const response: SearchDevicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchDevicesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -5978,7 +5907,6 @@ export const deserializeAws_json1_1SearchNetworkProfilesCommand = async (
   contents = deserializeAws_json1_1SearchNetworkProfilesResponse(data, context);
   const response: SearchNetworkProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchNetworkProfilesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6026,7 +5954,6 @@ export const deserializeAws_json1_1SearchProfilesCommand = async (
   contents = deserializeAws_json1_1SearchProfilesResponse(data, context);
   const response: SearchProfilesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchProfilesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6074,7 +6001,6 @@ export const deserializeAws_json1_1SearchRoomsCommand = async (
   contents = deserializeAws_json1_1SearchRoomsResponse(data, context);
   const response: SearchRoomsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchRoomsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6122,7 +6048,6 @@ export const deserializeAws_json1_1SearchSkillGroupsCommand = async (
   contents = deserializeAws_json1_1SearchSkillGroupsResponse(data, context);
   const response: SearchSkillGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchSkillGroupsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6170,7 +6095,6 @@ export const deserializeAws_json1_1SearchUsersCommand = async (
   contents = deserializeAws_json1_1SearchUsersResponse(data, context);
   const response: SearchUsersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchUsersResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6218,7 +6142,6 @@ export const deserializeAws_json1_1SendAnnouncementCommand = async (
   contents = deserializeAws_json1_1SendAnnouncementResponse(data, context);
   const response: SendAnnouncementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendAnnouncementResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6282,7 +6205,6 @@ export const deserializeAws_json1_1SendInvitationCommand = async (
   contents = deserializeAws_json1_1SendInvitationResponse(data, context);
   const response: SendInvitationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SendInvitationResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6354,7 +6276,6 @@ export const deserializeAws_json1_1StartDeviceSyncCommand = async (
   contents = deserializeAws_json1_1StartDeviceSyncResponse(data, context);
   const response: StartDeviceSyncCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartDeviceSyncResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6410,7 +6331,6 @@ export const deserializeAws_json1_1StartSmartHomeApplianceDiscoveryCommand = asy
   contents = deserializeAws_json1_1StartSmartHomeApplianceDiscoveryResponse(data, context);
   const response: StartSmartHomeApplianceDiscoveryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartSmartHomeApplianceDiscoveryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6466,7 +6386,6 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   contents = deserializeAws_json1_1TagResourceResponse(data, context);
   const response: TagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6522,7 +6441,6 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   contents = deserializeAws_json1_1UntagResourceResponse(data, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UntagResourceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6578,7 +6496,6 @@ export const deserializeAws_json1_1UpdateAddressBookCommand = async (
   contents = deserializeAws_json1_1UpdateAddressBookResponse(data, context);
   const response: UpdateAddressBookCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateAddressBookResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6650,7 +6567,6 @@ export const deserializeAws_json1_1UpdateBusinessReportScheduleCommand = async (
   contents = deserializeAws_json1_1UpdateBusinessReportScheduleResponse(data, context);
   const response: UpdateBusinessReportScheduleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateBusinessReportScheduleResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6714,7 +6630,6 @@ export const deserializeAws_json1_1UpdateConferenceProviderCommand = async (
   contents = deserializeAws_json1_1UpdateConferenceProviderResponse(data, context);
   const response: UpdateConferenceProviderCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateConferenceProviderResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6770,7 +6685,6 @@ export const deserializeAws_json1_1UpdateContactCommand = async (
   contents = deserializeAws_json1_1UpdateContactResponse(data, context);
   const response: UpdateContactCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateContactResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6834,7 +6748,6 @@ export const deserializeAws_json1_1UpdateDeviceCommand = async (
   contents = deserializeAws_json1_1UpdateDeviceResponse(data, context);
   const response: UpdateDeviceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateDeviceResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6906,7 +6819,6 @@ export const deserializeAws_json1_1UpdateGatewayCommand = async (
   contents = deserializeAws_json1_1UpdateGatewayResponse(data, context);
   const response: UpdateGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGatewayResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -6970,7 +6882,6 @@ export const deserializeAws_json1_1UpdateGatewayGroupCommand = async (
   contents = deserializeAws_json1_1UpdateGatewayGroupResponse(data, context);
   const response: UpdateGatewayGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateGatewayGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7034,7 +6945,6 @@ export const deserializeAws_json1_1UpdateNetworkProfileCommand = async (
   contents = deserializeAws_json1_1UpdateNetworkProfileResponse(data, context);
   const response: UpdateNetworkProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateNetworkProfileResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7122,7 +7032,6 @@ export const deserializeAws_json1_1UpdateProfileCommand = async (
   contents = deserializeAws_json1_1UpdateProfileResponse(data, context);
   const response: UpdateProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateProfileResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7194,7 +7103,6 @@ export const deserializeAws_json1_1UpdateRoomCommand = async (
   contents = deserializeAws_json1_1UpdateRoomResponse(data, context);
   const response: UpdateRoomCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateRoomResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -7258,7 +7166,6 @@ export const deserializeAws_json1_1UpdateSkillGroupCommand = async (
   contents = deserializeAws_json1_1UpdateSkillGroupResponse(data, context);
   const response: UpdateSkillGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSkillGroupResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -8765,7 +8672,6 @@ const serializeAws_json1_1UpdateSkillGroupRequest = (input: UpdateSkillGroupRequ
 
 const deserializeAws_json1_1AddressBook = (output: any, context: __SerdeContext): AddressBook => {
   return {
-    __type: "AddressBook",
     AddressBookArn:
       output.AddressBookArn !== undefined && output.AddressBookArn !== null ? output.AddressBookArn : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -8775,7 +8681,6 @@ const deserializeAws_json1_1AddressBook = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1AddressBookData = (output: any, context: __SerdeContext): AddressBookData => {
   return {
-    __type: "AddressBookData",
     AddressBookArn:
       output.AddressBookArn !== undefined && output.AddressBookArn !== null ? output.AddressBookArn : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
@@ -8789,69 +8694,54 @@ const deserializeAws_json1_1AddressBookDataList = (output: any, context: __Serde
 
 const deserializeAws_json1_1AlreadyExistsException = (output: any, context: __SerdeContext): AlreadyExistsException => {
   return {
-    __type: "AlreadyExistsException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ApproveSkillResponse = (output: any, context: __SerdeContext): ApproveSkillResponse => {
-  return {
-    __type: "ApproveSkillResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateContactWithAddressBookResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateContactWithAddressBookResponse => {
-  return {
-    __type: "AssociateContactWithAddressBookResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateDeviceWithNetworkProfileResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateDeviceWithNetworkProfileResponse => {
-  return {
-    __type: "AssociateDeviceWithNetworkProfileResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateDeviceWithRoomResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateDeviceWithRoomResponse => {
-  return {
-    __type: "AssociateDeviceWithRoomResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateSkillGroupWithRoomResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateSkillGroupWithRoomResponse => {
-  return {
-    __type: "AssociateSkillGroupWithRoomResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateSkillWithSkillGroupResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateSkillWithSkillGroupResponse => {
-  return {
-    __type: "AssociateSkillWithSkillGroupResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1AssociateSkillWithUsersResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateSkillWithUsersResponse => {
-  return {
-    __type: "AssociateSkillWithUsersResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1BulletPoints = (output: any, context: __SerdeContext): string[] => {
@@ -8860,7 +8750,6 @@ const deserializeAws_json1_1BulletPoints = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1BusinessReport = (output: any, context: __SerdeContext): BusinessReport => {
   return {
-    __type: "BusinessReport",
     DeliveryTime:
       output.DeliveryTime !== undefined && output.DeliveryTime !== null
         ? new Date(Math.round(output.DeliveryTime * 1000))
@@ -8880,7 +8769,6 @@ const deserializeAws_json1_1BusinessReportContentRange = (
   context: __SerdeContext
 ): BusinessReportContentRange => {
   return {
-    __type: "BusinessReportContentRange",
     Interval: output.Interval !== undefined && output.Interval !== null ? output.Interval : undefined,
   } as any;
 };
@@ -8890,7 +8778,6 @@ const deserializeAws_json1_1BusinessReportRecurrence = (
   context: __SerdeContext
 ): BusinessReportRecurrence => {
   return {
-    __type: "BusinessReportRecurrence",
     StartDate: output.StartDate !== undefined && output.StartDate !== null ? output.StartDate : undefined,
   } as any;
 };
@@ -8900,7 +8787,6 @@ const deserializeAws_json1_1BusinessReportS3Location = (
   context: __SerdeContext
 ): BusinessReportS3Location => {
   return {
-    __type: "BusinessReportS3Location",
     BucketName: output.BucketName !== undefined && output.BucketName !== null ? output.BucketName : undefined,
     Path: output.Path !== undefined && output.Path !== null ? output.Path : undefined,
   } as any;
@@ -8908,7 +8794,6 @@ const deserializeAws_json1_1BusinessReportS3Location = (
 
 const deserializeAws_json1_1BusinessReportSchedule = (output: any, context: __SerdeContext): BusinessReportSchedule => {
   return {
-    __type: "BusinessReportSchedule",
     ContentRange:
       output.ContentRange !== undefined && output.ContentRange !== null
         ? deserializeAws_json1_1BusinessReportContentRange(output.ContentRange, context)
@@ -8938,7 +8823,6 @@ const deserializeAws_json1_1BusinessReportScheduleList = (
 
 const deserializeAws_json1_1Category = (output: any, context: __SerdeContext): Category => {
   return {
-    __type: "Category",
     CategoryId: output.CategoryId !== undefined && output.CategoryId !== null ? output.CategoryId : undefined,
     CategoryName: output.CategoryName !== undefined && output.CategoryName !== null ? output.CategoryName : undefined,
   } as any;
@@ -8953,14 +8837,12 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   context: __SerdeContext
 ): ConcurrentModificationException => {
   return {
-    __type: "ConcurrentModificationException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ConferencePreference = (output: any, context: __SerdeContext): ConferencePreference => {
   return {
-    __type: "ConferencePreference",
     DefaultConferenceProviderArn:
       output.DefaultConferenceProviderArn !== undefined && output.DefaultConferenceProviderArn !== null
         ? output.DefaultConferenceProviderArn
@@ -8970,7 +8852,6 @@ const deserializeAws_json1_1ConferencePreference = (output: any, context: __Serd
 
 const deserializeAws_json1_1ConferenceProvider = (output: any, context: __SerdeContext): ConferenceProvider => {
   return {
-    __type: "ConferenceProvider",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     IPDialIn:
       output.IPDialIn !== undefined && output.IPDialIn !== null
@@ -8995,7 +8876,6 @@ const deserializeAws_json1_1ConferenceProvidersList = (output: any, context: __S
 
 const deserializeAws_json1_1Contact = (output: any, context: __SerdeContext): Contact => {
   return {
-    __type: "Contact",
     ContactArn: output.ContactArn !== undefined && output.ContactArn !== null ? output.ContactArn : undefined,
     DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
     FirstName: output.FirstName !== undefined && output.FirstName !== null ? output.FirstName : undefined,
@@ -9014,7 +8894,6 @@ const deserializeAws_json1_1Contact = (output: any, context: __SerdeContext): Co
 
 const deserializeAws_json1_1ContactData = (output: any, context: __SerdeContext): ContactData => {
   return {
-    __type: "ContactData",
     ContactArn: output.ContactArn !== undefined && output.ContactArn !== null ? output.ContactArn : undefined,
     DisplayName: output.DisplayName !== undefined && output.DisplayName !== null ? output.DisplayName : undefined,
     FirstName: output.FirstName !== undefined && output.FirstName !== null ? output.FirstName : undefined,
@@ -9040,7 +8919,6 @@ const deserializeAws_json1_1CreateAddressBookResponse = (
   context: __SerdeContext
 ): CreateAddressBookResponse => {
   return {
-    __type: "CreateAddressBookResponse",
     AddressBookArn:
       output.AddressBookArn !== undefined && output.AddressBookArn !== null ? output.AddressBookArn : undefined,
   } as any;
@@ -9051,7 +8929,6 @@ const deserializeAws_json1_1CreateBusinessReportScheduleResponse = (
   context: __SerdeContext
 ): CreateBusinessReportScheduleResponse => {
   return {
-    __type: "CreateBusinessReportScheduleResponse",
     ScheduleArn: output.ScheduleArn !== undefined && output.ScheduleArn !== null ? output.ScheduleArn : undefined,
   } as any;
 };
@@ -9061,7 +8938,6 @@ const deserializeAws_json1_1CreateConferenceProviderResponse = (
   context: __SerdeContext
 ): CreateConferenceProviderResponse => {
   return {
-    __type: "CreateConferenceProviderResponse",
     ConferenceProviderArn:
       output.ConferenceProviderArn !== undefined && output.ConferenceProviderArn !== null
         ? output.ConferenceProviderArn
@@ -9071,7 +8947,6 @@ const deserializeAws_json1_1CreateConferenceProviderResponse = (
 
 const deserializeAws_json1_1CreateContactResponse = (output: any, context: __SerdeContext): CreateContactResponse => {
   return {
-    __type: "CreateContactResponse",
     ContactArn: output.ContactArn !== undefined && output.ContactArn !== null ? output.ContactArn : undefined,
   } as any;
 };
@@ -9081,7 +8956,6 @@ const deserializeAws_json1_1CreateGatewayGroupResponse = (
   context: __SerdeContext
 ): CreateGatewayGroupResponse => {
   return {
-    __type: "CreateGatewayGroupResponse",
     GatewayGroupArn:
       output.GatewayGroupArn !== undefined && output.GatewayGroupArn !== null ? output.GatewayGroupArn : undefined,
   } as any;
@@ -9092,7 +8966,6 @@ const deserializeAws_json1_1CreateNetworkProfileResponse = (
   context: __SerdeContext
 ): CreateNetworkProfileResponse => {
   return {
-    __type: "CreateNetworkProfileResponse",
     NetworkProfileArn:
       output.NetworkProfileArn !== undefined && output.NetworkProfileArn !== null
         ? output.NetworkProfileArn
@@ -9102,14 +8975,12 @@ const deserializeAws_json1_1CreateNetworkProfileResponse = (
 
 const deserializeAws_json1_1CreateProfileResponse = (output: any, context: __SerdeContext): CreateProfileResponse => {
   return {
-    __type: "CreateProfileResponse",
     ProfileArn: output.ProfileArn !== undefined && output.ProfileArn !== null ? output.ProfileArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1CreateRoomResponse = (output: any, context: __SerdeContext): CreateRoomResponse => {
   return {
-    __type: "CreateRoomResponse",
     RoomArn: output.RoomArn !== undefined && output.RoomArn !== null ? output.RoomArn : undefined,
   } as any;
 };
@@ -9119,7 +8990,6 @@ const deserializeAws_json1_1CreateSkillGroupResponse = (
   context: __SerdeContext
 ): CreateSkillGroupResponse => {
   return {
-    __type: "CreateSkillGroupResponse",
     SkillGroupArn:
       output.SkillGroupArn !== undefined && output.SkillGroupArn !== null ? output.SkillGroupArn : undefined,
   } as any;
@@ -9127,7 +8997,6 @@ const deserializeAws_json1_1CreateSkillGroupResponse = (
 
 const deserializeAws_json1_1CreateUserResponse = (output: any, context: __SerdeContext): CreateUserResponse => {
   return {
-    __type: "CreateUserResponse",
     UserArn: output.UserArn !== undefined && output.UserArn !== null ? output.UserArn : undefined,
   } as any;
 };
@@ -9136,116 +9005,87 @@ const deserializeAws_json1_1DeleteAddressBookResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteAddressBookResponse => {
-  return {
-    __type: "DeleteAddressBookResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteBusinessReportScheduleResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteBusinessReportScheduleResponse => {
-  return {
-    __type: "DeleteBusinessReportScheduleResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteConferenceProviderResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteConferenceProviderResponse => {
-  return {
-    __type: "DeleteConferenceProviderResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteContactResponse = (output: any, context: __SerdeContext): DeleteContactResponse => {
-  return {
-    __type: "DeleteContactResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteDeviceResponse = (output: any, context: __SerdeContext): DeleteDeviceResponse => {
-  return {
-    __type: "DeleteDeviceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteDeviceUsageDataResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteDeviceUsageDataResponse => {
-  return {
-    __type: "DeleteDeviceUsageDataResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteGatewayGroupResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteGatewayGroupResponse => {
-  return {
-    __type: "DeleteGatewayGroupResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteNetworkProfileResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteNetworkProfileResponse => {
-  return {
-    __type: "DeleteNetworkProfileResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteProfileResponse = (output: any, context: __SerdeContext): DeleteProfileResponse => {
-  return {
-    __type: "DeleteProfileResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteRoomResponse = (output: any, context: __SerdeContext): DeleteRoomResponse => {
-  return {
-    __type: "DeleteRoomResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteRoomSkillParameterResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteRoomSkillParameterResponse => {
-  return {
-    __type: "DeleteRoomSkillParameterResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteSkillAuthorizationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteSkillAuthorizationResponse => {
-  return {
-    __type: "DeleteSkillAuthorizationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteSkillGroupResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteSkillGroupResponse => {
-  return {
-    __type: "DeleteSkillGroupResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeleteUserResponse = (output: any, context: __SerdeContext): DeleteUserResponse => {
-  return {
-    __type: "DeleteUserResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DeveloperInfo = (output: any, context: __SerdeContext): DeveloperInfo => {
   return {
-    __type: "DeveloperInfo",
     DeveloperName:
       output.DeveloperName !== undefined && output.DeveloperName !== null ? output.DeveloperName : undefined,
     Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
@@ -9257,7 +9097,6 @@ const deserializeAws_json1_1DeveloperInfo = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1Device = (output: any, context: __SerdeContext): Device => {
   return {
-    __type: "Device",
     DeviceArn: output.DeviceArn !== undefined && output.DeviceArn !== null ? output.DeviceArn : undefined,
     DeviceName: output.DeviceName !== undefined && output.DeviceName !== null ? output.DeviceName : undefined,
     DeviceSerialNumber:
@@ -9283,7 +9122,6 @@ const deserializeAws_json1_1Device = (output: any, context: __SerdeContext): Dev
 
 const deserializeAws_json1_1DeviceData = (output: any, context: __SerdeContext): DeviceData => {
   return {
-    __type: "DeviceData",
     CreatedTime:
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
@@ -9322,7 +9160,6 @@ const deserializeAws_json1_1DeviceDataList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1DeviceEvent = (output: any, context: __SerdeContext): DeviceEvent => {
   return {
-    __type: "DeviceEvent",
     Timestamp:
       output.Timestamp !== undefined && output.Timestamp !== null
         ? new Date(Math.round(output.Timestamp * 1000))
@@ -9341,7 +9178,6 @@ const deserializeAws_json1_1DeviceNetworkProfileInfo = (
   context: __SerdeContext
 ): DeviceNetworkProfileInfo => {
   return {
-    __type: "DeviceNetworkProfileInfo",
     CertificateArn:
       output.CertificateArn !== undefined && output.CertificateArn !== null ? output.CertificateArn : undefined,
     CertificateExpirationTime:
@@ -9360,14 +9196,12 @@ const deserializeAws_json1_1DeviceNotRegisteredException = (
   context: __SerdeContext
 ): DeviceNotRegisteredException => {
   return {
-    __type: "DeviceNotRegisteredException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1DeviceStatusDetail = (output: any, context: __SerdeContext): DeviceStatusDetail => {
   return {
-    __type: "DeviceStatusDetail",
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Feature: output.Feature !== undefined && output.Feature !== null ? output.Feature : undefined,
   } as any;
@@ -9379,7 +9213,6 @@ const deserializeAws_json1_1DeviceStatusDetails = (output: any, context: __Serde
 
 const deserializeAws_json1_1DeviceStatusInfo = (output: any, context: __SerdeContext): DeviceStatusInfo => {
   return {
-    __type: "DeviceStatusInfo",
     ConnectionStatus:
       output.ConnectionStatus !== undefined && output.ConnectionStatus !== null ? output.ConnectionStatus : undefined,
     ConnectionStatusUpdatedTime:
@@ -9397,50 +9230,39 @@ const deserializeAws_json1_1DisassociateContactFromAddressBookResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateContactFromAddressBookResponse => {
-  return {
-    __type: "DisassociateContactFromAddressBookResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateDeviceFromRoomResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateDeviceFromRoomResponse => {
-  return {
-    __type: "DisassociateDeviceFromRoomResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateSkillFromSkillGroupResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateSkillFromSkillGroupResponse => {
-  return {
-    __type: "DisassociateSkillFromSkillGroupResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateSkillFromUsersResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateSkillFromUsersResponse => {
-  return {
-    __type: "DisassociateSkillFromUsersResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1DisassociateSkillGroupFromRoomResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateSkillGroupFromRoomResponse => {
-  return {
-    __type: "DisassociateSkillGroupFromRoomResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1EndOfMeetingReminder = (output: any, context: __SerdeContext): EndOfMeetingReminder => {
   return {
-    __type: "EndOfMeetingReminder",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     ReminderAtMinutes:
       output.ReminderAtMinutes !== undefined && output.ReminderAtMinutes !== null
@@ -9458,14 +9280,11 @@ const deserializeAws_json1_1ForgetSmartHomeAppliancesResponse = (
   output: any,
   context: __SerdeContext
 ): ForgetSmartHomeAppliancesResponse => {
-  return {
-    __type: "ForgetSmartHomeAppliancesResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Gateway = (output: any, context: __SerdeContext): Gateway => {
   return {
-    __type: "Gateway",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     GatewayGroupArn:
@@ -9478,7 +9297,6 @@ const deserializeAws_json1_1Gateway = (output: any, context: __SerdeContext): Ga
 
 const deserializeAws_json1_1GatewayGroup = (output: any, context: __SerdeContext): GatewayGroup => {
   return {
-    __type: "GatewayGroup",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -9491,7 +9309,6 @@ const deserializeAws_json1_1GatewayGroupSummaries = (output: any, context: __Ser
 
 const deserializeAws_json1_1GatewayGroupSummary = (output: any, context: __SerdeContext): GatewayGroupSummary => {
   return {
-    __type: "GatewayGroupSummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
@@ -9504,7 +9321,6 @@ const deserializeAws_json1_1GatewaySummaries = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1GatewaySummary = (output: any, context: __SerdeContext): GatewaySummary => {
   return {
-    __type: "GatewaySummary",
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     GatewayGroupArn:
@@ -9521,7 +9337,6 @@ const deserializeAws_json1_1GenericKeywords = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1GetAddressBookResponse = (output: any, context: __SerdeContext): GetAddressBookResponse => {
   return {
-    __type: "GetAddressBookResponse",
     AddressBook:
       output.AddressBook !== undefined && output.AddressBook !== null
         ? deserializeAws_json1_1AddressBook(output.AddressBook, context)
@@ -9534,7 +9349,6 @@ const deserializeAws_json1_1GetConferencePreferenceResponse = (
   context: __SerdeContext
 ): GetConferencePreferenceResponse => {
   return {
-    __type: "GetConferencePreferenceResponse",
     Preference:
       output.Preference !== undefined && output.Preference !== null
         ? deserializeAws_json1_1ConferencePreference(output.Preference, context)
@@ -9547,7 +9361,6 @@ const deserializeAws_json1_1GetConferenceProviderResponse = (
   context: __SerdeContext
 ): GetConferenceProviderResponse => {
   return {
-    __type: "GetConferenceProviderResponse",
     ConferenceProvider:
       output.ConferenceProvider !== undefined && output.ConferenceProvider !== null
         ? deserializeAws_json1_1ConferenceProvider(output.ConferenceProvider, context)
@@ -9557,7 +9370,6 @@ const deserializeAws_json1_1GetConferenceProviderResponse = (
 
 const deserializeAws_json1_1GetContactResponse = (output: any, context: __SerdeContext): GetContactResponse => {
   return {
-    __type: "GetContactResponse",
     Contact:
       output.Contact !== undefined && output.Contact !== null
         ? deserializeAws_json1_1Contact(output.Contact, context)
@@ -9567,7 +9379,6 @@ const deserializeAws_json1_1GetContactResponse = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1GetDeviceResponse = (output: any, context: __SerdeContext): GetDeviceResponse => {
   return {
-    __type: "GetDeviceResponse",
     Device:
       output.Device !== undefined && output.Device !== null
         ? deserializeAws_json1_1Device(output.Device, context)
@@ -9580,7 +9391,6 @@ const deserializeAws_json1_1GetGatewayGroupResponse = (
   context: __SerdeContext
 ): GetGatewayGroupResponse => {
   return {
-    __type: "GetGatewayGroupResponse",
     GatewayGroup:
       output.GatewayGroup !== undefined && output.GatewayGroup !== null
         ? deserializeAws_json1_1GatewayGroup(output.GatewayGroup, context)
@@ -9590,7 +9400,6 @@ const deserializeAws_json1_1GetGatewayGroupResponse = (
 
 const deserializeAws_json1_1GetGatewayResponse = (output: any, context: __SerdeContext): GetGatewayResponse => {
   return {
-    __type: "GetGatewayResponse",
     Gateway:
       output.Gateway !== undefined && output.Gateway !== null
         ? deserializeAws_json1_1Gateway(output.Gateway, context)
@@ -9603,7 +9412,6 @@ const deserializeAws_json1_1GetInvitationConfigurationResponse = (
   context: __SerdeContext
 ): GetInvitationConfigurationResponse => {
   return {
-    __type: "GetInvitationConfigurationResponse",
     ContactEmail: output.ContactEmail !== undefined && output.ContactEmail !== null ? output.ContactEmail : undefined,
     OrganizationName:
       output.OrganizationName !== undefined && output.OrganizationName !== null ? output.OrganizationName : undefined,
@@ -9619,7 +9427,6 @@ const deserializeAws_json1_1GetNetworkProfileResponse = (
   context: __SerdeContext
 ): GetNetworkProfileResponse => {
   return {
-    __type: "GetNetworkProfileResponse",
     NetworkProfile:
       output.NetworkProfile !== undefined && output.NetworkProfile !== null
         ? deserializeAws_json1_1NetworkProfile(output.NetworkProfile, context)
@@ -9629,7 +9436,6 @@ const deserializeAws_json1_1GetNetworkProfileResponse = (
 
 const deserializeAws_json1_1GetProfileResponse = (output: any, context: __SerdeContext): GetProfileResponse => {
   return {
-    __type: "GetProfileResponse",
     Profile:
       output.Profile !== undefined && output.Profile !== null
         ? deserializeAws_json1_1Profile(output.Profile, context)
@@ -9639,7 +9445,6 @@ const deserializeAws_json1_1GetProfileResponse = (output: any, context: __SerdeC
 
 const deserializeAws_json1_1GetRoomResponse = (output: any, context: __SerdeContext): GetRoomResponse => {
   return {
-    __type: "GetRoomResponse",
     Room:
       output.Room !== undefined && output.Room !== null ? deserializeAws_json1_1Room(output.Room, context) : undefined,
   } as any;
@@ -9650,7 +9455,6 @@ const deserializeAws_json1_1GetRoomSkillParameterResponse = (
   context: __SerdeContext
 ): GetRoomSkillParameterResponse => {
   return {
-    __type: "GetRoomSkillParameterResponse",
     RoomSkillParameter:
       output.RoomSkillParameter !== undefined && output.RoomSkillParameter !== null
         ? deserializeAws_json1_1RoomSkillParameter(output.RoomSkillParameter, context)
@@ -9660,7 +9464,6 @@ const deserializeAws_json1_1GetRoomSkillParameterResponse = (
 
 const deserializeAws_json1_1GetSkillGroupResponse = (output: any, context: __SerdeContext): GetSkillGroupResponse => {
   return {
-    __type: "GetSkillGroupResponse",
     SkillGroup:
       output.SkillGroup !== undefined && output.SkillGroup !== null
         ? deserializeAws_json1_1SkillGroup(output.SkillGroup, context)
@@ -9670,7 +9473,6 @@ const deserializeAws_json1_1GetSkillGroupResponse = (output: any, context: __Ser
 
 const deserializeAws_json1_1InstantBooking = (output: any, context: __SerdeContext): InstantBooking => {
   return {
-    __type: "InstantBooking",
     DurationInMinutes:
       output.DurationInMinutes !== undefined && output.DurationInMinutes !== null
         ? output.DurationInMinutes
@@ -9684,14 +9486,12 @@ const deserializeAws_json1_1InvalidCertificateAuthorityException = (
   context: __SerdeContext
 ): InvalidCertificateAuthorityException => {
   return {
-    __type: "InvalidCertificateAuthorityException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1InvalidDeviceException = (output: any, context: __SerdeContext): InvalidDeviceException => {
   return {
-    __type: "InvalidDeviceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -9701,7 +9501,6 @@ const deserializeAws_json1_1InvalidSecretsManagerResourceException = (
   context: __SerdeContext
 ): InvalidSecretsManagerResourceException => {
   return {
-    __type: "InvalidSecretsManagerResourceException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -9711,7 +9510,6 @@ const deserializeAws_json1_1InvalidServiceLinkedRoleStateException = (
   context: __SerdeContext
 ): InvalidServiceLinkedRoleStateException => {
   return {
-    __type: "InvalidServiceLinkedRoleStateException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -9721,14 +9519,12 @@ const deserializeAws_json1_1InvalidUserStatusException = (
   context: __SerdeContext
 ): InvalidUserStatusException => {
   return {
-    __type: "InvalidUserStatusException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1IPDialIn = (output: any, context: __SerdeContext): IPDialIn => {
   return {
-    __type: "IPDialIn",
     CommsProtocol:
       output.CommsProtocol !== undefined && output.CommsProtocol !== null ? output.CommsProtocol : undefined,
     Endpoint: output.Endpoint !== undefined && output.Endpoint !== null ? output.Endpoint : undefined,
@@ -9737,7 +9533,6 @@ const deserializeAws_json1_1IPDialIn = (output: any, context: __SerdeContext): I
 
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
-    __type: "LimitExceededException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
@@ -9747,7 +9542,6 @@ const deserializeAws_json1_1ListBusinessReportSchedulesResponse = (
   context: __SerdeContext
 ): ListBusinessReportSchedulesResponse => {
   return {
-    __type: "ListBusinessReportSchedulesResponse",
     BusinessReportSchedules:
       output.BusinessReportSchedules !== undefined && output.BusinessReportSchedules !== null
         ? deserializeAws_json1_1BusinessReportScheduleList(output.BusinessReportSchedules, context)
@@ -9761,7 +9555,6 @@ const deserializeAws_json1_1ListConferenceProvidersResponse = (
   context: __SerdeContext
 ): ListConferenceProvidersResponse => {
   return {
-    __type: "ListConferenceProvidersResponse",
     ConferenceProviders:
       output.ConferenceProviders !== undefined && output.ConferenceProviders !== null
         ? deserializeAws_json1_1ConferenceProvidersList(output.ConferenceProviders, context)
@@ -9775,7 +9568,6 @@ const deserializeAws_json1_1ListDeviceEventsResponse = (
   context: __SerdeContext
 ): ListDeviceEventsResponse => {
   return {
-    __type: "ListDeviceEventsResponse",
     DeviceEvents:
       output.DeviceEvents !== undefined && output.DeviceEvents !== null
         ? deserializeAws_json1_1DeviceEventList(output.DeviceEvents, context)
@@ -9789,7 +9581,6 @@ const deserializeAws_json1_1ListGatewayGroupsResponse = (
   context: __SerdeContext
 ): ListGatewayGroupsResponse => {
   return {
-    __type: "ListGatewayGroupsResponse",
     GatewayGroups:
       output.GatewayGroups !== undefined && output.GatewayGroups !== null
         ? deserializeAws_json1_1GatewayGroupSummaries(output.GatewayGroups, context)
@@ -9800,7 +9591,6 @@ const deserializeAws_json1_1ListGatewayGroupsResponse = (
 
 const deserializeAws_json1_1ListGatewaysResponse = (output: any, context: __SerdeContext): ListGatewaysResponse => {
   return {
-    __type: "ListGatewaysResponse",
     Gateways:
       output.Gateways !== undefined && output.Gateways !== null
         ? deserializeAws_json1_1GatewaySummaries(output.Gateways, context)
@@ -9811,7 +9601,6 @@ const deserializeAws_json1_1ListGatewaysResponse = (output: any, context: __Serd
 
 const deserializeAws_json1_1ListSkillsResponse = (output: any, context: __SerdeContext): ListSkillsResponse => {
   return {
-    __type: "ListSkillsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SkillSummaries:
       output.SkillSummaries !== undefined && output.SkillSummaries !== null
@@ -9825,7 +9614,6 @@ const deserializeAws_json1_1ListSkillsStoreCategoriesResponse = (
   context: __SerdeContext
 ): ListSkillsStoreCategoriesResponse => {
   return {
-    __type: "ListSkillsStoreCategoriesResponse",
     CategoryList:
       output.CategoryList !== undefined && output.CategoryList !== null
         ? deserializeAws_json1_1CategoryList(output.CategoryList, context)
@@ -9839,7 +9627,6 @@ const deserializeAws_json1_1ListSkillsStoreSkillsByCategoryResponse = (
   context: __SerdeContext
 ): ListSkillsStoreSkillsByCategoryResponse => {
   return {
-    __type: "ListSkillsStoreSkillsByCategoryResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SkillsStoreSkills:
       output.SkillsStoreSkills !== undefined && output.SkillsStoreSkills !== null
@@ -9853,7 +9640,6 @@ const deserializeAws_json1_1ListSmartHomeAppliancesResponse = (
   context: __SerdeContext
 ): ListSmartHomeAppliancesResponse => {
   return {
-    __type: "ListSmartHomeAppliancesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SmartHomeAppliances:
       output.SmartHomeAppliances !== undefined && output.SmartHomeAppliances !== null
@@ -9864,7 +9650,6 @@ const deserializeAws_json1_1ListSmartHomeAppliancesResponse = (
 
 const deserializeAws_json1_1ListTagsResponse = (output: any, context: __SerdeContext): ListTagsResponse => {
   return {
-    __type: "ListTagsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -9878,7 +9663,6 @@ const deserializeAws_json1_1MeetingRoomConfiguration = (
   context: __SerdeContext
 ): MeetingRoomConfiguration => {
   return {
-    __type: "MeetingRoomConfiguration",
     EndOfMeetingReminder:
       output.EndOfMeetingReminder !== undefined && output.EndOfMeetingReminder !== null
         ? deserializeAws_json1_1EndOfMeetingReminder(output.EndOfMeetingReminder, context)
@@ -9900,21 +9684,18 @@ const deserializeAws_json1_1MeetingRoomConfiguration = (
 
 const deserializeAws_json1_1MeetingSetting = (output: any, context: __SerdeContext): MeetingSetting => {
   return {
-    __type: "MeetingSetting",
     RequirePin: output.RequirePin !== undefined && output.RequirePin !== null ? output.RequirePin : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1NameInUseException = (output: any, context: __SerdeContext): NameInUseException => {
   return {
-    __type: "NameInUseException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1NetworkProfile = (output: any, context: __SerdeContext): NetworkProfile => {
   return {
-    __type: "NetworkProfile",
     CertificateAuthorityArn:
       output.CertificateAuthorityArn !== undefined && output.CertificateAuthorityArn !== null
         ? output.CertificateAuthorityArn
@@ -9943,7 +9724,6 @@ const deserializeAws_json1_1NetworkProfile = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1NetworkProfileData = (output: any, context: __SerdeContext): NetworkProfileData => {
   return {
-    __type: "NetworkProfileData",
     CertificateAuthorityArn:
       output.CertificateAuthorityArn !== undefined && output.CertificateAuthorityArn !== null
         ? output.CertificateAuthorityArn
@@ -9973,14 +9753,12 @@ const deserializeAws_json1_1NewInThisVersionBulletPoints = (output: any, context
 
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
-    __type: "NotFoundException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1PhoneNumber = (output: any, context: __SerdeContext): PhoneNumber => {
   return {
-    __type: "PhoneNumber",
     Number: output.Number !== undefined && output.Number !== null ? output.Number : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
@@ -9992,7 +9770,6 @@ const deserializeAws_json1_1PhoneNumberList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1Profile = (output: any, context: __SerdeContext): Profile => {
   return {
-    __type: "Profile",
     Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
     AddressBookArn:
       output.AddressBookArn !== undefined && output.AddressBookArn !== null ? output.AddressBookArn : undefined,
@@ -10021,7 +9798,6 @@ const deserializeAws_json1_1Profile = (output: any, context: __SerdeContext): Pr
 
 const deserializeAws_json1_1ProfileData = (output: any, context: __SerdeContext): ProfileData => {
   return {
-    __type: "ProfileData",
     Address: output.Address !== undefined && output.Address !== null ? output.Address : undefined,
     DistanceUnit: output.DistanceUnit !== undefined && output.DistanceUnit !== null ? output.DistanceUnit : undefined,
     IsDefault: output.IsDefault !== undefined && output.IsDefault !== null ? output.IsDefault : undefined,
@@ -10041,7 +9817,6 @@ const deserializeAws_json1_1ProfileDataList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1PSTNDialIn = (output: any, context: __SerdeContext): PSTNDialIn => {
   return {
-    __type: "PSTNDialIn",
     CountryCode: output.CountryCode !== undefined && output.CountryCode !== null ? output.CountryCode : undefined,
     OneClickIdDelay:
       output.OneClickIdDelay !== undefined && output.OneClickIdDelay !== null ? output.OneClickIdDelay : undefined,
@@ -10055,36 +9830,28 @@ const deserializeAws_json1_1PutConferencePreferenceResponse = (
   output: any,
   context: __SerdeContext
 ): PutConferencePreferenceResponse => {
-  return {
-    __type: "PutConferencePreferenceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutInvitationConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): PutInvitationConfigurationResponse => {
-  return {
-    __type: "PutInvitationConfigurationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutRoomSkillParameterResponse = (
   output: any,
   context: __SerdeContext
 ): PutRoomSkillParameterResponse => {
-  return {
-    __type: "PutRoomSkillParameterResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1PutSkillAuthorizationResponse = (
   output: any,
   context: __SerdeContext
 ): PutSkillAuthorizationResponse => {
-  return {
-    __type: "PutSkillAuthorizationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RegisterAVSDeviceResponse = (
@@ -10092,20 +9859,16 @@ const deserializeAws_json1_1RegisterAVSDeviceResponse = (
   context: __SerdeContext
 ): RegisterAVSDeviceResponse => {
   return {
-    __type: "RegisterAVSDeviceResponse",
     DeviceArn: output.DeviceArn !== undefined && output.DeviceArn !== null ? output.DeviceArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1RejectSkillResponse = (output: any, context: __SerdeContext): RejectSkillResponse => {
-  return {
-    __type: "RejectSkillResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1RequireCheckIn = (output: any, context: __SerdeContext): RequireCheckIn => {
   return {
-    __type: "RequireCheckIn",
     Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
     ReleaseAfterMinutes:
       output.ReleaseAfterMinutes !== undefined && output.ReleaseAfterMinutes !== null
@@ -10116,7 +9879,6 @@ const deserializeAws_json1_1RequireCheckIn = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1ResolveRoomResponse = (output: any, context: __SerdeContext): ResolveRoomResponse => {
   return {
-    __type: "ResolveRoomResponse",
     RoomArn: output.RoomArn !== undefined && output.RoomArn !== null ? output.RoomArn : undefined,
     RoomName: output.RoomName !== undefined && output.RoomName !== null ? output.RoomName : undefined,
     RoomSkillParameters:
@@ -10131,14 +9893,12 @@ const deserializeAws_json1_1ResourceAssociatedException = (
   context: __SerdeContext
 ): ResourceAssociatedException => {
   return {
-    __type: "ResourceAssociatedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1ResourceInUseException = (output: any, context: __SerdeContext): ResourceInUseException => {
   return {
-    __type: "ResourceInUseException",
     ClientRequestToken:
       output.ClientRequestToken !== undefined && output.ClientRequestToken !== null
         ? output.ClientRequestToken
@@ -10161,14 +9921,11 @@ const deserializeAws_json1_1RevokeInvitationResponse = (
   output: any,
   context: __SerdeContext
 ): RevokeInvitationResponse => {
-  return {
-    __type: "RevokeInvitationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Room = (output: any, context: __SerdeContext): Room => {
   return {
-    __type: "Room",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     ProfileArn: output.ProfileArn !== undefined && output.ProfileArn !== null ? output.ProfileArn : undefined,
     ProviderCalendarId:
@@ -10182,7 +9939,6 @@ const deserializeAws_json1_1Room = (output: any, context: __SerdeContext): Room 
 
 const deserializeAws_json1_1RoomData = (output: any, context: __SerdeContext): RoomData => {
   return {
-    __type: "RoomData",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     ProfileArn: output.ProfileArn !== undefined && output.ProfileArn !== null ? output.ProfileArn : undefined,
     ProfileName: output.ProfileName !== undefined && output.ProfileName !== null ? output.ProfileName : undefined,
@@ -10201,7 +9957,6 @@ const deserializeAws_json1_1RoomDataList = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1RoomSkillParameter = (output: any, context: __SerdeContext): RoomSkillParameter => {
   return {
-    __type: "RoomSkillParameter",
     ParameterKey: output.ParameterKey !== undefined && output.ParameterKey !== null ? output.ParameterKey : undefined,
     ParameterValue:
       output.ParameterValue !== undefined && output.ParameterValue !== null ? output.ParameterValue : undefined,
@@ -10221,7 +9976,6 @@ const deserializeAws_json1_1SearchAddressBooksResponse = (
   context: __SerdeContext
 ): SearchAddressBooksResponse => {
   return {
-    __type: "SearchAddressBooksResponse",
     AddressBooks:
       output.AddressBooks !== undefined && output.AddressBooks !== null
         ? deserializeAws_json1_1AddressBookDataList(output.AddressBooks, context)
@@ -10233,7 +9987,6 @@ const deserializeAws_json1_1SearchAddressBooksResponse = (
 
 const deserializeAws_json1_1SearchContactsResponse = (output: any, context: __SerdeContext): SearchContactsResponse => {
   return {
-    __type: "SearchContactsResponse",
     Contacts:
       output.Contacts !== undefined && output.Contacts !== null
         ? deserializeAws_json1_1ContactDataList(output.Contacts, context)
@@ -10245,7 +9998,6 @@ const deserializeAws_json1_1SearchContactsResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1SearchDevicesResponse = (output: any, context: __SerdeContext): SearchDevicesResponse => {
   return {
-    __type: "SearchDevicesResponse",
     Devices:
       output.Devices !== undefined && output.Devices !== null
         ? deserializeAws_json1_1DeviceDataList(output.Devices, context)
@@ -10260,7 +10012,6 @@ const deserializeAws_json1_1SearchNetworkProfilesResponse = (
   context: __SerdeContext
 ): SearchNetworkProfilesResponse => {
   return {
-    __type: "SearchNetworkProfilesResponse",
     NetworkProfiles:
       output.NetworkProfiles !== undefined && output.NetworkProfiles !== null
         ? deserializeAws_json1_1NetworkProfileDataList(output.NetworkProfiles, context)
@@ -10272,7 +10023,6 @@ const deserializeAws_json1_1SearchNetworkProfilesResponse = (
 
 const deserializeAws_json1_1SearchProfilesResponse = (output: any, context: __SerdeContext): SearchProfilesResponse => {
   return {
-    __type: "SearchProfilesResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Profiles:
       output.Profiles !== undefined && output.Profiles !== null
@@ -10284,7 +10034,6 @@ const deserializeAws_json1_1SearchProfilesResponse = (output: any, context: __Se
 
 const deserializeAws_json1_1SearchRoomsResponse = (output: any, context: __SerdeContext): SearchRoomsResponse => {
   return {
-    __type: "SearchRoomsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     Rooms:
       output.Rooms !== undefined && output.Rooms !== null
@@ -10299,7 +10048,6 @@ const deserializeAws_json1_1SearchSkillGroupsResponse = (
   context: __SerdeContext
 ): SearchSkillGroupsResponse => {
   return {
-    __type: "SearchSkillGroupsResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     SkillGroups:
       output.SkillGroups !== undefined && output.SkillGroups !== null
@@ -10311,7 +10059,6 @@ const deserializeAws_json1_1SearchSkillGroupsResponse = (
 
 const deserializeAws_json1_1SearchUsersResponse = (output: any, context: __SerdeContext): SearchUsersResponse => {
   return {
-    __type: "SearchUsersResponse",
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
     TotalCount: output.TotalCount !== undefined && output.TotalCount !== null ? output.TotalCount : undefined,
     Users:
@@ -10326,16 +10073,13 @@ const deserializeAws_json1_1SendAnnouncementResponse = (
   context: __SerdeContext
 ): SendAnnouncementResponse => {
   return {
-    __type: "SendAnnouncementResponse",
     AnnouncementArn:
       output.AnnouncementArn !== undefined && output.AnnouncementArn !== null ? output.AnnouncementArn : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SendInvitationResponse = (output: any, context: __SerdeContext): SendInvitationResponse => {
-  return {
-    __type: "SendInvitationResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1ShortSkillIdList = (output: any, context: __SerdeContext): string[] => {
@@ -10344,7 +10088,6 @@ const deserializeAws_json1_1ShortSkillIdList = (output: any, context: __SerdeCon
 
 const deserializeAws_json1_1SipAddress = (output: any, context: __SerdeContext): SipAddress => {
   return {
-    __type: "SipAddress",
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     Uri: output.Uri !== undefined && output.Uri !== null ? output.Uri : undefined,
   } as any;
@@ -10356,7 +10099,6 @@ const deserializeAws_json1_1SipAddressList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1SkillDetails = (output: any, context: __SerdeContext): SkillDetails => {
   return {
-    __type: "SkillDetails",
     BulletPoints:
       output.BulletPoints !== undefined && output.BulletPoints !== null
         ? deserializeAws_json1_1BulletPoints(output.BulletPoints, context)
@@ -10397,7 +10139,6 @@ const deserializeAws_json1_1SkillDetails = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1SkillGroup = (output: any, context: __SerdeContext): SkillGroup => {
   return {
-    __type: "SkillGroup",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     SkillGroupArn:
       output.SkillGroupArn !== undefined && output.SkillGroupArn !== null ? output.SkillGroupArn : undefined,
@@ -10408,7 +10149,6 @@ const deserializeAws_json1_1SkillGroup = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1SkillGroupData = (output: any, context: __SerdeContext): SkillGroupData => {
   return {
-    __type: "SkillGroupData",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     SkillGroupArn:
       output.SkillGroupArn !== undefined && output.SkillGroupArn !== null ? output.SkillGroupArn : undefined,
@@ -10426,14 +10166,12 @@ const deserializeAws_json1_1SkillNotLinkedException = (
   context: __SerdeContext
 ): SkillNotLinkedException => {
   return {
-    __type: "SkillNotLinkedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1SkillsStoreSkill = (output: any, context: __SerdeContext): SkillsStoreSkill => {
   return {
-    __type: "SkillsStoreSkill",
     IconUrl: output.IconUrl !== undefined && output.IconUrl !== null ? output.IconUrl : undefined,
     SampleUtterances:
       output.SampleUtterances !== undefined && output.SampleUtterances !== null
@@ -10458,7 +10196,6 @@ const deserializeAws_json1_1SkillsStoreSkillList = (output: any, context: __Serd
 
 const deserializeAws_json1_1SkillSummary = (output: any, context: __SerdeContext): SkillSummary => {
   return {
-    __type: "SkillSummary",
     EnablementType:
       output.EnablementType !== undefined && output.EnablementType !== null ? output.EnablementType : undefined,
     SkillId: output.SkillId !== undefined && output.SkillId !== null ? output.SkillId : undefined,
@@ -10479,7 +10216,6 @@ const deserializeAws_json1_1SkillTypes = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1SmartHomeAppliance = (output: any, context: __SerdeContext): SmartHomeAppliance => {
   return {
-    __type: "SmartHomeAppliance",
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     FriendlyName: output.FriendlyName !== undefined && output.FriendlyName !== null ? output.FriendlyName : undefined,
     ManufacturerName:
@@ -10495,23 +10231,18 @@ const deserializeAws_json1_1StartDeviceSyncResponse = (
   output: any,
   context: __SerdeContext
 ): StartDeviceSyncResponse => {
-  return {
-    __type: "StartDeviceSyncResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1StartSmartHomeApplianceDiscoveryResponse = (
   output: any,
   context: __SerdeContext
 ): StartSmartHomeApplianceDiscoveryResponse => {
-  return {
-    __type: "StartSmartHomeApplianceDiscoveryResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {
   return {
-    __type: "Tag",
     Key: output.Key !== undefined && output.Key !== null ? output.Key : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
@@ -10522,9 +10253,7 @@ const deserializeAws_json1_1TagList = (output: any, context: __SerdeContext): Ta
 };
 
 const deserializeAws_json1_1TagResourceResponse = (output: any, context: __SerdeContext): TagResourceResponse => {
-  return {
-    __type: "TagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1TrustAnchorList = (output: any, context: __SerdeContext): string[] => {
@@ -10533,104 +10262,78 @@ const deserializeAws_json1_1TrustAnchorList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1UnauthorizedException = (output: any, context: __SerdeContext): UnauthorizedException => {
   return {
-    __type: "UnauthorizedException",
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
   } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (output: any, context: __SerdeContext): UntagResourceResponse => {
-  return {
-    __type: "UntagResourceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateAddressBookResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateAddressBookResponse => {
-  return {
-    __type: "UpdateAddressBookResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateBusinessReportScheduleResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateBusinessReportScheduleResponse => {
-  return {
-    __type: "UpdateBusinessReportScheduleResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateConferenceProviderResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateConferenceProviderResponse => {
-  return {
-    __type: "UpdateConferenceProviderResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateContactResponse = (output: any, context: __SerdeContext): UpdateContactResponse => {
-  return {
-    __type: "UpdateContactResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateDeviceResponse = (output: any, context: __SerdeContext): UpdateDeviceResponse => {
-  return {
-    __type: "UpdateDeviceResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateGatewayGroupResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateGatewayGroupResponse => {
-  return {
-    __type: "UpdateGatewayGroupResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateGatewayResponse = (output: any, context: __SerdeContext): UpdateGatewayResponse => {
-  return {
-    __type: "UpdateGatewayResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateNetworkProfileResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateNetworkProfileResponse => {
-  return {
-    __type: "UpdateNetworkProfileResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateProfileResponse = (output: any, context: __SerdeContext): UpdateProfileResponse => {
-  return {
-    __type: "UpdateProfileResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateRoomResponse = (output: any, context: __SerdeContext): UpdateRoomResponse => {
-  return {
-    __type: "UpdateRoomResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UpdateSkillGroupResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateSkillGroupResponse => {
-  return {
-    __type: "UpdateSkillGroupResponse",
-  } as any;
+  return {} as any;
 };
 
 const deserializeAws_json1_1UserData = (output: any, context: __SerdeContext): UserData => {
   return {
-    __type: "UserData",
     Email: output.Email !== undefined && output.Email !== null ? output.Email : undefined,
     EnrollmentId: output.EnrollmentId !== undefined && output.EnrollmentId !== null ? output.EnrollmentId : undefined,
     EnrollmentStatus:

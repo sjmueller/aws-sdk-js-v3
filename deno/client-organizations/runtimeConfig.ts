@@ -1,6 +1,7 @@
 
 const name = "@aws-sdk/client-organizations";
-const version = "1.0.0-gamma.8";
+const version = "1.0.0-gamma.10";
+
 import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";
 import { FetchHttpHandler, streamCollector } from "../fetch-http-handler/mod.ts";
 import { invalidFunction } from "../invalid-dependency/mod.ts";

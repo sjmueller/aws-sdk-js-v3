@@ -1,6 +1,6 @@
 
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient.ts";
-import { RemovePermissionRequest } from "../models/index.ts";
+import { RemovePermissionRequest } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RemovePermissionCommand,
   serializeAws_json1_1RemovePermissionCommand,
@@ -44,8 +44,11 @@ export class RemovePermissionCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: RemovePermissionRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

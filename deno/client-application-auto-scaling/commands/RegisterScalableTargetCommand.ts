@@ -4,7 +4,7 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../ApplicationAutoScalingClient.ts";
-import { RegisterScalableTargetRequest, RegisterScalableTargetResponse } from "../models/index.ts";
+import { RegisterScalableTargetRequest, RegisterScalableTargetResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1RegisterScalableTargetCommand,
   serializeAws_json1_1RegisterScalableTargetCommand,

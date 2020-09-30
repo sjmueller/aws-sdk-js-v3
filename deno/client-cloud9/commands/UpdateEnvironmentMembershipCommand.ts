@@ -1,6 +1,6 @@
 
 import { Cloud9ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Cloud9Client.ts";
-import { UpdateEnvironmentMembershipRequest, UpdateEnvironmentMembershipResult } from "../models/index.ts";
+import { UpdateEnvironmentMembershipRequest, UpdateEnvironmentMembershipResult } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1UpdateEnvironmentMembershipCommand,
   serializeAws_json1_1UpdateEnvironmentMembershipCommand,

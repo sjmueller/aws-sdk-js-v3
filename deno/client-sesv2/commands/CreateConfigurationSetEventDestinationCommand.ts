@@ -3,7 +3,7 @@ import { SESv2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from
 import {
   CreateConfigurationSetEventDestinationRequest,
   CreateConfigurationSetEventDestinationResponse,
-} from "../models/index.ts";
+} from "../models/models_0.ts";
 import {
   deserializeAws_restJson1CreateConfigurationSetEventDestinationCommand,
   serializeAws_restJson1CreateConfigurationSetEventDestinationCommand,

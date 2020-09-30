@@ -1,6 +1,6 @@
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient.ts";
-import { StopStackSetOperationInput, StopStackSetOperationOutput } from "../models/index.ts";
+import { StopStackSetOperationInput, StopStackSetOperationOutput } from "../models/models_0.ts";
 import {
   deserializeAws_queryStopStackSetOperationCommand,
   serializeAws_queryStopStackSetOperationCommand,

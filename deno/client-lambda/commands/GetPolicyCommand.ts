@@ -1,6 +1,6 @@
 
 import { LambdaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LambdaClient.ts";
-import { GetPolicyRequest, GetPolicyResponse } from "../models/index.ts";
+import { GetPolicyRequest, GetPolicyResponse } from "../models/models_0.ts";
 import {
   deserializeAws_restJson1GetPolicyCommand,
   serializeAws_restJson1GetPolicyCommand,
