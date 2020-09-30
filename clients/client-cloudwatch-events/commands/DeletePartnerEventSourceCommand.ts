@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { DeletePartnerEventSourceRequest } from "../models/index";
+import { DeletePartnerEventSourceRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeletePartnerEventSourceCommand,
   serializeAws_json1_1DeletePartnerEventSourceCommand,
@@ -43,8 +43,11 @@ export class DeletePartnerEventSourceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeletePartnerEventSourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

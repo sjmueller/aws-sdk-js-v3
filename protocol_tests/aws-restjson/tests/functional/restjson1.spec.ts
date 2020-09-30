@@ -26,7 +26,7 @@ import { QueryIdempotencyTokenAutoFillCommand } from "../../commands/QueryIdempo
 import { RecursiveShapesCommand } from "../../commands/RecursiveShapesCommand";
 import { SimpleScalarPropertiesCommand } from "../../commands/SimpleScalarPropertiesCommand";
 import { TimestampFormatHeadersCommand } from "../../commands/TimestampFormatHeadersCommand";
-import { ComplexError, FooError, InvalidGreeting } from "../../models/index";
+import { ComplexError, FooError, InvalidGreeting } from "../../models/models_0";
 import { buildQueryString } from "@aws-sdk/querystring-builder";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
@@ -114,7 +114,7 @@ const compareParts = (expectedParts: comparableParts, generatedParts: comparable
 
 /**
  * Compares all types for equivalent contents, doing nested
- * equality checks based on non-'__type', non-`$metadata`
+ * equality checks based on non-`$metadata`
  * properties that have defined values.
  */
 const equivalentContents = (expected: any, generated: any): boolean => {
@@ -128,8 +128,6 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // If a test fails with an issue in the below 6 lines, it's likely
   // due to an issue in the nestedness or existence of the property
   // being compared.
-  delete localExpected["__type"];
-  delete generated["__type"];
   delete localExpected["$metadata"];
   delete generated["$metadata"];
   Object.keys(localExpected).forEach((key) => localExpected[key] === undefined && delete localExpected[key]);
@@ -154,11 +152,17 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   return true;
 };
 
+const clientParams = {
+  region: "us-west-2",
+  credentials: { accessKeyId: "key", secretAccessKey: "secret" },
+};
+
 /**
  * Serializes query string parameters with all supported types
  */
 it("RestJsonAllQueryStringTypes:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -257,6 +261,7 @@ it("RestJsonAllQueryStringTypes:Request", async () => {
  */
 it("RestJsonConstantAndVariableQueryStringMissingOneValue:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -291,6 +296,7 @@ it("RestJsonConstantAndVariableQueryStringMissingOneValue:Request", async () => 
  */
 it("RestJsonConstantAndVariableQueryStringAllValues:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -326,6 +332,7 @@ it("RestJsonConstantAndVariableQueryStringAllValues:Request", async () => {
  */
 it("RestJsonConstantQueryString:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -358,6 +365,7 @@ it("RestJsonConstantQueryString:Request", async () => {
  */
 it("RestJsonEmptyInputAndEmptyOutput:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -387,6 +395,7 @@ it("RestJsonEmptyInputAndEmptyOutput:Request", async () => {
  */
 it("RestJsonEmptyInputAndEmptyOutput:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined, `{}`),
   });
 
@@ -408,6 +417,7 @@ it("RestJsonEmptyInputAndEmptyOutput:Response", async () => {
  */
 it("RestJsonGreetingWithErrors:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -448,6 +458,7 @@ it("RestJsonGreetingWithErrors:Response", async () => {
  */
 it("RestJsonFooErrorUsingXAmznErrorType:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(false, 500, {
       "x-amzn-errortype": "FooError",
     }),
@@ -459,7 +470,7 @@ it("RestJsonFooErrorUsingXAmznErrorType:Error:GreetingWithErrors", async () => {
   try {
     await client.send(command);
   } catch (err) {
-    if (!FooError.isa(err)) {
+    if (err.name !== "FooError") {
       console.log(err);
       fail(`Expected a FooError to be thrown, got ${err.name} instead`);
       return;
@@ -479,6 +490,7 @@ it("RestJsonFooErrorUsingXAmznErrorType:Error:GreetingWithErrors", async () => {
  */
 it("RestJsonFooErrorUsingXAmznErrorTypeWithUri:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(false, 500, {
       "x-amzn-errortype": "FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/",
     }),
@@ -490,7 +502,7 @@ it("RestJsonFooErrorUsingXAmznErrorTypeWithUri:Error:GreetingWithErrors", async 
   try {
     await client.send(command);
   } catch (err) {
-    if (!FooError.isa(err)) {
+    if (err.name !== "FooError") {
       console.log(err);
       fail(`Expected a FooError to be thrown, got ${err.name} instead`);
       return;
@@ -507,6 +519,7 @@ it("RestJsonFooErrorUsingXAmznErrorTypeWithUri:Error:GreetingWithErrors", async 
  */
 it("RestJsonFooErrorUsingXAmznErrorTypeWithUriAndNamespace:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(false, 500, {
       "x-amzn-errortype":
         "aws.protocoltests.restjson#FooError:http://internal.amazon.com/coral/com.amazon.coral.validate/",
@@ -519,7 +532,7 @@ it("RestJsonFooErrorUsingXAmznErrorTypeWithUriAndNamespace:Error:GreetingWithErr
   try {
     await client.send(command);
   } catch (err) {
-    if (!FooError.isa(err)) {
+    if (err.name !== "FooError") {
       console.log(err);
       fail(`Expected a FooError to be thrown, got ${err.name} instead`);
       return;
@@ -538,6 +551,7 @@ it("RestJsonFooErrorUsingXAmznErrorTypeWithUriAndNamespace:Error:GreetingWithErr
  */
 it("RestJsonFooErrorUsingCode:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       500,
@@ -556,7 +570,7 @@ it("RestJsonFooErrorUsingCode:Error:GreetingWithErrors", async () => {
   try {
     await client.send(command);
   } catch (err) {
-    if (!FooError.isa(err)) {
+    if (err.name !== "FooError") {
       console.log(err);
       fail(`Expected a FooError to be thrown, got ${err.name} instead`);
       return;
@@ -573,6 +587,7 @@ it("RestJsonFooErrorUsingCode:Error:GreetingWithErrors", async () => {
  */
 it("RestJsonFooErrorUsingCodeAndNamespace:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       500,
@@ -591,7 +606,7 @@ it("RestJsonFooErrorUsingCodeAndNamespace:Error:GreetingWithErrors", async () =>
   try {
     await client.send(command);
   } catch (err) {
-    if (!FooError.isa(err)) {
+    if (err.name !== "FooError") {
       console.log(err);
       fail(`Expected a FooError to be thrown, got ${err.name} instead`);
       return;
@@ -608,6 +623,7 @@ it("RestJsonFooErrorUsingCodeAndNamespace:Error:GreetingWithErrors", async () =>
  */
 it("RestJsonFooErrorUsingCodeUriAndNamespace:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       500,
@@ -626,7 +642,7 @@ it("RestJsonFooErrorUsingCodeUriAndNamespace:Error:GreetingWithErrors", async ()
   try {
     await client.send(command);
   } catch (err) {
-    if (!FooError.isa(err)) {
+    if (err.name !== "FooError") {
       console.log(err);
       fail(`Expected a FooError to be thrown, got ${err.name} instead`);
       return;
@@ -643,6 +659,7 @@ it("RestJsonFooErrorUsingCodeUriAndNamespace:Error:GreetingWithErrors", async ()
  */
 it("RestJsonFooErrorWithDunderType:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       500,
@@ -661,7 +678,7 @@ it("RestJsonFooErrorWithDunderType:Error:GreetingWithErrors", async () => {
   try {
     await client.send(command);
   } catch (err) {
-    if (!FooError.isa(err)) {
+    if (err.name !== "FooError") {
       console.log(err);
       fail(`Expected a FooError to be thrown, got ${err.name} instead`);
       return;
@@ -678,6 +695,7 @@ it("RestJsonFooErrorWithDunderType:Error:GreetingWithErrors", async () => {
  */
 it("RestJsonFooErrorWithDunderTypeAndNamespace:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       500,
@@ -696,7 +714,7 @@ it("RestJsonFooErrorWithDunderTypeAndNamespace:Error:GreetingWithErrors", async 
   try {
     await client.send(command);
   } catch (err) {
-    if (!FooError.isa(err)) {
+    if (err.name !== "FooError") {
       console.log(err);
       fail(`Expected a FooError to be thrown, got ${err.name} instead`);
       return;
@@ -713,6 +731,7 @@ it("RestJsonFooErrorWithDunderTypeAndNamespace:Error:GreetingWithErrors", async 
  */
 it("RestJsonFooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       500,
@@ -731,7 +750,7 @@ it("RestJsonFooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", asy
   try {
     await client.send(command);
   } catch (err) {
-    if (!FooError.isa(err)) {
+    if (err.name !== "FooError") {
       console.log(err);
       fail(`Expected a FooError to be thrown, got ${err.name} instead`);
       return;
@@ -748,6 +767,7 @@ it("RestJsonFooErrorWithDunderTypeUriAndNamespace:Error:GreetingWithErrors", asy
  */
 it("RestJsonComplexErrorWithNoMessage:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       403,
@@ -771,7 +791,7 @@ it("RestJsonComplexErrorWithNoMessage:Error:GreetingWithErrors", async () => {
   try {
     await client.send(command);
   } catch (err) {
-    if (!ComplexError.isa(err)) {
+    if (err.name !== "ComplexError") {
       console.log(err);
       fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
       return;
@@ -800,6 +820,7 @@ it("RestJsonComplexErrorWithNoMessage:Error:GreetingWithErrors", async () => {
 
 it("RestJsonEmptyComplexErrorWithNoMessage:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       403,
@@ -817,7 +838,7 @@ it("RestJsonEmptyComplexErrorWithNoMessage:Error:GreetingWithErrors", async () =
   try {
     await client.send(command);
   } catch (err) {
-    if (!ComplexError.isa(err)) {
+    if (err.name !== "ComplexError") {
       console.log(err);
       fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
       return;
@@ -834,6 +855,7 @@ it("RestJsonEmptyComplexErrorWithNoMessage:Error:GreetingWithErrors", async () =
  */
 it("RestJsonInvalidGreetingError:Error:GreetingWithErrors", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       400,
@@ -853,7 +875,7 @@ it("RestJsonInvalidGreetingError:Error:GreetingWithErrors", async () => {
   try {
     await client.send(command);
   } catch (err) {
-    if (!InvalidGreeting.isa(err)) {
+    if (err.name !== "InvalidGreeting") {
       console.log(err);
       fail(`Expected a InvalidGreeting to be thrown, got ${err.name} instead`);
       return;
@@ -879,6 +901,7 @@ it("RestJsonInvalidGreetingError:Error:GreetingWithErrors", async () => {
  */
 it("RestJsonHttpPayloadTraitsWithBlob:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -913,6 +936,7 @@ it("RestJsonHttpPayloadTraitsWithBlob:Request", async () => {
  */
 it("RestJsonHttpPayloadTraitsWithNoBlobBody:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -944,6 +968,7 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:Request", async () => {
  */
 it("RestJsonHttpPayloadTraitsWithBlob:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -983,6 +1008,7 @@ it("RestJsonHttpPayloadTraitsWithBlob:Response", async () => {
  */
 it("RestJsonHttpPayloadTraitsWithNoBlobBody:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1020,6 +1046,7 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:Response", async () => {
  */
 it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1056,6 +1083,7 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Request", async () => {
  */
 it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1096,6 +1124,7 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
  */
 it("RestJsonHttpPayloadWithStructure:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1137,6 +1166,7 @@ it("RestJsonHttpPayloadWithStructure:Request", async () => {
  */
 it("RestJsonHttpPayloadWithStructure:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1181,6 +1211,7 @@ it("RestJsonHttpPayloadWithStructure:Response", async () => {
  */
 it("RestJsonHttpPrefixHeadersArePresent:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1222,6 +1253,7 @@ it("RestJsonHttpPrefixHeadersArePresent:Request", async () => {
  */
 it("RestJsonHttpPrefixHeadersAreNotPresent:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1255,6 +1287,7 @@ it("RestJsonHttpPrefixHeadersAreNotPresent:Request", async () => {
  */
 it("RestJsonHttpPrefixHeadersArePresent:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1300,6 +1333,7 @@ it("RestJsonHttpPrefixHeadersArePresent:Response", async () => {
  */
 it("RestJsonHttpPrefixHeadersAreNotPresent:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1339,6 +1373,7 @@ it("RestJsonHttpPrefixHeadersAreNotPresent:Response", async () => {
  */
 it("RestJsonHttpRequestWithGreedyLabelInPath:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1369,6 +1404,7 @@ it("RestJsonHttpRequestWithGreedyLabelInPath:Request", async () => {
  */
 it("RestJsonInputWithHeadersAndAllParams:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1411,6 +1447,7 @@ it("RestJsonInputWithHeadersAndAllParams:Request", async () => {
  */
 it("RestJsonHttpRequestWithLabelsAndTimestampFormat:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1453,6 +1490,7 @@ it("RestJsonHttpRequestWithLabelsAndTimestampFormat:Request", async () => {
  */
 it("RestJsonIgnoreQueryParamsInResponse:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1481,6 +1519,7 @@ it("RestJsonIgnoreQueryParamsInResponse:Response", async () => {
  */
 it("RestJsonInputAndOutputWithStringHeaders:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1520,6 +1559,7 @@ it("RestJsonInputAndOutputWithStringHeaders:Request", async () => {
  */
 it("RestJsonInputAndOutputWithNumericHeaders:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1575,6 +1615,7 @@ it("RestJsonInputAndOutputWithNumericHeaders:Request", async () => {
  */
 it("RestJsonInputAndOutputWithBooleanHeaders:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1614,6 +1655,7 @@ it("RestJsonInputAndOutputWithBooleanHeaders:Request", async () => {
  */
 it("RestJsonInputAndOutputWithTimestampHeaders:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1645,6 +1687,7 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Request", async () => {
  */
 it("RestJsonInputAndOutputWithEnumHeaders:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1680,6 +1723,7 @@ it("RestJsonInputAndOutputWithEnumHeaders:Request", async () => {
  */
 it("RestJsonInputAndOutputWithStringHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1723,6 +1767,7 @@ it("RestJsonInputAndOutputWithStringHeaders:Response", async () => {
  */
 it("RestJsonInputAndOutputWithNumericHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1778,6 +1823,7 @@ it("RestJsonInputAndOutputWithNumericHeaders:Response", async () => {
  */
 it("RestJsonInputAndOutputWithBooleanHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1821,6 +1867,7 @@ it("RestJsonInputAndOutputWithBooleanHeaders:Response", async () => {
  */
 it("RestJsonInputAndOutputWithTimestampHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1858,6 +1905,7 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Response", async () => {
  */
 it("RestJsonInputAndOutputWithEnumHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1898,6 +1946,7 @@ it("RestJsonInputAndOutputWithEnumHeaders:Response", async () => {
  */
 it("RestJsonJsonBlobs:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1934,6 +1983,7 @@ it("RestJsonJsonBlobs:Request", async () => {
  */
 it("RestJsonJsonBlobs:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1973,6 +2023,7 @@ it("RestJsonJsonBlobs:Response", async () => {
  */
 it("RestJsonJsonEnums:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2037,6 +2088,7 @@ it("RestJsonJsonEnums:Request", async () => {
  */
 it("RestJsonJsonEnums:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2104,6 +2156,7 @@ it("RestJsonJsonEnums:Response", async () => {
  */
 it("RestJsonLists:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2213,6 +2266,7 @@ it("RestJsonLists:Request", async () => {
  */
 it("RestJsonListsEmpty:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2249,6 +2303,7 @@ it("RestJsonListsEmpty:Request", async () => {
  */
 it("RestJsonListsSerializeNull:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2287,6 +2342,7 @@ it("RestJsonListsSerializeNull:Request", async () => {
  */
 it("RestJsonLists:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2399,6 +2455,7 @@ it("RestJsonLists:Response", async () => {
  */
 it("RestJsonListsEmpty:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2438,6 +2495,7 @@ it("RestJsonListsEmpty:Response", async () => {
  */
 it("RestJsonListsSerializeNull:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2479,6 +2537,7 @@ it("RestJsonListsSerializeNull:Response", async () => {
  */
 it("RestJsonJsonMaps:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2530,6 +2589,7 @@ it("RestJsonJsonMaps:Request", async () => {
  */
 it("RestJsonJsonMaps:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2584,6 +2644,7 @@ it("RestJsonJsonMaps:Response", async () => {
  */
 it("RestJsonJsonTimestamps:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2620,6 +2681,7 @@ it("RestJsonJsonTimestamps:Request", async () => {
  */
 it("RestJsonJsonTimestampsWithDateTimeFormat:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2656,6 +2718,7 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Request", async () => {
  */
 it("RestJsonJsonTimestampsWithEpochSecondsFormat:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2692,6 +2755,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Request", async () => {
  */
 it("RestJsonJsonTimestampsWithHttpDateFormat:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2728,6 +2792,7 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Request", async () => {
  */
 it("RestJsonJsonTimestamps:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2767,6 +2832,7 @@ it("RestJsonJsonTimestamps:Response", async () => {
  */
 it("RestJsonJsonTimestampsWithDateTimeFormat:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2806,6 +2872,7 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Response", async () => {
  */
 it("RestJsonJsonTimestampsWithEpochSecondsFormat:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2845,6 +2912,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Response", async () => {
  */
 it("RestJsonJsonTimestampsWithHttpDateFormat:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -2884,6 +2952,7 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Response", async () => {
  */
 it("RestJsonNoInputAndNoOutput:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2908,6 +2977,7 @@ it("RestJsonNoInputAndNoOutput:Request", async () => {
  */
 it("RestJsonNoInputAndNoOutput:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined),
   });
 
@@ -2929,6 +2999,7 @@ it("RestJsonNoInputAndNoOutput:Response", async () => {
  */
 it("RestJsonNoInputAndOutput:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -2953,6 +3024,7 @@ it("RestJsonNoInputAndOutput:Request", async () => {
  */
 it("RestJsonNoInputAndOutput:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(true, 200, undefined),
   });
 
@@ -2974,6 +3046,7 @@ it("RestJsonNoInputAndOutput:Response", async () => {
  */
 it("RestJsonNullAndEmptyHeaders:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3010,6 +3083,7 @@ it("RestJsonNullAndEmptyHeaders:Request", async () => {
  */
 it("RestJsonOmitsNullSerializesEmptyString:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3043,6 +3117,7 @@ it("RestJsonOmitsNullSerializesEmptyString:Request", async () => {
  */
 it("RestJsonQueryIdempotencyTokenAutoFill:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3074,6 +3149,7 @@ it("RestJsonQueryIdempotencyTokenAutoFill:Request", async () => {
  */
 it("RestJsonQueryIdempotencyTokenAutoFillIsSet:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3105,6 +3181,7 @@ it("RestJsonQueryIdempotencyTokenAutoFillIsSet:Request", async () => {
  */
 it("RestJsonRecursiveShapes:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3166,6 +3243,7 @@ it("RestJsonRecursiveShapes:Request", async () => {
  */
 it("RestJsonRecursiveShapes:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -3230,6 +3308,7 @@ it("RestJsonRecursiveShapes:Response", async () => {
  */
 it("RestJsonSimpleScalarProperties:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3294,6 +3373,7 @@ it("RestJsonSimpleScalarProperties:Request", async () => {
  */
 it("RestJsonSimpleScalarProperties:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -3360,6 +3440,7 @@ it("RestJsonSimpleScalarProperties:Response", async () => {
  */
 it("RestJsonTimestampFormatHeaders:Request", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -3415,6 +3496,7 @@ it("RestJsonTimestampFormatHeaders:Request", async () => {
  */
 it("RestJsonTimestampFormatHeaders:Response", async () => {
   const client = new RestJsonProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,

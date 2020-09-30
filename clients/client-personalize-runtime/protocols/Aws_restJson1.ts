@@ -3,7 +3,7 @@ import {
   GetPersonalizedRankingCommandOutput,
 } from "../commands/GetPersonalizedRankingCommand";
 import { GetRecommendationsCommandInput, GetRecommendationsCommandOutput } from "../commands/GetRecommendationsCommand";
-import { InvalidInputException, PredictedItem, ResourceNotFoundException } from "../models/index";
+import { InvalidInputException, PredictedItem, ResourceNotFoundException } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
 import {
@@ -78,7 +78,6 @@ export const deserializeAws_restJson1GetPersonalizedRankingCommand = async (
   }
   const contents: GetPersonalizedRankingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPersonalizedRankingResponse",
     personalizedRanking: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -142,7 +141,6 @@ export const deserializeAws_restJson1GetRecommendationsCommand = async (
   }
   const contents: GetRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetRecommendationsResponse",
     itemList: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -251,7 +249,6 @@ const deserializeAws_restJson1ItemList = (output: any, context: __SerdeContext):
 
 const deserializeAws_restJson1PredictedItem = (output: any, context: __SerdeContext): PredictedItem => {
   return {
-    __type: "PredictedItem",
     itemId: output.itemId !== undefined && output.itemId !== null ? output.itemId : undefined,
     score: output.score !== undefined && output.score !== null ? output.score : undefined,
   } as any;

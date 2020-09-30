@@ -1,5 +1,5 @@
 import { InvokeEndpointCommandInput, InvokeEndpointCommandOutput } from "../commands/InvokeEndpointCommand";
-import { InternalFailure, ModelError, ServiceUnavailable, ValidationError } from "../models/index";
+import { InternalFailure, ModelError, ServiceUnavailable, ValidationError } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
@@ -56,7 +56,6 @@ export const deserializeAws_restJson1InvokeEndpointCommand = async (
   }
   const contents: InvokeEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InvokeEndpointOutput",
     Body: undefined,
     ContentType: undefined,
     InvokedProductionVariant: undefined,

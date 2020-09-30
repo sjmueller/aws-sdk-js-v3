@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { DisableRuleRequest } from "../models/index";
+import { DisableRuleRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DisableRuleCommand,
   serializeAws_json1_1DisableRuleCommand,
@@ -43,8 +43,11 @@ export class DisableRuleCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DisableRuleRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

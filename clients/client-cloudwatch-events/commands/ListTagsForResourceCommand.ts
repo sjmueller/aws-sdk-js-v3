@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/index";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1ListTagsForResourceCommand,
   serializeAws_json1_1ListTagsForResourceCommand,
@@ -43,8 +43,11 @@ export class ListTagsForResourceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: ListTagsForResourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForResourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

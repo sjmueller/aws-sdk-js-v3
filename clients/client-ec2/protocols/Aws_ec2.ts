@@ -1365,7 +1365,6 @@ import {
   AllowedPrincipal,
   ApplySecurityGroupsToClientVpnTargetNetworkRequest,
   ApplySecurityGroupsToClientVpnTargetNetworkResult,
-  ArchitectureType,
   AssignIpv6AddressesRequest,
   AssignIpv6AddressesResult,
   AssignPrivateIpAddressesRequest,
@@ -1388,7 +1387,6 @@ import {
   AssociateTransitGatewayRouteTableResult,
   AssociateVpcCidrBlockRequest,
   AssociateVpcCidrBlockResult,
-  AssociatedTargetNetwork,
   AssociationStatus,
   AttachClassicLinkVpcRequest,
   AttachClassicLinkVpcResult,
@@ -1398,17 +1396,11 @@ import {
   AttachVolumeRequest,
   AttachVpnGatewayRequest,
   AttachVpnGatewayResult,
-  AttributeBooleanValue,
   AttributeValue,
-  AuthorizationRule,
   AuthorizeClientVpnIngressRequest,
   AuthorizeClientVpnIngressResult,
   AuthorizeSecurityGroupEgressRequest,
   AuthorizeSecurityGroupIngressRequest,
-  AvailabilityZone,
-  AvailabilityZoneMessage,
-  AvailableCapacity,
-  BlobAttributeValue,
   BlockDeviceMapping,
   BundleInstanceRequest,
   BundleInstanceResult,
@@ -1434,48 +1426,23 @@ import {
   CancelSpotInstanceRequestsResult,
   CancelledSpotInstanceRequest,
   CapacityReservation,
-  CapacityReservationGroup,
-  CapacityReservationOptions,
   CapacityReservationOptionsRequest,
-  CapacityReservationSpecification,
-  CapacityReservationSpecificationResponse,
   CapacityReservationTarget,
-  CapacityReservationTargetResponse,
-  CertificateAuthentication,
   CertificateAuthenticationRequest,
-  CidrAuthorizationContext,
   CidrBlock,
-  ClassicLinkDnsSupport,
-  ClassicLinkInstance,
-  ClassicLoadBalancer,
-  ClassicLoadBalancersConfig,
-  ClientCertificateRevocationListStatus,
-  ClientData,
-  ClientVpnAuthentication,
   ClientVpnAuthenticationRequest,
   ClientVpnAuthorizationRuleStatus,
-  ClientVpnConnection,
-  ClientVpnConnectionStatus,
-  ClientVpnEndpoint,
   ClientVpnEndpointStatus,
-  ClientVpnRoute,
   ClientVpnRouteStatus,
-  CoipAddressUsage,
-  CoipPool,
   ConfirmProductInstanceRequest,
   ConfirmProductInstanceResult,
   ConnectionLogOptions,
-  ConnectionLogResponseOptions,
-  ConnectionNotification,
-  ConversionTask,
   CopyFpgaImageRequest,
   CopyFpgaImageResult,
   CopyImageRequest,
   CopyImageResult,
   CopySnapshotRequest,
   CopySnapshotResult,
-  CpuOptions,
-  CpuOptionsRequest,
   CreateCapacityReservationRequest,
   CreateCapacityReservationResult,
   CreateClientVpnEndpointRequest,
@@ -1510,6 +1477,102 @@ import {
   CreateLaunchTemplateRequest,
   CreateLaunchTemplateResult,
   CreateLaunchTemplateVersionRequest,
+  CreditSpecificationRequest,
+  CustomerGateway,
+  DhcpConfiguration,
+  DhcpOptions,
+  DirectoryServiceAuthenticationRequest,
+  EbsBlockDevice,
+  EgressOnlyInternetGateway,
+  ElasticGpuSpecification,
+  ExportTask,
+  ExportToS3Task,
+  ExportToS3TaskSpecification,
+  FederatedAuthenticationRequest,
+  FleetLaunchTemplateConfigRequest,
+  FleetLaunchTemplateOverrides,
+  FleetLaunchTemplateOverridesRequest,
+  FleetLaunchTemplateSpecification,
+  FleetLaunchTemplateSpecificationRequest,
+  IamInstanceProfile,
+  IamInstanceProfileAssociation,
+  IamInstanceProfileSpecification,
+  InstanceCount,
+  InstanceExportDetails,
+  InstanceIpv6AddressRequest,
+  InternetGateway,
+  InternetGatewayAttachment,
+  IpPermission,
+  IpRange,
+  Ipv6CidrBlock,
+  Ipv6Range,
+  KeyPair,
+  LaunchTemplate,
+  LaunchTemplateAndOverridesResponse,
+  LaunchTemplateBlockDeviceMappingRequest,
+  LaunchTemplateCapacityReservationSpecificationRequest,
+  LaunchTemplateCpuOptionsRequest,
+  LaunchTemplateEbsBlockDeviceRequest,
+  LaunchTemplateElasticInferenceAccelerator,
+  LaunchTemplateHibernationOptionsRequest,
+  LaunchTemplateIamInstanceProfileSpecificationRequest,
+  LaunchTemplateInstanceMarketOptionsRequest,
+  LaunchTemplateInstanceMetadataOptionsRequest,
+  LaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
+  LaunchTemplateLicenseConfigurationRequest,
+  LaunchTemplatePlacementRequest,
+  LaunchTemplateSpotMarketOptionsRequest,
+  LaunchTemplateTagSpecificationRequest,
+  LaunchTemplatesMonitoringRequest,
+  NewDhcpConfiguration,
+  OnDemandOptionsRequest,
+  PeeringAttachmentStatus,
+  PeeringTgwInfo,
+  Placement,
+  PlacementResponse,
+  PrefixListId,
+  PriceSchedule,
+  PrivateIpAddressSpecification,
+  RequestLaunchTemplateData,
+  ReservedInstancesListing,
+  RouteTableAssociationState,
+  S3Storage,
+  SpotOptionsRequest,
+  Storage,
+  StorageLocation,
+  Subnet,
+  SubnetAssociation,
+  SubnetCidrBlockState,
+  SubnetIpv6CidrBlockAssociation,
+  Tag,
+  TagSpecification,
+  TargetCapacitySpecificationRequest,
+  TargetConfigurationRequest,
+  TransitGatewayAssociation,
+  TransitGatewayMulticastDomainAssociations,
+  TransitGatewayPeeringAttachment,
+  TransitGatewayVpcAttachment,
+  TransitGatewayVpcAttachmentOptions,
+  UnsuccessfulItem,
+  UnsuccessfulItemError,
+  UserIdGroupPair,
+  ValidationError,
+  ValidationWarning,
+  VolumeAttachment,
+  Vpc,
+  VpcAttachment,
+  VpcCidrBlockAssociation,
+  VpcCidrBlockState,
+  VpcIpv6CidrBlockAssociation,
+  VpcPeeringConnection,
+  VpcPeeringConnectionOptionsDescription,
+  VpcPeeringConnectionStateReason,
+  VpcPeeringConnectionVpcInfo,
+  _InstanceType,
+} from "../models/models_0";
+import {
+  CapacityReservationTargetResponse,
+  ConnectionNotification,
   CreateLaunchTemplateVersionResult,
   CreateLocalGatewayRouteRequest,
   CreateLocalGatewayRouteResult,
@@ -1565,8 +1628,6 @@ import {
   CreateTransitGatewayVpcAttachmentRequest,
   CreateTransitGatewayVpcAttachmentRequestOptions,
   CreateTransitGatewayVpcAttachmentResult,
-  CreateVolumePermission,
-  CreateVolumePermissionModifications,
   CreateVolumeRequest,
   CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointConnectionNotificationResult,
@@ -1584,8 +1645,6 @@ import {
   CreateVpnGatewayRequest,
   CreateVpnGatewayResult,
   CreditSpecification,
-  CreditSpecificationRequest,
-  CustomerGateway,
   DeleteClientVpnEndpointRequest,
   DeleteClientVpnEndpointResult,
   DeleteClientVpnRouteRequest,
@@ -1670,6 +1729,124 @@ import {
   DeleteVpnGatewayRequest,
   DeprovisionByoipCidrRequest,
   DeprovisionByoipCidrResult,
+  DnsEntry,
+  ElasticGpuSpecificationResponse,
+  FailedQueuedPurchaseDeletion,
+  GroupIdentifier,
+  IKEVersionsListValue,
+  IKEVersionsRequestListValue,
+  IcmpTypeCode,
+  InstanceIpv6Address,
+  InstanceSpecification,
+  LastError,
+  LaunchTemplateBlockDeviceMapping,
+  LaunchTemplateCapacityReservationSpecificationResponse,
+  LaunchTemplateCpuOptions,
+  LaunchTemplateEbsBlockDevice,
+  LaunchTemplateElasticInferenceAcceleratorResponse,
+  LaunchTemplateHibernationOptions,
+  LaunchTemplateIamInstanceProfileSpecification,
+  LaunchTemplateInstanceMarketOptions,
+  LaunchTemplateInstanceMetadataOptions,
+  LaunchTemplateInstanceNetworkInterfaceSpecification,
+  LaunchTemplateLicenseConfiguration,
+  LaunchTemplatePlacement,
+  LaunchTemplateSpotMarketOptions,
+  LaunchTemplateTagSpecification,
+  LaunchTemplateVersion,
+  LaunchTemplatesMonitoring,
+  LocalGatewayRoute,
+  LocalGatewayRouteTableVpcAssociation,
+  ManagedPrefixList,
+  NatGateway,
+  NatGatewayAddress,
+  NetworkAcl,
+  NetworkAclAssociation,
+  NetworkAclEntry,
+  NetworkInterface,
+  NetworkInterfaceAssociation,
+  NetworkInterfaceAttachment,
+  NetworkInterfaceIpv6Address,
+  NetworkInterfacePermission,
+  NetworkInterfacePermissionState,
+  NetworkInterfacePrivateIpAddress,
+  Phase1DHGroupNumbersListValue,
+  Phase1DHGroupNumbersRequestListValue,
+  Phase1EncryptionAlgorithmsListValue,
+  Phase1EncryptionAlgorithmsRequestListValue,
+  Phase1IntegrityAlgorithmsListValue,
+  Phase1IntegrityAlgorithmsRequestListValue,
+  Phase2DHGroupNumbersListValue,
+  Phase2DHGroupNumbersRequestListValue,
+  Phase2EncryptionAlgorithmsListValue,
+  Phase2EncryptionAlgorithmsRequestListValue,
+  Phase2IntegrityAlgorithmsListValue,
+  Phase2IntegrityAlgorithmsRequestListValue,
+  PlacementGroup,
+  PortRange,
+  PriceScheduleSpecification,
+  PrivateDnsNameConfiguration,
+  PropagatingVgw,
+  ProvisionedBandwidth,
+  ResponseError,
+  ResponseLaunchTemplateData,
+  Route,
+  RouteTable,
+  RouteTableAssociation,
+  SecurityGroupIdentifier,
+  ServiceConfiguration,
+  ServiceTypeDetail,
+  Snapshot,
+  SnapshotInfo,
+  SpotDatafeedSubscription,
+  SpotInstanceStateFault,
+  SuccessfulQueuedPurchaseDeletion,
+  TrafficMirrorFilter,
+  TrafficMirrorFilterRule,
+  TrafficMirrorNetworkService,
+  TrafficMirrorPortRange,
+  TrafficMirrorPortRangeRequest,
+  TrafficMirrorSession,
+  TrafficMirrorTarget,
+  TransitGateway,
+  TransitGatewayMulticastDomain,
+  TransitGatewayOptions,
+  TransitGatewayRequestOptions,
+  TransitGatewayRoute,
+  TransitGatewayRouteAttachment,
+  TransitGatewayRouteTable,
+  TunnelOption,
+  VgwTelemetry,
+  Volume,
+  VpcEndpoint,
+  VpnConnection,
+  VpnConnectionOptions,
+  VpnConnectionOptionsSpecification,
+  VpnGateway,
+  VpnStaticRoute,
+  VpnTunnelOptionsSpecification,
+} from "../models/models_1";
+import {
+  ArchitectureType,
+  AssociatedTargetNetwork,
+  AttributeBooleanValue,
+  AuthorizationRule,
+  AvailabilityZone,
+  AvailabilityZoneMessage,
+  AvailableCapacity,
+  CapacityReservationOptions,
+  CapacityReservationSpecificationResponse,
+  CertificateAuthentication,
+  ClassicLinkInstance,
+  ClientVpnAuthentication,
+  ClientVpnConnection,
+  ClientVpnConnectionStatus,
+  ClientVpnEndpoint,
+  ClientVpnRoute,
+  CoipPool,
+  ConnectionLogResponseOptions,
+  ConversionTask,
+  CpuOptions,
   DeregisterImageRequest,
   DeregisterInstanceEventNotificationAttributesRequest,
   DeregisterInstanceEventNotificationAttributesResult,
@@ -1807,6 +1984,116 @@ import {
   DescribeNetworkInterfacesResult,
   DescribePlacementGroupsRequest,
   DescribePlacementGroupsResult,
+  DirectoryServiceAuthentication,
+  DiskImageDescription,
+  DiskImageVolumeDescription,
+  DiskInfo,
+  EbsInfo,
+  EbsInstanceBlockDevice,
+  EbsOptimizedInfo,
+  ElasticGpuAssociation,
+  ElasticGpuHealth,
+  ElasticGpus,
+  ElasticInferenceAcceleratorAssociation,
+  EventInformation,
+  ExportImageTask,
+  ExportTaskS3Location,
+  FederatedAuthentication,
+  Filter,
+  FleetData,
+  FleetLaunchTemplateConfig,
+  FlowLog,
+  FpgaDeviceInfo,
+  FpgaDeviceMemoryInfo,
+  FpgaImage,
+  FpgaImageAttribute,
+  FpgaImageState,
+  FpgaInfo,
+  GpuDeviceInfo,
+  GpuDeviceMemoryInfo,
+  GpuInfo,
+  HibernationOptions,
+  HistoryRecordEntry,
+  Host,
+  HostInstance,
+  HostOffering,
+  HostProperties,
+  HostReservation,
+  IdFormat,
+  Image,
+  ImageAttribute,
+  ImportImageLicenseConfigurationResponse,
+  ImportImageTask,
+  ImportInstanceTaskDetails,
+  ImportInstanceVolumeDetailItem,
+  ImportSnapshotTask,
+  ImportVolumeTaskDetails,
+  InferenceAcceleratorInfo,
+  InferenceDeviceInfo,
+  Instance,
+  InstanceAttribute,
+  InstanceBlockDeviceMapping,
+  InstanceCapacity,
+  InstanceCreditSpecification,
+  InstanceMetadataOptionsResponse,
+  InstanceNetworkInterface,
+  InstanceNetworkInterfaceAssociation,
+  InstanceNetworkInterfaceAttachment,
+  InstancePrivateIpAddress,
+  InstanceState,
+  InstanceStatus,
+  InstanceStatusDetails,
+  InstanceStatusEvent,
+  InstanceStatusSummary,
+  InstanceStorageInfo,
+  InstanceTagNotificationAttribute,
+  InstanceTypeInfo,
+  InstanceTypeOffering,
+  Ipv6Pool,
+  KeyPairInfo,
+  LaunchPermission,
+  LicenseConfiguration,
+  LoadPermission,
+  LocalGateway,
+  LocalGatewayRouteTable,
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
+  LocalGatewayVirtualInterface,
+  LocalGatewayVirtualInterfaceGroup,
+  MemoryInfo,
+  Monitoring,
+  MovingAddressStatus,
+  NetworkInfo,
+  OnDemandOptions,
+  PciId,
+  PlacementGroupInfo,
+  PlacementGroupStrategy,
+  PoolCidrBlock,
+  ProcessorInfo,
+  ProductCode,
+  Reservation,
+  RootDeviceType,
+  SnapshotDetail,
+  SnapshotTaskDetail,
+  SpotOptions,
+  StateReason,
+  TargetCapacitySpecification,
+  TargetNetwork,
+  TransitGatewayMulticastDeregisteredGroupMembers,
+  TransitGatewayMulticastDeregisteredGroupSources,
+  UsageClassType,
+  UserBucketDetails,
+  VCpuInfo,
+  VirtualizationType,
+} from "../models/models_2";
+import {
+  CapacityReservationGroup,
+  ClassicLinkDnsSupport,
+  ClassicLoadBalancer,
+  ClassicLoadBalancersConfig,
+  ClientCertificateRevocationListStatus,
+  ClientData,
+  CoipAddressUsage,
+  CreateVolumePermission,
   DescribePrefixListsRequest,
   DescribePrefixListsResult,
   DescribePrincipalIdFormatRequest,
@@ -1913,10 +2200,6 @@ import {
   DetachNetworkInterfaceRequest,
   DetachVolumeRequest,
   DetachVpnGatewayRequest,
-  DhcpConfiguration,
-  DhcpOptions,
-  DirectoryServiceAuthentication,
-  DirectoryServiceAuthenticationRequest,
   DisableEbsEncryptionByDefaultRequest,
   DisableEbsEncryptionByDefaultResult,
   DisableFastSnapshotRestoreErrorItem,
@@ -1946,26 +2229,6 @@ import {
   DisassociateTransitGatewayRouteTableResult,
   DisassociateVpcCidrBlockRequest,
   DisassociateVpcCidrBlockResult,
-  DiskImage,
-  DiskImageDescription,
-  DiskImageDetail,
-  DiskImageVolumeDescription,
-  DiskInfo,
-  DnsEntry,
-  DnsServersOptionsModifyStructure,
-  EbsBlockDevice,
-  EbsInfo,
-  EbsInstanceBlockDevice,
-  EbsInstanceBlockDeviceSpecification,
-  EbsOptimizedInfo,
-  EgressOnlyInternetGateway,
-  ElasticGpuAssociation,
-  ElasticGpuHealth,
-  ElasticGpuSpecification,
-  ElasticGpuSpecificationResponse,
-  ElasticGpus,
-  ElasticInferenceAccelerator,
-  ElasticInferenceAcceleratorAssociation,
   EnableEbsEncryptionByDefaultRequest,
   EnableEbsEncryptionByDefaultResult,
   EnableFastSnapshotRestoreErrorItem,
@@ -1982,39 +2245,15 @@ import {
   EnableVpcClassicLinkDnsSupportResult,
   EnableVpcClassicLinkRequest,
   EnableVpcClassicLinkResult,
-  EventInformation,
   ExportClientVpnClientCertificateRevocationListRequest,
   ExportClientVpnClientCertificateRevocationListResult,
   ExportClientVpnClientConfigurationRequest,
   ExportClientVpnClientConfigurationResult,
   ExportImageRequest,
   ExportImageResult,
-  ExportImageTask,
-  ExportTask,
-  ExportTaskS3Location,
   ExportTaskS3LocationRequest,
-  ExportToS3Task,
-  ExportToS3TaskSpecification,
   ExportTransitGatewayRoutesRequest,
   ExportTransitGatewayRoutesResult,
-  FailedQueuedPurchaseDeletion,
-  FederatedAuthentication,
-  FederatedAuthenticationRequest,
-  Filter,
-  FleetData,
-  FleetLaunchTemplateConfig,
-  FleetLaunchTemplateConfigRequest,
-  FleetLaunchTemplateOverrides,
-  FleetLaunchTemplateOverridesRequest,
-  FleetLaunchTemplateSpecification,
-  FleetLaunchTemplateSpecificationRequest,
-  FlowLog,
-  FpgaDeviceInfo,
-  FpgaDeviceMemoryInfo,
-  FpgaImage,
-  FpgaImageAttribute,
-  FpgaImageState,
-  FpgaInfo,
   GetAssociatedIpv6PoolCidrsRequest,
   GetAssociatedIpv6PoolCidrsResult,
   GetCapacityReservationUsageRequest,
@@ -2053,149 +2292,115 @@ import {
   GetTransitGatewayRouteTableAssociationsResult,
   GetTransitGatewayRouteTablePropagationsRequest,
   GetTransitGatewayRouteTablePropagationsResult,
-  GpuDeviceInfo,
-  GpuDeviceMemoryInfo,
-  GpuInfo,
-  GroupIdentifier,
-  HibernationOptions,
-  HibernationOptionsRequest,
   HistoryRecord,
-  HistoryRecordEntry,
-  Host,
-  HostInstance,
-  HostOffering,
-  HostProperties,
-  HostReservation,
-  IKEVersionsListValue,
-  IKEVersionsRequestListValue,
-  IamInstanceProfile,
-  IamInstanceProfileAssociation,
-  IamInstanceProfileSpecification,
-  IcmpTypeCode,
-  IdFormat,
-  Image,
-  ImageAttribute,
   ImageDiskContainer,
   ImportClientVpnClientCertificateRevocationListRequest,
   ImportClientVpnClientCertificateRevocationListResult,
   ImportImageLicenseConfigurationRequest,
-  ImportImageLicenseConfigurationResponse,
   ImportImageRequest,
+  InstanceFamilyCreditSpecification,
+  InstanceNetworkInterfaceSpecification,
+  InstanceUsage,
+  Ipv6CidrAssociation,
+  LaunchSpecification,
+  LaunchTemplateConfig,
+  LaunchTemplateOverrides,
+  LoadBalancersConfig,
+  PrefixList,
+  PrefixListAssociation,
+  PrefixListEntry,
+  PricingDetail,
+  PrincipalIdFormat,
+  PublicIpv4Pool,
+  PublicIpv4PoolRange,
+  Purchase,
+  RecurringCharge,
+  Region,
+  ReservationValue,
+  ReservedInstanceReservationValue,
+  ReservedInstances,
+  ReservedInstancesConfiguration,
+  ReservedInstancesId,
+  ReservedInstancesModification,
+  ReservedInstancesModificationResult,
+  ReservedInstancesOffering,
+  RunInstancesMonitoringEnabled,
+  ScheduledInstance,
+  ScheduledInstanceAvailability,
+  ScheduledInstanceRecurrence,
+  ScheduledInstanceRecurrenceRequest,
+  SecurityGroup,
+  SecurityGroupReference,
+  ServiceDetail,
+  SlotDateTimeRangeRequest,
+  SlotStartTimeRangeRequest,
+  SpotFleetLaunchSpecification,
+  SpotFleetMonitoring,
+  SpotFleetRequestConfig,
+  SpotFleetRequestConfigData,
+  SpotFleetTagSpecification,
+  SpotInstanceRequest,
+  SpotInstanceStatus,
+  SpotPlacement,
+  SpotPrice,
+  StaleIpPermission,
+  StaleSecurityGroup,
+  TagDescription,
+  TargetConfiguration,
+  TargetGroup,
+  TargetGroupsConfig,
+  TargetReservationValue,
+  TransitGatewayAttachment,
+  TransitGatewayAttachmentAssociation,
+  TransitGatewayAttachmentPropagation,
+  TransitGatewayMulticastDomainAssociation,
+  TransitGatewayPropagation,
+  TransitGatewayRouteTableAssociation,
+  TransitGatewayRouteTablePropagation,
+  UserBucket,
+  VolumeModification,
+  VolumeStatusAction,
+  VolumeStatusAttachmentStatus,
+  VolumeStatusDetails,
+  VolumeStatusEvent,
+  VolumeStatusInfo,
+  VolumeStatusItem,
+  VpcClassicLink,
+  VpcEndpointConnection,
+} from "../models/models_3";
+import {
+  BlobAttributeValue,
+  CapacityReservationSpecification,
+  CidrAuthorizationContext,
+  CpuOptionsRequest,
+  CreateVolumePermissionModifications,
+  DiskImage,
+  DiskImageDetail,
+  DnsServersOptionsModifyStructure,
+  EbsInstanceBlockDeviceSpecification,
+  ElasticInferenceAccelerator,
+  HibernationOptionsRequest,
   ImportImageResult,
-  ImportImageTask,
   ImportInstanceLaunchSpecification,
   ImportInstanceRequest,
   ImportInstanceResult,
-  ImportInstanceTaskDetails,
-  ImportInstanceVolumeDetailItem,
   ImportKeyPairRequest,
   ImportKeyPairResult,
   ImportSnapshotRequest,
   ImportSnapshotResult,
-  ImportSnapshotTask,
   ImportVolumeRequest,
   ImportVolumeResult,
-  ImportVolumeTaskDetails,
-  InferenceAcceleratorInfo,
-  InferenceDeviceInfo,
-  Instance,
-  InstanceAttribute,
-  InstanceBlockDeviceMapping,
   InstanceBlockDeviceMappingSpecification,
-  InstanceCapacity,
-  InstanceCount,
-  InstanceCreditSpecification,
   InstanceCreditSpecificationRequest,
-  InstanceExportDetails,
-  InstanceFamilyCreditSpecification,
-  InstanceIpv6Address,
-  InstanceIpv6AddressRequest,
   InstanceMarketOptionsRequest,
   InstanceMetadataOptionsRequest,
-  InstanceMetadataOptionsResponse,
   InstanceMonitoring,
-  InstanceNetworkInterface,
-  InstanceNetworkInterfaceAssociation,
-  InstanceNetworkInterfaceAttachment,
-  InstanceNetworkInterfaceSpecification,
-  InstancePrivateIpAddress,
-  InstanceSpecification,
-  InstanceState,
   InstanceStateChange,
-  InstanceStatus,
-  InstanceStatusDetails,
-  InstanceStatusEvent,
-  InstanceStatusSummary,
-  InstanceStorageInfo,
-  InstanceTagNotificationAttribute,
-  InstanceTypeInfo,
-  InstanceTypeOffering,
-  InstanceUsage,
-  InternetGateway,
-  InternetGatewayAttachment,
-  IpPermission,
-  IpRange,
-  Ipv6CidrAssociation,
-  Ipv6CidrBlock,
-  Ipv6Pool,
-  Ipv6Range,
-  KeyPair,
-  KeyPairInfo,
-  LastError,
-  LaunchPermission,
   LaunchPermissionModifications,
-  LaunchSpecification,
-  LaunchTemplate,
-  LaunchTemplateAndOverridesResponse,
-  LaunchTemplateBlockDeviceMapping,
-  LaunchTemplateBlockDeviceMappingRequest,
-  LaunchTemplateCapacityReservationSpecificationRequest,
-  LaunchTemplateCapacityReservationSpecificationResponse,
-  LaunchTemplateConfig,
-  LaunchTemplateCpuOptions,
-  LaunchTemplateCpuOptionsRequest,
-  LaunchTemplateEbsBlockDevice,
-  LaunchTemplateEbsBlockDeviceRequest,
-  LaunchTemplateElasticInferenceAccelerator,
-  LaunchTemplateElasticInferenceAcceleratorResponse,
-  LaunchTemplateHibernationOptions,
-  LaunchTemplateHibernationOptionsRequest,
-  LaunchTemplateIamInstanceProfileSpecification,
-  LaunchTemplateIamInstanceProfileSpecificationRequest,
-  LaunchTemplateInstanceMarketOptions,
-  LaunchTemplateInstanceMarketOptionsRequest,
-  LaunchTemplateInstanceMetadataOptions,
-  LaunchTemplateInstanceMetadataOptionsRequest,
-  LaunchTemplateInstanceNetworkInterfaceSpecification,
-  LaunchTemplateInstanceNetworkInterfaceSpecificationRequest,
-  LaunchTemplateLicenseConfiguration,
-  LaunchTemplateLicenseConfigurationRequest,
-  LaunchTemplateOverrides,
-  LaunchTemplatePlacement,
-  LaunchTemplatePlacementRequest,
   LaunchTemplateSpecification,
-  LaunchTemplateSpotMarketOptions,
-  LaunchTemplateSpotMarketOptionsRequest,
-  LaunchTemplateTagSpecification,
-  LaunchTemplateTagSpecificationRequest,
-  LaunchTemplateVersion,
-  LaunchTemplatesMonitoring,
-  LaunchTemplatesMonitoringRequest,
-  LicenseConfiguration,
   LicenseConfigurationRequest,
-  LoadBalancersConfig,
-  LoadPermission,
   LoadPermissionModifications,
   LoadPermissionRequest,
-  LocalGateway,
-  LocalGatewayRoute,
-  LocalGatewayRouteTable,
-  LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
-  LocalGatewayRouteTableVpcAssociation,
-  LocalGatewayVirtualInterface,
-  LocalGatewayVirtualInterfaceGroup,
-  ManagedPrefixList,
-  MemoryInfo,
   ModifyAvailabilityZoneGroupRequest,
   ModifyAvailabilityZoneGroupResult,
   ModifyCapacityReservationRequest,
@@ -2271,70 +2476,13 @@ import {
   ModifyVpnTunnelOptionsSpecification,
   MonitorInstancesRequest,
   MonitorInstancesResult,
-  Monitoring,
   MoveAddressToVpcRequest,
   MoveAddressToVpcResult,
-  MovingAddressStatus,
-  NatGateway,
-  NatGatewayAddress,
-  NetworkAcl,
-  NetworkAclAssociation,
-  NetworkAclEntry,
-  NetworkInfo,
-  NetworkInterface,
-  NetworkInterfaceAssociation,
-  NetworkInterfaceAttachment,
   NetworkInterfaceAttachmentChanges,
-  NetworkInterfaceIpv6Address,
-  NetworkInterfacePermission,
-  NetworkInterfacePermissionState,
-  NetworkInterfacePrivateIpAddress,
-  NewDhcpConfiguration,
-  OnDemandOptions,
-  OnDemandOptionsRequest,
-  PciId,
-  PeeringAttachmentStatus,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
-  PeeringTgwInfo,
-  Phase1DHGroupNumbersListValue,
-  Phase1DHGroupNumbersRequestListValue,
-  Phase1EncryptionAlgorithmsListValue,
-  Phase1EncryptionAlgorithmsRequestListValue,
-  Phase1IntegrityAlgorithmsListValue,
-  Phase1IntegrityAlgorithmsRequestListValue,
-  Phase2DHGroupNumbersListValue,
-  Phase2DHGroupNumbersRequestListValue,
-  Phase2EncryptionAlgorithmsListValue,
-  Phase2EncryptionAlgorithmsRequestListValue,
-  Phase2IntegrityAlgorithmsListValue,
-  Phase2IntegrityAlgorithmsRequestListValue,
-  Placement,
-  PlacementGroup,
-  PlacementGroupInfo,
-  PlacementGroupStrategy,
-  PlacementResponse,
-  PoolCidrBlock,
-  PortRange,
-  PrefixList,
-  PrefixListAssociation,
-  PrefixListEntry,
-  PrefixListId,
-  PriceSchedule,
-  PriceScheduleSpecification,
-  PricingDetail,
-  PrincipalIdFormat,
-  PrivateDnsNameConfiguration,
-  PrivateIpAddressSpecification,
-  ProcessorInfo,
-  ProductCode,
-  PropagatingVgw,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
-  ProvisionedBandwidth,
-  PublicIpv4Pool,
-  PublicIpv4PoolRange,
-  Purchase,
   PurchaseHostReservationRequest,
   PurchaseHostReservationResult,
   PurchaseRequest,
@@ -2343,8 +2491,6 @@ import {
   PurchaseScheduledInstancesRequest,
   PurchaseScheduledInstancesResult,
   RebootInstancesRequest,
-  RecurringCharge,
-  Region,
   RegisterImageRequest,
   RegisterImageResult,
   RegisterInstanceEventNotificationAttributesRequest,
@@ -2378,23 +2524,12 @@ import {
   ReplaceTransitGatewayRouteResult,
   ReportInstanceReasonCodes,
   ReportInstanceStatusRequest,
-  RequestLaunchTemplateData,
   RequestSpotFleetRequest,
   RequestSpotFleetResponse,
   RequestSpotInstancesRequest,
   RequestSpotInstancesResult,
   RequestSpotLaunchSpecification,
-  Reservation,
-  ReservationValue,
   ReservedInstanceLimitPrice,
-  ReservedInstanceReservationValue,
-  ReservedInstances,
-  ReservedInstancesConfiguration,
-  ReservedInstancesId,
-  ReservedInstancesListing,
-  ReservedInstancesModification,
-  ReservedInstancesModificationResult,
-  ReservedInstancesOffering,
   ResetEbsDefaultKmsKeyIdRequest,
   ResetEbsDefaultKmsKeyIdResult,
   ResetFpgaImageAttributeRequest,
@@ -2403,8 +2538,6 @@ import {
   ResetInstanceAttributeRequest,
   ResetNetworkInterfaceAttributeRequest,
   ResetSnapshotAttributeRequest,
-  ResponseError,
-  ResponseLaunchTemplateData,
   RestoreAddressToClassicRequest,
   RestoreAddressToClassicResult,
   RestoreManagedPrefixListVersionRequest,
@@ -2413,20 +2546,9 @@ import {
   RevokeClientVpnIngressResult,
   RevokeSecurityGroupEgressRequest,
   RevokeSecurityGroupIngressRequest,
-  RootDeviceType,
-  Route,
-  RouteTable,
-  RouteTableAssociation,
-  RouteTableAssociationState,
-  RunInstancesMonitoringEnabled,
   RunInstancesRequest,
   RunScheduledInstancesRequest,
   RunScheduledInstancesResult,
-  S3Storage,
-  ScheduledInstance,
-  ScheduledInstanceAvailability,
-  ScheduledInstanceRecurrence,
-  ScheduledInstanceRecurrenceRequest,
   ScheduledInstancesBlockDeviceMapping,
   ScheduledInstancesEbs,
   ScheduledInstancesIamInstanceProfile,
@@ -2442,101 +2564,26 @@ import {
   SearchTransitGatewayMulticastGroupsResult,
   SearchTransitGatewayRoutesRequest,
   SearchTransitGatewayRoutesResult,
-  SecurityGroup,
-  SecurityGroupIdentifier,
-  SecurityGroupReference,
   SendDiagnosticInterruptRequest,
-  ServiceConfiguration,
-  ServiceDetail,
-  ServiceTypeDetail,
-  SlotDateTimeRangeRequest,
-  SlotStartTimeRangeRequest,
-  Snapshot,
-  SnapshotDetail,
   SnapshotDiskContainer,
-  SnapshotInfo,
-  SnapshotTaskDetail,
-  SpotDatafeedSubscription,
-  SpotFleetLaunchSpecification,
-  SpotFleetMonitoring,
-  SpotFleetRequestConfig,
-  SpotFleetRequestConfigData,
-  SpotFleetTagSpecification,
-  SpotInstanceRequest,
-  SpotInstanceStateFault,
-  SpotInstanceStatus,
   SpotMarketOptions,
-  SpotOptions,
-  SpotOptionsRequest,
-  SpotPlacement,
-  SpotPrice,
-  StaleIpPermission,
-  StaleSecurityGroup,
   StartInstancesRequest,
   StartInstancesResult,
   StartVpcEndpointServicePrivateDnsVerificationRequest,
   StartVpcEndpointServicePrivateDnsVerificationResult,
-  StateReason,
   StopInstancesRequest,
   StopInstancesResult,
-  Storage,
-  StorageLocation,
-  Subnet,
-  SubnetAssociation,
-  SubnetCidrBlockState,
-  SubnetIpv6CidrBlockAssociation,
   SuccessfulInstanceCreditSpecificationItem,
-  SuccessfulQueuedPurchaseDeletion,
-  Tag,
-  TagDescription,
-  TagSpecification,
-  TargetCapacitySpecification,
-  TargetCapacitySpecificationRequest,
-  TargetConfiguration,
-  TargetConfigurationRequest,
-  TargetGroup,
-  TargetGroupsConfig,
-  TargetNetwork,
-  TargetReservationValue,
   TerminateClientVpnConnectionsRequest,
   TerminateClientVpnConnectionsResult,
   TerminateConnectionStatus,
   TerminateInstancesRequest,
   TerminateInstancesResult,
-  TrafficMirrorFilter,
-  TrafficMirrorFilterRule,
   TrafficMirrorFilterRuleField,
-  TrafficMirrorNetworkService,
-  TrafficMirrorPortRange,
-  TrafficMirrorPortRangeRequest,
-  TrafficMirrorSession,
   TrafficMirrorSessionField,
-  TrafficMirrorTarget,
-  TransitGateway,
-  TransitGatewayAssociation,
-  TransitGatewayAttachment,
-  TransitGatewayAttachmentAssociation,
-  TransitGatewayAttachmentPropagation,
-  TransitGatewayMulticastDeregisteredGroupMembers,
-  TransitGatewayMulticastDeregisteredGroupSources,
-  TransitGatewayMulticastDomain,
-  TransitGatewayMulticastDomainAssociation,
-  TransitGatewayMulticastDomainAssociations,
   TransitGatewayMulticastGroup,
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
-  TransitGatewayOptions,
-  TransitGatewayPeeringAttachment,
-  TransitGatewayPropagation,
-  TransitGatewayRequestOptions,
-  TransitGatewayRoute,
-  TransitGatewayRouteAttachment,
-  TransitGatewayRouteTable,
-  TransitGatewayRouteTableAssociation,
-  TransitGatewayRouteTablePropagation,
-  TransitGatewayVpcAttachment,
-  TransitGatewayVpcAttachmentOptions,
-  TunnelOption,
   UnassignIpv6AddressesRequest,
   UnassignIpv6AddressesResult,
   UnassignPrivateIpAddressesRequest,
@@ -2544,54 +2591,15 @@ import {
   UnmonitorInstancesResult,
   UnsuccessfulInstanceCreditSpecificationItem,
   UnsuccessfulInstanceCreditSpecificationItemError,
-  UnsuccessfulItem,
-  UnsuccessfulItemError,
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
   UpdateSecurityGroupRuleDescriptionsEgressResult,
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
   UpdateSecurityGroupRuleDescriptionsIngressResult,
-  UsageClassType,
-  UserBucket,
-  UserBucketDetails,
   UserData,
-  UserIdGroupPair,
-  VCpuInfo,
-  ValidationError,
-  ValidationWarning,
-  VgwTelemetry,
-  VirtualizationType,
-  Volume,
-  VolumeAttachment,
   VolumeDetail,
-  VolumeModification,
-  VolumeStatusAction,
-  VolumeStatusAttachmentStatus,
-  VolumeStatusDetails,
-  VolumeStatusEvent,
-  VolumeStatusInfo,
-  VolumeStatusItem,
-  Vpc,
-  VpcAttachment,
-  VpcCidrBlockAssociation,
-  VpcCidrBlockState,
-  VpcClassicLink,
-  VpcEndpoint,
-  VpcEndpointConnection,
-  VpcIpv6CidrBlockAssociation,
-  VpcPeeringConnection,
-  VpcPeeringConnectionOptionsDescription,
-  VpcPeeringConnectionStateReason,
-  VpcPeeringConnectionVpcInfo,
-  VpnConnection,
-  VpnConnectionOptions,
-  VpnConnectionOptionsSpecification,
-  VpnGateway,
-  VpnStaticRoute,
-  VpnTunnelOptionsSpecification,
   WithdrawByoipCidrRequest,
   WithdrawByoipCidrResult,
-  _InstanceType,
-} from "../models/index";
+} from "../models/models_4";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
@@ -9197,7 +9205,6 @@ export const deserializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand = asy
   contents = deserializeAws_ec2AcceptReservedInstancesExchangeQuoteResult(data, context);
   const response: AcceptReservedInstancesExchangeQuoteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptReservedInstancesExchangeQuoteResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9244,7 +9251,6 @@ export const deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand = as
   contents = deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentResult(data, context);
   const response: AcceptTransitGatewayPeeringAttachmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptTransitGatewayPeeringAttachmentResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9291,7 +9297,6 @@ export const deserializeAws_ec2AcceptTransitGatewayVpcAttachmentCommand = async 
   contents = deserializeAws_ec2AcceptTransitGatewayVpcAttachmentResult(data, context);
   const response: AcceptTransitGatewayVpcAttachmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptTransitGatewayVpcAttachmentResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9338,7 +9343,6 @@ export const deserializeAws_ec2AcceptVpcEndpointConnectionsCommand = async (
   contents = deserializeAws_ec2AcceptVpcEndpointConnectionsResult(data, context);
   const response: AcceptVpcEndpointConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptVpcEndpointConnectionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9385,7 +9389,6 @@ export const deserializeAws_ec2AcceptVpcPeeringConnectionCommand = async (
   contents = deserializeAws_ec2AcceptVpcPeeringConnectionResult(data, context);
   const response: AcceptVpcPeeringConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AcceptVpcPeeringConnectionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9432,7 +9435,6 @@ export const deserializeAws_ec2AdvertiseByoipCidrCommand = async (
   contents = deserializeAws_ec2AdvertiseByoipCidrResult(data, context);
   const response: AdvertiseByoipCidrCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AdvertiseByoipCidrResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9479,7 +9481,6 @@ export const deserializeAws_ec2AllocateAddressCommand = async (
   contents = deserializeAws_ec2AllocateAddressResult(data, context);
   const response: AllocateAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AllocateAddressResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9526,7 +9527,6 @@ export const deserializeAws_ec2AllocateHostsCommand = async (
   contents = deserializeAws_ec2AllocateHostsResult(data, context);
   const response: AllocateHostsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AllocateHostsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9573,7 +9573,6 @@ export const deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkComman
   contents = deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkResult(data, context);
   const response: ApplySecurityGroupsToClientVpnTargetNetworkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ApplySecurityGroupsToClientVpnTargetNetworkResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9620,7 +9619,6 @@ export const deserializeAws_ec2AssignIpv6AddressesCommand = async (
   contents = deserializeAws_ec2AssignIpv6AddressesResult(data, context);
   const response: AssignIpv6AddressesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssignIpv6AddressesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9667,7 +9665,6 @@ export const deserializeAws_ec2AssignPrivateIpAddressesCommand = async (
   contents = deserializeAws_ec2AssignPrivateIpAddressesResult(data, context);
   const response: AssignPrivateIpAddressesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssignPrivateIpAddressesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9714,7 +9711,6 @@ export const deserializeAws_ec2AssociateAddressCommand = async (
   contents = deserializeAws_ec2AssociateAddressResult(data, context);
   const response: AssociateAddressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateAddressResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9761,7 +9757,6 @@ export const deserializeAws_ec2AssociateClientVpnTargetNetworkCommand = async (
   contents = deserializeAws_ec2AssociateClientVpnTargetNetworkResult(data, context);
   const response: AssociateClientVpnTargetNetworkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateClientVpnTargetNetworkResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9851,7 +9846,6 @@ export const deserializeAws_ec2AssociateIamInstanceProfileCommand = async (
   contents = deserializeAws_ec2AssociateIamInstanceProfileResult(data, context);
   const response: AssociateIamInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateIamInstanceProfileResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9898,7 +9892,6 @@ export const deserializeAws_ec2AssociateRouteTableCommand = async (
   contents = deserializeAws_ec2AssociateRouteTableResult(data, context);
   const response: AssociateRouteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateRouteTableResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9945,7 +9938,6 @@ export const deserializeAws_ec2AssociateSubnetCidrBlockCommand = async (
   contents = deserializeAws_ec2AssociateSubnetCidrBlockResult(data, context);
   const response: AssociateSubnetCidrBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateSubnetCidrBlockResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -9992,7 +9984,6 @@ export const deserializeAws_ec2AssociateTransitGatewayMulticastDomainCommand = a
   contents = deserializeAws_ec2AssociateTransitGatewayMulticastDomainResult(data, context);
   const response: AssociateTransitGatewayMulticastDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateTransitGatewayMulticastDomainResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10039,7 +10030,6 @@ export const deserializeAws_ec2AssociateTransitGatewayRouteTableCommand = async 
   contents = deserializeAws_ec2AssociateTransitGatewayRouteTableResult(data, context);
   const response: AssociateTransitGatewayRouteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateTransitGatewayRouteTableResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10086,7 +10076,6 @@ export const deserializeAws_ec2AssociateVpcCidrBlockCommand = async (
   contents = deserializeAws_ec2AssociateVpcCidrBlockResult(data, context);
   const response: AssociateVpcCidrBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AssociateVpcCidrBlockResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10133,7 +10122,6 @@ export const deserializeAws_ec2AttachClassicLinkVpcCommand = async (
   contents = deserializeAws_ec2AttachClassicLinkVpcResult(data, context);
   const response: AttachClassicLinkVpcCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachClassicLinkVpcResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10223,7 +10211,6 @@ export const deserializeAws_ec2AttachNetworkInterfaceCommand = async (
   contents = deserializeAws_ec2AttachNetworkInterfaceResult(data, context);
   const response: AttachNetworkInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachNetworkInterfaceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10270,7 +10257,6 @@ export const deserializeAws_ec2AttachVolumeCommand = async (
   contents = deserializeAws_ec2VolumeAttachment(data, context);
   const response: AttachVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VolumeAttachment",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10317,7 +10303,6 @@ export const deserializeAws_ec2AttachVpnGatewayCommand = async (
   contents = deserializeAws_ec2AttachVpnGatewayResult(data, context);
   const response: AttachVpnGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AttachVpnGatewayResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10364,7 +10349,6 @@ export const deserializeAws_ec2AuthorizeClientVpnIngressCommand = async (
   contents = deserializeAws_ec2AuthorizeClientVpnIngressResult(data, context);
   const response: AuthorizeClientVpnIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AuthorizeClientVpnIngressResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10497,7 +10481,6 @@ export const deserializeAws_ec2BundleInstanceCommand = async (
   contents = deserializeAws_ec2BundleInstanceResult(data, context);
   const response: BundleInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "BundleInstanceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10544,7 +10527,6 @@ export const deserializeAws_ec2CancelBundleTaskCommand = async (
   contents = deserializeAws_ec2CancelBundleTaskResult(data, context);
   const response: CancelBundleTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelBundleTaskResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10591,7 +10573,6 @@ export const deserializeAws_ec2CancelCapacityReservationCommand = async (
   contents = deserializeAws_ec2CancelCapacityReservationResult(data, context);
   const response: CancelCapacityReservationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelCapacityReservationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10724,7 +10705,6 @@ export const deserializeAws_ec2CancelImportTaskCommand = async (
   contents = deserializeAws_ec2CancelImportTaskResult(data, context);
   const response: CancelImportTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelImportTaskResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10771,7 +10751,6 @@ export const deserializeAws_ec2CancelReservedInstancesListingCommand = async (
   contents = deserializeAws_ec2CancelReservedInstancesListingResult(data, context);
   const response: CancelReservedInstancesListingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelReservedInstancesListingResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10818,7 +10797,6 @@ export const deserializeAws_ec2CancelSpotFleetRequestsCommand = async (
   contents = deserializeAws_ec2CancelSpotFleetRequestsResponse(data, context);
   const response: CancelSpotFleetRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelSpotFleetRequestsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10865,7 +10843,6 @@ export const deserializeAws_ec2CancelSpotInstanceRequestsCommand = async (
   contents = deserializeAws_ec2CancelSpotInstanceRequestsResult(data, context);
   const response: CancelSpotInstanceRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CancelSpotInstanceRequestsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10912,7 +10889,6 @@ export const deserializeAws_ec2ConfirmProductInstanceCommand = async (
   contents = deserializeAws_ec2ConfirmProductInstanceResult(data, context);
   const response: ConfirmProductInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ConfirmProductInstanceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -10959,7 +10935,6 @@ export const deserializeAws_ec2CopyFpgaImageCommand = async (
   contents = deserializeAws_ec2CopyFpgaImageResult(data, context);
   const response: CopyFpgaImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CopyFpgaImageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11006,7 +10981,6 @@ export const deserializeAws_ec2CopyImageCommand = async (
   contents = deserializeAws_ec2CopyImageResult(data, context);
   const response: CopyImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CopyImageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11053,7 +11027,6 @@ export const deserializeAws_ec2CopySnapshotCommand = async (
   contents = deserializeAws_ec2CopySnapshotResult(data, context);
   const response: CopySnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CopySnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11100,7 +11073,6 @@ export const deserializeAws_ec2CreateCapacityReservationCommand = async (
   contents = deserializeAws_ec2CreateCapacityReservationResult(data, context);
   const response: CreateCapacityReservationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCapacityReservationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11147,7 +11119,6 @@ export const deserializeAws_ec2CreateClientVpnEndpointCommand = async (
   contents = deserializeAws_ec2CreateClientVpnEndpointResult(data, context);
   const response: CreateClientVpnEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateClientVpnEndpointResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11194,7 +11165,6 @@ export const deserializeAws_ec2CreateClientVpnRouteCommand = async (
   contents = deserializeAws_ec2CreateClientVpnRouteResult(data, context);
   const response: CreateClientVpnRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateClientVpnRouteResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11241,7 +11211,6 @@ export const deserializeAws_ec2CreateCustomerGatewayCommand = async (
   contents = deserializeAws_ec2CreateCustomerGatewayResult(data, context);
   const response: CreateCustomerGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateCustomerGatewayResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11288,7 +11257,6 @@ export const deserializeAws_ec2CreateDefaultSubnetCommand = async (
   contents = deserializeAws_ec2CreateDefaultSubnetResult(data, context);
   const response: CreateDefaultSubnetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDefaultSubnetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11335,7 +11303,6 @@ export const deserializeAws_ec2CreateDefaultVpcCommand = async (
   contents = deserializeAws_ec2CreateDefaultVpcResult(data, context);
   const response: CreateDefaultVpcCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDefaultVpcResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11382,7 +11349,6 @@ export const deserializeAws_ec2CreateDhcpOptionsCommand = async (
   contents = deserializeAws_ec2CreateDhcpOptionsResult(data, context);
   const response: CreateDhcpOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateDhcpOptionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11429,7 +11395,6 @@ export const deserializeAws_ec2CreateEgressOnlyInternetGatewayCommand = async (
   contents = deserializeAws_ec2CreateEgressOnlyInternetGatewayResult(data, context);
   const response: CreateEgressOnlyInternetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateEgressOnlyInternetGatewayResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11476,7 +11441,6 @@ export const deserializeAws_ec2CreateFleetCommand = async (
   contents = deserializeAws_ec2CreateFleetResult(data, context);
   const response: CreateFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFleetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11523,7 +11487,6 @@ export const deserializeAws_ec2CreateFlowLogsCommand = async (
   contents = deserializeAws_ec2CreateFlowLogsResult(data, context);
   const response: CreateFlowLogsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFlowLogsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11570,7 +11533,6 @@ export const deserializeAws_ec2CreateFpgaImageCommand = async (
   contents = deserializeAws_ec2CreateFpgaImageResult(data, context);
   const response: CreateFpgaImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateFpgaImageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11617,7 +11579,6 @@ export const deserializeAws_ec2CreateImageCommand = async (
   contents = deserializeAws_ec2CreateImageResult(data, context);
   const response: CreateImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateImageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11664,7 +11625,6 @@ export const deserializeAws_ec2CreateInstanceExportTaskCommand = async (
   contents = deserializeAws_ec2CreateInstanceExportTaskResult(data, context);
   const response: CreateInstanceExportTaskCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateInstanceExportTaskResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11711,7 +11671,6 @@ export const deserializeAws_ec2CreateInternetGatewayCommand = async (
   contents = deserializeAws_ec2CreateInternetGatewayResult(data, context);
   const response: CreateInternetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateInternetGatewayResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11758,7 +11717,6 @@ export const deserializeAws_ec2CreateKeyPairCommand = async (
   contents = deserializeAws_ec2KeyPair(data, context);
   const response: CreateKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "KeyPair",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11805,7 +11763,6 @@ export const deserializeAws_ec2CreateLaunchTemplateCommand = async (
   contents = deserializeAws_ec2CreateLaunchTemplateResult(data, context);
   const response: CreateLaunchTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLaunchTemplateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11852,7 +11809,6 @@ export const deserializeAws_ec2CreateLaunchTemplateVersionCommand = async (
   contents = deserializeAws_ec2CreateLaunchTemplateVersionResult(data, context);
   const response: CreateLaunchTemplateVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLaunchTemplateVersionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11899,7 +11855,6 @@ export const deserializeAws_ec2CreateLocalGatewayRouteCommand = async (
   contents = deserializeAws_ec2CreateLocalGatewayRouteResult(data, context);
   const response: CreateLocalGatewayRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLocalGatewayRouteResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11946,7 +11901,6 @@ export const deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand
   contents = deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationResult(data, context);
   const response: CreateLocalGatewayRouteTableVpcAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateLocalGatewayRouteTableVpcAssociationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -11993,7 +11947,6 @@ export const deserializeAws_ec2CreateManagedPrefixListCommand = async (
   contents = deserializeAws_ec2CreateManagedPrefixListResult(data, context);
   const response: CreateManagedPrefixListCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateManagedPrefixListResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12040,7 +11993,6 @@ export const deserializeAws_ec2CreateNatGatewayCommand = async (
   contents = deserializeAws_ec2CreateNatGatewayResult(data, context);
   const response: CreateNatGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateNatGatewayResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12087,7 +12039,6 @@ export const deserializeAws_ec2CreateNetworkAclCommand = async (
   contents = deserializeAws_ec2CreateNetworkAclResult(data, context);
   const response: CreateNetworkAclCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateNetworkAclResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12177,7 +12128,6 @@ export const deserializeAws_ec2CreateNetworkInterfaceCommand = async (
   contents = deserializeAws_ec2CreateNetworkInterfaceResult(data, context);
   const response: CreateNetworkInterfaceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateNetworkInterfaceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12224,7 +12174,6 @@ export const deserializeAws_ec2CreateNetworkInterfacePermissionCommand = async (
   contents = deserializeAws_ec2CreateNetworkInterfacePermissionResult(data, context);
   const response: CreateNetworkInterfacePermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateNetworkInterfacePermissionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12271,7 +12220,6 @@ export const deserializeAws_ec2CreatePlacementGroupCommand = async (
   contents = deserializeAws_ec2CreatePlacementGroupResult(data, context);
   const response: CreatePlacementGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreatePlacementGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12318,7 +12266,6 @@ export const deserializeAws_ec2CreateReservedInstancesListingCommand = async (
   contents = deserializeAws_ec2CreateReservedInstancesListingResult(data, context);
   const response: CreateReservedInstancesListingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateReservedInstancesListingResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12365,7 +12312,6 @@ export const deserializeAws_ec2CreateRouteCommand = async (
   contents = deserializeAws_ec2CreateRouteResult(data, context);
   const response: CreateRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRouteResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12412,7 +12358,6 @@ export const deserializeAws_ec2CreateRouteTableCommand = async (
   contents = deserializeAws_ec2CreateRouteTableResult(data, context);
   const response: CreateRouteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateRouteTableResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12459,7 +12404,6 @@ export const deserializeAws_ec2CreateSecurityGroupCommand = async (
   contents = deserializeAws_ec2CreateSecurityGroupResult(data, context);
   const response: CreateSecurityGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSecurityGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12506,7 +12450,6 @@ export const deserializeAws_ec2CreateSnapshotCommand = async (
   contents = deserializeAws_ec2Snapshot(data, context);
   const response: CreateSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Snapshot",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12553,7 +12496,6 @@ export const deserializeAws_ec2CreateSnapshotsCommand = async (
   contents = deserializeAws_ec2CreateSnapshotsResult(data, context);
   const response: CreateSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSnapshotsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12600,7 +12542,6 @@ export const deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand = async (
   contents = deserializeAws_ec2CreateSpotDatafeedSubscriptionResult(data, context);
   const response: CreateSpotDatafeedSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSpotDatafeedSubscriptionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12647,7 +12588,6 @@ export const deserializeAws_ec2CreateSubnetCommand = async (
   contents = deserializeAws_ec2CreateSubnetResult(data, context);
   const response: CreateSubnetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateSubnetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12737,7 +12677,6 @@ export const deserializeAws_ec2CreateTrafficMirrorFilterCommand = async (
   contents = deserializeAws_ec2CreateTrafficMirrorFilterResult(data, context);
   const response: CreateTrafficMirrorFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTrafficMirrorFilterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12784,7 +12723,6 @@ export const deserializeAws_ec2CreateTrafficMirrorFilterRuleCommand = async (
   contents = deserializeAws_ec2CreateTrafficMirrorFilterRuleResult(data, context);
   const response: CreateTrafficMirrorFilterRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTrafficMirrorFilterRuleResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12831,7 +12769,6 @@ export const deserializeAws_ec2CreateTrafficMirrorSessionCommand = async (
   contents = deserializeAws_ec2CreateTrafficMirrorSessionResult(data, context);
   const response: CreateTrafficMirrorSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTrafficMirrorSessionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12878,7 +12815,6 @@ export const deserializeAws_ec2CreateTrafficMirrorTargetCommand = async (
   contents = deserializeAws_ec2CreateTrafficMirrorTargetResult(data, context);
   const response: CreateTrafficMirrorTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTrafficMirrorTargetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12925,7 +12861,6 @@ export const deserializeAws_ec2CreateTransitGatewayCommand = async (
   contents = deserializeAws_ec2CreateTransitGatewayResult(data, context);
   const response: CreateTransitGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTransitGatewayResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -12972,7 +12907,6 @@ export const deserializeAws_ec2CreateTransitGatewayMulticastDomainCommand = asyn
   contents = deserializeAws_ec2CreateTransitGatewayMulticastDomainResult(data, context);
   const response: CreateTransitGatewayMulticastDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTransitGatewayMulticastDomainResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13019,7 +12953,6 @@ export const deserializeAws_ec2CreateTransitGatewayPeeringAttachmentCommand = as
   contents = deserializeAws_ec2CreateTransitGatewayPeeringAttachmentResult(data, context);
   const response: CreateTransitGatewayPeeringAttachmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTransitGatewayPeeringAttachmentResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13066,7 +12999,6 @@ export const deserializeAws_ec2CreateTransitGatewayRouteCommand = async (
   contents = deserializeAws_ec2CreateTransitGatewayRouteResult(data, context);
   const response: CreateTransitGatewayRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTransitGatewayRouteResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13113,7 +13045,6 @@ export const deserializeAws_ec2CreateTransitGatewayRouteTableCommand = async (
   contents = deserializeAws_ec2CreateTransitGatewayRouteTableResult(data, context);
   const response: CreateTransitGatewayRouteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTransitGatewayRouteTableResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13160,7 +13091,6 @@ export const deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommand = async 
   contents = deserializeAws_ec2CreateTransitGatewayVpcAttachmentResult(data, context);
   const response: CreateTransitGatewayVpcAttachmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateTransitGatewayVpcAttachmentResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13207,7 +13137,6 @@ export const deserializeAws_ec2CreateVolumeCommand = async (
   contents = deserializeAws_ec2Volume(data, context);
   const response: CreateVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Volume",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13254,7 +13183,6 @@ export const deserializeAws_ec2CreateVpcCommand = async (
   contents = deserializeAws_ec2CreateVpcResult(data, context);
   const response: CreateVpcCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVpcResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13301,7 +13229,6 @@ export const deserializeAws_ec2CreateVpcEndpointCommand = async (
   contents = deserializeAws_ec2CreateVpcEndpointResult(data, context);
   const response: CreateVpcEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVpcEndpointResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13348,7 +13275,6 @@ export const deserializeAws_ec2CreateVpcEndpointConnectionNotificationCommand = 
   contents = deserializeAws_ec2CreateVpcEndpointConnectionNotificationResult(data, context);
   const response: CreateVpcEndpointConnectionNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVpcEndpointConnectionNotificationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13395,7 +13321,6 @@ export const deserializeAws_ec2CreateVpcEndpointServiceConfigurationCommand = as
   contents = deserializeAws_ec2CreateVpcEndpointServiceConfigurationResult(data, context);
   const response: CreateVpcEndpointServiceConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVpcEndpointServiceConfigurationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13442,7 +13367,6 @@ export const deserializeAws_ec2CreateVpcPeeringConnectionCommand = async (
   contents = deserializeAws_ec2CreateVpcPeeringConnectionResult(data, context);
   const response: CreateVpcPeeringConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVpcPeeringConnectionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13489,7 +13413,6 @@ export const deserializeAws_ec2CreateVpnConnectionCommand = async (
   contents = deserializeAws_ec2CreateVpnConnectionResult(data, context);
   const response: CreateVpnConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVpnConnectionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13579,7 +13502,6 @@ export const deserializeAws_ec2CreateVpnGatewayCommand = async (
   contents = deserializeAws_ec2CreateVpnGatewayResult(data, context);
   const response: CreateVpnGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateVpnGatewayResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13626,7 +13548,6 @@ export const deserializeAws_ec2DeleteClientVpnEndpointCommand = async (
   contents = deserializeAws_ec2DeleteClientVpnEndpointResult(data, context);
   const response: DeleteClientVpnEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteClientVpnEndpointResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13673,7 +13594,6 @@ export const deserializeAws_ec2DeleteClientVpnRouteCommand = async (
   contents = deserializeAws_ec2DeleteClientVpnRouteResult(data, context);
   const response: DeleteClientVpnRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteClientVpnRouteResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13806,7 +13726,6 @@ export const deserializeAws_ec2DeleteEgressOnlyInternetGatewayCommand = async (
   contents = deserializeAws_ec2DeleteEgressOnlyInternetGatewayResult(data, context);
   const response: DeleteEgressOnlyInternetGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteEgressOnlyInternetGatewayResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13853,7 +13772,6 @@ export const deserializeAws_ec2DeleteFleetsCommand = async (
   contents = deserializeAws_ec2DeleteFleetsResult(data, context);
   const response: DeleteFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFleetsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13900,7 +13818,6 @@ export const deserializeAws_ec2DeleteFlowLogsCommand = async (
   contents = deserializeAws_ec2DeleteFlowLogsResult(data, context);
   const response: DeleteFlowLogsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFlowLogsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -13947,7 +13864,6 @@ export const deserializeAws_ec2DeleteFpgaImageCommand = async (
   contents = deserializeAws_ec2DeleteFpgaImageResult(data, context);
   const response: DeleteFpgaImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteFpgaImageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14080,7 +13996,6 @@ export const deserializeAws_ec2DeleteLaunchTemplateCommand = async (
   contents = deserializeAws_ec2DeleteLaunchTemplateResult(data, context);
   const response: DeleteLaunchTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLaunchTemplateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14127,7 +14042,6 @@ export const deserializeAws_ec2DeleteLaunchTemplateVersionsCommand = async (
   contents = deserializeAws_ec2DeleteLaunchTemplateVersionsResult(data, context);
   const response: DeleteLaunchTemplateVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLaunchTemplateVersionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14174,7 +14088,6 @@ export const deserializeAws_ec2DeleteLocalGatewayRouteCommand = async (
   contents = deserializeAws_ec2DeleteLocalGatewayRouteResult(data, context);
   const response: DeleteLocalGatewayRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLocalGatewayRouteResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14221,7 +14134,6 @@ export const deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand
   contents = deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationResult(data, context);
   const response: DeleteLocalGatewayRouteTableVpcAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteLocalGatewayRouteTableVpcAssociationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14268,7 +14180,6 @@ export const deserializeAws_ec2DeleteManagedPrefixListCommand = async (
   contents = deserializeAws_ec2DeleteManagedPrefixListResult(data, context);
   const response: DeleteManagedPrefixListCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteManagedPrefixListResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14315,7 +14226,6 @@ export const deserializeAws_ec2DeleteNatGatewayCommand = async (
   contents = deserializeAws_ec2DeleteNatGatewayResult(data, context);
   const response: DeleteNatGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteNatGatewayResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14491,7 +14401,6 @@ export const deserializeAws_ec2DeleteNetworkInterfacePermissionCommand = async (
   contents = deserializeAws_ec2DeleteNetworkInterfacePermissionResult(data, context);
   const response: DeleteNetworkInterfacePermissionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteNetworkInterfacePermissionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14581,7 +14490,6 @@ export const deserializeAws_ec2DeleteQueuedReservedInstancesCommand = async (
   contents = deserializeAws_ec2DeleteQueuedReservedInstancesResult(data, context);
   const response: DeleteQueuedReservedInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteQueuedReservedInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14929,7 +14837,6 @@ export const deserializeAws_ec2DeleteTrafficMirrorFilterCommand = async (
   contents = deserializeAws_ec2DeleteTrafficMirrorFilterResult(data, context);
   const response: DeleteTrafficMirrorFilterCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTrafficMirrorFilterResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -14976,7 +14883,6 @@ export const deserializeAws_ec2DeleteTrafficMirrorFilterRuleCommand = async (
   contents = deserializeAws_ec2DeleteTrafficMirrorFilterRuleResult(data, context);
   const response: DeleteTrafficMirrorFilterRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTrafficMirrorFilterRuleResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15023,7 +14929,6 @@ export const deserializeAws_ec2DeleteTrafficMirrorSessionCommand = async (
   contents = deserializeAws_ec2DeleteTrafficMirrorSessionResult(data, context);
   const response: DeleteTrafficMirrorSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTrafficMirrorSessionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15070,7 +14975,6 @@ export const deserializeAws_ec2DeleteTrafficMirrorTargetCommand = async (
   contents = deserializeAws_ec2DeleteTrafficMirrorTargetResult(data, context);
   const response: DeleteTrafficMirrorTargetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTrafficMirrorTargetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15117,7 +15021,6 @@ export const deserializeAws_ec2DeleteTransitGatewayCommand = async (
   contents = deserializeAws_ec2DeleteTransitGatewayResult(data, context);
   const response: DeleteTransitGatewayCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTransitGatewayResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15164,7 +15067,6 @@ export const deserializeAws_ec2DeleteTransitGatewayMulticastDomainCommand = asyn
   contents = deserializeAws_ec2DeleteTransitGatewayMulticastDomainResult(data, context);
   const response: DeleteTransitGatewayMulticastDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTransitGatewayMulticastDomainResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15211,7 +15113,6 @@ export const deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand = as
   contents = deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentResult(data, context);
   const response: DeleteTransitGatewayPeeringAttachmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTransitGatewayPeeringAttachmentResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15258,7 +15159,6 @@ export const deserializeAws_ec2DeleteTransitGatewayRouteCommand = async (
   contents = deserializeAws_ec2DeleteTransitGatewayRouteResult(data, context);
   const response: DeleteTransitGatewayRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTransitGatewayRouteResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15305,7 +15205,6 @@ export const deserializeAws_ec2DeleteTransitGatewayRouteTableCommand = async (
   contents = deserializeAws_ec2DeleteTransitGatewayRouteTableResult(data, context);
   const response: DeleteTransitGatewayRouteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTransitGatewayRouteTableResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15352,7 +15251,6 @@ export const deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand = async 
   contents = deserializeAws_ec2DeleteTransitGatewayVpcAttachmentResult(data, context);
   const response: DeleteTransitGatewayVpcAttachmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteTransitGatewayVpcAttachmentResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15485,7 +15383,6 @@ export const deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand =
   contents = deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsResult(data, context);
   const response: DeleteVpcEndpointConnectionNotificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVpcEndpointConnectionNotificationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15532,7 +15429,6 @@ export const deserializeAws_ec2DeleteVpcEndpointsCommand = async (
   contents = deserializeAws_ec2DeleteVpcEndpointsResult(data, context);
   const response: DeleteVpcEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVpcEndpointsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15579,7 +15475,6 @@ export const deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand = a
   contents = deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsResult(data, context);
   const response: DeleteVpcEndpointServiceConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVpcEndpointServiceConfigurationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15626,7 +15521,6 @@ export const deserializeAws_ec2DeleteVpcPeeringConnectionCommand = async (
   contents = deserializeAws_ec2DeleteVpcPeeringConnectionResult(data, context);
   const response: DeleteVpcPeeringConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteVpcPeeringConnectionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15802,7 +15696,6 @@ export const deserializeAws_ec2DeprovisionByoipCidrCommand = async (
   contents = deserializeAws_ec2DeprovisionByoipCidrResult(data, context);
   const response: DeprovisionByoipCidrCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeprovisionByoipCidrResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15892,7 +15785,6 @@ export const deserializeAws_ec2DeregisterInstanceEventNotificationAttributesComm
   contents = deserializeAws_ec2DeregisterInstanceEventNotificationAttributesResult(data, context);
   const response: DeregisterInstanceEventNotificationAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterInstanceEventNotificationAttributesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15939,7 +15831,6 @@ export const deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersComm
   contents = deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersResult(data, context);
   const response: DeregisterTransitGatewayMulticastGroupMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterTransitGatewayMulticastGroupMembersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -15986,7 +15877,6 @@ export const deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesComm
   contents = deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesResult(data, context);
   const response: DeregisterTransitGatewayMulticastGroupSourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeregisterTransitGatewayMulticastGroupSourcesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16033,7 +15923,6 @@ export const deserializeAws_ec2DescribeAccountAttributesCommand = async (
   contents = deserializeAws_ec2DescribeAccountAttributesResult(data, context);
   const response: DescribeAccountAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAccountAttributesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16080,7 +15969,6 @@ export const deserializeAws_ec2DescribeAddressesCommand = async (
   contents = deserializeAws_ec2DescribeAddressesResult(data, context);
   const response: DescribeAddressesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAddressesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16127,7 +16015,6 @@ export const deserializeAws_ec2DescribeAggregateIdFormatCommand = async (
   contents = deserializeAws_ec2DescribeAggregateIdFormatResult(data, context);
   const response: DescribeAggregateIdFormatCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAggregateIdFormatResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16174,7 +16061,6 @@ export const deserializeAws_ec2DescribeAvailabilityZonesCommand = async (
   contents = deserializeAws_ec2DescribeAvailabilityZonesResult(data, context);
   const response: DescribeAvailabilityZonesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeAvailabilityZonesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16221,7 +16107,6 @@ export const deserializeAws_ec2DescribeBundleTasksCommand = async (
   contents = deserializeAws_ec2DescribeBundleTasksResult(data, context);
   const response: DescribeBundleTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeBundleTasksResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16268,7 +16153,6 @@ export const deserializeAws_ec2DescribeByoipCidrsCommand = async (
   contents = deserializeAws_ec2DescribeByoipCidrsResult(data, context);
   const response: DescribeByoipCidrsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeByoipCidrsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16315,7 +16199,6 @@ export const deserializeAws_ec2DescribeCapacityReservationsCommand = async (
   contents = deserializeAws_ec2DescribeCapacityReservationsResult(data, context);
   const response: DescribeCapacityReservationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCapacityReservationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16362,7 +16245,6 @@ export const deserializeAws_ec2DescribeClassicLinkInstancesCommand = async (
   contents = deserializeAws_ec2DescribeClassicLinkInstancesResult(data, context);
   const response: DescribeClassicLinkInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClassicLinkInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16409,7 +16291,6 @@ export const deserializeAws_ec2DescribeClientVpnAuthorizationRulesCommand = asyn
   contents = deserializeAws_ec2DescribeClientVpnAuthorizationRulesResult(data, context);
   const response: DescribeClientVpnAuthorizationRulesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClientVpnAuthorizationRulesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16456,7 +16337,6 @@ export const deserializeAws_ec2DescribeClientVpnConnectionsCommand = async (
   contents = deserializeAws_ec2DescribeClientVpnConnectionsResult(data, context);
   const response: DescribeClientVpnConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClientVpnConnectionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16503,7 +16383,6 @@ export const deserializeAws_ec2DescribeClientVpnEndpointsCommand = async (
   contents = deserializeAws_ec2DescribeClientVpnEndpointsResult(data, context);
   const response: DescribeClientVpnEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClientVpnEndpointsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16550,7 +16429,6 @@ export const deserializeAws_ec2DescribeClientVpnRoutesCommand = async (
   contents = deserializeAws_ec2DescribeClientVpnRoutesResult(data, context);
   const response: DescribeClientVpnRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClientVpnRoutesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16597,7 +16475,6 @@ export const deserializeAws_ec2DescribeClientVpnTargetNetworksCommand = async (
   contents = deserializeAws_ec2DescribeClientVpnTargetNetworksResult(data, context);
   const response: DescribeClientVpnTargetNetworksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeClientVpnTargetNetworksResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16644,7 +16521,6 @@ export const deserializeAws_ec2DescribeCoipPoolsCommand = async (
   contents = deserializeAws_ec2DescribeCoipPoolsResult(data, context);
   const response: DescribeCoipPoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCoipPoolsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16691,7 +16567,6 @@ export const deserializeAws_ec2DescribeConversionTasksCommand = async (
   contents = deserializeAws_ec2DescribeConversionTasksResult(data, context);
   const response: DescribeConversionTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeConversionTasksResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16738,7 +16613,6 @@ export const deserializeAws_ec2DescribeCustomerGatewaysCommand = async (
   contents = deserializeAws_ec2DescribeCustomerGatewaysResult(data, context);
   const response: DescribeCustomerGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeCustomerGatewaysResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16785,7 +16659,6 @@ export const deserializeAws_ec2DescribeDhcpOptionsCommand = async (
   contents = deserializeAws_ec2DescribeDhcpOptionsResult(data, context);
   const response: DescribeDhcpOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeDhcpOptionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16832,7 +16705,6 @@ export const deserializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand = async
   contents = deserializeAws_ec2DescribeEgressOnlyInternetGatewaysResult(data, context);
   const response: DescribeEgressOnlyInternetGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeEgressOnlyInternetGatewaysResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16879,7 +16751,6 @@ export const deserializeAws_ec2DescribeElasticGpusCommand = async (
   contents = deserializeAws_ec2DescribeElasticGpusResult(data, context);
   const response: DescribeElasticGpusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeElasticGpusResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16926,7 +16797,6 @@ export const deserializeAws_ec2DescribeExportImageTasksCommand = async (
   contents = deserializeAws_ec2DescribeExportImageTasksResult(data, context);
   const response: DescribeExportImageTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeExportImageTasksResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -16973,7 +16843,6 @@ export const deserializeAws_ec2DescribeExportTasksCommand = async (
   contents = deserializeAws_ec2DescribeExportTasksResult(data, context);
   const response: DescribeExportTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeExportTasksResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17020,7 +16889,6 @@ export const deserializeAws_ec2DescribeFastSnapshotRestoresCommand = async (
   contents = deserializeAws_ec2DescribeFastSnapshotRestoresResult(data, context);
   const response: DescribeFastSnapshotRestoresCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFastSnapshotRestoresResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17067,7 +16935,6 @@ export const deserializeAws_ec2DescribeFleetHistoryCommand = async (
   contents = deserializeAws_ec2DescribeFleetHistoryResult(data, context);
   const response: DescribeFleetHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFleetHistoryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17114,7 +16981,6 @@ export const deserializeAws_ec2DescribeFleetInstancesCommand = async (
   contents = deserializeAws_ec2DescribeFleetInstancesResult(data, context);
   const response: DescribeFleetInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFleetInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17161,7 +17027,6 @@ export const deserializeAws_ec2DescribeFleetsCommand = async (
   contents = deserializeAws_ec2DescribeFleetsResult(data, context);
   const response: DescribeFleetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFleetsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17208,7 +17073,6 @@ export const deserializeAws_ec2DescribeFlowLogsCommand = async (
   contents = deserializeAws_ec2DescribeFlowLogsResult(data, context);
   const response: DescribeFlowLogsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFlowLogsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17255,7 +17119,6 @@ export const deserializeAws_ec2DescribeFpgaImageAttributeCommand = async (
   contents = deserializeAws_ec2DescribeFpgaImageAttributeResult(data, context);
   const response: DescribeFpgaImageAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFpgaImageAttributeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17302,7 +17165,6 @@ export const deserializeAws_ec2DescribeFpgaImagesCommand = async (
   contents = deserializeAws_ec2DescribeFpgaImagesResult(data, context);
   const response: DescribeFpgaImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeFpgaImagesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17349,7 +17211,6 @@ export const deserializeAws_ec2DescribeHostReservationOfferingsCommand = async (
   contents = deserializeAws_ec2DescribeHostReservationOfferingsResult(data, context);
   const response: DescribeHostReservationOfferingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeHostReservationOfferingsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17396,7 +17257,6 @@ export const deserializeAws_ec2DescribeHostReservationsCommand = async (
   contents = deserializeAws_ec2DescribeHostReservationsResult(data, context);
   const response: DescribeHostReservationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeHostReservationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17443,7 +17303,6 @@ export const deserializeAws_ec2DescribeHostsCommand = async (
   contents = deserializeAws_ec2DescribeHostsResult(data, context);
   const response: DescribeHostsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeHostsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17490,7 +17349,6 @@ export const deserializeAws_ec2DescribeIamInstanceProfileAssociationsCommand = a
   contents = deserializeAws_ec2DescribeIamInstanceProfileAssociationsResult(data, context);
   const response: DescribeIamInstanceProfileAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeIamInstanceProfileAssociationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17537,7 +17395,6 @@ export const deserializeAws_ec2DescribeIdentityIdFormatCommand = async (
   contents = deserializeAws_ec2DescribeIdentityIdFormatResult(data, context);
   const response: DescribeIdentityIdFormatCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeIdentityIdFormatResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17584,7 +17441,6 @@ export const deserializeAws_ec2DescribeIdFormatCommand = async (
   contents = deserializeAws_ec2DescribeIdFormatResult(data, context);
   const response: DescribeIdFormatCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeIdFormatResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17631,7 +17487,6 @@ export const deserializeAws_ec2DescribeImageAttributeCommand = async (
   contents = deserializeAws_ec2ImageAttribute(data, context);
   const response: DescribeImageAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImageAttribute",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17678,7 +17533,6 @@ export const deserializeAws_ec2DescribeImagesCommand = async (
   contents = deserializeAws_ec2DescribeImagesResult(data, context);
   const response: DescribeImagesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeImagesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17725,7 +17579,6 @@ export const deserializeAws_ec2DescribeImportImageTasksCommand = async (
   contents = deserializeAws_ec2DescribeImportImageTasksResult(data, context);
   const response: DescribeImportImageTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeImportImageTasksResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17772,7 +17625,6 @@ export const deserializeAws_ec2DescribeImportSnapshotTasksCommand = async (
   contents = deserializeAws_ec2DescribeImportSnapshotTasksResult(data, context);
   const response: DescribeImportSnapshotTasksCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeImportSnapshotTasksResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17819,7 +17671,6 @@ export const deserializeAws_ec2DescribeInstanceAttributeCommand = async (
   contents = deserializeAws_ec2InstanceAttribute(data, context);
   const response: DescribeInstanceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "InstanceAttribute",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17866,7 +17717,6 @@ export const deserializeAws_ec2DescribeInstanceCreditSpecificationsCommand = asy
   contents = deserializeAws_ec2DescribeInstanceCreditSpecificationsResult(data, context);
   const response: DescribeInstanceCreditSpecificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInstanceCreditSpecificationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17913,7 +17763,6 @@ export const deserializeAws_ec2DescribeInstanceEventNotificationAttributesComman
   contents = deserializeAws_ec2DescribeInstanceEventNotificationAttributesResult(data, context);
   const response: DescribeInstanceEventNotificationAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInstanceEventNotificationAttributesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -17960,7 +17809,6 @@ export const deserializeAws_ec2DescribeInstancesCommand = async (
   contents = deserializeAws_ec2DescribeInstancesResult(data, context);
   const response: DescribeInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18007,7 +17855,6 @@ export const deserializeAws_ec2DescribeInstanceStatusCommand = async (
   contents = deserializeAws_ec2DescribeInstanceStatusResult(data, context);
   const response: DescribeInstanceStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInstanceStatusResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18054,7 +17901,6 @@ export const deserializeAws_ec2DescribeInstanceTypeOfferingsCommand = async (
   contents = deserializeAws_ec2DescribeInstanceTypeOfferingsResult(data, context);
   const response: DescribeInstanceTypeOfferingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInstanceTypeOfferingsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18101,7 +17947,6 @@ export const deserializeAws_ec2DescribeInstanceTypesCommand = async (
   contents = deserializeAws_ec2DescribeInstanceTypesResult(data, context);
   const response: DescribeInstanceTypesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInstanceTypesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18148,7 +17993,6 @@ export const deserializeAws_ec2DescribeInternetGatewaysCommand = async (
   contents = deserializeAws_ec2DescribeInternetGatewaysResult(data, context);
   const response: DescribeInternetGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeInternetGatewaysResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18195,7 +18039,6 @@ export const deserializeAws_ec2DescribeIpv6PoolsCommand = async (
   contents = deserializeAws_ec2DescribeIpv6PoolsResult(data, context);
   const response: DescribeIpv6PoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeIpv6PoolsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18242,7 +18085,6 @@ export const deserializeAws_ec2DescribeKeyPairsCommand = async (
   contents = deserializeAws_ec2DescribeKeyPairsResult(data, context);
   const response: DescribeKeyPairsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeKeyPairsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18289,7 +18131,6 @@ export const deserializeAws_ec2DescribeLaunchTemplatesCommand = async (
   contents = deserializeAws_ec2DescribeLaunchTemplatesResult(data, context);
   const response: DescribeLaunchTemplatesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLaunchTemplatesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18336,7 +18177,6 @@ export const deserializeAws_ec2DescribeLaunchTemplateVersionsCommand = async (
   contents = deserializeAws_ec2DescribeLaunchTemplateVersionsResult(data, context);
   const response: DescribeLaunchTemplateVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLaunchTemplateVersionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18383,7 +18223,6 @@ export const deserializeAws_ec2DescribeLocalGatewayRouteTablesCommand = async (
   contents = deserializeAws_ec2DescribeLocalGatewayRouteTablesResult(data, context);
   const response: DescribeLocalGatewayRouteTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLocalGatewayRouteTablesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18433,7 +18272,6 @@ export const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGro
   contents = deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult(data, context);
   const response: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18480,7 +18318,6 @@ export const deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsComm
   contents = deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsResult(data, context);
   const response: DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLocalGatewayRouteTableVpcAssociationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18527,7 +18364,6 @@ export const deserializeAws_ec2DescribeLocalGatewaysCommand = async (
   contents = deserializeAws_ec2DescribeLocalGatewaysResult(data, context);
   const response: DescribeLocalGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLocalGatewaysResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18574,7 +18410,6 @@ export const deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand
   contents = deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsResult(data, context);
   const response: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLocalGatewayVirtualInterfaceGroupsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18621,7 +18456,6 @@ export const deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand = as
   contents = deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesResult(data, context);
   const response: DescribeLocalGatewayVirtualInterfacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeLocalGatewayVirtualInterfacesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18668,7 +18502,6 @@ export const deserializeAws_ec2DescribeManagedPrefixListsCommand = async (
   contents = deserializeAws_ec2DescribeManagedPrefixListsResult(data, context);
   const response: DescribeManagedPrefixListsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeManagedPrefixListsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18715,7 +18548,6 @@ export const deserializeAws_ec2DescribeMovingAddressesCommand = async (
   contents = deserializeAws_ec2DescribeMovingAddressesResult(data, context);
   const response: DescribeMovingAddressesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeMovingAddressesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18762,7 +18594,6 @@ export const deserializeAws_ec2DescribeNatGatewaysCommand = async (
   contents = deserializeAws_ec2DescribeNatGatewaysResult(data, context);
   const response: DescribeNatGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeNatGatewaysResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18809,7 +18640,6 @@ export const deserializeAws_ec2DescribeNetworkAclsCommand = async (
   contents = deserializeAws_ec2DescribeNetworkAclsResult(data, context);
   const response: DescribeNetworkAclsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeNetworkAclsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18856,7 +18686,6 @@ export const deserializeAws_ec2DescribeNetworkInterfaceAttributeCommand = async 
   contents = deserializeAws_ec2DescribeNetworkInterfaceAttributeResult(data, context);
   const response: DescribeNetworkInterfaceAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeNetworkInterfaceAttributeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18903,7 +18732,6 @@ export const deserializeAws_ec2DescribeNetworkInterfacePermissionsCommand = asyn
   contents = deserializeAws_ec2DescribeNetworkInterfacePermissionsResult(data, context);
   const response: DescribeNetworkInterfacePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeNetworkInterfacePermissionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18950,7 +18778,6 @@ export const deserializeAws_ec2DescribeNetworkInterfacesCommand = async (
   contents = deserializeAws_ec2DescribeNetworkInterfacesResult(data, context);
   const response: DescribeNetworkInterfacesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeNetworkInterfacesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -18997,7 +18824,6 @@ export const deserializeAws_ec2DescribePlacementGroupsCommand = async (
   contents = deserializeAws_ec2DescribePlacementGroupsResult(data, context);
   const response: DescribePlacementGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePlacementGroupsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19044,7 +18870,6 @@ export const deserializeAws_ec2DescribePrefixListsCommand = async (
   contents = deserializeAws_ec2DescribePrefixListsResult(data, context);
   const response: DescribePrefixListsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePrefixListsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19091,7 +18916,6 @@ export const deserializeAws_ec2DescribePrincipalIdFormatCommand = async (
   contents = deserializeAws_ec2DescribePrincipalIdFormatResult(data, context);
   const response: DescribePrincipalIdFormatCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePrincipalIdFormatResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19138,7 +18962,6 @@ export const deserializeAws_ec2DescribePublicIpv4PoolsCommand = async (
   contents = deserializeAws_ec2DescribePublicIpv4PoolsResult(data, context);
   const response: DescribePublicIpv4PoolsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribePublicIpv4PoolsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19185,7 +19008,6 @@ export const deserializeAws_ec2DescribeRegionsCommand = async (
   contents = deserializeAws_ec2DescribeRegionsResult(data, context);
   const response: DescribeRegionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRegionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19232,7 +19054,6 @@ export const deserializeAws_ec2DescribeReservedInstancesCommand = async (
   contents = deserializeAws_ec2DescribeReservedInstancesResult(data, context);
   const response: DescribeReservedInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReservedInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19279,7 +19100,6 @@ export const deserializeAws_ec2DescribeReservedInstancesListingsCommand = async 
   contents = deserializeAws_ec2DescribeReservedInstancesListingsResult(data, context);
   const response: DescribeReservedInstancesListingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReservedInstancesListingsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19326,7 +19146,6 @@ export const deserializeAws_ec2DescribeReservedInstancesModificationsCommand = a
   contents = deserializeAws_ec2DescribeReservedInstancesModificationsResult(data, context);
   const response: DescribeReservedInstancesModificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReservedInstancesModificationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19373,7 +19192,6 @@ export const deserializeAws_ec2DescribeReservedInstancesOfferingsCommand = async
   contents = deserializeAws_ec2DescribeReservedInstancesOfferingsResult(data, context);
   const response: DescribeReservedInstancesOfferingsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeReservedInstancesOfferingsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19420,7 +19238,6 @@ export const deserializeAws_ec2DescribeRouteTablesCommand = async (
   contents = deserializeAws_ec2DescribeRouteTablesResult(data, context);
   const response: DescribeRouteTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeRouteTablesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19467,7 +19284,6 @@ export const deserializeAws_ec2DescribeScheduledInstanceAvailabilityCommand = as
   contents = deserializeAws_ec2DescribeScheduledInstanceAvailabilityResult(data, context);
   const response: DescribeScheduledInstanceAvailabilityCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeScheduledInstanceAvailabilityResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19514,7 +19330,6 @@ export const deserializeAws_ec2DescribeScheduledInstancesCommand = async (
   contents = deserializeAws_ec2DescribeScheduledInstancesResult(data, context);
   const response: DescribeScheduledInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeScheduledInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19561,7 +19376,6 @@ export const deserializeAws_ec2DescribeSecurityGroupReferencesCommand = async (
   contents = deserializeAws_ec2DescribeSecurityGroupReferencesResult(data, context);
   const response: DescribeSecurityGroupReferencesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSecurityGroupReferencesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19608,7 +19422,6 @@ export const deserializeAws_ec2DescribeSecurityGroupsCommand = async (
   contents = deserializeAws_ec2DescribeSecurityGroupsResult(data, context);
   const response: DescribeSecurityGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSecurityGroupsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19655,7 +19468,6 @@ export const deserializeAws_ec2DescribeSnapshotAttributeCommand = async (
   contents = deserializeAws_ec2DescribeSnapshotAttributeResult(data, context);
   const response: DescribeSnapshotAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSnapshotAttributeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19702,7 +19514,6 @@ export const deserializeAws_ec2DescribeSnapshotsCommand = async (
   contents = deserializeAws_ec2DescribeSnapshotsResult(data, context);
   const response: DescribeSnapshotsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSnapshotsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19749,7 +19560,6 @@ export const deserializeAws_ec2DescribeSpotDatafeedSubscriptionCommand = async (
   contents = deserializeAws_ec2DescribeSpotDatafeedSubscriptionResult(data, context);
   const response: DescribeSpotDatafeedSubscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSpotDatafeedSubscriptionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19796,7 +19606,6 @@ export const deserializeAws_ec2DescribeSpotFleetInstancesCommand = async (
   contents = deserializeAws_ec2DescribeSpotFleetInstancesResponse(data, context);
   const response: DescribeSpotFleetInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSpotFleetInstancesResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19843,7 +19652,6 @@ export const deserializeAws_ec2DescribeSpotFleetRequestHistoryCommand = async (
   contents = deserializeAws_ec2DescribeSpotFleetRequestHistoryResponse(data, context);
   const response: DescribeSpotFleetRequestHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSpotFleetRequestHistoryResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19890,7 +19698,6 @@ export const deserializeAws_ec2DescribeSpotFleetRequestsCommand = async (
   contents = deserializeAws_ec2DescribeSpotFleetRequestsResponse(data, context);
   const response: DescribeSpotFleetRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSpotFleetRequestsResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19937,7 +19744,6 @@ export const deserializeAws_ec2DescribeSpotInstanceRequestsCommand = async (
   contents = deserializeAws_ec2DescribeSpotInstanceRequestsResult(data, context);
   const response: DescribeSpotInstanceRequestsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSpotInstanceRequestsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -19984,7 +19790,6 @@ export const deserializeAws_ec2DescribeSpotPriceHistoryCommand = async (
   contents = deserializeAws_ec2DescribeSpotPriceHistoryResult(data, context);
   const response: DescribeSpotPriceHistoryCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSpotPriceHistoryResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20031,7 +19836,6 @@ export const deserializeAws_ec2DescribeStaleSecurityGroupsCommand = async (
   contents = deserializeAws_ec2DescribeStaleSecurityGroupsResult(data, context);
   const response: DescribeStaleSecurityGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeStaleSecurityGroupsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20078,7 +19882,6 @@ export const deserializeAws_ec2DescribeSubnetsCommand = async (
   contents = deserializeAws_ec2DescribeSubnetsResult(data, context);
   const response: DescribeSubnetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeSubnetsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20125,7 +19928,6 @@ export const deserializeAws_ec2DescribeTagsCommand = async (
   contents = deserializeAws_ec2DescribeTagsResult(data, context);
   const response: DescribeTagsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTagsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20172,7 +19974,6 @@ export const deserializeAws_ec2DescribeTrafficMirrorFiltersCommand = async (
   contents = deserializeAws_ec2DescribeTrafficMirrorFiltersResult(data, context);
   const response: DescribeTrafficMirrorFiltersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTrafficMirrorFiltersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20219,7 +20020,6 @@ export const deserializeAws_ec2DescribeTrafficMirrorSessionsCommand = async (
   contents = deserializeAws_ec2DescribeTrafficMirrorSessionsResult(data, context);
   const response: DescribeTrafficMirrorSessionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTrafficMirrorSessionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20266,7 +20066,6 @@ export const deserializeAws_ec2DescribeTrafficMirrorTargetsCommand = async (
   contents = deserializeAws_ec2DescribeTrafficMirrorTargetsResult(data, context);
   const response: DescribeTrafficMirrorTargetsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTrafficMirrorTargetsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20313,7 +20112,6 @@ export const deserializeAws_ec2DescribeTransitGatewayAttachmentsCommand = async 
   contents = deserializeAws_ec2DescribeTransitGatewayAttachmentsResult(data, context);
   const response: DescribeTransitGatewayAttachmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTransitGatewayAttachmentsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20360,7 +20158,6 @@ export const deserializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand = a
   contents = deserializeAws_ec2DescribeTransitGatewayMulticastDomainsResult(data, context);
   const response: DescribeTransitGatewayMulticastDomainsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTransitGatewayMulticastDomainsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20407,7 +20204,6 @@ export const deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand =
   contents = deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsResult(data, context);
   const response: DescribeTransitGatewayPeeringAttachmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTransitGatewayPeeringAttachmentsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20454,7 +20250,6 @@ export const deserializeAws_ec2DescribeTransitGatewayRouteTablesCommand = async 
   contents = deserializeAws_ec2DescribeTransitGatewayRouteTablesResult(data, context);
   const response: DescribeTransitGatewayRouteTablesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTransitGatewayRouteTablesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20501,7 +20296,6 @@ export const deserializeAws_ec2DescribeTransitGatewaysCommand = async (
   contents = deserializeAws_ec2DescribeTransitGatewaysResult(data, context);
   const response: DescribeTransitGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTransitGatewaysResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20548,7 +20342,6 @@ export const deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand = asy
   contents = deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsResult(data, context);
   const response: DescribeTransitGatewayVpcAttachmentsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeTransitGatewayVpcAttachmentsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20595,7 +20388,6 @@ export const deserializeAws_ec2DescribeVolumeAttributeCommand = async (
   contents = deserializeAws_ec2DescribeVolumeAttributeResult(data, context);
   const response: DescribeVolumeAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVolumeAttributeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20642,7 +20434,6 @@ export const deserializeAws_ec2DescribeVolumesCommand = async (
   contents = deserializeAws_ec2DescribeVolumesResult(data, context);
   const response: DescribeVolumesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVolumesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20689,7 +20480,6 @@ export const deserializeAws_ec2DescribeVolumesModificationsCommand = async (
   contents = deserializeAws_ec2DescribeVolumesModificationsResult(data, context);
   const response: DescribeVolumesModificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVolumesModificationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20736,7 +20526,6 @@ export const deserializeAws_ec2DescribeVolumeStatusCommand = async (
   contents = deserializeAws_ec2DescribeVolumeStatusResult(data, context);
   const response: DescribeVolumeStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVolumeStatusResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20783,7 +20572,6 @@ export const deserializeAws_ec2DescribeVpcAttributeCommand = async (
   contents = deserializeAws_ec2DescribeVpcAttributeResult(data, context);
   const response: DescribeVpcAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpcAttributeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20830,7 +20618,6 @@ export const deserializeAws_ec2DescribeVpcClassicLinkCommand = async (
   contents = deserializeAws_ec2DescribeVpcClassicLinkResult(data, context);
   const response: DescribeVpcClassicLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpcClassicLinkResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20877,7 +20664,6 @@ export const deserializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand = async (
   contents = deserializeAws_ec2DescribeVpcClassicLinkDnsSupportResult(data, context);
   const response: DescribeVpcClassicLinkDnsSupportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpcClassicLinkDnsSupportResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20924,7 +20710,6 @@ export const deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand
   contents = deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsResult(data, context);
   const response: DescribeVpcEndpointConnectionNotificationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpcEndpointConnectionNotificationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -20971,7 +20756,6 @@ export const deserializeAws_ec2DescribeVpcEndpointConnectionsCommand = async (
   contents = deserializeAws_ec2DescribeVpcEndpointConnectionsResult(data, context);
   const response: DescribeVpcEndpointConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpcEndpointConnectionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21018,7 +20802,6 @@ export const deserializeAws_ec2DescribeVpcEndpointsCommand = async (
   contents = deserializeAws_ec2DescribeVpcEndpointsResult(data, context);
   const response: DescribeVpcEndpointsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpcEndpointsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21065,7 +20848,6 @@ export const deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand =
   contents = deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsResult(data, context);
   const response: DescribeVpcEndpointServiceConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpcEndpointServiceConfigurationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21112,7 +20894,6 @@ export const deserializeAws_ec2DescribeVpcEndpointServicePermissionsCommand = as
   contents = deserializeAws_ec2DescribeVpcEndpointServicePermissionsResult(data, context);
   const response: DescribeVpcEndpointServicePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpcEndpointServicePermissionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21159,7 +20940,6 @@ export const deserializeAws_ec2DescribeVpcEndpointServicesCommand = async (
   contents = deserializeAws_ec2DescribeVpcEndpointServicesResult(data, context);
   const response: DescribeVpcEndpointServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpcEndpointServicesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21206,7 +20986,6 @@ export const deserializeAws_ec2DescribeVpcPeeringConnectionsCommand = async (
   contents = deserializeAws_ec2DescribeVpcPeeringConnectionsResult(data, context);
   const response: DescribeVpcPeeringConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpcPeeringConnectionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21253,7 +21032,6 @@ export const deserializeAws_ec2DescribeVpcsCommand = async (
   contents = deserializeAws_ec2DescribeVpcsResult(data, context);
   const response: DescribeVpcsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpcsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21300,7 +21078,6 @@ export const deserializeAws_ec2DescribeVpnConnectionsCommand = async (
   contents = deserializeAws_ec2DescribeVpnConnectionsResult(data, context);
   const response: DescribeVpnConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpnConnectionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21347,7 +21124,6 @@ export const deserializeAws_ec2DescribeVpnGatewaysCommand = async (
   contents = deserializeAws_ec2DescribeVpnGatewaysResult(data, context);
   const response: DescribeVpnGatewaysCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DescribeVpnGatewaysResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21394,7 +21170,6 @@ export const deserializeAws_ec2DetachClassicLinkVpcCommand = async (
   contents = deserializeAws_ec2DetachClassicLinkVpcResult(data, context);
   const response: DetachClassicLinkVpcCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DetachClassicLinkVpcResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21527,7 +21302,6 @@ export const deserializeAws_ec2DetachVolumeCommand = async (
   contents = deserializeAws_ec2VolumeAttachment(data, context);
   const response: DetachVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "VolumeAttachment",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21617,7 +21391,6 @@ export const deserializeAws_ec2DisableEbsEncryptionByDefaultCommand = async (
   contents = deserializeAws_ec2DisableEbsEncryptionByDefaultResult(data, context);
   const response: DisableEbsEncryptionByDefaultCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableEbsEncryptionByDefaultResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21664,7 +21437,6 @@ export const deserializeAws_ec2DisableFastSnapshotRestoresCommand = async (
   contents = deserializeAws_ec2DisableFastSnapshotRestoresResult(data, context);
   const response: DisableFastSnapshotRestoresCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableFastSnapshotRestoresResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21711,7 +21483,6 @@ export const deserializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand
   contents = deserializeAws_ec2DisableTransitGatewayRouteTablePropagationResult(data, context);
   const response: DisableTransitGatewayRouteTablePropagationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableTransitGatewayRouteTablePropagationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21801,7 +21572,6 @@ export const deserializeAws_ec2DisableVpcClassicLinkCommand = async (
   contents = deserializeAws_ec2DisableVpcClassicLinkResult(data, context);
   const response: DisableVpcClassicLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableVpcClassicLinkResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21848,7 +21618,6 @@ export const deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommand = async (
   contents = deserializeAws_ec2DisableVpcClassicLinkDnsSupportResult(data, context);
   const response: DisableVpcClassicLinkDnsSupportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisableVpcClassicLinkDnsSupportResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21938,7 +21707,6 @@ export const deserializeAws_ec2DisassociateClientVpnTargetNetworkCommand = async
   contents = deserializeAws_ec2DisassociateClientVpnTargetNetworkResult(data, context);
   const response: DisassociateClientVpnTargetNetworkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateClientVpnTargetNetworkResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -21985,7 +21753,6 @@ export const deserializeAws_ec2DisassociateIamInstanceProfileCommand = async (
   contents = deserializeAws_ec2DisassociateIamInstanceProfileResult(data, context);
   const response: DisassociateIamInstanceProfileCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateIamInstanceProfileResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22075,7 +21842,6 @@ export const deserializeAws_ec2DisassociateSubnetCidrBlockCommand = async (
   contents = deserializeAws_ec2DisassociateSubnetCidrBlockResult(data, context);
   const response: DisassociateSubnetCidrBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateSubnetCidrBlockResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22122,7 +21888,6 @@ export const deserializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand 
   contents = deserializeAws_ec2DisassociateTransitGatewayMulticastDomainResult(data, context);
   const response: DisassociateTransitGatewayMulticastDomainCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateTransitGatewayMulticastDomainResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22169,7 +21934,6 @@ export const deserializeAws_ec2DisassociateTransitGatewayRouteTableCommand = asy
   contents = deserializeAws_ec2DisassociateTransitGatewayRouteTableResult(data, context);
   const response: DisassociateTransitGatewayRouteTableCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateTransitGatewayRouteTableResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22216,7 +21980,6 @@ export const deserializeAws_ec2DisassociateVpcCidrBlockCommand = async (
   contents = deserializeAws_ec2DisassociateVpcCidrBlockResult(data, context);
   const response: DisassociateVpcCidrBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DisassociateVpcCidrBlockResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22263,7 +22026,6 @@ export const deserializeAws_ec2EnableEbsEncryptionByDefaultCommand = async (
   contents = deserializeAws_ec2EnableEbsEncryptionByDefaultResult(data, context);
   const response: EnableEbsEncryptionByDefaultCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableEbsEncryptionByDefaultResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22310,7 +22072,6 @@ export const deserializeAws_ec2EnableFastSnapshotRestoresCommand = async (
   contents = deserializeAws_ec2EnableFastSnapshotRestoresResult(data, context);
   const response: EnableFastSnapshotRestoresCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableFastSnapshotRestoresResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22357,7 +22118,6 @@ export const deserializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand 
   contents = deserializeAws_ec2EnableTransitGatewayRouteTablePropagationResult(data, context);
   const response: EnableTransitGatewayRouteTablePropagationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableTransitGatewayRouteTablePropagationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22490,7 +22250,6 @@ export const deserializeAws_ec2EnableVpcClassicLinkCommand = async (
   contents = deserializeAws_ec2EnableVpcClassicLinkResult(data, context);
   const response: EnableVpcClassicLinkCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableVpcClassicLinkResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22537,7 +22296,6 @@ export const deserializeAws_ec2EnableVpcClassicLinkDnsSupportCommand = async (
   contents = deserializeAws_ec2EnableVpcClassicLinkDnsSupportResult(data, context);
   const response: EnableVpcClassicLinkDnsSupportCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "EnableVpcClassicLinkDnsSupportResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22584,7 +22342,6 @@ export const deserializeAws_ec2ExportClientVpnClientCertificateRevocationListCom
   contents = deserializeAws_ec2ExportClientVpnClientCertificateRevocationListResult(data, context);
   const response: ExportClientVpnClientCertificateRevocationListCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportClientVpnClientCertificateRevocationListResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22631,7 +22388,6 @@ export const deserializeAws_ec2ExportClientVpnClientConfigurationCommand = async
   contents = deserializeAws_ec2ExportClientVpnClientConfigurationResult(data, context);
   const response: ExportClientVpnClientConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportClientVpnClientConfigurationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22678,7 +22434,6 @@ export const deserializeAws_ec2ExportImageCommand = async (
   contents = deserializeAws_ec2ExportImageResult(data, context);
   const response: ExportImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportImageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22725,7 +22480,6 @@ export const deserializeAws_ec2ExportTransitGatewayRoutesCommand = async (
   contents = deserializeAws_ec2ExportTransitGatewayRoutesResult(data, context);
   const response: ExportTransitGatewayRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ExportTransitGatewayRoutesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22772,7 +22526,6 @@ export const deserializeAws_ec2GetAssociatedIpv6PoolCidrsCommand = async (
   contents = deserializeAws_ec2GetAssociatedIpv6PoolCidrsResult(data, context);
   const response: GetAssociatedIpv6PoolCidrsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetAssociatedIpv6PoolCidrsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22819,7 +22572,6 @@ export const deserializeAws_ec2GetCapacityReservationUsageCommand = async (
   contents = deserializeAws_ec2GetCapacityReservationUsageResult(data, context);
   const response: GetCapacityReservationUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCapacityReservationUsageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22866,7 +22618,6 @@ export const deserializeAws_ec2GetCoipPoolUsageCommand = async (
   contents = deserializeAws_ec2GetCoipPoolUsageResult(data, context);
   const response: GetCoipPoolUsageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetCoipPoolUsageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22913,7 +22664,6 @@ export const deserializeAws_ec2GetConsoleOutputCommand = async (
   contents = deserializeAws_ec2GetConsoleOutputResult(data, context);
   const response: GetConsoleOutputCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConsoleOutputResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -22960,7 +22710,6 @@ export const deserializeAws_ec2GetConsoleScreenshotCommand = async (
   contents = deserializeAws_ec2GetConsoleScreenshotResult(data, context);
   const response: GetConsoleScreenshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetConsoleScreenshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23007,7 +22756,6 @@ export const deserializeAws_ec2GetDefaultCreditSpecificationCommand = async (
   contents = deserializeAws_ec2GetDefaultCreditSpecificationResult(data, context);
   const response: GetDefaultCreditSpecificationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetDefaultCreditSpecificationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23054,7 +22802,6 @@ export const deserializeAws_ec2GetEbsDefaultKmsKeyIdCommand = async (
   contents = deserializeAws_ec2GetEbsDefaultKmsKeyIdResult(data, context);
   const response: GetEbsDefaultKmsKeyIdCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEbsDefaultKmsKeyIdResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23101,7 +22848,6 @@ export const deserializeAws_ec2GetEbsEncryptionByDefaultCommand = async (
   contents = deserializeAws_ec2GetEbsEncryptionByDefaultResult(data, context);
   const response: GetEbsEncryptionByDefaultCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetEbsEncryptionByDefaultResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23148,7 +22894,6 @@ export const deserializeAws_ec2GetGroupsForCapacityReservationCommand = async (
   contents = deserializeAws_ec2GetGroupsForCapacityReservationResult(data, context);
   const response: GetGroupsForCapacityReservationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetGroupsForCapacityReservationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23195,7 +22940,6 @@ export const deserializeAws_ec2GetHostReservationPurchasePreviewCommand = async 
   contents = deserializeAws_ec2GetHostReservationPurchasePreviewResult(data, context);
   const response: GetHostReservationPurchasePreviewCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetHostReservationPurchasePreviewResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23242,7 +22986,6 @@ export const deserializeAws_ec2GetLaunchTemplateDataCommand = async (
   contents = deserializeAws_ec2GetLaunchTemplateDataResult(data, context);
   const response: GetLaunchTemplateDataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetLaunchTemplateDataResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23289,7 +23032,6 @@ export const deserializeAws_ec2GetManagedPrefixListAssociationsCommand = async (
   contents = deserializeAws_ec2GetManagedPrefixListAssociationsResult(data, context);
   const response: GetManagedPrefixListAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetManagedPrefixListAssociationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23336,7 +23078,6 @@ export const deserializeAws_ec2GetManagedPrefixListEntriesCommand = async (
   contents = deserializeAws_ec2GetManagedPrefixListEntriesResult(data, context);
   const response: GetManagedPrefixListEntriesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetManagedPrefixListEntriesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23383,7 +23124,6 @@ export const deserializeAws_ec2GetPasswordDataCommand = async (
   contents = deserializeAws_ec2GetPasswordDataResult(data, context);
   const response: GetPasswordDataCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPasswordDataResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23430,7 +23170,6 @@ export const deserializeAws_ec2GetReservedInstancesExchangeQuoteCommand = async 
   contents = deserializeAws_ec2GetReservedInstancesExchangeQuoteResult(data, context);
   const response: GetReservedInstancesExchangeQuoteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetReservedInstancesExchangeQuoteResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23477,7 +23216,6 @@ export const deserializeAws_ec2GetTransitGatewayAttachmentPropagationsCommand = 
   contents = deserializeAws_ec2GetTransitGatewayAttachmentPropagationsResult(data, context);
   const response: GetTransitGatewayAttachmentPropagationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTransitGatewayAttachmentPropagationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23524,7 +23262,6 @@ export const deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsComma
   contents = deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsResult(data, context);
   const response: GetTransitGatewayMulticastDomainAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTransitGatewayMulticastDomainAssociationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23571,7 +23308,6 @@ export const deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand = 
   contents = deserializeAws_ec2GetTransitGatewayRouteTableAssociationsResult(data, context);
   const response: GetTransitGatewayRouteTableAssociationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTransitGatewayRouteTableAssociationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23618,7 +23354,6 @@ export const deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand = 
   contents = deserializeAws_ec2GetTransitGatewayRouteTablePropagationsResult(data, context);
   const response: GetTransitGatewayRouteTablePropagationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetTransitGatewayRouteTablePropagationsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23665,7 +23400,6 @@ export const deserializeAws_ec2ImportClientVpnClientCertificateRevocationListCom
   contents = deserializeAws_ec2ImportClientVpnClientCertificateRevocationListResult(data, context);
   const response: ImportClientVpnClientCertificateRevocationListCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportClientVpnClientCertificateRevocationListResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23712,7 +23446,6 @@ export const deserializeAws_ec2ImportImageCommand = async (
   contents = deserializeAws_ec2ImportImageResult(data, context);
   const response: ImportImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportImageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23759,7 +23492,6 @@ export const deserializeAws_ec2ImportInstanceCommand = async (
   contents = deserializeAws_ec2ImportInstanceResult(data, context);
   const response: ImportInstanceCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportInstanceResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23806,7 +23538,6 @@ export const deserializeAws_ec2ImportKeyPairCommand = async (
   contents = deserializeAws_ec2ImportKeyPairResult(data, context);
   const response: ImportKeyPairCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportKeyPairResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23853,7 +23584,6 @@ export const deserializeAws_ec2ImportSnapshotCommand = async (
   contents = deserializeAws_ec2ImportSnapshotResult(data, context);
   const response: ImportSnapshotCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportSnapshotResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23900,7 +23630,6 @@ export const deserializeAws_ec2ImportVolumeCommand = async (
   contents = deserializeAws_ec2ImportVolumeResult(data, context);
   const response: ImportVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ImportVolumeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23947,7 +23676,6 @@ export const deserializeAws_ec2ModifyAvailabilityZoneGroupCommand = async (
   contents = deserializeAws_ec2ModifyAvailabilityZoneGroupResult(data, context);
   const response: ModifyAvailabilityZoneGroupCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyAvailabilityZoneGroupResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -23994,7 +23722,6 @@ export const deserializeAws_ec2ModifyCapacityReservationCommand = async (
   contents = deserializeAws_ec2ModifyCapacityReservationResult(data, context);
   const response: ModifyCapacityReservationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyCapacityReservationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24041,7 +23768,6 @@ export const deserializeAws_ec2ModifyClientVpnEndpointCommand = async (
   contents = deserializeAws_ec2ModifyClientVpnEndpointResult(data, context);
   const response: ModifyClientVpnEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyClientVpnEndpointResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24088,7 +23814,6 @@ export const deserializeAws_ec2ModifyDefaultCreditSpecificationCommand = async (
   contents = deserializeAws_ec2ModifyDefaultCreditSpecificationResult(data, context);
   const response: ModifyDefaultCreditSpecificationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyDefaultCreditSpecificationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24135,7 +23860,6 @@ export const deserializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand = async (
   contents = deserializeAws_ec2ModifyEbsDefaultKmsKeyIdResult(data, context);
   const response: ModifyEbsDefaultKmsKeyIdCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyEbsDefaultKmsKeyIdResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24182,7 +23906,6 @@ export const deserializeAws_ec2ModifyFleetCommand = async (
   contents = deserializeAws_ec2ModifyFleetResult(data, context);
   const response: ModifyFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyFleetResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24229,7 +23952,6 @@ export const deserializeAws_ec2ModifyFpgaImageAttributeCommand = async (
   contents = deserializeAws_ec2ModifyFpgaImageAttributeResult(data, context);
   const response: ModifyFpgaImageAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyFpgaImageAttributeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24276,7 +23998,6 @@ export const deserializeAws_ec2ModifyHostsCommand = async (
   contents = deserializeAws_ec2ModifyHostsResult(data, context);
   const response: ModifyHostsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyHostsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24495,7 +24216,6 @@ export const deserializeAws_ec2ModifyInstanceCapacityReservationAttributesComman
   contents = deserializeAws_ec2ModifyInstanceCapacityReservationAttributesResult(data, context);
   const response: ModifyInstanceCapacityReservationAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyInstanceCapacityReservationAttributesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24542,7 +24262,6 @@ export const deserializeAws_ec2ModifyInstanceCreditSpecificationCommand = async 
   contents = deserializeAws_ec2ModifyInstanceCreditSpecificationResult(data, context);
   const response: ModifyInstanceCreditSpecificationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyInstanceCreditSpecificationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24589,7 +24308,6 @@ export const deserializeAws_ec2ModifyInstanceEventStartTimeCommand = async (
   contents = deserializeAws_ec2ModifyInstanceEventStartTimeResult(data, context);
   const response: ModifyInstanceEventStartTimeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyInstanceEventStartTimeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24636,7 +24354,6 @@ export const deserializeAws_ec2ModifyInstanceMetadataOptionsCommand = async (
   contents = deserializeAws_ec2ModifyInstanceMetadataOptionsResult(data, context);
   const response: ModifyInstanceMetadataOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyInstanceMetadataOptionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24683,7 +24400,6 @@ export const deserializeAws_ec2ModifyInstancePlacementCommand = async (
   contents = deserializeAws_ec2ModifyInstancePlacementResult(data, context);
   const response: ModifyInstancePlacementCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyInstancePlacementResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24730,7 +24446,6 @@ export const deserializeAws_ec2ModifyLaunchTemplateCommand = async (
   contents = deserializeAws_ec2ModifyLaunchTemplateResult(data, context);
   const response: ModifyLaunchTemplateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyLaunchTemplateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24777,7 +24492,6 @@ export const deserializeAws_ec2ModifyManagedPrefixListCommand = async (
   contents = deserializeAws_ec2ModifyManagedPrefixListResult(data, context);
   const response: ModifyManagedPrefixListCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyManagedPrefixListResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24867,7 +24581,6 @@ export const deserializeAws_ec2ModifyReservedInstancesCommand = async (
   contents = deserializeAws_ec2ModifyReservedInstancesResult(data, context);
   const response: ModifyReservedInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyReservedInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -24957,7 +24670,6 @@ export const deserializeAws_ec2ModifySpotFleetRequestCommand = async (
   contents = deserializeAws_ec2ModifySpotFleetRequestResponse(data, context);
   const response: ModifySpotFleetRequestCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifySpotFleetRequestResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25047,7 +24759,6 @@ export const deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand =
   contents = deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesResult(data, context);
   const response: ModifyTrafficMirrorFilterNetworkServicesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyTrafficMirrorFilterNetworkServicesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25094,7 +24805,6 @@ export const deserializeAws_ec2ModifyTrafficMirrorFilterRuleCommand = async (
   contents = deserializeAws_ec2ModifyTrafficMirrorFilterRuleResult(data, context);
   const response: ModifyTrafficMirrorFilterRuleCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyTrafficMirrorFilterRuleResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25141,7 +24851,6 @@ export const deserializeAws_ec2ModifyTrafficMirrorSessionCommand = async (
   contents = deserializeAws_ec2ModifyTrafficMirrorSessionResult(data, context);
   const response: ModifyTrafficMirrorSessionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyTrafficMirrorSessionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25188,7 +24897,6 @@ export const deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand = async 
   contents = deserializeAws_ec2ModifyTransitGatewayVpcAttachmentResult(data, context);
   const response: ModifyTransitGatewayVpcAttachmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyTransitGatewayVpcAttachmentResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25235,7 +24943,6 @@ export const deserializeAws_ec2ModifyVolumeCommand = async (
   contents = deserializeAws_ec2ModifyVolumeResult(data, context);
   const response: ModifyVolumeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyVolumeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25368,7 +25075,6 @@ export const deserializeAws_ec2ModifyVpcEndpointCommand = async (
   contents = deserializeAws_ec2ModifyVpcEndpointResult(data, context);
   const response: ModifyVpcEndpointCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyVpcEndpointResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25415,7 +25121,6 @@ export const deserializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand = 
   contents = deserializeAws_ec2ModifyVpcEndpointConnectionNotificationResult(data, context);
   const response: ModifyVpcEndpointConnectionNotificationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyVpcEndpointConnectionNotificationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25462,7 +25167,6 @@ export const deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand = as
   contents = deserializeAws_ec2ModifyVpcEndpointServiceConfigurationResult(data, context);
   const response: ModifyVpcEndpointServiceConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyVpcEndpointServiceConfigurationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25509,7 +25213,6 @@ export const deserializeAws_ec2ModifyVpcEndpointServicePermissionsCommand = asyn
   contents = deserializeAws_ec2ModifyVpcEndpointServicePermissionsResult(data, context);
   const response: ModifyVpcEndpointServicePermissionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyVpcEndpointServicePermissionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25556,7 +25259,6 @@ export const deserializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand = async 
   contents = deserializeAws_ec2ModifyVpcPeeringConnectionOptionsResult(data, context);
   const response: ModifyVpcPeeringConnectionOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyVpcPeeringConnectionOptionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25603,7 +25305,6 @@ export const deserializeAws_ec2ModifyVpcTenancyCommand = async (
   contents = deserializeAws_ec2ModifyVpcTenancyResult(data, context);
   const response: ModifyVpcTenancyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyVpcTenancyResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25650,7 +25351,6 @@ export const deserializeAws_ec2ModifyVpnConnectionCommand = async (
   contents = deserializeAws_ec2ModifyVpnConnectionResult(data, context);
   const response: ModifyVpnConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyVpnConnectionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25697,7 +25397,6 @@ export const deserializeAws_ec2ModifyVpnTunnelCertificateCommand = async (
   contents = deserializeAws_ec2ModifyVpnTunnelCertificateResult(data, context);
   const response: ModifyVpnTunnelCertificateCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyVpnTunnelCertificateResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25744,7 +25443,6 @@ export const deserializeAws_ec2ModifyVpnTunnelOptionsCommand = async (
   contents = deserializeAws_ec2ModifyVpnTunnelOptionsResult(data, context);
   const response: ModifyVpnTunnelOptionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ModifyVpnTunnelOptionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25791,7 +25489,6 @@ export const deserializeAws_ec2MonitorInstancesCommand = async (
   contents = deserializeAws_ec2MonitorInstancesResult(data, context);
   const response: MonitorInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "MonitorInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25838,7 +25535,6 @@ export const deserializeAws_ec2MoveAddressToVpcCommand = async (
   contents = deserializeAws_ec2MoveAddressToVpcResult(data, context);
   const response: MoveAddressToVpcCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "MoveAddressToVpcResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25885,7 +25581,6 @@ export const deserializeAws_ec2ProvisionByoipCidrCommand = async (
   contents = deserializeAws_ec2ProvisionByoipCidrResult(data, context);
   const response: ProvisionByoipCidrCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ProvisionByoipCidrResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25932,7 +25627,6 @@ export const deserializeAws_ec2PurchaseHostReservationCommand = async (
   contents = deserializeAws_ec2PurchaseHostReservationResult(data, context);
   const response: PurchaseHostReservationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PurchaseHostReservationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -25979,7 +25673,6 @@ export const deserializeAws_ec2PurchaseReservedInstancesOfferingCommand = async 
   contents = deserializeAws_ec2PurchaseReservedInstancesOfferingResult(data, context);
   const response: PurchaseReservedInstancesOfferingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PurchaseReservedInstancesOfferingResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26026,7 +25719,6 @@ export const deserializeAws_ec2PurchaseScheduledInstancesCommand = async (
   contents = deserializeAws_ec2PurchaseScheduledInstancesResult(data, context);
   const response: PurchaseScheduledInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PurchaseScheduledInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26116,7 +25808,6 @@ export const deserializeAws_ec2RegisterImageCommand = async (
   contents = deserializeAws_ec2RegisterImageResult(data, context);
   const response: RegisterImageCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterImageResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26163,7 +25854,6 @@ export const deserializeAws_ec2RegisterInstanceEventNotificationAttributesComman
   contents = deserializeAws_ec2RegisterInstanceEventNotificationAttributesResult(data, context);
   const response: RegisterInstanceEventNotificationAttributesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterInstanceEventNotificationAttributesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26210,7 +25900,6 @@ export const deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersComman
   contents = deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersResult(data, context);
   const response: RegisterTransitGatewayMulticastGroupMembersCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterTransitGatewayMulticastGroupMembersResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26257,7 +25946,6 @@ export const deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesComman
   contents = deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesResult(data, context);
   const response: RegisterTransitGatewayMulticastGroupSourcesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RegisterTransitGatewayMulticastGroupSourcesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26304,7 +25992,6 @@ export const deserializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand = as
   contents = deserializeAws_ec2RejectTransitGatewayPeeringAttachmentResult(data, context);
   const response: RejectTransitGatewayPeeringAttachmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectTransitGatewayPeeringAttachmentResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26351,7 +26038,6 @@ export const deserializeAws_ec2RejectTransitGatewayVpcAttachmentCommand = async 
   contents = deserializeAws_ec2RejectTransitGatewayVpcAttachmentResult(data, context);
   const response: RejectTransitGatewayVpcAttachmentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectTransitGatewayVpcAttachmentResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26398,7 +26084,6 @@ export const deserializeAws_ec2RejectVpcEndpointConnectionsCommand = async (
   contents = deserializeAws_ec2RejectVpcEndpointConnectionsResult(data, context);
   const response: RejectVpcEndpointConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectVpcEndpointConnectionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26445,7 +26130,6 @@ export const deserializeAws_ec2RejectVpcPeeringConnectionCommand = async (
   contents = deserializeAws_ec2RejectVpcPeeringConnectionResult(data, context);
   const response: RejectVpcPeeringConnectionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RejectVpcPeeringConnectionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26535,7 +26219,6 @@ export const deserializeAws_ec2ReleaseHostsCommand = async (
   contents = deserializeAws_ec2ReleaseHostsResult(data, context);
   const response: ReleaseHostsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReleaseHostsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26582,7 +26265,6 @@ export const deserializeAws_ec2ReplaceIamInstanceProfileAssociationCommand = asy
   contents = deserializeAws_ec2ReplaceIamInstanceProfileAssociationResult(data, context);
   const response: ReplaceIamInstanceProfileAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReplaceIamInstanceProfileAssociationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26629,7 +26311,6 @@ export const deserializeAws_ec2ReplaceNetworkAclAssociationCommand = async (
   contents = deserializeAws_ec2ReplaceNetworkAclAssociationResult(data, context);
   const response: ReplaceNetworkAclAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReplaceNetworkAclAssociationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26762,7 +26443,6 @@ export const deserializeAws_ec2ReplaceRouteTableAssociationCommand = async (
   contents = deserializeAws_ec2ReplaceRouteTableAssociationResult(data, context);
   const response: ReplaceRouteTableAssociationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReplaceRouteTableAssociationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26809,7 +26489,6 @@ export const deserializeAws_ec2ReplaceTransitGatewayRouteCommand = async (
   contents = deserializeAws_ec2ReplaceTransitGatewayRouteResult(data, context);
   const response: ReplaceTransitGatewayRouteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ReplaceTransitGatewayRouteResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26899,7 +26578,6 @@ export const deserializeAws_ec2RequestSpotFleetCommand = async (
   contents = deserializeAws_ec2RequestSpotFleetResponse(data, context);
   const response: RequestSpotFleetCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RequestSpotFleetResponse",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26946,7 +26624,6 @@ export const deserializeAws_ec2RequestSpotInstancesCommand = async (
   contents = deserializeAws_ec2RequestSpotInstancesResult(data, context);
   const response: RequestSpotInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RequestSpotInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -26993,7 +26670,6 @@ export const deserializeAws_ec2ResetEbsDefaultKmsKeyIdCommand = async (
   contents = deserializeAws_ec2ResetEbsDefaultKmsKeyIdResult(data, context);
   const response: ResetEbsDefaultKmsKeyIdCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResetEbsDefaultKmsKeyIdResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27040,7 +26716,6 @@ export const deserializeAws_ec2ResetFpgaImageAttributeCommand = async (
   contents = deserializeAws_ec2ResetFpgaImageAttributeResult(data, context);
   const response: ResetFpgaImageAttributeCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ResetFpgaImageAttributeResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27259,7 +26934,6 @@ export const deserializeAws_ec2RestoreAddressToClassicCommand = async (
   contents = deserializeAws_ec2RestoreAddressToClassicResult(data, context);
   const response: RestoreAddressToClassicCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreAddressToClassicResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27306,7 +26980,6 @@ export const deserializeAws_ec2RestoreManagedPrefixListVersionCommand = async (
   contents = deserializeAws_ec2RestoreManagedPrefixListVersionResult(data, context);
   const response: RestoreManagedPrefixListVersionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreManagedPrefixListVersionResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27353,7 +27026,6 @@ export const deserializeAws_ec2RevokeClientVpnIngressCommand = async (
   contents = deserializeAws_ec2RevokeClientVpnIngressResult(data, context);
   const response: RevokeClientVpnIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RevokeClientVpnIngressResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27486,7 +27158,6 @@ export const deserializeAws_ec2RunInstancesCommand = async (
   contents = deserializeAws_ec2Reservation(data, context);
   const response: RunInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "Reservation",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27533,7 +27204,6 @@ export const deserializeAws_ec2RunScheduledInstancesCommand = async (
   contents = deserializeAws_ec2RunScheduledInstancesResult(data, context);
   const response: RunScheduledInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RunScheduledInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27580,7 +27250,6 @@ export const deserializeAws_ec2SearchLocalGatewayRoutesCommand = async (
   contents = deserializeAws_ec2SearchLocalGatewayRoutesResult(data, context);
   const response: SearchLocalGatewayRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchLocalGatewayRoutesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27627,7 +27296,6 @@ export const deserializeAws_ec2SearchTransitGatewayMulticastGroupsCommand = asyn
   contents = deserializeAws_ec2SearchTransitGatewayMulticastGroupsResult(data, context);
   const response: SearchTransitGatewayMulticastGroupsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchTransitGatewayMulticastGroupsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27674,7 +27342,6 @@ export const deserializeAws_ec2SearchTransitGatewayRoutesCommand = async (
   contents = deserializeAws_ec2SearchTransitGatewayRoutesResult(data, context);
   const response: SearchTransitGatewayRoutesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SearchTransitGatewayRoutesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27764,7 +27431,6 @@ export const deserializeAws_ec2StartInstancesCommand = async (
   contents = deserializeAws_ec2StartInstancesResult(data, context);
   const response: StartInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27811,7 +27477,6 @@ export const deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationComm
   contents = deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationResult(data, context);
   const response: StartVpcEndpointServicePrivateDnsVerificationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StartVpcEndpointServicePrivateDnsVerificationResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27858,7 +27523,6 @@ export const deserializeAws_ec2StopInstancesCommand = async (
   contents = deserializeAws_ec2StopInstancesResult(data, context);
   const response: StopInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "StopInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27905,7 +27569,6 @@ export const deserializeAws_ec2TerminateClientVpnConnectionsCommand = async (
   contents = deserializeAws_ec2TerminateClientVpnConnectionsResult(data, context);
   const response: TerminateClientVpnConnectionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TerminateClientVpnConnectionsResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27952,7 +27615,6 @@ export const deserializeAws_ec2TerminateInstancesCommand = async (
   contents = deserializeAws_ec2TerminateInstancesResult(data, context);
   const response: TerminateInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "TerminateInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -27999,7 +27661,6 @@ export const deserializeAws_ec2UnassignIpv6AddressesCommand = async (
   contents = deserializeAws_ec2UnassignIpv6AddressesResult(data, context);
   const response: UnassignIpv6AddressesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UnassignIpv6AddressesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -28089,7 +27750,6 @@ export const deserializeAws_ec2UnmonitorInstancesCommand = async (
   contents = deserializeAws_ec2UnmonitorInstancesResult(data, context);
   const response: UnmonitorInstancesCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UnmonitorInstancesResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -28136,7 +27796,6 @@ export const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand 
   contents = deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressResult(data, context);
   const response: UpdateSecurityGroupRuleDescriptionsEgressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSecurityGroupRuleDescriptionsEgressResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -28183,7 +27842,6 @@ export const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand
   contents = deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressResult(data, context);
   const response: UpdateSecurityGroupRuleDescriptionsIngressCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UpdateSecurityGroupRuleDescriptionsIngressResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -28230,7 +27888,6 @@ export const deserializeAws_ec2WithdrawByoipCidrCommand = async (
   contents = deserializeAws_ec2WithdrawByoipCidrResult(data, context);
   const response: WithdrawByoipCidrCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "WithdrawByoipCidrResult",
     ...contents,
   };
   return Promise.resolve(response);
@@ -43584,7 +43241,6 @@ const deserializeAws_ec2AcceptReservedInstancesExchangeQuoteResult = (
   context: __SerdeContext
 ): AcceptReservedInstancesExchangeQuoteResult => {
   let contents: any = {
-    __type: "AcceptReservedInstancesExchangeQuoteResult",
     ExchangeId: undefined,
   };
   if (output["exchangeId"] !== undefined) {
@@ -43598,7 +43254,6 @@ const deserializeAws_ec2AcceptTransitGatewayPeeringAttachmentResult = (
   context: __SerdeContext
 ): AcceptTransitGatewayPeeringAttachmentResult => {
   let contents: any = {
-    __type: "AcceptTransitGatewayPeeringAttachmentResult",
     TransitGatewayPeeringAttachment: undefined,
   };
   if (output["transitGatewayPeeringAttachment"] !== undefined) {
@@ -43615,7 +43270,6 @@ const deserializeAws_ec2AcceptTransitGatewayVpcAttachmentResult = (
   context: __SerdeContext
 ): AcceptTransitGatewayVpcAttachmentResult => {
   let contents: any = {
-    __type: "AcceptTransitGatewayVpcAttachmentResult",
     TransitGatewayVpcAttachment: undefined,
   };
   if (output["transitGatewayVpcAttachment"] !== undefined) {
@@ -43632,7 +43286,6 @@ const deserializeAws_ec2AcceptVpcEndpointConnectionsResult = (
   context: __SerdeContext
 ): AcceptVpcEndpointConnectionsResult => {
   let contents: any = {
-    __type: "AcceptVpcEndpointConnectionsResult",
     Unsuccessful: undefined,
   };
   if (output.unsuccessful === "") {
@@ -43652,7 +43305,6 @@ const deserializeAws_ec2AcceptVpcPeeringConnectionResult = (
   context: __SerdeContext
 ): AcceptVpcPeeringConnectionResult => {
   let contents: any = {
-    __type: "AcceptVpcPeeringConnectionResult",
     VpcPeeringConnection: undefined,
   };
   if (output["vpcPeeringConnection"] !== undefined) {
@@ -43663,7 +43315,6 @@ const deserializeAws_ec2AcceptVpcPeeringConnectionResult = (
 
 const deserializeAws_ec2AccountAttribute = (output: any, context: __SerdeContext): AccountAttribute => {
   let contents: any = {
-    __type: "AccountAttribute",
     AttributeName: undefined,
     AttributeValues: undefined,
   };
@@ -43688,7 +43339,6 @@ const deserializeAws_ec2AccountAttributeList = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2AccountAttributeValue = (output: any, context: __SerdeContext): AccountAttributeValue => {
   let contents: any = {
-    __type: "AccountAttributeValue",
     AttributeValue: undefined,
   };
   if (output["attributeValue"] !== undefined) {
@@ -43703,7 +43353,6 @@ const deserializeAws_ec2AccountAttributeValueList = (output: any, context: __Ser
 
 const deserializeAws_ec2ActiveInstance = (output: any, context: __SerdeContext): ActiveInstance => {
   let contents: any = {
-    __type: "ActiveInstance",
     SpotInstanceRequestId: undefined,
     InstanceId: undefined,
     InstanceHealth: undefined,
@@ -43730,7 +43379,6 @@ const deserializeAws_ec2ActiveInstanceSet = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2Address = (output: any, context: __SerdeContext): Address => {
   let contents: any = {
-    __type: "Address",
     Domain: undefined,
     CustomerOwnedIp: undefined,
     PrivateIpAddress: undefined,
@@ -43796,7 +43444,6 @@ const deserializeAws_ec2AddressList = (output: any, context: __SerdeContext): Ad
 
 const deserializeAws_ec2AdvertiseByoipCidrResult = (output: any, context: __SerdeContext): AdvertiseByoipCidrResult => {
   let contents: any = {
-    __type: "AdvertiseByoipCidrResult",
     ByoipCidr: undefined,
   };
   if (output["byoipCidr"] !== undefined) {
@@ -43807,7 +43454,6 @@ const deserializeAws_ec2AdvertiseByoipCidrResult = (output: any, context: __Serd
 
 const deserializeAws_ec2AllocateAddressResult = (output: any, context: __SerdeContext): AllocateAddressResult => {
   let contents: any = {
-    __type: "AllocateAddressResult",
     CustomerOwnedIp: undefined,
     Domain: undefined,
     PublicIpv4Pool: undefined,
@@ -43842,7 +43488,6 @@ const deserializeAws_ec2AllocateAddressResult = (output: any, context: __SerdeCo
 
 const deserializeAws_ec2AllocateHostsResult = (output: any, context: __SerdeContext): AllocateHostsResult => {
   let contents: any = {
-    __type: "AllocateHostsResult",
     HostIds: undefined,
   };
   if (output.hostIdSet === "") {
@@ -43859,7 +43504,6 @@ const deserializeAws_ec2AllocateHostsResult = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2AllowedPrincipal = (output: any, context: __SerdeContext): AllowedPrincipal => {
   let contents: any = {
-    __type: "AllowedPrincipal",
     Principal: undefined,
     PrincipalType: undefined,
   };
@@ -43881,7 +43525,6 @@ const deserializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkResult = (
   context: __SerdeContext
 ): ApplySecurityGroupsToClientVpnTargetNetworkResult => {
   let contents: any = {
-    __type: "ApplySecurityGroupsToClientVpnTargetNetworkResult",
     SecurityGroupIds: undefined,
   };
   if (output.securityGroupIds === "") {
@@ -43905,7 +43548,6 @@ const deserializeAws_ec2ArchitectureTypeList = (
 
 const deserializeAws_ec2AssignedPrivateIpAddress = (output: any, context: __SerdeContext): AssignedPrivateIpAddress => {
   let contents: any = {
-    __type: "AssignedPrivateIpAddress",
     PrivateIpAddress: undefined,
   };
   if (output["privateIpAddress"] !== undefined) {
@@ -43926,7 +43568,6 @@ const deserializeAws_ec2AssignIpv6AddressesResult = (
   context: __SerdeContext
 ): AssignIpv6AddressesResult => {
   let contents: any = {
-    __type: "AssignIpv6AddressesResult",
     NetworkInterfaceId: undefined,
     AssignedIpv6Addresses: undefined,
   };
@@ -43950,7 +43591,6 @@ const deserializeAws_ec2AssignPrivateIpAddressesResult = (
   context: __SerdeContext
 ): AssignPrivateIpAddressesResult => {
   let contents: any = {
-    __type: "AssignPrivateIpAddressesResult",
     AssignedPrivateIpAddresses: undefined,
     NetworkInterfaceId: undefined,
   };
@@ -43974,7 +43614,6 @@ const deserializeAws_ec2AssignPrivateIpAddressesResult = (
 
 const deserializeAws_ec2AssociateAddressResult = (output: any, context: __SerdeContext): AssociateAddressResult => {
   let contents: any = {
-    __type: "AssociateAddressResult",
     AssociationId: undefined,
   };
   if (output["associationId"] !== undefined) {
@@ -43988,7 +43627,6 @@ const deserializeAws_ec2AssociateClientVpnTargetNetworkResult = (
   context: __SerdeContext
 ): AssociateClientVpnTargetNetworkResult => {
   let contents: any = {
-    __type: "AssociateClientVpnTargetNetworkResult",
     AssociationId: undefined,
     Status: undefined,
   };
@@ -44003,7 +43641,6 @@ const deserializeAws_ec2AssociateClientVpnTargetNetworkResult = (
 
 const deserializeAws_ec2AssociatedTargetNetwork = (output: any, context: __SerdeContext): AssociatedTargetNetwork => {
   let contents: any = {
-    __type: "AssociatedTargetNetwork",
     NetworkType: undefined,
     NetworkId: undefined,
   };
@@ -44028,7 +43665,6 @@ const deserializeAws_ec2AssociateIamInstanceProfileResult = (
   context: __SerdeContext
 ): AssociateIamInstanceProfileResult => {
   let contents: any = {
-    __type: "AssociateIamInstanceProfileResult",
     IamInstanceProfileAssociation: undefined,
   };
   if (output["iamInstanceProfileAssociation"] !== undefined) {
@@ -44045,7 +43681,6 @@ const deserializeAws_ec2AssociateRouteTableResult = (
   context: __SerdeContext
 ): AssociateRouteTableResult => {
   let contents: any = {
-    __type: "AssociateRouteTableResult",
     AssociationState: undefined,
     AssociationId: undefined,
   };
@@ -44063,7 +43698,6 @@ const deserializeAws_ec2AssociateSubnetCidrBlockResult = (
   context: __SerdeContext
 ): AssociateSubnetCidrBlockResult => {
   let contents: any = {
-    __type: "AssociateSubnetCidrBlockResult",
     SubnetId: undefined,
     Ipv6CidrBlockAssociation: undefined,
   };
@@ -44084,7 +43718,6 @@ const deserializeAws_ec2AssociateTransitGatewayMulticastDomainResult = (
   context: __SerdeContext
 ): AssociateTransitGatewayMulticastDomainResult => {
   let contents: any = {
-    __type: "AssociateTransitGatewayMulticastDomainResult",
     Associations: undefined,
   };
   if (output["associations"] !== undefined) {
@@ -44101,7 +43734,6 @@ const deserializeAws_ec2AssociateTransitGatewayRouteTableResult = (
   context: __SerdeContext
 ): AssociateTransitGatewayRouteTableResult => {
   let contents: any = {
-    __type: "AssociateTransitGatewayRouteTableResult",
     Association: undefined,
   };
   if (output["association"] !== undefined) {
@@ -44115,7 +43747,6 @@ const deserializeAws_ec2AssociateVpcCidrBlockResult = (
   context: __SerdeContext
 ): AssociateVpcCidrBlockResult => {
   let contents: any = {
-    __type: "AssociateVpcCidrBlockResult",
     Ipv6CidrBlockAssociation: undefined,
     CidrBlockAssociation: undefined,
     VpcId: undefined,
@@ -44137,7 +43768,6 @@ const deserializeAws_ec2AssociateVpcCidrBlockResult = (
 
 const deserializeAws_ec2AssociationStatus = (output: any, context: __SerdeContext): AssociationStatus => {
   let contents: any = {
-    __type: "AssociationStatus",
     Code: undefined,
     Message: undefined,
   };
@@ -44155,7 +43785,6 @@ const deserializeAws_ec2AttachClassicLinkVpcResult = (
   context: __SerdeContext
 ): AttachClassicLinkVpcResult => {
   let contents: any = {
-    __type: "AttachClassicLinkVpcResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -44169,7 +43798,6 @@ const deserializeAws_ec2AttachNetworkInterfaceResult = (
   context: __SerdeContext
 ): AttachNetworkInterfaceResult => {
   let contents: any = {
-    __type: "AttachNetworkInterfaceResult",
     AttachmentId: undefined,
   };
   if (output["attachmentId"] !== undefined) {
@@ -44180,7 +43808,6 @@ const deserializeAws_ec2AttachNetworkInterfaceResult = (
 
 const deserializeAws_ec2AttachVpnGatewayResult = (output: any, context: __SerdeContext): AttachVpnGatewayResult => {
   let contents: any = {
-    __type: "AttachVpnGatewayResult",
     VpcAttachment: undefined,
   };
   if (output["attachment"] !== undefined) {
@@ -44191,7 +43818,6 @@ const deserializeAws_ec2AttachVpnGatewayResult = (output: any, context: __SerdeC
 
 const deserializeAws_ec2AttributeBooleanValue = (output: any, context: __SerdeContext): AttributeBooleanValue => {
   let contents: any = {
-    __type: "AttributeBooleanValue",
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -44202,7 +43828,6 @@ const deserializeAws_ec2AttributeBooleanValue = (output: any, context: __SerdeCo
 
 const deserializeAws_ec2AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   let contents: any = {
-    __type: "AttributeValue",
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -44213,7 +43838,6 @@ const deserializeAws_ec2AttributeValue = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2AuthorizationRule = (output: any, context: __SerdeContext): AuthorizationRule => {
   let contents: any = {
-    __type: "AuthorizationRule",
     GroupId: undefined,
     ClientVpnEndpointId: undefined,
     Description: undefined,
@@ -44251,7 +43875,6 @@ const deserializeAws_ec2AuthorizeClientVpnIngressResult = (
   context: __SerdeContext
 ): AuthorizeClientVpnIngressResult => {
   let contents: any = {
-    __type: "AuthorizeClientVpnIngressResult",
     Status: undefined,
   };
   if (output["status"] !== undefined) {
@@ -44262,7 +43885,6 @@ const deserializeAws_ec2AuthorizeClientVpnIngressResult = (
 
 const deserializeAws_ec2AvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   let contents: any = {
-    __type: "AvailabilityZone",
     ParentZoneId: undefined,
     GroupName: undefined,
     ParentZoneName: undefined,
@@ -44323,7 +43945,6 @@ const deserializeAws_ec2AvailabilityZoneList = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2AvailabilityZoneMessage = (output: any, context: __SerdeContext): AvailabilityZoneMessage => {
   let contents: any = {
-    __type: "AvailabilityZoneMessage",
     Message: undefined,
   };
   if (output["message"] !== undefined) {
@@ -44341,7 +43962,6 @@ const deserializeAws_ec2AvailabilityZoneMessageList = (
 
 const deserializeAws_ec2AvailableCapacity = (output: any, context: __SerdeContext): AvailableCapacity => {
   let contents: any = {
-    __type: "AvailableCapacity",
     AvailableVCpus: undefined,
     AvailableInstanceCapacity: undefined,
   };
@@ -44366,7 +43986,6 @@ const deserializeAws_ec2AvailableInstanceCapacityList = (output: any, context: _
 
 const deserializeAws_ec2BlockDeviceMapping = (output: any, context: __SerdeContext): BlockDeviceMapping => {
   let contents: any = {
-    __type: "BlockDeviceMapping",
     DeviceName: undefined,
     VirtualName: undefined,
     Ebs: undefined,
@@ -44393,7 +44012,6 @@ const deserializeAws_ec2BlockDeviceMappingList = (output: any, context: __SerdeC
 
 const deserializeAws_ec2BundleInstanceResult = (output: any, context: __SerdeContext): BundleInstanceResult => {
   let contents: any = {
-    __type: "BundleInstanceResult",
     BundleTask: undefined,
   };
   if (output["bundleInstanceTask"] !== undefined) {
@@ -44404,7 +44022,6 @@ const deserializeAws_ec2BundleInstanceResult = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2BundleTask = (output: any, context: __SerdeContext): BundleTask => {
   let contents: any = {
-    __type: "BundleTask",
     InstanceId: undefined,
     BundleId: undefined,
     UpdateTime: undefined,
@@ -44443,7 +44060,6 @@ const deserializeAws_ec2BundleTask = (output: any, context: __SerdeContext): Bun
 
 const deserializeAws_ec2BundleTaskError = (output: any, context: __SerdeContext): BundleTaskError => {
   let contents: any = {
-    __type: "BundleTaskError",
     Code: undefined,
     Message: undefined,
   };
@@ -44462,7 +44078,6 @@ const deserializeAws_ec2BundleTaskList = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2ByoipCidr = (output: any, context: __SerdeContext): ByoipCidr => {
   let contents: any = {
-    __type: "ByoipCidr",
     State: undefined,
     Description: undefined,
     Cidr: undefined,
@@ -44489,7 +44104,6 @@ const deserializeAws_ec2ByoipCidrSet = (output: any, context: __SerdeContext): B
 
 const deserializeAws_ec2CancelBundleTaskResult = (output: any, context: __SerdeContext): CancelBundleTaskResult => {
   let contents: any = {
-    __type: "CancelBundleTaskResult",
     BundleTask: undefined,
   };
   if (output["bundleInstanceTask"] !== undefined) {
@@ -44503,7 +44117,6 @@ const deserializeAws_ec2CancelCapacityReservationResult = (
   context: __SerdeContext
 ): CancelCapacityReservationResult => {
   let contents: any = {
-    __type: "CancelCapacityReservationResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -44514,7 +44127,6 @@ const deserializeAws_ec2CancelCapacityReservationResult = (
 
 const deserializeAws_ec2CancelImportTaskResult = (output: any, context: __SerdeContext): CancelImportTaskResult => {
   let contents: any = {
-    __type: "CancelImportTaskResult",
     State: undefined,
     PreviousState: undefined,
     ImportTaskId: undefined,
@@ -44536,7 +44148,6 @@ const deserializeAws_ec2CancelledSpotInstanceRequest = (
   context: __SerdeContext
 ): CancelledSpotInstanceRequest => {
   let contents: any = {
-    __type: "CancelledSpotInstanceRequest",
     State: undefined,
     SpotInstanceRequestId: undefined,
   };
@@ -44561,7 +44172,6 @@ const deserializeAws_ec2CancelReservedInstancesListingResult = (
   context: __SerdeContext
 ): CancelReservedInstancesListingResult => {
   let contents: any = {
-    __type: "CancelReservedInstancesListingResult",
     ReservedInstancesListings: undefined,
   };
   if (output.reservedInstancesListingsSet === "") {
@@ -44584,7 +44194,6 @@ const deserializeAws_ec2CancelSpotFleetRequestsError = (
   context: __SerdeContext
 ): CancelSpotFleetRequestsError => {
   let contents: any = {
-    __type: "CancelSpotFleetRequestsError",
     Message: undefined,
     Code: undefined,
   };
@@ -44602,7 +44211,6 @@ const deserializeAws_ec2CancelSpotFleetRequestsErrorItem = (
   context: __SerdeContext
 ): CancelSpotFleetRequestsErrorItem => {
   let contents: any = {
-    __type: "CancelSpotFleetRequestsErrorItem",
     SpotFleetRequestId: undefined,
     Error: undefined,
   };
@@ -44627,7 +44235,6 @@ const deserializeAws_ec2CancelSpotFleetRequestsResponse = (
   context: __SerdeContext
 ): CancelSpotFleetRequestsResponse => {
   let contents: any = {
-    __type: "CancelSpotFleetRequestsResponse",
     SuccessfulFleetRequests: undefined,
     UnsuccessfulFleetRequests: undefined,
   };
@@ -44660,7 +44267,6 @@ const deserializeAws_ec2CancelSpotFleetRequestsSuccessItem = (
   context: __SerdeContext
 ): CancelSpotFleetRequestsSuccessItem => {
   let contents: any = {
-    __type: "CancelSpotFleetRequestsSuccessItem",
     PreviousSpotFleetRequestState: undefined,
     SpotFleetRequestId: undefined,
     CurrentSpotFleetRequestState: undefined,
@@ -44689,7 +44295,6 @@ const deserializeAws_ec2CancelSpotInstanceRequestsResult = (
   context: __SerdeContext
 ): CancelSpotInstanceRequestsResult => {
   let contents: any = {
-    __type: "CancelSpotInstanceRequestsResult",
     CancelledSpotInstanceRequests: undefined,
   };
   if (output.spotInstanceRequestSet === "") {
@@ -44706,7 +44311,6 @@ const deserializeAws_ec2CancelSpotInstanceRequestsResult = (
 
 const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeContext): CapacityReservation => {
   let contents: any = {
-    __type: "CapacityReservation",
     InstanceType: undefined,
     AvailableInstanceCount: undefined,
     Tags: undefined,
@@ -44788,7 +44392,6 @@ const deserializeAws_ec2CapacityReservation = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2CapacityReservationGroup = (output: any, context: __SerdeContext): CapacityReservationGroup => {
   let contents: any = {
-    __type: "CapacityReservationGroup",
     GroupArn: undefined,
     OwnerId: undefined,
   };
@@ -44813,7 +44416,6 @@ const deserializeAws_ec2CapacityReservationOptions = (
   context: __SerdeContext
 ): CapacityReservationOptions => {
   let contents: any = {
-    __type: "CapacityReservationOptions",
     UsageStrategy: undefined,
   };
   if (output["usageStrategy"] !== undefined) {
@@ -44831,7 +44433,6 @@ const deserializeAws_ec2CapacityReservationSpecificationResponse = (
   context: __SerdeContext
 ): CapacityReservationSpecificationResponse => {
   let contents: any = {
-    __type: "CapacityReservationSpecificationResponse",
     CapacityReservationTarget: undefined,
     CapacityReservationPreference: undefined,
   };
@@ -44852,7 +44453,6 @@ const deserializeAws_ec2CapacityReservationTargetResponse = (
   context: __SerdeContext
 ): CapacityReservationTargetResponse => {
   let contents: any = {
-    __type: "CapacityReservationTargetResponse",
     CapacityReservationId: undefined,
     CapacityReservationResourceGroupArn: undefined,
   };
@@ -44870,7 +44470,6 @@ const deserializeAws_ec2CertificateAuthentication = (
   context: __SerdeContext
 ): CertificateAuthentication => {
   let contents: any = {
-    __type: "CertificateAuthentication",
     ClientRootCertificateChain: undefined,
   };
   if (output["clientRootCertificateChain"] !== undefined) {
@@ -44881,7 +44480,6 @@ const deserializeAws_ec2CertificateAuthentication = (
 
 const deserializeAws_ec2CidrBlock = (output: any, context: __SerdeContext): CidrBlock => {
   let contents: any = {
-    __type: "CidrBlock",
     CidrBlock: undefined,
   };
   if (output["cidrBlock"] !== undefined) {
@@ -44896,7 +44494,6 @@ const deserializeAws_ec2CidrBlockSet = (output: any, context: __SerdeContext): C
 
 const deserializeAws_ec2ClassicLinkDnsSupport = (output: any, context: __SerdeContext): ClassicLinkDnsSupport => {
   let contents: any = {
-    __type: "ClassicLinkDnsSupport",
     ClassicLinkDnsSupported: undefined,
     VpcId: undefined,
   };
@@ -44915,7 +44512,6 @@ const deserializeAws_ec2ClassicLinkDnsSupportList = (output: any, context: __Ser
 
 const deserializeAws_ec2ClassicLinkInstance = (output: any, context: __SerdeContext): ClassicLinkInstance => {
   let contents: any = {
-    __type: "ClassicLinkInstance",
     InstanceId: undefined,
     VpcId: undefined,
     Groups: undefined,
@@ -44951,7 +44547,6 @@ const deserializeAws_ec2ClassicLinkInstanceList = (output: any, context: __Serde
 
 const deserializeAws_ec2ClassicLoadBalancer = (output: any, context: __SerdeContext): ClassicLoadBalancer => {
   let contents: any = {
-    __type: "ClassicLoadBalancer",
     Name: undefined,
   };
   if (output["name"] !== undefined) {
@@ -44969,7 +44564,6 @@ const deserializeAws_ec2ClassicLoadBalancersConfig = (
   context: __SerdeContext
 ): ClassicLoadBalancersConfig => {
   let contents: any = {
-    __type: "ClassicLoadBalancersConfig",
     ClassicLoadBalancers: undefined,
   };
   if (output.classicLoadBalancers === "") {
@@ -44989,7 +44583,6 @@ const deserializeAws_ec2ClientCertificateRevocationListStatus = (
   context: __SerdeContext
 ): ClientCertificateRevocationListStatus => {
   let contents: any = {
-    __type: "ClientCertificateRevocationListStatus",
     Code: undefined,
     Message: undefined,
   };
@@ -45004,7 +44597,6 @@ const deserializeAws_ec2ClientCertificateRevocationListStatus = (
 
 const deserializeAws_ec2ClientVpnAuthentication = (output: any, context: __SerdeContext): ClientVpnAuthentication => {
   let contents: any = {
-    __type: "ClientVpnAuthentication",
     ActiveDirectory: undefined,
     FederatedAuthentication: undefined,
     Type: undefined,
@@ -45043,7 +44635,6 @@ const deserializeAws_ec2ClientVpnAuthorizationRuleStatus = (
   context: __SerdeContext
 ): ClientVpnAuthorizationRuleStatus => {
   let contents: any = {
-    __type: "ClientVpnAuthorizationRuleStatus",
     Code: undefined,
     Message: undefined,
   };
@@ -45058,7 +44649,6 @@ const deserializeAws_ec2ClientVpnAuthorizationRuleStatus = (
 
 const deserializeAws_ec2ClientVpnConnection = (output: any, context: __SerdeContext): ClientVpnConnection => {
   let contents: any = {
-    __type: "ClientVpnConnection",
     EgressPackets: undefined,
     ConnectionId: undefined,
     EgressBytes: undefined,
@@ -45124,7 +44714,6 @@ const deserializeAws_ec2ClientVpnConnectionStatus = (
   context: __SerdeContext
 ): ClientVpnConnectionStatus => {
   let contents: any = {
-    __type: "ClientVpnConnectionStatus",
     Message: undefined,
     Code: undefined,
   };
@@ -45139,7 +44728,6 @@ const deserializeAws_ec2ClientVpnConnectionStatus = (
 
 const deserializeAws_ec2ClientVpnEndpoint = (output: any, context: __SerdeContext): ClientVpnEndpoint => {
   let contents: any = {
-    __type: "ClientVpnEndpoint",
     ServerCertificateArn: undefined,
     ClientVpnEndpointId: undefined,
     Status: undefined,
@@ -45252,7 +44840,6 @@ const deserializeAws_ec2ClientVpnEndpoint = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2ClientVpnEndpointStatus = (output: any, context: __SerdeContext): ClientVpnEndpointStatus => {
   let contents: any = {
-    __type: "ClientVpnEndpointStatus",
     Code: undefined,
     Message: undefined,
   };
@@ -45267,7 +44854,6 @@ const deserializeAws_ec2ClientVpnEndpointStatus = (output: any, context: __Serde
 
 const deserializeAws_ec2ClientVpnRoute = (output: any, context: __SerdeContext): ClientVpnRoute => {
   let contents: any = {
-    __type: "ClientVpnRoute",
     TargetSubnet: undefined,
     Origin: undefined,
     DestinationCidr: undefined,
@@ -45306,7 +44892,6 @@ const deserializeAws_ec2ClientVpnRouteSet = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2ClientVpnRouteStatus = (output: any, context: __SerdeContext): ClientVpnRouteStatus => {
   let contents: any = {
-    __type: "ClientVpnRouteStatus",
     Message: undefined,
     Code: undefined,
   };
@@ -45325,7 +44910,6 @@ const deserializeAws_ec2ClientVpnSecurityGroupIdSet = (output: any, context: __S
 
 const deserializeAws_ec2CoipAddressUsage = (output: any, context: __SerdeContext): CoipAddressUsage => {
   let contents: any = {
-    __type: "CoipAddressUsage",
     AwsService: undefined,
     AllocationId: undefined,
     CoIp: undefined,
@@ -45352,7 +44936,6 @@ const deserializeAws_ec2CoipAddressUsageSet = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2CoipPool = (output: any, context: __SerdeContext): CoipPool => {
   let contents: any = {
-    __type: "CoipPool",
     PoolId: undefined,
     PoolArn: undefined,
     Tags: undefined,
@@ -45395,7 +44978,6 @@ const deserializeAws_ec2ConfirmProductInstanceResult = (
   context: __SerdeContext
 ): ConfirmProductInstanceResult => {
   let contents: any = {
-    __type: "ConfirmProductInstanceResult",
     OwnerId: undefined,
     Return: undefined,
   };
@@ -45413,7 +44995,6 @@ const deserializeAws_ec2ConnectionLogResponseOptions = (
   context: __SerdeContext
 ): ConnectionLogResponseOptions => {
   let contents: any = {
-    __type: "ConnectionLogResponseOptions",
     CloudwatchLogGroup: undefined,
     Enabled: undefined,
     CloudwatchLogStream: undefined,
@@ -45432,7 +45013,6 @@ const deserializeAws_ec2ConnectionLogResponseOptions = (
 
 const deserializeAws_ec2ConnectionNotification = (output: any, context: __SerdeContext): ConnectionNotification => {
   let contents: any = {
-    __type: "ConnectionNotification",
     ConnectionNotificationState: undefined,
     ServiceId: undefined,
     ConnectionNotificationType: undefined,
@@ -45480,7 +45060,6 @@ const deserializeAws_ec2ConnectionNotificationSet = (
 
 const deserializeAws_ec2ConversionTask = (output: any, context: __SerdeContext): ConversionTask => {
   let contents: any = {
-    __type: "ConversionTask",
     ImportVolume: undefined,
     ImportInstance: undefined,
     ConversionTaskId: undefined,
@@ -45518,7 +45097,6 @@ const deserializeAws_ec2ConversionTask = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2CopyFpgaImageResult = (output: any, context: __SerdeContext): CopyFpgaImageResult => {
   let contents: any = {
-    __type: "CopyFpgaImageResult",
     FpgaImageId: undefined,
   };
   if (output["fpgaImageId"] !== undefined) {
@@ -45529,7 +45107,6 @@ const deserializeAws_ec2CopyFpgaImageResult = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2CopyImageResult = (output: any, context: __SerdeContext): CopyImageResult => {
   let contents: any = {
-    __type: "CopyImageResult",
     ImageId: undefined,
   };
   if (output["imageId"] !== undefined) {
@@ -45540,7 +45117,6 @@ const deserializeAws_ec2CopyImageResult = (output: any, context: __SerdeContext)
 
 const deserializeAws_ec2CopySnapshotResult = (output: any, context: __SerdeContext): CopySnapshotResult => {
   let contents: any = {
-    __type: "CopySnapshotResult",
     SnapshotId: undefined,
     Tags: undefined,
   };
@@ -45562,7 +45138,6 @@ const deserializeAws_ec2CoreCountList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_ec2CpuOptions = (output: any, context: __SerdeContext): CpuOptions => {
   let contents: any = {
-    __type: "CpuOptions",
     ThreadsPerCore: undefined,
     CoreCount: undefined,
   };
@@ -45580,7 +45155,6 @@ const deserializeAws_ec2CreateCapacityReservationResult = (
   context: __SerdeContext
 ): CreateCapacityReservationResult => {
   let contents: any = {
-    __type: "CreateCapacityReservationResult",
     CapacityReservation: undefined,
   };
   if (output["capacityReservation"] !== undefined) {
@@ -45594,7 +45168,6 @@ const deserializeAws_ec2CreateClientVpnEndpointResult = (
   context: __SerdeContext
 ): CreateClientVpnEndpointResult => {
   let contents: any = {
-    __type: "CreateClientVpnEndpointResult",
     DnsName: undefined,
     Status: undefined,
     ClientVpnEndpointId: undefined,
@@ -45616,7 +45189,6 @@ const deserializeAws_ec2CreateClientVpnRouteResult = (
   context: __SerdeContext
 ): CreateClientVpnRouteResult => {
   let contents: any = {
-    __type: "CreateClientVpnRouteResult",
     Status: undefined,
   };
   if (output["status"] !== undefined) {
@@ -45630,7 +45202,6 @@ const deserializeAws_ec2CreateCustomerGatewayResult = (
   context: __SerdeContext
 ): CreateCustomerGatewayResult => {
   let contents: any = {
-    __type: "CreateCustomerGatewayResult",
     CustomerGateway: undefined,
   };
   if (output["customerGateway"] !== undefined) {
@@ -45644,7 +45215,6 @@ const deserializeAws_ec2CreateDefaultSubnetResult = (
   context: __SerdeContext
 ): CreateDefaultSubnetResult => {
   let contents: any = {
-    __type: "CreateDefaultSubnetResult",
     Subnet: undefined,
   };
   if (output["subnet"] !== undefined) {
@@ -45655,7 +45225,6 @@ const deserializeAws_ec2CreateDefaultSubnetResult = (
 
 const deserializeAws_ec2CreateDefaultVpcResult = (output: any, context: __SerdeContext): CreateDefaultVpcResult => {
   let contents: any = {
-    __type: "CreateDefaultVpcResult",
     Vpc: undefined,
   };
   if (output["vpc"] !== undefined) {
@@ -45666,7 +45235,6 @@ const deserializeAws_ec2CreateDefaultVpcResult = (output: any, context: __SerdeC
 
 const deserializeAws_ec2CreateDhcpOptionsResult = (output: any, context: __SerdeContext): CreateDhcpOptionsResult => {
   let contents: any = {
-    __type: "CreateDhcpOptionsResult",
     DhcpOptions: undefined,
   };
   if (output["dhcpOptions"] !== undefined) {
@@ -45680,7 +45248,6 @@ const deserializeAws_ec2CreateEgressOnlyInternetGatewayResult = (
   context: __SerdeContext
 ): CreateEgressOnlyInternetGatewayResult => {
   let contents: any = {
-    __type: "CreateEgressOnlyInternetGatewayResult",
     ClientToken: undefined,
     EgressOnlyInternetGateway: undefined,
   };
@@ -45698,7 +45265,6 @@ const deserializeAws_ec2CreateEgressOnlyInternetGatewayResult = (
 
 const deserializeAws_ec2CreateFleetError = (output: any, context: __SerdeContext): CreateFleetError => {
   let contents: any = {
-    __type: "CreateFleetError",
     ErrorMessage: undefined,
     Lifecycle: undefined,
     ErrorCode: undefined,
@@ -45728,7 +45294,6 @@ const deserializeAws_ec2CreateFleetErrorsSet = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2CreateFleetInstance = (output: any, context: __SerdeContext): CreateFleetInstance => {
   let contents: any = {
-    __type: "CreateFleetInstance",
     Lifecycle: undefined,
     InstanceType: undefined,
     InstanceIds: undefined,
@@ -45768,7 +45333,6 @@ const deserializeAws_ec2CreateFleetInstancesSet = (output: any, context: __Serde
 
 const deserializeAws_ec2CreateFleetResult = (output: any, context: __SerdeContext): CreateFleetResult => {
   let contents: any = {
-    __type: "CreateFleetResult",
     Errors: undefined,
     FleetId: undefined,
     Instances: undefined,
@@ -45799,7 +45363,6 @@ const deserializeAws_ec2CreateFleetResult = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2CreateFlowLogsResult = (output: any, context: __SerdeContext): CreateFlowLogsResult => {
   let contents: any = {
-    __type: "CreateFlowLogsResult",
     Unsuccessful: undefined,
     FlowLogIds: undefined,
     ClientToken: undefined,
@@ -45830,7 +45393,6 @@ const deserializeAws_ec2CreateFlowLogsResult = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2CreateFpgaImageResult = (output: any, context: __SerdeContext): CreateFpgaImageResult => {
   let contents: any = {
-    __type: "CreateFpgaImageResult",
     FpgaImageId: undefined,
     FpgaImageGlobalId: undefined,
   };
@@ -45845,7 +45407,6 @@ const deserializeAws_ec2CreateFpgaImageResult = (output: any, context: __SerdeCo
 
 const deserializeAws_ec2CreateImageResult = (output: any, context: __SerdeContext): CreateImageResult => {
   let contents: any = {
-    __type: "CreateImageResult",
     ImageId: undefined,
   };
   if (output["imageId"] !== undefined) {
@@ -45859,7 +45420,6 @@ const deserializeAws_ec2CreateInstanceExportTaskResult = (
   context: __SerdeContext
 ): CreateInstanceExportTaskResult => {
   let contents: any = {
-    __type: "CreateInstanceExportTaskResult",
     ExportTask: undefined,
   };
   if (output["exportTask"] !== undefined) {
@@ -45873,7 +45433,6 @@ const deserializeAws_ec2CreateInternetGatewayResult = (
   context: __SerdeContext
 ): CreateInternetGatewayResult => {
   let contents: any = {
-    __type: "CreateInternetGatewayResult",
     InternetGateway: undefined,
   };
   if (output["internetGateway"] !== undefined) {
@@ -45887,7 +45446,6 @@ const deserializeAws_ec2CreateLaunchTemplateResult = (
   context: __SerdeContext
 ): CreateLaunchTemplateResult => {
   let contents: any = {
-    __type: "CreateLaunchTemplateResult",
     LaunchTemplate: undefined,
     Warning: undefined,
   };
@@ -45905,7 +45463,6 @@ const deserializeAws_ec2CreateLaunchTemplateVersionResult = (
   context: __SerdeContext
 ): CreateLaunchTemplateVersionResult => {
   let contents: any = {
-    __type: "CreateLaunchTemplateVersionResult",
     Warning: undefined,
     LaunchTemplateVersion: undefined,
   };
@@ -45923,7 +45480,6 @@ const deserializeAws_ec2CreateLocalGatewayRouteResult = (
   context: __SerdeContext
 ): CreateLocalGatewayRouteResult => {
   let contents: any = {
-    __type: "CreateLocalGatewayRouteResult",
     Route: undefined,
   };
   if (output["route"] !== undefined) {
@@ -45937,7 +45493,6 @@ const deserializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationResult = (
   context: __SerdeContext
 ): CreateLocalGatewayRouteTableVpcAssociationResult => {
   let contents: any = {
-    __type: "CreateLocalGatewayRouteTableVpcAssociationResult",
     LocalGatewayRouteTableVpcAssociation: undefined,
   };
   if (output["localGatewayRouteTableVpcAssociation"] !== undefined) {
@@ -45954,7 +45509,6 @@ const deserializeAws_ec2CreateManagedPrefixListResult = (
   context: __SerdeContext
 ): CreateManagedPrefixListResult => {
   let contents: any = {
-    __type: "CreateManagedPrefixListResult",
     PrefixList: undefined,
   };
   if (output["prefixList"] !== undefined) {
@@ -45965,7 +45519,6 @@ const deserializeAws_ec2CreateManagedPrefixListResult = (
 
 const deserializeAws_ec2CreateNatGatewayResult = (output: any, context: __SerdeContext): CreateNatGatewayResult => {
   let contents: any = {
-    __type: "CreateNatGatewayResult",
     NatGateway: undefined,
     ClientToken: undefined,
   };
@@ -45980,7 +45533,6 @@ const deserializeAws_ec2CreateNatGatewayResult = (output: any, context: __SerdeC
 
 const deserializeAws_ec2CreateNetworkAclResult = (output: any, context: __SerdeContext): CreateNetworkAclResult => {
   let contents: any = {
-    __type: "CreateNetworkAclResult",
     NetworkAcl: undefined,
   };
   if (output["networkAcl"] !== undefined) {
@@ -45994,7 +45546,6 @@ const deserializeAws_ec2CreateNetworkInterfacePermissionResult = (
   context: __SerdeContext
 ): CreateNetworkInterfacePermissionResult => {
   let contents: any = {
-    __type: "CreateNetworkInterfacePermissionResult",
     InterfacePermission: undefined,
   };
   if (output["interfacePermission"] !== undefined) {
@@ -46008,7 +45559,6 @@ const deserializeAws_ec2CreateNetworkInterfaceResult = (
   context: __SerdeContext
 ): CreateNetworkInterfaceResult => {
   let contents: any = {
-    __type: "CreateNetworkInterfaceResult",
     NetworkInterface: undefined,
   };
   if (output["networkInterface"] !== undefined) {
@@ -46022,7 +45572,6 @@ const deserializeAws_ec2CreatePlacementGroupResult = (
   context: __SerdeContext
 ): CreatePlacementGroupResult => {
   let contents: any = {
-    __type: "CreatePlacementGroupResult",
     PlacementGroup: undefined,
   };
   if (output["placementGroup"] !== undefined) {
@@ -46036,7 +45585,6 @@ const deserializeAws_ec2CreateReservedInstancesListingResult = (
   context: __SerdeContext
 ): CreateReservedInstancesListingResult => {
   let contents: any = {
-    __type: "CreateReservedInstancesListingResult",
     ReservedInstancesListings: undefined,
   };
   if (output.reservedInstancesListingsSet === "") {
@@ -46056,7 +45604,6 @@ const deserializeAws_ec2CreateReservedInstancesListingResult = (
 
 const deserializeAws_ec2CreateRouteResult = (output: any, context: __SerdeContext): CreateRouteResult => {
   let contents: any = {
-    __type: "CreateRouteResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -46067,7 +45614,6 @@ const deserializeAws_ec2CreateRouteResult = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2CreateRouteTableResult = (output: any, context: __SerdeContext): CreateRouteTableResult => {
   let contents: any = {
-    __type: "CreateRouteTableResult",
     RouteTable: undefined,
   };
   if (output["routeTable"] !== undefined) {
@@ -46081,7 +45627,6 @@ const deserializeAws_ec2CreateSecurityGroupResult = (
   context: __SerdeContext
 ): CreateSecurityGroupResult => {
   let contents: any = {
-    __type: "CreateSecurityGroupResult",
     GroupId: undefined,
     Tags: undefined,
   };
@@ -46099,7 +45644,6 @@ const deserializeAws_ec2CreateSecurityGroupResult = (
 
 const deserializeAws_ec2CreateSnapshotsResult = (output: any, context: __SerdeContext): CreateSnapshotsResult => {
   let contents: any = {
-    __type: "CreateSnapshotsResult",
     Snapshots: undefined,
   };
   if (output.snapshotSet === "") {
@@ -46116,7 +45660,6 @@ const deserializeAws_ec2CreateSpotDatafeedSubscriptionResult = (
   context: __SerdeContext
 ): CreateSpotDatafeedSubscriptionResult => {
   let contents: any = {
-    __type: "CreateSpotDatafeedSubscriptionResult",
     SpotDatafeedSubscription: undefined,
   };
   if (output["spotDatafeedSubscription"] !== undefined) {
@@ -46130,7 +45673,6 @@ const deserializeAws_ec2CreateSpotDatafeedSubscriptionResult = (
 
 const deserializeAws_ec2CreateSubnetResult = (output: any, context: __SerdeContext): CreateSubnetResult => {
   let contents: any = {
-    __type: "CreateSubnetResult",
     Subnet: undefined,
   };
   if (output["subnet"] !== undefined) {
@@ -46144,7 +45686,6 @@ const deserializeAws_ec2CreateTrafficMirrorFilterResult = (
   context: __SerdeContext
 ): CreateTrafficMirrorFilterResult => {
   let contents: any = {
-    __type: "CreateTrafficMirrorFilterResult",
     ClientToken: undefined,
     TrafficMirrorFilter: undefined,
   };
@@ -46162,7 +45703,6 @@ const deserializeAws_ec2CreateTrafficMirrorFilterRuleResult = (
   context: __SerdeContext
 ): CreateTrafficMirrorFilterRuleResult => {
   let contents: any = {
-    __type: "CreateTrafficMirrorFilterRuleResult",
     ClientToken: undefined,
     TrafficMirrorFilterRule: undefined,
   };
@@ -46183,7 +45723,6 @@ const deserializeAws_ec2CreateTrafficMirrorSessionResult = (
   context: __SerdeContext
 ): CreateTrafficMirrorSessionResult => {
   let contents: any = {
-    __type: "CreateTrafficMirrorSessionResult",
     ClientToken: undefined,
     TrafficMirrorSession: undefined,
   };
@@ -46201,7 +45740,6 @@ const deserializeAws_ec2CreateTrafficMirrorTargetResult = (
   context: __SerdeContext
 ): CreateTrafficMirrorTargetResult => {
   let contents: any = {
-    __type: "CreateTrafficMirrorTargetResult",
     ClientToken: undefined,
     TrafficMirrorTarget: undefined,
   };
@@ -46219,7 +45757,6 @@ const deserializeAws_ec2CreateTransitGatewayMulticastDomainResult = (
   context: __SerdeContext
 ): CreateTransitGatewayMulticastDomainResult => {
   let contents: any = {
-    __type: "CreateTransitGatewayMulticastDomainResult",
     TransitGatewayMulticastDomain: undefined,
   };
   if (output["transitGatewayMulticastDomain"] !== undefined) {
@@ -46236,7 +45773,6 @@ const deserializeAws_ec2CreateTransitGatewayPeeringAttachmentResult = (
   context: __SerdeContext
 ): CreateTransitGatewayPeeringAttachmentResult => {
   let contents: any = {
-    __type: "CreateTransitGatewayPeeringAttachmentResult",
     TransitGatewayPeeringAttachment: undefined,
   };
   if (output["transitGatewayPeeringAttachment"] !== undefined) {
@@ -46253,7 +45789,6 @@ const deserializeAws_ec2CreateTransitGatewayResult = (
   context: __SerdeContext
 ): CreateTransitGatewayResult => {
   let contents: any = {
-    __type: "CreateTransitGatewayResult",
     TransitGateway: undefined,
   };
   if (output["transitGateway"] !== undefined) {
@@ -46267,7 +45802,6 @@ const deserializeAws_ec2CreateTransitGatewayRouteResult = (
   context: __SerdeContext
 ): CreateTransitGatewayRouteResult => {
   let contents: any = {
-    __type: "CreateTransitGatewayRouteResult",
     Route: undefined,
   };
   if (output["route"] !== undefined) {
@@ -46281,7 +45815,6 @@ const deserializeAws_ec2CreateTransitGatewayRouteTableResult = (
   context: __SerdeContext
 ): CreateTransitGatewayRouteTableResult => {
   let contents: any = {
-    __type: "CreateTransitGatewayRouteTableResult",
     TransitGatewayRouteTable: undefined,
   };
   if (output["transitGatewayRouteTable"] !== undefined) {
@@ -46298,7 +45831,6 @@ const deserializeAws_ec2CreateTransitGatewayVpcAttachmentResult = (
   context: __SerdeContext
 ): CreateTransitGatewayVpcAttachmentResult => {
   let contents: any = {
-    __type: "CreateTransitGatewayVpcAttachmentResult",
     TransitGatewayVpcAttachment: undefined,
   };
   if (output["transitGatewayVpcAttachment"] !== undefined) {
@@ -46312,7 +45844,6 @@ const deserializeAws_ec2CreateTransitGatewayVpcAttachmentResult = (
 
 const deserializeAws_ec2CreateVolumePermission = (output: any, context: __SerdeContext): CreateVolumePermission => {
   let contents: any = {
-    __type: "CreateVolumePermission",
     UserId: undefined,
     Group: undefined,
   };
@@ -46337,7 +45868,6 @@ const deserializeAws_ec2CreateVpcEndpointConnectionNotificationResult = (
   context: __SerdeContext
 ): CreateVpcEndpointConnectionNotificationResult => {
   let contents: any = {
-    __type: "CreateVpcEndpointConnectionNotificationResult",
     ConnectionNotification: undefined,
     ClientToken: undefined,
   };
@@ -46355,7 +45885,6 @@ const deserializeAws_ec2CreateVpcEndpointConnectionNotificationResult = (
 
 const deserializeAws_ec2CreateVpcEndpointResult = (output: any, context: __SerdeContext): CreateVpcEndpointResult => {
   let contents: any = {
-    __type: "CreateVpcEndpointResult",
     ClientToken: undefined,
     VpcEndpoint: undefined,
   };
@@ -46373,7 +45902,6 @@ const deserializeAws_ec2CreateVpcEndpointServiceConfigurationResult = (
   context: __SerdeContext
 ): CreateVpcEndpointServiceConfigurationResult => {
   let contents: any = {
-    __type: "CreateVpcEndpointServiceConfigurationResult",
     ClientToken: undefined,
     ServiceConfiguration: undefined,
   };
@@ -46391,7 +45919,6 @@ const deserializeAws_ec2CreateVpcPeeringConnectionResult = (
   context: __SerdeContext
 ): CreateVpcPeeringConnectionResult => {
   let contents: any = {
-    __type: "CreateVpcPeeringConnectionResult",
     VpcPeeringConnection: undefined,
   };
   if (output["vpcPeeringConnection"] !== undefined) {
@@ -46402,7 +45929,6 @@ const deserializeAws_ec2CreateVpcPeeringConnectionResult = (
 
 const deserializeAws_ec2CreateVpcResult = (output: any, context: __SerdeContext): CreateVpcResult => {
   let contents: any = {
-    __type: "CreateVpcResult",
     Vpc: undefined,
   };
   if (output["vpc"] !== undefined) {
@@ -46416,7 +45942,6 @@ const deserializeAws_ec2CreateVpnConnectionResult = (
   context: __SerdeContext
 ): CreateVpnConnectionResult => {
   let contents: any = {
-    __type: "CreateVpnConnectionResult",
     VpnConnection: undefined,
   };
   if (output["vpnConnection"] !== undefined) {
@@ -46427,7 +45952,6 @@ const deserializeAws_ec2CreateVpnConnectionResult = (
 
 const deserializeAws_ec2CreateVpnGatewayResult = (output: any, context: __SerdeContext): CreateVpnGatewayResult => {
   let contents: any = {
-    __type: "CreateVpnGatewayResult",
     VpnGateway: undefined,
   };
   if (output["vpnGateway"] !== undefined) {
@@ -46438,7 +45962,6 @@ const deserializeAws_ec2CreateVpnGatewayResult = (output: any, context: __SerdeC
 
 const deserializeAws_ec2CreditSpecification = (output: any, context: __SerdeContext): CreditSpecification => {
   let contents: any = {
-    __type: "CreditSpecification",
     CpuCredits: undefined,
   };
   if (output["cpuCredits"] !== undefined) {
@@ -46449,7 +45972,6 @@ const deserializeAws_ec2CreditSpecification = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2CustomerGateway = (output: any, context: __SerdeContext): CustomerGateway => {
   let contents: any = {
-    __type: "CustomerGateway",
     IpAddress: undefined,
     State: undefined,
     CustomerGatewayId: undefined,
@@ -46498,7 +46020,6 @@ const deserializeAws_ec2DeleteClientVpnEndpointResult = (
   context: __SerdeContext
 ): DeleteClientVpnEndpointResult => {
   let contents: any = {
-    __type: "DeleteClientVpnEndpointResult",
     Status: undefined,
   };
   if (output["status"] !== undefined) {
@@ -46512,7 +46033,6 @@ const deserializeAws_ec2DeleteClientVpnRouteResult = (
   context: __SerdeContext
 ): DeleteClientVpnRouteResult => {
   let contents: any = {
-    __type: "DeleteClientVpnRouteResult",
     Status: undefined,
   };
   if (output["status"] !== undefined) {
@@ -46526,7 +46046,6 @@ const deserializeAws_ec2DeleteEgressOnlyInternetGatewayResult = (
   context: __SerdeContext
 ): DeleteEgressOnlyInternetGatewayResult => {
   let contents: any = {
-    __type: "DeleteEgressOnlyInternetGatewayResult",
     ReturnCode: undefined,
   };
   if (output["returnCode"] !== undefined) {
@@ -46537,7 +46056,6 @@ const deserializeAws_ec2DeleteEgressOnlyInternetGatewayResult = (
 
 const deserializeAws_ec2DeleteFleetError = (output: any, context: __SerdeContext): DeleteFleetError => {
   let contents: any = {
-    __type: "DeleteFleetError",
     Code: undefined,
     Message: undefined,
   };
@@ -46552,7 +46070,6 @@ const deserializeAws_ec2DeleteFleetError = (output: any, context: __SerdeContext
 
 const deserializeAws_ec2DeleteFleetErrorItem = (output: any, context: __SerdeContext): DeleteFleetErrorItem => {
   let contents: any = {
-    __type: "DeleteFleetErrorItem",
     FleetId: undefined,
     Error: undefined,
   };
@@ -46571,7 +46088,6 @@ const deserializeAws_ec2DeleteFleetErrorSet = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2DeleteFleetsResult = (output: any, context: __SerdeContext): DeleteFleetsResult => {
   let contents: any = {
-    __type: "DeleteFleetsResult",
     UnsuccessfulFleetDeletions: undefined,
     SuccessfulFleetDeletions: undefined,
   };
@@ -46604,7 +46120,6 @@ const deserializeAws_ec2DeleteFleetsResult = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2DeleteFleetSuccessItem = (output: any, context: __SerdeContext): DeleteFleetSuccessItem => {
   let contents: any = {
-    __type: "DeleteFleetSuccessItem",
     FleetId: undefined,
     CurrentFleetState: undefined,
     PreviousFleetState: undefined,
@@ -46627,7 +46142,6 @@ const deserializeAws_ec2DeleteFleetSuccessSet = (output: any, context: __SerdeCo
 
 const deserializeAws_ec2DeleteFlowLogsResult = (output: any, context: __SerdeContext): DeleteFlowLogsResult => {
   let contents: any = {
-    __type: "DeleteFlowLogsResult",
     Unsuccessful: undefined,
   };
   if (output.unsuccessful === "") {
@@ -46644,7 +46158,6 @@ const deserializeAws_ec2DeleteFlowLogsResult = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2DeleteFpgaImageResult = (output: any, context: __SerdeContext): DeleteFpgaImageResult => {
   let contents: any = {
-    __type: "DeleteFpgaImageResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -46658,7 +46171,6 @@ const deserializeAws_ec2DeleteLaunchTemplateResult = (
   context: __SerdeContext
 ): DeleteLaunchTemplateResult => {
   let contents: any = {
-    __type: "DeleteLaunchTemplateResult",
     LaunchTemplate: undefined,
   };
   if (output["launchTemplate"] !== undefined) {
@@ -46672,7 +46184,6 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseErrorItem = (
   context: __SerdeContext
 ): DeleteLaunchTemplateVersionsResponseErrorItem => {
   let contents: any = {
-    __type: "DeleteLaunchTemplateVersionsResponseErrorItem",
     LaunchTemplateName: undefined,
     VersionNumber: undefined,
     ResponseError: undefined,
@@ -46707,7 +46218,6 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResponseSuccessItem = (
   context: __SerdeContext
 ): DeleteLaunchTemplateVersionsResponseSuccessItem => {
   let contents: any = {
-    __type: "DeleteLaunchTemplateVersionsResponseSuccessItem",
     LaunchTemplateName: undefined,
     VersionNumber: undefined,
     LaunchTemplateId: undefined,
@@ -46738,7 +46248,6 @@ const deserializeAws_ec2DeleteLaunchTemplateVersionsResult = (
   context: __SerdeContext
 ): DeleteLaunchTemplateVersionsResult => {
   let contents: any = {
-    __type: "DeleteLaunchTemplateVersionsResult",
     UnsuccessfullyDeletedLaunchTemplateVersions: undefined,
     SuccessfullyDeletedLaunchTemplateVersions: undefined,
   };
@@ -46774,7 +46283,6 @@ const deserializeAws_ec2DeleteLocalGatewayRouteResult = (
   context: __SerdeContext
 ): DeleteLocalGatewayRouteResult => {
   let contents: any = {
-    __type: "DeleteLocalGatewayRouteResult",
     Route: undefined,
   };
   if (output["route"] !== undefined) {
@@ -46788,7 +46296,6 @@ const deserializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationResult = (
   context: __SerdeContext
 ): DeleteLocalGatewayRouteTableVpcAssociationResult => {
   let contents: any = {
-    __type: "DeleteLocalGatewayRouteTableVpcAssociationResult",
     LocalGatewayRouteTableVpcAssociation: undefined,
   };
   if (output["localGatewayRouteTableVpcAssociation"] !== undefined) {
@@ -46805,7 +46312,6 @@ const deserializeAws_ec2DeleteManagedPrefixListResult = (
   context: __SerdeContext
 ): DeleteManagedPrefixListResult => {
   let contents: any = {
-    __type: "DeleteManagedPrefixListResult",
     PrefixList: undefined,
   };
   if (output["prefixList"] !== undefined) {
@@ -46816,7 +46322,6 @@ const deserializeAws_ec2DeleteManagedPrefixListResult = (
 
 const deserializeAws_ec2DeleteNatGatewayResult = (output: any, context: __SerdeContext): DeleteNatGatewayResult => {
   let contents: any = {
-    __type: "DeleteNatGatewayResult",
     NatGatewayId: undefined,
   };
   if (output["natGatewayId"] !== undefined) {
@@ -46830,7 +46335,6 @@ const deserializeAws_ec2DeleteNetworkInterfacePermissionResult = (
   context: __SerdeContext
 ): DeleteNetworkInterfacePermissionResult => {
   let contents: any = {
-    __type: "DeleteNetworkInterfacePermissionResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -46844,7 +46348,6 @@ const deserializeAws_ec2DeleteQueuedReservedInstancesError = (
   context: __SerdeContext
 ): DeleteQueuedReservedInstancesError => {
   let contents: any = {
-    __type: "DeleteQueuedReservedInstancesError",
     Message: undefined,
     Code: undefined,
   };
@@ -46862,7 +46365,6 @@ const deserializeAws_ec2DeleteQueuedReservedInstancesResult = (
   context: __SerdeContext
 ): DeleteQueuedReservedInstancesResult => {
   let contents: any = {
-    __type: "DeleteQueuedReservedInstancesResult",
     SuccessfulQueuedPurchaseDeletions: undefined,
     FailedQueuedPurchaseDeletions: undefined,
   };
@@ -46898,7 +46400,6 @@ const deserializeAws_ec2DeleteTrafficMirrorFilterResult = (
   context: __SerdeContext
 ): DeleteTrafficMirrorFilterResult => {
   let contents: any = {
-    __type: "DeleteTrafficMirrorFilterResult",
     TrafficMirrorFilterId: undefined,
   };
   if (output["trafficMirrorFilterId"] !== undefined) {
@@ -46912,7 +46413,6 @@ const deserializeAws_ec2DeleteTrafficMirrorFilterRuleResult = (
   context: __SerdeContext
 ): DeleteTrafficMirrorFilterRuleResult => {
   let contents: any = {
-    __type: "DeleteTrafficMirrorFilterRuleResult",
     TrafficMirrorFilterRuleId: undefined,
   };
   if (output["trafficMirrorFilterRuleId"] !== undefined) {
@@ -46926,7 +46426,6 @@ const deserializeAws_ec2DeleteTrafficMirrorSessionResult = (
   context: __SerdeContext
 ): DeleteTrafficMirrorSessionResult => {
   let contents: any = {
-    __type: "DeleteTrafficMirrorSessionResult",
     TrafficMirrorSessionId: undefined,
   };
   if (output["trafficMirrorSessionId"] !== undefined) {
@@ -46940,7 +46439,6 @@ const deserializeAws_ec2DeleteTrafficMirrorTargetResult = (
   context: __SerdeContext
 ): DeleteTrafficMirrorTargetResult => {
   let contents: any = {
-    __type: "DeleteTrafficMirrorTargetResult",
     TrafficMirrorTargetId: undefined,
   };
   if (output["trafficMirrorTargetId"] !== undefined) {
@@ -46954,7 +46452,6 @@ const deserializeAws_ec2DeleteTransitGatewayMulticastDomainResult = (
   context: __SerdeContext
 ): DeleteTransitGatewayMulticastDomainResult => {
   let contents: any = {
-    __type: "DeleteTransitGatewayMulticastDomainResult",
     TransitGatewayMulticastDomain: undefined,
   };
   if (output["transitGatewayMulticastDomain"] !== undefined) {
@@ -46971,7 +46468,6 @@ const deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentResult = (
   context: __SerdeContext
 ): DeleteTransitGatewayPeeringAttachmentResult => {
   let contents: any = {
-    __type: "DeleteTransitGatewayPeeringAttachmentResult",
     TransitGatewayPeeringAttachment: undefined,
   };
   if (output["transitGatewayPeeringAttachment"] !== undefined) {
@@ -46988,7 +46484,6 @@ const deserializeAws_ec2DeleteTransitGatewayResult = (
   context: __SerdeContext
 ): DeleteTransitGatewayResult => {
   let contents: any = {
-    __type: "DeleteTransitGatewayResult",
     TransitGateway: undefined,
   };
   if (output["transitGateway"] !== undefined) {
@@ -47002,7 +46497,6 @@ const deserializeAws_ec2DeleteTransitGatewayRouteResult = (
   context: __SerdeContext
 ): DeleteTransitGatewayRouteResult => {
   let contents: any = {
-    __type: "DeleteTransitGatewayRouteResult",
     Route: undefined,
   };
   if (output["route"] !== undefined) {
@@ -47016,7 +46510,6 @@ const deserializeAws_ec2DeleteTransitGatewayRouteTableResult = (
   context: __SerdeContext
 ): DeleteTransitGatewayRouteTableResult => {
   let contents: any = {
-    __type: "DeleteTransitGatewayRouteTableResult",
     TransitGatewayRouteTable: undefined,
   };
   if (output["transitGatewayRouteTable"] !== undefined) {
@@ -47033,7 +46526,6 @@ const deserializeAws_ec2DeleteTransitGatewayVpcAttachmentResult = (
   context: __SerdeContext
 ): DeleteTransitGatewayVpcAttachmentResult => {
   let contents: any = {
-    __type: "DeleteTransitGatewayVpcAttachmentResult",
     TransitGatewayVpcAttachment: undefined,
   };
   if (output["transitGatewayVpcAttachment"] !== undefined) {
@@ -47050,7 +46542,6 @@ const deserializeAws_ec2DeleteVpcEndpointConnectionNotificationsResult = (
   context: __SerdeContext
 ): DeleteVpcEndpointConnectionNotificationsResult => {
   let contents: any = {
-    __type: "DeleteVpcEndpointConnectionNotificationsResult",
     Unsuccessful: undefined,
   };
   if (output.unsuccessful === "") {
@@ -47070,7 +46561,6 @@ const deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsResult = (
   context: __SerdeContext
 ): DeleteVpcEndpointServiceConfigurationsResult => {
   let contents: any = {
-    __type: "DeleteVpcEndpointServiceConfigurationsResult",
     Unsuccessful: undefined,
   };
   if (output.unsuccessful === "") {
@@ -47087,7 +46577,6 @@ const deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsResult = (
 
 const deserializeAws_ec2DeleteVpcEndpointsResult = (output: any, context: __SerdeContext): DeleteVpcEndpointsResult => {
   let contents: any = {
-    __type: "DeleteVpcEndpointsResult",
     Unsuccessful: undefined,
   };
   if (output.unsuccessful === "") {
@@ -47107,7 +46596,6 @@ const deserializeAws_ec2DeleteVpcPeeringConnectionResult = (
   context: __SerdeContext
 ): DeleteVpcPeeringConnectionResult => {
   let contents: any = {
-    __type: "DeleteVpcPeeringConnectionResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -47121,7 +46609,6 @@ const deserializeAws_ec2DeprovisionByoipCidrResult = (
   context: __SerdeContext
 ): DeprovisionByoipCidrResult => {
   let contents: any = {
-    __type: "DeprovisionByoipCidrResult",
     ByoipCidr: undefined,
   };
   if (output["byoipCidr"] !== undefined) {
@@ -47135,7 +46622,6 @@ const deserializeAws_ec2DeregisterInstanceEventNotificationAttributesResult = (
   context: __SerdeContext
 ): DeregisterInstanceEventNotificationAttributesResult => {
   let contents: any = {
-    __type: "DeregisterInstanceEventNotificationAttributesResult",
     InstanceTagAttribute: undefined,
   };
   if (output["instanceTagAttribute"] !== undefined) {
@@ -47152,7 +46638,6 @@ const deserializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersResult = (
   context: __SerdeContext
 ): DeregisterTransitGatewayMulticastGroupMembersResult => {
   let contents: any = {
-    __type: "DeregisterTransitGatewayMulticastGroupMembersResult",
     DeregisteredMulticastGroupMembers: undefined,
   };
   if (output["deregisteredMulticastGroupMembers"] !== undefined) {
@@ -47169,7 +46654,6 @@ const deserializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesResult = (
   context: __SerdeContext
 ): DeregisterTransitGatewayMulticastGroupSourcesResult => {
   let contents: any = {
-    __type: "DeregisterTransitGatewayMulticastGroupSourcesResult",
     DeregisteredMulticastGroupSources: undefined,
   };
   if (output["deregisteredMulticastGroupSources"] !== undefined) {
@@ -47186,7 +46670,6 @@ const deserializeAws_ec2DescribeAccountAttributesResult = (
   context: __SerdeContext
 ): DescribeAccountAttributesResult => {
   let contents: any = {
-    __type: "DescribeAccountAttributesResult",
     AccountAttributes: undefined,
   };
   if (output.accountAttributeSet === "") {
@@ -47203,7 +46686,6 @@ const deserializeAws_ec2DescribeAccountAttributesResult = (
 
 const deserializeAws_ec2DescribeAddressesResult = (output: any, context: __SerdeContext): DescribeAddressesResult => {
   let contents: any = {
-    __type: "DescribeAddressesResult",
     Addresses: undefined,
   };
   if (output.addressesSet === "") {
@@ -47220,7 +46702,6 @@ const deserializeAws_ec2DescribeAggregateIdFormatResult = (
   context: __SerdeContext
 ): DescribeAggregateIdFormatResult => {
   let contents: any = {
-    __type: "DescribeAggregateIdFormatResult",
     Statuses: undefined,
     UseLongIdsAggregated: undefined,
   };
@@ -47241,7 +46722,6 @@ const deserializeAws_ec2DescribeAvailabilityZonesResult = (
   context: __SerdeContext
 ): DescribeAvailabilityZonesResult => {
   let contents: any = {
-    __type: "DescribeAvailabilityZonesResult",
     AvailabilityZones: undefined,
   };
   if (output.availabilityZoneInfo === "") {
@@ -47261,7 +46741,6 @@ const deserializeAws_ec2DescribeBundleTasksResult = (
   context: __SerdeContext
 ): DescribeBundleTasksResult => {
   let contents: any = {
-    __type: "DescribeBundleTasksResult",
     BundleTasks: undefined,
   };
   if (output.bundleInstanceTasksSet === "") {
@@ -47278,7 +46757,6 @@ const deserializeAws_ec2DescribeBundleTasksResult = (
 
 const deserializeAws_ec2DescribeByoipCidrsResult = (output: any, context: __SerdeContext): DescribeByoipCidrsResult => {
   let contents: any = {
-    __type: "DescribeByoipCidrsResult",
     NextToken: undefined,
     ByoipCidrs: undefined,
   };
@@ -47302,7 +46780,6 @@ const deserializeAws_ec2DescribeCapacityReservationsResult = (
   context: __SerdeContext
 ): DescribeCapacityReservationsResult => {
   let contents: any = {
-    __type: "DescribeCapacityReservationsResult",
     NextToken: undefined,
     CapacityReservations: undefined,
   };
@@ -47326,7 +46803,6 @@ const deserializeAws_ec2DescribeClassicLinkInstancesResult = (
   context: __SerdeContext
 ): DescribeClassicLinkInstancesResult => {
   let contents: any = {
-    __type: "DescribeClassicLinkInstancesResult",
     Instances: undefined,
     NextToken: undefined,
   };
@@ -47350,7 +46826,6 @@ const deserializeAws_ec2DescribeClientVpnAuthorizationRulesResult = (
   context: __SerdeContext
 ): DescribeClientVpnAuthorizationRulesResult => {
   let contents: any = {
-    __type: "DescribeClientVpnAuthorizationRulesResult",
     AuthorizationRules: undefined,
     NextToken: undefined,
   };
@@ -47374,7 +46849,6 @@ const deserializeAws_ec2DescribeClientVpnConnectionsResult = (
   context: __SerdeContext
 ): DescribeClientVpnConnectionsResult => {
   let contents: any = {
-    __type: "DescribeClientVpnConnectionsResult",
     Connections: undefined,
     NextToken: undefined,
   };
@@ -47398,7 +46872,6 @@ const deserializeAws_ec2DescribeClientVpnEndpointsResult = (
   context: __SerdeContext
 ): DescribeClientVpnEndpointsResult => {
   let contents: any = {
-    __type: "DescribeClientVpnEndpointsResult",
     ClientVpnEndpoints: undefined,
     NextToken: undefined,
   };
@@ -47422,7 +46895,6 @@ const deserializeAws_ec2DescribeClientVpnRoutesResult = (
   context: __SerdeContext
 ): DescribeClientVpnRoutesResult => {
   let contents: any = {
-    __type: "DescribeClientVpnRoutesResult",
     NextToken: undefined,
     Routes: undefined,
   };
@@ -47443,7 +46915,6 @@ const deserializeAws_ec2DescribeClientVpnTargetNetworksResult = (
   context: __SerdeContext
 ): DescribeClientVpnTargetNetworksResult => {
   let contents: any = {
-    __type: "DescribeClientVpnTargetNetworksResult",
     NextToken: undefined,
     ClientVpnTargetNetworks: undefined,
   };
@@ -47464,7 +46935,6 @@ const deserializeAws_ec2DescribeClientVpnTargetNetworksResult = (
 
 const deserializeAws_ec2DescribeCoipPoolsResult = (output: any, context: __SerdeContext): DescribeCoipPoolsResult => {
   let contents: any = {
-    __type: "DescribeCoipPoolsResult",
     CoipPools: undefined,
     NextToken: undefined,
   };
@@ -47489,7 +46959,6 @@ const deserializeAws_ec2DescribeConversionTasksResult = (
   context: __SerdeContext
 ): DescribeConversionTasksResult => {
   let contents: any = {
-    __type: "DescribeConversionTasksResult",
     ConversionTasks: undefined,
   };
   if (output.conversionTasks === "") {
@@ -47509,7 +46978,6 @@ const deserializeAws_ec2DescribeCustomerGatewaysResult = (
   context: __SerdeContext
 ): DescribeCustomerGatewaysResult => {
   let contents: any = {
-    __type: "DescribeCustomerGatewaysResult",
     CustomerGateways: undefined,
   };
   if (output.customerGatewaySet === "") {
@@ -47529,7 +46997,6 @@ const deserializeAws_ec2DescribeDhcpOptionsResult = (
   context: __SerdeContext
 ): DescribeDhcpOptionsResult => {
   let contents: any = {
-    __type: "DescribeDhcpOptionsResult",
     NextToken: undefined,
     DhcpOptions: undefined,
   };
@@ -47553,7 +47020,6 @@ const deserializeAws_ec2DescribeEgressOnlyInternetGatewaysResult = (
   context: __SerdeContext
 ): DescribeEgressOnlyInternetGatewaysResult => {
   let contents: any = {
-    __type: "DescribeEgressOnlyInternetGatewaysResult",
     NextToken: undefined,
     EgressOnlyInternetGateways: undefined,
   };
@@ -47580,7 +47046,6 @@ const deserializeAws_ec2DescribeElasticGpusResult = (
   context: __SerdeContext
 ): DescribeElasticGpusResult => {
   let contents: any = {
-    __type: "DescribeElasticGpusResult",
     MaxResults: undefined,
     NextToken: undefined,
     ElasticGpuSet: undefined,
@@ -47608,7 +47073,6 @@ const deserializeAws_ec2DescribeExportImageTasksResult = (
   context: __SerdeContext
 ): DescribeExportImageTasksResult => {
   let contents: any = {
-    __type: "DescribeExportImageTasksResult",
     ExportImageTasks: undefined,
     NextToken: undefined,
   };
@@ -47632,7 +47096,6 @@ const deserializeAws_ec2DescribeExportTasksResult = (
   context: __SerdeContext
 ): DescribeExportTasksResult => {
   let contents: any = {
-    __type: "DescribeExportTasksResult",
     ExportTasks: undefined,
   };
   if (output.exportTaskSet === "") {
@@ -47652,7 +47115,6 @@ const deserializeAws_ec2DescribeFastSnapshotRestoresResult = (
   context: __SerdeContext
 ): DescribeFastSnapshotRestoresResult => {
   let contents: any = {
-    __type: "DescribeFastSnapshotRestoresResult",
     NextToken: undefined,
     FastSnapshotRestores: undefined,
   };
@@ -47676,7 +47138,6 @@ const deserializeAws_ec2DescribeFastSnapshotRestoreSuccessItem = (
   context: __SerdeContext
 ): DescribeFastSnapshotRestoreSuccessItem => {
   let contents: any = {
-    __type: "DescribeFastSnapshotRestoreSuccessItem",
     SnapshotId: undefined,
     EnabledTime: undefined,
     DisablingTime: undefined,
@@ -47734,7 +47195,6 @@ const deserializeAws_ec2DescribeFastSnapshotRestoreSuccessSet = (
 
 const deserializeAws_ec2DescribeFleetError = (output: any, context: __SerdeContext): DescribeFleetError => {
   let contents: any = {
-    __type: "DescribeFleetError",
     ErrorCode: undefined,
     ErrorMessage: undefined,
     Lifecycle: undefined,
@@ -47763,7 +47223,6 @@ const deserializeAws_ec2DescribeFleetHistoryResult = (
   context: __SerdeContext
 ): DescribeFleetHistoryResult => {
   let contents: any = {
-    __type: "DescribeFleetHistoryResult",
     HistoryRecords: undefined,
     StartTime: undefined,
     LastEvaluatedTime: undefined,
@@ -47799,7 +47258,6 @@ const deserializeAws_ec2DescribeFleetInstancesResult = (
   context: __SerdeContext
 ): DescribeFleetInstancesResult => {
   let contents: any = {
-    __type: "DescribeFleetInstancesResult",
     ActiveInstances: undefined,
     NextToken: undefined,
     FleetId: undefined,
@@ -47828,7 +47286,6 @@ const deserializeAws_ec2DescribeFleetsErrorSet = (output: any, context: __SerdeC
 
 const deserializeAws_ec2DescribeFleetsInstances = (output: any, context: __SerdeContext): DescribeFleetsInstances => {
   let contents: any = {
-    __type: "DescribeFleetsInstances",
     InstanceIds: undefined,
     Lifecycle: undefined,
     Platform: undefined,
@@ -47871,7 +47328,6 @@ const deserializeAws_ec2DescribeFleetsInstancesSet = (
 
 const deserializeAws_ec2DescribeFleetsResult = (output: any, context: __SerdeContext): DescribeFleetsResult => {
   let contents: any = {
-    __type: "DescribeFleetsResult",
     Fleets: undefined,
     NextToken: undefined,
   };
@@ -47889,7 +47345,6 @@ const deserializeAws_ec2DescribeFleetsResult = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2DescribeFlowLogsResult = (output: any, context: __SerdeContext): DescribeFlowLogsResult => {
   let contents: any = {
-    __type: "DescribeFlowLogsResult",
     FlowLogs: undefined,
     NextToken: undefined,
   };
@@ -47910,7 +47365,6 @@ const deserializeAws_ec2DescribeFpgaImageAttributeResult = (
   context: __SerdeContext
 ): DescribeFpgaImageAttributeResult => {
   let contents: any = {
-    __type: "DescribeFpgaImageAttributeResult",
     FpgaImageAttribute: undefined,
   };
   if (output["fpgaImageAttribute"] !== undefined) {
@@ -47921,7 +47375,6 @@ const deserializeAws_ec2DescribeFpgaImageAttributeResult = (
 
 const deserializeAws_ec2DescribeFpgaImagesResult = (output: any, context: __SerdeContext): DescribeFpgaImagesResult => {
   let contents: any = {
-    __type: "DescribeFpgaImagesResult",
     NextToken: undefined,
     FpgaImages: undefined,
   };
@@ -47945,7 +47398,6 @@ const deserializeAws_ec2DescribeHostReservationOfferingsResult = (
   context: __SerdeContext
 ): DescribeHostReservationOfferingsResult => {
   let contents: any = {
-    __type: "DescribeHostReservationOfferingsResult",
     NextToken: undefined,
     OfferingSet: undefined,
   };
@@ -47969,7 +47421,6 @@ const deserializeAws_ec2DescribeHostReservationsResult = (
   context: __SerdeContext
 ): DescribeHostReservationsResult => {
   let contents: any = {
-    __type: "DescribeHostReservationsResult",
     HostReservationSet: undefined,
     NextToken: undefined,
   };
@@ -47990,7 +47441,6 @@ const deserializeAws_ec2DescribeHostReservationsResult = (
 
 const deserializeAws_ec2DescribeHostsResult = (output: any, context: __SerdeContext): DescribeHostsResult => {
   let contents: any = {
-    __type: "DescribeHostsResult",
     Hosts: undefined,
     NextToken: undefined,
   };
@@ -48011,7 +47461,6 @@ const deserializeAws_ec2DescribeIamInstanceProfileAssociationsResult = (
   context: __SerdeContext
 ): DescribeIamInstanceProfileAssociationsResult => {
   let contents: any = {
-    __type: "DescribeIamInstanceProfileAssociationsResult",
     IamInstanceProfileAssociations: undefined,
     NextToken: undefined,
   };
@@ -48038,7 +47487,6 @@ const deserializeAws_ec2DescribeIdentityIdFormatResult = (
   context: __SerdeContext
 ): DescribeIdentityIdFormatResult => {
   let contents: any = {
-    __type: "DescribeIdentityIdFormatResult",
     Statuses: undefined,
   };
   if (output.statusSet === "") {
@@ -48052,7 +47500,6 @@ const deserializeAws_ec2DescribeIdentityIdFormatResult = (
 
 const deserializeAws_ec2DescribeIdFormatResult = (output: any, context: __SerdeContext): DescribeIdFormatResult => {
   let contents: any = {
-    __type: "DescribeIdFormatResult",
     Statuses: undefined,
   };
   if (output.statusSet === "") {
@@ -48066,7 +47513,6 @@ const deserializeAws_ec2DescribeIdFormatResult = (output: any, context: __SerdeC
 
 const deserializeAws_ec2DescribeImagesResult = (output: any, context: __SerdeContext): DescribeImagesResult => {
   let contents: any = {
-    __type: "DescribeImagesResult",
     Images: undefined,
   };
   if (output.imagesSet === "") {
@@ -48083,7 +47529,6 @@ const deserializeAws_ec2DescribeImportImageTasksResult = (
   context: __SerdeContext
 ): DescribeImportImageTasksResult => {
   let contents: any = {
-    __type: "DescribeImportImageTasksResult",
     ImportImageTasks: undefined,
     NextToken: undefined,
   };
@@ -48107,7 +47552,6 @@ const deserializeAws_ec2DescribeImportSnapshotTasksResult = (
   context: __SerdeContext
 ): DescribeImportSnapshotTasksResult => {
   let contents: any = {
-    __type: "DescribeImportSnapshotTasksResult",
     NextToken: undefined,
     ImportSnapshotTasks: undefined,
   };
@@ -48131,7 +47575,6 @@ const deserializeAws_ec2DescribeInstanceCreditSpecificationsResult = (
   context: __SerdeContext
 ): DescribeInstanceCreditSpecificationsResult => {
   let contents: any = {
-    __type: "DescribeInstanceCreditSpecificationsResult",
     InstanceCreditSpecifications: undefined,
     NextToken: undefined,
   };
@@ -48158,7 +47601,6 @@ const deserializeAws_ec2DescribeInstanceEventNotificationAttributesResult = (
   context: __SerdeContext
 ): DescribeInstanceEventNotificationAttributesResult => {
   let contents: any = {
-    __type: "DescribeInstanceEventNotificationAttributesResult",
     InstanceTagAttribute: undefined,
   };
   if (output["instanceTagAttribute"] !== undefined) {
@@ -48172,7 +47614,6 @@ const deserializeAws_ec2DescribeInstanceEventNotificationAttributesResult = (
 
 const deserializeAws_ec2DescribeInstancesResult = (output: any, context: __SerdeContext): DescribeInstancesResult => {
   let contents: any = {
-    __type: "DescribeInstancesResult",
     NextToken: undefined,
     Reservations: undefined,
   };
@@ -48196,7 +47637,6 @@ const deserializeAws_ec2DescribeInstanceStatusResult = (
   context: __SerdeContext
 ): DescribeInstanceStatusResult => {
   let contents: any = {
-    __type: "DescribeInstanceStatusResult",
     NextToken: undefined,
     InstanceStatuses: undefined,
   };
@@ -48220,7 +47660,6 @@ const deserializeAws_ec2DescribeInstanceTypeOfferingsResult = (
   context: __SerdeContext
 ): DescribeInstanceTypeOfferingsResult => {
   let contents: any = {
-    __type: "DescribeInstanceTypeOfferingsResult",
     NextToken: undefined,
     InstanceTypeOfferings: undefined,
   };
@@ -48244,7 +47683,6 @@ const deserializeAws_ec2DescribeInstanceTypesResult = (
   context: __SerdeContext
 ): DescribeInstanceTypesResult => {
   let contents: any = {
-    __type: "DescribeInstanceTypesResult",
     InstanceTypes: undefined,
     NextToken: undefined,
   };
@@ -48268,7 +47706,6 @@ const deserializeAws_ec2DescribeInternetGatewaysResult = (
   context: __SerdeContext
 ): DescribeInternetGatewaysResult => {
   let contents: any = {
-    __type: "DescribeInternetGatewaysResult",
     InternetGateways: undefined,
     NextToken: undefined,
   };
@@ -48289,7 +47726,6 @@ const deserializeAws_ec2DescribeInternetGatewaysResult = (
 
 const deserializeAws_ec2DescribeIpv6PoolsResult = (output: any, context: __SerdeContext): DescribeIpv6PoolsResult => {
   let contents: any = {
-    __type: "DescribeIpv6PoolsResult",
     NextToken: undefined,
     Ipv6Pools: undefined,
   };
@@ -48307,7 +47743,6 @@ const deserializeAws_ec2DescribeIpv6PoolsResult = (output: any, context: __Serde
 
 const deserializeAws_ec2DescribeKeyPairsResult = (output: any, context: __SerdeContext): DescribeKeyPairsResult => {
   let contents: any = {
-    __type: "DescribeKeyPairsResult",
     KeyPairs: undefined,
   };
   if (output.keySet === "") {
@@ -48324,7 +47759,6 @@ const deserializeAws_ec2DescribeLaunchTemplatesResult = (
   context: __SerdeContext
 ): DescribeLaunchTemplatesResult => {
   let contents: any = {
-    __type: "DescribeLaunchTemplatesResult",
     NextToken: undefined,
     LaunchTemplates: undefined,
   };
@@ -48348,7 +47782,6 @@ const deserializeAws_ec2DescribeLaunchTemplateVersionsResult = (
   context: __SerdeContext
 ): DescribeLaunchTemplateVersionsResult => {
   let contents: any = {
-    __type: "DescribeLaunchTemplateVersionsResult",
     LaunchTemplateVersions: undefined,
     NextToken: undefined,
   };
@@ -48372,7 +47805,6 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTablesResult = (
   context: __SerdeContext
 ): DescribeLocalGatewayRouteTablesResult => {
   let contents: any = {
-    __type: "DescribeLocalGatewayRouteTablesResult",
     LocalGatewayRouteTables: undefined,
     NextToken: undefined,
   };
@@ -48396,7 +47828,6 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssoc
   context: __SerdeContext
 ): DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult => {
   let contents: any = {
-    __type: "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult",
     LocalGatewayRouteTableVirtualInterfaceGroupAssociations: undefined,
     NextToken: undefined,
   };
@@ -48423,7 +47854,6 @@ const deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsResult = (
   context: __SerdeContext
 ): DescribeLocalGatewayRouteTableVpcAssociationsResult => {
   let contents: any = {
-    __type: "DescribeLocalGatewayRouteTableVpcAssociationsResult",
     LocalGatewayRouteTableVpcAssociations: undefined,
     NextToken: undefined,
   };
@@ -48450,7 +47880,6 @@ const deserializeAws_ec2DescribeLocalGatewaysResult = (
   context: __SerdeContext
 ): DescribeLocalGatewaysResult => {
   let contents: any = {
-    __type: "DescribeLocalGatewaysResult",
     LocalGateways: undefined,
     NextToken: undefined,
   };
@@ -48474,7 +47903,6 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsResult = (
   context: __SerdeContext
 ): DescribeLocalGatewayVirtualInterfaceGroupsResult => {
   let contents: any = {
-    __type: "DescribeLocalGatewayVirtualInterfaceGroupsResult",
     NextToken: undefined,
     LocalGatewayVirtualInterfaceGroups: undefined,
   };
@@ -48501,7 +47929,6 @@ const deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesResult = (
   context: __SerdeContext
 ): DescribeLocalGatewayVirtualInterfacesResult => {
   let contents: any = {
-    __type: "DescribeLocalGatewayVirtualInterfacesResult",
     LocalGatewayVirtualInterfaces: undefined,
     NextToken: undefined,
   };
@@ -48528,7 +47955,6 @@ const deserializeAws_ec2DescribeManagedPrefixListsResult = (
   context: __SerdeContext
 ): DescribeManagedPrefixListsResult => {
   let contents: any = {
-    __type: "DescribeManagedPrefixListsResult",
     NextToken: undefined,
     PrefixLists: undefined,
   };
@@ -48552,7 +47978,6 @@ const deserializeAws_ec2DescribeMovingAddressesResult = (
   context: __SerdeContext
 ): DescribeMovingAddressesResult => {
   let contents: any = {
-    __type: "DescribeMovingAddressesResult",
     NextToken: undefined,
     MovingAddressStatuses: undefined,
   };
@@ -48576,7 +48001,6 @@ const deserializeAws_ec2DescribeNatGatewaysResult = (
   context: __SerdeContext
 ): DescribeNatGatewaysResult => {
   let contents: any = {
-    __type: "DescribeNatGatewaysResult",
     NextToken: undefined,
     NatGateways: undefined,
   };
@@ -48600,7 +48024,6 @@ const deserializeAws_ec2DescribeNetworkAclsResult = (
   context: __SerdeContext
 ): DescribeNetworkAclsResult => {
   let contents: any = {
-    __type: "DescribeNetworkAclsResult",
     NetworkAcls: undefined,
     NextToken: undefined,
   };
@@ -48624,7 +48047,6 @@ const deserializeAws_ec2DescribeNetworkInterfaceAttributeResult = (
   context: __SerdeContext
 ): DescribeNetworkInterfaceAttributeResult => {
   let contents: any = {
-    __type: "DescribeNetworkInterfaceAttributeResult",
     Groups: undefined,
     Description: undefined,
     Attachment: undefined,
@@ -48660,7 +48082,6 @@ const deserializeAws_ec2DescribeNetworkInterfacePermissionsResult = (
   context: __SerdeContext
 ): DescribeNetworkInterfacePermissionsResult => {
   let contents: any = {
-    __type: "DescribeNetworkInterfacePermissionsResult",
     NextToken: undefined,
     NetworkInterfacePermissions: undefined,
   };
@@ -48687,7 +48108,6 @@ const deserializeAws_ec2DescribeNetworkInterfacesResult = (
   context: __SerdeContext
 ): DescribeNetworkInterfacesResult => {
   let contents: any = {
-    __type: "DescribeNetworkInterfacesResult",
     NetworkInterfaces: undefined,
     NextToken: undefined,
   };
@@ -48711,7 +48131,6 @@ const deserializeAws_ec2DescribePlacementGroupsResult = (
   context: __SerdeContext
 ): DescribePlacementGroupsResult => {
   let contents: any = {
-    __type: "DescribePlacementGroupsResult",
     PlacementGroups: undefined,
   };
   if (output.placementGroupSet === "") {
@@ -48731,7 +48150,6 @@ const deserializeAws_ec2DescribePrefixListsResult = (
   context: __SerdeContext
 ): DescribePrefixListsResult => {
   let contents: any = {
-    __type: "DescribePrefixListsResult",
     PrefixLists: undefined,
     NextToken: undefined,
   };
@@ -48755,7 +48173,6 @@ const deserializeAws_ec2DescribePrincipalIdFormatResult = (
   context: __SerdeContext
 ): DescribePrincipalIdFormatResult => {
   let contents: any = {
-    __type: "DescribePrincipalIdFormatResult",
     NextToken: undefined,
     Principals: undefined,
   };
@@ -48779,7 +48196,6 @@ const deserializeAws_ec2DescribePublicIpv4PoolsResult = (
   context: __SerdeContext
 ): DescribePublicIpv4PoolsResult => {
   let contents: any = {
-    __type: "DescribePublicIpv4PoolsResult",
     PublicIpv4Pools: undefined,
     NextToken: undefined,
   };
@@ -48800,7 +48216,6 @@ const deserializeAws_ec2DescribePublicIpv4PoolsResult = (
 
 const deserializeAws_ec2DescribeRegionsResult = (output: any, context: __SerdeContext): DescribeRegionsResult => {
   let contents: any = {
-    __type: "DescribeRegionsResult",
     Regions: undefined,
   };
   if (output.regionInfo === "") {
@@ -48817,7 +48232,6 @@ const deserializeAws_ec2DescribeReservedInstancesListingsResult = (
   context: __SerdeContext
 ): DescribeReservedInstancesListingsResult => {
   let contents: any = {
-    __type: "DescribeReservedInstancesListingsResult",
     ReservedInstancesListings: undefined,
   };
   if (output.reservedInstancesListingsSet === "") {
@@ -48840,7 +48254,6 @@ const deserializeAws_ec2DescribeReservedInstancesModificationsResult = (
   context: __SerdeContext
 ): DescribeReservedInstancesModificationsResult => {
   let contents: any = {
-    __type: "DescribeReservedInstancesModificationsResult",
     ReservedInstancesModifications: undefined,
     NextToken: undefined,
   };
@@ -48867,7 +48280,6 @@ const deserializeAws_ec2DescribeReservedInstancesOfferingsResult = (
   context: __SerdeContext
 ): DescribeReservedInstancesOfferingsResult => {
   let contents: any = {
-    __type: "DescribeReservedInstancesOfferingsResult",
     ReservedInstancesOfferings: undefined,
     NextToken: undefined,
   };
@@ -48894,7 +48306,6 @@ const deserializeAws_ec2DescribeReservedInstancesResult = (
   context: __SerdeContext
 ): DescribeReservedInstancesResult => {
   let contents: any = {
-    __type: "DescribeReservedInstancesResult",
     ReservedInstances: undefined,
   };
   if (output.reservedInstancesSet === "") {
@@ -48914,7 +48325,6 @@ const deserializeAws_ec2DescribeRouteTablesResult = (
   context: __SerdeContext
 ): DescribeRouteTablesResult => {
   let contents: any = {
-    __type: "DescribeRouteTablesResult",
     NextToken: undefined,
     RouteTables: undefined,
   };
@@ -48938,7 +48348,6 @@ const deserializeAws_ec2DescribeScheduledInstanceAvailabilityResult = (
   context: __SerdeContext
 ): DescribeScheduledInstanceAvailabilityResult => {
   let contents: any = {
-    __type: "DescribeScheduledInstanceAvailabilityResult",
     ScheduledInstanceAvailabilitySet: undefined,
     NextToken: undefined,
   };
@@ -48965,7 +48374,6 @@ const deserializeAws_ec2DescribeScheduledInstancesResult = (
   context: __SerdeContext
 ): DescribeScheduledInstancesResult => {
   let contents: any = {
-    __type: "DescribeScheduledInstancesResult",
     NextToken: undefined,
     ScheduledInstanceSet: undefined,
   };
@@ -48989,7 +48397,6 @@ const deserializeAws_ec2DescribeSecurityGroupReferencesResult = (
   context: __SerdeContext
 ): DescribeSecurityGroupReferencesResult => {
   let contents: any = {
-    __type: "DescribeSecurityGroupReferencesResult",
     SecurityGroupReferenceSet: undefined,
   };
   if (output.securityGroupReferenceSet === "") {
@@ -49009,7 +48416,6 @@ const deserializeAws_ec2DescribeSecurityGroupsResult = (
   context: __SerdeContext
 ): DescribeSecurityGroupsResult => {
   let contents: any = {
-    __type: "DescribeSecurityGroupsResult",
     SecurityGroups: undefined,
     NextToken: undefined,
   };
@@ -49033,7 +48439,6 @@ const deserializeAws_ec2DescribeSnapshotAttributeResult = (
   context: __SerdeContext
 ): DescribeSnapshotAttributeResult => {
   let contents: any = {
-    __type: "DescribeSnapshotAttributeResult",
     SnapshotId: undefined,
     ProductCodes: undefined,
     CreateVolumePermissions: undefined,
@@ -49064,7 +48469,6 @@ const deserializeAws_ec2DescribeSnapshotAttributeResult = (
 
 const deserializeAws_ec2DescribeSnapshotsResult = (output: any, context: __SerdeContext): DescribeSnapshotsResult => {
   let contents: any = {
-    __type: "DescribeSnapshotsResult",
     Snapshots: undefined,
     NextToken: undefined,
   };
@@ -49085,7 +48489,6 @@ const deserializeAws_ec2DescribeSpotDatafeedSubscriptionResult = (
   context: __SerdeContext
 ): DescribeSpotDatafeedSubscriptionResult => {
   let contents: any = {
-    __type: "DescribeSpotDatafeedSubscriptionResult",
     SpotDatafeedSubscription: undefined,
   };
   if (output["spotDatafeedSubscription"] !== undefined) {
@@ -49102,7 +48505,6 @@ const deserializeAws_ec2DescribeSpotFleetInstancesResponse = (
   context: __SerdeContext
 ): DescribeSpotFleetInstancesResponse => {
   let contents: any = {
-    __type: "DescribeSpotFleetInstancesResponse",
     NextToken: undefined,
     SpotFleetRequestId: undefined,
     ActiveInstances: undefined,
@@ -49130,7 +48532,6 @@ const deserializeAws_ec2DescribeSpotFleetRequestHistoryResponse = (
   context: __SerdeContext
 ): DescribeSpotFleetRequestHistoryResponse => {
   let contents: any = {
-    __type: "DescribeSpotFleetRequestHistoryResponse",
     HistoryRecords: undefined,
     StartTime: undefined,
     SpotFleetRequestId: undefined,
@@ -49166,7 +48567,6 @@ const deserializeAws_ec2DescribeSpotFleetRequestsResponse = (
   context: __SerdeContext
 ): DescribeSpotFleetRequestsResponse => {
   let contents: any = {
-    __type: "DescribeSpotFleetRequestsResponse",
     NextToken: undefined,
     SpotFleetRequestConfigs: undefined,
   };
@@ -49190,7 +48590,6 @@ const deserializeAws_ec2DescribeSpotInstanceRequestsResult = (
   context: __SerdeContext
 ): DescribeSpotInstanceRequestsResult => {
   let contents: any = {
-    __type: "DescribeSpotInstanceRequestsResult",
     SpotInstanceRequests: undefined,
     NextToken: undefined,
   };
@@ -49214,7 +48613,6 @@ const deserializeAws_ec2DescribeSpotPriceHistoryResult = (
   context: __SerdeContext
 ): DescribeSpotPriceHistoryResult => {
   let contents: any = {
-    __type: "DescribeSpotPriceHistoryResult",
     NextToken: undefined,
     SpotPriceHistory: undefined,
   };
@@ -49238,7 +48636,6 @@ const deserializeAws_ec2DescribeStaleSecurityGroupsResult = (
   context: __SerdeContext
 ): DescribeStaleSecurityGroupsResult => {
   let contents: any = {
-    __type: "DescribeStaleSecurityGroupsResult",
     StaleSecurityGroupSet: undefined,
     NextToken: undefined,
   };
@@ -49259,7 +48656,6 @@ const deserializeAws_ec2DescribeStaleSecurityGroupsResult = (
 
 const deserializeAws_ec2DescribeSubnetsResult = (output: any, context: __SerdeContext): DescribeSubnetsResult => {
   let contents: any = {
-    __type: "DescribeSubnetsResult",
     Subnets: undefined,
     NextToken: undefined,
   };
@@ -49277,7 +48673,6 @@ const deserializeAws_ec2DescribeSubnetsResult = (output: any, context: __SerdeCo
 
 const deserializeAws_ec2DescribeTagsResult = (output: any, context: __SerdeContext): DescribeTagsResult => {
   let contents: any = {
-    __type: "DescribeTagsResult",
     NextToken: undefined,
     Tags: undefined,
   };
@@ -49298,7 +48693,6 @@ const deserializeAws_ec2DescribeTrafficMirrorFiltersResult = (
   context: __SerdeContext
 ): DescribeTrafficMirrorFiltersResult => {
   let contents: any = {
-    __type: "DescribeTrafficMirrorFiltersResult",
     TrafficMirrorFilters: undefined,
     NextToken: undefined,
   };
@@ -49322,7 +48716,6 @@ const deserializeAws_ec2DescribeTrafficMirrorSessionsResult = (
   context: __SerdeContext
 ): DescribeTrafficMirrorSessionsResult => {
   let contents: any = {
-    __type: "DescribeTrafficMirrorSessionsResult",
     NextToken: undefined,
     TrafficMirrorSessions: undefined,
   };
@@ -49346,7 +48739,6 @@ const deserializeAws_ec2DescribeTrafficMirrorTargetsResult = (
   context: __SerdeContext
 ): DescribeTrafficMirrorTargetsResult => {
   let contents: any = {
-    __type: "DescribeTrafficMirrorTargetsResult",
     TrafficMirrorTargets: undefined,
     NextToken: undefined,
   };
@@ -49370,7 +48762,6 @@ const deserializeAws_ec2DescribeTransitGatewayAttachmentsResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayAttachmentsResult => {
   let contents: any = {
-    __type: "DescribeTransitGatewayAttachmentsResult",
     TransitGatewayAttachments: undefined,
     NextToken: undefined,
   };
@@ -49394,7 +48785,6 @@ const deserializeAws_ec2DescribeTransitGatewayMulticastDomainsResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayMulticastDomainsResult => {
   let contents: any = {
-    __type: "DescribeTransitGatewayMulticastDomainsResult",
     TransitGatewayMulticastDomains: undefined,
     NextToken: undefined,
   };
@@ -49421,7 +48811,6 @@ const deserializeAws_ec2DescribeTransitGatewayPeeringAttachmentsResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayPeeringAttachmentsResult => {
   let contents: any = {
-    __type: "DescribeTransitGatewayPeeringAttachmentsResult",
     NextToken: undefined,
     TransitGatewayPeeringAttachments: undefined,
   };
@@ -49448,7 +48837,6 @@ const deserializeAws_ec2DescribeTransitGatewayRouteTablesResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayRouteTablesResult => {
   let contents: any = {
-    __type: "DescribeTransitGatewayRouteTablesResult",
     TransitGatewayRouteTables: undefined,
     NextToken: undefined,
   };
@@ -49472,7 +48860,6 @@ const deserializeAws_ec2DescribeTransitGatewaysResult = (
   context: __SerdeContext
 ): DescribeTransitGatewaysResult => {
   let contents: any = {
-    __type: "DescribeTransitGatewaysResult",
     TransitGateways: undefined,
     NextToken: undefined,
   };
@@ -49496,7 +48883,6 @@ const deserializeAws_ec2DescribeTransitGatewayVpcAttachmentsResult = (
   context: __SerdeContext
 ): DescribeTransitGatewayVpcAttachmentsResult => {
   let contents: any = {
-    __type: "DescribeTransitGatewayVpcAttachmentsResult",
     TransitGatewayVpcAttachments: undefined,
     NextToken: undefined,
   };
@@ -49523,7 +48909,6 @@ const deserializeAws_ec2DescribeVolumeAttributeResult = (
   context: __SerdeContext
 ): DescribeVolumeAttributeResult => {
   let contents: any = {
-    __type: "DescribeVolumeAttributeResult",
     VolumeId: undefined,
     AutoEnableIO: undefined,
     ProductCodes: undefined,
@@ -49551,7 +48936,6 @@ const deserializeAws_ec2DescribeVolumesModificationsResult = (
   context: __SerdeContext
 ): DescribeVolumesModificationsResult => {
   let contents: any = {
-    __type: "DescribeVolumesModificationsResult",
     VolumesModifications: undefined,
     NextToken: undefined,
   };
@@ -49572,7 +48956,6 @@ const deserializeAws_ec2DescribeVolumesModificationsResult = (
 
 const deserializeAws_ec2DescribeVolumesResult = (output: any, context: __SerdeContext): DescribeVolumesResult => {
   let contents: any = {
-    __type: "DescribeVolumesResult",
     Volumes: undefined,
     NextToken: undefined,
   };
@@ -49593,7 +48976,6 @@ const deserializeAws_ec2DescribeVolumeStatusResult = (
   context: __SerdeContext
 ): DescribeVolumeStatusResult => {
   let contents: any = {
-    __type: "DescribeVolumeStatusResult",
     VolumeStatuses: undefined,
     NextToken: undefined,
   };
@@ -49617,7 +48999,6 @@ const deserializeAws_ec2DescribeVpcAttributeResult = (
   context: __SerdeContext
 ): DescribeVpcAttributeResult => {
   let contents: any = {
-    __type: "DescribeVpcAttributeResult",
     VpcId: undefined,
     EnableDnsSupport: undefined,
     EnableDnsHostnames: undefined,
@@ -49639,7 +49020,6 @@ const deserializeAws_ec2DescribeVpcClassicLinkDnsSupportResult = (
   context: __SerdeContext
 ): DescribeVpcClassicLinkDnsSupportResult => {
   let contents: any = {
-    __type: "DescribeVpcClassicLinkDnsSupportResult",
     Vpcs: undefined,
     NextToken: undefined,
   };
@@ -49663,7 +49043,6 @@ const deserializeAws_ec2DescribeVpcClassicLinkResult = (
   context: __SerdeContext
 ): DescribeVpcClassicLinkResult => {
   let contents: any = {
-    __type: "DescribeVpcClassicLinkResult",
     Vpcs: undefined,
   };
   if (output.vpcSet === "") {
@@ -49680,7 +49059,6 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionNotificationsResult = (
   context: __SerdeContext
 ): DescribeVpcEndpointConnectionNotificationsResult => {
   let contents: any = {
-    __type: "DescribeVpcEndpointConnectionNotificationsResult",
     ConnectionNotificationSet: undefined,
     NextToken: undefined,
   };
@@ -49704,7 +49082,6 @@ const deserializeAws_ec2DescribeVpcEndpointConnectionsResult = (
   context: __SerdeContext
 ): DescribeVpcEndpointConnectionsResult => {
   let contents: any = {
-    __type: "DescribeVpcEndpointConnectionsResult",
     VpcEndpointConnections: undefined,
     NextToken: undefined,
   };
@@ -49728,7 +49105,6 @@ const deserializeAws_ec2DescribeVpcEndpointServiceConfigurationsResult = (
   context: __SerdeContext
 ): DescribeVpcEndpointServiceConfigurationsResult => {
   let contents: any = {
-    __type: "DescribeVpcEndpointServiceConfigurationsResult",
     NextToken: undefined,
     ServiceConfigurations: undefined,
   };
@@ -49752,7 +49128,6 @@ const deserializeAws_ec2DescribeVpcEndpointServicePermissionsResult = (
   context: __SerdeContext
 ): DescribeVpcEndpointServicePermissionsResult => {
   let contents: any = {
-    __type: "DescribeVpcEndpointServicePermissionsResult",
     NextToken: undefined,
     AllowedPrincipals: undefined,
   };
@@ -49776,7 +49151,6 @@ const deserializeAws_ec2DescribeVpcEndpointServicesResult = (
   context: __SerdeContext
 ): DescribeVpcEndpointServicesResult => {
   let contents: any = {
-    __type: "DescribeVpcEndpointServicesResult",
     ServiceNames: undefined,
     NextToken: undefined,
     ServiceDetails: undefined,
@@ -49810,7 +49184,6 @@ const deserializeAws_ec2DescribeVpcEndpointsResult = (
   context: __SerdeContext
 ): DescribeVpcEndpointsResult => {
   let contents: any = {
-    __type: "DescribeVpcEndpointsResult",
     NextToken: undefined,
     VpcEndpoints: undefined,
   };
@@ -49834,7 +49207,6 @@ const deserializeAws_ec2DescribeVpcPeeringConnectionsResult = (
   context: __SerdeContext
 ): DescribeVpcPeeringConnectionsResult => {
   let contents: any = {
-    __type: "DescribeVpcPeeringConnectionsResult",
     VpcPeeringConnections: undefined,
     NextToken: undefined,
   };
@@ -49855,7 +49227,6 @@ const deserializeAws_ec2DescribeVpcPeeringConnectionsResult = (
 
 const deserializeAws_ec2DescribeVpcsResult = (output: any, context: __SerdeContext): DescribeVpcsResult => {
   let contents: any = {
-    __type: "DescribeVpcsResult",
     Vpcs: undefined,
     NextToken: undefined,
   };
@@ -49876,7 +49247,6 @@ const deserializeAws_ec2DescribeVpnConnectionsResult = (
   context: __SerdeContext
 ): DescribeVpnConnectionsResult => {
   let contents: any = {
-    __type: "DescribeVpnConnectionsResult",
     VpnConnections: undefined,
   };
   if (output.vpnConnectionSet === "") {
@@ -49896,7 +49266,6 @@ const deserializeAws_ec2DescribeVpnGatewaysResult = (
   context: __SerdeContext
 ): DescribeVpnGatewaysResult => {
   let contents: any = {
-    __type: "DescribeVpnGatewaysResult",
     VpnGateways: undefined,
   };
   if (output.vpnGatewaySet === "") {
@@ -49916,7 +49285,6 @@ const deserializeAws_ec2DetachClassicLinkVpcResult = (
   context: __SerdeContext
 ): DetachClassicLinkVpcResult => {
   let contents: any = {
-    __type: "DetachClassicLinkVpcResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -49927,7 +49295,6 @@ const deserializeAws_ec2DetachClassicLinkVpcResult = (
 
 const deserializeAws_ec2DhcpConfiguration = (output: any, context: __SerdeContext): DhcpConfiguration => {
   let contents: any = {
-    __type: "DhcpConfiguration",
     Key: undefined,
     Values: undefined,
   };
@@ -49956,7 +49323,6 @@ const deserializeAws_ec2DhcpConfigurationValueList = (output: any, context: __Se
 
 const deserializeAws_ec2DhcpOptions = (output: any, context: __SerdeContext): DhcpOptions => {
   let contents: any = {
-    __type: "DhcpOptions",
     DhcpConfigurations: undefined,
     Tags: undefined,
     DhcpOptionsId: undefined,
@@ -49995,7 +49361,6 @@ const deserializeAws_ec2DirectoryServiceAuthentication = (
   context: __SerdeContext
 ): DirectoryServiceAuthentication => {
   let contents: any = {
-    __type: "DirectoryServiceAuthentication",
     DirectoryId: undefined,
   };
   if (output["directoryId"] !== undefined) {
@@ -50009,7 +49374,6 @@ const deserializeAws_ec2DisableEbsEncryptionByDefaultResult = (
   context: __SerdeContext
 ): DisableEbsEncryptionByDefaultResult => {
   let contents: any = {
-    __type: "DisableEbsEncryptionByDefaultResult",
     EbsEncryptionByDefault: undefined,
   };
   if (output["ebsEncryptionByDefault"] !== undefined) {
@@ -50023,7 +49387,6 @@ const deserializeAws_ec2DisableFastSnapshotRestoreErrorItem = (
   context: __SerdeContext
 ): DisableFastSnapshotRestoreErrorItem => {
   let contents: any = {
-    __type: "DisableFastSnapshotRestoreErrorItem",
     SnapshotId: undefined,
     FastSnapshotRestoreStateErrors: undefined,
   };
@@ -50057,7 +49420,6 @@ const deserializeAws_ec2DisableFastSnapshotRestoresResult = (
   context: __SerdeContext
 ): DisableFastSnapshotRestoresResult => {
   let contents: any = {
-    __type: "DisableFastSnapshotRestoresResult",
     Unsuccessful: undefined,
     Successful: undefined,
   };
@@ -50087,7 +49449,6 @@ const deserializeAws_ec2DisableFastSnapshotRestoreStateError = (
   context: __SerdeContext
 ): DisableFastSnapshotRestoreStateError => {
   let contents: any = {
-    __type: "DisableFastSnapshotRestoreStateError",
     Code: undefined,
     Message: undefined,
   };
@@ -50105,7 +49466,6 @@ const deserializeAws_ec2DisableFastSnapshotRestoreStateErrorItem = (
   context: __SerdeContext
 ): DisableFastSnapshotRestoreStateErrorItem => {
   let contents: any = {
-    __type: "DisableFastSnapshotRestoreStateErrorItem",
     AvailabilityZone: undefined,
     Error: undefined,
   };
@@ -50130,7 +49490,6 @@ const deserializeAws_ec2DisableFastSnapshotRestoreSuccessItem = (
   context: __SerdeContext
 ): DisableFastSnapshotRestoreSuccessItem => {
   let contents: any = {
-    __type: "DisableFastSnapshotRestoreSuccessItem",
     State: undefined,
     EnablingTime: undefined,
     DisabledTime: undefined,
@@ -50191,7 +49550,6 @@ const deserializeAws_ec2DisableTransitGatewayRouteTablePropagationResult = (
   context: __SerdeContext
 ): DisableTransitGatewayRouteTablePropagationResult => {
   let contents: any = {
-    __type: "DisableTransitGatewayRouteTablePropagationResult",
     Propagation: undefined,
   };
   if (output["propagation"] !== undefined) {
@@ -50205,7 +49563,6 @@ const deserializeAws_ec2DisableVpcClassicLinkDnsSupportResult = (
   context: __SerdeContext
 ): DisableVpcClassicLinkDnsSupportResult => {
   let contents: any = {
-    __type: "DisableVpcClassicLinkDnsSupportResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -50219,7 +49576,6 @@ const deserializeAws_ec2DisableVpcClassicLinkResult = (
   context: __SerdeContext
 ): DisableVpcClassicLinkResult => {
   let contents: any = {
-    __type: "DisableVpcClassicLinkResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -50233,7 +49589,6 @@ const deserializeAws_ec2DisassociateClientVpnTargetNetworkResult = (
   context: __SerdeContext
 ): DisassociateClientVpnTargetNetworkResult => {
   let contents: any = {
-    __type: "DisassociateClientVpnTargetNetworkResult",
     AssociationId: undefined,
     Status: undefined,
   };
@@ -50251,7 +49606,6 @@ const deserializeAws_ec2DisassociateIamInstanceProfileResult = (
   context: __SerdeContext
 ): DisassociateIamInstanceProfileResult => {
   let contents: any = {
-    __type: "DisassociateIamInstanceProfileResult",
     IamInstanceProfileAssociation: undefined,
   };
   if (output["iamInstanceProfileAssociation"] !== undefined) {
@@ -50268,7 +49622,6 @@ const deserializeAws_ec2DisassociateSubnetCidrBlockResult = (
   context: __SerdeContext
 ): DisassociateSubnetCidrBlockResult => {
   let contents: any = {
-    __type: "DisassociateSubnetCidrBlockResult",
     Ipv6CidrBlockAssociation: undefined,
     SubnetId: undefined,
   };
@@ -50289,7 +49642,6 @@ const deserializeAws_ec2DisassociateTransitGatewayMulticastDomainResult = (
   context: __SerdeContext
 ): DisassociateTransitGatewayMulticastDomainResult => {
   let contents: any = {
-    __type: "DisassociateTransitGatewayMulticastDomainResult",
     Associations: undefined,
   };
   if (output["associations"] !== undefined) {
@@ -50306,7 +49658,6 @@ const deserializeAws_ec2DisassociateTransitGatewayRouteTableResult = (
   context: __SerdeContext
 ): DisassociateTransitGatewayRouteTableResult => {
   let contents: any = {
-    __type: "DisassociateTransitGatewayRouteTableResult",
     Association: undefined,
   };
   if (output["association"] !== undefined) {
@@ -50320,7 +49671,6 @@ const deserializeAws_ec2DisassociateVpcCidrBlockResult = (
   context: __SerdeContext
 ): DisassociateVpcCidrBlockResult => {
   let contents: any = {
-    __type: "DisassociateVpcCidrBlockResult",
     VpcId: undefined,
     CidrBlockAssociation: undefined,
     Ipv6CidrBlockAssociation: undefined,
@@ -50342,7 +49692,6 @@ const deserializeAws_ec2DisassociateVpcCidrBlockResult = (
 
 const deserializeAws_ec2DiskImageDescription = (output: any, context: __SerdeContext): DiskImageDescription => {
   let contents: any = {
-    __type: "DiskImageDescription",
     Checksum: undefined,
     Format: undefined,
     Size: undefined,
@@ -50368,7 +49717,6 @@ const deserializeAws_ec2DiskImageVolumeDescription = (
   context: __SerdeContext
 ): DiskImageVolumeDescription => {
   let contents: any = {
-    __type: "DiskImageVolumeDescription",
     Id: undefined,
     Size: undefined,
   };
@@ -50383,7 +49731,6 @@ const deserializeAws_ec2DiskImageVolumeDescription = (
 
 const deserializeAws_ec2DiskInfo = (output: any, context: __SerdeContext): DiskInfo => {
   let contents: any = {
-    __type: "DiskInfo",
     SizeInGB: undefined,
     Count: undefined,
     Type: undefined,
@@ -50406,7 +49753,6 @@ const deserializeAws_ec2DiskInfoList = (output: any, context: __SerdeContext): D
 
 const deserializeAws_ec2DnsEntry = (output: any, context: __SerdeContext): DnsEntry => {
   let contents: any = {
-    __type: "DnsEntry",
     HostedZoneId: undefined,
     DnsName: undefined,
   };
@@ -50425,7 +49771,6 @@ const deserializeAws_ec2DnsEntrySet = (output: any, context: __SerdeContext): Dn
 
 const deserializeAws_ec2EbsBlockDevice = (output: any, context: __SerdeContext): EbsBlockDevice => {
   let contents: any = {
-    __type: "EbsBlockDevice",
     VolumeType: undefined,
     SnapshotId: undefined,
     VolumeSize: undefined,
@@ -50460,7 +49805,6 @@ const deserializeAws_ec2EbsBlockDevice = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2EbsInfo = (output: any, context: __SerdeContext): EbsInfo => {
   let contents: any = {
-    __type: "EbsInfo",
     EbsOptimizedSupport: undefined,
     NvmeSupport: undefined,
     EncryptionSupport: undefined,
@@ -50483,7 +49827,6 @@ const deserializeAws_ec2EbsInfo = (output: any, context: __SerdeContext): EbsInf
 
 const deserializeAws_ec2EbsInstanceBlockDevice = (output: any, context: __SerdeContext): EbsInstanceBlockDevice => {
   let contents: any = {
-    __type: "EbsInstanceBlockDevice",
     DeleteOnTermination: undefined,
     VolumeId: undefined,
     Status: undefined,
@@ -50506,7 +49849,6 @@ const deserializeAws_ec2EbsInstanceBlockDevice = (output: any, context: __SerdeC
 
 const deserializeAws_ec2EbsOptimizedInfo = (output: any, context: __SerdeContext): EbsOptimizedInfo => {
   let contents: any = {
-    __type: "EbsOptimizedInfo",
     BaselineThroughputInMBps: undefined,
     MaximumThroughputInMBps: undefined,
     MaximumIops: undefined,
@@ -50540,7 +49882,6 @@ const deserializeAws_ec2EgressOnlyInternetGateway = (
   context: __SerdeContext
 ): EgressOnlyInternetGateway => {
   let contents: any = {
-    __type: "EgressOnlyInternetGateway",
     EgressOnlyInternetGatewayId: undefined,
     Tags: undefined,
     Attachments: undefined,
@@ -50575,7 +49916,6 @@ const deserializeAws_ec2EgressOnlyInternetGatewayList = (
 
 const deserializeAws_ec2ElasticGpuAssociation = (output: any, context: __SerdeContext): ElasticGpuAssociation => {
   let contents: any = {
-    __type: "ElasticGpuAssociation",
     ElasticGpuId: undefined,
     ElasticGpuAssociationTime: undefined,
     ElasticGpuAssociationId: undefined,
@@ -50602,7 +49942,6 @@ const deserializeAws_ec2ElasticGpuAssociationList = (output: any, context: __Ser
 
 const deserializeAws_ec2ElasticGpuHealth = (output: any, context: __SerdeContext): ElasticGpuHealth => {
   let contents: any = {
-    __type: "ElasticGpuHealth",
     Status: undefined,
   };
   if (output["status"] !== undefined) {
@@ -50613,7 +49952,6 @@ const deserializeAws_ec2ElasticGpuHealth = (output: any, context: __SerdeContext
 
 const deserializeAws_ec2ElasticGpus = (output: any, context: __SerdeContext): ElasticGpus => {
   let contents: any = {
-    __type: "ElasticGpus",
     ElasticGpuId: undefined,
     InstanceId: undefined,
     AvailabilityZone: undefined,
@@ -50658,7 +49996,6 @@ const deserializeAws_ec2ElasticGpuSpecificationResponse = (
   context: __SerdeContext
 ): ElasticGpuSpecificationResponse => {
   let contents: any = {
-    __type: "ElasticGpuSpecificationResponse",
     Type: undefined,
   };
   if (output["type"] !== undefined) {
@@ -50679,7 +50016,6 @@ const deserializeAws_ec2ElasticInferenceAcceleratorAssociation = (
   context: __SerdeContext
 ): ElasticInferenceAcceleratorAssociation => {
   let contents: any = {
-    __type: "ElasticInferenceAcceleratorAssociation",
     ElasticInferenceAcceleratorAssociationId: undefined,
     ElasticInferenceAcceleratorAssociationTime: undefined,
     ElasticInferenceAcceleratorArn: undefined,
@@ -50714,7 +50050,6 @@ const deserializeAws_ec2EnableEbsEncryptionByDefaultResult = (
   context: __SerdeContext
 ): EnableEbsEncryptionByDefaultResult => {
   let contents: any = {
-    __type: "EnableEbsEncryptionByDefaultResult",
     EbsEncryptionByDefault: undefined,
   };
   if (output["ebsEncryptionByDefault"] !== undefined) {
@@ -50728,7 +50063,6 @@ const deserializeAws_ec2EnableFastSnapshotRestoreErrorItem = (
   context: __SerdeContext
 ): EnableFastSnapshotRestoreErrorItem => {
   let contents: any = {
-    __type: "EnableFastSnapshotRestoreErrorItem",
     FastSnapshotRestoreStateErrors: undefined,
     SnapshotId: undefined,
   };
@@ -50762,7 +50096,6 @@ const deserializeAws_ec2EnableFastSnapshotRestoresResult = (
   context: __SerdeContext
 ): EnableFastSnapshotRestoresResult => {
   let contents: any = {
-    __type: "EnableFastSnapshotRestoresResult",
     Successful: undefined,
     Unsuccessful: undefined,
   };
@@ -50792,7 +50125,6 @@ const deserializeAws_ec2EnableFastSnapshotRestoreStateError = (
   context: __SerdeContext
 ): EnableFastSnapshotRestoreStateError => {
   let contents: any = {
-    __type: "EnableFastSnapshotRestoreStateError",
     Message: undefined,
     Code: undefined,
   };
@@ -50810,7 +50142,6 @@ const deserializeAws_ec2EnableFastSnapshotRestoreStateErrorItem = (
   context: __SerdeContext
 ): EnableFastSnapshotRestoreStateErrorItem => {
   let contents: any = {
-    __type: "EnableFastSnapshotRestoreStateErrorItem",
     Error: undefined,
     AvailabilityZone: undefined,
   };
@@ -50835,7 +50166,6 @@ const deserializeAws_ec2EnableFastSnapshotRestoreSuccessItem = (
   context: __SerdeContext
 ): EnableFastSnapshotRestoreSuccessItem => {
   let contents: any = {
-    __type: "EnableFastSnapshotRestoreSuccessItem",
     OwnerId: undefined,
     AvailabilityZone: undefined,
     StateTransitionReason: undefined,
@@ -50896,7 +50226,6 @@ const deserializeAws_ec2EnableTransitGatewayRouteTablePropagationResult = (
   context: __SerdeContext
 ): EnableTransitGatewayRouteTablePropagationResult => {
   let contents: any = {
-    __type: "EnableTransitGatewayRouteTablePropagationResult",
     Propagation: undefined,
   };
   if (output["propagation"] !== undefined) {
@@ -50910,7 +50239,6 @@ const deserializeAws_ec2EnableVpcClassicLinkDnsSupportResult = (
   context: __SerdeContext
 ): EnableVpcClassicLinkDnsSupportResult => {
   let contents: any = {
-    __type: "EnableVpcClassicLinkDnsSupportResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -50924,7 +50252,6 @@ const deserializeAws_ec2EnableVpcClassicLinkResult = (
   context: __SerdeContext
 ): EnableVpcClassicLinkResult => {
   let contents: any = {
-    __type: "EnableVpcClassicLinkResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -50943,7 +50270,6 @@ const deserializeAws_ec2ErrorSet = (output: any, context: __SerdeContext): Valid
 
 const deserializeAws_ec2EventInformation = (output: any, context: __SerdeContext): EventInformation => {
   let contents: any = {
-    __type: "EventInformation",
     InstanceId: undefined,
     EventSubType: undefined,
     EventDescription: undefined,
@@ -50965,7 +50291,6 @@ const deserializeAws_ec2ExportClientVpnClientCertificateRevocationListResult = (
   context: __SerdeContext
 ): ExportClientVpnClientCertificateRevocationListResult => {
   let contents: any = {
-    __type: "ExportClientVpnClientCertificateRevocationListResult",
     Status: undefined,
     CertificateRevocationList: undefined,
   };
@@ -50983,7 +50308,6 @@ const deserializeAws_ec2ExportClientVpnClientConfigurationResult = (
   context: __SerdeContext
 ): ExportClientVpnClientConfigurationResult => {
   let contents: any = {
-    __type: "ExportClientVpnClientConfigurationResult",
     ClientConfiguration: undefined,
   };
   if (output["clientConfiguration"] !== undefined) {
@@ -50994,7 +50318,6 @@ const deserializeAws_ec2ExportClientVpnClientConfigurationResult = (
 
 const deserializeAws_ec2ExportImageResult = (output: any, context: __SerdeContext): ExportImageResult => {
   let contents: any = {
-    __type: "ExportImageResult",
     DiskImageFormat: undefined,
     StatusMessage: undefined,
     Progress: undefined,
@@ -51044,7 +50367,6 @@ const deserializeAws_ec2ExportImageResult = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2ExportImageTask = (output: any, context: __SerdeContext): ExportImageTask => {
   let contents: any = {
-    __type: "ExportImageTask",
     StatusMessage: undefined,
     Progress: undefined,
     ExportImageTaskId: undefined,
@@ -51090,7 +50412,6 @@ const deserializeAws_ec2ExportImageTaskList = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2ExportTask = (output: any, context: __SerdeContext): ExportTask => {
   let contents: any = {
-    __type: "ExportTask",
     StatusMessage: undefined,
     Description: undefined,
     InstanceExportDetails: undefined,
@@ -51132,7 +50453,6 @@ const deserializeAws_ec2ExportTaskList = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2ExportTaskS3Location = (output: any, context: __SerdeContext): ExportTaskS3Location => {
   let contents: any = {
-    __type: "ExportTaskS3Location",
     S3Prefix: undefined,
     S3Bucket: undefined,
   };
@@ -51147,7 +50467,6 @@ const deserializeAws_ec2ExportTaskS3Location = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2ExportToS3Task = (output: any, context: __SerdeContext): ExportToS3Task => {
   let contents: any = {
-    __type: "ExportToS3Task",
     S3Key: undefined,
     DiskImageFormat: undefined,
     S3Bucket: undefined,
@@ -51173,7 +50492,6 @@ const deserializeAws_ec2ExportTransitGatewayRoutesResult = (
   context: __SerdeContext
 ): ExportTransitGatewayRoutesResult => {
   let contents: any = {
-    __type: "ExportTransitGatewayRoutesResult",
     S3Location: undefined,
   };
   if (output["s3Location"] !== undefined) {
@@ -51187,7 +50505,6 @@ const deserializeAws_ec2FailedQueuedPurchaseDeletion = (
   context: __SerdeContext
 ): FailedQueuedPurchaseDeletion => {
   let contents: any = {
-    __type: "FailedQueuedPurchaseDeletion",
     ReservedInstancesId: undefined,
     Error: undefined,
   };
@@ -51209,7 +50526,6 @@ const deserializeAws_ec2FailedQueuedPurchaseDeletionSet = (
 
 const deserializeAws_ec2FederatedAuthentication = (output: any, context: __SerdeContext): FederatedAuthentication => {
   let contents: any = {
-    __type: "FederatedAuthentication",
     SamlProviderArn: undefined,
   };
   if (output["samlProviderArn"] !== undefined) {
@@ -51220,7 +50536,6 @@ const deserializeAws_ec2FederatedAuthentication = (output: any, context: __Serde
 
 const deserializeAws_ec2FleetData = (output: any, context: __SerdeContext): FleetData => {
   let contents: any = {
-    __type: "FleetData",
     ReplaceUnhealthyInstances: undefined,
     CreateTime: undefined,
     TerminateInstancesWithExpiration: undefined,
@@ -51334,7 +50649,6 @@ const deserializeAws_ec2FleetLaunchTemplateConfig = (
   context: __SerdeContext
 ): FleetLaunchTemplateConfig => {
   let contents: any = {
-    __type: "FleetLaunchTemplateConfig",
     LaunchTemplateSpecification: undefined,
     Overrides: undefined,
   };
@@ -51368,7 +50682,6 @@ const deserializeAws_ec2FleetLaunchTemplateOverrides = (
   context: __SerdeContext
 ): FleetLaunchTemplateOverrides => {
   let contents: any = {
-    __type: "FleetLaunchTemplateOverrides",
     WeightedCapacity: undefined,
     Priority: undefined,
     AvailabilityZone: undefined,
@@ -51413,7 +50726,6 @@ const deserializeAws_ec2FleetLaunchTemplateSpecification = (
   context: __SerdeContext
 ): FleetLaunchTemplateSpecification => {
   let contents: any = {
-    __type: "FleetLaunchTemplateSpecification",
     LaunchTemplateName: undefined,
     Version: undefined,
     LaunchTemplateId: undefined,
@@ -51436,7 +50748,6 @@ const deserializeAws_ec2FleetSet = (output: any, context: __SerdeContext): Fleet
 
 const deserializeAws_ec2FlowLog = (output: any, context: __SerdeContext): FlowLog => {
   let contents: any = {
-    __type: "FlowLog",
     LogDestinationType: undefined,
     ResourceId: undefined,
     LogDestination: undefined,
@@ -51506,7 +50817,6 @@ const deserializeAws_ec2FlowLogSet = (output: any, context: __SerdeContext): Flo
 
 const deserializeAws_ec2FpgaDeviceInfo = (output: any, context: __SerdeContext): FpgaDeviceInfo => {
   let contents: any = {
-    __type: "FpgaDeviceInfo",
     Name: undefined,
     MemoryInfo: undefined,
     Manufacturer: undefined,
@@ -51533,7 +50843,6 @@ const deserializeAws_ec2FpgaDeviceInfoList = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2FpgaDeviceMemoryInfo = (output: any, context: __SerdeContext): FpgaDeviceMemoryInfo => {
   let contents: any = {
-    __type: "FpgaDeviceMemoryInfo",
     SizeInMiB: undefined,
   };
   if (output["sizeInMiB"] !== undefined) {
@@ -51544,7 +50853,6 @@ const deserializeAws_ec2FpgaDeviceMemoryInfo = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2FpgaImage = (output: any, context: __SerdeContext): FpgaImage => {
   let contents: any = {
-    __type: "FpgaImage",
     UpdateTime: undefined,
     FpgaImageGlobalId: undefined,
     Name: undefined,
@@ -51620,7 +50928,6 @@ const deserializeAws_ec2FpgaImage = (output: any, context: __SerdeContext): Fpga
 
 const deserializeAws_ec2FpgaImageAttribute = (output: any, context: __SerdeContext): FpgaImageAttribute => {
   let contents: any = {
-    __type: "FpgaImageAttribute",
     LoadPermissions: undefined,
     ProductCodes: undefined,
     Description: undefined,
@@ -51663,7 +50970,6 @@ const deserializeAws_ec2FpgaImageList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_ec2FpgaImageState = (output: any, context: __SerdeContext): FpgaImageState => {
   let contents: any = {
-    __type: "FpgaImageState",
     Code: undefined,
     Message: undefined,
   };
@@ -51678,7 +50984,6 @@ const deserializeAws_ec2FpgaImageState = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2FpgaInfo = (output: any, context: __SerdeContext): FpgaInfo => {
   let contents: any = {
-    __type: "FpgaInfo",
     TotalFpgaMemoryInMiB: undefined,
     Fpgas: undefined,
   };
@@ -51699,7 +51004,6 @@ const deserializeAws_ec2GetAssociatedIpv6PoolCidrsResult = (
   context: __SerdeContext
 ): GetAssociatedIpv6PoolCidrsResult => {
   let contents: any = {
-    __type: "GetAssociatedIpv6PoolCidrsResult",
     NextToken: undefined,
     Ipv6CidrAssociations: undefined,
   };
@@ -51723,7 +51027,6 @@ const deserializeAws_ec2GetCapacityReservationUsageResult = (
   context: __SerdeContext
 ): GetCapacityReservationUsageResult => {
   let contents: any = {
-    __type: "GetCapacityReservationUsageResult",
     TotalInstanceCount: undefined,
     CapacityReservationId: undefined,
     InstanceType: undefined,
@@ -51764,7 +51067,6 @@ const deserializeAws_ec2GetCapacityReservationUsageResult = (
 
 const deserializeAws_ec2GetCoipPoolUsageResult = (output: any, context: __SerdeContext): GetCoipPoolUsageResult => {
   let contents: any = {
-    __type: "GetCoipPoolUsageResult",
     CoipAddressUsages: undefined,
     LocalGatewayRouteTableId: undefined,
     CoipPoolId: undefined,
@@ -51789,7 +51091,6 @@ const deserializeAws_ec2GetCoipPoolUsageResult = (output: any, context: __SerdeC
 
 const deserializeAws_ec2GetConsoleOutputResult = (output: any, context: __SerdeContext): GetConsoleOutputResult => {
   let contents: any = {
-    __type: "GetConsoleOutputResult",
     Output: undefined,
     InstanceId: undefined,
     Timestamp: undefined,
@@ -51811,7 +51112,6 @@ const deserializeAws_ec2GetConsoleScreenshotResult = (
   context: __SerdeContext
 ): GetConsoleScreenshotResult => {
   let contents: any = {
-    __type: "GetConsoleScreenshotResult",
     InstanceId: undefined,
     ImageData: undefined,
   };
@@ -51829,7 +51129,6 @@ const deserializeAws_ec2GetDefaultCreditSpecificationResult = (
   context: __SerdeContext
 ): GetDefaultCreditSpecificationResult => {
   let contents: any = {
-    __type: "GetDefaultCreditSpecificationResult",
     InstanceFamilyCreditSpecification: undefined,
   };
   if (output["instanceFamilyCreditSpecification"] !== undefined) {
@@ -51846,7 +51145,6 @@ const deserializeAws_ec2GetEbsDefaultKmsKeyIdResult = (
   context: __SerdeContext
 ): GetEbsDefaultKmsKeyIdResult => {
   let contents: any = {
-    __type: "GetEbsDefaultKmsKeyIdResult",
     KmsKeyId: undefined,
   };
   if (output["kmsKeyId"] !== undefined) {
@@ -51860,7 +51158,6 @@ const deserializeAws_ec2GetEbsEncryptionByDefaultResult = (
   context: __SerdeContext
 ): GetEbsEncryptionByDefaultResult => {
   let contents: any = {
-    __type: "GetEbsEncryptionByDefaultResult",
     EbsEncryptionByDefault: undefined,
   };
   if (output["ebsEncryptionByDefault"] !== undefined) {
@@ -51874,7 +51171,6 @@ const deserializeAws_ec2GetGroupsForCapacityReservationResult = (
   context: __SerdeContext
 ): GetGroupsForCapacityReservationResult => {
   let contents: any = {
-    __type: "GetGroupsForCapacityReservationResult",
     CapacityReservationGroups: undefined,
     NextToken: undefined,
   };
@@ -51901,7 +51197,6 @@ const deserializeAws_ec2GetHostReservationPurchasePreviewResult = (
   context: __SerdeContext
 ): GetHostReservationPurchasePreviewResult => {
   let contents: any = {
-    __type: "GetHostReservationPurchasePreviewResult",
     CurrencyCode: undefined,
     TotalHourlyPrice: undefined,
     Purchase: undefined,
@@ -51930,7 +51225,6 @@ const deserializeAws_ec2GetLaunchTemplateDataResult = (
   context: __SerdeContext
 ): GetLaunchTemplateDataResult => {
   let contents: any = {
-    __type: "GetLaunchTemplateDataResult",
     LaunchTemplateData: undefined,
   };
   if (output["launchTemplateData"] !== undefined) {
@@ -51944,7 +51238,6 @@ const deserializeAws_ec2GetManagedPrefixListAssociationsResult = (
   context: __SerdeContext
 ): GetManagedPrefixListAssociationsResult => {
   let contents: any = {
-    __type: "GetManagedPrefixListAssociationsResult",
     PrefixListAssociations: undefined,
     NextToken: undefined,
   };
@@ -51968,7 +51261,6 @@ const deserializeAws_ec2GetManagedPrefixListEntriesResult = (
   context: __SerdeContext
 ): GetManagedPrefixListEntriesResult => {
   let contents: any = {
-    __type: "GetManagedPrefixListEntriesResult",
     Entries: undefined,
     NextToken: undefined,
   };
@@ -51989,7 +51281,6 @@ const deserializeAws_ec2GetManagedPrefixListEntriesResult = (
 
 const deserializeAws_ec2GetPasswordDataResult = (output: any, context: __SerdeContext): GetPasswordDataResult => {
   let contents: any = {
-    __type: "GetPasswordDataResult",
     InstanceId: undefined,
     Timestamp: undefined,
     PasswordData: undefined,
@@ -52011,7 +51302,6 @@ const deserializeAws_ec2GetReservedInstancesExchangeQuoteResult = (
   context: __SerdeContext
 ): GetReservedInstancesExchangeQuoteResult => {
   let contents: any = {
-    __type: "GetReservedInstancesExchangeQuoteResult",
     IsValidExchange: undefined,
     ReservedInstanceValueSet: undefined,
     TargetConfigurationValueSet: undefined,
@@ -52078,7 +51368,6 @@ const deserializeAws_ec2GetTransitGatewayAttachmentPropagationsResult = (
   context: __SerdeContext
 ): GetTransitGatewayAttachmentPropagationsResult => {
   let contents: any = {
-    __type: "GetTransitGatewayAttachmentPropagationsResult",
     TransitGatewayAttachmentPropagations: undefined,
     NextToken: undefined,
   };
@@ -52105,7 +51394,6 @@ const deserializeAws_ec2GetTransitGatewayMulticastDomainAssociationsResult = (
   context: __SerdeContext
 ): GetTransitGatewayMulticastDomainAssociationsResult => {
   let contents: any = {
-    __type: "GetTransitGatewayMulticastDomainAssociationsResult",
     MulticastDomainAssociations: undefined,
     NextToken: undefined,
   };
@@ -52132,7 +51420,6 @@ const deserializeAws_ec2GetTransitGatewayRouteTableAssociationsResult = (
   context: __SerdeContext
 ): GetTransitGatewayRouteTableAssociationsResult => {
   let contents: any = {
-    __type: "GetTransitGatewayRouteTableAssociationsResult",
     NextToken: undefined,
     Associations: undefined,
   };
@@ -52156,7 +51443,6 @@ const deserializeAws_ec2GetTransitGatewayRouteTablePropagationsResult = (
   context: __SerdeContext
 ): GetTransitGatewayRouteTablePropagationsResult => {
   let contents: any = {
-    __type: "GetTransitGatewayRouteTablePropagationsResult",
     NextToken: undefined,
     TransitGatewayRouteTablePropagations: undefined,
   };
@@ -52180,7 +51466,6 @@ const deserializeAws_ec2GetTransitGatewayRouteTablePropagationsResult = (
 
 const deserializeAws_ec2GpuDeviceInfo = (output: any, context: __SerdeContext): GpuDeviceInfo => {
   let contents: any = {
-    __type: "GpuDeviceInfo",
     Name: undefined,
     Manufacturer: undefined,
     MemoryInfo: undefined,
@@ -52207,7 +51492,6 @@ const deserializeAws_ec2GpuDeviceInfoList = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2GpuDeviceMemoryInfo = (output: any, context: __SerdeContext): GpuDeviceMemoryInfo => {
   let contents: any = {
-    __type: "GpuDeviceMemoryInfo",
     SizeInMiB: undefined,
   };
   if (output["sizeInMiB"] !== undefined) {
@@ -52218,7 +51502,6 @@ const deserializeAws_ec2GpuDeviceMemoryInfo = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2GpuInfo = (output: any, context: __SerdeContext): GpuInfo => {
   let contents: any = {
-    __type: "GpuInfo",
     TotalGpuMemoryInMiB: undefined,
     Gpus: undefined,
   };
@@ -52236,7 +51519,6 @@ const deserializeAws_ec2GpuInfo = (output: any, context: __SerdeContext): GpuInf
 
 const deserializeAws_ec2GroupIdentifier = (output: any, context: __SerdeContext): GroupIdentifier => {
   let contents: any = {
-    __type: "GroupIdentifier",
     GroupName: undefined,
     GroupId: undefined,
   };
@@ -52263,7 +51545,6 @@ const deserializeAws_ec2GroupIdStringList = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2HibernationOptions = (output: any, context: __SerdeContext): HibernationOptions => {
   let contents: any = {
-    __type: "HibernationOptions",
     Configured: undefined,
   };
   if (output["configured"] !== undefined) {
@@ -52274,7 +51555,6 @@ const deserializeAws_ec2HibernationOptions = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2HistoryRecord = (output: any, context: __SerdeContext): HistoryRecord => {
   let contents: any = {
-    __type: "HistoryRecord",
     Timestamp: undefined,
     EventInformation: undefined,
     EventType: undefined,
@@ -52293,7 +51573,6 @@ const deserializeAws_ec2HistoryRecord = (output: any, context: __SerdeContext): 
 
 const deserializeAws_ec2HistoryRecordEntry = (output: any, context: __SerdeContext): HistoryRecordEntry => {
   let contents: any = {
-    __type: "HistoryRecordEntry",
     EventInformation: undefined,
     EventType: undefined,
     Timestamp: undefined,
@@ -52320,7 +51599,6 @@ const deserializeAws_ec2HistoryRecordSet = (output: any, context: __SerdeContext
 
 const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
   let contents: any = {
-    __type: "Host",
     HostRecovery: undefined,
     State: undefined,
     AllocationTime: undefined,
@@ -52404,7 +51682,6 @@ const deserializeAws_ec2Host = (output: any, context: __SerdeContext): Host => {
 
 const deserializeAws_ec2HostInstance = (output: any, context: __SerdeContext): HostInstance => {
   let contents: any = {
-    __type: "HostInstance",
     InstanceType: undefined,
     InstanceId: undefined,
     OwnerId: undefined,
@@ -52431,7 +51708,6 @@ const deserializeAws_ec2HostList = (output: any, context: __SerdeContext): Host[
 
 const deserializeAws_ec2HostOffering = (output: any, context: __SerdeContext): HostOffering => {
   let contents: any = {
-    __type: "HostOffering",
     UpfrontPrice: undefined,
     Duration: undefined,
     CurrencyCode: undefined,
@@ -52470,7 +51746,6 @@ const deserializeAws_ec2HostOfferingSet = (output: any, context: __SerdeContext)
 
 const deserializeAws_ec2HostProperties = (output: any, context: __SerdeContext): HostProperties => {
   let contents: any = {
-    __type: "HostProperties",
     InstanceType: undefined,
     Sockets: undefined,
     InstanceFamily: undefined,
@@ -52497,7 +51772,6 @@ const deserializeAws_ec2HostProperties = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2HostReservation = (output: any, context: __SerdeContext): HostReservation => {
   let contents: any = {
-    __type: "HostReservation",
     State: undefined,
     Tags: undefined,
     Count: undefined,
@@ -52573,7 +51847,6 @@ const deserializeAws_ec2HostReservationSet = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2IamInstanceProfile = (output: any, context: __SerdeContext): IamInstanceProfile => {
   let contents: any = {
-    __type: "IamInstanceProfile",
     Id: undefined,
     Arn: undefined,
   };
@@ -52591,7 +51864,6 @@ const deserializeAws_ec2IamInstanceProfileAssociation = (
   context: __SerdeContext
 ): IamInstanceProfileAssociation => {
   let contents: any = {
-    __type: "IamInstanceProfileAssociation",
     InstanceId: undefined,
     Timestamp: undefined,
     State: undefined,
@@ -52628,7 +51900,6 @@ const deserializeAws_ec2IamInstanceProfileSpecification = (
   context: __SerdeContext
 ): IamInstanceProfileSpecification => {
   let contents: any = {
-    __type: "IamInstanceProfileSpecification",
     Name: undefined,
     Arn: undefined,
   };
@@ -52643,7 +51914,6 @@ const deserializeAws_ec2IamInstanceProfileSpecification = (
 
 const deserializeAws_ec2IcmpTypeCode = (output: any, context: __SerdeContext): IcmpTypeCode => {
   let contents: any = {
-    __type: "IcmpTypeCode",
     Type: undefined,
     Code: undefined,
   };
@@ -52658,7 +51928,6 @@ const deserializeAws_ec2IcmpTypeCode = (output: any, context: __SerdeContext): I
 
 const deserializeAws_ec2IdFormat = (output: any, context: __SerdeContext): IdFormat => {
   let contents: any = {
-    __type: "IdFormat",
     Deadline: undefined,
     UseLongIds: undefined,
     Resource: undefined,
@@ -52685,7 +51954,6 @@ const deserializeAws_ec2IKEVersionsList = (output: any, context: __SerdeContext)
 
 const deserializeAws_ec2IKEVersionsListValue = (output: any, context: __SerdeContext): IKEVersionsListValue => {
   let contents: any = {
-    __type: "IKEVersionsListValue",
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -52696,7 +51964,6 @@ const deserializeAws_ec2IKEVersionsListValue = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2Image = (output: any, context: __SerdeContext): Image => {
   let contents: any = {
-    __type: "Image",
     EnaSupport: undefined,
     ImageType: undefined,
     Platform: undefined,
@@ -52822,7 +52089,6 @@ const deserializeAws_ec2Image = (output: any, context: __SerdeContext): Image =>
 
 const deserializeAws_ec2ImageAttribute = (output: any, context: __SerdeContext): ImageAttribute => {
   let contents: any = {
-    __type: "ImageAttribute",
     RamdiskId: undefined,
     KernelId: undefined,
     ImageId: undefined,
@@ -52886,7 +52152,6 @@ const deserializeAws_ec2ImportClientVpnClientCertificateRevocationListResult = (
   context: __SerdeContext
 ): ImportClientVpnClientCertificateRevocationListResult => {
   let contents: any = {
-    __type: "ImportClientVpnClientCertificateRevocationListResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -52900,7 +52165,6 @@ const deserializeAws_ec2ImportImageLicenseConfigurationResponse = (
   context: __SerdeContext
 ): ImportImageLicenseConfigurationResponse => {
   let contents: any = {
-    __type: "ImportImageLicenseConfigurationResponse",
     LicenseConfigurationArn: undefined,
   };
   if (output["licenseConfigurationArn"] !== undefined) {
@@ -52918,7 +52182,6 @@ const deserializeAws_ec2ImportImageLicenseSpecificationListResponse = (
 
 const deserializeAws_ec2ImportImageResult = (output: any, context: __SerdeContext): ImportImageResult => {
   let contents: any = {
-    __type: "ImportImageResult",
     ImageId: undefined,
     Tags: undefined,
     LicenseSpecifications: undefined,
@@ -53000,7 +52263,6 @@ const deserializeAws_ec2ImportImageResult = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2ImportImageTask = (output: any, context: __SerdeContext): ImportImageTask => {
   let contents: any = {
-    __type: "ImportImageTask",
     Status: undefined,
     Description: undefined,
     ImageId: undefined,
@@ -53086,7 +52348,6 @@ const deserializeAws_ec2ImportImageTaskList = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2ImportInstanceResult = (output: any, context: __SerdeContext): ImportInstanceResult => {
   let contents: any = {
-    __type: "ImportInstanceResult",
     ConversionTask: undefined,
   };
   if (output["conversionTask"] !== undefined) {
@@ -53100,7 +52361,6 @@ const deserializeAws_ec2ImportInstanceTaskDetails = (
   context: __SerdeContext
 ): ImportInstanceTaskDetails => {
   let contents: any = {
-    __type: "ImportInstanceTaskDetails",
     Platform: undefined,
     Description: undefined,
     Volumes: undefined,
@@ -53132,7 +52392,6 @@ const deserializeAws_ec2ImportInstanceVolumeDetailItem = (
   context: __SerdeContext
 ): ImportInstanceVolumeDetailItem => {
   let contents: any = {
-    __type: "ImportInstanceVolumeDetailItem",
     StatusMessage: undefined,
     AvailabilityZone: undefined,
     Description: undefined,
@@ -53174,7 +52433,6 @@ const deserializeAws_ec2ImportInstanceVolumeDetailSet = (
 
 const deserializeAws_ec2ImportKeyPairResult = (output: any, context: __SerdeContext): ImportKeyPairResult => {
   let contents: any = {
-    __type: "ImportKeyPairResult",
     KeyName: undefined,
     Tags: undefined,
     KeyPairId: undefined,
@@ -53200,7 +52458,6 @@ const deserializeAws_ec2ImportKeyPairResult = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2ImportSnapshotResult = (output: any, context: __SerdeContext): ImportSnapshotResult => {
   let contents: any = {
-    __type: "ImportSnapshotResult",
     Description: undefined,
     Tags: undefined,
     SnapshotTaskDetail: undefined,
@@ -53226,7 +52483,6 @@ const deserializeAws_ec2ImportSnapshotResult = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2ImportSnapshotTask = (output: any, context: __SerdeContext): ImportSnapshotTask => {
   let contents: any = {
-    __type: "ImportSnapshotTask",
     ImportTaskId: undefined,
     Tags: undefined,
     SnapshotTaskDetail: undefined,
@@ -53256,7 +52512,6 @@ const deserializeAws_ec2ImportSnapshotTaskList = (output: any, context: __SerdeC
 
 const deserializeAws_ec2ImportVolumeResult = (output: any, context: __SerdeContext): ImportVolumeResult => {
   let contents: any = {
-    __type: "ImportVolumeResult",
     ConversionTask: undefined,
   };
   if (output["conversionTask"] !== undefined) {
@@ -53267,7 +52522,6 @@ const deserializeAws_ec2ImportVolumeResult = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2ImportVolumeTaskDetails = (output: any, context: __SerdeContext): ImportVolumeTaskDetails => {
   let contents: any = {
-    __type: "ImportVolumeTaskDetails",
     Image: undefined,
     BytesConverted: undefined,
     Description: undefined,
@@ -53294,7 +52548,6 @@ const deserializeAws_ec2ImportVolumeTaskDetails = (output: any, context: __Serde
 
 const deserializeAws_ec2InferenceAcceleratorInfo = (output: any, context: __SerdeContext): InferenceAcceleratorInfo => {
   let contents: any = {
-    __type: "InferenceAcceleratorInfo",
     Accelerators: undefined,
   };
   if (output.accelerators === "") {
@@ -53311,7 +52564,6 @@ const deserializeAws_ec2InferenceAcceleratorInfo = (output: any, context: __Serd
 
 const deserializeAws_ec2InferenceDeviceInfo = (output: any, context: __SerdeContext): InferenceDeviceInfo => {
   let contents: any = {
-    __type: "InferenceDeviceInfo",
     Manufacturer: undefined,
     Count: undefined,
     Name: undefined,
@@ -53334,7 +52586,6 @@ const deserializeAws_ec2InferenceDeviceInfoList = (output: any, context: __Serde
 
 const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Instance => {
   let contents: any = {
-    __type: "Instance",
     CapacityReservationId: undefined,
     IamInstanceProfile: undefined,
     State: undefined,
@@ -53577,7 +52828,6 @@ const deserializeAws_ec2Instance = (output: any, context: __SerdeContext): Insta
 
 const deserializeAws_ec2InstanceAttribute = (output: any, context: __SerdeContext): InstanceAttribute => {
   let contents: any = {
-    __type: "InstanceAttribute",
     Groups: undefined,
     DisableApiTermination: undefined,
     InstanceInitiatedShutdownBehavior: undefined,
@@ -53668,7 +52918,6 @@ const deserializeAws_ec2InstanceBlockDeviceMapping = (
   context: __SerdeContext
 ): InstanceBlockDeviceMapping => {
   let contents: any = {
-    __type: "InstanceBlockDeviceMapping",
     DeviceName: undefined,
     Ebs: undefined,
   };
@@ -53690,7 +52939,6 @@ const deserializeAws_ec2InstanceBlockDeviceMappingList = (
 
 const deserializeAws_ec2InstanceCapacity = (output: any, context: __SerdeContext): InstanceCapacity => {
   let contents: any = {
-    __type: "InstanceCapacity",
     AvailableCapacity: undefined,
     TotalCapacity: undefined,
     InstanceType: undefined,
@@ -53709,7 +52957,6 @@ const deserializeAws_ec2InstanceCapacity = (output: any, context: __SerdeContext
 
 const deserializeAws_ec2InstanceCount = (output: any, context: __SerdeContext): InstanceCount => {
   let contents: any = {
-    __type: "InstanceCount",
     State: undefined,
     InstanceCount: undefined,
   };
@@ -53731,7 +52978,6 @@ const deserializeAws_ec2InstanceCreditSpecification = (
   context: __SerdeContext
 ): InstanceCreditSpecification => {
   let contents: any = {
-    __type: "InstanceCreditSpecification",
     InstanceId: undefined,
     CpuCredits: undefined,
   };
@@ -53753,7 +52999,6 @@ const deserializeAws_ec2InstanceCreditSpecificationList = (
 
 const deserializeAws_ec2InstanceExportDetails = (output: any, context: __SerdeContext): InstanceExportDetails => {
   let contents: any = {
-    __type: "InstanceExportDetails",
     InstanceId: undefined,
     TargetEnvironment: undefined,
   };
@@ -53771,7 +53016,6 @@ const deserializeAws_ec2InstanceFamilyCreditSpecification = (
   context: __SerdeContext
 ): InstanceFamilyCreditSpecification => {
   let contents: any = {
-    __type: "InstanceFamilyCreditSpecification",
     InstanceFamily: undefined,
     CpuCredits: undefined,
   };
@@ -53794,7 +53038,6 @@ const deserializeAws_ec2InstanceIdsSet = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2InstanceIpv6Address = (output: any, context: __SerdeContext): InstanceIpv6Address => {
   let contents: any = {
-    __type: "InstanceIpv6Address",
     Ipv6Address: undefined,
   };
   if (output["ipv6Address"] !== undefined) {
@@ -53816,7 +53059,6 @@ const deserializeAws_ec2InstanceMetadataOptionsResponse = (
   context: __SerdeContext
 ): InstanceMetadataOptionsResponse => {
   let contents: any = {
-    __type: "InstanceMetadataOptionsResponse",
     HttpPutResponseHopLimit: undefined,
     State: undefined,
     HttpTokens: undefined,
@@ -53839,7 +53081,6 @@ const deserializeAws_ec2InstanceMetadataOptionsResponse = (
 
 const deserializeAws_ec2InstanceMonitoring = (output: any, context: __SerdeContext): InstanceMonitoring => {
   let contents: any = {
-    __type: "InstanceMonitoring",
     Monitoring: undefined,
     InstanceId: undefined,
   };
@@ -53858,7 +53099,6 @@ const deserializeAws_ec2InstanceMonitoringList = (output: any, context: __SerdeC
 
 const deserializeAws_ec2InstanceNetworkInterface = (output: any, context: __SerdeContext): InstanceNetworkInterface => {
   let contents: any = {
-    __type: "InstanceNetworkInterface",
     Association: undefined,
     PrivateIpAddresses: undefined,
     NetworkInterfaceId: undefined,
@@ -53950,7 +53190,6 @@ const deserializeAws_ec2InstanceNetworkInterfaceAssociation = (
   context: __SerdeContext
 ): InstanceNetworkInterfaceAssociation => {
   let contents: any = {
-    __type: "InstanceNetworkInterfaceAssociation",
     PublicIp: undefined,
     PublicDnsName: undefined,
     IpOwnerId: undefined,
@@ -53972,7 +53211,6 @@ const deserializeAws_ec2InstanceNetworkInterfaceAttachment = (
   context: __SerdeContext
 ): InstanceNetworkInterfaceAttachment => {
   let contents: any = {
-    __type: "InstanceNetworkInterfaceAttachment",
     AttachmentId: undefined,
     Status: undefined,
     DeleteOnTermination: undefined,
@@ -54009,7 +53247,6 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecification = (
   context: __SerdeContext
 ): InstanceNetworkInterfaceSpecification => {
   let contents: any = {
-    __type: "InstanceNetworkInterfaceSpecification",
     DeleteOnTermination: undefined,
     PrivateIpAddress: undefined,
     DeviceIndex: undefined,
@@ -54093,7 +53330,6 @@ const deserializeAws_ec2InstanceNetworkInterfaceSpecificationList = (
 
 const deserializeAws_ec2InstancePrivateIpAddress = (output: any, context: __SerdeContext): InstancePrivateIpAddress => {
   let contents: any = {
-    __type: "InstancePrivateIpAddress",
     PrivateIpAddress: undefined,
     Primary: undefined,
     PrivateDnsName: undefined,
@@ -54123,7 +53359,6 @@ const deserializeAws_ec2InstancePrivateIpAddressList = (
 
 const deserializeAws_ec2InstanceState = (output: any, context: __SerdeContext): InstanceState => {
   let contents: any = {
-    __type: "InstanceState",
     Name: undefined,
     Code: undefined,
   };
@@ -54138,7 +53373,6 @@ const deserializeAws_ec2InstanceState = (output: any, context: __SerdeContext): 
 
 const deserializeAws_ec2InstanceStateChange = (output: any, context: __SerdeContext): InstanceStateChange => {
   let contents: any = {
-    __type: "InstanceStateChange",
     PreviousState: undefined,
     CurrentState: undefined,
     InstanceId: undefined,
@@ -54161,7 +53395,6 @@ const deserializeAws_ec2InstanceStateChangeList = (output: any, context: __Serde
 
 const deserializeAws_ec2InstanceStatus = (output: any, context: __SerdeContext): InstanceStatus => {
   let contents: any = {
-    __type: "InstanceStatus",
     SystemStatus: undefined,
     AvailabilityZone: undefined,
     InstanceStatus: undefined,
@@ -54202,7 +53435,6 @@ const deserializeAws_ec2InstanceStatus = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2InstanceStatusDetails = (output: any, context: __SerdeContext): InstanceStatusDetails => {
   let contents: any = {
-    __type: "InstanceStatusDetails",
     ImpairedSince: undefined,
     Name: undefined,
     Status: undefined,
@@ -54225,7 +53457,6 @@ const deserializeAws_ec2InstanceStatusDetailsList = (output: any, context: __Ser
 
 const deserializeAws_ec2InstanceStatusEvent = (output: any, context: __SerdeContext): InstanceStatusEvent => {
   let contents: any = {
-    __type: "InstanceStatusEvent",
     Code: undefined,
     NotBeforeDeadline: undefined,
     NotAfter: undefined,
@@ -54264,7 +53495,6 @@ const deserializeAws_ec2InstanceStatusList = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2InstanceStatusSummary = (output: any, context: __SerdeContext): InstanceStatusSummary => {
   let contents: any = {
-    __type: "InstanceStatusSummary",
     Details: undefined,
     Status: undefined,
   };
@@ -54285,7 +53515,6 @@ const deserializeAws_ec2InstanceStatusSummary = (output: any, context: __SerdeCo
 
 const deserializeAws_ec2InstanceStorageInfo = (output: any, context: __SerdeContext): InstanceStorageInfo => {
   let contents: any = {
-    __type: "InstanceStorageInfo",
     Disks: undefined,
     TotalSizeInGB: undefined,
   };
@@ -54310,7 +53539,6 @@ const deserializeAws_ec2InstanceTagNotificationAttribute = (
   context: __SerdeContext
 ): InstanceTagNotificationAttribute => {
   let contents: any = {
-    __type: "InstanceTagNotificationAttribute",
     InstanceTagKeys: undefined,
     IncludeAllTagsOfInstance: undefined,
   };
@@ -54331,7 +53559,6 @@ const deserializeAws_ec2InstanceTagNotificationAttribute = (
 
 const deserializeAws_ec2InstanceTypeInfo = (output: any, context: __SerdeContext): InstanceTypeInfo => {
   let contents: any = {
-    __type: "InstanceTypeInfo",
     Hypervisor: undefined,
     InferenceAcceleratorInfo: undefined,
     PlacementGroupInfo: undefined,
@@ -54458,7 +53685,6 @@ const deserializeAws_ec2InstanceTypeInfoList = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2InstanceTypeOffering = (output: any, context: __SerdeContext): InstanceTypeOffering => {
   let contents: any = {
-    __type: "InstanceTypeOffering",
     InstanceType: undefined,
     LocationType: undefined,
     Location: undefined,
@@ -54481,7 +53707,6 @@ const deserializeAws_ec2InstanceTypeOfferingsList = (output: any, context: __Ser
 
 const deserializeAws_ec2InstanceUsage = (output: any, context: __SerdeContext): InstanceUsage => {
   let contents: any = {
-    __type: "InstanceUsage",
     UsedInstanceCount: undefined,
     AccountId: undefined,
   };
@@ -54500,7 +53725,6 @@ const deserializeAws_ec2InstanceUsageSet = (output: any, context: __SerdeContext
 
 const deserializeAws_ec2InternetGateway = (output: any, context: __SerdeContext): InternetGateway => {
   let contents: any = {
-    __type: "InternetGateway",
     InternetGatewayId: undefined,
     Tags: undefined,
     OwnerId: undefined,
@@ -54535,7 +53759,6 @@ const deserializeAws_ec2InternetGatewayAttachment = (
   context: __SerdeContext
 ): InternetGatewayAttachment => {
   let contents: any = {
-    __type: "InternetGatewayAttachment",
     VpcId: undefined,
     State: undefined,
   };
@@ -54561,7 +53784,6 @@ const deserializeAws_ec2InternetGatewayList = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2IpPermission = (output: any, context: __SerdeContext): IpPermission => {
   let contents: any = {
-    __type: "IpPermission",
     IpRanges: undefined,
     Ipv6Ranges: undefined,
     ToPort: undefined,
@@ -54621,7 +53843,6 @@ const deserializeAws_ec2IpPermissionList = (output: any, context: __SerdeContext
 
 const deserializeAws_ec2IpRange = (output: any, context: __SerdeContext): IpRange => {
   let contents: any = {
-    __type: "IpRange",
     CidrIp: undefined,
     Description: undefined,
   };
@@ -54648,7 +53869,6 @@ const deserializeAws_ec2Ipv6AddressList = (output: any, context: __SerdeContext)
 
 const deserializeAws_ec2Ipv6CidrAssociation = (output: any, context: __SerdeContext): Ipv6CidrAssociation => {
   let contents: any = {
-    __type: "Ipv6CidrAssociation",
     AssociatedResource: undefined,
     Ipv6Cidr: undefined,
   };
@@ -54667,7 +53887,6 @@ const deserializeAws_ec2Ipv6CidrAssociationSet = (output: any, context: __SerdeC
 
 const deserializeAws_ec2Ipv6CidrBlock = (output: any, context: __SerdeContext): Ipv6CidrBlock => {
   let contents: any = {
-    __type: "Ipv6CidrBlock",
     Ipv6CidrBlock: undefined,
   };
   if (output["ipv6CidrBlock"] !== undefined) {
@@ -54682,7 +53901,6 @@ const deserializeAws_ec2Ipv6CidrBlockSet = (output: any, context: __SerdeContext
 
 const deserializeAws_ec2Ipv6Pool = (output: any, context: __SerdeContext): Ipv6Pool => {
   let contents: any = {
-    __type: "Ipv6Pool",
     Tags: undefined,
     PoolId: undefined,
     Description: undefined,
@@ -54718,7 +53936,6 @@ const deserializeAws_ec2Ipv6PoolSet = (output: any, context: __SerdeContext): Ip
 
 const deserializeAws_ec2Ipv6Range = (output: any, context: __SerdeContext): Ipv6Range => {
   let contents: any = {
-    __type: "Ipv6Range",
     CidrIpv6: undefined,
     Description: undefined,
   };
@@ -54737,7 +53954,6 @@ const deserializeAws_ec2Ipv6RangeList = (output: any, context: __SerdeContext): 
 
 const deserializeAws_ec2KeyPair = (output: any, context: __SerdeContext): KeyPair => {
   let contents: any = {
-    __type: "KeyPair",
     KeyFingerprint: undefined,
     KeyName: undefined,
     KeyMaterial: undefined,
@@ -54767,7 +53983,6 @@ const deserializeAws_ec2KeyPair = (output: any, context: __SerdeContext): KeyPai
 
 const deserializeAws_ec2KeyPairInfo = (output: any, context: __SerdeContext): KeyPairInfo => {
   let contents: any = {
-    __type: "KeyPairInfo",
     Tags: undefined,
     KeyFingerprint: undefined,
     KeyPairId: undefined,
@@ -54797,7 +54012,6 @@ const deserializeAws_ec2KeyPairList = (output: any, context: __SerdeContext): Ke
 
 const deserializeAws_ec2LastError = (output: any, context: __SerdeContext): LastError => {
   let contents: any = {
-    __type: "LastError",
     Code: undefined,
     Message: undefined,
   };
@@ -54812,7 +54026,6 @@ const deserializeAws_ec2LastError = (output: any, context: __SerdeContext): Last
 
 const deserializeAws_ec2LaunchPermission = (output: any, context: __SerdeContext): LaunchPermission => {
   let contents: any = {
-    __type: "LaunchPermission",
     UserId: undefined,
     Group: undefined,
   };
@@ -54831,7 +54044,6 @@ const deserializeAws_ec2LaunchPermissionList = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2LaunchSpecification = (output: any, context: __SerdeContext): LaunchSpecification => {
   let contents: any = {
-    __type: "LaunchSpecification",
     BlockDeviceMappings: undefined,
     SubnetId: undefined,
     KernelId: undefined,
@@ -54923,7 +54135,6 @@ const deserializeAws_ec2LaunchSpecsList = (output: any, context: __SerdeContext)
 
 const deserializeAws_ec2LaunchTemplate = (output: any, context: __SerdeContext): LaunchTemplate => {
   let contents: any = {
-    __type: "LaunchTemplate",
     DefaultVersionNumber: undefined,
     LatestVersionNumber: undefined,
     CreateTime: undefined,
@@ -54964,7 +54175,6 @@ const deserializeAws_ec2LaunchTemplateAndOverridesResponse = (
   context: __SerdeContext
 ): LaunchTemplateAndOverridesResponse => {
   let contents: any = {
-    __type: "LaunchTemplateAndOverridesResponse",
     LaunchTemplateSpecification: undefined,
     Overrides: undefined,
   };
@@ -54985,7 +54195,6 @@ const deserializeAws_ec2LaunchTemplateBlockDeviceMapping = (
   context: __SerdeContext
 ): LaunchTemplateBlockDeviceMapping => {
   let contents: any = {
-    __type: "LaunchTemplateBlockDeviceMapping",
     Ebs: undefined,
     VirtualName: undefined,
     DeviceName: undefined,
@@ -55018,7 +54227,6 @@ const deserializeAws_ec2LaunchTemplateCapacityReservationSpecificationResponse =
   context: __SerdeContext
 ): LaunchTemplateCapacityReservationSpecificationResponse => {
   let contents: any = {
-    __type: "LaunchTemplateCapacityReservationSpecificationResponse",
     CapacityReservationTarget: undefined,
     CapacityReservationPreference: undefined,
   };
@@ -55036,7 +54244,6 @@ const deserializeAws_ec2LaunchTemplateCapacityReservationSpecificationResponse =
 
 const deserializeAws_ec2LaunchTemplateConfig = (output: any, context: __SerdeContext): LaunchTemplateConfig => {
   let contents: any = {
-    __type: "LaunchTemplateConfig",
     LaunchTemplateSpecification: undefined,
     Overrides: undefined,
   };
@@ -55064,7 +54271,6 @@ const deserializeAws_ec2LaunchTemplateConfigList = (output: any, context: __Serd
 
 const deserializeAws_ec2LaunchTemplateCpuOptions = (output: any, context: __SerdeContext): LaunchTemplateCpuOptions => {
   let contents: any = {
-    __type: "LaunchTemplateCpuOptions",
     CoreCount: undefined,
     ThreadsPerCore: undefined,
   };
@@ -55082,7 +54288,6 @@ const deserializeAws_ec2LaunchTemplateEbsBlockDevice = (
   context: __SerdeContext
 ): LaunchTemplateEbsBlockDevice => {
   let contents: any = {
-    __type: "LaunchTemplateEbsBlockDevice",
     VolumeType: undefined,
     Encrypted: undefined,
     Iops: undefined,
@@ -55120,7 +54325,6 @@ const deserializeAws_ec2LaunchTemplateElasticInferenceAcceleratorResponse = (
   context: __SerdeContext
 ): LaunchTemplateElasticInferenceAcceleratorResponse => {
   let contents: any = {
-    __type: "LaunchTemplateElasticInferenceAcceleratorResponse",
     Count: undefined,
     Type: undefined,
   };
@@ -55147,7 +54351,6 @@ const deserializeAws_ec2LaunchTemplateHibernationOptions = (
   context: __SerdeContext
 ): LaunchTemplateHibernationOptions => {
   let contents: any = {
-    __type: "LaunchTemplateHibernationOptions",
     Configured: undefined,
   };
   if (output["configured"] !== undefined) {
@@ -55161,7 +54364,6 @@ const deserializeAws_ec2LaunchTemplateIamInstanceProfileSpecification = (
   context: __SerdeContext
 ): LaunchTemplateIamInstanceProfileSpecification => {
   let contents: any = {
-    __type: "LaunchTemplateIamInstanceProfileSpecification",
     Name: undefined,
     Arn: undefined,
   };
@@ -55179,7 +54381,6 @@ const deserializeAws_ec2LaunchTemplateInstanceMarketOptions = (
   context: __SerdeContext
 ): LaunchTemplateInstanceMarketOptions => {
   let contents: any = {
-    __type: "LaunchTemplateInstanceMarketOptions",
     SpotOptions: undefined,
     MarketType: undefined,
   };
@@ -55197,7 +54398,6 @@ const deserializeAws_ec2LaunchTemplateInstanceMetadataOptions = (
   context: __SerdeContext
 ): LaunchTemplateInstanceMetadataOptions => {
   let contents: any = {
-    __type: "LaunchTemplateInstanceMetadataOptions",
     HttpTokens: undefined,
     State: undefined,
     HttpPutResponseHopLimit: undefined,
@@ -55223,7 +54423,6 @@ const deserializeAws_ec2LaunchTemplateInstanceNetworkInterfaceSpecification = (
   context: __SerdeContext
 ): LaunchTemplateInstanceNetworkInterfaceSpecification => {
   let contents: any = {
-    __type: "LaunchTemplateInstanceNetworkInterfaceSpecification",
     AssociatePublicIpAddress: undefined,
     Description: undefined,
     Ipv6AddressCount: undefined,
@@ -55312,7 +54511,6 @@ const deserializeAws_ec2LaunchTemplateLicenseConfiguration = (
   context: __SerdeContext
 ): LaunchTemplateLicenseConfiguration => {
   let contents: any = {
-    __type: "LaunchTemplateLicenseConfiguration",
     LicenseConfigurationArn: undefined,
   };
   if (output["licenseConfigurationArn"] !== undefined) {
@@ -55330,7 +54528,6 @@ const deserializeAws_ec2LaunchTemplateLicenseList = (
 
 const deserializeAws_ec2LaunchTemplateOverrides = (output: any, context: __SerdeContext): LaunchTemplateOverrides => {
   let contents: any = {
-    __type: "LaunchTemplateOverrides",
     Priority: undefined,
     InstanceType: undefined,
     SpotPrice: undefined,
@@ -55368,7 +54565,6 @@ const deserializeAws_ec2LaunchTemplateOverridesList = (
 
 const deserializeAws_ec2LaunchTemplatePlacement = (output: any, context: __SerdeContext): LaunchTemplatePlacement => {
   let contents: any = {
-    __type: "LaunchTemplatePlacement",
     HostId: undefined,
     SpreadDomain: undefined,
     AvailabilityZone: undefined,
@@ -55414,7 +54610,6 @@ const deserializeAws_ec2LaunchTemplatesMonitoring = (
   context: __SerdeContext
 ): LaunchTemplatesMonitoring => {
   let contents: any = {
-    __type: "LaunchTemplatesMonitoring",
     Enabled: undefined,
   };
   if (output["enabled"] !== undefined) {
@@ -55428,7 +54623,6 @@ const deserializeAws_ec2LaunchTemplateSpotMarketOptions = (
   context: __SerdeContext
 ): LaunchTemplateSpotMarketOptions => {
   let contents: any = {
-    __type: "LaunchTemplateSpotMarketOptions",
     MaxPrice: undefined,
     InstanceInterruptionBehavior: undefined,
     BlockDurationMinutes: undefined,
@@ -55458,7 +54652,6 @@ const deserializeAws_ec2LaunchTemplateTagSpecification = (
   context: __SerdeContext
 ): LaunchTemplateTagSpecification => {
   let contents: any = {
-    __type: "LaunchTemplateTagSpecification",
     ResourceType: undefined,
     Tags: undefined,
   };
@@ -55483,7 +54676,6 @@ const deserializeAws_ec2LaunchTemplateTagSpecificationList = (
 
 const deserializeAws_ec2LaunchTemplateVersion = (output: any, context: __SerdeContext): LaunchTemplateVersion => {
   let contents: any = {
-    __type: "LaunchTemplateVersion",
     VersionDescription: undefined,
     VersionNumber: undefined,
     DefaultVersion: undefined,
@@ -55526,7 +54718,6 @@ const deserializeAws_ec2LaunchTemplateVersionSet = (output: any, context: __Serd
 
 const deserializeAws_ec2LicenseConfiguration = (output: any, context: __SerdeContext): LicenseConfiguration => {
   let contents: any = {
-    __type: "LicenseConfiguration",
     LicenseConfigurationArn: undefined,
   };
   if (output["licenseConfigurationArn"] !== undefined) {
@@ -55541,7 +54732,6 @@ const deserializeAws_ec2LicenseList = (output: any, context: __SerdeContext): Li
 
 const deserializeAws_ec2LoadBalancersConfig = (output: any, context: __SerdeContext): LoadBalancersConfig => {
   let contents: any = {
-    __type: "LoadBalancersConfig",
     TargetGroupsConfig: undefined,
     ClassicLoadBalancersConfig: undefined,
   };
@@ -55559,7 +54749,6 @@ const deserializeAws_ec2LoadBalancersConfig = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2LoadPermission = (output: any, context: __SerdeContext): LoadPermission => {
   let contents: any = {
-    __type: "LoadPermission",
     UserId: undefined,
     Group: undefined,
   };
@@ -55578,7 +54767,6 @@ const deserializeAws_ec2LoadPermissionList = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2LocalGateway = (output: any, context: __SerdeContext): LocalGateway => {
   let contents: any = {
-    __type: "LocalGateway",
     State: undefined,
     OutpostArn: undefined,
     Tags: undefined,
@@ -55608,7 +54796,6 @@ const deserializeAws_ec2LocalGateway = (output: any, context: __SerdeContext): L
 
 const deserializeAws_ec2LocalGatewayRoute = (output: any, context: __SerdeContext): LocalGatewayRoute => {
   let contents: any = {
-    __type: "LocalGatewayRoute",
     State: undefined,
     LocalGatewayRouteTableId: undefined,
     Type: undefined,
@@ -55639,7 +54826,6 @@ const deserializeAws_ec2LocalGatewayRouteList = (output: any, context: __SerdeCo
 
 const deserializeAws_ec2LocalGatewayRouteTable = (output: any, context: __SerdeContext): LocalGatewayRouteTable => {
   let contents: any = {
-    __type: "LocalGatewayRouteTable",
     Tags: undefined,
     LocalGatewayId: undefined,
     State: undefined,
@@ -55679,7 +54865,6 @@ const deserializeAws_ec2LocalGatewayRouteTableVirtualInterfaceGroupAssociation =
   context: __SerdeContext
 ): LocalGatewayRouteTableVirtualInterfaceGroupAssociation => {
   let contents: any = {
-    __type: "LocalGatewayRouteTableVirtualInterfaceGroupAssociation",
     LocalGatewayRouteTableVirtualInterfaceGroupAssociationId: undefined,
     LocalGatewayId: undefined,
     Tags: undefined,
@@ -55726,7 +54911,6 @@ const deserializeAws_ec2LocalGatewayRouteTableVpcAssociation = (
   context: __SerdeContext
 ): LocalGatewayRouteTableVpcAssociation => {
   let contents: any = {
-    __type: "LocalGatewayRouteTableVpcAssociation",
     LocalGatewayRouteTableVpcAssociationId: undefined,
     LocalGatewayRouteTableId: undefined,
     State: undefined,
@@ -55774,7 +54958,6 @@ const deserializeAws_ec2LocalGatewayVirtualInterface = (
   context: __SerdeContext
 ): LocalGatewayVirtualInterface => {
   let contents: any = {
-    __type: "LocalGatewayVirtualInterface",
     Vlan: undefined,
     LocalBgpAsn: undefined,
     LocalGatewayId: undefined,
@@ -55819,7 +55002,6 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceGroup = (
   context: __SerdeContext
 ): LocalGatewayVirtualInterfaceGroup => {
   let contents: any = {
-    __type: "LocalGatewayVirtualInterfaceGroup",
     LocalGatewayVirtualInterfaceGroupId: undefined,
     LocalGatewayId: undefined,
     LocalGatewayVirtualInterfaceIds: undefined,
@@ -55872,7 +55054,6 @@ const deserializeAws_ec2LocalGatewayVirtualInterfaceSet = (
 
 const deserializeAws_ec2ManagedPrefixList = (output: any, context: __SerdeContext): ManagedPrefixList => {
   let contents: any = {
-    __type: "ManagedPrefixList",
     StateMessage: undefined,
     PrefixListId: undefined,
     OwnerId: undefined,
@@ -55926,7 +55107,6 @@ const deserializeAws_ec2ManagedPrefixListSet = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2MemoryInfo = (output: any, context: __SerdeContext): MemoryInfo => {
   let contents: any = {
-    __type: "MemoryInfo",
     SizeInMiB: undefined,
   };
   if (output["sizeInMiB"] !== undefined) {
@@ -55940,7 +55120,6 @@ const deserializeAws_ec2ModifyAvailabilityZoneGroupResult = (
   context: __SerdeContext
 ): ModifyAvailabilityZoneGroupResult => {
   let contents: any = {
-    __type: "ModifyAvailabilityZoneGroupResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -55954,7 +55133,6 @@ const deserializeAws_ec2ModifyCapacityReservationResult = (
   context: __SerdeContext
 ): ModifyCapacityReservationResult => {
   let contents: any = {
-    __type: "ModifyCapacityReservationResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -55968,7 +55146,6 @@ const deserializeAws_ec2ModifyClientVpnEndpointResult = (
   context: __SerdeContext
 ): ModifyClientVpnEndpointResult => {
   let contents: any = {
-    __type: "ModifyClientVpnEndpointResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -55982,7 +55159,6 @@ const deserializeAws_ec2ModifyDefaultCreditSpecificationResult = (
   context: __SerdeContext
 ): ModifyDefaultCreditSpecificationResult => {
   let contents: any = {
-    __type: "ModifyDefaultCreditSpecificationResult",
     InstanceFamilyCreditSpecification: undefined,
   };
   if (output["instanceFamilyCreditSpecification"] !== undefined) {
@@ -55999,7 +55175,6 @@ const deserializeAws_ec2ModifyEbsDefaultKmsKeyIdResult = (
   context: __SerdeContext
 ): ModifyEbsDefaultKmsKeyIdResult => {
   let contents: any = {
-    __type: "ModifyEbsDefaultKmsKeyIdResult",
     KmsKeyId: undefined,
   };
   if (output["kmsKeyId"] !== undefined) {
@@ -56010,7 +55185,6 @@ const deserializeAws_ec2ModifyEbsDefaultKmsKeyIdResult = (
 
 const deserializeAws_ec2ModifyFleetResult = (output: any, context: __SerdeContext): ModifyFleetResult => {
   let contents: any = {
-    __type: "ModifyFleetResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -56024,7 +55198,6 @@ const deserializeAws_ec2ModifyFpgaImageAttributeResult = (
   context: __SerdeContext
 ): ModifyFpgaImageAttributeResult => {
   let contents: any = {
-    __type: "ModifyFpgaImageAttributeResult",
     FpgaImageAttribute: undefined,
   };
   if (output["fpgaImageAttribute"] !== undefined) {
@@ -56035,7 +55208,6 @@ const deserializeAws_ec2ModifyFpgaImageAttributeResult = (
 
 const deserializeAws_ec2ModifyHostsResult = (output: any, context: __SerdeContext): ModifyHostsResult => {
   let contents: any = {
-    __type: "ModifyHostsResult",
     Unsuccessful: undefined,
     Successful: undefined,
   };
@@ -56065,7 +55237,6 @@ const deserializeAws_ec2ModifyInstanceCapacityReservationAttributesResult = (
   context: __SerdeContext
 ): ModifyInstanceCapacityReservationAttributesResult => {
   let contents: any = {
-    __type: "ModifyInstanceCapacityReservationAttributesResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -56079,7 +55250,6 @@ const deserializeAws_ec2ModifyInstanceCreditSpecificationResult = (
   context: __SerdeContext
 ): ModifyInstanceCreditSpecificationResult => {
   let contents: any = {
-    __type: "ModifyInstanceCreditSpecificationResult",
     SuccessfulInstanceCreditSpecifications: undefined,
     UnsuccessfulInstanceCreditSpecifications: undefined,
   };
@@ -56115,7 +55285,6 @@ const deserializeAws_ec2ModifyInstanceEventStartTimeResult = (
   context: __SerdeContext
 ): ModifyInstanceEventStartTimeResult => {
   let contents: any = {
-    __type: "ModifyInstanceEventStartTimeResult",
     Event: undefined,
   };
   if (output["event"] !== undefined) {
@@ -56129,7 +55298,6 @@ const deserializeAws_ec2ModifyInstanceMetadataOptionsResult = (
   context: __SerdeContext
 ): ModifyInstanceMetadataOptionsResult => {
   let contents: any = {
-    __type: "ModifyInstanceMetadataOptionsResult",
     InstanceMetadataOptions: undefined,
     InstanceId: undefined,
   };
@@ -56150,7 +55318,6 @@ const deserializeAws_ec2ModifyInstancePlacementResult = (
   context: __SerdeContext
 ): ModifyInstancePlacementResult => {
   let contents: any = {
-    __type: "ModifyInstancePlacementResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -56164,7 +55331,6 @@ const deserializeAws_ec2ModifyLaunchTemplateResult = (
   context: __SerdeContext
 ): ModifyLaunchTemplateResult => {
   let contents: any = {
-    __type: "ModifyLaunchTemplateResult",
     LaunchTemplate: undefined,
   };
   if (output["launchTemplate"] !== undefined) {
@@ -56178,7 +55344,6 @@ const deserializeAws_ec2ModifyManagedPrefixListResult = (
   context: __SerdeContext
 ): ModifyManagedPrefixListResult => {
   let contents: any = {
-    __type: "ModifyManagedPrefixListResult",
     PrefixList: undefined,
   };
   if (output["prefixList"] !== undefined) {
@@ -56192,7 +55357,6 @@ const deserializeAws_ec2ModifyReservedInstancesResult = (
   context: __SerdeContext
 ): ModifyReservedInstancesResult => {
   let contents: any = {
-    __type: "ModifyReservedInstancesResult",
     ReservedInstancesModificationId: undefined,
   };
   if (output["reservedInstancesModificationId"] !== undefined) {
@@ -56206,7 +55370,6 @@ const deserializeAws_ec2ModifySpotFleetRequestResponse = (
   context: __SerdeContext
 ): ModifySpotFleetRequestResponse => {
   let contents: any = {
-    __type: "ModifySpotFleetRequestResponse",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -56220,7 +55383,6 @@ const deserializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesResult = (
   context: __SerdeContext
 ): ModifyTrafficMirrorFilterNetworkServicesResult => {
   let contents: any = {
-    __type: "ModifyTrafficMirrorFilterNetworkServicesResult",
     TrafficMirrorFilter: undefined,
   };
   if (output["trafficMirrorFilter"] !== undefined) {
@@ -56234,7 +55396,6 @@ const deserializeAws_ec2ModifyTrafficMirrorFilterRuleResult = (
   context: __SerdeContext
 ): ModifyTrafficMirrorFilterRuleResult => {
   let contents: any = {
-    __type: "ModifyTrafficMirrorFilterRuleResult",
     TrafficMirrorFilterRule: undefined,
   };
   if (output["trafficMirrorFilterRule"] !== undefined) {
@@ -56251,7 +55412,6 @@ const deserializeAws_ec2ModifyTrafficMirrorSessionResult = (
   context: __SerdeContext
 ): ModifyTrafficMirrorSessionResult => {
   let contents: any = {
-    __type: "ModifyTrafficMirrorSessionResult",
     TrafficMirrorSession: undefined,
   };
   if (output["trafficMirrorSession"] !== undefined) {
@@ -56265,7 +55425,6 @@ const deserializeAws_ec2ModifyTransitGatewayVpcAttachmentResult = (
   context: __SerdeContext
 ): ModifyTransitGatewayVpcAttachmentResult => {
   let contents: any = {
-    __type: "ModifyTransitGatewayVpcAttachmentResult",
     TransitGatewayVpcAttachment: undefined,
   };
   if (output["transitGatewayVpcAttachment"] !== undefined) {
@@ -56279,7 +55438,6 @@ const deserializeAws_ec2ModifyTransitGatewayVpcAttachmentResult = (
 
 const deserializeAws_ec2ModifyVolumeResult = (output: any, context: __SerdeContext): ModifyVolumeResult => {
   let contents: any = {
-    __type: "ModifyVolumeResult",
     VolumeModification: undefined,
   };
   if (output["volumeModification"] !== undefined) {
@@ -56293,7 +55451,6 @@ const deserializeAws_ec2ModifyVpcEndpointConnectionNotificationResult = (
   context: __SerdeContext
 ): ModifyVpcEndpointConnectionNotificationResult => {
   let contents: any = {
-    __type: "ModifyVpcEndpointConnectionNotificationResult",
     ReturnValue: undefined,
   };
   if (output["return"] !== undefined) {
@@ -56304,7 +55461,6 @@ const deserializeAws_ec2ModifyVpcEndpointConnectionNotificationResult = (
 
 const deserializeAws_ec2ModifyVpcEndpointResult = (output: any, context: __SerdeContext): ModifyVpcEndpointResult => {
   let contents: any = {
-    __type: "ModifyVpcEndpointResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -56318,7 +55474,6 @@ const deserializeAws_ec2ModifyVpcEndpointServiceConfigurationResult = (
   context: __SerdeContext
 ): ModifyVpcEndpointServiceConfigurationResult => {
   let contents: any = {
-    __type: "ModifyVpcEndpointServiceConfigurationResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -56332,7 +55487,6 @@ const deserializeAws_ec2ModifyVpcEndpointServicePermissionsResult = (
   context: __SerdeContext
 ): ModifyVpcEndpointServicePermissionsResult => {
   let contents: any = {
-    __type: "ModifyVpcEndpointServicePermissionsResult",
     ReturnValue: undefined,
   };
   if (output["return"] !== undefined) {
@@ -56346,7 +55500,6 @@ const deserializeAws_ec2ModifyVpcPeeringConnectionOptionsResult = (
   context: __SerdeContext
 ): ModifyVpcPeeringConnectionOptionsResult => {
   let contents: any = {
-    __type: "ModifyVpcPeeringConnectionOptionsResult",
     AccepterPeeringConnectionOptions: undefined,
     RequesterPeeringConnectionOptions: undefined,
   };
@@ -56367,7 +55520,6 @@ const deserializeAws_ec2ModifyVpcPeeringConnectionOptionsResult = (
 
 const deserializeAws_ec2ModifyVpcTenancyResult = (output: any, context: __SerdeContext): ModifyVpcTenancyResult => {
   let contents: any = {
-    __type: "ModifyVpcTenancyResult",
     ReturnValue: undefined,
   };
   if (output["return"] !== undefined) {
@@ -56381,7 +55533,6 @@ const deserializeAws_ec2ModifyVpnConnectionResult = (
   context: __SerdeContext
 ): ModifyVpnConnectionResult => {
   let contents: any = {
-    __type: "ModifyVpnConnectionResult",
     VpnConnection: undefined,
   };
   if (output["vpnConnection"] !== undefined) {
@@ -56395,7 +55546,6 @@ const deserializeAws_ec2ModifyVpnTunnelCertificateResult = (
   context: __SerdeContext
 ): ModifyVpnTunnelCertificateResult => {
   let contents: any = {
-    __type: "ModifyVpnTunnelCertificateResult",
     VpnConnection: undefined,
   };
   if (output["vpnConnection"] !== undefined) {
@@ -56409,7 +55559,6 @@ const deserializeAws_ec2ModifyVpnTunnelOptionsResult = (
   context: __SerdeContext
 ): ModifyVpnTunnelOptionsResult => {
   let contents: any = {
-    __type: "ModifyVpnTunnelOptionsResult",
     VpnConnection: undefined,
   };
   if (output["vpnConnection"] !== undefined) {
@@ -56420,7 +55569,6 @@ const deserializeAws_ec2ModifyVpnTunnelOptionsResult = (
 
 const deserializeAws_ec2Monitoring = (output: any, context: __SerdeContext): Monitoring => {
   let contents: any = {
-    __type: "Monitoring",
     State: undefined,
   };
   if (output["state"] !== undefined) {
@@ -56431,7 +55579,6 @@ const deserializeAws_ec2Monitoring = (output: any, context: __SerdeContext): Mon
 
 const deserializeAws_ec2MonitorInstancesResult = (output: any, context: __SerdeContext): MonitorInstancesResult => {
   let contents: any = {
-    __type: "MonitorInstancesResult",
     InstanceMonitorings: undefined,
   };
   if (output.instancesSet === "") {
@@ -56448,7 +55595,6 @@ const deserializeAws_ec2MonitorInstancesResult = (output: any, context: __SerdeC
 
 const deserializeAws_ec2MoveAddressToVpcResult = (output: any, context: __SerdeContext): MoveAddressToVpcResult => {
   let contents: any = {
-    __type: "MoveAddressToVpcResult",
     Status: undefined,
     AllocationId: undefined,
   };
@@ -56463,7 +55609,6 @@ const deserializeAws_ec2MoveAddressToVpcResult = (output: any, context: __SerdeC
 
 const deserializeAws_ec2MovingAddressStatus = (output: any, context: __SerdeContext): MovingAddressStatus => {
   let contents: any = {
-    __type: "MovingAddressStatus",
     PublicIp: undefined,
     MoveStatus: undefined,
   };
@@ -56482,7 +55627,6 @@ const deserializeAws_ec2MovingAddressStatusSet = (output: any, context: __SerdeC
 
 const deserializeAws_ec2NatGateway = (output: any, context: __SerdeContext): NatGateway => {
   let contents: any = {
-    __type: "NatGateway",
     VpcId: undefined,
     FailureCode: undefined,
     Tags: undefined,
@@ -56542,7 +55686,6 @@ const deserializeAws_ec2NatGateway = (output: any, context: __SerdeContext): Nat
 
 const deserializeAws_ec2NatGatewayAddress = (output: any, context: __SerdeContext): NatGatewayAddress => {
   let contents: any = {
-    __type: "NatGatewayAddress",
     NetworkInterfaceId: undefined,
     PrivateIp: undefined,
     PublicIp: undefined,
@@ -56573,7 +55716,6 @@ const deserializeAws_ec2NatGatewayList = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2NetworkAcl = (output: any, context: __SerdeContext): NetworkAcl => {
   let contents: any = {
-    __type: "NetworkAcl",
     Tags: undefined,
     IsDefault: undefined,
     Entries: undefined,
@@ -56623,7 +55765,6 @@ const deserializeAws_ec2NetworkAcl = (output: any, context: __SerdeContext): Net
 
 const deserializeAws_ec2NetworkAclAssociation = (output: any, context: __SerdeContext): NetworkAclAssociation => {
   let contents: any = {
-    __type: "NetworkAclAssociation",
     NetworkAclAssociationId: undefined,
     SubnetId: undefined,
     NetworkAclId: undefined,
@@ -56646,7 +55787,6 @@ const deserializeAws_ec2NetworkAclAssociationList = (output: any, context: __Ser
 
 const deserializeAws_ec2NetworkAclEntry = (output: any, context: __SerdeContext): NetworkAclEntry => {
   let contents: any = {
-    __type: "NetworkAclEntry",
     IcmpTypeCode: undefined,
     Protocol: undefined,
     RuleAction: undefined,
@@ -56693,7 +55833,6 @@ const deserializeAws_ec2NetworkAclList = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2NetworkInfo = (output: any, context: __SerdeContext): NetworkInfo => {
   let contents: any = {
-    __type: "NetworkInfo",
     EnaSupport: undefined,
     Ipv4AddressesPerInterface: undefined,
     Ipv6Supported: undefined,
@@ -56728,7 +55867,6 @@ const deserializeAws_ec2NetworkInfo = (output: any, context: __SerdeContext): Ne
 
 const deserializeAws_ec2NetworkInterface = (output: any, context: __SerdeContext): NetworkInterface => {
   let contents: any = {
-    __type: "NetworkInterface",
     Groups: undefined,
     RequesterManaged: undefined,
     Association: undefined,
@@ -56843,7 +55981,6 @@ const deserializeAws_ec2NetworkInterfaceAssociation = (
   context: __SerdeContext
 ): NetworkInterfaceAssociation => {
   let contents: any = {
-    __type: "NetworkInterfaceAssociation",
     PublicDnsName: undefined,
     IpOwnerId: undefined,
     PublicIp: undefined,
@@ -56873,7 +56010,6 @@ const deserializeAws_ec2NetworkInterfaceAttachment = (
   context: __SerdeContext
 ): NetworkInterfaceAttachment => {
   let contents: any = {
-    __type: "NetworkInterfaceAttachment",
     InstanceId: undefined,
     AttachmentId: undefined,
     Status: undefined,
@@ -56911,7 +56047,6 @@ const deserializeAws_ec2NetworkInterfaceIpv6Address = (
   context: __SerdeContext
 ): NetworkInterfaceIpv6Address => {
   let contents: any = {
-    __type: "NetworkInterfaceIpv6Address",
     Ipv6Address: undefined,
   };
   if (output["ipv6Address"] !== undefined) {
@@ -56936,7 +56071,6 @@ const deserializeAws_ec2NetworkInterfacePermission = (
   context: __SerdeContext
 ): NetworkInterfacePermission => {
   let contents: any = {
-    __type: "NetworkInterfacePermission",
     AwsAccountId: undefined,
     NetworkInterfacePermissionId: undefined,
     AwsService: undefined,
@@ -56977,7 +56111,6 @@ const deserializeAws_ec2NetworkInterfacePermissionState = (
   context: __SerdeContext
 ): NetworkInterfacePermissionState => {
   let contents: any = {
-    __type: "NetworkInterfacePermissionState",
     StatusMessage: undefined,
     State: undefined,
   };
@@ -56995,7 +56128,6 @@ const deserializeAws_ec2NetworkInterfacePrivateIpAddress = (
   context: __SerdeContext
 ): NetworkInterfacePrivateIpAddress => {
   let contents: any = {
-    __type: "NetworkInterfacePrivateIpAddress",
     Association: undefined,
     PrivateDnsName: undefined,
     Primary: undefined,
@@ -57029,7 +56161,6 @@ const deserializeAws_ec2OccurrenceDaySet = (output: any, context: __SerdeContext
 
 const deserializeAws_ec2OnDemandOptions = (output: any, context: __SerdeContext): OnDemandOptions => {
   let contents: any = {
-    __type: "OnDemandOptions",
     CapacityReservationOptions: undefined,
     MaxTotalPrice: undefined,
     SingleAvailabilityZone: undefined,
@@ -57063,7 +56194,6 @@ const deserializeAws_ec2OnDemandOptions = (output: any, context: __SerdeContext)
 
 const deserializeAws_ec2PciId = (output: any, context: __SerdeContext): PciId => {
   let contents: any = {
-    __type: "PciId",
     VendorId: undefined,
     DeviceId: undefined,
     SubsystemVendorId: undefined,
@@ -57086,7 +56216,6 @@ const deserializeAws_ec2PciId = (output: any, context: __SerdeContext): PciId =>
 
 const deserializeAws_ec2PeeringAttachmentStatus = (output: any, context: __SerdeContext): PeeringAttachmentStatus => {
   let contents: any = {
-    __type: "PeeringAttachmentStatus",
     Code: undefined,
     Message: undefined,
   };
@@ -57101,7 +56230,6 @@ const deserializeAws_ec2PeeringAttachmentStatus = (output: any, context: __Serde
 
 const deserializeAws_ec2PeeringConnectionOptions = (output: any, context: __SerdeContext): PeeringConnectionOptions => {
   let contents: any = {
-    __type: "PeeringConnectionOptions",
     AllowEgressFromLocalClassicLinkToRemoteVpc: undefined,
     AllowEgressFromLocalVpcToRemoteClassicLink: undefined,
     AllowDnsResolutionFromRemoteVpc: undefined,
@@ -57122,7 +56250,6 @@ const deserializeAws_ec2PeeringConnectionOptions = (output: any, context: __Serd
 
 const deserializeAws_ec2PeeringTgwInfo = (output: any, context: __SerdeContext): PeeringTgwInfo => {
   let contents: any = {
-    __type: "PeeringTgwInfo",
     OwnerId: undefined,
     Region: undefined,
     TransitGatewayId: undefined,
@@ -57151,7 +56278,6 @@ const deserializeAws_ec2Phase1DHGroupNumbersListValue = (
   context: __SerdeContext
 ): Phase1DHGroupNumbersListValue => {
   let contents: any = {
-    __type: "Phase1DHGroupNumbersListValue",
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -57172,7 +56298,6 @@ const deserializeAws_ec2Phase1EncryptionAlgorithmsListValue = (
   context: __SerdeContext
 ): Phase1EncryptionAlgorithmsListValue => {
   let contents: any = {
-    __type: "Phase1EncryptionAlgorithmsListValue",
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -57193,7 +56318,6 @@ const deserializeAws_ec2Phase1IntegrityAlgorithmsListValue = (
   context: __SerdeContext
 ): Phase1IntegrityAlgorithmsListValue => {
   let contents: any = {
-    __type: "Phase1IntegrityAlgorithmsListValue",
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -57214,7 +56338,6 @@ const deserializeAws_ec2Phase2DHGroupNumbersListValue = (
   context: __SerdeContext
 ): Phase2DHGroupNumbersListValue => {
   let contents: any = {
-    __type: "Phase2DHGroupNumbersListValue",
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -57235,7 +56358,6 @@ const deserializeAws_ec2Phase2EncryptionAlgorithmsListValue = (
   context: __SerdeContext
 ): Phase2EncryptionAlgorithmsListValue => {
   let contents: any = {
-    __type: "Phase2EncryptionAlgorithmsListValue",
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -57256,7 +56378,6 @@ const deserializeAws_ec2Phase2IntegrityAlgorithmsListValue = (
   context: __SerdeContext
 ): Phase2IntegrityAlgorithmsListValue => {
   let contents: any = {
-    __type: "Phase2IntegrityAlgorithmsListValue",
     Value: undefined,
   };
   if (output["value"] !== undefined) {
@@ -57267,7 +56388,6 @@ const deserializeAws_ec2Phase2IntegrityAlgorithmsListValue = (
 
 const deserializeAws_ec2Placement = (output: any, context: __SerdeContext): Placement => {
   let contents: any = {
-    __type: "Placement",
     SpreadDomain: undefined,
     PartitionNumber: undefined,
     Affinity: undefined,
@@ -57306,7 +56426,6 @@ const deserializeAws_ec2Placement = (output: any, context: __SerdeContext): Plac
 
 const deserializeAws_ec2PlacementGroup = (output: any, context: __SerdeContext): PlacementGroup => {
   let contents: any = {
-    __type: "PlacementGroup",
     State: undefined,
     GroupName: undefined,
     PartitionCount: undefined,
@@ -57340,7 +56459,6 @@ const deserializeAws_ec2PlacementGroup = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2PlacementGroupInfo = (output: any, context: __SerdeContext): PlacementGroupInfo => {
   let contents: any = {
-    __type: "PlacementGroupInfo",
     SupportedStrategies: undefined,
   };
   if (output.supportedStrategies === "") {
@@ -57368,7 +56486,6 @@ const deserializeAws_ec2PlacementGroupStrategyList = (
 
 const deserializeAws_ec2PlacementResponse = (output: any, context: __SerdeContext): PlacementResponse => {
   let contents: any = {
-    __type: "PlacementResponse",
     GroupName: undefined,
   };
   if (output["groupName"] !== undefined) {
@@ -57379,7 +56496,6 @@ const deserializeAws_ec2PlacementResponse = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2PoolCidrBlock = (output: any, context: __SerdeContext): PoolCidrBlock => {
   let contents: any = {
-    __type: "PoolCidrBlock",
     Cidr: undefined,
   };
   if (output["poolCidrBlock"] !== undefined) {
@@ -57394,7 +56510,6 @@ const deserializeAws_ec2PoolCidrBlocksSet = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2PortRange = (output: any, context: __SerdeContext): PortRange => {
   let contents: any = {
-    __type: "PortRange",
     From: undefined,
     To: undefined,
   };
@@ -57409,7 +56524,6 @@ const deserializeAws_ec2PortRange = (output: any, context: __SerdeContext): Port
 
 const deserializeAws_ec2PrefixList = (output: any, context: __SerdeContext): PrefixList => {
   let contents: any = {
-    __type: "PrefixList",
     Cidrs: undefined,
     PrefixListId: undefined,
     PrefixListName: undefined,
@@ -57431,7 +56545,6 @@ const deserializeAws_ec2PrefixList = (output: any, context: __SerdeContext): Pre
 
 const deserializeAws_ec2PrefixListAssociation = (output: any, context: __SerdeContext): PrefixListAssociation => {
   let contents: any = {
-    __type: "PrefixListAssociation",
     ResourceOwner: undefined,
     ResourceId: undefined,
   };
@@ -57450,7 +56563,6 @@ const deserializeAws_ec2PrefixListAssociationSet = (output: any, context: __Serd
 
 const deserializeAws_ec2PrefixListEntry = (output: any, context: __SerdeContext): PrefixListEntry => {
   let contents: any = {
-    __type: "PrefixListEntry",
     Cidr: undefined,
     Description: undefined,
   };
@@ -57469,7 +56581,6 @@ const deserializeAws_ec2PrefixListEntrySet = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2PrefixListId = (output: any, context: __SerdeContext): PrefixListId => {
   let contents: any = {
-    __type: "PrefixListId",
     Description: undefined,
     PrefixListId: undefined,
   };
@@ -57496,7 +56607,6 @@ const deserializeAws_ec2PrefixListSet = (output: any, context: __SerdeContext): 
 
 const deserializeAws_ec2PriceSchedule = (output: any, context: __SerdeContext): PriceSchedule => {
   let contents: any = {
-    __type: "PriceSchedule",
     Price: undefined,
     CurrencyCode: undefined,
     Term: undefined,
@@ -57523,7 +56633,6 @@ const deserializeAws_ec2PriceScheduleList = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2PricingDetail = (output: any, context: __SerdeContext): PricingDetail => {
   let contents: any = {
-    __type: "PricingDetail",
     Count: undefined,
     Price: undefined,
   };
@@ -57542,7 +56651,6 @@ const deserializeAws_ec2PricingDetailsList = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2PrincipalIdFormat = (output: any, context: __SerdeContext): PrincipalIdFormat => {
   let contents: any = {
-    __type: "PrincipalIdFormat",
     Arn: undefined,
     Statuses: undefined,
   };
@@ -57567,7 +56675,6 @@ const deserializeAws_ec2PrivateDnsNameConfiguration = (
   context: __SerdeContext
 ): PrivateDnsNameConfiguration => {
   let contents: any = {
-    __type: "PrivateDnsNameConfiguration",
     Type: undefined,
     State: undefined,
     Name: undefined,
@@ -57593,7 +56700,6 @@ const deserializeAws_ec2PrivateIpAddressSpecification = (
   context: __SerdeContext
 ): PrivateIpAddressSpecification => {
   let contents: any = {
-    __type: "PrivateIpAddressSpecification",
     Primary: undefined,
     PrivateIpAddress: undefined,
   };
@@ -57615,7 +56721,6 @@ const deserializeAws_ec2PrivateIpAddressSpecificationList = (
 
 const deserializeAws_ec2ProcessorInfo = (output: any, context: __SerdeContext): ProcessorInfo => {
   let contents: any = {
-    __type: "ProcessorInfo",
     SupportedArchitectures: undefined,
     SustainedClockSpeedInGhz: undefined,
   };
@@ -57636,7 +56741,6 @@ const deserializeAws_ec2ProcessorInfo = (output: any, context: __SerdeContext): 
 
 const deserializeAws_ec2ProductCode = (output: any, context: __SerdeContext): ProductCode => {
   let contents: any = {
-    __type: "ProductCode",
     ProductCodeId: undefined,
     ProductCodeType: undefined,
   };
@@ -57655,7 +56759,6 @@ const deserializeAws_ec2ProductCodeList = (output: any, context: __SerdeContext)
 
 const deserializeAws_ec2PropagatingVgw = (output: any, context: __SerdeContext): PropagatingVgw => {
   let contents: any = {
-    __type: "PropagatingVgw",
     GatewayId: undefined,
   };
   if (output["gatewayId"] !== undefined) {
@@ -57670,7 +56773,6 @@ const deserializeAws_ec2PropagatingVgwList = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2ProvisionByoipCidrResult = (output: any, context: __SerdeContext): ProvisionByoipCidrResult => {
   let contents: any = {
-    __type: "ProvisionByoipCidrResult",
     ByoipCidr: undefined,
   };
   if (output["byoipCidr"] !== undefined) {
@@ -57681,7 +56783,6 @@ const deserializeAws_ec2ProvisionByoipCidrResult = (output: any, context: __Serd
 
 const deserializeAws_ec2ProvisionedBandwidth = (output: any, context: __SerdeContext): ProvisionedBandwidth => {
   let contents: any = {
-    __type: "ProvisionedBandwidth",
     Requested: undefined,
     RequestTime: undefined,
     Status: undefined,
@@ -57708,7 +56809,6 @@ const deserializeAws_ec2ProvisionedBandwidth = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2PublicIpv4Pool = (output: any, context: __SerdeContext): PublicIpv4Pool => {
   let contents: any = {
-    __type: "PublicIpv4Pool",
     NetworkBorderGroup: undefined,
     TotalAddressCount: undefined,
     PoolId: undefined,
@@ -57752,7 +56852,6 @@ const deserializeAws_ec2PublicIpv4Pool = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2PublicIpv4PoolRange = (output: any, context: __SerdeContext): PublicIpv4PoolRange => {
   let contents: any = {
-    __type: "PublicIpv4PoolRange",
     LastAddress: undefined,
     AvailableAddressCount: undefined,
     FirstAddress: undefined,
@@ -57783,7 +56882,6 @@ const deserializeAws_ec2PublicIpv4PoolSet = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2Purchase = (output: any, context: __SerdeContext): Purchase => {
   let contents: any = {
-    __type: "Purchase",
     PaymentOption: undefined,
     HostReservationId: undefined,
     InstanceFamily: undefined,
@@ -57835,7 +56933,6 @@ const deserializeAws_ec2PurchaseHostReservationResult = (
   context: __SerdeContext
 ): PurchaseHostReservationResult => {
   let contents: any = {
-    __type: "PurchaseHostReservationResult",
     CurrencyCode: undefined,
     Purchase: undefined,
     TotalUpfrontPrice: undefined,
@@ -57868,7 +56965,6 @@ const deserializeAws_ec2PurchaseReservedInstancesOfferingResult = (
   context: __SerdeContext
 ): PurchaseReservedInstancesOfferingResult => {
   let contents: any = {
-    __type: "PurchaseReservedInstancesOfferingResult",
     ReservedInstancesId: undefined,
   };
   if (output["reservedInstancesId"] !== undefined) {
@@ -57882,7 +56978,6 @@ const deserializeAws_ec2PurchaseScheduledInstancesResult = (
   context: __SerdeContext
 ): PurchaseScheduledInstancesResult => {
   let contents: any = {
-    __type: "PurchaseScheduledInstancesResult",
     ScheduledInstanceSet: undefined,
   };
   if (output.scheduledInstanceSet === "") {
@@ -57903,7 +56998,6 @@ const deserializeAws_ec2PurchaseSet = (output: any, context: __SerdeContext): Pu
 
 const deserializeAws_ec2RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
   let contents: any = {
-    __type: "RecurringCharge",
     Frequency: undefined,
     Amount: undefined,
   };
@@ -57922,7 +57016,6 @@ const deserializeAws_ec2RecurringChargesList = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2Region = (output: any, context: __SerdeContext): Region => {
   let contents: any = {
-    __type: "Region",
     OptInStatus: undefined,
     RegionName: undefined,
     Endpoint: undefined,
@@ -57945,7 +57038,6 @@ const deserializeAws_ec2RegionList = (output: any, context: __SerdeContext): Reg
 
 const deserializeAws_ec2RegisterImageResult = (output: any, context: __SerdeContext): RegisterImageResult => {
   let contents: any = {
-    __type: "RegisterImageResult",
     ImageId: undefined,
   };
   if (output["imageId"] !== undefined) {
@@ -57959,7 +57051,6 @@ const deserializeAws_ec2RegisterInstanceEventNotificationAttributesResult = (
   context: __SerdeContext
 ): RegisterInstanceEventNotificationAttributesResult => {
   let contents: any = {
-    __type: "RegisterInstanceEventNotificationAttributesResult",
     InstanceTagAttribute: undefined,
   };
   if (output["instanceTagAttribute"] !== undefined) {
@@ -57976,7 +57067,6 @@ const deserializeAws_ec2RegisterTransitGatewayMulticastGroupMembersResult = (
   context: __SerdeContext
 ): RegisterTransitGatewayMulticastGroupMembersResult => {
   let contents: any = {
-    __type: "RegisterTransitGatewayMulticastGroupMembersResult",
     RegisteredMulticastGroupMembers: undefined,
   };
   if (output["registeredMulticastGroupMembers"] !== undefined) {
@@ -57993,7 +57083,6 @@ const deserializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesResult = (
   context: __SerdeContext
 ): RegisterTransitGatewayMulticastGroupSourcesResult => {
   let contents: any = {
-    __type: "RegisterTransitGatewayMulticastGroupSourcesResult",
     RegisteredMulticastGroupSources: undefined,
   };
   if (output["registeredMulticastGroupSources"] !== undefined) {
@@ -58010,7 +57099,6 @@ const deserializeAws_ec2RejectTransitGatewayPeeringAttachmentResult = (
   context: __SerdeContext
 ): RejectTransitGatewayPeeringAttachmentResult => {
   let contents: any = {
-    __type: "RejectTransitGatewayPeeringAttachmentResult",
     TransitGatewayPeeringAttachment: undefined,
   };
   if (output["transitGatewayPeeringAttachment"] !== undefined) {
@@ -58027,7 +57115,6 @@ const deserializeAws_ec2RejectTransitGatewayVpcAttachmentResult = (
   context: __SerdeContext
 ): RejectTransitGatewayVpcAttachmentResult => {
   let contents: any = {
-    __type: "RejectTransitGatewayVpcAttachmentResult",
     TransitGatewayVpcAttachment: undefined,
   };
   if (output["transitGatewayVpcAttachment"] !== undefined) {
@@ -58044,7 +57131,6 @@ const deserializeAws_ec2RejectVpcEndpointConnectionsResult = (
   context: __SerdeContext
 ): RejectVpcEndpointConnectionsResult => {
   let contents: any = {
-    __type: "RejectVpcEndpointConnectionsResult",
     Unsuccessful: undefined,
   };
   if (output.unsuccessful === "") {
@@ -58064,7 +57150,6 @@ const deserializeAws_ec2RejectVpcPeeringConnectionResult = (
   context: __SerdeContext
 ): RejectVpcPeeringConnectionResult => {
   let contents: any = {
-    __type: "RejectVpcPeeringConnectionResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -58075,7 +57160,6 @@ const deserializeAws_ec2RejectVpcPeeringConnectionResult = (
 
 const deserializeAws_ec2ReleaseHostsResult = (output: any, context: __SerdeContext): ReleaseHostsResult => {
   let contents: any = {
-    __type: "ReleaseHostsResult",
     Successful: undefined,
     Unsuccessful: undefined,
   };
@@ -58105,7 +57189,6 @@ const deserializeAws_ec2ReplaceIamInstanceProfileAssociationResult = (
   context: __SerdeContext
 ): ReplaceIamInstanceProfileAssociationResult => {
   let contents: any = {
-    __type: "ReplaceIamInstanceProfileAssociationResult",
     IamInstanceProfileAssociation: undefined,
   };
   if (output["iamInstanceProfileAssociation"] !== undefined) {
@@ -58122,7 +57205,6 @@ const deserializeAws_ec2ReplaceNetworkAclAssociationResult = (
   context: __SerdeContext
 ): ReplaceNetworkAclAssociationResult => {
   let contents: any = {
-    __type: "ReplaceNetworkAclAssociationResult",
     NewAssociationId: undefined,
   };
   if (output["newAssociationId"] !== undefined) {
@@ -58136,7 +57218,6 @@ const deserializeAws_ec2ReplaceRouteTableAssociationResult = (
   context: __SerdeContext
 ): ReplaceRouteTableAssociationResult => {
   let contents: any = {
-    __type: "ReplaceRouteTableAssociationResult",
     NewAssociationId: undefined,
     AssociationState: undefined,
   };
@@ -58154,7 +57235,6 @@ const deserializeAws_ec2ReplaceTransitGatewayRouteResult = (
   context: __SerdeContext
 ): ReplaceTransitGatewayRouteResult => {
   let contents: any = {
-    __type: "ReplaceTransitGatewayRouteResult",
     Route: undefined,
   };
   if (output["route"] !== undefined) {
@@ -58165,7 +57245,6 @@ const deserializeAws_ec2ReplaceTransitGatewayRouteResult = (
 
 const deserializeAws_ec2RequestSpotFleetResponse = (output: any, context: __SerdeContext): RequestSpotFleetResponse => {
   let contents: any = {
-    __type: "RequestSpotFleetResponse",
     SpotFleetRequestId: undefined,
   };
   if (output["spotFleetRequestId"] !== undefined) {
@@ -58179,7 +57258,6 @@ const deserializeAws_ec2RequestSpotInstancesResult = (
   context: __SerdeContext
 ): RequestSpotInstancesResult => {
   let contents: any = {
-    __type: "RequestSpotInstancesResult",
     SpotInstanceRequests: undefined,
   };
   if (output.spotInstanceRequestSet === "") {
@@ -58196,7 +57274,6 @@ const deserializeAws_ec2RequestSpotInstancesResult = (
 
 const deserializeAws_ec2Reservation = (output: any, context: __SerdeContext): Reservation => {
   let contents: any = {
-    __type: "Reservation",
     Groups: undefined,
     Instances: undefined,
     RequesterId: undefined,
@@ -58239,7 +57316,6 @@ const deserializeAws_ec2ReservationList = (output: any, context: __SerdeContext)
 
 const deserializeAws_ec2ReservationValue = (output: any, context: __SerdeContext): ReservationValue => {
   let contents: any = {
-    __type: "ReservationValue",
     HourlyPrice: undefined,
     RemainingUpfrontValue: undefined,
     RemainingTotalValue: undefined,
@@ -58261,7 +57337,6 @@ const deserializeAws_ec2ReservedInstanceReservationValue = (
   context: __SerdeContext
 ): ReservedInstanceReservationValue => {
   let contents: any = {
-    __type: "ReservedInstanceReservationValue",
     ReservedInstanceId: undefined,
     ReservationValue: undefined,
   };
@@ -58283,7 +57358,6 @@ const deserializeAws_ec2ReservedInstanceReservationValueSet = (
 
 const deserializeAws_ec2ReservedInstances = (output: any, context: __SerdeContext): ReservedInstances => {
   let contents: any = {
-    __type: "ReservedInstances",
     InstanceTenancy: undefined,
     Tags: undefined,
     AvailabilityZone: undefined,
@@ -58374,7 +57448,6 @@ const deserializeAws_ec2ReservedInstancesConfiguration = (
   context: __SerdeContext
 ): ReservedInstancesConfiguration => {
   let contents: any = {
-    __type: "ReservedInstancesConfiguration",
     Platform: undefined,
     InstanceType: undefined,
     Scope: undefined,
@@ -58401,7 +57474,6 @@ const deserializeAws_ec2ReservedInstancesConfiguration = (
 
 const deserializeAws_ec2ReservedInstancesId = (output: any, context: __SerdeContext): ReservedInstancesId => {
   let contents: any = {
-    __type: "ReservedInstancesId",
     ReservedInstancesId: undefined,
   };
   if (output["reservedInstancesId"] !== undefined) {
@@ -58416,7 +57488,6 @@ const deserializeAws_ec2ReservedInstancesList = (output: any, context: __SerdeCo
 
 const deserializeAws_ec2ReservedInstancesListing = (output: any, context: __SerdeContext): ReservedInstancesListing => {
   let contents: any = {
-    __type: "ReservedInstancesListing",
     StatusMessage: undefined,
     InstanceCounts: undefined,
     ClientToken: undefined,
@@ -58488,7 +57559,6 @@ const deserializeAws_ec2ReservedInstancesModification = (
   context: __SerdeContext
 ): ReservedInstancesModification => {
   let contents: any = {
-    __type: "ReservedInstancesModification",
     ReservedInstancesIds: undefined,
     Status: undefined,
     ClientToken: undefined,
@@ -58553,7 +57623,6 @@ const deserializeAws_ec2ReservedInstancesModificationResult = (
   context: __SerdeContext
 ): ReservedInstancesModificationResult => {
   let contents: any = {
-    __type: "ReservedInstancesModificationResult",
     TargetConfiguration: undefined,
     ReservedInstancesId: undefined,
   };
@@ -58581,7 +57650,6 @@ const deserializeAws_ec2ReservedInstancesOffering = (
   context: __SerdeContext
 ): ReservedInstancesOffering => {
   let contents: any = {
-    __type: "ReservedInstancesOffering",
     AvailabilityZone: undefined,
     OfferingClass: undefined,
     OfferingType: undefined,
@@ -58674,7 +57742,6 @@ const deserializeAws_ec2ResetEbsDefaultKmsKeyIdResult = (
   context: __SerdeContext
 ): ResetEbsDefaultKmsKeyIdResult => {
   let contents: any = {
-    __type: "ResetEbsDefaultKmsKeyIdResult",
     KmsKeyId: undefined,
   };
   if (output["kmsKeyId"] !== undefined) {
@@ -58688,7 +57755,6 @@ const deserializeAws_ec2ResetFpgaImageAttributeResult = (
   context: __SerdeContext
 ): ResetFpgaImageAttributeResult => {
   let contents: any = {
-    __type: "ResetFpgaImageAttributeResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -58699,7 +57765,6 @@ const deserializeAws_ec2ResetFpgaImageAttributeResult = (
 
 const deserializeAws_ec2ResponseError = (output: any, context: __SerdeContext): ResponseError => {
   let contents: any = {
-    __type: "ResponseError",
     Code: undefined,
     Message: undefined,
   };
@@ -58725,7 +57790,6 @@ const deserializeAws_ec2ResponseLaunchTemplateData = (
   context: __SerdeContext
 ): ResponseLaunchTemplateData => {
   let contents: any = {
-    __type: "ResponseLaunchTemplateData",
     UserData: undefined,
     CapacityReservationSpecification: undefined,
     SecurityGroupIds: undefined,
@@ -58908,7 +57972,6 @@ const deserializeAws_ec2RestoreAddressToClassicResult = (
   context: __SerdeContext
 ): RestoreAddressToClassicResult => {
   let contents: any = {
-    __type: "RestoreAddressToClassicResult",
     Status: undefined,
     PublicIp: undefined,
   };
@@ -58926,7 +57989,6 @@ const deserializeAws_ec2RestoreManagedPrefixListVersionResult = (
   context: __SerdeContext
 ): RestoreManagedPrefixListVersionResult => {
   let contents: any = {
-    __type: "RestoreManagedPrefixListVersionResult",
     PrefixList: undefined,
   };
   if (output["prefixList"] !== undefined) {
@@ -58940,7 +58002,6 @@ const deserializeAws_ec2RevokeClientVpnIngressResult = (
   context: __SerdeContext
 ): RevokeClientVpnIngressResult => {
   let contents: any = {
-    __type: "RevokeClientVpnIngressResult",
     Status: undefined,
   };
   if (output["status"] !== undefined) {
@@ -58955,7 +58016,6 @@ const deserializeAws_ec2RootDeviceTypeList = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2Route = (output: any, context: __SerdeContext): Route => {
   let contents: any = {
-    __type: "Route",
     LocalGatewayId: undefined,
     DestinationIpv6CidrBlock: undefined,
     State: undefined,
@@ -59022,7 +58082,6 @@ const deserializeAws_ec2RouteList = (output: any, context: __SerdeContext): Rout
 
 const deserializeAws_ec2RouteTable = (output: any, context: __SerdeContext): RouteTable => {
   let contents: any = {
-    __type: "RouteTable",
     VpcId: undefined,
     RouteTableId: undefined,
     Associations: undefined,
@@ -59075,7 +58134,6 @@ const deserializeAws_ec2RouteTable = (output: any, context: __SerdeContext): Rou
 
 const deserializeAws_ec2RouteTableAssociation = (output: any, context: __SerdeContext): RouteTableAssociation => {
   let contents: any = {
-    __type: "RouteTableAssociation",
     AssociationState: undefined,
     SubnetId: undefined,
     Main: undefined,
@@ -59113,7 +58171,6 @@ const deserializeAws_ec2RouteTableAssociationState = (
   context: __SerdeContext
 ): RouteTableAssociationState => {
   let contents: any = {
-    __type: "RouteTableAssociationState",
     StatusMessage: undefined,
     State: undefined,
   };
@@ -59135,7 +58192,6 @@ const deserializeAws_ec2RunInstancesMonitoringEnabled = (
   context: __SerdeContext
 ): RunInstancesMonitoringEnabled => {
   let contents: any = {
-    __type: "RunInstancesMonitoringEnabled",
     Enabled: undefined,
   };
   if (output["enabled"] !== undefined) {
@@ -59149,7 +58205,6 @@ const deserializeAws_ec2RunScheduledInstancesResult = (
   context: __SerdeContext
 ): RunScheduledInstancesResult => {
   let contents: any = {
-    __type: "RunScheduledInstancesResult",
     InstanceIdSet: undefined,
   };
   if (output.instanceIdSet === "") {
@@ -59166,7 +58221,6 @@ const deserializeAws_ec2RunScheduledInstancesResult = (
 
 const deserializeAws_ec2S3Storage = (output: any, context: __SerdeContext): S3Storage => {
   let contents: any = {
-    __type: "S3Storage",
     Prefix: undefined,
     UploadPolicySignature: undefined,
     UploadPolicy: undefined,
@@ -59193,7 +58247,6 @@ const deserializeAws_ec2S3Storage = (output: any, context: __SerdeContext): S3St
 
 const deserializeAws_ec2ScheduledInstance = (output: any, context: __SerdeContext): ScheduledInstance => {
   let contents: any = {
-    __type: "ScheduledInstance",
     InstanceCount: undefined,
     TotalScheduledInstanceHours: undefined,
     TermStartDate: undefined,
@@ -59263,7 +58316,6 @@ const deserializeAws_ec2ScheduledInstanceAvailability = (
   context: __SerdeContext
 ): ScheduledInstanceAvailability => {
   let contents: any = {
-    __type: "ScheduledInstanceAvailability",
     AvailabilityZone: undefined,
     MinTermDurationInDays: undefined,
     SlotDurationInHours: undefined,
@@ -59332,7 +58384,6 @@ const deserializeAws_ec2ScheduledInstanceRecurrence = (
   context: __SerdeContext
 ): ScheduledInstanceRecurrence => {
   let contents: any = {
-    __type: "ScheduledInstanceRecurrence",
     Frequency: undefined,
     OccurrenceUnit: undefined,
     OccurrenceRelativeToEnd: undefined,
@@ -59372,7 +58423,6 @@ const deserializeAws_ec2SearchLocalGatewayRoutesResult = (
   context: __SerdeContext
 ): SearchLocalGatewayRoutesResult => {
   let contents: any = {
-    __type: "SearchLocalGatewayRoutesResult",
     NextToken: undefined,
     Routes: undefined,
   };
@@ -59396,7 +58446,6 @@ const deserializeAws_ec2SearchTransitGatewayMulticastGroupsResult = (
   context: __SerdeContext
 ): SearchTransitGatewayMulticastGroupsResult => {
   let contents: any = {
-    __type: "SearchTransitGatewayMulticastGroupsResult",
     NextToken: undefined,
     MulticastGroups: undefined,
   };
@@ -59420,7 +58469,6 @@ const deserializeAws_ec2SearchTransitGatewayRoutesResult = (
   context: __SerdeContext
 ): SearchTransitGatewayRoutesResult => {
   let contents: any = {
-    __type: "SearchTransitGatewayRoutesResult",
     Routes: undefined,
     AdditionalRoutesAvailable: undefined,
   };
@@ -59441,7 +58489,6 @@ const deserializeAws_ec2SearchTransitGatewayRoutesResult = (
 
 const deserializeAws_ec2SecurityGroup = (output: any, context: __SerdeContext): SecurityGroup => {
   let contents: any = {
-    __type: "SecurityGroup",
     IpPermissionsEgress: undefined,
     GroupName: undefined,
     VpcId: undefined,
@@ -59495,7 +58542,6 @@ const deserializeAws_ec2SecurityGroup = (output: any, context: __SerdeContext): 
 
 const deserializeAws_ec2SecurityGroupIdentifier = (output: any, context: __SerdeContext): SecurityGroupIdentifier => {
   let contents: any = {
-    __type: "SecurityGroupIdentifier",
     GroupName: undefined,
     GroupId: undefined,
   };
@@ -59518,7 +58564,6 @@ const deserializeAws_ec2SecurityGroupList = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2SecurityGroupReference = (output: any, context: __SerdeContext): SecurityGroupReference => {
   let contents: any = {
-    __type: "SecurityGroupReference",
     GroupId: undefined,
     ReferencingVpcId: undefined,
     VpcPeeringConnectionId: undefined,
@@ -59541,7 +58586,6 @@ const deserializeAws_ec2SecurityGroupReferences = (output: any, context: __Serde
 
 const deserializeAws_ec2ServiceConfiguration = (output: any, context: __SerdeContext): ServiceConfiguration => {
   let contents: any = {
-    __type: "ServiceConfiguration",
     ManagesVpcEndpoints: undefined,
     PrivateDnsName: undefined,
     BaseEndpointDnsNames: undefined,
@@ -59630,7 +58674,6 @@ const deserializeAws_ec2ServiceConfigurationSet = (output: any, context: __Serde
 
 const deserializeAws_ec2ServiceDetail = (output: any, context: __SerdeContext): ServiceDetail => {
   let contents: any = {
-    __type: "ServiceDetail",
     VpcEndpointPolicySupported: undefined,
     BaseEndpointDnsNames: undefined,
     ManagesVpcEndpoints: undefined,
@@ -59710,7 +58753,6 @@ const deserializeAws_ec2ServiceDetailSet = (output: any, context: __SerdeContext
 
 const deserializeAws_ec2ServiceTypeDetail = (output: any, context: __SerdeContext): ServiceTypeDetail => {
   let contents: any = {
-    __type: "ServiceTypeDetail",
     ServiceType: undefined,
   };
   if (output["serviceType"] !== undefined) {
@@ -59725,7 +58767,6 @@ const deserializeAws_ec2ServiceTypeDetailSet = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2Snapshot = (output: any, context: __SerdeContext): Snapshot => {
   let contents: any = {
-    __type: "Snapshot",
     OwnerId: undefined,
     VolumeSize: undefined,
     OwnerAlias: undefined,
@@ -59791,7 +58832,6 @@ const deserializeAws_ec2Snapshot = (output: any, context: __SerdeContext): Snaps
 
 const deserializeAws_ec2SnapshotDetail = (output: any, context: __SerdeContext): SnapshotDetail => {
   let contents: any = {
-    __type: "SnapshotDetail",
     SnapshotId: undefined,
     DeviceName: undefined,
     Status: undefined,
@@ -59842,7 +58882,6 @@ const deserializeAws_ec2SnapshotDetailList = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2SnapshotInfo = (output: any, context: __SerdeContext): SnapshotInfo => {
   let contents: any = {
-    __type: "SnapshotInfo",
     Description: undefined,
     Encrypted: undefined,
     VolumeId: undefined,
@@ -59900,7 +58939,6 @@ const deserializeAws_ec2SnapshotSet = (output: any, context: __SerdeContext): Sn
 
 const deserializeAws_ec2SnapshotTaskDetail = (output: any, context: __SerdeContext): SnapshotTaskDetail => {
   let contents: any = {
-    __type: "SnapshotTaskDetail",
     SnapshotId: undefined,
     Status: undefined,
     Encrypted: undefined,
@@ -59951,7 +58989,6 @@ const deserializeAws_ec2SnapshotTaskDetail = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2SpotDatafeedSubscription = (output: any, context: __SerdeContext): SpotDatafeedSubscription => {
   let contents: any = {
-    __type: "SpotDatafeedSubscription",
     Prefix: undefined,
     OwnerId: undefined,
     Fault: undefined,
@@ -59981,7 +59018,6 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
   context: __SerdeContext
 ): SpotFleetLaunchSpecification => {
   let contents: any = {
-    __type: "SpotFleetLaunchSpecification",
     BlockDeviceMappings: undefined,
     SecurityGroups: undefined,
     EbsOptimized: undefined,
@@ -60087,7 +59123,6 @@ const deserializeAws_ec2SpotFleetLaunchSpecification = (
 
 const deserializeAws_ec2SpotFleetMonitoring = (output: any, context: __SerdeContext): SpotFleetMonitoring => {
   let contents: any = {
-    __type: "SpotFleetMonitoring",
     Enabled: undefined,
   };
   if (output["enabled"] !== undefined) {
@@ -60098,7 +59133,6 @@ const deserializeAws_ec2SpotFleetMonitoring = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2SpotFleetRequestConfig = (output: any, context: __SerdeContext): SpotFleetRequestConfig => {
   let contents: any = {
-    __type: "SpotFleetRequestConfig",
     SpotFleetRequestId: undefined,
     SpotFleetRequestState: undefined,
     ActivityStatus: undefined,
@@ -60138,7 +59172,6 @@ const deserializeAws_ec2SpotFleetRequestConfigData = (
   context: __SerdeContext
 ): SpotFleetRequestConfigData => {
   let contents: any = {
-    __type: "SpotFleetRequestConfigData",
     TagSpecifications: undefined,
     TargetCapacity: undefined,
     ValidFrom: undefined,
@@ -60265,7 +59298,6 @@ const deserializeAws_ec2SpotFleetTagSpecification = (
   context: __SerdeContext
 ): SpotFleetTagSpecification => {
   let contents: any = {
-    __type: "SpotFleetTagSpecification",
     Tags: undefined,
     ResourceType: undefined,
   };
@@ -60290,7 +59322,6 @@ const deserializeAws_ec2SpotFleetTagSpecificationList = (
 
 const deserializeAws_ec2SpotInstanceRequest = (output: any, context: __SerdeContext): SpotInstanceRequest => {
   let contents: any = {
-    __type: "SpotInstanceRequest",
     Fault: undefined,
     ValidFrom: undefined,
     LaunchSpecification: undefined,
@@ -60380,7 +59411,6 @@ const deserializeAws_ec2SpotInstanceRequestList = (output: any, context: __Serde
 
 const deserializeAws_ec2SpotInstanceStateFault = (output: any, context: __SerdeContext): SpotInstanceStateFault => {
   let contents: any = {
-    __type: "SpotInstanceStateFault",
     Message: undefined,
     Code: undefined,
   };
@@ -60395,7 +59425,6 @@ const deserializeAws_ec2SpotInstanceStateFault = (output: any, context: __SerdeC
 
 const deserializeAws_ec2SpotInstanceStatus = (output: any, context: __SerdeContext): SpotInstanceStatus => {
   let contents: any = {
-    __type: "SpotInstanceStatus",
     UpdateTime: undefined,
     Message: undefined,
     Code: undefined,
@@ -60414,7 +59443,6 @@ const deserializeAws_ec2SpotInstanceStatus = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2SpotOptions = (output: any, context: __SerdeContext): SpotOptions => {
   let contents: any = {
-    __type: "SpotOptions",
     SingleAvailabilityZone: undefined,
     MinTargetCapacity: undefined,
     InstanceInterruptionBehavior: undefined,
@@ -60449,7 +59477,6 @@ const deserializeAws_ec2SpotOptions = (output: any, context: __SerdeContext): Sp
 
 const deserializeAws_ec2SpotPlacement = (output: any, context: __SerdeContext): SpotPlacement => {
   let contents: any = {
-    __type: "SpotPlacement",
     Tenancy: undefined,
     AvailabilityZone: undefined,
     GroupName: undefined,
@@ -60468,7 +59495,6 @@ const deserializeAws_ec2SpotPlacement = (output: any, context: __SerdeContext): 
 
 const deserializeAws_ec2SpotPrice = (output: any, context: __SerdeContext): SpotPrice => {
   let contents: any = {
-    __type: "SpotPrice",
     SpotPrice: undefined,
     InstanceType: undefined,
     ProductDescription: undefined,
@@ -60499,7 +59525,6 @@ const deserializeAws_ec2SpotPriceHistoryList = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2StaleIpPermission = (output: any, context: __SerdeContext): StaleIpPermission => {
   let contents: any = {
-    __type: "StaleIpPermission",
     ToPort: undefined,
     UserIdGroupPairs: undefined,
     IpProtocol: undefined,
@@ -60549,7 +59574,6 @@ const deserializeAws_ec2StaleIpPermissionSet = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2StaleSecurityGroup = (output: any, context: __SerdeContext): StaleSecurityGroup => {
   let contents: any = {
-    __type: "StaleSecurityGroup",
     GroupName: undefined,
     StaleIpPermissionsEgress: undefined,
     VpcId: undefined,
@@ -60596,7 +59620,6 @@ const deserializeAws_ec2StaleSecurityGroupSet = (output: any, context: __SerdeCo
 
 const deserializeAws_ec2StartInstancesResult = (output: any, context: __SerdeContext): StartInstancesResult => {
   let contents: any = {
-    __type: "StartInstancesResult",
     StartingInstances: undefined,
   };
   if (output.instancesSet === "") {
@@ -60616,7 +59639,6 @@ const deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationResult = (
   context: __SerdeContext
 ): StartVpcEndpointServicePrivateDnsVerificationResult => {
   let contents: any = {
-    __type: "StartVpcEndpointServicePrivateDnsVerificationResult",
     ReturnValue: undefined,
   };
   if (output["return"] !== undefined) {
@@ -60627,7 +59649,6 @@ const deserializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationResult = (
 
 const deserializeAws_ec2StateReason = (output: any, context: __SerdeContext): StateReason => {
   let contents: any = {
-    __type: "StateReason",
     Code: undefined,
     Message: undefined,
   };
@@ -60642,7 +59663,6 @@ const deserializeAws_ec2StateReason = (output: any, context: __SerdeContext): St
 
 const deserializeAws_ec2StopInstancesResult = (output: any, context: __SerdeContext): StopInstancesResult => {
   let contents: any = {
-    __type: "StopInstancesResult",
     StoppingInstances: undefined,
   };
   if (output.instancesSet === "") {
@@ -60659,7 +59679,6 @@ const deserializeAws_ec2StopInstancesResult = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2Storage = (output: any, context: __SerdeContext): Storage => {
   let contents: any = {
-    __type: "Storage",
     S3: undefined,
   };
   if (output["S3"] !== undefined) {
@@ -60670,7 +59689,6 @@ const deserializeAws_ec2Storage = (output: any, context: __SerdeContext): Storag
 
 const deserializeAws_ec2Subnet = (output: any, context: __SerdeContext): Subnet => {
   let contents: any = {
-    __type: "Subnet",
     AvailabilityZone: undefined,
     VpcId: undefined,
     MapCustomerOwnedIpOnLaunch: undefined,
@@ -60757,7 +59775,6 @@ const deserializeAws_ec2Subnet = (output: any, context: __SerdeContext): Subnet 
 
 const deserializeAws_ec2SubnetAssociation = (output: any, context: __SerdeContext): SubnetAssociation => {
   let contents: any = {
-    __type: "SubnetAssociation",
     State: undefined,
     SubnetId: undefined,
   };
@@ -60776,7 +59793,6 @@ const deserializeAws_ec2SubnetAssociationList = (output: any, context: __SerdeCo
 
 const deserializeAws_ec2SubnetCidrBlockState = (output: any, context: __SerdeContext): SubnetCidrBlockState => {
   let contents: any = {
-    __type: "SubnetCidrBlockState",
     StatusMessage: undefined,
     State: undefined,
   };
@@ -60794,7 +59810,6 @@ const deserializeAws_ec2SubnetIpv6CidrBlockAssociation = (
   context: __SerdeContext
 ): SubnetIpv6CidrBlockAssociation => {
   let contents: any = {
-    __type: "SubnetIpv6CidrBlockAssociation",
     Ipv6CidrBlock: undefined,
     AssociationId: undefined,
     Ipv6CidrBlockState: undefined,
@@ -60827,7 +59842,6 @@ const deserializeAws_ec2SuccessfulInstanceCreditSpecificationItem = (
   context: __SerdeContext
 ): SuccessfulInstanceCreditSpecificationItem => {
   let contents: any = {
-    __type: "SuccessfulInstanceCreditSpecificationItem",
     InstanceId: undefined,
   };
   if (output["instanceId"] !== undefined) {
@@ -60850,7 +59864,6 @@ const deserializeAws_ec2SuccessfulQueuedPurchaseDeletion = (
   context: __SerdeContext
 ): SuccessfulQueuedPurchaseDeletion => {
   let contents: any = {
-    __type: "SuccessfulQueuedPurchaseDeletion",
     ReservedInstancesId: undefined,
   };
   if (output["reservedInstancesId"] !== undefined) {
@@ -60868,7 +59881,6 @@ const deserializeAws_ec2SuccessfulQueuedPurchaseDeletionSet = (
 
 const deserializeAws_ec2Tag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
-    __type: "Tag",
     Value: undefined,
     Key: undefined,
   };
@@ -60883,7 +59895,6 @@ const deserializeAws_ec2Tag = (output: any, context: __SerdeContext): Tag => {
 
 const deserializeAws_ec2TagDescription = (output: any, context: __SerdeContext): TagDescription => {
   let contents: any = {
-    __type: "TagDescription",
     Value: undefined,
     ResourceType: undefined,
     ResourceId: undefined,
@@ -60914,7 +59925,6 @@ const deserializeAws_ec2TagList = (output: any, context: __SerdeContext): Tag[] 
 
 const deserializeAws_ec2TagSpecification = (output: any, context: __SerdeContext): TagSpecification => {
   let contents: any = {
-    __type: "TagSpecification",
     ResourceType: undefined,
     Tags: undefined,
   };
@@ -60939,7 +59949,6 @@ const deserializeAws_ec2TargetCapacitySpecification = (
   context: __SerdeContext
 ): TargetCapacitySpecification => {
   let contents: any = {
-    __type: "TargetCapacitySpecification",
     OnDemandTargetCapacity: undefined,
     DefaultTargetCapacityType: undefined,
     SpotTargetCapacity: undefined,
@@ -60962,7 +59971,6 @@ const deserializeAws_ec2TargetCapacitySpecification = (
 
 const deserializeAws_ec2TargetConfiguration = (output: any, context: __SerdeContext): TargetConfiguration => {
   let contents: any = {
-    __type: "TargetConfiguration",
     InstanceCount: undefined,
     OfferingId: undefined,
   };
@@ -60977,7 +59985,6 @@ const deserializeAws_ec2TargetConfiguration = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2TargetGroup = (output: any, context: __SerdeContext): TargetGroup => {
   let contents: any = {
-    __type: "TargetGroup",
     Arn: undefined,
   };
   if (output["arn"] !== undefined) {
@@ -60992,7 +59999,6 @@ const deserializeAws_ec2TargetGroups = (output: any, context: __SerdeContext): T
 
 const deserializeAws_ec2TargetGroupsConfig = (output: any, context: __SerdeContext): TargetGroupsConfig => {
   let contents: any = {
-    __type: "TargetGroupsConfig",
     TargetGroups: undefined,
   };
   if (output.targetGroups === "") {
@@ -61009,7 +60015,6 @@ const deserializeAws_ec2TargetGroupsConfig = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2TargetNetwork = (output: any, context: __SerdeContext): TargetNetwork => {
   let contents: any = {
-    __type: "TargetNetwork",
     SecurityGroups: undefined,
     Status: undefined,
     VpcId: undefined,
@@ -61050,7 +60055,6 @@ const deserializeAws_ec2TargetNetworkSet = (output: any, context: __SerdeContext
 
 const deserializeAws_ec2TargetReservationValue = (output: any, context: __SerdeContext): TargetReservationValue => {
   let contents: any = {
-    __type: "TargetReservationValue",
     ReservationValue: undefined,
     TargetConfiguration: undefined,
   };
@@ -61075,7 +60079,6 @@ const deserializeAws_ec2TerminateClientVpnConnectionsResult = (
   context: __SerdeContext
 ): TerminateClientVpnConnectionsResult => {
   let contents: any = {
-    __type: "TerminateClientVpnConnectionsResult",
     ConnectionStatuses: undefined,
     ClientVpnEndpointId: undefined,
     Username: undefined,
@@ -61103,7 +60106,6 @@ const deserializeAws_ec2TerminateConnectionStatus = (
   context: __SerdeContext
 ): TerminateConnectionStatus => {
   let contents: any = {
-    __type: "TerminateConnectionStatus",
     PreviousStatus: undefined,
     CurrentStatus: undefined,
     ConnectionId: undefined,
@@ -61129,7 +60131,6 @@ const deserializeAws_ec2TerminateConnectionStatusSet = (
 
 const deserializeAws_ec2TerminateInstancesResult = (output: any, context: __SerdeContext): TerminateInstancesResult => {
   let contents: any = {
-    __type: "TerminateInstancesResult",
     TerminatingInstances: undefined,
   };
   if (output.instancesSet === "") {
@@ -61150,7 +60151,6 @@ const deserializeAws_ec2ThreadsPerCoreList = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2TrafficMirrorFilter = (output: any, context: __SerdeContext): TrafficMirrorFilter => {
   let contents: any = {
-    __type: "TrafficMirrorFilter",
     NetworkServices: undefined,
     EgressFilterRules: undefined,
     IngressFilterRules: undefined,
@@ -61202,7 +60202,6 @@ const deserializeAws_ec2TrafficMirrorFilter = (output: any, context: __SerdeCont
 
 const deserializeAws_ec2TrafficMirrorFilterRule = (output: any, context: __SerdeContext): TrafficMirrorFilterRule => {
   let contents: any = {
-    __type: "TrafficMirrorFilterRule",
     SourcePortRange: undefined,
     DestinationPortRange: undefined,
     RuleAction: undefined,
@@ -61271,7 +60270,6 @@ const deserializeAws_ec2TrafficMirrorNetworkServiceList = (
 
 const deserializeAws_ec2TrafficMirrorPortRange = (output: any, context: __SerdeContext): TrafficMirrorPortRange => {
   let contents: any = {
-    __type: "TrafficMirrorPortRange",
     FromPort: undefined,
     ToPort: undefined,
   };
@@ -61286,7 +60284,6 @@ const deserializeAws_ec2TrafficMirrorPortRange = (output: any, context: __SerdeC
 
 const deserializeAws_ec2TrafficMirrorSession = (output: any, context: __SerdeContext): TrafficMirrorSession => {
   let contents: any = {
-    __type: "TrafficMirrorSession",
     TrafficMirrorTargetId: undefined,
     Tags: undefined,
     TrafficMirrorFilterId: undefined,
@@ -61340,7 +60337,6 @@ const deserializeAws_ec2TrafficMirrorSessionSet = (output: any, context: __Serde
 
 const deserializeAws_ec2TrafficMirrorTarget = (output: any, context: __SerdeContext): TrafficMirrorTarget => {
   let contents: any = {
-    __type: "TrafficMirrorTarget",
     NetworkInterfaceId: undefined,
     OwnerId: undefined,
     Type: undefined,
@@ -61382,7 +60378,6 @@ const deserializeAws_ec2TrafficMirrorTargetSet = (output: any, context: __SerdeC
 
 const deserializeAws_ec2TransitGateway = (output: any, context: __SerdeContext): TransitGateway => {
   let contents: any = {
-    __type: "TransitGateway",
     OwnerId: undefined,
     TransitGatewayArn: undefined,
     State: undefined,
@@ -61427,7 +60422,6 @@ const deserializeAws_ec2TransitGatewayAssociation = (
   context: __SerdeContext
 ): TransitGatewayAssociation => {
   let contents: any = {
-    __type: "TransitGatewayAssociation",
     State: undefined,
     TransitGatewayRouteTableId: undefined,
     ResourceType: undefined,
@@ -61454,7 +60448,6 @@ const deserializeAws_ec2TransitGatewayAssociation = (
 
 const deserializeAws_ec2TransitGatewayAttachment = (output: any, context: __SerdeContext): TransitGatewayAttachment => {
   let contents: any = {
-    __type: "TransitGatewayAttachment",
     ResourceId: undefined,
     ResourceType: undefined,
     TransitGatewayId: undefined,
@@ -61507,7 +60500,6 @@ const deserializeAws_ec2TransitGatewayAttachmentAssociation = (
   context: __SerdeContext
 ): TransitGatewayAttachmentAssociation => {
   let contents: any = {
-    __type: "TransitGatewayAttachmentAssociation",
     State: undefined,
     TransitGatewayRouteTableId: undefined,
   };
@@ -61532,7 +60524,6 @@ const deserializeAws_ec2TransitGatewayAttachmentPropagation = (
   context: __SerdeContext
 ): TransitGatewayAttachmentPropagation => {
   let contents: any = {
-    __type: "TransitGatewayAttachmentPropagation",
     TransitGatewayRouteTableId: undefined,
     State: undefined,
   };
@@ -61561,7 +60552,6 @@ const deserializeAws_ec2TransitGatewayMulticastDeregisteredGroupMembers = (
   context: __SerdeContext
 ): TransitGatewayMulticastDeregisteredGroupMembers => {
   let contents: any = {
-    __type: "TransitGatewayMulticastDeregisteredGroupMembers",
     GroupIpAddress: undefined,
     TransitGatewayMulticastDomainId: undefined,
     DeregisteredNetworkInterfaceIds: undefined,
@@ -61592,7 +60582,6 @@ const deserializeAws_ec2TransitGatewayMulticastDeregisteredGroupSources = (
   context: __SerdeContext
 ): TransitGatewayMulticastDeregisteredGroupSources => {
   let contents: any = {
-    __type: "TransitGatewayMulticastDeregisteredGroupSources",
     TransitGatewayMulticastDomainId: undefined,
     DeregisteredNetworkInterfaceIds: undefined,
     GroupIpAddress: undefined,
@@ -61623,7 +60612,6 @@ const deserializeAws_ec2TransitGatewayMulticastDomain = (
   context: __SerdeContext
 ): TransitGatewayMulticastDomain => {
   let contents: any = {
-    __type: "TransitGatewayMulticastDomain",
     CreationTime: undefined,
     TransitGatewayId: undefined,
     TransitGatewayMulticastDomainId: undefined,
@@ -61656,7 +60644,6 @@ const deserializeAws_ec2TransitGatewayMulticastDomainAssociation = (
   context: __SerdeContext
 ): TransitGatewayMulticastDomainAssociation => {
   let contents: any = {
-    __type: "TransitGatewayMulticastDomainAssociation",
     ResourceId: undefined,
     Subnet: undefined,
     ResourceType: undefined,
@@ -61689,7 +60676,6 @@ const deserializeAws_ec2TransitGatewayMulticastDomainAssociations = (
   context: __SerdeContext
 ): TransitGatewayMulticastDomainAssociations => {
   let contents: any = {
-    __type: "TransitGatewayMulticastDomainAssociations",
     TransitGatewayMulticastDomainId: undefined,
     TransitGatewayAttachmentId: undefined,
     ResourceId: undefined,
@@ -61732,7 +60718,6 @@ const deserializeAws_ec2TransitGatewayMulticastGroup = (
   context: __SerdeContext
 ): TransitGatewayMulticastGroup => {
   let contents: any = {
-    __type: "TransitGatewayMulticastGroup",
     GroupIpAddress: undefined,
     MemberType: undefined,
     TransitGatewayAttachmentId: undefined,
@@ -61789,7 +60774,6 @@ const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupMembers = (
   context: __SerdeContext
 ): TransitGatewayMulticastRegisteredGroupMembers => {
   let contents: any = {
-    __type: "TransitGatewayMulticastRegisteredGroupMembers",
     TransitGatewayMulticastDomainId: undefined,
     RegisteredNetworkInterfaceIds: undefined,
     GroupIpAddress: undefined,
@@ -61820,7 +60804,6 @@ const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupSources = (
   context: __SerdeContext
 ): TransitGatewayMulticastRegisteredGroupSources => {
   let contents: any = {
-    __type: "TransitGatewayMulticastRegisteredGroupSources",
     TransitGatewayMulticastDomainId: undefined,
     GroupIpAddress: undefined,
     RegisteredNetworkInterfaceIds: undefined,
@@ -61848,7 +60831,6 @@ const deserializeAws_ec2TransitGatewayMulticastRegisteredGroupSources = (
 
 const deserializeAws_ec2TransitGatewayOptions = (output: any, context: __SerdeContext): TransitGatewayOptions => {
   let contents: any = {
-    __type: "TransitGatewayOptions",
     PropagationDefaultRouteTableId: undefined,
     MulticastSupport: undefined,
     AmazonSideAsn: undefined,
@@ -61894,7 +60876,6 @@ const deserializeAws_ec2TransitGatewayPeeringAttachment = (
   context: __SerdeContext
 ): TransitGatewayPeeringAttachment => {
   let contents: any = {
-    __type: "TransitGatewayPeeringAttachment",
     CreationTime: undefined,
     Status: undefined,
     Tags: undefined,
@@ -61942,7 +60923,6 @@ const deserializeAws_ec2TransitGatewayPropagation = (
   context: __SerdeContext
 ): TransitGatewayPropagation => {
   let contents: any = {
-    __type: "TransitGatewayPropagation",
     TransitGatewayAttachmentId: undefined,
     State: undefined,
     TransitGatewayRouteTableId: undefined,
@@ -61969,7 +60949,6 @@ const deserializeAws_ec2TransitGatewayPropagation = (
 
 const deserializeAws_ec2TransitGatewayRoute = (output: any, context: __SerdeContext): TransitGatewayRoute => {
   let contents: any = {
-    __type: "TransitGatewayRoute",
     DestinationCidrBlock: undefined,
     State: undefined,
     TransitGatewayAttachments: undefined,
@@ -62001,7 +60980,6 @@ const deserializeAws_ec2TransitGatewayRouteAttachment = (
   context: __SerdeContext
 ): TransitGatewayRouteAttachment => {
   let contents: any = {
-    __type: "TransitGatewayRouteAttachment",
     TransitGatewayAttachmentId: undefined,
     ResourceType: undefined,
     ResourceId: undefined,
@@ -62031,7 +61009,6 @@ const deserializeAws_ec2TransitGatewayRouteList = (output: any, context: __Serde
 
 const deserializeAws_ec2TransitGatewayRouteTable = (output: any, context: __SerdeContext): TransitGatewayRouteTable => {
   let contents: any = {
-    __type: "TransitGatewayRouteTable",
     DefaultPropagationRouteTable: undefined,
     TransitGatewayRouteTableId: undefined,
     Tags: undefined,
@@ -62072,7 +61049,6 @@ const deserializeAws_ec2TransitGatewayRouteTableAssociation = (
   context: __SerdeContext
 ): TransitGatewayRouteTableAssociation => {
   let contents: any = {
-    __type: "TransitGatewayRouteTableAssociation",
     ResourceId: undefined,
     TransitGatewayAttachmentId: undefined,
     State: undefined,
@@ -62112,7 +61088,6 @@ const deserializeAws_ec2TransitGatewayRouteTablePropagation = (
   context: __SerdeContext
 ): TransitGatewayRouteTablePropagation => {
   let contents: any = {
-    __type: "TransitGatewayRouteTablePropagation",
     ResourceType: undefined,
     ResourceId: undefined,
     TransitGatewayAttachmentId: undefined,
@@ -62145,7 +61120,6 @@ const deserializeAws_ec2TransitGatewayVpcAttachment = (
   context: __SerdeContext
 ): TransitGatewayVpcAttachment => {
   let contents: any = {
-    __type: "TransitGatewayVpcAttachment",
     Options: undefined,
     SubnetIds: undefined,
     TransitGatewayAttachmentId: undefined,
@@ -62207,7 +61181,6 @@ const deserializeAws_ec2TransitGatewayVpcAttachmentOptions = (
   context: __SerdeContext
 ): TransitGatewayVpcAttachmentOptions => {
   let contents: any = {
-    __type: "TransitGatewayVpcAttachmentOptions",
     Ipv6Support: undefined,
     DnsSupport: undefined,
   };
@@ -62222,7 +61195,6 @@ const deserializeAws_ec2TransitGatewayVpcAttachmentOptions = (
 
 const deserializeAws_ec2TunnelOption = (output: any, context: __SerdeContext): TunnelOption => {
   let contents: any = {
-    __type: "TunnelOption",
     ReplayWindowSize: undefined,
     Phase2DHGroupNumbers: undefined,
     DpdTimeoutSeconds: undefined,
@@ -62354,7 +61326,6 @@ const deserializeAws_ec2UnassignIpv6AddressesResult = (
   context: __SerdeContext
 ): UnassignIpv6AddressesResult => {
   let contents: any = {
-    __type: "UnassignIpv6AddressesResult",
     NetworkInterfaceId: undefined,
     UnassignedIpv6Addresses: undefined,
   };
@@ -62375,7 +61346,6 @@ const deserializeAws_ec2UnassignIpv6AddressesResult = (
 
 const deserializeAws_ec2UnmonitorInstancesResult = (output: any, context: __SerdeContext): UnmonitorInstancesResult => {
   let contents: any = {
-    __type: "UnmonitorInstancesResult",
     InstanceMonitorings: undefined,
   };
   if (output.instancesSet === "") {
@@ -62395,7 +61365,6 @@ const deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationItem = (
   context: __SerdeContext
 ): UnsuccessfulInstanceCreditSpecificationItem => {
   let contents: any = {
-    __type: "UnsuccessfulInstanceCreditSpecificationItem",
     Error: undefined,
     InstanceId: undefined,
   };
@@ -62413,7 +61382,6 @@ const deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationItemError = (
   context: __SerdeContext
 ): UnsuccessfulInstanceCreditSpecificationItemError => {
   let contents: any = {
-    __type: "UnsuccessfulInstanceCreditSpecificationItemError",
     Code: undefined,
     Message: undefined,
   };
@@ -62437,7 +61405,6 @@ const deserializeAws_ec2UnsuccessfulInstanceCreditSpecificationSet = (
 
 const deserializeAws_ec2UnsuccessfulItem = (output: any, context: __SerdeContext): UnsuccessfulItem => {
   let contents: any = {
-    __type: "UnsuccessfulItem",
     ResourceId: undefined,
     Error: undefined,
   };
@@ -62452,7 +61419,6 @@ const deserializeAws_ec2UnsuccessfulItem = (output: any, context: __SerdeContext
 
 const deserializeAws_ec2UnsuccessfulItemError = (output: any, context: __SerdeContext): UnsuccessfulItemError => {
   let contents: any = {
-    __type: "UnsuccessfulItemError",
     Code: undefined,
     Message: undefined,
   };
@@ -62478,7 +61444,6 @@ const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressResult = (
   context: __SerdeContext
 ): UpdateSecurityGroupRuleDescriptionsEgressResult => {
   let contents: any = {
-    __type: "UpdateSecurityGroupRuleDescriptionsEgressResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -62492,7 +61457,6 @@ const deserializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressResult = (
   context: __SerdeContext
 ): UpdateSecurityGroupRuleDescriptionsIngressResult => {
   let contents: any = {
-    __type: "UpdateSecurityGroupRuleDescriptionsIngressResult",
     Return: undefined,
   };
   if (output["return"] !== undefined) {
@@ -62507,7 +61471,6 @@ const deserializeAws_ec2UsageClassTypeList = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2UserBucketDetails = (output: any, context: __SerdeContext): UserBucketDetails => {
   let contents: any = {
-    __type: "UserBucketDetails",
     S3Key: undefined,
     S3Bucket: undefined,
   };
@@ -62522,7 +61485,6 @@ const deserializeAws_ec2UserBucketDetails = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2UserIdGroupPair = (output: any, context: __SerdeContext): UserIdGroupPair => {
   let contents: any = {
-    __type: "UserIdGroupPair",
     GroupId: undefined,
     VpcId: undefined,
     PeeringStatus: undefined,
@@ -62565,7 +61527,6 @@ const deserializeAws_ec2UserIdGroupPairSet = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2ValidationError = (output: any, context: __SerdeContext): ValidationError => {
   let contents: any = {
-    __type: "ValidationError",
     Code: undefined,
     Message: undefined,
   };
@@ -62580,7 +61541,6 @@ const deserializeAws_ec2ValidationError = (output: any, context: __SerdeContext)
 
 const deserializeAws_ec2ValidationWarning = (output: any, context: __SerdeContext): ValidationWarning => {
   let contents: any = {
-    __type: "ValidationWarning",
     Errors: undefined,
   };
   if (output.errorSet === "") {
@@ -62598,7 +61558,6 @@ const deserializeAws_ec2ValueStringList = (output: any, context: __SerdeContext)
 
 const deserializeAws_ec2VCpuInfo = (output: any, context: __SerdeContext): VCpuInfo => {
   let contents: any = {
-    __type: "VCpuInfo",
     DefaultVCpus: undefined,
     DefaultThreadsPerCore: undefined,
     ValidCores: undefined,
@@ -62637,7 +61596,6 @@ const deserializeAws_ec2VCpuInfo = (output: any, context: __SerdeContext): VCpuI
 
 const deserializeAws_ec2VgwTelemetry = (output: any, context: __SerdeContext): VgwTelemetry => {
   let contents: any = {
-    __type: "VgwTelemetry",
     AcceptedRouteCount: undefined,
     LastStatusChange: undefined,
     CertificateArn: undefined,
@@ -62679,7 +61637,6 @@ const deserializeAws_ec2VirtualizationTypeList = (
 
 const deserializeAws_ec2Volume = (output: any, context: __SerdeContext): Volume => {
   let contents: any = {
-    __type: "Volume",
     Encrypted: undefined,
     Tags: undefined,
     MultiAttachEnabled: undefined,
@@ -62755,7 +61712,6 @@ const deserializeAws_ec2Volume = (output: any, context: __SerdeContext): Volume 
 
 const deserializeAws_ec2VolumeAttachment = (output: any, context: __SerdeContext): VolumeAttachment => {
   let contents: any = {
-    __type: "VolumeAttachment",
     VolumeId: undefined,
     InstanceId: undefined,
     AttachTime: undefined,
@@ -62794,7 +61750,6 @@ const deserializeAws_ec2VolumeList = (output: any, context: __SerdeContext): Vol
 
 const deserializeAws_ec2VolumeModification = (output: any, context: __SerdeContext): VolumeModification => {
   let contents: any = {
-    __type: "VolumeModification",
     OriginalIops: undefined,
     ModificationState: undefined,
     TargetVolumeType: undefined,
@@ -62853,7 +61808,6 @@ const deserializeAws_ec2VolumeModificationList = (output: any, context: __SerdeC
 
 const deserializeAws_ec2VolumeStatusAction = (output: any, context: __SerdeContext): VolumeStatusAction => {
   let contents: any = {
-    __type: "VolumeStatusAction",
     EventType: undefined,
     Description: undefined,
     Code: undefined,
@@ -62883,7 +61837,6 @@ const deserializeAws_ec2VolumeStatusAttachmentStatus = (
   context: __SerdeContext
 ): VolumeStatusAttachmentStatus => {
   let contents: any = {
-    __type: "VolumeStatusAttachmentStatus",
     InstanceId: undefined,
     IoPerformance: undefined,
   };
@@ -62905,7 +61858,6 @@ const deserializeAws_ec2VolumeStatusAttachmentStatusList = (
 
 const deserializeAws_ec2VolumeStatusDetails = (output: any, context: __SerdeContext): VolumeStatusDetails => {
   let contents: any = {
-    __type: "VolumeStatusDetails",
     Status: undefined,
     Name: undefined,
   };
@@ -62924,7 +61876,6 @@ const deserializeAws_ec2VolumeStatusDetailsList = (output: any, context: __Serde
 
 const deserializeAws_ec2VolumeStatusEvent = (output: any, context: __SerdeContext): VolumeStatusEvent => {
   let contents: any = {
-    __type: "VolumeStatusEvent",
     EventId: undefined,
     NotBefore: undefined,
     Description: undefined,
@@ -62959,7 +61910,6 @@ const deserializeAws_ec2VolumeStatusEventsList = (output: any, context: __SerdeC
 
 const deserializeAws_ec2VolumeStatusInfo = (output: any, context: __SerdeContext): VolumeStatusInfo => {
   let contents: any = {
-    __type: "VolumeStatusInfo",
     Details: undefined,
     Status: undefined,
   };
@@ -62980,7 +61930,6 @@ const deserializeAws_ec2VolumeStatusInfo = (output: any, context: __SerdeContext
 
 const deserializeAws_ec2VolumeStatusItem = (output: any, context: __SerdeContext): VolumeStatusItem => {
   let contents: any = {
-    __type: "VolumeStatusItem",
     AvailabilityZone: undefined,
     AttachmentStatuses: undefined,
     VolumeStatus: undefined,
@@ -63037,7 +61986,6 @@ const deserializeAws_ec2VolumeStatusList = (output: any, context: __SerdeContext
 
 const deserializeAws_ec2Vpc = (output: any, context: __SerdeContext): Vpc => {
   let contents: any = {
-    __type: "Vpc",
     OwnerId: undefined,
     DhcpOptionsId: undefined,
     CidrBlock: undefined,
@@ -63102,7 +62050,6 @@ const deserializeAws_ec2Vpc = (output: any, context: __SerdeContext): Vpc => {
 
 const deserializeAws_ec2VpcAttachment = (output: any, context: __SerdeContext): VpcAttachment => {
   let contents: any = {
-    __type: "VpcAttachment",
     State: undefined,
     VpcId: undefined,
   };
@@ -63121,7 +62068,6 @@ const deserializeAws_ec2VpcAttachmentList = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2VpcCidrBlockAssociation = (output: any, context: __SerdeContext): VpcCidrBlockAssociation => {
   let contents: any = {
-    __type: "VpcCidrBlockAssociation",
     CidrBlockState: undefined,
     AssociationId: undefined,
     CidrBlock: undefined,
@@ -63147,7 +62093,6 @@ const deserializeAws_ec2VpcCidrBlockAssociationSet = (
 
 const deserializeAws_ec2VpcCidrBlockState = (output: any, context: __SerdeContext): VpcCidrBlockState => {
   let contents: any = {
-    __type: "VpcCidrBlockState",
     StatusMessage: undefined,
     State: undefined,
   };
@@ -63162,7 +62107,6 @@ const deserializeAws_ec2VpcCidrBlockState = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2VpcClassicLink = (output: any, context: __SerdeContext): VpcClassicLink => {
   let contents: any = {
-    __type: "VpcClassicLink",
     VpcId: undefined,
     ClassicLinkEnabled: undefined,
     Tags: undefined,
@@ -63188,7 +62132,6 @@ const deserializeAws_ec2VpcClassicLinkList = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2VpcEndpoint = (output: any, context: __SerdeContext): VpcEndpoint => {
   let contents: any = {
-    __type: "VpcEndpoint",
     LastError: undefined,
     PolicyDocument: undefined,
     VpcEndpointId: undefined,
@@ -63290,7 +62233,6 @@ const deserializeAws_ec2VpcEndpoint = (output: any, context: __SerdeContext): Vp
 
 const deserializeAws_ec2VpcEndpointConnection = (output: any, context: __SerdeContext): VpcEndpointConnection => {
   let contents: any = {
-    __type: "VpcEndpointConnection",
     VpcEndpointId: undefined,
     VpcEndpointState: undefined,
     VpcEndpointOwner: undefined,
@@ -63345,7 +62287,6 @@ const deserializeAws_ec2VpcIpv6CidrBlockAssociation = (
   context: __SerdeContext
 ): VpcIpv6CidrBlockAssociation => {
   let contents: any = {
-    __type: "VpcIpv6CidrBlockAssociation",
     NetworkBorderGroup: undefined,
     AssociationId: undefined,
     Ipv6CidrBlock: undefined,
@@ -63383,7 +62324,6 @@ const deserializeAws_ec2VpcList = (output: any, context: __SerdeContext): Vpc[] 
 
 const deserializeAws_ec2VpcPeeringConnection = (output: any, context: __SerdeContext): VpcPeeringConnection => {
   let contents: any = {
-    __type: "VpcPeeringConnection",
     AccepterVpcInfo: undefined,
     RequesterVpcInfo: undefined,
     Tags: undefined,
@@ -63424,7 +62364,6 @@ const deserializeAws_ec2VpcPeeringConnectionOptionsDescription = (
   context: __SerdeContext
 ): VpcPeeringConnectionOptionsDescription => {
   let contents: any = {
-    __type: "VpcPeeringConnectionOptionsDescription",
     AllowEgressFromLocalVpcToRemoteClassicLink: undefined,
     AllowDnsResolutionFromRemoteVpc: undefined,
     AllowEgressFromLocalClassicLinkToRemoteVpc: undefined,
@@ -63448,7 +62387,6 @@ const deserializeAws_ec2VpcPeeringConnectionStateReason = (
   context: __SerdeContext
 ): VpcPeeringConnectionStateReason => {
   let contents: any = {
-    __type: "VpcPeeringConnectionStateReason",
     Message: undefined,
     Code: undefined,
   };
@@ -63466,7 +62404,6 @@ const deserializeAws_ec2VpcPeeringConnectionVpcInfo = (
   context: __SerdeContext
 ): VpcPeeringConnectionVpcInfo => {
   let contents: any = {
-    __type: "VpcPeeringConnectionVpcInfo",
     Region: undefined,
     Ipv6CidrBlockSet: undefined,
     CidrBlock: undefined,
@@ -63516,7 +62453,6 @@ const deserializeAws_ec2VpcPeeringConnectionVpcInfo = (
 
 const deserializeAws_ec2VpnConnection = (output: any, context: __SerdeContext): VpnConnection => {
   let contents: any = {
-    __type: "VpnConnection",
     Type: undefined,
     VpnGatewayId: undefined,
     VgwTelemetry: undefined,
@@ -63587,7 +62523,6 @@ const deserializeAws_ec2VpnConnectionList = (output: any, context: __SerdeContex
 
 const deserializeAws_ec2VpnConnectionOptions = (output: any, context: __SerdeContext): VpnConnectionOptions => {
   let contents: any = {
-    __type: "VpnConnectionOptions",
     EnableAcceleration: undefined,
     TunnelOptions: undefined,
     StaticRoutesOnly: undefined,
@@ -63612,7 +62547,6 @@ const deserializeAws_ec2VpnConnectionOptions = (output: any, context: __SerdeCon
 
 const deserializeAws_ec2VpnGateway = (output: any, context: __SerdeContext): VpnGateway => {
   let contents: any = {
-    __type: "VpnGateway",
     VpnGatewayId: undefined,
     State: undefined,
     Tags: undefined,
@@ -63660,7 +62594,6 @@ const deserializeAws_ec2VpnGatewayList = (output: any, context: __SerdeContext):
 
 const deserializeAws_ec2VpnStaticRoute = (output: any, context: __SerdeContext): VpnStaticRoute => {
   let contents: any = {
-    __type: "VpnStaticRoute",
     Source: undefined,
     State: undefined,
     DestinationCidrBlock: undefined,
@@ -63683,7 +62616,6 @@ const deserializeAws_ec2VpnStaticRouteList = (output: any, context: __SerdeConte
 
 const deserializeAws_ec2WithdrawByoipCidrResult = (output: any, context: __SerdeContext): WithdrawByoipCidrResult => {
   let contents: any = {
-    __type: "WithdrawByoipCidrResult",
     ByoipCidr: undefined,
   };
   if (output["byoipCidr"] !== undefined) {

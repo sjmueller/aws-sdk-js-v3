@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { DescribeEventBusRequest, DescribeEventBusResponse } from "../models/index";
+import { DescribeEventBusRequest, DescribeEventBusResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1DescribeEventBusCommand,
   serializeAws_json1_1DescribeEventBusCommand,
@@ -43,8 +43,11 @@ export class DescribeEventBusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DescribeEventBusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEventBusResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

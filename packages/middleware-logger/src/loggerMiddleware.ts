@@ -1,21 +1,19 @@
 import {
   AbsoluteLocation,
-  FinalizeHandler,
-  FinalizeHandlerArguments,
-  FinalizeHandlerOutput,
-  FinalizeRequestHandlerOptions,
+  BuildHandler,
+  BuildHandlerArguments,
+  BuildHandlerOptions,
+  BuildHandlerOutput,
   HandlerExecutionContext,
   MetadataBearer,
   Pluggable,
 } from "@aws-sdk/types";
 
 export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataBearer>(
-  next: FinalizeHandler<any, Output>,
+  next: BuildHandler<any, Output>,
   context: HandlerExecutionContext
-): FinalizeHandler<any, Output> => async (
-  args: FinalizeHandlerArguments<any>
-): Promise<FinalizeHandlerOutput<Output>> => {
-  const { logger, inputFilterSensitiveLog, outputFilterSensitiveLog } = context;
+): BuildHandler<any, Output> => async (args: BuildHandlerArguments<any>): Promise<BuildHandlerOutput<Output>> => {
+  const { logger } = context;
 
   const response = await next(args);
 
@@ -24,33 +22,24 @@ export const loggerMiddleware = () => <Output extends MetadataBearer = MetadataB
   }
 
   const {
-    output: { $metadata, ...outputWithoutMetadata },
+    output: { $metadata },
   } = response;
 
-  if (typeof logger.debug === "function") {
-    logger.debug({
-      httpRequest: args.request,
-    });
-    logger.debug({
-      httpResponse: response.response,
-    });
-  }
-
+  // TODO: Populate custom metadata in https://github.com/aws/aws-sdk-js-v3/issues/1491#issuecomment-692174256
+  // $metadata will be removed in https://github.com/aws/aws-sdk-js-v3/issues/1490
   if (typeof logger.info === "function") {
     logger.info({
       $metadata,
-      input: inputFilterSensitiveLog(args.input),
-      output: outputFilterSensitiveLog(outputWithoutMetadata),
     });
   }
 
   return response;
 };
 
-export const loggerMiddlewareOptions: FinalizeRequestHandlerOptions & AbsoluteLocation = {
+export const loggerMiddlewareOptions: BuildHandlerOptions & AbsoluteLocation = {
   name: "loggerMiddleware",
   tags: ["LOGGER"],
-  step: "finalizeRequest",
+  step: "build",
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

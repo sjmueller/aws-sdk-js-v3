@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { DeleteEventBusRequest } from "../models/index";
+import { DeleteEventBusRequest } from "../models/models_0";
 import {
   deserializeAws_json1_1DeleteEventBusCommand,
   serializeAws_json1_1DeleteEventBusCommand,
@@ -43,8 +43,11 @@ export class DeleteEventBusCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: DeleteEventBusRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

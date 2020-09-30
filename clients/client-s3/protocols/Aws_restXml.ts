@@ -236,7 +236,6 @@ import {
   Condition,
   ContinuationEvent,
   CopyObjectResult,
-  CopyPartResult,
   CreateBucketConfiguration,
   DefaultRetention,
   Delete,
@@ -302,7 +301,6 @@ import {
   ProgressEvent,
   PublicAccessBlockConfiguration,
   QueueConfiguration,
-  RecordsEvent,
   Redirect,
   RedirectAllRequestsTo,
   ReplicationConfiguration,
@@ -312,22 +310,18 @@ import {
   ReplicationTime,
   ReplicationTimeValue,
   RequestPaymentConfiguration,
-  RequestProgress,
   RestoreRequest,
   RoutingRule,
   S3KeyFilter,
   S3Location,
   SSEKMS,
   SSES3,
-  ScanRange,
-  SelectObjectContentEventStream,
   SelectParameters,
   ServerSideEncryptionByDefault,
   ServerSideEncryptionConfiguration,
   ServerSideEncryptionRule,
   SourceSelectionCriteria,
   SseKmsEncryptedObjects,
-  StatsEvent,
   StorageClassAnalysis,
   StorageClassAnalysisDataExport,
   Tag,
@@ -339,7 +333,15 @@ import {
   WebsiteConfiguration,
   _Error,
   _Object,
-} from "../models/index";
+} from "../models/models_0";
+import {
+  CopyPartResult,
+  RecordsEvent,
+  RequestProgress,
+  ScanRange,
+  SelectObjectContentEventStream,
+  StatsEvent,
+} from "../models/models_1";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   SmithyException as __SmithyException,
@@ -4180,7 +4182,6 @@ export const deserializeAws_restXmlAbortMultipartUploadCommand = async (
   }
   const contents: AbortMultipartUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "AbortMultipartUploadOutput",
     RequestCharged: undefined,
   };
   if (output.headers["x-amz-request-charged"] !== undefined) {
@@ -4236,7 +4237,6 @@ export const deserializeAws_restXmlCompleteMultipartUploadCommand = async (
   }
   const contents: CompleteMultipartUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CompleteMultipartUploadOutput",
     Bucket: undefined,
     ETag: undefined,
     Expiration: undefined,
@@ -4316,7 +4316,6 @@ export const deserializeAws_restXmlCopyObjectCommand = async (
   }
   const contents: CopyObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CopyObjectOutput",
     CopyObjectResult: undefined,
     CopySourceVersionId: undefined,
     Expiration: undefined,
@@ -4406,7 +4405,6 @@ export const deserializeAws_restXmlCreateBucketCommand = async (
   }
   const contents: CreateBucketCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateBucketOutput",
     Location: undefined,
   };
   if (output.headers["location"] !== undefined) {
@@ -4470,7 +4468,6 @@ export const deserializeAws_restXmlCreateMultipartUploadCommand = async (
   }
   const contents: CreateMultipartUploadCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "CreateMultipartUploadOutput",
     AbortDate: undefined,
     AbortRuleId: undefined,
     Bucket: undefined,
@@ -5031,7 +5028,6 @@ export const deserializeAws_restXmlDeleteObjectCommand = async (
   }
   const contents: DeleteObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteObjectOutput",
     DeleteMarker: undefined,
     RequestCharged: undefined,
     VersionId: undefined,
@@ -5087,7 +5083,6 @@ export const deserializeAws_restXmlDeleteObjectsCommand = async (
   }
   const contents: DeleteObjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteObjectsOutput",
     Deleted: undefined,
     Errors: undefined,
     RequestCharged: undefined,
@@ -5149,7 +5144,6 @@ export const deserializeAws_restXmlDeleteObjectTaggingCommand = async (
   }
   const contents: DeleteObjectTaggingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "DeleteObjectTaggingOutput",
     VersionId: undefined,
   };
   if (output.headers["x-amz-version-id"] !== undefined) {
@@ -5240,7 +5234,6 @@ export const deserializeAws_restXmlGetBucketAccelerateConfigurationCommand = asy
   }
   const contents: GetBucketAccelerateConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketAccelerateConfigurationOutput",
     Status: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5288,7 +5281,6 @@ export const deserializeAws_restXmlGetBucketAclCommand = async (
   }
   const contents: GetBucketAclCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketAclOutput",
     Grants: undefined,
     Owner: undefined,
   };
@@ -5343,7 +5335,6 @@ export const deserializeAws_restXmlGetBucketAnalyticsConfigurationCommand = asyn
   }
   const contents: GetBucketAnalyticsConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketAnalyticsConfigurationOutput",
     AnalyticsConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5389,7 +5380,6 @@ export const deserializeAws_restXmlGetBucketCorsCommand = async (
   }
   const contents: GetBucketCorsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketCorsOutput",
     CORSRules: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5440,7 +5430,6 @@ export const deserializeAws_restXmlGetBucketEncryptionCommand = async (
   }
   const contents: GetBucketEncryptionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketEncryptionOutput",
     ServerSideEncryptionConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5486,7 +5475,6 @@ export const deserializeAws_restXmlGetBucketInventoryConfigurationCommand = asyn
   }
   const contents: GetBucketInventoryConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketInventoryConfigurationOutput",
     InventoryConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5532,7 +5520,6 @@ export const deserializeAws_restXmlGetBucketLifecycleConfigurationCommand = asyn
   }
   const contents: GetBucketLifecycleConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketLifecycleConfigurationOutput",
     Rules: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5583,7 +5570,6 @@ export const deserializeAws_restXmlGetBucketLocationCommand = async (
   }
   const contents: GetBucketLocationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketLocationOutput",
     LocationConstraint: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5631,7 +5617,6 @@ export const deserializeAws_restXmlGetBucketLoggingCommand = async (
   }
   const contents: GetBucketLoggingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketLoggingOutput",
     LoggingEnabled: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5679,7 +5664,6 @@ export const deserializeAws_restXmlGetBucketMetricsConfigurationCommand = async 
   }
   const contents: GetBucketMetricsConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketMetricsConfigurationOutput",
     MetricsConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5725,7 +5709,6 @@ export const deserializeAws_restXmlGetBucketNotificationConfigurationCommand = a
   }
   const contents: GetBucketNotificationConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "NotificationConfiguration",
     LambdaFunctionConfigurations: undefined,
     QueueConfigurations: undefined,
     TopicConfigurations: undefined,
@@ -5799,7 +5782,6 @@ export const deserializeAws_restXmlGetBucketPolicyCommand = async (
   }
   const contents: GetBucketPolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketPolicyOutput",
     Policy: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5847,7 +5829,6 @@ export const deserializeAws_restXmlGetBucketPolicyStatusCommand = async (
   }
   const contents: GetBucketPolicyStatusCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketPolicyStatusOutput",
     PolicyStatus: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5893,7 +5874,6 @@ export const deserializeAws_restXmlGetBucketReplicationCommand = async (
   }
   const contents: GetBucketReplicationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketReplicationOutput",
     ReplicationConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5939,7 +5919,6 @@ export const deserializeAws_restXmlGetBucketRequestPaymentCommand = async (
   }
   const contents: GetBucketRequestPaymentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketRequestPaymentOutput",
     Payer: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -5987,7 +5966,6 @@ export const deserializeAws_restXmlGetBucketTaggingCommand = async (
   }
   const contents: GetBucketTaggingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketTaggingOutput",
     TagSet: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6038,7 +6016,6 @@ export const deserializeAws_restXmlGetBucketVersioningCommand = async (
   }
   const contents: GetBucketVersioningCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketVersioningOutput",
     MFADelete: undefined,
     Status: undefined,
   };
@@ -6090,7 +6067,6 @@ export const deserializeAws_restXmlGetBucketWebsiteCommand = async (
   }
   const contents: GetBucketWebsiteCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetBucketWebsiteOutput",
     ErrorDocument: undefined,
     IndexDocument: undefined,
     RedirectAllRequestsTo: undefined,
@@ -6159,7 +6135,6 @@ export const deserializeAws_restXmlGetObjectCommand = async (
   }
   const contents: GetObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetObjectOutput",
     AcceptRanges: undefined,
     Body: undefined,
     CacheControl: undefined,
@@ -6338,7 +6313,6 @@ export const deserializeAws_restXmlGetObjectAclCommand = async (
   }
   const contents: GetObjectAclCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetObjectAclOutput",
     Grants: undefined,
     Owner: undefined,
     RequestCharged: undefined,
@@ -6405,7 +6379,6 @@ export const deserializeAws_restXmlGetObjectLegalHoldCommand = async (
   }
   const contents: GetObjectLegalHoldCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetObjectLegalHoldOutput",
     LegalHold: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6451,7 +6424,6 @@ export const deserializeAws_restXmlGetObjectLockConfigurationCommand = async (
   }
   const contents: GetObjectLockConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetObjectLockConfigurationOutput",
     ObjectLockConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6497,7 +6469,6 @@ export const deserializeAws_restXmlGetObjectRetentionCommand = async (
   }
   const contents: GetObjectRetentionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetObjectRetentionOutput",
     Retention: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6543,7 +6514,6 @@ export const deserializeAws_restXmlGetObjectTaggingCommand = async (
   }
   const contents: GetObjectTaggingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetObjectTaggingOutput",
     TagSet: undefined,
     VersionId: undefined,
   };
@@ -6598,7 +6568,6 @@ export const deserializeAws_restXmlGetObjectTorrentCommand = async (
   }
   const contents: GetObjectTorrentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetObjectTorrentOutput",
     Body: undefined,
     RequestCharged: undefined,
   };
@@ -6648,7 +6617,6 @@ export const deserializeAws_restXmlGetPublicAccessBlockCommand = async (
   }
   const contents: GetPublicAccessBlockCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "GetPublicAccessBlockOutput",
     PublicAccessBlockConfiguration: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6745,7 +6713,6 @@ export const deserializeAws_restXmlHeadObjectCommand = async (
   }
   const contents: HeadObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "HeadObjectOutput",
     AcceptRanges: undefined,
     CacheControl: undefined,
     ContentDisposition: undefined,
@@ -6914,7 +6881,6 @@ export const deserializeAws_restXmlListBucketAnalyticsConfigurationsCommand = as
   }
   const contents: ListBucketAnalyticsConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBucketAnalyticsConfigurationsOutput",
     AnalyticsConfigurationList: undefined,
     ContinuationToken: undefined,
     IsTruncated: undefined,
@@ -6980,7 +6946,6 @@ export const deserializeAws_restXmlListBucketInventoryConfigurationsCommand = as
   }
   const contents: ListBucketInventoryConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBucketInventoryConfigurationsOutput",
     ContinuationToken: undefined,
     InventoryConfigurationList: undefined,
     IsTruncated: undefined,
@@ -7046,7 +7011,6 @@ export const deserializeAws_restXmlListBucketMetricsConfigurationsCommand = asyn
   }
   const contents: ListBucketMetricsConfigurationsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBucketMetricsConfigurationsOutput",
     ContinuationToken: undefined,
     IsTruncated: undefined,
     MetricsConfigurationList: undefined,
@@ -7112,7 +7076,6 @@ export const deserializeAws_restXmlListBucketsCommand = async (
   }
   const contents: ListBucketsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListBucketsOutput",
     Buckets: undefined,
     Owner: undefined,
   };
@@ -7167,7 +7130,6 @@ export const deserializeAws_restXmlListMultipartUploadsCommand = async (
   }
   const contents: ListMultipartUploadsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListMultipartUploadsOutput",
     Bucket: undefined,
     CommonPrefixes: undefined,
     Delimiter: undefined,
@@ -7268,7 +7230,6 @@ export const deserializeAws_restXmlListObjectsCommand = async (
   }
   const contents: ListObjectsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListObjectsOutput",
     CommonPrefixes: undefined,
     Contents: undefined,
     Delimiter: undefined,
@@ -7369,7 +7330,6 @@ export const deserializeAws_restXmlListObjectsV2Command = async (
   }
   const contents: ListObjectsV2CommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListObjectsV2Output",
     CommonPrefixes: undefined,
     Contents: undefined,
     ContinuationToken: undefined,
@@ -7478,7 +7438,6 @@ export const deserializeAws_restXmlListObjectVersionsCommand = async (
   }
   const contents: ListObjectVersionsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListObjectVersionsOutput",
     CommonPrefixes: undefined,
     DeleteMarkers: undefined,
     Delimiter: undefined,
@@ -7586,7 +7545,6 @@ export const deserializeAws_restXmlListPartsCommand = async (
   }
   const contents: ListPartsCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "ListPartsOutput",
     AbortDate: undefined,
     AbortRuleId: undefined,
     Bucket: undefined,
@@ -8377,7 +8335,6 @@ export const deserializeAws_restXmlPutObjectCommand = async (
   }
   const contents: PutObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutObjectOutput",
     ETag: undefined,
     Expiration: undefined,
     RequestCharged: undefined,
@@ -8457,7 +8414,6 @@ export const deserializeAws_restXmlPutObjectAclCommand = async (
   }
   const contents: PutObjectAclCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutObjectAclOutput",
     RequestCharged: undefined,
   };
   if (output.headers["x-amz-request-charged"] !== undefined) {
@@ -8513,7 +8469,6 @@ export const deserializeAws_restXmlPutObjectLegalHoldCommand = async (
   }
   const contents: PutObjectLegalHoldCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutObjectLegalHoldOutput",
     RequestCharged: undefined,
   };
   if (output.headers["x-amz-request-charged"] !== undefined) {
@@ -8561,7 +8516,6 @@ export const deserializeAws_restXmlPutObjectLockConfigurationCommand = async (
   }
   const contents: PutObjectLockConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutObjectLockConfigurationOutput",
     RequestCharged: undefined,
   };
   if (output.headers["x-amz-request-charged"] !== undefined) {
@@ -8609,7 +8563,6 @@ export const deserializeAws_restXmlPutObjectRetentionCommand = async (
   }
   const contents: PutObjectRetentionCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutObjectRetentionOutput",
     RequestCharged: undefined,
   };
   if (output.headers["x-amz-request-charged"] !== undefined) {
@@ -8657,7 +8610,6 @@ export const deserializeAws_restXmlPutObjectTaggingCommand = async (
   }
   const contents: PutObjectTaggingCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "PutObjectTaggingOutput",
     VersionId: undefined,
   };
   if (output.headers["x-amz-version-id"] !== undefined) {
@@ -8748,7 +8700,6 @@ export const deserializeAws_restXmlRestoreObjectCommand = async (
   }
   const contents: RestoreObjectCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "RestoreObjectOutput",
     RequestCharged: undefined,
     RestoreOutputPath: undefined,
   };
@@ -8808,7 +8759,6 @@ export const deserializeAws_restXmlSelectObjectContentCommand = async (
   }
   const contents: SelectObjectContentCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "SelectObjectContentOutput",
     Payload: undefined,
   };
   const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
@@ -8868,7 +8818,6 @@ export const deserializeAws_restXmlUploadPartCommand = async (
   }
   const contents: UploadPartCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UploadPartOutput",
     ETag: undefined,
     RequestCharged: undefined,
     SSECustomerAlgorithm: undefined,
@@ -8936,7 +8885,6 @@ export const deserializeAws_restXmlUploadPartCopyCommand = async (
   }
   const contents: UploadPartCopyCommandOutput = {
     $metadata: deserializeMetadata(output),
-    __type: "UploadPartCopyOutput",
     CopyPartResult: undefined,
     CopySourceVersionId: undefined,
     RequestCharged: undefined,
@@ -9043,9 +8991,7 @@ const deserializeAws_restXmlProgressEvent_event = async (
   output: any,
   context: __SerdeContext
 ): Promise<ProgressEvent> => {
-  let contents: ProgressEvent = {
-    __type: "ProgressEvent",
-  } as any;
+  let contents: ProgressEvent = {} as any;
   contents.Details = await parseBody(output.body, context);
   return contents;
 };
@@ -9053,16 +8999,12 @@ const deserializeAws_restXmlRecordsEvent_event = async (
   output: any,
   context: __SerdeContext
 ): Promise<RecordsEvent> => {
-  let contents: RecordsEvent = {
-    __type: "RecordsEvent",
-  } as any;
+  let contents: RecordsEvent = {} as any;
   contents.Payload = output.body;
   return contents;
 };
 const deserializeAws_restXmlStatsEvent_event = async (output: any, context: __SerdeContext): Promise<StatsEvent> => {
-  let contents: StatsEvent = {
-    __type: "StatsEvent",
-  } as any;
+  let contents: StatsEvent = {} as any;
   contents.Details = await parseBody(output.body, context);
   return contents;
 };
@@ -11089,7 +11031,6 @@ const deserializeAws_restXmlAbortIncompleteMultipartUpload = (
   context: __SerdeContext
 ): AbortIncompleteMultipartUpload => {
   let contents: any = {
-    __type: "AbortIncompleteMultipartUpload",
     DaysAfterInitiation: undefined,
   };
   if (output["DaysAfterInitiation"] !== undefined) {
@@ -11103,7 +11044,6 @@ const deserializeAws_restXmlAccessControlTranslation = (
   context: __SerdeContext
 ): AccessControlTranslation => {
   let contents: any = {
-    __type: "AccessControlTranslation",
     Owner: undefined,
   };
   if (output["Owner"] !== undefined) {
@@ -11126,7 +11066,6 @@ const deserializeAws_restXmlAllowedOrigins = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlAnalyticsAndOperator = (output: any, context: __SerdeContext): AnalyticsAndOperator => {
   let contents: any = {
-    __type: "AnalyticsAndOperator",
     Tags: undefined,
     Prefix: undefined,
   };
@@ -11144,7 +11083,6 @@ const deserializeAws_restXmlAnalyticsAndOperator = (output: any, context: __Serd
 
 const deserializeAws_restXmlAnalyticsConfiguration = (output: any, context: __SerdeContext): AnalyticsConfiguration => {
   let contents: any = {
-    __type: "AnalyticsConfiguration",
     StorageClassAnalysis: undefined,
     Filter: undefined,
     Id: undefined,
@@ -11173,7 +11111,6 @@ const deserializeAws_restXmlAnalyticsExportDestination = (
   context: __SerdeContext
 ): AnalyticsExportDestination => {
   let contents: any = {
-    __type: "AnalyticsExportDestination",
     S3BucketDestination: undefined,
   };
   if (output["S3BucketDestination"] !== undefined) {
@@ -11187,7 +11124,6 @@ const deserializeAws_restXmlAnalyticsExportDestination = (
 
 const deserializeAws_restXmlAnalyticsFilter = (output: any, context: __SerdeContext): AnalyticsFilter => {
   let contents: any = {
-    __type: "AnalyticsFilter",
     And: undefined,
     Prefix: undefined,
     Tag: undefined,
@@ -11209,7 +11145,6 @@ const deserializeAws_restXmlAnalyticsS3BucketDestination = (
   context: __SerdeContext
 ): AnalyticsS3BucketDestination => {
   let contents: any = {
-    __type: "AnalyticsS3BucketDestination",
     Format: undefined,
     Prefix: undefined,
     Bucket: undefined,
@@ -11232,7 +11167,6 @@ const deserializeAws_restXmlAnalyticsS3BucketDestination = (
 
 const deserializeAws_restXmlBucket = (output: any, context: __SerdeContext): Bucket => {
   let contents: any = {
-    __type: "Bucket",
     CreationDate: undefined,
     Name: undefined,
   };
@@ -11251,7 +11185,6 @@ const deserializeAws_restXmlBuckets = (output: any, context: __SerdeContext): Bu
 
 const deserializeAws_restXmlCommonPrefix = (output: any, context: __SerdeContext): CommonPrefix => {
   let contents: any = {
-    __type: "CommonPrefix",
     Prefix: undefined,
   };
   if (output["Prefix"] !== undefined) {
@@ -11266,7 +11199,6 @@ const deserializeAws_restXmlCommonPrefixList = (output: any, context: __SerdeCon
 
 const deserializeAws_restXmlCondition = (output: any, context: __SerdeContext): Condition => {
   let contents: any = {
-    __type: "Condition",
     KeyPrefixEquals: undefined,
     HttpErrorCodeReturnedEquals: undefined,
   };
@@ -11281,7 +11213,6 @@ const deserializeAws_restXmlCondition = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restXmlCopyObjectResult = (output: any, context: __SerdeContext): CopyObjectResult => {
   let contents: any = {
-    __type: "CopyObjectResult",
     LastModified: undefined,
     ETag: undefined,
   };
@@ -11296,7 +11227,6 @@ const deserializeAws_restXmlCopyObjectResult = (output: any, context: __SerdeCon
 
 const deserializeAws_restXmlCopyPartResult = (output: any, context: __SerdeContext): CopyPartResult => {
   let contents: any = {
-    __type: "CopyPartResult",
     ETag: undefined,
     LastModified: undefined,
   };
@@ -11311,7 +11241,6 @@ const deserializeAws_restXmlCopyPartResult = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlCORSRule = (output: any, context: __SerdeContext): CORSRule => {
   let contents: any = {
-    __type: "CORSRule",
     MaxAgeSeconds: undefined,
     AllowedOrigins: undefined,
     AllowedHeaders: undefined,
@@ -11366,7 +11295,6 @@ const deserializeAws_restXmlCORSRules = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restXmlDefaultRetention = (output: any, context: __SerdeContext): DefaultRetention => {
   let contents: any = {
-    __type: "DefaultRetention",
     Mode: undefined,
     Days: undefined,
     Years: undefined,
@@ -11385,7 +11313,6 @@ const deserializeAws_restXmlDefaultRetention = (output: any, context: __SerdeCon
 
 const deserializeAws_restXmlDeletedObject = (output: any, context: __SerdeContext): DeletedObject => {
   let contents: any = {
-    __type: "DeletedObject",
     Key: undefined,
     DeleteMarkerVersionId: undefined,
     DeleteMarker: undefined,
@@ -11412,7 +11339,6 @@ const deserializeAws_restXmlDeletedObjects = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlDeleteMarkerEntry = (output: any, context: __SerdeContext): DeleteMarkerEntry => {
   let contents: any = {
-    __type: "DeleteMarkerEntry",
     VersionId: undefined,
     LastModified: undefined,
     Owner: undefined,
@@ -11442,7 +11368,6 @@ const deserializeAws_restXmlDeleteMarkerReplication = (
   context: __SerdeContext
 ): DeleteMarkerReplication => {
   let contents: any = {
-    __type: "DeleteMarkerReplication",
     Status: undefined,
   };
   if (output["Status"] !== undefined) {
@@ -11457,7 +11382,6 @@ const deserializeAws_restXmlDeleteMarkers = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlDestination = (output: any, context: __SerdeContext): Destination => {
   let contents: any = {
-    __type: "Destination",
     StorageClass: undefined,
     Metrics: undefined,
     ReplicationTime: undefined,
@@ -11501,7 +11425,6 @@ const deserializeAws_restXmlEncryptionConfiguration = (
   context: __SerdeContext
 ): EncryptionConfiguration => {
   let contents: any = {
-    __type: "EncryptionConfiguration",
     ReplicaKmsKeyID: undefined,
   };
   if (output["ReplicaKmsKeyID"] !== undefined) {
@@ -11512,7 +11435,6 @@ const deserializeAws_restXmlEncryptionConfiguration = (
 
 const deserializeAws_restXml_Error = (output: any, context: __SerdeContext): _Error => {
   let contents: any = {
-    __type: "Error",
     Key: undefined,
     Code: undefined,
     Message: undefined,
@@ -11535,7 +11457,6 @@ const deserializeAws_restXml_Error = (output: any, context: __SerdeContext): _Er
 
 const deserializeAws_restXmlErrorDocument = (output: any, context: __SerdeContext): ErrorDocument => {
   let contents: any = {
-    __type: "ErrorDocument",
     Key: undefined,
   };
   if (output["Key"] !== undefined) {
@@ -11557,7 +11478,6 @@ const deserializeAws_restXmlExistingObjectReplication = (
   context: __SerdeContext
 ): ExistingObjectReplication => {
   let contents: any = {
-    __type: "ExistingObjectReplication",
     Status: undefined,
   };
   if (output["Status"] !== undefined) {
@@ -11572,7 +11492,6 @@ const deserializeAws_restXmlExposeHeaders = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlFilterRule = (output: any, context: __SerdeContext): FilterRule => {
   let contents: any = {
-    __type: "FilterRule",
     Name: undefined,
     Value: undefined,
   };
@@ -11591,7 +11510,6 @@ const deserializeAws_restXmlFilterRuleList = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlGrant = (output: any, context: __SerdeContext): Grant => {
   let contents: any = {
-    __type: "Grant",
     Permission: undefined,
     Grantee: undefined,
   };
@@ -11606,7 +11524,6 @@ const deserializeAws_restXmlGrant = (output: any, context: __SerdeContext): Gran
 
 const deserializeAws_restXmlGrantee = (output: any, context: __SerdeContext): Grantee => {
   let contents: any = {
-    __type: "Grantee",
     ID: undefined,
     DisplayName: undefined,
     EmailAddress: undefined,
@@ -11637,7 +11554,6 @@ const deserializeAws_restXmlGrants = (output: any, context: __SerdeContext): Gra
 
 const deserializeAws_restXmlIndexDocument = (output: any, context: __SerdeContext): IndexDocument => {
   let contents: any = {
-    __type: "IndexDocument",
     Suffix: undefined,
   };
   if (output["Suffix"] !== undefined) {
@@ -11648,7 +11564,6 @@ const deserializeAws_restXmlIndexDocument = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlInitiator = (output: any, context: __SerdeContext): Initiator => {
   let contents: any = {
-    __type: "Initiator",
     ID: undefined,
     DisplayName: undefined,
   };
@@ -11663,7 +11578,6 @@ const deserializeAws_restXmlInitiator = (output: any, context: __SerdeContext): 
 
 const deserializeAws_restXmlInventoryConfiguration = (output: any, context: __SerdeContext): InventoryConfiguration => {
   let contents: any = {
-    __type: "InventoryConfiguration",
     OptionalFields: undefined,
     Destination: undefined,
     Id: undefined,
@@ -11711,7 +11625,6 @@ const deserializeAws_restXmlInventoryConfigurationList = (
 
 const deserializeAws_restXmlInventoryDestination = (output: any, context: __SerdeContext): InventoryDestination => {
   let contents: any = {
-    __type: "InventoryDestination",
     S3BucketDestination: undefined,
   };
   if (output["S3BucketDestination"] !== undefined) {
@@ -11725,7 +11638,6 @@ const deserializeAws_restXmlInventoryDestination = (output: any, context: __Serd
 
 const deserializeAws_restXmlInventoryEncryption = (output: any, context: __SerdeContext): InventoryEncryption => {
   let contents: any = {
-    __type: "InventoryEncryption",
     SSES3: undefined,
     SSEKMS: undefined,
   };
@@ -11740,7 +11652,6 @@ const deserializeAws_restXmlInventoryEncryption = (output: any, context: __Serde
 
 const deserializeAws_restXmlInventoryFilter = (output: any, context: __SerdeContext): InventoryFilter => {
   let contents: any = {
-    __type: "InventoryFilter",
     Prefix: undefined,
   };
   if (output["Prefix"] !== undefined) {
@@ -11761,7 +11672,6 @@ const deserializeAws_restXmlInventoryS3BucketDestination = (
   context: __SerdeContext
 ): InventoryS3BucketDestination => {
   let contents: any = {
-    __type: "InventoryS3BucketDestination",
     Bucket: undefined,
     AccountId: undefined,
     Encryption: undefined,
@@ -11788,7 +11698,6 @@ const deserializeAws_restXmlInventoryS3BucketDestination = (
 
 const deserializeAws_restXmlInventorySchedule = (output: any, context: __SerdeContext): InventorySchedule => {
   let contents: any = {
-    __type: "InventorySchedule",
     Frequency: undefined,
   };
   if (output["Frequency"] !== undefined) {
@@ -11802,7 +11711,6 @@ const deserializeAws_restXmlLambdaFunctionConfiguration = (
   context: __SerdeContext
 ): LambdaFunctionConfiguration => {
   let contents: any = {
-    __type: "LambdaFunctionConfiguration",
     LambdaFunctionArn: undefined,
     Id: undefined,
     Events: undefined,
@@ -11835,7 +11743,6 @@ const deserializeAws_restXmlLambdaFunctionConfigurationList = (
 
 const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __SerdeContext): LifecycleExpiration => {
   let contents: any = {
-    __type: "LifecycleExpiration",
     Date: undefined,
     ExpiredObjectDeleteMarker: undefined,
     Days: undefined,
@@ -11854,7 +11761,6 @@ const deserializeAws_restXmlLifecycleExpiration = (output: any, context: __Serde
 
 const deserializeAws_restXmlLifecycleRule = (output: any, context: __SerdeContext): LifecycleRule => {
   let contents: any = {
-    __type: "LifecycleRule",
     ID: undefined,
     Status: undefined,
     AbortIncompleteMultipartUpload: undefined,
@@ -11915,7 +11821,6 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
   context: __SerdeContext
 ): LifecycleRuleAndOperator => {
   let contents: any = {
-    __type: "LifecycleRuleAndOperator",
     Tags: undefined,
     Prefix: undefined,
   };
@@ -11933,7 +11838,6 @@ const deserializeAws_restXmlLifecycleRuleAndOperator = (
 
 const deserializeAws_restXmlLifecycleRuleFilter = (output: any, context: __SerdeContext): LifecycleRuleFilter => {
   let contents: any = {
-    __type: "LifecycleRuleFilter",
     And: undefined,
     Prefix: undefined,
     Tag: undefined,
@@ -11956,7 +11860,6 @@ const deserializeAws_restXmlLifecycleRules = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlLoggingEnabled = (output: any, context: __SerdeContext): LoggingEnabled => {
   let contents: any = {
-    __type: "LoggingEnabled",
     TargetBucket: undefined,
     TargetPrefix: undefined,
     TargetGrants: undefined,
@@ -11981,7 +11884,6 @@ const deserializeAws_restXmlLoggingEnabled = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlMetrics = (output: any, context: __SerdeContext): Metrics => {
   let contents: any = {
-    __type: "Metrics",
     EventThreshold: undefined,
     Status: undefined,
   };
@@ -11996,7 +11898,6 @@ const deserializeAws_restXmlMetrics = (output: any, context: __SerdeContext): Me
 
 const deserializeAws_restXmlMetricsAndOperator = (output: any, context: __SerdeContext): MetricsAndOperator => {
   let contents: any = {
-    __type: "MetricsAndOperator",
     Prefix: undefined,
     Tags: undefined,
   };
@@ -12014,7 +11915,6 @@ const deserializeAws_restXmlMetricsAndOperator = (output: any, context: __SerdeC
 
 const deserializeAws_restXmlMetricsConfiguration = (output: any, context: __SerdeContext): MetricsConfiguration => {
   let contents: any = {
-    __type: "MetricsConfiguration",
     Filter: undefined,
     Id: undefined,
   };
@@ -12036,7 +11936,6 @@ const deserializeAws_restXmlMetricsConfigurationList = (
 
 const deserializeAws_restXmlMetricsFilter = (output: any, context: __SerdeContext): MetricsFilter => {
   let contents: any = {
-    __type: "MetricsFilter",
     Prefix: undefined,
     And: undefined,
     Tag: undefined,
@@ -12055,7 +11954,6 @@ const deserializeAws_restXmlMetricsFilter = (output: any, context: __SerdeContex
 
 const deserializeAws_restXmlMultipartUpload = (output: any, context: __SerdeContext): MultipartUpload => {
   let contents: any = {
-    __type: "MultipartUpload",
     Key: undefined,
     UploadId: undefined,
     Initiated: undefined,
@@ -12093,7 +11991,6 @@ const deserializeAws_restXmlNoncurrentVersionExpiration = (
   context: __SerdeContext
 ): NoncurrentVersionExpiration => {
   let contents: any = {
-    __type: "NoncurrentVersionExpiration",
     NoncurrentDays: undefined,
   };
   if (output["NoncurrentDays"] !== undefined) {
@@ -12107,7 +12004,6 @@ const deserializeAws_restXmlNoncurrentVersionTransition = (
   context: __SerdeContext
 ): NoncurrentVersionTransition => {
   let contents: any = {
-    __type: "NoncurrentVersionTransition",
     NoncurrentDays: undefined,
     StorageClass: undefined,
   };
@@ -12132,7 +12028,6 @@ const deserializeAws_restXmlNotificationConfigurationFilter = (
   context: __SerdeContext
 ): NotificationConfigurationFilter => {
   let contents: any = {
-    __type: "NotificationConfigurationFilter",
     Key: undefined,
   };
   if (output["S3Key"] !== undefined) {
@@ -12143,7 +12038,6 @@ const deserializeAws_restXmlNotificationConfigurationFilter = (
 
 const deserializeAws_restXml_Object = (output: any, context: __SerdeContext): _Object => {
   let contents: any = {
-    __type: "Object",
     Owner: undefined,
     StorageClass: undefined,
     LastModified: undefined,
@@ -12181,7 +12075,6 @@ const deserializeAws_restXmlObjectLockConfiguration = (
   context: __SerdeContext
 ): ObjectLockConfiguration => {
   let contents: any = {
-    __type: "ObjectLockConfiguration",
     ObjectLockEnabled: undefined,
     Rule: undefined,
   };
@@ -12196,7 +12089,6 @@ const deserializeAws_restXmlObjectLockConfiguration = (
 
 const deserializeAws_restXmlObjectLockLegalHold = (output: any, context: __SerdeContext): ObjectLockLegalHold => {
   let contents: any = {
-    __type: "ObjectLockLegalHold",
     Status: undefined,
   };
   if (output["Status"] !== undefined) {
@@ -12207,7 +12099,6 @@ const deserializeAws_restXmlObjectLockLegalHold = (output: any, context: __Serde
 
 const deserializeAws_restXmlObjectLockRetention = (output: any, context: __SerdeContext): ObjectLockRetention => {
   let contents: any = {
-    __type: "ObjectLockRetention",
     Mode: undefined,
     RetainUntilDate: undefined,
   };
@@ -12222,7 +12113,6 @@ const deserializeAws_restXmlObjectLockRetention = (output: any, context: __Serde
 
 const deserializeAws_restXmlObjectLockRule = (output: any, context: __SerdeContext): ObjectLockRule => {
   let contents: any = {
-    __type: "ObjectLockRule",
     DefaultRetention: undefined,
   };
   if (output["DefaultRetention"] !== undefined) {
@@ -12233,7 +12123,6 @@ const deserializeAws_restXmlObjectLockRule = (output: any, context: __SerdeConte
 
 const deserializeAws_restXmlObjectVersion = (output: any, context: __SerdeContext): ObjectVersion => {
   let contents: any = {
-    __type: "ObjectVersion",
     StorageClass: undefined,
     IsLatest: undefined,
     Owner: undefined,
@@ -12276,7 +12165,6 @@ const deserializeAws_restXmlObjectVersionList = (output: any, context: __SerdeCo
 
 const deserializeAws_restXmlOwner = (output: any, context: __SerdeContext): Owner => {
   let contents: any = {
-    __type: "Owner",
     DisplayName: undefined,
     ID: undefined,
   };
@@ -12291,7 +12179,6 @@ const deserializeAws_restXmlOwner = (output: any, context: __SerdeContext): Owne
 
 const deserializeAws_restXmlPart = (output: any, context: __SerdeContext): Part => {
   let contents: any = {
-    __type: "Part",
     ETag: undefined,
     PartNumber: undefined,
     LastModified: undefined,
@@ -12318,7 +12205,6 @@ const deserializeAws_restXmlParts = (output: any, context: __SerdeContext): Part
 
 const deserializeAws_restXmlPolicyStatus = (output: any, context: __SerdeContext): PolicyStatus => {
   let contents: any = {
-    __type: "PolicyStatus",
     IsPublic: undefined,
   };
   if (output["IsPublic"] !== undefined) {
@@ -12332,7 +12218,6 @@ const deserializeAws_restXmlPublicAccessBlockConfiguration = (
   context: __SerdeContext
 ): PublicAccessBlockConfiguration => {
   let contents: any = {
-    __type: "PublicAccessBlockConfiguration",
     RestrictPublicBuckets: undefined,
     BlockPublicAcls: undefined,
     IgnorePublicAcls: undefined,
@@ -12355,7 +12240,6 @@ const deserializeAws_restXmlPublicAccessBlockConfiguration = (
 
 const deserializeAws_restXmlQueueConfiguration = (output: any, context: __SerdeContext): QueueConfiguration => {
   let contents: any = {
-    __type: "QueueConfiguration",
     Id: undefined,
     Events: undefined,
     QueueArn: undefined,
@@ -12385,7 +12269,6 @@ const deserializeAws_restXmlQueueConfigurationList = (output: any, context: __Se
 
 const deserializeAws_restXmlRedirect = (output: any, context: __SerdeContext): Redirect => {
   let contents: any = {
-    __type: "Redirect",
     Protocol: undefined,
     ReplaceKeyWith: undefined,
     ReplaceKeyPrefixWith: undefined,
@@ -12412,7 +12295,6 @@ const deserializeAws_restXmlRedirect = (output: any, context: __SerdeContext): R
 
 const deserializeAws_restXmlRedirectAllRequestsTo = (output: any, context: __SerdeContext): RedirectAllRequestsTo => {
   let contents: any = {
-    __type: "RedirectAllRequestsTo",
     Protocol: undefined,
     HostName: undefined,
   };
@@ -12430,7 +12312,6 @@ const deserializeAws_restXmlReplicationConfiguration = (
   context: __SerdeContext
 ): ReplicationConfiguration => {
   let contents: any = {
-    __type: "ReplicationConfiguration",
     Role: undefined,
     Rules: undefined,
   };
@@ -12448,7 +12329,6 @@ const deserializeAws_restXmlReplicationConfiguration = (
 
 const deserializeAws_restXmlReplicationRule = (output: any, context: __SerdeContext): ReplicationRule => {
   let contents: any = {
-    __type: "ReplicationRule",
     Status: undefined,
     Priority: undefined,
     Destination: undefined,
@@ -12503,7 +12383,6 @@ const deserializeAws_restXmlReplicationRuleAndOperator = (
   context: __SerdeContext
 ): ReplicationRuleAndOperator => {
   let contents: any = {
-    __type: "ReplicationRuleAndOperator",
     Tags: undefined,
     Prefix: undefined,
   };
@@ -12521,7 +12400,6 @@ const deserializeAws_restXmlReplicationRuleAndOperator = (
 
 const deserializeAws_restXmlReplicationRuleFilter = (output: any, context: __SerdeContext): ReplicationRuleFilter => {
   let contents: any = {
-    __type: "ReplicationRuleFilter",
     And: undefined,
     Prefix: undefined,
     Tag: undefined,
@@ -12544,7 +12422,6 @@ const deserializeAws_restXmlReplicationRules = (output: any, context: __SerdeCon
 
 const deserializeAws_restXmlReplicationTime = (output: any, context: __SerdeContext): ReplicationTime => {
   let contents: any = {
-    __type: "ReplicationTime",
     Status: undefined,
     Time: undefined,
   };
@@ -12559,7 +12436,6 @@ const deserializeAws_restXmlReplicationTime = (output: any, context: __SerdeCont
 
 const deserializeAws_restXmlReplicationTimeValue = (output: any, context: __SerdeContext): ReplicationTimeValue => {
   let contents: any = {
-    __type: "ReplicationTimeValue",
     Minutes: undefined,
   };
   if (output["Minutes"] !== undefined) {
@@ -12570,7 +12446,6 @@ const deserializeAws_restXmlReplicationTimeValue = (output: any, context: __Serd
 
 const deserializeAws_restXmlRoutingRule = (output: any, context: __SerdeContext): RoutingRule => {
   let contents: any = {
-    __type: "RoutingRule",
     Condition: undefined,
     Redirect: undefined,
   };
@@ -12589,7 +12464,6 @@ const deserializeAws_restXmlRoutingRules = (output: any, context: __SerdeContext
 
 const deserializeAws_restXmlS3KeyFilter = (output: any, context: __SerdeContext): S3KeyFilter => {
   let contents: any = {
-    __type: "S3KeyFilter",
     FilterRules: undefined,
   };
   if (output.FilterRule === "") {
@@ -12606,7 +12480,6 @@ const deserializeAws_restXmlServerSideEncryptionByDefault = (
   context: __SerdeContext
 ): ServerSideEncryptionByDefault => {
   let contents: any = {
-    __type: "ServerSideEncryptionByDefault",
     KMSMasterKeyID: undefined,
     SSEAlgorithm: undefined,
   };
@@ -12624,7 +12497,6 @@ const deserializeAws_restXmlServerSideEncryptionConfiguration = (
   context: __SerdeContext
 ): ServerSideEncryptionConfiguration => {
   let contents: any = {
-    __type: "ServerSideEncryptionConfiguration",
     Rules: undefined,
   };
   if (output.Rule === "") {
@@ -12641,7 +12513,6 @@ const deserializeAws_restXmlServerSideEncryptionRule = (
   context: __SerdeContext
 ): ServerSideEncryptionRule => {
   let contents: any = {
-    __type: "ServerSideEncryptionRule",
     ApplyServerSideEncryptionByDefault: undefined,
   };
   if (output["ApplyServerSideEncryptionByDefault"] !== undefined) {
@@ -12665,7 +12536,6 @@ const deserializeAws_restXmlSourceSelectionCriteria = (
   context: __SerdeContext
 ): SourceSelectionCriteria => {
   let contents: any = {
-    __type: "SourceSelectionCriteria",
     SseKmsEncryptedObjects: undefined,
   };
   if (output["SseKmsEncryptedObjects"] !== undefined) {
@@ -12679,7 +12549,6 @@ const deserializeAws_restXmlSourceSelectionCriteria = (
 
 const deserializeAws_restXmlSSEKMS = (output: any, context: __SerdeContext): SSEKMS => {
   let contents: any = {
-    __type: "SSEKMS",
     KeyId: undefined,
   };
   if (output["KeyId"] !== undefined) {
@@ -12690,7 +12559,6 @@ const deserializeAws_restXmlSSEKMS = (output: any, context: __SerdeContext): SSE
 
 const deserializeAws_restXmlSseKmsEncryptedObjects = (output: any, context: __SerdeContext): SseKmsEncryptedObjects => {
   let contents: any = {
-    __type: "SseKmsEncryptedObjects",
     Status: undefined,
   };
   if (output["Status"] !== undefined) {
@@ -12700,15 +12568,12 @@ const deserializeAws_restXmlSseKmsEncryptedObjects = (output: any, context: __Se
 };
 
 const deserializeAws_restXmlSSES3 = (output: any, context: __SerdeContext): SSES3 => {
-  let contents: any = {
-    __type: "SSES3",
-  };
+  let contents: any = {};
   return contents;
 };
 
 const deserializeAws_restXmlStorageClassAnalysis = (output: any, context: __SerdeContext): StorageClassAnalysis => {
   let contents: any = {
-    __type: "StorageClassAnalysis",
     DataExport: undefined,
   };
   if (output["DataExport"] !== undefined) {
@@ -12722,7 +12587,6 @@ const deserializeAws_restXmlStorageClassAnalysisDataExport = (
   context: __SerdeContext
 ): StorageClassAnalysisDataExport => {
   let contents: any = {
-    __type: "StorageClassAnalysisDataExport",
     Destination: undefined,
     OutputSchemaVersion: undefined,
   };
@@ -12737,7 +12601,6 @@ const deserializeAws_restXmlStorageClassAnalysisDataExport = (
 
 const deserializeAws_restXmlTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
-    __type: "Tag",
     Key: undefined,
     Value: undefined,
   };
@@ -12756,7 +12619,6 @@ const deserializeAws_restXmlTagSet = (output: any, context: __SerdeContext): Tag
 
 const deserializeAws_restXmlTargetGrant = (output: any, context: __SerdeContext): TargetGrant => {
   let contents: any = {
-    __type: "TargetGrant",
     Grantee: undefined,
     Permission: undefined,
   };
@@ -12775,7 +12637,6 @@ const deserializeAws_restXmlTargetGrants = (output: any, context: __SerdeContext
 
 const deserializeAws_restXmlTopicConfiguration = (output: any, context: __SerdeContext): TopicConfiguration => {
   let contents: any = {
-    __type: "TopicConfiguration",
     TopicArn: undefined,
     Id: undefined,
     Filter: undefined,
@@ -12805,7 +12666,6 @@ const deserializeAws_restXmlTopicConfigurationList = (output: any, context: __Se
 
 const deserializeAws_restXmlTransition = (output: any, context: __SerdeContext): Transition => {
   let contents: any = {
-    __type: "Transition",
     Date: undefined,
     Days: undefined,
     StorageClass: undefined,

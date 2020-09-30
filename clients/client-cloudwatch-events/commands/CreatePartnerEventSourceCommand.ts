@@ -1,5 +1,5 @@
 import { CloudWatchEventsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchEventsClient";
-import { CreatePartnerEventSourceRequest, CreatePartnerEventSourceResponse } from "../models/index";
+import { CreatePartnerEventSourceRequest, CreatePartnerEventSourceResponse } from "../models/models_0";
 import {
   deserializeAws_json1_1CreatePartnerEventSourceCommand,
   serializeAws_json1_1CreatePartnerEventSourceCommand,
@@ -43,8 +43,11 @@ export class CreatePartnerEventSourceCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      inputFilterSensitiveLog: CreatePartnerEventSourceRequest.filterSensitiveLog,
+      outputFilterSensitiveLog: CreatePartnerEventSourceResponse.filterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(

@@ -15,7 +15,7 @@ import { XmlEnumsCommand } from "../../commands/XmlEnumsCommand";
 import { XmlListsCommand } from "../../commands/XmlListsCommand";
 import { XmlNamespacesCommand } from "../../commands/XmlNamespacesCommand";
 import { XmlTimestampsCommand } from "../../commands/XmlTimestampsCommand";
-import { ComplexError, InvalidGreeting } from "../../models/index";
+import { ComplexError, InvalidGreeting } from "../../models/models_0";
 import { HttpHandlerOptions, HeaderBag } from "@aws-sdk/types";
 import { HttpHandler, HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { Readable } from "stream";
@@ -102,7 +102,7 @@ const compareParts = (expectedParts: comparableParts, generatedParts: comparable
 
 /**
  * Compares all types for equivalent contents, doing nested
- * equality checks based on non-'__type', non-`$metadata`
+ * equality checks based on non-`$metadata`
  * properties that have defined values.
  */
 const equivalentContents = (expected: any, generated: any): boolean => {
@@ -116,8 +116,6 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   // If a test fails with an issue in the below 6 lines, it's likely
   // due to an issue in the nestedness or existence of the property
   // being compared.
-  delete localExpected["__type"];
-  delete generated["__type"];
   delete localExpected["$metadata"];
   delete generated["$metadata"];
   Object.keys(localExpected).forEach((key) => localExpected[key] === undefined && delete localExpected[key]);
@@ -142,11 +140,17 @@ const equivalentContents = (expected: any, generated: any): boolean => {
   return true;
 };
 
+const clientParams = {
+  region: "us-west-2",
+  credentials: { accessKeyId: "key", secretAccessKey: "secret" },
+};
+
 /**
  * Empty input serializes no extra query params
  */
 it("Ec2QueryEmptyInputAndEmptyOutput:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -180,6 +184,7 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Request", async () => {
  */
 it("Ec2QueryEmptyInputAndEmptyOutput:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -211,6 +216,7 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Response", async () => {
  */
 it("Ec2GreetingWithErrors:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -252,6 +258,7 @@ it("Ec2GreetingWithErrors:Response", async () => {
  */
 it("Ec2InvalidGreetingError:Error:GreetingWithErrors", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       400,
@@ -277,7 +284,7 @@ it("Ec2InvalidGreetingError:Error:GreetingWithErrors", async () => {
   try {
     await client.send(command);
   } catch (err) {
-    if (!InvalidGreeting.isa(err)) {
+    if (err.name !== "InvalidGreeting") {
       console.log(err);
       fail(`Expected a InvalidGreeting to be thrown, got ${err.name} instead`);
       return;
@@ -300,6 +307,7 @@ it("Ec2InvalidGreetingError:Error:GreetingWithErrors", async () => {
 
 it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       false,
       400,
@@ -329,7 +337,7 @@ it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
   try {
     await client.send(command);
   } catch (err) {
-    if (!ComplexError.isa(err)) {
+    if (err.name !== "ComplexError") {
       console.log(err);
       fail(`Expected a ComplexError to be thrown, got ${err.name} instead`);
       return;
@@ -359,6 +367,7 @@ it("Ec2ComplexError:Error:GreetingWithErrors", async () => {
  */
 it("Ec2IgnoresWrappingXmlName:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -400,6 +409,7 @@ it("Ec2IgnoresWrappingXmlName:Response", async () => {
  */
 it("Ec2NestedStructures:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -446,6 +456,7 @@ it("Ec2NestedStructures:Request", async () => {
  */
 it("Ec2QueryNoInputAndOutput:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -479,6 +490,7 @@ it("Ec2QueryNoInputAndOutput:Request", async () => {
  */
 it("Ec2QueryNoInputAndOutput:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -510,6 +522,7 @@ it("Ec2QueryNoInputAndOutput:Response", async () => {
  */
 it("Ec2ProtocolIdempotencyTokenAutoFill:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -546,6 +559,7 @@ it("Ec2ProtocolIdempotencyTokenAutoFill:Request", async () => {
  */
 it("Ec2ProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -582,6 +596,7 @@ it("Ec2ProtocolIdempotencyTokenAutoFillIsSet:Request", async () => {
  */
 it("Ec2Lists:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -632,6 +647,7 @@ it("Ec2Lists:Request", async () => {
  */
 it("Ec2EmptyQueryLists:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -667,6 +683,7 @@ it("Ec2EmptyQueryLists:Request", async () => {
  */
 it("Ec2ListArgWithXmlNameMember:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -704,6 +721,7 @@ it("Ec2ListArgWithXmlNameMember:Request", async () => {
  */
 it("Ec2ListMemberWithXmlName:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -741,6 +759,7 @@ it("Ec2ListMemberWithXmlName:Request", async () => {
  */
 it("Ec2TimestampsInput:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -783,6 +802,7 @@ it("Ec2TimestampsInput:Request", async () => {
  */
 it("Ec2RecursiveShapes:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -849,6 +869,7 @@ it("Ec2RecursiveShapes:Response", async () => {
  */
 it("Ec2SimpleInputParamsStrings:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -888,6 +909,7 @@ it("Ec2SimpleInputParamsStrings:Request", async () => {
  */
 it("Ec2SimpleInputParamsStringAndBooleanTrue:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -927,6 +949,7 @@ it("Ec2SimpleInputParamsStringAndBooleanTrue:Request", async () => {
  */
 it("Ec2SimpleInputParamsStringsAndBooleanFalse:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -963,6 +986,7 @@ it("Ec2SimpleInputParamsStringsAndBooleanFalse:Request", async () => {
  */
 it("Ec2SimpleInputParamsInteger:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -999,6 +1023,7 @@ it("Ec2SimpleInputParamsInteger:Request", async () => {
  */
 it("Ec2SimpleInputParamsFloat:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1035,6 +1060,7 @@ it("Ec2SimpleInputParamsFloat:Request", async () => {
  */
 it("Ec2SimpleInputParamsBlob:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1071,6 +1097,7 @@ it("Ec2SimpleInputParamsBlob:Request", async () => {
  */
 it("Ec2Enums:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1107,6 +1134,7 @@ it("Ec2Enums:Request", async () => {
  */
 it("Ec2Query:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1143,6 +1171,7 @@ it("Ec2Query:Request", async () => {
  */
 it("Ec2QueryIsPreferred:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1179,6 +1208,7 @@ it("Ec2QueryIsPreferred:Request", async () => {
  */
 it("Ec2XmlNameIsUppercased:Request", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new RequestSerializationTestHandler(),
   });
 
@@ -1215,6 +1245,7 @@ it("Ec2XmlNameIsUppercased:Request", async () => {
  */
 it("Ec2SimpleScalarProperties:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1283,6 +1314,7 @@ it("Ec2SimpleScalarProperties:Response", async () => {
  */
 it("Ec2XmlBlobs:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1324,6 +1356,7 @@ it("Ec2XmlBlobs:Response", async () => {
  */
 it("Ec2XmlEnums:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1399,6 +1432,7 @@ it("Ec2XmlEnums:Response", async () => {
  */
 it("Ec2XmlLists:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1527,6 +1561,7 @@ it("Ec2XmlLists:Response", async () => {
  */
 it("Ec2XmlNamespaces:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1578,6 +1613,7 @@ it("Ec2XmlNamespaces:Response", async () => {
  */
 it("Ec2XmlTimestamps:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1619,6 +1655,7 @@ it("Ec2XmlTimestamps:Response", async () => {
  */
 it("Ec2XmlTimestampsWithDateTimeFormat:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1660,6 +1697,7 @@ it("Ec2XmlTimestampsWithDateTimeFormat:Response", async () => {
  */
 it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
@@ -1701,6 +1739,7 @@ it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
  */
 it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
   const client = new EC2ProtocolClient({
+    ...clientParams,
     requestHandler: new ResponseDeserializationTestHandler(
       true,
       200,
