@@ -126,7 +126,7 @@ async function denoifyTsFile(file, depth) {
       replaced = line.replace("Sha256", 'Hash.bind(null, "sha256")');
     }
 
-    if (line === 'import { name, version } from "./package.json";') {
+    if (line === 'import packageInfo from "./package.json";') {
       const pkgjson = await fsx.readJson(path.join(path.dirname(file), "package.json"));
       output.push(`const name = "${pkgjson.name}";`);
       output.push(`const version = "${pkgjson.version}";`);
@@ -134,14 +134,17 @@ async function denoifyTsFile(file, depth) {
     }
 
     if (line.match(/tagValueProcessor: \(val, tagName\) => decodeEscapedXML\(val\),/)) {
-      replaced = line.replace('(val, tagName)', '(val: string)')
+      replaced = line.replace("(val, tagName)", "(val: string)");
     }
 
     if (line.match(/import \{ defaultUserAgent }\ from /)) {
-      continue
+      continue;
     }
-    if (line.match(/defaultUserAgent: defaultUserAgent\(name, version\),/)) {
-      replaced = line.replace('defaultUserAgent(name, version)', '`aws-sdk-js-v3-${name}/${version}`')
+    if (line.match(/defaultUserAgent: defaultUserAgent\(packageInfo\.name, packageInfo\.version\),/)) {
+      replaced = line.replace(
+        "defaultUserAgent(packageInfo.name, packageInfo.version)",
+        "`aws-sdk-js-v3-${name}/${version}`"
+      );
     }
 
     if (state === "nothing") {
