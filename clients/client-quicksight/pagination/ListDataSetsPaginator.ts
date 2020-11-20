@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDataSetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDataSetsCommand(input, ...args));
+  return await client.send(new ListDataSetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: QuickSight,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDataSets(input, ...args);
 };
-export async function* listDataSetsPaginate(
+export async function* paginateListDataSets(
   config: QuickSightPaginationConfiguration,
   input: ListDataSetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDataSetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDataSetsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof QuickSight) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listDataSetsPaginate(
       throw new Error("Invalid client, expected QuickSight | QuickSightClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -44,11 +44,23 @@ export class ModifyClusterIamRolesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "ModifyClusterIamRolesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyClusterIamRolesMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyClusterIamRolesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

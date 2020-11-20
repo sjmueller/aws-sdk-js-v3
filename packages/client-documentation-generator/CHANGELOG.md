@@ -3,6 +3,52 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.7](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2020-11-20)
+
+
+### Features
+
+* **api-reference:** add typedoc plugins for api reference ([#1694](https://github.com/aws/aws-sdk-js-v3/issues/1694)) ([2cb016f](https://github.com/aws/aws-sdk-js-v3/commit/2cb016f23608421224d8e6a54043edb797ca4a89))
+
+
+
+
+
+# [1.0.0-rc.3](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2020-10-27)
+
+**Note:** Version bump only for package @aws-sdk/client-documentation-generator
+
+
+
+
+
+# [1.0.0-rc.2](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.1...v1.0.0-rc.2) (2020-10-22)
+
+**Note:** Version bump only for package @aws-sdk/client-documentation-generator
+
+
+
+
+
+# [1.0.0-rc.1](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-gamma.11...v1.0.0-rc.1) (2020-10-19)
+
+
+### Features
+
+* ready for release candidate ([#1578](https://github.com/aws/aws-sdk-js-v3/issues/1578)) ([519f66c](https://github.com/aws/aws-sdk-js-v3/commit/519f66c6388b91d0bd750a511e6d1af56196835e))
+
+
+
+
+
+# [1.0.0-gamma.7](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/client-documentation-generator@1.0.0-gamma.6...@aws-sdk/client-documentation-generator@1.0.0-gamma.7) (2020-10-07)
+
+**Note:** Version bump only for package @aws-sdk/client-documentation-generator
+
+
+
+
+
 # [1.0.0-gamma.6](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/client-documentation-generator@1.0.0-gamma.5...@aws-sdk/client-documentation-generator@1.0.0-gamma.6) (2020-09-15)
 
 **Note:** Version bump only for package @aws-sdk/client-documentation-generator

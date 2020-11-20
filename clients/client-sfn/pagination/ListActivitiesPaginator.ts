@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListActivitiesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListActivitiesCommand(input, ...args));
+  return await client.send(new ListActivitiesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SFN,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listActivities(input, ...args);
 };
-export async function* listActivitiesPaginate(
+export async function* paginateListActivities(
   config: SFNPaginationConfiguration,
   input: ListActivitiesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListActivitiesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListActivitiesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof SFN) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listActivitiesPaginate(
       throw new Error("Invalid client, expected SFN | SFNClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

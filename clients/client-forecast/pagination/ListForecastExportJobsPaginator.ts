@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListForecastExportJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListForecastExportJobsCommand(input, ...args));
+  return await client.send(new ListForecastExportJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Forecast,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listForecastExportJobs(input, ...args);
 };
-export async function* listForecastExportJobsPaginate(
+export async function* paginateListForecastExportJobs(
   config: ForecastPaginationConfiguration,
   input: ListForecastExportJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListForecastExportJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListForecastExportJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Forecast) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listForecastExportJobsPaginate(
       throw new Error("Invalid client, expected Forecast | ForecastClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateMonitoringScheduleRequest, UpdateMonitoringScheduleResponse } from "../models/models_1";
+import { UpdateMonitoringScheduleRequest, UpdateMonitoringScheduleResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateMonitoringScheduleCommand,
   serializeAws_json1_1UpdateMonitoringScheduleCommand,
@@ -44,11 +44,23 @@ export class UpdateMonitoringScheduleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "UpdateMonitoringScheduleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateMonitoringScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateMonitoringScheduleResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

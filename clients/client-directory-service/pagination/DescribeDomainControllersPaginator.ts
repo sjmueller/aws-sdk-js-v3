@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDomainControllersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDomainControllersCommand(input, ...args));
+  return await client.send(new DescribeDomainControllersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DirectoryService,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDomainControllers(input, ...args);
 };
-export async function* describeDomainControllersPaginate(
+export async function* paginateDescribeDomainControllers(
   config: DirectoryServicePaginationConfiguration,
   input: DescribeDomainControllersCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDomainControllersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDomainControllersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof DirectoryService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeDomainControllersPaginate(
       throw new Error("Invalid client, expected DirectoryService | DirectoryServiceClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

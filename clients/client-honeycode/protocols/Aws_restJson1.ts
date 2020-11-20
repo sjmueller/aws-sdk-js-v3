@@ -70,24 +70,6 @@ export const serializeAws_restJson1InvokeScreenAutomationCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/workbooks/{workbookId}/apps/{appId}/screens/{screenId}/automations/{screenAutomationId}";
-  if (input.screenAutomationId !== undefined) {
-    const labelValue: string = input.screenAutomationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: screenAutomationId.");
-    }
-    resolvedPath = resolvedPath.replace("{screenAutomationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: screenAutomationId.");
-  }
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
-  }
   if (input.workbookId !== undefined) {
     const labelValue: string = input.workbookId;
     if (labelValue.length <= 0) {
@@ -105,6 +87,24 @@ export const serializeAws_restJson1InvokeScreenAutomationCommand = async (
     resolvedPath = resolvedPath.replace("{screenId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: screenId.");
+  }
+  if (input.appId !== undefined) {
+    const labelValue: string = input.appId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: appId.");
+    }
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: appId.");
+  }
+  if (input.screenAutomationId !== undefined) {
+    const labelValue: string = input.screenAutomationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: screenAutomationId.");
+    }
+    resolvedPath = resolvedPath.replace("{screenAutomationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: screenAutomationId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -130,7 +130,7 @@ export const deserializeAws_restJson1GetScreenDataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetScreenDataCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetScreenDataCommandError(output, context);
   }
   const contents: GetScreenDataCommandOutput = {
@@ -241,7 +241,7 @@ export const deserializeAws_restJson1InvokeScreenAutomationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeScreenAutomationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1InvokeScreenAutomationCommandError(output, context);
   }
   const contents: InvokeScreenAutomationCommandOutput = {

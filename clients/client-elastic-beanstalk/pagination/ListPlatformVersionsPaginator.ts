@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPlatformVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPlatformVersionsCommand(input, ...args));
+  return await client.send(new ListPlatformVersionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElasticBeanstalk,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPlatformVersions(input, ...args);
 };
-export async function* listPlatformVersionsPaginate(
+export async function* paginateListPlatformVersions(
   config: ElasticBeanstalkPaginationConfiguration,
   input: ListPlatformVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPlatformVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPlatformVersionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof ElasticBeanstalk) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listPlatformVersionsPaginate(
       throw new Error("Invalid client, expected ElasticBeanstalk | ElasticBeanstalkClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

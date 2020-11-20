@@ -35,6 +35,8 @@ import {
   CreateReplicationGroupCommandOutput,
 } from "../commands/CreateReplicationGroupCommand";
 import { CreateSnapshotCommandInput, CreateSnapshotCommandOutput } from "../commands/CreateSnapshotCommand";
+import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
+import { CreateUserGroupCommandInput, CreateUserGroupCommandOutput } from "../commands/CreateUserGroupCommand";
 import {
   DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
   DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput,
@@ -65,6 +67,8 @@ import {
   DeleteReplicationGroupCommandOutput,
 } from "../commands/DeleteReplicationGroupCommand";
 import { DeleteSnapshotCommandInput, DeleteSnapshotCommandOutput } from "../commands/DeleteSnapshotCommand";
+import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
+import { DeleteUserGroupCommandInput, DeleteUserGroupCommandOutput } from "../commands/DeleteUserGroupCommand";
 import {
   DescribeCacheClustersCommandInput,
   DescribeCacheClustersCommandOutput,
@@ -119,6 +123,8 @@ import {
   DescribeUpdateActionsCommandInput,
   DescribeUpdateActionsCommandOutput,
 } from "../commands/DescribeUpdateActionsCommand";
+import { DescribeUserGroupsCommandInput, DescribeUserGroupsCommandOutput } from "../commands/DescribeUserGroupsCommand";
+import { DescribeUsersCommandInput, DescribeUsersCommandOutput } from "../commands/DescribeUsersCommand";
 import {
   DisassociateGlobalReplicationGroupCommandInput,
   DisassociateGlobalReplicationGroupCommandOutput,
@@ -164,6 +170,8 @@ import {
   ModifyReplicationGroupShardConfigurationCommandInput,
   ModifyReplicationGroupShardConfigurationCommandOutput,
 } from "../commands/ModifyReplicationGroupShardConfigurationCommand";
+import { ModifyUserCommandInput, ModifyUserCommandOutput } from "../commands/ModifyUserCommand";
+import { ModifyUserGroupCommandInput, ModifyUserGroupCommandOutput } from "../commands/ModifyUserGroupCommand";
 import {
   PurchaseReservedCacheNodesOfferingCommandInput,
   PurchaseReservedCacheNodesOfferingCommandOutput,
@@ -191,6 +199,7 @@ import {
   APICallRateForCustomerExceededFault,
   AddTagsToResourceMessage,
   AllowedNodeTypeModificationsMessage,
+  Authentication,
   AuthorizationAlreadyExistsFault,
   AuthorizationNotFoundFault,
   AuthorizeCacheSecurityGroupIngressMessage,
@@ -249,11 +258,15 @@ import {
   CreateReplicationGroupResult,
   CreateSnapshotMessage,
   CreateSnapshotResult,
+  CreateUserGroupMessage,
+  CreateUserMessage,
   CustomerNodeEndpoint,
   DecreaseNodeGroupsInGlobalReplicationGroupMessage,
   DecreaseNodeGroupsInGlobalReplicationGroupResult,
   DecreaseReplicaCountMessage,
   DecreaseReplicaCountResult,
+  DefaultUserAssociatedToUserGroupFault,
+  DefaultUserRequired,
   DeleteCacheClusterMessage,
   DeleteCacheClusterResult,
   DeleteCacheParameterGroupMessage,
@@ -265,6 +278,8 @@ import {
   DeleteReplicationGroupResult,
   DeleteSnapshotMessage,
   DeleteSnapshotResult,
+  DeleteUserGroupMessage,
+  DeleteUserMessage,
   DescribeCacheClustersMessage,
   DescribeCacheEngineVersionsMessage,
   DescribeCacheParameterGroupsMessage,
@@ -283,8 +298,13 @@ import {
   DescribeSnapshotsListMessage,
   DescribeSnapshotsMessage,
   DescribeUpdateActionsMessage,
+  DescribeUserGroupsMessage,
+  DescribeUserGroupsResult,
+  DescribeUsersMessage,
+  DescribeUsersResult,
   DisassociateGlobalReplicationGroupMessage,
   DisassociateGlobalReplicationGroupResult,
+  DuplicateUserNameFault,
   EC2SecurityGroup,
   Endpoint,
   EngineDefaults,
@@ -292,6 +312,7 @@ import {
   EventsMessage,
   FailoverGlobalReplicationGroupMessage,
   FailoverGlobalReplicationGroupResult,
+  Filter,
   GlobalNodeGroup,
   GlobalReplicationGroup,
   GlobalReplicationGroupAlreadyExistsFault,
@@ -314,6 +335,8 @@ import {
   InvalidReplicationGroupStateFault,
   InvalidSnapshotStateFault,
   InvalidSubnet,
+  InvalidUserGroupStateFault,
+  InvalidUserStateFault,
   InvalidVPCNetworkStateFault,
   ListAllowedNodeTypeModificationsMessage,
   ListTagsForResourceMessage,
@@ -328,6 +351,8 @@ import {
   ModifyReplicationGroupResult,
   ModifyReplicationGroupShardConfigurationMessage,
   ModifyReplicationGroupShardConfigurationResult,
+  ModifyUserGroupMessage,
+  ModifyUserMessage,
   NoOperationFault,
   NodeGroup,
   NodeGroupConfiguration,
@@ -389,6 +414,8 @@ import {
   StartMigrationResponse,
   Subnet,
   SubnetInUse,
+  SubnetNotAllowedFault,
+  SubnetOutpost,
   Tag,
   TagListMessage,
   TagNotFoundFault,
@@ -402,6 +429,16 @@ import {
   UpdateActionResultsMessage,
   UpdateActionStatus,
   UpdateActionsMessage,
+  User,
+  UserAlreadyExistsFault,
+  UserGroup,
+  UserGroupAlreadyExistsFault,
+  UserGroupNotFoundFault,
+  UserGroupPendingChanges,
+  UserGroupQuotaExceededFault,
+  UserGroupsUpdateStatus,
+  UserNotFoundFault,
+  UserQuotaExceededFault,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -627,6 +664,38 @@ export const serializeAws_queryCreateSnapshotCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryCreateUserCommand = async (
+  input: CreateUserCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCreateUserMessage(input, context),
+    Action: "CreateUser",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryCreateUserGroupCommand = async (
+  input: CreateUserGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCreateUserGroupMessage(input, context),
+    Action: "CreateUserGroup",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand = async (
   input: DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
   context: __SerdeContext
@@ -766,6 +835,38 @@ export const serializeAws_queryDeleteSnapshotCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDeleteSnapshotMessage(input, context),
     Action: "DeleteSnapshot",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteUserCommand = async (
+  input: DeleteUserCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteUserMessage(input, context),
+    Action: "DeleteUser",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteUserGroupCommand = async (
+  input: DeleteUserGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteUserGroupMessage(input, context),
+    Action: "DeleteUserGroup",
     Version: "2015-02-02",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1011,6 +1112,38 @@ export const serializeAws_queryDescribeUpdateActionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDescribeUserGroupsCommand = async (
+  input: DescribeUserGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeUserGroupsMessage(input, context),
+    Action: "DescribeUserGroups",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeUsersCommand = async (
+  input: DescribeUsersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeUsersMessage(input, context),
+    Action: "DescribeUsers",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDisassociateGlobalReplicationGroupCommand = async (
   input: DisassociateGlobalReplicationGroupCommandInput,
   context: __SerdeContext
@@ -1203,6 +1336,38 @@ export const serializeAws_queryModifyReplicationGroupShardConfigurationCommand =
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryModifyUserCommand = async (
+  input: ModifyUserCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryModifyUserMessage(input, context),
+    Action: "ModifyUser",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryModifyUserGroupCommand = async (
+  input: ModifyUserGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryModifyUserGroupMessage(input, context),
+    Action: "ModifyUserGroup",
+    Version: "2015-02-02",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryPurchaseReservedCacheNodesOfferingCommand = async (
   input: PurchaseReservedCacheNodesOfferingCommandInput,
   context: __SerdeContext
@@ -1335,7 +1500,7 @@ export const deserializeAws_queryAddTagsToResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAddTagsToResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1413,7 +1578,7 @@ export const deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AuthorizeCacheSecurityGroupIngressCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAuthorizeCacheSecurityGroupIngressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1502,7 +1667,7 @@ export const deserializeAws_queryBatchApplyUpdateActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchApplyUpdateActionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryBatchApplyUpdateActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1564,7 +1729,7 @@ export const deserializeAws_queryBatchStopUpdateActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchStopUpdateActionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryBatchStopUpdateActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1626,7 +1791,7 @@ export const deserializeAws_queryCompleteMigrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteMigrationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCompleteMigrationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1696,7 +1861,7 @@ export const deserializeAws_queryCopySnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopySnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCopySnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1790,7 +1955,7 @@ export const deserializeAws_queryCreateCacheClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCacheClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateCacheClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1948,7 +2113,7 @@ export const deserializeAws_queryCreateCacheParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCacheParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateCacheParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2034,7 +2199,7 @@ export const deserializeAws_queryCreateCacheSecurityGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCacheSecurityGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateCacheSecurityGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2112,7 +2277,7 @@ export const deserializeAws_queryCreateCacheSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCacheSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateCacheSubnetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2169,6 +2334,14 @@ const deserializeAws_queryCreateCacheSubnetGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "SubnetNotAllowedFault":
+    case "com.amazonaws.elasticache#SubnetNotAllowedFault":
+      response = {
+        ...(await deserializeAws_querySubnetNotAllowedFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -2190,7 +2363,7 @@ export const deserializeAws_queryCreateGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGlobalReplicationGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2276,7 +2449,7 @@ export const deserializeAws_queryCreateReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateReplicationGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2389,6 +2562,14 @@ const deserializeAws_queryCreateReplicationGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidUserGroupStateFault":
+    case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
       response = {
@@ -2437,6 +2618,14 @@ const deserializeAws_queryCreateReplicationGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UserGroupNotFoundFault":
+    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -2458,7 +2647,7 @@ export const deserializeAws_queryCreateSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2572,11 +2761,191 @@ const deserializeAws_queryCreateSnapshotCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryCreateUserCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUserCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryCreateUserCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryUser(data.CreateUserResult, context);
+  const response: CreateUserCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCreateUserCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUserCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DuplicateUserNameFault":
+    case "com.amazonaws.elasticache#DuplicateUserNameFault":
+      response = {
+        ...(await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserAlreadyExistsFault":
+    case "com.amazonaws.elasticache#UserAlreadyExistsFault":
+      response = {
+        ...(await deserializeAws_queryUserAlreadyExistsFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserQuotaExceededFault":
+    case "com.amazonaws.elasticache#UserQuotaExceededFault":
+      response = {
+        ...(await deserializeAws_queryUserQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryCreateUserGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUserGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryCreateUserGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryUserGroup(data.CreateUserGroupResult, context);
+  const response: CreateUserGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCreateUserGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateUserGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DefaultUserRequired":
+    case "com.amazonaws.elasticache#DefaultUserRequired":
+      response = {
+        ...(await deserializeAws_queryDefaultUserRequiredResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DuplicateUserNameFault":
+    case "com.amazonaws.elasticache#DuplicateUserNameFault":
+      response = {
+        ...(await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserGroupAlreadyExistsFault":
+    case "com.amazonaws.elasticache#UserGroupAlreadyExistsFault":
+      response = {
+        ...(await deserializeAws_queryUserGroupAlreadyExistsFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserGroupQuotaExceededFault":
+    case "com.amazonaws.elasticache#UserGroupQuotaExceededFault":
+      response = {
+        ...(await deserializeAws_queryUserGroupQuotaExceededFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserNotFoundFault":
+    case "com.amazonaws.elasticache#UserNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecreaseNodeGroupsInGlobalReplicationGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2657,7 +3026,7 @@ export const deserializeAws_queryDecreaseReplicaCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecreaseReplicaCountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDecreaseReplicaCountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2799,7 +3168,7 @@ export const deserializeAws_queryDeleteCacheClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCacheClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteCacheClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2901,7 +3270,7 @@ export const deserializeAws_queryDeleteCacheParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCacheParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteCacheParameterGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2976,7 +3345,7 @@ export const deserializeAws_queryDeleteCacheSecurityGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCacheSecurityGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteCacheSecurityGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3051,7 +3420,7 @@ export const deserializeAws_queryDeleteCacheSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCacheSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteCacheSubnetGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3110,7 +3479,7 @@ export const deserializeAws_queryDeleteGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGlobalReplicationGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3180,7 +3549,7 @@ export const deserializeAws_queryDeleteReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReplicationGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3282,7 +3651,7 @@ export const deserializeAws_queryDeleteSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3356,11 +3725,159 @@ const deserializeAws_queryDeleteSnapshotCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDeleteUserCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUserCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteUserCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryUser(data.DeleteUserResult, context);
+  const response: DeleteUserCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteUserCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUserCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DefaultUserAssociatedToUserGroupFault":
+    case "com.amazonaws.elasticache#DefaultUserAssociatedToUserGroupFault":
+      response = {
+        ...(await deserializeAws_queryDefaultUserAssociatedToUserGroupFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidUserStateFault":
+    case "com.amazonaws.elasticache#InvalidUserStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidUserStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserNotFoundFault":
+    case "com.amazonaws.elasticache#UserNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDeleteUserGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUserGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteUserGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryUserGroup(data.DeleteUserGroupResult, context);
+  const response: DeleteUserGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteUserGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteUserGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidUserGroupStateFault":
+    case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserGroupNotFoundFault":
+    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDescribeCacheClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheClustersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeCacheClustersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3430,7 +3947,7 @@ export const deserializeAws_queryDescribeCacheEngineVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheEngineVersionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeCacheEngineVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3476,7 +3993,7 @@ export const deserializeAws_queryDescribeCacheParameterGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheParameterGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeCacheParameterGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3546,7 +4063,7 @@ export const deserializeAws_queryDescribeCacheParametersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheParametersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeCacheParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3616,7 +4133,7 @@ export const deserializeAws_queryDescribeCacheSecurityGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheSecurityGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeCacheSecurityGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3686,7 +4203,7 @@ export const deserializeAws_queryDescribeCacheSubnetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCacheSubnetGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeCacheSubnetGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3740,7 +4257,7 @@ export const deserializeAws_queryDescribeEngineDefaultParametersCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEngineDefaultParametersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeEngineDefaultParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3805,7 +4322,7 @@ export const deserializeAws_queryDescribeEventsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeEventsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3867,7 +4384,7 @@ export const deserializeAws_queryDescribeGlobalReplicationGroupsCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGlobalReplicationGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeGlobalReplicationGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3940,7 +4457,7 @@ export const deserializeAws_queryDescribeReplicationGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReplicationGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeReplicationGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4010,7 +4527,7 @@ export const deserializeAws_queryDescribeReservedCacheNodesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedCacheNodesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeReservedCacheNodesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4080,7 +4597,7 @@ export const deserializeAws_queryDescribeReservedCacheNodesOfferingsCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReservedCacheNodesOfferingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeReservedCacheNodesOfferingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4153,7 +4670,7 @@ export const deserializeAws_queryDescribeServiceUpdatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceUpdatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeServiceUpdatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4223,7 +4740,7 @@ export const deserializeAws_queryDescribeSnapshotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSnapshotsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeSnapshotsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4301,7 +4818,7 @@ export const deserializeAws_queryDescribeUpdateActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUpdateActionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeUpdateActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4359,11 +4876,135 @@ const deserializeAws_queryDescribeUpdateActionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryDescribeUserGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUserGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeUserGroupsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeUserGroupsResult(data.DescribeUserGroupsResult, context);
+  const response: DescribeUserGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeUserGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUserGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserGroupNotFoundFault":
+    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryDescribeUsersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUsersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeUsersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeUsersResult(data.DescribeUsersResult, context);
+  const response: DescribeUsersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeUsersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeUsersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserNotFoundFault":
+    case "com.amazonaws.elasticache#UserNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryDisassociateGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateGlobalReplicationGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDisassociateGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4444,7 +5085,7 @@ export const deserializeAws_queryFailoverGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FailoverGlobalReplicationGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryFailoverGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4525,7 +5166,7 @@ export const deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IncreaseNodeGroupsInGlobalReplicationGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4598,7 +5239,7 @@ export const deserializeAws_queryIncreaseReplicaCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IncreaseReplicaCountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryIncreaseReplicaCountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4740,7 +5381,7 @@ export const deserializeAws_queryListAllowedNodeTypeModificationsCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAllowedNodeTypeModificationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListAllowedNodeTypeModificationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4821,7 +5462,7 @@ export const deserializeAws_queryListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4891,7 +5532,7 @@ export const deserializeAws_queryModifyCacheClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyCacheClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyCacheClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5025,7 +5666,7 @@ export const deserializeAws_queryModifyCacheParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyCacheParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyCacheParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5111,7 +5752,7 @@ export const deserializeAws_queryModifyCacheSubnetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyCacheSubnetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyCacheSubnetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5168,6 +5809,14 @@ const deserializeAws_queryModifyCacheSubnetGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "SubnetNotAllowedFault":
+    case "com.amazonaws.elasticache#SubnetNotAllowedFault":
+      response = {
+        ...(await deserializeAws_querySubnetNotAllowedFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -5189,7 +5838,7 @@ export const deserializeAws_queryModifyGlobalReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyGlobalReplicationGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5259,7 +5908,7 @@ export const deserializeAws_queryModifyReplicationGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyReplicationGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5364,6 +6013,14 @@ const deserializeAws_queryModifyReplicationGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidUserGroupStateFault":
+    case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidVPCNetworkStateFault":
     case "com.amazonaws.elasticache#InvalidVPCNetworkStateFault":
       response = {
@@ -5396,6 +6053,14 @@ const deserializeAws_queryModifyReplicationGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "UserGroupNotFoundFault":
+    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
@@ -5417,7 +6082,7 @@ export const deserializeAws_queryModifyReplicationGroupShardConfigurationCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyReplicationGroupShardConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyReplicationGroupShardConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5542,11 +6207,191 @@ const deserializeAws_queryModifyReplicationGroupShardConfigurationCommandError =
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_queryModifyUserCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyUserCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryModifyUserCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryUser(data.ModifyUserResult, context);
+  const response: ModifyUserCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryModifyUserCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyUserCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidUserStateFault":
+    case "com.amazonaws.elasticache#InvalidUserStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidUserStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserNotFoundFault":
+    case "com.amazonaws.elasticache#UserNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_queryModifyUserGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyUserGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryModifyUserGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryUserGroup(data.ModifyUserGroupResult, context);
+  const response: ModifyUserGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryModifyUserGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyUserGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DefaultUserRequired":
+    case "com.amazonaws.elasticache#DefaultUserRequired":
+      response = {
+        ...(await deserializeAws_queryDefaultUserRequiredResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "DuplicateUserNameFault":
+    case "com.amazonaws.elasticache#DuplicateUserNameFault":
+      response = {
+        ...(await deserializeAws_queryDuplicateUserNameFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.elasticache#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.elasticache#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_queryInvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidUserGroupStateFault":
+    case "com.amazonaws.elasticache#InvalidUserGroupStateFault":
+      response = {
+        ...(await deserializeAws_queryInvalidUserGroupStateFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserGroupNotFoundFault":
+    case "com.amazonaws.elasticache#UserGroupNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserGroupNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UserNotFoundFault":
+    case "com.amazonaws.elasticache#UserNotFoundFault":
+      response = {
+        ...(await deserializeAws_queryUserNotFoundFaultResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.Error.code || parsedBody.Error.Code || errorCode;
+      response = {
+        ...parsedBody.Error,
+        name: `${errorCode}`,
+        message: parsedBody.Error.message || parsedBody.Error.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_queryPurchaseReservedCacheNodesOfferingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PurchaseReservedCacheNodesOfferingCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryPurchaseReservedCacheNodesOfferingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5635,7 +6480,7 @@ export const deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebalanceSlotsInGlobalReplicationGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRebalanceSlotsInGlobalReplicationGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5708,7 +6553,7 @@ export const deserializeAws_queryRebootCacheClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebootCacheClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRebootCacheClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5770,7 +6615,7 @@ export const deserializeAws_queryRemoveTagsFromResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRemoveTagsFromResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5848,7 +6693,7 @@ export const deserializeAws_queryResetCacheParameterGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetCacheParameterGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryResetCacheParameterGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5934,7 +6779,7 @@ export const deserializeAws_queryRevokeCacheSecurityGroupIngressCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokeCacheSecurityGroupIngressCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRevokeCacheSecurityGroupIngressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6023,7 +6868,7 @@ export const deserializeAws_queryStartMigrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMigrationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryStartMigrationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6101,7 +6946,7 @@ export const deserializeAws_queryTestFailoverCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestFailoverCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryTestFailoverCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6470,6 +7315,51 @@ const deserializeAws_queryClusterQuotaForCustomerExceededFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_queryDefaultUserAssociatedToUserGroupFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DefaultUserAssociatedToUserGroupFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryDefaultUserAssociatedToUserGroupFault(body.Error, context);
+  const contents: DefaultUserAssociatedToUserGroupFault = {
+    name: "DefaultUserAssociatedToUserGroupFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryDefaultUserRequiredResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DefaultUserRequired> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryDefaultUserRequired(body.Error, context);
+  const contents: DefaultUserRequired = {
+    name: "DefaultUserRequired",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryDuplicateUserNameFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DuplicateUserNameFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryDuplicateUserNameFault(body.Error, context);
+  const contents: DuplicateUserNameFault = {
+    name: "DuplicateUserNameFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryGlobalReplicationGroupAlreadyExistsFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6673,6 +7563,36 @@ const deserializeAws_queryInvalidSubnetResponse = async (
   const deserialized: any = deserializeAws_queryInvalidSubnet(body.Error, context);
   const contents: InvalidSubnet = {
     name: "InvalidSubnet",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryInvalidUserGroupStateFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidUserGroupStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidUserGroupStateFault(body.Error, context);
+  const contents: InvalidUserGroupStateFault = {
+    name: "InvalidUserGroupStateFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryInvalidUserStateFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidUserStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidUserStateFault(body.Error, context);
+  const contents: InvalidUserStateFault = {
+    name: "InvalidUserStateFault",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -6995,6 +7915,21 @@ const deserializeAws_querySubnetInUseResponse = async (
   return contents;
 };
 
+const deserializeAws_querySubnetNotAllowedFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SubnetNotAllowedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySubnetNotAllowedFault(body.Error, context);
+  const contents: SubnetNotAllowedFault = {
+    name: "SubnetNotAllowedFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_queryTagNotFoundFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -7040,17 +7975,107 @@ const deserializeAws_queryTestFailoverNotAvailableFaultResponse = async (
   return contents;
 };
 
+const deserializeAws_queryUserAlreadyExistsFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UserAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryUserAlreadyExistsFault(body.Error, context);
+  const contents: UserAlreadyExistsFault = {
+    name: "UserAlreadyExistsFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryUserGroupAlreadyExistsFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UserGroupAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryUserGroupAlreadyExistsFault(body.Error, context);
+  const contents: UserGroupAlreadyExistsFault = {
+    name: "UserGroupAlreadyExistsFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryUserGroupNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UserGroupNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryUserGroupNotFoundFault(body.Error, context);
+  const contents: UserGroupNotFoundFault = {
+    name: "UserGroupNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryUserGroupQuotaExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UserGroupQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryUserGroupQuotaExceededFault(body.Error, context);
+  const contents: UserGroupQuotaExceededFault = {
+    name: "UserGroupQuotaExceededFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryUserNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UserNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryUserNotFoundFault(body.Error, context);
+  const contents: UserNotFoundFault = {
+    name: "UserNotFoundFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_queryUserQuotaExceededFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UserQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryUserQuotaExceededFault(body.Error, context);
+  const contents: UserQuotaExceededFault = {
+    name: "UserQuotaExceededFault",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const serializeAws_queryAddTagsToResourceMessage = (input: AddTagsToResourceMessage, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.ResourceName !== undefined) {
+    entries["ResourceName"] = input.ResourceName;
+  }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.ResourceName !== undefined) {
-    entries["ResourceName"] = input.ResourceName;
   }
   return entries;
 };
@@ -7060,14 +8085,14 @@ const serializeAws_queryAuthorizeCacheSecurityGroupIngressMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EC2SecurityGroupOwnerId !== undefined) {
-    entries["EC2SecurityGroupOwnerId"] = input.EC2SecurityGroupOwnerId;
+  if (input.CacheSecurityGroupName !== undefined) {
+    entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
   }
   if (input.EC2SecurityGroupName !== undefined) {
     entries["EC2SecurityGroupName"] = input.EC2SecurityGroupName;
   }
-  if (input.CacheSecurityGroupName !== undefined) {
-    entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
+  if (input.EC2SecurityGroupOwnerId !== undefined) {
+    entries["EC2SecurityGroupOwnerId"] = input.EC2SecurityGroupOwnerId;
   }
   return entries;
 };
@@ -7164,17 +8189,23 @@ const serializeAws_queryCacheSecurityGroupNameList = (input: string[], context: 
 
 const serializeAws_queryCompleteMigrationMessage = (input: CompleteMigrationMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Force !== undefined) {
-    entries["Force"] = input.Force;
-  }
   if (input.ReplicationGroupId !== undefined) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  }
+  if (input.Force !== undefined) {
+    entries["Force"] = input.Force;
   }
   return entries;
 };
 
 const serializeAws_queryConfigureShard = (input: ConfigureShard, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.NodeGroupId !== undefined) {
+    entries["NodeGroupId"] = input.NodeGroupId;
+  }
+  if (input.NewReplicaCount !== undefined) {
+    entries["NewReplicaCount"] = input.NewReplicaCount;
+  }
   if (input.PreferredAvailabilityZones !== undefined) {
     const memberEntries = serializeAws_queryPreferredAvailabilityZoneList(input.PreferredAvailabilityZones, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7182,28 +8213,29 @@ const serializeAws_queryConfigureShard = (input: ConfigureShard, context: __Serd
       entries[loc] = value;
     });
   }
-  if (input.NewReplicaCount !== undefined) {
-    entries["NewReplicaCount"] = input.NewReplicaCount;
-  }
-  if (input.NodeGroupId !== undefined) {
-    entries["NodeGroupId"] = input.NodeGroupId;
+  if (input.PreferredOutpostArns !== undefined) {
+    const memberEntries = serializeAws_queryPreferredOutpostArnList(input.PreferredOutpostArns, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PreferredOutpostArns.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
 
 const serializeAws_queryCopySnapshotMessage = (input: CopySnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.KmsKeyId !== undefined) {
-    entries["KmsKeyId"] = input.KmsKeyId;
-  }
   if (input.SourceSnapshotName !== undefined) {
     entries["SourceSnapshotName"] = input.SourceSnapshotName;
+  }
+  if (input.TargetSnapshotName !== undefined) {
+    entries["TargetSnapshotName"] = input.TargetSnapshotName;
   }
   if (input.TargetBucket !== undefined) {
     entries["TargetBucket"] = input.TargetBucket;
   }
-  if (input.TargetSnapshotName !== undefined) {
-    entries["TargetSnapshotName"] = input.TargetSnapshotName;
+  if (input.KmsKeyId !== undefined) {
+    entries["KmsKeyId"] = input.KmsKeyId;
   }
   return entries;
 };
@@ -7213,27 +8245,17 @@ const serializeAws_queryCreateCacheClusterMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PreferredAvailabilityZone !== undefined) {
-    entries["PreferredAvailabilityZone"] = input.PreferredAvailabilityZone;
-  }
-  if (input.Engine !== undefined) {
-    entries["Engine"] = input.Engine;
-  }
-  if (input.CacheSecurityGroupNames !== undefined) {
-    const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `CacheSecurityGroupNames.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Port !== undefined) {
-    entries["Port"] = input.Port;
-  }
   if (input.CacheClusterId !== undefined) {
     entries["CacheClusterId"] = input.CacheClusterId;
   }
-  if (input.SnapshotName !== undefined) {
-    entries["SnapshotName"] = input.SnapshotName;
+  if (input.ReplicationGroupId !== undefined) {
+    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  }
+  if (input.AZMode !== undefined) {
+    entries["AZMode"] = input.AZMode;
+  }
+  if (input.PreferredAvailabilityZone !== undefined) {
+    entries["PreferredAvailabilityZone"] = input.PreferredAvailabilityZone;
   }
   if (input.PreferredAvailabilityZones !== undefined) {
     const memberEntries = serializeAws_queryPreferredAvailabilityZoneList(input.PreferredAvailabilityZones, context);
@@ -7242,17 +8264,30 @@ const serializeAws_queryCreateCacheClusterMessage = (
       entries[loc] = value;
     });
   }
-  if (input.PreferredMaintenanceWindow !== undefined) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  if (input.NumCacheNodes !== undefined) {
+    entries["NumCacheNodes"] = input.NumCacheNodes;
   }
-  if (input.AutoMinorVersionUpgrade !== undefined) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  if (input.CacheNodeType !== undefined) {
+    entries["CacheNodeType"] = input.CacheNodeType;
+  }
+  if (input.Engine !== undefined) {
+    entries["Engine"] = input.Engine;
   }
   if (input.EngineVersion !== undefined) {
     entries["EngineVersion"] = input.EngineVersion;
   }
-  if (input.NotificationTopicArn !== undefined) {
-    entries["NotificationTopicArn"] = input.NotificationTopicArn;
+  if (input.CacheParameterGroupName !== undefined) {
+    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  }
+  if (input.CacheSubnetGroupName !== undefined) {
+    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
+  }
+  if (input.CacheSecurityGroupNames !== undefined) {
+    const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CacheSecurityGroupNames.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.SecurityGroupIds !== undefined) {
     const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
@@ -7261,36 +8296,12 @@ const serializeAws_queryCreateCacheClusterMessage = (
       entries[loc] = value;
     });
   }
-  if (input.CacheParameterGroupName !== undefined) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
-  }
-  if (input.NumCacheNodes !== undefined) {
-    entries["NumCacheNodes"] = input.NumCacheNodes;
-  }
-  if (input.CacheNodeType !== undefined) {
-    entries["CacheNodeType"] = input.CacheNodeType;
-  }
-  if (input.SnapshotWindow !== undefined) {
-    entries["SnapshotWindow"] = input.SnapshotWindow;
-  }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.ReplicationGroupId !== undefined) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
-  }
-  if (input.SnapshotRetentionLimit !== undefined) {
-    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
-  }
-  if (input.AuthToken !== undefined) {
-    entries["AuthToken"] = input.AuthToken;
-  }
-  if (input.CacheSubnetGroupName !== undefined) {
-    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
   }
   if (input.SnapshotArns !== undefined) {
     const memberEntries = serializeAws_querySnapshotArnsList(input.SnapshotArns, context);
@@ -7299,8 +8310,42 @@ const serializeAws_queryCreateCacheClusterMessage = (
       entries[loc] = value;
     });
   }
-  if (input.AZMode !== undefined) {
-    entries["AZMode"] = input.AZMode;
+  if (input.SnapshotName !== undefined) {
+    entries["SnapshotName"] = input.SnapshotName;
+  }
+  if (input.PreferredMaintenanceWindow !== undefined) {
+    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  }
+  if (input.Port !== undefined) {
+    entries["Port"] = input.Port;
+  }
+  if (input.NotificationTopicArn !== undefined) {
+    entries["NotificationTopicArn"] = input.NotificationTopicArn;
+  }
+  if (input.AutoMinorVersionUpgrade !== undefined) {
+    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  }
+  if (input.SnapshotRetentionLimit !== undefined) {
+    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
+  }
+  if (input.SnapshotWindow !== undefined) {
+    entries["SnapshotWindow"] = input.SnapshotWindow;
+  }
+  if (input.AuthToken !== undefined) {
+    entries["AuthToken"] = input.AuthToken;
+  }
+  if (input.OutpostMode !== undefined) {
+    entries["OutpostMode"] = input.OutpostMode;
+  }
+  if (input.PreferredOutpostArn !== undefined) {
+    entries["PreferredOutpostArn"] = input.PreferredOutpostArn;
+  }
+  if (input.PreferredOutpostArns !== undefined) {
+    const memberEntries = serializeAws_queryPreferredOutpostArnList(input.PreferredOutpostArns, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `PreferredOutpostArns.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -7341,18 +8386,18 @@ const serializeAws_queryCreateCacheSubnetGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.CacheSubnetGroupName !== undefined) {
+    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
+  }
+  if (input.CacheSubnetGroupDescription !== undefined) {
+    entries["CacheSubnetGroupDescription"] = input.CacheSubnetGroupDescription;
+  }
   if (input.SubnetIds !== undefined) {
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.CacheSubnetGroupDescription !== undefined) {
-    entries["CacheSubnetGroupDescription"] = input.CacheSubnetGroupDescription;
-  }
-  if (input.CacheSubnetGroupName !== undefined) {
-    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
   }
   return entries;
 };
@@ -7365,11 +8410,11 @@ const serializeAws_queryCreateGlobalReplicationGroupMessage = (
   if (input.GlobalReplicationGroupIdSuffix !== undefined) {
     entries["GlobalReplicationGroupIdSuffix"] = input.GlobalReplicationGroupIdSuffix;
   }
-  if (input.PrimaryReplicationGroupId !== undefined) {
-    entries["PrimaryReplicationGroupId"] = input.PrimaryReplicationGroupId;
-  }
   if (input.GlobalReplicationGroupDescription !== undefined) {
     entries["GlobalReplicationGroupDescription"] = input.GlobalReplicationGroupDescription;
+  }
+  if (input.PrimaryReplicationGroupId !== undefined) {
+    entries["PrimaryReplicationGroupId"] = input.PrimaryReplicationGroupId;
   }
   return entries;
 };
@@ -7379,35 +8424,26 @@ const serializeAws_queryCreateReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.TransitEncryptionEnabled !== undefined) {
-    entries["TransitEncryptionEnabled"] = input.TransitEncryptionEnabled;
+  if (input.ReplicationGroupId !== undefined) {
+    entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
-  if (input.Engine !== undefined) {
-    entries["Engine"] = input.Engine;
-  }
-  if (input.SnapshotWindow !== undefined) {
-    entries["SnapshotWindow"] = input.SnapshotWindow;
-  }
-  if (input.AuthToken !== undefined) {
-    entries["AuthToken"] = input.AuthToken;
-  }
-  if (input.CacheSubnetGroupName !== undefined) {
-    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
-  }
-  if (input.Port !== undefined) {
-    entries["Port"] = input.Port;
-  }
-  if (input.AtRestEncryptionEnabled !== undefined) {
-    entries["AtRestEncryptionEnabled"] = input.AtRestEncryptionEnabled;
-  }
-  if (input.PrimaryClusterId !== undefined) {
-    entries["PrimaryClusterId"] = input.PrimaryClusterId;
+  if (input.ReplicationGroupDescription !== undefined) {
+    entries["ReplicationGroupDescription"] = input.ReplicationGroupDescription;
   }
   if (input.GlobalReplicationGroupId !== undefined) {
     entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
   }
+  if (input.PrimaryClusterId !== undefined) {
+    entries["PrimaryClusterId"] = input.PrimaryClusterId;
+  }
   if (input.AutomaticFailoverEnabled !== undefined) {
     entries["AutomaticFailoverEnabled"] = input.AutomaticFailoverEnabled;
+  }
+  if (input.MultiAZEnabled !== undefined) {
+    entries["MultiAZEnabled"] = input.MultiAZEnabled;
+  }
+  if (input.NumCacheClusters !== undefined) {
+    entries["NumCacheClusters"] = input.NumCacheClusters;
   }
   if (input.PreferredCacheClusterAZs !== undefined) {
     const memberEntries = serializeAws_queryAvailabilityZonesList(input.PreferredCacheClusterAZs, context);
@@ -7416,50 +8452,11 @@ const serializeAws_queryCreateReplicationGroupMessage = (
       entries[loc] = value;
     });
   }
-  if (input.ReplicationGroupDescription !== undefined) {
-    entries["ReplicationGroupDescription"] = input.ReplicationGroupDescription;
-  }
-  if (input.SecurityGroupIds !== undefined) {
-    const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `SecurityGroupIds.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.EngineVersion !== undefined) {
-    entries["EngineVersion"] = input.EngineVersion;
-  }
-  if (input.CacheNodeType !== undefined) {
-    entries["CacheNodeType"] = input.CacheNodeType;
-  }
-  if (input.SnapshotName !== undefined) {
-    entries["SnapshotName"] = input.SnapshotName;
-  }
-  if (input.SnapshotRetentionLimit !== undefined) {
-    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
-  }
-  if (input.ReplicasPerNodeGroup !== undefined) {
-    entries["ReplicasPerNodeGroup"] = input.ReplicasPerNodeGroup;
-  }
-  if (input.NumCacheClusters !== undefined) {
-    entries["NumCacheClusters"] = input.NumCacheClusters;
-  }
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.NumNodeGroups !== undefined) {
     entries["NumNodeGroups"] = input.NumNodeGroups;
   }
-  if (input.CacheSecurityGroupNames !== undefined) {
-    const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `CacheSecurityGroupNames.${key}`;
-      entries[loc] = value;
-    });
+  if (input.ReplicasPerNodeGroup !== undefined) {
+    entries["ReplicasPerNodeGroup"] = input.ReplicasPerNodeGroup;
   }
   if (input.NodeGroupConfiguration !== undefined) {
     const memberEntries = serializeAws_queryNodeGroupConfigurationList(input.NodeGroupConfiguration, context);
@@ -7468,8 +8465,41 @@ const serializeAws_queryCreateReplicationGroupMessage = (
       entries[loc] = value;
     });
   }
-  if (input.KmsKeyId !== undefined) {
-    entries["KmsKeyId"] = input.KmsKeyId;
+  if (input.CacheNodeType !== undefined) {
+    entries["CacheNodeType"] = input.CacheNodeType;
+  }
+  if (input.Engine !== undefined) {
+    entries["Engine"] = input.Engine;
+  }
+  if (input.EngineVersion !== undefined) {
+    entries["EngineVersion"] = input.EngineVersion;
+  }
+  if (input.CacheParameterGroupName !== undefined) {
+    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  }
+  if (input.CacheSubnetGroupName !== undefined) {
+    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
+  }
+  if (input.CacheSecurityGroupNames !== undefined) {
+    const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CacheSecurityGroupNames.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SecurityGroupIds !== undefined) {
+    const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.SnapshotArns !== undefined) {
     const memberEntries = serializeAws_querySnapshotArnsList(input.SnapshotArns, context);
@@ -7478,29 +8508,54 @@ const serializeAws_queryCreateReplicationGroupMessage = (
       entries[loc] = value;
     });
   }
-  if (input.CacheParameterGroupName !== undefined) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
-  }
-  if (input.NotificationTopicArn !== undefined) {
-    entries["NotificationTopicArn"] = input.NotificationTopicArn;
-  }
-  if (input.MultiAZEnabled !== undefined) {
-    entries["MultiAZEnabled"] = input.MultiAZEnabled;
-  }
-  if (input.ReplicationGroupId !== undefined) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input.SnapshotName !== undefined) {
+    entries["SnapshotName"] = input.SnapshotName;
   }
   if (input.PreferredMaintenanceWindow !== undefined) {
     entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
   }
+  if (input.Port !== undefined) {
+    entries["Port"] = input.Port;
+  }
+  if (input.NotificationTopicArn !== undefined) {
+    entries["NotificationTopicArn"] = input.NotificationTopicArn;
+  }
   if (input.AutoMinorVersionUpgrade !== undefined) {
     entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  }
+  if (input.SnapshotRetentionLimit !== undefined) {
+    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
+  }
+  if (input.SnapshotWindow !== undefined) {
+    entries["SnapshotWindow"] = input.SnapshotWindow;
+  }
+  if (input.AuthToken !== undefined) {
+    entries["AuthToken"] = input.AuthToken;
+  }
+  if (input.TransitEncryptionEnabled !== undefined) {
+    entries["TransitEncryptionEnabled"] = input.TransitEncryptionEnabled;
+  }
+  if (input.AtRestEncryptionEnabled !== undefined) {
+    entries["AtRestEncryptionEnabled"] = input.AtRestEncryptionEnabled;
+  }
+  if (input.KmsKeyId !== undefined) {
+    entries["KmsKeyId"] = input.KmsKeyId;
+  }
+  if (input.UserGroupIds !== undefined) {
+    const memberEntries = serializeAws_queryUserGroupIdListInput(input.UserGroupIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `UserGroupIds.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
 
 const serializeAws_queryCreateSnapshotMessage = (input: CreateSnapshotMessage, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.ReplicationGroupId !== undefined) {
+    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  }
   if (input.CacheClusterId !== undefined) {
     entries["CacheClusterId"] = input.CacheClusterId;
   }
@@ -7510,8 +8565,50 @@ const serializeAws_queryCreateSnapshotMessage = (input: CreateSnapshotMessage, c
   if (input.KmsKeyId !== undefined) {
     entries["KmsKeyId"] = input.KmsKeyId;
   }
-  if (input.ReplicationGroupId !== undefined) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  return entries;
+};
+
+const serializeAws_queryCreateUserGroupMessage = (input: CreateUserGroupMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.UserGroupId !== undefined) {
+    entries["UserGroupId"] = input.UserGroupId;
+  }
+  if (input.Engine !== undefined) {
+    entries["Engine"] = input.Engine;
+  }
+  if (input.UserIds !== undefined) {
+    const memberEntries = serializeAws_queryUserIdListInput(input.UserIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `UserIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryCreateUserMessage = (input: CreateUserMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.UserId !== undefined) {
+    entries["UserId"] = input.UserId;
+  }
+  if (input.UserName !== undefined) {
+    entries["UserName"] = input.UserName;
+  }
+  if (input.Engine !== undefined) {
+    entries["Engine"] = input.Engine;
+  }
+  if (input.Passwords !== undefined) {
+    const memberEntries = serializeAws_queryPasswordListInput(input.Passwords, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Passwords.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AccessString !== undefined) {
+    entries["AccessString"] = input.AccessString;
+  }
+  if (input.NoPasswordRequired !== undefined) {
+    entries["NoPasswordRequired"] = input.NoPasswordRequired;
   }
   return entries;
 };
@@ -7545,6 +8642,12 @@ const serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.GlobalReplicationGroupId !== undefined) {
+    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  }
+  if (input.NodeGroupCount !== undefined) {
+    entries["NodeGroupCount"] = input.NodeGroupCount;
+  }
   if (input.GlobalNodeGroupsToRemove !== undefined) {
     const memberEntries = serializeAws_queryGlobalNodeGroupIdList(input.GlobalNodeGroupsToRemove, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -7552,21 +8655,15 @@ const serializeAws_queryDecreaseNodeGroupsInGlobalReplicationGroupMessage = (
       entries[loc] = value;
     });
   }
-  if (input.GlobalReplicationGroupId !== undefined) {
-    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
-  }
-  if (input.ApplyImmediately !== undefined) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
-  }
-  if (input.NodeGroupCount !== undefined) {
-    entries["NodeGroupCount"] = input.NodeGroupCount;
-  }
   if (input.GlobalNodeGroupsToRetain !== undefined) {
     const memberEntries = serializeAws_queryGlobalNodeGroupIdList(input.GlobalNodeGroupsToRetain, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `GlobalNodeGroupsToRetain.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.ApplyImmediately !== undefined) {
+    entries["ApplyImmediately"] = input.ApplyImmediately;
   }
   return entries;
 };
@@ -7576,15 +8673,8 @@ const serializeAws_queryDecreaseReplicaCountMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReplicasToRemove !== undefined) {
-    const memberEntries = serializeAws_queryRemoveReplicasList(input.ReplicasToRemove, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ReplicasToRemove.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.ApplyImmediately !== undefined) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
+  if (input.ReplicationGroupId !== undefined) {
+    entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
   if (input.NewReplicaCount !== undefined) {
     entries["NewReplicaCount"] = input.NewReplicaCount;
@@ -7596,8 +8686,15 @@ const serializeAws_queryDecreaseReplicaCountMessage = (
       entries[loc] = value;
     });
   }
-  if (input.ReplicationGroupId !== undefined) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input.ReplicasToRemove !== undefined) {
+    const memberEntries = serializeAws_queryRemoveReplicasList(input.ReplicasToRemove, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ReplicasToRemove.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ApplyImmediately !== undefined) {
+    entries["ApplyImmediately"] = input.ApplyImmediately;
   }
   return entries;
 };
@@ -7607,11 +8704,11 @@ const serializeAws_queryDeleteCacheClusterMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.FinalSnapshotIdentifier !== undefined) {
-    entries["FinalSnapshotIdentifier"] = input.FinalSnapshotIdentifier;
-  }
   if (input.CacheClusterId !== undefined) {
     entries["CacheClusterId"] = input.CacheClusterId;
+  }
+  if (input.FinalSnapshotIdentifier !== undefined) {
+    entries["FinalSnapshotIdentifier"] = input.FinalSnapshotIdentifier;
   }
   return entries;
 };
@@ -7668,11 +8765,11 @@ const serializeAws_queryDeleteReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RetainPrimaryCluster !== undefined) {
-    entries["RetainPrimaryCluster"] = input.RetainPrimaryCluster;
-  }
   if (input.ReplicationGroupId !== undefined) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  }
+  if (input.RetainPrimaryCluster !== undefined) {
+    entries["RetainPrimaryCluster"] = input.RetainPrimaryCluster;
   }
   if (input.FinalSnapshotIdentifier !== undefined) {
     entries["FinalSnapshotIdentifier"] = input.FinalSnapshotIdentifier;
@@ -7688,16 +8785,29 @@ const serializeAws_queryDeleteSnapshotMessage = (input: DeleteSnapshotMessage, c
   return entries;
 };
 
+const serializeAws_queryDeleteUserGroupMessage = (input: DeleteUserGroupMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.UserGroupId !== undefined) {
+    entries["UserGroupId"] = input.UserGroupId;
+  }
+  return entries;
+};
+
+const serializeAws_queryDeleteUserMessage = (input: DeleteUserMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.UserId !== undefined) {
+    entries["UserId"] = input.UserId;
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeCacheClustersMessage = (
   input: DescribeCacheClustersMessage,
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ShowCacheNodeInfo !== undefined) {
-    entries["ShowCacheNodeInfo"] = input.ShowCacheNodeInfo;
-  }
-  if (input.ShowCacheClustersNotInReplicationGroups !== undefined) {
-    entries["ShowCacheClustersNotInReplicationGroups"] = input.ShowCacheClustersNotInReplicationGroups;
+  if (input.CacheClusterId !== undefined) {
+    entries["CacheClusterId"] = input.CacheClusterId;
   }
   if (input.MaxRecords !== undefined) {
     entries["MaxRecords"] = input.MaxRecords;
@@ -7705,8 +8815,11 @@ const serializeAws_queryDescribeCacheClustersMessage = (
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
   }
-  if (input.CacheClusterId !== undefined) {
-    entries["CacheClusterId"] = input.CacheClusterId;
+  if (input.ShowCacheNodeInfo !== undefined) {
+    entries["ShowCacheNodeInfo"] = input.ShowCacheNodeInfo;
+  }
+  if (input.ShowCacheClustersNotInReplicationGroups !== undefined) {
+    entries["ShowCacheClustersNotInReplicationGroups"] = input.ShowCacheClustersNotInReplicationGroups;
   }
   return entries;
 };
@@ -7716,23 +8829,23 @@ const serializeAws_queryDescribeCacheEngineVersionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EngineVersion !== undefined) {
-    entries["EngineVersion"] = input.EngineVersion;
-  }
-  if (input.DefaultOnly !== undefined) {
-    entries["DefaultOnly"] = input.DefaultOnly;
-  }
   if (input.Engine !== undefined) {
     entries["Engine"] = input.Engine;
   }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
+  if (input.EngineVersion !== undefined) {
+    entries["EngineVersion"] = input.EngineVersion;
   }
   if (input.CacheParameterGroupFamily !== undefined) {
     entries["CacheParameterGroupFamily"] = input.CacheParameterGroupFamily;
   }
   if (input.MaxRecords !== undefined) {
     entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.DefaultOnly !== undefined) {
+    entries["DefaultOnly"] = input.DefaultOnly;
   }
   return entries;
 };
@@ -7742,14 +8855,14 @@ const serializeAws_queryDescribeCacheParameterGroupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.CacheParameterGroupName !== undefined) {
+    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  }
   if (input.MaxRecords !== undefined) {
     entries["MaxRecords"] = input.MaxRecords;
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
-  }
-  if (input.CacheParameterGroupName !== undefined) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
   return entries;
 };
@@ -7759,14 +8872,14 @@ const serializeAws_queryDescribeCacheParametersMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input.CacheParameterGroupName !== undefined) {
+    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
   if (input.Source !== undefined) {
     entries["Source"] = input.Source;
   }
-  if (input.CacheParameterGroupName !== undefined) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
@@ -7779,14 +8892,14 @@ const serializeAws_queryDescribeCacheSecurityGroupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.CacheSecurityGroupName !== undefined) {
+    entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
+  }
   if (input.MaxRecords !== undefined) {
     entries["MaxRecords"] = input.MaxRecords;
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
-  }
-  if (input.CacheSecurityGroupName !== undefined) {
-    entries["CacheSecurityGroupName"] = input.CacheSecurityGroupName;
   }
   return entries;
 };
@@ -7796,14 +8909,14 @@ const serializeAws_queryDescribeCacheSubnetGroupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.CacheSubnetGroupName !== undefined) {
+    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
+  }
   if (input.MaxRecords !== undefined) {
     entries["MaxRecords"] = input.MaxRecords;
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
-  }
-  if (input.CacheSubnetGroupName !== undefined) {
-    entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
   }
   return entries;
 };
@@ -7816,25 +8929,19 @@ const serializeAws_queryDescribeEngineDefaultParametersMessage = (
   if (input.CacheParameterGroupFamily !== undefined) {
     entries["CacheParameterGroupFamily"] = input.CacheParameterGroupFamily;
   }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
   if (input.MaxRecords !== undefined) {
     entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
 const serializeAws_queryDescribeEventsMessage = (input: DescribeEventsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.EndTime !== undefined) {
-    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
-  }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
+  if (input.SourceIdentifier !== undefined) {
+    entries["SourceIdentifier"] = input.SourceIdentifier;
   }
   if (input.SourceType !== undefined) {
     entries["SourceType"] = input.SourceType;
@@ -7842,11 +8949,17 @@ const serializeAws_queryDescribeEventsMessage = (input: DescribeEventsMessage, c
   if (input.StartTime !== undefined) {
     entries["StartTime"] = input.StartTime.toISOString().split(".")[0] + "Z";
   }
-  if (input.SourceIdentifier !== undefined) {
-    entries["SourceIdentifier"] = input.SourceIdentifier;
+  if (input.EndTime !== undefined) {
+    entries["EndTime"] = input.EndTime.toISOString().split(".")[0] + "Z";
   }
   if (input.Duration !== undefined) {
     entries["Duration"] = input.Duration;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
   }
   return entries;
 };
@@ -7856,17 +8969,17 @@ const serializeAws_queryDescribeGlobalReplicationGroupsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.ShowMemberInfo !== undefined) {
-    entries["ShowMemberInfo"] = input.ShowMemberInfo;
-  }
   if (input.GlobalReplicationGroupId !== undefined) {
     entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
   }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
+  }
+  if (input.ShowMemberInfo !== undefined) {
+    entries["ShowMemberInfo"] = input.ShowMemberInfo;
   }
   return entries;
 };
@@ -7893,26 +9006,26 @@ const serializeAws_queryDescribeReservedCacheNodesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
+  if (input.ReservedCacheNodeId !== undefined) {
+    entries["ReservedCacheNodeId"] = input.ReservedCacheNodeId;
   }
   if (input.ReservedCacheNodesOfferingId !== undefined) {
     entries["ReservedCacheNodesOfferingId"] = input.ReservedCacheNodesOfferingId;
   }
-  if (input.OfferingType !== undefined) {
-    entries["OfferingType"] = input.OfferingType;
-  }
-  if (input.ReservedCacheNodeId !== undefined) {
-    entries["ReservedCacheNodeId"] = input.ReservedCacheNodeId;
-  }
-  if (input.ProductDescription !== undefined) {
-    entries["ProductDescription"] = input.ProductDescription;
+  if (input.CacheNodeType !== undefined) {
+    entries["CacheNodeType"] = input.CacheNodeType;
   }
   if (input.Duration !== undefined) {
     entries["Duration"] = input.Duration;
   }
-  if (input.CacheNodeType !== undefined) {
-    entries["CacheNodeType"] = input.CacheNodeType;
+  if (input.ProductDescription !== undefined) {
+    entries["ProductDescription"] = input.ProductDescription;
+  }
+  if (input.OfferingType !== undefined) {
+    entries["OfferingType"] = input.OfferingType;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
@@ -7925,14 +9038,11 @@ const serializeAws_queryDescribeReservedCacheNodesOfferingsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.CacheNodeType !== undefined) {
-    entries["CacheNodeType"] = input.CacheNodeType;
-  }
-  if (input.OfferingType !== undefined) {
-    entries["OfferingType"] = input.OfferingType;
-  }
   if (input.ReservedCacheNodesOfferingId !== undefined) {
     entries["ReservedCacheNodesOfferingId"] = input.ReservedCacheNodesOfferingId;
+  }
+  if (input.CacheNodeType !== undefined) {
+    entries["CacheNodeType"] = input.CacheNodeType;
   }
   if (input.Duration !== undefined) {
     entries["Duration"] = input.Duration;
@@ -7940,11 +9050,14 @@ const serializeAws_queryDescribeReservedCacheNodesOfferingsMessage = (
   if (input.ProductDescription !== undefined) {
     entries["ProductDescription"] = input.ProductDescription;
   }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
+  if (input.OfferingType !== undefined) {
+    entries["OfferingType"] = input.OfferingType;
   }
   if (input.MaxRecords !== undefined) {
     entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
   }
   return entries;
 };
@@ -7954,8 +9067,8 @@ const serializeAws_queryDescribeServiceUpdatesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
+  if (input.ServiceUpdateName !== undefined) {
+    entries["ServiceUpdateName"] = input.ServiceUpdateName;
   }
   if (input.ServiceUpdateStatus !== undefined) {
     const memberEntries = serializeAws_queryServiceUpdateStatusList(input.ServiceUpdateStatus, context);
@@ -7967,25 +9080,16 @@ const serializeAws_queryDescribeServiceUpdatesMessage = (
   if (input.MaxRecords !== undefined) {
     entries["MaxRecords"] = input.MaxRecords;
   }
-  if (input.ServiceUpdateName !== undefined) {
-    entries["ServiceUpdateName"] = input.ServiceUpdateName;
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
 const serializeAws_queryDescribeSnapshotsMessage = (input: DescribeSnapshotsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ShowNodeGroupConfig !== undefined) {
-    entries["ShowNodeGroupConfig"] = input.ShowNodeGroupConfig;
-  }
   if (input.ReplicationGroupId !== undefined) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
-  }
-  if (input.SnapshotSource !== undefined) {
-    entries["SnapshotSource"] = input.SnapshotSource;
-  }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
   }
   if (input.CacheClusterId !== undefined) {
     entries["CacheClusterId"] = input.CacheClusterId;
@@ -7993,8 +9097,17 @@ const serializeAws_queryDescribeSnapshotsMessage = (input: DescribeSnapshotsMess
   if (input.SnapshotName !== undefined) {
     entries["SnapshotName"] = input.SnapshotName;
   }
+  if (input.SnapshotSource !== undefined) {
+    entries["SnapshotSource"] = input.SnapshotSource;
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
   if (input.MaxRecords !== undefined) {
     entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.ShowNodeGroupConfig !== undefined) {
+    entries["ShowNodeGroupConfig"] = input.ShowNodeGroupConfig;
   }
   return entries;
 };
@@ -8004,16 +9117,13 @@ const serializeAws_queryDescribeUpdateActionsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ShowNodeLevelUpdateStatus !== undefined) {
-    entries["ShowNodeLevelUpdateStatus"] = input.ShowNodeLevelUpdateStatus;
+  if (input.ServiceUpdateName !== undefined) {
+    entries["ServiceUpdateName"] = input.ServiceUpdateName;
   }
-  if (input.Engine !== undefined) {
-    entries["Engine"] = input.Engine;
-  }
-  if (input.UpdateActionStatus !== undefined) {
-    const memberEntries = serializeAws_queryUpdateActionStatusList(input.UpdateActionStatus, context);
+  if (input.ReplicationGroupIds !== undefined) {
+    const memberEntries = serializeAws_queryReplicationGroupIdList(input.ReplicationGroupIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `UpdateActionStatus.${key}`;
+      const loc = `ReplicationGroupIds.${key}`;
       entries[loc] = value;
     });
   }
@@ -8024,8 +9134,8 @@ const serializeAws_queryDescribeUpdateActionsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
+  if (input.Engine !== undefined) {
+    entries["Engine"] = input.Engine;
   }
   if (input.ServiceUpdateStatus !== undefined) {
     const memberEntries = serializeAws_queryServiceUpdateStatusList(input.ServiceUpdateStatus, context);
@@ -8034,25 +9144,69 @@ const serializeAws_queryDescribeUpdateActionsMessage = (
       entries[loc] = value;
     });
   }
-  if (input.MaxRecords !== undefined) {
-    entries["MaxRecords"] = input.MaxRecords;
-  }
-  if (input.ReplicationGroupIds !== undefined) {
-    const memberEntries = serializeAws_queryReplicationGroupIdList(input.ReplicationGroupIds, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ReplicationGroupIds.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.ServiceUpdateName !== undefined) {
-    entries["ServiceUpdateName"] = input.ServiceUpdateName;
-  }
   if (input.ServiceUpdateTimeRange !== undefined) {
     const memberEntries = serializeAws_queryTimeRangeFilter(input.ServiceUpdateTimeRange, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ServiceUpdateTimeRange.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.UpdateActionStatus !== undefined) {
+    const memberEntries = serializeAws_queryUpdateActionStatusList(input.UpdateActionStatus, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `UpdateActionStatus.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ShowNodeLevelUpdateStatus !== undefined) {
+    entries["ShowNodeLevelUpdateStatus"] = input.ShowNodeLevelUpdateStatus;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeUserGroupsMessage = (
+  input: DescribeUserGroupsMessage,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.UserGroupId !== undefined) {
+    entries["UserGroupId"] = input.UserGroupId;
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
+  return entries;
+};
+
+const serializeAws_queryDescribeUsersMessage = (input: DescribeUsersMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Engine !== undefined) {
+    entries["Engine"] = input.Engine;
+  }
+  if (input.UserId !== undefined) {
+    entries["UserId"] = input.UserId;
+  }
+  if (input.Filters !== undefined) {
+    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxRecords !== undefined) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
   }
   return entries;
 };
@@ -8062,14 +9216,14 @@ const serializeAws_queryDisassociateGlobalReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.GlobalReplicationGroupId !== undefined) {
+    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  }
   if (input.ReplicationGroupId !== undefined) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
   if (input.ReplicationGroupRegion !== undefined) {
     entries["ReplicationGroupRegion"] = input.ReplicationGroupRegion;
-  }
-  if (input.GlobalReplicationGroupId !== undefined) {
-    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
   }
   return entries;
 };
@@ -8079,14 +9233,52 @@ const serializeAws_queryFailoverGlobalReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PrimaryReplicationGroupId !== undefined) {
-    entries["PrimaryReplicationGroupId"] = input.PrimaryReplicationGroupId;
-  }
   if (input.GlobalReplicationGroupId !== undefined) {
     entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
   }
   if (input.PrimaryRegion !== undefined) {
     entries["PrimaryRegion"] = input.PrimaryRegion;
+  }
+  if (input.PrimaryReplicationGroupId !== undefined) {
+    entries["PrimaryReplicationGroupId"] = input.PrimaryReplicationGroupId;
+  }
+  return entries;
+};
+
+const serializeAws_queryFilter = (input: Filter, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Name !== undefined) {
+    entries["Name"] = input.Name;
+  }
+  if (input.Values !== undefined) {
+    const memberEntries = serializeAws_queryFilterValueList(input.Values, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Values.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryFilterList = (input: Filter[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    const memberEntries = serializeAws_queryFilter(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryFilterValueList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`member.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -8106,11 +9298,11 @@ const serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.GlobalReplicationGroupId !== undefined) {
+    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  }
   if (input.NodeGroupCount !== undefined) {
     entries["NodeGroupCount"] = input.NodeGroupCount;
-  }
-  if (input.ApplyImmediately !== undefined) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
   }
   if (input.RegionalConfigurations !== undefined) {
     const memberEntries = serializeAws_queryRegionalConfigurationList(input.RegionalConfigurations, context);
@@ -8119,8 +9311,8 @@ const serializeAws_queryIncreaseNodeGroupsInGlobalReplicationGroupMessage = (
       entries[loc] = value;
     });
   }
-  if (input.GlobalReplicationGroupId !== undefined) {
-    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  if (input.ApplyImmediately !== undefined) {
+    entries["ApplyImmediately"] = input.ApplyImmediately;
   }
   return entries;
 };
@@ -8130,18 +9322,18 @@ const serializeAws_queryIncreaseReplicaCountMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.ReplicationGroupId !== undefined) {
+    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  }
+  if (input.NewReplicaCount !== undefined) {
+    entries["NewReplicaCount"] = input.NewReplicaCount;
+  }
   if (input.ReplicaConfiguration !== undefined) {
     const memberEntries = serializeAws_queryReplicaConfigurationList(input.ReplicaConfiguration, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ReplicaConfiguration.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.ReplicationGroupId !== undefined) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
-  }
-  if (input.NewReplicaCount !== undefined) {
-    entries["NewReplicaCount"] = input.NewReplicaCount;
   }
   if (input.ApplyImmediately !== undefined) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
@@ -8164,11 +9356,11 @@ const serializeAws_queryListAllowedNodeTypeModificationsMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ReplicationGroupId !== undefined) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
-  }
   if (input.CacheClusterId !== undefined) {
     entries["CacheClusterId"] = input.CacheClusterId;
+  }
+  if (input.ReplicationGroupId !== undefined) {
+    entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
   return entries;
 };
@@ -8189,44 +9381,8 @@ const serializeAws_queryModifyCacheClusterMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.EngineVersion !== undefined) {
-    entries["EngineVersion"] = input.EngineVersion;
-  }
-  if (input.CacheSecurityGroupNames !== undefined) {
-    const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `CacheSecurityGroupNames.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.ApplyImmediately !== undefined) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
-  }
-  if (input.AutoMinorVersionUpgrade !== undefined) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
-  }
-  if (input.CacheParameterGroupName !== undefined) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
-  }
-  if (input.PreferredMaintenanceWindow !== undefined) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
-  }
-  if (input.NewAvailabilityZones !== undefined) {
-    const memberEntries = serializeAws_queryPreferredAvailabilityZoneList(input.NewAvailabilityZones, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `NewAvailabilityZones.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.NotificationTopicArn !== undefined) {
-    entries["NotificationTopicArn"] = input.NotificationTopicArn;
-  }
-  if (input.SecurityGroupIds !== undefined) {
-    const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `SecurityGroupIds.${key}`;
-      entries[loc] = value;
-    });
+  if (input.CacheClusterId !== undefined) {
+    entries["CacheClusterId"] = input.CacheClusterId;
   }
   if (input.NumCacheNodes !== undefined) {
     entries["NumCacheNodes"] = input.NumCacheNodes;
@@ -8238,29 +9394,65 @@ const serializeAws_queryModifyCacheClusterMessage = (
       entries[loc] = value;
     });
   }
-  if (input.CacheNodeType !== undefined) {
-    entries["CacheNodeType"] = input.CacheNodeType;
+  if (input.AZMode !== undefined) {
+    entries["AZMode"] = input.AZMode;
   }
-  if (input.CacheClusterId !== undefined) {
-    entries["CacheClusterId"] = input.CacheClusterId;
+  if (input.NewAvailabilityZones !== undefined) {
+    const memberEntries = serializeAws_queryPreferredAvailabilityZoneList(input.NewAvailabilityZones, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NewAvailabilityZones.${key}`;
+      entries[loc] = value;
+    });
   }
-  if (input.SnapshotWindow !== undefined) {
-    entries["SnapshotWindow"] = input.SnapshotWindow;
+  if (input.CacheSecurityGroupNames !== undefined) {
+    const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CacheSecurityGroupNames.${key}`;
+      entries[loc] = value;
+    });
   }
-  if (input.SnapshotRetentionLimit !== undefined) {
-    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
+  if (input.SecurityGroupIds !== undefined) {
+    const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.PreferredMaintenanceWindow !== undefined) {
+    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  }
+  if (input.NotificationTopicArn !== undefined) {
+    entries["NotificationTopicArn"] = input.NotificationTopicArn;
+  }
+  if (input.CacheParameterGroupName !== undefined) {
+    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
   if (input.NotificationTopicStatus !== undefined) {
     entries["NotificationTopicStatus"] = input.NotificationTopicStatus;
   }
-  if (input.AuthTokenUpdateStrategy !== undefined) {
-    entries["AuthTokenUpdateStrategy"] = input.AuthTokenUpdateStrategy;
+  if (input.ApplyImmediately !== undefined) {
+    entries["ApplyImmediately"] = input.ApplyImmediately;
+  }
+  if (input.EngineVersion !== undefined) {
+    entries["EngineVersion"] = input.EngineVersion;
+  }
+  if (input.AutoMinorVersionUpgrade !== undefined) {
+    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  }
+  if (input.SnapshotRetentionLimit !== undefined) {
+    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
+  }
+  if (input.SnapshotWindow !== undefined) {
+    entries["SnapshotWindow"] = input.SnapshotWindow;
+  }
+  if (input.CacheNodeType !== undefined) {
+    entries["CacheNodeType"] = input.CacheNodeType;
   }
   if (input.AuthToken !== undefined) {
     entries["AuthToken"] = input.AuthToken;
   }
-  if (input.AZMode !== undefined) {
-    entries["AZMode"] = input.AZMode;
+  if (input.AuthTokenUpdateStrategy !== undefined) {
+    entries["AuthTokenUpdateStrategy"] = input.AuthTokenUpdateStrategy;
   }
   return entries;
 };
@@ -8270,15 +9462,15 @@ const serializeAws_queryModifyCacheParameterGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.CacheParameterGroupName !== undefined) {
+    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  }
   if (input.ParameterNameValues !== undefined) {
     const memberEntries = serializeAws_queryParameterNameValueList(input.ParameterNameValues, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ParameterNameValues.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.CacheParameterGroupName !== undefined) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
   }
   return entries;
 };
@@ -8291,15 +9483,15 @@ const serializeAws_queryModifyCacheSubnetGroupMessage = (
   if (input.CacheSubnetGroupName !== undefined) {
     entries["CacheSubnetGroupName"] = input.CacheSubnetGroupName;
   }
+  if (input.CacheSubnetGroupDescription !== undefined) {
+    entries["CacheSubnetGroupDescription"] = input.CacheSubnetGroupDescription;
+  }
   if (input.SubnetIds !== undefined) {
     const memberEntries = serializeAws_querySubnetIdentifierList(input.SubnetIds, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `SubnetIds.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.CacheSubnetGroupDescription !== undefined) {
-    entries["CacheSubnetGroupDescription"] = input.CacheSubnetGroupDescription;
   }
   return entries;
 };
@@ -8309,20 +9501,20 @@ const serializeAws_queryModifyGlobalReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.GlobalReplicationGroupId !== undefined) {
+    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
+  }
+  if (input.ApplyImmediately !== undefined) {
+    entries["ApplyImmediately"] = input.ApplyImmediately;
+  }
   if (input.CacheNodeType !== undefined) {
     entries["CacheNodeType"] = input.CacheNodeType;
   }
   if (input.EngineVersion !== undefined) {
     entries["EngineVersion"] = input.EngineVersion;
   }
-  if (input.GlobalReplicationGroupId !== undefined) {
-    entries["GlobalReplicationGroupId"] = input.GlobalReplicationGroupId;
-  }
   if (input.GlobalReplicationGroupDescription !== undefined) {
     entries["GlobalReplicationGroupDescription"] = input.GlobalReplicationGroupDescription;
-  }
-  if (input.ApplyImmediately !== undefined) {
-    entries["ApplyImmediately"] = input.ApplyImmediately;
   }
   if (input.AutomaticFailoverEnabled !== undefined) {
     entries["AutomaticFailoverEnabled"] = input.AutomaticFailoverEnabled;
@@ -8335,54 +9527,26 @@ const serializeAws_queryModifyReplicationGroupMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SnapshotWindow !== undefined) {
-    entries["SnapshotWindow"] = input.SnapshotWindow;
-  }
-  if (input.SnapshotRetentionLimit !== undefined) {
-    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
-  }
-  if (input.MultiAZEnabled !== undefined) {
-    entries["MultiAZEnabled"] = input.MultiAZEnabled;
-  }
-  if (input.CacheNodeType !== undefined) {
-    entries["CacheNodeType"] = input.CacheNodeType;
-  }
-  if (input.SnapshottingClusterId !== undefined) {
-    entries["SnapshottingClusterId"] = input.SnapshottingClusterId;
-  }
-  if (input.AuthToken !== undefined) {
-    entries["AuthToken"] = input.AuthToken;
-  }
-  if (input.AutoMinorVersionUpgrade !== undefined) {
-    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
-  }
-  if (input.AutomaticFailoverEnabled !== undefined) {
-    entries["AutomaticFailoverEnabled"] = input.AutomaticFailoverEnabled;
-  }
-  if (input.NotificationTopicArn !== undefined) {
-    entries["NotificationTopicArn"] = input.NotificationTopicArn;
-  }
-  if (input.CacheParameterGroupName !== undefined) {
-    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
-  }
-  if (input.PreferredMaintenanceWindow !== undefined) {
-    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
-  }
-  if (input.SecurityGroupIds !== undefined) {
-    const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `SecurityGroupIds.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.PrimaryClusterId !== undefined) {
-    entries["PrimaryClusterId"] = input.PrimaryClusterId;
+  if (input.ReplicationGroupId !== undefined) {
+    entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
   if (input.ReplicationGroupDescription !== undefined) {
     entries["ReplicationGroupDescription"] = input.ReplicationGroupDescription;
   }
-  if (input.EngineVersion !== undefined) {
-    entries["EngineVersion"] = input.EngineVersion;
+  if (input.PrimaryClusterId !== undefined) {
+    entries["PrimaryClusterId"] = input.PrimaryClusterId;
+  }
+  if (input.SnapshottingClusterId !== undefined) {
+    entries["SnapshottingClusterId"] = input.SnapshottingClusterId;
+  }
+  if (input.AutomaticFailoverEnabled !== undefined) {
+    entries["AutomaticFailoverEnabled"] = input.AutomaticFailoverEnabled;
+  }
+  if (input.MultiAZEnabled !== undefined) {
+    entries["MultiAZEnabled"] = input.MultiAZEnabled;
+  }
+  if (input.NodeGroupId !== undefined) {
+    entries["NodeGroupId"] = input.NodeGroupId;
   }
   if (input.CacheSecurityGroupNames !== undefined) {
     const memberEntries = serializeAws_queryCacheSecurityGroupNameList(input.CacheSecurityGroupNames, context);
@@ -8391,20 +9555,65 @@ const serializeAws_queryModifyReplicationGroupMessage = (
       entries[loc] = value;
     });
   }
+  if (input.SecurityGroupIds !== undefined) {
+    const memberEntries = serializeAws_querySecurityGroupIdsList(input.SecurityGroupIds, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupIds.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.PreferredMaintenanceWindow !== undefined) {
+    entries["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
+  }
+  if (input.NotificationTopicArn !== undefined) {
+    entries["NotificationTopicArn"] = input.NotificationTopicArn;
+  }
+  if (input.CacheParameterGroupName !== undefined) {
+    entries["CacheParameterGroupName"] = input.CacheParameterGroupName;
+  }
+  if (input.NotificationTopicStatus !== undefined) {
+    entries["NotificationTopicStatus"] = input.NotificationTopicStatus;
+  }
   if (input.ApplyImmediately !== undefined) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
+  }
+  if (input.EngineVersion !== undefined) {
+    entries["EngineVersion"] = input.EngineVersion;
+  }
+  if (input.AutoMinorVersionUpgrade !== undefined) {
+    entries["AutoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
+  }
+  if (input.SnapshotRetentionLimit !== undefined) {
+    entries["SnapshotRetentionLimit"] = input.SnapshotRetentionLimit;
+  }
+  if (input.SnapshotWindow !== undefined) {
+    entries["SnapshotWindow"] = input.SnapshotWindow;
+  }
+  if (input.CacheNodeType !== undefined) {
+    entries["CacheNodeType"] = input.CacheNodeType;
+  }
+  if (input.AuthToken !== undefined) {
+    entries["AuthToken"] = input.AuthToken;
   }
   if (input.AuthTokenUpdateStrategy !== undefined) {
     entries["AuthTokenUpdateStrategy"] = input.AuthTokenUpdateStrategy;
   }
-  if (input.NodeGroupId !== undefined) {
-    entries["NodeGroupId"] = input.NodeGroupId;
+  if (input.UserGroupIdsToAdd !== undefined) {
+    const memberEntries = serializeAws_queryUserGroupIdList(input.UserGroupIdsToAdd, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `UserGroupIdsToAdd.${key}`;
+      entries[loc] = value;
+    });
   }
-  if (input.ReplicationGroupId !== undefined) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  if (input.UserGroupIdsToRemove !== undefined) {
+    const memberEntries = serializeAws_queryUserGroupIdList(input.UserGroupIdsToRemove, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `UserGroupIdsToRemove.${key}`;
+      entries[loc] = value;
+    });
   }
-  if (input.NotificationTopicStatus !== undefined) {
-    entries["NotificationTopicStatus"] = input.NotificationTopicStatus;
+  if (input.RemoveUserGroups !== undefined) {
+    entries["RemoveUserGroups"] = input.RemoveUserGroups;
   }
   return entries;
 };
@@ -8414,15 +9623,21 @@ const serializeAws_queryModifyReplicationGroupShardConfigurationMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NodeGroupsToRetain !== undefined) {
-    const memberEntries = serializeAws_queryNodeGroupsToRetainList(input.NodeGroupsToRetain, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `NodeGroupsToRetain.${key}`;
-      entries[loc] = value;
-    });
+  if (input.ReplicationGroupId !== undefined) {
+    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  }
+  if (input.NodeGroupCount !== undefined) {
+    entries["NodeGroupCount"] = input.NodeGroupCount;
   }
   if (input.ApplyImmediately !== undefined) {
     entries["ApplyImmediately"] = input.ApplyImmediately;
+  }
+  if (input.ReshardingConfiguration !== undefined) {
+    const memberEntries = serializeAws_queryReshardingConfigurationList(input.ReshardingConfiguration, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ReshardingConfiguration.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.NodeGroupsToRemove !== undefined) {
     const memberEntries = serializeAws_queryNodeGroupsToRemoveList(input.NodeGroupsToRemove, context);
@@ -8431,18 +9646,58 @@ const serializeAws_queryModifyReplicationGroupShardConfigurationMessage = (
       entries[loc] = value;
     });
   }
-  if (input.NodeGroupCount !== undefined) {
-    entries["NodeGroupCount"] = input.NodeGroupCount;
-  }
-  if (input.ReplicationGroupId !== undefined) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
-  }
-  if (input.ReshardingConfiguration !== undefined) {
-    const memberEntries = serializeAws_queryReshardingConfigurationList(input.ReshardingConfiguration, context);
+  if (input.NodeGroupsToRetain !== undefined) {
+    const memberEntries = serializeAws_queryNodeGroupsToRetainList(input.NodeGroupsToRetain, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ReshardingConfiguration.${key}`;
+      const loc = `NodeGroupsToRetain.${key}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+const serializeAws_queryModifyUserGroupMessage = (input: ModifyUserGroupMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.UserGroupId !== undefined) {
+    entries["UserGroupId"] = input.UserGroupId;
+  }
+  if (input.UserIdsToAdd !== undefined) {
+    const memberEntries = serializeAws_queryUserIdListInput(input.UserIdsToAdd, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `UserIdsToAdd.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.UserIdsToRemove !== undefined) {
+    const memberEntries = serializeAws_queryUserIdListInput(input.UserIdsToRemove, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `UserIdsToRemove.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryModifyUserMessage = (input: ModifyUserMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.UserId !== undefined) {
+    entries["UserId"] = input.UserId;
+  }
+  if (input.AccessString !== undefined) {
+    entries["AccessString"] = input.AccessString;
+  }
+  if (input.AppendAccessString !== undefined) {
+    entries["AppendAccessString"] = input.AppendAccessString;
+  }
+  if (input.Passwords !== undefined) {
+    const memberEntries = serializeAws_queryPasswordListInput(input.Passwords, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Passwords.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NoPasswordRequired !== undefined) {
+    entries["NoPasswordRequired"] = input.NoPasswordRequired;
   }
   return entries;
 };
@@ -8452,12 +9707,8 @@ const serializeAws_queryNodeGroupConfiguration = (input: NodeGroupConfiguration,
   if (input.NodeGroupId !== undefined) {
     entries["NodeGroupId"] = input.NodeGroupId;
   }
-  if (input.ReplicaAvailabilityZones !== undefined) {
-    const memberEntries = serializeAws_queryAvailabilityZonesList(input.ReplicaAvailabilityZones, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ReplicaAvailabilityZones.${key}`;
-      entries[loc] = value;
-    });
+  if (input.Slots !== undefined) {
+    entries["Slots"] = input.Slots;
   }
   if (input.ReplicaCount !== undefined) {
     entries["ReplicaCount"] = input.ReplicaCount;
@@ -8465,8 +9716,22 @@ const serializeAws_queryNodeGroupConfiguration = (input: NodeGroupConfiguration,
   if (input.PrimaryAvailabilityZone !== undefined) {
     entries["PrimaryAvailabilityZone"] = input.PrimaryAvailabilityZone;
   }
-  if (input.Slots !== undefined) {
-    entries["Slots"] = input.Slots;
+  if (input.ReplicaAvailabilityZones !== undefined) {
+    const memberEntries = serializeAws_queryAvailabilityZonesList(input.ReplicaAvailabilityZones, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ReplicaAvailabilityZones.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.PrimaryOutpostArn !== undefined) {
+    entries["PrimaryOutpostArn"] = input.PrimaryOutpostArn;
+  }
+  if (input.ReplicaOutpostArns !== undefined) {
+    const memberEntries = serializeAws_queryOutpostArnsList(input.ReplicaOutpostArns, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ReplicaOutpostArns.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -8507,13 +9772,23 @@ const serializeAws_queryNodeGroupsToRetainList = (input: string[], context: __Se
   return entries;
 };
 
+const serializeAws_queryOutpostArnsList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`OutpostArn.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_queryParameterNameValue = (input: ParameterNameValue, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ParameterValue !== undefined) {
-    entries["ParameterValue"] = input.ParameterValue;
-  }
   if (input.ParameterName !== undefined) {
     entries["ParameterName"] = input.ParameterName;
+  }
+  if (input.ParameterValue !== undefined) {
+    entries["ParameterValue"] = input.ParameterValue;
   }
   return entries;
 };
@@ -8531,11 +9806,31 @@ const serializeAws_queryParameterNameValueList = (input: ParameterNameValue[], c
   return entries;
 };
 
+const serializeAws_queryPasswordListInput = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_queryPreferredAvailabilityZoneList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
     entries[`PreferredAvailabilityZone.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryPreferredOutpostArnList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`PreferredOutpostArn.${counter}`] = entry;
     counter++;
   }
   return entries;
@@ -8549,11 +9844,11 @@ const serializeAws_queryPurchaseReservedCacheNodesOfferingMessage = (
   if (input.ReservedCacheNodesOfferingId !== undefined) {
     entries["ReservedCacheNodesOfferingId"] = input.ReservedCacheNodesOfferingId;
   }
-  if (input.CacheNodeCount !== undefined) {
-    entries["CacheNodeCount"] = input.CacheNodeCount;
-  }
   if (input.ReservedCacheNodeId !== undefined) {
     entries["ReservedCacheNodeId"] = input.ReservedCacheNodeId;
+  }
+  if (input.CacheNodeCount !== undefined) {
+    entries["CacheNodeCount"] = input.CacheNodeCount;
   }
   return entries;
 };
@@ -8592,6 +9887,9 @@ const serializeAws_queryRebootCacheClusterMessage = (
 
 const serializeAws_queryRegionalConfiguration = (input: RegionalConfiguration, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.ReplicationGroupId !== undefined) {
+    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  }
   if (input.ReplicationGroupRegion !== undefined) {
     entries["ReplicationGroupRegion"] = input.ReplicationGroupRegion;
   }
@@ -8601,9 +9899,6 @@ const serializeAws_queryRegionalConfiguration = (input: RegionalConfiguration, c
       const loc = `ReshardingConfiguration.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.ReplicationGroupId !== undefined) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
   return entries;
 };
@@ -8776,15 +10071,15 @@ const serializeAws_querySnapshotArnsList = (input: string[], context: __SerdeCon
 
 const serializeAws_queryStartMigrationMessage = (input: StartMigrationMessage, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.ReplicationGroupId !== undefined) {
+    entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  }
   if (input.CustomerNodeEndpointList !== undefined) {
     const memberEntries = serializeAws_queryCustomerNodeEndpointList(input.CustomerNodeEndpointList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `CustomerNodeEndpointList.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.ReplicationGroupId !== undefined) {
-    entries["ReplicationGroupId"] = input.ReplicationGroupId;
   }
   return entries;
 };
@@ -8825,11 +10120,11 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
 
 const serializeAws_queryTestFailoverMessage = (input: TestFailoverMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NodeGroupId !== undefined) {
-    entries["NodeGroupId"] = input.NodeGroupId;
-  }
   if (input.ReplicationGroupId !== undefined) {
     entries["ReplicationGroupId"] = input.ReplicationGroupId;
+  }
+  if (input.NodeGroupId !== undefined) {
+    entries["NodeGroupId"] = input.NodeGroupId;
   }
   return entries;
 };
@@ -8849,6 +10144,36 @@ const serializeAws_queryUpdateActionStatusList = (
   input: (UpdateActionStatus | string)[],
   context: __SerdeContext
 ): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryUserGroupIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryUserGroupIdListInput = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (let entry of input) {
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryUserIdListInput = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
   for (let entry of input) {
@@ -8896,6 +10221,20 @@ const deserializeAws_queryAPICallRateForCustomerExceededFault = (
   };
   if (output["message"] !== undefined) {
     contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryAuthentication = (output: any, context: __SerdeContext): Authentication => {
+  let contents: any = {
+    Type: undefined,
+    PasswordCount: undefined,
+  };
+  if (output["Type"] !== undefined) {
+    contents.Type = output["Type"];
+  }
+  if (output["PasswordCount"] !== undefined) {
+    contents.PasswordCount = parseInt(output["PasswordCount"]);
   }
   return contents;
 };
@@ -8955,39 +10294,70 @@ const deserializeAws_queryAvailabilityZonesList = (output: any, context: __Serde
 
 const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext): CacheCluster => {
   let contents: any = {
-    ClientDownloadLandingPage: undefined,
-    ConfigurationEndpoint: undefined,
-    PendingModifiedValues: undefined,
-    SnapshotRetentionLimit: undefined,
-    CacheClusterCreateTime: undefined,
-    ARN: undefined,
-    AuthTokenEnabled: undefined,
-    ReplicationGroupId: undefined,
-    CacheClusterStatus: undefined,
-    SecurityGroups: undefined,
     CacheClusterId: undefined,
-    TransitEncryptionEnabled: undefined,
-    CacheSecurityGroups: undefined,
-    NumCacheNodes: undefined,
-    PreferredMaintenanceWindow: undefined,
-    PreferredAvailabilityZone: undefined,
-    AutoMinorVersionUpgrade: undefined,
-    NotificationConfiguration: undefined,
-    AuthTokenLastModifiedDate: undefined,
-    SnapshotWindow: undefined,
-    CacheSubnetGroupName: undefined,
-    Engine: undefined,
-    CacheParameterGroup: undefined,
-    AtRestEncryptionEnabled: undefined,
+    ConfigurationEndpoint: undefined,
+    ClientDownloadLandingPage: undefined,
     CacheNodeType: undefined,
+    Engine: undefined,
     EngineVersion: undefined,
+    CacheClusterStatus: undefined,
+    NumCacheNodes: undefined,
+    PreferredAvailabilityZone: undefined,
+    PreferredOutpostArn: undefined,
+    CacheClusterCreateTime: undefined,
+    PreferredMaintenanceWindow: undefined,
+    PendingModifiedValues: undefined,
+    NotificationConfiguration: undefined,
+    CacheSecurityGroups: undefined,
+    CacheParameterGroup: undefined,
+    CacheSubnetGroupName: undefined,
     CacheNodes: undefined,
+    AutoMinorVersionUpgrade: undefined,
+    SecurityGroups: undefined,
+    ReplicationGroupId: undefined,
+    SnapshotRetentionLimit: undefined,
+    SnapshotWindow: undefined,
+    AuthTokenEnabled: undefined,
+    AuthTokenLastModifiedDate: undefined,
+    TransitEncryptionEnabled: undefined,
+    AtRestEncryptionEnabled: undefined,
+    ARN: undefined,
   };
-  if (output["ClientDownloadLandingPage"] !== undefined) {
-    contents.ClientDownloadLandingPage = output["ClientDownloadLandingPage"];
+  if (output["CacheClusterId"] !== undefined) {
+    contents.CacheClusterId = output["CacheClusterId"];
   }
   if (output["ConfigurationEndpoint"] !== undefined) {
     contents.ConfigurationEndpoint = deserializeAws_queryEndpoint(output["ConfigurationEndpoint"], context);
+  }
+  if (output["ClientDownloadLandingPage"] !== undefined) {
+    contents.ClientDownloadLandingPage = output["ClientDownloadLandingPage"];
+  }
+  if (output["CacheNodeType"] !== undefined) {
+    contents.CacheNodeType = output["CacheNodeType"];
+  }
+  if (output["Engine"] !== undefined) {
+    contents.Engine = output["Engine"];
+  }
+  if (output["EngineVersion"] !== undefined) {
+    contents.EngineVersion = output["EngineVersion"];
+  }
+  if (output["CacheClusterStatus"] !== undefined) {
+    contents.CacheClusterStatus = output["CacheClusterStatus"];
+  }
+  if (output["NumCacheNodes"] !== undefined) {
+    contents.NumCacheNodes = parseInt(output["NumCacheNodes"]);
+  }
+  if (output["PreferredAvailabilityZone"] !== undefined) {
+    contents.PreferredAvailabilityZone = output["PreferredAvailabilityZone"];
+  }
+  if (output["PreferredOutpostArn"] !== undefined) {
+    contents.PreferredOutpostArn = output["PreferredOutpostArn"];
+  }
+  if (output["CacheClusterCreateTime"] !== undefined) {
+    contents.CacheClusterCreateTime = new Date(output["CacheClusterCreateTime"]);
+  }
+  if (output["PreferredMaintenanceWindow"] !== undefined) {
+    contents.PreferredMaintenanceWindow = output["PreferredMaintenanceWindow"];
   }
   if (output["PendingModifiedValues"] !== undefined) {
     contents.PendingModifiedValues = deserializeAws_queryPendingModifiedValues(
@@ -8995,38 +10365,11 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
       context
     );
   }
-  if (output["SnapshotRetentionLimit"] !== undefined) {
-    contents.SnapshotRetentionLimit = parseInt(output["SnapshotRetentionLimit"]);
-  }
-  if (output["CacheClusterCreateTime"] !== undefined) {
-    contents.CacheClusterCreateTime = new Date(output["CacheClusterCreateTime"]);
-  }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
-  }
-  if (output["AuthTokenEnabled"] !== undefined) {
-    contents.AuthTokenEnabled = output["AuthTokenEnabled"] == "true";
-  }
-  if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = output["ReplicationGroupId"];
-  }
-  if (output["CacheClusterStatus"] !== undefined) {
-    contents.CacheClusterStatus = output["CacheClusterStatus"];
-  }
-  if (output.SecurityGroups === "") {
-    contents.SecurityGroups = [];
-  }
-  if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
-    contents.SecurityGroups = deserializeAws_querySecurityGroupMembershipList(
-      __getArrayIfSingleItem(output["SecurityGroups"]["member"]),
+  if (output["NotificationConfiguration"] !== undefined) {
+    contents.NotificationConfiguration = deserializeAws_queryNotificationConfiguration(
+      output["NotificationConfiguration"],
       context
     );
-  }
-  if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = output["CacheClusterId"];
-  }
-  if (output["TransitEncryptionEnabled"] !== undefined) {
-    contents.TransitEncryptionEnabled = output["TransitEncryptionEnabled"] == "true";
   }
   if (output.CacheSecurityGroups === "") {
     contents.CacheSecurityGroups = [];
@@ -9040,50 +10383,14 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
       context
     );
   }
-  if (output["NumCacheNodes"] !== undefined) {
-    contents.NumCacheNodes = parseInt(output["NumCacheNodes"]);
-  }
-  if (output["PreferredMaintenanceWindow"] !== undefined) {
-    contents.PreferredMaintenanceWindow = output["PreferredMaintenanceWindow"];
-  }
-  if (output["PreferredAvailabilityZone"] !== undefined) {
-    contents.PreferredAvailabilityZone = output["PreferredAvailabilityZone"];
-  }
-  if (output["AutoMinorVersionUpgrade"] !== undefined) {
-    contents.AutoMinorVersionUpgrade = output["AutoMinorVersionUpgrade"] == "true";
-  }
-  if (output["NotificationConfiguration"] !== undefined) {
-    contents.NotificationConfiguration = deserializeAws_queryNotificationConfiguration(
-      output["NotificationConfiguration"],
-      context
-    );
-  }
-  if (output["AuthTokenLastModifiedDate"] !== undefined) {
-    contents.AuthTokenLastModifiedDate = new Date(output["AuthTokenLastModifiedDate"]);
-  }
-  if (output["SnapshotWindow"] !== undefined) {
-    contents.SnapshotWindow = output["SnapshotWindow"];
-  }
-  if (output["CacheSubnetGroupName"] !== undefined) {
-    contents.CacheSubnetGroupName = output["CacheSubnetGroupName"];
-  }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
-  }
   if (output["CacheParameterGroup"] !== undefined) {
     contents.CacheParameterGroup = deserializeAws_queryCacheParameterGroupStatus(
       output["CacheParameterGroup"],
       context
     );
   }
-  if (output["AtRestEncryptionEnabled"] !== undefined) {
-    contents.AtRestEncryptionEnabled = output["AtRestEncryptionEnabled"] == "true";
-  }
-  if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = output["CacheNodeType"];
-  }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+  if (output["CacheSubnetGroupName"] !== undefined) {
+    contents.CacheSubnetGroupName = output["CacheSubnetGroupName"];
   }
   if (output.CacheNodes === "") {
     contents.CacheNodes = [];
@@ -9093,6 +10400,42 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
       __getArrayIfSingleItem(output["CacheNodes"]["CacheNode"]),
       context
     );
+  }
+  if (output["AutoMinorVersionUpgrade"] !== undefined) {
+    contents.AutoMinorVersionUpgrade = output["AutoMinorVersionUpgrade"] == "true";
+  }
+  if (output.SecurityGroups === "") {
+    contents.SecurityGroups = [];
+  }
+  if (output["SecurityGroups"] !== undefined && output["SecurityGroups"]["member"] !== undefined) {
+    contents.SecurityGroups = deserializeAws_querySecurityGroupMembershipList(
+      __getArrayIfSingleItem(output["SecurityGroups"]["member"]),
+      context
+    );
+  }
+  if (output["ReplicationGroupId"] !== undefined) {
+    contents.ReplicationGroupId = output["ReplicationGroupId"];
+  }
+  if (output["SnapshotRetentionLimit"] !== undefined) {
+    contents.SnapshotRetentionLimit = parseInt(output["SnapshotRetentionLimit"]);
+  }
+  if (output["SnapshotWindow"] !== undefined) {
+    contents.SnapshotWindow = output["SnapshotWindow"];
+  }
+  if (output["AuthTokenEnabled"] !== undefined) {
+    contents.AuthTokenEnabled = output["AuthTokenEnabled"] == "true";
+  }
+  if (output["AuthTokenLastModifiedDate"] !== undefined) {
+    contents.AuthTokenLastModifiedDate = new Date(output["AuthTokenLastModifiedDate"]);
+  }
+  if (output["TransitEncryptionEnabled"] !== undefined) {
+    contents.TransitEncryptionEnabled = output["TransitEncryptionEnabled"] == "true";
+  }
+  if (output["AtRestEncryptionEnabled"] !== undefined) {
+    contents.AtRestEncryptionEnabled = output["AtRestEncryptionEnabled"] == "true";
+  }
+  if (output["ARN"] !== undefined) {
+    contents.ARN = output["ARN"];
   }
   return contents;
 };
@@ -9116,9 +10459,12 @@ const deserializeAws_queryCacheClusterList = (output: any, context: __SerdeConte
 
 const deserializeAws_queryCacheClusterMessage = (output: any, context: __SerdeContext): CacheClusterMessage => {
   let contents: any = {
-    CacheClusters: undefined,
     Marker: undefined,
+    CacheClusters: undefined,
   };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output.CacheClusters === "") {
     contents.CacheClusters = [];
   }
@@ -9127,9 +10473,6 @@ const deserializeAws_queryCacheClusterMessage = (output: any, context: __SerdeCo
       __getArrayIfSingleItem(output["CacheClusters"]["CacheCluster"]),
       context
     );
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
   }
   return contents;
 };
@@ -9150,25 +10493,25 @@ const deserializeAws_queryCacheClusterNotFoundFault = (
 const deserializeAws_queryCacheEngineVersion = (output: any, context: __SerdeContext): CacheEngineVersion => {
   let contents: any = {
     Engine: undefined,
-    CacheEngineDescription: undefined,
-    CacheParameterGroupFamily: undefined,
-    CacheEngineVersionDescription: undefined,
     EngineVersion: undefined,
+    CacheParameterGroupFamily: undefined,
+    CacheEngineDescription: undefined,
+    CacheEngineVersionDescription: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = output["Engine"];
   }
-  if (output["CacheEngineDescription"] !== undefined) {
-    contents.CacheEngineDescription = output["CacheEngineDescription"];
+  if (output["EngineVersion"] !== undefined) {
+    contents.EngineVersion = output["EngineVersion"];
   }
   if (output["CacheParameterGroupFamily"] !== undefined) {
     contents.CacheParameterGroupFamily = output["CacheParameterGroupFamily"];
   }
+  if (output["CacheEngineDescription"] !== undefined) {
+    contents.CacheEngineDescription = output["CacheEngineDescription"];
+  }
   if (output["CacheEngineVersionDescription"] !== undefined) {
     contents.CacheEngineVersionDescription = output["CacheEngineVersionDescription"];
-  }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
   }
   return contents;
 };
@@ -9205,34 +10548,38 @@ const deserializeAws_queryCacheEngineVersionMessage = (
 
 const deserializeAws_queryCacheNode = (output: any, context: __SerdeContext): CacheNode => {
   let contents: any = {
-    SourceCacheNodeId: undefined,
-    CacheNodeCreateTime: undefined,
-    ParameterGroupStatus: undefined,
     CacheNodeId: undefined,
     CacheNodeStatus: undefined,
+    CacheNodeCreateTime: undefined,
     Endpoint: undefined,
+    ParameterGroupStatus: undefined,
+    SourceCacheNodeId: undefined,
     CustomerAvailabilityZone: undefined,
+    CustomerOutpostArn: undefined,
   };
-  if (output["SourceCacheNodeId"] !== undefined) {
-    contents.SourceCacheNodeId = output["SourceCacheNodeId"];
-  }
-  if (output["CacheNodeCreateTime"] !== undefined) {
-    contents.CacheNodeCreateTime = new Date(output["CacheNodeCreateTime"]);
-  }
-  if (output["ParameterGroupStatus"] !== undefined) {
-    contents.ParameterGroupStatus = output["ParameterGroupStatus"];
-  }
   if (output["CacheNodeId"] !== undefined) {
     contents.CacheNodeId = output["CacheNodeId"];
   }
   if (output["CacheNodeStatus"] !== undefined) {
     contents.CacheNodeStatus = output["CacheNodeStatus"];
   }
+  if (output["CacheNodeCreateTime"] !== undefined) {
+    contents.CacheNodeCreateTime = new Date(output["CacheNodeCreateTime"]);
+  }
   if (output["Endpoint"] !== undefined) {
     contents.Endpoint = deserializeAws_queryEndpoint(output["Endpoint"], context);
   }
+  if (output["ParameterGroupStatus"] !== undefined) {
+    contents.ParameterGroupStatus = output["ParameterGroupStatus"];
+  }
+  if (output["SourceCacheNodeId"] !== undefined) {
+    contents.SourceCacheNodeId = output["SourceCacheNodeId"];
+  }
   if (output["CustomerAvailabilityZone"] !== undefined) {
     contents.CustomerAvailabilityZone = output["CustomerAvailabilityZone"];
+  }
+  if (output["CustomerOutpostArn"] !== undefined) {
+    contents.CustomerOutpostArn = output["CustomerOutpostArn"];
   }
   return contents;
 };
@@ -9250,33 +10597,33 @@ const deserializeAws_queryCacheNodeTypeSpecificParameter = (
   context: __SerdeContext
 ): CacheNodeTypeSpecificParameter => {
   let contents: any = {
-    Description: undefined,
-    ChangeType: undefined,
-    IsModifiable: undefined,
     ParameterName: undefined,
+    Description: undefined,
     Source: undefined,
     DataType: undefined,
+    AllowedValues: undefined,
+    IsModifiable: undefined,
     MinimumEngineVersion: undefined,
     CacheNodeTypeSpecificValues: undefined,
-    AllowedValues: undefined,
+    ChangeType: undefined,
   };
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["ChangeType"] !== undefined) {
-    contents.ChangeType = output["ChangeType"];
-  }
-  if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = output["IsModifiable"] == "true";
-  }
   if (output["ParameterName"] !== undefined) {
     contents.ParameterName = output["ParameterName"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
   }
   if (output["Source"] !== undefined) {
     contents.Source = output["Source"];
   }
   if (output["DataType"] !== undefined) {
     contents.DataType = output["DataType"];
+  }
+  if (output["AllowedValues"] !== undefined) {
+    contents.AllowedValues = output["AllowedValues"];
+  }
+  if (output["IsModifiable"] !== undefined) {
+    contents.IsModifiable = output["IsModifiable"] == "true";
   }
   if (output["MinimumEngineVersion"] !== undefined) {
     contents.MinimumEngineVersion = output["MinimumEngineVersion"];
@@ -9293,8 +10640,8 @@ const deserializeAws_queryCacheNodeTypeSpecificParameter = (
       context
     );
   }
-  if (output["AllowedValues"] !== undefined) {
-    contents.AllowedValues = output["AllowedValues"];
+  if (output["ChangeType"] !== undefined) {
+    contents.ChangeType = output["ChangeType"];
   }
   return contents;
 };
@@ -9332,26 +10679,29 @@ const deserializeAws_queryCacheNodeTypeSpecificValueList = (
 
 const deserializeAws_queryCacheNodeUpdateStatus = (output: any, context: __SerdeContext): CacheNodeUpdateStatus => {
   let contents: any = {
-    NodeUpdateStatusModifiedDate: undefined,
+    CacheNodeId: undefined,
     NodeUpdateStatus: undefined,
-    NodeUpdateEndDate: undefined,
+    NodeDeletionDate: undefined,
     NodeUpdateStartDate: undefined,
+    NodeUpdateEndDate: undefined,
     NodeUpdateInitiatedBy: undefined,
     NodeUpdateInitiatedDate: undefined,
-    CacheNodeId: undefined,
-    NodeDeletionDate: undefined,
+    NodeUpdateStatusModifiedDate: undefined,
   };
-  if (output["NodeUpdateStatusModifiedDate"] !== undefined) {
-    contents.NodeUpdateStatusModifiedDate = new Date(output["NodeUpdateStatusModifiedDate"]);
+  if (output["CacheNodeId"] !== undefined) {
+    contents.CacheNodeId = output["CacheNodeId"];
   }
   if (output["NodeUpdateStatus"] !== undefined) {
     contents.NodeUpdateStatus = output["NodeUpdateStatus"];
   }
-  if (output["NodeUpdateEndDate"] !== undefined) {
-    contents.NodeUpdateEndDate = new Date(output["NodeUpdateEndDate"]);
+  if (output["NodeDeletionDate"] !== undefined) {
+    contents.NodeDeletionDate = new Date(output["NodeDeletionDate"]);
   }
   if (output["NodeUpdateStartDate"] !== undefined) {
     contents.NodeUpdateStartDate = new Date(output["NodeUpdateStartDate"]);
+  }
+  if (output["NodeUpdateEndDate"] !== undefined) {
+    contents.NodeUpdateEndDate = new Date(output["NodeUpdateEndDate"]);
   }
   if (output["NodeUpdateInitiatedBy"] !== undefined) {
     contents.NodeUpdateInitiatedBy = output["NodeUpdateInitiatedBy"];
@@ -9359,11 +10709,8 @@ const deserializeAws_queryCacheNodeUpdateStatus = (output: any, context: __Serde
   if (output["NodeUpdateInitiatedDate"] !== undefined) {
     contents.NodeUpdateInitiatedDate = new Date(output["NodeUpdateInitiatedDate"]);
   }
-  if (output["CacheNodeId"] !== undefined) {
-    contents.CacheNodeId = output["CacheNodeId"];
-  }
-  if (output["NodeDeletionDate"] !== undefined) {
-    contents.NodeDeletionDate = new Date(output["NodeDeletionDate"]);
+  if (output["NodeUpdateStatusModifiedDate"] !== undefined) {
+    contents.NodeUpdateStatusModifiedDate = new Date(output["NodeUpdateStatusModifiedDate"]);
   }
   return contents;
 };
@@ -9377,23 +10724,23 @@ const deserializeAws_queryCacheNodeUpdateStatusList = (
 
 const deserializeAws_queryCacheParameterGroup = (output: any, context: __SerdeContext): CacheParameterGroup => {
   let contents: any = {
-    Description: undefined,
     CacheParameterGroupName: undefined,
-    IsGlobal: undefined,
     CacheParameterGroupFamily: undefined,
+    Description: undefined,
+    IsGlobal: undefined,
     ARN: undefined,
   };
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
   if (output["CacheParameterGroupName"] !== undefined) {
     contents.CacheParameterGroupName = output["CacheParameterGroupName"];
   }
-  if (output["IsGlobal"] !== undefined) {
-    contents.IsGlobal = output["IsGlobal"] == "true";
-  }
   if (output["CacheParameterGroupFamily"] !== undefined) {
     contents.CacheParameterGroupFamily = output["CacheParameterGroupFamily"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
+  if (output["IsGlobal"] !== undefined) {
+    contents.IsGlobal = output["IsGlobal"] == "true";
   }
   if (output["ARN"] !== undefined) {
     contents.ARN = output["ARN"];
@@ -9419,10 +10766,13 @@ const deserializeAws_queryCacheParameterGroupDetails = (
   context: __SerdeContext
 ): CacheParameterGroupDetails => {
   let contents: any = {
-    Parameters: undefined,
     Marker: undefined,
+    Parameters: undefined,
     CacheNodeTypeSpecificParameters: undefined,
   };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output.Parameters === "") {
     contents.Parameters = [];
   }
@@ -9431,9 +10781,6 @@ const deserializeAws_queryCacheParameterGroupDetails = (
       __getArrayIfSingleItem(output["Parameters"]["Parameter"]),
       context
     );
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
   }
   if (output.CacheNodeTypeSpecificParameters === "") {
     contents.CacheNodeTypeSpecificParameters = [];
@@ -9548,20 +10895,17 @@ const deserializeAws_queryCacheParameterGroupStatus = (
 
 const deserializeAws_queryCacheSecurityGroup = (output: any, context: __SerdeContext): CacheSecurityGroup => {
   let contents: any = {
-    CacheSecurityGroupName: undefined,
-    ARN: undefined,
     OwnerId: undefined,
+    CacheSecurityGroupName: undefined,
     Description: undefined,
     EC2SecurityGroups: undefined,
+    ARN: undefined,
   };
-  if (output["CacheSecurityGroupName"] !== undefined) {
-    contents.CacheSecurityGroupName = output["CacheSecurityGroupName"];
-  }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
-  }
   if (output["OwnerId"] !== undefined) {
     contents.OwnerId = output["OwnerId"];
+  }
+  if (output["CacheSecurityGroupName"] !== undefined) {
+    contents.CacheSecurityGroupName = output["CacheSecurityGroupName"];
   }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
@@ -9574,6 +10918,9 @@ const deserializeAws_queryCacheSecurityGroup = (output: any, context: __SerdeCon
       __getArrayIfSingleItem(output["EC2SecurityGroups"]["EC2SecurityGroup"]),
       context
     );
+  }
+  if (output["ARN"] !== undefined) {
+    contents.ARN = output["ARN"];
   }
   return contents;
 };
@@ -9596,14 +10943,14 @@ const deserializeAws_queryCacheSecurityGroupMembership = (
   context: __SerdeContext
 ): CacheSecurityGroupMembership => {
   let contents: any = {
-    Status: undefined,
     CacheSecurityGroupName: undefined,
+    Status: undefined,
   };
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
-  }
   if (output["CacheSecurityGroupName"] !== undefined) {
     contents.CacheSecurityGroupName = output["CacheSecurityGroupName"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -9620,9 +10967,12 @@ const deserializeAws_queryCacheSecurityGroupMessage = (
   context: __SerdeContext
 ): CacheSecurityGroupMessage => {
   let contents: any = {
-    CacheSecurityGroups: undefined,
     Marker: undefined,
+    CacheSecurityGroups: undefined,
   };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output.CacheSecurityGroups === "") {
     contents.CacheSecurityGroups = [];
   }
@@ -9634,9 +10984,6 @@ const deserializeAws_queryCacheSecurityGroupMessage = (
       __getArrayIfSingleItem(output["CacheSecurityGroups"]["CacheSecurityGroup"]),
       context
     );
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
   }
   return contents;
 };
@@ -9673,29 +11020,29 @@ const deserializeAws_queryCacheSecurityGroups = (output: any, context: __SerdeCo
 
 const deserializeAws_queryCacheSubnetGroup = (output: any, context: __SerdeContext): CacheSubnetGroup => {
   let contents: any = {
-    Subnets: undefined,
     CacheSubnetGroupName: undefined,
-    ARN: undefined,
     CacheSubnetGroupDescription: undefined,
     VpcId: undefined,
+    Subnets: undefined,
+    ARN: undefined,
   };
-  if (output.Subnets === "") {
-    contents.Subnets = [];
-  }
-  if (output["Subnets"] !== undefined && output["Subnets"]["Subnet"] !== undefined) {
-    contents.Subnets = deserializeAws_querySubnetList(__getArrayIfSingleItem(output["Subnets"]["Subnet"]), context);
-  }
   if (output["CacheSubnetGroupName"] !== undefined) {
     contents.CacheSubnetGroupName = output["CacheSubnetGroupName"];
-  }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
   }
   if (output["CacheSubnetGroupDescription"] !== undefined) {
     contents.CacheSubnetGroupDescription = output["CacheSubnetGroupDescription"];
   }
   if (output["VpcId"] !== undefined) {
     contents.VpcId = output["VpcId"];
+  }
+  if (output.Subnets === "") {
+    contents.Subnets = [];
+  }
+  if (output["Subnets"] !== undefined && output["Subnets"]["Subnet"] !== undefined) {
+    contents.Subnets = deserializeAws_querySubnetList(__getArrayIfSingleItem(output["Subnets"]["Subnet"]), context);
+  }
+  if (output["ARN"] !== undefined) {
+    contents.ARN = output["ARN"];
   }
   return contents;
 };
@@ -9725,9 +11072,12 @@ const deserializeAws_queryCacheSubnetGroupInUse = (output: any, context: __Serde
 
 const deserializeAws_queryCacheSubnetGroupMessage = (output: any, context: __SerdeContext): CacheSubnetGroupMessage => {
   let contents: any = {
-    CacheSubnetGroups: undefined,
     Marker: undefined,
+    CacheSubnetGroups: undefined,
   };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output.CacheSubnetGroups === "") {
     contents.CacheSubnetGroups = [];
   }
@@ -9736,9 +11086,6 @@ const deserializeAws_queryCacheSubnetGroupMessage = (output: any, context: __Ser
       __getArrayIfSingleItem(output["CacheSubnetGroups"]["CacheSubnetGroup"]),
       context
     );
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
   }
   return contents;
 };
@@ -9946,6 +11293,29 @@ const deserializeAws_queryDecreaseReplicaCountResult = (
   return contents;
 };
 
+const deserializeAws_queryDefaultUserAssociatedToUserGroupFault = (
+  output: any,
+  context: __SerdeContext
+): DefaultUserAssociatedToUserGroupFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDefaultUserRequired = (output: any, context: __SerdeContext): DefaultUserRequired => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryDeleteCacheClusterResult = (
   output: any,
   context: __SerdeContext
@@ -10060,6 +11430,46 @@ const deserializeAws_queryDescribeSnapshotsListMessage = (
   return contents;
 };
 
+const deserializeAws_queryDescribeUserGroupsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeUserGroupsResult => {
+  let contents: any = {
+    UserGroups: undefined,
+    Marker: undefined,
+  };
+  if (output.UserGroups === "") {
+    contents.UserGroups = [];
+  }
+  if (output["UserGroups"] !== undefined && output["UserGroups"]["member"] !== undefined) {
+    contents.UserGroups = deserializeAws_queryUserGroupList(
+      __getArrayIfSingleItem(output["UserGroups"]["member"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryDescribeUsersResult = (output: any, context: __SerdeContext): DescribeUsersResult => {
+  let contents: any = {
+    Users: undefined,
+    Marker: undefined,
+  };
+  if (output.Users === "") {
+    contents.Users = [];
+  }
+  if (output["Users"] !== undefined && output["Users"]["member"] !== undefined) {
+    contents.Users = deserializeAws_queryUserList(__getArrayIfSingleItem(output["Users"]["member"]), context);
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryDisassociateGlobalReplicationGroupResult = (
   output: any,
   context: __SerdeContext
@@ -10076,17 +11486,27 @@ const deserializeAws_queryDisassociateGlobalReplicationGroupResult = (
   return contents;
 };
 
+const deserializeAws_queryDuplicateUserNameFault = (output: any, context: __SerdeContext): DuplicateUserNameFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryEC2SecurityGroup = (output: any, context: __SerdeContext): EC2SecurityGroup => {
   let contents: any = {
-    EC2SecurityGroupName: undefined,
     Status: undefined,
+    EC2SecurityGroupName: undefined,
     EC2SecurityGroupOwnerId: undefined,
   };
-  if (output["EC2SecurityGroupName"] !== undefined) {
-    contents.EC2SecurityGroupName = output["EC2SecurityGroupName"];
-  }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
+  }
+  if (output["EC2SecurityGroupName"] !== undefined) {
+    contents.EC2SecurityGroupName = output["EC2SecurityGroupName"];
   }
   if (output["EC2SecurityGroupOwnerId"] !== undefined) {
     contents.EC2SecurityGroupOwnerId = output["EC2SecurityGroupOwnerId"];
@@ -10100,14 +11520,14 @@ const deserializeAws_queryEC2SecurityGroupList = (output: any, context: __SerdeC
 
 const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): Endpoint => {
   let contents: any = {
-    Port: undefined,
     Address: undefined,
+    Port: undefined,
   };
-  if (output["Port"] !== undefined) {
-    contents.Port = parseInt(output["Port"]);
-  }
   if (output["Address"] !== undefined) {
     contents.Address = output["Address"];
+  }
+  if (output["Port"] !== undefined) {
+    contents.Port = parseInt(output["Port"]);
   }
   return contents;
 };
@@ -10116,14 +11536,23 @@ const deserializeAws_queryEngineDefaults = (output: any, context: __SerdeContext
   let contents: any = {
     CacheParameterGroupFamily: undefined,
     Marker: undefined,
-    CacheNodeTypeSpecificParameters: undefined,
     Parameters: undefined,
+    CacheNodeTypeSpecificParameters: undefined,
   };
   if (output["CacheParameterGroupFamily"] !== undefined) {
     contents.CacheParameterGroupFamily = output["CacheParameterGroupFamily"];
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  if (output.Parameters === "") {
+    contents.Parameters = [];
+  }
+  if (output["Parameters"] !== undefined && output["Parameters"]["Parameter"] !== undefined) {
+    contents.Parameters = deserializeAws_queryParametersList(
+      __getArrayIfSingleItem(output["Parameters"]["Parameter"]),
+      context
+    );
   }
   if (output.CacheNodeTypeSpecificParameters === "") {
     contents.CacheNodeTypeSpecificParameters = [];
@@ -10137,28 +11566,16 @@ const deserializeAws_queryEngineDefaults = (output: any, context: __SerdeContext
       context
     );
   }
-  if (output.Parameters === "") {
-    contents.Parameters = [];
-  }
-  if (output["Parameters"] !== undefined && output["Parameters"]["Parameter"] !== undefined) {
-    contents.Parameters = deserializeAws_queryParametersList(
-      __getArrayIfSingleItem(output["Parameters"]["Parameter"]),
-      context
-    );
-  }
   return contents;
 };
 
 const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event => {
   let contents: any = {
-    Date: undefined,
     SourceIdentifier: undefined,
     SourceType: undefined,
     Message: undefined,
+    Date: undefined,
   };
-  if (output["Date"] !== undefined) {
-    contents.Date = new Date(output["Date"]);
-  }
   if (output["SourceIdentifier"] !== undefined) {
     contents.SourceIdentifier = output["SourceIdentifier"];
   }
@@ -10167,6 +11584,9 @@ const deserializeAws_queryEvent = (output: any, context: __SerdeContext): Event 
   }
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
+  }
+  if (output["Date"] !== undefined) {
+    contents.Date = new Date(output["Date"]);
   }
   return contents;
 };
@@ -10210,14 +11630,14 @@ const deserializeAws_queryFailoverGlobalReplicationGroupResult = (
 
 const deserializeAws_queryGlobalNodeGroup = (output: any, context: __SerdeContext): GlobalNodeGroup => {
   let contents: any = {
-    Slots: undefined,
     GlobalNodeGroupId: undefined,
+    Slots: undefined,
   };
-  if (output["Slots"] !== undefined) {
-    contents.Slots = output["Slots"];
-  }
   if (output["GlobalNodeGroupId"] !== undefined) {
     contents.GlobalNodeGroupId = output["GlobalNodeGroupId"];
+  }
+  if (output["Slots"] !== undefined) {
+    contents.Slots = output["Slots"];
   }
   return contents;
 };
@@ -10228,28 +11648,37 @@ const deserializeAws_queryGlobalNodeGroupList = (output: any, context: __SerdeCo
 
 const deserializeAws_queryGlobalReplicationGroup = (output: any, context: __SerdeContext): GlobalReplicationGroup => {
   let contents: any = {
-    TransitEncryptionEnabled: undefined,
-    ClusterEnabled: undefined,
-    GlobalReplicationGroupDescription: undefined,
-    Members: undefined,
     GlobalReplicationGroupId: undefined,
-    ARN: undefined,
-    Engine: undefined,
-    AtRestEncryptionEnabled: undefined,
-    AuthTokenEnabled: undefined,
+    GlobalReplicationGroupDescription: undefined,
     Status: undefined,
-    GlobalNodeGroups: undefined,
-    EngineVersion: undefined,
     CacheNodeType: undefined,
+    Engine: undefined,
+    EngineVersion: undefined,
+    Members: undefined,
+    ClusterEnabled: undefined,
+    GlobalNodeGroups: undefined,
+    AuthTokenEnabled: undefined,
+    TransitEncryptionEnabled: undefined,
+    AtRestEncryptionEnabled: undefined,
+    ARN: undefined,
   };
-  if (output["TransitEncryptionEnabled"] !== undefined) {
-    contents.TransitEncryptionEnabled = output["TransitEncryptionEnabled"] == "true";
-  }
-  if (output["ClusterEnabled"] !== undefined) {
-    contents.ClusterEnabled = output["ClusterEnabled"] == "true";
+  if (output["GlobalReplicationGroupId"] !== undefined) {
+    contents.GlobalReplicationGroupId = output["GlobalReplicationGroupId"];
   }
   if (output["GlobalReplicationGroupDescription"] !== undefined) {
     contents.GlobalReplicationGroupDescription = output["GlobalReplicationGroupDescription"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["CacheNodeType"] !== undefined) {
+    contents.CacheNodeType = output["CacheNodeType"];
+  }
+  if (output["Engine"] !== undefined) {
+    contents.Engine = output["Engine"];
+  }
+  if (output["EngineVersion"] !== undefined) {
+    contents.EngineVersion = output["EngineVersion"];
   }
   if (output.Members === "") {
     contents.Members = [];
@@ -10260,23 +11689,8 @@ const deserializeAws_queryGlobalReplicationGroup = (output: any, context: __Serd
       context
     );
   }
-  if (output["GlobalReplicationGroupId"] !== undefined) {
-    contents.GlobalReplicationGroupId = output["GlobalReplicationGroupId"];
-  }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
-  }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
-  }
-  if (output["AtRestEncryptionEnabled"] !== undefined) {
-    contents.AtRestEncryptionEnabled = output["AtRestEncryptionEnabled"] == "true";
-  }
-  if (output["AuthTokenEnabled"] !== undefined) {
-    contents.AuthTokenEnabled = output["AuthTokenEnabled"] == "true";
-  }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+  if (output["ClusterEnabled"] !== undefined) {
+    contents.ClusterEnabled = output["ClusterEnabled"] == "true";
   }
   if (output.GlobalNodeGroups === "") {
     contents.GlobalNodeGroups = [];
@@ -10287,11 +11701,17 @@ const deserializeAws_queryGlobalReplicationGroup = (output: any, context: __Serd
       context
     );
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+  if (output["AuthTokenEnabled"] !== undefined) {
+    contents.AuthTokenEnabled = output["AuthTokenEnabled"] == "true";
   }
-  if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = output["CacheNodeType"];
+  if (output["TransitEncryptionEnabled"] !== undefined) {
+    contents.TransitEncryptionEnabled = output["TransitEncryptionEnabled"] == "true";
+  }
+  if (output["AtRestEncryptionEnabled"] !== undefined) {
+    contents.AtRestEncryptionEnabled = output["AtRestEncryptionEnabled"] == "true";
+  }
+  if (output["ARN"] !== undefined) {
+    contents.ARN = output["ARN"];
   }
   return contents;
 };
@@ -10314,14 +11734,14 @@ const deserializeAws_queryGlobalReplicationGroupInfo = (
   context: __SerdeContext
 ): GlobalReplicationGroupInfo => {
   let contents: any = {
-    GlobalReplicationGroupMemberRole: undefined,
     GlobalReplicationGroupId: undefined,
+    GlobalReplicationGroupMemberRole: undefined,
   };
-  if (output["GlobalReplicationGroupMemberRole"] !== undefined) {
-    contents.GlobalReplicationGroupMemberRole = output["GlobalReplicationGroupMemberRole"];
-  }
   if (output["GlobalReplicationGroupId"] !== undefined) {
     contents.GlobalReplicationGroupId = output["GlobalReplicationGroupId"];
+  }
+  if (output["GlobalReplicationGroupMemberRole"] !== undefined) {
+    contents.GlobalReplicationGroupMemberRole = output["GlobalReplicationGroupMemberRole"];
   }
   return contents;
 };
@@ -10338,26 +11758,26 @@ const deserializeAws_queryGlobalReplicationGroupMember = (
   context: __SerdeContext
 ): GlobalReplicationGroupMember => {
   let contents: any = {
-    Role: undefined,
-    ReplicationGroupRegion: undefined,
-    Status: undefined,
     ReplicationGroupId: undefined,
+    ReplicationGroupRegion: undefined,
+    Role: undefined,
     AutomaticFailover: undefined,
+    Status: undefined,
   };
-  if (output["Role"] !== undefined) {
-    contents.Role = output["Role"];
+  if (output["ReplicationGroupId"] !== undefined) {
+    contents.ReplicationGroupId = output["ReplicationGroupId"];
   }
   if (output["ReplicationGroupRegion"] !== undefined) {
     contents.ReplicationGroupRegion = output["ReplicationGroupRegion"];
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
-  }
-  if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = output["ReplicationGroupId"];
+  if (output["Role"] !== undefined) {
+    contents.Role = output["Role"];
   }
   if (output["AutomaticFailover"] !== undefined) {
     contents.AutomaticFailover = output["AutomaticFailover"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -10558,6 +11978,29 @@ const deserializeAws_queryInvalidSubnet = (output: any, context: __SerdeContext)
   return contents;
 };
 
+const deserializeAws_queryInvalidUserGroupStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidUserGroupStateFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidUserStateFault = (output: any, context: __SerdeContext): InvalidUserStateFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
 const deserializeAws_queryInvalidVPCNetworkStateFault = (
   output: any,
   context: __SerdeContext
@@ -10641,13 +12084,28 @@ const deserializeAws_queryModifyReplicationGroupShardConfigurationResult = (
 
 const deserializeAws_queryNodeGroup = (output: any, context: __SerdeContext): NodeGroup => {
   let contents: any = {
-    NodeGroupMembers: undefined,
-    PrimaryEndpoint: undefined,
-    Slots: undefined,
-    Status: undefined,
     NodeGroupId: undefined,
+    Status: undefined,
+    PrimaryEndpoint: undefined,
     ReaderEndpoint: undefined,
+    Slots: undefined,
+    NodeGroupMembers: undefined,
   };
+  if (output["NodeGroupId"] !== undefined) {
+    contents.NodeGroupId = output["NodeGroupId"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["PrimaryEndpoint"] !== undefined) {
+    contents.PrimaryEndpoint = deserializeAws_queryEndpoint(output["PrimaryEndpoint"], context);
+  }
+  if (output["ReaderEndpoint"] !== undefined) {
+    contents.ReaderEndpoint = deserializeAws_queryEndpoint(output["ReaderEndpoint"], context);
+  }
+  if (output["Slots"] !== undefined) {
+    contents.Slots = output["Slots"];
+  }
   if (output.NodeGroupMembers === "") {
     contents.NodeGroupMembers = [];
   }
@@ -10657,34 +12115,30 @@ const deserializeAws_queryNodeGroup = (output: any, context: __SerdeContext): No
       context
     );
   }
-  if (output["PrimaryEndpoint"] !== undefined) {
-    contents.PrimaryEndpoint = deserializeAws_queryEndpoint(output["PrimaryEndpoint"], context);
-  }
-  if (output["Slots"] !== undefined) {
-    contents.Slots = output["Slots"];
-  }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
-  }
-  if (output["NodeGroupId"] !== undefined) {
-    contents.NodeGroupId = output["NodeGroupId"];
-  }
-  if (output["ReaderEndpoint"] !== undefined) {
-    contents.ReaderEndpoint = deserializeAws_queryEndpoint(output["ReaderEndpoint"], context);
-  }
   return contents;
 };
 
 const deserializeAws_queryNodeGroupConfiguration = (output: any, context: __SerdeContext): NodeGroupConfiguration => {
   let contents: any = {
     NodeGroupId: undefined,
-    ReplicaAvailabilityZones: undefined,
+    Slots: undefined,
     ReplicaCount: undefined,
     PrimaryAvailabilityZone: undefined,
-    Slots: undefined,
+    ReplicaAvailabilityZones: undefined,
+    PrimaryOutpostArn: undefined,
+    ReplicaOutpostArns: undefined,
   };
   if (output["NodeGroupId"] !== undefined) {
     contents.NodeGroupId = output["NodeGroupId"];
+  }
+  if (output["Slots"] !== undefined) {
+    contents.Slots = output["Slots"];
+  }
+  if (output["ReplicaCount"] !== undefined) {
+    contents.ReplicaCount = parseInt(output["ReplicaCount"]);
+  }
+  if (output["PrimaryAvailabilityZone"] !== undefined) {
+    contents.PrimaryAvailabilityZone = output["PrimaryAvailabilityZone"];
   }
   if (output.ReplicaAvailabilityZones === "") {
     contents.ReplicaAvailabilityZones = [];
@@ -10698,14 +12152,17 @@ const deserializeAws_queryNodeGroupConfiguration = (output: any, context: __Serd
       context
     );
   }
-  if (output["ReplicaCount"] !== undefined) {
-    contents.ReplicaCount = parseInt(output["ReplicaCount"]);
+  if (output["PrimaryOutpostArn"] !== undefined) {
+    contents.PrimaryOutpostArn = output["PrimaryOutpostArn"];
   }
-  if (output["PrimaryAvailabilityZone"] !== undefined) {
-    contents.PrimaryAvailabilityZone = output["PrimaryAvailabilityZone"];
+  if (output.ReplicaOutpostArns === "") {
+    contents.ReplicaOutpostArns = [];
   }
-  if (output["Slots"] !== undefined) {
-    contents.Slots = output["Slots"];
+  if (output["ReplicaOutpostArns"] !== undefined && output["ReplicaOutpostArns"]["OutpostArn"] !== undefined) {
+    contents.ReplicaOutpostArns = deserializeAws_queryOutpostArnsList(
+      __getArrayIfSingleItem(output["ReplicaOutpostArns"]["OutpostArn"]),
+      context
+    );
   }
   return contents;
 };
@@ -10716,26 +12173,30 @@ const deserializeAws_queryNodeGroupList = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryNodeGroupMember = (output: any, context: __SerdeContext): NodeGroupMember => {
   let contents: any = {
-    CurrentRole: undefined,
-    CacheNodeId: undefined,
-    PreferredAvailabilityZone: undefined,
-    ReadEndpoint: undefined,
     CacheClusterId: undefined,
+    CacheNodeId: undefined,
+    ReadEndpoint: undefined,
+    PreferredAvailabilityZone: undefined,
+    PreferredOutpostArn: undefined,
+    CurrentRole: undefined,
   };
-  if (output["CurrentRole"] !== undefined) {
-    contents.CurrentRole = output["CurrentRole"];
+  if (output["CacheClusterId"] !== undefined) {
+    contents.CacheClusterId = output["CacheClusterId"];
   }
   if (output["CacheNodeId"] !== undefined) {
     contents.CacheNodeId = output["CacheNodeId"];
   }
-  if (output["PreferredAvailabilityZone"] !== undefined) {
-    contents.PreferredAvailabilityZone = output["PreferredAvailabilityZone"];
-  }
   if (output["ReadEndpoint"] !== undefined) {
     contents.ReadEndpoint = deserializeAws_queryEndpoint(output["ReadEndpoint"], context);
   }
-  if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = output["CacheClusterId"];
+  if (output["PreferredAvailabilityZone"] !== undefined) {
+    contents.PreferredAvailabilityZone = output["PreferredAvailabilityZone"];
+  }
+  if (output["PreferredOutpostArn"] !== undefined) {
+    contents.PreferredOutpostArn = output["PreferredOutpostArn"];
+  }
+  if (output["CurrentRole"] !== undefined) {
+    contents.CurrentRole = output["CurrentRole"];
   }
   return contents;
 };
@@ -10749,42 +12210,42 @@ const deserializeAws_queryNodeGroupMemberUpdateStatus = (
   context: __SerdeContext
 ): NodeGroupMemberUpdateStatus => {
   let contents: any = {
-    NodeUpdateStatus: undefined,
-    NodeUpdateStartDate: undefined,
     CacheClusterId: undefined,
-    NodeDeletionDate: undefined,
-    NodeUpdateStatusModifiedDate: undefined,
-    NodeUpdateInitiatedBy: undefined,
     CacheNodeId: undefined,
-    NodeUpdateInitiatedDate: undefined,
+    NodeUpdateStatus: undefined,
+    NodeDeletionDate: undefined,
+    NodeUpdateStartDate: undefined,
     NodeUpdateEndDate: undefined,
+    NodeUpdateInitiatedBy: undefined,
+    NodeUpdateInitiatedDate: undefined,
+    NodeUpdateStatusModifiedDate: undefined,
   };
-  if (output["NodeUpdateStatus"] !== undefined) {
-    contents.NodeUpdateStatus = output["NodeUpdateStatus"];
-  }
-  if (output["NodeUpdateStartDate"] !== undefined) {
-    contents.NodeUpdateStartDate = new Date(output["NodeUpdateStartDate"]);
-  }
   if (output["CacheClusterId"] !== undefined) {
     contents.CacheClusterId = output["CacheClusterId"];
-  }
-  if (output["NodeDeletionDate"] !== undefined) {
-    contents.NodeDeletionDate = new Date(output["NodeDeletionDate"]);
-  }
-  if (output["NodeUpdateStatusModifiedDate"] !== undefined) {
-    contents.NodeUpdateStatusModifiedDate = new Date(output["NodeUpdateStatusModifiedDate"]);
-  }
-  if (output["NodeUpdateInitiatedBy"] !== undefined) {
-    contents.NodeUpdateInitiatedBy = output["NodeUpdateInitiatedBy"];
   }
   if (output["CacheNodeId"] !== undefined) {
     contents.CacheNodeId = output["CacheNodeId"];
   }
-  if (output["NodeUpdateInitiatedDate"] !== undefined) {
-    contents.NodeUpdateInitiatedDate = new Date(output["NodeUpdateInitiatedDate"]);
+  if (output["NodeUpdateStatus"] !== undefined) {
+    contents.NodeUpdateStatus = output["NodeUpdateStatus"];
+  }
+  if (output["NodeDeletionDate"] !== undefined) {
+    contents.NodeDeletionDate = new Date(output["NodeDeletionDate"]);
+  }
+  if (output["NodeUpdateStartDate"] !== undefined) {
+    contents.NodeUpdateStartDate = new Date(output["NodeUpdateStartDate"]);
   }
   if (output["NodeUpdateEndDate"] !== undefined) {
     contents.NodeUpdateEndDate = new Date(output["NodeUpdateEndDate"]);
+  }
+  if (output["NodeUpdateInitiatedBy"] !== undefined) {
+    contents.NodeUpdateInitiatedBy = output["NodeUpdateInitiatedBy"];
+  }
+  if (output["NodeUpdateInitiatedDate"] !== undefined) {
+    contents.NodeUpdateInitiatedDate = new Date(output["NodeUpdateInitiatedDate"]);
+  }
+  if (output["NodeUpdateStatusModifiedDate"] !== undefined) {
+    contents.NodeUpdateStatusModifiedDate = new Date(output["NodeUpdateStatusModifiedDate"]);
   }
   return contents;
 };
@@ -10877,19 +12338,22 @@ const deserializeAws_queryNodeQuotaForCustomerExceededFault = (
 
 const deserializeAws_queryNodeSnapshot = (output: any, context: __SerdeContext): NodeSnapshot => {
   let contents: any = {
-    CacheNodeId: undefined,
-    SnapshotCreateTime: undefined,
-    NodeGroupConfiguration: undefined,
-    CacheNodeCreateTime: undefined,
     CacheClusterId: undefined,
     NodeGroupId: undefined,
+    CacheNodeId: undefined,
+    NodeGroupConfiguration: undefined,
     CacheSize: undefined,
+    CacheNodeCreateTime: undefined,
+    SnapshotCreateTime: undefined,
   };
+  if (output["CacheClusterId"] !== undefined) {
+    contents.CacheClusterId = output["CacheClusterId"];
+  }
+  if (output["NodeGroupId"] !== undefined) {
+    contents.NodeGroupId = output["NodeGroupId"];
+  }
   if (output["CacheNodeId"] !== undefined) {
     contents.CacheNodeId = output["CacheNodeId"];
-  }
-  if (output["SnapshotCreateTime"] !== undefined) {
-    contents.SnapshotCreateTime = new Date(output["SnapshotCreateTime"]);
   }
   if (output["NodeGroupConfiguration"] !== undefined) {
     contents.NodeGroupConfiguration = deserializeAws_queryNodeGroupConfiguration(
@@ -10897,17 +12361,14 @@ const deserializeAws_queryNodeSnapshot = (output: any, context: __SerdeContext):
       context
     );
   }
+  if (output["CacheSize"] !== undefined) {
+    contents.CacheSize = output["CacheSize"];
+  }
   if (output["CacheNodeCreateTime"] !== undefined) {
     contents.CacheNodeCreateTime = new Date(output["CacheNodeCreateTime"]);
   }
-  if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = output["CacheClusterId"];
-  }
-  if (output["NodeGroupId"] !== undefined) {
-    contents.NodeGroupId = output["NodeGroupId"];
-  }
-  if (output["CacheSize"] !== undefined) {
-    contents.CacheSize = output["CacheSize"];
+  if (output["SnapshotCreateTime"] !== undefined) {
+    contents.SnapshotCreateTime = new Date(output["SnapshotCreateTime"]);
   }
   return contents;
 };
@@ -10935,41 +12396,42 @@ const deserializeAws_queryNotificationConfiguration = (
   context: __SerdeContext
 ): NotificationConfiguration => {
   let contents: any = {
-    TopicStatus: undefined,
     TopicArn: undefined,
+    TopicStatus: undefined,
   };
-  if (output["TopicStatus"] !== undefined) {
-    contents.TopicStatus = output["TopicStatus"];
-  }
   if (output["TopicArn"] !== undefined) {
     contents.TopicArn = output["TopicArn"];
+  }
+  if (output["TopicStatus"] !== undefined) {
+    contents.TopicStatus = output["TopicStatus"];
   }
   return contents;
 };
 
+const deserializeAws_queryOutpostArnsList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Parameter => {
   let contents: any = {
-    Description: undefined,
-    ChangeType: undefined,
-    IsModifiable: undefined,
     ParameterName: undefined,
+    ParameterValue: undefined,
+    Description: undefined,
     Source: undefined,
     DataType: undefined,
-    MinimumEngineVersion: undefined,
     AllowedValues: undefined,
-    ParameterValue: undefined,
+    IsModifiable: undefined,
+    MinimumEngineVersion: undefined,
+    ChangeType: undefined,
   };
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["ChangeType"] !== undefined) {
-    contents.ChangeType = output["ChangeType"];
-  }
-  if (output["IsModifiable"] !== undefined) {
-    contents.IsModifiable = output["IsModifiable"] == "true";
-  }
   if (output["ParameterName"] !== undefined) {
     contents.ParameterName = output["ParameterName"];
+  }
+  if (output["ParameterValue"] !== undefined) {
+    contents.ParameterValue = output["ParameterValue"];
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
   }
   if (output["Source"] !== undefined) {
     contents.Source = output["Source"];
@@ -10977,14 +12439,17 @@ const deserializeAws_queryParameter = (output: any, context: __SerdeContext): Pa
   if (output["DataType"] !== undefined) {
     contents.DataType = output["DataType"];
   }
-  if (output["MinimumEngineVersion"] !== undefined) {
-    contents.MinimumEngineVersion = output["MinimumEngineVersion"];
-  }
   if (output["AllowedValues"] !== undefined) {
     contents.AllowedValues = output["AllowedValues"];
   }
-  if (output["ParameterValue"] !== undefined) {
-    contents.ParameterValue = output["ParameterValue"];
+  if (output["IsModifiable"] !== undefined) {
+    contents.IsModifiable = output["IsModifiable"] == "true";
+  }
+  if (output["MinimumEngineVersion"] !== undefined) {
+    contents.MinimumEngineVersion = output["MinimumEngineVersion"];
+  }
+  if (output["ChangeType"] !== undefined) {
+    contents.ChangeType = output["ChangeType"];
   }
   return contents;
 };
@@ -11027,19 +12492,19 @@ const deserializeAws_queryPendingModifiedValues = (output: any, context: __Serde
 
 const deserializeAws_queryProcessedUpdateAction = (output: any, context: __SerdeContext): ProcessedUpdateAction => {
   let contents: any = {
-    ServiceUpdateName: undefined,
-    CacheClusterId: undefined,
     ReplicationGroupId: undefined,
+    CacheClusterId: undefined,
+    ServiceUpdateName: undefined,
     UpdateActionStatus: undefined,
   };
-  if (output["ServiceUpdateName"] !== undefined) {
-    contents.ServiceUpdateName = output["ServiceUpdateName"];
+  if (output["ReplicationGroupId"] !== undefined) {
+    contents.ReplicationGroupId = output["ReplicationGroupId"];
   }
   if (output["CacheClusterId"] !== undefined) {
     contents.CacheClusterId = output["CacheClusterId"];
   }
-  if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = output["ReplicationGroupId"];
+  if (output["ServiceUpdateName"] !== undefined) {
+    contents.ServiceUpdateName = output["ServiceUpdateName"];
   }
   if (output["UpdateActionStatus"] !== undefined) {
     contents.UpdateActionStatus = output["UpdateActionStatus"];
@@ -11116,45 +12581,35 @@ const deserializeAws_queryRecurringChargeList = (output: any, context: __SerdeCo
 
 const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeContext): ReplicationGroup => {
   let contents: any = {
-    AutomaticFailover: undefined,
-    AuthTokenLastModifiedDate: undefined,
-    ConfigurationEndpoint: undefined,
-    MemberClusters: undefined,
+    ReplicationGroupId: undefined,
+    Description: undefined,
     GlobalReplicationGroupInfo: undefined,
     Status: undefined,
-    MultiAZ: undefined,
-    CacheNodeType: undefined,
-    TransitEncryptionEnabled: undefined,
-    ReplicationGroupId: undefined,
-    AtRestEncryptionEnabled: undefined,
-    AuthTokenEnabled: undefined,
-    Description: undefined,
+    PendingModifiedValues: undefined,
+    MemberClusters: undefined,
     NodeGroups: undefined,
-    ARN: undefined,
+    SnapshottingClusterId: undefined,
+    AutomaticFailover: undefined,
+    MultiAZ: undefined,
+    ConfigurationEndpoint: undefined,
+    SnapshotRetentionLimit: undefined,
     SnapshotWindow: undefined,
     ClusterEnabled: undefined,
-    PendingModifiedValues: undefined,
-    SnapshotRetentionLimit: undefined,
-    SnapshottingClusterId: undefined,
+    CacheNodeType: undefined,
+    AuthTokenEnabled: undefined,
+    AuthTokenLastModifiedDate: undefined,
+    TransitEncryptionEnabled: undefined,
+    AtRestEncryptionEnabled: undefined,
+    MemberClustersOutpostArns: undefined,
     KmsKeyId: undefined,
+    ARN: undefined,
+    UserGroupIds: undefined,
   };
-  if (output["AutomaticFailover"] !== undefined) {
-    contents.AutomaticFailover = output["AutomaticFailover"];
+  if (output["ReplicationGroupId"] !== undefined) {
+    contents.ReplicationGroupId = output["ReplicationGroupId"];
   }
-  if (output["AuthTokenLastModifiedDate"] !== undefined) {
-    contents.AuthTokenLastModifiedDate = new Date(output["AuthTokenLastModifiedDate"]);
-  }
-  if (output["ConfigurationEndpoint"] !== undefined) {
-    contents.ConfigurationEndpoint = deserializeAws_queryEndpoint(output["ConfigurationEndpoint"], context);
-  }
-  if (output.MemberClusters === "") {
-    contents.MemberClusters = [];
-  }
-  if (output["MemberClusters"] !== undefined && output["MemberClusters"]["ClusterId"] !== undefined) {
-    contents.MemberClusters = deserializeAws_queryClusterIdList(
-      __getArrayIfSingleItem(output["MemberClusters"]["ClusterId"]),
-      context
-    );
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
   }
   if (output["GlobalReplicationGroupInfo"] !== undefined) {
     contents.GlobalReplicationGroupInfo = deserializeAws_queryGlobalReplicationGroupInfo(
@@ -11165,26 +12620,20 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
   }
-  if (output["MultiAZ"] !== undefined) {
-    contents.MultiAZ = output["MultiAZ"];
+  if (output["PendingModifiedValues"] !== undefined) {
+    contents.PendingModifiedValues = deserializeAws_queryReplicationGroupPendingModifiedValues(
+      output["PendingModifiedValues"],
+      context
+    );
   }
-  if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = output["CacheNodeType"];
+  if (output.MemberClusters === "") {
+    contents.MemberClusters = [];
   }
-  if (output["TransitEncryptionEnabled"] !== undefined) {
-    contents.TransitEncryptionEnabled = output["TransitEncryptionEnabled"] == "true";
-  }
-  if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = output["ReplicationGroupId"];
-  }
-  if (output["AtRestEncryptionEnabled"] !== undefined) {
-    contents.AtRestEncryptionEnabled = output["AtRestEncryptionEnabled"] == "true";
-  }
-  if (output["AuthTokenEnabled"] !== undefined) {
-    contents.AuthTokenEnabled = output["AuthTokenEnabled"] == "true";
-  }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
+  if (output["MemberClusters"] !== undefined && output["MemberClusters"]["ClusterId"] !== undefined) {
+    contents.MemberClusters = deserializeAws_queryClusterIdList(
+      __getArrayIfSingleItem(output["MemberClusters"]["ClusterId"]),
+      context
+    );
   }
   if (output.NodeGroups === "") {
     contents.NodeGroups = [];
@@ -11195,8 +12644,20 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
       context
     );
   }
-  if (output["ARN"] !== undefined) {
-    contents.ARN = output["ARN"];
+  if (output["SnapshottingClusterId"] !== undefined) {
+    contents.SnapshottingClusterId = output["SnapshottingClusterId"];
+  }
+  if (output["AutomaticFailover"] !== undefined) {
+    contents.AutomaticFailover = output["AutomaticFailover"];
+  }
+  if (output["MultiAZ"] !== undefined) {
+    contents.MultiAZ = output["MultiAZ"];
+  }
+  if (output["ConfigurationEndpoint"] !== undefined) {
+    contents.ConfigurationEndpoint = deserializeAws_queryEndpoint(output["ConfigurationEndpoint"], context);
+  }
+  if (output["SnapshotRetentionLimit"] !== undefined) {
+    contents.SnapshotRetentionLimit = parseInt(output["SnapshotRetentionLimit"]);
   }
   if (output["SnapshotWindow"] !== undefined) {
     contents.SnapshotWindow = output["SnapshotWindow"];
@@ -11204,20 +12665,47 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
   if (output["ClusterEnabled"] !== undefined) {
     contents.ClusterEnabled = output["ClusterEnabled"] == "true";
   }
-  if (output["PendingModifiedValues"] !== undefined) {
-    contents.PendingModifiedValues = deserializeAws_queryReplicationGroupPendingModifiedValues(
-      output["PendingModifiedValues"],
+  if (output["CacheNodeType"] !== undefined) {
+    contents.CacheNodeType = output["CacheNodeType"];
+  }
+  if (output["AuthTokenEnabled"] !== undefined) {
+    contents.AuthTokenEnabled = output["AuthTokenEnabled"] == "true";
+  }
+  if (output["AuthTokenLastModifiedDate"] !== undefined) {
+    contents.AuthTokenLastModifiedDate = new Date(output["AuthTokenLastModifiedDate"]);
+  }
+  if (output["TransitEncryptionEnabled"] !== undefined) {
+    contents.TransitEncryptionEnabled = output["TransitEncryptionEnabled"] == "true";
+  }
+  if (output["AtRestEncryptionEnabled"] !== undefined) {
+    contents.AtRestEncryptionEnabled = output["AtRestEncryptionEnabled"] == "true";
+  }
+  if (output.MemberClustersOutpostArns === "") {
+    contents.MemberClustersOutpostArns = [];
+  }
+  if (
+    output["MemberClustersOutpostArns"] !== undefined &&
+    output["MemberClustersOutpostArns"]["ReplicationGroupOutpostArn"] !== undefined
+  ) {
+    contents.MemberClustersOutpostArns = deserializeAws_queryReplicationGroupOutpostArnList(
+      __getArrayIfSingleItem(output["MemberClustersOutpostArns"]["ReplicationGroupOutpostArn"]),
       context
     );
   }
-  if (output["SnapshotRetentionLimit"] !== undefined) {
-    contents.SnapshotRetentionLimit = parseInt(output["SnapshotRetentionLimit"]);
-  }
-  if (output["SnapshottingClusterId"] !== undefined) {
-    contents.SnapshottingClusterId = output["SnapshottingClusterId"];
-  }
   if (output["KmsKeyId"] !== undefined) {
     contents.KmsKeyId = output["KmsKeyId"];
+  }
+  if (output["ARN"] !== undefined) {
+    contents.ARN = output["ARN"];
+  }
+  if (output.UserGroupIds === "") {
+    contents.UserGroupIds = [];
+  }
+  if (output["UserGroupIds"] !== undefined && output["UserGroupIds"]["member"] !== undefined) {
+    contents.UserGroupIds = deserializeAws_queryUserGroupIdList(
+      __getArrayIfSingleItem(output["UserGroupIds"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -11254,9 +12742,12 @@ const deserializeAws_queryReplicationGroupList = (output: any, context: __SerdeC
 
 const deserializeAws_queryReplicationGroupMessage = (output: any, context: __SerdeContext): ReplicationGroupMessage => {
   let contents: any = {
-    ReplicationGroups: undefined,
     Marker: undefined,
+    ReplicationGroups: undefined,
   };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output.ReplicationGroups === "") {
     contents.ReplicationGroups = [];
   }
@@ -11265,9 +12756,6 @@ const deserializeAws_queryReplicationGroupMessage = (output: any, context: __Ser
       __getArrayIfSingleItem(output["ReplicationGroups"]["ReplicationGroup"]),
       context
     );
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
   }
   return contents;
 };
@@ -11298,70 +12786,72 @@ const deserializeAws_queryReplicationGroupNotUnderMigrationFault = (
   return contents;
 };
 
+const deserializeAws_queryReplicationGroupOutpostArnList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_queryReplicationGroupPendingModifiedValues = (
   output: any,
   context: __SerdeContext
 ): ReplicationGroupPendingModifiedValues => {
   let contents: any = {
-    Resharding: undefined,
     PrimaryClusterId: undefined,
     AutomaticFailoverStatus: undefined,
+    Resharding: undefined,
     AuthTokenStatus: undefined,
+    UserGroups: undefined,
   };
-  if (output["Resharding"] !== undefined) {
-    contents.Resharding = deserializeAws_queryReshardingStatus(output["Resharding"], context);
-  }
   if (output["PrimaryClusterId"] !== undefined) {
     contents.PrimaryClusterId = output["PrimaryClusterId"];
   }
   if (output["AutomaticFailoverStatus"] !== undefined) {
     contents.AutomaticFailoverStatus = output["AutomaticFailoverStatus"];
   }
+  if (output["Resharding"] !== undefined) {
+    contents.Resharding = deserializeAws_queryReshardingStatus(output["Resharding"], context);
+  }
   if (output["AuthTokenStatus"] !== undefined) {
     contents.AuthTokenStatus = output["AuthTokenStatus"];
+  }
+  if (output["UserGroups"] !== undefined) {
+    contents.UserGroups = deserializeAws_queryUserGroupsUpdateStatus(output["UserGroups"], context);
   }
   return contents;
 };
 
 const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeContext): ReservedCacheNode => {
   let contents: any = {
-    FixedPrice: undefined,
-    ReservationARN: undefined,
-    StartTime: undefined,
-    State: undefined,
-    CacheNodeType: undefined,
-    OfferingType: undefined,
+    ReservedCacheNodeId: undefined,
     ReservedCacheNodesOfferingId: undefined,
+    CacheNodeType: undefined,
+    StartTime: undefined,
     Duration: undefined,
+    FixedPrice: undefined,
     UsagePrice: undefined,
     CacheNodeCount: undefined,
-    ReservedCacheNodeId: undefined,
-    RecurringCharges: undefined,
     ProductDescription: undefined,
+    OfferingType: undefined,
+    State: undefined,
+    RecurringCharges: undefined,
+    ReservationARN: undefined,
   };
-  if (output["FixedPrice"] !== undefined) {
-    contents.FixedPrice = parseFloat(output["FixedPrice"]);
-  }
-  if (output["ReservationARN"] !== undefined) {
-    contents.ReservationARN = output["ReservationARN"];
-  }
-  if (output["StartTime"] !== undefined) {
-    contents.StartTime = new Date(output["StartTime"]);
-  }
-  if (output["State"] !== undefined) {
-    contents.State = output["State"];
-  }
-  if (output["CacheNodeType"] !== undefined) {
-    contents.CacheNodeType = output["CacheNodeType"];
-  }
-  if (output["OfferingType"] !== undefined) {
-    contents.OfferingType = output["OfferingType"];
+  if (output["ReservedCacheNodeId"] !== undefined) {
+    contents.ReservedCacheNodeId = output["ReservedCacheNodeId"];
   }
   if (output["ReservedCacheNodesOfferingId"] !== undefined) {
     contents.ReservedCacheNodesOfferingId = output["ReservedCacheNodesOfferingId"];
   }
+  if (output["CacheNodeType"] !== undefined) {
+    contents.CacheNodeType = output["CacheNodeType"];
+  }
+  if (output["StartTime"] !== undefined) {
+    contents.StartTime = new Date(output["StartTime"]);
+  }
   if (output["Duration"] !== undefined) {
     contents.Duration = parseInt(output["Duration"]);
+  }
+  if (output["FixedPrice"] !== undefined) {
+    contents.FixedPrice = parseFloat(output["FixedPrice"]);
   }
   if (output["UsagePrice"] !== undefined) {
     contents.UsagePrice = parseFloat(output["UsagePrice"]);
@@ -11369,8 +12859,14 @@ const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeCont
   if (output["CacheNodeCount"] !== undefined) {
     contents.CacheNodeCount = parseInt(output["CacheNodeCount"]);
   }
-  if (output["ReservedCacheNodeId"] !== undefined) {
-    contents.ReservedCacheNodeId = output["ReservedCacheNodeId"];
+  if (output["ProductDescription"] !== undefined) {
+    contents.ProductDescription = output["ProductDescription"];
+  }
+  if (output["OfferingType"] !== undefined) {
+    contents.OfferingType = output["OfferingType"];
+  }
+  if (output["State"] !== undefined) {
+    contents.State = output["State"];
   }
   if (output.RecurringCharges === "") {
     contents.RecurringCharges = [];
@@ -11381,8 +12877,8 @@ const deserializeAws_queryReservedCacheNode = (output: any, context: __SerdeCont
       context
     );
   }
-  if (output["ProductDescription"] !== undefined) {
-    contents.ProductDescription = output["ProductDescription"];
+  if (output["ReservationARN"] !== undefined) {
+    contents.ReservationARN = output["ReservationARN"];
   }
   return contents;
 };
@@ -11409,9 +12905,12 @@ const deserializeAws_queryReservedCacheNodeMessage = (
   context: __SerdeContext
 ): ReservedCacheNodeMessage => {
   let contents: any = {
-    ReservedCacheNodes: undefined,
     Marker: undefined,
+    ReservedCacheNodes: undefined,
   };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output.ReservedCacheNodes === "") {
     contents.ReservedCacheNodes = [];
   }
@@ -11420,9 +12919,6 @@ const deserializeAws_queryReservedCacheNodeMessage = (
       __getArrayIfSingleItem(output["ReservedCacheNodes"]["ReservedCacheNode"]),
       context
     );
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
   }
   return contents;
 };
@@ -11458,23 +12954,35 @@ const deserializeAws_queryReservedCacheNodesOffering = (
   context: __SerdeContext
 ): ReservedCacheNodesOffering => {
   let contents: any = {
+    ReservedCacheNodesOfferingId: undefined,
     CacheNodeType: undefined,
     Duration: undefined,
-    ProductDescription: undefined,
-    RecurringCharges: undefined,
-    OfferingType: undefined,
     FixedPrice: undefined,
-    ReservedCacheNodesOfferingId: undefined,
     UsagePrice: undefined,
+    ProductDescription: undefined,
+    OfferingType: undefined,
+    RecurringCharges: undefined,
   };
+  if (output["ReservedCacheNodesOfferingId"] !== undefined) {
+    contents.ReservedCacheNodesOfferingId = output["ReservedCacheNodesOfferingId"];
+  }
   if (output["CacheNodeType"] !== undefined) {
     contents.CacheNodeType = output["CacheNodeType"];
   }
   if (output["Duration"] !== undefined) {
     contents.Duration = parseInt(output["Duration"]);
   }
+  if (output["FixedPrice"] !== undefined) {
+    contents.FixedPrice = parseFloat(output["FixedPrice"]);
+  }
+  if (output["UsagePrice"] !== undefined) {
+    contents.UsagePrice = parseFloat(output["UsagePrice"]);
+  }
   if (output["ProductDescription"] !== undefined) {
     contents.ProductDescription = output["ProductDescription"];
+  }
+  if (output["OfferingType"] !== undefined) {
+    contents.OfferingType = output["OfferingType"];
   }
   if (output.RecurringCharges === "") {
     contents.RecurringCharges = [];
@@ -11484,18 +12992,6 @@ const deserializeAws_queryReservedCacheNodesOffering = (
       __getArrayIfSingleItem(output["RecurringCharges"]["RecurringCharge"]),
       context
     );
-  }
-  if (output["OfferingType"] !== undefined) {
-    contents.OfferingType = output["OfferingType"];
-  }
-  if (output["FixedPrice"] !== undefined) {
-    contents.FixedPrice = parseFloat(output["FixedPrice"]);
-  }
-  if (output["ReservedCacheNodesOfferingId"] !== undefined) {
-    contents.ReservedCacheNodesOfferingId = output["ReservedCacheNodesOfferingId"];
-  }
-  if (output["UsagePrice"] !== undefined) {
-    contents.UsagePrice = parseFloat(output["UsagePrice"]);
   }
   return contents;
 };
@@ -11605,51 +13101,51 @@ const deserializeAws_queryServiceLinkedRoleNotFoundFault = (
 
 const deserializeAws_queryServiceUpdate = (output: any, context: __SerdeContext): ServiceUpdate => {
   let contents: any = {
-    AutoUpdateAfterRecommendedApplyByDate: undefined,
-    ServiceUpdateSeverity: undefined,
-    ServiceUpdateEndDate: undefined,
-    Engine: undefined,
     ServiceUpdateName: undefined,
-    EngineVersion: undefined,
-    ServiceUpdateStatus: undefined,
     ServiceUpdateReleaseDate: undefined,
-    ServiceUpdateType: undefined,
-    ServiceUpdateDescription: undefined,
+    ServiceUpdateEndDate: undefined,
+    ServiceUpdateSeverity: undefined,
     ServiceUpdateRecommendedApplyByDate: undefined,
+    ServiceUpdateStatus: undefined,
+    ServiceUpdateDescription: undefined,
+    ServiceUpdateType: undefined,
+    Engine: undefined,
+    EngineVersion: undefined,
+    AutoUpdateAfterRecommendedApplyByDate: undefined,
     EstimatedUpdateTime: undefined,
   };
-  if (output["AutoUpdateAfterRecommendedApplyByDate"] !== undefined) {
-    contents.AutoUpdateAfterRecommendedApplyByDate = output["AutoUpdateAfterRecommendedApplyByDate"] == "true";
-  }
-  if (output["ServiceUpdateSeverity"] !== undefined) {
-    contents.ServiceUpdateSeverity = output["ServiceUpdateSeverity"];
-  }
-  if (output["ServiceUpdateEndDate"] !== undefined) {
-    contents.ServiceUpdateEndDate = new Date(output["ServiceUpdateEndDate"]);
-  }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
-  }
   if (output["ServiceUpdateName"] !== undefined) {
     contents.ServiceUpdateName = output["ServiceUpdateName"];
-  }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
-  }
-  if (output["ServiceUpdateStatus"] !== undefined) {
-    contents.ServiceUpdateStatus = output["ServiceUpdateStatus"];
   }
   if (output["ServiceUpdateReleaseDate"] !== undefined) {
     contents.ServiceUpdateReleaseDate = new Date(output["ServiceUpdateReleaseDate"]);
   }
-  if (output["ServiceUpdateType"] !== undefined) {
-    contents.ServiceUpdateType = output["ServiceUpdateType"];
+  if (output["ServiceUpdateEndDate"] !== undefined) {
+    contents.ServiceUpdateEndDate = new Date(output["ServiceUpdateEndDate"]);
+  }
+  if (output["ServiceUpdateSeverity"] !== undefined) {
+    contents.ServiceUpdateSeverity = output["ServiceUpdateSeverity"];
+  }
+  if (output["ServiceUpdateRecommendedApplyByDate"] !== undefined) {
+    contents.ServiceUpdateRecommendedApplyByDate = new Date(output["ServiceUpdateRecommendedApplyByDate"]);
+  }
+  if (output["ServiceUpdateStatus"] !== undefined) {
+    contents.ServiceUpdateStatus = output["ServiceUpdateStatus"];
   }
   if (output["ServiceUpdateDescription"] !== undefined) {
     contents.ServiceUpdateDescription = output["ServiceUpdateDescription"];
   }
-  if (output["ServiceUpdateRecommendedApplyByDate"] !== undefined) {
-    contents.ServiceUpdateRecommendedApplyByDate = new Date(output["ServiceUpdateRecommendedApplyByDate"]);
+  if (output["ServiceUpdateType"] !== undefined) {
+    contents.ServiceUpdateType = output["ServiceUpdateType"];
+  }
+  if (output["Engine"] !== undefined) {
+    contents.Engine = output["Engine"];
+  }
+  if (output["EngineVersion"] !== undefined) {
+    contents.EngineVersion = output["EngineVersion"];
+  }
+  if (output["AutoUpdateAfterRecommendedApplyByDate"] !== undefined) {
+    contents.AutoUpdateAfterRecommendedApplyByDate = output["AutoUpdateAfterRecommendedApplyByDate"] == "true";
   }
   if (output["EstimatedUpdateTime"] !== undefined) {
     contents.EstimatedUpdateTime = output["EstimatedUpdateTime"];
@@ -11676,9 +13172,12 @@ const deserializeAws_queryServiceUpdateNotFoundFault = (
 
 const deserializeAws_queryServiceUpdatesMessage = (output: any, context: __SerdeContext): ServiceUpdatesMessage => {
   let contents: any = {
-    ServiceUpdates: undefined,
     Marker: undefined,
+    ServiceUpdates: undefined,
   };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output.ServiceUpdates === "") {
     contents.ServiceUpdates = [];
   }
@@ -11687,9 +13186,6 @@ const deserializeAws_queryServiceUpdatesMessage = (output: any, context: __Serde
       __getArrayIfSingleItem(output["ServiceUpdates"]["ServiceUpdate"]),
       context
     );
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
   }
   return contents;
 };
@@ -11706,74 +13202,105 @@ const deserializeAws_querySlotMigration = (output: any, context: __SerdeContext)
 
 const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Snapshot => {
   let contents: any = {
-    CacheSubnetGroupName: undefined,
-    KmsKeyId: undefined,
-    EngineVersion: undefined,
-    SnapshotSource: undefined,
-    PreferredAvailabilityZone: undefined,
-    PreferredMaintenanceWindow: undefined,
-    AutoMinorVersionUpgrade: undefined,
-    VpcId: undefined,
-    CacheParameterGroupName: undefined,
-    CacheClusterCreateTime: undefined,
-    SnapshotRetentionLimit: undefined,
-    SnapshotStatus: undefined,
-    CacheNodeType: undefined,
-    SnapshotWindow: undefined,
-    NodeSnapshots: undefined,
-    NumCacheNodes: undefined,
-    ARN: undefined,
+    SnapshotName: undefined,
+    ReplicationGroupId: undefined,
+    ReplicationGroupDescription: undefined,
     CacheClusterId: undefined,
+    SnapshotStatus: undefined,
+    SnapshotSource: undefined,
+    CacheNodeType: undefined,
+    Engine: undefined,
+    EngineVersion: undefined,
+    NumCacheNodes: undefined,
+    PreferredAvailabilityZone: undefined,
+    PreferredOutpostArn: undefined,
+    CacheClusterCreateTime: undefined,
+    PreferredMaintenanceWindow: undefined,
     TopicArn: undefined,
     Port: undefined,
+    CacheParameterGroupName: undefined,
+    CacheSubnetGroupName: undefined,
+    VpcId: undefined,
+    AutoMinorVersionUpgrade: undefined,
+    SnapshotRetentionLimit: undefined,
+    SnapshotWindow: undefined,
     NumNodeGroups: undefined,
     AutomaticFailover: undefined,
-    ReplicationGroupDescription: undefined,
-    SnapshotName: undefined,
-    Engine: undefined,
-    ReplicationGroupId: undefined,
+    NodeSnapshots: undefined,
+    KmsKeyId: undefined,
+    ARN: undefined,
   };
-  if (output["CacheSubnetGroupName"] !== undefined) {
-    contents.CacheSubnetGroupName = output["CacheSubnetGroupName"];
+  if (output["SnapshotName"] !== undefined) {
+    contents.SnapshotName = output["SnapshotName"];
   }
-  if (output["KmsKeyId"] !== undefined) {
-    contents.KmsKeyId = output["KmsKeyId"];
+  if (output["ReplicationGroupId"] !== undefined) {
+    contents.ReplicationGroupId = output["ReplicationGroupId"];
   }
-  if (output["EngineVersion"] !== undefined) {
-    contents.EngineVersion = output["EngineVersion"];
+  if (output["ReplicationGroupDescription"] !== undefined) {
+    contents.ReplicationGroupDescription = output["ReplicationGroupDescription"];
   }
-  if (output["SnapshotSource"] !== undefined) {
-    contents.SnapshotSource = output["SnapshotSource"];
-  }
-  if (output["PreferredAvailabilityZone"] !== undefined) {
-    contents.PreferredAvailabilityZone = output["PreferredAvailabilityZone"];
-  }
-  if (output["PreferredMaintenanceWindow"] !== undefined) {
-    contents.PreferredMaintenanceWindow = output["PreferredMaintenanceWindow"];
-  }
-  if (output["AutoMinorVersionUpgrade"] !== undefined) {
-    contents.AutoMinorVersionUpgrade = output["AutoMinorVersionUpgrade"] == "true";
-  }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = output["VpcId"];
-  }
-  if (output["CacheParameterGroupName"] !== undefined) {
-    contents.CacheParameterGroupName = output["CacheParameterGroupName"];
-  }
-  if (output["CacheClusterCreateTime"] !== undefined) {
-    contents.CacheClusterCreateTime = new Date(output["CacheClusterCreateTime"]);
-  }
-  if (output["SnapshotRetentionLimit"] !== undefined) {
-    contents.SnapshotRetentionLimit = parseInt(output["SnapshotRetentionLimit"]);
+  if (output["CacheClusterId"] !== undefined) {
+    contents.CacheClusterId = output["CacheClusterId"];
   }
   if (output["SnapshotStatus"] !== undefined) {
     contents.SnapshotStatus = output["SnapshotStatus"];
   }
+  if (output["SnapshotSource"] !== undefined) {
+    contents.SnapshotSource = output["SnapshotSource"];
+  }
   if (output["CacheNodeType"] !== undefined) {
     contents.CacheNodeType = output["CacheNodeType"];
   }
+  if (output["Engine"] !== undefined) {
+    contents.Engine = output["Engine"];
+  }
+  if (output["EngineVersion"] !== undefined) {
+    contents.EngineVersion = output["EngineVersion"];
+  }
+  if (output["NumCacheNodes"] !== undefined) {
+    contents.NumCacheNodes = parseInt(output["NumCacheNodes"]);
+  }
+  if (output["PreferredAvailabilityZone"] !== undefined) {
+    contents.PreferredAvailabilityZone = output["PreferredAvailabilityZone"];
+  }
+  if (output["PreferredOutpostArn"] !== undefined) {
+    contents.PreferredOutpostArn = output["PreferredOutpostArn"];
+  }
+  if (output["CacheClusterCreateTime"] !== undefined) {
+    contents.CacheClusterCreateTime = new Date(output["CacheClusterCreateTime"]);
+  }
+  if (output["PreferredMaintenanceWindow"] !== undefined) {
+    contents.PreferredMaintenanceWindow = output["PreferredMaintenanceWindow"];
+  }
+  if (output["TopicArn"] !== undefined) {
+    contents.TopicArn = output["TopicArn"];
+  }
+  if (output["Port"] !== undefined) {
+    contents.Port = parseInt(output["Port"]);
+  }
+  if (output["CacheParameterGroupName"] !== undefined) {
+    contents.CacheParameterGroupName = output["CacheParameterGroupName"];
+  }
+  if (output["CacheSubnetGroupName"] !== undefined) {
+    contents.CacheSubnetGroupName = output["CacheSubnetGroupName"];
+  }
+  if (output["VpcId"] !== undefined) {
+    contents.VpcId = output["VpcId"];
+  }
+  if (output["AutoMinorVersionUpgrade"] !== undefined) {
+    contents.AutoMinorVersionUpgrade = output["AutoMinorVersionUpgrade"] == "true";
+  }
+  if (output["SnapshotRetentionLimit"] !== undefined) {
+    contents.SnapshotRetentionLimit = parseInt(output["SnapshotRetentionLimit"]);
+  }
   if (output["SnapshotWindow"] !== undefined) {
     contents.SnapshotWindow = output["SnapshotWindow"];
+  }
+  if (output["NumNodeGroups"] !== undefined) {
+    contents.NumNodeGroups = parseInt(output["NumNodeGroups"]);
+  }
+  if (output["AutomaticFailover"] !== undefined) {
+    contents.AutomaticFailover = output["AutomaticFailover"];
   }
   if (output.NodeSnapshots === "") {
     contents.NodeSnapshots = [];
@@ -11784,38 +13311,11 @@ const deserializeAws_querySnapshot = (output: any, context: __SerdeContext): Sna
       context
     );
   }
-  if (output["NumCacheNodes"] !== undefined) {
-    contents.NumCacheNodes = parseInt(output["NumCacheNodes"]);
+  if (output["KmsKeyId"] !== undefined) {
+    contents.KmsKeyId = output["KmsKeyId"];
   }
   if (output["ARN"] !== undefined) {
     contents.ARN = output["ARN"];
-  }
-  if (output["CacheClusterId"] !== undefined) {
-    contents.CacheClusterId = output["CacheClusterId"];
-  }
-  if (output["TopicArn"] !== undefined) {
-    contents.TopicArn = output["TopicArn"];
-  }
-  if (output["Port"] !== undefined) {
-    contents.Port = parseInt(output["Port"]);
-  }
-  if (output["NumNodeGroups"] !== undefined) {
-    contents.NumNodeGroups = parseInt(output["NumNodeGroups"]);
-  }
-  if (output["AutomaticFailover"] !== undefined) {
-    contents.AutomaticFailover = output["AutomaticFailover"];
-  }
-  if (output["ReplicationGroupDescription"] !== undefined) {
-    contents.ReplicationGroupDescription = output["ReplicationGroupDescription"];
-  }
-  if (output["SnapshotName"] !== undefined) {
-    contents.SnapshotName = output["SnapshotName"];
-  }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
-  }
-  if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = output["ReplicationGroupId"];
   }
   return contents;
 };
@@ -11887,12 +13387,16 @@ const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subne
   let contents: any = {
     SubnetIdentifier: undefined,
     SubnetAvailabilityZone: undefined,
+    SubnetOutpost: undefined,
   };
   if (output["SubnetIdentifier"] !== undefined) {
     contents.SubnetIdentifier = output["SubnetIdentifier"];
   }
   if (output["SubnetAvailabilityZone"] !== undefined) {
     contents.SubnetAvailabilityZone = deserializeAws_queryAvailabilityZone(output["SubnetAvailabilityZone"], context);
+  }
+  if (output["SubnetOutpost"] !== undefined) {
+    contents.SubnetOutpost = deserializeAws_querySubnetOutpost(output["SubnetOutpost"], context);
   }
   return contents;
 };
@@ -11909,6 +13413,26 @@ const deserializeAws_querySubnetInUse = (output: any, context: __SerdeContext): 
 
 const deserializeAws_querySubnetList = (output: any, context: __SerdeContext): Subnet[] => {
   return (output || []).map((entry: any) => deserializeAws_querySubnet(entry, context));
+};
+
+const deserializeAws_querySubnetNotAllowedFault = (output: any, context: __SerdeContext): SubnetNotAllowedFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_querySubnetOutpost = (output: any, context: __SerdeContext): SubnetOutpost => {
+  let contents: any = {
+    SubnetOutpostArn: undefined,
+  };
+  if (output["SubnetOutpostArn"] !== undefined) {
+    contents.SubnetOutpostArn = output["SubnetOutpostArn"];
+  }
+  return contents;
 };
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
@@ -11988,28 +13512,32 @@ const deserializeAws_queryTestFailoverResult = (output: any, context: __SerdeCon
   return contents;
 };
 
+const deserializeAws_queryUGReplicationGroupIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_queryUnprocessedUpdateAction = (output: any, context: __SerdeContext): UnprocessedUpdateAction => {
   let contents: any = {
     ReplicationGroupId: undefined,
-    ServiceUpdateName: undefined,
     CacheClusterId: undefined,
-    ErrorMessage: undefined,
+    ServiceUpdateName: undefined,
     ErrorType: undefined,
+    ErrorMessage: undefined,
   };
   if (output["ReplicationGroupId"] !== undefined) {
     contents.ReplicationGroupId = output["ReplicationGroupId"];
   }
-  if (output["ServiceUpdateName"] !== undefined) {
-    contents.ServiceUpdateName = output["ServiceUpdateName"];
-  }
   if (output["CacheClusterId"] !== undefined) {
     contents.CacheClusterId = output["CacheClusterId"];
   }
-  if (output["ErrorMessage"] !== undefined) {
-    contents.ErrorMessage = output["ErrorMessage"];
+  if (output["ServiceUpdateName"] !== undefined) {
+    contents.ServiceUpdateName = output["ServiceUpdateName"];
   }
   if (output["ErrorType"] !== undefined) {
     contents.ErrorType = output["ErrorType"];
+  }
+  if (output["ErrorMessage"] !== undefined) {
+    contents.ErrorMessage = output["ErrorMessage"];
   }
   return contents;
 };
@@ -12023,80 +13551,62 @@ const deserializeAws_queryUnprocessedUpdateActionList = (
 
 const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext): UpdateAction => {
   let contents: any = {
-    ServiceUpdateType: undefined,
-    UpdateActionStatusModifiedDate: undefined,
-    ServiceUpdateSeverity: undefined,
-    ServiceUpdateName: undefined,
-    CacheNodeUpdateStatus: undefined,
-    UpdateActionAvailableDate: undefined,
-    NodesUpdated: undefined,
-    ServiceUpdateStatus: undefined,
-    CacheClusterId: undefined,
-    ServiceUpdateRecommendedApplyByDate: undefined,
-    UpdateActionStatus: undefined,
-    ServiceUpdateReleaseDate: undefined,
     ReplicationGroupId: undefined,
-    EstimatedUpdateTime: undefined,
+    CacheClusterId: undefined,
+    ServiceUpdateName: undefined,
+    ServiceUpdateReleaseDate: undefined,
+    ServiceUpdateSeverity: undefined,
+    ServiceUpdateStatus: undefined,
+    ServiceUpdateRecommendedApplyByDate: undefined,
+    ServiceUpdateType: undefined,
+    UpdateActionAvailableDate: undefined,
+    UpdateActionStatus: undefined,
+    NodesUpdated: undefined,
+    UpdateActionStatusModifiedDate: undefined,
     SlaMet: undefined,
-    Engine: undefined,
     NodeGroupUpdateStatus: undefined,
+    CacheNodeUpdateStatus: undefined,
+    EstimatedUpdateTime: undefined,
+    Engine: undefined,
   };
-  if (output["ServiceUpdateType"] !== undefined) {
-    contents.ServiceUpdateType = output["ServiceUpdateType"];
-  }
-  if (output["UpdateActionStatusModifiedDate"] !== undefined) {
-    contents.UpdateActionStatusModifiedDate = new Date(output["UpdateActionStatusModifiedDate"]);
-  }
-  if (output["ServiceUpdateSeverity"] !== undefined) {
-    contents.ServiceUpdateSeverity = output["ServiceUpdateSeverity"];
-  }
-  if (output["ServiceUpdateName"] !== undefined) {
-    contents.ServiceUpdateName = output["ServiceUpdateName"];
-  }
-  if (output.CacheNodeUpdateStatus === "") {
-    contents.CacheNodeUpdateStatus = [];
-  }
-  if (
-    output["CacheNodeUpdateStatus"] !== undefined &&
-    output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"] !== undefined
-  ) {
-    contents.CacheNodeUpdateStatus = deserializeAws_queryCacheNodeUpdateStatusList(
-      __getArrayIfSingleItem(output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"]),
-      context
-    );
-  }
-  if (output["UpdateActionAvailableDate"] !== undefined) {
-    contents.UpdateActionAvailableDate = new Date(output["UpdateActionAvailableDate"]);
-  }
-  if (output["NodesUpdated"] !== undefined) {
-    contents.NodesUpdated = output["NodesUpdated"];
-  }
-  if (output["ServiceUpdateStatus"] !== undefined) {
-    contents.ServiceUpdateStatus = output["ServiceUpdateStatus"];
+  if (output["ReplicationGroupId"] !== undefined) {
+    contents.ReplicationGroupId = output["ReplicationGroupId"];
   }
   if (output["CacheClusterId"] !== undefined) {
     contents.CacheClusterId = output["CacheClusterId"];
   }
-  if (output["ServiceUpdateRecommendedApplyByDate"] !== undefined) {
-    contents.ServiceUpdateRecommendedApplyByDate = new Date(output["ServiceUpdateRecommendedApplyByDate"]);
-  }
-  if (output["UpdateActionStatus"] !== undefined) {
-    contents.UpdateActionStatus = output["UpdateActionStatus"];
+  if (output["ServiceUpdateName"] !== undefined) {
+    contents.ServiceUpdateName = output["ServiceUpdateName"];
   }
   if (output["ServiceUpdateReleaseDate"] !== undefined) {
     contents.ServiceUpdateReleaseDate = new Date(output["ServiceUpdateReleaseDate"]);
   }
-  if (output["ReplicationGroupId"] !== undefined) {
-    contents.ReplicationGroupId = output["ReplicationGroupId"];
+  if (output["ServiceUpdateSeverity"] !== undefined) {
+    contents.ServiceUpdateSeverity = output["ServiceUpdateSeverity"];
   }
-  if (output["EstimatedUpdateTime"] !== undefined) {
-    contents.EstimatedUpdateTime = output["EstimatedUpdateTime"];
+  if (output["ServiceUpdateStatus"] !== undefined) {
+    contents.ServiceUpdateStatus = output["ServiceUpdateStatus"];
+  }
+  if (output["ServiceUpdateRecommendedApplyByDate"] !== undefined) {
+    contents.ServiceUpdateRecommendedApplyByDate = new Date(output["ServiceUpdateRecommendedApplyByDate"]);
+  }
+  if (output["ServiceUpdateType"] !== undefined) {
+    contents.ServiceUpdateType = output["ServiceUpdateType"];
+  }
+  if (output["UpdateActionAvailableDate"] !== undefined) {
+    contents.UpdateActionAvailableDate = new Date(output["UpdateActionAvailableDate"]);
+  }
+  if (output["UpdateActionStatus"] !== undefined) {
+    contents.UpdateActionStatus = output["UpdateActionStatus"];
+  }
+  if (output["NodesUpdated"] !== undefined) {
+    contents.NodesUpdated = output["NodesUpdated"];
+  }
+  if (output["UpdateActionStatusModifiedDate"] !== undefined) {
+    contents.UpdateActionStatusModifiedDate = new Date(output["UpdateActionStatusModifiedDate"]);
   }
   if (output["SlaMet"] !== undefined) {
     contents.SlaMet = output["SlaMet"];
-  }
-  if (output["Engine"] !== undefined) {
-    contents.Engine = output["Engine"];
   }
   if (output.NodeGroupUpdateStatus === "") {
     contents.NodeGroupUpdateStatus = [];
@@ -12110,6 +13620,24 @@ const deserializeAws_queryUpdateAction = (output: any, context: __SerdeContext):
       context
     );
   }
+  if (output.CacheNodeUpdateStatus === "") {
+    contents.CacheNodeUpdateStatus = [];
+  }
+  if (
+    output["CacheNodeUpdateStatus"] !== undefined &&
+    output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"] !== undefined
+  ) {
+    contents.CacheNodeUpdateStatus = deserializeAws_queryCacheNodeUpdateStatusList(
+      __getArrayIfSingleItem(output["CacheNodeUpdateStatus"]["CacheNodeUpdateStatus"]),
+      context
+    );
+  }
+  if (output["EstimatedUpdateTime"] !== undefined) {
+    contents.EstimatedUpdateTime = output["EstimatedUpdateTime"];
+  }
+  if (output["Engine"] !== undefined) {
+    contents.Engine = output["Engine"];
+  }
   return contents;
 };
 
@@ -12122,21 +13650,9 @@ const deserializeAws_queryUpdateActionResultsMessage = (
   context: __SerdeContext
 ): UpdateActionResultsMessage => {
   let contents: any = {
-    UnprocessedUpdateActions: undefined,
     ProcessedUpdateActions: undefined,
+    UnprocessedUpdateActions: undefined,
   };
-  if (output.UnprocessedUpdateActions === "") {
-    contents.UnprocessedUpdateActions = [];
-  }
-  if (
-    output["UnprocessedUpdateActions"] !== undefined &&
-    output["UnprocessedUpdateActions"]["UnprocessedUpdateAction"] !== undefined
-  ) {
-    contents.UnprocessedUpdateActions = deserializeAws_queryUnprocessedUpdateActionList(
-      __getArrayIfSingleItem(output["UnprocessedUpdateActions"]["UnprocessedUpdateAction"]),
-      context
-    );
-  }
   if (output.ProcessedUpdateActions === "") {
     contents.ProcessedUpdateActions = [];
   }
@@ -12146,6 +13662,18 @@ const deserializeAws_queryUpdateActionResultsMessage = (
   ) {
     contents.ProcessedUpdateActions = deserializeAws_queryProcessedUpdateActionList(
       __getArrayIfSingleItem(output["ProcessedUpdateActions"]["ProcessedUpdateAction"]),
+      context
+    );
+  }
+  if (output.UnprocessedUpdateActions === "") {
+    contents.UnprocessedUpdateActions = [];
+  }
+  if (
+    output["UnprocessedUpdateActions"] !== undefined &&
+    output["UnprocessedUpdateActions"]["UnprocessedUpdateAction"] !== undefined
+  ) {
+    contents.UnprocessedUpdateActions = deserializeAws_queryUnprocessedUpdateActionList(
+      __getArrayIfSingleItem(output["UnprocessedUpdateActions"]["UnprocessedUpdateAction"]),
       context
     );
   }
@@ -12168,6 +13696,227 @@ const deserializeAws_queryUpdateActionsMessage = (output: any, context: __SerdeC
       __getArrayIfSingleItem(output["UpdateActions"]["UpdateAction"]),
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryUser = (output: any, context: __SerdeContext): User => {
+  let contents: any = {
+    UserId: undefined,
+    UserName: undefined,
+    Status: undefined,
+    Engine: undefined,
+    AccessString: undefined,
+    UserGroupIds: undefined,
+    Authentication: undefined,
+    ARN: undefined,
+  };
+  if (output["UserId"] !== undefined) {
+    contents.UserId = output["UserId"];
+  }
+  if (output["UserName"] !== undefined) {
+    contents.UserName = output["UserName"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["Engine"] !== undefined) {
+    contents.Engine = output["Engine"];
+  }
+  if (output["AccessString"] !== undefined) {
+    contents.AccessString = output["AccessString"];
+  }
+  if (output.UserGroupIds === "") {
+    contents.UserGroupIds = [];
+  }
+  if (output["UserGroupIds"] !== undefined && output["UserGroupIds"]["member"] !== undefined) {
+    contents.UserGroupIds = deserializeAws_queryUserGroupIdList(
+      __getArrayIfSingleItem(output["UserGroupIds"]["member"]),
+      context
+    );
+  }
+  if (output["Authentication"] !== undefined) {
+    contents.Authentication = deserializeAws_queryAuthentication(output["Authentication"], context);
+  }
+  if (output["ARN"] !== undefined) {
+    contents.ARN = output["ARN"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryUserAlreadyExistsFault = (output: any, context: __SerdeContext): UserAlreadyExistsFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryUserGroup = (output: any, context: __SerdeContext): UserGroup => {
+  let contents: any = {
+    UserGroupId: undefined,
+    Status: undefined,
+    Engine: undefined,
+    UserIds: undefined,
+    PendingChanges: undefined,
+    ReplicationGroups: undefined,
+    ARN: undefined,
+  };
+  if (output["UserGroupId"] !== undefined) {
+    contents.UserGroupId = output["UserGroupId"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["Engine"] !== undefined) {
+    contents.Engine = output["Engine"];
+  }
+  if (output.UserIds === "") {
+    contents.UserIds = [];
+  }
+  if (output["UserIds"] !== undefined && output["UserIds"]["member"] !== undefined) {
+    contents.UserIds = deserializeAws_queryUserIdList(__getArrayIfSingleItem(output["UserIds"]["member"]), context);
+  }
+  if (output["PendingChanges"] !== undefined) {
+    contents.PendingChanges = deserializeAws_queryUserGroupPendingChanges(output["PendingChanges"], context);
+  }
+  if (output.ReplicationGroups === "") {
+    contents.ReplicationGroups = [];
+  }
+  if (output["ReplicationGroups"] !== undefined && output["ReplicationGroups"]["member"] !== undefined) {
+    contents.ReplicationGroups = deserializeAws_queryUGReplicationGroupIdList(
+      __getArrayIfSingleItem(output["ReplicationGroups"]["member"]),
+      context
+    );
+  }
+  if (output["ARN"] !== undefined) {
+    contents.ARN = output["ARN"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryUserGroupAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): UserGroupAlreadyExistsFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryUserGroupIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_queryUserGroupList = (output: any, context: __SerdeContext): UserGroup[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryUserGroup(entry, context));
+};
+
+const deserializeAws_queryUserGroupNotFoundFault = (output: any, context: __SerdeContext): UserGroupNotFoundFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryUserGroupPendingChanges = (output: any, context: __SerdeContext): UserGroupPendingChanges => {
+  let contents: any = {
+    UserIdsToRemove: undefined,
+    UserIdsToAdd: undefined,
+  };
+  if (output.UserIdsToRemove === "") {
+    contents.UserIdsToRemove = [];
+  }
+  if (output["UserIdsToRemove"] !== undefined && output["UserIdsToRemove"]["member"] !== undefined) {
+    contents.UserIdsToRemove = deserializeAws_queryUserIdList(
+      __getArrayIfSingleItem(output["UserIdsToRemove"]["member"]),
+      context
+    );
+  }
+  if (output.UserIdsToAdd === "") {
+    contents.UserIdsToAdd = [];
+  }
+  if (output["UserIdsToAdd"] !== undefined && output["UserIdsToAdd"]["member"] !== undefined) {
+    contents.UserIdsToAdd = deserializeAws_queryUserIdList(
+      __getArrayIfSingleItem(output["UserIdsToAdd"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryUserGroupQuotaExceededFault = (
+  output: any,
+  context: __SerdeContext
+): UserGroupQuotaExceededFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryUserGroupsUpdateStatus = (output: any, context: __SerdeContext): UserGroupsUpdateStatus => {
+  let contents: any = {
+    UserGroupIdsToAdd: undefined,
+    UserGroupIdsToRemove: undefined,
+  };
+  if (output.UserGroupIdsToAdd === "") {
+    contents.UserGroupIdsToAdd = [];
+  }
+  if (output["UserGroupIdsToAdd"] !== undefined && output["UserGroupIdsToAdd"]["member"] !== undefined) {
+    contents.UserGroupIdsToAdd = deserializeAws_queryUserGroupIdList(
+      __getArrayIfSingleItem(output["UserGroupIdsToAdd"]["member"]),
+      context
+    );
+  }
+  if (output.UserGroupIdsToRemove === "") {
+    contents.UserGroupIdsToRemove = [];
+  }
+  if (output["UserGroupIdsToRemove"] !== undefined && output["UserGroupIdsToRemove"]["member"] !== undefined) {
+    contents.UserGroupIdsToRemove = deserializeAws_queryUserGroupIdList(
+      __getArrayIfSingleItem(output["UserGroupIdsToRemove"]["member"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_queryUserIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_queryUserList = (output: any, context: __SerdeContext): User[] => {
+  return (output || []).map((entry: any) => deserializeAws_queryUser(entry, context));
+};
+
+const deserializeAws_queryUserNotFoundFault = (output: any, context: __SerdeContext): UserNotFoundFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
+  }
+  return contents;
+};
+
+const deserializeAws_queryUserQuotaExceededFault = (output: any, context: __SerdeContext): UserQuotaExceededFault => {
+  let contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = output["message"];
   }
   return contents;
 };

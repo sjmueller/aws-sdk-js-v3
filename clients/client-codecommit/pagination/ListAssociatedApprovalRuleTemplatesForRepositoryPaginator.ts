@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAssociatedApprovalRuleTemplatesForRepositoryCommand(input, ...args));
+  return await client.send(new ListAssociatedApprovalRuleTemplatesForRepositoryCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeCommit,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAssociatedApprovalRuleTemplatesForRepository(input, ...args);
 };
-export async function* listAssociatedApprovalRuleTemplatesForRepositoryPaginate(
+export async function* paginateListAssociatedApprovalRuleTemplatesForRepository(
   config: CodeCommitPaginationConfiguration,
   input: ListAssociatedApprovalRuleTemplatesForRepositoryCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAssociatedApprovalRuleTemplatesForRepositoryCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof CodeCommit) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listAssociatedApprovalRuleTemplatesForRepositoryPaginate(
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

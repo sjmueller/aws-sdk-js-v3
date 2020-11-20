@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeOptionGroupOptionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeOptionGroupOptionsCommand(input, ...args));
+  return await client.send(new DescribeOptionGroupOptionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RDS,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeOptionGroupOptions(input, ...args);
 };
-export async function* describeOptionGroupOptionsPaginate(
+export async function* paginateDescribeOptionGroupOptions(
   config: RDSPaginationConfiguration,
   input: DescribeOptionGroupOptionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeOptionGroupOptionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeOptionGroupOptionsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof RDS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeOptionGroupOptionsPaginate(
       throw new Error("Invalid client, expected RDS | RDSClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -214,6 +214,7 @@ export namespace CFNRegistryException {
 
 export enum ChangeAction {
   Add = "Add",
+  Dynamic = "Dynamic",
   Import = "Import",
   Modify = "Modify",
   Remove = "Remove",
@@ -253,12 +254,6 @@ export enum RequiresRecreation {
  */
 export interface ResourceTargetDefinition {
   /**
-   * <p>If the <code>Attribute</code> value is <code>Properties</code>, the name of the
-   *          property. For all other attributes, the value is null.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>If the <code>Attribute</code> value is <code>Properties</code>, indicates whether a
    *          change to this property causes the resource to be recreated. The value can be
    *             <code>Never</code>, <code>Always</code>, or <code>Conditionally</code>. To determine the
@@ -273,6 +268,12 @@ export interface ResourceTargetDefinition {
    *          <code>Tags</code>.</p>
    */
   Attribute?: ResourceAttribute | string;
+
+  /**
+   * <p>If the <code>Attribute</code> value is <code>Properties</code>, the name of the
+   *          property. For all other attributes, the value is null.</p>
+   */
+  Name?: string;
 }
 
 export namespace ResourceTargetDefinition {
@@ -328,23 +329,6 @@ export interface ResourceChangeDetail {
   ChangeSource?: ChangeSource | string;
 
   /**
-   * <p>The identity of the entity that triggered this change. This entity is a member of the
-   *          group that is specified by the <code>ChangeSource</code> field. For example, if you
-   *          modified the value of the <code>KeyPairName</code> parameter, the
-   *             <code>CausingEntity</code> is the name of the parameter
-   *          (<code>KeyPairName</code>).</p>
-   *          <p>If the <code>ChangeSource</code> value is <code>DirectModification</code>, no value
-   *          is given for <code>CausingEntity</code>.</p>
-   */
-  CausingEntity?: string;
-
-  /**
-   * <p>A <code>ResourceTargetDefinition</code> structure that describes the field that AWS
-   *          CloudFormation will change and whether the resource will be recreated.</p>
-   */
-  Target?: ResourceTargetDefinition;
-
-  /**
    * <p>Indicates whether AWS CloudFormation can determine the target value, and whether the
    *          target value will change before you execute a change set.</p>
    *          <p>For <code>Static</code> evaluations, AWS CloudFormation can determine that the target
@@ -361,6 +345,23 @@ export interface ResourceChangeDetail {
    *          references to that resource will also be updated.</p>
    */
   Evaluation?: EvaluationType | string;
+
+  /**
+   * <p>A <code>ResourceTargetDefinition</code> structure that describes the field that AWS
+   *          CloudFormation will change and whether the resource will be recreated.</p>
+   */
+  Target?: ResourceTargetDefinition;
+
+  /**
+   * <p>The identity of the entity that triggered this change. This entity is a member of the
+   *          group that is specified by the <code>ChangeSource</code> field. For example, if you
+   *          modified the value of the <code>KeyPairName</code> parameter, the
+   *             <code>CausingEntity</code> is the name of the parameter
+   *          (<code>KeyPairName</code>).</p>
+   *          <p>If the <code>ChangeSource</code> value is <code>DirectModification</code>, no value
+   *          is given for <code>CausingEntity</code>.</p>
+   */
+  CausingEntity?: string;
 }
 
 export namespace ResourceChangeDetail {
@@ -381,12 +382,6 @@ export enum Replacement {
  */
 export interface ResourceChange {
   /**
-   * <p>The resource's physical ID (resource name). Resources that you are adding don't have
-   *          physical IDs because they haven't been created.</p>
-   */
-  PhysicalResourceId?: string;
-
-  /**
    * <p>For the <code>Modify</code> action, indicates whether AWS CloudFormation will replace
    *          the resource by creating a new one and deleting the old one. This value depends on the
    *          value of the <code>RequiresRecreation</code> property in the
@@ -404,17 +399,23 @@ export interface ResourceChange {
   Replacement?: Replacement | string;
 
   /**
-   * <p>The action that AWS CloudFormation takes on the resource, such as <code>Add</code>
-   *          (adds a new resource), <code>Modify</code> (changes a resource), or <code>Remove</code>
-   *          (deletes a resource).</p>
+   * <p>The resource's physical ID (resource name). Resources that you are adding don't have
+   *          physical IDs because they haven't been created.</p>
    */
-  Action?: ChangeAction | string;
+  PhysicalResourceId?: string;
 
   /**
-   * <p>The type of AWS CloudFormation resource, such as
-   *          <code>AWS::S3::Bucket</code>.</p>
+   * <p>The resource's logical ID, which is defined in the stack's template.</p>
    */
-  ResourceType?: string;
+  LogicalResourceId?: string;
+
+  /**
+   * <p>The action that AWS CloudFormation takes on the resource, such as <code>Add</code>
+   *          (adds a new resource), <code>Modify</code> (changes a resource), <code>Remove</code>
+   *          (deletes a resource), <code>Import</code> (imports a resource), or <code>Dynamic</code>
+   *          (exact action for the resource cannot be determined).</p>
+   */
+  Action?: ChangeAction | string;
 
   /**
    * <p>For the <code>Modify</code> action, indicates which resource attribute is triggering
@@ -431,9 +432,15 @@ export interface ResourceChange {
   Details?: ResourceChangeDetail[];
 
   /**
-   * <p>The resource's logical ID, which is defined in the stack's template.</p>
+   * <p>The type of AWS CloudFormation resource, such as
+   *          <code>AWS::S3::Bucket</code>.</p>
    */
-  LogicalResourceId?: string;
+  ResourceType?: string;
+
+  /**
+   * <p>The change set ID of the nested change set.</p>
+   */
+  ChangeSetId?: string;
 }
 
 export namespace ResourceChange {
@@ -452,16 +459,16 @@ export enum ChangeType {
  */
 export interface Change {
   /**
-   * <p>A <code>ResourceChange</code> structure that describes the resource and action that
-   *          AWS CloudFormation will perform.</p>
-   */
-  ResourceChange?: ResourceChange;
-
-  /**
    * <p>The type of entity that AWS CloudFormation changes. Currently, the only entity type
    *          is <code>Resource</code>.</p>
    */
   Type?: ChangeType | string;
+
+  /**
+   * <p>A <code>ResourceChange</code> structure that describes the resource and action that
+   *          AWS CloudFormation will perform.</p>
+   */
+  ResourceChange?: ResourceChange;
 }
 
 export namespace Change {
@@ -491,6 +498,9 @@ export enum ChangeSetStatus {
   CREATE_IN_PROGRESS = "CREATE_IN_PROGRESS",
   CREATE_PENDING = "CREATE_PENDING",
   DELETE_COMPLETE = "DELETE_COMPLETE",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETE_IN_PROGRESS = "DELETE_IN_PROGRESS",
+  DELETE_PENDING = "DELETE_PENDING",
   FAILED = "FAILED",
 }
 
@@ -509,35 +519,15 @@ export enum ExecutionStatus {
  */
 export interface ChangeSetSummary {
   /**
-   * <p>The state of the change set, such as <code>CREATE_IN_PROGRESS</code>,
-   *             <code>CREATE_COMPLETE</code>, or <code>FAILED</code>.</p>
-   */
-  Status?: ChangeSetStatus | string;
-
-  /**
-   * <p>A description of the change set's status. For example, if your change set is in the
-   *             <code>FAILED</code> state, AWS CloudFormation shows the error message.</p>
-   */
-  StatusReason?: string;
-
-  /**
    * <p>Descriptive information about the change set.</p>
    */
   Description?: string;
 
   /**
-   * <p>The ID of the change set.</p>
+   * <p>The state of the change set, such as <code>CREATE_IN_PROGRESS</code>,
+   *             <code>CREATE_COMPLETE</code>, or <code>FAILED</code>.</p>
    */
-  ChangeSetId?: string;
-
-  /**
-   * <p>If the change set execution status is <code>AVAILABLE</code>, you can execute the
-   *          change set. If you can’t execute the change set, the status indicates why. For example, a
-   *          change set might be in an <code>UNAVAILABLE</code> state because AWS CloudFormation is
-   *          still creating it or in an <code>OBSOLETE</code> state because the stack was already
-   *          updated.</p>
-   */
-  ExecutionStatus?: ExecutionStatus | string;
+  Status?: ChangeSetStatus | string;
 
   /**
    * <p>The name of the change set.</p>
@@ -550,14 +540,50 @@ export interface ChangeSetSummary {
   StackName?: string;
 
   /**
+   * <p>The start time when the change set was created, in UTC.</p>
+   */
+  CreationTime?: Date;
+
+  /**
    * <p>The ID of the stack with which the change set is associated.</p>
    */
   StackId?: string;
 
   /**
-   * <p>The start time when the change set was created, in UTC.</p>
+   * <p>A description of the change set's status. For example, if your change set is in the
+   *             <code>FAILED</code> state, AWS CloudFormation shows the error message.</p>
    */
-  CreationTime?: Date;
+  StatusReason?: string;
+
+  /**
+   * <p>The parent change set ID.</p>
+   */
+  ParentChangeSetId?: string;
+
+  /**
+   * <p>If the change set execution status is <code>AVAILABLE</code>, you can execute the
+   *          change set. If you can’t execute the change set, the status indicates why. For example, a
+   *          change set might be in an <code>UNAVAILABLE</code> state because AWS CloudFormation is
+   *          still creating it or in an <code>OBSOLETE</code> state because the stack was already
+   *          updated.</p>
+   */
+  ExecutionStatus?: ExecutionStatus | string;
+
+  /**
+   * <p>The ID of the change set.</p>
+   */
+  ChangeSetId?: string;
+
+  /**
+   * <p>The root change set ID.</p>
+   */
+  RootChangeSetId?: string;
+
+  /**
+   * <p>Specifies the current setting of <code>IncludeNestedStacks</code> for the change
+   *          set.</p>
+   */
+  IncludeNestedStacks?: boolean;
 }
 
 export namespace ChangeSetSummary {
@@ -577,29 +603,13 @@ export enum ChangeSetType {
  */
 export interface ContinueUpdateRollbackInput {
   /**
-   * <p>The name or the unique ID of the stack that you want to continue rolling
-   *          back.</p>
-   *          <note>
-   *             <p>Don't specify the name of a nested stack (a stack that was created by using the
-   *                <code>AWS::CloudFormation::Stack</code> resource). Instead, use this operation on the
-   *             parent stack (the stack that contains the <code>AWS::CloudFormation::Stack</code>
-   *             resource).</p>
-   *          </note>
+   * <p>A unique identifier for this <code>ContinueUpdateRollback</code> request. Specify
+   *          this token if you plan to retry requests so that AWS CloudFormation knows that you're not
+   *          attempting to continue the rollback to a stack with the same name. You might retry
+   *          <code>ContinueUpdateRollback</code> requests to ensure that AWS CloudFormation
+   *          successfully received them.</p>
    */
-  StackName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
-   *          that AWS CloudFormation assumes to roll back the stack. AWS CloudFormation uses the role's
-   *          credentials to make calls on your behalf. AWS CloudFormation always uses this role for all
-   *          future operations on the stack. As long as users have permission to operate on the stack,
-   *          AWS CloudFormation uses this role even if the users don't have permission to pass it.
-   *          Ensure that the role grants least privilege.</p>
-   *          <p>If you don't specify a value, AWS CloudFormation uses the role that was previously
-   *          associated with the stack. If no role is available, AWS CloudFormation uses a temporary
-   *          session that is generated from your user credentials.</p>
-   */
-  RoleARN?: string;
+  ClientRequestToken?: string;
 
   /**
    * <p>A list of the logical IDs of the resources that AWS CloudFormation skips during the
@@ -635,13 +645,29 @@ export interface ContinueUpdateRollbackInput {
   ResourcesToSkip?: string[];
 
   /**
-   * <p>A unique identifier for this <code>ContinueUpdateRollback</code> request. Specify
-   *          this token if you plan to retry requests so that AWS CloudFormation knows that you're not
-   *          attempting to continue the rollback to a stack with the same name. You might retry
-   *          <code>ContinueUpdateRollback</code> requests to ensure that AWS CloudFormation
-   *          successfully received them.</p>
+   * <p>The name or the unique ID of the stack that you want to continue rolling
+   *          back.</p>
+   *          <note>
+   *             <p>Don't specify the name of a nested stack (a stack that was created by using the
+   *                <code>AWS::CloudFormation::Stack</code> resource). Instead, use this operation on the
+   *             parent stack (the stack that contains the <code>AWS::CloudFormation::Stack</code>
+   *             resource).</p>
+   *          </note>
    */
-  ClientRequestToken?: string;
+  StackName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
+   *          that AWS CloudFormation assumes to roll back the stack. AWS CloudFormation uses the role's
+   *          credentials to make calls on your behalf. AWS CloudFormation always uses this role for all
+   *          future operations on the stack. As long as users have permission to operate on the stack,
+   *          AWS CloudFormation uses this role even if the users don't have permission to pass it.
+   *          Ensure that the role grants least privilege.</p>
+   *          <p>If you don't specify a value, AWS CloudFormation uses the role that was previously
+   *          associated with the stack. If no role is available, AWS CloudFormation uses a temporary
+   *          session that is generated from your user credentials.</p>
+   */
+  RoleARN?: string;
 }
 
 export namespace ContinueUpdateRollbackInput {
@@ -666,11 +692,16 @@ export namespace ContinueUpdateRollbackOutput {
  */
 export interface Parameter {
   /**
-   * <p>The key associated with the parameter. If you don't specify a key and value for a
-   *          particular parameter, AWS CloudFormation uses the default value that is specified in your
-   *          template.</p>
+   * <p>During a stack update, use the existing parameter value that the stack is using for a
+   *          given parameter key. If you specify <code>true</code>, do not specify a parameter
+   *          value.</p>
    */
-  ParameterKey?: string;
+  UsePreviousValue?: boolean;
+
+  /**
+   * <p>The input value associated with the parameter.</p>
+   */
+  ParameterValue?: string;
 
   /**
    * <p>Read-only. The value that corresponds to a Systems Manager parameter key. This field
@@ -680,16 +711,11 @@ export interface Parameter {
   ResolvedValue?: string;
 
   /**
-   * <p>The input value associated with the parameter.</p>
+   * <p>The key associated with the parameter. If you don't specify a key and value for a
+   *          particular parameter, AWS CloudFormation uses the default value that is specified in your
+   *          template.</p>
    */
-  ParameterValue?: string;
-
-  /**
-   * <p>During a stack update, use the existing parameter value that the stack is using for a
-   *          given parameter key. If you specify <code>true</code>, do not specify a parameter
-   *          value.</p>
-   */
-  UsePreviousValue?: boolean;
+  ParameterKey?: string;
 }
 
 export namespace Parameter {
@@ -703,11 +729,6 @@ export namespace Parameter {
  */
 export interface ResourceToImport {
   /**
-   * <p>The logical ID of the target resource as specified in the template.</p>
-   */
-  LogicalResourceId: string | undefined;
-
-  /**
    * <p>A key-value pair that identifies the target resource. The key is an identifier property
    *          (for example, <code>BucketName</code> for <code>AWS::S3::Bucket</code> resources) and the
    *          value is the actual property value (for example, <code>MyS3Bucket</code>).</p>
@@ -718,6 +739,11 @@ export interface ResourceToImport {
    * <p>The type of resource to import into your stack, such as <code>AWS::S3::Bucket</code>. For a list of supported resource types, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html">Resources that support import operations</a> in the AWS CloudFormation User Guide.</p>
    */
   ResourceType: string | undefined;
+
+  /**
+   * <p>The logical ID of the target resource as specified in the template.</p>
+   */
+  LogicalResourceId: string | undefined;
 }
 
 export namespace ResourceToImport {
@@ -734,16 +760,16 @@ export namespace ResourceToImport {
  */
 export interface RollbackTrigger {
   /**
-   * <p>The resource type of the rollback trigger. Currently, <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html">AWS::CloudWatch::Alarm</a> is the only supported resource type.</p>
-   */
-  Type: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the rollback trigger.</p>
    *          <p>If a specified trigger is missing, the entire stack operation fails and is rolled
    *          back. </p>
    */
   Arn: string | undefined;
+
+  /**
+   * <p>The resource type of the rollback trigger. Currently, <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html">AWS::CloudWatch::Alarm</a> is the only supported resource type.</p>
+   */
+  Type: string | undefined;
 }
 
 export namespace RollbackTrigger {
@@ -844,9 +870,19 @@ export namespace Tag {
  */
 export interface CreateChangeSetInput {
   /**
-   * <p>The resources to import into your stack.</p>
+   * <p>The rollback triggers for AWS CloudFormation to monitor during stack creation and
+   *          updating operations, and for the specified monitoring period afterwards.</p>
    */
-  ResourcesToImport?: ResourceToImport[];
+  RollbackConfiguration?: RollbackConfiguration;
+
+  /**
+   * <p>The name of the change set. The name must be unique among all change sets that are
+   *          associated with the specified stack.</p>
+   *          <p>A change set name can contain only alphanumeric, case sensitive characters and
+   *          hyphens. It must start with an alphabetic character and cannot exceed 128
+   *          characters.</p>
+   */
+  ChangeSetName: string | undefined;
 
   /**
    * <p>Key-value pairs to associate with this stack. AWS CloudFormation also propagates
@@ -855,10 +891,87 @@ export interface CreateChangeSetInput {
   Tags?: Tag[];
 
   /**
-   * <p>The rollback triggers for AWS CloudFormation to monitor during stack creation and
-   *          updating operations, and for the specified monitoring period afterwards.</p>
+   * <p>The Amazon Resource Names (ARNs) of Amazon Simple Notification Service (Amazon SNS)
+   *          topics that AWS CloudFormation associates with the stack. To remove all associated
+   *          notification topics, specify an empty list.</p>
    */
-  RollbackConfiguration?: RollbackConfiguration;
+  NotificationARNs?: string[];
+
+  /**
+   * <p>Whether to reuse the template that is associated with the stack to create the change
+   *          set.</p>
+   */
+  UsePreviousTemplate?: boolean;
+
+  /**
+   * <p>A description to help you identify this change set.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of <code>Parameter</code> structures that specify input parameters for the
+   *          change set. For more information, see the <a>Parameter</a> data type.</p>
+   */
+  Parameters?: Parameter[];
+
+  /**
+   * <p>The template resource types that you have permissions to work with if you execute
+   *          this change set, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or
+   *             <code>Custom::MyCustomInstance</code>.</p>
+   *          <p>If the list of resource types doesn't include a resource type that you're updating,
+   *          the stack update fails. By default, AWS CloudFormation grants permissions to all resource
+   *          types. AWS Identity and Access Management (IAM) uses this parameter for condition keys in
+   *          IAM policies for AWS CloudFormation. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling Access with
+   *             AWS Identity and Access Management</a> in the AWS CloudFormation User
+   *          Guide.</p>
+   */
+  ResourceTypes?: string[];
+
+  /**
+   * <p>A unique identifier for this <code>CreateChangeSet</code> request. Specify this token
+   *          if you plan to retry requests so that AWS CloudFormation knows that you're not attempting
+   *          to create another change set with the same name. You might retry
+   *             <code>CreateChangeSet</code> requests to ensure that AWS CloudFormation successfully
+   *          received them.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
+   *          that AWS CloudFormation assumes when executing the change set. AWS CloudFormation uses the
+   *          role's credentials to make calls on your behalf. AWS CloudFormation uses this role for all
+   *          future operations on the stack. As long as users have permission to operate on the stack,
+   *          AWS CloudFormation uses this role even if the users don't have permission to pass it.
+   *          Ensure that the role grants least privilege.</p>
+   *          <p>If you don't specify a value, AWS CloudFormation uses the role that was previously
+   *          associated with the stack. If no role is available, AWS CloudFormation uses a temporary
+   *          session that is generated from your user credentials.</p>
+   */
+  RoleARN?: string;
+
+  /**
+   * <p>The type of change set operation. To create a change set for a new stack, specify
+   *             <code>CREATE</code>. To create a change set for an existing stack, specify
+   *             <code>UPDATE</code>. To create a change set for an import operation, specify
+   *             <code>IMPORT</code>.</p>
+   *          <p>If you create a change set for a new stack, AWS Cloudformation creates a stack with a
+   *          unique stack ID, but no template or resources. The stack will be in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995">
+   *                <code>REVIEW_IN_PROGRESS</code>
+   *             </a> state until you execute the change
+   *          set.</p>
+   *          <p>By default, AWS CloudFormation specifies <code>UPDATE</code>. You can't use the
+   *             <code>UPDATE</code> type to create a change set for a new stack or the
+   *             <code>CREATE</code> type to create a change set for an existing stack.</p>
+   */
+  ChangeSetType?: ChangeSetType | string;
+
+  /**
+   * <p>The name or the unique ID of the stack for which you are creating a change set. AWS
+   *          CloudFormation generates the change set by comparing this stack's information with the
+   *          information that you submit, such as a modified template or different parameter input
+   *          values.</p>
+   */
+  StackName: string | undefined;
 
   /**
    * <p>In some cases, you must explicitly acknowledge that your stack template contains certain
@@ -951,7 +1064,7 @@ export interface CreateChangeSetInput {
    *                <note>
    *                   <p>This capacity does not apply to creating change sets, and specifying it when
    *                   creating change sets has no effect.</p>
-   *                   <p>Also, change sets do not currently support nested stacks. If you want to create
+   *                   <p>If you want to create
    *                   a stack from a stack template that contains macros <i>and</i> nested
    *                   stacks, you must create or update the stack directly from the template using the
    *                      <a>CreateStack</a> or <a>UpdateStack</a> action, and
@@ -965,11 +1078,13 @@ export interface CreateChangeSetInput {
   Capabilities?: (Capability | string)[];
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of Amazon Simple Notification Service (Amazon SNS)
-   *          topics that AWS CloudFormation associates with the stack. To remove all associated
-   *          notification topics, specify an empty list.</p>
+   * <p>A structure that contains the body of the revised template, with a minimum length of
+   *          1 byte and a maximum length of 51,200 bytes. AWS CloudFormation generates the change set by
+   *          comparing this template with the template of the stack that you specified.</p>
+   *          <p>Conditional: You must specify only <code>TemplateBody</code> or
+   *             <code>TemplateURL</code>.</p>
    */
-  NotificationARNs?: string[];
+  TemplateBody?: string;
 
   /**
    * <p>The location of the file that contains the revised template. The URL must point to a
@@ -982,98 +1097,16 @@ export interface CreateChangeSetInput {
   TemplateURL?: string;
 
   /**
-   * <p>The name of the change set. The name must be unique among all change sets that are
-   *          associated with the specified stack.</p>
-   *          <p>A change set name can contain only alphanumeric, case sensitive characters and
-   *          hyphens. It must start with an alphabetic character and cannot exceed 128
-   *          characters.</p>
+   * <p>Creates a change set for the all nested stacks specified in the template. The default
+   *          behavior of this action is set to <code>False</code>. To include nested sets in a change
+   *          set, specify <code>True</code>.</p>
    */
-  ChangeSetName: string | undefined;
+  IncludeNestedStacks?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
-   *          that AWS CloudFormation assumes when executing the change set. AWS CloudFormation uses the
-   *          role's credentials to make calls on your behalf. AWS CloudFormation uses this role for all
-   *          future operations on the stack. As long as users have permission to operate on the stack,
-   *          AWS CloudFormation uses this role even if the users don't have permission to pass it.
-   *          Ensure that the role grants least privilege.</p>
-   *          <p>If you don't specify a value, AWS CloudFormation uses the role that was previously
-   *          associated with the stack. If no role is available, AWS CloudFormation uses a temporary
-   *          session that is generated from your user credentials.</p>
+   * <p>The resources to import into your stack.</p>
    */
-  RoleARN?: string;
-
-  /**
-   * <p>A structure that contains the body of the revised template, with a minimum length of
-   *          1 byte and a maximum length of 51,200 bytes. AWS CloudFormation generates the change set by
-   *          comparing this template with the template of the stack that you specified.</p>
-   *          <p>Conditional: You must specify only <code>TemplateBody</code> or
-   *             <code>TemplateURL</code>.</p>
-   */
-  TemplateBody?: string;
-
-  /**
-   * <p>Whether to reuse the template that is associated with the stack to create the change
-   *          set.</p>
-   */
-  UsePreviousTemplate?: boolean;
-
-  /**
-   * <p>A list of <code>Parameter</code> structures that specify input parameters for the
-   *          change set. For more information, see the <a>Parameter</a> data type.</p>
-   */
-  Parameters?: Parameter[];
-
-  /**
-   * <p>The template resource types that you have permissions to work with if you execute
-   *          this change set, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or
-   *             <code>Custom::MyCustomInstance</code>.</p>
-   *          <p>If the list of resource types doesn't include a resource type that you're updating,
-   *          the stack update fails. By default, AWS CloudFormation grants permissions to all resource
-   *          types. AWS Identity and Access Management (IAM) uses this parameter for condition keys in
-   *          IAM policies for AWS CloudFormation. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling Access with
-   *             AWS Identity and Access Management</a> in the AWS CloudFormation User
-   *          Guide.</p>
-   */
-  ResourceTypes?: string[];
-
-  /**
-   * <p>A description to help you identify this change set.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The name or the unique ID of the stack for which you are creating a change set. AWS
-   *          CloudFormation generates the change set by comparing this stack's information with the
-   *          information that you submit, such as a modified template or different parameter input
-   *          values.</p>
-   */
-  StackName: string | undefined;
-
-  /**
-   * <p>A unique identifier for this <code>CreateChangeSet</code> request. Specify this token
-   *          if you plan to retry requests so that AWS CloudFormation knows that you're not attempting
-   *          to create another change set with the same name. You might retry
-   *             <code>CreateChangeSet</code> requests to ensure that AWS CloudFormation successfully
-   *          received them.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>The type of change set operation. To create a change set for a new stack, specify
-   *             <code>CREATE</code>. To create a change set for an existing stack, specify
-   *             <code>UPDATE</code>. To create a change set for an import operation, specify
-   *             <code>IMPORT</code>.</p>
-   *          <p>If you create a change set for a new stack, AWS Cloudformation creates a stack with a
-   *          unique stack ID, but no template or resources. The stack will be in the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-describing-stacks.html#d0e11995">
-   *                <code>REVIEW_IN_PROGRESS</code>
-   *             </a> state until you execute the change
-   *          set.</p>
-   *          <p>By default, AWS CloudFormation specifies <code>UPDATE</code>. You can't use the
-   *             <code>UPDATE</code> type to create a change set for a new stack or the
-   *             <code>CREATE</code> type to create a change set for an existing stack.</p>
-   */
-  ChangeSetType?: ChangeSetType | string;
+  ResourcesToImport?: ResourceToImport[];
 }
 
 export namespace CreateChangeSetInput {
@@ -1147,6 +1180,15 @@ export enum OnFailure {
  */
 export interface CreateStackInput {
   /**
+   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
+   *          length of 51,200 bytes. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
+   *          in the AWS CloudFormation User Guide.</p>
+   *          <p>Conditional: You must specify either the <code>TemplateBody</code> or the
+   *             <code>TemplateURL</code> parameter, but not both.</p>
+   */
+  TemplateBody?: string;
+
+  /**
    * <p>Structure containing the stack policy body. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html"> Prevent Updates
    *             to Stack Resources</a> in the <i>AWS CloudFormation User Guide</i>.
    *          You can specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code>
@@ -1155,13 +1197,66 @@ export interface CreateStackInput {
   StackPolicyBody?: string;
 
   /**
-   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
-   *          length of 51,200 bytes. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
-   *          in the AWS CloudFormation User Guide.</p>
-   *          <p>Conditional: You must specify either the <code>TemplateBody</code> or the
-   *             <code>TemplateURL</code> parameter, but not both.</p>
+   * <p>The template resource types that you have permissions to work with for this create
+   *          stack action, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or
+   *             <code>Custom::MyCustomInstance</code>. Use the following syntax to describe template
+   *          resource types: <code>AWS::*</code> (for all AWS resource), <code>Custom::*</code> (for all
+   *          custom resources), <code>Custom::<i>logical_ID</i>
+   *             </code> (for a specific custom resource),
+   *             <code>AWS::<i>service_name</i>::*</code> (for all resources of a
+   *          particular AWS service), and
+   *                <code>AWS::<i>service_name</i>::<i>resource_logical_ID</i>
+   *             </code> (for a specific AWS resource).</p>
+   *          <p>If the list of resource types doesn't include a resource that you're creating, the
+   *          stack creation fails. By default, AWS CloudFormation grants permissions to all resource
+   *          types. AWS Identity and Access Management (IAM) uses this parameter for AWS
+   *          CloudFormation-specific condition keys in IAM policies. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling Access with AWS Identity and Access Management</a>.</p>
    */
-  TemplateBody?: string;
+  ResourceTypes?: string[];
+
+  /**
+   * <p>A list of <code>Parameter</code> structures that specify input parameters for the
+   *          stack. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a> data
+   *          type.</p>
+   */
+  Parameters?: Parameter[];
+
+  /**
+   * <p>Whether to enable termination protection on the specified stack. If a user attempts
+   *          to delete a stack with termination protection enabled, the operation fails and the stack
+   *          remains unchanged. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a Stack From Being
+   *             Deleted</a> in the <i>AWS CloudFormation User Guide</i>. Termination protection is
+   *          disabled on stacks by default. </p>
+   *          <p> For <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested stacks</a>,
+   *          termination protection is set on the root stack and cannot be changed directly on the
+   *          nested stack.</p>
+   */
+  EnableTerminationProtection?: boolean;
+
+  /**
+   * <p>Determines what action will be taken if stack creation fails. This must be one of:
+   *          DO_NOTHING, ROLLBACK, or DELETE. You can specify either <code>OnFailure</code> or
+   *             <code>DisableRollback</code>, but not both.</p>
+   *          <p>Default: <code>ROLLBACK</code>
+   *          </p>
+   */
+  OnFailure?: OnFailure | string;
+
+  /**
+   * <p>Set to <code>true</code> to disable rollback of the stack if stack creation failed.
+   *          You can specify either <code>DisableRollback</code> or <code>OnFailure</code>, but not
+   *          both.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  DisableRollback?: boolean;
+
+  /**
+   * <p>Key-value pairs to associate with this stack. AWS CloudFormation also propagates
+   *          these tags to the resources created in the stack. A maximum number of 50 tags can be
+   *          specified.</p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>The name that is associated with the stack. The name must be unique in the Region in
@@ -1175,21 +1270,36 @@ export interface CreateStackInput {
   StackName: string | undefined;
 
   /**
-   * <p>Location of a file containing the stack policy. The URL must point to a policy
-   *          (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can
-   *          specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code>
-   *          parameter, but not both.</p>
+   * <p>The amount of time that can pass before the stack status becomes CREATE_FAILED; if
+   *             <code>DisableRollback</code> is not set or is set to <code>false</code>, the stack will
+   *          be rolled back.</p>
    */
-  StackPolicyURL?: string;
+  TimeoutInMinutes?: number;
 
   /**
-   * <p>Determines what action will be taken if stack creation fails. This must be one of:
-   *          DO_NOTHING, ROLLBACK, or DELETE. You can specify either <code>OnFailure</code> or
-   *             <code>DisableRollback</code>, but not both.</p>
-   *          <p>Default: <code>ROLLBACK</code>
-   *          </p>
+   * <p>The rollback triggers for AWS CloudFormation to monitor during stack creation and
+   *          updating operations, and for the specified monitoring period afterwards.</p>
    */
-  OnFailure?: OnFailure | string;
+  RollbackConfiguration?: RollbackConfiguration;
+
+  /**
+   * <p>A unique identifier for this <code>CreateStack</code> request. Specify this token if
+   *          you plan to retry requests so that AWS CloudFormation knows that you're not attempting to
+   *          create a stack with the same name. You might retry <code>CreateStack</code> requests to
+   *          ensure that AWS CloudFormation successfully received them.</p>
+   *          <p>All events triggered by a given stack operation are assigned the same client request
+   *          token, which you can use to track operations. For example, if you execute a
+   *          <code>CreateStack</code> operation with the token <code>token1</code>, then all the
+   *          <code>StackEvents</code> generated by that operation will have
+   *          <code>ClientRequestToken</code> set as <code>token1</code>.</p>
+   *          <p>In the console, stack operations display the client request token on the Events tab.
+   *          Stack operations that are initiated from the console use the token format
+   *          <i>Console-StackOperation-ID</i>, which helps you easily identify the
+   *          stack operation . For example, if you create a stack using the console, each stack event
+   *          would be assigned the same token in the following format:
+   *          <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>. </p>
+   */
+  ClientRequestToken?: string;
 
   /**
    * <p>The Simple Notification Service (SNS) topic ARNs to publish stack related events. You
@@ -1286,7 +1396,7 @@ export interface CreateStackInput {
    *                more macros, and you choose to create a stack directly from the processed template,
    *                without first reviewing the resulting changes in a change set, you must acknowledge
    *                this capability. This includes the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by AWS CloudFormation.</p>
-   *                <p>Change sets do not currently support nested stacks. If you want to create a stack
+   *                <p>If you want to create a stack
    *                from a stack template that contains macros <i>and</i> nested stacks,
    *                you must create the stack directly from the template using this capability.</p>
    *                <important>
@@ -1305,32 +1415,22 @@ export interface CreateStackInput {
   Capabilities?: (Capability | string)[];
 
   /**
-   * <p>Whether to enable termination protection on the specified stack. If a user attempts
-   *          to delete a stack with termination protection enabled, the operation fails and the stack
-   *          remains unchanged. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a Stack From Being
-   *             Deleted</a> in the <i>AWS CloudFormation User Guide</i>. Termination protection is
-   *          disabled on stacks by default. </p>
-   *          <p> For <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested stacks</a>,
-   *          termination protection is set on the root stack and cannot be changed directly on the
-   *          nested stack.</p>
+   * <p>Location of file containing the template body. The URL must point to a template (max
+   *          size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to
+   *          the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
+   *          in the AWS CloudFormation User Guide.</p>
+   *          <p>Conditional: You must specify either the <code>TemplateBody</code> or the
+   *             <code>TemplateURL</code> parameter, but not both.</p>
    */
-  EnableTerminationProtection?: boolean;
+  TemplateURL?: string;
 
   /**
-   * <p>The amount of time that can pass before the stack status becomes CREATE_FAILED; if
-   *             <code>DisableRollback</code> is not set or is set to <code>false</code>, the stack will
-   *          be rolled back.</p>
+   * <p>Location of a file containing the stack policy. The URL must point to a policy
+   *          (maximum size: 16 KB) located in an S3 bucket in the same Region as the stack. You can
+   *          specify either the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code>
+   *          parameter, but not both.</p>
    */
-  TimeoutInMinutes?: number;
-
-  /**
-   * <p>Set to <code>true</code> to disable rollback of the stack if stack creation failed.
-   *          You can specify either <code>DisableRollback</code> or <code>OnFailure</code>, but not
-   *          both.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  DisableRollback?: boolean;
+  StackPolicyURL?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
@@ -1344,73 +1444,6 @@ export interface CreateStackInput {
    *          session that is generated from your user credentials.</p>
    */
   RoleARN?: string;
-
-  /**
-   * <p>Key-value pairs to associate with this stack. AWS CloudFormation also propagates
-   *          these tags to the resources created in the stack. A maximum number of 50 tags can be
-   *          specified.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The rollback triggers for AWS CloudFormation to monitor during stack creation and
-   *          updating operations, and for the specified monitoring period afterwards.</p>
-   */
-  RollbackConfiguration?: RollbackConfiguration;
-
-  /**
-   * <p>A list of <code>Parameter</code> structures that specify input parameters for the
-   *          stack. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a> data
-   *          type.</p>
-   */
-  Parameters?: Parameter[];
-
-  /**
-   * <p>The template resource types that you have permissions to work with for this create
-   *          stack action, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or
-   *             <code>Custom::MyCustomInstance</code>. Use the following syntax to describe template
-   *          resource types: <code>AWS::*</code> (for all AWS resource), <code>Custom::*</code> (for all
-   *          custom resources), <code>Custom::<i>logical_ID</i>
-   *             </code> (for a specific custom resource),
-   *             <code>AWS::<i>service_name</i>::*</code> (for all resources of a
-   *          particular AWS service), and
-   *                <code>AWS::<i>service_name</i>::<i>resource_logical_ID</i>
-   *             </code> (for a specific AWS resource).</p>
-   *          <p>If the list of resource types doesn't include a resource that you're creating, the
-   *          stack creation fails. By default, AWS CloudFormation grants permissions to all resource
-   *          types. AWS Identity and Access Management (IAM) uses this parameter for AWS
-   *          CloudFormation-specific condition keys in IAM policies. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling Access with AWS Identity and Access Management</a>.</p>
-   */
-  ResourceTypes?: string[];
-
-  /**
-   * <p>A unique identifier for this <code>CreateStack</code> request. Specify this token if
-   *          you plan to retry requests so that AWS CloudFormation knows that you're not attempting to
-   *          create a stack with the same name. You might retry <code>CreateStack</code> requests to
-   *          ensure that AWS CloudFormation successfully received them.</p>
-   *          <p>All events triggered by a given stack operation are assigned the same client request
-   *          token, which you can use to track operations. For example, if you execute a
-   *          <code>CreateStack</code> operation with the token <code>token1</code>, then all the
-   *          <code>StackEvents</code> generated by that operation will have
-   *          <code>ClientRequestToken</code> set as <code>token1</code>.</p>
-   *          <p>In the console, stack operations display the client request token on the Events tab.
-   *          Stack operations that are initiated from the console use the token format
-   *          <i>Console-StackOperation-ID</i>, which helps you easily identify the
-   *          stack operation . For example, if you create a stack using the console, each stack event
-   *          would be assigned the same token in the following format:
-   *          <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>. </p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>Location of file containing the template body. The URL must point to a template (max
-   *          size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information, go to
-   *          the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
-   *          in the AWS CloudFormation User Guide.</p>
-   *          <p>Conditional: You must specify either the <code>TemplateBody</code> or the
-   *             <code>TemplateURL</code> parameter, but not both.</p>
-   */
-  TemplateURL?: string;
 }
 
 export namespace CreateStackInput {
@@ -1441,14 +1474,14 @@ export namespace CreateStackOutput {
  */
 export interface DeploymentTargets {
   /**
-   * <p>The names of one or more AWS accounts for which you want to deploy stack set updates.</p>
-   */
-  Accounts?: string[];
-
-  /**
    * <p>The organization root ID or organizational unit (OU) IDs to which StackSets deploys.</p>
    */
   OrganizationalUnitIds?: string[];
+
+  /**
+   * <p>The names of one or more AWS accounts for which you want to deploy stack set updates.</p>
+   */
+  Accounts?: string[];
 }
 
 export namespace DeploymentTargets {
@@ -1464,22 +1497,24 @@ export namespace DeploymentTargets {
  */
 export interface StackSetOperationPreferences {
   /**
-   * <p>The maximum number of accounts in which to perform this operation at one time. This
-   *          is dependent on the value of
-   *             <code>FailureToleranceCount</code>. <code>MaxConcurrentCount</code> is at most one more
-   *          than the <code>FailureToleranceCount</code>.</p>
+   * <p>The order of the Regions in where you want to perform the stack operation.</p>
+   */
+  RegionOrder?: string[];
+
+  /**
+   * <p>The maximum percentage of accounts in which to perform this operation at one
+   *          time.</p>
+   *          <p>When calculating the number of accounts based on the specified percentage, AWS
+   *          CloudFormation rounds down to the next whole number. This is true except in cases where
+   *          rounding down would result is zero. In this case, CloudFormation sets the number as one
+   *          instead.</p>
    *          <p>Note that this setting lets you specify the <i>maximum</i> for
    *          operations. For large deployments, under certain circumstances the actual number of
    *          accounts acted upon concurrently may be lower due to service throttling.</p>
    *          <p>Conditional: You must specify either <code>MaxConcurrentCount</code> or
    *             <code>MaxConcurrentPercentage</code>, but not both.</p>
    */
-  MaxConcurrentCount?: number;
-
-  /**
-   * <p>The order of the Regions in where you want to perform the stack operation.</p>
-   */
-  RegionOrder?: string[];
+  MaxConcurrentPercentage?: number;
 
   /**
    * <p>The number of accounts, per Region, for which this operation can fail before AWS
@@ -1503,19 +1538,17 @@ export interface StackSetOperationPreferences {
   FailureTolerancePercentage?: number;
 
   /**
-   * <p>The maximum percentage of accounts in which to perform this operation at one
-   *          time.</p>
-   *          <p>When calculating the number of accounts based on the specified percentage, AWS
-   *          CloudFormation rounds down to the next whole number. This is true except in cases where
-   *          rounding down would result is zero. In this case, CloudFormation sets the number as one
-   *          instead.</p>
+   * <p>The maximum number of accounts in which to perform this operation at one time. This
+   *          is dependent on the value of
+   *             <code>FailureToleranceCount</code>. <code>MaxConcurrentCount</code> is at most one more
+   *          than the <code>FailureToleranceCount</code>.</p>
    *          <p>Note that this setting lets you specify the <i>maximum</i> for
    *          operations. For large deployments, under certain circumstances the actual number of
    *          accounts acted upon concurrently may be lower due to service throttling.</p>
    *          <p>Conditional: You must specify either <code>MaxConcurrentCount</code> or
    *             <code>MaxConcurrentPercentage</code>, but not both.</p>
    */
-  MaxConcurrentPercentage?: number;
+  MaxConcurrentCount?: number;
 }
 
 export namespace StackSetOperationPreferences {
@@ -1530,42 +1563,6 @@ export interface CreateStackInstancesInput {
    *          specified AWS account(s). </p>
    */
   Regions: string[] | undefined;
-
-  /**
-   * <p>The name or unique ID of the stack set that you want to create stack instances
-   *          from.</p>
-   */
-  StackSetName: string | undefined;
-
-  /**
-   * <p>The unique identifier for this stack set operation. </p>
-   *          <p>The operation ID also functions as an idempotency token, to ensure that AWS
-   *          CloudFormation performs the stack set operation only once, even if you retry the request
-   *          multiple times. You might retry stack set operation requests to ensure that AWS
-   *          CloudFormation successfully received them.</p>
-   *          <p>If you don't specify an operation ID, the SDK generates one automatically. </p>
-   *          <p>Repeating this stack set operation with a new operation ID retries all stack
-   *          instances whose status is <code>OUTDATED</code>. </p>
-   */
-  OperationId?: string;
-
-  /**
-   * <p>[<code>Self-managed</code> permissions] The names of one or more AWS accounts that you want to create stack instances in the
-   *          specified Region(s) for.</p>
-   *          <p>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</p>
-   */
-  Accounts?: string[];
-
-  /**
-   * <p>[<code>Service-managed</code> permissions] The AWS Organizations accounts for which to create stack instances in the specified Regions.</p>
-   *          <p>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</p>
-   */
-  DeploymentTargets?: DeploymentTargets;
-
-  /**
-   * <p>Preferences for how AWS CloudFormation performs this stack set operation.</p>
-   */
-  OperationPreferences?: StackSetOperationPreferences;
 
   /**
    * <p>A list of stack set parameters whose values you want to override in the selected
@@ -1607,6 +1604,42 @@ export interface CreateStackInstancesInput {
    *          the stack set; to add or delete a parameter itself, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a> to update the stack set template.</p>
    */
   ParameterOverrides?: Parameter[];
+
+  /**
+   * <p>Preferences for how AWS CloudFormation performs this stack set operation.</p>
+   */
+  OperationPreferences?: StackSetOperationPreferences;
+
+  /**
+   * <p>[<code>Self-managed</code> permissions] The names of one or more AWS accounts that you want to create stack instances in the
+   *          specified Region(s) for.</p>
+   *          <p>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</p>
+   */
+  Accounts?: string[];
+
+  /**
+   * <p>The unique identifier for this stack set operation. </p>
+   *          <p>The operation ID also functions as an idempotency token, to ensure that AWS
+   *          CloudFormation performs the stack set operation only once, even if you retry the request
+   *          multiple times. You might retry stack set operation requests to ensure that AWS
+   *          CloudFormation successfully received them.</p>
+   *          <p>If you don't specify an operation ID, the SDK generates one automatically. </p>
+   *          <p>Repeating this stack set operation with a new operation ID retries all stack
+   *          instances whose status is <code>OUTDATED</code>. </p>
+   */
+  OperationId?: string;
+
+  /**
+   * <p>The name or unique ID of the stack set that you want to create stack instances
+   *          from.</p>
+   */
+  StackSetName: string | undefined;
+
+  /**
+   * <p>[<code>Service-managed</code> permissions] The AWS Organizations accounts for which to create stack instances in the specified Regions.</p>
+   *          <p>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</p>
+   */
+  DeploymentTargets?: DeploymentTargets;
 }
 
 export namespace CreateStackInstancesInput {
@@ -1733,54 +1766,6 @@ export interface CreateStackSetInput {
   TemplateBody?: string;
 
   /**
-   * <p>The name of the IAM execution role to use to create the stack set. If you do not specify
-   *          an execution role, AWS CloudFormation uses the <code>AWSCloudFormationStackSetExecutionRole</code> role
-   *          for the stack set operation.</p>
-   *          <p>Specify an IAM role only if you are using customized execution roles to control which
-   *          stack resources users and groups can include in their stack sets.
-   *
-   *       </p>
-   */
-  ExecutionRoleName?: string;
-
-  /**
-   * <p>The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. </p>
-   *          <p>Specify an IAM role only if you are using customized administrator roles to control
-   *          which users or groups can manage specific stack sets within the same administrator account.
-   *          For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites:
-   *             Granting Permissions for Stack Set Operations</a> in the
-   *             <i>AWS CloudFormation User Guide</i>.</p>
-   */
-  AdministrationRoleARN?: string;
-
-  /**
-   * <p>Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if <code>PermissionModel</code> is <code>SERVICE_MANAGED</code>.</p>
-   */
-  AutoDeployment?: AutoDeployment;
-
-  /**
-   * <p>The name to associate with the stack set. The name must be unique in the Region where
-   *          you create your stack set.</p>
-   *          <note>
-   *             <p>A stack name can contain only alphanumeric characters (case-sensitive) and
-   *             hyphens. It must start with an alphabetic character and can't be longer than 128
-   *             characters.</p>
-   *          </note>
-   */
-  StackSetName: string | undefined;
-
-  /**
-   * <p>The input parameters for the stack set template. </p>
-   */
-  Parameters?: Parameter[];
-
-  /**
-   * <p>A description of the stack set. You can use the description to identify the stack
-   *          set's purpose or other important information.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The key-value pairs to associate with this stack set and the stacks created from it.
    *          AWS CloudFormation also propagates these tags to supported resources that are created in
    *          the stacks. A maximum number of 50 tags can be specified.</p>
@@ -1802,14 +1787,22 @@ export interface CreateStackSetInput {
   TemplateURL?: string;
 
   /**
-   * <p>A unique identifier for this <code>CreateStackSet</code> request. Specify this token
-   *          if you plan to retry requests so that AWS CloudFormation knows that you're not attempting
-   *          to create another stack set with the same name. You might retry <code>CreateStackSet</code>
-   *          requests to ensure that AWS CloudFormation successfully received them.</p>
-   *          <p>If you don't specify an operation ID, the SDK generates one automatically.
-   *       </p>
+   * <p>The input parameters for the stack set template. </p>
    */
-  ClientRequestToken?: string;
+  Parameters?: Parameter[];
+
+  /**
+   * <p>Describes how the IAM roles required for stack set operations are created. By default, <code>SELF-MANAGED</code> is specified.</p>
+   *          <ul>
+   *             <li>
+   *                <p>With <code>self-managed</code> permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant Self-Managed Stack Set Permissions</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant Service-Managed Stack Set Permissions</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  PermissionModel?: PermissionModels | string;
 
   /**
    * <p>In some cases, you must explicitly acknowledge that your stack set template contains
@@ -1910,17 +1903,57 @@ export interface CreateStackSetInput {
   Capabilities?: (Capability | string)[];
 
   /**
-   * <p>Describes how the IAM roles required for stack set operations are created. By default, <code>SELF-MANAGED</code> is specified.</p>
-   *          <ul>
-   *             <li>
-   *                <p>With <code>self-managed</code> permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant Self-Managed Stack Set Permissions</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant Service-Managed Stack Set Permissions</a>.</p>
-   *             </li>
-   *          </ul>
+   * <p>A description of the stack set. You can use the description to identify the stack
+   *          set's purpose or other important information.</p>
    */
-  PermissionModel?: PermissionModels | string;
+  Description?: string;
+
+  /**
+   * <p>Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if <code>PermissionModel</code> is <code>SERVICE_MANAGED</code>.</p>
+   */
+  AutoDeployment?: AutoDeployment;
+
+  /**
+   * <p>The name of the IAM execution role to use to create the stack set. If you do not specify
+   *          an execution role, AWS CloudFormation uses the <code>AWSCloudFormationStackSetExecutionRole</code> role
+   *          for the stack set operation.</p>
+   *          <p>Specify an IAM role only if you are using customized execution roles to control which
+   *          stack resources users and groups can include in their stack sets.
+   *
+   *       </p>
+   */
+  ExecutionRoleName?: string;
+
+  /**
+   * <p>A unique identifier for this <code>CreateStackSet</code> request. Specify this token
+   *          if you plan to retry requests so that AWS CloudFormation knows that you're not attempting
+   *          to create another stack set with the same name. You might retry <code>CreateStackSet</code>
+   *          requests to ensure that AWS CloudFormation successfully received them.</p>
+   *          <p>If you don't specify an operation ID, the SDK generates one automatically.
+   *       </p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. </p>
+   *          <p>Specify an IAM role only if you are using customized administrator roles to control
+   *          which users or groups can manage specific stack sets within the same administrator account.
+   *          For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Prerequisites:
+   *             Granting Permissions for Stack Set Operations</a> in the
+   *             <i>AWS CloudFormation User Guide</i>.</p>
+   */
+  AdministrationRoleARN?: string;
+
+  /**
+   * <p>The name to associate with the stack set. The name must be unique in the Region where
+   *          you create your stack set.</p>
+   *          <note>
+   *             <p>A stack name can contain only alphanumeric characters (case-sensitive) and
+   *             hyphens. It must start with an alphabetic character and can't be longer than 128
+   *             characters.</p>
+   *          </note>
+   */
+  StackSetName: string | undefined;
 }
 
 export namespace CreateStackSetInput {
@@ -1962,16 +1995,16 @@ export namespace NameAlreadyExistsException {
  */
 export interface DeleteChangeSetInput {
   /**
-   * <p>The name or Amazon Resource Name (ARN) of the change set that you want to
-   *          delete.</p>
-   */
-  ChangeSetName: string | undefined;
-
-  /**
    * <p>If you specified the name of a change set to delete, specify the stack name or ID
    *          (ARN) that is associated with it.</p>
    */
   StackName?: string;
+
+  /**
+   * <p>The name or Amazon Resource Name (ARN) of the change set that you want to
+   *          delete.</p>
+   */
+  ChangeSetName: string | undefined;
 }
 
 export namespace DeleteChangeSetInput {
@@ -2013,6 +2046,25 @@ export namespace InvalidChangeSetStatusException {
  */
 export interface DeleteStackInput {
   /**
+   * <p>For stacks in the <code>DELETE_FAILED</code> state, a list of resource logical IDs
+   *          that are associated with the resources you want to retain. During deletion, AWS
+   *          CloudFormation deletes the stack but does not delete the retained resources.</p>
+   *          <p>Retaining resources is useful when you cannot delete a resource, such as a non-empty
+   *          S3 bucket, but you want to delete the stack.</p>
+   */
+  RetainResources?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
+   *          that AWS CloudFormation assumes to delete the stack. AWS CloudFormation uses the role's
+   *          credentials to make calls on your behalf.</p>
+   *          <p>If you don't specify a value, AWS CloudFormation uses the role that was previously
+   *          associated with the stack. If no role is available, AWS CloudFormation uses a temporary
+   *          session that is generated from your user credentials.</p>
+   */
+  RoleARN?: string;
+
+  /**
    * <p>A unique identifier for this <code>DeleteStack</code> request. Specify this token if
    *          you plan to retry requests so that AWS CloudFormation knows that you're not attempting to
    *          delete a stack with the same name. You might retry <code>DeleteStack</code> requests to
@@ -2032,25 +2084,6 @@ export interface DeleteStackInput {
   ClientRequestToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
-   *          that AWS CloudFormation assumes to delete the stack. AWS CloudFormation uses the role's
-   *          credentials to make calls on your behalf.</p>
-   *          <p>If you don't specify a value, AWS CloudFormation uses the role that was previously
-   *          associated with the stack. If no role is available, AWS CloudFormation uses a temporary
-   *          session that is generated from your user credentials.</p>
-   */
-  RoleARN?: string;
-
-  /**
-   * <p>For stacks in the <code>DELETE_FAILED</code> state, a list of resource logical IDs
-   *          that are associated with the resources you want to retain. During deletion, AWS
-   *          CloudFormation deletes the stack but does not delete the retained resources.</p>
-   *          <p>Retaining resources is useful when you cannot delete a resource, such as a non-empty
-   *          S3 bucket, but you want to delete the stack.</p>
-   */
-  RetainResources?: string[];
-
-  /**
    * <p>The name or the unique stack ID that is associated with the stack.</p>
    */
   StackName: string | undefined;
@@ -2064,15 +2097,26 @@ export namespace DeleteStackInput {
 
 export interface DeleteStackInstancesInput {
   /**
-   * <p>The name or unique ID of the stack set that you want to delete stack instances
-   *          for.</p>
-   */
-  StackSetName: string | undefined;
-
-  /**
    * <p>The Regions where you want to delete stack set instances. </p>
    */
   Regions: string[] | undefined;
+
+  /**
+   * <p>The unique identifier for this stack set operation. </p>
+   *          <p>If you don't specify an operation ID, the SDK generates one automatically. </p>
+   *          <p>The operation ID also functions as an idempotency token, to ensure that AWS
+   *          CloudFormation performs the stack set operation only once, even if you retry the request
+   *          multiple times. You can retry stack set operation requests to ensure that AWS
+   *          CloudFormation successfully received them.</p>
+   *          <p>Repeating this stack set operation with a new operation ID retries all stack
+   *          instances whose status is <code>OUTDATED</code>. </p>
+   */
+  OperationId?: string;
+
+  /**
+   * <p>Preferences for how AWS CloudFormation performs this stack set operation.</p>
+   */
+  OperationPreferences?: StackSetOperationPreferences;
 
   /**
    * <p>[<code>Self-managed</code> permissions] The names of the AWS accounts that you want to delete stack instances for.</p>
@@ -2089,27 +2133,16 @@ export interface DeleteStackInstancesInput {
   RetainStacks: boolean | undefined;
 
   /**
-   * <p>Preferences for how AWS CloudFormation performs this stack set operation.</p>
+   * <p>The name or unique ID of the stack set that you want to delete stack instances
+   *          for.</p>
    */
-  OperationPreferences?: StackSetOperationPreferences;
+  StackSetName: string | undefined;
 
   /**
    * <p>[<code>Service-managed</code> permissions] The AWS Organizations accounts from which to delete stack instances.</p>
    *          <p>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</p>
    */
   DeploymentTargets?: DeploymentTargets;
-
-  /**
-   * <p>The unique identifier for this stack set operation. </p>
-   *          <p>If you don't specify an operation ID, the SDK generates one automatically. </p>
-   *          <p>The operation ID also functions as an idempotency token, to ensure that AWS
-   *          CloudFormation performs the stack set operation only once, even if you retry the request
-   *          multiple times. You can retry stack set operation requests to ensure that AWS
-   *          CloudFormation successfully received them.</p>
-   *          <p>Repeating this stack set operation with a new operation ID retries all stack
-   *          instances whose status is <code>OUTDATED</code>. </p>
-   */
-  OperationId?: string;
 }
 
 export namespace DeleteStackInstancesInput {
@@ -2174,16 +2207,9 @@ export type RegistryType = "RESOURCE";
 
 export interface DeregisterTypeInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the type.</p>
-   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
+   * <p>The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.</p>
    */
-  Arn?: string;
-
-  /**
-   * <p>The name of the type.</p>
-   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
-   */
-  TypeName?: string;
+  VersionId?: string;
 
   /**
    * <p>The kind of type.</p>
@@ -2193,9 +2219,16 @@ export interface DeregisterTypeInput {
   Type?: RegistryType | string;
 
   /**
-   * <p>The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.</p>
+   * <p>The name of the type.</p>
+   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
-  VersionId?: string;
+  TypeName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the type.</p>
+   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
+   */
+  Arn?: string;
 }
 
 export namespace DeregisterTypeInput {
@@ -2277,16 +2310,16 @@ export interface DescribeChangeSetInput {
   ChangeSetName: string | undefined;
 
   /**
-   * <p>If you specified the name of a change set, specify the stack name or ID (ARN) of the
-   *          change set you want to describe.</p>
-   */
-  StackName?: string;
-
-  /**
    * <p>A string (provided by the <a>DescribeChangeSet</a> response output) that
    *          identifies the next page of information that you want to retrieve.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>If you specified the name of a change set, specify the stack name or ID (ARN) of the
+   *          change set you want to describe.</p>
+   */
+  StackName?: string;
 }
 
 export namespace DescribeChangeSetInput {
@@ -2300,16 +2333,15 @@ export namespace DescribeChangeSetInput {
  */
 export interface DescribeChangeSetOutput {
   /**
-   * <p>A list of <code>Parameter</code> structures that describes the input parameters and
-   *          their values used to create the change set. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a> data type.</p>
-   */
-  Parameters?: Parameter[];
-
-  /**
    * <p>A list of <code>Change</code> structures that describes the resources AWS
    *          CloudFormation changes if you execute the change set.</p>
    */
   Changes?: Change[];
+
+  /**
+   * <p>Information about the change set.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The current status of the change set, such as <code>CREATE_IN_PROGRESS</code>,
@@ -2318,53 +2350,10 @@ export interface DescribeChangeSetOutput {
   Status?: ChangeSetStatus | string;
 
   /**
-   * <p>The name of the stack that is associated with the change set.</p>
+   * <p>The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics that will be
+   *          associated with the stack if you execute the change set.</p>
    */
-  StackName?: string;
-
-  /**
-   * <p>The ARN of the stack that is associated with the change set.</p>
-   */
-  StackId?: string;
-
-  /**
-   * <p>The start time when the change set was created, in UTC.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>Information about the change set.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>If you execute the change set, the list of capabilities that were explicitly
-   *          acknowledged when the change set was created.</p>
-   */
-  Capabilities?: (Capability | string)[];
-
-  /**
-   * <p>If you execute the change set, the tags that will be associated with the
-   *          stack.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The rollback triggers for AWS CloudFormation to monitor during stack creation and
-   *          updating operations, and for the specified monitoring period afterwards.</p>
-   */
-  RollbackConfiguration?: RollbackConfiguration;
-
-  /**
-   * <p>The name of the change set.</p>
-   */
-  ChangeSetName?: string;
-
-  /**
-   * <p>A description of the change set's status. For example, if your attempt to create a
-   *          change set failed, AWS CloudFormation shows the error message.</p>
-   */
-  StatusReason?: string;
+  NotificationARNs?: string[];
 
   /**
    * <p>If the output exceeds 1 MB, a string that identifies the next page of changes. If
@@ -2373,15 +2362,32 @@ export interface DescribeChangeSetOutput {
   NextToken?: string;
 
   /**
-   * <p>The ARNs of the Amazon Simple Notification Service (Amazon SNS) topics that will be
-   *          associated with the stack if you execute the change set.</p>
+   * <p>Verifies if <code>IncludeNestedStacks</code> is set to <code>True</code>.</p>
    */
-  NotificationARNs?: string[];
+  IncludeNestedStacks?: boolean;
 
   /**
-   * <p>The ARN of the change set.</p>
+   * <p>If you execute the change set, the list of capabilities that were explicitly
+   *          acknowledged when the change set was created.</p>
    */
-  ChangeSetId?: string;
+  Capabilities?: (Capability | string)[];
+
+  /**
+   * <p>The name of the change set.</p>
+   */
+  ChangeSetName?: string;
+
+  /**
+   * <p>A list of <code>Parameter</code> structures that describes the input parameters and
+   *          their values used to create the change set. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_Parameter.html">Parameter</a> data type.</p>
+   */
+  Parameters?: Parameter[];
+
+  /**
+   * <p>The rollback triggers for AWS CloudFormation to monitor during stack creation and
+   *          updating operations, and for the specified monitoring period afterwards.</p>
+   */
+  RollbackConfiguration?: RollbackConfiguration;
 
   /**
    * <p>If the change set execution status is <code>AVAILABLE</code>, you can execute the
@@ -2391,6 +2397,48 @@ export interface DescribeChangeSetOutput {
    *          updated.</p>
    */
   ExecutionStatus?: ExecutionStatus | string;
+
+  /**
+   * <p>Specifies the change set ID of the parent change set in the current nested change set hierarchy.</p>
+   */
+  ParentChangeSetId?: string;
+
+  /**
+   * <p>The ARN of the change set.</p>
+   */
+  ChangeSetId?: string;
+
+  /**
+   * <p>Specifies the change set ID of the root change set in the current nested change set hierarchy.</p>
+   */
+  RootChangeSetId?: string;
+
+  /**
+   * <p>The name of the stack that is associated with the change set.</p>
+   */
+  StackName?: string;
+
+  /**
+   * <p>A description of the change set's status. For example, if your attempt to create a
+   *          change set failed, AWS CloudFormation shows the error message.</p>
+   */
+  StatusReason?: string;
+
+  /**
+   * <p>The ARN of the stack that is associated with the change set.</p>
+   */
+  StackId?: string;
+
+  /**
+   * <p>If you execute the change set, the tags that will be associated with the
+   *          stack.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The start time when the change set was created, in UTC.</p>
+   */
+  CreationTime?: Date;
 }
 
 export namespace DescribeChangeSetOutput {
@@ -2430,6 +2478,26 @@ export enum StackDriftStatus {
 
 export interface DescribeStackDriftDetectionStatusOutput {
   /**
+   * <p>Total number of stack resources that have drifted. This is NULL until the drift
+   *          detection operation reaches a status of <code>DETECTION_COMPLETE</code>. This value will be
+   *          0 for stacks whose drift status is <code>IN_SYNC</code>.</p>
+   */
+  DriftedStackResourceCount?: number;
+
+  /**
+   * <p>The reason the stack drift detection operation has its current status.</p>
+   */
+  DetectionStatusReason?: string;
+
+  /**
+   * <p>The ID of the drift detection results of this operation. </p>
+   *          <p>AWS CloudFormation generates new results, with a new drift detection ID, each time this operation
+   *          is run. However, the number of reports AWS CloudFormation retains for any given stack, and for how long,
+   *          may vary.</p>
+   */
+  StackDriftDetectionId: string | undefined;
+
+  /**
    * <p>Time at which the stack drift detection operation was initiated.</p>
    */
   Timestamp: Date | undefined;
@@ -2462,11 +2530,6 @@ export interface DescribeStackDriftDetectionStatusOutput {
   DetectionStatus: StackDriftDetectionStatus | string | undefined;
 
   /**
-   * <p>The ID of the stack.</p>
-   */
-  StackId: string | undefined;
-
-  /**
    * <p>Status of the stack's actual configuration compared to its expected configuration. </p>
    *          <ul>
    *             <li>
@@ -2494,24 +2557,9 @@ export interface DescribeStackDriftDetectionStatusOutput {
   StackDriftStatus?: StackDriftStatus | string;
 
   /**
-   * <p>The ID of the drift detection results of this operation. </p>
-   *          <p>AWS CloudFormation generates new results, with a new drift detection ID, each time this operation
-   *          is run. However, the number of reports AWS CloudFormation retains for any given stack, and for how long,
-   *          may vary.</p>
+   * <p>The ID of the stack.</p>
    */
-  StackDriftDetectionId: string | undefined;
-
-  /**
-   * <p>Total number of stack resources that have drifted. This is NULL until the drift
-   *          detection operation reaches a status of <code>DETECTION_COMPLETE</code>. This value will be
-   *          0 for stacks whose drift status is <code>IN_SYNC</code>.</p>
-   */
-  DriftedStackResourceCount?: number;
-
-  /**
-   * <p>The reason the stack drift detection operation has its current status.</p>
-   */
-  DetectionStatusReason?: string;
+  StackId: string | undefined;
 }
 
 export namespace DescribeStackDriftDetectionStatusOutput {
@@ -2524,11 +2572,6 @@ export namespace DescribeStackDriftDetectionStatusOutput {
  * <p>The input for <a>DescribeStackEvents</a> action.</p>
  */
 export interface DescribeStackEventsInput {
-  /**
-   * <p>A string that identifies the next page of events that you want to retrieve.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>The name or the unique stack ID that is associated with the stack, which are not
    *          always interchangeable:</p>
@@ -2544,6 +2587,11 @@ export interface DescribeStackEventsInput {
    *          <p>Default: There is no default value.</p>
    */
   StackName?: string;
+
+  /**
+   * <p>A string that identifies the next page of events that you want to retrieve.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeStackEventsInput {
@@ -2576,6 +2624,16 @@ export enum ResourceStatus {
  */
 export interface StackEvent {
   /**
+   * <p>Time the status was updated.</p>
+   */
+  Timestamp: Date | undefined;
+
+  /**
+   * <p>Success/failure message associated with the resource.</p>
+   */
+  ResourceStatusReason?: string;
+
+  /**
    * <p>The token passed to the operation that generated this event.</p>
    *          <p>All events triggered by a given stack operation are assigned the same client request
    *          token, which you can use to track operations. For example, if you execute a
@@ -2592,14 +2650,10 @@ export interface StackEvent {
   ClientRequestToken?: string;
 
   /**
-   * <p>Success/failure message associated with the resource.</p>
+   * <p>The name or unique identifier associated with the physical instance of the
+   *          resource.</p>
    */
-  ResourceStatusReason?: string;
-
-  /**
-   * <p>The logical name of the resource specified in the template.</p>
-   */
-  LogicalResourceId?: string;
+  PhysicalResourceId?: string;
 
   /**
    * <p>BLOB of the properties used to create the resource.</p>
@@ -2607,29 +2661,19 @@ export interface StackEvent {
   ResourceProperties?: string;
 
   /**
-   * <p>Time the status was updated.</p>
-   */
-  Timestamp: Date | undefined;
-
-  /**
    * <p>The name associated with a stack.</p>
    */
   StackName: string | undefined;
 
   /**
-   * <p>The unique ID name of the instance of the stack.</p>
-   */
-  StackId: string | undefined;
-
-  /**
-   * <p>The unique ID of this event.</p>
-   */
-  EventId: string | undefined;
-
-  /**
    * <p>Current status of the resource.</p>
    */
   ResourceStatus?: ResourceStatus | string;
+
+  /**
+   * <p>The logical name of the resource specified in the template.</p>
+   */
+  LogicalResourceId?: string;
 
   /**
    * <p>Type of resource. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html"> AWS
@@ -2638,10 +2682,14 @@ export interface StackEvent {
   ResourceType?: string;
 
   /**
-   * <p>The name or unique identifier associated with the physical instance of the
-   *          resource.</p>
+   * <p>The unique ID of this event.</p>
    */
-  PhysicalResourceId?: string;
+  EventId: string | undefined;
+
+  /**
+   * <p>The unique ID name of the instance of the stack.</p>
+   */
+  StackId: string | undefined;
 }
 
 export namespace StackEvent {
@@ -2674,6 +2722,11 @@ export namespace DescribeStackEventsOutput {
 
 export interface DescribeStackInstanceInput {
   /**
+   * <p>The name of a Region that's associated with this stack instance.</p>
+   */
+  StackInstanceRegion: string | undefined;
+
+  /**
    * <p>The name or the unique stack ID of the stack set that you want to get stack instance
    *          information for.</p>
    */
@@ -2683,11 +2736,6 @@ export interface DescribeStackInstanceInput {
    * <p>The ID of an AWS account that's associated with this stack instance.</p>
    */
   StackInstanceAccount: string | undefined;
-
-  /**
-   * <p>The name of a Region that's associated with this stack instance.</p>
-   */
-  StackInstanceRegion: string | undefined;
 }
 
 export namespace DescribeStackInstanceInput {
@@ -2753,40 +2801,6 @@ export type StackInstanceStatus = "CURRENT" | "INOPERABLE" | "OUTDATED";
  */
 export interface StackInstance {
   /**
-   * <p>The name of the AWS Region that the stack instance is associated with.</p>
-   */
-  Region?: string;
-
-  /**
-   * <p>Status of the stack instance's actual configuration compared to the expected template
-   *          and parameter configuration of the stack set to which it belongs. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRIFTED</code>: The stack differs from the expected template and parameter
-   *                configuration of the stack set to which it belongs. A stack instance is considered to
-   *                have drifted if one or more of the resources in the associated stack have
-   *                drifted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_CHECKED</code>: AWS CloudFormation has not checked if the stack instance differs from
-   *                its expected stack set configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_SYNC</code>: The stack instance's actual configuration matches its
-   *                expected stack set configuration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNKNOWN</code>: This value is reserved for future use.</p>
-   *             </li>
-   *          </ul>
-   */
-  DriftStatus?: StackDriftStatus | string;
-
-  /**
    * <p>A list of parameters from the stack set template whose values have been overridden in
    *          this stack instance.</p>
    */
@@ -2802,13 +2816,6 @@ export interface StackInstance {
    * <p>The ID of the stack instance.</p>
    */
   StackId?: string;
-
-  /**
-   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
-   *          instance. This value will be <code>NULL</code> for any stack instance on which drift
-   *          detection has not yet been performed.</p>
-   */
-  LastDriftCheckTimestamp?: Date;
 
   /**
    * <p>The status of the stack instance, in terms of its synchronization with its associated
@@ -2849,9 +2856,48 @@ export interface StackInstance {
   Status?: StackInstanceStatus | string;
 
   /**
+   * <p>The name of the AWS Region that the stack instance is associated with.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>The detailed status of the stack instance.</p>
+   */
+  StackInstanceStatus?: StackInstanceComprehensiveStatus;
+
+  /**
    * <p>[<code>Service-managed</code> permissions] The organization root ID or organizational unit (OU) IDs that you specified for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    */
   OrganizationalUnitId?: string;
+
+  /**
+   * <p>Status of the stack instance's actual configuration compared to the expected template
+   *          and parameter configuration of the stack set to which it belongs. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DRIFTED</code>: The stack differs from the expected template and parameter
+   *                configuration of the stack set to which it belongs. A stack instance is considered to
+   *                have drifted if one or more of the resources in the associated stack have
+   *                drifted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_CHECKED</code>: AWS CloudFormation has not checked if the stack instance differs from
+   *                its expected stack set configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_SYNC</code>: The stack instance's actual configuration matches its
+   *                expected stack set configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNKNOWN</code>: This value is reserved for future use.</p>
+   *             </li>
+   *          </ul>
+   */
+  DriftStatus?: StackDriftStatus | string;
 
   /**
    * <p>The name or unique ID of the stack set that the stack instance is associated
@@ -2865,9 +2911,11 @@ export interface StackInstance {
   Account?: string;
 
   /**
-   * <p>The detailed status of the stack instance.</p>
+   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
+   *          instance. This value will be <code>NULL</code> for any stack instance on which drift
+   *          detection has not yet been performed.</p>
    */
-  StackInstanceStatus?: StackInstanceComprehensiveStatus;
+  LastDriftCheckTimestamp?: Date;
 }
 
 export namespace StackInstance {
@@ -2909,12 +2957,6 @@ export namespace StackInstanceNotFoundException {
  */
 export interface DescribeStackResourceInput {
   /**
-   * <p>The logical name of the resource as specified in the template.</p>
-   *          <p>Default: There is no default value.</p>
-   */
-  LogicalResourceId: string | undefined;
-
-  /**
    * <p>The name or the unique stack ID that is associated with the stack, which are not
    *          always interchangeable:</p>
    *          <ul>
@@ -2929,6 +2971,12 @@ export interface DescribeStackResourceInput {
    *          <p>Default: There is no default value.</p>
    */
   StackName: string | undefined;
+
+  /**
+   * <p>The logical name of the resource as specified in the template.</p>
+   *          <p>Default: There is no default value.</p>
+   */
+  LogicalResourceId: string | undefined;
 }
 
 export namespace DescribeStackResourceInput {
@@ -2949,6 +2997,12 @@ export enum StackResourceDriftStatus {
  *          has <i>drifted</i>, from its expected configuration.</p>
  */
 export interface StackResourceDriftInformation {
+  /**
+   * <p>When AWS CloudFormation last checked if the resource had drifted from its expected
+   *          configuration.</p>
+   */
+  LastCheckTimestamp?: Date;
+
   /**
    * <p>Status of the resource's actual configuration compared to its expected
    *          configuration</p>
@@ -2978,12 +3032,6 @@ export interface StackResourceDriftInformation {
    *          </ul>
    */
   StackResourceDriftStatus: StackResourceDriftStatus | string | undefined;
-
-  /**
-   * <p>When AWS CloudFormation last checked if the resource had drifted from its expected
-   *          configuration.</p>
-   */
-  LastCheckTimestamp?: Date;
 }
 
 export namespace StackResourceDriftInformation {
@@ -2997,50 +3045,14 @@ export namespace StackResourceDriftInformation {
  */
 export interface StackResourceDetail {
   /**
-   * <p>Information about whether the resource's actual configuration differs, or has
-   *             <i>drifted</i>, from its expected configuration, as defined in the stack
-   *          template and any values specified as template parameters. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration
-   *             Changes to Stacks and Resources</a>.</p>
+   * <p>User defined description associated with the resource.</p>
    */
-  DriftInformation?: StackResourceDriftInformation;
-
-  /**
-   * <p>Unique identifier of the stack.</p>
-   */
-  StackId?: string;
-
-  /**
-   * <p>The name associated with the stack.</p>
-   */
-  StackName?: string;
-
-  /**
-   * <p>The logical name of the resource specified in the template.</p>
-   */
-  LogicalResourceId: string | undefined;
+  Description?: string;
 
   /**
    * <p>Time the status was updated.</p>
    */
   LastUpdatedTimestamp: Date | undefined;
-
-  /**
-   * <p>The name or unique identifier that corresponds to a physical instance ID of a
-   *          resource supported by AWS CloudFormation.</p>
-   */
-  PhysicalResourceId?: string;
-
-  /**
-   * <p>The content of the <code>Metadata</code> attribute declared for the resource. For
-   *          more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html">Metadata
-   *             Attribute</a> in the AWS CloudFormation User Guide.</p>
-   */
-  Metadata?: string;
-
-  /**
-   * <p>User defined description associated with the resource.</p>
-   */
-  Description?: string;
 
   /**
    * <p>Type of resource. ((For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html"> AWS
@@ -3057,6 +3069,42 @@ export interface StackResourceDetail {
    * <p>Current status of the resource.</p>
    */
   ResourceStatus: ResourceStatus | string | undefined;
+
+  /**
+   * <p>The content of the <code>Metadata</code> attribute declared for the resource. For
+   *          more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html">Metadata
+   *             Attribute</a> in the AWS CloudFormation User Guide.</p>
+   */
+  Metadata?: string;
+
+  /**
+   * <p>The name or unique identifier that corresponds to a physical instance ID of a
+   *          resource supported by AWS CloudFormation.</p>
+   */
+  PhysicalResourceId?: string;
+
+  /**
+   * <p>Information about whether the resource's actual configuration differs, or has
+   *             <i>drifted</i>, from its expected configuration, as defined in the stack
+   *          template and any values specified as template parameters. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration
+   *             Changes to Stacks and Resources</a>.</p>
+   */
+  DriftInformation?: StackResourceDriftInformation;
+
+  /**
+   * <p>The logical name of the resource specified in the template.</p>
+   */
+  LogicalResourceId: string | undefined;
+
+  /**
+   * <p>Unique identifier of the stack.</p>
+   */
+  StackId?: string;
+
+  /**
+   * <p>The name associated with the stack.</p>
+   */
+  StackName?: string;
 }
 
 export namespace StackResourceDetail {
@@ -3083,6 +3131,16 @@ export namespace DescribeStackResourceOutput {
 }
 
 export interface DescribeStackResourceDriftsInput {
+  /**
+   * <p>The name of the stack for which you want drift information.</p>
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>A string that identifies the next page of stack resource drift results.</p>
+   */
+  NextToken?: string;
+
   /**
    * <p>The resource drift status values to use as filters for the resource drift results
    *          returned.</p>
@@ -3111,22 +3169,12 @@ export interface DescribeStackResourceDriftsInput {
   StackResourceDriftStatusFilters?: (StackResourceDriftStatus | string)[];
 
   /**
-   * <p>A string that identifies the next page of stack resource drift results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to be returned with a single call. If the number of
    *          available results exceeds this maximum, the response includes a <code>NextToken</code>
    *          value that you can assign to the <code>NextToken</code> request parameter to get the next
    *          set of results.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The name of the stack for which you want drift information.</p>
-   */
-  StackName: string | undefined;
 }
 
 export namespace DescribeStackResourceDriftsInput {
@@ -3143,14 +3191,14 @@ export namespace DescribeStackResourceDriftsInput {
  */
 export interface PhysicalResourceIdContextKeyValuePair {
   /**
-   * <p>The resource context value.</p>
-   */
-  Value: string | undefined;
-
-  /**
    * <p>The resource context key.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>The resource context value.</p>
+   */
+  Value: string | undefined;
 }
 
 export namespace PhysicalResourceIdContextKeyValuePair {
@@ -3179,17 +3227,6 @@ export interface PropertyDifference {
   PropertyPath: string | undefined;
 
   /**
-   * <p>The expected property value of the resource property, as defined in the stack
-   *          template and any values specified as template parameters.</p>
-   */
-  ExpectedValue: string | undefined;
-
-  /**
-   * <p>The actual property value of the resource property.</p>
-   */
-  ActualValue: string | undefined;
-
-  /**
    * <p>The type of property difference.</p>
    *          <ul>
    *             <li>
@@ -3211,6 +3248,17 @@ export interface PropertyDifference {
    *          </ul>
    */
   DifferenceType: DifferenceType | string | undefined;
+
+  /**
+   * <p>The actual property value of the resource property.</p>
+   */
+  ActualValue: string | undefined;
+
+  /**
+   * <p>The expected property value of the resource property, as defined in the stack
+   *          template and any values specified as template parameters.</p>
+   */
+  ExpectedValue: string | undefined;
 }
 
 export namespace PropertyDifference {
@@ -3234,17 +3282,22 @@ export namespace PropertyDifference {
  */
 export interface StackResourceDrift {
   /**
+   * <p>A collection of the resource properties whose actual values differ from their
+   *          expected values. These will be present only for resources whose
+   *             <code>StackResourceDriftStatus</code> is <code>MODIFIED</code>.
+   *          </p>
+   */
+  PropertyDifferences?: PropertyDifference[];
+
+  /**
    * <p>The logical name of the resource specified in the template.</p>
    */
   LogicalResourceId: string | undefined;
 
   /**
-   * <p>Context information that enables AWS CloudFormation to uniquely identify a resource. AWS CloudFormation uses
-   *          context key-value pairs in cases where a resource's logical and physical IDs are not enough
-   *          to uniquely identify that resource. Each context key-value pair specifies a unique resource
-   *          that contains the targeted resource.</p>
+   * <p>Time at which AWS CloudFormation performed drift detection on the stack resource.</p>
    */
-  PhysicalResourceIdContext?: PhysicalResourceIdContextKeyValuePair[];
+  Timestamp: Date | undefined;
 
   /**
    * <p>A JSON structure containing the actual property values of the stack
@@ -3253,6 +3306,11 @@ export interface StackResourceDrift {
    *          this structure will not be present. </p>
    */
   ActualProperties?: string;
+
+  /**
+   * <p>The ID of the stack.</p>
+   */
+  StackId: string | undefined;
 
   /**
    * <p>Status of the resource's actual configuration compared to its expected
@@ -3283,20 +3341,10 @@ export interface StackResourceDrift {
   StackResourceDriftStatus: StackResourceDriftStatus | string | undefined;
 
   /**
-   * <p>The type of the resource.</p>
-   */
-  ResourceType: string | undefined;
-
-  /**
    * <p>The name or unique identifier that corresponds to a physical instance ID of a
    *          resource supported by AWS CloudFormation. </p>
    */
   PhysicalResourceId?: string;
-
-  /**
-   * <p>Time at which AWS CloudFormation performed drift detection on the stack resource.</p>
-   */
-  Timestamp: Date | undefined;
 
   /**
    * <p>A JSON structure containing the expected property values of the stack resource, as
@@ -3307,17 +3355,17 @@ export interface StackResourceDrift {
   ExpectedProperties?: string;
 
   /**
-   * <p>The ID of the stack.</p>
+   * <p>Context information that enables AWS CloudFormation to uniquely identify a resource. AWS CloudFormation uses
+   *          context key-value pairs in cases where a resource's logical and physical IDs are not enough
+   *          to uniquely identify that resource. Each context key-value pair specifies a unique resource
+   *          that contains the targeted resource.</p>
    */
-  StackId: string | undefined;
+  PhysicalResourceIdContext?: PhysicalResourceIdContextKeyValuePair[];
 
   /**
-   * <p>A collection of the resource properties whose actual values differ from their
-   *          expected values. These will be present only for resources whose
-   *             <code>StackResourceDriftStatus</code> is <code>MODIFIED</code>.
-   *          </p>
+   * <p>The type of the resource.</p>
    */
-  PropertyDifferences?: PropertyDifference[];
+  ResourceType: string | undefined;
 }
 
 export namespace StackResourceDrift {
@@ -3373,12 +3421,6 @@ export interface DescribeStackResourcesInput {
   PhysicalResourceId?: string;
 
   /**
-   * <p>The logical name of the resource as specified in the template.</p>
-   *          <p>Default: There is no default value.</p>
-   */
-  LogicalResourceId?: string;
-
-  /**
    * <p>The name or the unique stack ID that is associated with the stack, which are not
    *          always interchangeable:</p>
    *          <ul>
@@ -3395,6 +3437,12 @@ export interface DescribeStackResourcesInput {
    *             <code>PhysicalResourceId</code>.</p>
    */
   StackName?: string;
+
+  /**
+   * <p>The logical name of the resource as specified in the template.</p>
+   *          <p>Default: There is no default value.</p>
+   */
+  LogicalResourceId?: string;
 }
 
 export namespace DescribeStackResourcesInput {
@@ -3408,44 +3456,14 @@ export namespace DescribeStackResourcesInput {
  */
 export interface StackResource {
   /**
-   * <p>The logical name of the resource specified in the template.</p>
-   */
-  LogicalResourceId: string | undefined;
-
-  /**
-   * <p>Success/failure message associated with the resource.</p>
-   */
-  ResourceStatusReason?: string;
-
-  /**
    * <p>User defined description associated with the resource.</p>
    */
   Description?: string;
 
   /**
-   * <p>Information about whether the resource's actual configuration differs, or has
-   *             <i>drifted</i>, from its expected configuration, as defined in the stack
-   *          template and any values specified as template parameters. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration
-   *             Changes to Stacks and Resources</a>.</p>
+   * <p>Success/failure message associated with the resource.</p>
    */
-  DriftInformation?: StackResourceDriftInformation;
-
-  /**
-   * <p>The name or unique identifier that corresponds to a physical instance ID of a
-   *          resource supported by AWS CloudFormation.</p>
-   */
-  PhysicalResourceId?: string;
-
-  /**
-   * <p>Current status of the resource.</p>
-   */
-  ResourceStatus: ResourceStatus | string | undefined;
-
-  /**
-   * <p>Type of resource. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html"> AWS
-   *             Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
-   */
-  ResourceType: string | undefined;
+  ResourceStatusReason?: string;
 
   /**
    * <p>Time the status was updated.</p>
@@ -3461,6 +3479,36 @@ export interface StackResource {
    * <p>Unique identifier of the stack.</p>
    */
   StackId?: string;
+
+  /**
+   * <p>Current status of the resource.</p>
+   */
+  ResourceStatus: ResourceStatus | string | undefined;
+
+  /**
+   * <p>The logical name of the resource specified in the template.</p>
+   */
+  LogicalResourceId: string | undefined;
+
+  /**
+   * <p>Type of resource. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html"> AWS
+   *             Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>Information about whether the resource's actual configuration differs, or has
+   *             <i>drifted</i>, from its expected configuration, as defined in the stack
+   *          template and any values specified as template parameters. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration
+   *             Changes to Stacks and Resources</a>.</p>
+   */
+  DriftInformation?: StackResourceDriftInformation;
+
+  /**
+   * <p>The name or unique identifier that corresponds to a physical instance ID of a
+   *          resource supported by AWS CloudFormation.</p>
+   */
+  PhysicalResourceId?: string;
 }
 
 export namespace StackResource {
@@ -3525,12 +3573,6 @@ export namespace DescribeStacksInput {
  */
 export interface StackDriftInformation {
   /**
-   * <p>Most recent time when a drift detection operation was initiated on the stack, or any
-   *          of its individual resources that support drift detection.</p>
-   */
-  LastCheckTimestamp?: Date;
-
-  /**
    * <p>Status of the stack's actual configuration compared to its expected template
    *          configuration. </p>
    *          <ul>
@@ -3557,6 +3599,12 @@ export interface StackDriftInformation {
    *          </ul>
    */
   StackDriftStatus: StackDriftStatus | string | undefined;
+
+  /**
+   * <p>Most recent time when a drift detection operation was initiated on the stack, or any
+   *          of its individual resources that support drift detection.</p>
+   */
+  LastCheckTimestamp?: Date;
 }
 
 export namespace StackDriftInformation {
@@ -3570,14 +3618,14 @@ export namespace StackDriftInformation {
  */
 export interface Output {
   /**
-   * <p>The value associated with the output.</p>
-   */
-  OutputValue?: string;
-
-  /**
    * <p>The key associated with the output.</p>
    */
   OutputKey?: string;
+
+  /**
+   * <p>User defined description associated with the output.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The name of the export associated with the output.</p>
@@ -3585,9 +3633,9 @@ export interface Output {
   ExportName?: string;
 
   /**
-   * <p>User defined description associated with the output.</p>
+   * <p>The value associated with the output.</p>
    */
-  Description?: string;
+  OutputValue?: string;
 }
 
 export namespace Output {
@@ -3626,6 +3674,16 @@ export enum StackStatus {
  */
 export interface Stack {
   /**
+   * <p>The name associated with the stack.</p>
+   */
+  StackName: string | undefined;
+
+  /**
+   * <p>Unique identifier of the stack.</p>
+   */
+  StackId?: string;
+
+  /**
    * <p>A list of output structures.</p>
    */
   Outputs?: Output[];
@@ -3636,15 +3694,12 @@ export interface Stack {
   Parameters?: Parameter[];
 
   /**
-   * <p>The rollback triggers for AWS CloudFormation to monitor during stack creation and
-   *          updating operations, and for the specified monitoring period afterwards.</p>
+   * <p>Information on whether a stack's actual configuration differs, or has
+   *             <i>drifted</i>, from it's expected configuration, as defined in the stack
+   *          template and any values specified as template parameters. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration
+   *             Changes to Stacks and Resources</a>.</p>
    */
-  RollbackConfiguration?: RollbackConfiguration;
-
-  /**
-   * <p>The time the stack was deleted.</p>
-   */
-  DeletionTime?: Date;
+  DriftInformation?: StackDriftInformation;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
@@ -3652,69 +3707,6 @@ export interface Stack {
    *          role's credentials to make calls on your behalf.</p>
    */
   RoleARN?: string;
-
-  /**
-   * <p>Whether termination protection is enabled for the stack.</p>
-   *          <p> For <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested stacks</a>,
-   *          termination protection is set on the root stack and cannot be changed directly on the
-   *          nested stack. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a Stack From Being
-   *             Deleted</a> in the <i>AWS CloudFormation User Guide</i>.</p>
-   */
-  EnableTerminationProtection?: boolean;
-
-  /**
-   * <p>Boolean to enable or disable rollback on stack creation failures:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>true</code>: disable rollback</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>false</code>: enable rollback</p>
-   *             </li>
-   *          </ul>
-   */
-  DisableRollback?: boolean;
-
-  /**
-   * <p>The time at which the stack was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>The time the stack was last updated. This field will only be returned if the stack
-   *          has been updated at least once.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * <p>Success/failure message associated with the stack status.</p>
-   */
-  StackStatusReason?: string;
-
-  /**
-   * <p>The capabilities allowed in the stack.</p>
-   */
-  Capabilities?: (Capability | string)[];
-
-  /**
-   * <p>Current status of the stack.</p>
-   */
-  StackStatus: StackStatus | string | undefined;
-
-  /**
-   * <p>A user-defined description associated with the stack.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the
-   *          top-level stack to which the nested stack ultimately belongs.</p>
-   *          <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Working with Nested Stacks</a> in the
-   *          <i>AWS CloudFormation User Guide</i>.</p>
-   */
-  RootId?: string;
 
   /**
    * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the
@@ -3736,9 +3728,9 @@ export interface Stack {
   ChangeSetId?: string;
 
   /**
-   * <p>A list of <code>Tag</code>s that specify information about the stack.</p>
+   * <p>The capabilities allowed in the stack.</p>
    */
-  Tags?: Tag[];
+  Capabilities?: (Capability | string)[];
 
   /**
    * <p>The amount of time within which stack creation should complete.</p>
@@ -3746,22 +3738,78 @@ export interface Stack {
   TimeoutInMinutes?: number;
 
   /**
-   * <p>The name associated with the stack.</p>
+   * <p>The time the stack was last updated. This field will only be returned if the stack
+   *          has been updated at least once.</p>
    */
-  StackName: string | undefined;
+  LastUpdatedTime?: Date;
 
   /**
-   * <p>Unique identifier of the stack.</p>
+   * <p>Success/failure message associated with the stack status.</p>
    */
-  StackId?: string;
+  StackStatusReason?: string;
 
   /**
-   * <p>Information on whether a stack's actual configuration differs, or has
-   *             <i>drifted</i>, from it's expected configuration, as defined in the stack
-   *          template and any values specified as template parameters. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration
-   *             Changes to Stacks and Resources</a>.</p>
+   * <p>Boolean to enable or disable rollback on stack creation failures:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>true</code>: disable rollback</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>false</code>: enable rollback</p>
+   *             </li>
+   *          </ul>
    */
-  DriftInformation?: StackDriftInformation;
+  DisableRollback?: boolean;
+
+  /**
+   * <p>A list of <code>Tag</code>s that specify information about the stack.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The time at which the stack was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Current status of the stack.</p>
+   */
+  StackStatus: StackStatus | string | undefined;
+
+  /**
+   * <p>A user-defined description associated with the stack.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The time the stack was deleted.</p>
+   */
+  DeletionTime?: Date;
+
+  /**
+   * <p>The rollback triggers for AWS CloudFormation to monitor during stack creation and
+   *          updating operations, and for the specified monitoring period afterwards.</p>
+   */
+  RollbackConfiguration?: RollbackConfiguration;
+
+  /**
+   * <p>Whether termination protection is enabled for the stack.</p>
+   *          <p> For <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested stacks</a>,
+   *          termination protection is set on the root stack and cannot be changed directly on the
+   *          nested stack. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting a Stack From Being
+   *             Deleted</a> in the <i>AWS CloudFormation User Guide</i>.</p>
+   */
+  EnableTerminationProtection?: boolean;
+
+  /**
+   * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the
+   *          top-level stack to which the nested stack ultimately belongs.</p>
+   *          <p>For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">Working with Nested Stacks</a> in the
+   *          <i>AWS CloudFormation User Guide</i>.</p>
+   */
+  RootId?: string;
 }
 
 export namespace Stack {
@@ -3831,6 +3879,63 @@ export enum StackSetDriftStatus {
  */
 export interface StackSetDriftDetectionDetails {
   /**
+   * <p>The number of stack instances which match the expected template and parameter
+   *          configuration of the stack set.</p>
+   */
+  InSyncStackInstancesCount?: number;
+
+  /**
+   * <p>The number of stack instances for which the drift detection operation failed.</p>
+   */
+  FailedStackInstancesCount?: number;
+
+  /**
+   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
+   *          set. This value will be <code>NULL</code> for any stack set on which drift detection has
+   *          not yet been performed.</p>
+   */
+  LastDriftCheckTimestamp?: Date;
+
+  /**
+   * <p>The number of stack instances that are currently being checked for drift.</p>
+   */
+  InProgressStackInstancesCount?: number;
+
+  /**
+   * <p>Status of the stack set's actual configuration compared to its expected template and
+   *          parameter configuration. A stack set is considered to have drifted if one or more of its
+   *          stack instances have drifted from their expected template and parameter
+   *          configuration.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>DRIFTED</code>: One or more of the stack instances belonging to the stack
+   *                set stack differs from the expected template and parameter configuration. A stack
+   *                instance is considered to have drifted if one or more of the resources in the
+   *                associated stack have drifted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_CHECKED</code>: AWS CloudFormation has not checked the stack set for drift.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_SYNC</code>: All of the stack instances belonging to the stack set stack
+   *                match from the expected template and parameter configuration.</p>
+   *             </li>
+   *          </ul>
+   */
+  DriftStatus?: StackSetDriftStatus | string;
+
+  /**
+   * <p>The number of stack instances that have drifted from the expected template and parameter
+   *          configuration of the stack set. A stack instance is considered to have drifted if one or
+   *          more of the resources in the associated stack do not match their expected
+   *          configuration.</p>
+   */
+  DriftedStackInstancesCount?: number;
+
+  /**
    * <p>The total number of stack instances belonging to this stack set. </p>
    *          <p>The total number of stack instances is equal to the total of:</p>
    *          <ul>
@@ -3849,20 +3954,6 @@ export interface StackSetDriftDetectionDetails {
    *          </ul>
    */
   TotalStackInstancesCount?: number;
-
-  /**
-   * <p>The number of stack instances that have drifted from the expected template and parameter
-   *          configuration of the stack set. A stack instance is considered to have drifted if one or
-   *          more of the resources in the associated stack do not match their expected
-   *          configuration.</p>
-   */
-  DriftedStackInstancesCount?: number;
-
-  /**
-   * <p>The number of stack instances which match the expected template and parameter
-   *          configuration of the stack set.</p>
-   */
-  InSyncStackInstancesCount?: number;
 
   /**
    * <p>The status of the stack set drift detection operation.</p>
@@ -3894,49 +3985,6 @@ export interface StackSetDriftDetectionDetails {
    *          </ul>
    */
   DriftDetectionStatus?: StackSetDriftDetectionStatus | string;
-
-  /**
-   * <p>Status of the stack set's actual configuration compared to its expected template and
-   *          parameter configuration. A stack set is considered to have drifted if one or more of its
-   *          stack instances have drifted from their expected template and parameter
-   *          configuration.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRIFTED</code>: One or more of the stack instances belonging to the stack
-   *                set stack differs from the expected template and parameter configuration. A stack
-   *                instance is considered to have drifted if one or more of the resources in the
-   *                associated stack have drifted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>NOT_CHECKED</code>: AWS CloudFormation has not checked the stack set for drift.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IN_SYNC</code>: All of the stack instances belonging to the stack set stack
-   *                match from the expected template and parameter configuration.</p>
-   *             </li>
-   *          </ul>
-   */
-  DriftStatus?: StackSetDriftStatus | string;
-
-  /**
-   * <p>The number of stack instances that are currently being checked for drift.</p>
-   */
-  InProgressStackInstancesCount?: number;
-
-  /**
-   * <p>The number of stack instances for which the drift detection operation failed.</p>
-   */
-  FailedStackInstancesCount?: number;
-
-  /**
-   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
-   *          set. This value will be <code>NULL</code> for any stack set on which drift detection has
-   *          not yet been performed.</p>
-   */
-  LastDriftCheckTimestamp?: Date;
 }
 
 export namespace StackSetDriftDetectionDetails {
@@ -3955,9 +4003,10 @@ export type StackSetStatus = "ACTIVE" | "DELETED";
  */
 export interface StackSet {
   /**
-   * <p>The status of the stack set.</p>
+   * <p>A description of the stack set that you specify when the stack set is created or
+   *          updated.</p>
    */
-  Status?: StackSetStatus | string;
+  Description?: string;
 
   /**
    * <p>The name that's associated with the stack set.</p>
@@ -3965,18 +4014,27 @@ export interface StackSet {
   StackSetName?: string;
 
   /**
-   * <p>The name of the IAM execution role used to create or update the stack set. </p>
-   *          <p>Use customized execution roles to control which stack resources users and groups can
-   *          include in their stack sets.
-   *       </p>
+   * <p>The status of the stack set.</p>
    */
-  ExecutionRoleName?: string;
+  Status?: StackSetStatus | string;
 
   /**
-   * <p>A description of the stack set that you specify when the stack set is created or
-   *          updated.</p>
+   * <p>A list of input parameters for a stack set.</p>
    */
-  Description?: string;
+  Parameters?: Parameter[];
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the stack set.</p>
+   */
+  StackSetARN?: string;
+
+  /**
+   * <p>The capabilities that are allowed in the stack set. Some stack set templates might
+   *          include resources that can affect permissions in your AWS account—for example, by creating
+   *          new AWS Identity and Access Management (IAM) users. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates.</a>
+   *          </p>
+   */
+  Capabilities?: (Capability | string)[];
 
   /**
    * <p>The Amazon Resource Number (ARN) of the IAM role used to create or update the stack
@@ -3988,23 +4046,27 @@ export interface StackSet {
   AdministrationRoleARN?: string;
 
   /**
+   * <p>The ID of the stack set.</p>
+   */
+  StackSetId?: string;
+
+  /**
+   * <p>The name of the IAM execution role used to create or update the stack set. </p>
+   *          <p>Use customized execution roles to control which stack resources users and groups can
+   *          include in their stack sets.
+   *       </p>
+   */
+  ExecutionRoleName?: string;
+
+  /**
+   * <p>[<code>Service-managed</code> permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).</p>
+   */
+  AutoDeployment?: AutoDeployment;
+
+  /**
    * <p>[<code>Service-managed</code> permissions] The organization root ID or organizational unit (OU) IDs that you specified for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
    */
   OrganizationalUnitIds?: string[];
-
-  /**
-   * <p>A list of tags that specify information about the stack set. A maximum number of 50
-   *          tags can be specified.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Detailed information about the drift status of the stack set.</p>
-   *          <p>For stack sets, contains information about the last <i>completed</i> drift
-   *          operation performed on the stack set. Information about drift operations currently in
-   *          progress is not included.</p>
-   */
-  StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails;
 
   /**
    * <p>Describes how the IAM roles required for stack set operations are created.</p>
@@ -4020,38 +4082,24 @@ export interface StackSet {
   PermissionModel?: PermissionModels | string;
 
   /**
-   * <p>[<code>Service-managed</code> permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).</p>
-   */
-  AutoDeployment?: AutoDeployment;
-
-  /**
-   * <p>The ID of the stack set.</p>
-   */
-  StackSetId?: string;
-
-  /**
-   * <p>The capabilities that are allowed in the stack set. Some stack set templates might
-   *          include resources that can affect permissions in your AWS account—for example, by creating
-   *          new AWS Identity and Access Management (IAM) users. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates.</a>
-   *          </p>
-   */
-  Capabilities?: (Capability | string)[];
-
-  /**
-   * <p>The Amazon Resource Number (ARN) of the stack set.</p>
-   */
-  StackSetARN?: string;
-
-  /**
-   * <p>A list of input parameters for a stack set.</p>
-   */
-  Parameters?: Parameter[];
-
-  /**
    * <p>The structure that contains the body of the template that was used to create or
    *          update the stack set.</p>
    */
   TemplateBody?: string;
+
+  /**
+   * <p>A list of tags that specify information about the stack set. A maximum number of 50
+   *          tags can be specified.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Detailed information about the drift status of the stack set.</p>
+   *          <p>For stack sets, contains information about the last <i>completed</i> drift
+   *          operation performed on the stack set. Information about drift operations currently in
+   *          progress is not included.</p>
+   */
+  StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails;
 }
 
 export namespace StackSet {
@@ -4075,14 +4123,14 @@ export namespace DescribeStackSetOutput {
 
 export interface DescribeStackSetOperationInput {
   /**
-   * <p>The unique ID of the stack set operation. </p>
-   */
-  OperationId: string | undefined;
-
-  /**
    * <p>The name or the unique stack ID of the stack set for the stack operation.</p>
    */
   StackSetName: string | undefined;
+
+  /**
+   * <p>The unique ID of the stack set operation. </p>
+   */
+  OperationId: string | undefined;
 }
 
 export namespace DescribeStackSetOperationInput {
@@ -4100,9 +4148,9 @@ export type StackSetOperationStatus = "FAILED" | "QUEUED" | "RUNNING" | "STOPPED
  */
 export interface StackSetOperation {
   /**
-   * <p>The ID of the stack set.</p>
+   * <p>The unique ID of a stack set operation.</p>
    */
-  StackSetId?: string;
+  OperationId?: string;
 
   /**
    * <p>The status of the operation. </p>
@@ -4145,20 +4193,6 @@ export interface StackSetOperation {
   Status?: StackSetOperationStatus | string;
 
   /**
-   * <p>For stack set operations of action type <code>DELETE</code>, specifies whether to
-   *          remove the stack instances from the specified stack set, but doesn't delete the stacks. You
-   *          can't reassociate a retained stack, or add an existing, saved stack to a new stack
-   *          set.</p>
-   */
-  RetainStacks?: boolean;
-
-  /**
-   * <p>The preferences for how AWS CloudFormation performs this stack set
-   *          operation.</p>
-   */
-  OperationPreferences?: StackSetOperationPreferences;
-
-  /**
    * <p>The time at which the stack set operation ended, across all accounts and Regions
    *          specified. Note that this doesn't necessarily mean that the stack set operation was
    *          successful, or even attempted, in each account or Region.</p>
@@ -4166,22 +4200,13 @@ export interface StackSetOperation {
   EndTimestamp?: Date;
 
   /**
-   * <p>[<code>Service-managed</code> permissions] The AWS Organizations accounts affected by the stack operation.</p>
+   * <p>The type of stack set operation: <code>CREATE</code>, <code>UPDATE</code>, or
+   *             <code>DELETE</code>. Create and delete operations affect only the specified stack set
+   *          instances that are associated with the specified stack set. Update operations affect both
+   *          the stack set itself, as well as <i>all</i> associated stack set
+   *          instances.</p>
    */
-  DeploymentTargets?: DeploymentTargets;
-
-  /**
-   * <p>The name of the IAM execution role used to create or update the stack set.</p>
-   *          <p>Use customized execution roles to control which stack resources users and groups can
-   *          include in their stack sets.
-   *       </p>
-   */
-  ExecutionRoleName?: string;
-
-  /**
-   * <p>The unique ID of a stack set operation.</p>
-   */
-  OperationId?: string;
+  Action?: StackSetOperationAction | string;
 
   /**
    * <p>Detailed information about the drift status of the stack set. This includes information
@@ -4194,15 +4219,6 @@ export interface StackSetOperation {
   StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails;
 
   /**
-   * <p>The type of stack set operation: <code>CREATE</code>, <code>UPDATE</code>, or
-   *             <code>DELETE</code>. Create and delete operations affect only the specified stack set
-   *          instances that are associated with the specified stack set. Update operations affect both
-   *          the stack set itself, as well as <i>all</i> associated stack set
-   *          instances.</p>
-   */
-  Action?: StackSetOperationAction | string;
-
-  /**
    * <p>The time at which the operation was initiated. Note that the creation times for the
    *          stack set operation might differ from the creation time of the individual stacks
    *          themselves. This is because AWS CloudFormation needs to perform preparatory work for the
@@ -4212,6 +4228,14 @@ export interface StackSetOperation {
   CreationTimestamp?: Date;
 
   /**
+   * <p>The name of the IAM execution role used to create or update the stack set.</p>
+   *          <p>Use customized execution roles to control which stack resources users and groups can
+   *          include in their stack sets.
+   *       </p>
+   */
+  ExecutionRoleName?: string;
+
+  /**
    * <p>The Amazon Resource Number (ARN) of the IAM role used to perform this stack set
    *          operation. </p>
    *          <p>Use customized administrator roles to control which users or groups can manage specific
@@ -4219,6 +4243,30 @@ export interface StackSetOperation {
    *             Administrators</a> in the <i>AWS CloudFormation User Guide</i>.</p>
    */
   AdministrationRoleARN?: string;
+
+  /**
+   * <p>The ID of the stack set.</p>
+   */
+  StackSetId?: string;
+
+  /**
+   * <p>[<code>Service-managed</code> permissions] The AWS Organizations accounts affected by the stack operation.</p>
+   */
+  DeploymentTargets?: DeploymentTargets;
+
+  /**
+   * <p>The preferences for how AWS CloudFormation performs this stack set
+   *          operation.</p>
+   */
+  OperationPreferences?: StackSetOperationPreferences;
+
+  /**
+   * <p>For stack set operations of action type <code>DELETE</code>, specifies whether to
+   *          remove the stack instances from the specified stack set, but doesn't delete the stacks. You
+   *          can't reassociate a retained stack, or add an existing, saved stack to a new stack
+   *          set.</p>
+   */
+  RetainStacks?: boolean;
 }
 
 export namespace StackSetOperation {
@@ -4257,6 +4305,12 @@ export namespace OperationNotFoundException {
 
 export interface DescribeTypeInput {
   /**
+   * <p>The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.</p>
+   *          <p>If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information about that specific type version. Otherwise, it returns information about the default type version.</p>
+   */
+  VersionId?: string;
+
+  /**
    * <p>The name of the type.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
@@ -4267,12 +4321,6 @@ export interface DescribeTypeInput {
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
   Arn?: string;
-
-  /**
-   * <p>The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.</p>
-   *          <p>If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information about that specific type version. Otherwise, it returns information about the default type version.</p>
-   */
-  VersionId?: string;
 
   /**
    * <p>The kind of type. </p>
@@ -4295,14 +4343,14 @@ export type DeprecatedStatus = "DEPRECATED" | "LIVE";
  */
 export interface LoggingConfig {
   /**
-   * <p>The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.</p>
-   */
-  LogRoleArn: string | undefined;
-
-  /**
    * <p>The Amazon CloudWatch log group to which CloudFormation sends error logging information when invoking the type's handlers.</p>
    */
   LogGroupName: string | undefined;
+
+  /**
+   * <p>The ARN of the role that CloudFormation should assume when sending log entries to CloudWatch logs.</p>
+   */
+  LogRoleArn: string | undefined;
 }
 
 export namespace LoggingConfig {
@@ -4316,6 +4364,32 @@ export type ProvisioningType = "FULLY_MUTABLE" | "IMMUTABLE" | "NON_PROVISIONABL
 export type Visibility = "PRIVATE" | "PUBLIC";
 
 export interface DescribeTypeOutput {
+  /**
+   * <p>The schema that defines the type.</p>
+   *          <p>For more information on type schemas, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">Resource Provider Schema</a> in the <i>CloudFormation CLI User Guide</i>.</p>
+   */
+  Schema?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the type.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The URL of a page providing detailed documentation for this type.</p>
+   */
+  DocumentationUrl?: string;
+
+  /**
+   * <p>The description of the registered type.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the registered type.</p>
+   */
+  TypeName?: string;
+
   /**
    * <p>The deprecation status of the type.</p>
    *          <p>Valid values include:</p>
@@ -4333,51 +4407,12 @@ export interface DescribeTypeOutput {
   DeprecatedStatus?: DeprecatedStatus | string;
 
   /**
-   * <p>The URL of the source code for the type.</p>
+   * <p>The ID of the default version of the type. The default version is used when the type version is not specified.</p>
+   *          <p>To set the default version of a type, use <code>
+   *                <a>SetTypeDefaultVersion</a>
+   *             </code>. </p>
    */
-  SourceUrl?: string;
-
-  /**
-   * <p>The description of the registered type.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the type.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The URL of a page providing detailed documentation for this type.</p>
-   */
-  DocumentationUrl?: string;
-
-  /**
-   * <p>The name of the registered type.</p>
-   */
-  TypeName?: string;
-
-  /**
-   * <p>The schema that defines the type.</p>
-   *          <p>For more information on type schemas, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-schema.html">Resource Provider Schema</a> in the <i>CloudFormation CLI User Guide</i>.</p>
-   */
-  Schema?: string;
-
-  /**
-   * <p>When the specified type version was registered.</p>
-   */
-  LastUpdated?: Date;
-
-  /**
-   * <p>The kind of type. </p>
-   *          <p>Currently the only valid value is <code>RESOURCE</code>.</p>
-   */
-  Type?: RegistryType | string;
-
-  /**
-   * <p>When the specified type version was registered.</p>
-   */
-  TimeCreated?: Date;
+  DefaultVersionId?: string;
 
   /**
    * <p>The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.</p>
@@ -4411,16 +4446,14 @@ export interface DescribeTypeOutput {
   ProvisioningType?: ProvisioningType | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an
-   *          <i>
-   *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM execution
-   *             role</a>
-   *             </i> that includes the necessary permissions to call those
-   *          AWS APIs, and provision that execution role in your account. CloudFormation then
-   *          assumes that execution role to provide your resource type with the appropriate
-   *          credentials.</p>
+   * <p>Whether the specified type version is set as the default version.</p>
    */
-  ExecutionRoleArn?: string;
+  IsDefaultVersion?: boolean;
+
+  /**
+   * <p>Contains logging configuration information for a type.</p>
+   */
+  LoggingConfig?: LoggingConfig;
 
   /**
    * <p>The scope at which the type is visible and usable in CloudFormation operations.</p>
@@ -4439,22 +4472,37 @@ export interface DescribeTypeOutput {
   Visibility?: Visibility | string;
 
   /**
-   * <p>Contains logging configuration information for a type.</p>
+   * <p>When the specified type version was registered.</p>
    */
-  LoggingConfig?: LoggingConfig;
+  LastUpdated?: Date;
 
   /**
-   * <p>Whether the specified type version is set as the default version.</p>
+   * <p>The kind of type. </p>
+   *          <p>Currently the only valid value is <code>RESOURCE</code>.</p>
    */
-  IsDefaultVersion?: boolean;
+  Type?: RegistryType | string;
 
   /**
-   * <p>The ID of the default version of the type. The default version is used when the type version is not specified.</p>
-   *          <p>To set the default version of a type, use <code>
-   *                <a>SetTypeDefaultVersion</a>
-   *             </code>. </p>
+   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to register the type. If your resource type calls AWS APIs in any of its handlers, you must create an
+   *          <i>
+   *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM execution
+   *             role</a>
+   *             </i> that includes the necessary permissions to call those
+   *          AWS APIs, and provision that execution role in your account. CloudFormation then
+   *          assumes that execution role to provide your resource type with the appropriate
+   *          credentials.</p>
    */
-  DefaultVersionId?: string;
+  ExecutionRoleArn?: string;
+
+  /**
+   * <p>The URL of the source code for the type.</p>
+   */
+  SourceUrl?: string;
+
+  /**
+   * <p>When the specified type version was registered.</p>
+   */
+  TimeCreated?: Date;
 }
 
 export namespace DescribeTypeOutput {
@@ -4483,16 +4531,6 @@ export type RegistrationStatus = "COMPLETE" | "FAILED" | "IN_PROGRESS";
 
 export interface DescribeTypeRegistrationOutput {
   /**
-   * <p>The description of the type registration request.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The current status of the type registration request.</p>
-   */
-  ProgressStatus?: RegistrationStatus | string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of this specific version of the type being registered.</p>
    *          <p>For registration requests with a <code>ProgressStatus</code> of other than <code>COMPLETE</code>, this will be <code>null</code>.</p>
    */
@@ -4503,6 +4541,16 @@ export interface DescribeTypeRegistrationOutput {
    *          <p>For registration requests with a <code>ProgressStatus</code> of other than <code>COMPLETE</code>, this will be <code>null</code>.</p>
    */
   TypeArn?: string;
+
+  /**
+   * <p>The current status of the type registration request.</p>
+   */
+  ProgressStatus?: RegistrationStatus | string;
+
+  /**
+   * <p>The description of the type registration request.</p>
+   */
+  Description?: string;
 }
 
 export namespace DescribeTypeRegistrationOutput {
@@ -4547,14 +4595,14 @@ export namespace DetectStackDriftOutput {
 
 export interface DetectStackResourceDriftInput {
   /**
-   * <p>The name of the stack to which the resource belongs.</p>
-   */
-  StackName: string | undefined;
-
-  /**
    * <p>The logical name of the resource for which to return drift information.</p>
    */
   LogicalResourceId: string | undefined;
+
+  /**
+   * <p>The name of the stack to which the resource belongs.</p>
+   */
+  StackName: string | undefined;
 }
 
 export namespace DetectStackResourceDriftInput {
@@ -4631,15 +4679,6 @@ export interface EstimateTemplateCostInput {
   Parameters?: Parameter[];
 
   /**
-   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
-   *          length of 51,200 bytes. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
-   *          in the AWS CloudFormation User Guide.)</p>
-   *          <p>Conditional: You must pass <code>TemplateBody</code> or <code>TemplateURL</code>. If
-   *          both are passed, only <code>TemplateBody</code> is used.</p>
-   */
-  TemplateBody?: string;
-
-  /**
    * <p>Location of file containing the template body. The URL must point to a template that
    *          is located in an Amazon S3 bucket. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
    *          in the AWS CloudFormation User Guide.</p>
@@ -4647,6 +4686,15 @@ export interface EstimateTemplateCostInput {
    *          both are passed, only <code>TemplateBody</code> is used.</p>
    */
   TemplateURL?: string;
+
+  /**
+   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
+   *          length of 51,200 bytes. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
+   *          in the AWS CloudFormation User Guide.)</p>
+   *          <p>Conditional: You must pass <code>TemplateBody</code> or <code>TemplateURL</code>. If
+   *          both are passed, only <code>TemplateBody</code> is used.</p>
+   */
+  TemplateBody?: string;
 }
 
 export namespace EstimateTemplateCostInput {
@@ -4686,16 +4734,16 @@ export interface ExecuteChangeSetInput {
   ClientRequestToken?: string;
 
   /**
-   * <p>If you specified the name of a change set, specify the stack name or ID (ARN) that is
-   *          associated with the change set you want to execute.</p>
-   */
-  StackName?: string;
-
-  /**
    * <p>The name or ARN of the change set that you want use to update the specified
    *          stack.</p>
    */
   ChangeSetName: string | undefined;
+
+  /**
+   * <p>If you specified the name of a change set, specify the stack name or ID (ARN) that is
+   *          associated with the change set you want to execute.</p>
+   */
+  StackName?: string;
 }
 
 export namespace ExecuteChangeSetInput {
@@ -4831,6 +4879,24 @@ export namespace GetTemplateOutput {
  */
 export interface GetTemplateSummaryInput {
   /**
+   * <p>The name or unique ID of the stack set from which the stack was created.</p>
+   *          <p>Conditional: You must specify only one of the following parameters:
+   *             <code>StackName</code>, <code>StackSetName</code>, <code>TemplateBody</code>, or
+   *             <code>TemplateURL</code>.</p>
+   */
+  StackSetName?: string;
+
+  /**
+   * <p>The name or the stack ID that is associated with the stack, which are not always
+   *          interchangeable. For running stacks, you can specify either the stack's name or its unique
+   *          stack ID. For deleted stack, you must specify the unique stack ID.</p>
+   *          <p>Conditional: You must specify only one of the following parameters:
+   *             <code>StackName</code>, <code>StackSetName</code>, <code>TemplateBody</code>, or
+   *             <code>TemplateURL</code>.</p>
+   */
+  StackName?: string;
+
+  /**
    * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
    *          length of 51,200 bytes. For more information about templates, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the AWS CloudFormation User Guide.</p>
    *          <p>Conditional: You must specify only one of the following parameters:
@@ -4849,24 +4915,6 @@ export interface GetTemplateSummaryInput {
    *             <code>TemplateURL</code>.</p>
    */
   TemplateURL?: string;
-
-  /**
-   * <p>The name or unique ID of the stack set from which the stack was created.</p>
-   *          <p>Conditional: You must specify only one of the following parameters:
-   *             <code>StackName</code>, <code>StackSetName</code>, <code>TemplateBody</code>, or
-   *             <code>TemplateURL</code>.</p>
-   */
-  StackSetName?: string;
-
-  /**
-   * <p>The name or the stack ID that is associated with the stack, which are not always
-   *          interchangeable. For running stacks, you can specify either the stack's name or its unique
-   *          stack ID. For deleted stack, you must specify the unique stack ID.</p>
-   *          <p>Conditional: You must specify only one of the following parameters:
-   *             <code>StackName</code>, <code>StackSetName</code>, <code>TemplateBody</code>, or
-   *             <code>TemplateURL</code>.</p>
-   */
-  StackName?: string;
 }
 
 export namespace GetTemplateSummaryInput {
@@ -4903,14 +4951,14 @@ export interface ParameterDeclaration {
   ParameterConstraints?: ParameterConstraints;
 
   /**
-   * <p>The description that is associate with the parameter.</p>
+   * <p>The name that is associated with the parameter.</p>
    */
-  Description?: string;
+  ParameterKey?: string;
 
   /**
-   * <p>The type of parameter.</p>
+   * <p>The default value of the parameter.</p>
    */
-  ParameterType?: string;
+  DefaultValue?: string;
 
   /**
    * <p>Flag that indicates whether the parameter value is shown as plain text in logs and in
@@ -4919,14 +4967,14 @@ export interface ParameterDeclaration {
   NoEcho?: boolean;
 
   /**
-   * <p>The default value of the parameter.</p>
+   * <p>The description that is associate with the parameter.</p>
    */
-  DefaultValue?: string;
+  Description?: string;
 
   /**
-   * <p>The name that is associated with the parameter.</p>
+   * <p>The type of parameter.</p>
    */
-  ParameterKey?: string;
+  ParameterType?: string;
 }
 
 export namespace ParameterDeclaration {
@@ -4942,10 +4990,10 @@ export namespace ParameterDeclaration {
  */
 export interface ResourceIdentifierSummary {
   /**
-   * <p>The logical IDs of the target resources of the specified <code>ResourceType</code>, as
-   *          defined in the import template.</p>
+   * <p>The template resource type of the target resources, such as
+   *          <code>AWS::S3::Bucket</code>.</p>
    */
-  LogicalResourceIds?: string[];
+  ResourceType?: string;
 
   /**
    * <p>The resource properties you can provide during the import to identify your target
@@ -4955,10 +5003,10 @@ export interface ResourceIdentifierSummary {
   ResourceIdentifiers?: string[];
 
   /**
-   * <p>The template resource type of the target resources, such as
-   *          <code>AWS::S3::Bucket</code>.</p>
+   * <p>The logical IDs of the target resources of the specified <code>ResourceType</code>, as
+   *          defined in the import template.</p>
    */
-  ResourceType?: string;
+  LogicalResourceIds?: string[];
 }
 
 export namespace ResourceIdentifierSummary {
@@ -4972,42 +5020,10 @@ export namespace ResourceIdentifierSummary {
  */
 export interface GetTemplateSummaryOutput {
   /**
-   * <p>A list of resource identifier summaries that describe the target resources of an import
-   *          operation and the properties you can provide during the import to identify the target
-   *          resources. For example, <code>BucketName</code> is a possible identifier property for an
-   *             <code>AWS::S3::Bucket</code> resource. </p>
-   */
-  ResourceIdentifierSummaries?: ResourceIdentifierSummary[];
-
-  /**
-   * <p>The AWS template format version, which identifies the capabilities of the
-   *          template.</p>
-   */
-  Version?: string;
-
-  /**
    * <p>The value that is defined for the <code>Metadata</code> property of the
    *          template.</p>
    */
   Metadata?: string;
-
-  /**
-   * <p>The value that is defined in the <code>Description</code> property of the
-   *          template.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A list of the transforms that are declared in the template.</p>
-   */
-  DeclaredTransforms?: string[];
-
-  /**
-   * <p>A list of all the template resource types that are defined in the template, such as
-   *             <code>AWS::EC2::Instance</code>, <code>AWS::Dynamo::Table</code>, and
-   *             <code>Custom::MyCustomInstance</code>.</p>
-   */
-  ResourceTypes?: string[];
 
   /**
    * <p>The capabilities found within the template. If your template contains IAM resources,
@@ -5017,6 +5033,25 @@ export interface GetTemplateSummaryOutput {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html#capabilities">Acknowledging IAM Resources in AWS CloudFormation Templates</a>.</p>
    */
   Capabilities?: (Capability | string)[];
+
+  /**
+   * <p>The AWS template format version, which identifies the capabilities of the
+   *          template.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>A list of the transforms that are declared in the template.</p>
+   */
+  DeclaredTransforms?: string[];
+
+  /**
+   * <p>A list of resource identifier summaries that describe the target resources of an import
+   *          operation and the properties you can provide during the import to identify the target
+   *          resources. For example, <code>BucketName</code> is a possible identifier property for an
+   *             <code>AWS::S3::Bucket</code> resource. </p>
+   */
+  ResourceIdentifierSummaries?: ResourceIdentifierSummary[];
 
   /**
    * <p>The list of resources that generated the values in the <code>Capabilities</code>
@@ -5029,6 +5064,19 @@ export interface GetTemplateSummaryOutput {
    *          parameter.</p>
    */
   Parameters?: ParameterDeclaration[];
+
+  /**
+   * <p>A list of all the template resource types that are defined in the template, such as
+   *             <code>AWS::EC2::Instance</code>, <code>AWS::Dynamo::Table</code>, and
+   *             <code>Custom::MyCustomInstance</code>.</p>
+   */
+  ResourceTypes?: string[];
+
+  /**
+   * <p>The value that is defined in the <code>Description</code> property of the
+   *          template.</p>
+   */
+  Description?: string;
 }
 
 export namespace GetTemplateSummaryOutput {
@@ -5042,16 +5090,16 @@ export namespace GetTemplateSummaryOutput {
  */
 export interface ListChangeSetsInput {
   /**
-   * <p>A string (provided by the <a>ListChangeSets</a> response output) that
-   *          identifies the next page of change sets that you want to retrieve.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The name or the Amazon Resource Name (ARN) of the stack for which you want to list
    *          change sets.</p>
    */
   StackName: string | undefined;
+
+  /**
+   * <p>A string (provided by the <a>ListChangeSets</a> response output) that
+   *          identifies the next page of change sets that you want to retrieve.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListChangeSetsInput {
@@ -5065,16 +5113,16 @@ export namespace ListChangeSetsInput {
  */
 export interface ListChangeSetsOutput {
   /**
-   * <p>If the output exceeds 1 MB, a string that identifies the next page of change sets. If
-   *          there is no additional page, this value is null.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A list of <code>ChangeSetSummary</code> structures that provides the ID and status of
    *          each change set for the specified stack.</p>
    */
   Summaries?: ChangeSetSummary[];
+
+  /**
+   * <p>If the output exceeds 1 MB, a string that identifies the next page of change sets. If
+   *          there is no additional page, this value is null.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListChangeSetsOutput {
@@ -5131,15 +5179,15 @@ export namespace Export {
 
 export interface ListExportsOutput {
   /**
-   * <p>The output for the <a>ListExports</a> action.</p>
-   */
-  Exports?: Export[];
-
-  /**
    * <p>If the output exceeds 100 exported output values, a string that identifies the next
    *          page of exports. If there is no additional page, this value is null.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The output for the <a>ListExports</a> action.</p>
+   */
+  Exports?: Export[];
 }
 
 export namespace ListExportsOutput {
@@ -5150,17 +5198,17 @@ export namespace ListExportsOutput {
 
 export interface ListImportsInput {
   /**
-   * <p>The name of the exported output value. AWS CloudFormation returns the stack names
-   *          that are importing this value. </p>
-   */
-  ExportName: string | undefined;
-
-  /**
    * <p>A string (provided by the <a>ListImports</a> response output) that
    *          identifies the next page of stacks that are importing the specified exported output value.
    *       </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The name of the exported output value. AWS CloudFormation returns the stack names
+   *          that are importing this value. </p>
+   */
+  ExportName: string | undefined;
 }
 
 export namespace ListImportsInput {
@@ -5214,6 +5262,26 @@ export namespace StackInstanceFilter {
 
 export interface ListStackInstancesInput {
   /**
+   * <p>The name or unique ID of the stack set that you want to list stack instances
+   *          for.</p>
+   */
+  StackSetName: string | undefined;
+
+  /**
+   * <p>The name of the Region where you want to list stack instances. </p>
+   */
+  StackInstanceRegion?: string;
+
+  /**
+   * <p>If the previous request didn't return all of the remaining results, the response's
+   *             <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
+   *          results, call <code>ListStackInstances</code> again and assign that token to the request
+   *          object's <code>NextToken</code> parameter. If there are no remaining results, the previous
+   *          response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The name of the AWS account that you want to list stack instances for.</p>
    */
   StackInstanceAccount?: string;
@@ -5230,26 +5298,6 @@ export interface ListStackInstancesInput {
    * <p>The status that stack instances are filtered by.</p>
    */
   Filters?: StackInstanceFilter[];
-
-  /**
-   * <p>If the previous request didn't return all of the remaining results, the response's
-   *             <code>NextToken</code> parameter value is set to a token. To retrieve the next set of
-   *          results, call <code>ListStackInstances</code> again and assign that token to the request
-   *          object's <code>NextToken</code> parameter. If there are no remaining results, the previous
-   *          response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The name of the Region where you want to list stack instances. </p>
-   */
-  StackInstanceRegion?: string;
-
-  /**
-   * <p>The name or unique ID of the stack set that you want to list stack instances
-   *          for.</p>
-   */
-  StackSetName: string | undefined;
 }
 
 export namespace ListStackInstancesInput {
@@ -5262,6 +5310,11 @@ export namespace ListStackInstancesInput {
  * <p>The structure that contains summary information about a stack instance.</p>
  */
 export interface StackInstanceSummary {
+  /**
+   * <p>[<code>Service-managed</code> permissions] The organization root ID or organizational unit (OU) IDs that you specified for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
+   */
+  OrganizationalUnitId?: string;
+
   /**
    * <p>The status of the stack instance, in terms of its synchronization with its associated
    *          stack set.</p>
@@ -5301,38 +5354,20 @@ export interface StackInstanceSummary {
   Status?: StackInstanceStatus | string;
 
   /**
+   * <p>The name of the AWS Region that the stack instance is associated with.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>The ID of the stack instance.</p>
+   */
+  StackId?: string;
+
+  /**
    * <p>The explanation for the specific status code assigned to this stack
    *          instance.</p>
    */
   StatusReason?: string;
-
-  /**
-   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
-   *          instance. This value will be <code>NULL</code> for any stack instance on which drift
-   *          detection has not yet been performed.</p>
-   */
-  LastDriftCheckTimestamp?: Date;
-
-  /**
-   * <p>[<code>Service-managed</code> permissions] The organization root ID or organizational unit (OU) IDs that you specified for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
-   */
-  OrganizationalUnitId?: string;
-
-  /**
-   * <p>The name or unique ID of the stack set that the stack instance is associated
-   *          with.</p>
-   */
-  StackSetId?: string;
-
-  /**
-   * <p>[<code>Self-managed</code> permissions] The name of the AWS account that the stack instance is associated with.</p>
-   */
-  Account?: string;
-
-  /**
-   * <p>The detailed status of the stack instance.</p>
-   */
-  StackInstanceStatus?: StackInstanceComprehensiveStatus;
 
   /**
    * <p>Status of the stack instance's actual configuration compared to the expected template
@@ -5364,14 +5399,27 @@ export interface StackInstanceSummary {
   DriftStatus?: StackDriftStatus | string;
 
   /**
-   * <p>The ID of the stack instance.</p>
+   * <p>The detailed status of the stack instance.</p>
    */
-  StackId?: string;
+  StackInstanceStatus?: StackInstanceComprehensiveStatus;
 
   /**
-   * <p>The name of the AWS Region that the stack instance is associated with.</p>
+   * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
+   *          instance. This value will be <code>NULL</code> for any stack instance on which drift
+   *          detection has not yet been performed.</p>
    */
-  Region?: string;
+  LastDriftCheckTimestamp?: Date;
+
+  /**
+   * <p>[<code>Self-managed</code> permissions] The name of the AWS account that the stack instance is associated with.</p>
+   */
+  Account?: string;
+
+  /**
+   * <p>The name or unique ID of the stack set that the stack instance is associated
+   *          with.</p>
+   */
+  StackSetId?: string;
 }
 
 export namespace StackInstanceSummary {
@@ -5442,12 +5490,6 @@ export namespace ListStackResourcesInput {
  */
 export interface StackResourceDriftInformationSummary {
   /**
-   * <p>When AWS CloudFormation last checked if the resource had drifted from its expected
-   *          configuration.</p>
-   */
-  LastCheckTimestamp?: Date;
-
-  /**
    * <p>Status of the resource's actual configuration compared to its expected
    *          configuration</p>
    *          <ul>
@@ -5478,6 +5520,12 @@ export interface StackResourceDriftInformationSummary {
    *          </ul>
    */
   StackResourceDriftStatus: StackResourceDriftStatus | string | undefined;
+
+  /**
+   * <p>When AWS CloudFormation last checked if the resource had drifted from its expected
+   *          configuration.</p>
+   */
+  LastCheckTimestamp?: Date;
 }
 
 export namespace StackResourceDriftInformationSummary {
@@ -5491,16 +5539,6 @@ export namespace StackResourceDriftInformationSummary {
  */
 export interface StackResourceSummary {
   /**
-   * <p>Success/failure message associated with the resource.</p>
-   */
-  ResourceStatusReason?: string;
-
-  /**
-   * <p>The logical name of the resource specified in the template.</p>
-   */
-  LogicalResourceId: string | undefined;
-
-  /**
    * <p>The name or unique identifier that corresponds to a physical instance ID of the
    *          resource.</p>
    */
@@ -5512,10 +5550,25 @@ export interface StackResourceSummary {
   LastUpdatedTimestamp: Date | undefined;
 
   /**
+   * <p>Current status of the resource.</p>
+   */
+  ResourceStatus: ResourceStatus | string | undefined;
+
+  /**
+   * <p>Success/failure message associated with the resource.</p>
+   */
+  ResourceStatusReason?: string;
+
+  /**
    * <p>Type of resource. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html"> AWS
    *             Resource Types Reference</a> in the AWS CloudFormation User Guide.)</p>
    */
   ResourceType: string | undefined;
+
+  /**
+   * <p>The logical name of the resource specified in the template.</p>
+   */
+  LogicalResourceId: string | undefined;
 
   /**
    * <p>Information about whether the resource's actual configuration differs, or has
@@ -5524,11 +5577,6 @@ export interface StackResourceSummary {
    *             Changes to Stacks and Resources</a>.</p>
    */
   DriftInformation?: StackResourceDriftInformationSummary;
-
-  /**
-   * <p>Current status of the resource.</p>
-   */
-  ResourceStatus: ResourceStatus | string | undefined;
 }
 
 export namespace StackResourceSummary {
@@ -5542,15 +5590,15 @@ export namespace StackResourceSummary {
  */
 export interface ListStackResourcesOutput {
   /**
+   * <p>A list of <code>StackResourceSummary</code> structures.</p>
+   */
+  StackResourceSummaries?: StackResourceSummary[];
+
+  /**
    * <p>If the output exceeds 1 MB, a string that identifies the next page of stack
    *          resources. If no additional page exists, this value is null.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of <code>StackResourceSummary</code> structures.</p>
-   */
-  StackResourceSummaries?: StackResourceSummary[];
 }
 
 export namespace ListStackResourcesOutput {
@@ -5635,27 +5683,6 @@ export namespace StackDriftInformationSummary {
  */
 export interface StackSummary {
   /**
-   * <p>Success/Failure message associated with the stack status.</p>
-   */
-  StackStatusReason?: string;
-
-  /**
-   * <p>The name associated with the stack.</p>
-   */
-  StackName: string | undefined;
-
-  /**
-   * <p>Unique stack identifier.</p>
-   */
-  StackId?: string;
-
-  /**
-   * <p>The time the stack was last updated. This field will only be returned if the stack
-   *          has been updated at least once.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
    * <p>Summarizes information on whether a stack's actual configuration differs, or has
    *             <i>drifted</i>, from it's expected configuration, as defined in the stack
    *          template and any values specified as template parameters. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration
@@ -5664,9 +5691,19 @@ export interface StackSummary {
   DriftInformation?: StackDriftInformationSummary;
 
   /**
-   * <p>The time the stack was created.</p>
+   * <p>Success/Failure message associated with the stack status.</p>
    */
-  CreationTime: Date | undefined;
+  StackStatusReason?: string;
+
+  /**
+   * <p>The time the stack was deleted.</p>
+   */
+  DeletionTime?: Date;
+
+  /**
+   * <p>The current status of the stack.</p>
+   */
+  StackStatus: StackStatus | string | undefined;
 
   /**
    * <p>For nested stacks--stacks created as resources for another stack--the stack ID of the
@@ -5686,19 +5723,30 @@ export interface StackSummary {
   RootId?: string;
 
   /**
-   * <p>The current status of the stack.</p>
-   */
-  StackStatus: StackStatus | string | undefined;
-
-  /**
-   * <p>The time the stack was deleted.</p>
-   */
-  DeletionTime?: Date;
-
-  /**
    * <p>The template description of the template used to create the stack.</p>
    */
   TemplateDescription?: string;
+
+  /**
+   * <p>Unique stack identifier.</p>
+   */
+  StackId?: string;
+
+  /**
+   * <p>The time the stack was last updated. This field will only be returned if the stack
+   *          has been updated at least once.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>The time the stack was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>The name associated with the stack.</p>
+   */
+  StackName: string | undefined;
 }
 
 export namespace StackSummary {
@@ -5732,20 +5780,6 @@ export namespace ListStacksOutput {
 
 export interface ListStackSetOperationResultsInput {
   /**
-   * <p>The maximum number of results to be returned with a single call. If the number of
-   *          available results exceeds this maximum, the response includes a <code>NextToken</code>
-   *          value that you can assign to the <code>NextToken</code> request parameter to get the next
-   *          set of results.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The name or unique ID of the stack set that you want to get operation results
-   *          for.</p>
-   */
-  StackSetName: string | undefined;
-
-  /**
    * <p>If the previous request didn't return all of the remaining results, the response
    *          object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set
    *          of results, call <code>ListStackSetOperationResults</code> again and assign that token to
@@ -5759,6 +5793,20 @@ export interface ListStackSetOperationResultsInput {
    * <p>The ID of the stack set operation.</p>
    */
   OperationId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of
+   *          available results exceeds this maximum, the response includes a <code>NextToken</code>
+   *          value that you can assign to the <code>NextToken</code> request parameter to get the next
+   *          set of results.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The name or unique ID of the stack set that you want to get operation results
+   *          for.</p>
+   */
+  StackSetName: string | undefined;
 }
 
 export namespace ListStackSetOperationResultsInput {
@@ -5774,22 +5822,6 @@ export type StackSetOperationResultStatus = "CANCELLED" | "FAILED" | "PENDING" |
  *          given account in a given Region.</p>
  */
 export interface StackSetOperationResultSummary {
-  /**
-   * <p>The results of the account gate function AWS CloudFormation invokes, if present,
-   *          before proceeding with stack set operations in an account</p>
-   */
-  AccountGateResult?: AccountGateResult;
-
-  /**
-   * <p>The reason for the assigned result status.</p>
-   */
-  StatusReason?: string;
-
-  /**
-   * <p>The name of the AWS Region for this operation result.</p>
-   */
-  Region?: string;
-
   /**
    * <p>The result status of the stack set operation for the given account in the given
    *          Region.</p>
@@ -5827,14 +5859,30 @@ export interface StackSetOperationResultSummary {
   Status?: StackSetOperationResultStatus | string;
 
   /**
+   * <p>[<code>Service-managed</code> permissions] The organization root ID or organizational unit (OU) IDs that you specified for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
+   */
+  OrganizationalUnitId?: string;
+
+  /**
    * <p>[<code>Self-managed</code> permissions] The name of the AWS account for this operation result.</p>
    */
   Account?: string;
 
   /**
-   * <p>[<code>Service-managed</code> permissions] The organization root ID or organizational unit (OU) IDs that you specified for <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeploymentTargets.html">DeploymentTargets</a>.</p>
+   * <p>The results of the account gate function AWS CloudFormation invokes, if present,
+   *          before proceeding with stack set operations in an account</p>
    */
-  OrganizationalUnitId?: string;
+  AccountGateResult?: AccountGateResult;
+
+  /**
+   * <p>The name of the AWS Region for this operation result.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>The reason for the assigned result status.</p>
+   */
+  StatusReason?: string;
 }
 
 export namespace StackSetOperationResultSummary {
@@ -5845,19 +5893,19 @@ export namespace StackSetOperationResultSummary {
 
 export interface ListStackSetOperationResultsOutput {
   /**
-   * <p>A list of <code>StackSetOperationResultSummary</code> structures that contain
-   *          information about the specified operation results, for accounts and Regions that are
-   *          included in the operation.</p>
-   */
-  Summaries?: StackSetOperationResultSummary[];
-
-  /**
    * <p>If the request doesn't return all results, <code>NextToken</code> is set to a token.
    *          To retrieve the next set of results, call <code>ListOperationResults</code> again and
    *          assign that token to the request object's <code>NextToken</code> parameter. If there are no
    *          remaining results, <code>NextToken</code> is set to <code>null</code>.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of <code>StackSetOperationResultSummary</code> structures that contain
+   *          information about the specified operation results, for accounts and Regions that are
+   *          included in the operation.</p>
+   */
+  Summaries?: StackSetOperationResultSummary[];
 }
 
 export namespace ListStackSetOperationResultsOutput {
@@ -5878,18 +5926,18 @@ export interface ListStackSetOperationsInput {
   NextToken?: string;
 
   /**
-   * <p>The name or unique ID of the stack set that you want to get operation summaries
-   *          for.</p>
-   */
-  StackSetName: string | undefined;
-
-  /**
    * <p>The maximum number of results to be returned with a single call. If the number of
    *          available results exceeds this maximum, the response includes a <code>NextToken</code>
    *          value that you can assign to the <code>NextToken</code> request parameter to get the next
    *          set of results.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The name or unique ID of the stack set that you want to get operation summaries
+   *          for.</p>
+   */
+  StackSetName: string | undefined;
 }
 
 export namespace ListStackSetOperationsInput {
@@ -5904,13 +5952,9 @@ export namespace ListStackSetOperationsInput {
  */
 export interface StackSetOperationSummary {
   /**
-   * <p>The type of operation: <code>CREATE</code>, <code>UPDATE</code>, or
-   *             <code>DELETE</code>. Create and delete operations affect only the specified stack
-   *          instances that are associated with the specified stack set. Update operations affect both
-   *          the stack set itself as well as <i>all</i> associated stack set
-   *          instances.</p>
+   * <p>The unique ID of the stack set operation.</p>
    */
-  Action?: StackSetOperationAction | string;
+  OperationId?: string;
 
   /**
    * <p>The overall status of the operation.</p>
@@ -5953,9 +5997,11 @@ export interface StackSetOperationSummary {
   Status?: StackSetOperationStatus | string;
 
   /**
-   * <p>The unique ID of the stack set operation.</p>
+   * <p>The time at which the stack set operation ended, across all accounts and Regions
+   *          specified. Note that this doesn't necessarily mean that the stack set operation was
+   *          successful, or even attempted, in each account or Region.</p>
    */
-  OperationId?: string;
+  EndTimestamp?: Date;
 
   /**
    * <p>The time at which the operation was initiated. Note that the creation times for the
@@ -5967,11 +6013,13 @@ export interface StackSetOperationSummary {
   CreationTimestamp?: Date;
 
   /**
-   * <p>The time at which the stack set operation ended, across all accounts and Regions
-   *          specified. Note that this doesn't necessarily mean that the stack set operation was
-   *          successful, or even attempted, in each account or Region.</p>
+   * <p>The type of operation: <code>CREATE</code>, <code>UPDATE</code>, or
+   *             <code>DELETE</code>. Create and delete operations affect only the specified stack
+   *          instances that are associated with the specified stack set. Update operations affect both
+   *          the stack set itself as well as <i>all</i> associated stack set
+   *          instances.</p>
    */
-  EndTimestamp?: Date;
+  Action?: StackSetOperationAction | string;
 }
 
 export namespace StackSetOperationSummary {
@@ -6004,14 +6052,10 @@ export namespace ListStackSetOperationsOutput {
 
 export interface ListStackSetsInput {
   /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the
-   *          response object's <code>NextToken</code> parameter value is set to a token. To retrieve the
-   *          next set of results, call <code>ListStackSets</code> again and assign that token to the
-   *          request object's <code>NextToken</code> parameter. If there are no remaining results, the
-   *          previous response object's <code>NextToken</code> parameter is set to
-   *          <code>null</code>.</p>
+   * <p>The status of the stack sets that you want to get summary information
+   *          about.</p>
    */
-  NextToken?: string;
+  Status?: StackSetStatus | string;
 
   /**
    * <p>The maximum number of results to be returned with a single call. If the number of
@@ -6022,10 +6066,14 @@ export interface ListStackSetsInput {
   MaxResults?: number;
 
   /**
-   * <p>The status of the stack sets that you want to get summary information
-   *          about.</p>
+   * <p>If the previous paginated request didn't return all of the remaining results, the
+   *          response object's <code>NextToken</code> parameter value is set to a token. To retrieve the
+   *          next set of results, call <code>ListStackSets</code> again and assign that token to the
+   *          request object's <code>NextToken</code> parameter. If there are no remaining results, the
+   *          previous response object's <code>NextToken</code> parameter is set to
+   *          <code>null</code>.</p>
    */
-  Status?: StackSetStatus | string;
+  NextToken?: string;
 }
 
 export namespace ListStackSetsInput {
@@ -6040,9 +6088,10 @@ export namespace ListStackSetsInput {
  */
 export interface StackSetSummary {
   /**
-   * <p>The status of the stack set.</p>
+   * <p>A description of the stack set that you specify when the stack set is created or
+   *          updated.</p>
    */
-  Status?: StackSetStatus | string;
+  Description?: string;
 
   /**
    * <p>[<code>Service-managed</code> permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organizational unit (OU).</p>
@@ -6050,40 +6099,11 @@ export interface StackSetSummary {
   AutoDeployment?: AutoDeployment;
 
   /**
-   * <p>A description of the stack set that you specify when the stack set is created or
-   *          updated.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the stack set.</p>
-   */
-  StackSetId?: string;
-
-  /**
-   * <p>Describes how the IAM roles required for stack set operations are created.</p>
-   *          <ul>
-   *             <li>
-   *                <p>With <code>self-managed</code> permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant Self-Managed Stack Set Permissions</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant Service-Managed Stack Set Permissions</a>.</p>
-   *             </li>
-   *          </ul>
-   */
-  PermissionModel?: PermissionModels | string;
-
-  /**
    * <p>Most recent time when CloudFormation performed a drift detection operation on the stack
    *          set. This value will be <code>NULL</code> for any stack set on which drift detection has
    *          not yet been performed.</p>
    */
   LastDriftCheckTimestamp?: Date;
-
-  /**
-   * <p>The name of the stack set.</p>
-   */
-  StackSetName?: string;
 
   /**
    * <p>Status of the stack set's actual configuration compared to its expected template and
@@ -6114,6 +6134,34 @@ export interface StackSetSummary {
    *          </ul>
    */
   DriftStatus?: StackDriftStatus | string;
+
+  /**
+   * <p>The name of the stack set.</p>
+   */
+  StackSetName?: string;
+
+  /**
+   * <p>The ID of the stack set.</p>
+   */
+  StackSetId?: string;
+
+  /**
+   * <p>The status of the stack set.</p>
+   */
+  Status?: StackSetStatus | string;
+
+  /**
+   * <p>Describes how the IAM roles required for stack set operations are created.</p>
+   *          <ul>
+   *             <li>
+   *                <p>With <code>self-managed</code> permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant Self-Managed Stack Set Permissions</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant Service-Managed Stack Set Permissions</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  PermissionModel?: PermissionModels | string;
 }
 
 export namespace StackSetSummary {
@@ -6124,6 +6172,12 @@ export namespace StackSetSummary {
 
 export interface ListStackSetsOutput {
   /**
+   * <p>A list of <code>StackSetSummary</code> structures that contain information about the
+   *          user's stack sets.</p>
+   */
+  Summaries?: StackSetSummary[];
+
+  /**
    * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is
    *          set to a token. To retrieve the next set of results, call <code>ListStackInstances</code>
    *          again and assign that token to the request object's <code>NextToken</code> parameter. If
@@ -6131,12 +6185,6 @@ export interface ListStackSetsOutput {
    *          <code>null</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of <code>StackSetSummary</code> structures that contain information about the
-   *          user's stack sets.</p>
-   */
-  Summaries?: StackSetSummary[];
 }
 
 export namespace ListStackSetsOutput {
@@ -6147,22 +6195,21 @@ export namespace ListStackSetsOutput {
 
 export interface ListTypeRegistrationsInput {
   /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the type.</p>
-   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
-   */
-  TypeArn?: string;
-
-  /**
    * <p>The kind of type.</p>
    *          <p>Currently the only valid value is <code>RESOURCE</code>.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
   Type?: RegistryType | string;
+
+  /**
+   * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The current status of the type registration request.</p>
@@ -6171,15 +6218,16 @@ export interface ListTypeRegistrationsInput {
   RegistrationStatusFilter?: RegistrationStatus | string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the type.</p>
+   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
+   */
+  TypeArn?: string;
+
+  /**
    * <p>The name of the type.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
   TypeName?: string;
-
-  /**
-   * <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListTypeRegistrationsInput {
@@ -6190,17 +6238,17 @@ export namespace ListTypeRegistrationsInput {
 
 export interface ListTypeRegistrationsOutput {
   /**
+   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p> A list of type registration tokens.</p>
    *          <p>Use <code>
    *                <a>DescribeTypeRegistration</a>
    *             </code> to return detailed information about a type registration request.</p>
    */
   RegistrationTokenList?: string[];
-
-  /**
-   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListTypeRegistrationsOutput {
@@ -6211,9 +6259,20 @@ export namespace ListTypeRegistrationsOutput {
 
 export interface ListTypesInput {
   /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   * <p>The deprecation status of the types that you want to get summary information about.</p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LIVE</code>: The type is registered for use in CloudFormation operations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DEPRECATED</code>: The type has been deregistered and can no longer be used in CloudFormation operations. </p>
+   *             </li>
+   *          </ul>
    */
-  NextToken?: string;
+  DeprecatedStatus?: DeprecatedStatus | string;
 
   /**
    * <p>The provisioning behavior of the type. AWS CloudFormation determines the provisioning type during registration, based on the types of handlers in the schema handler package submitted.</p>
@@ -6236,25 +6295,14 @@ export interface ListTypesInput {
   ProvisioningType?: ProvisioningType | string;
 
   /**
+   * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The deprecation status of the types that you want to get summary information about.</p>
-   *          <p>Valid values include:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>LIVE</code>: The type is registered for use in CloudFormation operations.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DEPRECATED</code>: The type has been deregistered and can no longer be used in CloudFormation operations. </p>
-   *             </li>
-   *          </ul>
-   */
-  DeprecatedStatus?: DeprecatedStatus | string;
 
   /**
    * <p>The scope at which the type is visible and usable in CloudFormation operations.</p>
@@ -6285,9 +6333,9 @@ export namespace ListTypesInput {
  */
 export interface TypeSummary {
   /**
-   * <p>The kind of type.</p>
+   * <p>The description of the type.</p>
    */
-  Type?: RegistryType | string;
+  Description?: string;
 
   /**
    * <p>The name of the type.</p>
@@ -6295,9 +6343,19 @@ export interface TypeSummary {
   TypeName?: string;
 
   /**
-   * <p>The description of the type.</p>
+   * <p>The kind of type.</p>
    */
-  Description?: string;
+  Type?: RegistryType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the type.</p>
+   */
+  TypeArn?: string;
+
+  /**
+   * <p>When the current default version of the type was registered.</p>
+   */
+  LastUpdated?: Date;
 
   /**
    * <p>The ID of the default version of the type. The default version is used when the type version is not specified.</p>
@@ -6306,16 +6364,6 @@ export interface TypeSummary {
    *             </code>. </p>
    */
   DefaultVersionId?: string;
-
-  /**
-   * <p>When the current default version of the type was registered.</p>
-   */
-  LastUpdated?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the type.</p>
-   */
-  TypeArn?: string;
 }
 
 export namespace TypeSummary {
@@ -6344,16 +6392,21 @@ export namespace ListTypesOutput {
 
 export interface ListTypeVersionsInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the type for which you want version summary information.</p>
-   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
+   * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
    */
-  Arn?: string;
+  NextToken?: string;
 
   /**
-   * <p>The name of the type for which you want version summary information.</p>
+   * <p>The kind of the type.</p>
+   *          <p>Currently the only valid value is <code>RESOURCE</code>.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
-  TypeName?: string;
+  Type?: RegistryType | string;
+
+  /**
+   * <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The deprecation status of the type versions that you want to get summary information about.</p>
@@ -6373,21 +6426,16 @@ export interface ListTypeVersionsInput {
   DeprecatedStatus?: DeprecatedStatus | string;
 
   /**
-   * <p>The kind of the type.</p>
-   *          <p>Currently the only valid value is <code>RESOURCE</code>.</p>
+   * <p>The name of the type for which you want version summary information.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
-  Type?: RegistryType | string;
+  TypeName?: string;
 
   /**
-   * <p>If the previous paginated request didn't return all of the remaining results, the response object's <code>NextToken</code> parameter value is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If there are no remaining results, the previous response object's <code>NextToken</code> parameter is set to <code>null</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of the type for which you want version summary information.</p>
+   *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to be returned with a single call. If the number of available results exceeds this maximum, the response includes a <code>NextToken</code> value that you can assign to the <code>NextToken</code> request parameter to get the next set of results.</p>
-   */
-  MaxResults?: number;
+  Arn?: string;
 }
 
 export namespace ListTypeVersionsInput {
@@ -6401,6 +6449,16 @@ export namespace ListTypeVersionsInput {
  */
 export interface TypeVersionSummary {
   /**
+   * <p>Whether the specified type version is set as the default version.</p>
+   */
+  IsDefaultVersion?: boolean;
+
+  /**
+   * <p>The description of the type version.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the type version.</p>
    */
   Arn?: string;
@@ -6411,14 +6469,9 @@ export interface TypeVersionSummary {
   TypeName?: string;
 
   /**
-   * <p>The description of the type version.</p>
+   * <p>The kind of type.</p>
    */
-  Description?: string;
-
-  /**
-   * <p>The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.</p>
-   */
-  VersionId?: string;
+  Type?: RegistryType | string;
 
   /**
    * <p>When the version was registered.</p>
@@ -6426,14 +6479,9 @@ export interface TypeVersionSummary {
   TimeCreated?: Date;
 
   /**
-   * <p>Whether the specified type version is set as the default version.</p>
+   * <p>The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.</p>
    */
-  IsDefaultVersion?: boolean;
-
-  /**
-   * <p>The kind of type.</p>
-   */
-  Type?: RegistryType | string;
+  VersionId?: string;
 }
 
 export namespace TypeVersionSummary {
@@ -6444,14 +6492,14 @@ export namespace TypeVersionSummary {
 
 export interface ListTypeVersionsOutput {
   /**
-   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>A list of <code>TypeVersionSummary</code> structures that contain information about the specified type's versions.</p>
    */
   TypeVersionSummaries?: TypeVersionSummary[];
+
+  /**
+   * <p>If the request doesn't return all of the remaining results, <code>NextToken</code> is set to a token. To retrieve the next set of results, call this action again and assign that token to the request object's <code>NextToken</code> parameter. If the request returns all results, <code>NextToken</code> is set to <code>null</code>.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListTypeVersionsOutput {
@@ -6518,7 +6566,7 @@ export interface RecordHandlerProgressInput {
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
    */
-  BearerToken: string | undefined;
+  ClientRequestToken?: string;
 
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
@@ -6528,17 +6576,12 @@ export interface RecordHandlerProgressInput {
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
    */
-  ErrorCode?: HandlerErrorCode | string;
+  BearerToken: string | undefined;
 
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
    */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
-   */
-  OperationStatus: OperationStatus | string | undefined;
+  StatusMessage?: string;
 
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
@@ -6548,7 +6591,12 @@ export interface RecordHandlerProgressInput {
   /**
    * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
    */
-  StatusMessage?: string;
+  ErrorCode?: HandlerErrorCode | string;
+
+  /**
+   * <p>Reserved for use by the <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html">CloudFormation CLI</a>.</p>
+   */
+  OperationStatus: OperationStatus | string | undefined;
 }
 
 export namespace RecordHandlerProgressInput {
@@ -6566,21 +6614,6 @@ export namespace RecordHandlerProgressOutput {
 }
 
 export interface RegisterTypeInput {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking the resource provider. If your resource type calls AWS APIs in any of its handlers, you must create an
-   *          <i>
-   *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM execution
-   *             role</a>
-   *             </i> that includes the necessary permissions to call those
-   *          AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the resource provider handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the resource provider handler, thereby supplying your resource provider with the appropriate credentials.</p>
-   */
-  ExecutionRoleArn?: string;
-
-  /**
-   * <p>A unique identifier that acts as an idempotency key for this registration request. Specifying a client request token prevents CloudFormation from generating more than one version of a type from the same registeration request, even if the request is submitted multiple times. </p>
-   */
-  ClientRequestToken?: string;
-
   /**
    * <p>The name of the type being registered.</p>
    *          <p>We recommend that type names adhere to the following pattern: <i>company_or_organization</i>::<i>service</i>::<i>type</i>.</p>
@@ -6623,9 +6656,18 @@ export interface RegisterTypeInput {
   TypeName: string | undefined;
 
   /**
-   * <p>Specifies logging configuration information for a type.</p>
+   * <p>A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.</p>
+   *          <p>For information on generating a schema handler package for the type you want to register, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html">submit</a> in the <i>CloudFormation CLI User Guide</i>.</p>
+   *          <note>
+   *             <p>The
+   *          user registering the resource provider type must be able to access the the schema
+   *          handler package in the S3 bucket. That is, the user needs to have <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObject.html">GetObject</a> permissions
+   *          for the schema handler package. For
+   *          more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/list_amazons3.html">Actions, Resources, and Condition Keys for Amazon S3</a> in the
+   *          <i>AWS Identity and Access Management User Guide</i>.</p>
+   *          </note>
    */
-  LoggingConfig?: LoggingConfig;
+  SchemaHandlerPackage: string | undefined;
 
   /**
    * <p>The kind of type.</p>
@@ -6634,16 +6676,24 @@ export interface RegisterTypeInput {
   Type?: RegistryType | string;
 
   /**
-   * <p>A url to the S3 bucket containing the schema handler package that contains the schema, event handlers, and associated files for the type you want to register.</p>
-   *          <p>For information on generating a schema handler package for the type you want to register, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-cli-submit.html">submit</a> in the <i>CloudFormation CLI User Guide</i>.</p>
-   *          <note>
-   *             <p>As part of registering a resource provider type, CloudFormation must be able to access the S3
-   *          bucket which contains the schema handler package for that resource provider. For
-   *          more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry.html#registry-register-permissions">IAM Permissions for Registering a Resource Provider</a> in the
-   *          <i>AWS CloudFormation User Guide</i>.</p>
-   *          </note>
+   * <p>The Amazon Resource Name (ARN) of the IAM role for CloudFormation to assume when invoking the resource provider. If your resource type calls AWS APIs in any of its handlers, you must create an
+   *          <i>
+   *                <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html">IAM execution
+   *             role</a>
+   *             </i> that includes the necessary permissions to call those
+   *          AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the resource provider handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the resource provider handler, thereby supplying your resource provider with the appropriate credentials.</p>
    */
-  SchemaHandlerPackage: string | undefined;
+  ExecutionRoleArn?: string;
+
+  /**
+   * <p>A unique identifier that acts as an idempotency key for this registration request. Specifying a client request token prevents CloudFormation from generating more than one version of a type from the same registeration request, even if the request is submitted multiple times. </p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>Specifies logging configuration information for a type.</p>
+   */
+  LoggingConfig?: LoggingConfig;
 }
 
 export namespace RegisterTypeInput {
@@ -6673,6 +6723,11 @@ export namespace RegisterTypeOutput {
  */
 export interface SetStackPolicyInput {
   /**
+   * <p>The name or unique stack ID that you want to associate a policy with.</p>
+   */
+  StackName: string | undefined;
+
+  /**
    * <p>Structure containing the stack policy body. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/protect-stack-resources.html"> Prevent Updates
    *             to Stack Resources</a> in the AWS CloudFormation User Guide. You can specify either
    *          the <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not
@@ -6687,11 +6742,6 @@ export interface SetStackPolicyInput {
    *          parameter, but not both.</p>
    */
   StackPolicyURL?: string;
-
-  /**
-   * <p>The name or unique stack ID that you want to associate a policy with.</p>
-   */
-  StackName: string | undefined;
 }
 
 export namespace SetStackPolicyInput {
@@ -6708,10 +6758,10 @@ export interface SetTypeDefaultVersionInput {
   Arn?: string;
 
   /**
-   * <p>The name of the type.</p>
+   * <p>The kind of type.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
-  TypeName?: string;
+  Type?: RegistryType | string;
 
   /**
    * <p>The ID of a specific version of the type. The version ID is the value at the end of the Amazon Resource Name (ARN) assigned to the type version when it is registered.</p>
@@ -6719,10 +6769,10 @@ export interface SetTypeDefaultVersionInput {
   VersionId?: string;
 
   /**
-   * <p>The kind of type.</p>
+   * <p>The name of the type.</p>
    *          <p>Conditional: You must specify either <code>TypeName</code> and <code>Type</code>, or <code>Arn</code>.</p>
    */
-  Type?: RegistryType | string;
+  TypeName?: string;
 }
 
 export namespace SetTypeDefaultVersionInput {
@@ -6755,10 +6805,12 @@ export interface SignalResourceInput {
   StackName: string | undefined;
 
   /**
-   * <p>The logical ID of the resource that you want to signal. The logical ID is the name of
-   *          the resource that given in the template.</p>
+   * <p>A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling
+   *          groups, specify the instance ID that you are signaling as the unique ID. If you send
+   *          multiple signals to a single resource (such as signaling a wait condition), each signal
+   *          requires a different unique ID.</p>
    */
-  LogicalResourceId: string | undefined;
+  UniqueId: string | undefined;
 
   /**
    * <p>The status of the signal, which is either success or failure. A failure signal causes
@@ -6767,12 +6819,10 @@ export interface SignalResourceInput {
   Status: ResourceSignalStatus | string | undefined;
 
   /**
-   * <p>A unique ID of the signal. When you signal Amazon EC2 instances or Auto Scaling
-   *          groups, specify the instance ID that you are signaling as the unique ID. If you send
-   *          multiple signals to a single resource (such as signaling a wait condition), each signal
-   *          requires a different unique ID.</p>
+   * <p>The logical ID of the resource that you want to signal. The logical ID is the name of
+   *          the resource that given in the template.</p>
    */
-  UniqueId: string | undefined;
+  LogicalResourceId: string | undefined;
 }
 
 export namespace SignalResourceInput {
@@ -6783,15 +6833,15 @@ export namespace SignalResourceInput {
 
 export interface StopStackSetOperationInput {
   /**
-   * <p>The ID of the stack operation. </p>
-   */
-  OperationId: string | undefined;
-
-  /**
    * <p>The name or unique ID of the stack set that you want to stop the operation
    *          for.</p>
    */
   StackSetName: string | undefined;
+
+  /**
+   * <p>The ID of the stack operation. </p>
+   */
+  OperationId: string | undefined;
 }
 
 export namespace StopStackSetOperationInput {
@@ -6813,81 +6863,6 @@ export namespace StopStackSetOperationOutput {
  */
 export interface UpdateStackInput {
   /**
-   * <p>The name or unique stack ID of the stack to update.</p>
-   */
-  StackName: string | undefined;
-
-  /**
-   * <p>Location of a file containing the temporary overriding stack policy. The URL must
-   *          point to a policy (max size: 16KB) located in an S3 bucket in the same Region as the stack.
-   *          You can specify either the <code>StackPolicyDuringUpdateBody</code> or the
-   *             <code>StackPolicyDuringUpdateURL</code> parameter, but not both.</p>
-   *          <p>If you want to update protected resources, specify a temporary overriding stack
-   *          policy during this update. If you do not specify a stack policy, the current policy that is
-   *          associated with the stack will be used.</p>
-   */
-  StackPolicyDuringUpdateURL?: string;
-
-  /**
-   * <p>Structure containing a new stack policy body. You can specify either the
-   *             <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not
-   *          both.</p>
-   *          <p>You might update the stack policy, for example, in order to protect a new resource
-   *          that you created during a stack update. If you do not specify a stack policy, the current
-   *          policy that is associated with the stack is unchanged.</p>
-   */
-  StackPolicyBody?: string;
-
-  /**
-   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
-   *          length of 51,200 bytes. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
-   *          in the AWS CloudFormation User Guide.)</p>
-   *          <p>Conditional: You must specify only one of the following parameters:
-   *             <code>TemplateBody</code>, <code>TemplateURL</code>, or set the
-   *             <code>UsePreviousTemplate</code> to <code>true</code>.</p>
-   */
-  TemplateBody?: string;
-
-  /**
-   * <p>The template resource types that you have permissions to work with for this update
-   *          stack action, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or
-   *             <code>Custom::MyCustomInstance</code>.</p>
-   *          <p>If the list of resource types doesn't include a resource that you're updating, the
-   *          stack update fails. By default, AWS CloudFormation grants permissions to all resource
-   *          types. AWS Identity and Access Management (IAM) uses this parameter for AWS
-   *          CloudFormation-specific condition keys in IAM policies. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling Access with AWS Identity and Access Management</a>.</p>
-   */
-  ResourceTypes?: string[];
-
-  /**
-   * <p>The rollback triggers for AWS CloudFormation to monitor during stack creation and
-   *          updating operations, and for the specified monitoring period afterwards.</p>
-   */
-  RollbackConfiguration?: RollbackConfiguration;
-
-  /**
-   * <p>Reuse the existing template that is associated with the stack that you are
-   *          updating.</p>
-   *          <p>Conditional: You must specify only one of the following parameters:
-   *             <code>TemplateBody</code>, <code>TemplateURL</code>, or set the
-   *             <code>UsePreviousTemplate</code> to <code>true</code>.</p>
-   */
-  UsePreviousTemplate?: boolean;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
-   *          that AWS CloudFormation assumes to update the stack. AWS CloudFormation uses the role's
-   *          credentials to make calls on your behalf. AWS CloudFormation always uses this role for all
-   *          future operations on the stack. As long as users have permission to operate on the stack,
-   *          AWS CloudFormation uses this role even if the users don't have permission to pass it.
-   *          Ensure that the role grants least privilege.</p>
-   *          <p>If you don't specify a value, AWS CloudFormation uses the role that was previously
-   *          associated with the stack. If no role is available, AWS CloudFormation uses a temporary
-   *          session that is generated from your user credentials.</p>
-   */
-  RoleARN?: string;
-
-  /**
    * <p>Structure containing the temporary overriding stack policy body. You can specify
    *          either the <code>StackPolicyDuringUpdateBody</code> or the
    *             <code>StackPolicyDuringUpdateURL</code> parameter, but not both.</p>
@@ -6903,6 +6878,42 @@ export interface UpdateStackInput {
    *          type.</p>
    */
   Parameters?: Parameter[];
+
+  /**
+   * <p>Structure containing the template body with a minimum length of 1 byte and a maximum
+   *          length of 51,200 bytes. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
+   *          in the AWS CloudFormation User Guide.)</p>
+   *          <p>Conditional: You must specify only one of the following parameters:
+   *             <code>TemplateBody</code>, <code>TemplateURL</code>, or set the
+   *             <code>UsePreviousTemplate</code> to <code>true</code>.</p>
+   */
+  TemplateBody?: string;
+
+  /**
+   * <p>Structure containing a new stack policy body. You can specify either the
+   *             <code>StackPolicyBody</code> or the <code>StackPolicyURL</code> parameter, but not
+   *          both.</p>
+   *          <p>You might update the stack policy, for example, in order to protect a new resource
+   *          that you created during a stack update. If you do not specify a stack policy, the current
+   *          policy that is associated with the stack is unchanged.</p>
+   */
+  StackPolicyBody?: string;
+
+  /**
+   * <p>Location of a file containing the temporary overriding stack policy. The URL must
+   *          point to a policy (max size: 16KB) located in an S3 bucket in the same Region as the stack.
+   *          You can specify either the <code>StackPolicyDuringUpdateBody</code> or the
+   *             <code>StackPolicyDuringUpdateURL</code> parameter, but not both.</p>
+   *          <p>If you want to update protected resources, specify a temporary overriding stack
+   *          policy during this update. If you do not specify a stack policy, the current policy that is
+   *          associated with the stack will be used.</p>
+   */
+  StackPolicyDuringUpdateURL?: string;
+
+  /**
+   * <p>The name or unique stack ID of the stack to update.</p>
+   */
+  StackName: string | undefined;
 
   /**
    * <p>Location of a file containing the updated stack policy. The URL must point to a
@@ -6923,6 +6934,16 @@ export interface UpdateStackInput {
   NotificationARNs?: string[];
 
   /**
+   * <p>Key-value pairs to associate with this stack. AWS CloudFormation also propagates
+   *          these tags to supported resources in the stack. You can specify a maximum number of 50
+   *          tags.</p>
+   *          <p>If you don't specify this parameter, AWS CloudFormation doesn't modify the stack's
+   *          tags. If you specify an empty value, AWS CloudFormation removes all associated
+   *          tags.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>Location of file containing the template body. The URL must point to a template that
    *          is located in an Amazon S3 bucket. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
    *          in the AWS CloudFormation User Guide.</p>
@@ -6931,6 +6952,64 @@ export interface UpdateStackInput {
    *             <code>UsePreviousTemplate</code> to <code>true</code>.</p>
    */
   TemplateURL?: string;
+
+  /**
+   * <p>A unique identifier for this <code>UpdateStack</code> request. Specify this token if
+   *          you plan to retry requests so that AWS CloudFormation knows that you're not attempting to
+   *          update a stack with the same name. You might retry <code>UpdateStack</code> requests to
+   *          ensure that AWS CloudFormation successfully received them.</p>
+   *          <p>All events triggered by a given stack operation are assigned the same client request
+   *          token, which you can use to track operations. For example, if you execute a
+   *          <code>CreateStack</code> operation with the token <code>token1</code>, then all the
+   *          <code>StackEvents</code> generated by that operation will have
+   *          <code>ClientRequestToken</code> set as <code>token1</code>.</p>
+   *          <p>In the console, stack operations display the client request token on the Events tab.
+   *          Stack operations that are initiated from the console use the token format
+   *          <i>Console-StackOperation-ID</i>, which helps you easily identify the
+   *          stack operation . For example, if you create a stack using the console, each stack event
+   *          would be assigned the same token in the following format:
+   *          <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>. </p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role
+   *          that AWS CloudFormation assumes to update the stack. AWS CloudFormation uses the role's
+   *          credentials to make calls on your behalf. AWS CloudFormation always uses this role for all
+   *          future operations on the stack. As long as users have permission to operate on the stack,
+   *          AWS CloudFormation uses this role even if the users don't have permission to pass it.
+   *          Ensure that the role grants least privilege.</p>
+   *          <p>If you don't specify a value, AWS CloudFormation uses the role that was previously
+   *          associated with the stack. If no role is available, AWS CloudFormation uses a temporary
+   *          session that is generated from your user credentials.</p>
+   */
+  RoleARN?: string;
+
+  /**
+   * <p>Reuse the existing template that is associated with the stack that you are
+   *          updating.</p>
+   *          <p>Conditional: You must specify only one of the following parameters:
+   *             <code>TemplateBody</code>, <code>TemplateURL</code>, or set the
+   *             <code>UsePreviousTemplate</code> to <code>true</code>.</p>
+   */
+  UsePreviousTemplate?: boolean;
+
+  /**
+   * <p>The rollback triggers for AWS CloudFormation to monitor during stack creation and
+   *          updating operations, and for the specified monitoring period afterwards.</p>
+   */
+  RollbackConfiguration?: RollbackConfiguration;
+
+  /**
+   * <p>The template resource types that you have permissions to work with for this update
+   *          stack action, such as <code>AWS::EC2::Instance</code>, <code>AWS::EC2::*</code>, or
+   *             <code>Custom::MyCustomInstance</code>.</p>
+   *          <p>If the list of resource types doesn't include a resource that you're updating, the
+   *          stack update fails. By default, AWS CloudFormation grants permissions to all resource
+   *          types. AWS Identity and Access Management (IAM) uses this parameter for AWS
+   *          CloudFormation-specific condition keys in IAM policies. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-iam-template.html">Controlling Access with AWS Identity and Access Management</a>.</p>
+   */
+  ResourceTypes?: string[];
 
   /**
    * <p>In some cases, you must explicitly acknowledge that your stack template contains certain
@@ -7020,7 +7099,7 @@ export interface UpdateStackInput {
    *                more macros, and you choose to update a stack directly from the processed template,
    *                without first reviewing the resulting changes in a change set, you must acknowledge
    *                this capability. This includes the <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.html">AWS::Include</a> and <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-aws-serverless.html">AWS::Serverless</a> transforms, which are macros hosted by AWS CloudFormation.</p>
-   *                <p>Change sets do not currently support nested stacks. If you want to update a stack
+   *                <p>If you want to update a stack
    *                from a stack template that contains macros <i>and</i> nested stacks,
    *                you must update the stack directly from the template using this capability.</p>
    *                <important>
@@ -7037,35 +7116,6 @@ export interface UpdateStackInput {
    *          </ul>
    */
   Capabilities?: (Capability | string)[];
-
-  /**
-   * <p>A unique identifier for this <code>UpdateStack</code> request. Specify this token if
-   *          you plan to retry requests so that AWS CloudFormation knows that you're not attempting to
-   *          update a stack with the same name. You might retry <code>UpdateStack</code> requests to
-   *          ensure that AWS CloudFormation successfully received them.</p>
-   *          <p>All events triggered by a given stack operation are assigned the same client request
-   *          token, which you can use to track operations. For example, if you execute a
-   *          <code>CreateStack</code> operation with the token <code>token1</code>, then all the
-   *          <code>StackEvents</code> generated by that operation will have
-   *          <code>ClientRequestToken</code> set as <code>token1</code>.</p>
-   *          <p>In the console, stack operations display the client request token on the Events tab.
-   *          Stack operations that are initiated from the console use the token format
-   *          <i>Console-StackOperation-ID</i>, which helps you easily identify the
-   *          stack operation . For example, if you create a stack using the console, each stack event
-   *          would be assigned the same token in the following format:
-   *          <code>Console-CreateStack-7f59c3cf-00d2-40c7-b2ff-e75db0987002</code>. </p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>Key-value pairs to associate with this stack. AWS CloudFormation also propagates
-   *          these tags to supported resources in the stack. You can specify a maximum number of 50
-   *          tags.</p>
-   *          <p>If you don't specify this parameter, AWS CloudFormation doesn't modify the stack's
-   *          tags. If you specify an empty value, AWS CloudFormation removes all associated
-   *          tags.</p>
-   */
-  Tags?: Tag[];
 }
 
 export namespace UpdateStackInput {
@@ -7091,6 +7141,43 @@ export namespace UpdateStackOutput {
 }
 
 export interface UpdateStackInstancesInput {
+  /**
+   * <p>[<code>Self-managed</code> permissions] The names of one or more AWS accounts for which you want to update parameter values
+   *          for stack instances. The overridden parameter values will be applied to all stack instances
+   *          in the specified accounts and Regions.</p>
+   *          <p>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</p>
+   */
+  Accounts?: string[];
+
+  /**
+   * <p>The unique identifier for this stack set operation. </p>
+   *          <p>The operation ID also functions as an idempotency token, to ensure that AWS
+   *          CloudFormation performs the stack set operation only once, even if you retry the request
+   *          multiple times. You might retry stack set operation requests to ensure that AWS
+   *          CloudFormation successfully received them.</p>
+   *          <p>If you don't specify an operation ID, the SDK generates one automatically.
+   *       </p>
+   */
+  OperationId?: string;
+
+  /**
+   * <p>The name or unique ID of the stack set associated with the stack instances.</p>
+   */
+  StackSetName: string | undefined;
+
+  /**
+   * <p>[<code>Service-managed</code> permissions] The AWS Organizations accounts for which you want to update parameter values for stack instances. If your update targets OUs, the overridden parameter values only apply to the accounts that are currently in the target OUs and their child OUs. Accounts added to the target OUs and their child OUs in the future won't use the overridden values.</p>
+   *          <p>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</p>
+   */
+  DeploymentTargets?: DeploymentTargets;
+
+  /**
+   * <p>The names of one or more Regions in which you want to update parameter values for
+   *          stack instances. The overridden parameter values will be applied to all stack instances in
+   *          the specified accounts and Regions.</p>
+   */
+  Regions: string[] | undefined;
+
   /**
    * <p> A list of input parameters whose values you want to update for the specified stack
    *          instances. </p>
@@ -7142,43 +7229,6 @@ export interface UpdateStackInstancesInput {
    * <p>Preferences for how AWS CloudFormation performs this stack set operation.</p>
    */
   OperationPreferences?: StackSetOperationPreferences;
-
-  /**
-   * <p>[<code>Service-managed</code> permissions] The AWS Organizations accounts for which you want to update parameter values for stack instances. If your update targets OUs, the overridden parameter values only apply to the accounts that are currently in the target OUs and their child OUs. Accounts added to the target OUs and their child OUs in the future won't use the overridden values.</p>
-   *          <p>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</p>
-   */
-  DeploymentTargets?: DeploymentTargets;
-
-  /**
-   * <p>The names of one or more Regions in which you want to update parameter values for
-   *          stack instances. The overridden parameter values will be applied to all stack instances in
-   *          the specified accounts and Regions.</p>
-   */
-  Regions: string[] | undefined;
-
-  /**
-   * <p>The name or unique ID of the stack set associated with the stack instances.</p>
-   */
-  StackSetName: string | undefined;
-
-  /**
-   * <p>[<code>Self-managed</code> permissions] The names of one or more AWS accounts for which you want to update parameter values
-   *          for stack instances. The overridden parameter values will be applied to all stack instances
-   *          in the specified accounts and Regions.</p>
-   *          <p>You can specify <code>Accounts</code> or <code>DeploymentTargets</code>, but not both.</p>
-   */
-  Accounts?: string[];
-
-  /**
-   * <p>The unique identifier for this stack set operation. </p>
-   *          <p>The operation ID also functions as an idempotency token, to ensure that AWS
-   *          CloudFormation performs the stack set operation only once, even if you retry the request
-   *          multiple times. You might retry stack set operation requests to ensure that AWS
-   *          CloudFormation successfully received them.</p>
-   *          <p>If you don't specify an operation ID, the SDK generates one automatically.
-   *       </p>
-   */
-  OperationId?: string;
 }
 
 export namespace UpdateStackInstancesInput {
@@ -7202,6 +7252,20 @@ export namespace UpdateStackInstancesOutput {
 
 export interface UpdateStackSetInput {
   /**
+   * <p>A list of input parameters for the stack set template. </p>
+   */
+  Parameters?: Parameter[];
+
+  /**
+   * <p>Use the existing template that's associated with the stack set that you're
+   *          updating.</p>
+   *          <p>Conditional: You must specify only one of the following parameters:
+   *             <code>TemplateBody</code> or <code>TemplateURL</code>—or set
+   *             <code>UsePreviousTemplate</code> to true. </p>
+   */
+  UsePreviousTemplate?: boolean;
+
+  /**
    * <p>The structure that contains the template body, with a minimum length of 1 byte and a
    *          maximum length of 51,200 bytes. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
    *          in the AWS CloudFormation User Guide.</p>
@@ -7212,34 +7276,15 @@ export interface UpdateStackSetInput {
   TemplateBody?: string;
 
   /**
-   * <p>Describes how the IAM roles required for stack set operations are created. You cannot modify <code>PermissionModel</code> if there are stack instances associated with your stack set.</p>
-   *          <ul>
-   *             <li>
-   *                <p>With <code>self-managed</code> permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant Self-Managed Stack Set Permissions</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant Service-Managed Stack Set Permissions</a>.</p>
-   *             </li>
-   *          </ul>
+   * <p>[<code>Service-managed</code> permissions] The AWS Organizations accounts in which to update associated stack instances.</p>
+   *          <p>To update all the stack instances associated with this stack set, do not specify <code>DeploymentTargets</code> or <code>Regions</code>.</p>
+   *          <p>If the stack set update includes changes to the template (that is, if <code>TemplateBody</code> or <code>TemplateURL</code> is specified), or the <code>Parameters</code>, AWS CloudFormation marks all stack instances with a status of <code>OUTDATED</code> prior to updating the stack instances in the specified accounts and Regions. If the stack set update does not include changes to the template or parameters, AWS CloudFormation updates the stack instances in the specified accounts and Regions, while leaving all other stack instances with their existing stack instance status.</p>
    */
-  PermissionModel?: PermissionModels | string;
+  DeploymentTargets?: DeploymentTargets;
 
   /**
-   * <p>The unique ID for this stack set operation. </p>
-   *          <p>The operation ID also functions as an idempotency token, to ensure that AWS
-   *          CloudFormation performs the stack set operation only once, even if you retry the request
-   *          multiple times. You might retry stack set operation requests to ensure that AWS
-   *          CloudFormation successfully received them.</p>
-   *          <p>If you don't specify an operation ID, AWS CloudFormation generates one
-   *          automatically.</p>
-   *          <p>Repeating this stack set operation with a new operation ID retries all stack
-   *          instances whose status is <code>OUTDATED</code>. </p>
-   */
-  OperationId?: string;
-
-  /**
-   * <p>[<code>Self-managed</code> permissions] The accounts in which to update associated stack instances. If you specify accounts, you
-   *          must also specify the Regions in which to update stack set instances.</p>
+   * <p>The Regions in which to update associated stack instances. If you specify Regions, you
+   *          must also specify accounts in which to update stack set instances.</p>
    *          <p>To update <i>all</i> the stack instances associated with this stack set,
    *          do not specify the <code>Accounts</code> or <code>Regions</code> properties.</p>
    *          <p>If the stack set update includes changes to the template (that is, if the
@@ -7250,52 +7295,7 @@ export interface UpdateStackSetInput {
    *          parameters, AWS CloudFormation updates the stack instances in the specified accounts and Regions, while
    *          leaving all other stack instances with their existing stack instance status. </p>
    */
-  Accounts?: string[];
-
-  /**
-   * <p>[<code>Service-managed</code> permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).</p>
-   *          <p>If you specify <code>AutoDeployment</code>, do not specify <code>DeploymentTargets</code> or <code>Regions</code>.</p>
-   */
-  AutoDeployment?: AutoDeployment;
-
-  /**
-   * <p>A brief description of updates that you are making.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The key-value pairs to associate with this stack set and the stacks created from it.
-   *          AWS CloudFormation also propagates these tags to supported resources that are created in
-   *          the stacks. You can specify a maximum number of 50 tags.</p>
-   *          <p>If you specify tags for this parameter, those tags replace any list of tags that are
-   *          currently associated with this stack set. This means:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you don't specify this parameter, AWS CloudFormation doesn't modify the
-   *                stack's tags. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify <i>any</i> tags using this parameter, you must
-   *                specify <i>all</i> the tags that you want associated with this stack
-   *                set, even tags you've specifed before (for example, when creating the stack set or
-   *                during a previous update of the stack set.). Any tags that you don't include in the
-   *                updated list of tags are removed from the stack set, and therefore from the stacks
-   *                and resources as well. </p>
-   *             </li>
-   *             <li>
-   *                <p>If you specify an empty value, AWS CloudFormation removes all currently
-   *                associated tags.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you specify new tags as part of an <code>UpdateStackSet</code> action, AWS
-   *          CloudFormation checks to see if you have the required IAM permission to tag resources. If
-   *          you omit tags that are currently associated with the stack set from the list of tags you
-   *          specify, AWS CloudFormation assumes that you want to remove those tags from the stack set,
-   *          and checks to see if you have permission to untag resources. If you don't have the
-   *          necessary permission(s), the entire <code>UpdateStackSet</code> action fails with an
-   *             <code>access denied</code> error, and the stack set is not updated.</p>
-   */
-  Tags?: Tag[];
+  Regions?: string[];
 
   /**
    * <p>In some cases, you must explicitly acknowledge that your stack template contains certain
@@ -7396,6 +7396,30 @@ export interface UpdateStackSetInput {
   Capabilities?: (Capability | string)[];
 
   /**
+   * <p>A brief description of updates that you are making.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>[<code>Service-managed</code> permissions] Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to a target organization or organizational unit (OU).</p>
+   *          <p>If you specify <code>AutoDeployment</code>, do not specify <code>DeploymentTargets</code> or <code>Regions</code>.</p>
+   */
+  AutoDeployment?: AutoDeployment;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the IAM role to use to update this stack set.</p>
+   *          <p>Specify an IAM role only if you are using customized administrator roles to control
+   *          which users or groups can manage specific stack sets within the same administrator account.
+   *          For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Granting
+   *             Permissions for Stack Set Operations</a> in the
+   *             <i>AWS CloudFormation User Guide</i>.</p>
+   *          <p>If you specified a customized administrator role when you created the stack set, you
+   *          must specify a customized administrator role, even if it is the same customized
+   *          administrator role used with this stack set previously.</p>
+   */
+  AdministrationRoleARN?: string;
+
+  /**
    * <p>The location of the file that contains the template body. The URL must point to a
    *          template (maximum size: 460,800 bytes) that is located in an Amazon S3 bucket. For more
    *          information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
@@ -7421,26 +7445,8 @@ export interface UpdateStackSetInput {
   ExecutionRoleName?: string;
 
   /**
-   * <p>The Amazon Resource Number (ARN) of the IAM role to use to update this stack set.</p>
-   *          <p>Specify an IAM role only if you are using customized administrator roles to control
-   *          which users or groups can manage specific stack sets within the same administrator account.
-   *          For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html">Granting
-   *             Permissions for Stack Set Operations</a> in the
-   *             <i>AWS CloudFormation User Guide</i>.</p>
-   *          <p>If you specified a customized administrator role when you created the stack set, you
-   *          must specify a customized administrator role, even if it is the same customized
-   *          administrator role used with this stack set previously.</p>
-   */
-  AdministrationRoleARN?: string;
-
-  /**
-   * <p>The name or unique ID of the stack set that you want to update.</p>
-   */
-  StackSetName: string | undefined;
-
-  /**
-   * <p>The Regions in which to update associated stack instances. If you specify Regions, you
-   *          must also specify accounts in which to update stack set instances.</p>
+   * <p>[<code>Self-managed</code> permissions] The accounts in which to update associated stack instances. If you specify accounts, you
+   *          must also specify the Regions in which to update stack set instances.</p>
    *          <p>To update <i>all</i> the stack instances associated with this stack set,
    *          do not specify the <code>Accounts</code> or <code>Regions</code> properties.</p>
    *          <p>If the stack set update includes changes to the template (that is, if the
@@ -7451,12 +7457,7 @@ export interface UpdateStackSetInput {
    *          parameters, AWS CloudFormation updates the stack instances in the specified accounts and Regions, while
    *          leaving all other stack instances with their existing stack instance status. </p>
    */
-  Regions?: string[];
-
-  /**
-   * <p>A list of input parameters for the stack set template. </p>
-   */
-  Parameters?: Parameter[];
+  Accounts?: string[];
 
   /**
    * <p>Preferences for how AWS CloudFormation performs this stack set operation.</p>
@@ -7464,20 +7465,69 @@ export interface UpdateStackSetInput {
   OperationPreferences?: StackSetOperationPreferences;
 
   /**
-   * <p>Use the existing template that's associated with the stack set that you're
-   *          updating.</p>
-   *          <p>Conditional: You must specify only one of the following parameters:
-   *             <code>TemplateBody</code> or <code>TemplateURL</code>—or set
-   *             <code>UsePreviousTemplate</code> to true. </p>
+   * <p>The key-value pairs to associate with this stack set and the stacks created from it.
+   *          AWS CloudFormation also propagates these tags to supported resources that are created in
+   *          the stacks. You can specify a maximum number of 50 tags.</p>
+   *          <p>If you specify tags for this parameter, those tags replace any list of tags that are
+   *          currently associated with this stack set. This means:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you don't specify this parameter, AWS CloudFormation doesn't modify the
+   *                stack's tags. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify <i>any</i> tags using this parameter, you must
+   *                specify <i>all</i> the tags that you want associated with this stack
+   *                set, even tags you've specifed before (for example, when creating the stack set or
+   *                during a previous update of the stack set.). Any tags that you don't include in the
+   *                updated list of tags are removed from the stack set, and therefore from the stacks
+   *                and resources as well. </p>
+   *             </li>
+   *             <li>
+   *                <p>If you specify an empty value, AWS CloudFormation removes all currently
+   *                associated tags.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you specify new tags as part of an <code>UpdateStackSet</code> action, AWS
+   *          CloudFormation checks to see if you have the required IAM permission to tag resources. If
+   *          you omit tags that are currently associated with the stack set from the list of tags you
+   *          specify, AWS CloudFormation assumes that you want to remove those tags from the stack set,
+   *          and checks to see if you have permission to untag resources. If you don't have the
+   *          necessary permission(s), the entire <code>UpdateStackSet</code> action fails with an
+   *             <code>access denied</code> error, and the stack set is not updated.</p>
    */
-  UsePreviousTemplate?: boolean;
+  Tags?: Tag[];
 
   /**
-   * <p>[<code>Service-managed</code> permissions] The AWS Organizations accounts in which to update associated stack instances.</p>
-   *          <p>To update all the stack instances associated with this stack set, do not specify <code>DeploymentTargets</code> or <code>Regions</code>.</p>
-   *          <p>If the stack set update includes changes to the template (that is, if <code>TemplateBody</code> or <code>TemplateURL</code> is specified), or the <code>Parameters</code>, AWS CloudFormation marks all stack instances with a status of <code>OUTDATED</code> prior to updating the stack instances in the specified accounts and Regions. If the stack set update does not include changes to the template or parameters, AWS CloudFormation updates the stack instances in the specified accounts and Regions, while leaving all other stack instances with their existing stack instance status.</p>
+   * <p>The name or unique ID of the stack set that you want to update.</p>
    */
-  DeploymentTargets?: DeploymentTargets;
+  StackSetName: string | undefined;
+
+  /**
+   * <p>Describes how the IAM roles required for stack set operations are created. You cannot modify <code>PermissionModel</code> if there are stack instances associated with your stack set.</p>
+   *          <ul>
+   *             <li>
+   *                <p>With <code>self-managed</code> permissions, you must create the administrator and execution roles required to deploy to target accounts. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-self-managed.html">Grant Self-Managed Stack Set Permissions</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>With <code>service-managed</code> permissions, StackSets automatically creates the IAM roles required to deploy to accounts managed by AWS Organizations. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs-service-managed.html">Grant Service-Managed Stack Set Permissions</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  PermissionModel?: PermissionModels | string;
+
+  /**
+   * <p>The unique ID for this stack set operation. </p>
+   *          <p>The operation ID also functions as an idempotency token, to ensure that AWS
+   *          CloudFormation performs the stack set operation only once, even if you retry the request
+   *          multiple times. You might retry stack set operation requests to ensure that AWS
+   *          CloudFormation successfully received them.</p>
+   *          <p>If you don't specify an operation ID, AWS CloudFormation generates one
+   *          automatically.</p>
+   *          <p>Repeating this stack set operation with a new operation ID retries all stack
+   *          instances whose status is <code>OUTDATED</code>. </p>
+   */
+  OperationId?: string;
 }
 
 export namespace UpdateStackSetInput {
@@ -7566,25 +7616,25 @@ export namespace ValidateTemplateInput {
  */
 export interface TemplateParameter {
   /**
+   * <p>The name associated with the parameter.</p>
+   */
+  ParameterKey?: string;
+
+  /**
    * <p>User defined description associated with the parameter.</p>
    */
   Description?: string;
 
   /**
-   * <p>The name associated with the parameter.</p>
+   * <p>The default value associated with the parameter.</p>
    */
-  ParameterKey?: string;
+  DefaultValue?: string;
 
   /**
    * <p>Flag indicating whether the parameter should be displayed as plain text in logs and
    *          UIs.</p>
    */
   NoEcho?: boolean;
-
-  /**
-   * <p>The default value associated with the parameter.</p>
-   */
-  DefaultValue?: string;
 }
 
 export namespace TemplateParameter {
@@ -7598,15 +7648,9 @@ export namespace TemplateParameter {
  */
 export interface ValidateTemplateOutput {
   /**
-   * <p>A list of <code>TemplateParameter</code> structures.</p>
+   * <p>The description found within the template.</p>
    */
-  Parameters?: TemplateParameter[];
-
-  /**
-   * <p>The list of resources that generated the values in the <code>Capabilities</code>
-   *          response element.</p>
-   */
-  CapabilitiesReason?: string;
+  Description?: string;
 
   /**
    * <p>A list of the transforms that are declared in the template.</p>
@@ -7623,9 +7667,15 @@ export interface ValidateTemplateOutput {
   Capabilities?: (Capability | string)[];
 
   /**
-   * <p>The description found within the template.</p>
+   * <p>The list of resources that generated the values in the <code>Capabilities</code>
+   *          response element.</p>
    */
-  Description?: string;
+  CapabilitiesReason?: string;
+
+  /**
+   * <p>A list of <code>TemplateParameter</code> structures.</p>
+   */
+  Parameters?: TemplateParameter[];
 }
 
 export namespace ValidateTemplateOutput {

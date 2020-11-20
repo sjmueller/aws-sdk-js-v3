@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListJobsCommand(input, ...args));
+  return await client.send(new ListJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Batch,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listJobs(input, ...args);
 };
-export async function* listJobsPaginate(
+export async function* paginateListJobs(
   config: BatchPaginationConfiguration,
   input: ListJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListJobsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Batch) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listJobsPaginate(
       throw new Error("Invalid client, expected Batch | BatchClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

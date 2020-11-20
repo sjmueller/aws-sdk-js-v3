@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListMeetingsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListMeetingsCommand(input, ...args));
+  return await client.send(new ListMeetingsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Chime,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMeetings(input, ...args);
 };
-export async function* listMeetingsPaginate(
+export async function* paginateListMeetings(
   config: ChimePaginationConfiguration,
   input: ListMeetingsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMeetingsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMeetingsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Chime) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listMeetingsPaginate(
       throw new Error("Invalid client, expected Chime | ChimeClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

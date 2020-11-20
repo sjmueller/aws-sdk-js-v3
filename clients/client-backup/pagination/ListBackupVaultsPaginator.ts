@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBackupVaultsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBackupVaultsCommand(input, ...args));
+  return await client.send(new ListBackupVaultsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Backup,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBackupVaults(input, ...args);
 };
-export async function* listBackupVaultsPaginate(
+export async function* paginateListBackupVaults(
   config: BackupPaginationConfiguration,
   input: ListBackupVaultsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBackupVaultsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBackupVaultsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Backup) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listBackupVaultsPaginate(
       throw new Error("Invalid client, expected Backup | BackupClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

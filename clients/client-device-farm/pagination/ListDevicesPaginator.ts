@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDevicesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDevicesCommand(input, ...args));
+  return await client.send(new ListDevicesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DeviceFarm,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDevices(input, ...args);
 };
-export async function* listDevicesPaginate(
+export async function* paginateListDevices(
   config: DeviceFarmPaginationConfiguration,
   input: ListDevicesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDevicesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDevicesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     if (config.client instanceof DeviceFarm) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof DeviceFarmClient) {
@@ -38,7 +38,7 @@ export async function* listDevicesPaginate(
       throw new Error("Invalid client, expected DeviceFarm | DeviceFarmClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSecretVersionIdsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSecretVersionIdsCommand(input, ...args));
+  return await client.send(new ListSecretVersionIdsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SecretsManager,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSecretVersionIds(input, ...args);
 };
-export async function* listSecretVersionIdsPaginate(
+export async function* paginateListSecretVersionIds(
   config: SecretsManagerPaginationConfiguration,
   input: ListSecretVersionIdsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSecretVersionIdsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSecretVersionIdsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SecretsManager) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listSecretVersionIdsPaginate(
       throw new Error("Invalid client, expected SecretsManager | SecretsManagerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

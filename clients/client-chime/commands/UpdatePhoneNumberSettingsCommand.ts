@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UpdatePhoneNumberSettingsRequest } from "../models/models_0";
+import { UpdatePhoneNumberSettingsRequest } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdatePhoneNumberSettingsCommand,
   serializeAws_restJson1UpdatePhoneNumberSettingsCommand,
@@ -44,11 +44,23 @@ export class UpdatePhoneNumberSettingsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "UpdatePhoneNumberSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdatePhoneNumberSettingsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

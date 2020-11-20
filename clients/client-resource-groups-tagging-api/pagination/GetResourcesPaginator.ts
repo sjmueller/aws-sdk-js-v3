@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetResourcesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetResourcesCommand(input, ...args));
+  return await client.send(new GetResourcesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ResourceGroupsTaggingAPI,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getResources(input, ...args);
 };
-export async function* getResourcesPaginate(
+export async function* paginateGetResources(
   config: ResourceGroupsTaggingAPIPaginationConfiguration,
   input: GetResourcesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetResourcesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetResourcesCommandOutput;
   while (hasNext) {
-    input["PaginationToken"] = token;
+    input.PaginationToken = token;
     input["ResourcesPerPage"] = config.pageSize;
     if (config.client instanceof ResourceGroupsTaggingAPI) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getResourcesPaginate(
       throw new Error("Invalid client, expected ResourceGroupsTaggingAPI | ResourceGroupsTaggingAPIClient");
     }
     yield page;
-    token = page["PaginationToken"];
+    token = page.PaginationToken;
     hasNext = !!token;
   }
   // @ts-ignore

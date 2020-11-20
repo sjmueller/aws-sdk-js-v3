@@ -44,11 +44,23 @@ export class SetTypeDefaultVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFormationClient";
+    const commandName = "SetTypeDefaultVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SetTypeDefaultVersionInput.filterSensitiveLog,
       outputFilterSensitiveLog: SetTypeDefaultVersionOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

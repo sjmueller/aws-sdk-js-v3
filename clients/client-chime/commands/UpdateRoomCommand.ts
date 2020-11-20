@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UpdateRoomRequest, UpdateRoomResponse } from "../models/models_0";
+import { UpdateRoomRequest, UpdateRoomResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateRoomCommand,
   serializeAws_restJson1UpdateRoomCommand,
@@ -44,11 +44,23 @@ export class UpdateRoomCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "UpdateRoomCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateRoomRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateRoomResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -51,11 +51,23 @@ export class BatchAssociateServiceActionWithProvisioningArtifactCommand extends 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "BatchAssociateServiceActionWithProvisioningArtifactCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: BatchAssociateServiceActionWithProvisioningArtifactInput.filterSensitiveLog,
       outputFilterSensitiveLog: BatchAssociateServiceActionWithProvisioningArtifactOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

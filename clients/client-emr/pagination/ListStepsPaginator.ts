@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListStepsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListStepsCommand(input, ...args));
+  return await client.send(new ListStepsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EMR,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSteps(input, ...args);
 };
-export async function* listStepsPaginate(
+export async function* paginateListSteps(
   config: EMRPaginationConfiguration,
   input: ListStepsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListStepsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListStepsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     if (config.client instanceof EMR) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof EMRClient) {
@@ -38,7 +38,7 @@ export async function* listStepsPaginate(
       throw new Error("Invalid client, expected EMR | EMRClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

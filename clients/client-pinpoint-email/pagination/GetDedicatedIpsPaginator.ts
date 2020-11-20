@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetDedicatedIpsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetDedicatedIpsCommand(input, ...args));
+  return await client.send(new GetDedicatedIpsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: PinpointEmail,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getDedicatedIps(input, ...args);
 };
-export async function* getDedicatedIpsPaginate(
+export async function* paginateGetDedicatedIps(
   config: PinpointEmailPaginationConfiguration,
   input: GetDedicatedIpsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetDedicatedIpsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetDedicatedIpsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["PageSize"] = config.pageSize;
     if (config.client instanceof PinpointEmail) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getDedicatedIpsPaginate(
       throw new Error("Invalid client, expected PinpointEmail | PinpointEmailClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

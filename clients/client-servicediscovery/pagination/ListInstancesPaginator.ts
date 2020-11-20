@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListInstancesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListInstancesCommand(input, ...args));
+  return await client.send(new ListInstancesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ServiceDiscovery,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listInstances(input, ...args);
 };
-export async function* listInstancesPaginate(
+export async function* paginateListInstances(
   config: ServiceDiscoveryPaginationConfiguration,
   input: ListInstancesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListInstancesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListInstancesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof ServiceDiscovery) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listInstancesPaginate(
       throw new Error("Invalid client, expected ServiceDiscovery | ServiceDiscoveryClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

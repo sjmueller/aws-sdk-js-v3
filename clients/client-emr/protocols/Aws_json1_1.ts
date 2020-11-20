@@ -14,6 +14,10 @@ import {
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "../commands/DescribeClusterCommand";
 import { DescribeJobFlowsCommandInput, DescribeJobFlowsCommandOutput } from "../commands/DescribeJobFlowsCommand";
 import {
+  DescribeNotebookExecutionCommandInput,
+  DescribeNotebookExecutionCommandOutput,
+} from "../commands/DescribeNotebookExecutionCommand";
+import {
   DescribeSecurityConfigurationCommandInput,
   DescribeSecurityConfigurationCommandOutput,
 } from "../commands/DescribeSecurityConfigurationCommand";
@@ -34,6 +38,10 @@ import { ListClustersCommandInput, ListClustersCommandOutput } from "../commands
 import { ListInstanceFleetsCommandInput, ListInstanceFleetsCommandOutput } from "../commands/ListInstanceFleetsCommand";
 import { ListInstanceGroupsCommandInput, ListInstanceGroupsCommandOutput } from "../commands/ListInstanceGroupsCommand";
 import { ListInstancesCommandInput, ListInstancesCommandOutput } from "../commands/ListInstancesCommand";
+import {
+  ListNotebookExecutionsCommandInput,
+  ListNotebookExecutionsCommandOutput,
+} from "../commands/ListNotebookExecutionsCommand";
 import {
   ListSecurityConfigurationsCommandInput,
   ListSecurityConfigurationsCommandOutput,
@@ -78,6 +86,14 @@ import {
   SetVisibleToAllUsersCommandInput,
   SetVisibleToAllUsersCommandOutput,
 } from "../commands/SetVisibleToAllUsersCommand";
+import {
+  StartNotebookExecutionCommandInput,
+  StartNotebookExecutionCommandOutput,
+} from "../commands/StartNotebookExecutionCommand";
+import {
+  StopNotebookExecutionCommandInput,
+  StopNotebookExecutionCommandOutput,
+} from "../commands/StopNotebookExecutionCommand";
 import { TerminateJobFlowsCommandInput, TerminateJobFlowsCommandOutput } from "../commands/TerminateJobFlowsCommand";
 import {
   AddInstanceFleetInput,
@@ -118,6 +134,8 @@ import {
   DescribeClusterOutput,
   DescribeJobFlowsInput,
   DescribeJobFlowsOutput,
+  DescribeNotebookExecutionInput,
+  DescribeNotebookExecutionOutput,
   DescribeSecurityConfigurationInput,
   DescribeSecurityConfigurationOutput,
   DescribeStepInput,
@@ -127,6 +145,7 @@ import {
   EbsConfiguration,
   EbsVolume,
   Ec2InstanceAttributes,
+  ExecutionEngineConfig,
   FailureDetails,
   GetBlockPublicAccessConfigurationInput,
   GetBlockPublicAccessConfigurationOutput,
@@ -177,6 +196,8 @@ import {
   ListInstanceGroupsOutput,
   ListInstancesInput,
   ListInstancesOutput,
+  ListNotebookExecutionsInput,
+  ListNotebookExecutionsOutput,
   ListSecurityConfigurationsInput,
   ListSecurityConfigurationsOutput,
   ListStepsInput,
@@ -187,7 +208,10 @@ import {
   ModifyClusterOutput,
   ModifyInstanceFleetInput,
   ModifyInstanceGroupsInput,
+  NotebookExecution,
+  NotebookExecutionSummary,
   OnDemandProvisioningSpecification,
+  PlacementGroupConfig,
   PlacementType,
   PortRange,
   PutAutoScalingPolicyInput,
@@ -215,6 +239,8 @@ import {
   ShrinkPolicy,
   SimpleScalingPolicyConfiguration,
   SpotProvisioningSpecification,
+  StartNotebookExecutionInput,
+  StartNotebookExecutionOutput,
   Step,
   StepConfig,
   StepDetail,
@@ -224,6 +250,7 @@ import {
   StepStatus,
   StepSummary,
   StepTimeline,
+  StopNotebookExecutionInput,
   SupportedProductConfig,
   Tag,
   TerminateJobFlowsInput,
@@ -356,6 +383,19 @@ export const serializeAws_json1_1DescribeJobFlowsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeNotebookExecutionCommand = async (
+  input: DescribeNotebookExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.DescribeNotebookExecution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeNotebookExecutionInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeSecurityConfigurationCommand = async (
   input: DescribeSecurityConfigurationCommandInput,
   context: __SerdeContext
@@ -470,6 +510,19 @@ export const serializeAws_json1_1ListInstancesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListInstancesInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListNotebookExecutionsCommand = async (
+  input: ListNotebookExecutionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.ListNotebookExecutions",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListNotebookExecutionsInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -655,6 +708,32 @@ export const serializeAws_json1_1SetVisibleToAllUsersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1StartNotebookExecutionCommand = async (
+  input: StartNotebookExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.StartNotebookExecution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StartNotebookExecutionInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1StopNotebookExecutionCommand = async (
+  input: StopNotebookExecutionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "ElasticMapReduce.StopNotebookExecution",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1StopNotebookExecutionInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1TerminateJobFlowsCommand = async (
   input: TerminateJobFlowsCommandInput,
   context: __SerdeContext
@@ -672,7 +751,7 @@ export const deserializeAws_json1_1AddInstanceFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddInstanceFleetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddInstanceFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -735,7 +814,7 @@ export const deserializeAws_json1_1AddInstanceGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddInstanceGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddInstanceGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -790,7 +869,7 @@ export const deserializeAws_json1_1AddJobFlowStepsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddJobFlowStepsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddJobFlowStepsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -845,7 +924,7 @@ export const deserializeAws_json1_1AddTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -908,7 +987,7 @@ export const deserializeAws_json1_1CancelStepsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelStepsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CancelStepsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -971,7 +1050,7 @@ export const deserializeAws_json1_1CreateSecurityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSecurityConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateSecurityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1034,7 +1113,7 @@ export const deserializeAws_json1_1DeleteSecurityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSecurityConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSecurityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1097,7 +1176,7 @@ export const deserializeAws_json1_1DescribeClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1160,7 +1239,7 @@ export const deserializeAws_json1_1DescribeJobFlowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobFlowsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeJobFlowsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1211,11 +1290,74 @@ const deserializeAws_json1_1DescribeJobFlowsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeNotebookExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNotebookExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeNotebookExecutionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeNotebookExecutionOutput(data, context);
+  const response: DescribeNotebookExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeNotebookExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeNotebookExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeSecurityConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSecurityConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeSecurityConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1278,7 +1420,7 @@ export const deserializeAws_json1_1DescribeStepCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStepCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeStepCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1341,7 +1483,7 @@ export const deserializeAws_json1_1GetBlockPublicAccessConfigurationCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBlockPublicAccessConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetBlockPublicAccessConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1404,7 +1546,7 @@ export const deserializeAws_json1_1GetManagedScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetManagedScalingPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetManagedScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1451,7 +1593,7 @@ export const deserializeAws_json1_1ListBootstrapActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBootstrapActionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListBootstrapActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1514,7 +1656,7 @@ export const deserializeAws_json1_1ListClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListClustersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1577,7 +1719,7 @@ export const deserializeAws_json1_1ListInstanceFleetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceFleetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListInstanceFleetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1640,7 +1782,7 @@ export const deserializeAws_json1_1ListInstanceGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListInstanceGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1703,7 +1845,7 @@ export const deserializeAws_json1_1ListInstancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstancesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListInstancesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1762,11 +1904,74 @@ const deserializeAws_json1_1ListInstancesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListNotebookExecutionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListNotebookExecutionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListNotebookExecutionsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListNotebookExecutionsOutput(data, context);
+  const response: ListNotebookExecutionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListNotebookExecutionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListNotebookExecutionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListSecurityConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSecurityConfigurationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSecurityConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1829,7 +2034,7 @@ export const deserializeAws_json1_1ListStepsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStepsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListStepsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1892,7 +2097,7 @@ export const deserializeAws_json1_1ModifyClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifyClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1955,7 +2160,7 @@ export const deserializeAws_json1_1ModifyInstanceFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyInstanceFleetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifyInstanceFleetCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2015,7 +2220,7 @@ export const deserializeAws_json1_1ModifyInstanceGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyInstanceGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifyInstanceGroupsCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2067,7 +2272,7 @@ export const deserializeAws_json1_1PutAutoScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAutoScalingPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutAutoScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2114,7 +2319,7 @@ export const deserializeAws_json1_1PutBlockPublicAccessConfigurationCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBlockPublicAccessConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutBlockPublicAccessConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2177,7 +2382,7 @@ export const deserializeAws_json1_1PutManagedScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutManagedScalingPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutManagedScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2224,7 +2429,7 @@ export const deserializeAws_json1_1RemoveAutoScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveAutoScalingPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RemoveAutoScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2271,7 +2476,7 @@ export const deserializeAws_json1_1RemoveManagedScalingPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveManagedScalingPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RemoveManagedScalingPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2318,7 +2523,7 @@ export const deserializeAws_json1_1RemoveTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RemoveTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2381,7 +2586,7 @@ export const deserializeAws_json1_1RunJobFlowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RunJobFlowCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RunJobFlowCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2436,7 +2641,7 @@ export const deserializeAws_json1_1SetTerminationProtectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetTerminationProtectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SetTerminationProtectionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2488,7 +2693,7 @@ export const deserializeAws_json1_1SetVisibleToAllUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetVisibleToAllUsersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SetVisibleToAllUsersCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2536,11 +2741,134 @@ const deserializeAws_json1_1SetVisibleToAllUsersCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1StartNotebookExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartNotebookExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StartNotebookExecutionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1StartNotebookExecutionOutput(data, context);
+  const response: StartNotebookExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StartNotebookExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartNotebookExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerException":
+    case "com.amazonaws.emr#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1StopNotebookExecutionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopNotebookExecutionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1StopNotebookExecutionCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: StopNotebookExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1StopNotebookExecutionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopNotebookExecutionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.emr#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.emr#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1TerminateJobFlowsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TerminateJobFlowsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TerminateJobFlowsCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2820,6 +3148,15 @@ const serializeAws_json1_1DescribeJobFlowsInput = (input: DescribeJobFlowsInput,
   };
 };
 
+const serializeAws_json1_1DescribeNotebookExecutionInput = (
+  input: DescribeNotebookExecutionInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NotebookExecutionId !== undefined && { NotebookExecutionId: input.NotebookExecutionId }),
+  };
+};
+
 const serializeAws_json1_1DescribeSecurityConfigurationInput = (
   input: DescribeSecurityConfigurationInput,
   context: __SerdeContext
@@ -2864,6 +3201,16 @@ const serializeAws_json1_1EC2InstanceIdsList = (input: string[], context: __Serd
 
 const serializeAws_json1_1EC2InstanceIdsToTerminateList = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1ExecutionEngineConfig = (input: ExecutionEngineConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.MasterInstanceSecurityGroupId !== undefined && {
+      MasterInstanceSecurityGroupId: input.MasterInstanceSecurityGroupId,
+    }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+  };
 };
 
 const serializeAws_json1_1GetBlockPublicAccessConfigurationInput = (
@@ -3167,6 +3514,19 @@ const serializeAws_json1_1ListInstancesInput = (input: ListInstancesInput, conte
   };
 };
 
+const serializeAws_json1_1ListNotebookExecutionsInput = (
+  input: ListNotebookExecutionsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EditorId !== undefined && { EditorId: input.EditorId }),
+    ...(input.From !== undefined && { From: Math.round(input.From.getTime() / 1000) }),
+    ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.To !== undefined && { To: Math.round(input.To.getTime() / 1000) }),
+  };
+};
+
 const serializeAws_json1_1ListSecurityConfigurationsInput = (
   input: ListSecurityConfigurationsInput,
   context: __SerdeContext
@@ -3249,6 +3609,17 @@ const serializeAws_json1_1OnDemandProvisioningSpecification = (
   return {
     ...(input.AllocationStrategy !== undefined && { AllocationStrategy: input.AllocationStrategy }),
   };
+};
+
+const serializeAws_json1_1PlacementGroupConfig = (input: PlacementGroupConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.InstanceRole !== undefined && { InstanceRole: input.InstanceRole }),
+    ...(input.PlacementStrategy !== undefined && { PlacementStrategy: input.PlacementStrategy }),
+  };
+};
+
+const serializeAws_json1_1PlacementGroupConfigList = (input: PlacementGroupConfig[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1PlacementGroupConfig(entry, context));
 };
 
 const serializeAws_json1_1PlacementType = (input: PlacementType, context: __SerdeContext): any => {
@@ -3367,6 +3738,9 @@ const serializeAws_json1_1RunJobFlowInput = (input: RunJobFlowInput, context: __
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.NewSupportedProducts !== undefined && {
       NewSupportedProducts: serializeAws_json1_1NewSupportedProductsList(input.NewSupportedProducts, context),
+    }),
+    ...(input.PlacementGroupConfigs !== undefined && {
+      PlacementGroupConfigs: serializeAws_json1_1PlacementGroupConfigList(input.PlacementGroupConfigs, context),
     }),
     ...(input.ReleaseLabel !== undefined && { ReleaseLabel: input.ReleaseLabel }),
     ...(input.RepoUpgradeOnBoot !== undefined && { RepoUpgradeOnBoot: input.RepoUpgradeOnBoot }),
@@ -3492,6 +3866,26 @@ const serializeAws_json1_1SpotProvisioningSpecification = (
   };
 };
 
+const serializeAws_json1_1StartNotebookExecutionInput = (
+  input: StartNotebookExecutionInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.EditorId !== undefined && { EditorId: input.EditorId }),
+    ...(input.ExecutionEngine !== undefined && {
+      ExecutionEngine: serializeAws_json1_1ExecutionEngineConfig(input.ExecutionEngine, context),
+    }),
+    ...(input.NotebookExecutionName !== undefined && { NotebookExecutionName: input.NotebookExecutionName }),
+    ...(input.NotebookInstanceSecurityGroupId !== undefined && {
+      NotebookInstanceSecurityGroupId: input.NotebookInstanceSecurityGroupId,
+    }),
+    ...(input.NotebookParams !== undefined && { NotebookParams: input.NotebookParams }),
+    ...(input.RelativePath !== undefined && { RelativePath: input.RelativePath }),
+    ...(input.ServiceRole !== undefined && { ServiceRole: input.ServiceRole }),
+    ...(input.Tags !== undefined && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+  };
+};
+
 const serializeAws_json1_1StepConfig = (input: StepConfig, context: __SerdeContext): any => {
   return {
     ...(input.ActionOnFailure !== undefined && { ActionOnFailure: input.ActionOnFailure }),
@@ -3512,6 +3906,15 @@ const serializeAws_json1_1StepIdsList = (input: string[], context: __SerdeContex
 
 const serializeAws_json1_1StepStateList = (input: (StepState | string)[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1StopNotebookExecutionInput = (
+  input: StopNotebookExecutionInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.NotebookExecutionId !== undefined && { NotebookExecutionId: input.NotebookExecutionId }),
+  };
 };
 
 const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
@@ -3831,6 +4234,10 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
         ? output.NormalizedInstanceHours
         : undefined,
     OutpostArn: output.OutpostArn !== undefined && output.OutpostArn !== null ? output.OutpostArn : undefined,
+    PlacementGroups:
+      output.PlacementGroups !== undefined && output.PlacementGroups !== null
+        ? deserializeAws_json1_1PlacementGroupConfigList(output.PlacementGroups, context)
+        : undefined,
     ReleaseLabel: output.ReleaseLabel !== undefined && output.ReleaseLabel !== null ? output.ReleaseLabel : undefined,
     RepoUpgradeOnBoot:
       output.RepoUpgradeOnBoot !== undefined && output.RepoUpgradeOnBoot !== null
@@ -4032,6 +4439,18 @@ const deserializeAws_json1_1DescribeJobFlowsOutput = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1DescribeNotebookExecutionOutput = (
+  output: any,
+  context: __SerdeContext
+): DescribeNotebookExecutionOutput => {
+  return {
+    NotebookExecution:
+      output.NotebookExecution !== undefined && output.NotebookExecution !== null
+        ? deserializeAws_json1_1NotebookExecution(output.NotebookExecution, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeSecurityConfigurationOutput = (
   output: any,
   context: __SerdeContext
@@ -4126,6 +4545,17 @@ const deserializeAws_json1_1Ec2InstanceAttributes = (output: any, context: __Ser
 
 const deserializeAws_json1_1EC2InstanceIdsList = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ExecutionEngineConfig = (output: any, context: __SerdeContext): ExecutionEngineConfig => {
+  return {
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    MasterInstanceSecurityGroupId:
+      output.MasterInstanceSecurityGroupId !== undefined && output.MasterInstanceSecurityGroupId !== null
+        ? output.MasterInstanceSecurityGroupId
+        : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1FailureDetails = (output: any, context: __SerdeContext): FailureDetails => {
@@ -4807,6 +5237,19 @@ const deserializeAws_json1_1ListInstancesOutput = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1ListNotebookExecutionsOutput = (
+  output: any,
+  context: __SerdeContext
+): ListNotebookExecutionsOutput => {
+  return {
+    Marker: output.Marker !== undefined && output.Marker !== null ? output.Marker : undefined,
+    NotebookExecutions:
+      output.NotebookExecutions !== undefined && output.NotebookExecutions !== null
+        ? deserializeAws_json1_1NotebookExecutionSummaryList(output.NotebookExecutions, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListSecurityConfigurationsOutput = (
   output: any,
   context: __SerdeContext
@@ -4859,6 +5302,81 @@ const deserializeAws_json1_1ModifyClusterOutput = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1NotebookExecution = (output: any, context: __SerdeContext): NotebookExecution => {
+  return {
+    Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    EditorId: output.EditorId !== undefined && output.EditorId !== null ? output.EditorId : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+    ExecutionEngine:
+      output.ExecutionEngine !== undefined && output.ExecutionEngine !== null
+        ? deserializeAws_json1_1ExecutionEngineConfig(output.ExecutionEngine, context)
+        : undefined,
+    LastStateChangeReason:
+      output.LastStateChangeReason !== undefined && output.LastStateChangeReason !== null
+        ? output.LastStateChangeReason
+        : undefined,
+    NotebookExecutionId:
+      output.NotebookExecutionId !== undefined && output.NotebookExecutionId !== null
+        ? output.NotebookExecutionId
+        : undefined,
+    NotebookExecutionName:
+      output.NotebookExecutionName !== undefined && output.NotebookExecutionName !== null
+        ? output.NotebookExecutionName
+        : undefined,
+    NotebookInstanceSecurityGroupId:
+      output.NotebookInstanceSecurityGroupId !== undefined && output.NotebookInstanceSecurityGroupId !== null
+        ? output.NotebookInstanceSecurityGroupId
+        : undefined,
+    NotebookParams:
+      output.NotebookParams !== undefined && output.NotebookParams !== null ? output.NotebookParams : undefined,
+    OutputNotebookURI:
+      output.OutputNotebookURI !== undefined && output.OutputNotebookURI !== null
+        ? output.OutputNotebookURI
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? new Date(Math.round(output.StartTime * 1000))
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1NotebookExecutionSummary = (
+  output: any,
+  context: __SerdeContext
+): NotebookExecutionSummary => {
+  return {
+    EditorId: output.EditorId !== undefined && output.EditorId !== null ? output.EditorId : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null ? new Date(Math.round(output.EndTime * 1000)) : undefined,
+    NotebookExecutionId:
+      output.NotebookExecutionId !== undefined && output.NotebookExecutionId !== null
+        ? output.NotebookExecutionId
+        : undefined,
+    NotebookExecutionName:
+      output.NotebookExecutionName !== undefined && output.NotebookExecutionName !== null
+        ? output.NotebookExecutionName
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? new Date(Math.round(output.StartTime * 1000))
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1NotebookExecutionSummaryList = (
+  output: any,
+  context: __SerdeContext
+): NotebookExecutionSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1NotebookExecutionSummary(entry, context));
+};
+
 const deserializeAws_json1_1OnDemandProvisioningSpecification = (
   output: any,
   context: __SerdeContext
@@ -4869,6 +5387,23 @@ const deserializeAws_json1_1OnDemandProvisioningSpecification = (
         ? output.AllocationStrategy
         : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1PlacementGroupConfig = (output: any, context: __SerdeContext): PlacementGroupConfig => {
+  return {
+    InstanceRole: output.InstanceRole !== undefined && output.InstanceRole !== null ? output.InstanceRole : undefined,
+    PlacementStrategy:
+      output.PlacementStrategy !== undefined && output.PlacementStrategy !== null
+        ? output.PlacementStrategy
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PlacementGroupConfigList = (
+  output: any,
+  context: __SerdeContext
+): PlacementGroupConfig[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1PlacementGroupConfig(entry, context));
 };
 
 const deserializeAws_json1_1PlacementType = (output: any, context: __SerdeContext): PlacementType => {
@@ -5072,6 +5607,18 @@ const deserializeAws_json1_1SpotProvisioningSpecification = (
     TimeoutDurationMinutes:
       output.TimeoutDurationMinutes !== undefined && output.TimeoutDurationMinutes !== null
         ? output.TimeoutDurationMinutes
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StartNotebookExecutionOutput = (
+  output: any,
+  context: __SerdeContext
+): StartNotebookExecutionOutput => {
+  return {
+    NotebookExecutionId:
+      output.NotebookExecutionId !== undefined && output.NotebookExecutionId !== null
+        ? output.NotebookExecutionId
         : undefined,
   } as any;
 };

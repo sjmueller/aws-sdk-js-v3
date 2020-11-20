@@ -59,15 +59,6 @@ export const serializeAws_restJson1AssociateDeviceWithPlacementCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}";
-  if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: projectName.");
-    }
-    resolvedPath = resolvedPath.replace("{projectName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: projectName.");
-  }
   if (input.placementName !== undefined) {
     const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
@@ -85,6 +76,15 @@ export const serializeAws_restJson1AssociateDeviceWithPlacementCommand = async (
     resolvedPath = resolvedPath.replace("{deviceTemplateName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: deviceTemplateName.");
+  }
+  if (input.projectName !== undefined) {
+    const labelValue: string = input.projectName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: projectName.");
+    }
+    resolvedPath = resolvedPath.replace("{projectName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: projectName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -175,15 +175,6 @@ export const serializeAws_restJson1DeletePlacementCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
-  if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: placementName.");
-    }
-    resolvedPath = resolvedPath.replace("{placementName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: placementName.");
-  }
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -192,6 +183,15 @@ export const serializeAws_restJson1DeletePlacementCommand = async (
     resolvedPath = resolvedPath.replace("{projectName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
+  }
+  if (input.placementName !== undefined) {
+    const labelValue: string = input.placementName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: placementName.");
+    }
+    resolvedPath = resolvedPath.replace("{placementName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: placementName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -244,15 +244,6 @@ export const serializeAws_restJson1DescribePlacementCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/projects/{projectName}/placements/{placementName}";
-  if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: placementName.");
-    }
-    resolvedPath = resolvedPath.replace("{placementName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: placementName.");
-  }
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -261,6 +252,15 @@ export const serializeAws_restJson1DescribePlacementCommand = async (
     resolvedPath = resolvedPath.replace("{projectName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: projectName.");
+  }
+  if (input.placementName !== undefined) {
+    const labelValue: string = input.placementName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: placementName.");
+    }
+    resolvedPath = resolvedPath.replace("{placementName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: placementName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -313,6 +313,15 @@ export const serializeAws_restJson1DisassociateDeviceFromPlacementCommand = asyn
     "Content-Type": "",
   };
   let resolvedPath = "/projects/{projectName}/placements/{placementName}/devices/{deviceTemplateName}";
+  if (input.placementName !== undefined) {
+    const labelValue: string = input.placementName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: placementName.");
+    }
+    resolvedPath = resolvedPath.replace("{placementName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: placementName.");
+  }
   if (input.projectName !== undefined) {
     const labelValue: string = input.projectName;
     if (labelValue.length <= 0) {
@@ -330,15 +339,6 @@ export const serializeAws_restJson1DisassociateDeviceFromPlacementCommand = asyn
     resolvedPath = resolvedPath.replace("{deviceTemplateName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: deviceTemplateName.");
-  }
-  if (input.placementName !== undefined) {
-    const labelValue: string = input.placementName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: placementName.");
-    }
-    resolvedPath = resolvedPath.replace("{placementName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: placementName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -361,15 +361,6 @@ export const serializeAws_restJson1GetDevicesInPlacementCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/projects/{projectName}/placements/{placementName}/devices";
-  if (input.projectName !== undefined) {
-    const labelValue: string = input.projectName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: projectName.");
-    }
-    resolvedPath = resolvedPath.replace("{projectName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: projectName.");
-  }
   if (input.placementName !== undefined) {
     const labelValue: string = input.placementName;
     if (labelValue.length <= 0) {
@@ -378,6 +369,15 @@ export const serializeAws_restJson1GetDevicesInPlacementCommand = async (
     resolvedPath = resolvedPath.replace("{placementName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: placementName.");
+  }
+  if (input.projectName !== undefined) {
+    const labelValue: string = input.projectName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: projectName.");
+    }
+    resolvedPath = resolvedPath.replace("{projectName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: projectName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -410,8 +410,8 @@ export const serializeAws_restJson1ListPlacementsCommand = async (
     throw new Error("No value provided for input HTTP label: projectName.");
   }
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -634,7 +634,7 @@ export const deserializeAws_restJson1AssociateDeviceWithPlacementCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDeviceWithPlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AssociateDeviceWithPlacementCommandError(output, context);
   }
   const contents: AssociateDeviceWithPlacementCommandOutput = {
@@ -709,7 +709,7 @@ export const deserializeAws_restJson1CreatePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreatePlacementCommandError(output, context);
   }
   const contents: CreatePlacementCommandOutput = {
@@ -784,7 +784,7 @@ export const deserializeAws_restJson1CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateProjectCommandError(output, context);
   }
   const contents: CreateProjectCommandOutput = {
@@ -851,7 +851,7 @@ export const deserializeAws_restJson1DeletePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeletePlacementCommandError(output, context);
   }
   const contents: DeletePlacementCommandOutput = {
@@ -926,7 +926,7 @@ export const deserializeAws_restJson1DeleteProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteProjectCommandError(output, context);
   }
   const contents: DeleteProjectCommandOutput = {
@@ -1001,7 +1001,7 @@ export const deserializeAws_restJson1DescribePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribePlacementCommandError(output, context);
   }
   const contents: DescribePlacementCommandOutput = {
@@ -1072,7 +1072,7 @@ export const deserializeAws_restJson1DescribeProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeProjectCommandError(output, context);
   }
   const contents: DescribeProjectCommandOutput = {
@@ -1143,7 +1143,7 @@ export const deserializeAws_restJson1DisassociateDeviceFromPlacementCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDeviceFromPlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateDeviceFromPlacementCommandError(output, context);
   }
   const contents: DisassociateDeviceFromPlacementCommandOutput = {
@@ -1218,7 +1218,7 @@ export const deserializeAws_restJson1GetDevicesInPlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDevicesInPlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDevicesInPlacementCommandError(output, context);
   }
   const contents: GetDevicesInPlacementCommandOutput = {
@@ -1289,7 +1289,7 @@ export const deserializeAws_restJson1ListPlacementsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlacementsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPlacementsCommandError(output, context);
   }
   const contents: ListPlacementsCommandOutput = {
@@ -1364,7 +1364,7 @@ export const deserializeAws_restJson1ListProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProjectsCommandError(output, context);
   }
   const contents: ListProjectsCommandOutput = {
@@ -1431,7 +1431,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -1502,7 +1502,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1569,7 +1569,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -1636,7 +1636,7 @@ export const deserializeAws_restJson1UpdatePlacementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePlacementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdatePlacementCommandError(output, context);
   }
   const contents: UpdatePlacementCommandOutput = {
@@ -1711,7 +1711,7 @@ export const deserializeAws_restJson1UpdateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateProjectCommandError(output, context);
   }
   const contents: UpdateProjectCommandOutput = {

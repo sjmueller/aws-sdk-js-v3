@@ -155,6 +155,7 @@ import {
   BucketPolicy,
   BucketPublicAccess,
   BucketSortCriteria,
+  Cell,
   ClassificationDetails,
   ClassificationExportConfiguration,
   ClassificationResult,
@@ -189,13 +190,18 @@ import {
   JobScopingBlock,
   JobSummary,
   KeyValuePair,
+  LastRunErrorStatus,
   ListJobsFilterCriteria,
   ListJobsFilterTerm,
   ListJobsSortCriteria,
   Member,
   MonthlySchedule,
   ObjectCountByEncryptionType,
+  ObjectLevelStatistics,
+  Occurrences,
+  Page,
   PolicyDetails,
+  Range,
   ReplicationDetails,
   ResourceNotFoundException,
   ResourcesAffected,
@@ -228,8 +234,10 @@ import {
   UsageTotal,
   UserIdentity,
   UserIdentityRoot,
+  UserPausedDetails,
   ValidationException,
   WeeklySchedule,
+  _Record,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
@@ -1286,8 +1294,8 @@ export const serializeAws_restJson1ListInvitationsCommand = async (
   };
   let resolvedPath = "/invitations";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1313,8 +1321,8 @@ export const serializeAws_restJson1ListMembersCommand = async (
   let resolvedPath = "/members";
   const query: any = {
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.onlyAssociated !== undefined && { onlyAssociated: input.onlyAssociated }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.onlyAssociated !== undefined && { onlyAssociated: input.onlyAssociated }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1669,7 +1677,7 @@ export const deserializeAws_restJson1AcceptInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptInvitationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AcceptInvitationCommandError(output, context);
   }
   const contents: AcceptInvitationCommandOutput = {
@@ -1768,7 +1776,7 @@ export const deserializeAws_restJson1BatchGetCustomDataIdentifiersCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetCustomDataIdentifiersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchGetCustomDataIdentifiersCommandError(output, context);
   }
   const contents: BatchGetCustomDataIdentifiersCommandOutput = {
@@ -1878,7 +1886,7 @@ export const deserializeAws_restJson1CreateClassificationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClassificationJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateClassificationJobCommandError(output, context);
   }
   const contents: CreateClassificationJobCommandOutput = {
@@ -1985,7 +1993,7 @@ export const deserializeAws_restJson1CreateCustomDataIdentifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomDataIdentifierCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateCustomDataIdentifierCommandError(output, context);
   }
   const contents: CreateCustomDataIdentifierCommandOutput = {
@@ -2088,7 +2096,7 @@ export const deserializeAws_restJson1CreateFindingsFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFindingsFilterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateFindingsFilterCommandError(output, context);
   }
   const contents: CreateFindingsFilterCommandOutput = {
@@ -2195,7 +2203,7 @@ export const deserializeAws_restJson1CreateInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInvitationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateInvitationsCommandError(output, context);
   }
   const contents: CreateInvitationsCommandOutput = {
@@ -2301,7 +2309,7 @@ export const deserializeAws_restJson1CreateMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateMemberCommandError(output, context);
   }
   const contents: CreateMemberCommandOutput = {
@@ -2404,7 +2412,7 @@ export const deserializeAws_restJson1CreateSampleFindingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSampleFindingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateSampleFindingsCommandError(output, context);
   }
   const contents: CreateSampleFindingsCommandOutput = {
@@ -2503,7 +2511,7 @@ export const deserializeAws_restJson1DeclineInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeclineInvitationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeclineInvitationsCommandError(output, context);
   }
   const contents: DeclineInvitationsCommandOutput = {
@@ -2609,7 +2617,7 @@ export const deserializeAws_restJson1DeleteCustomDataIdentifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomDataIdentifierCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteCustomDataIdentifierCommandError(output, context);
   }
   const contents: DeleteCustomDataIdentifierCommandOutput = {
@@ -2708,7 +2716,7 @@ export const deserializeAws_restJson1DeleteFindingsFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFindingsFilterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteFindingsFilterCommandError(output, context);
   }
   const contents: DeleteFindingsFilterCommandOutput = {
@@ -2807,7 +2815,7 @@ export const deserializeAws_restJson1DeleteInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInvitationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteInvitationsCommandError(output, context);
   }
   const contents: DeleteInvitationsCommandOutput = {
@@ -2913,7 +2921,7 @@ export const deserializeAws_restJson1DeleteMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteMemberCommandError(output, context);
   }
   const contents: DeleteMemberCommandOutput = {
@@ -3012,7 +3020,7 @@ export const deserializeAws_restJson1DescribeBucketsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBucketsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeBucketsCommandError(output, context);
   }
   const contents: DescribeBucketsCommandOutput = {
@@ -3119,7 +3127,7 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClassificationJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeClassificationJobCommandError(output, context);
   }
   const contents: DescribeClassificationJobCommandOutput = {
@@ -3133,6 +3141,7 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
     jobId: undefined,
     jobStatus: undefined,
     jobType: undefined,
+    lastRunErrorStatus: undefined,
     lastRunTime: undefined,
     name: undefined,
     s3JobDefinition: undefined,
@@ -3140,6 +3149,7 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
     scheduleFrequency: undefined,
     statistics: undefined,
     tags: undefined,
+    userPausedDetails: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.clientToken !== undefined && data.clientToken !== null) {
@@ -3169,6 +3179,9 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
   if (data.jobType !== undefined && data.jobType !== null) {
     contents.jobType = data.jobType;
   }
+  if (data.lastRunErrorStatus !== undefined && data.lastRunErrorStatus !== null) {
+    contents.lastRunErrorStatus = deserializeAws_restJson1LastRunErrorStatus(data.lastRunErrorStatus, context);
+  }
   if (data.lastRunTime !== undefined && data.lastRunTime !== null) {
     contents.lastRunTime = new Date(data.lastRunTime);
   }
@@ -3189,6 +3202,9 @@ export const deserializeAws_restJson1DescribeClassificationJobCommand = async (
   }
   if (data.tags !== undefined && data.tags !== null) {
     contents.tags = deserializeAws_restJson1TagMap(data.tags, context);
+  }
+  if (data.userPausedDetails !== undefined && data.userPausedDetails !== null) {
+    contents.userPausedDetails = deserializeAws_restJson1UserPausedDetails(data.userPausedDetails, context);
   }
   return Promise.resolve(contents);
 };
@@ -3282,7 +3298,7 @@ export const deserializeAws_restJson1DescribeOrganizationConfigurationCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeOrganizationConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeOrganizationConfigurationCommandError(output, context);
   }
   const contents: DescribeOrganizationConfigurationCommandOutput = {
@@ -3389,7 +3405,7 @@ export const deserializeAws_restJson1DisableMacieCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableMacieCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisableMacieCommandError(output, context);
   }
   const contents: DisableMacieCommandOutput = {
@@ -3488,7 +3504,7 @@ export const deserializeAws_restJson1DisableOrganizationAdminAccountCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableOrganizationAdminAccountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisableOrganizationAdminAccountCommandError(output, context);
   }
   const contents: DisableOrganizationAdminAccountCommandOutput = {
@@ -3587,7 +3603,7 @@ export const deserializeAws_restJson1DisassociateFromMasterAccountCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateFromMasterAccountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateFromMasterAccountCommandError(output, context);
   }
   const contents: DisassociateFromMasterAccountCommandOutput = {
@@ -3686,7 +3702,7 @@ export const deserializeAws_restJson1DisassociateMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateMemberCommandError(output, context);
   }
   const contents: DisassociateMemberCommandOutput = {
@@ -3785,7 +3801,7 @@ export const deserializeAws_restJson1EnableMacieCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableMacieCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1EnableMacieCommandError(output, context);
   }
   const contents: EnableMacieCommandOutput = {
@@ -3884,7 +3900,7 @@ export const deserializeAws_restJson1EnableOrganizationAdminAccountCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableOrganizationAdminAccountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1EnableOrganizationAdminAccountCommandError(output, context);
   }
   const contents: EnableOrganizationAdminAccountCommandOutput = {
@@ -3983,7 +3999,7 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBucketStatisticsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBucketStatisticsCommandError(output, context);
   }
   const contents: GetBucketStatisticsCommandOutput = {
@@ -3993,10 +4009,13 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
     bucketCountByEncryptionType: undefined,
     bucketCountBySharedAccessType: undefined,
     classifiableObjectCount: undefined,
+    classifiableSizeInBytes: undefined,
     lastUpdated: undefined,
     objectCount: undefined,
     sizeInBytes: undefined,
     sizeInBytesCompressed: undefined,
+    unclassifiableObjectCount: undefined,
+    unclassifiableObjectSizeInBytes: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.bucketCount !== undefined && data.bucketCount !== null) {
@@ -4023,6 +4042,9 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
   if (data.classifiableObjectCount !== undefined && data.classifiableObjectCount !== null) {
     contents.classifiableObjectCount = data.classifiableObjectCount;
   }
+  if (data.classifiableSizeInBytes !== undefined && data.classifiableSizeInBytes !== null) {
+    contents.classifiableSizeInBytes = data.classifiableSizeInBytes;
+  }
   if (data.lastUpdated !== undefined && data.lastUpdated !== null) {
     contents.lastUpdated = new Date(data.lastUpdated);
   }
@@ -4034,6 +4056,18 @@ export const deserializeAws_restJson1GetBucketStatisticsCommand = async (
   }
   if (data.sizeInBytesCompressed !== undefined && data.sizeInBytesCompressed !== null) {
     contents.sizeInBytesCompressed = data.sizeInBytesCompressed;
+  }
+  if (data.unclassifiableObjectCount !== undefined && data.unclassifiableObjectCount !== null) {
+    contents.unclassifiableObjectCount = deserializeAws_restJson1ObjectLevelStatistics(
+      data.unclassifiableObjectCount,
+      context
+    );
+  }
+  if (data.unclassifiableObjectSizeInBytes !== undefined && data.unclassifiableObjectSizeInBytes !== null) {
+    contents.unclassifiableObjectSizeInBytes = deserializeAws_restJson1ObjectLevelStatistics(
+      data.unclassifiableObjectSizeInBytes,
+      context
+    );
   }
   return Promise.resolve(contents);
 };
@@ -4127,7 +4161,7 @@ export const deserializeAws_restJson1GetClassificationExportConfigurationCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetClassificationExportConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetClassificationExportConfigurationCommandError(output, context);
   }
   const contents: GetClassificationExportConfigurationCommandOutput = {
@@ -4230,7 +4264,7 @@ export const deserializeAws_restJson1GetCustomDataIdentifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCustomDataIdentifierCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetCustomDataIdentifierCommandError(output, context);
   }
   const contents: GetCustomDataIdentifierCommandOutput = {
@@ -4373,7 +4407,7 @@ export const deserializeAws_restJson1GetFindingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFindingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetFindingsCommandError(output, context);
   }
   const contents: GetFindingsCommandOutput = {
@@ -4476,7 +4510,7 @@ export const deserializeAws_restJson1GetFindingsFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFindingsFilterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetFindingsFilterCommandError(output, context);
   }
   const contents: GetFindingsFilterCommandOutput = {
@@ -4607,7 +4641,7 @@ export const deserializeAws_restJson1GetFindingStatisticsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFindingStatisticsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetFindingStatisticsCommandError(output, context);
   }
   const contents: GetFindingStatisticsCommandOutput = {
@@ -4710,7 +4744,7 @@ export const deserializeAws_restJson1GetInvitationsCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInvitationsCountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetInvitationsCountCommandError(output, context);
   }
   const contents: GetInvitationsCountCommandOutput = {
@@ -4813,7 +4847,7 @@ export const deserializeAws_restJson1GetMacieSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMacieSessionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMacieSessionCommandError(output, context);
   }
   const contents: GetMacieSessionCommandOutput = {
@@ -4932,7 +4966,7 @@ export const deserializeAws_restJson1GetMasterAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMasterAccountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMasterAccountCommandError(output, context);
   }
   const contents: GetMasterAccountCommandOutput = {
@@ -5035,7 +5069,7 @@ export const deserializeAws_restJson1GetMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMemberCommandError(output, context);
   }
   const contents: GetMemberCommandOutput = {
@@ -5166,7 +5200,7 @@ export const deserializeAws_restJson1GetUsageStatisticsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUsageStatisticsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetUsageStatisticsCommandError(output, context);
   }
   const contents: GetUsageStatisticsCommandOutput = {
@@ -5273,7 +5307,7 @@ export const deserializeAws_restJson1GetUsageTotalsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUsageTotalsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetUsageTotalsCommandError(output, context);
   }
   const contents: GetUsageTotalsCommandOutput = {
@@ -5376,7 +5410,7 @@ export const deserializeAws_restJson1ListClassificationJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClassificationJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListClassificationJobsCommandError(output, context);
   }
   const contents: ListClassificationJobsCommandOutput = {
@@ -5483,7 +5517,7 @@ export const deserializeAws_restJson1ListCustomDataIdentifiersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCustomDataIdentifiersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListCustomDataIdentifiersCommandError(output, context);
   }
   const contents: ListCustomDataIdentifiersCommandOutput = {
@@ -5590,7 +5624,7 @@ export const deserializeAws_restJson1ListFindingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFindingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListFindingsCommandError(output, context);
   }
   const contents: ListFindingsCommandOutput = {
@@ -5697,7 +5731,7 @@ export const deserializeAws_restJson1ListFindingsFiltersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFindingsFiltersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListFindingsFiltersCommandError(output, context);
   }
   const contents: ListFindingsFiltersCommandOutput = {
@@ -5807,7 +5841,7 @@ export const deserializeAws_restJson1ListInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListInvitationsCommandError(output, context);
   }
   const contents: ListInvitationsCommandOutput = {
@@ -5914,7 +5948,7 @@ export const deserializeAws_restJson1ListMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMembersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListMembersCommandError(output, context);
   }
   const contents: ListMembersCommandOutput = {
@@ -6021,7 +6055,7 @@ export const deserializeAws_restJson1ListOrganizationAdminAccountsCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOrganizationAdminAccountsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListOrganizationAdminAccountsCommandError(output, context);
   }
   const contents: ListOrganizationAdminAccountsCommandOutput = {
@@ -6128,7 +6162,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -6175,7 +6209,7 @@ export const deserializeAws_restJson1PutClassificationExportConfigurationCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutClassificationExportConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutClassificationExportConfigurationCommandError(output, context);
   }
   const contents: PutClassificationExportConfigurationCommandOutput = {
@@ -6278,7 +6312,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -6321,7 +6355,7 @@ export const deserializeAws_restJson1TestCustomDataIdentifierCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestCustomDataIdentifierCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TestCustomDataIdentifierCommandError(output, context);
   }
   const contents: TestCustomDataIdentifierCommandOutput = {
@@ -6424,7 +6458,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -6467,7 +6501,7 @@ export const deserializeAws_restJson1UpdateClassificationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClassificationJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateClassificationJobCommandError(output, context);
   }
   const contents: UpdateClassificationJobCommandOutput = {
@@ -6566,7 +6600,7 @@ export const deserializeAws_restJson1UpdateFindingsFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFindingsFilterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateFindingsFilterCommandError(output, context);
   }
   const contents: UpdateFindingsFilterCommandOutput = {
@@ -6673,7 +6707,7 @@ export const deserializeAws_restJson1UpdateMacieSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMacieSessionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateMacieSessionCommandError(output, context);
   }
   const contents: UpdateMacieSessionCommandOutput = {
@@ -6772,7 +6806,7 @@ export const deserializeAws_restJson1UpdateMemberSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMemberSessionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateMemberSessionCommandError(output, context);
   }
   const contents: UpdateMemberSessionCommandOutput = {
@@ -6871,7 +6905,7 @@ export const deserializeAws_restJson1UpdateOrganizationConfigurationCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateOrganizationConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateOrganizationConfigurationCommandError(output, context);
   }
   const contents: UpdateOrganizationConfigurationCommandOutput = {
@@ -7194,6 +7228,9 @@ const serializeAws_restJson1CriterionAdditionalProperties = (
 ): any => {
   return {
     ...(input.eq !== undefined && { eq: serializeAws_restJson1__listOf__string(input.eq, context) }),
+    ...(input.eqExactMatch !== undefined && {
+      eqExactMatch: serializeAws_restJson1__listOf__string(input.eqExactMatch, context),
+    }),
     ...(input.gt !== undefined && { gt: input.gt }),
     ...(input.gte !== undefined && { gte: input.gte }),
     ...(input.lt !== undefined && { lt: input.lt }),
@@ -7588,6 +7625,7 @@ const deserializeAws_restJson1BucketCountByEffectivePermission = (
       output.publiclyReadable !== undefined && output.publiclyReadable !== null ? output.publiclyReadable : undefined,
     publiclyWritable:
       output.publiclyWritable !== undefined && output.publiclyWritable !== null ? output.publiclyWritable : undefined,
+    unknown: output.unknown !== undefined && output.unknown !== null ? output.unknown : undefined,
   } as any;
 };
 
@@ -7610,6 +7648,7 @@ const deserializeAws_restJson1BucketCountBySharedAccessType = (
     external: output.external !== undefined && output.external !== null ? output.external : undefined,
     internal: output.internal !== undefined && output.internal !== null ? output.internal : undefined,
     notShared: output.notShared !== undefined && output.notShared !== null ? output.notShared : undefined,
+    unknown: output.unknown !== undefined && output.unknown !== null ? output.unknown : undefined,
   } as any;
 };
 
@@ -7646,6 +7685,10 @@ const deserializeAws_restJson1BucketMetadata = (output: any, context: __SerdeCon
       output.classifiableObjectCount !== undefined && output.classifiableObjectCount !== null
         ? output.classifiableObjectCount
         : undefined,
+    classifiableSizeInBytes:
+      output.classifiableSizeInBytes !== undefined && output.classifiableSizeInBytes !== null
+        ? output.classifiableSizeInBytes
+        : undefined,
     lastUpdated:
       output.lastUpdated !== undefined && output.lastUpdated !== null ? new Date(output.lastUpdated) : undefined,
     objectCount: output.objectCount !== undefined && output.objectCount !== null ? output.objectCount : undefined,
@@ -7671,6 +7714,14 @@ const deserializeAws_restJson1BucketMetadata = (output: any, context: __SerdeCon
     tags:
       output.tags !== undefined && output.tags !== null
         ? deserializeAws_restJson1__listOfKeyValuePair(output.tags, context)
+        : undefined,
+    unclassifiableObjectCount:
+      output.unclassifiableObjectCount !== undefined && output.unclassifiableObjectCount !== null
+        ? deserializeAws_restJson1ObjectLevelStatistics(output.unclassifiableObjectCount, context)
+        : undefined,
+    unclassifiableObjectSizeInBytes:
+      output.unclassifiableObjectSizeInBytes !== undefined && output.unclassifiableObjectSizeInBytes !== null
+        ? deserializeAws_restJson1ObjectLevelStatistics(output.unclassifiableObjectSizeInBytes, context)
         : undefined,
     versioning: output.versioning !== undefined && output.versioning !== null ? output.versioning : undefined,
   } as any;
@@ -7718,6 +7769,20 @@ const deserializeAws_restJson1BucketPublicAccess = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_restJson1Cell = (output: any, context: __SerdeContext): Cell => {
+  return {
+    cellReference:
+      output.cellReference !== undefined && output.cellReference !== null ? output.cellReference : undefined,
+    column: output.column !== undefined && output.column !== null ? output.column : undefined,
+    columnName: output.columnName !== undefined && output.columnName !== null ? output.columnName : undefined,
+    row: output.row !== undefined && output.row !== null ? output.row : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Cells = (output: any, context: __SerdeContext): Cell[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Cell(entry, context));
+};
+
 const deserializeAws_restJson1ClassificationDetails = (output: any, context: __SerdeContext): ClassificationDetails => {
   return {
     detailedResultsLocation:
@@ -7747,6 +7812,10 @@ const deserializeAws_restJson1ClassificationExportConfiguration = (
 
 const deserializeAws_restJson1ClassificationResult = (output: any, context: __SerdeContext): ClassificationResult => {
   return {
+    additionalOccurrences:
+      output.additionalOccurrences !== undefined && output.additionalOccurrences !== null
+        ? output.additionalOccurrences
+        : undefined,
     customDataIdentifiers:
       output.customDataIdentifiers !== undefined && output.customDataIdentifiers !== null
         ? deserializeAws_restJson1CustomDataIdentifiers(output.customDataIdentifiers, context)
@@ -7797,6 +7866,10 @@ const deserializeAws_restJson1CriterionAdditionalProperties = (
       output.eq !== undefined && output.eq !== null
         ? deserializeAws_restJson1__listOf__string(output.eq, context)
         : undefined,
+    eqExactMatch:
+      output.eqExactMatch !== undefined && output.eqExactMatch !== null
+        ? deserializeAws_restJson1__listOf__string(output.eqExactMatch, context)
+        : undefined,
     gt: output.gt !== undefined && output.gt !== null ? output.gt : undefined,
     gte: output.gte !== undefined && output.gte !== null ? output.gte : undefined,
     lt: output.lt !== undefined && output.lt !== null ? output.lt : undefined,
@@ -7836,6 +7909,10 @@ const deserializeAws_restJson1CustomDetection = (output: any, context: __SerdeCo
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    occurrences:
+      output.occurrences !== undefined && output.occurrences !== null
+        ? deserializeAws_restJson1Occurrences(output.occurrences, context)
+        : undefined,
   } as any;
 };
 
@@ -7850,6 +7927,10 @@ const deserializeAws_restJson1DailySchedule = (output: any, context: __SerdeCont
 const deserializeAws_restJson1DefaultDetection = (output: any, context: __SerdeContext): DefaultDetection => {
   return {
     count: output.count !== undefined && output.count !== null ? output.count : undefined,
+    occurrences:
+      output.occurrences !== undefined && output.occurrences !== null
+        ? deserializeAws_restJson1Occurrences(output.occurrences, context)
+        : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
 };
@@ -8093,7 +8174,15 @@ const deserializeAws_restJson1JobSummary = (output: any, context: __SerdeContext
     jobId: output.jobId !== undefined && output.jobId !== null ? output.jobId : undefined,
     jobStatus: output.jobStatus !== undefined && output.jobStatus !== null ? output.jobStatus : undefined,
     jobType: output.jobType !== undefined && output.jobType !== null ? output.jobType : undefined,
+    lastRunErrorStatus:
+      output.lastRunErrorStatus !== undefined && output.lastRunErrorStatus !== null
+        ? deserializeAws_restJson1LastRunErrorStatus(output.lastRunErrorStatus, context)
+        : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    userPausedDetails:
+      output.userPausedDetails !== undefined && output.userPausedDetails !== null
+        ? deserializeAws_restJson1UserPausedDetails(output.userPausedDetails, context)
+        : undefined,
   } as any;
 };
 
@@ -8106,6 +8195,12 @@ const deserializeAws_restJson1KeyValuePair = (output: any, context: __SerdeConte
 
 const deserializeAws_restJson1KeyValuePairList = (output: any, context: __SerdeContext): KeyValuePair[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1KeyValuePair(entry, context));
+};
+
+const deserializeAws_restJson1LastRunErrorStatus = (output: any, context: __SerdeContext): LastRunErrorStatus => {
+  return {
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1Member = (output: any, context: __SerdeContext): Member => {
@@ -8147,6 +8242,57 @@ const deserializeAws_restJson1ObjectCountByEncryptionType = (
   } as any;
 };
 
+const deserializeAws_restJson1ObjectLevelStatistics = (output: any, context: __SerdeContext): ObjectLevelStatistics => {
+  return {
+    fileType: output.fileType !== undefined && output.fileType !== null ? output.fileType : undefined,
+    storageClass: output.storageClass !== undefined && output.storageClass !== null ? output.storageClass : undefined,
+    total: output.total !== undefined && output.total !== null ? output.total : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Occurrences = (output: any, context: __SerdeContext): Occurrences => {
+  return {
+    cells:
+      output.cells !== undefined && output.cells !== null
+        ? deserializeAws_restJson1Cells(output.cells, context)
+        : undefined,
+    lineRanges:
+      output.lineRanges !== undefined && output.lineRanges !== null
+        ? deserializeAws_restJson1Ranges(output.lineRanges, context)
+        : undefined,
+    offsetRanges:
+      output.offsetRanges !== undefined && output.offsetRanges !== null
+        ? deserializeAws_restJson1Ranges(output.offsetRanges, context)
+        : undefined,
+    pages:
+      output.pages !== undefined && output.pages !== null
+        ? deserializeAws_restJson1Pages(output.pages, context)
+        : undefined,
+    records:
+      output.records !== undefined && output.records !== null
+        ? deserializeAws_restJson1Records(output.records, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Page = (output: any, context: __SerdeContext): Page => {
+  return {
+    lineRange:
+      output.lineRange !== undefined && output.lineRange !== null
+        ? deserializeAws_restJson1Range(output.lineRange, context)
+        : undefined,
+    offsetRange:
+      output.offsetRange !== undefined && output.offsetRange !== null
+        ? deserializeAws_restJson1Range(output.offsetRange, context)
+        : undefined,
+    pageNumber: output.pageNumber !== undefined && output.pageNumber !== null ? output.pageNumber : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Pages = (output: any, context: __SerdeContext): Page[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Page(entry, context));
+};
+
 const deserializeAws_restJson1PolicyDetails = (output: any, context: __SerdeContext): PolicyDetails => {
   return {
     action:
@@ -8158,6 +8304,29 @@ const deserializeAws_restJson1PolicyDetails = (output: any, context: __SerdeCont
         ? deserializeAws_restJson1FindingActor(output.actor, context)
         : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1Range = (output: any, context: __SerdeContext): Range => {
+  return {
+    end: output.end !== undefined && output.end !== null ? output.end : undefined,
+    start: output.start !== undefined && output.start !== null ? output.start : undefined,
+    startColumn: output.startColumn !== undefined && output.startColumn !== null ? output.startColumn : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Ranges = (output: any, context: __SerdeContext): Range[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1Range(entry, context));
+};
+
+const deserializeAws_restJson1_Record = (output: any, context: __SerdeContext): _Record => {
+  return {
+    jsonPath: output.jsonPath !== undefined && output.jsonPath !== null ? output.jsonPath : undefined,
+    recordIndex: output.recordIndex !== undefined && output.recordIndex !== null ? output.recordIndex : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Records = (output: any, context: __SerdeContext): _Record[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1_Record(entry, context));
 };
 
 const deserializeAws_restJson1ReplicationDetails = (output: any, context: __SerdeContext): ReplicationDetails => {
@@ -8493,6 +8662,19 @@ const deserializeAws_restJson1UserIdentityRoot = (output: any, context: __SerdeC
     accountId: output.accountId !== undefined && output.accountId !== null ? output.accountId : undefined,
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     principalId: output.principalId !== undefined && output.principalId !== null ? output.principalId : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UserPausedDetails = (output: any, context: __SerdeContext): UserPausedDetails => {
+  return {
+    jobExpiresAt:
+      output.jobExpiresAt !== undefined && output.jobExpiresAt !== null ? new Date(output.jobExpiresAt) : undefined,
+    jobImminentExpirationHealthEventArn:
+      output.jobImminentExpirationHealthEventArn !== undefined && output.jobImminentExpirationHealthEventArn !== null
+        ? output.jobImminentExpirationHealthEventArn
+        : undefined,
+    jobPausedAt:
+      output.jobPausedAt !== undefined && output.jobPausedAt !== null ? new Date(output.jobPausedAt) : undefined,
   } as any;
 };
 

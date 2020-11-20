@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { InviteMembersRequest, InviteMembersResponse } from "../models/models_0";
+import { InviteMembersRequest, InviteMembersResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1InviteMembersCommand,
   serializeAws_restJson1InviteMembersCommand,
@@ -44,11 +44,23 @@ export class InviteMembersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecurityHubClient";
+    const commandName = "InviteMembersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: InviteMembersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InviteMembersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -96,6 +96,7 @@ import {
   DescribePredictorRequest,
   DescribePredictorResponse,
   EncryptionConfig,
+  ErrorMetric,
   EvaluationParameters,
   EvaluationResult,
   Featurization,
@@ -541,7 +542,7 @@ export const deserializeAws_json1_1CreateDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDatasetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -612,7 +613,7 @@ export const deserializeAws_json1_1CreateDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDatasetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -699,7 +700,7 @@ export const deserializeAws_json1_1CreateDatasetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetImportJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDatasetImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -786,7 +787,7 @@ export const deserializeAws_json1_1CreateForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateForecastCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateForecastCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -873,7 +874,7 @@ export const deserializeAws_json1_1CreateForecastExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateForecastExportJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateForecastExportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -960,7 +961,7 @@ export const deserializeAws_json1_1CreatePredictorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePredictorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePredictorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1047,7 +1048,7 @@ export const deserializeAws_json1_1DeleteDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDatasetCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1115,7 +1116,7 @@ export const deserializeAws_json1_1DeleteDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDatasetGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1183,7 +1184,7 @@ export const deserializeAws_json1_1DeleteDatasetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetImportJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDatasetImportJobCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1251,7 +1252,7 @@ export const deserializeAws_json1_1DeleteForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteForecastCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteForecastCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1319,7 +1320,7 @@ export const deserializeAws_json1_1DeleteForecastExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteForecastExportJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteForecastExportJobCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1387,7 +1388,7 @@ export const deserializeAws_json1_1DeletePredictorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePredictorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeletePredictorCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1455,7 +1456,7 @@ export const deserializeAws_json1_1DescribeDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDatasetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1518,7 +1519,7 @@ export const deserializeAws_json1_1DescribeDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDatasetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1581,7 +1582,7 @@ export const deserializeAws_json1_1DescribeDatasetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetImportJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDatasetImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1644,7 +1645,7 @@ export const deserializeAws_json1_1DescribeForecastCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeForecastCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeForecastCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1707,7 +1708,7 @@ export const deserializeAws_json1_1DescribeForecastExportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeForecastExportJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeForecastExportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1770,7 +1771,7 @@ export const deserializeAws_json1_1DescribePredictorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePredictorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribePredictorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1833,7 +1834,7 @@ export const deserializeAws_json1_1GetAccuracyMetricsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccuracyMetricsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetAccuracyMetricsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1904,7 +1905,7 @@ export const deserializeAws_json1_1ListDatasetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListDatasetGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1959,7 +1960,7 @@ export const deserializeAws_json1_1ListDatasetImportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetImportJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListDatasetImportJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2022,7 +2023,7 @@ export const deserializeAws_json1_1ListDatasetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListDatasetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2077,7 +2078,7 @@ export const deserializeAws_json1_1ListForecastExportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListForecastExportJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListForecastExportJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2140,7 +2141,7 @@ export const deserializeAws_json1_1ListForecastsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListForecastsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListForecastsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2203,7 +2204,7 @@ export const deserializeAws_json1_1ListPredictorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPredictorsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPredictorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2266,7 +2267,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2329,7 +2330,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2400,7 +2401,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2463,7 +2464,7 @@ export const deserializeAws_json1_1UpdateDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatasetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateDatasetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2737,6 +2738,9 @@ const serializeAws_json1_1CreatePredictorRequest = (input: CreatePredictorReques
       FeaturizationConfig: serializeAws_json1_1FeaturizationConfig(input.FeaturizationConfig, context),
     }),
     ...(input.ForecastHorizon !== undefined && { ForecastHorizon: input.ForecastHorizon }),
+    ...(input.ForecastTypes !== undefined && {
+      ForecastTypes: serializeAws_json1_1ForecastTypes(input.ForecastTypes, context),
+    }),
     ...(input.HPOConfig !== undefined && {
       HPOConfig: serializeAws_json1_1HyperParameterTuningJobConfig(input.HPOConfig, context),
     }),
@@ -3540,6 +3544,10 @@ const deserializeAws_json1_1DescribePredictorResponse = (
         : undefined,
     ForecastHorizon:
       output.ForecastHorizon !== undefined && output.ForecastHorizon !== null ? output.ForecastHorizon : undefined,
+    ForecastTypes:
+      output.ForecastTypes !== undefined && output.ForecastTypes !== null
+        ? deserializeAws_json1_1ForecastTypes(output.ForecastTypes, context)
+        : undefined,
     HPOConfig:
       output.HPOConfig !== undefined && output.HPOConfig !== null
         ? deserializeAws_json1_1HyperParameterTuningJobConfig(output.HPOConfig, context)
@@ -3576,6 +3584,18 @@ const deserializeAws_json1_1EncryptionConfig = (output: any, context: __SerdeCon
     KMSKeyArn: output.KMSKeyArn !== undefined && output.KMSKeyArn !== null ? output.KMSKeyArn : undefined,
     RoleArn: output.RoleArn !== undefined && output.RoleArn !== null ? output.RoleArn : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ErrorMetric = (output: any, context: __SerdeContext): ErrorMetric => {
+  return {
+    ForecastType: output.ForecastType !== undefined && output.ForecastType !== null ? output.ForecastType : undefined,
+    RMSE: output.RMSE !== undefined && output.RMSE !== null ? output.RMSE : undefined,
+    WAPE: output.WAPE !== undefined && output.WAPE !== null ? output.WAPE : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ErrorMetrics = (output: any, context: __SerdeContext): ErrorMetric[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ErrorMetric(entry, context));
 };
 
 const deserializeAws_json1_1EvaluationParameters = (output: any, context: __SerdeContext): EvaluationParameters => {
@@ -3892,6 +3912,10 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
 
 const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Metrics => {
   return {
+    ErrorMetrics:
+      output.ErrorMetrics !== undefined && output.ErrorMetrics !== null
+        ? deserializeAws_json1_1ErrorMetrics(output.ErrorMetrics, context)
+        : undefined,
     RMSE: output.RMSE !== undefined && output.RMSE !== null ? output.RMSE : undefined,
     WeightedQuantileLosses:
       output.WeightedQuantileLosses !== undefined && output.WeightedQuantileLosses !== null

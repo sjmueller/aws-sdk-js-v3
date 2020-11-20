@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSolutionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSolutionsCommand(input, ...args));
+  return await client.send(new ListSolutionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Personalize,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSolutions(input, ...args);
 };
-export async function* listSolutionsPaginate(
+export async function* paginateListSolutions(
   config: PersonalizePaginationConfiguration,
   input: ListSolutionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSolutionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSolutionsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Personalize) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listSolutionsPaginate(
       throw new Error("Invalid client, expected Personalize | PersonalizeClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

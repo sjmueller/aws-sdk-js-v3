@@ -44,11 +44,23 @@ export class DeregisterDBProxyTargetsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "DeregisterDBProxyTargetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeregisterDBProxyTargetsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeregisterDBProxyTargetsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

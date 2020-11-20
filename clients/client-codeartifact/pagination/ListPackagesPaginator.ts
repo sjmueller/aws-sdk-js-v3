@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPackagesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPackagesCommand(input, ...args));
+  return await client.send(new ListPackagesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Codeartifact,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPackages(input, ...args);
 };
-export async function* listPackagesPaginate(
+export async function* paginateListPackages(
   config: CodeartifactPaginationConfiguration,
   input: ListPackagesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPackagesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPackagesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Codeartifact) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listPackagesPaginate(
       throw new Error("Invalid client, expected Codeartifact | CodeartifactClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

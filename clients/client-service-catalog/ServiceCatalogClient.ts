@@ -157,6 +157,14 @@ import {
   GetAWSOrganizationsAccessStatusCommandOutput,
 } from "./commands/GetAWSOrganizationsAccessStatusCommand";
 import {
+  GetProvisionedProductOutputsCommandInput,
+  GetProvisionedProductOutputsCommandOutput,
+} from "./commands/GetProvisionedProductOutputsCommand";
+import {
+  ImportAsProvisionedProductCommandInput,
+  ImportAsProvisionedProductCommandOutput,
+} from "./commands/ImportAsProvisionedProductCommand";
+import {
   ListAcceptedPortfolioSharesCommandInput,
   ListAcceptedPortfolioSharesCommandOutput,
 } from "./commands/ListAcceptedPortfolioSharesCommand";
@@ -355,6 +363,8 @@ export type ServiceInputTypes =
   | ExecuteProvisionedProductPlanCommandInput
   | ExecuteProvisionedProductServiceActionCommandInput
   | GetAWSOrganizationsAccessStatusCommandInput
+  | GetProvisionedProductOutputsCommandInput
+  | ImportAsProvisionedProductCommandInput
   | ListAcceptedPortfolioSharesCommandInput
   | ListBudgetsForResourceCommandInput
   | ListConstraintsForPortfolioCommandInput
@@ -440,6 +450,8 @@ export type ServiceOutputTypes =
   | ExecuteProvisionedProductPlanCommandOutput
   | ExecuteProvisionedProductServiceActionCommandOutput
   | GetAWSOrganizationsAccessStatusCommandOutput
+  | GetProvisionedProductOutputsCommandOutput
+  | ImportAsProvisionedProductCommandOutput
   | ListAcceptedPortfolioSharesCommandOutput
   | ListBudgetsForResourceCommandOutput
   | ListConstraintsForPortfolioCommandOutput
@@ -590,9 +602,10 @@ export type ServiceCatalogClientResolvedConfig = __SmithyResolvedConfiguration<_
  * <fullname>AWS Service Catalog</fullname>
  *          <p>
  *             <a href="https://aws.amazon.com/servicecatalog/">AWS Service Catalog</a> enables
- *          organizations to create and manage catalogs of IT services that are approved for use on
- *          AWS. To get the most out of this documentation, you should be familiar with the
- *          terminology discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">AWS Service Catalog Concepts</a>.</p>
+ *          organizations to create and manage catalogs of IT services that are approved for AWS. To
+ *          get the most out of this documentation, you should be familiar with the terminology
+ *          discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">AWS Service Catalog
+ *          Concepts</a>.</p>
  */
 export class ServiceCatalogClient extends __Client<
   __HttpHandlerOptions,

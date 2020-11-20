@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeReservedNodeOfferingsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeReservedNodeOfferingsCommand(input, ...args));
+  return await client.send(new DescribeReservedNodeOfferingsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Redshift,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeReservedNodeOfferings(input, ...args);
 };
-export async function* describeReservedNodeOfferingsPaginate(
+export async function* paginateDescribeReservedNodeOfferings(
   config: RedshiftPaginationConfiguration,
   input: DescribeReservedNodeOfferingsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReservedNodeOfferingsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReservedNodeOfferingsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof Redshift) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeReservedNodeOfferingsPaginate(
       throw new Error("Invalid client, expected Redshift | RedshiftClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetPersonTrackingCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetPersonTrackingCommand(input, ...args));
+  return await client.send(new GetPersonTrackingCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Rekognition,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getPersonTracking(input, ...args);
 };
-export async function* getPersonTrackingPaginate(
+export async function* paginateGetPersonTracking(
   config: RekognitionPaginationConfiguration,
   input: GetPersonTrackingCommandInput,
   ...additionalArguments: any
 ): Paginator<GetPersonTrackingCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetPersonTrackingCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Rekognition) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getPersonTrackingPaginate(
       throw new Error("Invalid client, expected Rekognition | RekognitionClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SearchUsersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SearchUsersCommand(input, ...args));
+  return await client.send(new SearchUsersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AlexaForBusiness,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchUsers(input, ...args);
 };
-export async function* searchUsersPaginate(
+export async function* paginateSearchUsers(
   config: AlexaForBusinessPaginationConfiguration,
   input: SearchUsersCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchUsersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchUsersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof AlexaForBusiness) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* searchUsersPaginate(
       throw new Error("Invalid client, expected AlexaForBusiness | AlexaForBusinessClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

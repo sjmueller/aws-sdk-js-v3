@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetCommentsForComparedCommitCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetCommentsForComparedCommitCommand(input, ...args));
+  return await client.send(new GetCommentsForComparedCommitCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeCommit,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCommentsForComparedCommit(input, ...args);
 };
-export async function* getCommentsForComparedCommitPaginate(
+export async function* paginateGetCommentsForComparedCommit(
   config: CodeCommitPaginationConfiguration,
   input: GetCommentsForComparedCommitCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCommentsForComparedCommitCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCommentsForComparedCommitCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof CodeCommit) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getCommentsForComparedCommitPaginate(
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

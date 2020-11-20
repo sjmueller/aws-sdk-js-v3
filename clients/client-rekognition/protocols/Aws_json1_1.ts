@@ -37,6 +37,10 @@ import {
   DetectModerationLabelsCommandInput,
   DetectModerationLabelsCommandOutput,
 } from "../commands/DetectModerationLabelsCommand";
+import {
+  DetectProtectiveEquipmentCommandInput,
+  DetectProtectiveEquipmentCommandOutput,
+} from "../commands/DetectProtectiveEquipmentCommand";
 import { DetectTextCommandInput, DetectTextCommandOutput } from "../commands/DetectTextCommand";
 import { GetCelebrityInfoCommandInput, GetCelebrityInfoCommandOutput } from "../commands/GetCelebrityInfoCommand";
 import {
@@ -123,6 +127,7 @@ import {
   ComparedSourceImageFace,
   ContentClassifier,
   ContentModerationDetection,
+  CoversBodyPart,
   CreateCollectionRequest,
   CreateCollectionResponse,
   CreateProjectRequest,
@@ -158,11 +163,14 @@ import {
   DetectLabelsResponse,
   DetectModerationLabelsRequest,
   DetectModerationLabelsResponse,
+  DetectProtectiveEquipmentRequest,
+  DetectProtectiveEquipmentResponse,
   DetectTextFilters,
   DetectTextRequest,
   DetectTextResponse,
   DetectionFilter,
   Emotion,
+  EquipmentDetection,
   EvaluationResult,
   EyeOpen,
   Eyeglasses,
@@ -234,6 +242,11 @@ import {
   Pose,
   ProjectDescription,
   ProjectVersionDescription,
+  ProtectiveEquipmentBodyPart,
+  ProtectiveEquipmentPerson,
+  ProtectiveEquipmentSummarizationAttributes,
+  ProtectiveEquipmentSummary,
+  ProtectiveEquipmentType,
   ProvisionedThroughputExceededException,
   Reason,
   RecognizeCelebritiesRequest,
@@ -251,6 +264,7 @@ import {
   SegmentDetection,
   SegmentType,
   SegmentTypeInfo,
+  ServiceQuotaExceededException,
   ShotSegment,
   Smile,
   StartCelebrityRecognitionRequest,
@@ -296,6 +310,7 @@ import {
   TrainingData,
   TrainingDataResult,
   UnindexedFace,
+  ValidationData,
   Video,
   VideoMetadata,
   VideoTooLargeException,
@@ -541,6 +556,19 @@ export const serializeAws_json1_1DetectModerationLabelsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DetectModerationLabelsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DetectProtectiveEquipmentCommand = async (
+  input: DetectProtectiveEquipmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "RekognitionService.DetectProtectiveEquipment",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DetectProtectiveEquipmentRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -925,7 +953,7 @@ export const deserializeAws_json1_1CompareFacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompareFacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CompareFacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1036,7 +1064,7 @@ export const deserializeAws_json1_1CreateCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCollectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateCollectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1131,7 +1159,7 @@ export const deserializeAws_json1_1CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1234,7 +1262,7 @@ export const deserializeAws_json1_1CreateProjectVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateProjectVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1345,7 +1373,7 @@ export const deserializeAws_json1_1CreateStreamProcessorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamProcessorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateStreamProcessorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1448,7 +1476,7 @@ export const deserializeAws_json1_1DeleteCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCollectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteCollectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1543,7 +1571,7 @@ export const deserializeAws_json1_1DeleteFacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteFacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1638,7 +1666,7 @@ export const deserializeAws_json1_1DeleteProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1741,7 +1769,7 @@ export const deserializeAws_json1_1DeleteProjectVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteProjectVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1844,7 +1872,7 @@ export const deserializeAws_json1_1DeleteStreamProcessorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamProcessorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteStreamProcessorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1947,7 +1975,7 @@ export const deserializeAws_json1_1DescribeCollectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCollectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeCollectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2042,7 +2070,7 @@ export const deserializeAws_json1_1DescribeProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeProjectsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2137,7 +2165,7 @@ export const deserializeAws_json1_1DescribeProjectVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectVersionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeProjectVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2240,7 +2268,7 @@ export const deserializeAws_json1_1DescribeStreamProcessorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStreamProcessorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeStreamProcessorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2335,7 +2363,7 @@ export const deserializeAws_json1_1DetectCustomLabelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectCustomLabelsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DetectCustomLabelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2470,7 +2498,7 @@ export const deserializeAws_json1_1DetectFacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectFacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DetectFacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2581,7 +2609,7 @@ export const deserializeAws_json1_1DetectLabelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectLabelsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DetectLabelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2692,7 +2720,7 @@ export const deserializeAws_json1_1DetectModerationLabelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectModerationLabelsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DetectModerationLabelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2807,11 +2835,122 @@ const deserializeAws_json1_1DetectModerationLabelsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DetectProtectiveEquipmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectProtectiveEquipmentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DetectProtectiveEquipmentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DetectProtectiveEquipmentResponse(data, context);
+  const response: DetectProtectiveEquipmentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DetectProtectiveEquipmentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetectProtectiveEquipmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.rekognition#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ImageTooLargeException":
+    case "com.amazonaws.rekognition#ImageTooLargeException":
+      response = {
+        ...(await deserializeAws_json1_1ImageTooLargeExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.rekognition#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidImageFormatException":
+    case "com.amazonaws.rekognition#InvalidImageFormatException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidImageFormatExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.rekognition#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.rekognition#InvalidS3ObjectException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ProvisionedThroughputExceededException":
+    case "com.amazonaws.rekognition#ProvisionedThroughputExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ProvisionedThroughputExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.rekognition#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DetectTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectTextCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DetectTextCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2922,7 +3061,7 @@ export const deserializeAws_json1_1GetCelebrityInfoCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCelebrityInfoCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCelebrityInfoCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3017,7 +3156,7 @@ export const deserializeAws_json1_1GetCelebrityRecognitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCelebrityRecognitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCelebrityRecognitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3120,7 +3259,7 @@ export const deserializeAws_json1_1GetContentModerationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContentModerationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetContentModerationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3223,7 +3362,7 @@ export const deserializeAws_json1_1GetFaceDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFaceDetectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetFaceDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3326,7 +3465,7 @@ export const deserializeAws_json1_1GetFaceSearchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFaceSearchCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetFaceSearchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3429,7 +3568,7 @@ export const deserializeAws_json1_1GetLabelDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLabelDetectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetLabelDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3532,7 +3671,7 @@ export const deserializeAws_json1_1GetPersonTrackingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPersonTrackingCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetPersonTrackingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3635,7 +3774,7 @@ export const deserializeAws_json1_1GetSegmentDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSegmentDetectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSegmentDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3738,7 +3877,7 @@ export const deserializeAws_json1_1GetTextDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTextDetectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetTextDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3841,7 +3980,7 @@ export const deserializeAws_json1_1IndexFacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IndexFacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1IndexFacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3931,6 +4070,14 @@ const deserializeAws_json1_1IndexFacesCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.rekognition#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ThrottlingException":
     case "com.amazonaws.rekognition#ThrottlingException":
       response = {
@@ -3960,7 +4107,7 @@ export const deserializeAws_json1_1ListCollectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCollectionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListCollectionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4063,7 +4210,7 @@ export const deserializeAws_json1_1ListFacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListFacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4166,7 +4313,7 @@ export const deserializeAws_json1_1ListStreamProcessorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamProcessorsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListStreamProcessorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4261,7 +4408,7 @@ export const deserializeAws_json1_1RecognizeCelebritiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RecognizeCelebritiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RecognizeCelebritiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4372,7 +4519,7 @@ export const deserializeAws_json1_1SearchFacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchFacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchFacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4467,7 +4614,7 @@ export const deserializeAws_json1_1SearchFacesByImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchFacesByImageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchFacesByImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4586,7 +4733,7 @@ export const deserializeAws_json1_1StartCelebrityRecognitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartCelebrityRecognitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartCelebrityRecognitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4705,7 +4852,7 @@ export const deserializeAws_json1_1StartContentModerationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartContentModerationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartContentModerationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4824,7 +4971,7 @@ export const deserializeAws_json1_1StartFaceDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFaceDetectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartFaceDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4943,7 +5090,7 @@ export const deserializeAws_json1_1StartFaceSearchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFaceSearchCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartFaceSearchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5070,7 +5217,7 @@ export const deserializeAws_json1_1StartLabelDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartLabelDetectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartLabelDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5189,7 +5336,7 @@ export const deserializeAws_json1_1StartPersonTrackingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartPersonTrackingCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartPersonTrackingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5308,7 +5455,7 @@ export const deserializeAws_json1_1StartProjectVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartProjectVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartProjectVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5419,7 +5566,7 @@ export const deserializeAws_json1_1StartSegmentDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSegmentDetectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartSegmentDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5538,7 +5685,7 @@ export const deserializeAws_json1_1StartStreamProcessorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartStreamProcessorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartStreamProcessorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5641,7 +5788,7 @@ export const deserializeAws_json1_1StartTextDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartTextDetectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartTextDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5760,7 +5907,7 @@ export const deserializeAws_json1_1StopProjectVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopProjectVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopProjectVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5863,7 +6010,7 @@ export const deserializeAws_json1_1StopStreamProcessorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopStreamProcessorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopStreamProcessorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6187,6 +6334,21 @@ const deserializeAws_json1_1ResourceNotReadyExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ServiceQuotaExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ServiceQuotaExceededException(body, context);
+  const contents: ServiceQuotaExceededException = {
+    name: "ServiceQuotaExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ThrottlingExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -6428,6 +6590,21 @@ const serializeAws_json1_1DetectModerationLabelsRequest = (
   };
 };
 
+const serializeAws_json1_1DetectProtectiveEquipmentRequest = (
+  input: DetectProtectiveEquipmentRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Image !== undefined && { Image: serializeAws_json1_1Image(input.Image, context) }),
+    ...(input.SummarizationAttributes !== undefined && {
+      SummarizationAttributes: serializeAws_json1_1ProtectiveEquipmentSummarizationAttributes(
+        input.SummarizationAttributes,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_json1_1DetectTextFilters = (input: DetectTextFilters, context: __SerdeContext): any => {
   return {
     ...(input.RegionsOfInterest !== undefined && {
@@ -6640,6 +6817,25 @@ const serializeAws_json1_1OutputConfig = (input: OutputConfig, context: __SerdeC
     ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
     ...(input.S3KeyPrefix !== undefined && { S3KeyPrefix: input.S3KeyPrefix }),
   };
+};
+
+const serializeAws_json1_1ProtectiveEquipmentSummarizationAttributes = (
+  input: ProtectiveEquipmentSummarizationAttributes,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MinConfidence !== undefined && { MinConfidence: input.MinConfidence }),
+    ...(input.RequiredEquipmentTypes !== undefined && {
+      RequiredEquipmentTypes: serializeAws_json1_1ProtectiveEquipmentTypes(input.RequiredEquipmentTypes, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1ProtectiveEquipmentTypes = (
+  input: (ProtectiveEquipmentType | string)[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1RecognizeCelebritiesRequest = (
@@ -7000,6 +7196,10 @@ const deserializeAws_json1_1Beard = (output: any, context: __SerdeContext): Bear
   } as any;
 };
 
+const deserializeAws_json1_1BodyParts = (output: any, context: __SerdeContext): ProtectiveEquipmentBodyPart[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ProtectiveEquipmentBodyPart(entry, context));
+};
+
 const deserializeAws_json1_1BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
   return {
     Height: output.Height !== undefined && output.Height !== null ? output.Height : undefined,
@@ -7162,6 +7362,13 @@ const deserializeAws_json1_1ContentModerationDetections = (
   context: __SerdeContext
 ): ContentModerationDetection[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1ContentModerationDetection(entry, context));
+};
+
+const deserializeAws_json1_1CoversBodyPart = (output: any, context: __SerdeContext): CoversBodyPart => {
+  return {
+    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
+    Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1CreateCollectionResponse = (
@@ -7404,6 +7611,26 @@ const deserializeAws_json1_1DetectModerationLabelsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DetectProtectiveEquipmentResponse = (
+  output: any,
+  context: __SerdeContext
+): DetectProtectiveEquipmentResponse => {
+  return {
+    Persons:
+      output.Persons !== undefined && output.Persons !== null
+        ? deserializeAws_json1_1ProtectiveEquipmentPersons(output.Persons, context)
+        : undefined,
+    ProtectiveEquipmentModelVersion:
+      output.ProtectiveEquipmentModelVersion !== undefined && output.ProtectiveEquipmentModelVersion !== null
+        ? output.ProtectiveEquipmentModelVersion
+        : undefined,
+    Summary:
+      output.Summary !== undefined && output.Summary !== null
+        ? deserializeAws_json1_1ProtectiveEquipmentSummary(output.Summary, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DetectTextResponse = (output: any, context: __SerdeContext): DetectTextResponse => {
   return {
     TextDetections:
@@ -7424,6 +7651,25 @@ const deserializeAws_json1_1Emotion = (output: any, context: __SerdeContext): Em
 
 const deserializeAws_json1_1Emotions = (output: any, context: __SerdeContext): Emotion[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1Emotion(entry, context));
+};
+
+const deserializeAws_json1_1EquipmentDetection = (output: any, context: __SerdeContext): EquipmentDetection => {
+  return {
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
+    CoversBodyPart:
+      output.CoversBodyPart !== undefined && output.CoversBodyPart !== null
+        ? deserializeAws_json1_1CoversBodyPart(output.CoversBodyPart, context)
+        : undefined,
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1EquipmentDetections = (output: any, context: __SerdeContext): EquipmentDetection[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1EquipmentDetection(entry, context));
 };
 
 const deserializeAws_json1_1EvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
@@ -8200,6 +8446,10 @@ const deserializeAws_json1_1ProjectVersionDescription = (
       output.EvaluationResult !== undefined && output.EvaluationResult !== null
         ? deserializeAws_json1_1EvaluationResult(output.EvaluationResult, context)
         : undefined,
+    ManifestSummary:
+      output.ManifestSummary !== undefined && output.ManifestSummary !== null
+        ? deserializeAws_json1_1GroundTruthManifest(output.ManifestSummary, context)
+        : undefined,
     MinInferenceUnits:
       output.MinInferenceUnits !== undefined && output.MinInferenceUnits !== null
         ? output.MinInferenceUnits
@@ -8235,6 +8485,69 @@ const deserializeAws_json1_1ProjectVersionDescriptions = (
   context: __SerdeContext
 ): ProjectVersionDescription[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1ProjectVersionDescription(entry, context));
+};
+
+const deserializeAws_json1_1ProtectiveEquipmentBodyPart = (
+  output: any,
+  context: __SerdeContext
+): ProtectiveEquipmentBodyPart => {
+  return {
+    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
+    EquipmentDetections:
+      output.EquipmentDetections !== undefined && output.EquipmentDetections !== null
+        ? deserializeAws_json1_1EquipmentDetections(output.EquipmentDetections, context)
+        : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ProtectiveEquipmentPerson = (
+  output: any,
+  context: __SerdeContext
+): ProtectiveEquipmentPerson => {
+  return {
+    BodyParts:
+      output.BodyParts !== undefined && output.BodyParts !== null
+        ? deserializeAws_json1_1BodyParts(output.BodyParts, context)
+        : undefined,
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Confidence: output.Confidence !== undefined && output.Confidence !== null ? output.Confidence : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ProtectiveEquipmentPersonIds = (output: any, context: __SerdeContext): number[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ProtectiveEquipmentPersons = (
+  output: any,
+  context: __SerdeContext
+): ProtectiveEquipmentPerson[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ProtectiveEquipmentPerson(entry, context));
+};
+
+const deserializeAws_json1_1ProtectiveEquipmentSummary = (
+  output: any,
+  context: __SerdeContext
+): ProtectiveEquipmentSummary => {
+  return {
+    PersonsIndeterminate:
+      output.PersonsIndeterminate !== undefined && output.PersonsIndeterminate !== null
+        ? deserializeAws_json1_1ProtectiveEquipmentPersonIds(output.PersonsIndeterminate, context)
+        : undefined,
+    PersonsWithRequiredEquipment:
+      output.PersonsWithRequiredEquipment !== undefined && output.PersonsWithRequiredEquipment !== null
+        ? deserializeAws_json1_1ProtectiveEquipmentPersonIds(output.PersonsWithRequiredEquipment, context)
+        : undefined,
+    PersonsWithoutRequiredEquipment:
+      output.PersonsWithoutRequiredEquipment !== undefined && output.PersonsWithoutRequiredEquipment !== null
+        ? deserializeAws_json1_1ProtectiveEquipmentPersonIds(output.PersonsWithoutRequiredEquipment, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ProvisionedThroughputExceededException = (
@@ -8401,6 +8714,17 @@ const deserializeAws_json1_1SegmentTypeInfo = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1SegmentTypesInfo = (output: any, context: __SerdeContext): SegmentTypeInfo[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1SegmentTypeInfo(entry, context));
+};
+
+const deserializeAws_json1_1ServiceQuotaExceededException = (
+  output: any,
+  context: __SerdeContext
+): ServiceQuotaExceededException => {
+  return {
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Logref: output.Logref !== undefined && output.Logref !== null ? output.Logref : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ShotSegment = (output: any, context: __SerdeContext): ShotSegment => {
@@ -8605,6 +8929,10 @@ const deserializeAws_json1_1TestingDataResult = (output: any, context: __SerdeCo
       output.Output !== undefined && output.Output !== null
         ? deserializeAws_json1_1TestingData(output.Output, context)
         : undefined,
+    Validation:
+      output.Validation !== undefined && output.Validation !== null
+        ? deserializeAws_json1_1ValidationData(output.Validation, context)
+        : undefined,
   } as any;
 };
 
@@ -8667,6 +8995,10 @@ const deserializeAws_json1_1TrainingDataResult = (output: any, context: __SerdeC
       output.Output !== undefined && output.Output !== null
         ? deserializeAws_json1_1TrainingData(output.Output, context)
         : undefined,
+    Validation:
+      output.Validation !== undefined && output.Validation !== null
+        ? deserializeAws_json1_1ValidationData(output.Validation, context)
+        : undefined,
   } as any;
 };
 
@@ -8689,6 +9021,15 @@ const deserializeAws_json1_1UnindexedFaces = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1Urls = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ValidationData = (output: any, context: __SerdeContext): ValidationData => {
+  return {
+    Assets:
+      output.Assets !== undefined && output.Assets !== null
+        ? deserializeAws_json1_1Assets(output.Assets, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1VideoMetadata = (output: any, context: __SerdeContext): VideoMetadata => {

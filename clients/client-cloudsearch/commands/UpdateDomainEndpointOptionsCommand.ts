@@ -44,11 +44,23 @@ export class UpdateDomainEndpointOptionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudSearchClient";
+    const commandName = "UpdateDomainEndpointOptionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDomainEndpointOptionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDomainEndpointOptionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

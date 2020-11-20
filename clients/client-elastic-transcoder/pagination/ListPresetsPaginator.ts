@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPresetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPresetsCommand(input, ...args));
+  return await client.send(new ListPresetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElasticTranscoder,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPresets(input, ...args);
 };
-export async function* listPresetsPaginate(
+export async function* paginateListPresets(
   config: ElasticTranscoderPaginationConfiguration,
   input: ListPresetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPresetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPresetsCommandOutput;
   while (hasNext) {
-    input["PageToken"] = token;
+    input.PageToken = token;
     if (config.client instanceof ElasticTranscoder) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof ElasticTranscoderClient) {
@@ -38,7 +38,7 @@ export async function* listPresetsPaginate(
       throw new Error("Invalid client, expected ElasticTranscoder | ElasticTranscoderClient");
     }
     yield page;
-    token = page["NextPageToken"];
+    token = page.NextPageToken;
     hasNext = !!token;
   }
   // @ts-ignore

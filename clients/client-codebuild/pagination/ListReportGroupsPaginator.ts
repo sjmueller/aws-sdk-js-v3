@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListReportGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListReportGroupsCommand(input, ...args));
+  return await client.send(new ListReportGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeBuild,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listReportGroups(input, ...args);
 };
-export async function* listReportGroupsPaginate(
+export async function* paginateListReportGroups(
   config: CodeBuildPaginationConfiguration,
   input: ListReportGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListReportGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListReportGroupsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof CodeBuild) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listReportGroupsPaginate(
       throw new Error("Invalid client, expected CodeBuild | CodeBuildClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

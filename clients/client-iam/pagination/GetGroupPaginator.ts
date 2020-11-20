@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetGroupCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetGroupCommand(input, ...args));
+  return await client.send(new GetGroupCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IAM,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getGroup(input, ...args);
 };
-export async function* getGroupPaginate(
+export async function* paginateGetGroup(
   config: IAMPaginationConfiguration,
   input: GetGroupCommandInput,
   ...additionalArguments: any
 ): Paginator<GetGroupCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetGroupCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof IAM) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* getGroupPaginate(
       throw new Error("Invalid client, expected IAM | IAMClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

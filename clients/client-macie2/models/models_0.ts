@@ -7,7 +7,7 @@ export enum AdminStatus {
 }
 
 /**
- * <p>Provides information about an account that's designated as a delegated administrator of Amazon Macie for an AWS organization.</p>
+ * <p>Provides information about the delegated Amazon Macie administrator account for an AWS organization.</p>
  */
 export interface AdminAccount {
   /**
@@ -37,9 +37,9 @@ export interface BatchGetCustomDataIdentifierSummary {
   arn?: string;
 
   /**
-   * <p>The unique identifier for the custom data identifier.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.</p>
    */
-  id?: string;
+  createdAt?: Date;
 
   /**
    * <p>Specifies whether the custom data identifier was deleted. If you delete a custom data identifier, Amazon Macie doesn't delete it permanently. Instead, it soft deletes the identifier.</p>
@@ -47,14 +47,14 @@ export interface BatchGetCustomDataIdentifierSummary {
   deleted?: boolean;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
    * <p>The custom description of the custom data identifier.</p>
    */
   description?: string;
+
+  /**
+   * <p>The unique identifier for the custom data identifier.</p>
+   */
+  id?: string;
 
   /**
    * <p>The custom name of the custom data identifier.</p>
@@ -73,14 +73,14 @@ export namespace BatchGetCustomDataIdentifierSummary {
  */
 export interface ObjectCountByEncryptionType {
   /**
-   * <p>The total number of objects that aren't encrypted or use client-side encryption.</p>
-   */
-  unencrypted?: number;
-
-  /**
    * <p>The total number of objects that are encrypted using a customer-managed key. The objects use customer-provided server-side (SSE-C) encryption.</p>
    */
   customerManaged?: number;
+
+  /**
+   * <p>The total number of objects that are encrypted using an AWS Key Management Service (AWS KMS) customer master key (CMK). The objects use AWS KMS AWS-managed (AWS-KMS) encryption or AWS KMS customer-managed (SSE-KMS) encryption.</p>
+   */
+  kmsManaged?: number;
 
   /**
    * <p>The total number of objects that are encrypted using an Amazon S3-managed key. The objects use Amazon S3-managed (SSE-S3) encryption.</p>
@@ -88,9 +88,9 @@ export interface ObjectCountByEncryptionType {
   s3Managed?: number;
 
   /**
-   * <p>The total number of objects that are encrypted using an AWS Key Management Service (AWS KMS) customer master key (CMK). The objects use AWS KMS AWS-managed (AWS-KMS) encryption or AWS KMS customer-managed (SSE-KMS) encryption.</p>
+   * <p>The total number of objects that aren't encrypted or use client-side encryption.</p>
    */
-  kmsManaged?: number;
+  unencrypted?: number;
 }
 
 export namespace ObjectCountByEncryptionType {
@@ -102,6 +102,7 @@ export namespace ObjectCountByEncryptionType {
 export enum EffectivePermission {
   NOT_PUBLIC = "NOT_PUBLIC",
   PUBLIC = "PUBLIC",
+  UNKNOWN = "UNKNOWN",
 }
 
 /**
@@ -109,14 +110,14 @@ export enum EffectivePermission {
  */
 export interface BlockPublicAccess {
   /**
-   * <p>Specifies whether Amazon S3 restricts public bucket policies for the bucket.</p>
-   */
-  restrictPublicBuckets?: boolean;
-
-  /**
    * <p>Specifies whether Amazon S3 blocks public access control lists (ACLs) for the bucket and objects in the bucket.</p>
    */
   blockPublicAcls?: boolean;
+
+  /**
+   * <p>Specifies whether Amazon S3 blocks public bucket policies for the bucket.</p>
+   */
+  blockPublicPolicy?: boolean;
 
   /**
    * <p>Specifies whether Amazon S3 ignores public ACLs for the bucket and objects in the bucket.</p>
@@ -124,9 +125,9 @@ export interface BlockPublicAccess {
   ignorePublicAcls?: boolean;
 
   /**
-   * <p>Specifies whether Amazon S3 blocks public bucket policies for the bucket.</p>
+   * <p>Specifies whether Amazon S3 restricts public bucket policies for the bucket.</p>
    */
-  blockPublicPolicy?: boolean;
+  restrictPublicBuckets?: boolean;
 }
 
 export namespace BlockPublicAccess {
@@ -194,7 +195,7 @@ export namespace BucketPolicy {
 }
 
 /**
- * <p>Provides information about bucket-level permissions settings for an S3 bucket.</p>
+ * <p>Provides information about the bucket-level permissions settings for an S3 bucket.</p>
  */
 export interface BucketLevelPermissions {
   /**
@@ -220,18 +221,18 @@ export namespace BucketLevelPermissions {
 }
 
 /**
- * <p>The account-level and bucket-level permissions settings for an S3 bucket.</p>
+ * <p>Provides information about the account-level and bucket-level permissions settings for an S3 bucket.</p>
  */
 export interface BucketPermissionConfiguration {
-  /**
-   * <p>The bucket-level permissions settings for the bucket.</p>
-   */
-  bucketLevelPermissions?: BucketLevelPermissions;
-
   /**
    * <p>The account-level permissions settings that apply to the bucket.</p>
    */
   accountLevelPermissions?: AccountLevelPermissions;
+
+  /**
+   * <p>The bucket-level permissions settings for the bucket.</p>
+   */
+  bucketLevelPermissions?: BucketLevelPermissions;
 }
 
 export namespace BucketPermissionConfiguration {
@@ -241,11 +242,11 @@ export namespace BucketPermissionConfiguration {
 }
 
 /**
- * <p>Provides information about permissions settings that determine whether an S3 bucket is publicly accessible.</p>
+ * <p>Provides information about the permissions settings that determine whether an S3 bucket is publicly accessible.</p>
  */
 export interface BucketPublicAccess {
   /**
-   * <p>Specifies whether the bucket is publicly accessible due to the combination of permissions settings that apply to the bucket. Possible values are: PUBLIC, the bucket is publicly accessible; and, NOT_PUBLIC, the bucket isn't publicly accessible.</p>
+   * <p>Specifies whether the bucket is publicly accessible due to the combination of permissions settings that apply to the bucket. Possible values are:</p> <ul><li><p>NOT_PUBLIC - The bucket isn't publicly accessible.</p></li> <li><p>PUBLIC - The bucket is publicly accessible.</p></li> <li><p>UNKNOWN - Amazon Macie can't determine whether the bucket is publicly accessible.</p></li></ul>
    */
   effectivePermission?: EffectivePermission | string;
 
@@ -271,7 +272,7 @@ export interface ReplicationDetails {
   replicated?: boolean;
 
   /**
-   * <p>Specifies whether the bucket is configured to replicate one or more objects to an AWS account that isn't part of the Amazon Macie organization.</p>
+   * <p>Specifies whether the bucket is configured to replicate one or more objects to an AWS account that isn't part of the same Amazon Macie organization.</p>
    */
   replicatedExternally?: boolean;
 
@@ -291,6 +292,7 @@ export enum SharedAccess {
   EXTERNAL = "EXTERNAL",
   INTERNAL = "INTERNAL",
   NOT_SHARED = "NOT_SHARED",
+  UNKNOWN = "UNKNOWN",
 }
 
 /**
@@ -298,14 +300,14 @@ export enum SharedAccess {
  */
 export interface KeyValuePair {
   /**
-   * <p>One part of a key-value pair that comprises a tag. A tag value acts as a descriptor for a tag key. A tag value can be empty or null.</p>
-   */
-  value?: string;
-
-  /**
    * <p>One part of a key-value pair that comprises a tag. A tag key is a general label that acts as a category for more specific tag values.</p>
    */
   key?: string;
+
+  /**
+   * <p>One part of a key-value pair that comprises a tag. A tag value acts as a descriptor for a tag key. A tag value can be an empty string.</p>
+   */
+  value?: string;
 }
 
 export namespace KeyValuePair {
@@ -315,61 +317,37 @@ export namespace KeyValuePair {
 }
 
 /**
+ * <p>Provides information about the total storage size (in bytes) or number of objects that Amazon Macie can't analyze in one or more S3 buckets. In a BucketMetadata object, this data is for a specific bucket. In a GetBucketStatisticsResponse object, this data is aggregated for all the buckets in the query results.</p>
+ */
+export interface ObjectLevelStatistics {
+  /**
+   * <p>The total storage size (in bytes) or number of objects that Amazon Macie can't analyze because the objects don't have a file name extension for a supported file or storage format.</p>
+   */
+  fileType?: number;
+
+  /**
+   * <p>The total storage size (in bytes) or number of objects that Amazon Macie can't analyze because the objects use an unsupported storage class.</p>
+   */
+  storageClass?: number;
+
+  /**
+   * <p>The total storage size (in bytes) or number of objects that Amazon Macie can't analyze because the objects use an unsupported storage class or don't have a file name extension for a supported file or storage format.</p>
+   */
+  total?: number;
+}
+
+export namespace ObjectLevelStatistics {
+  export const filterSensitiveLog = (obj: ObjectLevelStatistics): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>Provides information about an S3 bucket that Amazon Macie monitors and analyzes.</p>
  */
 export interface BucketMetadata {
   /**
-   * <p>The total number of objects in the bucket.</p>
-   */
-  objectCount?: number;
-
-  /**
-   * <p>The total number of objects that Amazon Macie can analyze in the bucket. These objects use a file format, file extension, or content type that Amazon Macie supports.</p>
-   */
-  classifiableObjectCount?: number;
-
-  /**
-   * <p>The total storage size, in bytes, of the bucket.</p>
-   */
-  sizeInBytes?: number;
-
-  /**
-   * <p>Specifies whether the bucket is shared with another AWS account. Valid values are:</p> <ul><li><p>EXTERNAL - The bucket is shared with an AWS account that isn’t part of the same Amazon Macie organization.</p></li> <li><p>INTERNAL - The bucket is shared with an AWS account that's part of the same Amazon Macie organization.</p></li> <li><p>NOT_SHARED - The bucket isn't shared with other AWS accounts.</p></li></ul>
-   */
-  sharedAccess?: SharedAccess | string;
-
-  /**
-   * <p>The name of the bucket.</p>
-   */
-  bucketName?: string;
-
-  /**
-   * <p>The total number of objects that are in the bucket, grouped by server-side encryption type. This includes a grouping that reports the total number of objects that aren't encrypted or use client-side encryption.</p>
-   */
-  objectCountByEncryptionType?: ObjectCountByEncryptionType;
-
-  /**
-   * <p>Specifies whether the bucket is configured to replicate one or more objects to buckets for other AWS accounts and, if so, which accounts.</p>
-   */
-  replicationDetails?: ReplicationDetails;
-
-  /**
-   * <p>The AWS Region that hosts the bucket.</p>
-   */
-  region?: string;
-
-  /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when the bucket was created.</p>
-   */
-  bucketCreatedAt?: Date;
-
-  /**
-   * <p>The total compressed storage size, in bytes, of the bucket.</p>
-   */
-  sizeInBytesCompressed?: number;
-
-  /**
-   * <p>The unique identifier for the AWS account that's associated with the bucket.</p>
+   * <p>The unique identifier for the AWS account that owns the bucket.</p>
    */
   accountId?: string;
 
@@ -379,9 +357,39 @@ export interface BucketMetadata {
   bucketArn?: string;
 
   /**
-   * <p>An array that specifies the tags (keys and values) that are associated with the bucket.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the bucket was created.</p>
    */
-  tags?: KeyValuePair[];
+  bucketCreatedAt?: Date;
+
+  /**
+   * <p>The name of the bucket.</p>
+   */
+  bucketName?: string;
+
+  /**
+   * <p>The total number of objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p>
+   */
+  classifiableObjectCount?: number;
+
+  /**
+   * <p>The total storage size, in bytes, of the objects that Amazon Macie can analyze in the bucket. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p>
+   */
+  classifiableSizeInBytes?: number;
+
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently retrieved data about the bucket from Amazon S3.</p>
+   */
+  lastUpdated?: Date;
+
+  /**
+   * <p>The total number of objects in the bucket.</p>
+   */
+  objectCount?: number;
+
+  /**
+   * <p>The total number of objects that are in the bucket, grouped by server-side encryption type. This includes a grouping that reports the total number of objects that aren't encrypted or use client-side encryption.</p>
+   */
+  objectCountByEncryptionType?: ObjectCountByEncryptionType;
 
   /**
    * <p>Specifies whether the bucket is publicly accessible. If this value is true, an access control list (ACL), bucket policy, or block public access settings allow the bucket to be accessed by the general public.</p>
@@ -389,9 +397,44 @@ export interface BucketMetadata {
   publicAccess?: BucketPublicAccess;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie last analyzed the bucket.</p>
+   * <p>The AWS Region that hosts the bucket.</p>
    */
-  lastUpdated?: Date;
+  region?: string;
+
+  /**
+   * <p>Specifies whether the bucket is configured to replicate one or more objects to buckets for other AWS accounts and, if so, which accounts.</p>
+   */
+  replicationDetails?: ReplicationDetails;
+
+  /**
+   * <p>Specifies whether the bucket is shared with another AWS account. Possible values are:</p> <ul><li><p>EXTERNAL - The bucket is shared with an AWS account that isn't part of the same Amazon Macie organization.</p></li> <li><p>INTERNAL - The bucket is shared with an AWS account that's part of the same Amazon Macie organization.</p></li> <li><p>NOT_SHARED - The bucket isn't shared with other AWS accounts.</p></li> <li><p>UNKNOWN - Amazon Macie wasn't able to evaluate the shared access settings for the bucket.</p></li></ul>
+   */
+  sharedAccess?: SharedAccess | string;
+
+  /**
+   * <p>The total storage size, in bytes, of the bucket.</p>
+   */
+  sizeInBytes?: number;
+
+  /**
+   * <p>The total compressed storage size, in bytes, of the bucket.</p>
+   */
+  sizeInBytesCompressed?: number;
+
+  /**
+   * <p>An array that specifies the tags (keys and values) that are associated with the bucket.</p>
+   */
+  tags?: KeyValuePair[];
+
+  /**
+   * <p>The total number of objects that Amazon Macie can't analyze in the bucket. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format.</p>
+   */
+  unclassifiableObjectCount?: ObjectLevelStatistics;
+
+  /**
+   * <p>The total storage size, in bytes, of the objects that Amazon Macie can't analyze in the bucket. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format.</p>
+   */
+  unclassifiableObjectSizeInBytes?: ObjectLevelStatistics;
 
   /**
    * <p>Specifies whether versioning is enabled for the bucket.</p>
@@ -410,9 +453,14 @@ export namespace BucketMetadata {
  */
 export interface CustomDataIdentifierSummary {
   /**
-   * <p>The custom name of the custom data identifier.</p>
+   * <p>The Amazon Resource Name (ARN) of the custom data identifier.</p>
    */
-  name?: string;
+  arn?: string;
+
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.</p>
+   */
+  createdAt?: Date;
 
   /**
    * <p>The custom description of the custom data identifier.</p>
@@ -425,14 +473,9 @@ export interface CustomDataIdentifierSummary {
   id?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the custom data identifier.</p>
+   * <p>The custom name of the custom data identifier.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.</p>
-   */
-  createdAt?: Date;
+  name?: string;
 }
 
 export namespace CustomDataIdentifierSummary {
@@ -447,11 +490,156 @@ export enum FindingCategory {
 }
 
 /**
- * <p>Provides information about a custom data identifier that produced a sensitive data finding, and the number of occurrences of the data that it detected for the finding.</p>
+ * <p>Specifies the location of an occurrence of sensitive data in a Microsoft Excel workbook, CSV file, or TSV file.</p>
+ */
+export interface Cell {
+  /**
+   * <p>The location of the cell, as an absolute cell reference, that contains the data. For example, Sheet2!C5 for cell C5 on Sheet2 in a Microsoft Excel workbook. This value is null for CSV and TSV files.</p>
+   */
+  cellReference?: string;
+
+  /**
+   * <p>The column number of the column that contains the data. For a Microsoft Excel workbook, this value correlates to the alphabetical character(s) for a column identifier. For example, 1 for column A, 2 for column B, and so on.</p>
+   */
+  column?: number;
+
+  /**
+   * <p>The name of the column that contains the data, if available.</p>
+   */
+  columnName?: string;
+
+  /**
+   * <p>The row number of the row that contains the data.</p>
+   */
+  row?: number;
+}
+
+export namespace Cell {
+  export const filterSensitiveLog = (obj: Cell): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides details about the location of an occurrence of sensitive data in an Adobe Portable Document Format file, Microsoft Word document, or non-binary text file.</p>
+ */
+export interface Range {
+  /**
+   * <p>Possible values are:</p> <ul><li><p>In an Occurrences.lineRanges array, the number of lines from the beginning of the file to the end of the sensitive data.</p></li> <li><p>In an Occurrences.offsetRanges array, the number of characters from the beginning of the file to the end of the sensitive data.</p></li> <li><p>In a Page object, the number of lines (lineRange) or characters (offsetRange) from the beginning of the page to the end of the sensitive data.</p></li></ul>
+   */
+  end?: number;
+
+  /**
+   * <p>Possible values are:</p> <ul><li><p>In an Occurrences.lineRanges array, the number of lines from the beginning of the file to the beginning of the sensitive data.</p></li> <li><p>In an Occurrences.offsetRanges array, the number of characters from the beginning of the file to the beginning of the sensitive data.</p></li> <li><p>In a Page object, the number of lines (lineRange) or characters (offsetRange) from the beginning of the page to the beginning of the sensitive data.</p></li></ul>
+   */
+  start?: number;
+
+  /**
+   * <p>The column number for the column that contains the data, if the file contains structured data.</p>
+   */
+  startColumn?: number;
+}
+
+export namespace Range {
+  export const filterSensitiveLog = (obj: Range): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the location of an occurrence of sensitive data in an Adobe Portable Document Format file.</p>
+ */
+export interface Page {
+  /**
+   * <p>The line that contains the data, and the position of the data on that line.</p>
+   */
+  lineRange?: Range;
+
+  /**
+   * <p>The position of the data on the page, relative to the beginning of the page.</p>
+   */
+  offsetRange?: Range;
+
+  /**
+   * <p>The page number of the page that contains the data.</p>
+   */
+  pageNumber?: number;
+}
+
+export namespace Page {
+  export const filterSensitiveLog = (obj: Page): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies the location of an occurrence of sensitive data in an Apache Avro object container or Apache Parquet file.</p>
+ */
+export interface _Record {
+  /**
+   * <p>The path, as a JSONPath expression, to the field in the record that contains the data.</p> <p>If the name of an element exceeds 20 characters, Amazon Macie truncates the name by removing characters from the beginning of the name. If the resulting full path exceeds 250 characters, Macie also truncates the path, starting with the first element in the path, until the path contains 250 or fewer characters.</p>
+   */
+  jsonPath?: string;
+
+  /**
+   * <p>The record index, starting from 0, for the record that contains the data.</p>
+   */
+  recordIndex?: number;
+}
+
+export namespace _Record {
+  export const filterSensitiveLog = (obj: _Record): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides the location of 1-15 occurrences of sensitive data that was detected by managed data identifiers or a custom data identifier and produced a sensitive data finding.</p>
+ */
+export interface Occurrences {
+  /**
+   * <p>An array of objects, one for each occurrence of sensitive data in a Microsoft Excel workbook, CSV file, or TSV file. Each object specifies the cell or field that contains the data. This value is null for all other types of files.</p>
+   */
+  cells?: Cell[];
+
+  /**
+   * <p>An array of objects, one for each occurrence of sensitive data in a Microsoft Word document or non-binary text file, such as an HTML, JSON, TXT, or XML file. Each object specifies the line that contains the data, and the position of the data on that line.</p> <p>This value is often null for file types that are supported by Cell, Page, or Record objects. Exceptions are the locations of: data in unstructured sections of an otherwise structured file, such as a comment in a file; and, data in a malformed file that Amazon Macie analyzes as plain text.</p>
+   */
+  lineRanges?: Range[];
+
+  /**
+   * <p>An array of objects, one for each occurrence of sensitive data in a binary text file. Each object specifies the position of the data relative to the beginning of the file.</p> <p>This value is typically null. For binary text files, Amazon Macie adds location data to a lineRanges.Range or Page object, depending on the file type.</p>
+   */
+  offsetRanges?: Range[];
+
+  /**
+   * <p>An array of objects, one for each occurrence of sensitive data in an Adobe Portable Document Format file. Each object specifies the page that contains the data, and the position of the data on that page. This value is null for all other types of files.</p>
+   */
+  pages?: Page[];
+
+  /**
+   * <p>An array of objects, one for each occurrence of sensitive data in an Apache Avro object container or Apache Parquet file. Each object specifies the record index and the path to the field in the record that contains the data. This value is null for all other types of files.</p>
+   */
+  records?: _Record[];
+}
+
+export namespace Occurrences {
+  export const filterSensitiveLog = (obj: Occurrences): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about a custom data identifier that produced a sensitive data finding, and the sensitive data that it detected for the finding.</p>
  */
 export interface CustomDetection {
   /**
-   * <p>The total number of occurrences of the data that the custom data identifier detected for the finding.</p>
+   * <p>The Amazon Resource Name (ARN) of the custom data identifier.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The total number of occurrences of the sensitive data that the custom data identifier detected.</p>
    */
   count?: number;
 
@@ -461,9 +649,9 @@ export interface CustomDetection {
   name?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the custom data identifier.</p>
+   * <p>The location of 1-15 occurrences of the sensitive data that the custom data identifier detected. A finding includes location data for a maximum of 15 occurrences of sensitive data.</p>
    */
-  arn?: string;
+  occurrences?: Occurrences;
 }
 
 export namespace CustomDetection {
@@ -473,7 +661,7 @@ export namespace CustomDetection {
 }
 
 /**
- * <p>Provides information about the number of occurrences of the data that produced a sensitive data finding, and the custom data identifiers that detected the data for the finding.</p>
+ * <p>Provides information about custom data identifiers that produced a sensitive data finding, and the number of occurrences of the data that they detected for the finding.</p>
  */
 export interface CustomDataIdentifiers {
   /**
@@ -501,16 +689,21 @@ export enum SensitiveDataItemCategory {
 }
 
 /**
- * <p>Provides information about sensitive data that was detected by managed data identifiers and produced a sensitive data finding.</p>
+ * <p>Provides information about a type of sensitive data that was detected by managed data identifiers and produced a sensitive data finding.</p>
  */
 export interface DefaultDetection {
   /**
-   * <p>The total number of occurrences of the type of data that was detected.</p>
+   * <p>The total number of occurrences of the type of sensitive data that was detected.</p>
    */
   count?: number;
 
   /**
-   * <p>The type of data that was detected. For example, AWS_CREDENTIALS, PHONE_NUMBER, or ADDRESS.</p>
+   * <p>The location of 1-15 occurrences of the sensitive data that was detected. A finding includes location data for a maximum of 15 occurrences of sensitive data.</p>
+   */
+  occurrences?: Occurrences;
+
+  /**
+   * <p>The type of sensitive data that was detected. For example, AWS_CREDENTIALS, PHONE_NUMBER, or ADDRESS.</p>
    */
   type?: string;
 }
@@ -522,23 +715,23 @@ export namespace DefaultDetection {
 }
 
 /**
- * <p>Provides information about the category, type, and number of occurrences of sensitive data that produced a finding.</p>
+ * <p>Provides information about the category, types, and occurrences of sensitive data that produced a sensitive data finding.</p>
  */
 export interface SensitiveDataItem {
   /**
-   * <p>The total number of occurrences of the sensitive data that was detected.</p>
-   */
-  totalCount?: number;
-
-  /**
-   * <p>The category of sensitive data that was detected. For example: FINANCIAL_INFORMATION, for financial information such as credit card numbers; PERSONAL_INFORMATION, for personally identifiable information such as full names and mailing addresses; or, CUSTOM_IDENTIFIER, for data that was detected by a custom data identifier.</p>
+   * <p>The category of sensitive data that was detected. For example: CREDENTIALS, for credentials data such as private keys or AWS secret keys; FINANCIAL_INFORMATION, for financial data such as credit card numbers; or, PERSONAL_INFORMATION, for personal health information, such as health insurance identification numbers, or personally identifiable information, such as driver's license identification numbers.</p>
    */
   category?: SensitiveDataItemCategory | string;
 
   /**
-   * <p>An array of objects, one for each type of sensitive data that was detected. Each object reports the number of occurrences of a specific type of sensitive data that was detected.</p>
+   * <p>An array of objects, one for each type of sensitive data that was detected. Each object reports the number of occurrences of a specific type of sensitive data that was detected, and the location of up to 15 of those occurrences.</p>
    */
   detections?: DefaultDetection[];
+
+  /**
+   * <p>The total number of occurrences of the sensitive data that was detected.</p>
+   */
+  totalCount?: number;
 }
 
 export namespace SensitiveDataItem {
@@ -552,7 +745,7 @@ export namespace SensitiveDataItem {
  */
 export interface ClassificationResultStatus {
   /**
-   * <p>The status of the finding, such as COMPLETE.</p>
+   * <p>The status of the finding. Possible values are:</p> <ul><li><p>COMPLETE - Amazon Macie successfully completed its analysis of the object that the finding applies to.</p></li> <li><p>PARTIAL - Macie analyzed only a subset of the data in the object that the finding applies to. For example, the object is an archive file that contains files in an unsupported format.</p></li> <li><p>SKIPPED - Macie wasn't able to analyze the object that the finding applies to. For example, the object is a malformed file or a file that uses an unsupported format.</p></li></ul>
    */
   code?: string;
 
@@ -569,18 +762,28 @@ export namespace ClassificationResultStatus {
 }
 
 /**
- * <p>Provides detailed information about a sensitive data finding, including the types and number of occurrences of the sensitive data that was found.</p>
+ * <p>Provides the details of a sensitive data finding, including the types, number of occurrences, and locations of the sensitive data that was detected.</p>
  */
 export interface ClassificationResult {
   /**
-   * <p>The category and number of occurrences of the sensitive data that produced the finding.</p>
+   * <p>Specifies whether Amazon Macie detected additional occurrences of sensitive data in the S3 object. A finding includes location data for a maximum of 15 occurrences of sensitive data.</p> <p>This value can help you determine whether to investigate additional occurrences of sensitive data in an object. You can do this by referring to the corresponding sensitive data discovery result for the finding (ClassificationDetails.detailedResultsLocation).</p>
    */
-  sensitiveData?: SensitiveDataItem[];
+  additionalOccurrences?: boolean;
 
   /**
-   * <p>The type of content, expressed as a MIME type, that the finding applies to. For example, application/gzip, for a GNU Gzip compressed archive file, or application/pdf, for an Adobe PDF file.</p>
+   * <p>The custom data identifiers that detected the sensitive data and the number of occurrences of the data that they detected.</p>
+   */
+  customDataIdentifiers?: CustomDataIdentifiers;
+
+  /**
+   * <p>The type of content, as a MIME type, that the finding applies to. For example, application/gzip, for a GNU Gzip compressed archive file, or application/pdf, for an Adobe Portable Document Format file.</p>
    */
   mimeType?: string;
+
+  /**
+   * <p>The category, types, and number of occurrences of the sensitive data that produced the finding.</p>
+   */
+  sensitiveData?: SensitiveDataItem[];
 
   /**
    * <p>The total size, in bytes, of the data that the finding applies to.</p>
@@ -591,11 +794,6 @@ export interface ClassificationResult {
    * <p>The status of the finding.</p>
    */
   status?: ClassificationResultStatus;
-
-  /**
-   * <p>The number of occurrences of the data that produced the finding, and the custom data identifiers that detected the data.</p>
-   */
-  customDataIdentifiers?: CustomDataIdentifiers;
 }
 
 export namespace ClassificationResult {
@@ -609,24 +807,24 @@ export namespace ClassificationResult {
  */
 export interface ClassificationDetails {
   /**
+   * <p>The path to the folder or file (in Amazon S3) that contains the corresponding sensitive data discovery result for the finding. If a finding applies to a large archive or compressed file, this value is the path to a folder. Otherwise, this value is the path to a file.</p>
+   */
+  detailedResultsLocation?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the classification job that produced the finding.</p>
    */
   jobArn?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the file that contains the detailed record, including offsets, for the finding.</p>
-   */
-  detailedResultsLocation?: string;
-
-  /**
-   * <p>The status and detailed results of the finding.</p>
-   */
-  result?: ClassificationResult;
-
-  /**
    * <p>The unique identifier for the classification job that produced the finding.</p>
    */
   jobId?: string;
+
+  /**
+   * <p>The status and other details for the finding.</p>
+   */
+  result?: ClassificationResult;
 }
 
 export namespace ClassificationDetails {
@@ -644,14 +842,9 @@ export enum FindingActionType {
  */
 export interface ApiCallDetails {
   /**
-   * <p>The most recent date and time, in UTC and extended ISO 8601 format, when the specified operation (api) was invoked and produced the finding.</p>
+   * <p>The name of the operation that was invoked most recently and produced the finding.</p>
    */
-  lastSeen?: Date;
-
-  /**
-   * <p>The first date and time, in UTC and extended ISO 8601 format, when any operation was invoked and produced the finding.</p>
-   */
-  firstSeen?: Date;
+  api?: string;
 
   /**
    * <p>The URL of the AWS service that provides the operation, for example: s3.amazonaws.com.</p>
@@ -659,9 +852,14 @@ export interface ApiCallDetails {
   apiServiceName?: string;
 
   /**
-   * <p>The name of the operation that was invoked most recently and produced the finding.</p>
+   * <p>The first date and time, in UTC and extended ISO 8601 format, when any operation was invoked and produced the finding.</p>
    */
-  api?: string;
+  firstSeen?: Date;
+
+  /**
+   * <p>The most recent date and time, in UTC and extended ISO 8601 format, when the specified operation (api) was invoked and produced the finding.</p>
+   */
+  lastSeen?: Date;
 }
 
 export namespace ApiCallDetails {
@@ -749,14 +947,14 @@ export namespace IpCountry {
  */
 export interface IpGeoLocation {
   /**
-   * <p>The longitude coordinate of the location, rounded to four decimal places.</p>
-   */
-  lon?: number;
-
-  /**
    * <p>The latitude coordinate of the location, rounded to four decimal places.</p>
    */
   lat?: number;
+
+  /**
+   * <p>The longitude coordinate of the location, rounded to four decimal places.</p>
+   */
+  lon?: number;
 }
 
 export namespace IpGeoLocation {
@@ -770,24 +968,24 @@ export namespace IpGeoLocation {
  */
 export interface IpOwner {
   /**
-   * <p>The name of the internet service provider (ISP) that owned the IP address.</p>
-   */
-  isp?: string;
-
-  /**
    * <p>The autonomous system number (ASN) for the autonomous system that included the IP address.</p>
    */
   asn?: string;
 
   /**
-   * <p>The name of the organization that owned the IP address.</p>
-   */
-  org?: string;
-
-  /**
    * <p>The organization identifier that's associated with the autonomous system number (ASN) for the autonomous system that included the IP address.</p>
    */
   asnOrg?: string;
+
+  /**
+   * <p>The name of the internet service provider (ISP) that owned the IP address.</p>
+   */
+  isp?: string;
+
+  /**
+   * <p>The name of the organization that owned the IP address.</p>
+   */
+  org?: string;
 }
 
 export namespace IpOwner {
@@ -801,14 +999,14 @@ export namespace IpOwner {
  */
 export interface IpAddressDetails {
   /**
+   * <p>The Internet Protocol version 4 (IPv4) address of the device.</p>
+   */
+  ipAddressV4?: string;
+
+  /**
    * <p>The city that the IP address originated from.</p>
    */
   ipCity?: IpCity;
-
-  /**
-   * <p>The geographic coordinates of the location that the IP address originated from.</p>
-   */
-  ipGeoLocation?: IpGeoLocation;
 
   /**
    * <p>The country that the IP address originated from.</p>
@@ -816,14 +1014,14 @@ export interface IpAddressDetails {
   ipCountry?: IpCountry;
 
   /**
+   * <p>The geographic coordinates of the location that the IP address originated from.</p>
+   */
+  ipGeoLocation?: IpGeoLocation;
+
+  /**
    * <p>The registered owner of the IP address.</p>
    */
   ipOwner?: IpOwner;
-
-  /**
-   * <p>The Internet Protocol version 4 (IPv4) address of the device.</p>
-   */
-  ipAddressV4?: string;
 }
 
 export namespace IpAddressDetails {
@@ -837,14 +1035,14 @@ export namespace IpAddressDetails {
  */
 export interface SessionContextAttributes {
   /**
-   * <p>Specifies whether the credentials were authenticated with a multi-factor authentication (MFA) device.</p>
-   */
-  mfaAuthenticated?: boolean;
-
-  /**
    * <p>The date and time, in UTC and ISO 8601 format, when the credentials were issued.</p>
    */
   creationDate?: Date;
+
+  /**
+   * <p>Specifies whether the credentials were authenticated with a multi-factor authentication (MFA) device.</p>
+   */
+  mfaAuthenticated?: boolean;
 }
 
 export namespace SessionContextAttributes {
@@ -863,16 +1061,6 @@ export interface SessionIssuer {
   accountId?: string;
 
   /**
-   * <p>The source of the temporary security credentials, such as Root, IAMUser, or Role.</p>
-   */
-  type?: string;
-
-  /**
-   * <p>The name or alias of the user or role that issued the session. This value is null if the credentials were obtained from a root account that doesn't have an alias.</p>
-   */
-  userName?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the source account, IAM user, or role that was used to get the credentials.</p>
    */
   arn?: string;
@@ -881,6 +1069,16 @@ export interface SessionIssuer {
    * <p>The unique identifier for the entity that was used to get the credentials.</p>
    */
   principalId?: string;
+
+  /**
+   * <p>The source of the temporary security credentials, such as Root, IAMUser, or Role.</p>
+   */
+  type?: string;
+
+  /**
+   * <p>The name or alias of the user or role that issued the session. This value is null if the credentials were obtained from a root account that doesn't have an alias.</p>
+   */
+  userName?: string;
 }
 
 export namespace SessionIssuer {
@@ -915,11 +1113,6 @@ export namespace SessionContext {
  */
 export interface AssumedRole {
   /**
-   * <p>The unique identifier for the entity that was used to get the credentials.</p>
-   */
-  principalId?: string;
-
-  /**
    * <p>The AWS access key ID that identifies the credentials.</p>
    */
   accessKeyId?: string;
@@ -930,14 +1123,19 @@ export interface AssumedRole {
   accountId?: string;
 
   /**
-   * <p>The details of the session that was created for the credentials, including the entity that issued the session.</p>
-   */
-  sessionContext?: SessionContext;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the entity that was used to get the credentials.</p>
    */
   arn?: string;
+
+  /**
+   * <p>The unique identifier for the entity that was used to get the credentials.</p>
+   */
+  principalId?: string;
+
+  /**
+   * <p>The details of the session that was created for the credentials, including the entity that issued the session.</p>
+   */
+  sessionContext?: SessionContext;
 }
 
 export namespace AssumedRole {
@@ -951,14 +1149,14 @@ export namespace AssumedRole {
  */
 export interface AwsAccount {
   /**
-   * <p>The unique identifier for the entity that performed the action.</p>
-   */
-  principalId?: string;
-
-  /**
    * <p>The unique identifier for the AWS account.</p>
    */
   accountId?: string;
+
+  /**
+   * <p>The unique identifier for the entity that performed the action.</p>
+   */
+  principalId?: string;
 }
 
 export namespace AwsAccount {
@@ -988,9 +1186,9 @@ export namespace AwsService {
  */
 export interface FederatedUser {
   /**
-   * <p>The details of the session that was created for the credentials, including the entity that issued the session.</p>
+   * <p>The AWS access key ID that identifies the credentials.</p>
    */
-  sessionContext?: SessionContext;
+  accessKeyId?: string;
 
   /**
    * <p>The unique identifier for the AWS account that owns the entity that was used to get the credentials.</p>
@@ -1008,9 +1206,9 @@ export interface FederatedUser {
   principalId?: string;
 
   /**
-   * <p>The AWS access key ID that identifies the credentials.</p>
+   * <p>The details of the session that was created for the credentials, including the entity that issued the session.</p>
    */
-  accessKeyId?: string;
+  sessionContext?: SessionContext;
 }
 
 export namespace FederatedUser {
@@ -1024,9 +1222,9 @@ export namespace FederatedUser {
  */
 export interface IamUser {
   /**
-   * <p>The user name of the IAM user who performed the action.</p>
+   * <p>The unique identifier for the AWS account that's associated with the IAM user who performed the action.</p>
    */
-  userName?: string;
+  accountId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the principal that performed the action. The last section of the ARN contains the name of the user who performed the action.</p>
@@ -1034,14 +1232,14 @@ export interface IamUser {
   arn?: string;
 
   /**
-   * <p>The unique identifier for the AWS account that's associated with the IAM user who performed the action.</p>
-   */
-  accountId?: string;
-
-  /**
    * <p>The unique identifier for the IAM user who performed the action.</p>
    */
   principalId?: string;
+
+  /**
+   * <p>The user name of the IAM user who performed the action.</p>
+   */
+  userName?: string;
 }
 
 export namespace IamUser {
@@ -1055,9 +1253,9 @@ export namespace IamUser {
  */
 export interface UserIdentityRoot {
   /**
-   * <p>The unique identifier for the entity that performed the action.</p>
+   * <p>The unique identifier for the AWS account.</p>
    */
-  principalId?: string;
+  accountId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the principal that performed the action. The last section of the ARN contains the name of the user or role that performed the action.</p>
@@ -1065,9 +1263,9 @@ export interface UserIdentityRoot {
   arn?: string;
 
   /**
-   * <p>The unique identifier for the AWS account.</p>
+   * <p>The unique identifier for the entity that performed the action.</p>
    */
-  accountId?: string;
+  principalId?: string;
 }
 
 export namespace UserIdentityRoot {
@@ -1100,19 +1298,9 @@ export interface UserIdentity {
   awsAccount?: AwsAccount;
 
   /**
-   * <p>The type of entity that performed the action.</p>
-   */
-  type?: UserIdentityType | string;
-
-  /**
    * <p>If the action was performed by an AWS account that belongs to an AWS service, the name of the service.</p>
    */
   awsService?: AwsService;
-
-  /**
-   * <p>If the action was performed using the credentials for an AWS Identity and Access Management (IAM) user, the name and other details about the user.</p>
-   */
-  iamUser?: IamUser;
 
   /**
    * <p>If the action was performed with temporary security credentials that were obtained using the GetFederationToken operation of the AWS Security Token Service (AWS STS) API, the identifiers, session context, and other details about the identity.</p>
@@ -1120,9 +1308,19 @@ export interface UserIdentity {
   federatedUser?: FederatedUser;
 
   /**
+   * <p>If the action was performed using the credentials for an AWS Identity and Access Management (IAM) user, the name and other details about the user.</p>
+   */
+  iamUser?: IamUser;
+
+  /**
    * <p>If the action was performed using the credentials for your AWS account, the details of your account.</p>
    */
   root?: UserIdentityRoot;
+
+  /**
+   * <p>The type of entity that performed the action.</p>
+   */
+  type?: UserIdentityType | string;
 }
 
 export namespace UserIdentity {
@@ -1162,14 +1360,14 @@ export namespace FindingActor {
  */
 export interface PolicyDetails {
   /**
-   * <p>The entity that performed the action that produced the finding.</p>
-   */
-  actor?: FindingActor;
-
-  /**
    * <p>The action that produced the finding.</p>
    */
   action?: FindingAction;
+
+  /**
+   * <p>The entity that performed the action that produced the finding.</p>
+   */
+  actor?: FindingActor;
 }
 
 export namespace PolicyDetails {
@@ -1186,7 +1384,7 @@ export enum EncryptionType {
 }
 
 /**
- * <p>Provides information about the server-side encryption settings for an S3 bucket or object.</p>
+ * <p>Provides information about the server-side encryption settings for an S3 bucket or S3 object.</p>
  */
 export interface ServerSideEncryption {
   /**
@@ -1195,7 +1393,7 @@ export interface ServerSideEncryption {
   encryptionType?: EncryptionType | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) master key that's used to encrypt the bucket or object. This value is null if KMS isn't used to encrypt the bucket or object.</p>
+   * <p>The unique identifier for the AWS Key Management Service (AWS KMS) master key that's used to encrypt the bucket or object. This value is null if AWS KMS isn't used to encrypt the bucket or object.</p>
    */
   kmsMasterKeyId?: string;
 }
@@ -1211,14 +1409,14 @@ export namespace ServerSideEncryption {
  */
 export interface S3BucketOwner {
   /**
-   * <p>The AWS account ID for the user who owns the bucket.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The display name of the user who owns the bucket.</p>
    */
   displayName?: string;
+
+  /**
+   * <p>The AWS account ID for the user who owns the bucket.</p>
+   */
+  id?: string;
 }
 
 export namespace S3BucketOwner {
@@ -1232,11 +1430,6 @@ export namespace S3BucketOwner {
  */
 export interface S3Bucket {
   /**
-   * <p>The display name and account identifier for the user who owns the bucket.</p>
-   */
-  owner?: S3BucketOwner;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the bucket.</p>
    */
   arn?: string;
@@ -1247,9 +1440,9 @@ export interface S3Bucket {
   createdAt?: Date;
 
   /**
-   * <p>The permissions settings that determine whether the bucket is publicly accessible.</p>
+   * <p>The type of server-side encryption that's used by default to encrypt objects in the bucket.</p>
    */
-  publicAccess?: BucketPublicAccess;
+  defaultServerSideEncryption?: ServerSideEncryption;
 
   /**
    * <p>The name of the bucket.</p>
@@ -1257,9 +1450,14 @@ export interface S3Bucket {
   name?: string;
 
   /**
-   * <p>The server-side encryption settings for the bucket.</p>
+   * <p>The display name and account identifier for the user who owns the bucket.</p>
    */
-  defaultServerSideEncryption?: ServerSideEncryption;
+  owner?: S3BucketOwner;
+
+  /**
+   * <p>The permissions settings that determine whether the bucket is publicly accessible.</p>
+   */
+  publicAccess?: BucketPublicAccess;
 
   /**
    * <p>The tags that are associated with the bucket.</p>
@@ -1293,39 +1491,19 @@ export interface S3Object {
   bucketArn?: string;
 
   /**
-   * <p>The file extension of the object. If the object doesn't have a file extension, this value is "".</p>
-   */
-  extension?: string;
-
-  /**
-   * <p>The identifier for the affected version of the object.</p>
-   */
-  versionId?: string;
-
-  /**
    * <p>The entity tag (ETag) that identifies the affected version of the object. If the object was overwritten or changed after Amazon Macie produced the finding, this value might be different from the current ETag for the object.</p>
    */
   eTag?: string;
 
   /**
-   * <p>The path to the object, including the full key (name).</p>
+   * <p>The file name extension of the object. If the object doesn't have a file name extension, this value is "".</p>
    */
-  path?: string;
+  extension?: string;
 
   /**
-   * <p>The total storage size, in bytes, of the object.</p>
+   * <p>The full key (name) that's assigned to the object.</p>
    */
-  size?: number;
-
-  /**
-   * <p>Specifies whether the object is publicly accessible due to the combination of permissions settings that apply to the object.</p>
-   */
-  publicAccess?: boolean;
-
-  /**
-   * <p>The storage class of the object.</p>
-   */
-  storageClass?: StorageClass | string;
+  key?: string;
 
   /**
    * <p>The date and time, in UTC and extended ISO 8601 format, when the object was last modified.</p>
@@ -1333,9 +1511,29 @@ export interface S3Object {
   lastModified?: Date;
 
   /**
-   * <p>The server-side encryption settings for the object.</p>
+   * <p>The path to the object, including the full key (name).</p>
+   */
+  path?: string;
+
+  /**
+   * <p>Specifies whether the object is publicly accessible due to the combination of permissions settings that apply to the object.</p>
+   */
+  publicAccess?: boolean;
+
+  /**
+   * <p>The type of server-side encryption that's used for the object.</p>
    */
   serverSideEncryption?: ServerSideEncryption;
+
+  /**
+   * <p>The total storage size, in bytes, of the object.</p>
+   */
+  size?: number;
+
+  /**
+   * <p>The storage class of the object.</p>
+   */
+  storageClass?: StorageClass | string;
 
   /**
    * <p>The tags that are associated with the object.</p>
@@ -1343,9 +1541,9 @@ export interface S3Object {
   tags?: KeyValuePair[];
 
   /**
-   * <p>The full key (name) that's assigned to the object.</p>
+   * <p>The identifier for the affected version of the object.</p>
    */
-  key?: string;
+  versionId?: string;
 }
 
 export namespace S3Object {
@@ -1382,16 +1580,16 @@ export enum SeverityDescription {
 }
 
 /**
- * <p>Provides the numeric score and textual representation of a severity value.</p>
+ * <p>Provides the numerical and qualitative representations of a finding's severity.</p>
  */
 export interface Severity {
   /**
-   * <p>The textual representation of the severity value, such as Low or High.</p>
+   * <p>The qualitative representation of the finding's severity, ranging from Low (least severe) to High (most severe).</p>
    */
   description?: SeverityDescription | string;
 
   /**
-   * <p>The numeric score for the severity value, ranging from 0 (least severe) to 4 (most severe).</p>
+   * <p>The numerical representation of the finding's severity, ranging from 1 (least severe) to 3 (most severe).</p>
    */
   score?: number;
 }
@@ -1416,88 +1614,13 @@ export enum FindingType {
 }
 
 /**
- * <p>Provides information about a finding.</p>
+ * <p>Provides the details of a finding.</p>
  */
 export interface Finding {
-  /**
-   * <p>The unique identifier for the finding. This is a random string that Amazon Macie generates and assigns to a finding when it creates the finding.</p>
-   */
-  id?: string;
-
-  /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when the finding was last updated. For sensitive data findings, this value is the same as the value for the createdAt property. Sensitive data findings aren't updated.</p>
-   */
-  updatedAt?: Date;
-
-  /**
-   * <p>The details of a sensitive data finding. This value is null for a policy finding.</p>
-   */
-  classificationDetails?: ClassificationDetails;
-
-  /**
-   * <p>The category of the finding. Possible values are: CLASSIFICATION, for a sensitive data finding; and, POLICY, for a policy finding.</p>
-   */
-  category?: FindingCategory | string;
-
-  /**
-   * <p>The resources that the finding applies to.</p>
-   */
-  resourcesAffected?: ResourcesAffected;
-
-  /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when the finding was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
-   * <p>The AWS partition that Amazon Macie created the finding in.</p>
-   */
-  partition?: string;
-
-  /**
-   * <p>The version of the schema that was used to define the data structures in the finding.</p>
-   */
-  schemaVersion?: string;
-
-  /**
-   * <p>The brief description of the finding.</p>
-   */
-  title?: string;
-
-  /**
-   * <p>The total number of occurrences of this finding.</p>
-   */
-  count?: number;
-
-  /**
-   * <p>The AWS Region that Amazon Macie created the finding in.</p>
-   */
-  region?: string;
-
   /**
    * <p>The unique identifier for the AWS account that the finding applies to. This is typically the account that owns the affected resource.</p>
    */
   accountId?: string;
-
-  /**
-   * <p>Specifies whether the finding is a sample finding. A <i>sample finding</i> is a finding that uses example data to demonstrate what a finding might contain.</p>
-   */
-  sample?: boolean;
-
-  /**
-   * <p>The description of the finding.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>The type of the finding.</p>
-   */
-  type?: FindingType | string;
-
-  /**
-   * <p>The severity of the finding.</p>
-   */
-  severity?: Severity;
 
   /**
    * <p>Specifies whether the finding is archived.</p>
@@ -1505,9 +1628,84 @@ export interface Finding {
   archived?: boolean;
 
   /**
+   * <p>The category of the finding. Possible values are: CLASSIFICATION, for a sensitive data finding; and, POLICY, for a policy finding.</p>
+   */
+  category?: FindingCategory | string;
+
+  /**
+   * <p>The details of a sensitive data finding. This value is null for a policy finding.</p>
+   */
+  classificationDetails?: ClassificationDetails;
+
+  /**
+   * <p>The total number of occurrences of the finding. For sensitive data findings, this value is always 1. All sensitive data findings are considered new (unique) because they derive from individual classification jobs.</p>
+   */
+  count?: number;
+
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the finding was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The description of the finding.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>The unique identifier for the finding. This is a random string that Amazon Macie generates and assigns to a finding when it creates the finding.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>The AWS partition that Amazon Macie created the finding in.</p>
+   */
+  partition?: string;
+
+  /**
    * <p>The details of a policy finding. This value is null for a sensitive data finding.</p>
    */
   policyDetails?: PolicyDetails;
+
+  /**
+   * <p>The AWS Region that Amazon Macie created the finding in.</p>
+   */
+  region?: string;
+
+  /**
+   * <p>The resources that the finding applies to.</p>
+   */
+  resourcesAffected?: ResourcesAffected;
+
+  /**
+   * <p>Specifies whether the finding is a sample finding. A <i>sample finding</i> is a finding that uses example data to demonstrate what a finding might contain.</p>
+   */
+  sample?: boolean;
+
+  /**
+   * <p>The version of the schema that was used to define the data structures in the finding.</p>
+   */
+  schemaVersion?: string;
+
+  /**
+   * <p>The severity level and score for the finding.</p>
+   */
+  severity?: Severity;
+
+  /**
+   * <p>The brief description of the finding.</p>
+   */
+  title?: string;
+
+  /**
+   * <p>The type of the finding.</p>
+   */
+  type?: FindingType | string;
+
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the finding was last updated. For sensitive data findings, this value is the same as the value for the createdAt property. All sensitive data findings are considered new (unique) because they derive from individual classification jobs.</p>
+   */
+  updatedAt?: Date;
 }
 
 export namespace Finding {
@@ -1531,11 +1729,6 @@ export interface FindingsFilterListItem {
   action?: FindingsFilterAction | string;
 
   /**
-   * <p>The custom name of the filter.</p>
-   */
-  name?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the filter.</p>
    */
   arn?: string;
@@ -1544,6 +1737,11 @@ export interface FindingsFilterListItem {
    * <p>The unique identifier for the filter.</p>
    */
   id?: string;
+
+  /**
+   * <p>The custom name of the filter.</p>
+   */
+  name?: string;
 
   /**
    * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the filter.</p>
@@ -1562,14 +1760,14 @@ export namespace FindingsFilterListItem {
  */
 export interface GroupCount {
   /**
-   * <p>The name of the property that defines the group in the query results, as specified by the groupBy property in the query request.</p>
-   */
-  groupKey?: string;
-
-  /**
    * <p>The total number of findings in the group of query results.</p>
    */
   count?: number;
+
+  /**
+   * <p>The name of the property that defines the group in the query results, as specified by the groupBy property in the query request.</p>
+   */
+  groupKey?: string;
 }
 
 export namespace GroupCount {
@@ -1601,6 +1799,11 @@ export interface Invitation {
   accountId?: string;
 
   /**
+   * <p>The unique identifier for the invitation. Amazon Macie uses this identifier to validate the inviter account with the invitee account.</p>
+   */
+  invitationId?: string;
+
+  /**
    * <p>The date and time, in UTC and extended ISO 8601 format, when the invitation was sent.</p>
    */
   invitedAt?: Date;
@@ -1609,11 +1812,6 @@ export interface Invitation {
    * <p>The status of the relationship between the account that sent the invitation (<i>inviter account</i>) and the account that received the invitation (<i>invitee account</i>).</p>
    */
   relationshipStatus?: RelationshipStatus | string;
-
-  /**
-   * <p>The unique identifier for the invitation. Amazon Macie uses this identifier to validate the inviter account with the invitee account.</p>
-   */
-  invitationId?: string;
 }
 
 export namespace Invitation {
@@ -1645,19 +1843,19 @@ export enum ScopeFilterKey {
  */
 export interface SimpleScopeTerm {
   /**
-   * <p>The operator to use in the condition.</p>
+   * <p>The operator to use in the condition. Valid operators for each supported property (key) are:</p> <ul><li><p>OBJECT_EXTENSION - EQ (equals) or NE (not equals)</p></li> <li><p>OBJECT_LAST_MODIFIED_DATE - Any operator except CONTAINS</p></li> <li><p>OBJECT_SIZE - Any operator except CONTAINS</p></li> <li><p>TAG - EQ (equals) or NE (not equals)</p></li></ul>
    */
   comparator?: JobComparator | string;
 
   /**
-   * <p>An array that lists one or more values to use in the condition.</p>
-   */
-  values?: string[];
-
-  /**
-   * <p>The property to use in the condition.</p>
+   * <p>The object property to use in the condition.</p>
    */
   key?: ScopeFilterKey | string;
+
+  /**
+   * <p>An array that lists the values to use in the condition. If the value for the key property is OBJECT_EXTENSION, this array can specify multiple values and Amazon Macie uses an OR operator to join the values. Otherwise, this array can specify only one value. Valid values for each supported property (key) are:</p> <ul><li><p>OBJECT_EXTENSION - A string that represents the file name extension of an object. For example: doc, docx, pdf</p></li> <li><p>OBJECT_LAST_MODIFIED_DATE - The date and time (in UTC and extended ISO 8601 format) when an object was created or last changed, whichever is latest. For example: 2020-09-28T14:31:13Z</p></li> <li><p>OBJECT_SIZE - An integer that represents the storage size (in bytes) of an object.</p></li> <li><p>TAG - A string that represents a tag key for an object. For advanced options, use a TagScopeTerm object, instead of a SimpleScopeTerm object, to define a tag-based condition for the job.</p></li></ul>
+   */
+  values?: string[];
 }
 
 export namespace SimpleScopeTerm {
@@ -1667,18 +1865,18 @@ export namespace SimpleScopeTerm {
 }
 
 /**
- * <p>Specifies a tag key and value, as a pair, to use in a tag-based condition for a classification job.</p>
+ * <p>Specifies a tag key or tag key and value pair to use in a tag-based condition for a classification job.</p>
  */
 export interface TagValuePair {
-  /**
-   * <p>The tag value, associated with the specified tag key, to use in the condition.</p>
-   */
-  value?: string;
-
   /**
    * <p>The value for the tag key to use in the condition.</p>
    */
   key?: string;
+
+  /**
+   * <p>The tag value, associated with the specified tag key (key), to use in the condition. To specify only a tag key for a condition, specify the tag key for the key property and set this value to an empty string.</p>
+   */
+  value?: string;
 }
 
 export namespace TagValuePair {
@@ -1696,9 +1894,9 @@ export enum TagTarget {
  */
 export interface TagScopeTerm {
   /**
-   * <p>The tag key and value pairs to use in the condition.</p>
+   * <p>The operator to use in the condition. Valid operators are EQ (equals) or NE (not equals).</p>
    */
-  tagValues?: TagValuePair[];
+  comparator?: JobComparator | string;
 
   /**
    * <p>The tag key to use in the condition.</p>
@@ -1706,14 +1904,14 @@ export interface TagScopeTerm {
   key?: string;
 
   /**
+   * <p>The tag keys or tag key and value pairs to use in the condition.</p>
+   */
+  tagValues?: TagValuePair[];
+
+  /**
    * <p>The type of object to apply the condition to.</p>
    */
   target?: TagTarget | string;
-
-  /**
-   * <p>The operator to use in the condition.</p>
-   */
-  comparator?: JobComparator | string;
 }
 
 export namespace TagScopeTerm {
@@ -1727,14 +1925,14 @@ export namespace TagScopeTerm {
  */
 export interface JobScopeTerm {
   /**
-   * <p>A tag-based condition that defines the operator and a tag key or tag keys and values for including or excluding an object from the job.</p>
-   */
-  tagScopeTerm?: TagScopeTerm;
-
-  /**
    * <p>A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job.</p>
    */
   simpleScopeTerm?: SimpleScopeTerm;
+
+  /**
+   * <p>A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job.</p>
+   */
+  tagScopeTerm?: TagScopeTerm;
 }
 
 export namespace JobScopeTerm {
@@ -1748,14 +1946,14 @@ export namespace JobScopeTerm {
  */
 export interface S3BucketDefinitionForJob {
   /**
-   * <p>An array that lists the names of the buckets.</p>
-   */
-  buckets?: string[];
-
-  /**
    * <p>The unique identifier for the AWS account that owns one or more of the buckets. If specified, the job analyzes objects in all the buckets that are owned by the account and meet other conditions specified for the job.</p>
    */
   accountId?: string;
+
+  /**
+   * <p>An array that lists the names of the buckets.</p>
+   */
+  buckets?: string[];
 }
 
 export namespace S3BucketDefinitionForJob {
@@ -1770,6 +1968,7 @@ export enum JobStatus {
   IDLE = "IDLE",
   PAUSED = "PAUSED",
   RUNNING = "RUNNING",
+  USER_PAUSED = "USER_PAUSED",
 }
 
 export enum JobType {
@@ -1777,19 +1976,66 @@ export enum JobType {
   SCHEDULED = "SCHEDULED",
 }
 
+export enum LastRunErrorStatusCode {
+  ERROR = "ERROR",
+  NONE = "NONE",
+}
+
+/**
+ * <p>Specifies whether any account- or bucket-level access errors occurred when a classification job ran. For example, the job is configured to analyze data for a member account that was suspended, or the job is configured to analyze an S3 bucket that Amazon Macie isn't allowed to access.</p>
+ */
+export interface LastRunErrorStatus {
+  /**
+   * <p>Specifies whether any account- or bucket-level access errors occurred when the job ran. For a recurring job, this value indicates the error status of the job's most recent run. Possible values are:</p> <ul><li><p>ERROR - One or more errors occurred. Amazon Macie didn't process all the data specified for the job.</p></li> <li><p>NONE - No errors occurred. Macie processed all the data specified for the job.</p></li></ul>
+   */
+  code?: LastRunErrorStatusCode | string;
+}
+
+export namespace LastRunErrorStatus {
+  export const filterSensitiveLog = (obj: LastRunErrorStatus): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Provides information about when a classification job was paused and when it will expire and be cancelled if it isn't resumed. This object is present only if a job's current status (jobStatus) is USER_PAUSED.</p>
+ */
+export interface UserPausedDetails {
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the job will expire and be cancelled if you don't resume it first. If you don't resume a job within 30 days of pausing it, the job expires and Amazon Macie cancels it.</p>
+   */
+  jobExpiresAt?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Health event that Amazon Macie sent to notify you of the job's pending expiration and cancellation. This value is null if a job has been paused for less than 23 days.</p>
+   */
+  jobImminentExpirationHealthEventArn?: string;
+
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, when you paused the job.</p>
+   */
+  jobPausedAt?: Date;
+}
+
+export namespace UserPausedDetails {
+  export const filterSensitiveLog = (obj: UserPausedDetails): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Provides information about a classification job, including the current status of the job.</p>
  */
 export interface JobSummary {
   /**
+   * <p>The S3 buckets that the job is configured to analyze.</p>
+   */
+  bucketDefinitions?: S3BucketDefinitionForJob[];
+
+  /**
    * <p>The date and time, in UTC and extended ISO 8601 format, when the job was created.</p>
    */
   createdAt?: Date;
-
-  /**
-   * <p>The schedule for running the job. Possible values are:</p> <ul><li><p>ONE_TIME - The job ran or will run only once.</p></li> <li><p>SCHEDULED - The job runs on a daily, weekly, or monthly basis.</p></li></ul>
-   */
-  jobType?: JobType | string;
 
   /**
    * <p>The unique identifier for the job.</p>
@@ -1797,9 +2043,19 @@ export interface JobSummary {
   jobId?: string;
 
   /**
-   * <p>The current status of the job. Possible values are:</p> <ul><li><p>CANCELLED - The job was cancelled by you or a user of the master account for your organization. A job might also be cancelled if ownership of an S3 bucket changed while the job was running, and that change affected the job's access to the bucket.</p></li> <li><p>COMPLETE - Amazon Macie finished processing all the data specified for the job.</p></li> <li><p>IDLE - For a recurring job, the previous scheduled run is complete and the next scheduled run is pending. This value doesn't apply to jobs that occur only once.</p></li> <li><p>PAUSED - Amazon Macie started the job, but completion of the job would exceed one or more quotas for your account.</p></li> <li><p>RUNNING - The job is in progress.</p></li></ul>
+   * <p>The current status of the job. Possible values are:</p> <ul><li><p>CANCELLED - You cancelled the job, or you paused the job and didn't resume it within 30 days of pausing it.</p></li> <li><p>COMPLETE - For a one-time job, Amazon Macie finished processing all the data specified for the job. This value doesn't apply to recurring jobs.</p></li> <li><p>IDLE - For a recurring job, the previous scheduled run is complete and the next scheduled run is pending. This value doesn't apply to one-time jobs.</p></li> <li><p>PAUSED - Amazon Macie started running the job but completion of the job would exceed one or more quotas for your account.</p></li> <li><p>RUNNING - For a one-time job, the job is in progress. For a recurring job, a scheduled run is in progress.</p></li> <li><p>USER_PAUSED - You paused the job. If you don't resume the job within 30 days of pausing it, the job will expire and be cancelled.</p></li></ul>
    */
   jobStatus?: JobStatus | string;
+
+  /**
+   * <p>The schedule for running the job. Possible values are:</p> <ul><li><p>ONE_TIME - The job runs only once.</p></li> <li><p>SCHEDULED - The job runs on a daily, weekly, or monthly basis.</p></li></ul>
+   */
+  jobType?: JobType | string;
+
+  /**
+   * <p>Specifies whether any account- or bucket-level access errors occurred when the job ran. For a recurring job, this value indicates the error status of the job's most recent run.</p>
+   */
+  lastRunErrorStatus?: LastRunErrorStatus;
 
   /**
    * <p>The custom name of the job.</p>
@@ -1807,9 +2063,9 @@ export interface JobSummary {
   name?: string;
 
   /**
-   * <p>The S3 buckets that the job is configured to analyze.</p>
+   * <p>If the current status of the job is USER_PAUSED, specifies when the job was paused and when the job will expire and be cancelled if it isn't resumed. This value is present only if the value for jobStatus is USER_PAUSED.</p>
    */
-  bucketDefinitions?: S3BucketDefinitionForJob[];
+  userPausedDetails?: UserPausedDetails;
 }
 
 export namespace JobSummary {
@@ -1830,14 +2086,14 @@ export enum ListJobsFilterKey {
  */
 export interface ListJobsFilterTerm {
   /**
-   * <p>The property to use to filter the results.</p>
-   */
-  key?: ListJobsFilterKey | string;
-
-  /**
    * <p>The operator to use to filter the results.</p>
    */
   comparator?: JobComparator | string;
+
+  /**
+   * <p>The property to use to filter the results.</p>
+   */
+  key?: ListJobsFilterKey | string;
 
   /**
    * <p>An array that lists one or more values to use to filter the results.</p>
@@ -1856,14 +2112,14 @@ export namespace ListJobsFilterTerm {
  */
 export interface Member {
   /**
-   * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the account in Amazon Macie.</p>
+   * <p>The AWS account ID for the account.</p>
    */
-  tags?: { [key: string]: string };
+  accountId?: string;
 
   /**
-   * <p>The current status of the relationship between the account and the master account.</p>
+   * <p>The Amazon Resource Name (ARN) of the account.</p>
    */
-  relationshipStatus?: RelationshipStatus | string;
+  arn?: string;
 
   /**
    * <p>The email address for the account.</p>
@@ -1871,29 +2127,29 @@ export interface Member {
   email?: string;
 
   /**
-   * <p>The AWS account ID for the master account.</p>
-   */
-  masterAccountId?: string;
-
-  /**
-   * <p>The AWS account ID for the account.</p>
-   */
-  accountId?: string;
-
-  /**
    * <p>The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.</p>
    */
   invitedAt?: Date;
 
   /**
+   * <p>The AWS account ID for the master account.</p>
+   */
+  masterAccountId?: string;
+
+  /**
+   * <p>The current status of the relationship between the account and the master account.</p>
+   */
+  relationshipStatus?: RelationshipStatus | string;
+
+  /**
+   * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the account in Amazon Macie.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
    * <p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the relationship between the account and the master account.</p>
    */
   updatedAt?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the account.</p>
-   */
-  arn?: string;
 }
 
 export namespace Member {
@@ -1917,14 +2173,14 @@ export interface UnprocessedAccount {
   accountId?: string;
 
   /**
-   * <p>The reason why the request hasn't been processed.</p>
-   */
-  errorMessage?: string;
-
-  /**
    * <p>The source of the issue or delay in processing the request.</p>
    */
   errorCode?: ErrorCode | string;
+
+  /**
+   * <p>The reason why the request hasn't been processed.</p>
+   */
+  errorMessage?: string;
 }
 
 export namespace UnprocessedAccount {
@@ -1977,14 +2233,14 @@ export enum UsageType {
  */
 export interface UsageByAccount {
   /**
-   * <p>The estimated value for the metric.</p>
-   */
-  estimatedCost?: string;
-
-  /**
    * <p>The type of currency that the value for the metric (estimatedCost) is reported in.</p>
    */
   currency?: Currency | string;
+
+  /**
+   * <p>The estimated value for the metric.</p>
+   */
+  estimatedCost?: string;
 
   /**
    * <p>The current value for the quota that corresponds to the metric specified by the type field.</p>
@@ -2008,14 +2264,14 @@ export namespace UsageByAccount {
  */
 export interface UsageRecord {
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when the free trial started for the account.</p>
-   */
-  freeTrialStartDate?: Date;
-
-  /**
    * <p>The unique identifier for the AWS account that the data applies to.</p>
    */
   accountId?: string;
+
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the free trial started for the account.</p>
+   */
+  freeTrialStartDate?: Date;
 
   /**
    * <p>An array of objects that contains usage data and quotas for the account. Each object contains the data for a specific usage metric and the corresponding quota.</p>
@@ -2051,9 +2307,9 @@ export enum UsageStatisticsFilterKey {
  */
 export interface UsageStatisticsFilter {
   /**
-   * <p>An array that lists values to use in the condition, based on the value for the field specified by the key property. If the value for the key property is accountId, this array can specify multiple values. Otherwise, this array can specify only one value.</p> <p>Valid values for each supported field are:</p> <ul><li><p>accountId - The unique identifier for an AWS account.</p></li></ul> <ul><li><p>freeTrialStartDate - The date and time, in UTC and extended ISO 8601 format, when the free trial started for an account.</p></li></ul> <ul><li><p>serviceLimit - A Boolean (true or false) value that indicates whether an account has reached its monthly quota.</p></li></ul> <ul><li><p>total - A string that represents the current, estimated month-to-date cost for an account.</p></li></ul>
+   * <p>The operator to use in the condition. If the value for the key property is accountId, this value must be CONTAINS. If the value for the key property is any other supported field, this value can be EQ, GT, GTE, LT, LTE, or NE.</p>
    */
-  values?: string[];
+  comparator?: UsageStatisticsFilterComparator | string;
 
   /**
    * <p>The field to use in the condition.</p>
@@ -2061,9 +2317,9 @@ export interface UsageStatisticsFilter {
   key?: UsageStatisticsFilterKey | string;
 
   /**
-   * <p>The operator to use in the condition. If the value for the key property is accountId, this value must be CONTAINS. If the value for the key property is any other supported field, this value can be EQ, GT, GTE, LT, LTE, or NE.</p>
+   * <p>An array that lists values to use in the condition, based on the value for the field specified by the key property. If the value for the key property is accountId, this array can specify multiple values. Otherwise, this array can specify only one value.</p> <p>Valid values for each supported field are:</p> <ul><li><p>accountId - The unique identifier for an AWS account.</p></li></ul> <ul><li><p>freeTrialStartDate - The date and time, in UTC and extended ISO 8601 format, when the free trial started for an account.</p></li></ul> <ul><li><p>serviceLimit - A Boolean (true or false) value that indicates whether an account has reached its monthly quota.</p></li></ul> <ul><li><p>total - A string that represents the current, estimated month-to-date cost for an account.</p></li></ul>
    */
-  comparator?: UsageStatisticsFilterComparator | string;
+  values?: string[];
 }
 
 export namespace UsageStatisticsFilter {
@@ -2320,6 +2576,11 @@ export interface BucketCountByEffectivePermission {
    * <p>The total number of buckets that allow the general public to have write access to the bucket.</p>
    */
   publiclyWritable?: number;
+
+  /**
+   * <p>The total number of buckets that Amazon Macie wasn't able to evaluate permissions settings for. Macie can't determine whether these buckets are publicly accessible.</p>
+   */
+  unknown?: number;
 }
 
 export namespace BucketCountByEffectivePermission {
@@ -2338,14 +2599,14 @@ export interface BucketCountByEncryptionType {
   kmsManaged?: number;
 
   /**
-   * <p>The total number of buckets that don't encrypt objects by default. Default encryption is disabled for these buckets.</p>
-   */
-  unencrypted?: number;
-
-  /**
    * <p>The total number of buckets that use an Amazon S3-managed key to encrypt objects. These buckets use Amazon S3-managed (SSE-S3) encryption.</p>
    */
   s3Managed?: number;
+
+  /**
+   * <p>The total number of buckets that don't encrypt objects by default. Default encryption is disabled for these buckets.</p>
+   */
+  unencrypted?: number;
 }
 
 export namespace BucketCountByEncryptionType {
@@ -2364,14 +2625,19 @@ export interface BucketCountBySharedAccessType {
   external?: number;
 
   /**
-   * <p>The total number of buckets that aren't shared with any other AWS accounts.</p>
+   * <p>The total number of buckets that are shared with an AWS account that's part of the same Amazon Macie organization.</p>
+   */
+  internal?: number;
+
+  /**
+   * <p>The total number of buckets that aren't shared with other AWS accounts.</p>
    */
   notShared?: number;
 
   /**
-   * <p>The total number of buckets that are shared with an AWS account that's part of the same Amazon Macie organization.</p>
+   * <p>The total number of buckets that Amazon Macie wasn't able to evaluate shared access settings for. Macie can't determine whether these buckets are shared with other AWS accounts.</p>
    */
-  internal?: number;
+  unknown?: number;
 }
 
 export namespace BucketCountBySharedAccessType {
@@ -2390,19 +2656,14 @@ export interface BucketCriteriaAdditionalProperties {
   eq?: string[];
 
   /**
-   * <p>The prefix of the buckets to include in the results.</p>
-   */
-  prefix?: string;
-
-  /**
-   * <p>A less than or equal to condition to apply to a specified attribute value for buckets.</p>
-   */
-  lte?: number;
-
-  /**
    * <p>A greater than condition to apply to a specified attribute value for buckets.</p>
    */
   gt?: number;
+
+  /**
+   * <p>A greater than or equal to condition to apply to a specified attribute value for buckets.</p>
+   */
+  gte?: number;
 
   /**
    * <p>A less than condition to apply to a specified attribute value for buckets.</p>
@@ -2410,14 +2671,19 @@ export interface BucketCriteriaAdditionalProperties {
   lt?: number;
 
   /**
+   * <p>A less than or equal to condition to apply to a specified attribute value for buckets.</p>
+   */
+  lte?: number;
+
+  /**
    * <p>A not equal to condition to apply to a specified attribute value for buckets.</p>
    */
   neq?: string[];
 
   /**
-   * <p>A greater than or equal to condition to apply to a specified attribute value for buckets.</p>
+   * <p>The prefix of the buckets to include in the results.</p>
    */
-  gte?: number;
+  prefix?: string;
 }
 
 export namespace BucketCriteriaAdditionalProperties {
@@ -2436,7 +2702,7 @@ export enum OrderBy {
  */
 export interface BucketSortCriteria {
   /**
-   * <p>The name of the attribute to sort the results by. This value can be the name of any property that Amazon Macie defines as bucket metadata, such as bucketName, accountId, or lastUpdated.</p>
+   * <p>The name of the attribute to sort the results by. This value can be the name of any property that Amazon Macie defines as bucket metadata, such as bucketName or accountId.</p>
    */
   attributeName?: string;
 
@@ -2495,7 +2761,7 @@ export namespace ClassificationExportConfiguration {
 }
 
 /**
- * <p>Specifies one or more property- and tag-based conditions that define criteria for including or excluding objects from a classification job.</p>
+ * <p>Specifies one or more property- and tag-based conditions that define criteria for including or excluding objects from a classification job. If you specify more than one condition, Amazon Macie uses an AND operator to join the conditions.</p>
  */
 export interface JobScopingBlock {
   /**
@@ -2511,7 +2777,7 @@ export namespace JobScopingBlock {
 }
 
 /**
- * <p>Specifies one or more property- and tag-based conditions that refine the scope of a classification job. These conditions define criteria that determine which objects a job analyzes.</p>
+ * <p>Specifies one or more property- and tag-based conditions that refine the scope of a classification job. These conditions define criteria that determine which objects a job analyzes. Exclude conditions take precedence over include conditions.</p>
  */
 export interface Scoping {
   /**
@@ -2568,7 +2834,7 @@ export namespace DailySchedule {
  */
 export interface MonthlySchedule {
   /**
-   * <p>The numeric day of the month when Amazon Macie runs the job. This value can be an integer from 1 through 30.</p>
+   * <p>The numeric day of the month when Amazon Macie runs the job. This value can be an integer from 1 through 31.</p> <p>If this value exceeds the number of days in a certain month, Macie runs the job on the last day of that month. For example, if this value is 31 and a month has only 30 days, Macie runs the job on day 30 of that month.</p>
    */
   dayOfMonth?: number;
 }
@@ -2610,9 +2876,9 @@ export namespace WeeklySchedule {
  */
 export interface JobScheduleFrequency {
   /**
-   * <p>Specifies a weekly recurrence pattern for running the job.</p>
+   * <p>Specifies a daily recurrence pattern for running the job.</p>
    */
-  weeklySchedule?: WeeklySchedule;
+  dailySchedule?: DailySchedule;
 
   /**
    * <p>Specifies a monthly recurrence pattern for running the job.</p>
@@ -2620,9 +2886,9 @@ export interface JobScheduleFrequency {
   monthlySchedule?: MonthlySchedule;
 
   /**
-   * <p>Specifies a daily recurrence pattern for running the job.</p>
+   * <p>Specifies a weekly recurrence pattern for running the job.</p>
    */
-  dailySchedule?: DailySchedule;
+  weeklySchedule?: WeeklySchedule;
 }
 
 export namespace JobScheduleFrequency {
@@ -2633,14 +2899,14 @@ export namespace JobScheduleFrequency {
 
 export interface CreateClassificationJobRequest {
   /**
-   * <p>A map of key-value pairs that specifies the tags to associate with the job.</p> <p>A job can have a maximum of 50 tags. Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+   * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
    */
-  tags?: { [key: string]: string };
+  clientToken?: string;
 
   /**
-   * <p>The S3 buckets that contain the objects to analyze, and the scope of that analysis.</p>
+   * <p>The custom data identifiers to use for data analysis and classification.</p>
    */
-  s3JobDefinition: S3JobDefinition | undefined;
+  customDataIdentifierIds?: string[];
 
   /**
    * <p>A custom description of the job. The description can contain as many as 200 characters.</p>
@@ -2648,12 +2914,7 @@ export interface CreateClassificationJobRequest {
   description?: string;
 
   /**
-   * <p>A custom name for the job. The name can contain as many as 500 characters.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>Specifies whether to run the job immediately, after it's created.</p>
+   * <p>Specifies whether to analyze all existing, eligible objects immediately after the job is created.</p>
    */
   initialRun?: boolean;
 
@@ -2663,24 +2924,29 @@ export interface CreateClassificationJobRequest {
   jobType: JobType | string | undefined;
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
+   * <p>A custom name for the job. The name can contain as many as 500 characters.</p>
    */
-  clientToken?: string;
+  name: string | undefined;
 
   /**
-   * <p>The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value of the jobType property to ONE_TIME.</p>
+   * <p>The S3 buckets that contain the objects to analyze, and the scope of that analysis.</p>
+   */
+  s3JobDefinition: S3JobDefinition | undefined;
+
+  /**
+   * <p>The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If this value is less than 100, Amazon Macie selects the objects to analyze at random, up to the specified percentage, and analyzes all the data in those objects.</p>
+   */
+  samplingPercentage?: number;
+
+  /**
+   * <p>The recurrence pattern for running the job. To run the job only once, don't specify a value for this property and set the value for the jobType property to ONE_TIME.</p>
    */
   scheduleFrequency?: JobScheduleFrequency;
 
   /**
-   * <p>The custom data identifiers to use for data analysis and classification.</p>
+   * <p>A map of key-value pairs that specifies the tags to associate with the job.</p> <p>A job can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
    */
-  customDataIdentifierIds?: string[];
-
-  /**
-   * <p>The sampling depth, as a percentage, to apply when processing objects. This value determines the percentage of eligible objects that the job analyzes. If the value is less than 100, Amazon Macie randomly selects the objects to analyze, up to the specified percentage.</p>
-   */
-  samplingPercentage?: number;
+  tags?: { [key: string]: string };
 }
 
 export namespace CreateClassificationJobRequest {
@@ -2709,9 +2975,9 @@ export namespace CreateClassificationJobResponse {
 
 export interface CreateCustomDataIdentifierRequest {
   /**
-   * <p>A custom name for the custom data identifier. The name can contain as many as 128 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a custom data identifier. Other users of your account might be able to see the identifier's name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
+   * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
    */
-  name?: string;
+  clientToken?: string;
 
   /**
    * <p>A custom description of the custom data identifier. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a custom data identifier. Other users of your account might be able to see the identifier's description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
@@ -2719,19 +2985,14 @@ export interface CreateCustomDataIdentifierRequest {
   description?: string;
 
   /**
-   * <p>A map of key-value pairs that specifies the tags to associate with the custom data identifier.</p> <p>A custom data identifier can have a maximum of 50 tags. Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.</p>
    */
-  tags?: { [key: string]: string };
+  ignoreWords?: string[];
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
+   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 4 - 90 characters. Keywords aren't case sensitive.</p>
    */
-  clientToken?: string;
-
-  /**
-   * <p>The regular expression (<i>regex</i>) that defines the pattern to match. The expression can contain as many as 512 characters.</p>
-   */
-  regex?: string;
+  keywords?: string[];
 
   /**
    * <p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.</p>
@@ -2739,14 +3000,19 @@ export interface CreateCustomDataIdentifierRequest {
   maximumMatchDistance?: number;
 
   /**
-   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 4 - 90 characters.</p>
+   * <p>A custom name for the custom data identifier. The name can contain as many as 128 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a custom data identifier. Other users of your account might be able to see the identifier's name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
-  keywords?: string[];
+  name?: string;
 
   /**
-   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters.</p>
+   * <p>The regular expression (<i>regex</i>) that defines the pattern to match. The expression can contain as many as 512 characters.</p>
    */
-  ignoreWords?: string[];
+  regex?: string;
+
+  /**
+   * <p>A map of key-value pairs that specifies the tags to associate with the custom data identifier.</p> <p>A custom data identifier can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace CreateCustomDataIdentifierRequest {
@@ -2778,9 +3044,9 @@ export interface CriterionAdditionalProperties {
   eq?: string[];
 
   /**
-   * <p>A less than or equal to condition to apply to a specified property value for findings.</p>
+   * <p>A condition that requires an array field on a finding to exactly match the specified property values. You can use this operator with the following properties: customDataIdentifiers.detections.arn, customDataIdentifiers.detections.name, resourcesAffected.s3Bucket.tags.key, resourcesAffected.s3Bucket.tags.value, resourcesAffected.s3Object.tags.key, resourcesAffected.s3Object.tags.value, sensitiveData.category, and sensitiveData.detections.type.</p>
    */
-  lte?: number;
+  eqExactMatch?: string[];
 
   /**
    * <p>A greater than condition to apply to a specified property value for findings.</p>
@@ -2788,19 +3054,24 @@ export interface CriterionAdditionalProperties {
   gt?: number;
 
   /**
+   * <p>A greater than or equal to condition to apply to a specified property value for findings.</p>
+   */
+  gte?: number;
+
+  /**
    * <p>A less than condition to apply to a specified property value for findings.</p>
    */
   lt?: number;
 
   /**
+   * <p>A less than or equal to condition to apply to a specified property value for findings.</p>
+   */
+  lte?: number;
+
+  /**
    * <p>A not equal to condition to apply to a specified property value for findings.</p>
    */
   neq?: string[];
-
-  /**
-   * <p>A greater than or equal to condition to apply to a specified property value for findings.</p>
-   */
-  gte?: number;
 }
 
 export namespace CriterionAdditionalProperties {
@@ -2827,9 +3098,14 @@ export namespace FindingCriteria {
 
 export interface CreateFindingsFilterRequest {
   /**
-   * <p>A map of key-value pairs that specifies the tags to associate with the filter.</p> <p>A findings filter can have a maximum of 50 tags. Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+   * <p>The action to perform on findings that meet the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
    */
-  tags?: { [key: string]: string };
+  action: FindingsFilterAction | string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
+   */
+  clientToken?: string;
 
   /**
    * <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users of your account might be able to see the filter's description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
@@ -2842,16 +3118,6 @@ export interface CreateFindingsFilterRequest {
   findingCriteria: FindingCriteria | undefined;
 
   /**
-   * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
-   */
-  clientToken?: string;
-
-  /**
-   * <p>The action to perform on findings that meet the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
-   */
-  action: FindingsFilterAction | string | undefined;
-
-  /**
    * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users of your account might be able to see the filter's name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
   name: string | undefined;
@@ -2860,6 +3126,11 @@ export interface CreateFindingsFilterRequest {
    * <p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>
    */
   position?: number;
+
+  /**
+   * <p>A map of key-value pairs that specifies the tags to associate with the filter.</p> <p>A findings filter can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace CreateFindingsFilterRequest {
@@ -2870,14 +3141,14 @@ export namespace CreateFindingsFilterRequest {
 
 export interface CreateFindingsFilterResponse {
   /**
-   * <p>The unique identifier for the filter that was created.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the filter that was created.</p>
    */
   arn?: string;
+
+  /**
+   * <p>The unique identifier for the filter that was created.</p>
+   */
+  id?: string;
 }
 
 export namespace CreateFindingsFilterResponse {
@@ -2888,9 +3159,9 @@ export namespace CreateFindingsFilterResponse {
 
 export interface CreateInvitationsRequest {
   /**
-   * <p>A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.</p>
+   * <p>An array that lists AWS account IDs, one for each account to send the invitation to.</p>
    */
-  message?: string;
+  accountIds: string[] | undefined;
 
   /**
    * <p>Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to true.</p>
@@ -2898,9 +3169,9 @@ export interface CreateInvitationsRequest {
   disableEmailNotification?: boolean;
 
   /**
-   * <p>An array that lists AWS account IDs, one for each account to send the invitation to.</p>
+   * <p>A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.</p>
    */
-  accountIds: string[] | undefined;
+  message?: string;
 }
 
 export namespace CreateInvitationsRequest {
@@ -2924,14 +3195,14 @@ export namespace CreateInvitationsResponse {
 
 export interface CreateMemberRequest {
   /**
-   * <p>A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.</p> <p>An account can have a maximum of 50 tags. Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
    * <p>The details for the account to associate with the master account.</p>
    */
   account: AccountDetail | undefined;
+
+  /**
+   * <p>A map of key-value pairs that specifies the tags to associate with the account in Amazon Macie.</p> <p>An account can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+   */
+  tags?: { [key: string]: string };
 }
 
 export namespace CreateMemberRequest {
@@ -3091,9 +3362,9 @@ export namespace DeleteMemberResponse {
 
 export interface DescribeBucketsRequest {
   /**
-   * <p>The criteria to use to sort the query results.</p>
+   * <p>The criteria to use to filter the query results.</p>
    */
-  sortCriteria?: BucketSortCriteria;
+  criteria?: { [key: string]: BucketCriteriaAdditionalProperties };
 
   /**
    * <p>The maximum number of items to include in each page of the response. The default value is 50.</p>
@@ -3106,9 +3377,9 @@ export interface DescribeBucketsRequest {
   nextToken?: string;
 
   /**
-   * <p>The criteria to use to filter the query results.</p>
+   * <p>The criteria to use to sort the query results.</p>
    */
-  criteria?: { [key: string]: BucketCriteriaAdditionalProperties };
+  sortCriteria?: BucketSortCriteria;
 }
 
 export namespace DescribeBucketsRequest {
@@ -3171,59 +3442,9 @@ export namespace Statistics {
 
 export interface DescribeClassificationJobResponse {
   /**
-   * <p>The schedule for running the job. Possible values are:</p> <ul><li><p>ONE_TIME - The job ran or will run only once.</p></li> <li><p>SCHEDULED - The job runs on a daily, weekly, or monthly basis. The scheduleFrequency property indicates the recurrence pattern for the job.</p></li></ul>
-   */
-  jobType?: JobType | string;
-
-  /**
    * <p>The token that was provided to ensure the idempotency of the request to create the job.</p>
    */
   clientToken?: string;
-
-  /**
-   * <p>The custom data identifiers that the job uses to analyze data.</p>
-   */
-  customDataIdentifierIds?: string[];
-
-  /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when the job last ran.</p>
-   */
-  lastRunTime?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the job.</p>
-   */
-  jobArn?: string;
-
-  /**
-   * <p>The custom description of the job.</p>
-   */
-  description?: string;
-
-  /**
-   * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the classification job.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
-   * <p>The sampling depth, as a percentage, that the job applies when it processes objects.</p>
-   */
-  samplingPercentage?: number;
-
-  /**
-   * <p>Specifies whether the job has run for the first time.</p>
-   */
-  initialRun?: boolean;
-
-  /**
-   * <p>The current status of the job. Possible values are:</p> <ul><li><p>CANCELLED - The job was cancelled by you or a user of the master account for your organization. A job might also be cancelled if ownership of an S3 bucket changed while the job was running, and that change affected the job's access to the bucket.</p></li> <li><p>COMPLETE - Amazon Macie finished processing all the data specified for the job.</p></li> <li><p>IDLE - For a recurring job, the previous scheduled run is complete and the next scheduled run is pending. This value doesn't apply to jobs that occur only once.</p></li> <li><p>PAUSED - Amazon Macie started the job, but completion of the job would exceed one or more quotas for your account.</p></li> <li><p>RUNNING - The job is in progress.</p></li></ul>
-   */
-  jobStatus?: JobStatus | string;
-
-  /**
-   * <p>The S3 buckets that the job is configured to analyze, and the scope of that analysis.</p>
-   */
-  s3JobDefinition?: S3JobDefinition;
 
   /**
    * <p>The date and time, in UTC and extended ISO 8601 format, when the job was created.</p>
@@ -3231,9 +3452,24 @@ export interface DescribeClassificationJobResponse {
   createdAt?: Date;
 
   /**
-   * <p>The recurrence pattern for running the job. If the job is configured to run only once, this value is null.</p>
+   * <p>The custom data identifiers that the job uses to analyze data.</p>
    */
-  scheduleFrequency?: JobScheduleFrequency;
+  customDataIdentifierIds?: string[];
+
+  /**
+   * <p>The custom description of the job.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Specifies whether the job is configured to analyze all existing, eligible objects immediately after it's created.</p>
+   */
+  initialRun?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the job.</p>
+   */
+  jobArn?: string;
 
   /**
    * <p>The unique identifier for the job.</p>
@@ -3241,14 +3477,59 @@ export interface DescribeClassificationJobResponse {
   jobId?: string;
 
   /**
+   * <p>The current status of the job. Possible values are:</p> <ul><li><p>CANCELLED - You cancelled the job, or you paused the job and didn't resume it within 30 days of pausing it.</p></li> <li><p>COMPLETE - For a one-time job, Amazon Macie finished processing all the data specified for the job. This value doesn't apply to recurring jobs.</p></li> <li><p>IDLE - For a recurring job, the previous scheduled run is complete and the next scheduled run is pending. This value doesn't apply to one-time jobs.</p></li> <li><p>PAUSED - Amazon Macie started running the job but completion of the job would exceed one or more quotas for your account.</p></li> <li><p>RUNNING - For a one-time job, the job is in progress. For a recurring job, a scheduled run is in progress.</p></li> <li><p>USER_PAUSED - You paused the job. If you don't resume the job within 30 days of pausing it, the job will expire and be cancelled.</p></li></ul>
+   */
+  jobStatus?: JobStatus | string;
+
+  /**
+   * <p>The schedule for running the job. Possible values are:</p> <ul><li><p>ONE_TIME - The job runs only once.</p></li> <li><p>SCHEDULED - The job runs on a daily, weekly, or monthly basis. The scheduleFrequency property indicates the recurrence pattern for the job.</p></li></ul>
+   */
+  jobType?: JobType | string;
+
+  /**
+   * <p>Specifies whether any account- or bucket-level access errors occurred when the job ran. For a recurring job, this value indicates the error status of the job's most recent run.</p>
+   */
+  lastRunErrorStatus?: LastRunErrorStatus;
+
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the job last ran.</p>
+   */
+  lastRunTime?: Date;
+
+  /**
    * <p>The custom name of the job.</p>
    */
   name?: string;
 
   /**
-   * <p>The number of times that the job has run and processing statistics for the job's most recent run.</p>
+   * <p>The S3 buckets that the job is configured to analyze, and the scope of that analysis.</p>
+   */
+  s3JobDefinition?: S3JobDefinition;
+
+  /**
+   * <p>The sampling depth, as a percentage, that determines the percentage of eligible objects that the job analyzes.</p>
+   */
+  samplingPercentage?: number;
+
+  /**
+   * <p>The recurrence pattern for running the job. If the job is configured to run only once, this value is null.</p>
+   */
+  scheduleFrequency?: JobScheduleFrequency;
+
+  /**
+   * <p>The number of times that the job has run and processing statistics for the job's current run.</p>
    */
   statistics?: Statistics;
+
+  /**
+   * <p>A map of key-value pairs that specifies which tags (keys and values) are associated with the classification job.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>If the current status of the job is USER_PAUSED, specifies when the job was paused and when the job will expire and be cancelled if it isn't resumed. This value is present only if the value for jobStatus is USER_PAUSED.</p>
+   */
+  userPausedDetails?: UserPausedDetails;
 }
 
 export namespace DescribeClassificationJobResponse {
@@ -3272,7 +3553,7 @@ export interface DescribeOrganizationConfigurationResponse {
   autoEnable?: boolean;
 
   /**
-   * <p>Specifies whether the maximum number of Amazon Macie member accounts are already associated with the AWS organization.</p>
+   * <p>Specifies whether the maximum number of Amazon Macie member accounts are part of the AWS organization.</p>
    */
   maxAccountLimitReached?: boolean;
 }
@@ -3401,14 +3682,14 @@ export namespace EnableMacieResponse {
 
 export interface EnableOrganizationAdminAccountRequest {
   /**
+   * <p>The AWS account ID for the account to designate as the delegated Amazon Macie administrator account for the organization.</p>
+   */
+  adminAccountId: string | undefined;
+
+  /**
    * <p>A unique, case-sensitive token that you provide to ensure the idempotency of the request.</p>
    */
   clientToken?: string;
-
-  /**
-   * <p>The AWS account ID for the account.</p>
-   */
-  adminAccountId: string | undefined;
 }
 
 export namespace EnableOrganizationAdminAccountRequest {
@@ -3466,24 +3747,9 @@ export namespace GetBucketStatisticsRequest {
 
 export interface GetBucketStatisticsResponse {
   /**
-   * <p>The total number of buckets, grouped by server-side encryption type. This object also reports the total number of buckets that aren't encrypted.</p>
+   * <p>The total number of buckets.</p>
    */
-  bucketCountByEncryptionType?: BucketCountByEncryptionType;
-
-  /**
-   * <p>The total storage size, in bytes, of all the buckets.</p>
-   */
-  sizeInBytes?: number;
-
-  /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie last analyzed the buckets.</p>
-   */
-  lastUpdated?: Date;
-
-  /**
-   * <p>The total number of objects that Amazon Macie can analyze in all the buckets. These objects use a file format, file extension, or content type that Amazon Macie supports.</p>
-   */
-  classifiableObjectCount?: number;
+  bucketCount?: number;
 
   /**
    * <p>The total number of buckets that are publicly accessible based on a combination of permissions settings for each bucket.</p>
@@ -3491,14 +3757,9 @@ export interface GetBucketStatisticsResponse {
   bucketCountByEffectivePermission?: BucketCountByEffectivePermission;
 
   /**
-   * <p>The total number of objects in all the buckets.</p>
+   * <p>The total number of buckets, grouped by server-side encryption type. This object also reports the total number of buckets that don't encrypt objects by default.</p>
    */
-  objectCount?: number;
-
-  /**
-   * <p>The total compressed storage size, in bytes, of all the buckets.</p>
-   */
-  sizeInBytesCompressed?: number;
+  bucketCountByEncryptionType?: BucketCountByEncryptionType;
 
   /**
    * <p>The total number of buckets that are shared with another AWS account.</p>
@@ -3506,9 +3767,44 @@ export interface GetBucketStatisticsResponse {
   bucketCountBySharedAccessType?: BucketCountBySharedAccessType;
 
   /**
-   * <p>The total number of buckets.</p>
+   * <p>The total number of objects that Amazon Macie can analyze in the buckets. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p>
    */
-  bucketCount?: number;
+  classifiableObjectCount?: number;
+
+  /**
+   * <p>The total storage size, in bytes, of all the objects that Amazon Macie can analyze in the buckets. These objects use a supported storage class and have a file name extension for a supported file or storage format.</p>
+   */
+  classifiableSizeInBytes?: number;
+
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, when Amazon Macie most recently retrieved data about the buckets from Amazon S3.</p>
+   */
+  lastUpdated?: Date;
+
+  /**
+   * <p>The total number of objects in the buckets.</p>
+   */
+  objectCount?: number;
+
+  /**
+   * <p>The total storage size, in bytes, of the buckets.</p>
+   */
+  sizeInBytes?: number;
+
+  /**
+   * <p>The total compressed storage size, in bytes, of the buckets.</p>
+   */
+  sizeInBytesCompressed?: number;
+
+  /**
+   * <p>The total number of objects that Amazon Macie can't analyze in the buckets. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format.</p>
+   */
+  unclassifiableObjectCount?: ObjectLevelStatistics;
+
+  /**
+   * <p>The total storage size, in bytes, of all the objects that Amazon Macie can't analyze in the buckets. These objects don't use a supported storage class or don't have a file name extension for a supported file or storage format.</p>
+   */
+  unclassifiableObjectSizeInBytes?: ObjectLevelStatistics;
 }
 
 export namespace GetBucketStatisticsResponse {
@@ -3553,19 +3849,19 @@ export namespace GetCustomDataIdentifierRequest {
 
 export interface GetCustomDataIdentifierResponse {
   /**
+   * <p>The Amazon Resource Name (ARN) of the custom data identifier.</p>
+   */
+  arn?: string;
+
+  /**
    * <p>The date and time, in UTC and extended ISO 8601 format, when the custom data identifier was created.</p>
    */
   createdAt?: Date;
 
   /**
-   * <p>The regular expression (<i>regex</i>) that defines the pattern to match.</p>
+   * <p>Specifies whether the custom data identifier was deleted. If you delete a custom data identifier, Amazon Macie doesn't delete it permanently. Instead, it soft deletes the identifier.</p>
    */
-  regex?: string;
-
-  /**
-   * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the custom data identifier.</p>
-   */
-  tags?: { [key: string]: string };
+  deleted?: boolean;
 
   /**
    * <p>The custom description of the custom data identifier.</p>
@@ -3573,9 +3869,19 @@ export interface GetCustomDataIdentifierResponse {
   description?: string;
 
   /**
-   * <p>Specifies whether the custom data identifier was deleted. If you delete a custom data identifier, Amazon Macie doesn't delete it permanently. Instead, it soft deletes the identifier.</p>
+   * <p>The unique identifier for the custom data identifier.</p>
    */
-  deleted?: boolean;
+  id?: string;
+
+  /**
+   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. Ignore words are case sensitive.</p>
+   */
+  ignoreWords?: string[];
+
+  /**
+   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. Keywords aren't case sensitive.</p>
+   */
+  keywords?: string[];
 
   /**
    * <p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern.</p>
@@ -3588,24 +3894,14 @@ export interface GetCustomDataIdentifierResponse {
   name?: string;
 
   /**
-   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match.</p>
+   * <p>The regular expression (<i>regex</i>) that defines the pattern to match.</p>
    */
-  keywords?: string[];
+  regex?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the custom data identifier.</p>
+   * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the custom data identifier.</p>
    */
-  arn?: string;
-
-  /**
-   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it.</p>
-   */
-  ignoreWords?: string[];
-
-  /**
-   * <p>The unique identifier for the custom data identifier.</p>
-   */
-  id?: string;
+  tags?: { [key: string]: string };
 }
 
 export namespace GetCustomDataIdentifierResponse {
@@ -3615,7 +3911,7 @@ export namespace GetCustomDataIdentifierResponse {
 }
 
 /**
- * <p>Specifies criteria for sorting the results of a request for information about findings.</p>
+ * <p>Specifies criteria for sorting the results of a request for findings.</p>
  */
 export interface SortCriteria {
   /**
@@ -3637,14 +3933,14 @@ export namespace SortCriteria {
 
 export interface GetFindingsRequest {
   /**
+   * <p>An array of strings that lists the unique identifiers for the findings to retrieve.</p>
+   */
+  findingIds: string[] | undefined;
+
+  /**
    * <p>The criteria for sorting the results of the request.</p>
    */
   sortCriteria?: SortCriteria;
-
-  /**
-   * <p>An array of strings that lists the unique identifiers for the findings to retrieve information about.</p>
-   */
-  findingIds: string[] | undefined;
 }
 
 export namespace GetFindingsRequest {
@@ -3681,19 +3977,14 @@ export namespace GetFindingsFilterRequest {
 
 export interface GetFindingsFilterResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the filter.</p>
-   */
-  arn?: string;
-
-  /**
-   * <p>The unique identifier for the filter.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The action that's performed on findings that meet the filter criteria (findingCriteria). Possible values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
    */
   action?: FindingsFilterAction | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the filter.</p>
+   */
+  arn?: string;
 
   /**
    * <p>The custom description of the filter.</p>
@@ -3701,19 +3992,24 @@ export interface GetFindingsFilterResponse {
   description?: string;
 
   /**
-   * <p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>
-   */
-  position?: number;
-
-  /**
    * <p>The criteria that's used to filter findings.</p>
    */
   findingCriteria?: FindingCriteria;
 
   /**
+   * <p>The unique identifier for the filter.</p>
+   */
+  id?: string;
+
+  /**
    * <p>The custom name of the filter.</p>
    */
   name?: string;
+
+  /**
+   * <p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>
+   */
+  position?: number;
 
   /**
    * <p>A map of key-value pairs that identifies the tags (keys and values) that are associated with the filter.</p>
@@ -3736,6 +4032,16 @@ export enum GroupBy {
 
 export interface GetFindingStatisticsRequest {
   /**
+   * <p>The criteria to use to filter the query results.</p>
+   */
+  findingCriteria?: FindingCriteria;
+
+  /**
+   * <p>The finding property to use to group the query results. Valid values are:</p> <ul><li><p>classificationDetails.jobId - The unique identifier for the classification job that produced the finding.</p></li> <li><p>resourcesAffected.s3Bucket.name - The name of the S3 bucket that the finding applies to.</p></li> <li><p>severity.description - The severity level of the finding, such as High or Medium.</p></li> <li><p>type - The type of finding, such as Policy:IAMUser/S3BucketPublic and SensitiveData:S3Object/Personal.</p></li></ul>
+   */
+  groupBy: GroupBy | string | undefined;
+
+  /**
    * <p>The maximum number of items to include in each page of the response.</p>
    */
   size?: number;
@@ -3744,16 +4050,6 @@ export interface GetFindingStatisticsRequest {
    * <p>The criteria to use to sort the query results.</p>
    */
   sortCriteria?: FindingStatisticsSortCriteria;
-
-  /**
-   * <p>The finding property to use to group the query results. Valid values are:</p> <ul><li><p>classificationDetails.jobId - The unique identifier for the classification job that produced the finding.</p></li> <li><p>resourcesAffected.s3Bucket.name - The name of the S3 bucket that the finding applies to.</p></li> <li><p>severity.description - The severity of the finding, such as High or Medium.</p></li> <li><p>type - The type of finding, such as Policy:IAMUser/S3BucketPublic and SensitiveData:S3Object/Personal.</p></li></ul>
-   */
-  groupBy: GroupBy | string | undefined;
-
-  /**
-   * <p>The criteria to use to filter the query results.</p>
-   */
-  findingCriteria?: FindingCriteria;
 }
 
 export namespace GetFindingStatisticsRequest {
@@ -3806,9 +4102,9 @@ export namespace GetMacieSessionRequest {
 
 export interface GetMacieSessionResponse {
   /**
-   * <p>The current status of the Amazon Macie account. Possible values are: PAUSED, the account is enabled but all Amazon Macie activities are suspended (paused) for the account; and, ENABLED, the account is enabled and all Amazon Macie activities are enabled for the account.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, when the Amazon Macie account was created.</p>
    */
-  status?: MacieStatus | string;
+  createdAt?: Date;
 
   /**
    * <p>The frequency with which Amazon Macie publishes updates to policy findings for the account. This includes publishing updates to AWS Security Hub and Amazon EventBridge (formerly called Amazon CloudWatch Events).</p>
@@ -3816,19 +4112,19 @@ export interface GetMacieSessionResponse {
   findingPublishingFrequency?: FindingPublishingFrequency | string;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the Amazon Macie account.</p>
-   */
-  updatedAt?: Date;
-
-  /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, when the Amazon Macie account was created.</p>
-   */
-  createdAt?: Date;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the service-linked role that allows Amazon Macie to monitor and analyze data in AWS resources for the account.</p>
    */
   serviceRole?: string;
+
+  /**
+   * <p>The current status of the Amazon Macie account. Possible values are: PAUSED, the account is enabled but all Amazon Macie activities are suspended (paused) for the account; and, ENABLED, the account is enabled and all Amazon Macie activities are enabled for the account.</p>
+   */
+  status?: MacieStatus | string;
+
+  /**
+   * <p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the Amazon Macie account.</p>
+   */
+  updatedAt?: Date;
 }
 
 export namespace GetMacieSessionResponse {
@@ -3883,19 +4179,19 @@ export interface GetMemberResponse {
   arn?: string;
 
   /**
+   * <p>The email address for the account.</p>
+   */
+  email?: string;
+
+  /**
    * <p>The date and time, in UTC and extended ISO 8601 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.</p>
    */
   invitedAt?: Date;
 
   /**
-   * <p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the relationship between the account and the master account.</p>
+   * <p>The AWS account ID for the master account.</p>
    */
-  updatedAt?: Date;
-
-  /**
-   * <p>The email address for the account.</p>
-   */
-  email?: string;
+  masterAccountId?: string;
 
   /**
    * <p>The current status of the relationship between the account and the master account.</p>
@@ -3908,9 +4204,9 @@ export interface GetMemberResponse {
   tags?: { [key: string]: string };
 
   /**
-   * <p>The AWS account ID for the master account.</p>
+   * <p>The date and time, in UTC and extended ISO 8601 format, of the most recent change to the status of the relationship between the account and the master account.</p>
    */
-  masterAccountId?: string;
+  updatedAt?: Date;
 }
 
 export namespace GetMemberResponse {
@@ -3954,14 +4250,14 @@ export interface GetUsageStatisticsRequest {
   filterBy?: UsageStatisticsFilter[];
 
   /**
-   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of items to include in each page of the response.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   */
+  nextToken?: string;
 
   /**
    * <p>The criteria to use to sort the query results.</p>
@@ -3977,14 +4273,14 @@ export namespace GetUsageStatisticsRequest {
 
 export interface GetUsageStatisticsResponse {
   /**
-   * <p>An array of objects that contains the results of the query. Each object contains the data for an account that meets the filter criteria specified in the request.</p>
-   */
-  records?: UsageRecord[];
-
-  /**
    * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>An array of objects that contains the results of the query. Each object contains the data for an account that meets the filter criteria specified in the request.</p>
+   */
+  records?: UsageRecord[];
 }
 
 export namespace GetUsageStatisticsResponse {
@@ -4047,14 +4343,14 @@ export enum ListJobsSortAttributeName {
  */
 export interface ListJobsSortCriteria {
   /**
-   * <p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
-   */
-  orderBy?: OrderBy | string;
-
-  /**
    * <p>The property to sort the results by.</p>
    */
   attributeName?: ListJobsSortAttributeName | string;
+
+  /**
+   * <p>The sort order to apply to the results, based on the value for the property specified by the attributeName property. Valid values are: ASC, sort the results in ascending order; and, DESC, sort the results in descending order.</p>
+   */
+  orderBy?: OrderBy | string;
 }
 
 export namespace ListJobsSortCriteria {
@@ -4075,14 +4371,14 @@ export interface ListClassificationJobsRequest {
   maxResults?: number;
 
   /**
-   * <p>The criteria to use to sort the results.</p>
-   */
-  sortCriteria?: ListJobsSortCriteria;
-
-  /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The criteria to use to sort the results.</p>
+   */
+  sortCriteria?: ListJobsSortCriteria;
 }
 
 export namespace ListClassificationJobsRequest {
@@ -4093,14 +4389,14 @@ export namespace ListClassificationJobsRequest {
 
 export interface ListClassificationJobsResponse {
   /**
-   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>An array of objects, one for each job that meets the filter criteria specified in the request.</p>
    */
   items?: JobSummary[];
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListClassificationJobsResponse {
@@ -4147,14 +4443,14 @@ export namespace ListCustomDataIdentifiersResponse {
 
 export interface ListFindingsRequest {
   /**
+   * <p>The criteria to use to filter the results.</p>
+   */
+  findingCriteria?: FindingCriteria;
+
+  /**
    * <p>The maximum number of items to include in each page of the response.</p>
    */
   maxResults?: number;
-
-  /**
-   * <p>The criteria to use to sort the results.</p>
-   */
-  sortCriteria?: SortCriteria;
 
   /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
@@ -4162,9 +4458,9 @@ export interface ListFindingsRequest {
   nextToken?: string;
 
   /**
-   * <p>The criteria to use to filter the results.</p>
+   * <p>The criteria to use to sort the results.</p>
    */
-  findingCriteria?: FindingCriteria;
+  sortCriteria?: SortCriteria;
 }
 
 export namespace ListFindingsRequest {
@@ -4211,14 +4507,14 @@ export namespace ListFindingsFiltersRequest {
 
 export interface ListFindingsFiltersResponse {
   /**
-   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>An array of objects, one for each filter that's associated with the account.</p>
    */
   findingsFilterListItems?: FindingsFilterListItem[];
+
+  /**
+   * <p>The string to use in a subsequent request to get the next page of results in a paginated response. This value is null if there are no additional pages.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListFindingsFiltersResponse {
@@ -4229,14 +4525,14 @@ export namespace ListFindingsFiltersResponse {
 
 export interface ListInvitationsRequest {
   /**
-   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of items to include in each page of a paginated response.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListInvitationsRequest {
@@ -4270,14 +4566,14 @@ export interface ListMembersRequest {
   maxResults?: number;
 
   /**
-   * <p>Specifies which accounts to include in the response, based on the status of an account's relationship with the master account. By default, the response includes only current member accounts. To include all accounts, set the value for this parameter to false.</p>
-   */
-  onlyAssociated?: string;
-
-  /**
    * <p>The nextToken string that specifies which page of results to return in a paginated response.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Specifies which accounts to include in the response, based on the status of an account's relationship with the master account. By default, the response includes only current member accounts. To include all accounts, set the value for this parameter to false.</p>
+   */
+  onlyAssociated?: string;
 }
 
 export namespace ListMembersRequest {
@@ -4324,7 +4620,7 @@ export namespace ListOrganizationAdminAccountsRequest {
 
 export interface ListOrganizationAdminAccountsResponse {
   /**
-   * <p>An array of objects, one for each account that's designated as a delegated administrator of Amazon Macie for the AWS organization. Of those accounts, only one can have a status of ENABLED.</p>
+   * <p>An array of objects, one for each delegated Amazon Macie administrator account for the organization. Only one of these accounts can have a status of ENABLED.</p>
    */
   adminAccounts?: AdminAccount[];
 
@@ -4394,14 +4690,14 @@ export namespace PutClassificationExportConfigurationResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>A map of key-value pairs that specifies the tags to associate with the resource.</p> <p>A resource can have a maximum of 50 tags. Each tag consists of a required tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
-   */
-  tags: { [key: string]: string } | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the classification job, custom data identifier, findings filter, or member account.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>A map of key-value pairs that specifies the tags to associate with the resource.</p> <p>A resource can have a maximum of 50 tags. Each tag consists of a tag key and an associated tag value. The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
+   */
+  tags: { [key: string]: string } | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -4420,17 +4716,12 @@ export namespace TagResourceResponse {
 
 export interface TestCustomDataIdentifierRequest {
   /**
-   * <p>The regular expression (<i>regex</i>) that defines the pattern to match. The expression can contain as many as 512 characters.</p>
-   */
-  regex: string | undefined;
-
-  /**
-   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters.</p>
+   * <p>An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.</p>
    */
   ignoreWords?: string[];
 
   /**
-   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 4 - 90 characters.</p>
+   * <p>An array that lists specific character sequences (keywords), one of which must be within proximity (maximumMatchDistance) of the regular expression to match. The array can contain as many as 50 keywords. Each keyword can contain 4 - 90 characters. Keywords aren't case sensitive.</p>
    */
   keywords?: string[];
 
@@ -4438,6 +4729,11 @@ export interface TestCustomDataIdentifierRequest {
    * <p>The maximum number of characters that can exist between text that matches the regex pattern and the character sequences specified by the keywords array. Macie includes or excludes a result based on the proximity of a keyword to text that matches the regex pattern. The distance can be 1 - 300 characters. The default value is 50.</p>
    */
   maximumMatchDistance?: number;
+
+  /**
+   * <p>The regular expression (<i>regex</i>) that defines the pattern to match. The expression can contain as many as 512 characters.</p>
+   */
+  regex: string | undefined;
 
   /**
    * <p>The sample text to inspect by using the custom data identifier. The text can contain as many as 1,000 characters.</p>
@@ -4497,7 +4793,7 @@ export interface UpdateClassificationJobRequest {
   jobId: string | undefined;
 
   /**
-   * <p>The status to change the job's status to. The only supported value is CANCELLED, which cancels the job completely.</p>
+   * <p>The new status for the job. Valid values are:</p> <ul><li><p>CANCELLED - Stops the job permanently and cancels it. You can't resume a job after you cancel it. This value is valid only if the job's current status is IDLE, PAUSED, RUNNING, or USER_PAUSED.</p></li> <li><p>RUNNING - Resumes the job. This value is valid only if the job's current status is USER_PAUSED. If you specify this value, Amazon Macie immediately resumes the job.</p></li> <li><p>USER_PAUSED - Pauses the job. This value is valid only if the job's current status is IDLE or RUNNING. If you specify this value and the job is currently running, Macie immediately stops running the job.</p> <p>To resume a job after you pause it, change the job's status to RUNNING. If you don't resume a job within 30 days of pausing it, the job expires and Macie cancels it. You can't resume a job after it's cancelled.</p></li></ul>
    */
   jobStatus: JobStatus | string | undefined;
 }
@@ -4518,19 +4814,19 @@ export namespace UpdateClassificationJobResponse {
 
 export interface UpdateFindingsFilterRequest {
   /**
+   * <p>The action to perform on findings that meet the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
+   */
+  action?: FindingsFilterAction | string;
+
+  /**
    * <p>A custom description of the filter. The description can contain as many as 512 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the description of a filter. Other users might be able to see the filter's description, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
   description?: string;
 
   /**
-   * <p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>
+   * <p>The criteria to use to filter findings.</p>
    */
-  position?: number;
-
-  /**
-   * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users might be able to see the filter's name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
-   */
-  name?: string;
+  findingCriteria?: FindingCriteria;
 
   /**
    * <p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>
@@ -4538,14 +4834,14 @@ export interface UpdateFindingsFilterRequest {
   id: string | undefined;
 
   /**
-   * <p>The action to perform on findings that meet the filter criteria (findingCriteria). Valid values are: ARCHIVE, suppress (automatically archive) the findings; and, NOOP, don't perform any action on the findings.</p>
+   * <p>A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters.</p> <p>We strongly recommend that you avoid including any sensitive data in the name of a filter. Other users might be able to see the filter's name, depending on the actions that they're allowed to perform in Amazon Macie.</p>
    */
-  action?: FindingsFilterAction | string;
+  name?: string;
 
   /**
-   * <p>The criteria to use to filter findings.</p>
+   * <p>The position of the filter in the list of saved filters on the Amazon Macie console. This value also determines the order in which the filter is applied to findings, relative to other filters that are also applied to the findings.</p>
    */
-  findingCriteria?: FindingCriteria;
+  position?: number;
 }
 
 export namespace UpdateFindingsFilterRequest {
@@ -4556,14 +4852,14 @@ export namespace UpdateFindingsFilterRequest {
 
 export interface UpdateFindingsFilterResponse {
   /**
-   * <p>The unique identifier for the filter that was updated.</p>
-   */
-  id?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the filter that was updated.</p>
    */
   arn?: string;
+
+  /**
+   * <p>The unique identifier for the filter that was updated.</p>
+   */
+  id?: string;
 }
 
 export namespace UpdateFindingsFilterResponse {
@@ -4600,14 +4896,14 @@ export namespace UpdateMacieSessionResponse {
 
 export interface UpdateMemberSessionRequest {
   /**
-   * <p>Specifies the new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>
-   */
-  status: MacieStatus | string | undefined;
-
-  /**
    * <p>The unique identifier for the Amazon Macie resource or account that the request applies to.</p>
    */
   id: string | undefined;
+
+  /**
+   * <p>Specifies the new status for the account. Valid values are: ENABLED, resume all Amazon Macie activities for the account; and, PAUSED, suspend all Macie activities for the account.</p>
+   */
+  status: MacieStatus | string | undefined;
 }
 
 export namespace UpdateMemberSessionRequest {

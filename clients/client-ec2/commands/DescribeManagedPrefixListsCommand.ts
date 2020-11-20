@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeManagedPrefixListsRequest, DescribeManagedPrefixListsResult } from "../models/models_2";
+import { DescribeManagedPrefixListsRequest, DescribeManagedPrefixListsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeManagedPrefixListsCommand,
   serializeAws_ec2DescribeManagedPrefixListsCommand,
@@ -44,11 +44,23 @@ export class DescribeManagedPrefixListsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeManagedPrefixListsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeManagedPrefixListsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeManagedPrefixListsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

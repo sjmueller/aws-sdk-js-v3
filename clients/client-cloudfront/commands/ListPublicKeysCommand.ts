@@ -1,6 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { ListPublicKeysRequest } from "../models/models_0";
-import { ListPublicKeysResult } from "../models/models_1";
+import { ListPublicKeysRequest, ListPublicKeysResult } from "../models/models_1";
 import {
   deserializeAws_restXmlListPublicKeysCommand,
   serializeAws_restXmlListPublicKeysCommand,
@@ -45,11 +44,23 @@ export class ListPublicKeysCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "ListPublicKeysCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListPublicKeysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListPublicKeysResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -69,8 +69,8 @@ export const serializeAws_restJson1DescribeChangeSetCommand = async (
   };
   let resolvedPath = "/DescribeChangeSet";
   const query: any = {
-    ...(input.Catalog !== undefined && { catalog: input.Catalog }),
     ...(input.ChangeSetId !== undefined && { changeSetId: input.ChangeSetId }),
+    ...(input.Catalog !== undefined && { catalog: input.Catalog }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -202,7 +202,7 @@ export const deserializeAws_restJson1CancelChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelChangeSetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CancelChangeSetCommandError(output, context);
   }
   const contents: CancelChangeSetCommandOutput = {
@@ -301,7 +301,7 @@ export const deserializeAws_restJson1DescribeChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChangeSetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeChangeSetCommandError(output, context);
   }
   const contents: DescribeChangeSetCommandOutput = {
@@ -311,6 +311,7 @@ export const deserializeAws_restJson1DescribeChangeSetCommand = async (
     ChangeSetId: undefined,
     ChangeSetName: undefined,
     EndTime: undefined,
+    FailureCode: undefined,
     FailureDescription: undefined,
     StartTime: undefined,
     Status: undefined,
@@ -330,6 +331,9 @@ export const deserializeAws_restJson1DescribeChangeSetCommand = async (
   }
   if (data.EndTime !== undefined && data.EndTime !== null) {
     contents.EndTime = data.EndTime;
+  }
+  if (data.FailureCode !== undefined && data.FailureCode !== null) {
+    contents.FailureCode = data.FailureCode;
   }
   if (data.FailureDescription !== undefined && data.FailureDescription !== null) {
     contents.FailureDescription = data.FailureDescription;
@@ -416,7 +420,7 @@ export const deserializeAws_restJson1DescribeEntityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEntityCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeEntityCommandError(output, context);
   }
   const contents: DescribeEntityCommandOutput = {
@@ -527,7 +531,7 @@ export const deserializeAws_restJson1ListChangeSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChangeSetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListChangeSetsCommandError(output, context);
   }
   const contents: ListChangeSetsCommandOutput = {
@@ -610,7 +614,7 @@ export const deserializeAws_restJson1ListEntitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitiesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListEntitiesCommandError(output, context);
   }
   const contents: ListEntitiesCommandOutput = {
@@ -701,7 +705,7 @@ export const deserializeAws_restJson1StartChangeSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartChangeSetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartChangeSetCommandError(output, context);
   }
   const contents: StartChangeSetCommandOutput = {
@@ -1006,6 +1010,7 @@ const deserializeAws_restJson1ChangeSetSummaryListItem = (
       output.EntityIdList !== undefined && output.EntityIdList !== null
         ? deserializeAws_restJson1ResourceIdList(output.EntityIdList, context)
         : undefined,
+    FailureCode: output.FailureCode !== undefined && output.FailureCode !== null ? output.FailureCode : undefined,
     StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;

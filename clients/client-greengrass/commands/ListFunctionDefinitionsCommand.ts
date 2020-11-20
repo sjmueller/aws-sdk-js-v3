@@ -44,11 +44,23 @@ export class ListFunctionDefinitionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GreengrassClient";
+    const commandName = "ListFunctionDefinitionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListFunctionDefinitionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFunctionDefinitionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetBotAliasesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetBotAliasesCommand(input, ...args));
+  return await client.send(new GetBotAliasesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: LexModelBuildingService,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getBotAliases(input, ...args);
 };
-export async function* getBotAliasesPaginate(
+export async function* paginateGetBotAliases(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetBotAliasesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetBotAliasesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetBotAliasesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof LexModelBuildingService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getBotAliasesPaginate(
       throw new Error("Invalid client, expected LexModelBuildingService | LexModelBuildingServiceClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

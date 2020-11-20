@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRoomMembershipsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRoomMembershipsCommand(input, ...args));
+  return await client.send(new ListRoomMembershipsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Chime,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRoomMemberships(input, ...args);
 };
-export async function* listRoomMembershipsPaginate(
+export async function* paginateListRoomMemberships(
   config: ChimePaginationConfiguration,
   input: ListRoomMembershipsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRoomMembershipsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRoomMembershipsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Chime) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listRoomMembershipsPaginate(
       throw new Error("Invalid client, expected Chime | ChimeClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

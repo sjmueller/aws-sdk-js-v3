@@ -2,7 +2,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetTransitGatewayRouteTableAssociationsRequest,
   GetTransitGatewayRouteTableAssociationsResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand,
   serializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand,
@@ -51,11 +51,23 @@ export class GetTransitGatewayRouteTableAssociationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "GetTransitGatewayRouteTableAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetTransitGatewayRouteTableAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTransitGatewayRouteTableAssociationsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

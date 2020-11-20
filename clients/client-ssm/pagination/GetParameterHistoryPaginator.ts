@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetParameterHistoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetParameterHistoryCommand(input, ...args));
+  return await client.send(new GetParameterHistoryCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SSM,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getParameterHistory(input, ...args);
 };
-export async function* getParameterHistoryPaginate(
+export async function* paginateGetParameterHistory(
   config: SSMPaginationConfiguration,
   input: GetParameterHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetParameterHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetParameterHistoryCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SSM) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getParameterHistoryPaginate(
       throw new Error("Invalid client, expected SSM | SSMClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListIdentitiesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListIdentitiesCommand(input, ...args));
+  return await client.send(new ListIdentitiesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SES,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listIdentities(input, ...args);
 };
-export async function* listIdentitiesPaginate(
+export async function* paginateListIdentities(
   config: SESPaginationConfiguration,
   input: ListIdentitiesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListIdentitiesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListIdentitiesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof SES) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listIdentitiesPaginate(
       throw new Error("Invalid client, expected SES | SESClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

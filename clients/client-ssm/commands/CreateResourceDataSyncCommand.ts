@@ -44,11 +44,23 @@ export class CreateResourceDataSyncCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SSMClient";
+    const commandName = "CreateResourceDataSyncCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateResourceDataSyncRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateResourceDataSyncResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

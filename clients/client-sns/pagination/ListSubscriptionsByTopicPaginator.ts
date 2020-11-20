@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSubscriptionsByTopicCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSubscriptionsByTopicCommand(input, ...args));
+  return await client.send(new ListSubscriptionsByTopicCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SNS,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSubscriptionsByTopic(input, ...args);
 };
-export async function* listSubscriptionsByTopicPaginate(
+export async function* paginateListSubscriptionsByTopic(
   config: SNSPaginationConfiguration,
   input: ListSubscriptionsByTopicCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSubscriptionsByTopicCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSubscriptionsByTopicCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof SNS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof SNSClient) {
@@ -42,7 +42,7 @@ export async function* listSubscriptionsByTopicPaginate(
       throw new Error("Invalid client, expected SNS | SNSClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

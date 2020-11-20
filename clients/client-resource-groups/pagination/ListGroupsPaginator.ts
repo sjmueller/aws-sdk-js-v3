@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListGroupsCommand(input, ...args));
+  return await client.send(new ListGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ResourceGroups,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listGroups(input, ...args);
 };
-export async function* listGroupsPaginate(
+export async function* paginateListGroups(
   config: ResourceGroupsPaginationConfiguration,
   input: ListGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListGroupsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof ResourceGroups) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listGroupsPaginate(
       throw new Error("Invalid client, expected ResourceGroups | ResourceGroupsClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

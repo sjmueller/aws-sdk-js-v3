@@ -44,11 +44,23 @@ export class GetCustomerGatewayAssociationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "NetworkManagerClient";
+    const commandName = "GetCustomerGatewayAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetCustomerGatewayAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetCustomerGatewayAssociationsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

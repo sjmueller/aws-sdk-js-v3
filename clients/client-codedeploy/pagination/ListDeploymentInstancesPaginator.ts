@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDeploymentInstancesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDeploymentInstancesCommand(input, ...args));
+  return await client.send(new ListDeploymentInstancesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeDeploy,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDeploymentInstances(input, ...args);
 };
-export async function* listDeploymentInstancesPaginate(
+export async function* paginateListDeploymentInstances(
   config: CodeDeployPaginationConfiguration,
   input: ListDeploymentInstancesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDeploymentInstancesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDeploymentInstancesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     if (config.client instanceof CodeDeploy) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof CodeDeployClient) {
@@ -42,7 +42,7 @@ export async function* listDeploymentInstancesPaginate(
       throw new Error("Invalid client, expected CodeDeploy | CodeDeployClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

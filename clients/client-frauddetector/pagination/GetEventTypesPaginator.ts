@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetEventTypesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetEventTypesCommand(input, ...args));
+  return await client.send(new GetEventTypesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: FraudDetector,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getEventTypes(input, ...args);
 };
-export async function* getEventTypesPaginate(
+export async function* paginateGetEventTypes(
   config: FraudDetectorPaginationConfiguration,
   input: GetEventTypesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetEventTypesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetEventTypesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof FraudDetector) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getEventTypesPaginate(
       throw new Error("Invalid client, expected FraudDetector | FraudDetectorClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListVirtualMFADevicesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListVirtualMFADevicesCommand(input, ...args));
+  return await client.send(new ListVirtualMFADevicesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IAM,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listVirtualMFADevices(input, ...args);
 };
-export async function* listVirtualMFADevicesPaginate(
+export async function* paginateListVirtualMFADevices(
   config: IAMPaginationConfiguration,
   input: ListVirtualMFADevicesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVirtualMFADevicesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVirtualMFADevicesCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof IAM) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listVirtualMFADevicesPaginate(
       throw new Error("Invalid client, expected IAM | IAMClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

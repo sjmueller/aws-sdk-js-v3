@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetMetricDataCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetMetricDataCommand(input, ...args));
+  return await client.send(new GetMetricDataCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Connect,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getMetricData(input, ...args);
 };
-export async function* getMetricDataPaginate(
+export async function* paginateGetMetricData(
   config: ConnectPaginationConfiguration,
   input: GetMetricDataCommandInput,
   ...additionalArguments: any
 ): Paginator<GetMetricDataCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetMetricDataCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Connect) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getMetricDataPaginate(
       throw new Error("Invalid client, expected Connect | ConnectClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

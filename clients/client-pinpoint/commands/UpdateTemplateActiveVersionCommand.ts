@@ -44,11 +44,23 @@ export class UpdateTemplateActiveVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "UpdateTemplateActiveVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateTemplateActiveVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTemplateActiveVersionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

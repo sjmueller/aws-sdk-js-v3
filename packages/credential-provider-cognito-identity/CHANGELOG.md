@@ -3,6 +3,79 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-rc.7](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2020-11-20)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-cognito-identity
+
+
+
+
+
+# [1.0.0-rc.6](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.5...v1.0.0-rc.6) (2020-11-13)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-cognito-identity
+
+
+
+
+
+# [1.0.0-rc.5](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.4...v1.0.0-rc.5) (2020-11-09)
+
+
+### Bug Fixes
+
+* migrate dev types for packages and lib into package.json devDeps ([#1654](https://github.com/aws/aws-sdk-js-v3/issues/1654)) ([16d7030](https://github.com/aws/aws-sdk-js-v3/commit/16d7030a5976d6671c7346c7fb945fefb547ae0d))
+
+
+
+
+
+# [1.0.0-rc.4](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.3...v1.0.0-rc.4) (2020-10-31)
+
+
+### Bug Fixes
+
+* **credential-provider-cognito-identity:** return identityId as part of cognitoIdentityPool ([#1635](https://github.com/aws/aws-sdk-js-v3/issues/1635)) ([de75f7e](https://github.com/aws/aws-sdk-js-v3/commit/de75f7e8edbc747cc49e7fa9b6223c80170c925a))
+
+
+
+
+
+# [1.0.0-rc.3](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.2...v1.0.0-rc.3) (2020-10-27)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-cognito-identity
+
+
+
+
+
+# [1.0.0-rc.2](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-rc.1...v1.0.0-rc.2) (2020-10-22)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-cognito-identity
+
+
+
+
+
+# [1.0.0-rc.1](https://github.com/aws/aws-sdk-js-v3/compare/v1.0.0-gamma.11...v1.0.0-rc.1) (2020-10-19)
+
+
+### Features
+
+* ready for release candidate ([#1578](https://github.com/aws/aws-sdk-js-v3/issues/1578)) ([519f66c](https://github.com/aws/aws-sdk-js-v3/commit/519f66c6388b91d0bd750a511e6d1af56196835e))
+
+
+
+
+
+# [1.0.0-gamma.11](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/credential-provider-cognito-identity@1.0.0-gamma.10...@aws-sdk/credential-provider-cognito-identity@1.0.0-gamma.11) (2020-10-07)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-cognito-identity
+
+
+
+
+
 # [1.0.0-gamma.10](https://github.com/aws/aws-sdk-js-v3/compare/@aws-sdk/credential-provider-cognito-identity@1.0.0-gamma.9...@aws-sdk/credential-provider-cognito-identity@1.0.0-gamma.10) (2020-09-29)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-cognito-identity

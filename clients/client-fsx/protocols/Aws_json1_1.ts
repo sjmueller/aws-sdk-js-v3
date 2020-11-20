@@ -1,4 +1,8 @@
 import {
+  AssociateFileSystemAliasesCommandInput,
+  AssociateFileSystemAliasesCommandOutput,
+} from "../commands/AssociateFileSystemAliasesCommand";
+import {
   CancelDataRepositoryTaskCommandInput,
   CancelDataRepositoryTaskCommandOutput,
 } from "../commands/CancelDataRepositoryTaskCommand";
@@ -20,9 +24,17 @@ import {
   DescribeDataRepositoryTasksCommandOutput,
 } from "../commands/DescribeDataRepositoryTasksCommand";
 import {
+  DescribeFileSystemAliasesCommandInput,
+  DescribeFileSystemAliasesCommandOutput,
+} from "../commands/DescribeFileSystemAliasesCommand";
+import {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "../commands/DescribeFileSystemsCommand";
+import {
+  DisassociateFileSystemAliasesCommandInput,
+  DisassociateFileSystemAliasesCommandOutput,
+} from "../commands/DisassociateFileSystemAliasesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -35,6 +47,9 @@ import {
   ActiveDirectoryError,
   AdministrativeAction,
   AdministrativeActionFailureDetails,
+  Alias,
+  AssociateFileSystemAliasesRequest,
+  AssociateFileSystemAliasesResponse,
   Backup,
   BackupFailureDetails,
   BackupInProgress,
@@ -75,8 +90,12 @@ import {
   DescribeBackupsResponse,
   DescribeDataRepositoryTasksRequest,
   DescribeDataRepositoryTasksResponse,
+  DescribeFileSystemAliasesRequest,
+  DescribeFileSystemAliasesResponse,
   DescribeFileSystemsRequest,
   DescribeFileSystemsResponse,
+  DisassociateFileSystemAliasesRequest,
+  DisassociateFileSystemAliasesResponse,
   FileSystem,
   FileSystemFailureDetails,
   FileSystemMaintenanceOperation,
@@ -121,6 +140,19 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
+
+export const serializeAws_json1_1AssociateFileSystemAliasesCommand = async (
+  input: AssociateFileSystemAliasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSimbaAPIService_v20180301.AssociateFileSystemAliases",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AssociateFileSystemAliasesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_1CancelDataRepositoryTaskCommand = async (
   input: CancelDataRepositoryTaskCommandInput,
@@ -239,6 +271,19 @@ export const serializeAws_json1_1DescribeDataRepositoryTasksCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeFileSystemAliasesCommand = async (
+  input: DescribeFileSystemAliasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSimbaAPIService_v20180301.DescribeFileSystemAliases",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeFileSystemAliasesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeFileSystemsCommand = async (
   input: DescribeFileSystemsCommandInput,
   context: __SerdeContext
@@ -249,6 +294,19 @@ export const serializeAws_json1_1DescribeFileSystemsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeFileSystemsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DisassociateFileSystemAliasesCommand = async (
+  input: DisassociateFileSystemAliasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSSimbaAPIService_v20180301.DisassociateFileSystemAliases",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DisassociateFileSystemAliasesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -304,11 +362,82 @@ export const serializeAws_json1_1UpdateFileSystemCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const deserializeAws_json1_1AssociateFileSystemAliasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateFileSystemAliasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AssociateFileSystemAliasesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AssociateFileSystemAliasesResponse(data, context);
+  const response: AssociateFileSystemAliasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AssociateFileSystemAliasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateFileSystemAliasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "FileSystemNotFound":
+    case "com.amazonaws.fsx#FileSystemNotFound":
+      response = {
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CancelDataRepositoryTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelDataRepositoryTaskCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CancelDataRepositoryTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -395,7 +524,7 @@ export const deserializeAws_json1_1CreateBackupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateBackupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -498,7 +627,7 @@ export const deserializeAws_json1_1CreateDataRepositoryTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataRepositoryTaskCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDataRepositoryTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -601,7 +730,7 @@ export const deserializeAws_json1_1CreateFileSystemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFileSystemCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateFileSystemCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -728,7 +857,7 @@ export const deserializeAws_json1_1CreateFileSystemFromBackupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFileSystemFromBackupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateFileSystemFromBackupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -847,7 +976,7 @@ export const deserializeAws_json1_1DeleteBackupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteBackupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -942,7 +1071,7 @@ export const deserializeAws_json1_1DeleteFileSystemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFileSystemCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteFileSystemCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1029,7 +1158,7 @@ export const deserializeAws_json1_1DescribeBackupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeBackupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1108,7 +1237,7 @@ export const deserializeAws_json1_1DescribeDataRepositoryTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDataRepositoryTasksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDataRepositoryTasksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1183,11 +1312,82 @@ const deserializeAws_json1_1DescribeDataRepositoryTasksCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeFileSystemAliasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFileSystemAliasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeFileSystemAliasesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeFileSystemAliasesResponse(data, context);
+  const response: DescribeFileSystemAliasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeFileSystemAliasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeFileSystemAliasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "FileSystemNotFound":
+    case "com.amazonaws.fsx#FileSystemNotFound":
+      response = {
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeFileSystemsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFileSystemsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeFileSystemsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1254,11 +1454,82 @@ const deserializeAws_json1_1DescribeFileSystemsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DisassociateFileSystemAliasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFileSystemAliasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DisassociateFileSystemAliasesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DisassociateFileSystemAliasesResponse(data, context);
+  const response: DisassociateFileSystemAliasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DisassociateFileSystemAliasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateFileSystemAliasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequest":
+    case "com.amazonaws.fsx#BadRequest":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "FileSystemNotFound":
+    case "com.amazonaws.fsx#FileSystemNotFound":
+      response = {
+        ...(await deserializeAws_json1_1FileSystemNotFoundResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerError":
+    case "com.amazonaws.fsx#InternalServerError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1345,7 +1616,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1432,7 +1703,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1519,7 +1790,7 @@ export const deserializeAws_json1_1UpdateFileSystemCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFileSystemCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateFileSystemCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1933,6 +2204,21 @@ const deserializeAws_json1_1UnsupportedOperationResponse = async (
   return contents;
 };
 
+const serializeAws_json1_1AlternateDNSNames = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1AssociateFileSystemAliasesRequest = (
+  input: AssociateFileSystemAliasesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Aliases !== undefined && { Aliases: serializeAws_json1_1AlternateDNSNames(input.Aliases, context) }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
+  };
+};
+
 const serializeAws_json1_1BackupIds = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -2016,6 +2302,7 @@ const serializeAws_json1_1CreateFileSystemLustreConfiguration = (
       DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime,
     }),
     ...(input.DeploymentType !== undefined && { DeploymentType: input.DeploymentType }),
+    ...(input.DriveCacheType !== undefined && { DriveCacheType: input.DriveCacheType }),
     ...(input.ExportPath !== undefined && { ExportPath: input.ExportPath }),
     ...(input.ImportPath !== undefined && { ImportPath: input.ImportPath }),
     ...(input.ImportedFileChunkSize !== undefined && { ImportedFileChunkSize: input.ImportedFileChunkSize }),
@@ -2056,6 +2343,7 @@ const serializeAws_json1_1CreateFileSystemWindowsConfiguration = (
 ): any => {
   return {
     ...(input.ActiveDirectoryId !== undefined && { ActiveDirectoryId: input.ActiveDirectoryId }),
+    ...(input.Aliases !== undefined && { Aliases: serializeAws_json1_1AlternateDNSNames(input.Aliases, context) }),
     ...(input.AutomaticBackupRetentionDays !== undefined && {
       AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays,
     }),
@@ -2175,6 +2463,18 @@ const serializeAws_json1_1DescribeDataRepositoryTasksRequest = (
   };
 };
 
+const serializeAws_json1_1DescribeFileSystemAliasesRequest = (
+  input: DescribeFileSystemAliasesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1DescribeFileSystemsRequest = (
   input: DescribeFileSystemsRequest,
   context: __SerdeContext
@@ -2185,6 +2485,17 @@ const serializeAws_json1_1DescribeFileSystemsRequest = (
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1DisassociateFileSystemAliasesRequest = (
+  input: DisassociateFileSystemAliasesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Aliases !== undefined && { Aliases: serializeAws_json1_1AlternateDNSNames(input.Aliases, context) }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.FileSystemId !== undefined && { FileSystemId: input.FileSystemId }),
   };
 };
 
@@ -2410,6 +2721,29 @@ const deserializeAws_json1_1AdministrativeActionFailureDetails = (
 
 const deserializeAws_json1_1AdministrativeActions = (output: any, context: __SerdeContext): AdministrativeAction[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1AdministrativeAction(entry, context));
+};
+
+const deserializeAws_json1_1Alias = (output: any, context: __SerdeContext): Alias => {
+  return {
+    Lifecycle: output.Lifecycle !== undefined && output.Lifecycle !== null ? output.Lifecycle : undefined,
+    Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1Aliases = (output: any, context: __SerdeContext): Alias[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1Alias(entry, context));
+};
+
+const deserializeAws_json1_1AssociateFileSystemAliasesResponse = (
+  output: any,
+  context: __SerdeContext
+): AssociateFileSystemAliasesResponse => {
+  return {
+    Aliases:
+      output.Aliases !== undefined && output.Aliases !== null
+        ? deserializeAws_json1_1Aliases(output.Aliases, context)
+        : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1Backup = (output: any, context: __SerdeContext): Backup => {
@@ -2748,6 +3082,19 @@ const deserializeAws_json1_1DescribeDataRepositoryTasksResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DescribeFileSystemAliasesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeFileSystemAliasesResponse => {
+  return {
+    Aliases:
+      output.Aliases !== undefined && output.Aliases !== null
+        ? deserializeAws_json1_1Aliases(output.Aliases, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeFileSystemsResponse = (
   output: any,
   context: __SerdeContext
@@ -2758,6 +3105,18 @@ const deserializeAws_json1_1DescribeFileSystemsResponse = (
         ? deserializeAws_json1_1FileSystems(output.FileSystems, context)
         : undefined,
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DisassociateFileSystemAliasesResponse = (
+  output: any,
+  context: __SerdeContext
+): DisassociateFileSystemAliasesResponse => {
+  return {
+    Aliases:
+      output.Aliases !== undefined && output.Aliases !== null
+        ? deserializeAws_json1_1Aliases(output.Aliases, context)
+        : undefined,
   } as any;
 };
 
@@ -2921,6 +3280,8 @@ const deserializeAws_json1_1LustreFileSystemConfiguration = (
         : undefined,
     DeploymentType:
       output.DeploymentType !== undefined && output.DeploymentType !== null ? output.DeploymentType : undefined,
+    DriveCacheType:
+      output.DriveCacheType !== undefined && output.DriveCacheType !== null ? output.DriveCacheType : undefined,
     MountName: output.MountName !== undefined && output.MountName !== null ? output.MountName : undefined,
     PerUnitStorageThroughput:
       output.PerUnitStorageThroughput !== undefined && output.PerUnitStorageThroughput !== null
@@ -3051,6 +3412,10 @@ const deserializeAws_json1_1WindowsFileSystemConfiguration = (
     ActiveDirectoryId:
       output.ActiveDirectoryId !== undefined && output.ActiveDirectoryId !== null
         ? output.ActiveDirectoryId
+        : undefined,
+    Aliases:
+      output.Aliases !== undefined && output.Aliases !== null
+        ? deserializeAws_json1_1Aliases(output.Aliases, context)
         : undefined,
     AutomaticBackupRetentionDays:
       output.AutomaticBackupRetentionDays !== undefined && output.AutomaticBackupRetentionDays !== null

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetEntityTypesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetEntityTypesCommand(input, ...args));
+  return await client.send(new GetEntityTypesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: FraudDetector,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getEntityTypes(input, ...args);
 };
-export async function* getEntityTypesPaginate(
+export async function* paginateGetEntityTypes(
   config: FraudDetectorPaginationConfiguration,
   input: GetEntityTypesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetEntityTypesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetEntityTypesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof FraudDetector) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getEntityTypesPaginate(
       throw new Error("Invalid client, expected FraudDetector | FraudDetectorClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -44,11 +44,23 @@ export class CreateDataSourceFromRedshiftCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MachineLearningClient";
+    const commandName = "CreateDataSourceFromRedshiftCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateDataSourceFromRedshiftInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateDataSourceFromRedshiftOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

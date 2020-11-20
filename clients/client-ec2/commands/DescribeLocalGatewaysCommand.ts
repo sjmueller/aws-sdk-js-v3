@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeLocalGatewaysRequest, DescribeLocalGatewaysResult } from "../models/models_2";
+import { DescribeLocalGatewaysRequest, DescribeLocalGatewaysResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeLocalGatewaysCommand,
   serializeAws_ec2DescribeLocalGatewaysCommand,
@@ -44,11 +44,23 @@ export class DescribeLocalGatewaysCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeLocalGatewaysCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeLocalGatewaysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLocalGatewaysResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

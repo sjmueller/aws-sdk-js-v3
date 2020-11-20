@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPlatformApplicationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPlatformApplicationsCommand(input, ...args));
+  return await client.send(new ListPlatformApplicationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SNS,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPlatformApplications(input, ...args);
 };
-export async function* listPlatformApplicationsPaginate(
+export async function* paginateListPlatformApplications(
   config: SNSPaginationConfiguration,
   input: ListPlatformApplicationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPlatformApplicationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPlatformApplicationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof SNS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof SNSClient) {
@@ -42,7 +42,7 @@ export async function* listPlatformApplicationsPaginate(
       throw new Error("Invalid client, expected SNS | SNSClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

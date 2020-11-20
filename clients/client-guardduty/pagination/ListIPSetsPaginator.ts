@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListIPSetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListIPSetsCommand(input, ...args));
+  return await client.send(new ListIPSetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GuardDuty,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listIPSets(input, ...args);
 };
-export async function* listIPSetsPaginate(
+export async function* paginateListIPSets(
   config: GuardDutyPaginationConfiguration,
   input: ListIPSetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListIPSetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListIPSetsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof GuardDuty) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listIPSetsPaginate(
       throw new Error("Invalid client, expected GuardDuty | GuardDutyClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

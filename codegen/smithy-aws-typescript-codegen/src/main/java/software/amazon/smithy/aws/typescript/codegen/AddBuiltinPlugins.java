@@ -24,9 +24,11 @@ import java.util.Set;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.OperationIndex;
+import software.amazon.smithy.model.knowledge.TopDownIndex;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.traits.OptionalAuthTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
@@ -38,8 +40,6 @@ import software.amazon.smithy.utils.SetUtils;
  */
 public class AddBuiltinPlugins implements TypeScriptIntegration {
 
-    private static final Set<String> SSEC_OPERATIONS = SetUtils.of("SSECustomerKey", "CopySourceSSECustomerKey");
-
     private static final Set<String> ROUTE_53_ID_MEMBERS = SetUtils.of("DelegationSetId", "HostedZoneId", "Id");
 
     private static final Set<String> RDS_PRESIGNED_URL_OPERATIONS = SetUtils.of(
@@ -47,22 +47,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
         "CreateDBInstanceReadReplica",
         "CreateDBCluster",
         "CopyDBClusterSnapshot"
-    );
-
-    private static final Set<String> S3_MD5_OPERATIONS = SetUtils.of(
-            "DeleteObjects",
-            "PutBucketCors",
-            "PutBucketLifecycle",
-            "PutBucketLifecycleConfiguration",
-            "PutBucketPolicy",
-            "PutBucketTagging",
-            "PutBucketReplication"
-    );
-
-    private static final Set<String> NON_BUCKET_ENDPOINT_OPERATIONS = SetUtils.of(
-            "CreateBucket",
-            "DeleteBucket",
-            "ListBuckets"
     );
 
     @Override
@@ -82,8 +66,9 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MIDDLEWARE_SIGNING.dependency, "AwsAuth", HAS_MIDDLEWARE)
                         // See operationUsesAwsAuth() below for AwsAuth Middleware customizations.
-                        .servicePredicate((m, s) -> !testServiceId(s, "Cognito Identity"))
-                        .build(),
+                        .servicePredicate(
+                            (m, s) -> !testServiceId(s, "Cognito Identity") && !hasOptionalAuthOperation(m, s)
+                        ).build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(TypeScriptDependency.MIDDLEWARE_RETRY.dependency, "Retry")
                         .build(),
@@ -100,16 +85,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                         .servicePredicate((m, s) -> testServiceId(s, "API Gateway"))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.VALIDATE_BUCKET_NAME.dependency, "ValidateBucketName",
-                                         HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.ADD_EXPECT_CONTINUE.dependency, "AddExpectContinue",
-                                         HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
-                        .build(),
-                RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.GLACIER_MIDDLEWARE.dependency,
                                          "Glacier", HAS_MIDDLEWARE)
                         .servicePredicate((m, s) -> testServiceId(s, "Glacier"))
@@ -121,42 +96,10 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                                             && testServiceId(s, "EC2"))
                         .build(),
                 RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.SSEC_MIDDLEWARE.dependency, "Ssec", HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> testInputContainsMember(m, o, SSEC_OPERATIONS)
-                                            && testServiceId(s, "S3"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.LOCATION_CONSTRAINT.dependency, "LocationConstraint",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> o.getId().getName().equals("CreateBucket")
-                                            && testServiceId(s, "S3"))
-                        .build(),
-                RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.MACHINELEARNING_MIDDLEWARE.dependency, "PredictEndpoint",
                                 HAS_MIDDLEWARE)
                         .operationPredicate((m, s, o) -> o.getId().getName().equals("Predict")
                                             && testServiceId(s, "Machine Learning"))
-                        .build(),
-                /**
-                 * BUCKET_ENDPOINT_MIDDLEWARE needs two separate plugins. The first resolves the config in the client.
-                 * The second applies the middleware to bucket endpoint operations.
-                 */
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
-                                         HAS_CONFIG)
-                        .servicePredicate((m, s) -> testServiceId(s, "S3"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.BUCKET_ENDPOINT_MIDDLEWARE.dependency, "BucketEndpoint",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> !NON_BUCKET_ENDPOINT_OPERATIONS.contains(o.getId().getName())
-                                            && testServiceId(s, "S3"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.BODY_CHECKSUM.dependency, "ApplyMd5BodyChecksum",
-                                         HAS_MIDDLEWARE)
-                        .operationPredicate((m, s, o) -> S3_MD5_OPERATIONS.contains(o.getId().getName())
-                                            && testServiceId(s, "S3"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.ROUTE53_MIDDLEWARE.dependency,
@@ -175,11 +118,6 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
                                          HAS_MIDDLEWARE)
                         .operationPredicate((m, s, o) -> testInputContainsMember(m, o, ROUTE_53_ID_MEMBERS)
                                             && testServiceId(s, "Route 53"))
-                        .build(),
-                RuntimeClientPlugin.builder()
-                        .withConventions(AwsDependency.S3_CONTROL_MIDDLEWARE.dependency, "PrependAccountId",
-                                         HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> testServiceId(s, "S3 Control"))
                         .build(),
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "SendMessage",
@@ -228,11 +166,28 @@ public class AddBuiltinPlugins implements TypeScriptIntegration {
     }
 
     private static boolean operationUsesAwsAuth(Model model, ServiceShape service, OperationShape operation) {
-        // Cognito Identity service doesn't need auth for GetId, GetOpenIdToken, GetCredentialsForIdentity.
+        // Cognito Identity doesn't need auth for GetId, GetOpenIdToken, GetCredentialsForIdentity, UnlinkIdentity.
+        // Remove when optionalAuth model update is published in V261331976.
         if (testServiceId(service, "Cognito Identity")) {
-            Boolean isUnsignedCommand = SetUtils.of("GetId", "GetOpenIdToken", "GetCredentialsForIdentity")
+            Boolean isUnsignedCommand = SetUtils
+                    .of("GetId", "GetOpenIdToken", "GetCredentialsForIdentity", "UnlinkIdentity")
                     .contains(operation.getId().getName());
             return !isUnsignedCommand;
+        }
+        // optionalAuth trait doesn't require authentication.
+        if (hasOptionalAuthOperation(model, service)) {
+            return !operation.getTrait(OptionalAuthTrait.class).isPresent();
+        }
+        return false;
+    }
+
+    private static boolean hasOptionalAuthOperation(Model model, ServiceShape service) {
+        TopDownIndex topDownIndex = model.getKnowledge(TopDownIndex.class);
+        Set<OperationShape> operations = topDownIndex.getContainedOperations(service);
+        for (OperationShape operation : operations) {
+            if (operation.getTrait(OptionalAuthTrait.class).isPresent()) {
+                return true;
+            }
         }
         return false;
     }

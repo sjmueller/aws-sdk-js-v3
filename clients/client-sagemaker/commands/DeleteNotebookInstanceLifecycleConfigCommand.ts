@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_0";
+import { DeleteNotebookInstanceLifecycleConfigInput } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand,
   serializeAws_json1_1DeleteNotebookInstanceLifecycleConfigCommand,
@@ -44,11 +44,23 @@ export class DeleteNotebookInstanceLifecycleConfigCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "DeleteNotebookInstanceLifecycleConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteNotebookInstanceLifecycleConfigInput.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

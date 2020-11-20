@@ -37,6 +37,7 @@ import {
 } from "../commands/UpdateEnvironmentMembershipCommand";
 import {
   BadRequestException,
+  ConcurrentAccessException,
   ConflictException,
   CreateEnvironmentEC2Request,
   CreateEnvironmentEC2Result,
@@ -258,7 +259,7 @@ export const deserializeAws_json1_1CreateEnvironmentEC2Command = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentEC2CommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateEnvironmentEC2CommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -361,7 +362,7 @@ export const deserializeAws_json1_1CreateEnvironmentMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentMembershipCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateEnvironmentMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -464,7 +465,7 @@ export const deserializeAws_json1_1DeleteEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteEnvironmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -567,7 +568,7 @@ export const deserializeAws_json1_1DeleteEnvironmentMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentMembershipCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteEnvironmentMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -670,7 +671,7 @@ export const deserializeAws_json1_1DescribeEnvironmentMembershipsCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentMembershipsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEnvironmentMembershipsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -773,7 +774,7 @@ export const deserializeAws_json1_1DescribeEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEnvironmentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -876,7 +877,7 @@ export const deserializeAws_json1_1DescribeEnvironmentStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEnvironmentStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEnvironmentStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -979,7 +980,7 @@ export const deserializeAws_json1_1ListEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEnvironmentsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListEnvironmentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1082,7 +1083,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1153,7 +1154,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1183,6 +1184,14 @@ const deserializeAws_json1_1TagResourceCommandError = async (
     case "com.amazonaws.cloud9#BadRequestException":
       response = {
         ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentAccessException":
+    case "com.amazonaws.cloud9#ConcurrentAccessException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentAccessExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1224,7 +1233,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1254,6 +1263,14 @@ const deserializeAws_json1_1UntagResourceCommandError = async (
     case "com.amazonaws.cloud9#BadRequestException":
       response = {
         ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConcurrentAccessException":
+    case "com.amazonaws.cloud9#ConcurrentAccessException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentAccessExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1295,7 +1312,7 @@ export const deserializeAws_json1_1UpdateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateEnvironmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1398,7 +1415,7 @@ export const deserializeAws_json1_1UpdateEnvironmentMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentMembershipCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateEnvironmentMembershipCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1512,6 +1529,21 @@ const deserializeAws_json1_1BadRequestExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ConcurrentAccessExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConcurrentAccessException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConcurrentAccessException(body, context);
+  const contents: ConcurrentAccessException = {
+    name: "ConcurrentAccessException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ConflictExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1613,6 +1645,7 @@ const serializeAws_json1_1CreateEnvironmentEC2Request = (
   return {
     ...(input.automaticStopTimeMinutes !== undefined && { automaticStopTimeMinutes: input.automaticStopTimeMinutes }),
     ...(input.clientRequestToken !== undefined && { clientRequestToken: input.clientRequestToken }),
+    ...(input.connectionType !== undefined && { connectionType: input.connectionType }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.instanceType !== undefined && { instanceType: input.instanceType }),
     ...(input.name !== undefined && { name: input.name }),
@@ -1766,6 +1799,17 @@ const deserializeAws_json1_1BadRequestException = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1ConcurrentAccessException = (
+  output: any,
+  context: __SerdeContext
+): ConcurrentAccessException => {
+  return {
+    className: output.className !== undefined && output.className !== null ? output.className : undefined,
+    code: output.code !== undefined && output.code !== null ? output.code : undefined,
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     className: output.className !== undefined && output.className !== null ? output.className : undefined,
@@ -1848,6 +1892,8 @@ const deserializeAws_json1_1DescribeEnvironmentStatusResult = (
 const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext): Environment => {
   return {
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    connectionType:
+      output.connectionType !== undefined && output.connectionType !== null ? output.connectionType : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
     id: output.id !== undefined && output.id !== null ? output.id : undefined,
     lifecycle:

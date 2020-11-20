@@ -5,6 +5,7 @@ import {
   serializeAws_restXmlCompleteMultipartUploadCommand,
 } from "../protocols/Aws_restXml";
 import { getBucketEndpointPlugin } from "@aws-sdk/middleware-bucket-endpoint";
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -41,16 +42,29 @@ export class CompleteMultipartUploadCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CompleteMultipartUploadCommandInput, CompleteMultipartUploadCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getThrow200ExceptionsPlugin(configuration));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "CompleteMultipartUploadCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CompleteMultipartUploadRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CompleteMultipartUploadOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

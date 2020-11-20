@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRoutesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRoutesCommand(input, ...args));
+  return await client.send(new ListRoutesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AppMesh,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRoutes(input, ...args);
 };
-export async function* listRoutesPaginate(
+export async function* paginateListRoutes(
   config: AppMeshPaginationConfiguration,
   input: ListRoutesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRoutesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRoutesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["limit"] = config.pageSize;
     if (config.client instanceof AppMesh) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listRoutesPaginate(
       throw new Error("Invalid client, expected AppMesh | AppMeshClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

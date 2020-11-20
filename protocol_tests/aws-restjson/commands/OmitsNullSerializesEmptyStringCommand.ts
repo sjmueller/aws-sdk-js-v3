@@ -43,9 +43,24 @@ export class OmitsNullSerializesEmptyStringCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
+    const clientName = "RestJsonProtocolClient";
+    const commandName = "OmitsNullSerializesEmptyStringCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: OmitsNullSerializesEmptyStringInput.filterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

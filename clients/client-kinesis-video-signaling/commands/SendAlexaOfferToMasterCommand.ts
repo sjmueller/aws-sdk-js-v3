@@ -48,11 +48,23 @@ export class SendAlexaOfferToMasterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisVideoSignalingClient";
+    const commandName = "SendAlexaOfferToMasterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SendAlexaOfferToMasterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SendAlexaOfferToMasterResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

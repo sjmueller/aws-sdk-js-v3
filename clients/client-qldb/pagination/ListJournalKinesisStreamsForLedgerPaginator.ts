@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListJournalKinesisStreamsForLedgerCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListJournalKinesisStreamsForLedgerCommand(input, ...args));
+  return await client.send(new ListJournalKinesisStreamsForLedgerCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: QLDB,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listJournalKinesisStreamsForLedger(input, ...args);
 };
-export async function* listJournalKinesisStreamsForLedgerPaginate(
+export async function* paginateListJournalKinesisStreamsForLedger(
   config: QLDBPaginationConfiguration,
   input: ListJournalKinesisStreamsForLedgerCommandInput,
   ...additionalArguments: any
 ): Paginator<ListJournalKinesisStreamsForLedgerCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListJournalKinesisStreamsForLedgerCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof QLDB) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listJournalKinesisStreamsForLedgerPaginate(
       throw new Error("Invalid client, expected QLDB | QLDBClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -43,9 +43,24 @@ export class JsonBlobsCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
+    const clientName = "RestJsonProtocolClient";
+    const commandName = "JsonBlobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: JsonBlobsInputOutput.filterSensitiveLog,
+      outputFilterSensitiveLog: JsonBlobsInputOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

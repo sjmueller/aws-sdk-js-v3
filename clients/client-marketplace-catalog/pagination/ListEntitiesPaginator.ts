@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEntitiesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEntitiesCommand(input, ...args));
+  return await client.send(new ListEntitiesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MarketplaceCatalog,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEntities(input, ...args);
 };
-export async function* listEntitiesPaginate(
+export async function* paginateListEntities(
   config: MarketplaceCatalogPaginationConfiguration,
   input: ListEntitiesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEntitiesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEntitiesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof MarketplaceCatalog) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listEntitiesPaginate(
       throw new Error("Invalid client, expected MarketplaceCatalog | MarketplaceCatalogClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

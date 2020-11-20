@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListHITsForQualificationTypeCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListHITsForQualificationTypeCommand(input, ...args));
+  return await client.send(new ListHITsForQualificationTypeCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MTurk,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listHITsForQualificationType(input, ...args);
 };
-export async function* listHITsForQualificationTypePaginate(
+export async function* paginateListHITsForQualificationType(
   config: MTurkPaginationConfiguration,
   input: ListHITsForQualificationTypeCommandInput,
   ...additionalArguments: any
 ): Paginator<ListHITsForQualificationTypeCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListHITsForQualificationTypeCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof MTurk) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listHITsForQualificationTypePaginate(
       throw new Error("Invalid client, expected MTurk | MTurkClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

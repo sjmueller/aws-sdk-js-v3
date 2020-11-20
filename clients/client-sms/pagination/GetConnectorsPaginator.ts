@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetConnectorsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetConnectorsCommand(input, ...args));
+  return await client.send(new GetConnectorsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SMS,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getConnectors(input, ...args);
 };
-export async function* getConnectorsPaginate(
+export async function* paginateGetConnectors(
   config: SMSPaginationConfiguration,
   input: GetConnectorsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetConnectorsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetConnectorsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof SMS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getConnectorsPaginate(
       throw new Error("Invalid client, expected SMS | SMSClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

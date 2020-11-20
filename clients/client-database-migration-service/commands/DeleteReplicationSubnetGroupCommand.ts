@@ -48,11 +48,23 @@ export class DeleteReplicationSubnetGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DatabaseMigrationServiceClient";
+    const commandName = "DeleteReplicationSubnetGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteReplicationSubnetGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteReplicationSubnetGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

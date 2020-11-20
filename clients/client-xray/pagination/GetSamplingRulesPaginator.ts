@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetSamplingRulesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetSamplingRulesCommand(input, ...args));
+  return await client.send(new GetSamplingRulesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: XRay,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getSamplingRules(input, ...args);
 };
-export async function* getSamplingRulesPaginate(
+export async function* paginateGetSamplingRules(
   config: XRayPaginationConfiguration,
   input: GetSamplingRulesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetSamplingRulesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetSamplingRulesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof XRay) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof XRayClient) {
@@ -42,7 +42,7 @@ export async function* getSamplingRulesPaginate(
       throw new Error("Invalid client, expected XRay | XRayClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListProjectsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListProjectsCommand(input, ...args));
+  return await client.send(new ListProjectsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoT1ClickProjects,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProjects(input, ...args);
 };
-export async function* listProjectsPaginate(
+export async function* paginateListProjects(
   config: IoT1ClickProjectsPaginationConfiguration,
   input: ListProjectsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProjectsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProjectsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof IoT1ClickProjects) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listProjectsPaginate(
       throw new Error("Invalid client, expected IoT1ClickProjects | IoT1ClickProjectsClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

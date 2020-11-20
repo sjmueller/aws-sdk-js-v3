@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeNetworkInterfacesRequest, DescribeNetworkInterfacesResult } from "../models/models_2";
+import { DescribeNetworkInterfacesRequest, DescribeNetworkInterfacesResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeNetworkInterfacesCommand,
   serializeAws_ec2DescribeNetworkInterfacesCommand,
@@ -44,11 +44,23 @@ export class DescribeNetworkInterfacesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeNetworkInterfacesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeNetworkInterfacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNetworkInterfacesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

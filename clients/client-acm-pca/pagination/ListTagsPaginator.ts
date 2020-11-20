@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTagsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTagsCommand(input, ...args));
+  return await client.send(new ListTagsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ACMPCA,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTags(input, ...args);
 };
-export async function* listTagsPaginate(
+export async function* paginateListTags(
   config: ACMPCAPaginationConfiguration,
   input: ListTagsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTagsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTagsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof ACMPCA) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listTagsPaginate(
       throw new Error("Invalid client, expected ACMPCA | ACMPCAClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

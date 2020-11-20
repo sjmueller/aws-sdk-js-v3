@@ -100,11 +100,11 @@ export const serializeAws_restJson1ListHumanLoopsCommand = async (
     ...(input.CreationTimeAfter !== undefined && {
       CreationTimeAfter: (input.CreationTimeAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.CreationTimeBefore !== undefined && {
       CreationTimeBefore: (input.CreationTimeBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
-    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
     ...(input.FlowDefinitionArn !== undefined && { FlowDefinitionArn: input.FlowDefinitionArn }),
     ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
   };
@@ -181,7 +181,7 @@ export const deserializeAws_restJson1DeleteHumanLoopCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHumanLoopCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteHumanLoopCommandError(output, context);
   }
   const contents: DeleteHumanLoopCommandOutput = {
@@ -256,7 +256,7 @@ export const deserializeAws_restJson1DescribeHumanLoopCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHumanLoopCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeHumanLoopCommandError(output, context);
   }
   const contents: DescribeHumanLoopCommandOutput = {
@@ -363,7 +363,7 @@ export const deserializeAws_restJson1ListHumanLoopsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHumanLoopsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListHumanLoopsCommandError(output, context);
   }
   const contents: ListHumanLoopsCommandOutput = {
@@ -446,7 +446,7 @@ export const deserializeAws_restJson1StartHumanLoopCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartHumanLoopCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartHumanLoopCommandError(output, context);
   }
   const contents: StartHumanLoopCommandOutput = {
@@ -533,7 +533,7 @@ export const deserializeAws_restJson1StopHumanLoopCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopHumanLoopCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StopHumanLoopCommandError(output, context);
   }
   const contents: StopHumanLoopCommandOutput = {

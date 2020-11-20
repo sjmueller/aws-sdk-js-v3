@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListUsersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListUsersCommand(input, ...args));
+  return await client.send(new ListUsersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IAM,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listUsers(input, ...args);
 };
-export async function* listUsersPaginate(
+export async function* paginateListUsers(
   config: IAMPaginationConfiguration,
   input: ListUsersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListUsersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListUsersCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof IAM) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listUsersPaginate(
       throw new Error("Invalid client, expected IAM | IAMClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

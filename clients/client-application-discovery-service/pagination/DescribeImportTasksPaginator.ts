@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeImportTasksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeImportTasksCommand(input, ...args));
+  return await client.send(new DescribeImportTasksCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ApplicationDiscoveryService,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeImportTasks(input, ...args);
 };
-export async function* describeImportTasksPaginate(
+export async function* paginateDescribeImportTasks(
   config: ApplicationDiscoveryServicePaginationConfiguration,
   input: DescribeImportTasksCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeImportTasksCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeImportTasksCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof ApplicationDiscoveryService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeImportTasksPaginate(
       throw new Error("Invalid client, expected ApplicationDiscoveryService | ApplicationDiscoveryServiceClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

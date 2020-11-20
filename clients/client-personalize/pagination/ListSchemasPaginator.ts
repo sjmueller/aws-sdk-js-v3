@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSchemasCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSchemasCommand(input, ...args));
+  return await client.send(new ListSchemasCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Personalize,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSchemas(input, ...args);
 };
-export async function* listSchemasPaginate(
+export async function* paginateListSchemas(
   config: PersonalizePaginationConfiguration,
   input: ListSchemasCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSchemasCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSchemasCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Personalize) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listSchemasPaginate(
       throw new Error("Invalid client, expected Personalize | PersonalizeClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

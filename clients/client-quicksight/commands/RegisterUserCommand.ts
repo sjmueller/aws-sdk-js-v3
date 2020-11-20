@@ -1,6 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { RegisterUserRequest } from "../models/models_0";
-import { RegisterUserResponse } from "../models/models_1";
+import { RegisterUserRequest, RegisterUserResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1RegisterUserCommand,
   serializeAws_restJson1RegisterUserCommand,
@@ -45,11 +44,23 @@ export class RegisterUserCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "RegisterUserCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RegisterUserRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RegisterUserResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteTransitGatewayRouteRequest, DeleteTransitGatewayRouteResult } from "../models/models_1";
+import { DeleteTransitGatewayRouteRequest, DeleteTransitGatewayRouteResult } from "../models/models_2";
 import {
   deserializeAws_ec2DeleteTransitGatewayRouteCommand,
   serializeAws_ec2DeleteTransitGatewayRouteCommand,
@@ -44,11 +44,23 @@ export class DeleteTransitGatewayRouteCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DeleteTransitGatewayRouteCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteTransitGatewayRouteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTransitGatewayRouteResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

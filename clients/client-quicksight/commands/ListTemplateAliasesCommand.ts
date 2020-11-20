@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { ListTemplateAliasesRequest, ListTemplateAliasesResponse } from "../models/models_0";
+import { ListTemplateAliasesRequest, ListTemplateAliasesResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListTemplateAliasesCommand,
   serializeAws_restJson1ListTemplateAliasesCommand,
@@ -44,11 +44,23 @@ export class ListTemplateAliasesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "ListTemplateAliasesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTemplateAliasesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTemplateAliasesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

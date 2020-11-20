@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeEvaluationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeEvaluationsCommand(input, ...args));
+  return await client.send(new DescribeEvaluationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MachineLearning,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEvaluations(input, ...args);
 };
-export async function* describeEvaluationsPaginate(
+export async function* paginateDescribeEvaluations(
   config: MachineLearningPaginationConfiguration,
   input: DescribeEvaluationsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeEvaluationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeEvaluationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof MachineLearning) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeEvaluationsPaginate(
       throw new Error("Invalid client, expected MachineLearning | MachineLearningClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

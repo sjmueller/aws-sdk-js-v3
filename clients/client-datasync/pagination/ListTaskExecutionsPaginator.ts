@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTaskExecutionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTaskExecutionsCommand(input, ...args));
+  return await client.send(new ListTaskExecutionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DataSync,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTaskExecutions(input, ...args);
 };
-export async function* listTaskExecutionsPaginate(
+export async function* paginateListTaskExecutions(
   config: DataSyncPaginationConfiguration,
   input: ListTaskExecutionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTaskExecutionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTaskExecutionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof DataSync) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listTaskExecutionsPaginate(
       throw new Error("Invalid client, expected DataSync | DataSyncClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

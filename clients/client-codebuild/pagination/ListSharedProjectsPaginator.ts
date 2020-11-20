@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSharedProjectsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSharedProjectsCommand(input, ...args));
+  return await client.send(new ListSharedProjectsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeBuild,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSharedProjects(input, ...args);
 };
-export async function* listSharedProjectsPaginate(
+export async function* paginateListSharedProjects(
   config: CodeBuildPaginationConfiguration,
   input: ListSharedProjectsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSharedProjectsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSharedProjectsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof CodeBuild) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listSharedProjectsPaginate(
       throw new Error("Invalid client, expected CodeBuild | CodeBuildClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

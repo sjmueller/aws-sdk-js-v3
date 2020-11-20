@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetResourceShareInvitationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetResourceShareInvitationsCommand(input, ...args));
+  return await client.send(new GetResourceShareInvitationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RAM,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getResourceShareInvitations(input, ...args);
 };
-export async function* getResourceShareInvitationsPaginate(
+export async function* paginateGetResourceShareInvitations(
   config: RAMPaginationConfiguration,
   input: GetResourceShareInvitationsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetResourceShareInvitationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetResourceShareInvitationsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof RAM) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getResourceShareInvitationsPaginate(
       throw new Error("Invalid client, expected RAM | RAMClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

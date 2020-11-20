@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/models_0";
+import { ListEnabledProductsForImportRequest, ListEnabledProductsForImportResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListEnabledProductsForImportCommand,
   serializeAws_restJson1ListEnabledProductsForImportCommand,
@@ -44,11 +44,23 @@ export class ListEnabledProductsForImportCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecurityHubClient";
+    const commandName = "ListEnabledProductsForImportCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListEnabledProductsForImportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListEnabledProductsForImportResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

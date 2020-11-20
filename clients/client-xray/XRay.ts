@@ -23,6 +23,22 @@ import {
 } from "./commands/GetEncryptionConfigCommand";
 import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetGroupsCommand, GetGroupsCommandInput, GetGroupsCommandOutput } from "./commands/GetGroupsCommand";
+import { GetInsightCommand, GetInsightCommandInput, GetInsightCommandOutput } from "./commands/GetInsightCommand";
+import {
+  GetInsightEventsCommand,
+  GetInsightEventsCommandInput,
+  GetInsightEventsCommandOutput,
+} from "./commands/GetInsightEventsCommand";
+import {
+  GetInsightImpactGraphCommand,
+  GetInsightImpactGraphCommandInput,
+  GetInsightImpactGraphCommandOutput,
+} from "./commands/GetInsightImpactGraphCommand";
+import {
+  GetInsightSummariesCommand,
+  GetInsightSummariesCommandInput,
+  GetInsightSummariesCommandOutput,
+} from "./commands/GetInsightSummariesCommand";
 import {
   GetSamplingRulesCommand,
   GetSamplingRulesCommandInput,
@@ -59,6 +75,11 @@ import {
   GetTraceSummariesCommandOutput,
 } from "./commands/GetTraceSummariesCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   PutEncryptionConfigCommand,
   PutEncryptionConfigCommandInput,
   PutEncryptionConfigCommandOutput,
@@ -73,6 +94,12 @@ import {
   PutTraceSegmentsCommandInput,
   PutTraceSegmentsCommandOutput,
 } from "./commands/PutTraceSegmentsCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import { UpdateGroupCommand, UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
 import {
   UpdateSamplingRuleCommand,
@@ -316,6 +343,133 @@ export class XRay extends XRayClient {
     cb?: (err: any, data?: GetGroupsCommandOutput) => void
   ): Promise<GetGroupsCommandOutput> | void {
     const command = new GetGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the summary information of an insight. This includes impact to clients and
+   *          root cause services, the top anomalous services, the category, the state of the insight,
+   *          and the start and end time of the insight.</p>
+   */
+  public getInsight(args: GetInsightCommandInput, options?: __HttpHandlerOptions): Promise<GetInsightCommandOutput>;
+  public getInsight(args: GetInsightCommandInput, cb: (err: any, data?: GetInsightCommandOutput) => void): void;
+  public getInsight(
+    args: GetInsightCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInsightCommandOutput) => void
+  ): void;
+  public getInsight(
+    args: GetInsightCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightCommandOutput) => void),
+    cb?: (err: any, data?: GetInsightCommandOutput) => void
+  ): Promise<GetInsightCommandOutput> | void {
+    const command = new GetInsightCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>X-Ray reevaluates insights periodically until they're resolved, and records each intermediate state as an
+   *          event. You can review an insight's events in the Impact Timeline on the Inspect page in the X-Ray
+   *          console.</p>
+   */
+  public getInsightEvents(
+    args: GetInsightEventsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInsightEventsCommandOutput>;
+  public getInsightEvents(
+    args: GetInsightEventsCommandInput,
+    cb: (err: any, data?: GetInsightEventsCommandOutput) => void
+  ): void;
+  public getInsightEvents(
+    args: GetInsightEventsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInsightEventsCommandOutput) => void
+  ): void;
+  public getInsightEvents(
+    args: GetInsightEventsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightEventsCommandOutput) => void),
+    cb?: (err: any, data?: GetInsightEventsCommandOutput) => void
+  ): Promise<GetInsightEventsCommandOutput> | void {
+    const command = new GetInsightEventsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a service graph structure filtered by the specified insight. The service graph is limited to only
+   *          structural information. For a complete service graph, use this API with the GetServiceGraph API.</p>
+   */
+  public getInsightImpactGraph(
+    args: GetInsightImpactGraphCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInsightImpactGraphCommandOutput>;
+  public getInsightImpactGraph(
+    args: GetInsightImpactGraphCommandInput,
+    cb: (err: any, data?: GetInsightImpactGraphCommandOutput) => void
+  ): void;
+  public getInsightImpactGraph(
+    args: GetInsightImpactGraphCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInsightImpactGraphCommandOutput) => void
+  ): void;
+  public getInsightImpactGraph(
+    args: GetInsightImpactGraphCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightImpactGraphCommandOutput) => void),
+    cb?: (err: any, data?: GetInsightImpactGraphCommandOutput) => void
+  ): Promise<GetInsightImpactGraphCommandOutput> | void {
+    const command = new GetInsightImpactGraphCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the summaries of all insights in the specified group matching the provided filter values.</p>
+   */
+  public getInsightSummaries(
+    args: GetInsightSummariesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInsightSummariesCommandOutput>;
+  public getInsightSummaries(
+    args: GetInsightSummariesCommandInput,
+    cb: (err: any, data?: GetInsightSummariesCommandOutput) => void
+  ): void;
+  public getInsightSummaries(
+    args: GetInsightSummariesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInsightSummariesCommandOutput) => void
+  ): void;
+  public getInsightSummaries(
+    args: GetInsightSummariesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetInsightSummariesCommandOutput) => void),
+    cb?: (err: any, data?: GetInsightSummariesCommandOutput) => void
+  ): Promise<GetInsightSummariesCommandOutput> | void {
+    const command = new GetInsightSummariesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -573,6 +727,38 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * <p>Returns a list of tags that are applied to the specified AWS X-Ray group or sampling rule.</p>
+   */
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  public listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTagsForResourceCommandOutput) => void),
+    cb?: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): Promise<ListTagsForResourceCommandOutput> | void {
+    const command = new ListTagsForResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the encryption configuration for X-Ray data.</p>
    */
   public putEncryptionConfig(
@@ -637,14 +823,14 @@ export class XRay extends XRayClient {
   }
 
   /**
-   * <p>Uploads segment documents to AWS X-Ray. The <a href="https://docs.aws.amazon.com/xray/index.html">X-Ray SDK</a> generates segment documents and
-   *       sends them to the X-Ray daemon, which uploads them in batches. A segment document can be a
-   *       completed segment, an in-progress segment, or an array of subsegments.</p>
+   * <p>Uploads segment documents to AWS X-Ray. The <a href="https://docs.aws.amazon.com/xray/index.html">X-Ray SDK</a> generates segment documents and sends them to the X-Ray daemon, which uploads them in
+   *       batches. A segment document can be a completed segment, an in-progress segment, or an array of
+   *       subsegments.</p>
    *          <p>Segments must include the following fields. For the full segment document schema, see
    *         <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-api-segmentdocuments.html">AWS X-Ray
    *         Segment Documents</a> in the <i>AWS X-Ray Developer Guide</i>.</p>
    *          <p class="title">
-   *             <b>Required Segment Document Fields</b>
+   *             <b>Required segment document fields</b>
    *          </p>
    *          <ul>
    *             <li>
@@ -653,33 +839,32 @@ export class XRay extends XRayClient {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>id</code> - A 64-bit identifier for the segment, unique among segments in the
-   *           same trace, in 16 hexadecimal digits.</p>
+   *                   <code>id</code> - A 64-bit identifier for the segment, unique among segments in the same trace, in 16
+   *           hexadecimal digits.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>trace_id</code> - A unique identifier that connects all segments and
-   *           subsegments originating from a single client request.</p>
+   *                   <code>trace_id</code> - A unique identifier that connects all segments and subsegments originating from
+   *           a single client request.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>start_time</code> - Time the segment or subsegment was created, in floating
-   *           point seconds in epoch time, accurate to milliseconds. For example,
-   *             <code>1480615200.010</code> or <code>1.480615200010E9</code>.</p>
+   *                   <code>start_time</code> - Time the segment or subsegment was created, in floating point seconds in
+   *           epoch time, accurate to milliseconds. For example, <code>1480615200.010</code> or
+   *             <code>1.480615200010E9</code>.</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>end_time</code> - Time the segment or subsegment was closed. For example,
-   *             <code>1480615200.090</code> or <code>1.480615200090E9</code>. Specify either an
-   *             <code>end_time</code> or <code>in_progress</code>.</p>
+   *             <code>1480615200.090</code> or <code>1.480615200090E9</code>. Specify either an <code>end_time</code> or
+   *             <code>in_progress</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>in_progress</code> - Set to <code>true</code> instead of specifying an
-   *             <code>end_time</code> to record that a segment has been started, but is not complete.
-   *           Send an in progress segment when your application receives a request that will take a long
-   *           time to serve, to trace the fact that the request was received. When the response is sent,
-   *           send the complete segment to overwrite the in-progress segment.</p>
+   *                   <code>in_progress</code> - Set to <code>true</code> instead of specifying an <code>end_time</code> to
+   *           record that a segment has been started, but is not complete. Send an in-progress segment when your application
+   *           receives a request that will take a long time to serve, to trace that the request was received. When the
+   *           response is sent, send the complete segment to overwrite the in-progress segment.</p>
    *             </li>
    *          </ul>
    *          <p>A <code>trace_id</code> consists of three numbers separated by hyphens. For example,
@@ -689,7 +874,7 @@ export class XRay extends XRayClient {
    *          </p>
    *          <ul>
    *             <li>
-   *                <p>The version number, i.e. <code>1</code>.</p>
+   *                <p>The version number, for instance, <code>1</code>.</p>
    *             </li>
    *             <li>
    *                <p>The time of the original request, in Unix epoch time, in 8 hexadecimal digits. For
@@ -721,6 +906,65 @@ export class XRay extends XRayClient {
     cb?: (err: any, data?: PutTraceSegmentsCommandOutput) => void
   ): Promise<PutTraceSegmentsCommandOutput> | void {
     const command = new PutTraceSegmentsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Applies tags to an existing AWS X-Ray group or sampling rule.</p>
+   */
+  public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+  public tagResource(
+    args: TagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: TagResourceCommandOutput) => void),
+    cb?: (err: any, data?: TagResourceCommandOutput) => void
+  ): Promise<TagResourceCommandOutput> | void {
+    const command = new TagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes tags from an AWS X-Ray group or sampling rule. You cannot edit or delete system
+   *       tags (those with an <code>aws:</code> prefix).</p>
+   */
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UntagResourceCommandOutput>;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+  public untagResource(
+    args: UntagResourceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UntagResourceCommandOutput) => void),
+    cb?: (err: any, data?: UntagResourceCommandOutput) => void
+  ): Promise<UntagResourceCommandOutput> | void {
+    const command = new UntagResourceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

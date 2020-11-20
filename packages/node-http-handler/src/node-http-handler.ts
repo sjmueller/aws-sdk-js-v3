@@ -4,6 +4,7 @@ import { HttpHandlerOptions } from "@aws-sdk/types";
 import { Agent as hAgent, request as hRequest } from "http";
 import { Agent as hsAgent, request as hsRequest, RequestOptions } from "https";
 
+import { NODEJS_TIMEOUT_ERROR_CODES } from "./constants";
 import { getTransformedHeaders } from "./get-transformed-headers";
 import { setConnectionTimeout } from "./set-connection-timeout";
 import { setSocketTimeout } from "./set-socket-timeout";
@@ -12,7 +13,7 @@ import { writeRequestBody } from "./write-request-body";
 /**
  * Represents the http options that can be passed to a node http client.
  */
-export interface NodeHttpOptions {
+export interface NodeHttpHandlerOptions {
   /**
    * The maximum time in milliseconds that the connection phase of a request
    * may take before the connection attempt is abandoned.
@@ -37,7 +38,7 @@ export class NodeHttpHandler implements HttpHandler {
   // Node http handler is hard-coded to http/1.1: https://github.com/nodejs/node/blob/ff5664b83b89c55e4ab5d5f60068fb457f1f5872/lib/_http_server.js#L286
   public readonly metadata = { handlerProtocol: "http/1.1" };
 
-  constructor({ connectionTimeout, socketTimeout, httpAgent, httpsAgent }: NodeHttpOptions = {}) {
+  constructor({ connectionTimeout, socketTimeout, httpAgent, httpsAgent }: NodeHttpHandlerOptions = {}) {
     this.connectionTimeout = connectionTimeout;
     this.socketTimeout = socketTimeout;
     const keepAlive = true;
@@ -83,7 +84,13 @@ export class NodeHttpHandler implements HttpHandler {
         resolve({ response: httpResponse });
       });
 
-      req.on("error", reject);
+      req.on("error", (err: Error) => {
+        if (NODEJS_TIMEOUT_ERROR_CODES.includes((err as any).code)) {
+          reject(Object.assign(err, { name: "TimeoutError" }));
+        } else {
+          reject(err);
+        }
+      });
 
       // wire-up any timeout logic
       setConnectionTimeout(req, reject, this.connectionTimeout);

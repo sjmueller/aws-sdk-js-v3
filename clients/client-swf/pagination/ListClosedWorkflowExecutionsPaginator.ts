@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListClosedWorkflowExecutionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListClosedWorkflowExecutionsCommand(input, ...args));
+  return await client.send(new ListClosedWorkflowExecutionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SWF,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listClosedWorkflowExecutions(input, ...args);
 };
-export async function* listClosedWorkflowExecutionsPaginate(
+export async function* paginateListClosedWorkflowExecutions(
   config: SWFPaginationConfiguration,
   input: ListClosedWorkflowExecutionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListClosedWorkflowExecutionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListClosedWorkflowExecutionsCommandOutput;
   while (hasNext) {
-    input["nextPageToken"] = token;
+    input.nextPageToken = token;
     input["maximumPageSize"] = config.pageSize;
     if (config.client instanceof SWF) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listClosedWorkflowExecutionsPaginate(
       throw new Error("Invalid client, expected SWF | SWFClient");
     }
     yield page;
-    token = page["nextPageToken"];
+    token = page.nextPageToken;
     hasNext = !!token;
   }
   // @ts-ignore

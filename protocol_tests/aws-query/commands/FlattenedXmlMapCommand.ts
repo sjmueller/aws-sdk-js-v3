@@ -43,9 +43,24 @@ export class FlattenedXmlMapCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
+    const clientName = "QueryProtocolClient";
+    const commandName = "FlattenedXmlMapCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: FlattenedXmlMapOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

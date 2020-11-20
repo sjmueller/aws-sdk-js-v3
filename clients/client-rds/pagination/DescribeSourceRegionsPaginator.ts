@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeSourceRegionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeSourceRegionsCommand(input, ...args));
+  return await client.send(new DescribeSourceRegionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RDS,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeSourceRegions(input, ...args);
 };
-export async function* describeSourceRegionsPaginate(
+export async function* paginateDescribeSourceRegions(
   config: RDSPaginationConfiguration,
   input: DescribeSourceRegionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeSourceRegionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeSourceRegionsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof RDS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeSourceRegionsPaginate(
       throw new Error("Invalid client, expected RDS | RDSClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

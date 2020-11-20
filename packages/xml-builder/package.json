@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/xml-builder",
-  "version": "1.0.0-gamma.7",
+  "version": "1.0.0-rc.3",
   "description": "XML builder for the AWS SDK",
   "dependencies": {
     "tslib": "^1.8.0"
@@ -25,5 +25,14 @@
   "license": "Apache-2.0",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
-  "types": "./dist/cjs/index.d.ts"
+  "types": "./dist/cjs/index.d.ts",
+  "engines": {
+    "node": ">= 10.0.0"
+  },
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/xml-builder",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/xml-builder"
+  }
 }

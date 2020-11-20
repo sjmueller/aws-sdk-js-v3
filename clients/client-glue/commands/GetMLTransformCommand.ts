@@ -1,5 +1,6 @@
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetMLTransformRequest, GetMLTransformResponse } from "../models/models_0";
+import { GetMLTransformRequest } from "../models/models_0";
+import { GetMLTransformResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1GetMLTransformCommand,
   serializeAws_json1_1GetMLTransformCommand,
@@ -44,11 +45,23 @@ export class GetMLTransformCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "GetMLTransformCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetMLTransformRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMLTransformResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

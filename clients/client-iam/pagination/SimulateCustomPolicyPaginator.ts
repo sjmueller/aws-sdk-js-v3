@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SimulateCustomPolicyCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SimulateCustomPolicyCommand(input, ...args));
+  return await client.send(new SimulateCustomPolicyCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IAM,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.simulateCustomPolicy(input, ...args);
 };
-export async function* simulateCustomPolicyPaginate(
+export async function* paginateSimulateCustomPolicy(
   config: IAMPaginationConfiguration,
   input: SimulateCustomPolicyCommandInput,
   ...additionalArguments: any
 ): Paginator<SimulateCustomPolicyCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SimulateCustomPolicyCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof IAM) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* simulateCustomPolicyPaginate(
       throw new Error("Invalid client, expected IAM | IAMClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

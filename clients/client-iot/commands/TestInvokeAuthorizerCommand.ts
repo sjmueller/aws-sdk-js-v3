@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/models_1";
+import { TestInvokeAuthorizerRequest, TestInvokeAuthorizerResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1TestInvokeAuthorizerCommand,
   serializeAws_restJson1TestInvokeAuthorizerCommand,
@@ -44,11 +44,23 @@ export class TestInvokeAuthorizerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "TestInvokeAuthorizerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TestInvokeAuthorizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TestInvokeAuthorizerResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

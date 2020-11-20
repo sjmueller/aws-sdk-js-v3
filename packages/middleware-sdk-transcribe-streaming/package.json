@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-transcribe-streaming",
-  "version": "1.0.0-gamma.6",
+  "version": "1.0.0-rc.7",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
   "types": "./dist/cjs/index.d.ts",
@@ -18,21 +18,30 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@aws-sdk/eventstream-serde-browser": "1.0.0-gamma.7",
-    "@aws-sdk/middleware-signing": "1.0.0-gamma.7",
-    "@aws-sdk/protocol-http": "1.0.0-gamma.7",
-    "@aws-sdk/signature-v4": "1.0.0-gamma.7",
-    "@aws-sdk/types": "1.0.0-gamma.6",
-    "@aws-sdk/util-format-url": "1.0.0-gamma.7",
+    "@aws-sdk/eventstream-serde-browser": "1.0.0-rc.7",
+    "@aws-sdk/middleware-signing": "1.0.0-rc.7",
+    "@aws-sdk/protocol-http": "1.0.0-rc.7",
+    "@aws-sdk/signature-v4": "1.0.0-rc.7",
+    "@aws-sdk/util-format-url": "1.0.0-rc.7",
     "react-native-get-random-values": "^1.4.0",
     "tslib": "^1.8.0",
     "uuid": "^3.0.0"
   },
   "devDependencies": {
+    "@aws-sdk/types": "1.0.0-rc.7",
     "@types/jest": "^26.0.4",
     "jest": "^26.1.0",
     "jest-websocket-mock": "^2.0.2",
     "mock-socket": "^9.0.3",
     "typescript": "~4.0.2"
+  },
+  "engines": {
+    "node": ">= 10.0.0"
+  },
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/middleware-sdk-transcribe-streaming",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/middleware-sdk-transcribe-streaming"
   }
 }

@@ -43,9 +43,24 @@ export class RecursiveXmlShapesCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
+    const clientName = "EC2ProtocolClient";
+    const commandName = "RecursiveXmlShapesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: RecursiveXmlShapesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

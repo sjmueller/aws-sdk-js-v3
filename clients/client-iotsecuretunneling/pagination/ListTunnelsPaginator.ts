@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTunnelsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTunnelsCommand(input, ...args));
+  return await client.send(new ListTunnelsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoTSecureTunneling,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTunnels(input, ...args);
 };
-export async function* listTunnelsPaginate(
+export async function* paginateListTunnels(
   config: IoTSecureTunnelingPaginationConfiguration,
   input: ListTunnelsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTunnelsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTunnelsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof IoTSecureTunneling) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listTunnelsPaginate(
       throw new Error("Invalid client, expected IoTSecureTunneling | IoTSecureTunnelingClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -44,11 +44,23 @@ export class RemoveAutoScalingPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EMRClient";
+    const commandName = "RemoveAutoScalingPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RemoveAutoScalingPolicyInput.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveAutoScalingPolicyOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

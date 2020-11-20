@@ -45,6 +45,7 @@ import {
   DeregisterResourceResponse,
   DescribeResourceRequest,
   DescribeResourceResponse,
+  DetailsMap,
   EntityNotFoundException,
   ErrorDetail,
   FilterCondition,
@@ -261,7 +262,7 @@ export const deserializeAws_json1_1BatchGrantPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGrantPermissionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchGrantPermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -324,7 +325,7 @@ export const deserializeAws_json1_1BatchRevokePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchRevokePermissionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchRevokePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -387,7 +388,7 @@ export const deserializeAws_json1_1DeregisterResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeregisterResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -466,7 +467,7 @@ export const deserializeAws_json1_1DescribeResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -545,7 +546,7 @@ export const deserializeAws_json1_1GetDataLakeSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataLakeSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetDataLakeSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -616,7 +617,7 @@ export const deserializeAws_json1_1GetEffectivePermissionsForPathCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEffectivePermissionsForPathCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetEffectivePermissionsForPathCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -695,7 +696,7 @@ export const deserializeAws_json1_1GrantPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GrantPermissionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GrantPermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -766,7 +767,7 @@ export const deserializeAws_json1_1ListPermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPermissionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -837,7 +838,7 @@ export const deserializeAws_json1_1ListResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -908,7 +909,7 @@ export const deserializeAws_json1_1PutDataLakeSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDataLakeSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutDataLakeSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -971,7 +972,7 @@ export const deserializeAws_json1_1RegisterResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RegisterResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1050,7 +1051,7 @@ export const deserializeAws_json1_1RevokePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RevokePermissionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RevokePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1121,7 +1122,7 @@ export const deserializeAws_json1_1UpdateResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1780,6 +1781,15 @@ const deserializeAws_json1_1DescribeResourceResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1DetailsMap = (output: any, context: __SerdeContext): DetailsMap => {
+  return {
+    ResourceShare:
+      output.ResourceShare !== undefined && output.ResourceShare !== null
+        ? deserializeAws_json1_1ResourceShareList(output.ResourceShare, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1EntityNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -1904,6 +1914,10 @@ const deserializeAws_json1_1PrincipalResourcePermissions = (
   context: __SerdeContext
 ): PrincipalResourcePermissions => {
   return {
+    AdditionalDetails:
+      output.AdditionalDetails !== undefined && output.AdditionalDetails !== null
+        ? deserializeAws_json1_1DetailsMap(output.AdditionalDetails, context)
+        : undefined,
     Permissions:
       output.Permissions !== undefined && output.Permissions !== null
         ? deserializeAws_json1_1PermissionList(output.Permissions, context)
@@ -1982,6 +1996,10 @@ const deserializeAws_json1_1ResourceInfo = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1ResourceInfoList = (output: any, context: __SerdeContext): ResourceInfo[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1ResourceInfo(entry, context));
+};
+
+const deserializeAws_json1_1ResourceShareList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1RevokePermissionsResponse = (

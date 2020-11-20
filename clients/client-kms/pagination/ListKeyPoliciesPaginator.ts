@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListKeyPoliciesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListKeyPoliciesCommand(input, ...args));
+  return await client.send(new ListKeyPoliciesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: KMS,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listKeyPolicies(input, ...args);
 };
-export async function* listKeyPoliciesPaginate(
+export async function* paginateListKeyPolicies(
   config: KMSPaginationConfiguration,
   input: ListKeyPoliciesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListKeyPoliciesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListKeyPoliciesCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof KMS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listKeyPoliciesPaginate(
       throw new Error("Invalid client, expected KMS | KMSClient");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

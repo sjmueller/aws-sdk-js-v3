@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeWorkspaceBundlesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeWorkspaceBundlesCommand(input, ...args));
+  return await client.send(new DescribeWorkspaceBundlesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: WorkSpaces,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeWorkspaceBundles(input, ...args);
 };
-export async function* describeWorkspaceBundlesPaginate(
+export async function* paginateDescribeWorkspaceBundles(
   config: WorkSpacesPaginationConfiguration,
   input: DescribeWorkspaceBundlesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeWorkspaceBundlesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeWorkspaceBundlesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof WorkSpaces) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof WorkSpacesClient) {
@@ -42,7 +42,7 @@ export async function* describeWorkspaceBundlesPaginate(
       throw new Error("Invalid client, expected WorkSpaces | WorkSpacesClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

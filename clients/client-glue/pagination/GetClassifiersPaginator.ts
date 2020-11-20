@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetClassifiersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetClassifiersCommand(input, ...args));
+  return await client.send(new GetClassifiersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Glue,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getClassifiers(input, ...args);
 };
-export async function* getClassifiersPaginate(
+export async function* paginateGetClassifiers(
   config: GluePaginationConfiguration,
   input: GetClassifiersCommandInput,
   ...additionalArguments: any
 ): Paginator<GetClassifiersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetClassifiersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Glue) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getClassifiersPaginate(
       throw new Error("Invalid client, expected Glue | GlueClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

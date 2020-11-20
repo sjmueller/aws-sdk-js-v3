@@ -714,7 +714,7 @@ export const deserializeAws_queryAddPermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddPermissionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAddPermissionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -789,7 +789,7 @@ export const deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckIfPhoneNumberIsOptedOutCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCheckIfPhoneNumberIsOptedOutCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -867,7 +867,7 @@ export const deserializeAws_queryConfirmSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryConfirmSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -961,7 +961,7 @@ export const deserializeAws_queryCreatePlatformApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlatformApplicationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreatePlatformApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1031,7 +1031,7 @@ export const deserializeAws_queryCreatePlatformEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePlatformEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreatePlatformEndpointCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1109,7 +1109,7 @@ export const deserializeAws_queryCreateTopicCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTopicCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateTopicCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1227,7 +1227,7 @@ export const deserializeAws_queryDeleteEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEndpointCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteEndpointCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1294,7 +1294,7 @@ export const deserializeAws_queryDeletePlatformApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlatformApplicationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeletePlatformApplicationCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1361,7 +1361,7 @@ export const deserializeAws_queryDeleteTopicCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTopicCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteTopicCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1460,7 +1460,7 @@ export const deserializeAws_queryGetEndpointAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEndpointAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetEndpointAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1538,7 +1538,7 @@ export const deserializeAws_queryGetPlatformApplicationAttributesCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPlatformApplicationAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetPlatformApplicationAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1619,7 +1619,7 @@ export const deserializeAws_queryGetSMSAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSMSAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetSMSAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1697,7 +1697,7 @@ export const deserializeAws_queryGetSubscriptionAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriptionAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetSubscriptionAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1775,7 +1775,7 @@ export const deserializeAws_queryGetTopicAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTopicAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetTopicAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1861,7 +1861,7 @@ export const deserializeAws_queryListEndpointsByPlatformApplicationCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEndpointsByPlatformApplicationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListEndpointsByPlatformApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1942,7 +1942,7 @@ export const deserializeAws_queryListPhoneNumbersOptedOutCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPhoneNumbersOptedOutCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListPhoneNumbersOptedOutCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2020,7 +2020,7 @@ export const deserializeAws_queryListPlatformApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlatformApplicationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListPlatformApplicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2090,7 +2090,7 @@ export const deserializeAws_queryListSubscriptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListSubscriptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2160,7 +2160,7 @@ export const deserializeAws_queryListSubscriptionsByTopicCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscriptionsByTopicCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListSubscriptionsByTopicCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2238,7 +2238,7 @@ export const deserializeAws_queryListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2324,7 +2324,7 @@ export const deserializeAws_queryListTopicsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTopicsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListTopicsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2394,7 +2394,7 @@ export const deserializeAws_queryOptInPhoneNumberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OptInPhoneNumberCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryOptInPhoneNumberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2472,7 +2472,7 @@ export const deserializeAws_queryPublishCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryPublishCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2630,7 +2630,7 @@ export const deserializeAws_queryRemovePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemovePermissionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRemovePermissionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2705,7 +2705,7 @@ export const deserializeAws_querySetEndpointAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetEndpointAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetEndpointAttributesCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2780,7 +2780,7 @@ export const deserializeAws_querySetPlatformApplicationAttributesCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetPlatformApplicationAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetPlatformApplicationAttributesCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2855,7 +2855,7 @@ export const deserializeAws_querySetSMSAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetSMSAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetSMSAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2933,7 +2933,7 @@ export const deserializeAws_querySetSubscriptionAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetSubscriptionAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetSubscriptionAttributesCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3016,7 +3016,7 @@ export const deserializeAws_querySetTopicAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetTopicAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetTopicAttributesCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3099,7 +3099,7 @@ export const deserializeAws_querySubscribeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SubscribeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySubscribeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3201,7 +3201,7 @@ export const deserializeAws_queryTagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryTagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3303,7 +3303,7 @@ export const deserializeAws_queryUnsubscribeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UnsubscribeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUnsubscribeCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3386,7 +3386,7 @@ export const deserializeAws_queryUntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3841,15 +3841,11 @@ const serializeAws_queryActionsList = (input: string[], context: __SerdeContext)
 
 const serializeAws_queryAddPermissionInput = (input: AddPermissionInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ActionName !== undefined) {
-    const memberEntries = serializeAws_queryActionsList(input.ActionName, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ActionName.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.TopicArn !== undefined) {
     entries["TopicArn"] = input.TopicArn;
+  }
+  if (input.Label !== undefined) {
+    entries["Label"] = input.Label;
   }
   if (input.AWSAccountId !== undefined) {
     const memberEntries = serializeAws_queryDelegatesList(input.AWSAccountId, context);
@@ -3858,8 +3854,12 @@ const serializeAws_queryAddPermissionInput = (input: AddPermissionInput, context
       entries[loc] = value;
     });
   }
-  if (input.Label !== undefined) {
-    entries["Label"] = input.Label;
+  if (input.ActionName !== undefined) {
+    const memberEntries = serializeAws_queryActionsList(input.ActionName, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ActionName.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -3877,14 +3877,14 @@ const serializeAws_queryCheckIfPhoneNumberIsOptedOutInput = (
 
 const serializeAws_queryConfirmSubscriptionInput = (input: ConfirmSubscriptionInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.TopicArn !== undefined) {
+    entries["TopicArn"] = input.TopicArn;
+  }
   if (input.Token !== undefined) {
     entries["Token"] = input.Token;
   }
   if (input.AuthenticateOnUnsubscribe !== undefined) {
     entries["AuthenticateOnUnsubscribe"] = input.AuthenticateOnUnsubscribe;
-  }
-  if (input.TopicArn !== undefined) {
-    entries["TopicArn"] = input.TopicArn;
   }
   return entries;
 };
@@ -3894,18 +3894,18 @@ const serializeAws_queryCreatePlatformApplicationInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.Name !== undefined) {
+    entries["Name"] = input.Name;
+  }
+  if (input.Platform !== undefined) {
+    entries["Platform"] = input.Platform;
+  }
   if (input.Attributes !== undefined) {
     const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.Platform !== undefined) {
-    entries["Platform"] = input.Platform;
-  }
-  if (input.Name !== undefined) {
-    entries["Name"] = input.Name;
   }
   return entries;
 };
@@ -3915,6 +3915,15 @@ const serializeAws_queryCreatePlatformEndpointInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.PlatformApplicationArn !== undefined) {
+    entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
+  }
+  if (input.Token !== undefined) {
+    entries["Token"] = input.Token;
+  }
+  if (input.CustomUserData !== undefined) {
+    entries["CustomUserData"] = input.CustomUserData;
+  }
   if (input.Attributes !== undefined) {
     const memberEntries = serializeAws_queryMapStringToString(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -3922,26 +3931,13 @@ const serializeAws_queryCreatePlatformEndpointInput = (
       entries[loc] = value;
     });
   }
-  if (input.PlatformApplicationArn !== undefined) {
-    entries["PlatformApplicationArn"] = input.PlatformApplicationArn;
-  }
-  if (input.CustomUserData !== undefined) {
-    entries["CustomUserData"] = input.CustomUserData;
-  }
-  if (input.Token !== undefined) {
-    entries["Token"] = input.Token;
-  }
   return entries;
 };
 
 const serializeAws_queryCreateTopicInput = (input: CreateTopicInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
-      entries[loc] = value;
-    });
+  if (input.Name !== undefined) {
+    entries["Name"] = input.Name;
   }
   if (input.Attributes !== undefined) {
     const memberEntries = serializeAws_queryTopicAttributesMap(input.Attributes, context);
@@ -3950,8 +3946,12 @@ const serializeAws_queryCreateTopicInput = (input: CreateTopicInput, context: __
       entries[loc] = value;
     });
   }
-  if (input.Name !== undefined) {
-    entries["Name"] = input.Name;
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -4097,11 +4097,11 @@ const serializeAws_queryListSubscriptionsByTopicInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NextToken !== undefined) {
-    entries["NextToken"] = input.NextToken;
-  }
   if (input.TopicArn !== undefined) {
     entries["TopicArn"] = input.TopicArn;
+  }
+  if (input.NextToken !== undefined) {
+    entries["NextToken"] = input.NextToken;
   }
   return entries;
 };
@@ -4163,11 +4163,11 @@ const serializeAws_queryMessageAttributeMap = (
 
 const serializeAws_queryMessageAttributeValue = (input: MessageAttributeValue, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.StringValue !== undefined) {
-    entries["StringValue"] = input.StringValue;
-  }
   if (input.DataType !== undefined) {
     entries["DataType"] = input.DataType;
+  }
+  if (input.StringValue !== undefined) {
+    entries["StringValue"] = input.StringValue;
   }
   if (input.BinaryValue !== undefined) {
     entries["BinaryValue"] = context.base64Encoder(input.BinaryValue);
@@ -4185,14 +4185,23 @@ const serializeAws_queryOptInPhoneNumberInput = (input: OptInPhoneNumberInput, c
 
 const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.TopicArn !== undefined) {
+    entries["TopicArn"] = input.TopicArn;
+  }
+  if (input.TargetArn !== undefined) {
+    entries["TargetArn"] = input.TargetArn;
+  }
+  if (input.PhoneNumber !== undefined) {
+    entries["PhoneNumber"] = input.PhoneNumber;
+  }
   if (input.Message !== undefined) {
     entries["Message"] = input.Message;
   }
   if (input.Subject !== undefined) {
     entries["Subject"] = input.Subject;
   }
-  if (input.TargetArn !== undefined) {
-    entries["TargetArn"] = input.TargetArn;
+  if (input.MessageStructure !== undefined) {
+    entries["MessageStructure"] = input.MessageStructure;
   }
   if (input.MessageAttributes !== undefined) {
     const memberEntries = serializeAws_queryMessageAttributeMap(input.MessageAttributes, context);
@@ -4201,14 +4210,11 @@ const serializeAws_queryPublishInput = (input: PublishInput, context: __SerdeCon
       entries[loc] = value;
     });
   }
-  if (input.PhoneNumber !== undefined) {
-    entries["PhoneNumber"] = input.PhoneNumber;
+  if (input.MessageDeduplicationId !== undefined) {
+    entries["MessageDeduplicationId"] = input.MessageDeduplicationId;
   }
-  if (input.MessageStructure !== undefined) {
-    entries["MessageStructure"] = input.MessageStructure;
-  }
-  if (input.TopicArn !== undefined) {
-    entries["TopicArn"] = input.TopicArn;
+  if (input.MessageGroupId !== undefined) {
+    entries["MessageGroupId"] = input.MessageGroupId;
   }
   return entries;
 };
@@ -4294,11 +4300,11 @@ const serializeAws_querySetTopicAttributesInput = (input: SetTopicAttributesInpu
   if (input.TopicArn !== undefined) {
     entries["TopicArn"] = input.TopicArn;
   }
-  if (input.AttributeValue !== undefined) {
-    entries["AttributeValue"] = input.AttributeValue;
-  }
   if (input.AttributeName !== undefined) {
     entries["AttributeName"] = input.AttributeName;
+  }
+  if (input.AttributeValue !== undefined) {
+    entries["AttributeValue"] = input.AttributeValue;
   }
   return entries;
 };
@@ -4314,15 +4320,15 @@ const serializeAws_querySubscribeInput = (input: SubscribeInput, context: __Serd
   if (input.Endpoint !== undefined) {
     entries["Endpoint"] = input.Endpoint;
   }
-  if (input.ReturnSubscriptionArn !== undefined) {
-    entries["ReturnSubscriptionArn"] = input.ReturnSubscriptionArn;
-  }
   if (input.Attributes !== undefined) {
     const memberEntries = serializeAws_querySubscriptionAttributesMap(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.ReturnSubscriptionArn !== undefined) {
+    entries["ReturnSubscriptionArn"] = input.ReturnSubscriptionArn;
   }
   return entries;
 };
@@ -4377,15 +4383,15 @@ const serializeAws_queryTagList = (input: Tag[], context: __SerdeContext): any =
 
 const serializeAws_queryTagResourceRequest = (input: TagResourceRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.ResourceArn !== undefined) {
+    entries["ResourceArn"] = input.ResourceArn;
+  }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.ResourceArn !== undefined) {
-    entries["ResourceArn"] = input.ResourceArn;
   }
   return entries;
 };
@@ -4411,15 +4417,15 @@ const serializeAws_queryUnsubscribeInput = (input: UnsubscribeInput, context: __
 
 const serializeAws_queryUntagResourceRequest = (input: UntagResourceRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.ResourceArn !== undefined) {
+    entries["ResourceArn"] = input.ResourceArn;
+  }
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_queryTagKeyList(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.ResourceArn !== undefined) {
-    entries["ResourceArn"] = input.ResourceArn;
   }
   return entries;
 };
@@ -4511,9 +4517,12 @@ const deserializeAws_queryCreateTopicResponse = (output: any, context: __SerdeCo
 
 const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): Endpoint => {
   let contents: any = {
-    Attributes: undefined,
     EndpointArn: undefined,
+    Attributes: undefined,
   };
+  if (output["EndpointArn"] !== undefined) {
+    contents.EndpointArn = output["EndpointArn"];
+  }
   if (output.Attributes === "") {
     contents.Attributes = {};
   }
@@ -4522,9 +4531,6 @@ const deserializeAws_queryEndpoint = (output: any, context: __SerdeContext): End
       __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
     );
-  }
-  if (output["EndpointArn"] !== undefined) {
-    contents.EndpointArn = output["EndpointArn"];
   }
   return contents;
 };
@@ -4770,12 +4776,9 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
   context: __SerdeContext
 ): ListEndpointsByPlatformApplicationResponse => {
   let contents: any = {
-    NextToken: undefined,
     Endpoints: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.Endpoints === "") {
     contents.Endpoints = [];
   }
@@ -4784,6 +4787,9 @@ const deserializeAws_queryListEndpointsByPlatformApplicationResponse = (
       __getArrayIfSingleItem(output["Endpoints"]["member"]),
       context
     );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -4804,12 +4810,9 @@ const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
   context: __SerdeContext
 ): ListPhoneNumbersOptedOutResponse => {
   let contents: any = {
-    nextToken: undefined,
     phoneNumbers: undefined,
+    nextToken: undefined,
   };
-  if (output["nextToken"] !== undefined) {
-    contents.nextToken = output["nextToken"];
-  }
   if (output.phoneNumbers === "") {
     contents.phoneNumbers = [];
   }
@@ -4819,6 +4822,9 @@ const deserializeAws_queryListPhoneNumbersOptedOutResponse = (
       context
     );
   }
+  if (output["nextToken"] !== undefined) {
+    contents.nextToken = output["nextToken"];
+  }
   return contents;
 };
 
@@ -4827,12 +4833,9 @@ const deserializeAws_queryListPlatformApplicationsResponse = (
   context: __SerdeContext
 ): ListPlatformApplicationsResponse => {
   let contents: any = {
-    NextToken: undefined,
     PlatformApplications: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.PlatformApplications === "") {
     contents.PlatformApplications = [];
   }
@@ -4842,6 +4845,9 @@ const deserializeAws_queryListPlatformApplicationsResponse = (
       context
     );
   }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
+  }
   return contents;
 };
 
@@ -4850,12 +4856,9 @@ const deserializeAws_queryListSubscriptionsByTopicResponse = (
   context: __SerdeContext
 ): ListSubscriptionsByTopicResponse => {
   let contents: any = {
-    NextToken: undefined,
     Subscriptions: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.Subscriptions === "") {
     contents.Subscriptions = [];
   }
@@ -4864,6 +4867,9 @@ const deserializeAws_queryListSubscriptionsByTopicResponse = (
       __getArrayIfSingleItem(output["Subscriptions"]["member"]),
       context
     );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -4873,12 +4879,9 @@ const deserializeAws_queryListSubscriptionsResponse = (
   context: __SerdeContext
 ): ListSubscriptionsResponse => {
   let contents: any = {
-    NextToken: undefined,
     Subscriptions: undefined,
+    NextToken: undefined,
   };
-  if (output["NextToken"] !== undefined) {
-    contents.NextToken = output["NextToken"];
-  }
   if (output.Subscriptions === "") {
     contents.Subscriptions = [];
   }
@@ -4887,6 +4890,9 @@ const deserializeAws_queryListSubscriptionsResponse = (
       __getArrayIfSingleItem(output["Subscriptions"]["member"]),
       context
     );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = output["NextToken"];
   }
   return contents;
 };
@@ -4958,9 +4964,12 @@ const deserializeAws_queryPhoneNumberList = (output: any, context: __SerdeContex
 
 const deserializeAws_queryPlatformApplication = (output: any, context: __SerdeContext): PlatformApplication => {
   let contents: any = {
-    Attributes: undefined,
     PlatformApplicationArn: undefined,
+    Attributes: undefined,
   };
+  if (output["PlatformApplicationArn"] !== undefined) {
+    contents.PlatformApplicationArn = output["PlatformApplicationArn"];
+  }
   if (output.Attributes === "") {
     contents.Attributes = {};
   }
@@ -4969,9 +4978,6 @@ const deserializeAws_queryPlatformApplication = (output: any, context: __SerdeCo
       __getArrayIfSingleItem(output["Attributes"]["entry"]),
       context
     );
-  }
-  if (output["PlatformApplicationArn"] !== undefined) {
-    contents.PlatformApplicationArn = output["PlatformApplicationArn"];
   }
   return contents;
 };
@@ -4992,9 +4998,13 @@ const deserializeAws_queryPlatformApplicationDisabledException = (
 const deserializeAws_queryPublishResponse = (output: any, context: __SerdeContext): PublishResponse => {
   let contents: any = {
     MessageId: undefined,
+    SequenceNumber: undefined,
   };
   if (output["MessageId"] !== undefined) {
     contents.MessageId = output["MessageId"];
+  }
+  if (output["SequenceNumber"] !== undefined) {
+    contents.SequenceNumber = output["SequenceNumber"];
   }
   return contents;
 };
@@ -5042,20 +5052,20 @@ const deserializeAws_querySubscribeResponse = (output: any, context: __SerdeCont
 
 const deserializeAws_querySubscription = (output: any, context: __SerdeContext): Subscription => {
   let contents: any = {
-    Protocol: undefined,
-    Owner: undefined,
     SubscriptionArn: undefined,
+    Owner: undefined,
+    Protocol: undefined,
     Endpoint: undefined,
     TopicArn: undefined,
   };
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = output["Protocol"];
+  if (output["SubscriptionArn"] !== undefined) {
+    contents.SubscriptionArn = output["SubscriptionArn"];
   }
   if (output["Owner"] !== undefined) {
     contents.Owner = output["Owner"];
   }
-  if (output["SubscriptionArn"] !== undefined) {
-    contents.SubscriptionArn = output["SubscriptionArn"];
+  if (output["Protocol"] !== undefined) {
+    contents.Protocol = output["Protocol"];
   }
   if (output["Endpoint"] !== undefined) {
     contents.Endpoint = output["Endpoint"];

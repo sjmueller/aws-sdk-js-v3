@@ -1,5 +1,39 @@
 import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
+export enum AudioChannelTag {
+  C = "C",
+  CS = "CS",
+  L = "L",
+  LC = "LC",
+  LFE = "LFE",
+  LS = "LS",
+  LSD = "LSD",
+  R = "R",
+  RC = "RC",
+  RS = "RS",
+  RSD = "RSD",
+  TCS = "TCS",
+  VHC = "VHC",
+  VHL = "VHL",
+  VHR = "VHR",
+}
+
+/**
+ * When you mimic a multi-channel audio layout with multiple mono-channel tracks, you can tag each channel layout manually. For example, you would tag the tracks that contain your left, right, and center audio with Left (L), Right (R), and Center (C), respectively. When you don't specify a value, MediaConvert labels your track as Center (C) by default. To use audio layout tagging, your output must be in a QuickTime (.mov) container; your audio codec must be AAC, WAV, or AIFF; and you must set up your audio track to have only one channel.
+ */
+export interface AudioChannelTaggingSettings {
+  /**
+   * You can add a tag for this mono-channel audio track to mimic its placement in a multi-channel layout.  For example, if this track is the left surround channel, choose Left surround (LS).
+   */
+  ChannelTag?: AudioChannelTag | string;
+}
+
+export namespace AudioChannelTaggingSettings {
+  export const filterSensitiveLog = (obj: AudioChannelTaggingSettings): any => ({
+    ...obj,
+  });
+}
+
 export enum AudioNormalizationAlgorithm {
   ITU_BS_1770_1 = "ITU_BS_1770_1",
   ITU_BS_1770_2 = "ITU_BS_1770_2",
@@ -27,9 +61,9 @@ export enum AudioNormalizationPeakCalculation {
  */
 export interface AudioNormalizationSettings {
   /**
-   * Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected.
+   * Choose one of the following audio normalization algorithms: ITU-R BS.1770-1: Ungated loudness. A measurement of ungated average loudness for an entire piece of content, suitable for measurement of short-form content under ATSC recommendation A/85. Supports up to 5.1 audio channels. ITU-R BS.1770-2: Gated loudness. A measurement of gated average loudness compliant with the requirements of EBU-R128. Supports up to 5.1 audio channels. ITU-R BS.1770-3: Modified peak. The same loudness measurement algorithm as 1770-2, with an updated true peak measurement. ITU-R BS.1770-4: Higher channel count. Allows for more audio channels than the other algorithms, including configurations such as 7.1.
    */
-  CorrectionGateLevel?: number;
+  Algorithm?: AudioNormalizationAlgorithm | string;
 
   /**
    * When enabled the output audio is corrected using the chosen algorithm. If disabled, the audio will be measured but not adjusted.
@@ -37,9 +71,9 @@ export interface AudioNormalizationSettings {
   AlgorithmControl?: AudioNormalizationAlgorithmControl | string;
 
   /**
-   * Choose one of the following audio normalization algorithms: ITU-R BS.1770-1: Ungated loudness. A measurement of ungated average loudness for an entire piece of content, suitable for measurement of short-form content under ATSC recommendation A/85. Supports up to 5.1 audio channels. ITU-R BS.1770-2: Gated loudness. A measurement of gated average loudness compliant with the requirements of EBU-R128. Supports up to 5.1 audio channels. ITU-R BS.1770-3: Modified peak. The same loudness measurement algorithm as 1770-2, with an updated true peak measurement. ITU-R BS.1770-4: Higher channel count. Allows for more audio channels than the other algorithms, including configurations such as 7.1.
+   * Content measuring above this level will be corrected to the target level. Content measuring below this level will not be corrected.
    */
-  Algorithm?: AudioNormalizationAlgorithm | string;
+  CorrectionGateLevel?: number;
 
   /**
    * If set to LOG, log each output's audio track loudness to a CSV file.
@@ -47,14 +81,14 @@ export interface AudioNormalizationSettings {
   LoudnessLogging?: AudioNormalizationLoudnessLogging | string;
 
   /**
-   * When you use Audio normalization (AudioNormalizationSettings), optionally use this setting to specify a target loudness. If you don't specify a value here, the encoder chooses a value for you, based on the algorithm that you choose for Algorithm (algorithm). If you choose algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the encoder will choose -23 LKFS.
-   */
-  TargetLkfs?: number;
-
-  /**
    * If set to TRUE_PEAK, calculate and log the TruePeak for each output's audio track loudness.
    */
   PeakCalculation?: AudioNormalizationPeakCalculation | string;
+
+  /**
+   * When you use Audio normalization (AudioNormalizationSettings), optionally use this setting to specify a target loudness. If you don't specify a value here, the encoder chooses a value for you, based on the algorithm that you choose for Algorithm (algorithm). If you choose algorithm 1770-1, the encoder will choose -24 LKFS; otherwise, the encoder will choose -23 LKFS.
+   */
+  TargetLkfs?: number;
 }
 
 export namespace AudioNormalizationSettings {
@@ -114,9 +148,39 @@ export enum AacVbrQuality {
  */
 export interface AacSettings {
   /**
+   * Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio + audio description (AD) as a stereo pair. The value for AudioType will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in AudioType and  FollowInputAudioType. Choose NORMAL when the input does not contain pre-mixed audio + audio description (AD). In this case, the encoder will use any values you provide for AudioType and FollowInputAudioType.
+   */
+  AudioDescriptionBroadcasterMix?: AacAudioDescriptionBroadcasterMix | string;
+
+  /**
+   * Specify the average bitrate in bits per second. The set of valid values for this setting is: 6000, 8000, 10000, 12000, 14000, 16000, 20000, 24000, 28000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 160000, 192000, 224000, 256000, 288000, 320000, 384000, 448000, 512000, 576000, 640000, 768000, 896000, 1024000. The value you set is also constrained by the values that you choose for Profile (codecProfile), Bitrate control mode (codingMode), and Sample rate (sampleRate). Default values depend on Bitrate control mode and Profile.
+   */
+  Bitrate?: number;
+
+  /**
+   * AAC Profile.
+   */
+  CodecProfile?: AacCodecProfile | string;
+
+  /**
+   * Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. "1.0 - Audio Description (Receiver Mix)" setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
+   */
+  CodingMode?: AacCodingMode | string;
+
+  /**
+   * Rate Control Mode.
+   */
+  RateControlMode?: AacRateControlMode | string;
+
+  /**
    * Enables LATM/LOAS AAC output. Note that if you use LATM/LOAS AAC in an output, you must choose "No container" for the output container.
    */
   RawFormat?: AacRawFormat | string;
+
+  /**
+   * Sample rate in Hz. Valid values depend on rate control mode and profile.
+   */
+  SampleRate?: number;
 
   /**
    * Use MPEG-2 AAC instead of MPEG-4 AAC audio for raw or MPEG-2 Transport Stream containers.
@@ -127,36 +191,6 @@ export interface AacSettings {
    * VBR Quality Level - Only used if rate_control_mode is VBR.
    */
   VbrQuality?: AacVbrQuality | string;
-
-  /**
-   * Rate Control Mode.
-   */
-  RateControlMode?: AacRateControlMode | string;
-
-  /**
-   * Mono (Audio Description), Mono, Stereo, or 5.1 channel layout. Valid values depend on rate control mode and profile. "1.0 - Audio Description (Receiver Mix)" setting receives a stereo description plus control track and emits a mono AAC encode of the description track, with control data emitted in the PES header as per ETSI TS 101 154 Annex E.
-   */
-  CodingMode?: AacCodingMode | string;
-
-  /**
-   * AAC Profile.
-   */
-  CodecProfile?: AacCodecProfile | string;
-
-  /**
-   * Choose BROADCASTER_MIXED_AD when the input contains pre-mixed main audio + audio description (AD) as a stereo pair. The value for AudioType will be set to 3, which signals to downstream systems that this stream contains "broadcaster mixed AD". Note that the input received by the encoder must contain pre-mixed audio; the encoder does not perform the mixing. When you choose BROADCASTER_MIXED_AD, the encoder ignores any values you provide in AudioType and  FollowInputAudioType. Choose NORMAL when the input does not contain pre-mixed audio + audio description (AD). In this case, the encoder will use any values you provide for AudioType and FollowInputAudioType.
-   */
-  AudioDescriptionBroadcasterMix?: AacAudioDescriptionBroadcasterMix | string;
-
-  /**
-   * Sample rate in Hz. Valid values depend on rate control mode and profile.
-   */
-  SampleRate?: number;
-
-  /**
-   * Specify the average bitrate in bits per second. The set of valid values for this setting is: 6000, 8000, 10000, 12000, 14000, 16000, 20000, 24000, 28000, 32000, 40000, 48000, 56000, 64000, 80000, 96000, 112000, 128000, 160000, 192000, 224000, 256000, 288000, 320000, 384000, 448000, 512000, 576000, 640000, 768000, 896000, 1024000. The value you set is also constrained by the values that you choose for Profile (codecProfile), Bitrate control mode (codingMode), and Sample rate (sampleRate). Default values depend on Bitrate control mode and Profile.
-   */
-  Bitrate?: number;
 }
 
 export namespace AacSettings {
@@ -203,9 +237,9 @@ export enum Ac3MetadataControl {
  */
 export interface Ac3Settings {
   /**
-   * Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with 3_2_LFE coding mode.
+   * Specify the average bitrate in bits per second. Valid bitrates depend on the coding mode.
    */
-  LfeFilter?: Ac3LfeFilter | string;
+  Bitrate?: number;
 
   /**
    * Specify the bitstream mode for the AC-3 stream that the encoder emits. For more information about the AC3 bitstream mode, see ATSC A/52-2012 (Annex E).
@@ -213,9 +247,14 @@ export interface Ac3Settings {
   BitstreamMode?: Ac3BitstreamMode | string;
 
   /**
-   * Specify the average bitrate in bits per second. Valid bitrates depend on the coding mode.
+   * Dolby Digital coding mode. Determines number of channels.
    */
-  Bitrate?: number;
+  CodingMode?: Ac3CodingMode | string;
+
+  /**
+   * Sets the dialnorm for the output. If blank and input audio is Dolby Digital, dialnorm will be passed through.
+   */
+  Dialnorm?: number;
 
   /**
    * If set to FILM_STANDARD, adds dynamic range compression signaling to the output bitstream as defined in the Dolby Digital specification.
@@ -223,9 +262,9 @@ export interface Ac3Settings {
   DynamicRangeCompressionProfile?: Ac3DynamicRangeCompressionProfile | string;
 
   /**
-   * Dolby Digital coding mode. Determines number of channels.
+   * Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with 3_2_LFE coding mode.
    */
-  CodingMode?: Ac3CodingMode | string;
+  LfeFilter?: Ac3LfeFilter | string;
 
   /**
    * When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
@@ -236,11 +275,6 @@ export interface Ac3Settings {
    * This value is always 48000. It represents the sample rate in Hz.
    */
   SampleRate?: number;
-
-  /**
-   * Sets the dialnorm for the output. If blank and input audio is Dolby Digital, dialnorm will be passed through.
-   */
-  Dialnorm?: number;
 }
 
 export namespace Ac3Settings {
@@ -254,11 +288,6 @@ export namespace Ac3Settings {
  */
 export interface AiffSettings {
   /**
-   * Sample rate in hz.
-   */
-  SampleRate?: number;
-
-  /**
    * Specify Bit depth (BitDepth), in bits per sample, to choose the encoding quality for this audio track.
    */
   BitDepth?: number;
@@ -267,6 +296,11 @@ export interface AiffSettings {
    * Specify the number of channels in this output audio track. Valid values are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up to 64.
    */
   Channels?: number;
+
+  /**
+   * Sample rate in hz.
+   */
+  SampleRate?: number;
 }
 
 export namespace AiffSettings {
@@ -346,24 +380,10 @@ export enum Eac3AtmosSurroundExMode {
  */
 export interface Eac3AtmosSettings {
   /**
-   * Specify a value for the following Dolby Atmos setting: Left total/Right total center mix (Lt/Rt center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, and -6.0.
+   * Specify the average bitrate in bits per second.
+   * Valid values: 384k, 448k, 640k, 768k
    */
-  LtRtCenterMixLevel?: number;
-
-  /**
-   * Choose how the service does stereo downmixing.
-   */
-  StereoDownmix?: Eac3AtmosStereoDownmix | string;
-
-  /**
-   * Specify a value for the following Dolby Atmos setting: Left only/Right only (Lo/Ro surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel.
-   */
-  LoRoSurroundMixLevel?: number;
-
-  /**
-   * Specify whether your input audio has an additional center rear surround channel matrix encoded into your left and right surround channels.
-   */
-  SurroundExMode?: Eac3AtmosSurroundExMode | string;
+  Bitrate?: number;
 
   /**
    * Specify the bitstream mode for the E-AC-3 stream that the encoder emits. For more information about the EAC3 bitstream mode, see ATSC A/52-2012 (Annex E).
@@ -376,15 +396,19 @@ export interface Eac3AtmosSettings {
   CodingMode?: Eac3AtmosCodingMode | string;
 
   /**
-   * Specify the average bitrate in bits per second.
-   * Valid values: 384k, 448k, 640k, 768k
+   * Enable Dolby Dialogue Intelligence to adjust loudness based on dialogue analysis.
    */
-  Bitrate?: number;
+  DialogueIntelligence?: Eac3AtmosDialogueIntelligence | string;
 
   /**
-   * Specify a value for the following Dolby Atmos setting: Left total/Right total surround mix (Lt/Rt surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel.
+   * Specify the absolute peak level for a signal with dynamic range compression.
    */
-  LtRtSurroundMixLevel?: number;
+  DynamicRangeCompressionLine?: Eac3AtmosDynamicRangeCompressionLine | string;
+
+  /**
+   * Specify how the service limits the audio dynamic range when compressing the audio.
+   */
+  DynamicRangeCompressionRf?: Eac3AtmosDynamicRangeCompressionRf | string;
 
   /**
    * Specify a value for the following Dolby Atmos setting: Left only/Right only center mix
@@ -395,19 +419,19 @@ export interface Eac3AtmosSettings {
   LoRoCenterMixLevel?: number;
 
   /**
-   * Enable Dolby Dialogue Intelligence to adjust loudness based on dialogue analysis.
+   * Specify a value for the following Dolby Atmos setting: Left only/Right only (Lo/Ro surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel.
    */
-  DialogueIntelligence?: Eac3AtmosDialogueIntelligence | string;
+  LoRoSurroundMixLevel?: number;
 
   /**
-   * Specify the percentage of audio content that must be speech before the encoder uses the measured speech loudness as the overall program loudness.
+   * Specify a value for the following Dolby Atmos setting: Left total/Right total center mix (Lt/Rt center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, and -6.0.
    */
-  SpeechThreshold?: number;
+  LtRtCenterMixLevel?: number;
 
   /**
-   * Specify the absolute peak level for a signal with dynamic range compression.
+   * Specify a value for the following Dolby Atmos setting: Left total/Right total surround mix (Lt/Rt surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3AtmosStereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel.
    */
-  DynamicRangeCompressionLine?: Eac3AtmosDynamicRangeCompressionLine | string;
+  LtRtSurroundMixLevel?: number;
 
   /**
    * Choose how the service meters the loudness of your audio.
@@ -415,14 +439,24 @@ export interface Eac3AtmosSettings {
   MeteringMode?: Eac3AtmosMeteringMode | string;
 
   /**
-   * Specify how the service limits the audio dynamic range when compressing the audio.
-   */
-  DynamicRangeCompressionRf?: Eac3AtmosDynamicRangeCompressionRf | string;
-
-  /**
    * This value is always 48000. It represents the sample rate in Hz.
    */
   SampleRate?: number;
+
+  /**
+   * Specify the percentage of audio content that must be speech before the encoder uses the measured speech loudness as the overall program loudness.
+   */
+  SpeechThreshold?: number;
+
+  /**
+   * Choose how the service does stereo downmixing.
+   */
+  StereoDownmix?: Eac3AtmosStereoDownmix | string;
+
+  /**
+   * Specify whether your input audio has an additional center rear surround channel matrix encoded into your left and right surround channels.
+   */
+  SurroundExMode?: Eac3AtmosSurroundExMode | string;
 }
 
 export namespace Eac3AtmosSettings {
@@ -522,9 +556,14 @@ export enum Eac3SurroundMode {
  */
 export interface Eac3Settings {
   /**
-   * Choose how the service does stereo downmixing. This setting only applies if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Stereo downmix (Eac3StereoDownmix).
+   * If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
    */
-  StereoDownmix?: Eac3StereoDownmix | string;
+  AttenuationControl?: Eac3AttenuationControl | string;
+
+  /**
+   * Specify the average bitrate in bits per second. Valid bitrates depend on the coding mode.
+   */
+  Bitrate?: number;
 
   /**
    * Specify the bitstream mode for the E-AC-3 stream that the encoder emits. For more information about the EAC3 bitstream mode, see ATSC A/52-2012 (Annex E).
@@ -532,39 +571,9 @@ export interface Eac3Settings {
   BitstreamMode?: Eac3BitstreamMode | string;
 
   /**
-   * Specify a value for the following Dolby Digital Plus setting: Left only/Right only (Lo/Ro surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left only/Right only surround (loRoSurroundMixLevel).
-   */
-  LoRoSurroundMixLevel?: number;
-
-  /**
-   * Sets the dialnorm for the output. If blank and input audio is Dolby Digital Plus, dialnorm will be passed through.
-   */
-  Dialnorm?: number;
-
-  /**
    * Dolby Digital Plus coding mode. Determines number of channels.
    */
   CodingMode?: Eac3CodingMode | string;
-
-  /**
-   * Specify a value for the following Dolby Digital Plus setting: Left total/Right total center mix (Lt/Rt center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left total/Right total center (ltRtCenterMixLevel).
-   */
-  LtRtCenterMixLevel?: number;
-
-  /**
-   * Controls the amount of phase-shift applied to the surround channels. Only used for 3/2 coding mode.
-   */
-  PhaseControl?: Eac3PhaseControl | string;
-
-  /**
-   * If set to ATTENUATE_3_DB, applies a 3 dB attenuation to the surround channels. Only used for 3/2 coding mode.
-   */
-  AttenuationControl?: Eac3AttenuationControl | string;
-
-  /**
-   * When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
-   */
-  SurroundMode?: Eac3SurroundMode | string;
 
   /**
    * Activates a DC highpass filter for all input channels.
@@ -572,24 +581,9 @@ export interface Eac3Settings {
   DcFilter?: Eac3DcFilter | string;
 
   /**
-   * This value is always 48000. It represents the sample rate in Hz.
+   * Sets the dialnorm for the output. If blank and input audio is Dolby Digital Plus, dialnorm will be passed through.
    */
-  SampleRate?: number;
-
-  /**
-   * Specify a value for the following Dolby Digital Plus setting: Left only/Right only center mix (Lo/Ro center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left only/Right only center (loRoCenterMixLevel).
-   */
-  LoRoCenterMixLevel?: number;
-
-  /**
-   * When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
-   */
-  SurroundExMode?: Eac3SurroundExMode | string;
-
-  /**
-   * Specify how the service limits the audio dynamic range when compressing the audio.
-   */
-  DynamicRangeCompressionRf?: Eac3DynamicRangeCompressionRf | string;
+  Dialnorm?: number;
 
   /**
    * Specify the absolute peak level for a signal with dynamic range compression.
@@ -597,9 +591,39 @@ export interface Eac3Settings {
   DynamicRangeCompressionLine?: Eac3DynamicRangeCompressionLine | string;
 
   /**
+   * Specify how the service limits the audio dynamic range when compressing the audio.
+   */
+  DynamicRangeCompressionRf?: Eac3DynamicRangeCompressionRf | string;
+
+  /**
    * When encoding 3/2 audio, controls whether the LFE channel is enabled
    */
   LfeControl?: Eac3LfeControl | string;
+
+  /**
+   * Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with 3_2_LFE coding mode.
+   */
+  LfeFilter?: Eac3LfeFilter | string;
+
+  /**
+   * Specify a value for the following Dolby Digital Plus setting: Left only/Right only center mix (Lo/Ro center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left only/Right only center (loRoCenterMixLevel).
+   */
+  LoRoCenterMixLevel?: number;
+
+  /**
+   * Specify a value for the following Dolby Digital Plus setting: Left only/Right only (Lo/Ro surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left only/Right only surround (loRoSurroundMixLevel).
+   */
+  LoRoSurroundMixLevel?: number;
+
+  /**
+   * Specify a value for the following Dolby Digital Plus setting: Left total/Right total center mix (Lt/Rt center). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: 3.0, 1.5, 0.0, -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left total/Right total center (ltRtCenterMixLevel).
+   */
+  LtRtCenterMixLevel?: number;
+
+  /**
+   * Specify a value for the following Dolby Digital Plus setting: Left total/Right total surround mix (Lt/Rt surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left total/Right total surround (ltRtSurroundMixLevel).
+   */
+  LtRtSurroundMixLevel?: number;
 
   /**
    * When set to FOLLOW_INPUT, encoder metadata will be sourced from the DD, DD+, or DolbyE decoder that supplied this audio data. If audio was not supplied from one of these streams, then the static metadata settings will be used.
@@ -612,19 +636,29 @@ export interface Eac3Settings {
   PassthroughControl?: Eac3PassthroughControl | string;
 
   /**
-   * Specify a value for the following Dolby Digital Plus setting: Left total/Right total surround mix (Lt/Rt surround). MediaConvert uses this value for downmixing. How the service uses this value depends on the value that you choose for Stereo downmix (Eac3StereoDownmix). Valid values: -1.5, -3.0, -4.5, -6.0, and -60. The value -60 mutes the channel. This setting applies only if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Left total/Right total surround (ltRtSurroundMixLevel).
+   * Controls the amount of phase-shift applied to the surround channels. Only used for 3/2 coding mode.
    */
-  LtRtSurroundMixLevel?: number;
+  PhaseControl?: Eac3PhaseControl | string;
 
   /**
-   * Specify the average bitrate in bits per second. Valid bitrates depend on the coding mode.
+   * This value is always 48000. It represents the sample rate in Hz.
    */
-  Bitrate?: number;
+  SampleRate?: number;
 
   /**
-   * Applies a 120Hz lowpass filter to the LFE channel prior to encoding. Only valid with 3_2_LFE coding mode.
+   * Choose how the service does stereo downmixing. This setting only applies if you keep the default value of 3/2 - L, R, C, Ls, Rs (CODING_MODE_3_2) for the setting Coding mode (Eac3CodingMode). If you choose a different value for Coding mode, the service ignores Stereo downmix (Eac3StereoDownmix).
    */
-  LfeFilter?: Eac3LfeFilter | string;
+  StereoDownmix?: Eac3StereoDownmix | string;
+
+  /**
+   * When encoding 3/2 audio, sets whether an extra center back surround channel is matrix encoded into the left and right surround channels.
+   */
+  SurroundExMode?: Eac3SurroundExMode | string;
+
+  /**
+   * When encoding 2/0 audio, sets whether Dolby Surround is matrix encoded into the two channels.
+   */
+  SurroundMode?: Eac3SurroundMode | string;
 }
 
 export namespace Eac3Settings {
@@ -638,6 +672,11 @@ export namespace Eac3Settings {
  */
 export interface Mp2Settings {
   /**
+   * Specify the average bitrate in bits per second.
+   */
+  Bitrate?: number;
+
+  /**
    * Set Channels to specify the number of channels in this output audio track. Choosing Mono in the console will give you 1 output channel; choosing Stereo will give you 2. In the API, valid values are 1 and 2.
    */
   Channels?: number;
@@ -646,11 +685,6 @@ export interface Mp2Settings {
    * Sample rate in hz.
    */
   SampleRate?: number;
-
-  /**
-   * Specify the average bitrate in bits per second.
-   */
-  Bitrate?: number;
 }
 
 export namespace Mp2Settings {
@@ -669,6 +703,16 @@ export enum Mp3RateControlMode {
  */
 export interface Mp3Settings {
   /**
+   * Specify the average bitrate in bits per second.
+   */
+  Bitrate?: number;
+
+  /**
+   * Specify the number of channels in this output audio track. Choosing Mono on the console gives you 1 output channel; choosing Stereo gives you 2. In the API, valid values are 1 and 2.
+   */
+  Channels?: number;
+
+  /**
    * Specify whether the service encodes this MP3 audio output with a constant bitrate (CBR) or a variable bitrate (VBR).
    */
   RateControlMode?: Mp3RateControlMode | string;
@@ -682,16 +726,6 @@ export interface Mp3Settings {
    * Required when you set Bitrate control mode (rateControlMode) to VBR. Specify the audio quality of this MP3 output from 0 (highest quality) to 9 (lowest quality).
    */
   VbrQuality?: number;
-
-  /**
-   * Specify the average bitrate in bits per second.
-   */
-  Bitrate?: number;
-
-  /**
-   * Specify the number of channels in this output audio track. Choosing Mono on the console gives you 1 output channel; choosing Stereo gives you 2. In the API, valid values are 1 and 2.
-   */
-  Channels?: number;
 }
 
 export namespace Mp3Settings {
@@ -731,11 +765,6 @@ export namespace OpusSettings {
  */
 export interface VorbisSettings {
   /**
-   * Optional. Specify the variable audio quality of this Vorbis output from -1 (lowest quality, ~45 kbit/s) to 10 (highest quality, ~500 kbit/s). The default value is 4 (~128 kbit/s). Values 5 and 6 are approximately 160 and 192 kbit/s, respectively.
-   */
-  VbrQuality?: number;
-
-  /**
    * Optional. Specify the number of channels in this output audio track. Choosing Mono on the console gives you 1 output channel; choosing Stereo gives you 2. In the API, valid values are 1 and 2. The default value is 2.
    */
   Channels?: number;
@@ -744,6 +773,11 @@ export interface VorbisSettings {
    * Optional. Specify the audio sample rate in Hz. Valid values are 22050, 32000, 44100, and 48000. The default value is 48000.
    */
   SampleRate?: number;
+
+  /**
+   * Optional. Specify the variable audio quality of this Vorbis output from -1 (lowest quality, ~45 kbit/s) to 10 (highest quality, ~500 kbit/s). The default value is 4 (~128 kbit/s). Values 5 and 6 are approximately 160 and 192 kbit/s, respectively.
+   */
+  VbrQuality?: number;
 }
 
 export namespace VorbisSettings {
@@ -762,6 +796,11 @@ export enum WavFormat {
  */
 export interface WavSettings {
   /**
+   * Specify Bit depth (BitDepth), in bits per sample, to choose the encoding quality for this audio track.
+   */
+  BitDepth?: number;
+
+  /**
    * Specify the number of channels in this output audio track. Valid values are 1 and even numbers up to 64. For example, 1, 2, 4, 6, and so on, up to 64.
    */
   Channels?: number;
@@ -775,11 +814,6 @@ export interface WavSettings {
    * Sample rate in Hz.
    */
   SampleRate?: number;
-
-  /**
-   * Specify Bit depth (BitDepth), in bits per sample, to choose the encoding quality for this audio track.
-   */
-  BitDepth?: number;
 }
 
 export namespace WavSettings {
@@ -793,24 +827,9 @@ export namespace WavSettings {
  */
 export interface AudioCodecSettings {
   /**
-   * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
-   */
-  Mp3Settings?: Mp3Settings;
-
-  /**
-   * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
-   */
-  Mp2Settings?: Mp2Settings;
-
-  /**
    * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AAC. The service accepts one of two mutually exclusive groups of AAC settings--VBR and CBR. To select one of these modes, set the value of Bitrate control mode (rateControlMode) to "VBR" or "CBR".  In VBR mode, you control the audio quality with the setting VBR quality (vbrQuality). In CBR mode, you use the setting Bitrate (bitrate). Defaults and valid values depend on the rate control mode.
    */
   AacSettings?: AacSettings;
-
-  /**
-   * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value OPUS.
-   */
-  OpusSettings?: OpusSettings;
 
   /**
    * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AC3.
@@ -818,14 +837,9 @@ export interface AudioCodecSettings {
   Ac3Settings?: Ac3Settings;
 
   /**
-   * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3.
+   * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AIFF.
    */
-  Eac3Settings?: Eac3Settings;
-
-  /**
-   * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value Vorbis.
-   */
-  VorbisSettings?: VorbisSettings;
+  AiffSettings?: AiffSettings;
 
   /**
    * Type of Audio codec.
@@ -833,14 +847,34 @@ export interface AudioCodecSettings {
   Codec?: AudioCodec | string;
 
   /**
-   * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value AIFF.
-   */
-  AiffSettings?: AiffSettings;
-
-  /**
    * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3_ATMOS.
    */
   Eac3AtmosSettings?: Eac3AtmosSettings;
+
+  /**
+   * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value EAC3.
+   */
+  Eac3Settings?: Eac3Settings;
+
+  /**
+   * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value MP2.
+   */
+  Mp2Settings?: Mp2Settings;
+
+  /**
+   * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value MP3.
+   */
+  Mp3Settings?: Mp3Settings;
+
+  /**
+   * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value OPUS.
+   */
+  OpusSettings?: OpusSettings;
+
+  /**
+   * Required when you set Codec, under AudioDescriptions>CodecSettings, to the value Vorbis.
+   */
+  VorbisSettings?: VorbisSettings;
 
   /**
    * Required when you set (Codec) under (AudioDescriptions)>(CodecSettings) to the value WAV.
@@ -1090,9 +1124,9 @@ export namespace ChannelMapping {
  */
 export interface RemixSettings {
   /**
-   * Specify the number of channels in this output after remixing. Valid values: 1, 2, 4, 6, 8... 64. (1 and even numbers to 64.)
+   * Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel. Units are in dB. Acceptable values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification).
    */
-  ChannelsOut?: number;
+  ChannelMapping?: ChannelMapping;
 
   /**
    * Specify the number of audio channels from your input that you want to use in your output. With remixing, you might combine or split the data in these channels, so the number of channels in your final output might be different.
@@ -1100,9 +1134,9 @@ export interface RemixSettings {
   ChannelsIn?: number;
 
   /**
-   * Channel mapping (ChannelMapping) contains the group of fields that hold the remixing value for each channel. Units are in dB. Acceptable values are within the range from -60 (mute) through 6. A setting of 0 passes the input channel unchanged to the output channel (no attenuation or amplification).
+   * Specify the number of channels in this output after remixing. Valid values: 1, 2, 4, 6, 8... 64. (1 and even numbers to 64.)
    */
-  ChannelMapping?: ChannelMapping;
+  ChannelsOut?: number;
 }
 
 export namespace RemixSettings {
@@ -1116,34 +1150,9 @@ export namespace RemixSettings {
  */
 export interface AudioDescription {
   /**
-   * Audio codec settings (CodecSettings) under (AudioDescriptions) contains the group of settings related to audio encoding. The settings in this group vary depending on the value that you choose for Audio codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings * MP3, Mp3Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings * VORBIS, VorbisSettings * OPUS, OpusSettings
+   * When you mimic a multi-channel audio layout with multiple mono-channel tracks, you can tag each channel layout manually. For example, you would tag the tracks that contain your left, right, and center audio with Left (L), Right (R), and Center (C), respectively. When you don't specify a value, MediaConvert labels your track as Center (C) by default. To use audio layout tagging, your output must be in a QuickTime (.mov) container; your audio codec must be AAC, WAV, or AIFF; and you must set up your audio track to have only one channel.
    */
-  CodecSettings?: AudioCodecSettings;
-
-  /**
-   * Indicates the language of the audio output track. The ISO 639 language specified in the 'Language Code' drop down will be used when 'Follow Input Language Code' is not selected or when 'Follow Input Language Code' is selected but there is no ISO 639 language code specified by the input.
-   */
-  LanguageCode?: LanguageCode | string;
-
-  /**
-   * Applies only if Follow Input Audio Type is unchecked (false). A number between 0 and 255. The following are defined in ISO-IEC 13818-1: 0 = Undefined, 1 = Clean Effects, 2 = Hearing Impaired, 3 = Visually Impaired Commentary, 4-255 = Reserved.
-   */
-  AudioType?: number;
-
-  /**
-   * Advanced audio remixing settings.
-   */
-  RemixSettings?: RemixSettings;
-
-  /**
-   * When set to FOLLOW_INPUT, if the input contains an ISO 639 audio_type, then that value is passed through to the output. If the input contains no ISO 639 audio_type, the value in Audio Type is included in the output. Otherwise the value in Audio Type is included in the output. Note that this field and audioType are both ignored if audioDescriptionBroadcasterMix is set to BROADCASTER_MIXED_AD.
-   */
-  AudioTypeControl?: AudioTypeControl | string;
-
-  /**
-   * Specify which source for language code takes precedence for this audio track. When you choose Follow input (FOLLOW_INPUT), the service uses the language code from the input track if it's present. If there's no languge code on the input track, the service uses the code that you specify in the setting Language code (languageCode or customLanguageCode). When you choose Use configured (USE_CONFIGURED), the service uses the language code that you specify.
-   */
-  LanguageCodeControl?: AudioLanguageCodeControl | string;
+  AudioChannelTaggingSettings?: AudioChannelTaggingSettings;
 
   /**
    * Advanced audio normalization settings. Ignore these settings unless you need to comply with a loudness standard.
@@ -1151,14 +1160,44 @@ export interface AudioDescription {
   AudioNormalizationSettings?: AudioNormalizationSettings;
 
   /**
+   * Specifies which audio data to use from each input. In the simplest case, specify an "Audio Selector":#inputs-audio_selector by name based on its order within each input. For example if you specify "Audio Selector 3", then the third audio selector will be used from each input. If an input does not have an "Audio Selector 3", then the audio selector marked as "default" in that input will be used. If there is no audio selector marked as "default", silence will be inserted for the duration of that input. Alternatively, an "Audio Selector Group":#inputs-audio_selector_group name may be specified, with similar default/silence behavior. If no audio_source_name is specified, then "Audio Selector 1" will be chosen automatically.
+   */
+  AudioSourceName?: string;
+
+  /**
+   * Applies only if Follow Input Audio Type is unchecked (false). A number between 0 and 255. The following are defined in ISO-IEC 13818-1: 0 = Undefined, 1 = Clean Effects, 2 = Hearing Impaired, 3 = Visually Impaired Commentary, 4-255 = Reserved.
+   */
+  AudioType?: number;
+
+  /**
+   * When set to FOLLOW_INPUT, if the input contains an ISO 639 audio_type, then that value is passed through to the output. If the input contains no ISO 639 audio_type, the value in Audio Type is included in the output. Otherwise the value in Audio Type is included in the output. Note that this field and audioType are both ignored if audioDescriptionBroadcasterMix is set to BROADCASTER_MIXED_AD.
+   */
+  AudioTypeControl?: AudioTypeControl | string;
+
+  /**
+   * Audio codec settings (CodecSettings) under (AudioDescriptions) contains the group of settings related to audio encoding. The settings in this group vary depending on the value that you choose for Audio codec (Codec). For each codec enum that you choose, define the corresponding settings object. The following lists the codec enum, settings object pairs. * AAC, AacSettings * MP2, Mp2Settings * MP3, Mp3Settings * WAV, WavSettings * AIFF, AiffSettings * AC3, Ac3Settings * EAC3, Eac3Settings * EAC3_ATMOS, Eac3AtmosSettings * VORBIS, VorbisSettings * OPUS, OpusSettings
+   */
+  CodecSettings?: AudioCodecSettings;
+
+  /**
    * Specify the language for this audio output track. The service puts this language code into your output audio track when you set Language code control (AudioLanguageCodeControl) to Use configured (USE_CONFIGURED). The service also uses your specified custom language code when you set Language code control (AudioLanguageCodeControl) to Follow input (FOLLOW_INPUT), but your input file doesn't specify a language code. For all outputs, you can use an ISO 639-2 or ISO 639-3 code. For streaming outputs, you can also use any other code in the full RFC-5646 specification. Streaming outputs are those that are in one of the following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth Streaming.
    */
   CustomLanguageCode?: string;
 
   /**
-   * Specifies which audio data to use from each input. In the simplest case, specify an "Audio Selector":#inputs-audio_selector by name based on its order within each input. For example if you specify "Audio Selector 3", then the third audio selector will be used from each input. If an input does not have an "Audio Selector 3", then the audio selector marked as "default" in that input will be used. If there is no audio selector marked as "default", silence will be inserted for the duration of that input. Alternatively, an "Audio Selector Group":#inputs-audio_selector_group name may be specified, with similar default/silence behavior. If no audio_source_name is specified, then "Audio Selector 1" will be chosen automatically.
+   * Indicates the language of the audio output track. The ISO 639 language specified in the 'Language Code' drop down will be used when 'Follow Input Language Code' is not selected or when 'Follow Input Language Code' is selected but there is no ISO 639 language code specified by the input.
    */
-  AudioSourceName?: string;
+  LanguageCode?: LanguageCode | string;
+
+  /**
+   * Specify which source for language code takes precedence for this audio track. When you choose Follow input (FOLLOW_INPUT), the service uses the language code from the input track if it's present. If there's no languge code on the input track, the service uses the code that you specify in the setting Language code (languageCode or customLanguageCode). When you choose Use configured (USE_CONFIGURED), the service uses the language code that you specify.
+   */
+  LanguageCodeControl?: AudioLanguageCodeControl | string;
+
+  /**
+   * Advanced audio remixing settings.
+   */
+  RemixSettings?: RemixSettings;
 
   /**
    * Specify a label for this output audio stream. For example, "English", "Director commentary", or "track_2". For streaming outputs, MediaConvert passes this information into destination manifests for display on the end-viewer's player device. For outputs in other output groups, the service ignores this setting.
@@ -1223,9 +1262,9 @@ export enum BurninSubtitleTeletextSpacing {
  */
 export interface BurninDestinationSettings {
   /**
-   * A positive integer indicates the exact font size in points. Set to 0 for automatic font size selection. All burn-in and DVB-Sub font settings must match.
+   * If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
    */
-  FontSize?: number;
+  Alignment?: BurninSubtitleAlignment | string;
 
   /**
    * Specifies the color of the rectangle behind the captions.
@@ -1234,56 +1273,20 @@ export interface BurninDestinationSettings {
   BackgroundColor?: BurninSubtitleBackgroundColor | string;
 
   /**
-   * Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit y_position is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-   */
-  YPosition?: number;
-
-  /**
-   * Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
-   */
-  TeletextSpacing?: BurninSubtitleTeletextSpacing | string;
-
-  /**
-   * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
-   */
-  ShadowYOffset?: number;
-
-  /**
-   * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit x_position is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-   */
-  XPosition?: number;
-
-  /**
-   * If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-   */
-  Alignment?: BurninSubtitleAlignment | string;
-
-  /**
    * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
    */
   BackgroundOpacity?: number;
 
   /**
-   * Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+   * Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
    */
-  ShadowXOffset?: number;
-
-  /**
-   * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-   */
-  OutlineSize?: number;
+  FontColor?: BurninSubtitleFontColor | string;
 
   /**
    * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.
    * All burn-in and DVB-Sub font settings must match.
    */
   FontOpacity?: number;
-
-  /**
-   * Specifies the color of the shadow cast by the captions.
-   * All burn-in and DVB-Sub font settings must match.
-   */
-  ShadowColor?: BurninSubtitleShadowColor | string;
 
   /**
    * Font resolution in DPI (dots per inch); default is 96 dpi.
@@ -1297,9 +1300,25 @@ export interface BurninDestinationSettings {
   FontScript?: FontScript | string;
 
   /**
+   * A positive integer indicates the exact font size in points. Set to 0 for automatic font size selection. All burn-in and DVB-Sub font settings must match.
+   */
+  FontSize?: number;
+
+  /**
    * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
    */
   OutlineColor?: BurninSubtitleOutlineColor | string;
+
+  /**
+   * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   */
+  OutlineSize?: number;
+
+  /**
+   * Specifies the color of the shadow cast by the captions.
+   * All burn-in and DVB-Sub font settings must match.
+   */
+  ShadowColor?: BurninSubtitleShadowColor | string;
 
   /**
    * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
@@ -1307,9 +1326,29 @@ export interface BurninDestinationSettings {
   ShadowOpacity?: number;
 
   /**
-   * Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   * Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
    */
-  FontColor?: BurninSubtitleFontColor | string;
+  ShadowXOffset?: number;
+
+  /**
+   * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+   */
+  ShadowYOffset?: number;
+
+  /**
+   * Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
+   */
+  TeletextSpacing?: BurninSubtitleTeletextSpacing | string;
+
+  /**
+   * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit x_position is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   */
+  XPosition?: number;
+
+  /**
+   * Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit y_position is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   */
+  YPosition?: number;
 }
 
 export namespace BurninDestinationSettings {
@@ -1383,47 +1422,9 @@ export enum DvbSubtitleTeletextSpacing {
  */
 export interface DvbSubDestinationSettings {
   /**
-   * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
+   * If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
    */
-  BackgroundOpacity?: number;
-
-  /**
-   * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-   */
-  OutlineColor?: DvbSubtitleOutlineColor | string;
-
-  /**
-   * Font resolution in DPI (dots per inch); default is 96 dpi.
-   * All burn-in and DVB-Sub font settings must match.
-   */
-  FontResolution?: number;
-
-  /**
-   * Specifies the color of the shadow cast by the captions.
-   * All burn-in and DVB-Sub font settings must match.
-   */
-  ShadowColor?: DvbSubtitleShadowColor | string;
-
-  /**
-   * Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for determining the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset. This is used to help determine the appropriate font for rendering DVB-Sub captions.
-   */
-  FontScript?: FontScript | string;
-
-  /**
-   * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.
-   * All burn-in and DVB-Sub font settings must match.
-   */
-  FontOpacity?: number;
-
-  /**
-   * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
-   */
-  OutlineSize?: number;
-
-  /**
-   * Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
-   */
-  ShadowXOffset?: number;
+  Alignment?: DvbSubtitleAlignment | string;
 
   /**
    * Specifies the color of the rectangle behind the captions.
@@ -1432,29 +1433,31 @@ export interface DvbSubDestinationSettings {
   BackgroundColor?: DvbSubtitleBackgroundColor | string;
 
   /**
-   * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit x_position is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   * Specifies the opacity of the background rectangle. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
    */
-  XPosition?: number;
+  BackgroundOpacity?: number;
 
   /**
-   * If no explicit x_position or y_position is provided, setting alignment to centered will place the captions at the bottom center of the output. Similarly, setting a left alignment will align captions to the bottom left of the output. If x and y positions are given in conjunction with the alignment parameter, the font will be justified (either left or centered) relative to those coordinates. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   * Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
    */
-  Alignment?: DvbSubtitleAlignment | string;
+  FontColor?: DvbSubtitleFontColor | string;
 
   /**
-   * Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit y_position is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   * Specifies the opacity of the burned-in captions. 255 is opaque; 0 is transparent.
+   * All burn-in and DVB-Sub font settings must match.
    */
-  YPosition?: number;
+  FontOpacity?: number;
 
   /**
-   * Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
+   * Font resolution in DPI (dots per inch); default is 96 dpi.
+   * All burn-in and DVB-Sub font settings must match.
    */
-  TeletextSpacing?: DvbSubtitleTeletextSpacing | string;
+  FontResolution?: number;
 
   /**
-   * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+   * Provide the font script, using an ISO 15924 script code, if the LanguageCode is not sufficient for determining the script type. Where LanguageCode or CustomLanguageCode is sufficient, use "AUTOMATIC" or leave unset. This is used to help determine the appropriate font for rendering DVB-Sub captions.
    */
-  ShadowYOffset?: number;
+  FontScript?: FontScript | string;
 
   /**
    * A positive integer indicates the exact font size in points. Set to 0 for automatic font size selection. All burn-in and DVB-Sub font settings must match.
@@ -1462,9 +1465,35 @@ export interface DvbSubDestinationSettings {
   FontSize?: number;
 
   /**
+   * Specifies font outline color. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   */
+  OutlineColor?: DvbSubtitleOutlineColor | string;
+
+  /**
+   * Specifies font outline size in pixels. This option is not valid for source captions that are either 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   */
+  OutlineSize?: number;
+
+  /**
+   * Specifies the color of the shadow cast by the captions.
+   * All burn-in and DVB-Sub font settings must match.
+   */
+  ShadowColor?: DvbSubtitleShadowColor | string;
+
+  /**
    * Specifies the opacity of the shadow. 255 is opaque; 0 is transparent. Leaving this parameter blank is equivalent to setting it to 0 (transparent). All burn-in and DVB-Sub font settings must match.
    */
   ShadowOpacity?: number;
+
+  /**
+   * Specifies the horizontal offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels to the left. All burn-in and DVB-Sub font settings must match.
+   */
+  ShadowXOffset?: number;
+
+  /**
+   * Specifies the vertical offset of the shadow relative to the captions in pixels. A value of -2 would result in a shadow offset 2 pixels above the text. All burn-in and DVB-Sub font settings must match.
+   */
+  ShadowYOffset?: number;
 
   /**
    * Specify whether your DVB subtitles are standard or for hearing impaired. Choose hearing impaired if your subtitles include audio descriptions and dialogue. Choose standard if your subtitles include only dialogue.
@@ -1472,9 +1501,19 @@ export interface DvbSubDestinationSettings {
   SubtitlingType?: DvbSubtitlingType | string;
 
   /**
-   * Specifies the color of the burned-in captions. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   * Only applies to jobs with input captions in Teletext or STL formats. Specify whether the spacing between letters in your captions is set by the captions grid or varies depending on letter width. Choose fixed grid to conform to the spacing specified in the captions file more accurately. Choose proportional to make the text easier to read if the captions are closed caption.
    */
-  FontColor?: DvbSubtitleFontColor | string;
+  TeletextSpacing?: DvbSubtitleTeletextSpacing | string;
+
+  /**
+   * Specifies the horizontal position of the caption relative to the left side of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the left of the output. If no explicit x_position is provided, the horizontal caption position will be determined by the alignment parameter. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   */
+  XPosition?: number;
+
+  /**
+   * Specifies the vertical position of the caption relative to the top of the output in pixels. A value of 10 would result in the captions starting 10 pixels from the top of the output. If no explicit y_position is provided, the caption will be positioned towards the bottom of the output. This option is not valid for source captions that are STL, 608/embedded or teletext. These source settings are already pre-defined by the caption stream. All burn-in and DVB-Sub font settings must match.
+   */
+  YPosition?: number;
 }
 
 export namespace DvbSubDestinationSettings {
@@ -1488,14 +1527,14 @@ export namespace DvbSubDestinationSettings {
  */
 export interface EmbeddedDestinationSettings {
   /**
-   * Ignore this setting unless your input captions are SCC format and you want both 608 and 708 captions embedded in your output stream. Optionally, specify the 708 service number for each output captions channel. Choose a different number for each channel. To use this setting, also set Force 608 to 708 upconvert (Convert608To708) to Upconvert (UPCONVERT) in your input captions selector settings. If you choose to upconvert but don't specify a 708 service number, MediaConvert uses the number that you specify for CC channel number (destination608ChannelNumber) for the 708 service number. For more information, see https://docs.aws.amazon.com/console/mediaconvert/dual-scc-to-embedded.
-   */
-  Destination708ServiceNumber?: number;
-
-  /**
    * Ignore this setting unless your input captions are SCC format and your output captions are embedded in the video stream. Specify a CC number for each captions channel in this output. If you have two channels, choose CC numbers that aren't in the same field. For example, choose 1 and 3. For more information, see https://docs.aws.amazon.com/console/mediaconvert/dual-scc-to-embedded.
    */
   Destination608ChannelNumber?: number;
+
+  /**
+   * Ignore this setting unless your input captions are SCC format and you want both 608 and 708 captions embedded in your output stream. Optionally, specify the 708 service number for each output captions channel. Choose a different number for each channel. To use this setting, also set Force 608 to 708 upconvert (Convert608To708) to Upconvert (UPCONVERT) in your input captions selector settings. If you choose to upconvert but don't specify a 708 service number, MediaConvert uses the number that you specify for CC channel number (destination608ChannelNumber) for the 708 service number. For more information, see https://docs.aws.amazon.com/console/mediaconvert/dual-scc-to-embedded.
+   */
+  Destination708ServiceNumber?: number;
 }
 
 export namespace EmbeddedDestinationSettings {
@@ -1604,24 +1643,14 @@ export namespace TtmlDestinationSettings {
  */
 export interface CaptionDestinationSettings {
   /**
+   * Burn-In Destination Settings.
+   */
+  BurninDestinationSettings?: BurninDestinationSettings;
+
+  /**
    * Specify the format for this set of captions on this output. The default format is embedded without SCTE-20. Other options are embedded with SCTE-20, burn-in, DVB-sub, IMSC, SCC, SRT, teletext, TTML, and web-VTT. If you are using SCTE-20, choose SCTE-20 plus embedded (SCTE20_PLUS_EMBEDDED) to create an output that complies with the SCTE-43 spec. To create a non-compliant output where the embedded captions come first, choose Embedded plus SCTE-20 (EMBEDDED_PLUS_SCTE20).
    */
   DestinationType?: CaptionDestinationType | string;
-
-  /**
-   * Settings specific to IMSC caption outputs.
-   */
-  ImscDestinationSettings?: ImscDestinationSettings;
-
-  /**
-   * Settings for Teletext caption output
-   */
-  TeletextDestinationSettings?: TeletextDestinationSettings;
-
-  /**
-   * Settings specific to embedded/ancillary caption outputs, including 608/708 Channel destination number.
-   */
-  EmbeddedDestinationSettings?: EmbeddedDestinationSettings;
 
   /**
    * DVB-Sub Destination Settings
@@ -1629,19 +1658,29 @@ export interface CaptionDestinationSettings {
   DvbSubDestinationSettings?: DvbSubDestinationSettings;
 
   /**
-   * Burn-In Destination Settings.
+   * Settings specific to embedded/ancillary caption outputs, including 608/708 Channel destination number.
    */
-  BurninDestinationSettings?: BurninDestinationSettings;
+  EmbeddedDestinationSettings?: EmbeddedDestinationSettings;
 
   /**
-   * Settings specific to TTML caption outputs, including Pass style information (TtmlStylePassthrough).
+   * Settings specific to IMSC caption outputs.
    */
-  TtmlDestinationSettings?: TtmlDestinationSettings;
+  ImscDestinationSettings?: ImscDestinationSettings;
 
   /**
    * Settings for SCC caption output.
    */
   SccDestinationSettings?: SccDestinationSettings;
+
+  /**
+   * Settings for Teletext caption output
+   */
+  TeletextDestinationSettings?: TeletextDestinationSettings;
+
+  /**
+   * Settings specific to TTML caption outputs, including Pass style information (TtmlStylePassthrough).
+   */
+  TtmlDestinationSettings?: TtmlDestinationSettings;
 }
 
 export namespace CaptionDestinationSettings {
@@ -1654,6 +1693,16 @@ export namespace CaptionDestinationSettings {
  * Description of Caption output
  */
 export interface CaptionDescription {
+  /**
+   * Specifies which "Caption Selector":#inputs-caption_selector to use from each input when generating captions. The name should be of the format "Caption Selector <N>", which denotes that the Nth Caption Selector will be used from each input.
+   */
+  CaptionSelectorName?: string;
+
+  /**
+   * Specify the language for this captions output track. For most captions output formats, the encoder puts this language information in the output captions metadata. If your output captions format is DVB-Sub or Burn in, the encoder uses this language information when automatically selecting the font script for rendering the captions text. For all outputs, you can use an ISO 639-2 or ISO 639-3 code. For streaming outputs, you can also use any other code in the full RFC-5646 specification. Streaming outputs are those that are in one of the following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth Streaming.
+   */
+  CustomLanguageCode?: string;
+
   /**
    * Specific settings required by destination type. Note that burnin_destination_settings are not available if the source of the caption data is Embedded or Teletext.
    */
@@ -1668,16 +1717,6 @@ export interface CaptionDescription {
    * Specify a label for this set of output captions. For example, "English", "Director commentary", or "track_2". For streaming outputs, MediaConvert passes this information into destination manifests for display on the end-viewer's player device. For outputs in other output groups, the service ignores this setting.
    */
   LanguageDescription?: string;
-
-  /**
-   * Specify the language for this captions output track. For most captions output formats, the encoder puts this language information in the output captions metadata. If your output captions format is DVB-Sub or Burn in, the encoder uses this language information when automatically selecting the font script for rendering the captions text. For all outputs, you can use an ISO 639-2 or ISO 639-3 code. For streaming outputs, you can also use any other code in the full RFC-5646 specification. Streaming outputs are those that are in one of the following output groups: CMAF, DASH ISO, Apple HLS, or Microsoft Smooth Streaming.
-   */
-  CustomLanguageCode?: string;
-
-  /**
-   * Specifies which "Caption Selector":#inputs-caption_selector to use from each input when generating captions. The name should be of the format "Caption Selector <N>", which denotes that the Nth Caption Selector will be used from each input.
-   */
-  CaptionSelectorName?: string;
 }
 
 export namespace CaptionDescription {
@@ -1780,14 +1819,14 @@ export namespace Endpoint {
  */
 export interface HlsAdditionalManifest {
   /**
-   * Specify the outputs that you want this additional top-level manifest to reference.
-   */
-  SelectedOutputs?: string[];
-
-  /**
    * Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your HLS group is film-name.m3u8. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.m3u8. For HLS output groups, specify a manifestNameModifier that is different from the nameModifier of the output. The service uses the output name modifier to create unique names for the individual variant manifests.
    */
   ManifestNameModifier?: string;
+
+  /**
+   * Specify the outputs that you want this additional top-level manifest to reference.
+   */
+  SelectedOutputs?: string[];
 }
 
 export namespace HlsAdditionalManifest {
@@ -1806,14 +1845,14 @@ export enum HlsAdMarkers {
  */
 export interface HlsCaptionLanguageMapping {
   /**
-   * Specify the language for this captions channel, using the ISO 639-2 or ISO 639-3 three-letter language code
-   */
-  CustomLanguageCode?: string;
-
-  /**
    * Caption channel.
    */
   CaptionChannel?: number;
+
+  /**
+   * Specify the language for this captions channel, using the ISO 639-2 or ISO 639-3 three-letter language code
+   */
+  CustomLanguageCode?: string;
 
   /**
    * Specify the language, using the ISO 639-2 three-letter code listed at https://www.loc.gov/standards/iso639-2/php/code_list.php.
@@ -1842,14 +1881,14 @@ export interface HopDestination {
   Priority?: number;
 
   /**
-   * Required for setting up a job to use queue hopping. Minimum wait time in minutes until the job can hop to the destination queue. Valid range is 1 to 1440 minutes, inclusive.
-   */
-  WaitMinutes?: number;
-
-  /**
    * Optional unless the job is submitted on the default queue. When you set up a job to use queue hopping, you can specify a destination queue. This queue cannot be the original queue to which the job is submitted. If the original queue isn't the default queue and you don't specify the destination queue, the job will move to the default queue.
    */
   Queue?: string;
+
+  /**
+   * Required for setting up a job to use queue hopping. Minimum wait time in minutes until the job can hop to the destination queue. Valid range is 1 to 1440 minutes, inclusive.
+   */
+  WaitMinutes?: number;
 }
 
 export namespace HopDestination {
@@ -1863,14 +1902,14 @@ export namespace HopDestination {
  */
 export interface Id3Insertion {
   /**
-   * Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
-   */
-  Timecode?: string;
-
-  /**
    * Use ID3 tag (Id3) to provide a tag value in base64-encode format.
    */
   Id3?: string;
+
+  /**
+   * Provide a Timecode (TimeCode) in HH:MM:SS:FF or HH:MM:SS;FF format.
+   */
+  Timecode?: string;
 }
 
 export namespace Id3Insertion {
@@ -1911,34 +1950,9 @@ export enum AudioSelectorType {
  */
 export interface AudioSelector {
   /**
-   * Selects a specific language code from within an audio source.
-   */
-  LanguageCode?: LanguageCode | string;
-
-  /**
-   * Selects a specific PID from within an audio source (e.g. 257 selects PID 0x101).
-   */
-  Pids?: number[];
-
-  /**
-   * Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
-   */
-  Tracks?: number[];
-
-  /**
    * Selects a specific language code from within an audio source, using the ISO 639-2 or ISO 639-3 three-letter language code
    */
   CustomLanguageCode?: string;
-
-  /**
-   * Use this setting for input streams that contain Dolby E, to have the service extract specific program data from the track. To select multiple programs, create multiple selectors with the same Track and different Program numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to have the service ignore the program IDs and include all the programs in the track.
-   */
-  ProgramSelection?: number;
-
-  /**
-   * Specifies a time delta in milliseconds to offset the audio from the input video.
-   */
-  Offset?: number;
 
   /**
    * Enable this setting on one audio selector to set it as the default for the job. The service uses this default for outputs where it can't find the specified input audio. If you don't set a default, those outputs have no audio.
@@ -1951,6 +1965,26 @@ export interface AudioSelector {
   ExternalAudioFileInput?: string;
 
   /**
+   * Selects a specific language code from within an audio source.
+   */
+  LanguageCode?: LanguageCode | string;
+
+  /**
+   * Specifies a time delta in milliseconds to offset the audio from the input video.
+   */
+  Offset?: number;
+
+  /**
+   * Selects a specific PID from within an audio source (e.g. 257 selects PID 0x101).
+   */
+  Pids?: number[];
+
+  /**
+   * Use this setting for input streams that contain Dolby E, to have the service extract specific program data from the track. To select multiple programs, create multiple selectors with the same Track and different Program numbers. In the console, this setting is visible when you set Selector type to Track. Choose the program number from the dropdown list. If you are sending a JSON file, provide the program ID, which is part of the audio metadata. If your input file has incorrect metadata, you can choose All channels instead of a program number to have the service ignore the program IDs and include all the programs in the track.
+   */
+  ProgramSelection?: number;
+
+  /**
    * Use these settings to reorder the audio channels of one input to match those of another input. This allows you to combine the two files into a single output, one after the other.
    */
   RemixSettings?: RemixSettings;
@@ -1959,6 +1993,11 @@ export interface AudioSelector {
    * Specifies the type of the audio selector.
    */
   SelectorType?: AudioSelectorType | string;
+
+  /**
+   * Identify a track from the input audio to include in this selector by entering the track index number. To include several tracks in a single audio selector, specify multiple tracks as follows. Using the console, enter a comma-separated list. For examle, type "1,2,3" to include tracks 1 through 3. Specifying directly in your JSON job file, provide the track numbers in an array. For example, "tracks": [1,2,3].
+   */
+  Tracks?: number[];
 }
 
 export namespace AudioSelector {
@@ -1982,14 +2021,14 @@ export enum AncillaryTerminateCaptions {
  */
 export interface AncillarySourceSettings {
   /**
-   * Specifies the 608 channel number in the ancillary data track from which to extract captions. Unused for passthrough.
-   */
-  SourceAncillaryChannelNumber?: number;
-
-  /**
    * Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
    */
   Convert608To708?: AncillaryConvert608To708 | string;
+
+  /**
+   * Specifies the 608 channel number in the ancillary data track from which to extract captions. Unused for passthrough.
+   */
+  SourceAncillaryChannelNumber?: number;
 
   /**
    * By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
@@ -2034,9 +2073,9 @@ export enum EmbeddedTerminateCaptions {
  */
 export interface EmbeddedSourceSettings {
   /**
-   * Specifies the video track index used for extracting captions. The system only supports one input video track, so this should always be set to '1'.
+   * Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
    */
-  Source608TrackNumber?: number;
+  Convert608To708?: EmbeddedConvert608To708 | string;
 
   /**
    * Specifies the 608/708 channel number within the video track from which to extract captions. Unused for passthrough.
@@ -2044,14 +2083,14 @@ export interface EmbeddedSourceSettings {
   Source608ChannelNumber?: number;
 
   /**
+   * Specifies the video track index used for extracting captions. The system only supports one input video track, so this should always be set to '1'.
+   */
+  Source608TrackNumber?: number;
+
+  /**
    * By default, the service terminates any unterminated captions at the end of each input. If you want the caption to continue onto your next input, disable this setting.
    */
   TerminateCaptions?: EmbeddedTerminateCaptions | string;
-
-  /**
-   * Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
-   */
-  Convert608To708?: EmbeddedConvert608To708 | string;
 }
 
 export namespace EmbeddedSourceSettings {
@@ -2091,6 +2130,16 @@ export namespace CaptionSourceFramerate {
  */
 export interface FileSourceSettings {
   /**
+   * Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
+   */
+  Convert608To708?: FileSourceConvert608To708 | string;
+
+  /**
+   * Ignore this setting unless your input captions format is SCC. To have the service compensate for differing frame rates between your input captions and input video, specify the frame rate of the captions file. Specify this value as a fraction, using the settings Framerate numerator (framerateNumerator) and Framerate denominator (framerateDenominator). For example, you might specify 24 / 1 for 24 fps, 25 / 1 for 25 fps, 24000 / 1001 for 23.976 fps, or 30000 / 1001 for 29.97 fps.
+   */
+  Framerate?: CaptionSourceFramerate;
+
+  /**
    * External caption file used for loading captions. Accepted file extensions are 'scc', 'ttml', 'dfxp', 'stl', 'srt', 'xml', and 'smi'.
    */
   SourceFile?: string;
@@ -2099,16 +2148,6 @@ export interface FileSourceSettings {
    * Specifies a time delta in seconds to offset the captions from the source file.
    */
   TimeDelta?: number;
-
-  /**
-   * Ignore this setting unless your input captions format is SCC. To have the service compensate for differing frame rates between your input captions and input video, specify the frame rate of the captions file. Specify this value as a fraction, using the settings Framerate numerator (framerateNumerator) and Framerate denominator (framerateDenominator). For example, you might specify 24 / 1 for 24 fps, 25 / 1 for 25 fps, 24000 / 1001 for 23.976 fps, or 30000 / 1001 for 29.97 fps.
-   */
-  Framerate?: CaptionSourceFramerate;
-
-  /**
-   * Specify whether this set of input captions appears in your outputs in both 608 and 708 format. If you choose Upconvert (UPCONVERT), MediaConvert includes the captions data in two ways: it passes the 608 data through using the 608 compatibility bytes fields of the 708 wrapper, and it also translates the 608 data into 708.
-   */
-  Convert608To708?: FileSourceConvert608To708 | string;
 }
 
 export namespace FileSourceSettings {
@@ -2169,26 +2208,6 @@ export namespace TrackSourceSettings {
  */
 export interface CaptionSourceSettings {
   /**
-   * Settings specific to Teletext caption sources, including Page number.
-   */
-  TeletextSourceSettings?: TeletextSourceSettings;
-
-  /**
-   * If your input captions are SCC, SMI, SRT, STL, TTML, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
-   */
-  FileSourceSettings?: FileSourceSettings;
-
-  /**
-   * Settings specific to caption sources that are specified by track number. Currently, this is only IMSC captions in an IMF package. If your caption source is IMSC 1.1 in a separate xml file, use FileSourceSettings instead of TrackSourceSettings.
-   */
-  TrackSourceSettings?: TrackSourceSettings;
-
-  /**
-   * Use Source (SourceType) to identify the format of your input captions.  The service cannot auto-detect caption format.
-   */
-  SourceType?: CaptionSourceType | string;
-
-  /**
    * Settings for ancillary captions source.
    */
   AncillarySourceSettings?: AncillarySourceSettings;
@@ -2202,6 +2221,26 @@ export interface CaptionSourceSettings {
    * Settings for embedded captions Source
    */
   EmbeddedSourceSettings?: EmbeddedSourceSettings;
+
+  /**
+   * If your input captions are SCC, SMI, SRT, STL, TTML, or IMSC 1.1 in an xml file, specify the URI of the input caption source file. If your caption source is IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
+   */
+  FileSourceSettings?: FileSourceSettings;
+
+  /**
+   * Use Source (SourceType) to identify the format of your input captions.  The service cannot auto-detect caption format.
+   */
+  SourceType?: CaptionSourceType | string;
+
+  /**
+   * Settings specific to Teletext caption sources, including Page number.
+   */
+  TeletextSourceSettings?: TeletextSourceSettings;
+
+  /**
+   * Settings specific to caption sources that are specified by track number. Currently, this is only IMSC captions in an IMF package. If your caption source is IMSC 1.1 in a separate xml file, use FileSourceSettings instead of TrackSourceSettings.
+   */
+  TrackSourceSettings?: TrackSourceSettings;
 }
 
 export namespace CaptionSourceSettings {
@@ -2215,14 +2254,14 @@ export namespace CaptionSourceSettings {
  */
 export interface CaptionSelector {
   /**
-   * The specific language to extract from source. If input is SCTE-27, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub that is being passed through, omit this field (and PID field); there is no way to extract a specific language with pass-through captions.
-   */
-  LanguageCode?: LanguageCode | string;
-
-  /**
    * The specific language to extract from source, using the ISO 639-2 or ISO 639-3 three-letter language code. If input is SCTE-27, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub that is being passed through, omit this field (and PID field); there is no way to extract a specific language with pass-through captions.
    */
   CustomLanguageCode?: string;
+
+  /**
+   * The specific language to extract from source. If input is SCTE-27, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub and output is Burn-in or SMPTE-TT, complete this field and/or PID to select the caption language to extract. If input is DVB-Sub that is being passed through, omit this field (and PID field); there is no way to extract a specific language with pass-through captions.
+   */
+  LanguageCode?: LanguageCode | string;
 
   /**
    * If your input captions are SCC, TTML, STL, SMI, SRT, or IMSC in an xml file, specify the URI of the input captions source file. If your input captions are IMSC in an IMF package, use TrackSourceSettings instead of FileSoureSettings.
@@ -2241,16 +2280,6 @@ export namespace CaptionSelector {
  */
 export interface Rectangle {
   /**
-   * The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even numbers.
-   */
-  Y?: number;
-
-  /**
-   * The distance, in pixels, between the rectangle and the left edge of the video frame. Specify only even numbers.
-   */
-  X?: number;
-
-  /**
    * Height of rectangle in pixels. Specify only even numbers.
    */
   Height?: number;
@@ -2259,6 +2288,16 @@ export interface Rectangle {
    * Width of rectangle in pixels. Specify only even numbers.
    */
   Width?: number;
+
+  /**
+   * The distance, in pixels, between the rectangle and the left edge of the video frame. Specify only even numbers.
+   */
+  X?: number;
+
+  /**
+   * The distance, in pixels, between the rectangle and the top edge of the video frame. Specify only even numbers.
+   */
+  Y?: number;
 }
 
 export namespace Rectangle {
@@ -2325,6 +2364,36 @@ export enum InputFilterEnable {
  */
 export interface InsertableImage {
   /**
+   * Specify the time, in milliseconds, for the image to remain on the output video. This duration includes fade-in time but not fade-out time.
+   */
+  Duration?: number;
+
+  /**
+   * Specify the length of time, in milliseconds, between the Start time that you specify for the image insertion and the time that the image appears at full opacity. Full opacity is the level that you specify for the opacity setting. If you don't specify a value for Fade-in, the image will appear abruptly at the overlay start time.
+   */
+  FadeIn?: number;
+
+  /**
+   * Specify the length of time, in milliseconds, between the end of the time that you have specified for the image overlay Duration and when the overlaid image has faded to total transparency. If you don't specify a value for Fade-out, the image will disappear abruptly at the end of the inserted image duration.
+   */
+  FadeOut?: number;
+
+  /**
+   * Specify the height of the inserted image in pixels. If you specify a value that's larger than the video resolution height, the service will crop your overlaid image to fit. To use the native height of the image, keep this setting blank.
+   */
+  Height?: number;
+
+  /**
+   * Specify the HTTP, HTTPS, or Amazon S3 location of the image that you want to overlay on the video. Use a PNG or TGA file.
+   */
+  ImageInserterInput?: string;
+
+  /**
+   * Specify the distance, in pixels, between the inserted image and the left edge of the video frame. Required for any image overlay that you specify.
+   */
+  ImageX?: number;
+
+  /**
    * Specify the distance, in pixels, between the overlaid image and the top edge of the video frame. Required for any image overlay that you specify.
    */
   ImageY?: number;
@@ -2333,11 +2402,6 @@ export interface InsertableImage {
    * Specify how overlapping inserted images appear. Images with higher values for Layer appear on top of images with lower values for Layer.
    */
   Layer?: number;
-
-  /**
-   * Specify the distance, in pixels, between the inserted image and the left edge of the video frame. Required for any image overlay that you specify.
-   */
-  ImageX?: number;
 
   /**
    * Use Opacity (Opacity) to specify how much of the underlying video shows through the inserted image. 0 is transparent and 100 is fully opaque. Default is 50.
@@ -2350,34 +2414,9 @@ export interface InsertableImage {
   StartTime?: string;
 
   /**
-   * Specify the length of time, in milliseconds, between the end of the time that you have specified for the image overlay Duration and when the overlaid image has faded to total transparency. If you don't specify a value for Fade-out, the image will disappear abruptly at the end of the inserted image duration.
-   */
-  FadeOut?: number;
-
-  /**
-   * Specify the length of time, in milliseconds, between the Start time that you specify for the image insertion and the time that the image appears at full opacity. Full opacity is the level that you specify for the opacity setting. If you don't specify a value for Fade-in, the image will appear abruptly at the overlay start time.
-   */
-  FadeIn?: number;
-
-  /**
    * Specify the width of the inserted image in pixels. If you specify a value that's larger than the video resolution width, the service will crop your overlaid image to fit. To use the native width of the image, keep this setting blank.
    */
   Width?: number;
-
-  /**
-   * Specify the height of the inserted image in pixels. If you specify a value that's larger than the video resolution height, the service will crop your overlaid image to fit. To use the native height of the image, keep this setting blank.
-   */
-  Height?: number;
-
-  /**
-   * Specify the time, in milliseconds, for the image to remain on the output video. This duration includes fade-in time but not fade-out time.
-   */
-  Duration?: number;
-
-  /**
-   * Specify the HTTP, HTTPS, or Amazon S3 location of the image that you want to overlay on the video. Use a PNG or TGA file.
-   */
-  ImageInserterInput?: string;
 }
 
 export namespace InsertableImage {
@@ -2407,20 +2446,25 @@ export namespace ImageInserter {
  */
 export interface InputClipping {
   /**
-   * Set Start timecode (StartTimecode) to the beginning of the portion of the input you are clipping. The frame corresponding to the Start timecode value is included in the clip. Start timecode or End timecode may be left blank, but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When choosing this value, take into account your setting for Input timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your clip to begin five minutes into the video, use 01:05:00:00.
-   */
-  StartTimecode?: string;
-
-  /**
    * Set End timecode (EndTimecode) to the end of the portion of the input you are clipping. The frame corresponding to the End timecode value is included in the clip. Start timecode or End timecode may be left blank, but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When choosing this value, take into account your setting for timecode source under input settings (InputTimecodeSource). For example, if you have embedded timecodes that start at 01:00:00:00 and you want your clip to end six minutes into the video, use 01:06:00:00.
    */
   EndTimecode?: string;
+
+  /**
+   * Set Start timecode (StartTimecode) to the beginning of the portion of the input you are clipping. The frame corresponding to the Start timecode value is included in the clip. Start timecode or End timecode may be left blank, but not both. Use the format HH:MM:SS:FF or HH:MM:SS;FF, where HH is the hour, MM is the minute, SS is the second, and FF is the frame number. When choosing this value, take into account your setting for Input timecode source. For example, if you have embedded timecodes that start at 01:00:00:00 and you want your clip to begin five minutes into the video, use 01:05:00:00.
+   */
+  StartTimecode?: string;
 }
 
 export namespace InputClipping {
   export const filterSensitiveLog = (obj: InputClipping): any => ({
     ...obj,
   });
+}
+
+export enum InputScanType {
+  AUTO = "AUTO",
+  PSF = "PSF",
 }
 
 export enum InputPsiControl {
@@ -2459,17 +2503,37 @@ export interface Hdr10Metadata {
   /**
    * HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
    */
-  WhitePointY?: number;
+  BluePrimaryX?: number;
 
   /**
    * HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
    */
-  RedPrimaryY?: number;
+  BluePrimaryY?: number;
+
+  /**
+   * HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
+   */
+  GreenPrimaryX?: number;
+
+  /**
+   * HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
+   */
+  GreenPrimaryY?: number;
 
   /**
    * Maximum light level among all samples in the coded video sequence, in units of candelas per square meter.  This setting doesn't have a default value; you must specify a value that is suitable for the content.
    */
   MaxContentLightLevel?: number;
+
+  /**
+   * Maximum average light level of any frame in the coded video sequence, in units of candelas per square meter. This setting doesn't have a default value; you must specify a value that is suitable for the content.
+   */
+  MaxFrameAverageLightLevel?: number;
+
+  /**
+   * Nominal maximum mastering display luminance in units of of 0.0001 candelas per square meter.
+   */
+  MaxLuminance?: number;
 
   /**
    * Nominal minimum mastering display luminance in units of of 0.0001 candelas per square meter
@@ -2482,9 +2546,9 @@ export interface Hdr10Metadata {
   RedPrimaryX?: number;
 
   /**
-   * Nominal maximum mastering display luminance in units of of 0.0001 candelas per square meter.
+   * HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
    */
-  MaxLuminance?: number;
+  RedPrimaryY?: number;
 
   /**
    * HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
@@ -2494,27 +2558,7 @@ export interface Hdr10Metadata {
   /**
    * HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
    */
-  GreenPrimaryX?: number;
-
-  /**
-   * HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
-   */
-  BluePrimaryX?: number;
-
-  /**
-   * Maximum average light level of any frame in the coded video sequence, in units of candelas per square meter. This setting doesn't have a default value; you must specify a value that is suitable for the content.
-   */
-  MaxFrameAverageLightLevel?: number;
-
-  /**
-   * HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
-   */
-  GreenPrimaryY?: number;
-
-  /**
-   * HDR Master Display Information must be provided by a color grader, using color grading tools. Range is 0 to 50,000, each increment represents 0.00002 in CIE1931 color coordinate. Note that this setting is not for color correction.
-   */
-  BluePrimaryY?: number;
+  WhitePointY?: number;
 }
 
 export namespace Hdr10Metadata {
@@ -2546,14 +2590,14 @@ export interface VideoSelector {
   ColorSpace?: ColorSpace | string;
 
   /**
-   * Use these settings to provide HDR 10 metadata that is missing or inaccurate in your input video. Appropriate values vary depending on the input video and must be provided by a color grader. The color grader generates these values during the HDR 10 mastering process. The valid range for each of these settings is 0 to 50,000. Each increment represents 0.00002 in CIE1931 color coordinate. Related settings - When you specify these values, you must also set Color space (ColorSpace) to HDR 10 (HDR10). To specify whether the the values you specify here take precedence over the values in the metadata of your input file, set Color space usage (ColorSpaceUsage). To specify whether color metadata is included in an output, set Color metadata (ColorMetadata). For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
-   */
-  Hdr10Metadata?: Hdr10Metadata;
-
-  /**
    * There are two sources for color metadata, the input file and the job input settings Color space (ColorSpace) and HDR master display information settings(Hdr10Metadata). The Color space usage setting determines which takes precedence. Choose Force (FORCE) to use color metadata from the input job settings. If you don't specify values for those settings, the service defaults to using metadata from your input. FALLBACK - Choose Fallback (FALLBACK) to use color metadata from the source when it is present. If there's no color metadata in your input file, the service defaults to using values you specify in the input settings.
    */
   ColorSpaceUsage?: ColorSpaceUsage | string;
+
+  /**
+   * Use these settings to provide HDR 10 metadata that is missing or inaccurate in your input video. Appropriate values vary depending on the input video and must be provided by a color grader. The color grader generates these values during the HDR 10 mastering process. The valid range for each of these settings is 0 to 50,000. Each increment represents 0.00002 in CIE1931 color coordinate. Related settings - When you specify these values, you must also set Color space (ColorSpace) to HDR 10 (HDR10). To specify whether the the values you specify here take precedence over the values in the metadata of your input file, set Color space usage (ColorSpaceUsage). To specify whether color metadata is included in an output, set Color metadata (ColorMetadata). For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
+   */
+  Hdr10Metadata?: Hdr10Metadata;
 
   /**
    * Use PID (Pid) to select specific video data from an input file. Specify this value as an integer; the system automatically converts it to the hexidecimal value. For example, 257 selects PID 0x101. A PID, or packet identifier, is an identifier for a set of data in an MPEG-2 transport stream container.
@@ -2582,19 +2626,9 @@ export namespace VideoSelector {
  */
 export interface Input {
   /**
-   * Enable Denoise (InputDenoiseFilter) to filter noise from the input.  Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.
+   * Specifies set of audio selectors within an input to combine. An input may have multiple audio selector groups. See "Audio Selector Group":#inputs-audio_selector_group for more information.
    */
-  DenoiseFilter?: InputDenoiseFilter | string;
-
-  /**
-   * Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is -5 to 5. Default is 0.
-   */
-  FilterStrength?: number;
-
-  /**
-   * Use Cropping selection (crop) to specify the video area that the service will include in the output video frame. If you specify a value here, it will override any value that you specify in the output setting Cropping selection (crop).
-   */
-  Crop?: Rectangle;
+  AudioSelectorGroups?: { [key: string]: AudioSelectorGroup };
 
   /**
    * Use Audio selectors (AudioSelectors) to specify a track or set of tracks from the input that you will use in your outputs. You can use multiple Audio selectors per input.
@@ -2602,39 +2636,44 @@ export interface Input {
   AudioSelectors?: { [key: string]: AudioSelector };
 
   /**
-   * Use Program (programNumber) to select a specific program from within a multi-program transport stream. Note that Quad 4K is not currently supported. Default is the first program within the transport stream. If the program you specify doesn't exist, the transcoding service will use this default.
-   */
-  ProgramNumber?: number;
-
-  /**
    * Use captions selectors to specify the captions data from your input that you use in your outputs. You can use up to 20 captions selectors per input.
    */
   CaptionSelectors?: { [key: string]: CaptionSelector };
 
   /**
-   * Set PSI control (InputPsiControl) for transport stream inputs to specify which data the demux process to scans. * Ignore PSI - Scan all PIDs for audio and video. * Use PSI - Scan only PSI data.
+   * Use Cropping selection (crop) to specify the video area that the service will include in the output video frame. If you specify a value here, it will override any value that you specify in the output setting Cropping selection (crop).
    */
-  PsiControl?: InputPsiControl | string;
-
-  /**
-   * Use Selection placement (position) to define the video area in your output frame. The area outside of the rectangle that you specify here is black. If you specify a value here, it will override any value that you specify in the output setting Selection placement (position). If you specify a value here, this will override any AFD values in your input, even if you set Respond to AFD (RespondToAfd) to Respond (RESPOND). If you specify a value here, this will ignore anything that you specify for the setting Scaling Behavior (scalingBehavior).
-   */
-  Position?: Rectangle;
-
-  /**
-   * Provide a list of any necessary supplemental IMPs. You need supplemental IMPs if the CPL that you're using for your input is in an incomplete IMP. Specify either the supplemental IMP directories with a trailing slash or the ASSETMAP.xml files. For example ["s3://bucket/ov/", "s3://bucket/vf2/ASSETMAP.xml"]. You don't need to specify the IMP that contains your input CPL, because the service automatically detects it.
-   */
-  SupplementalImps?: string[];
-
-  /**
-   * Selector for video.
-   */
-  VideoSelector?: VideoSelector;
+  Crop?: Rectangle;
 
   /**
    * Enable Deblock (InputDeblockFilter) to produce smoother motion in the output. Default is disabled. Only manually controllable for MPEG2 and uncompressed video inputs.
    */
   DeblockFilter?: InputDeblockFilter | string;
+
+  /**
+   * Settings for decrypting any input files that you encrypt before you upload them to Amazon S3. MediaConvert can decrypt files only when you use AWS Key Management Service (KMS) to encrypt the data key that you use to encrypt your content.
+   */
+  DecryptionSettings?: InputDecryptionSettings;
+
+  /**
+   * Enable Denoise (InputDenoiseFilter) to filter noise from the input.  Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.
+   */
+  DenoiseFilter?: InputDenoiseFilter | string;
+
+  /**
+   * Specify the source file for your transcoding job. You can use multiple inputs in a single job. The service concatenates these inputs, in the order that you specify them in the job, to create the outputs. If your input format is IMF, specify your input by providing the path to your CPL. For example, "s3://bucket/vf/cpl.xml". If the CPL is in an incomplete IMP, make sure to use *Supplemental IMPs* (SupplementalImps) to specify any supplemental IMPs that contain assets referenced by the CPL.
+   */
+  FileInput?: string;
+
+  /**
+   * Specify how the transcoding service applies the denoise and deblock filters. You must also enable the filters separately, with Denoise (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The transcoding service determines whether to apply filtering, depending on input type and quality. * Disable - The input is not filtered. This is true even if you use the API to enable them in (InputDeblockFilter) and (InputDeblockFilter). * Force - The input is filtered regardless of input type.
+   */
+  FilterEnable?: InputFilterEnable | string;
+
+  /**
+   * Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is -5 to 5. Default is 0.
+   */
+  FilterStrength?: number;
 
   /**
    * Enable the image inserter feature to include a graphic overlay on your video. Enable or disable this feature for each input individually. This setting is disabled by default.
@@ -2647,24 +2686,34 @@ export interface Input {
   InputClippings?: InputClipping[];
 
   /**
-   * Use Filter enable (InputFilterEnable) to specify how the transcoding service applies the denoise and deblock filters. You must also enable the filters separately, with Denoise (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The transcoding service determines whether to apply filtering, depending on input type and quality. * Disable - The input is not filtered. This is true even if you use the API to enable them in (InputDeblockFilter) and (InputDeblockFilter). * Force - The in put is filtered regardless of input type.
+   * When you have a progressive segmented frame (PsF) input, use this setting to flag the input as PsF. MediaConvert doesn't automatically detect PsF. Therefore, flagging your input as PsF results in better preservation of video quality when you do deinterlacing and frame rate conversion. If you don't specify, the default value is Auto (AUTO). Auto is the correct setting for all inputs that are not PsF. Don't set this value to PsF when your input is interlaced. Doing so creates horizontal interlacing artifacts.
    */
-  FilterEnable?: InputFilterEnable | string;
+  InputScanType?: InputScanType | string;
 
   /**
-   * Specify the source file for your transcoding job. You can use multiple inputs in a single job. The service concatenates these inputs, in the order that you specify them in the job, to create the outputs. If your input format is IMF, specify your input by providing the path to your CPL. For example, "s3://bucket/vf/cpl.xml". If the CPL is in an incomplete IMP, make sure to use *Supplemental IMPs* (SupplementalImps) to specify any supplemental IMPs that contain assets referenced by the CPL.
+   * Use Selection placement (position) to define the video area in your output frame. The area outside of the rectangle that you specify here is black. If you specify a value here, it will override any value that you specify in the output setting Selection placement (position). If you specify a value here, this will override any AFD values in your input, even if you set Respond to AFD (RespondToAfd) to Respond (RESPOND). If you specify a value here, this will ignore anything that you specify for the setting Scaling Behavior (scalingBehavior).
    */
-  FileInput?: string;
+  Position?: Rectangle;
 
   /**
-   * Settings for decrypting any input files that you encrypt before you upload them to Amazon S3. MediaConvert can decrypt files only when you use AWS Key Management Service (KMS) to encrypt the data key that you use to encrypt your content.
+   * Use Program (programNumber) to select a specific program from within a multi-program transport stream. Note that Quad 4K is not currently supported. Default is the first program within the transport stream. If the program you specify doesn't exist, the transcoding service will use this default.
    */
-  DecryptionSettings?: InputDecryptionSettings;
+  ProgramNumber?: number;
 
   /**
-   * Specifies set of audio selectors within an input to combine. An input may have multiple audio selector groups. See "Audio Selector Group":#inputs-audio_selector_group for more information.
+   * Set PSI control (InputPsiControl) for transport stream inputs to specify which data the demux process to scans. * Ignore PSI - Scan all PIDs for audio and video. * Use PSI - Scan only PSI data.
    */
-  AudioSelectorGroups?: { [key: string]: AudioSelectorGroup };
+  PsiControl?: InputPsiControl | string;
+
+  /**
+   * Provide a list of any necessary supplemental IMPs. You need supplemental IMPs if the CPL that you're using for your input is in an incomplete IMP. Specify either the supplemental IMP directories with a trailing slash or the ASSETMAP.xml files. For example ["s3://bucket/ov/", "s3://bucket/vf2/ASSETMAP.xml"]. You don't need to specify the IMP that contains your input CPL, because the service automatically detects it.
+   */
+  SupplementalImps?: string[];
+
+  /**
+   * Use this Timecode source setting, located under the input settings (InputTimecodeSource), to specify how the service counts input video frames. This input frame count affects only the behavior of features that apply to a single input at a time, such as input clipping and synchronizing some captions formats. Choose Embedded (EMBEDDED) to use the timecodes in your input video. Choose Start at zero (ZEROBASED) to start the first frame at zero. Choose Specified start (SPECIFIEDSTART) to start the first frame at the timecode that you specify in the setting Start timecode (timecodeStart). If you don't specify a value for Timecode source, the service will use Embedded by default. For more information about timecodes, see https://docs.aws.amazon.com/console/mediaconvert/timecode.
+   */
+  TimecodeSource?: InputTimecodeSource | string;
 
   /**
    * Specify the timecode that you want the service to use for this input's initial frame. To use this setting, you must set the Timecode source setting, located under the input settings (InputTimecodeSource), to Specified start (SPECIFIEDSTART). For more information about timecodes, see https://docs.aws.amazon.com/console/mediaconvert/timecode.
@@ -2672,9 +2721,9 @@ export interface Input {
   TimecodeStart?: string;
 
   /**
-   * Use this Timecode source setting, located under the input settings (InputTimecodeSource), to specify how the service counts input video frames. This input frame count affects only the behavior of features that apply to a single input at a time, such as input clipping and synchronizing some captions formats. Choose Embedded (EMBEDDED) to use the timecodes in your input video. Choose Start at zero (ZEROBASED) to start the first frame at zero. Choose Specified start (SPECIFIEDSTART) to start the first frame at the timecode that you specify in the setting Start timecode (timecodeStart). If you don't specify a value for Timecode source, the service will use Embedded by default. For more information about timecodes, see https://docs.aws.amazon.com/console/mediaconvert/timecode.
+   * Selector for video.
    */
-  TimecodeSource?: InputTimecodeSource | string;
+  VideoSelector?: VideoSelector;
 }
 
 export namespace Input {
@@ -2688,49 +2737,9 @@ export namespace Input {
  */
 export interface InputTemplate {
   /**
-   * Specify the timecode that you want the service to use for this input's initial frame. To use this setting, you must set the Timecode source setting, located under the input settings (InputTimecodeSource), to Specified start (SPECIFIEDSTART). For more information about timecodes, see https://docs.aws.amazon.com/console/mediaconvert/timecode.
+   * Specifies set of audio selectors within an input to combine. An input may have multiple audio selector groups. See "Audio Selector Group":#inputs-audio_selector_group for more information.
    */
-  TimecodeStart?: string;
-
-  /**
-   * (InputClippings) contains sets of start and end times that together specify a portion of the input to be used in the outputs. If you provide only a start time, the clip will be the entire input from that point to the end. If you provide only an end time, it will be the entire input up to that point. When you specify more than one input clip, the transcoding service creates the job outputs by stringing the clips together in the order you specify them.
-   */
-  InputClippings?: InputClipping[];
-
-  /**
-   * Enable Deblock (InputDeblockFilter) to produce smoother motion in the output. Default is disabled. Only manually controllable for MPEG2 and uncompressed video inputs.
-   */
-  DeblockFilter?: InputDeblockFilter | string;
-
-  /**
-   * Enable the image inserter feature to include a graphic overlay on your video. Enable or disable this feature for each input individually. This setting is disabled by default.
-   */
-  ImageInserter?: ImageInserter;
-
-  /**
-   * Use Cropping selection (crop) to specify the video area that the service will include in the output video frame. If you specify a value here, it will override any value that you specify in the output setting Cropping selection (crop).
-   */
-  Crop?: Rectangle;
-
-  /**
-   * Selector for video.
-   */
-  VideoSelector?: VideoSelector;
-
-  /**
-   * Use Filter enable (InputFilterEnable) to specify how the transcoding service applies the denoise and deblock filters. You must also enable the filters separately, with Denoise (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The transcoding service determines whether to apply filtering, depending on input type and quality. * Disable - The input is not filtered. This is true even if you use the API to enable them in (InputDeblockFilter) and (InputDeblockFilter). * Force - The in put is filtered regardless of input type.
-   */
-  FilterEnable?: InputFilterEnable | string;
-
-  /**
-   * Set PSI control (InputPsiControl) for transport stream inputs to specify which data the demux process to scans. * Ignore PSI - Scan all PIDs for audio and video. * Use PSI - Scan only PSI data.
-   */
-  PsiControl?: InputPsiControl | string;
-
-  /**
-   * Use Program (programNumber) to select a specific program from within a multi-program transport stream. Note that Quad 4K is not currently supported. Default is the first program within the transport stream. If the program you specify doesn't exist, the transcoding service will use this default.
-   */
-  ProgramNumber?: number;
+  AudioSelectorGroups?: { [key: string]: AudioSelectorGroup };
 
   /**
    * Use Audio selectors (AudioSelectors) to specify a track or set of tracks from the input that you will use in your outputs. You can use multiple Audio selectors per input.
@@ -2743,9 +2752,14 @@ export interface InputTemplate {
   CaptionSelectors?: { [key: string]: CaptionSelector };
 
   /**
-   * Use Selection placement (position) to define the video area in your output frame. The area outside of the rectangle that you specify here is black. If you specify a value here, it will override any value that you specify in the output setting Selection placement (position). If you specify a value here, this will override any AFD values in your input, even if you set Respond to AFD (RespondToAfd) to Respond (RESPOND). If you specify a value here, this will ignore anything that you specify for the setting Scaling Behavior (scalingBehavior).
+   * Use Cropping selection (crop) to specify the video area that the service will include in the output video frame. If you specify a value here, it will override any value that you specify in the output setting Cropping selection (crop).
    */
-  Position?: Rectangle;
+  Crop?: Rectangle;
+
+  /**
+   * Enable Deblock (InputDeblockFilter) to produce smoother motion in the output. Default is disabled. Only manually controllable for MPEG2 and uncompressed video inputs.
+   */
+  DeblockFilter?: InputDeblockFilter | string;
 
   /**
    * Enable Denoise (InputDenoiseFilter) to filter noise from the input.  Default is disabled. Only applicable to MPEG2, H.264, H.265, and uncompressed video inputs.
@@ -2753,9 +2767,44 @@ export interface InputTemplate {
   DenoiseFilter?: InputDenoiseFilter | string;
 
   /**
+   * Specify how the transcoding service applies the denoise and deblock filters. You must also enable the filters separately, with Denoise (InputDenoiseFilter) and Deblock (InputDeblockFilter). * Auto - The transcoding service determines whether to apply filtering, depending on input type and quality. * Disable - The input is not filtered. This is true even if you use the API to enable them in (InputDeblockFilter) and (InputDeblockFilter). * Force - The input is filtered regardless of input type.
+   */
+  FilterEnable?: InputFilterEnable | string;
+
+  /**
    * Use Filter strength (FilterStrength) to adjust the magnitude the input filter settings (Deblock and Denoise). The range is -5 to 5. Default is 0.
    */
   FilterStrength?: number;
+
+  /**
+   * Enable the image inserter feature to include a graphic overlay on your video. Enable or disable this feature for each input individually. This setting is disabled by default.
+   */
+  ImageInserter?: ImageInserter;
+
+  /**
+   * (InputClippings) contains sets of start and end times that together specify a portion of the input to be used in the outputs. If you provide only a start time, the clip will be the entire input from that point to the end. If you provide only an end time, it will be the entire input up to that point. When you specify more than one input clip, the transcoding service creates the job outputs by stringing the clips together in the order you specify them.
+   */
+  InputClippings?: InputClipping[];
+
+  /**
+   * When you have a progressive segmented frame (PsF) input, use this setting to flag the input as PsF. MediaConvert doesn't automatically detect PsF. Therefore, flagging your input as PsF results in better preservation of video quality when you do deinterlacing and frame rate conversion. If you don't specify, the default value is Auto (AUTO). Auto is the correct setting for all inputs that are not PsF. Don't set this value to PsF when your input is interlaced. Doing so creates horizontal interlacing artifacts.
+   */
+  InputScanType?: InputScanType | string;
+
+  /**
+   * Use Selection placement (position) to define the video area in your output frame. The area outside of the rectangle that you specify here is black. If you specify a value here, it will override any value that you specify in the output setting Selection placement (position). If you specify a value here, this will override any AFD values in your input, even if you set Respond to AFD (RespondToAfd) to Respond (RESPOND). If you specify a value here, this will ignore anything that you specify for the setting Scaling Behavior (scalingBehavior).
+   */
+  Position?: Rectangle;
+
+  /**
+   * Use Program (programNumber) to select a specific program from within a multi-program transport stream. Note that Quad 4K is not currently supported. Default is the first program within the transport stream. If the program you specify doesn't exist, the transcoding service will use this default.
+   */
+  ProgramNumber?: number;
+
+  /**
+   * Set PSI control (InputPsiControl) for transport stream inputs to specify which data the demux process to scans. * Ignore PSI - Scan all PIDs for audio and video. * Use PSI - Scan only PSI data.
+   */
+  PsiControl?: InputPsiControl | string;
 
   /**
    * Use this Timecode source setting, located under the input settings (InputTimecodeSource), to specify how the service counts input video frames. This input frame count affects only the behavior of features that apply to a single input at a time, such as input clipping and synchronizing some captions formats. Choose Embedded (EMBEDDED) to use the timecodes in your input video. Choose Start at zero (ZEROBASED) to start the first frame at zero. Choose Specified start (SPECIFIEDSTART) to start the first frame at the timecode that you specify in the setting Start timecode (timecodeStart). If you don't specify a value for Timecode source, the service will use Embedded by default. For more information about timecodes, see https://docs.aws.amazon.com/console/mediaconvert/timecode.
@@ -2763,9 +2812,14 @@ export interface InputTemplate {
   TimecodeSource?: InputTimecodeSource | string;
 
   /**
-   * Specifies set of audio selectors within an input to combine. An input may have multiple audio selector groups. See "Audio Selector Group":#inputs-audio_selector_group for more information.
+   * Specify the timecode that you want the service to use for this input's initial frame. To use this setting, you must set the Timecode source setting, located under the input settings (InputTimecodeSource), to Specified start (SPECIFIEDSTART). For more information about timecodes, see https://docs.aws.amazon.com/console/mediaconvert/timecode.
    */
-  AudioSelectorGroups?: { [key: string]: AudioSelectorGroup };
+  TimecodeStart?: string;
+
+  /**
+   * Selector for video.
+   */
+  VideoSelector?: VideoSelector;
 }
 
 export namespace InputTemplate {
@@ -2863,14 +2917,14 @@ export namespace VideoDetail {
  */
 export interface OutputDetail {
   /**
-   * Contains details about the output's video stream
-   */
-  VideoDetails?: VideoDetail;
-
-  /**
    * Duration in milliseconds
    */
   DurationInMs?: number;
+
+  /**
+   * Contains details about the output's video stream
+   */
+  VideoDetails?: VideoDetail;
 }
 
 export namespace OutputDetail {
@@ -2905,14 +2959,14 @@ export interface QueueTransition {
   DestinationQueue?: string;
 
   /**
-   * The time, in Unix epoch format, that the job moved from the source queue to the destination queue.
-   */
-  Timestamp?: Date;
-
-  /**
    * The queue that the job was on before the transition.
    */
   SourceQueue?: string;
+
+  /**
+   * The time, in Unix epoch format, that the job moved from the source queue to the destination queue.
+   */
+  Timestamp?: Date;
 }
 
 export namespace QueueTransition {
@@ -2974,9 +3028,9 @@ export namespace EsamSignalProcessingNotification {
  */
 export interface EsamSettings {
   /**
-   * Specifies an ESAM SignalProcessingNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing instructions that you provide in the setting SCC XML (sccXml).
+   * Specifies an ESAM ManifestConfirmConditionNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning instructions that you provide in the setting MCC XML (mccXml).
    */
-  SignalProcessingNotification?: EsamSignalProcessingNotification;
+  ManifestConfirmConditionNotification?: EsamManifestConfirmConditionNotification;
 
   /**
    * Specifies the stream distance, in milliseconds, between the SCTE 35 messages that the transcoder places and the splice points that they refer to. If the time between the start of the asset and the SCTE-35 message is less than this value, then the transcoder places the SCTE-35 marker at the beginning of the stream.
@@ -2984,9 +3038,9 @@ export interface EsamSettings {
   ResponseSignalPreroll?: number;
 
   /**
-   * Specifies an ESAM ManifestConfirmConditionNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the manifest conditioning instructions that you provide in the setting MCC XML (mccXml).
+   * Specifies an ESAM SignalProcessingNotification XML as per OC-SP-ESAM-API-I03-131025. The transcoder uses the signal processing instructions that you provide in the setting SCC XML (sccXml).
    */
-  ManifestConfirmConditionNotification?: EsamManifestConfirmConditionNotification;
+  SignalProcessingNotification?: EsamSignalProcessingNotification;
 }
 
 export namespace EsamSettings {
@@ -3000,14 +3054,14 @@ export namespace EsamSettings {
  */
 export interface MotionImageInsertionFramerate {
   /**
-   * The top of the fraction that expresses your overlay frame rate. For example, if your frame rate is 24 fps, set this value to 24.
-   */
-  FramerateNumerator?: number;
-
-  /**
    * The bottom of the fraction that expresses your overlay frame rate. For example, if your frame rate is 24 fps, set this value to 1.
    */
   FramerateDenominator?: number;
+
+  /**
+   * The top of the fraction that expresses your overlay frame rate. For example, if your frame rate is 24 fps, set this value to 24.
+   */
+  FramerateNumerator?: number;
 }
 
 export namespace MotionImageInsertionFramerate {
@@ -3026,14 +3080,14 @@ export enum MotionImageInsertionMode {
  */
 export interface MotionImageInsertionOffset {
   /**
-   * Set the distance, in pixels, between the overlay and the top edge of the video frame.
-   */
-  ImageY?: number;
-
-  /**
    * Set the distance, in pixels, between the overlay and the left edge of the video frame.
    */
   ImageX?: number;
+
+  /**
+   * Set the distance, in pixels, between the overlay and the top edge of the video frame.
+   */
+  ImageY?: number;
 }
 
 export namespace MotionImageInsertionOffset {
@@ -3052,14 +3106,9 @@ export enum MotionImagePlayback {
  */
 export interface MotionImageInserter {
   /**
-   * Specify whether your motion graphic overlay repeats on a loop or plays only once.
+   * If your motion graphic asset is a .mov file, keep this setting unspecified. If your motion graphic asset is a series of .png files, specify the frame rate of the overlay in frames per second, as a fraction. For example, specify 24 fps as 24/1. Make sure that the number of images in your series matches the frame rate and your intended overlay duration. For example, if you want a 30-second overlay at 30 fps, you should have 900 .png images. This overlay frame rate doesn't need to match the frame rate of the underlying video.
    */
-  Playback?: MotionImagePlayback | string;
-
-  /**
-   * Use Offset to specify the placement of your motion graphic overlay on the video frame. Specify in pixels, from the upper-left corner of the frame. If you don't specify an offset, the service scales your overlay to the full size of the frame. Otherwise, the service inserts the overlay at its native resolution and scales the size up or down with any video scaling.
-   */
-  Offset?: MotionImageInsertionOffset;
+  Framerate?: MotionImageInsertionFramerate;
 
   /**
    * Specify the .mov file or series of .png files that you want to overlay on your video. For .png files, provide the file name of the first file in the series. Make sure that the names of the .png files end with sequential numbers that specify the order that they are played in. For example, overlay_000.png, overlay_001.png, overlay_002.png, and so on. The sequence must start at zero, and each image file name must have the same number of digits. Pad your initial file names with enough zeros to complete the sequence. For example, if the first image is overlay_0.png, there can be only 10 images in the sequence, with the last image being overlay_9.png. But if the first image is overlay_00.png, there can be 100 images in the sequence.
@@ -3067,19 +3116,24 @@ export interface MotionImageInserter {
   Input?: string;
 
   /**
-   * Specify when the motion overlay begins. Use timecode format (HH:MM:SS:FF or HH:MM:SS;FF). Make sure that the timecode you provide here takes into account how you have set up your timecode configuration under both job settings and input settings. The simplest way to do that is to set both to start at 0. If you need to set up your job to follow timecodes embedded in your source that don't start at zero, make sure that you specify a start time that is after the first embedded timecode. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/setting-up-timecode.html Find job-wide and input timecode configuration settings in your JSON job settings specification at settings>timecodeConfig>source and settings>inputs>timecodeSource.
-   */
-  StartTime?: string;
-
-  /**
    * Choose the type of motion graphic asset that you are providing for your overlay. You can choose either a .mov file or a series of .png files.
    */
   InsertionMode?: MotionImageInsertionMode | string;
 
   /**
-   * If your motion graphic asset is a .mov file, keep this setting unspecified. If your motion graphic asset is a series of .png files, specify the frame rate of the overlay in frames per second, as a fraction. For example, specify 24 fps as 24/1. Make sure that the number of images in your series matches the frame rate and your intended overlay duration. For example, if you want a 30-second overlay at 30 fps, you should have 900 .png images. This overlay frame rate doesn't need to match the frame rate of the underlying video.
+   * Use Offset to specify the placement of your motion graphic overlay on the video frame. Specify in pixels, from the upper-left corner of the frame. If you don't specify an offset, the service scales your overlay to the full size of the frame. Otherwise, the service inserts the overlay at its native resolution and scales the size up or down with any video scaling.
    */
-  Framerate?: MotionImageInsertionFramerate;
+  Offset?: MotionImageInsertionOffset;
+
+  /**
+   * Specify whether your motion graphic overlay repeats on a loop or plays only once.
+   */
+  Playback?: MotionImagePlayback | string;
+
+  /**
+   * Specify when the motion overlay begins. Use timecode format (HH:MM:SS:FF or HH:MM:SS;FF). Make sure that the timecode you provide here takes into account how you have set up your timecode configuration under both job settings and input settings. The simplest way to do that is to set both to start at 0. If you need to set up your job to follow timecodes embedded in your source that don't start at zero, make sure that you specify a start time that is after the first embedded timecode. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/setting-up-timecode.html Find job-wide and input timecode configuration settings in your JSON job settings specification at settings>timecodeConfig>source and settings>inputs>timecodeSource.
+   */
+  StartTime?: string;
 }
 
 export namespace MotionImageInserter {
@@ -3105,6 +3159,130 @@ export interface NielsenConfiguration {
 
 export namespace NielsenConfiguration {
   export const filterSensitiveLog = (obj: NielsenConfiguration): any => ({
+    ...obj,
+  });
+}
+
+export enum NielsenActiveWatermarkProcessType {
+  CBET = "CBET",
+  NAES2_AND_NW = "NAES2_AND_NW",
+  NAES2_AND_NW_AND_CBET = "NAES2_AND_NW_AND_CBET",
+}
+
+export enum NielsenSourceWatermarkStatusType {
+  CLEAN = "CLEAN",
+  WATERMARKED = "WATERMARKED",
+}
+
+export enum NielsenUniqueTicPerAudioTrackType {
+  RESERVE_UNIQUE_TICS_PER_TRACK = "RESERVE_UNIQUE_TICS_PER_TRACK",
+  SAME_TICS_PER_TRACK = "SAME_TICS_PER_TRACK",
+}
+
+/**
+ * Ignore these settings unless you are using Nielsen non-linear watermarking. Specify the values that  MediaConvert uses to generate and place Nielsen watermarks in your output audio. In addition to  specifying these values, you also need to set up your cloud TIC server. These settings apply to  every output in your job. The MediaConvert implementation is currently with the following Nielsen versions: Nielsen Watermark SDK Version 5.2.1 Nielsen NLM Watermark Engine Version 1.2.7 Nielsen Watermark Authenticator [SID_TIC] Version [5.0.0]
+ */
+export interface NielsenNonLinearWatermarkSettings {
+  /**
+   * Choose the type of Nielsen watermarks that you want in your outputs. When you choose NAES 2 and NW (NAES2_AND_NW), you must provide a value for the setting SID (sourceId). When you choose CBET (CBET), you must provide a value for the setting CSID (cbetSourceId). When you choose NAES 2, NW, and CBET (NAES2_AND_NW_AND_CBET), you must provide values for both of these settings.
+   */
+  ActiveWatermarkProcess?: NielsenActiveWatermarkProcessType | string;
+
+  /**
+   * Optional. Use this setting when you want the service to include an ADI file in the Nielsen  metadata .zip file. To provide an ADI file, store it in Amazon S3 and provide a URL to it  here. The URL should be in the following format: S3://bucket/path/ADI-file. For more information about the metadata .zip file, see the setting Metadata destination (metadataDestination).
+   */
+  AdiFilename?: string;
+
+  /**
+   * Use the asset ID that you provide to Nielsen to uniquely identify this asset. Required for all Nielsen non-linear watermarking.
+   */
+  AssetId?: string;
+
+  /**
+   * Use the asset name that you provide to Nielsen for this asset. Required for all Nielsen non-linear watermarking.
+   */
+  AssetName?: string;
+
+  /**
+   * Use the CSID that Nielsen provides to you. This CBET source ID should be unique to your Nielsen account but common to all of your output assets that have CBET watermarking. Required when you choose a value for the setting Watermark types (ActiveWatermarkProcess) that includes CBET.
+   */
+  CbetSourceId?: string;
+
+  /**
+   * Optional. If this asset uses an episode ID with Nielsen, provide it here.
+   */
+  EpisodeId?: string;
+
+  /**
+   * Specify the Amazon S3 location where you want MediaConvert to save your Nielsen non-linear metadata .zip file. This Amazon S3 bucket must be in the same Region as the one where you do your MediaConvert transcoding. If you want to include an ADI file in this .zip file, use the setting ADI file (adiFilename) to specify it. MediaConvert delivers the Nielsen metadata .zip files only to your metadata destination Amazon S3 bucket. It doesn't deliver the .zip files to Nielsen. You are responsible for delivering the metadata .zip files to Nielsen.
+   */
+  MetadataDestination?: string;
+
+  /**
+   * Use the SID that Nielsen provides to you. This source ID should be unique to your Nielsen account but common to all of your output assets. Required for all Nielsen non-linear watermarking. This ID should be unique to your Nielsen account but common to all of your output assets. Required for all Nielsen non-linear watermarking.
+   */
+  SourceId?: number;
+
+  /**
+   * Required. Specify whether your source content already contains Nielsen non-linear watermarks. When you set this value to Watermarked (WATERMARKED), the service fails the job. Nielsen requires that you add non-linear watermarking to only clean content that doesn't already  have non-linear Nielsen watermarks.
+   */
+  SourceWatermarkStatus?: NielsenSourceWatermarkStatusType | string;
+
+  /**
+   * Specify the endpoint for the TIC server that you have deployed and configured in the AWS Cloud. Required for all Nielsen non-linear watermarking. MediaConvert can't connect directly to a TIC server. Instead, you must use API Gateway to provide a RESTful interface between MediaConvert and a TIC server that you deploy in your AWS account. For more information on deploying a TIC server in your AWS account and the required API Gateway, contact Nielsen support.
+   */
+  TicServerUrl?: string;
+
+  /**
+   * To create assets that have the same TIC values in each audio track, keep the default value Share TICs (SAME_TICS_PER_TRACK). To create assets that have unique TIC values for each audio track, choose Use unique TICs (RESERVE_UNIQUE_TICS_PER_TRACK).
+   */
+  UniqueTicPerAudioTrack?: NielsenUniqueTicPerAudioTrackType | string;
+}
+
+export namespace NielsenNonLinearWatermarkSettings {
+  export const filterSensitiveLog = (obj: NielsenNonLinearWatermarkSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Use automated ABR to have MediaConvert set up the renditions in your ABR package for you automatically, based on characteristics of your input video. This feature optimizes video quality while minimizing the overall size of your ABR package.
+ */
+export interface AutomatedAbrSettings {
+  /**
+   * Optional. The maximum target bit rate used in your automated ABR stack. Use this value to set an upper limit on the bandwidth consumed by the highest-quality rendition. This is the rendition that is delivered to viewers with the fastest internet connections. If you don't specify a value, MediaConvert uses 8,000,000 (8 mb/s) by default.
+   */
+  MaxAbrBitrate?: number;
+
+  /**
+   * Optional. The maximum number of renditions that MediaConvert will create in your automated ABR stack. The number of renditions is determined automatically, based on analysis of each job, but will never exceed this limit. When you set this to Auto in the console, which is equivalent to excluding it from your JSON job specification, MediaConvert defaults to a limit of 15.
+   */
+  MaxRenditions?: number;
+
+  /**
+   * Optional. The minimum target bitrate used in your automated ABR stack. Use this value to set a lower limit on the bitrate of video delivered to viewers with slow internet connections. If you don't specify a value, MediaConvert uses 600,000 (600 kb/s) by default.
+   */
+  MinAbrBitrate?: number;
+}
+
+export namespace AutomatedAbrSettings {
+  export const filterSensitiveLog = (obj: AutomatedAbrSettings): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * Use automated encoding to have MediaConvert choose your encoding settings for you, based on characteristics of your input video.
+ */
+export interface AutomatedEncodingSettings {
+  /**
+   * Use automated ABR to have MediaConvert set up the renditions in your ABR package for you automatically, based on characteristics of your input video. This feature optimizes video quality while minimizing the overall size of your ABR package.
+   */
+  AbrSettings?: AutomatedAbrSettings;
+}
+
+export namespace AutomatedEncodingSettings {
+  export const filterSensitiveLog = (obj: AutomatedEncodingSettings): any => ({
     ...obj,
   });
 }
@@ -3173,14 +3351,14 @@ export namespace S3EncryptionSettings {
  */
 export interface S3DestinationSettings {
   /**
-   * Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
-   */
-  Encryption?: S3EncryptionSettings;
-
-  /**
    * Optional. Have MediaConvert automatically apply Amazon S3 access control for the outputs in this output group. When you don't use this setting, S3 automatically applies the default access control list PRIVATE.
    */
   AccessControl?: S3DestinationAccessControl;
+
+  /**
+   * Settings for how your job outputs are encrypted as they are uploaded to Amazon S3.
+   */
+  Encryption?: S3EncryptionSettings;
 }
 
 export namespace S3DestinationSettings {
@@ -3220,6 +3398,16 @@ export enum CmafInitializationVectorInManifest {
  */
 export interface SpekeKeyProviderCmaf {
   /**
+   * If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
+   */
+  CertificateArn?: string;
+
+  /**
+   * Specify the DRM system IDs that you want signaled in the DASH manifest that MediaConvert creates as part of this CMAF package. The DASH manifest can currently signal up to three system IDs. For more information, see https://dashif.org/identifiers/content_protection/.
+   */
+  DashSignaledSystemIds?: string[];
+
+  /**
    * Specify the DRM system ID that you want signaled in the HLS manifest that MediaConvert creates as part of this CMAF package. The HLS manifest can currently signal only one system ID. For more information, see https://dashif.org/identifiers/content_protection/.
    */
   HlsSignaledSystemIds?: string[];
@@ -3230,19 +3418,9 @@ export interface SpekeKeyProviderCmaf {
   ResourceId?: string;
 
   /**
-   * Specify the DRM system IDs that you want signaled in the DASH manifest that MediaConvert creates as part of this CMAF package. The DASH manifest can currently signal up to three system IDs. For more information, see https://dashif.org/identifiers/content_protection/.
-   */
-  DashSignaledSystemIds?: string[];
-
-  /**
    * Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
    */
   Url?: string;
-
-  /**
-   * If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
-   */
-  CertificateArn?: string;
 }
 
 export namespace SpekeKeyProviderCmaf {
@@ -3256,16 +3434,6 @@ export namespace SpekeKeyProviderCmaf {
  */
 export interface StaticKeyProvider {
   /**
-   * Relates to DRM implementation. Use a 32-character hexidecimal string to specify Key Value (StaticKeyValue).
-   */
-  StaticKeyValue?: string;
-
-  /**
-   * Relates to DRM implementation. The location of the license server used for protecting content.
-   */
-  Url?: string;
-
-  /**
    * Relates to DRM implementation. Sets the value of the KEYFORMAT attribute. Must be 'identity' or a reverse DNS string. May be omitted to indicate an implicit value of 'identity'.
    */
   KeyFormat?: string;
@@ -3274,6 +3442,16 @@ export interface StaticKeyProvider {
    * Relates to DRM implementation. Either a single positive integer version value or a slash delimited list of version values (1/2/3).
    */
   KeyFormatVersions?: string;
+
+  /**
+   * Relates to DRM implementation. Use a 32-character hexidecimal string to specify Key Value (StaticKeyValue).
+   */
+  StaticKeyValue?: string;
+
+  /**
+   * Relates to DRM implementation. The location of the license server used for protecting content.
+   */
+  Url?: string;
 }
 
 export namespace StaticKeyProvider {
@@ -3292,14 +3470,9 @@ export enum CmafKeyProviderType {
  */
 export interface CmafEncryptionSettings {
   /**
-   * Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
+   * This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
    */
-  Type?: CmafKeyProviderType | string;
-
-  /**
-   * Use these settings to set up encryption with a static key provider.
-   */
-  StaticKeyProvider?: StaticKeyProvider;
+  ConstantInitializationVector?: string;
 
   /**
    * Specify the encryption scheme that you want the service to use when encrypting your CMAF segments. Choose AES-CBC subsample (SAMPLE-AES) or AES_CTR (AES-CTR).
@@ -3307,9 +3480,9 @@ export interface CmafEncryptionSettings {
   EncryptionMethod?: CmafEncryptionType | string;
 
   /**
-   * This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
+   * When you use DRM with CMAF outputs, choose whether the service writes the 128-bit encryption initialization vector in the HLS and DASH manifests.
    */
-  ConstantInitializationVector?: string;
+  InitializationVectorInManifest?: CmafInitializationVectorInManifest | string;
 
   /**
    * If your output group type is CMAF, use these settings when doing DRM encryption with a SPEKE-compliant key provider. If your output group type is HLS, DASH, or Microsoft Smooth, use the SpekeKeyProvider settings instead.
@@ -3317,9 +3490,14 @@ export interface CmafEncryptionSettings {
   SpekeKeyProvider?: SpekeKeyProviderCmaf;
 
   /**
-   * When you use DRM with CMAF outputs, choose whether the service writes the 128-bit encryption initialization vector in the HLS and DASH manifests.
+   * Use these settings to set up encryption with a static key provider.
    */
-  InitializationVectorInManifest?: CmafInitializationVectorInManifest | string;
+  StaticKeyProvider?: StaticKeyProvider;
+
+  /**
+   * Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
+   */
+  Type?: CmafKeyProviderType | string;
 }
 
 export namespace CmafEncryptionSettings {
@@ -3373,64 +3551,9 @@ export enum CmafWriteSegmentTimelineInRepresentation {
  */
 export interface CmafGroupSettings {
   /**
-   * When you enable Precise segment duration in DASH manifests (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment durations. The segment duration information appears inside the SegmentTimeline element, inside SegmentTemplate at the Representation level. When this feature isn't enabled, the segment durations in your DASH manifest are approximate. The segment duration information appears in the duration attribute of the SegmentTemplate element.
-   */
-  WriteSegmentTimelineInRepresentation?: CmafWriteSegmentTimelineInRepresentation | string;
-
-  /**
    * By default, the service creates one top-level .m3u8 HLS manifest and one top -level .mpd DASH manifest for each CMAF output group in your job. These default manifests reference every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here. For each additional manifest that you specify, the service creates one HLS manifest and one DASH manifest.
    */
   AdditionalManifests?: CmafAdditionalManifest[];
-
-  /**
-   * Length of fragments to generate (in seconds). Fragment length must be compatible with GOP size and Framerate. Note that fragments will end on the next keyframe after this number of seconds, so actual fragment length may be longer. When Emit Single File is checked, the fragmentation is internal to a single output file and it does not cause the creation of many output files as in other output types.
-   */
-  FragmentLength?: number;
-
-  /**
-   * Indicates whether the output manifest should use floating point values for segment duration.
-   */
-  ManifestDurationFormat?: CmafManifestDurationFormat | string;
-
-  /**
-   * Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
-   */
-  StreamInfResolution?: CmafStreamInfResolution | string;
-
-  /**
-   * DRM settings.
-   */
-  Encryption?: CmafEncryptionSettings;
-
-  /**
-   * Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals  urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).
-   */
-  MpdProfile?: CmafMpdProfile | string;
-
-  /**
-   * Settings associated with the destination. Will vary based on the type of destination
-   */
-  DestinationSettings?: DestinationSettings;
-
-  /**
-   * When set to SINGLE_FILE, a single output file is generated, which is internally segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES, separate segment files will be created.
-   */
-  SegmentControl?: CmafSegmentControl | string;
-
-  /**
-   * When set to ENABLED, a DASH MPD manifest will be generated for this output.
-   */
-  WriteDashManifest?: CmafWriteDASHManifest | string;
-
-  /**
-   * When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.
-   */
-  ClientCache?: CmafClientCache | string;
-
-  /**
-   * When set to ENABLED, an Apple HLS manifest will be generated for this output.
-   */
-  WriteHlsManifest?: CmafWriteHLSManifest | string;
 
   /**
    * A partial URI prefix that will be put in the manifest file at the top level BaseURL element. Can be used if streams are delivered from a different URL than the manifest file.
@@ -3438,14 +3561,14 @@ export interface CmafGroupSettings {
   BaseUrl?: string;
 
   /**
-   * Keep this setting at the default value of 0, unless you are troubleshooting a problem with how devices play back the end of your video asset. If you know that player devices are hanging on the final segment of your video because the length of your final segment is too short, use this setting to specify a minimum final segment length, in seconds. Choose a value that is greater than or equal to 1 and less than your segment length. When you specify a value for this setting, the encoder will combine any final segment that is shorter than the length that you specify with the previous segment. For example, your segment length is 3 seconds and your final segment is .5 seconds without a minimum final segment length; when you set the minimum final segment length to 1, your final segment is 3.5 seconds.
+   * When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.
    */
-  MinFinalSegmentLength?: number;
+  ClientCache?: CmafClientCache | string;
 
   /**
-   * Use this setting to specify the length, in seconds, of each individual CMAF segment. This value applies to the whole package; that is, to every output in the output group. Note that segments end on the first keyframe after this number of seconds, so the actual segment length might be slightly longer. If you set Segment control (CmafSegmentControl) to single file, the service puts the content of each output in a single file that has metadata that marks these segments. If you set it to segmented files, the service creates multiple files for each output, each with the content of one segment.
+   * Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
    */
-  SegmentLength?: number;
+  CodecSpecification?: CmafCodecSpecification | string;
 
   /**
    * Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
@@ -3453,9 +3576,29 @@ export interface CmafGroupSettings {
   Destination?: string;
 
   /**
+   * Settings associated with the destination. Will vary based on the type of destination
+   */
+  DestinationSettings?: DestinationSettings;
+
+  /**
+   * DRM settings.
+   */
+  Encryption?: CmafEncryptionSettings;
+
+  /**
+   * Length of fragments to generate (in seconds). Fragment length must be compatible with GOP size and Framerate. Note that fragments will end on the next keyframe after this number of seconds, so actual fragment length may be longer. When Emit Single File is checked, the fragmentation is internal to a single output file and it does not cause the creation of many output files as in other output types.
+   */
+  FragmentLength?: number;
+
+  /**
    * When set to GZIP, compresses HLS playlist.
    */
   ManifestCompression?: CmafManifestCompression | string;
+
+  /**
+   * Indicates whether the output manifest should use floating point values for segment duration.
+   */
+  ManifestDurationFormat?: CmafManifestDurationFormat | string;
 
   /**
    * Minimum time of initially buffered media that is needed to ensure smooth playout.
@@ -3463,9 +3606,44 @@ export interface CmafGroupSettings {
   MinBufferTime?: number;
 
   /**
-   * Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
+   * Keep this setting at the default value of 0, unless you are troubleshooting a problem with how devices play back the end of your video asset. If you know that player devices are hanging on the final segment of your video because the length of your final segment is too short, use this setting to specify a minimum final segment length, in seconds. Choose a value that is greater than or equal to 1 and less than your segment length. When you specify a value for this setting, the encoder will combine any final segment that is shorter than the length that you specify with the previous segment. For example, your segment length is 3 seconds and your final segment is .5 seconds without a minimum final segment length; when you set the minimum final segment length to 1, your final segment is 3.5 seconds.
    */
-  CodecSpecification?: CmafCodecSpecification | string;
+  MinFinalSegmentLength?: number;
+
+  /**
+   * Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals  urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).
+   */
+  MpdProfile?: CmafMpdProfile | string;
+
+  /**
+   * When set to SINGLE_FILE, a single output file is generated, which is internally segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES, separate segment files will be created.
+   */
+  SegmentControl?: CmafSegmentControl | string;
+
+  /**
+   * Use this setting to specify the length, in seconds, of each individual CMAF segment. This value applies to the whole package; that is, to every output in the output group. Note that segments end on the first keyframe after this number of seconds, so the actual segment length might be slightly longer. If you set Segment control (CmafSegmentControl) to single file, the service puts the content of each output in a single file that has metadata that marks these segments. If you set it to segmented files, the service creates multiple files for each output, each with the content of one segment.
+   */
+  SegmentLength?: number;
+
+  /**
+   * Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
+   */
+  StreamInfResolution?: CmafStreamInfResolution | string;
+
+  /**
+   * When set to ENABLED, a DASH MPD manifest will be generated for this output.
+   */
+  WriteDashManifest?: CmafWriteDASHManifest | string;
+
+  /**
+   * When set to ENABLED, an Apple HLS manifest will be generated for this output.
+   */
+  WriteHlsManifest?: CmafWriteHLSManifest | string;
+
+  /**
+   * When you enable Precise segment duration in DASH manifests (writeSegmentTimelineInRepresentation), your DASH manifest shows precise segment durations. The segment duration information appears inside the SegmentTimeline element, inside SegmentTemplate at the Representation level. When this feature isn't enabled, the segment durations in your DASH manifest are approximate. The segment duration information appears in the duration attribute of the SegmentTemplate element.
+   */
+  WriteSegmentTimelineInRepresentation?: CmafWriteSegmentTimelineInRepresentation | string;
 }
 
 export namespace CmafGroupSettings {
@@ -3484,6 +3662,11 @@ export enum DashIsoPlaybackDeviceCompatibility {
  */
 export interface SpekeKeyProvider {
   /**
+   * If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
+   */
+  CertificateArn?: string;
+
+  /**
    * Specify the resource ID that your SPEKE-compliant key provider uses to identify this content.
    */
   ResourceId?: string;
@@ -3498,11 +3681,6 @@ export interface SpekeKeyProvider {
    * Specify the URL to the key server that your SPEKE-compliant DRM key provider uses to provide keys for encrypting your content.
    */
   Url?: string;
-
-  /**
-   * If you want your key provider to encrypt the content keys that it provides to MediaConvert, set up a certificate with a master key using AWS Certificate Manager. Specify the certificate's Amazon Resource Name (ARN) here.
-   */
-  CertificateArn?: string;
 }
 
 export namespace SpekeKeyProvider {
@@ -3516,14 +3694,14 @@ export namespace SpekeKeyProvider {
  */
 export interface DashIsoEncryptionSettings {
   /**
-   * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
-   */
-  SpekeKeyProvider?: SpekeKeyProvider;
-
-  /**
    * This setting can improve the compatibility of your output with video players on obsolete devices. It applies only to DASH H.264 outputs with DRM encryption. Choose Unencrypted SEI (UNENCRYPTED_SEI) only to correct problems with playback on older devices. Otherwise, keep the default setting CENC v1 (CENC_V1). If you choose Unencrypted SEI, for that output, the service will exclude the access unit delimiter and will leave the SEI NAL units unencrypted.
    */
   PlaybackDeviceCompatibility?: DashIsoPlaybackDeviceCompatibility | string;
+
+  /**
+   * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
+   */
+  SpekeKeyProvider?: SpekeKeyProvider;
 }
 
 export namespace DashIsoEncryptionSettings {
@@ -3557,19 +3735,9 @@ export enum DashIsoWriteSegmentTimelineInRepresentation {
  */
 export interface DashIsoGroupSettings {
   /**
-   * When set to SINGLE_FILE, a single output file is generated, which is internally segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES, separate segment files will be created.
+   * By default, the service creates one .mpd DASH manifest for each DASH ISO output group in your job. This default manifest references every output in the output group. To create additional DASH manifests that reference a subset of the outputs in the output group, specify a list of them here.
    */
-  SegmentControl?: DashIsoSegmentControl | string;
-
-  /**
-   * Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
-   */
-  Destination?: string;
-
-  /**
-   * DRM settings.
-   */
-  Encryption?: DashIsoEncryptionSettings;
+  AdditionalManifests?: DashAdditionalManifest[];
 
   /**
    * A partial URI prefix that will be put in the manifest (.mpd) file at the top level BaseURL element. Can be used if streams are delivered from a different URL than the manifest file.
@@ -3577,24 +3745,24 @@ export interface DashIsoGroupSettings {
   BaseUrl?: string;
 
   /**
+   * Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
+   */
+  Destination?: string;
+
+  /**
    * Settings associated with the destination. Will vary based on the type of destination
    */
   DestinationSettings?: DestinationSettings;
 
   /**
-   * If you get an HTTP error in the 400 range when you play back your DASH output, enable this setting and run your transcoding job again. When you enable this setting, the service writes precise segment durations in the DASH manifest. The segment duration information appears inside the SegmentTimeline element, inside SegmentTemplate at the Representation level. When you don't enable this setting, the service writes approximate segment durations in your DASH manifest.
+   * DRM settings.
    */
-  WriteSegmentTimelineInRepresentation?: DashIsoWriteSegmentTimelineInRepresentation | string;
+  Encryption?: DashIsoEncryptionSettings;
 
   /**
-   * By default, the service creates one .mpd DASH manifest for each DASH ISO output group in your job. This default manifest references every output in the output group. To create additional DASH manifests that reference a subset of the outputs in the output group, specify a list of them here.
+   * Length of fragments to generate (in seconds). Fragment length must be compatible with GOP size and Framerate. Note that fragments will end on the next keyframe after this number of seconds, so actual fragment length may be longer. When Emit Single File is checked, the fragmentation is internal to a single output file and it does not cause the creation of many output files as in other output types.
    */
-  AdditionalManifests?: DashAdditionalManifest[];
-
-  /**
-   * Length of mpd segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer. When Emit Single File is checked, the segmentation is internal to a single output file and it does not cause the creation of many output files as in other output types.
-   */
-  SegmentLength?: number;
+  FragmentLength?: number;
 
   /**
    * Supports HbbTV specification as indicated
@@ -3607,14 +3775,24 @@ export interface DashIsoGroupSettings {
   MinBufferTime?: number;
 
   /**
-   * Length of fragments to generate (in seconds). Fragment length must be compatible with GOP size and Framerate. Note that fragments will end on the next keyframe after this number of seconds, so actual fragment length may be longer. When Emit Single File is checked, the fragmentation is internal to a single output file and it does not cause the creation of many output files as in other output types.
-   */
-  FragmentLength?: number;
-
-  /**
    * Specify whether your DASH profile is on-demand or main. When you choose Main profile (MAIN_PROFILE), the service signals  urn:mpeg:dash:profile:isoff-main:2011 in your .mpd DASH manifest. When you choose On-demand (ON_DEMAND_PROFILE), the service signals urn:mpeg:dash:profile:isoff-on-demand:2011 in your .mpd. When you choose On-demand, you must also set the output group setting Segment control (SegmentControl) to Single file (SINGLE_FILE).
    */
   MpdProfile?: DashIsoMpdProfile | string;
+
+  /**
+   * When set to SINGLE_FILE, a single output file is generated, which is internally segmented using the Fragment Length and Segment Length. When set to SEGMENTED_FILES, separate segment files will be created.
+   */
+  SegmentControl?: DashIsoSegmentControl | string;
+
+  /**
+   * Length of mpd segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer. When Emit Single File is checked, the segmentation is internal to a single output file and it does not cause the creation of many output files as in other output types.
+   */
+  SegmentLength?: number;
+
+  /**
+   * If you get an HTTP error in the 400 range when you play back your DASH output, enable this setting and run your transcoding job again. When you enable this setting, the service writes precise segment durations in the DASH manifest. The segment duration information appears inside the SegmentTimeline element, inside SegmentTemplate at the Representation level. When you don't enable this setting, the service writes approximate segment durations in your DASH manifest.
+   */
+  WriteSegmentTimelineInRepresentation?: DashIsoWriteSegmentTimelineInRepresentation | string;
 }
 
 export namespace DashIsoGroupSettings {
@@ -3642,6 +3820,11 @@ export namespace FileGroupSettings {
   export const filterSensitiveLog = (obj: FileGroupSettings): any => ({
     ...obj,
   });
+}
+
+export enum HlsAudioOnlyHeader {
+  EXCLUDE = "EXCLUDE",
+  INCLUDE = "INCLUDE",
 }
 
 export enum HlsCaptionLanguageSetting {
@@ -3690,14 +3873,24 @@ export enum HlsKeyProviderType {
  */
 export interface HlsEncryptionSettings {
   /**
-   * Enable this setting to insert the EXT-X-SESSION-KEY element into the master playlist. This allows for offline Apple HLS FairPlay content protection.
+   * This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
    */
-  OfflineEncrypted?: HlsOfflineEncrypted | string;
+  ConstantInitializationVector?: string;
 
   /**
    * Encrypts the segments with the given encryption scheme. Leave blank to disable. Selecting 'Disabled' in the web interface also disables encryption.
    */
   EncryptionMethod?: HlsEncryptionType | string;
+
+  /**
+   * The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
+   */
+  InitializationVectorInManifest?: HlsInitializationVectorInManifest | string;
+
+  /**
+   * Enable this setting to insert the EXT-X-SESSION-KEY element into the master playlist. This allows for offline Apple HLS FairPlay content protection.
+   */
+  OfflineEncrypted?: HlsOfflineEncrypted | string;
 
   /**
    * If your output group type is HLS, DASH, or Microsoft Smooth, use these settings when doing DRM encryption with a SPEKE-compliant key provider.  If your output group type is CMAF, use the SpekeKeyProviderCmaf settings instead.
@@ -3713,16 +3906,6 @@ export interface HlsEncryptionSettings {
    * Specify whether your DRM encryption key is static or from a key provider that follows the SPEKE standard. For more information about SPEKE, see https://docs.aws.amazon.com/speke/latest/documentation/what-is-speke.html.
    */
   Type?: HlsKeyProviderType | string;
-
-  /**
-   * This is a 128-bit, 16-byte hex value represented by a 32-character text string. If this parameter is not set then the Initialization Vector will follow the segment number by default.
-   */
-  ConstantInitializationVector?: string;
-
-  /**
-   * The Initialization Vector is a 128-bit number used in conjunction with the key for encrypting blocks. If set to INCLUDE, Initialization Vector is listed in the manifest. Otherwise Initialization Vector is not in the manifest.
-   */
-  InitializationVectorInManifest?: HlsInitializationVectorInManifest | string;
 }
 
 export namespace HlsEncryptionSettings {
@@ -3772,34 +3955,39 @@ export enum HlsTimedMetadataId3Frame {
  */
 export interface HlsGroupSettings {
   /**
-   * Indicates ID3 frame that has the timecode.
+   * Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
    */
-  TimedMetadataId3Frame?: HlsTimedMetadataId3Frame | string;
+  AdMarkers?: (HlsAdMarkers | string)[];
 
   /**
-   * Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestamp_offset.
+   * By default, the service creates one top-level .m3u8 HLS manifest for each HLS output group in your job. This default manifest references every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here.
    */
-  ProgramDateTime?: HlsProgramDateTime | string;
+  AdditionalManifests?: HlsAdditionalManifest[];
 
   /**
-   * Keep this setting at the default value of 0, unless you are troubleshooting a problem with how devices play back the end of your video asset. If you know that player devices are hanging on the final segment of your video because the length of your final segment is too short, use this setting to specify a minimum final segment length, in seconds. Choose a value that is greater than or equal to 1 and less than your segment length. When you specify a value for this setting, the encoder will combine any final segment that is shorter than the length that you specify with the previous segment. For example, your segment length is 3 seconds and your final segment is .5 seconds without a minimum final segment length; when you set the minimum final segment length to 1, your final segment is 3.5 seconds.
+   * Ignore this setting unless you are using FairPlay DRM with Verimatrix and you encounter playback issues. Keep the default value, Include (INCLUDE), to output audio-only headers. Choose Exclude (EXCLUDE) to remove the audio-only headers from your audio segments.
    */
-  MinFinalSegmentLength?: number;
+  AudioOnlyHeader?: HlsAudioOnlyHeader | string;
 
   /**
-   * Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
+   * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
    */
-  ProgramDateTimePeriod?: number;
+  BaseUrl?: string;
 
   /**
-   * When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
+   * Language to be used on Caption outputs
    */
-  SegmentControl?: HlsSegmentControl | string;
+  CaptionLanguageMappings?: HlsCaptionLanguageMapping[];
 
   /**
    * Applies only to 608 Embedded output captions. Insert: Include CLOSED-CAPTIONS lines in the manifest. Specify at least one language in the CC1 Language Code field. One CLOSED-CAPTION line is added for each Language Code you specify. Make sure to specify the languages in the order in which they appear in the original source (if the source is embedded format) or the order of the caption selectors (if the source is other than embedded). Otherwise, languages in the manifest will not match up properly with the output captions. None: Include CLOSED-CAPTIONS=NONE line in the manifest. Omit: Omit any CLOSED-CAPTIONS line from the manifest.
    */
   CaptionLanguageSetting?: HlsCaptionLanguageSetting | string;
+
+  /**
+   * When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.
+   */
+  ClientCache?: HlsClientCache | string;
 
   /**
    * Specification to use (RFC-6381 or the default RFC-4281) during m3u8 playlist generation.
@@ -3812,44 +4000,9 @@ export interface HlsGroupSettings {
   Destination?: string;
 
   /**
-   * When set to GZIP, compresses HLS playlist.
-   */
-  ManifestCompression?: HlsManifestCompression | string;
-
-  /**
-   * Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
-   */
-  SegmentLength?: number;
-
-  /**
-   * A partial URI prefix that will be prepended to each output in the media .m3u8 file. Can be used if base manifest is delivered from a different URL than the main .m3u8 file.
-   */
-  BaseUrl?: string;
-
-  /**
-   * Choose one or more ad marker types to decorate your Apple HLS manifest. This setting does not determine whether SCTE-35 markers appear in the outputs themselves.
-   */
-  AdMarkers?: (HlsAdMarkers | string)[];
-
-  /**
-   * Provides an extra millisecond delta offset to fine tune the timestamps.
-   */
-  TimestampDeltaMilliseconds?: number;
-
-  /**
    * Settings associated with the destination. Will vary based on the type of destination
    */
   DestinationSettings?: DestinationSettings;
-
-  /**
-   * When set, Minimum Segment Size is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
-   */
-  MinSegmentLength?: number;
-
-  /**
-   * When set to ENABLED, sets #EXT-X-ALLOW-CACHE:no tag, which prevents client from saving media segments for later replay.
-   */
-  ClientCache?: HlsClientCache | string;
 
   /**
    * Indicates whether segments should be placed in subdirectories.
@@ -3857,34 +4010,14 @@ export interface HlsGroupSettings {
   DirectoryStructure?: HlsDirectoryStructure | string;
 
   /**
-   * Timed Metadata interval in seconds.
-   */
-  TimedMetadataId3Period?: number;
-
-  /**
-   * Number of segments to write to a subdirectory before starting a new one. directoryStructure must be SINGLE_DIRECTORY for this setting to have an effect.
-   */
-  SegmentsPerSubdirectory?: number;
-
-  /**
-   * Language to be used on Caption outputs
-   */
-  CaptionLanguageMappings?: HlsCaptionLanguageMapping[];
-
-  /**
-   * By default, the service creates one top-level .m3u8 HLS manifest for each HLS output group in your job. This default manifest references every output in the output group. To create additional top-level manifests that reference a subset of the outputs in the output group, specify a list of them here.
-   */
-  AdditionalManifests?: HlsAdditionalManifest[];
-
-  /**
    * DRM settings.
    */
   Encryption?: HlsEncryptionSettings;
 
   /**
-   * Indicates whether the .m3u8 manifest file should be generated for this HLS output group.
+   * When set to GZIP, compresses HLS playlist.
    */
-  OutputSelection?: HlsOutputSelection | string;
+  ManifestCompression?: HlsManifestCompression | string;
 
   /**
    * Indicates whether the output manifest should use floating point values for segment duration.
@@ -3892,9 +4025,64 @@ export interface HlsGroupSettings {
   ManifestDurationFormat?: HlsManifestDurationFormat | string;
 
   /**
+   * Keep this setting at the default value of 0, unless you are troubleshooting a problem with how devices play back the end of your video asset. If you know that player devices are hanging on the final segment of your video because the length of your final segment is too short, use this setting to specify a minimum final segment length, in seconds. Choose a value that is greater than or equal to 1 and less than your segment length. When you specify a value for this setting, the encoder will combine any final segment that is shorter than the length that you specify with the previous segment. For example, your segment length is 3 seconds and your final segment is .5 seconds without a minimum final segment length; when you set the minimum final segment length to 1, your final segment is 3.5 seconds.
+   */
+  MinFinalSegmentLength?: number;
+
+  /**
+   * When set, Minimum Segment Size is enforced by looking ahead and back within the specified range for a nearby avail and extending the segment size if needed.
+   */
+  MinSegmentLength?: number;
+
+  /**
+   * Indicates whether the .m3u8 manifest file should be generated for this HLS output group.
+   */
+  OutputSelection?: HlsOutputSelection | string;
+
+  /**
+   * Includes or excludes EXT-X-PROGRAM-DATE-TIME tag in .m3u8 manifest files. The value is calculated as follows: either the program date and time are initialized using the input timecode source, or the time is initialized using the input timecode source and the date is initialized using the timestamp_offset.
+   */
+  ProgramDateTime?: HlsProgramDateTime | string;
+
+  /**
+   * Period of insertion of EXT-X-PROGRAM-DATE-TIME entry, in seconds.
+   */
+  ProgramDateTimePeriod?: number;
+
+  /**
+   * When set to SINGLE_FILE, emits program as a single media resource (.ts) file, uses #EXT-X-BYTERANGE tags to index segment for playback.
+   */
+  SegmentControl?: HlsSegmentControl | string;
+
+  /**
+   * Length of MPEG-2 Transport Stream segments to create (in seconds). Note that segments will end on the next keyframe after this number of seconds, so actual segment length may be longer.
+   */
+  SegmentLength?: number;
+
+  /**
+   * Number of segments to write to a subdirectory before starting a new one. directoryStructure must be SINGLE_DIRECTORY for this setting to have an effect.
+   */
+  SegmentsPerSubdirectory?: number;
+
+  /**
    * Include or exclude RESOLUTION attribute for video in EXT-X-STREAM-INF tag of variant manifest.
    */
   StreamInfResolution?: HlsStreamInfResolution | string;
+
+  /**
+   * Indicates ID3 frame that has the timecode.
+   */
+  TimedMetadataId3Frame?: HlsTimedMetadataId3Frame | string;
+
+  /**
+   * Timed Metadata interval in seconds.
+   */
+  TimedMetadataId3Period?: number;
+
+  /**
+   * Provides an extra millisecond delta offset to fine tune the timestamps.
+   */
+  TimestampDeltaMilliseconds?: number;
 }
 
 export namespace HlsGroupSettings {
@@ -3908,14 +4096,14 @@ export namespace HlsGroupSettings {
  */
 export interface MsSmoothAdditionalManifest {
   /**
-   * Specify the outputs that you want this additional top-level manifest to reference.
-   */
-  SelectedOutputs?: string[];
-
-  /**
    * Specify a name modifier that the service adds to the name of this manifest to make it different from the file names of the other main manifests in the output group. For example, say that the default main manifest for your Microsoft Smooth group is film-name.ismv. If you enter "-no-premium" for this setting, then the file name the service generates for this top-level manifest is film-name-no-premium.ismv.
    */
   ManifestNameModifier?: string;
+
+  /**
+   * Specify the outputs that you want this additional top-level manifest to reference.
+   */
+  SelectedOutputs?: string[];
 }
 
 export namespace MsSmoothAdditionalManifest {
@@ -3955,29 +4143,9 @@ export enum MsSmoothManifestEncoding {
  */
 export interface MsSmoothGroupSettings {
   /**
-   * Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be compatible with GOP size and frame rate.
-   */
-  FragmentLength?: number;
-
-  /**
-   * If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify the value SpekeKeyProvider.
-   */
-  Encryption?: MsSmoothEncryptionSettings;
-
-  /**
-   * Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.
-   */
-  ManifestEncoding?: MsSmoothManifestEncoding | string;
-
-  /**
    * By default, the service creates one .ism Microsoft Smooth Streaming manifest for each Microsoft Smooth Streaming output group in your job. This default manifest references every output in the output group. To create additional manifests that reference a subset of the outputs in the output group, specify a list of them here.
    */
   AdditionalManifests?: MsSmoothAdditionalManifest[];
-
-  /**
-   * Settings associated with the destination. Will vary based on the type of destination
-   */
-  DestinationSettings?: DestinationSettings;
 
   /**
    * COMBINE_DUPLICATE_STREAMS combines identical audio encoding settings across a Microsoft Smooth output group into a single audio stream.
@@ -3988,6 +4156,26 @@ export interface MsSmoothGroupSettings {
    * Use Destination (Destination) to specify the S3 output location and the output filename base. Destination accepts format identifiers. If you do not specify the base filename in the URI, the service will use the filename of the input file. If your job has multiple inputs, the service uses the filename of the first input file.
    */
   Destination?: string;
+
+  /**
+   * Settings associated with the destination. Will vary based on the type of destination
+   */
+  DestinationSettings?: DestinationSettings;
+
+  /**
+   * If you are using DRM, set DRM System (MsSmoothEncryptionSettings) to specify the value SpekeKeyProvider.
+   */
+  Encryption?: MsSmoothEncryptionSettings;
+
+  /**
+   * Use Fragment length (FragmentLength) to specify the mp4 fragment sizes in seconds. Fragment length must be compatible with GOP size and frame rate.
+   */
+  FragmentLength?: number;
+
+  /**
+   * Use Manifest encoding (MsSmoothManifestEncoding) to specify the encoding format for the server and client manifest. Valid options are utf8 and utf16.
+   */
+  ManifestEncoding?: MsSmoothManifestEncoding | string;
 }
 
 export namespace MsSmoothGroupSettings {
@@ -4009,19 +4197,9 @@ export enum OutputGroupType {
  */
 export interface OutputGroupSettings {
   /**
-   * Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming, CMAF)
+   * Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to CMAF_GROUP_SETTINGS. Each output in a CMAF Output Group may only contain a single video, audio, or caption output.
    */
-  Type?: OutputGroupType | string;
-
-  /**
-   * Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to HLS_GROUP_SETTINGS.
-   */
-  HlsGroupSettings?: HlsGroupSettings;
-
-  /**
-   * Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to FILE_GROUP_SETTINGS.
-   */
-  FileGroupSettings?: FileGroupSettings;
+  CmafGroupSettings?: CmafGroupSettings;
 
   /**
    * Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to DASH_ISO_GROUP_SETTINGS.
@@ -4029,14 +4207,24 @@ export interface OutputGroupSettings {
   DashIsoGroupSettings?: DashIsoGroupSettings;
 
   /**
+   * Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to FILE_GROUP_SETTINGS.
+   */
+  FileGroupSettings?: FileGroupSettings;
+
+  /**
+   * Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to HLS_GROUP_SETTINGS.
+   */
+  HlsGroupSettings?: HlsGroupSettings;
+
+  /**
    * Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to MS_SMOOTH_GROUP_SETTINGS.
    */
   MsSmoothGroupSettings?: MsSmoothGroupSettings;
 
   /**
-   * Required when you set (Type) under (OutputGroups)>(OutputGroupSettings) to CMAF_GROUP_SETTINGS. Each output in a CMAF Output Group may only contain a single video, audio, or caption output.
+   * Type of output group (File group, Apple HLS, DASH ISO, Microsoft Smooth Streaming, CMAF)
    */
-  CmafGroupSettings?: CmafGroupSettings;
+  Type?: OutputGroupType | string;
 }
 
 export namespace OutputGroupSettings {
@@ -4060,14 +4248,14 @@ export enum CmfcScte35Source {
  */
 export interface CmfcSettings {
   /**
-   * Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
-   */
-  Scte35Source?: CmfcScte35Source | string;
-
-  /**
    * Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
    */
   Scte35Esam?: CmfcScte35Esam | string;
+
+  /**
+   * Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
+   */
+  Scte35Source?: CmfcScte35Source | string;
 }
 
 export namespace CmfcSettings {
@@ -4159,6 +4347,11 @@ export enum OutputSdt {
  */
 export interface DvbSdtSettings {
   /**
+   * Selects method of inserting SDT information into output stream.  "Follow input SDT" copies SDT information from input stream to  output stream. "Follow input SDT if present" copies SDT information from  input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter "SDT  Manually" means user will enter the SDT information. "No SDT" means output  stream will not contain SDT information.
+   */
+  OutputSdt?: OutputSdt | string;
+
+  /**
    * The number of milliseconds between instances of this table in the output transport stream.
    */
   SdtInterval?: number;
@@ -4167,11 +4360,6 @@ export interface DvbSdtSettings {
    * The service name placed in the service_descriptor in the Service Description Table. Maximum length is 256 characters.
    */
   ServiceName?: string;
-
-  /**
-   * Selects method of inserting SDT information into output stream.  "Follow input SDT" copies SDT information from input stream to  output stream. "Follow input SDT if present" copies SDT information from  input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter "SDT  Manually" means user will enter the SDT information. "No SDT" means output  stream will not contain SDT information.
-   */
-  OutputSdt?: OutputSdt | string;
 
   /**
    * The service provider name placed in the service_descriptor in the Service Description Table. Maximum length is 256 characters.
@@ -4276,54 +4464,29 @@ export enum M2tsSegmentationStyle {
  */
 export interface M2tsSettings {
   /**
-   * Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
+   * Selects between the DVB and ATSC buffer models for Dolby Digital audio.
    */
-  NullPacketBitrate?: number;
+  AudioBufferModel?: M2tsAudioBufferModel | string;
 
   /**
-   * Specify the number of milliseconds between instances of the program map table (PMT) in the output transport stream.
+   * The number of audio frames to insert for each PES packet.
    */
-  PmtInterval?: number;
-
-  /**
-   * Specify the packet identifiers (PIDs) for DVB subtitle data included in this output. Specify multiple PIDs as a JSON array. Default is the range 460-479.
-   */
-  DvbSubPids?: number[];
-
-  /**
-   * When set to CBR, inserts null packets into transport stream to fill specified bitrate. When set to VBR, the bitrate setting acts as the maximum bitrate, but the output will not be padded up to that bitrate.
-   */
-  RateMode?: M2tsRateMode | string;
-
-  /**
-   * Controls whether to include the ES Rate field in the PES header.
-   */
-  EsRateInPes?: M2tsEsRateInPes | string;
-
-  /**
-   * The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of "reset_cadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of "maintain_cadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.
-   */
-  SegmentationStyle?: M2tsSegmentationStyle | string;
-
-  /**
-   * Include this in your job settings to put SCTE-35 markers in your HLS and transport stream outputs at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
-   */
-  Scte35Esam?: M2tsScte35Esam;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream.
-   */
-  PatInterval?: number;
-
-  /**
-   * Specify the maximum time, in milliseconds, between Program Clock References (PCRs) inserted into the transport stream.
-   */
-  MaxPcrInterval?: number;
+  AudioFramesPerPes?: number;
 
   /**
    * Specify the packet identifiers (PIDs) for any elementary audio streams you include in this output. Specify multiple PIDs as a JSON array. Default is the range 482-492.
    */
   AudioPids?: number[];
+
+  /**
+   * Specify the output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate. Other common values are 3750000, 7500000, and 15000000.
+   */
+  Bitrate?: number;
+
+  /**
+   * Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex  buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
+   */
+  BufferModel?: M2tsBufferModel | string;
 
   /**
    * Inserts DVB Network Information Table (NIT) at the specified table repetition interval.
@@ -4336,79 +4499,19 @@ export interface M2tsSettings {
   DvbSdtSettings?: DvbSdtSettings;
 
   /**
-   * Controls what buffer model to use for accurate interleaving. If set to MULTIPLEX, use multiplex  buffer model. If set to NONE, this can lead to lower latency, but low-memory devices may not be able to play back the stream without interruptions.
+   * Specify the packet identifiers (PIDs) for DVB subtitle data included in this output. Specify multiple PIDs as a JSON array. Default is the range 460-479.
    */
-  BufferModel?: M2tsBufferModel | string;
+  DvbSubPids?: number[];
 
   /**
-   * For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE). Also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml). Also enable ESAM SCTE-35 (include the property scte35Esam).
+   * Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
    */
-  Scte35Source?: M2tsScte35Source | string;
-
-  /**
-   * Specify the packet identifier (PID) of the private metadata stream. Default is 503.
-   */
-  PrivateMetadataPid?: number;
-
-  /**
-   * Selects between the DVB and ATSC buffer models for Dolby Digital audio.
-   */
-  AudioBufferModel?: M2tsAudioBufferModel | string;
-
-  /**
-   * Keep the default value (DEFAULT) unless you know that your audio EBP markers are incorrectly appearing before your video EBP markers. To correct this problem, set this value to Force (FORCE).
-   */
-  ForceTsVideoEbpOrder?: M2tsForceTsVideoEbpOrder | string;
-
-  /**
-   * When set to PCR_EVERY_PES_PACKET, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This is effective only when the PCR PID is the same as the video or audio elementary stream.
-   */
-  PcrControl?: M2tsPcrControl | string;
-
-  /**
-   * Specify the packet identifier (PID) for timed metadata in this output. Default is 502.
-   */
-  TimedMetadataPid?: number;
-
-  /**
-   * Specify the packet identifier (PID) for the program clock reference (PCR) in this output. If you do not specify a value, the service will use the value for Video PID (VideoPid).
-   */
-  PcrPid?: number;
-
-  /**
-   * Specify the length, in seconds, of each segment. Required unless markers is set to _none_.
-   */
-  SegmentationTime?: number;
+  DvbTdtSettings?: DvbTdtSettings;
 
   /**
    * Specify the packet identifier (PID) for DVB teletext data you include in this output. Default is 499.
    */
   DvbTeletextPid?: number;
-
-  /**
-   * The length, in seconds, of each fragment. Only used with EBP markers.
-   */
-  FragmentTime?: number;
-
-  /**
-   * Specify the packet identifier (PID) for the program map table (PMT) itself. Default is 480.
-   */
-  PmtPid?: number;
-
-  /**
-   * Specify the output bitrate of the transport stream in bits per second. Setting to 0 lets the muxer automatically determine the appropriate bitrate. Other common values are 3750000, 7500000, and 15000000.
-   */
-  Bitrate?: number;
-
-  /**
-   * Inserts segmentation markers at each segmentation_time period. rai_segstart sets the Random Access Indicator bit in the adaptation field. rai_adapt sets the RAI bit and adds the current timecode in the private data bytes. psi_segstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebp_legacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
-   */
-  SegmentationMarkers?: M2tsSegmentationMarkers | string;
-
-  /**
-   * The number of audio frames to insert for each PES packet.
-   */
-  AudioFramesPerPes?: number;
 
   /**
    * When set to VIDEO_AND_FIXED_INTERVALS, audio EBP markers will be added to partitions 3 and 4. The interval between these additional markers will be fixed, and will be slightly shorter than the video EBP marker interval. When set to VIDEO_INTERVAL, these additional markers will not be inserted. Only applicable when EBP segmentation markers are is selected (segmentationMarkers is EBP or EBP_LEGACY).
@@ -4421,19 +4524,24 @@ export interface M2tsSettings {
   EbpPlacement?: M2tsEbpPlacement | string;
 
   /**
-   * Specify the ID for the transport stream itself in the program map table for this output. Transport stream IDs and program map tables are parts of MPEG-2 transport stream containers, used for organizing data.
+   * Controls whether to include the ES Rate field in the PES header.
    */
-  TransportStreamId?: number;
+  EsRateInPes?: M2tsEsRateInPes | string;
 
   /**
-   * If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
+   * Keep the default value (DEFAULT) unless you know that your audio EBP markers are incorrectly appearing before your video EBP markers. To correct this problem, set this value to Force (FORCE).
    */
-  NielsenId3?: M2tsNielsenId3 | string;
+  ForceTsVideoEbpOrder?: M2tsForceTsVideoEbpOrder | string;
 
   /**
-   * Specify the packet identifier (PID) of the elementary video stream in the transport stream.
+   * The length, in seconds, of each fragment. Only used with EBP markers.
    */
-  VideoPid?: number;
+  FragmentTime?: number;
+
+  /**
+   * Specify the maximum time, in milliseconds, between Program Clock References (PCRs) inserted into the transport stream.
+   */
+  MaxPcrInterval?: number;
 
   /**
    * When set, enforces that Encoder Boundary Points do not come within the specified time interval of each other by looking ahead at input video. If another EBP is going to come in within the specified time interval, the current EBP is not emitted, and the segment is "stretched" to the next marker. The lookahead value does not add latency to the system. The Live Event must be configured elsewhere to create sufficient latency to make the lookahead accurate.
@@ -4441,9 +4549,44 @@ export interface M2tsSettings {
   MinEbpInterval?: number;
 
   /**
-   * Specify the packet identifier (PID) of the SCTE-35 stream in the transport stream.
+   * If INSERT, Nielsen inaudible tones for media tracking will be detected in the input audio and an equivalent ID3 tag will be inserted in the output.
    */
-  Scte35Pid?: number;
+  NielsenId3?: M2tsNielsenId3 | string;
+
+  /**
+   * Value in bits per second of extra null packets to insert into the transport stream. This can be used if a downstream encryption system requires periodic null packets.
+   */
+  NullPacketBitrate?: number;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   */
+  PatInterval?: number;
+
+  /**
+   * When set to PCR_EVERY_PES_PACKET, a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This is effective only when the PCR PID is the same as the video or audio elementary stream.
+   */
+  PcrControl?: M2tsPcrControl | string;
+
+  /**
+   * Specify the packet identifier (PID) for the program clock reference (PCR) in this output. If you do not specify a value, the service will use the value for Video PID (VideoPid).
+   */
+  PcrPid?: number;
+
+  /**
+   * Specify the number of milliseconds between instances of the program map table (PMT) in the output transport stream.
+   */
+  PmtInterval?: number;
+
+  /**
+   * Specify the packet identifier (PID) for the program map table (PMT) itself. Default is 480.
+   */
+  PmtPid?: number;
+
+  /**
+   * Specify the packet identifier (PID) of the private metadata stream. Default is 503.
+   */
+  PrivateMetadataPid?: number;
 
   /**
    * Use Program number (programNumber) to specify the program number used in the program map table (PMT) for this output. Default is 1. Program numbers and program map tables are parts of MPEG-2 transport stream containers, used for organizing data.
@@ -4451,9 +4594,54 @@ export interface M2tsSettings {
   ProgramNumber?: number;
 
   /**
-   * Inserts DVB Time and Date Table (TDT) at the specified table repetition interval.
+   * When set to CBR, inserts null packets into transport stream to fill specified bitrate. When set to VBR, the bitrate setting acts as the maximum bitrate, but the output will not be padded up to that bitrate.
    */
-  DvbTdtSettings?: DvbTdtSettings;
+  RateMode?: M2tsRateMode | string;
+
+  /**
+   * Include this in your job settings to put SCTE-35 markers in your HLS and transport stream outputs at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
+   */
+  Scte35Esam?: M2tsScte35Esam;
+
+  /**
+   * Specify the packet identifier (PID) of the SCTE-35 stream in the transport stream.
+   */
+  Scte35Pid?: number;
+
+  /**
+   * For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE). Also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml). Also enable ESAM SCTE-35 (include the property scte35Esam).
+   */
+  Scte35Source?: M2tsScte35Source | string;
+
+  /**
+   * Inserts segmentation markers at each segmentation_time period. rai_segstart sets the Random Access Indicator bit in the adaptation field. rai_adapt sets the RAI bit and adds the current timecode in the private data bytes. psi_segstart inserts PAT and PMT tables at the start of segments. ebp adds Encoder Boundary Point information to the adaptation field as per OpenCable specification OC-SP-EBP-I01-130118. ebp_legacy adds Encoder Boundary Point information to the adaptation field using a legacy proprietary format.
+   */
+  SegmentationMarkers?: M2tsSegmentationMarkers | string;
+
+  /**
+   * The segmentation style parameter controls how segmentation markers are inserted into the transport stream. With avails, it is possible that segments may be truncated, which can influence where future segmentation markers are inserted. When a segmentation style of "reset_cadence" is selected and a segment is truncated due to an avail, we will reset the segmentation cadence. This means the subsequent segment will have a duration of of $segmentation_time seconds. When a segmentation style of "maintain_cadence" is selected and a segment is truncated due to an avail, we will not reset the segmentation cadence. This means the subsequent segment will likely be truncated as well. However, all segments after that will have a duration of $segmentation_time seconds. Note that EBP lookahead is a slight exception to this rule.
+   */
+  SegmentationStyle?: M2tsSegmentationStyle | string;
+
+  /**
+   * Specify the length, in seconds, of each segment. Required unless markers is set to _none_.
+   */
+  SegmentationTime?: number;
+
+  /**
+   * Specify the packet identifier (PID) for timed metadata in this output. Default is 502.
+   */
+  TimedMetadataPid?: number;
+
+  /**
+   * Specify the ID for the transport stream itself in the program map table for this output. Transport stream IDs and program map tables are parts of MPEG-2 transport stream containers, used for organizing data.
+   */
+  TransportStreamId?: number;
+
+  /**
+   * Specify the packet identifier (PID) of the elementary video stream in the transport stream.
+   */
+  VideoPid?: number;
 }
 
 export namespace M2tsSettings {
@@ -4487,26 +4675,6 @@ export enum TimedMetadata {
  */
 export interface M3u8Settings {
   /**
-   * When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
-   */
-  PcrControl?: M3u8PcrControl | string;
-
-  /**
-   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID.
-   */
-  PcrPid?: number;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream.
-   */
-  PatInterval?: number;
-
-  /**
-   * The number of milliseconds between instances of this table in the output transport stream.
-   */
-  PmtInterval?: number;
-
-  /**
    * The number of audio frames to insert for each PES packet.
    */
   AudioFramesPerPes?: number;
@@ -4522,9 +4690,24 @@ export interface M3u8Settings {
   NielsenId3?: M3u8NielsenId3 | string;
 
   /**
-   * For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE) if you don't want manifest conditioning. Choose Passthrough (PASSTHROUGH) and choose Ad markers (adMarkers) if you do want manifest conditioning. In both cases, also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml).
+   * The number of milliseconds between instances of this table in the output transport stream.
    */
-  Scte35Source?: M3u8Scte35Source | string;
+  PatInterval?: number;
+
+  /**
+   * When set to PCR_EVERY_PES_PACKET a Program Clock Reference value is inserted for every Packetized Elementary Stream (PES) header. This parameter is effective only when the PCR PID is the same as the video or audio elementary stream.
+   */
+  PcrControl?: M3u8PcrControl | string;
+
+  /**
+   * Packet Identifier (PID) of the Program Clock Reference (PCR) in the transport stream. When no value is given, the encoder will assign the same value as the Video PID.
+   */
+  PcrPid?: number;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   */
+  PmtInterval?: number;
 
   /**
    * Packet Identifier (PID) for the Program Map Table (PMT) in the transport stream.
@@ -4532,9 +4715,14 @@ export interface M3u8Settings {
   PmtPid?: number;
 
   /**
-   * Packet Identifier (PID) of the elementary video stream in the transport stream.
+   * Packet Identifier (PID) of the private metadata stream in the transport stream.
    */
-  VideoPid?: number;
+  PrivateMetadataPid?: number;
+
+  /**
+   * The value of the program number field in the Program Map Table.
+   */
+  ProgramNumber?: number;
 
   /**
    * Packet Identifier (PID) of the SCTE-35 stream in the transport stream.
@@ -4542,19 +4730,14 @@ export interface M3u8Settings {
   Scte35Pid?: number;
 
   /**
+   * For SCTE-35 markers from your input-- Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want SCTE-35 markers in this output. For SCTE-35 markers from an ESAM XML document-- Choose None (NONE) if you don't want manifest conditioning. Choose Passthrough (PASSTHROUGH) and choose Ad markers (adMarkers) if you do want manifest conditioning. In both cases, also provide the ESAM XML as a string in the setting Signal processing notification XML (sccXml).
+   */
+  Scte35Source?: M3u8Scte35Source | string;
+
+  /**
    * Applies only to HLS outputs. Use this setting to specify whether the service inserts the ID3 timed metadata from the input in this output.
    */
   TimedMetadata?: TimedMetadata | string;
-
-  /**
-   * Packet Identifier (PID) of the private metadata stream in the transport stream.
-   */
-  PrivateMetadataPid?: number;
-
-  /**
-   * The value of the transport stream ID field in the Program Map Table.
-   */
-  TransportStreamId?: number;
 
   /**
    * Packet Identifier (PID) of the timed metadata stream in the transport stream.
@@ -4562,9 +4745,14 @@ export interface M3u8Settings {
   TimedMetadataPid?: number;
 
   /**
-   * The value of the program number field in the Program Map Table.
+   * The value of the transport stream ID field in the Program Map Table.
    */
-  ProgramNumber?: number;
+  TransportStreamId?: number;
+
+  /**
+   * Packet Identifier (PID) of the elementary video stream in the transport stream.
+   */
+  VideoPid?: number;
 }
 
 export namespace M3u8Settings {
@@ -4603,29 +4791,29 @@ export enum MovReference {
  */
 export interface MovSettings {
   /**
-   * When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
-   */
-  Mpeg2FourCCControl?: MovMpeg2FourCCControl | string;
-
-  /**
-   * Always keep the default value (SELF_CONTAINED) for this setting.
-   */
-  Reference?: MovReference | string;
-
-  /**
    * When enabled, include 'clap' atom if appropriate for the video output settings.
    */
   ClapAtom?: MovClapAtom | string;
 
   /**
-   * If set to OMNEON, inserts Omneon-compatible padding
+   * When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+   */
+  CslgAtom?: MovCslgAtom | string;
+
+  /**
+   * When set to XDCAM, writes MPEG2 video streams into the QuickTime file using XDCAM fourcc codes. This increases compatibility with Apple editors and players, but may decrease compatibility with other players. Only applicable when the video codec is MPEG2.
+   */
+  Mpeg2FourCCControl?: MovMpeg2FourCCControl | string;
+
+  /**
+   * To make this output compatible with Omenon, keep the default value, OMNEON. Unless you need Omneon compatibility, set this value to NONE. When you keep the default value, OMNEON, MediaConvert increases the length of the edit list atom. This might cause file rejections when a recipient of the output file doesn't expct this extra padding.
    */
   PaddingControl?: MovPaddingControl | string;
 
   /**
-   * When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+   * Always keep the default value (SELF_CONTAINED) for this setting.
    */
-  CslgAtom?: MovCslgAtom | string;
+  Reference?: MovReference | string;
 }
 
 export namespace MovSettings {
@@ -4654,6 +4842,16 @@ export enum Mp4MoovPlacement {
  */
 export interface Mp4Settings {
   /**
+   * When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
+   */
+  CslgAtom?: Mp4CslgAtom | string;
+
+  /**
+   * Ignore this setting unless compliance to the CTTS box version specification matters in your workflow. Specify a value of 1 to set your CTTS box version to 1 and make your output compliant with the specification. When you specify a value of 1, you must also set CSLG atom (cslgAtom) to the value INCLUDE. Keep the default value 0 to set your CTTS box version to 0. This can provide backward compatibility for some players and packagers.
+   */
+  CttsVersion?: number;
+
+  /**
    * Inserts a free-space box immediately after the moov box.
    */
   FreeSpaceBox?: Mp4FreeSpaceBox | string;
@@ -4664,19 +4862,9 @@ export interface Mp4Settings {
   MoovPlacement?: Mp4MoovPlacement | string;
 
   /**
-   * When enabled, file composition times will start at zero, composition times in the 'ctts' (composition time to sample) box for B-frames will be negative, and a 'cslg' (composition shift least greatest) box will be included per 14496-1 amendment 1. This improves compatibility with Apple players and tools.
-   */
-  CslgAtom?: Mp4CslgAtom | string;
-
-  /**
    * Overrides the "Major Brand" field in the output file. Usually not necessary to specify.
    */
   Mp4MajorBrand?: string;
-
-  /**
-   * Ignore this setting unless compliance to the CTTS box version specification matters in your workflow. Specify a value of 1 to set your CTTS box version to 1 and make your output compliant with the specification. When you specify a value of 1, you must also set CSLG atom (cslgAtom) to the value INCLUDE. Keep the default value 0 to set your CTTS box version to 0. This can provide backward compatibility for some players and packagers.
-   */
-  CttsVersion?: number;
 }
 
 export namespace Mp4Settings {
@@ -4710,14 +4898,14 @@ export interface MpdSettings {
   CaptionContainerType?: MpdCaptionContainerType | string;
 
   /**
-   * Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
-   */
-  Scte35Source?: MpdScte35Source | string;
-
-  /**
    * Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
    */
   Scte35Esam?: MpdScte35Esam | string;
+
+  /**
+   * Ignore this setting unless you have SCTE-35 markers in your input video file. Choose Passthrough (PASSTHROUGH) if you want SCTE-35 markers that appear in your input to also appear in this output. Choose None (NONE) if you don't want those SCTE-35 markers in this output.
+   */
+  Scte35Source?: MpdScte35Source | string;
 }
 
 export namespace MpdSettings {
@@ -4731,6 +4919,12 @@ export enum MxfAfdSignaling {
   NO_COPY = "NO_COPY",
 }
 
+export enum MxfProfile {
+  D_10 = "D_10",
+  OP1A = "OP1A",
+  XDCAM = "XDCAM",
+}
+
 /**
  * MXF settings
  */
@@ -4739,6 +4933,11 @@ export interface MxfSettings {
    * Optional. When you have AFD signaling set up in your output video stream, use this setting to choose whether to also include it in the MXF wrapper. Choose Don't copy (NO_COPY) to exclude AFD signaling from the MXF wrapper. Choose Copy from video stream (COPY_FROM_VIDEO) to copy the AFD values from the video stream for this output to the MXF wrapper. Regardless of which option you choose, the AFD values remain in the video stream. Related settings: To set up your output to include or exclude AFD values, see AfdSignaling, under VideoDescription. On the console, find AFD signaling under the output's video encoding settings.
    */
   AfdSignaling?: MxfAfdSignaling | string;
+
+  /**
+   * Specify the MXF profile, also called shim, for this output. When you choose Auto, MediaConvert chooses a profile based on the video codec and resolution. For a list of codecs supported with each MXF profile, see https://docs.aws.amazon.com/mediaconvert/latest/ug/codecs-supported-with-each-mxf-profile.html. For more information about the automatic selection behavior, see https://docs.aws.amazon.com/mediaconvert/latest/ug/default-automatic-selection-of-mxf-profiles.html.
+   */
+  Profile?: MxfProfile | string;
 }
 
 export namespace MxfSettings {
@@ -4752,34 +4951,9 @@ export namespace MxfSettings {
  */
 export interface ContainerSettings {
   /**
-   * Settings for TS segments in HLS
-   */
-  M3u8Settings?: M3u8Settings;
-
-  /**
-   * MXF settings
-   */
-  MxfSettings?: MxfSettings;
-
-  /**
    * Settings for MP4 segments in CMAF
    */
   CmfcSettings?: CmfcSettings;
-
-  /**
-   * Settings for F4v container
-   */
-  F4vSettings?: F4vSettings;
-
-  /**
-   * Settings for MP4 segments in DASH
-   */
-  MpdSettings?: MpdSettings;
-
-  /**
-   * Settings for MOV Container.
-   */
-  MovSettings?: MovSettings;
 
   /**
    * Container for this output. Some containers require a container settings object. If not specified, the default object will be created.
@@ -4787,14 +4961,39 @@ export interface ContainerSettings {
   Container?: ContainerType | string;
 
   /**
+   * Settings for F4v container
+   */
+  F4vSettings?: F4vSettings;
+
+  /**
    * MPEG-2 TS container settings. These apply to outputs in a File output group when the output's container (ContainerType) is MPEG-2 Transport Stream (M2TS). In these assets, data is organized by the program map table (PMT). Each transport stream program contains subsets of data, including audio, video, and metadata. Each of these subsets of data has a numerical label called a packet identifier (PID). Each transport stream program corresponds to one MediaConvert output. The PMT lists the types of data in a program along with their PID. Downstream systems and players use the program map table to look up the PID for each type of data it accesses and then uses the PIDs to locate specific data within the asset.
    */
   M2tsSettings?: M2tsSettings;
 
   /**
+   * Settings for TS segments in HLS
+   */
+  M3u8Settings?: M3u8Settings;
+
+  /**
+   * Settings for MOV Container.
+   */
+  MovSettings?: MovSettings;
+
+  /**
    * Settings for MP4 container. You can create audio-only AAC outputs with this container.
    */
   Mp4Settings?: Mp4Settings;
+
+  /**
+   * Settings for MP4 segments in DASH
+   */
+  MpdSettings?: MpdSettings;
+
+  /**
+   * MXF settings
+   */
+  MxfSettings?: MxfSettings;
 }
 
 export namespace ContainerSettings {
@@ -4825,24 +5024,14 @@ export enum HlsIFrameOnlyManifest {
  */
 export interface HlsSettings {
   /**
-   * Use this setting to add an identifying string to the filename of each segment. The service adds this string between the name modifier and segment index number. You can use format identifiers in the string. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/using-variables-in-your-job-settings.html
-   */
-  SegmentModifier?: string;
-
-  /**
    * Specifies the group to which the audio Rendition belongs.
    */
   AudioGroupId?: string;
 
   /**
-   * When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS manifest
+   * Use this setting only in audio-only outputs. Choose MPEG-2 Transport Stream (M2TS) to create a file in an MPEG2-TS container. Keep the default value Automatic (AUTOMATIC) to create an audio-only file in a raw container. Regardless of the value that you specify here, if this output has video, the service will place the output into an MPEG2-TS container.
    */
-  IFrameOnlyManifest?: HlsIFrameOnlyManifest | string;
-
-  /**
-   * Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
-   */
-  AudioTrackType?: HlsAudioTrackType | string;
+  AudioOnlyContainer?: HlsAudioOnlyContainer | string;
 
   /**
    * List all the audio groups that are used with the video output stream. Input all the audio GROUP-IDs that are associated to the video, separate by ','.
@@ -4850,9 +5039,19 @@ export interface HlsSettings {
   AudioRenditionSets?: string;
 
   /**
-   * Use this setting only in audio-only outputs. Choose MPEG-2 Transport Stream (M2TS) to create a file in an MPEG2-TS container. Keep the default value Automatic (AUTOMATIC) to create an audio-only file in a raw container. Regardless of the value that you specify here, if this output has video, the service will place the output into an MPEG2-TS container.
+   * Four types of audio-only tracks are supported: Audio-Only Variant Stream The client can play back this audio-only stream instead of video in low-bandwidth scenarios. Represented as an EXT-X-STREAM-INF in the HLS manifest. Alternate Audio, Auto Select, Default Alternate rendition that the client should try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=YES, AUTOSELECT=YES Alternate Audio, Auto Select, Not Default Alternate rendition that the client may try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=YES Alternate Audio, not Auto Select Alternate rendition that the client will not try to play back by default. Represented as an EXT-X-MEDIA in the HLS manifest with DEFAULT=NO, AUTOSELECT=NO
    */
-  AudioOnlyContainer?: HlsAudioOnlyContainer | string;
+  AudioTrackType?: HlsAudioTrackType | string;
+
+  /**
+   * When set to INCLUDE, writes I-Frame Only Manifest in addition to the HLS manifest
+   */
+  IFrameOnlyManifest?: HlsIFrameOnlyManifest | string;
+
+  /**
+   * Use this setting to add an identifying string to the filename of each segment. The service adds this string between the name modifier and segment index number. You can use format identifiers in the string. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/using-variables-in-your-job-settings.html
+   */
+  SegmentModifier?: string;
 }
 
 export namespace HlsSettings {
@@ -4904,6 +5103,7 @@ export enum Av1FramerateControl {
 
 export enum Av1FramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
+  FRAMEFORMER = "FRAMEFORMER",
   INTERPOLATE = "INTERPOLATE",
 }
 
@@ -4942,34 +5142,19 @@ export enum Av1SpatialAdaptiveQuantization {
  */
 export interface Av1Settings {
   /**
-   * Specify the GOP length (keyframe interval) in frames. With AV1, MediaConvert doesn't support GOP length in seconds. This value must be greater than zero and preferably equal to 1 + ((numberBFrames + 1) * x), where x is an integer value.
+   * Specify the strength of any adaptive quantization filters that you enable. The value that you choose here applies to Spatial adaptive quantization (spatialAdaptiveQuantization).
    */
-  GopSize?: number;
+  AdaptiveQuantization?: Av1AdaptiveQuantization | string;
 
   /**
-   * Optional. Specify how the transcoder performs framerate conversion. The default behavior is to use duplicate drop conversion.
+   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the settings FramerateNumerator and FramerateDenominator.
+   */
+  FramerateControl?: Av1FramerateControl | string;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
    */
   FramerateConversionAlgorithm?: Av1FramerateConversionAlgorithm | string;
-
-  /**
-   * 'With AV1 outputs, for rate control mode, MediaConvert supports only quality-defined variable bitrate (QVBR). You can''t use CBR or VBR.'
-   */
-  RateControlMode?: Av1RateControlMode | string;
-
-  /**
-   * Settings for quality-defined variable bitrate encoding with the AV1 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
-   */
-  QvbrSettings?: Av1QvbrSettings;
-
-  /**
-   * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate control mode is QVBR.
-   */
-  MaxBitrate?: number;
-
-  /**
-   * Adjust quantization within each frame based on spatial variation of content complexity.
-   */
-  SpatialAdaptiveQuantization?: Av1SpatialAdaptiveQuantization | string;
 
   /**
    * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
@@ -4977,19 +5162,34 @@ export interface Av1Settings {
   FramerateDenominator?: number;
 
   /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   */
+  FramerateNumerator?: number;
+
+  /**
+   * Specify the GOP length (keyframe interval) in frames. With AV1, MediaConvert doesn't support GOP length in seconds. This value must be greater than zero and preferably equal to 1 + ((numberBFrames + 1) * x), where x is an integer value.
+   */
+  GopSize?: number;
+
+  /**
+   * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate control mode is QVBR.
+   */
+  MaxBitrate?: number;
+
+  /**
    * Specify the number of B-frames. With AV1, MediaConvert supports only 7 or 15.
    */
   NumberBFramesBetweenReferenceFrames?: number;
 
   /**
-   * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
+   * Settings for quality-defined variable bitrate encoding with the AV1 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
    */
-  AdaptiveQuantization?: Av1AdaptiveQuantization | string;
+  QvbrSettings?: Av1QvbrSettings;
 
   /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   * 'With AV1 outputs, for rate control mode, MediaConvert supports only quality-defined variable bitrate (QVBR). You can''t use CBR or VBR.'
    */
-  FramerateNumerator?: number;
+  RateControlMode?: Av1RateControlMode | string;
 
   /**
    * Specify the number of slices per picture. This value must be 1, 2, 4, 8, 16, or 32. For progressive pictures, this value must be less than or equal to the number of macroblock rows. For interlaced pictures, this value must be less than or equal to half the number of macroblock rows.
@@ -4997,9 +5197,9 @@ export interface Av1Settings {
   Slices?: number;
 
   /**
-   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the settings FramerateNumerator and FramerateDenominator.
+   * Keep the default value, Enabled (ENABLED), to adjust quantization within each frame based on spatial variation of content complexity. When you enable this feature, the encoder uses fewer bits on areas that can sustain more distortion with no noticeable visual degradation and uses more bits on areas where any small distortion will be noticeable. For example, complex textured blocks are encoded with fewer bits and smooth textured blocks are encoded with more bits. Enabling this feature will almost always improve your video quality. Note, though, that this feature doesn't take into account where the viewer's attention is likely to be. If viewers are likely to be focusing their attention on a part of the screen with a lot of complex texture, you might choose to disable this feature. Related setting: When you enable spatial adaptive quantization, set the value for Adaptive quantization (adaptiveQuantization) depending on your content. For homogeneous content, such as cartoons and video games, set it to Low. For content with a wider variety of textures, set it to High or Higher.
    */
-  FramerateControl?: Av1FramerateControl | string;
+  SpatialAdaptiveQuantization?: Av1SpatialAdaptiveQuantization | string;
 }
 
 export namespace Av1Settings {
@@ -5008,13 +5208,101 @@ export namespace Av1Settings {
   });
 }
 
+export enum AvcIntraClass {
+  CLASS_100 = "CLASS_100",
+  CLASS_200 = "CLASS_200",
+  CLASS_50 = "CLASS_50",
+}
+
+export enum AvcIntraFramerateControl {
+  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
+  SPECIFIED = "SPECIFIED",
+}
+
+export enum AvcIntraFramerateConversionAlgorithm {
+  DUPLICATE_DROP = "DUPLICATE_DROP",
+  FRAMEFORMER = "FRAMEFORMER",
+  INTERPOLATE = "INTERPOLATE",
+}
+
+export enum AvcIntraInterlaceMode {
+  BOTTOM_FIELD = "BOTTOM_FIELD",
+  FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
+  FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
+  PROGRESSIVE = "PROGRESSIVE",
+  TOP_FIELD = "TOP_FIELD",
+}
+
+export enum AvcIntraSlowPal {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+export enum AvcIntraTelecine {
+  HARD = "HARD",
+  NONE = "NONE",
+}
+
+/**
+ * Required when you set your output video codec to AVC-Intra. For more information about the AVC-I settings, see the relevant specification. For detailed information about SD and HD in AVC-I, see https://ieeexplore.ieee.org/document/7290936.
+ */
+export interface AvcIntraSettings {
+  /**
+   * Specify the AVC-Intra class of your output. The AVC-Intra class selection determines the output video bit rate depending on the frame rate of the output. Outputs with higher class values have higher bitrates and improved image quality.
+   */
+  AvcIntraClass?: AvcIntraClass | string;
+
+  /**
+   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the settings FramerateNumerator and FramerateDenominator.
+   */
+  FramerateControl?: AvcIntraFramerateControl | string;
+
+  /**
+   * Choose the method that you want MediaConvert to use when increasing or decreasing the frame rate. We recommend using drop duplicate (DUPLICATE_DROP) for numerically simple conversions, such as 60 fps to 30 fps. For numerically complex conversions, you can use interpolate (INTERPOLATE) to avoid stutter. This results in a smooth picture, but might introduce undesirable video artifacts. For complex frame rate conversions, especially if your source video has already been converted from its original cadence, use FrameFormer (FRAMEFORMER) to do motion-compensated interpolation. FrameFormer chooses the best conversion method frame by frame. Note that using FrameFormer increases the transcoding time and incurs a significant add-on cost.
+   */
+  FramerateConversionAlgorithm?: AvcIntraFramerateConversionAlgorithm | string;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   */
+  FramerateDenominator?: number;
+
+  /**
+   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateNumerator to specify the numerator of this fraction. In this example, use 24000 for the value of FramerateNumerator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
+   */
+  FramerateNumerator?: number;
+
+  /**
+   * Choose the scan line type for the output. Keep the default value, Progressive (PROGRESSIVE) to create a progressive output, regardless of the scan type of your input. Use Top field first (TOP_FIELD) or Bottom field first (BOTTOM_FIELD) to create an output that's interlaced with the same field polarity throughout. Use Follow, default top (FOLLOW_TOP_FIELD) or Follow, default bottom (FOLLOW_BOTTOM_FIELD) to produce outputs with the same field polarity as the source. For jobs that have multiple inputs, the output field polarity might change over the course of the output. Follow behavior depends on the input scan type. If the source is interlaced, the output will be interlaced with the same polarity as the source. If the source is progressive, the output will be interlaced with top field bottom field first, depending on which of the Follow options you choose.
+   */
+  InterlaceMode?: AvcIntraInterlaceMode | string;
+
+  /**
+   * Ignore this setting unless your input frame rate is 23.976 or 24 frames per second (fps). Enable slow PAL to create a 25 fps output. When you enable slow PAL, MediaConvert relabels the video frames to 25 fps and resamples your audio to keep it synchronized with the video. Note that enabling this setting will slightly reduce the duration of your video. Required settings: You must also set Framerate to 25. In your JSON job specification, set (framerateControl) to (SPECIFIED), (framerateNumerator) to 25 and (framerateDenominator) to 1.
+   */
+  SlowPal?: AvcIntraSlowPal | string;
+
+  /**
+   * When you do frame rate conversion from 23.976 frames per second (fps) to 29.97 fps, and your output scan type is interlaced, you can optionally enable hard telecine (HARD) to create a smoother picture. When you keep the default value, None (NONE), MediaConvert does a standard frame rate conversion to 29.97 without doing anything with the field polarity to create a smoother picture.
+   */
+  Telecine?: AvcIntraTelecine | string;
+}
+
+export namespace AvcIntraSettings {
+  export const filterSensitiveLog = (obj: AvcIntraSettings): any => ({
+    ...obj,
+  });
+}
+
 export enum VideoCodec {
   AV1 = "AV1",
+  AVC_INTRA = "AVC_INTRA",
   FRAME_CAPTURE = "FRAME_CAPTURE",
   H_264 = "H_264",
   H_265 = "H_265",
   MPEG2 = "MPEG2",
   PRORES = "PRORES",
+  VC3 = "VC3",
   VP8 = "VP8",
   VP9 = "VP9",
 }
@@ -5024,24 +5312,24 @@ export enum VideoCodec {
  */
 export interface FrameCaptureSettings {
   /**
-   * Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is the 0-based frame sequence number zero padded to 7 decimal places.
-   */
-  FramerateNumerator?: number;
-
-  /**
-   * JPEG Quality - a higher value equals higher quality.
-   */
-  Quality?: number;
-
-  /**
    * Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.n.jpg where n is the 0-based sequence number of each Capture.
    */
   FramerateDenominator?: number;
 
   /**
+   * Frame capture will encode the first frame of the output stream, then one frame every framerateDenominator/framerateNumerator seconds. For example, settings of framerateNumerator = 1 and framerateDenominator = 3 (a rate of 1/3 frame per second) will capture the first frame, then 1 frame every 3s. Files will be named as filename.NNNNNNN.jpg where N is the 0-based frame sequence number zero padded to 7 decimal places.
+   */
+  FramerateNumerator?: number;
+
+  /**
    * Maximum number of captures (encoded jpg output files).
    */
   MaxCaptures?: number;
+
+  /**
+   * JPEG Quality - a higher value equals higher quality.
+   */
+  Quality?: number;
 }
 
 export namespace FrameCaptureSettings {
@@ -5051,6 +5339,7 @@ export namespace FrameCaptureSettings {
 }
 
 export enum H264AdaptiveQuantization {
+  AUTO = "AUTO",
   HIGH = "HIGH",
   HIGHER = "HIGHER",
   LOW = "LOW",
@@ -5115,330 +5404,6 @@ export enum H264FramerateControl {
 
 export enum H264FramerateConversionAlgorithm {
   DUPLICATE_DROP = "DUPLICATE_DROP",
+  FRAMEFORMER = "FRAMEFORMER",
   INTERPOLATE = "INTERPOLATE",
-}
-
-export enum H264GopBReference {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264GopSizeUnits {
-  FRAMES = "FRAMES",
-  SECONDS = "SECONDS",
-}
-
-export enum H264InterlaceMode {
-  BOTTOM_FIELD = "BOTTOM_FIELD",
-  FOLLOW_BOTTOM_FIELD = "FOLLOW_BOTTOM_FIELD",
-  FOLLOW_TOP_FIELD = "FOLLOW_TOP_FIELD",
-  PROGRESSIVE = "PROGRESSIVE",
-  TOP_FIELD = "TOP_FIELD",
-}
-
-export enum H264ParControl {
-  INITIALIZE_FROM_SOURCE = "INITIALIZE_FROM_SOURCE",
-  SPECIFIED = "SPECIFIED",
-}
-
-export enum H264QualityTuningLevel {
-  MULTI_PASS_HQ = "MULTI_PASS_HQ",
-  SINGLE_PASS = "SINGLE_PASS",
-  SINGLE_PASS_HQ = "SINGLE_PASS_HQ",
-}
-
-/**
- * Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
- */
-export interface H264QvbrSettings {
-  /**
-   * Optional. Specify a value here to set the QVBR quality to a level that is between whole numbers. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33. MediaConvert rounds your QVBR quality level to the nearest third of a whole number. For example, if you set qvbrQualityLevel to 7 and you set qvbrQualityLevelFineTune to .25, your actual QVBR quality level is 7.33.
-   */
-  QvbrQualityLevelFineTune?: number;
-
-  /**
-   * Required when you use QVBR rate control mode. That is, when you specify qvbrSettings within h264Settings. Specify the general target quality level for this output, from 1 to 10. Use higher numbers for greater quality. Level 10 results in nearly lossless compression. The quality level for most broadcast-quality transcodes is between 6 and 9. Optionally, to specify a value between whole numbers, also provide a value for the setting qvbrQualityLevelFineTune. For example, if you want your QVBR quality level to be 7.33, set qvbrQualityLevel to 7 and set qvbrQualityLevelFineTune to .33.
-   */
-  QvbrQualityLevel?: number;
-
-  /**
-   * Use this setting only when Rate control mode is QVBR and Quality tuning level is Multi-pass HQ. For Max average bitrate values suited to the complexity of your input video, the service limits the average bitrate of the video part of this output to the value that you choose. That is, the total size of the video element is less than or equal to the value you set multiplied by the number of seconds of encoded output.
-   */
-  MaxAverageBitrate?: number;
-}
-
-export namespace H264QvbrSettings {
-  export const filterSensitiveLog = (obj: H264QvbrSettings): any => ({
-    ...obj,
-  });
-}
-
-export enum H264RateControlMode {
-  CBR = "CBR",
-  QVBR = "QVBR",
-  VBR = "VBR",
-}
-
-export enum H264RepeatPps {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264SceneChangeDetect {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-  TRANSITION_DETECTION = "TRANSITION_DETECTION",
-}
-
-export enum H264SlowPal {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264SpatialAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264Syntax {
-  DEFAULT = "DEFAULT",
-  RP2027 = "RP2027",
-}
-
-export enum H264Telecine {
-  HARD = "HARD",
-  NONE = "NONE",
-  SOFT = "SOFT",
-}
-
-export enum H264TemporalAdaptiveQuantization {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-export enum H264UnregisteredSeiTimecode {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
-}
-
-/**
- * Required when you set (Codec) under (VideoDescription)>(CodecSettings) to the value H_264.
- */
-export interface H264Settings {
-  /**
-   * GOP Length (keyframe interval) in frames or seconds. Must be greater than zero.
-   */
-  GopSize?: number;
-
-  /**
-   * Enables Slow PAL rate conversion. 23.976fps and 24fps input is relabeled as 25fps, and audio is sped up correspondingly.
-   */
-  SlowPal?: H264SlowPal | string;
-
-  /**
-   * Size of buffer (HRD buffer model) in bits. For example, enter five megabits as 5000000.
-   */
-  HrdBufferSize?: number;
-
-  /**
-   * Use Interlace mode (InterlaceMode) to choose the scan line type for the output. * Top Field First (TOP_FIELD) and Bottom Field First (BOTTOM_FIELD) produce interlaced output with the entire output having the same field polarity (top or bottom first). * Follow, Default Top (FOLLOW_TOP_FIELD) and Follow, Default Bottom (FOLLOW_BOTTOM_FIELD) use the same field polarity as the source. Therefore, behavior depends on the input scan type, as follows.
-   *   - If the source is interlaced, the output will be interlaced with the same polarity as the source (it will follow the source). The output could therefore be a mix of "top field first" and "bottom field first".
-   *   - If the source is progressive, the output will be interlaced with "top field first" or "bottom field first" polarity, depending on which of the Follow options you chose.
-   */
-  InterlaceMode?: H264InterlaceMode | string;
-
-  /**
-   * Number of B-frames between reference frames.
-   */
-  NumberBFramesBetweenReferenceFrames?: number;
-
-  /**
-   * If enable, use reference B frames for GOP structures that have B frames > 1.
-   */
-  GopBReference?: H264GopBReference | string;
-
-  /**
-   * Produces a bitstream compliant with SMPTE RP-2027.
-   */
-  Syntax?: H264Syntax | string;
-
-  /**
-   * Choose Adaptive to improve subjective video quality for high-motion content. This will cause the service to use fewer B-frames (which infer information based on other frames) for high-motion portions of the video and more B-frames for low-motion portions. The maximum number of B-frames is limited by the value you provide for the setting B frames between reference frames (numberBFramesBetweenReferenceFrames).
-   */
-  DynamicSubGop?: H264DynamicSubGop | string;
-
-  /**
-   * Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parNumerator is 40.
-   */
-  ParNumerator?: number;
-
-  /**
-   * Choosing FORCE_FIELD disables PAFF encoding for interlaced outputs.
-   */
-  FieldEncoding?: H264FieldEncoding | string;
-
-  /**
-   * H.264 Profile. High 4:2:2 and 10-bit profiles are only available with the AVC-I License.
-   */
-  CodecProfile?: H264CodecProfile | string;
-
-  /**
-   * Number of slices per picture. Must be less than or equal to the number of macroblock rows for progressive pictures, and less than or equal to half the number of macroblock rows for interlaced pictures.
-   */
-  Slices?: number;
-
-  /**
-   * Maximum bitrate in bits/second. For example, enter five megabits per second as 5000000. Required when Rate control mode is QVBR.
-   */
-  MaxBitrate?: number;
-
-  /**
-   * Indicates if the GOP Size in H264 is specified in frames or seconds. If seconds the system will convert the GOP Size into a frame count at run time.
-   */
-  GopSizeUnits?: H264GopSizeUnits | string;
-
-  /**
-   * Enable this setting to insert I-frames at scene changes that the service automatically detects. This improves video quality and is enabled by default. If this output uses QVBR, choose Transition detection (TRANSITION_DETECTION) for further video quality improvement. For more information about QVBR, see https://docs.aws.amazon.com/console/mediaconvert/cbr-vbr-qvbr.
-   */
-  SceneChangeDetect?: H264SceneChangeDetect | string;
-
-  /**
-   * Places a PPS header on each encoded picture, even if repeated.
-   */
-  RepeatPps?: H264RepeatPps | string;
-
-  /**
-   * Inserts timecode for each frame as 4 bytes of an unregistered SEI message.
-   */
-  UnregisteredSeiTimecode?: H264UnregisteredSeiTimecode | string;
-
-  /**
-   * Optional. Use Quality tuning level (qualityTuningLevel) to choose how you want to trade off encoding speed for output video quality. The default behavior is faster, lower quality, single-pass encoding.
-   */
-  QualityTuningLevel?: H264QualityTuningLevel | string;
-
-  /**
-   * Entropy encoding mode. Use CABAC (must be in Main or High profile) or CAVLC.
-   */
-  EntropyEncoding?: H264EntropyEncoding | string;
-
-  /**
-   * Percentage of the buffer that should initially be filled (HRD buffer model).
-   */
-  HrdBufferInitialFillPercentage?: number;
-
-  /**
-   * Optional. Specify how the transcoder performs framerate conversion. The default behavior is to use duplicate drop conversion.
-   */
-  FramerateConversionAlgorithm?: H264FramerateConversionAlgorithm | string;
-
-  /**
-   * Use this setting to specify whether this output has a variable bitrate (VBR), constant bitrate (CBR) or quality-defined variable bitrate (QVBR).
-   */
-  RateControlMode?: H264RateControlMode | string;
-
-  /**
-   * Number of reference frames to use. The encoder may use more than requested if using B-frames and/or interlaced encoding.
-   */
-  NumberReferenceFrames?: number;
-
-  /**
-   * Adjust quantization within each frame based on temporal variation of content complexity.
-   */
-  TemporalAdaptiveQuantization?: H264TemporalAdaptiveQuantization | string;
-
-  /**
-   * Adjust quantization within each frame based on spatial variation of content complexity.
-   */
-  SpatialAdaptiveQuantization?: H264SpatialAdaptiveQuantization | string;
-
-  /**
-   * Adjust quantization within each frame to reduce flicker or 'pop' on I-frames.
-   */
-  FlickerAdaptiveQuantization?: H264FlickerAdaptiveQuantization | string;
-
-  /**
-   * This field applies only if the Streams > Advanced > Framerate (framerate) field  is set to 29.970. This field works with the Streams > Advanced > Preprocessors > Deinterlacer  field (deinterlace_mode) and the Streams > Advanced > Interlaced Mode field (interlace_mode)  to identify the scan type for the output: Progressive, Interlaced, Hard Telecine or Soft Telecine. - Hard: produces 29.97i output from 23.976 input. - Soft: produces 23.976; the player converts this output to 29.97i.
-   */
-  Telecine?: H264Telecine | string;
-
-  /**
-   * Optional. Specify how the service determines the pixel aspect ratio (PAR) for this output. The default behavior, Follow source (INITIALIZE_FROM_SOURCE), uses the PAR from your input video for your output. To specify a different PAR in the console, choose any value other than Follow source. To specify a different PAR by editing the JSON job specification, choose SPECIFIED. When you choose SPECIFIED for this setting, you must also specify values for the parNumerator and parDenominator settings.
-   */
-  ParControl?: H264ParControl | string;
-
-  /**
-   * Settings for quality-defined variable bitrate encoding with the H.264 codec. Required when you set Rate control mode to QVBR. Not valid when you set Rate control mode to a value other than QVBR, or when you don't define Rate control mode.
-   */
-  QvbrSettings?: H264QvbrSettings;
-
-  /**
-   * Softness. Selects quantizer matrix, larger values reduce high-frequency content in the encoded image.
-   */
-  Softness?: number;
-
-  /**
-   * Frame rate numerator - frame rate is a fraction, e.g. 24000 / 1001 = 23.976 fps.
-   */
-  FramerateNumerator?: number;
-
-  /**
-   * Specify the average bitrate in bits per second. Required for VBR and CBR. For MS Smooth outputs, bitrates must be unique when rounded down to the nearest multiple of 1000.
-   */
-  Bitrate?: number;
-
-  /**
-   * Frequency of closed GOPs. In streaming applications, it is recommended that this be set to 1 so a decoder joining mid-stream will receive an IDR frame as quickly as possible. Setting this value to 0 will break output segmenting.
-   */
-  GopClosedCadence?: number;
-
-  /**
-   * Specify an H.264 level that is consistent with your output video settings. If you aren't sure what level to specify, choose Auto (AUTO).
-   */
-  CodecLevel?: H264CodecLevel | string;
-
-  /**
-   * Adaptive quantization. Allows intra-frame quantizers to vary to improve visual quality.
-   */
-  AdaptiveQuantization?: H264AdaptiveQuantization | string;
-
-  /**
-   * When you use the API for transcode jobs that use frame rate conversion, specify the frame rate as a fraction. For example,  24000 / 1001 = 23.976 fps. Use FramerateDenominator to specify the denominator of this fraction. In this example, use 1001 for the value of FramerateDenominator. When you use the console for transcode jobs that use frame rate conversion, provide the value as a decimal number for Framerate. In this example, specify 23.976.
-   */
-  FramerateDenominator?: number;
-
-  /**
-   * If you are using the console, use the Framerate setting to specify the frame rate for this output. If you want to keep the same frame rate as the input video, choose Follow source. If you want to do frame rate conversion, choose a frame rate from the dropdown list or choose Custom. The framerates shown in the dropdown list are decimal approximations of fractions. If you choose Custom, specify your frame rate as a fraction. If you are creating your transcoding job specification as a JSON file without the console, use FramerateControl to specify which value the service uses for the frame rate for this output. Choose INITIALIZE_FROM_SOURCE if you want the service to use the frame rate from the input. Choose SPECIFIED if you want the service to use the frame rate you specify in the settings FramerateNumerator and FramerateDenominator.
-   */
-  FramerateControl?: H264FramerateControl | string;
-
-  /**
-   * Required when you set Pixel aspect ratio (parControl) to SPECIFIED. On the console, this corresponds to any value other than Follow source. When you specify an output pixel aspect ratio (PAR) that is different from your input video PAR, provide your output PAR as a ratio. For example, for D1/DV NTSC widescreen, you would specify the ratio 40:33. In this example, the value for parDenominator is 33.
-   */
-  ParDenominator?: number;
-
-  /**
-   * Enforces separation between repeated (cadence) I-frames and I-frames inserted by Scene Change Detection. If a scene change I-frame is within I-interval frames of a cadence I-frame, the GOP is shrunk and/or stretched to the scene change I-frame. GOP stretch requires enabling lookahead as well as setting I-interval. The normal cadence resumes for the next GOP. This setting is only used when Scene Change Detect is enabled. Note: Maximum GOP stretch = GOP size + Min-I-interval - 1
-   */
-  MinIInterval?: number;
-}
-
-export namespace H264Settings {
-  export const filterSensitiveLog = (obj: H264Settings): any => ({
-    ...obj,
-  });
-}
-
-export enum H265AdaptiveQuantization {
-  HIGH = "HIGH",
-  HIGHER = "HIGHER",
-  LOW = "LOW",
-  MAX = "MAX",
-  MEDIUM = "MEDIUM",
-  OFF = "OFF",
-}
-
-export enum H265AlternateTransferFunctionSei {
-  DISABLED = "DISABLED",
-  ENABLED = "ENABLED",
 }

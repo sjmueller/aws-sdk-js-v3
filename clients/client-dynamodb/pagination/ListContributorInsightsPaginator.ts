@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListContributorInsightsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListContributorInsightsCommand(input, ...args));
+  return await client.send(new ListContributorInsightsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DynamoDB,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listContributorInsights(input, ...args);
 };
-export async function* listContributorInsightsPaginate(
+export async function* paginateListContributorInsights(
   config: DynamoDBPaginationConfiguration,
   input: ListContributorInsightsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListContributorInsightsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListContributorInsightsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof DynamoDB) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listContributorInsightsPaginate(
       throw new Error("Invalid client, expected DynamoDB | DynamoDBClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

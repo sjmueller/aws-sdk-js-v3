@@ -83,10 +83,12 @@ import {
   AutoMLConfig,
   AutoMLResult,
   BatchInferenceJob,
+  BatchInferenceJobConfig,
   BatchInferenceJobInput,
   BatchInferenceJobOutput,
   BatchInferenceJobSummary,
   Campaign,
+  CampaignConfig,
   CampaignSummary,
   CampaignUpdateSummary,
   CategoricalHyperParameterRange,
@@ -782,7 +784,7 @@ export const deserializeAws_json1_1CreateBatchInferenceJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBatchInferenceJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateBatchInferenceJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -869,7 +871,7 @@ export const deserializeAws_json1_1CreateCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCampaignCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateCampaignCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -956,7 +958,7 @@ export const deserializeAws_json1_1CreateDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDatasetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1043,7 +1045,7 @@ export const deserializeAws_json1_1CreateDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDatasetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1114,7 +1116,7 @@ export const deserializeAws_json1_1CreateDatasetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetImportJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDatasetImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1201,7 +1203,7 @@ export const deserializeAws_json1_1CreateEventTrackerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEventTrackerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateEventTrackerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1288,7 +1290,7 @@ export const deserializeAws_json1_1CreateFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFilterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1367,7 +1369,7 @@ export const deserializeAws_json1_1CreateSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSchemaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateSchemaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1438,7 +1440,7 @@ export const deserializeAws_json1_1CreateSolutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSolutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateSolutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1525,7 +1527,7 @@ export const deserializeAws_json1_1CreateSolutionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSolutionVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateSolutionVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1555,6 +1557,14 @@ const deserializeAws_json1_1CreateSolutionVersionCommandError = async (
     case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.personalize#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1596,7 +1606,7 @@ export const deserializeAws_json1_1DeleteCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCampaignCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteCampaignCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1664,7 +1674,7 @@ export const deserializeAws_json1_1DeleteDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDatasetCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1732,7 +1742,7 @@ export const deserializeAws_json1_1DeleteDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDatasetGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1800,7 +1810,7 @@ export const deserializeAws_json1_1DeleteEventTrackerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventTrackerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteEventTrackerCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1868,7 +1878,7 @@ export const deserializeAws_json1_1DeleteFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFilterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteFilterCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1895,6 +1905,14 @@ const deserializeAws_json1_1DeleteFilterCommandError = async (
     case "com.amazonaws.personalize#InvalidInputException":
       response = {
         ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceInUseException":
+    case "com.amazonaws.personalize#ResourceInUseException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceInUseExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1928,7 +1946,7 @@ export const deserializeAws_json1_1DeleteSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSchemaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSchemaCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1996,7 +2014,7 @@ export const deserializeAws_json1_1DeleteSolutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSolutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSolutionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2064,7 +2082,7 @@ export const deserializeAws_json1_1DescribeAlgorithmCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAlgorithmCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAlgorithmCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2127,7 +2145,7 @@ export const deserializeAws_json1_1DescribeBatchInferenceJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBatchInferenceJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeBatchInferenceJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2190,7 +2208,7 @@ export const deserializeAws_json1_1DescribeCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCampaignCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeCampaignCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2253,7 +2271,7 @@ export const deserializeAws_json1_1DescribeDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDatasetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2316,7 +2334,7 @@ export const deserializeAws_json1_1DescribeDatasetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDatasetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2379,7 +2397,7 @@ export const deserializeAws_json1_1DescribeDatasetImportJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetImportJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDatasetImportJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2442,7 +2460,7 @@ export const deserializeAws_json1_1DescribeEventTrackerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEventTrackerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEventTrackerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2505,7 +2523,7 @@ export const deserializeAws_json1_1DescribeFeatureTransformationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFeatureTransformationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeFeatureTransformationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2568,7 +2586,7 @@ export const deserializeAws_json1_1DescribeFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFilterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2631,7 +2649,7 @@ export const deserializeAws_json1_1DescribeRecipeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRecipeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeRecipeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2694,7 +2712,7 @@ export const deserializeAws_json1_1DescribeSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSchemaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeSchemaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2757,7 +2775,7 @@ export const deserializeAws_json1_1DescribeSolutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSolutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeSolutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2820,7 +2838,7 @@ export const deserializeAws_json1_1DescribeSolutionVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSolutionVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeSolutionVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2883,7 +2901,7 @@ export const deserializeAws_json1_1GetSolutionMetricsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSolutionMetricsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSolutionMetricsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2954,7 +2972,7 @@ export const deserializeAws_json1_1ListBatchInferenceJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBatchInferenceJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListBatchInferenceJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3017,7 +3035,7 @@ export const deserializeAws_json1_1ListCampaignsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCampaignsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListCampaignsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3080,7 +3098,7 @@ export const deserializeAws_json1_1ListDatasetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListDatasetGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3135,7 +3153,7 @@ export const deserializeAws_json1_1ListDatasetImportJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetImportJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListDatasetImportJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3198,7 +3216,7 @@ export const deserializeAws_json1_1ListDatasetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListDatasetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3261,7 +3279,7 @@ export const deserializeAws_json1_1ListEventTrackersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEventTrackersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListEventTrackersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3324,7 +3342,7 @@ export const deserializeAws_json1_1ListFiltersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFiltersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListFiltersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3387,7 +3405,7 @@ export const deserializeAws_json1_1ListRecipesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecipesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRecipesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3442,7 +3460,7 @@ export const deserializeAws_json1_1ListSchemasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSchemasCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSchemasCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3497,7 +3515,7 @@ export const deserializeAws_json1_1ListSolutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSolutionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSolutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3560,7 +3578,7 @@ export const deserializeAws_json1_1ListSolutionVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSolutionVersionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSolutionVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3631,7 +3649,7 @@ export const deserializeAws_json1_1UpdateCampaignCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCampaignCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateCampaignCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3799,6 +3817,14 @@ const serializeAws_json1_1AutoMLConfig = (input: AutoMLConfig, context: __SerdeC
   };
 };
 
+const serializeAws_json1_1BatchInferenceJobConfig = (input: BatchInferenceJobConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.itemExplorationConfig !== undefined && {
+      itemExplorationConfig: serializeAws_json1_1HyperParameters(input.itemExplorationConfig, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1BatchInferenceJobInput = (input: BatchInferenceJobInput, context: __SerdeContext): any => {
   return {
     ...(input.s3DataSource !== undefined && {
@@ -3811,6 +3837,14 @@ const serializeAws_json1_1BatchInferenceJobOutput = (input: BatchInferenceJobOut
   return {
     ...(input.s3DataDestination !== undefined && {
       s3DataDestination: serializeAws_json1_1S3DataConfig(input.s3DataDestination, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1CampaignConfig = (input: CampaignConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.itemExplorationConfig !== undefined && {
+      itemExplorationConfig: serializeAws_json1_1HyperParameters(input.itemExplorationConfig, context),
     }),
   };
 };
@@ -3859,6 +3893,9 @@ const serializeAws_json1_1CreateBatchInferenceJobRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.batchInferenceJobConfig !== undefined && {
+      batchInferenceJobConfig: serializeAws_json1_1BatchInferenceJobConfig(input.batchInferenceJobConfig, context),
+    }),
     ...(input.filterArn !== undefined && { filterArn: input.filterArn }),
     ...(input.jobInput !== undefined && {
       jobInput: serializeAws_json1_1BatchInferenceJobInput(input.jobInput, context),
@@ -3875,6 +3912,9 @@ const serializeAws_json1_1CreateBatchInferenceJobRequest = (
 
 const serializeAws_json1_1CreateCampaignRequest = (input: CreateCampaignRequest, context: __SerdeContext): any => {
   return {
+    ...(input.campaignConfig !== undefined && {
+      campaignConfig: serializeAws_json1_1CampaignConfig(input.campaignConfig, context),
+    }),
     ...(input.minProvisionedTPS !== undefined && { minProvisionedTPS: input.minProvisionedTPS }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.solutionVersionArn !== undefined && { solutionVersionArn: input.solutionVersionArn }),
@@ -4350,6 +4390,9 @@ const serializeAws_json1_1SolutionConfig = (input: SolutionConfig, context: __Se
 const serializeAws_json1_1UpdateCampaignRequest = (input: UpdateCampaignRequest, context: __SerdeContext): any => {
   return {
     ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn }),
+    ...(input.campaignConfig !== undefined && {
+      campaignConfig: serializeAws_json1_1CampaignConfig(input.campaignConfig, context),
+    }),
     ...(input.minProvisionedTPS !== undefined && { minProvisionedTPS: input.minProvisionedTPS }),
     ...(input.solutionVersionArn !== undefined && { solutionVersionArn: input.solutionVersionArn }),
   };
@@ -4425,6 +4468,10 @@ const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeCo
       output.batchInferenceJobArn !== undefined && output.batchInferenceJobArn !== null
         ? output.batchInferenceJobArn
         : undefined,
+    batchInferenceJobConfig:
+      output.batchInferenceJobConfig !== undefined && output.batchInferenceJobConfig !== null
+        ? deserializeAws_json1_1BatchInferenceJobConfig(output.batchInferenceJobConfig, context)
+        : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -4452,6 +4499,18 @@ const deserializeAws_json1_1BatchInferenceJob = (output: any, context: __SerdeCo
         ? output.solutionVersionArn
         : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1BatchInferenceJobConfig = (
+  output: any,
+  context: __SerdeContext
+): BatchInferenceJobConfig => {
+  return {
+    itemExplorationConfig:
+      output.itemExplorationConfig !== undefined && output.itemExplorationConfig !== null
+        ? deserializeAws_json1_1HyperParameters(output.itemExplorationConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -4511,6 +4570,10 @@ const deserializeAws_json1_1BatchInferenceJobSummary = (
 const deserializeAws_json1_1Campaign = (output: any, context: __SerdeContext): Campaign => {
   return {
     campaignArn: output.campaignArn !== undefined && output.campaignArn !== null ? output.campaignArn : undefined,
+    campaignConfig:
+      output.campaignConfig !== undefined && output.campaignConfig !== null
+        ? deserializeAws_json1_1CampaignConfig(output.campaignConfig, context)
+        : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))
@@ -4538,6 +4601,15 @@ const deserializeAws_json1_1Campaign = (output: any, context: __SerdeContext): C
   } as any;
 };
 
+const deserializeAws_json1_1CampaignConfig = (output: any, context: __SerdeContext): CampaignConfig => {
+  return {
+    itemExplorationConfig:
+      output.itemExplorationConfig !== undefined && output.itemExplorationConfig !== null
+        ? deserializeAws_json1_1HyperParameters(output.itemExplorationConfig, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Campaigns = (output: any, context: __SerdeContext): CampaignSummary[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1CampaignSummary(entry, context));
 };
@@ -4562,6 +4634,10 @@ const deserializeAws_json1_1CampaignSummary = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1CampaignUpdateSummary = (output: any, context: __SerdeContext): CampaignUpdateSummary => {
   return {
+    campaignConfig:
+      output.campaignConfig !== undefined && output.campaignConfig !== null
+        ? deserializeAws_json1_1CampaignConfig(output.campaignConfig, context)
+        : undefined,
     creationDateTime:
       output.creationDateTime !== undefined && output.creationDateTime !== null
         ? new Date(Math.round(output.creationDateTime * 1000))

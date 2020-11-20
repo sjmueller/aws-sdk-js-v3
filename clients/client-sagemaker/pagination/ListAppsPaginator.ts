@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAppsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAppsCommand(input, ...args));
+  return await client.send(new ListAppsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SageMaker,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listApps(input, ...args);
 };
-export async function* listAppsPaginate(
+export async function* paginateListApps(
   config: SageMakerPaginationConfiguration,
   input: ListAppsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAppsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAppsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SageMaker) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listAppsPaginate(
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

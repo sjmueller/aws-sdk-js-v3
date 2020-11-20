@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeMovingAddressesRequest, DescribeMovingAddressesResult } from "../models/models_2";
+import { DescribeMovingAddressesRequest, DescribeMovingAddressesResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribeMovingAddressesCommand,
   serializeAws_ec2DescribeMovingAddressesCommand,
@@ -44,11 +44,23 @@ export class DescribeMovingAddressesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeMovingAddressesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeMovingAddressesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeMovingAddressesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

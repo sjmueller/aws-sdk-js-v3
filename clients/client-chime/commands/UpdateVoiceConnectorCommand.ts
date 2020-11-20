@@ -1,5 +1,5 @@
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
-import { UpdateVoiceConnectorRequest, UpdateVoiceConnectorResponse } from "../models/models_0";
+import { UpdateVoiceConnectorRequest, UpdateVoiceConnectorResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateVoiceConnectorCommand,
   serializeAws_restJson1UpdateVoiceConnectorCommand,
@@ -44,11 +44,23 @@ export class UpdateVoiceConnectorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "UpdateVoiceConnectorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateVoiceConnectorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateVoiceConnectorResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

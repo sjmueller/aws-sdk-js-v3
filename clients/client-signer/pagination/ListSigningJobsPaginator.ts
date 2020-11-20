@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSigningJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSigningJobsCommand(input, ...args));
+  return await client.send(new ListSigningJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Signer,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSigningJobs(input, ...args);
 };
-export async function* listSigningJobsPaginate(
+export async function* paginateListSigningJobs(
   config: SignerPaginationConfiguration,
   input: ListSigningJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSigningJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSigningJobsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Signer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listSigningJobsPaginate(
       throw new Error("Invalid client, expected Signer | SignerClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

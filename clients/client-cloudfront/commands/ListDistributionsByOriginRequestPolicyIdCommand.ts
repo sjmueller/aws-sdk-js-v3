@@ -2,7 +2,7 @@ import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   ListDistributionsByOriginRequestPolicyIdRequest,
   ListDistributionsByOriginRequestPolicyIdResult,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand,
   serializeAws_restXmlListDistributionsByOriginRequestPolicyIdCommand,
@@ -51,11 +51,23 @@ export class ListDistributionsByOriginRequestPolicyIdCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "ListDistributionsByOriginRequestPolicyIdCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListDistributionsByOriginRequestPolicyIdRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDistributionsByOriginRequestPolicyIdResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

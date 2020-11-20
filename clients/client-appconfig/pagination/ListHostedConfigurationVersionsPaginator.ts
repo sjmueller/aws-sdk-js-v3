@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListHostedConfigurationVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListHostedConfigurationVersionsCommand(input, ...args));
+  return await client.send(new ListHostedConfigurationVersionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AppConfig,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listHostedConfigurationVersions(input, ...args);
 };
-export async function* listHostedConfigurationVersionsPaginate(
+export async function* paginateListHostedConfigurationVersions(
   config: AppConfigPaginationConfiguration,
   input: ListHostedConfigurationVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListHostedConfigurationVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListHostedConfigurationVersionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof AppConfig) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listHostedConfigurationVersionsPaginate(
       throw new Error("Invalid client, expected AppConfig | AppConfigClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

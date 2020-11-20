@@ -44,11 +44,23 @@ export class StartKeyPhrasesDetectionJobCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ComprehendClient";
+    const commandName = "StartKeyPhrasesDetectionJobCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartKeyPhrasesDetectionJobRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartKeyPhrasesDetectionJobResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

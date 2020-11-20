@@ -48,6 +48,11 @@ import {
   DescribeEndpointsCommandOutput,
 } from "./commands/DescribeEndpointsCommand";
 import {
+  DescribeExportCommand,
+  DescribeExportCommandInput,
+  DescribeExportCommandOutput,
+} from "./commands/DescribeExportCommand";
+import {
   DescribeGlobalTableCommand,
   DescribeGlobalTableCommandInput,
   DescribeGlobalTableCommandOutput,
@@ -77,6 +82,11 @@ import {
   DescribeTimeToLiveCommandInput,
   DescribeTimeToLiveCommandOutput,
 } from "./commands/DescribeTimeToLiveCommand";
+import {
+  ExportTableToPointInTimeCommand,
+  ExportTableToPointInTimeCommandInput,
+  ExportTableToPointInTimeCommandOutput,
+} from "./commands/ExportTableToPointInTimeCommand";
 import { GetItemCommand, GetItemCommandInput, GetItemCommandOutput } from "./commands/GetItemCommand";
 import { ListBackupsCommand, ListBackupsCommandInput, ListBackupsCommandOutput } from "./commands/ListBackupsCommand";
 import {
@@ -84,6 +94,7 @@ import {
   ListContributorInsightsCommandInput,
   ListContributorInsightsCommandOutput,
 } from "./commands/ListContributorInsightsCommand";
+import { ListExportsCommand, ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import {
   ListGlobalTablesCommand,
   ListGlobalTablesCommandInput,
@@ -798,6 +809,38 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * <p>Describes an existing table export.</p>
+   */
+  public describeExport(
+    args: DescribeExportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeExportCommandOutput>;
+  public describeExport(
+    args: DescribeExportCommandInput,
+    cb: (err: any, data?: DescribeExportCommandOutput) => void
+  ): void;
+  public describeExport(
+    args: DescribeExportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeExportCommandOutput) => void
+  ): void;
+  public describeExport(
+    args: DescribeExportCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeExportCommandOutput) => void),
+    cb?: (err: any, data?: DescribeExportCommandOutput) => void
+  ): Promise<DescribeExportCommandOutput> | void {
+    const command = new DescribeExportCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns information about the specified global table.</p>
    *           <note>
    *             <p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.
@@ -869,27 +912,26 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   * <p>Returns the current provisioned-capacity limits for your AWS account in a Region, both
+   * <p>Returns the current provisioned-capacity quotas for your AWS account in a Region, both
    *             for the Region as a whole and for any one DynamoDB table that you create there.</p>
-   *          <p>When you establish an AWS account, the account has initial limits on the maximum read
+   *          <p>When you establish an AWS account, the account has initial quotas on the maximum read
    *             capacity units and write capacity units that you can provision across all of your
-   *             DynamoDB tables in a given Region. Also, there are per-table limits that apply when you
-   *             create a table there. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> page in the
-   *                 <i>Amazon DynamoDB Developer Guide</i>.</p>
+   *             DynamoDB tables in a given Region. Also, there are per-table quotas that apply when you
+   *             create a table there. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table
+   *                 Quotas</a> page in the <i>Amazon DynamoDB Developer
+   *             Guide</i>.</p>
    *
-   *          <p>Although you can increase these limits by filing a case at
-   *       <a href="https://console.aws.amazon.com/support/home#/">AWS Support Center</a>,
-   *        obtaining the increase is not instantaneous.  The <code>DescribeLimits</code>
-   *        action lets you write code to compare the capacity you are currently using to those limits
-   *        imposed by your account so that you have enough time to apply for an increase before you hit
-   *        a limit.</p>
+   *          <p>Although you can increase these quotas by filing a case at <a href="https://console.aws.amazon.com/support/home#/">AWS Support Center</a>, obtaining the increase is not
+   *             instantaneous. The <code>DescribeLimits</code> action lets you write code to compare the
+   *             capacity you are currently using to those quotas imposed by your account so that you
+   *             have enough time to apply for an increase before you hit a quota.</p>
    *
    *          <p>For example, you could use one of the AWS SDKs to do the following:</p>
    *
    *          <ol>
    *             <li>
    *                <p>Call <code>DescribeLimits</code> for a particular Region to obtain your current
-   *                     account limits on provisioned capacity there.</p>
+   *                     account quotas on provisioned capacity there.</p>
    *             </li>
    *             <li>
    *                <p>Create a variable to hold the aggregate read capacity units provisioned for all
@@ -915,17 +957,19 @@ export class DynamoDB extends DynamoDBClient {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Report the account limits for that Region returned by <code>DescribeLimits</code>, along with
+   *                <p>Report the account quotas for that Region returned by <code>DescribeLimits</code>, along with
    *                     the total current provisioned capacity levels you have calculated.</p>
    *             </li>
    *          </ol>
    *
-   *          <p>This will let you see whether you are getting close to your account-level limits.</p>
-   *          <p>The per-table limits apply only when you are creating a new table. They restrict the sum of the provisioned capacity of the new table itself and all its global secondary indexes.</p>
+   *          <p>This will let you see whether you are getting close to your account-level quotas.</p>
+   *          <p>The per-table quotas apply only when you are creating a new table. They restrict the sum
+   *             of the provisioned capacity of the new table itself and all its global secondary
+   *             indexes.</p>
    *          <p>For existing tables and their GSIs, DynamoDB doesn't let you increase provisioned
-   *             capacity extremely rapidly. But the only upper limit that applies is that the aggregate
+   *             capacity extremely rapidly, but the only quota that applies is that the aggregate
    *             provisioned capacity over all your tables and GSIs cannot exceed either of the
-   *             per-account limits.</p>
+   *             per-account quotas.</p>
    *          <note>
    *             <p>
    *                <code>DescribeLimits</code> should only be called periodically. You can expect throttling
@@ -1068,6 +1112,40 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
+   * <p>Exports table data to an S3 bucket. The table must have point in time recovery
+   *             enabled, and you can export data from any time within the point in time recovery
+   *             window.</p>
+   */
+  public exportTableToPointInTime(
+    args: ExportTableToPointInTimeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportTableToPointInTimeCommandOutput>;
+  public exportTableToPointInTime(
+    args: ExportTableToPointInTimeCommandInput,
+    cb: (err: any, data?: ExportTableToPointInTimeCommandOutput) => void
+  ): void;
+  public exportTableToPointInTime(
+    args: ExportTableToPointInTimeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportTableToPointInTimeCommandOutput) => void
+  ): void;
+  public exportTableToPointInTime(
+    args: ExportTableToPointInTimeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExportTableToPointInTimeCommandOutput) => void),
+    cb?: (err: any, data?: ExportTableToPointInTimeCommandOutput) => void
+  ): Promise<ExportTableToPointInTimeCommandOutput> | void {
+    const command = new ExportTableToPointInTimeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>The <code>GetItem</code> operation returns a set of attributes for the item with the given primary
    *           key. If there is no matching item, <code>GetItem</code> does not return any data and there will be no <code>Item</code> element in the response.</p>
    *          <p>
@@ -1102,10 +1180,10 @@ export class DynamoDB extends DynamoDBClient {
   /**
    * <p>List backups associated with an AWS account. To list backups for a given table, specify
    *                 <code>TableName</code>. <code>ListBackups</code> returns a paginated list of results
-   *             with at most 1 MB worth of items in a page. You can also specify a limit for the maximum
-   *             number of entries to be returned in a page. </p>
+   *             with at most 1 MB worth of items in a page. You can also specify a maximum number of
+   *             entries to be returned in a page. </p>
    *          <p>In the request, start time is inclusive, but end time is exclusive. Note that these
-   *             limits are for the time at which the original backup was requested.</p>
+   *             boundaries are for the time at which the original backup was requested.</p>
    *          <p>You can call <code>ListBackups</code> a maximum of five times per second.</p>
    */
   public listBackups(args: ListBackupsCommandInput, options?: __HttpHandlerOptions): Promise<ListBackupsCommandOutput>;
@@ -1153,6 +1231,32 @@ export class DynamoDB extends DynamoDBClient {
     cb?: (err: any, data?: ListContributorInsightsCommandOutput) => void
   ): Promise<ListContributorInsightsCommandOutput> | void {
     const command = new ListContributorInsightsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists completed exports within the past 90 days.</p>
+   */
+  public listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
+  public listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
+  public listExports(
+    args: ListExportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListExportsCommandOutput) => void
+  ): void;
+  public listExports(
+    args: ListExportsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListExportsCommandOutput) => void),
+    cb?: (err: any, data?: ListExportsCommandOutput) => void
+  ): Promise<ListExportsCommandOutput> | void {
+    const command = new ListExportsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

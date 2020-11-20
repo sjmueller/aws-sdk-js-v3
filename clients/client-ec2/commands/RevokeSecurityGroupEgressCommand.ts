@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { RevokeSecurityGroupEgressRequest } from "../models/models_4";
+import { RevokeSecurityGroupEgressRequest, RevokeSecurityGroupEgressResult } from "../models/models_4";
 import {
   deserializeAws_ec2RevokeSecurityGroupEgressCommand,
   serializeAws_ec2RevokeSecurityGroupEgressCommand,
@@ -18,7 +18,7 @@ import {
 } from "@aws-sdk/types";
 
 export type RevokeSecurityGroupEgressCommandInput = RevokeSecurityGroupEgressRequest;
-export type RevokeSecurityGroupEgressCommandOutput = __MetadataBearer;
+export type RevokeSecurityGroupEgressCommandOutput = RevokeSecurityGroupEgressResult & __MetadataBearer;
 
 export class RevokeSecurityGroupEgressCommand extends $Command<
   RevokeSecurityGroupEgressCommandInput,
@@ -44,11 +44,23 @@ export class RevokeSecurityGroupEgressCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "RevokeSecurityGroupEgressCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RevokeSecurityGroupEgressRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: RevokeSecurityGroupEgressResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

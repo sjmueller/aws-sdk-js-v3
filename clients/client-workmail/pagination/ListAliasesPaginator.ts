@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAliasesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAliasesCommand(input, ...args));
+  return await client.send(new ListAliasesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: WorkMail,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAliases(input, ...args);
 };
-export async function* listAliasesPaginate(
+export async function* paginateListAliases(
   config: WorkMailPaginationConfiguration,
   input: ListAliasesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAliasesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAliasesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof WorkMail) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listAliasesPaginate(
       throw new Error("Invalid client, expected WorkMail | WorkMailClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

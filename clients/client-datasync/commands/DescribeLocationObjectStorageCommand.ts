@@ -44,11 +44,23 @@ export class DescribeLocationObjectStorageCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataSyncClient";
+    const commandName = "DescribeLocationObjectStorageCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeLocationObjectStorageRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLocationObjectStorageResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

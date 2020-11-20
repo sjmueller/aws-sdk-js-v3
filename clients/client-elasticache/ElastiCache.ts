@@ -64,6 +64,12 @@ import {
   CreateSnapshotCommandInput,
   CreateSnapshotCommandOutput,
 } from "./commands/CreateSnapshotCommand";
+import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import {
+  CreateUserGroupCommand,
+  CreateUserGroupCommandInput,
+  CreateUserGroupCommandOutput,
+} from "./commands/CreateUserGroupCommand";
 import {
   DecreaseNodeGroupsInGlobalReplicationGroupCommand,
   DecreaseNodeGroupsInGlobalReplicationGroupCommandInput,
@@ -109,6 +115,12 @@ import {
   DeleteSnapshotCommandInput,
   DeleteSnapshotCommandOutput,
 } from "./commands/DeleteSnapshotCommand";
+import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DeleteUserGroupCommand,
+  DeleteUserGroupCommandInput,
+  DeleteUserGroupCommandOutput,
+} from "./commands/DeleteUserGroupCommand";
 import {
   DescribeCacheClustersCommand,
   DescribeCacheClustersCommandInput,
@@ -185,6 +197,16 @@ import {
   DescribeUpdateActionsCommandOutput,
 } from "./commands/DescribeUpdateActionsCommand";
 import {
+  DescribeUserGroupsCommand,
+  DescribeUserGroupsCommandInput,
+  DescribeUserGroupsCommandOutput,
+} from "./commands/DescribeUserGroupsCommand";
+import {
+  DescribeUsersCommand,
+  DescribeUsersCommandInput,
+  DescribeUsersCommandOutput,
+} from "./commands/DescribeUsersCommand";
+import {
   DisassociateGlobalReplicationGroupCommand,
   DisassociateGlobalReplicationGroupCommandInput,
   DisassociateGlobalReplicationGroupCommandOutput,
@@ -244,6 +266,12 @@ import {
   ModifyReplicationGroupShardConfigurationCommandInput,
   ModifyReplicationGroupShardConfigurationCommandOutput,
 } from "./commands/ModifyReplicationGroupShardConfigurationCommand";
+import { ModifyUserCommand, ModifyUserCommandInput, ModifyUserCommandOutput } from "./commands/ModifyUserCommand";
+import {
+  ModifyUserGroupCommand,
+  ModifyUserGroupCommandInput,
+  ModifyUserGroupCommandOutput,
+} from "./commands/ModifyUserGroupCommand";
 import {
   PurchaseReservedCacheNodesOfferingCommand,
   PurchaseReservedCacheNodesOfferingCommandInput,
@@ -810,6 +838,8 @@ export class ElastiCache extends ElastiCacheClient {
    *             If you need to increase or decrease the number of node groups (console: shards),
    *             you can avail yourself of ElastiCache for Redis' scaling. For more information,
    *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html">Scaling ElastiCache for Redis Clusters</a> in the <i>ElastiCache User Guide</i>.</p>
+   *
+   *
    *         <note>
    *             <p>This operation is valid for Redis only.</p>
    *          </note>
@@ -870,6 +900,65 @@ export class ElastiCache extends ElastiCacheClient {
     cb?: (err: any, data?: CreateSnapshotCommandOutput) => void
   ): Promise<CreateSnapshotCommandOutput> | void {
     const command = new CreateSnapshotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>For Redis engine version 6.x onwards: Creates a Redis user. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>.</p>
+   */
+  public createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
+  public createUser(args: CreateUserCommandInput, cb: (err: any, data?: CreateUserCommandOutput) => void): void;
+  public createUser(
+    args: CreateUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUserCommandOutput) => void
+  ): void;
+  public createUser(
+    args: CreateUserCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserCommandOutput) => void),
+    cb?: (err: any, data?: CreateUserCommandOutput) => void
+  ): Promise<CreateUserCommandOutput> | void {
+    const command = new CreateUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>For Redis engine version 6.x onwards: Creates a Redis user group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>
+   *          </p>
+   */
+  public createUserGroup(
+    args: CreateUserGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateUserGroupCommandOutput>;
+  public createUserGroup(
+    args: CreateUserGroupCommandInput,
+    cb: (err: any, data?: CreateUserGroupCommandOutput) => void
+  ): void;
+  public createUserGroup(
+    args: CreateUserGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateUserGroupCommandOutput) => void
+  ): void;
+  public createUserGroup(
+    args: CreateUserGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateUserGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateUserGroupCommandOutput) => void
+  ): Promise<CreateUserGroupCommandOutput> | void {
+    const command = new CreateUserGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1219,6 +1308,64 @@ export class ElastiCache extends ElastiCacheClient {
     cb?: (err: any, data?: DeleteSnapshotCommandOutput) => void
   ): Promise<DeleteSnapshotCommandOutput> | void {
     const command = new DeleteSnapshotCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>For Redis engine version 6.x onwards: Deletes a user. The user will be removed from all user groups and in turn removed from all replication groups. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
+   */
+  public deleteUser(args: DeleteUserCommandInput, options?: __HttpHandlerOptions): Promise<DeleteUserCommandOutput>;
+  public deleteUser(args: DeleteUserCommandInput, cb: (err: any, data?: DeleteUserCommandOutput) => void): void;
+  public deleteUser(
+    args: DeleteUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUserCommandOutput) => void
+  ): void;
+  public deleteUser(
+    args: DeleteUserCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserCommandOutput) => void),
+    cb?: (err: any, data?: DeleteUserCommandOutput) => void
+  ): Promise<DeleteUserCommandOutput> | void {
+    const command = new DeleteUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>For Redis engine version 6.x onwards: Deletes a ser group. The user group must first be disassociated from the replcation group before it can be deleted. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
+   */
+  public deleteUserGroup(
+    args: DeleteUserGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteUserGroupCommandOutput>;
+  public deleteUserGroup(
+    args: DeleteUserGroupCommandInput,
+    cb: (err: any, data?: DeleteUserGroupCommandOutput) => void
+  ): void;
+  public deleteUserGroup(
+    args: DeleteUserGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteUserGroupCommandOutput) => void
+  ): void;
+  public deleteUserGroup(
+    args: DeleteUserGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteUserGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteUserGroupCommandOutput) => void
+  ): Promise<DeleteUserGroupCommandOutput> | void {
+    const command = new DeleteUserGroupCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1755,6 +1902,70 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * <p>Returns a list of user groups.</p>
+   */
+  public describeUserGroups(
+    args: DescribeUserGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUserGroupsCommandOutput>;
+  public describeUserGroups(
+    args: DescribeUserGroupsCommandInput,
+    cb: (err: any, data?: DescribeUserGroupsCommandOutput) => void
+  ): void;
+  public describeUserGroups(
+    args: DescribeUserGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeUserGroupsCommandOutput) => void
+  ): void;
+  public describeUserGroups(
+    args: DescribeUserGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUserGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeUserGroupsCommandOutput) => void
+  ): Promise<DescribeUserGroupsCommandOutput> | void {
+    const command = new DescribeUserGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of users.</p>
+   */
+  public describeUsers(
+    args: DescribeUsersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeUsersCommandOutput>;
+  public describeUsers(
+    args: DescribeUsersCommandInput,
+    cb: (err: any, data?: DescribeUsersCommandOutput) => void
+  ): void;
+  public describeUsers(
+    args: DescribeUsersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeUsersCommandOutput) => void
+  ): void;
+  public describeUsers(
+    args: DescribeUsersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeUsersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeUsersCommandOutput) => void
+  ): Promise<DescribeUsersCommandOutput> | void {
+    const command = new DescribeUsersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Remove a secondary cluster from the Global Datastore using the Global Datastore name. The secondary cluster will no longer receive updates from the primary cluster, but will remain as a standalone cluster in that AWS region.</p>
    */
   public disassociateGlobalReplicationGroup(
@@ -2178,6 +2389,64 @@ export class ElastiCache extends ElastiCacheClient {
   }
 
   /**
+   * <p>Changes user password(s) and/or access string.</p>
+   */
+  public modifyUser(args: ModifyUserCommandInput, options?: __HttpHandlerOptions): Promise<ModifyUserCommandOutput>;
+  public modifyUser(args: ModifyUserCommandInput, cb: (err: any, data?: ModifyUserCommandOutput) => void): void;
+  public modifyUser(
+    args: ModifyUserCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyUserCommandOutput) => void
+  ): void;
+  public modifyUser(
+    args: ModifyUserCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyUserCommandOutput) => void),
+    cb?: (err: any, data?: ModifyUserCommandOutput) => void
+  ): Promise<ModifyUserCommandOutput> | void {
+    const command = new ModifyUserCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Changes the list of users that belong to the user group.</p>
+   */
+  public modifyUserGroup(
+    args: ModifyUserGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyUserGroupCommandOutput>;
+  public modifyUserGroup(
+    args: ModifyUserGroupCommandInput,
+    cb: (err: any, data?: ModifyUserGroupCommandOutput) => void
+  ): void;
+  public modifyUserGroup(
+    args: ModifyUserGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyUserGroupCommandOutput) => void
+  ): void;
+  public modifyUserGroup(
+    args: ModifyUserGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyUserGroupCommandOutput) => void),
+    cb?: (err: any, data?: ModifyUserGroupCommandOutput) => void
+  ): Promise<ModifyUserGroupCommandOutput> | void {
+    const command = new ModifyUserGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Allows you to purchase a reserved
    *             cache node offering.</p>
    */
@@ -2452,11 +2721,11 @@ export class ElastiCache extends ElastiCacheClient {
    *                      </p>
    *                   </li>
    *                   <li>
-   *                         <p>Cache cluster message: <code>Failover from master node <primary-node-id> to replica node <node-id> completed</code>
+   *                         <p>Cache cluster message: <code>Failover from primary node <primary-node-id> to replica node <node-id> completed</code>
    *                      </p>
    *                   </li>
    *                   <li>
-   *                         <p>Replication group message: <code>Failover from master node <primary-node-id> to replica node <node-id> completed</code>
+   *                         <p>Replication group message: <code>Failover from primary node <primary-node-id> to replica node <node-id> completed</code>
    *                      </p>
    *                   </li>
    *                   <li>

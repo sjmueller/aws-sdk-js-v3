@@ -253,6 +253,8 @@ import {
   MethodSetting,
   MethodSnapshot,
   Model,
+  MutualTlsAuthentication,
+  MutualTlsAuthenticationInput,
   NotFoundException,
   PatchOperation,
   QuotaSettings,
@@ -298,16 +300,10 @@ export const serializeAws_restJson1CreateApiKeyCommand = async (
     ...(input.description !== undefined && { description: input.description }),
     ...(input.enabled !== undefined && { enabled: input.enabled }),
     ...(input.generateDistinctId !== undefined && { generateDistinctId: input.generateDistinctId }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.stageKeys !== undefined && {
       stageKeys: serializeAws_restJson1ListOfStageKeys(input.stageKeys, context),
     }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1MapOfStringToString(input.tags, context) }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
     ...(input.value !== undefined && { value: input.value }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -351,15 +347,9 @@ export const serializeAws_restJson1CreateAuthorizerCommand = async (
     ...(input.identityValidationExpression !== undefined && {
       identityValidationExpression: input.identityValidationExpression,
     }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.providerARNs !== undefined && {
       providerARNs: serializeAws_restJson1ListOfARNs(input.providerARNs, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
     ...(input.type !== undefined && { type: input.type }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -394,14 +384,8 @@ export const serializeAws_restJson1CreateBasePathMappingCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.basePath !== undefined && { basePath: input.basePath }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.restApiId !== undefined && { restApiId: input.restApiId }),
     ...(input.stage !== undefined && { stage: input.stage }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -440,14 +424,8 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
       canarySettings: serializeAws_restJson1DeploymentCanarySettings(input.canarySettings, context),
     }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.stageDescription !== undefined && { stageDescription: input.stageDescription }),
     ...(input.stageName !== undefined && { stageName: input.stageName }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
     ...(input.tracingEnabled !== undefined && { tracingEnabled: input.tracingEnabled }),
     ...(input.variables !== undefined && {
       variables: serializeAws_restJson1MapOfStringToString(input.variables, context),
@@ -487,13 +465,7 @@ export const serializeAws_restJson1CreateDocumentationPartCommand = async (
     ...(input.location !== undefined && {
       location: serializeAws_restJson1DocumentationPartLocation(input.location, context),
     }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.properties !== undefined && { properties: input.properties }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -528,13 +500,7 @@ export const serializeAws_restJson1CreateDocumentationVersionCommand = async (
   body = JSON.stringify({
     ...(input.description !== undefined && { description: input.description }),
     ...(input.documentationVersion !== undefined && { documentationVersion: input.documentationVersion }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.stageName !== undefined && { stageName: input.stageName }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -567,16 +533,16 @@ export const serializeAws_restJson1CreateDomainNameCommand = async (
     ...(input.endpointConfiguration !== undefined && {
       endpointConfiguration: serializeAws_restJson1EndpointConfiguration(input.endpointConfiguration, context),
     }),
-    ...(input.name !== undefined && { name: input.name }),
+    ...(input.mutualTlsAuthentication !== undefined && {
+      mutualTlsAuthentication: serializeAws_restJson1MutualTlsAuthenticationInput(
+        input.mutualTlsAuthentication,
+        context
+      ),
+    }),
     ...(input.regionalCertificateArn !== undefined && { regionalCertificateArn: input.regionalCertificateArn }),
     ...(input.regionalCertificateName !== undefined && { regionalCertificateName: input.regionalCertificateName }),
     ...(input.securityPolicy !== undefined && { securityPolicy: input.securityPolicy }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1MapOfStringToString(input.tags, context) }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -611,13 +577,7 @@ export const serializeAws_restJson1CreateModelCommand = async (
   body = JSON.stringify({
     ...(input.contentType !== undefined && { contentType: input.contentType }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.schema !== undefined && { schema: input.schema }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -650,12 +610,6 @@ export const serializeAws_restJson1CreateRequestValidatorCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
     ...(input.validateRequestBody !== undefined && { validateRequestBody: input.validateRequestBody }),
     ...(input.validateRequestParameters !== undefined && {
       validateRequestParameters: input.validateRequestParameters,
@@ -701,13 +655,7 @@ export const serializeAws_restJson1CreateResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.pathPart !== undefined && { pathPart: input.pathPart }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -737,18 +685,15 @@ export const serializeAws_restJson1CreateRestApiCommand = async (
     }),
     ...(input.cloneFrom !== undefined && { cloneFrom: input.cloneFrom }),
     ...(input.description !== undefined && { description: input.description }),
+    ...(input.disableExecuteApiEndpoint !== undefined && {
+      disableExecuteApiEndpoint: input.disableExecuteApiEndpoint,
+    }),
     ...(input.endpointConfiguration !== undefined && {
       endpointConfiguration: serializeAws_restJson1EndpointConfiguration(input.endpointConfiguration, context),
     }),
     ...(input.minimumCompressionSize !== undefined && { minimumCompressionSize: input.minimumCompressionSize }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.policy !== undefined && { policy: input.policy }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1MapOfStringToString(input.tags, context) }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
     ...(input.version !== undefined && { version: input.version }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -790,14 +735,8 @@ export const serializeAws_restJson1CreateStageCommand = async (
     ...(input.deploymentId !== undefined && { deploymentId: input.deploymentId }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.documentationVersion !== undefined && { documentationVersion: input.documentationVersion }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.stageName !== undefined && { stageName: input.stageName }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1MapOfStringToString(input.tags, context) }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
     ...(input.tracingEnabled !== undefined && { tracingEnabled: input.tracingEnabled }),
     ...(input.variables !== undefined && {
       variables: serializeAws_restJson1MapOfStringToString(input.variables, context),
@@ -827,15 +766,9 @@ export const serializeAws_restJson1CreateUsagePlanCommand = async (
   body = JSON.stringify({
     ...(input.apiStages !== undefined && { apiStages: serializeAws_restJson1ListOfApiStage(input.apiStages, context) }),
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.quota !== undefined && { quota: serializeAws_restJson1QuotaSettings(input.quota, context) }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1MapOfStringToString(input.tags, context) }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
     ...(input.throttle !== undefined && { throttle: serializeAws_restJson1ThrottleSettings(input.throttle, context) }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -870,12 +803,6 @@ export const serializeAws_restJson1CreateUsagePlanKeyCommand = async (
   body = JSON.stringify({
     ...(input.keyId !== undefined && { keyId: input.keyId }),
     ...(input.keyType !== undefined && { keyType: input.keyType }),
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -900,16 +827,10 @@ export const serializeAws_restJson1CreateVpcLinkCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1MapOfStringToString(input.tags, context) }),
     ...(input.targetArns !== undefined && {
       targetArns: serializeAws_restJson1ListOfString(input.targetArns, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -928,7 +849,7 @@ export const serializeAws_restJson1DeleteApiKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/apikeys/{apiKey}";
   if (input.apiKey !== undefined) {
@@ -941,14 +862,6 @@ export const serializeAws_restJson1DeleteApiKeyCommand = async (
     throw new Error("No value provided for input HTTP label: apiKey.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -966,7 +879,7 @@ export const serializeAws_restJson1DeleteAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/authorizers/{authorizerId}";
   if (input.authorizerId !== undefined) {
@@ -988,14 +901,6 @@ export const serializeAws_restJson1DeleteAuthorizerCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1013,7 +918,7 @@ export const serializeAws_restJson1DeleteBasePathMappingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/domainnames/{domainName}/basepathmappings/{basePath}";
   if (input.domainName !== undefined) {
@@ -1035,14 +940,6 @@ export const serializeAws_restJson1DeleteBasePathMappingCommand = async (
     throw new Error("No value provided for input HTTP label: basePath.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1060,7 +957,7 @@ export const serializeAws_restJson1DeleteClientCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/clientcertificates/{clientCertificateId}";
   if (input.clientCertificateId !== undefined) {
@@ -1073,14 +970,6 @@ export const serializeAws_restJson1DeleteClientCertificateCommand = async (
     throw new Error("No value provided for input HTTP label: clientCertificateId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1098,18 +987,9 @@ export const serializeAws_restJson1DeleteDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/deployments/{deploymentId}";
-  if (input.deploymentId !== undefined) {
-    const labelValue: string = input.deploymentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: deploymentId.");
-    }
-    resolvedPath = resolvedPath.replace("{deploymentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: deploymentId.");
-  }
   if (input.restApiId !== undefined) {
     const labelValue: string = input.restApiId;
     if (labelValue.length <= 0) {
@@ -1119,15 +999,16 @@ export const serializeAws_restJson1DeleteDeploymentCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
+  if (input.deploymentId !== undefined) {
+    const labelValue: string = input.deploymentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: deploymentId.");
+    }
+    resolvedPath = resolvedPath.replace("{deploymentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: deploymentId.");
+  }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1145,7 +1026,7 @@ export const serializeAws_restJson1DeleteDocumentationPartCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/documentation/parts/{documentationPartId}";
   if (input.restApiId !== undefined) {
@@ -1167,14 +1048,6 @@ export const serializeAws_restJson1DeleteDocumentationPartCommand = async (
     throw new Error("No value provided for input HTTP label: documentationPartId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1192,7 +1065,7 @@ export const serializeAws_restJson1DeleteDocumentationVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/documentation/versions/{documentationVersion}";
   if (input.documentationVersion !== undefined) {
@@ -1214,14 +1087,6 @@ export const serializeAws_restJson1DeleteDocumentationVersionCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1239,7 +1104,7 @@ export const serializeAws_restJson1DeleteDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/domainnames/{domainName}";
   if (input.domainName !== undefined) {
@@ -1252,14 +1117,6 @@ export const serializeAws_restJson1DeleteDomainNameCommand = async (
     throw new Error("No value provided for input HTTP label: domainName.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1277,7 +1134,7 @@ export const serializeAws_restJson1DeleteGatewayResponseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/gatewayresponses/{responseType}";
   if (input.restApiId !== undefined) {
@@ -1299,14 +1156,6 @@ export const serializeAws_restJson1DeleteGatewayResponseCommand = async (
     throw new Error("No value provided for input HTTP label: responseType.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1324,7 +1173,7 @@ export const serializeAws_restJson1DeleteIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration";
   if (input.httpMethod !== undefined) {
@@ -1355,14 +1204,6 @@ export const serializeAws_restJson1DeleteIntegrationCommand = async (
     throw new Error("No value provided for input HTTP label: resourceId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1380,7 +1221,7 @@ export const serializeAws_restJson1DeleteIntegrationResponseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath =
     "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration/responses/{statusCode}";
@@ -1421,14 +1262,6 @@ export const serializeAws_restJson1DeleteIntegrationResponseCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1446,7 +1279,7 @@ export const serializeAws_restJson1DeleteMethodCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}";
   if (input.restApiId !== undefined) {
@@ -1477,14 +1310,6 @@ export const serializeAws_restJson1DeleteMethodCommand = async (
     throw new Error("No value provided for input HTTP label: resourceId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1502,7 +1327,7 @@ export const serializeAws_restJson1DeleteMethodResponseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/responses/{statusCode}";
   if (input.httpMethod !== undefined) {
@@ -1542,14 +1367,6 @@ export const serializeAws_restJson1DeleteMethodResponseCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1567,7 +1384,7 @@ export const serializeAws_restJson1DeleteModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/models/{modelName}";
   if (input.restApiId !== undefined) {
@@ -1589,14 +1406,6 @@ export const serializeAws_restJson1DeleteModelCommand = async (
     throw new Error("No value provided for input HTTP label: modelName.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1614,7 +1423,7 @@ export const serializeAws_restJson1DeleteRequestValidatorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/requestvalidators/{requestValidatorId}";
   if (input.restApiId !== undefined) {
@@ -1636,14 +1445,6 @@ export const serializeAws_restJson1DeleteRequestValidatorCommand = async (
     throw new Error("No value provided for input HTTP label: requestValidatorId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1661,7 +1462,7 @@ export const serializeAws_restJson1DeleteResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/resources/{resourceId}";
   if (input.restApiId !== undefined) {
@@ -1683,14 +1484,6 @@ export const serializeAws_restJson1DeleteResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1708,7 +1501,7 @@ export const serializeAws_restJson1DeleteRestApiCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}";
   if (input.restApiId !== undefined) {
@@ -1721,14 +1514,6 @@ export const serializeAws_restJson1DeleteRestApiCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1746,7 +1531,7 @@ export const serializeAws_restJson1DeleteStageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/stages/{stageName}";
   if (input.stageName !== undefined) {
@@ -1768,14 +1553,6 @@ export const serializeAws_restJson1DeleteStageCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1793,7 +1570,7 @@ export const serializeAws_restJson1DeleteUsagePlanCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/usageplans/{usagePlanId}";
   if (input.usagePlanId !== undefined) {
@@ -1806,14 +1583,6 @@ export const serializeAws_restJson1DeleteUsagePlanCommand = async (
     throw new Error("No value provided for input HTTP label: usagePlanId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1831,7 +1600,7 @@ export const serializeAws_restJson1DeleteUsagePlanKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/usageplans/{usagePlanId}/keys/{keyId}";
   if (input.keyId !== undefined) {
@@ -1853,14 +1622,6 @@ export const serializeAws_restJson1DeleteUsagePlanKeyCommand = async (
     throw new Error("No value provided for input HTTP label: usagePlanId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1878,7 +1639,7 @@ export const serializeAws_restJson1DeleteVpcLinkCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/vpclinks/{vpcLinkId}";
   if (input.vpcLinkId !== undefined) {
@@ -1891,14 +1652,6 @@ export const serializeAws_restJson1DeleteVpcLinkCommand = async (
     throw new Error("No value provided for input HTTP label: vpcLinkId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1916,7 +1669,7 @@ export const serializeAws_restJson1FlushStageAuthorizersCacheCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/stages/{stageName}/cache/authorizers";
   if (input.stageName !== undefined) {
@@ -1938,14 +1691,6 @@ export const serializeAws_restJson1FlushStageAuthorizersCacheCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1963,7 +1708,7 @@ export const serializeAws_restJson1FlushStageCacheCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/stages/{stageName}/cache/data";
   if (input.stageName !== undefined) {
@@ -1985,14 +1730,6 @@ export const serializeAws_restJson1FlushStageCacheCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2016,13 +1753,7 @@ export const serializeAws_restJson1GenerateClientCertificateCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.description !== undefined && { description: input.description }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1MapOfStringToString(input.tags, context) }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2041,18 +1772,11 @@ export const serializeAws_restJson1GetAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/account";
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
+  body = "{}";
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2070,7 +1794,7 @@ export const serializeAws_restJson1GetApiKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/apikeys/{apiKey}";
   if (input.apiKey !== undefined) {
@@ -2086,14 +1810,6 @@ export const serializeAws_restJson1GetApiKeyCommand = async (
     ...(input.includeValue !== undefined && { includeValue: input.includeValue.toString() }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2112,25 +1828,17 @@ export const serializeAws_restJson1GetApiKeysCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/apikeys";
   const query: any = {
-    ...(input.nameQuery !== undefined && { name: input.nameQuery }),
     ...(input.position !== undefined && { position: input.position }),
+    ...(input.nameQuery !== undefined && { name: input.nameQuery }),
     ...(input.customerId !== undefined && { customerId: input.customerId }),
     ...(input.includeValues !== undefined && { includeValues: input.includeValues.toString() }),
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2149,7 +1857,7 @@ export const serializeAws_restJson1GetAuthorizerCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/authorizers/{authorizerId}";
   if (input.authorizerId !== undefined) {
@@ -2171,14 +1879,6 @@ export const serializeAws_restJson1GetAuthorizerCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2196,7 +1896,7 @@ export const serializeAws_restJson1GetAuthorizersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/authorizers";
   if (input.restApiId !== undefined) {
@@ -2213,14 +1913,6 @@ export const serializeAws_restJson1GetAuthorizersCommand = async (
     ...(input.position !== undefined && { position: input.position }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2239,18 +1931,9 @@ export const serializeAws_restJson1GetBasePathMappingCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/domainnames/{domainName}/basepathmappings/{basePath}";
-  if (input.domainName !== undefined) {
-    const labelValue: string = input.domainName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: domainName.");
-    }
-    resolvedPath = resolvedPath.replace("{domainName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: domainName.");
-  }
   if (input.basePath !== undefined) {
     const labelValue: string = input.basePath;
     if (labelValue.length <= 0) {
@@ -2260,15 +1943,16 @@ export const serializeAws_restJson1GetBasePathMappingCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: basePath.");
   }
+  if (input.domainName !== undefined) {
+    const labelValue: string = input.domainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: domainName.");
+    }
+    resolvedPath = resolvedPath.replace("{domainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: domainName.");
+  }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2286,7 +1970,7 @@ export const serializeAws_restJson1GetBasePathMappingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/domainnames/{domainName}/basepathmappings";
   if (input.domainName !== undefined) {
@@ -2303,14 +1987,6 @@ export const serializeAws_restJson1GetBasePathMappingsCommand = async (
     ...(input.position !== undefined && { position: input.position }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2329,7 +2005,7 @@ export const serializeAws_restJson1GetClientCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/clientcertificates/{clientCertificateId}";
   if (input.clientCertificateId !== undefined) {
@@ -2342,14 +2018,6 @@ export const serializeAws_restJson1GetClientCertificateCommand = async (
     throw new Error("No value provided for input HTTP label: clientCertificateId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2367,7 +2035,7 @@ export const serializeAws_restJson1GetClientCertificatesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/clientcertificates";
   const query: any = {
@@ -2375,14 +2043,6 @@ export const serializeAws_restJson1GetClientCertificatesCommand = async (
     ...(input.position !== undefined && { position: input.position }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2401,7 +2061,7 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/deployments/{deploymentId}";
   if (input.restApiId !== undefined) {
@@ -2426,14 +2086,6 @@ export const serializeAws_restJson1GetDeploymentCommand = async (
     ...(input.embed !== undefined && { embed: (input.embed || []).map((_entry) => _entry) }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2452,7 +2104,7 @@ export const serializeAws_restJson1GetDeploymentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/deployments";
   if (input.restApiId !== undefined) {
@@ -2469,14 +2121,6 @@ export const serializeAws_restJson1GetDeploymentsCommand = async (
     ...(input.position !== undefined && { position: input.position }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2495,7 +2139,7 @@ export const serializeAws_restJson1GetDocumentationPartCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/documentation/parts/{documentationPartId}";
   if (input.documentationPartId !== undefined) {
@@ -2517,14 +2161,6 @@ export const serializeAws_restJson1GetDocumentationPartCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2542,7 +2178,7 @@ export const serializeAws_restJson1GetDocumentationPartsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/documentation/parts";
   if (input.restApiId !== undefined) {
@@ -2555,22 +2191,14 @@ export const serializeAws_restJson1GetDocumentationPartsCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   const query: any = {
-    ...(input.type !== undefined && { type: input.type }),
     ...(input.nameQuery !== undefined && { name: input.nameQuery }),
-    ...(input.position !== undefined && { position: input.position }),
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
     ...(input.locationStatus !== undefined && { locationStatus: input.locationStatus }),
+    ...(input.type !== undefined && { type: input.type }),
+    ...(input.position !== undefined && { position: input.position }),
     ...(input.path !== undefined && { path: input.path }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2589,7 +2217,7 @@ export const serializeAws_restJson1GetDocumentationVersionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/documentation/versions/{documentationVersion}";
   if (input.restApiId !== undefined) {
@@ -2611,14 +2239,6 @@ export const serializeAws_restJson1GetDocumentationVersionCommand = async (
     throw new Error("No value provided for input HTTP label: documentationVersion.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2636,7 +2256,7 @@ export const serializeAws_restJson1GetDocumentationVersionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/documentation/versions";
   if (input.restApiId !== undefined) {
@@ -2653,14 +2273,6 @@ export const serializeAws_restJson1GetDocumentationVersionsCommand = async (
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2679,7 +2291,7 @@ export const serializeAws_restJson1GetDomainNameCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/domainnames/{domainName}";
   if (input.domainName !== undefined) {
@@ -2692,14 +2304,6 @@ export const serializeAws_restJson1GetDomainNameCommand = async (
     throw new Error("No value provided for input HTTP label: domainName.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2717,7 +2321,7 @@ export const serializeAws_restJson1GetDomainNamesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/domainnames";
   const query: any = {
@@ -2725,14 +2329,6 @@ export const serializeAws_restJson1GetDomainNamesCommand = async (
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2755,6 +2351,15 @@ export const serializeAws_restJson1GetExportCommand = async (
     ...(isSerializableHeaderValue(input.accepts) && { Accept: input.accepts! }),
   };
   let resolvedPath = "/restapis/{restApiId}/stages/{stageName}/exports/{exportType}";
+  if (input.stageName !== undefined) {
+    const labelValue: string = input.stageName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: stageName.");
+    }
+    resolvedPath = resolvedPath.replace("{stageName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: stageName.");
+  }
   if (input.restApiId !== undefined) {
     const labelValue: string = input.restApiId;
     if (labelValue.length <= 0) {
@@ -2772,15 +2377,6 @@ export const serializeAws_restJson1GetExportCommand = async (
     resolvedPath = resolvedPath.replace("{exportType}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: exportType.");
-  }
-  if (input.stageName !== undefined) {
-    const labelValue: string = input.stageName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: stageName.");
-    }
-    resolvedPath = resolvedPath.replace("{stageName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: stageName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2805,7 +2401,7 @@ export const serializeAws_restJson1GetGatewayResponseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/gatewayresponses/{responseType}";
   if (input.responseType !== undefined) {
@@ -2827,14 +2423,6 @@ export const serializeAws_restJson1GetGatewayResponseCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2852,7 +2440,7 @@ export const serializeAws_restJson1GetGatewayResponsesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/gatewayresponses";
   if (input.restApiId !== undefined) {
@@ -2869,14 +2457,6 @@ export const serializeAws_restJson1GetGatewayResponsesCommand = async (
     ...(input.position !== undefined && { position: input.position }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2895,7 +2475,7 @@ export const serializeAws_restJson1GetIntegrationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration";
   if (input.restApiId !== undefined) {
@@ -2926,14 +2506,6 @@ export const serializeAws_restJson1GetIntegrationCommand = async (
     throw new Error("No value provided for input HTTP label: resourceId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2951,19 +2523,10 @@ export const serializeAws_restJson1GetIntegrationResponseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath =
     "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/integration/responses/{statusCode}";
-  if (input.statusCode !== undefined) {
-    const labelValue: string = input.statusCode;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: statusCode.");
-    }
-    resolvedPath = resolvedPath.replace("{statusCode}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: statusCode.");
-  }
   if (input.resourceId !== undefined) {
     const labelValue: string = input.resourceId;
     if (labelValue.length <= 0) {
@@ -2972,6 +2535,15 @@ export const serializeAws_restJson1GetIntegrationResponseCommand = async (
     resolvedPath = resolvedPath.replace("{resourceId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: resourceId.");
+  }
+  if (input.statusCode !== undefined) {
+    const labelValue: string = input.statusCode;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: statusCode.");
+    }
+    resolvedPath = resolvedPath.replace("{statusCode}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: statusCode.");
   }
   if (input.restApiId !== undefined) {
     const labelValue: string = input.restApiId;
@@ -2992,14 +2564,6 @@ export const serializeAws_restJson1GetIntegrationResponseCommand = async (
     throw new Error("No value provided for input HTTP label: httpMethod.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3017,7 +2581,7 @@ export const serializeAws_restJson1GetMethodCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}";
   if (input.resourceId !== undefined) {
@@ -3048,14 +2612,6 @@ export const serializeAws_restJson1GetMethodCommand = async (
     throw new Error("No value provided for input HTTP label: httpMethod.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3073,7 +2629,7 @@ export const serializeAws_restJson1GetMethodResponseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/resources/{resourceId}/methods/{httpMethod}/responses/{statusCode}";
   if (input.resourceId !== undefined) {
@@ -3113,14 +2669,6 @@ export const serializeAws_restJson1GetMethodResponseCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3138,18 +2686,9 @@ export const serializeAws_restJson1GetModelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/models/{modelName}";
-  if (input.restApiId !== undefined) {
-    const labelValue: string = input.restApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: restApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{restApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: restApiId.");
-  }
   if (input.modelName !== undefined) {
     const labelValue: string = input.modelName;
     if (labelValue.length <= 0) {
@@ -3159,18 +2698,19 @@ export const serializeAws_restJson1GetModelCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: modelName.");
   }
+  if (input.restApiId !== undefined) {
+    const labelValue: string = input.restApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: restApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{restApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: restApiId.");
+  }
   const query: any = {
     ...(input.flatten !== undefined && { flatten: input.flatten.toString() }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3189,7 +2729,7 @@ export const serializeAws_restJson1GetModelsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/models";
   if (input.restApiId !== undefined) {
@@ -3206,14 +2746,6 @@ export const serializeAws_restJson1GetModelsCommand = async (
     ...(input.position !== undefined && { position: input.position }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3232,7 +2764,7 @@ export const serializeAws_restJson1GetModelTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/models/{modelName}/default_template";
   if (input.modelName !== undefined) {
@@ -3254,14 +2786,6 @@ export const serializeAws_restJson1GetModelTemplateCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3279,18 +2803,9 @@ export const serializeAws_restJson1GetRequestValidatorCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/requestvalidators/{requestValidatorId}";
-  if (input.requestValidatorId !== undefined) {
-    const labelValue: string = input.requestValidatorId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: requestValidatorId.");
-    }
-    resolvedPath = resolvedPath.replace("{requestValidatorId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: requestValidatorId.");
-  }
   if (input.restApiId !== undefined) {
     const labelValue: string = input.restApiId;
     if (labelValue.length <= 0) {
@@ -3300,15 +2815,16 @@ export const serializeAws_restJson1GetRequestValidatorCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
+  if (input.requestValidatorId !== undefined) {
+    const labelValue: string = input.requestValidatorId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: requestValidatorId.");
+    }
+    resolvedPath = resolvedPath.replace("{requestValidatorId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: requestValidatorId.");
+  }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3326,7 +2842,7 @@ export const serializeAws_restJson1GetRequestValidatorsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/requestvalidators";
   if (input.restApiId !== undefined) {
@@ -3343,14 +2859,6 @@ export const serializeAws_restJson1GetRequestValidatorsCommand = async (
     ...(input.position !== undefined && { position: input.position }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3369,7 +2877,7 @@ export const serializeAws_restJson1GetResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/resources/{resourceId}";
   if (input.restApiId !== undefined) {
@@ -3394,14 +2902,6 @@ export const serializeAws_restJson1GetResourceCommand = async (
     ...(input.embed !== undefined && { embed: (input.embed || []).map((_entry) => _entry) }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3420,7 +2920,7 @@ export const serializeAws_restJson1GetResourcesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/resources";
   if (input.restApiId !== undefined) {
@@ -3433,19 +2933,11 @@ export const serializeAws_restJson1GetResourcesCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   const query: any = {
-    ...(input.embed !== undefined && { embed: (input.embed || []).map((_entry) => _entry) }),
     ...(input.position !== undefined && { position: input.position }),
+    ...(input.embed !== undefined && { embed: (input.embed || []).map((_entry) => _entry) }),
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3464,7 +2956,7 @@ export const serializeAws_restJson1GetRestApiCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}";
   if (input.restApiId !== undefined) {
@@ -3477,14 +2969,6 @@ export const serializeAws_restJson1GetRestApiCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3502,7 +2986,7 @@ export const serializeAws_restJson1GetRestApisCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis";
   const query: any = {
@@ -3510,14 +2994,6 @@ export const serializeAws_restJson1GetRestApisCommand = async (
     ...(input.position !== undefined && { position: input.position }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3548,15 +3024,6 @@ export const serializeAws_restJson1GetSdkCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  if (input.sdkType !== undefined) {
-    const labelValue: string = input.sdkType;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: sdkType.");
-    }
-    resolvedPath = resolvedPath.replace("{sdkType}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: sdkType.");
-  }
   if (input.stageName !== undefined) {
     const labelValue: string = input.stageName;
     if (labelValue.length <= 0) {
@@ -3565,6 +3032,15 @@ export const serializeAws_restJson1GetSdkCommand = async (
     resolvedPath = resolvedPath.replace("{stageName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: stageName.");
+  }
+  if (input.sdkType !== undefined) {
+    const labelValue: string = input.sdkType;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: sdkType.");
+    }
+    resolvedPath = resolvedPath.replace("{sdkType}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: sdkType.");
   }
   let body: any;
   body = JSON.stringify({
@@ -3589,7 +3065,7 @@ export const serializeAws_restJson1GetSdkTypeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/sdktypes/{id}";
   if (input.id !== undefined) {
@@ -3602,14 +3078,6 @@ export const serializeAws_restJson1GetSdkTypeCommand = async (
     throw new Error("No value provided for input HTTP label: id.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3627,22 +3095,14 @@ export const serializeAws_restJson1GetSdkTypesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/sdktypes";
   const query: any = {
-    ...(input.limit !== undefined && { limit: input.limit.toString() }),
     ...(input.position !== undefined && { position: input.position }),
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3661,7 +3121,7 @@ export const serializeAws_restJson1GetStageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/stages/{stageName}";
   if (input.stageName !== undefined) {
@@ -3683,14 +3143,6 @@ export const serializeAws_restJson1GetStageCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3708,7 +3160,7 @@ export const serializeAws_restJson1GetStagesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/stages";
   if (input.restApiId !== undefined) {
@@ -3724,14 +3176,6 @@ export const serializeAws_restJson1GetStagesCommand = async (
     ...(input.deploymentId !== undefined && { deploymentId: input.deploymentId }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3750,7 +3194,7 @@ export const serializeAws_restJson1GetTagsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
@@ -3767,14 +3211,6 @@ export const serializeAws_restJson1GetTagsCommand = async (
     ...(input.position !== undefined && { position: input.position }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3793,7 +3229,7 @@ export const serializeAws_restJson1GetUsageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/usageplans/{usagePlanId}/usage";
   if (input.usagePlanId !== undefined) {
@@ -3813,14 +3249,6 @@ export const serializeAws_restJson1GetUsageCommand = async (
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3839,7 +3267,7 @@ export const serializeAws_restJson1GetUsagePlanCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/usageplans/{usagePlanId}";
   if (input.usagePlanId !== undefined) {
@@ -3852,14 +3280,6 @@ export const serializeAws_restJson1GetUsagePlanCommand = async (
     throw new Error("No value provided for input HTTP label: usagePlanId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3877,7 +3297,7 @@ export const serializeAws_restJson1GetUsagePlanKeyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/usageplans/{usagePlanId}/keys/{keyId}";
   if (input.keyId !== undefined) {
@@ -3899,14 +3319,6 @@ export const serializeAws_restJson1GetUsagePlanKeyCommand = async (
     throw new Error("No value provided for input HTTP label: usagePlanId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3924,7 +3336,7 @@ export const serializeAws_restJson1GetUsagePlanKeysCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/usageplans/{usagePlanId}/keys";
   if (input.usagePlanId !== undefined) {
@@ -3938,18 +3350,10 @@ export const serializeAws_restJson1GetUsagePlanKeysCommand = async (
   }
   const query: any = {
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
-    ...(input.nameQuery !== undefined && { name: input.nameQuery }),
     ...(input.position !== undefined && { position: input.position }),
+    ...(input.nameQuery !== undefined && { name: input.nameQuery }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3968,23 +3372,15 @@ export const serializeAws_restJson1GetUsagePlansCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/usageplans";
   const query: any = {
+    ...(input.limit !== undefined && { limit: input.limit.toString() }),
     ...(input.position !== undefined && { position: input.position }),
     ...(input.keyId !== undefined && { keyId: input.keyId }),
-    ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4003,7 +3399,7 @@ export const serializeAws_restJson1GetVpcLinkCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/vpclinks/{vpcLinkId}";
   if (input.vpcLinkId !== undefined) {
@@ -4016,14 +3412,6 @@ export const serializeAws_restJson1GetVpcLinkCommand = async (
     throw new Error("No value provided for input HTTP label: vpcLinkId.");
   }
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4041,7 +3429,7 @@ export const serializeAws_restJson1GetVpcLinksCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/vpclinks";
   const query: any = {
@@ -4049,14 +3437,6 @@ export const serializeAws_restJson1GetVpcLinksCommand = async (
     ...(input.limit !== undefined && { limit: input.limit.toString() }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4075,7 +3455,7 @@ export const serializeAws_restJson1ImportApiKeysCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/apikeys";
   const query: any = {
@@ -4084,14 +3464,6 @@ export const serializeAws_restJson1ImportApiKeysCommand = async (
     ...(input.failOnWarnings !== undefined && { failonwarnings: input.failOnWarnings.toString() }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4110,7 +3482,7 @@ export const serializeAws_restJson1ImportDocumentationPartsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/restapis/{restApiId}/documentation/parts";
   if (input.restApiId !== undefined) {
@@ -4127,14 +3499,6 @@ export const serializeAws_restJson1ImportDocumentationPartsCommand = async (
     ...(input.mode !== undefined && { mode: input.mode }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4162,15 +3526,9 @@ export const serializeAws_restJson1ImportRestApiCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.parameters !== undefined && {
       parameters: serializeAws_restJson1MapOfStringToString(input.parameters, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4213,7 +3571,6 @@ export const serializeAws_restJson1PutGatewayResponseCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.responseParameters !== undefined && {
       responseParameters: serializeAws_restJson1MapOfStringToString(input.responseParameters, context),
     }),
@@ -4221,11 +3578,6 @@ export const serializeAws_restJson1PutGatewayResponseCommand = async (
       responseTemplates: serializeAws_restJson1MapOfStringToString(input.responseTemplates, context),
     }),
     ...(input.statusCode !== undefined && { statusCode: input.statusCode }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4285,7 +3637,6 @@ export const serializeAws_restJson1PutIntegrationCommand = async (
     ...(input.contentHandling !== undefined && { contentHandling: input.contentHandling }),
     ...(input.credentials !== undefined && { credentials: input.credentials }),
     ...(input.integrationHttpMethod !== undefined && { httpMethod: input.integrationHttpMethod }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.passthroughBehavior !== undefined && { passthroughBehavior: input.passthroughBehavior }),
     ...(input.requestParameters !== undefined && {
       requestParameters: serializeAws_restJson1MapOfStringToString(input.requestParameters, context),
@@ -4293,12 +3644,7 @@ export const serializeAws_restJson1PutIntegrationCommand = async (
     ...(input.requestTemplates !== undefined && {
       requestTemplates: serializeAws_restJson1MapOfStringToString(input.requestTemplates, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
     ...(input.timeoutInMillis !== undefined && { timeoutInMillis: input.timeoutInMillis }),
-    ...(input.title !== undefined && { title: input.title }),
     ...(input.tlsConfig !== undefined && { tlsConfig: serializeAws_restJson1TlsConfig(input.tlsConfig, context) }),
     ...(input.type !== undefined && { type: input.type }),
     ...(input.uri !== undefined && { uri: input.uri }),
@@ -4333,15 +3679,6 @@ export const serializeAws_restJson1PutIntegrationResponseCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: statusCode.");
   }
-  if (input.resourceId !== undefined) {
-    const labelValue: string = input.resourceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceId.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceId.");
-  }
   if (input.restApiId !== undefined) {
     const labelValue: string = input.restApiId;
     if (labelValue.length <= 0) {
@@ -4360,10 +3697,18 @@ export const serializeAws_restJson1PutIntegrationResponseCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: httpMethod.");
   }
+  if (input.resourceId !== undefined) {
+    const labelValue: string = input.resourceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: resourceId.");
+    }
+    resolvedPath = resolvedPath.replace("{resourceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceId.");
+  }
   let body: any;
   body = JSON.stringify({
     ...(input.contentHandling !== undefined && { contentHandling: input.contentHandling }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.responseParameters !== undefined && {
       responseParameters: serializeAws_restJson1MapOfStringToString(input.responseParameters, context),
     }),
@@ -4371,11 +3716,6 @@ export const serializeAws_restJson1PutIntegrationResponseCommand = async (
       responseTemplates: serializeAws_restJson1MapOfStringToString(input.responseTemplates, context),
     }),
     ...(input.selectionPattern !== undefined && { selectionPattern: input.selectionPattern }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4432,7 +3772,6 @@ export const serializeAws_restJson1PutMethodCommand = async (
     }),
     ...(input.authorizationType !== undefined && { authorizationType: input.authorizationType }),
     ...(input.authorizerId !== undefined && { authorizerId: input.authorizerId }),
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.operationName !== undefined && { operationName: input.operationName }),
     ...(input.requestModels !== undefined && {
       requestModels: serializeAws_restJson1MapOfStringToString(input.requestModels, context),
@@ -4441,11 +3780,6 @@ export const serializeAws_restJson1PutMethodCommand = async (
       requestParameters: serializeAws_restJson1MapOfStringToBoolean(input.requestParameters, context),
     }),
     ...(input.requestValidatorId !== undefined && { requestValidatorId: input.requestValidatorId }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4476,15 +3810,6 @@ export const serializeAws_restJson1PutMethodResponseCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
-  if (input.resourceId !== undefined) {
-    const labelValue: string = input.resourceId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: resourceId.");
-    }
-    resolvedPath = resolvedPath.replace("{resourceId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: resourceId.");
-  }
   if (input.statusCode !== undefined) {
     const labelValue: string = input.statusCode;
     if (labelValue.length <= 0) {
@@ -4493,6 +3818,15 @@ export const serializeAws_restJson1PutMethodResponseCommand = async (
     resolvedPath = resolvedPath.replace("{statusCode}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: statusCode.");
+  }
+  if (input.resourceId !== undefined) {
+    const labelValue: string = input.resourceId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: resourceId.");
+    }
+    resolvedPath = resolvedPath.replace("{resourceId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: resourceId.");
   }
   if (input.httpMethod !== undefined) {
     const labelValue: string = input.httpMethod;
@@ -4505,18 +3839,12 @@ export const serializeAws_restJson1PutMethodResponseCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.responseModels !== undefined && {
       responseModels: serializeAws_restJson1MapOfStringToString(input.responseModels, context),
     }),
     ...(input.responseParameters !== undefined && {
       responseParameters: serializeAws_restJson1MapOfStringToBoolean(input.responseParameters, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4553,15 +3881,9 @@ export const serializeAws_restJson1PutRestApiCommand = async (
   };
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.parameters !== undefined && {
       parameters: serializeAws_restJson1MapOfStringToString(input.parameters, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4595,13 +3917,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1MapOfStringToString(input.tags, context) }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4733,7 +4049,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "application/json",
+    "Content-Type": "",
   };
   let resolvedPath = "/tags/{resourceArn}";
   if (input.resourceArn !== undefined) {
@@ -4749,14 +4065,6 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
-  body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
-  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4780,15 +4088,9 @@ export const serializeAws_restJson1UpdateAccountCommand = async (
   let resolvedPath = "/account";
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4821,15 +4123,9 @@ export const serializeAws_restJson1UpdateApiKeyCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4871,15 +4167,9 @@ export const serializeAws_restJson1UpdateAuthorizerCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4921,15 +4211,9 @@ export const serializeAws_restJson1UpdateBasePathMappingCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4962,15 +4246,9 @@ export const serializeAws_restJson1UpdateClientCertificateCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -4992,15 +4270,6 @@ export const serializeAws_restJson1UpdateDeploymentCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/restapis/{restApiId}/deployments/{deploymentId}";
-  if (input.deploymentId !== undefined) {
-    const labelValue: string = input.deploymentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: deploymentId.");
-    }
-    resolvedPath = resolvedPath.replace("{deploymentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: deploymentId.");
-  }
   if (input.restApiId !== undefined) {
     const labelValue: string = input.restApiId;
     if (labelValue.length <= 0) {
@@ -5010,17 +4279,20 @@ export const serializeAws_restJson1UpdateDeploymentCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
+  if (input.deploymentId !== undefined) {
+    const labelValue: string = input.deploymentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: deploymentId.");
+    }
+    resolvedPath = resolvedPath.replace("{deploymentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: deploymentId.");
+  }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5062,15 +4334,9 @@ export const serializeAws_restJson1UpdateDocumentationPartCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5112,15 +4378,9 @@ export const serializeAws_restJson1UpdateDocumentationVersionCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5153,15 +4413,9 @@ export const serializeAws_restJson1UpdateDomainNameCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5203,15 +4457,9 @@ export const serializeAws_restJson1UpdateGatewayResponseCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5262,15 +4510,9 @@ export const serializeAws_restJson1UpdateIntegrationCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5302,15 +4544,6 @@ export const serializeAws_restJson1UpdateIntegrationResponseCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: statusCode.");
   }
-  if (input.httpMethod !== undefined) {
-    const labelValue: string = input.httpMethod;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: httpMethod.");
-    }
-    resolvedPath = resolvedPath.replace("{httpMethod}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: httpMethod.");
-  }
   if (input.resourceId !== undefined) {
     const labelValue: string = input.resourceId;
     if (labelValue.length <= 0) {
@@ -5329,17 +4562,20 @@ export const serializeAws_restJson1UpdateIntegrationResponseCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
+  if (input.httpMethod !== undefined) {
+    const labelValue: string = input.httpMethod;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: httpMethod.");
+    }
+    resolvedPath = resolvedPath.replace("{httpMethod}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: httpMethod.");
+  }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5390,15 +4626,9 @@ export const serializeAws_restJson1UpdateMethodCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5458,15 +4688,9 @@ export const serializeAws_restJson1UpdateMethodResponseCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5508,15 +4732,9 @@ export const serializeAws_restJson1UpdateModelCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5538,15 +4756,6 @@ export const serializeAws_restJson1UpdateRequestValidatorCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/restapis/{restApiId}/requestvalidators/{requestValidatorId}";
-  if (input.restApiId !== undefined) {
-    const labelValue: string = input.restApiId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: restApiId.");
-    }
-    resolvedPath = resolvedPath.replace("{restApiId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: restApiId.");
-  }
   if (input.requestValidatorId !== undefined) {
     const labelValue: string = input.requestValidatorId;
     if (labelValue.length <= 0) {
@@ -5556,17 +4765,20 @@ export const serializeAws_restJson1UpdateRequestValidatorCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: requestValidatorId.");
   }
+  if (input.restApiId !== undefined) {
+    const labelValue: string = input.restApiId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: restApiId.");
+    }
+    resolvedPath = resolvedPath.replace("{restApiId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: restApiId.");
+  }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5608,15 +4820,9 @@ export const serializeAws_restJson1UpdateResourceCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5649,15 +4855,9 @@ export const serializeAws_restJson1UpdateRestApiCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5699,15 +4899,9 @@ export const serializeAws_restJson1UpdateStageCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5729,15 +4923,6 @@ export const serializeAws_restJson1UpdateUsageCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/usageplans/{usagePlanId}/keys/{keyId}/usage";
-  if (input.usagePlanId !== undefined) {
-    const labelValue: string = input.usagePlanId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: usagePlanId.");
-    }
-    resolvedPath = resolvedPath.replace("{usagePlanId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: usagePlanId.");
-  }
   if (input.keyId !== undefined) {
     const labelValue: string = input.keyId;
     if (labelValue.length <= 0) {
@@ -5747,17 +4932,20 @@ export const serializeAws_restJson1UpdateUsageCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: keyId.");
   }
+  if (input.usagePlanId !== undefined) {
+    const labelValue: string = input.usagePlanId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: usagePlanId.");
+    }
+    resolvedPath = resolvedPath.replace("{usagePlanId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: usagePlanId.");
+  }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5790,15 +4978,9 @@ export const serializeAws_restJson1UpdateUsagePlanCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5831,15 +5013,9 @@ export const serializeAws_restJson1UpdateVpcLinkCommand = async (
   }
   let body: any;
   body = JSON.stringify({
-    ...(input.name !== undefined && { name: input.name }),
     ...(input.patchOperations !== undefined && {
       patchOperations: serializeAws_restJson1ListOfPatchOperation(input.patchOperations, context),
     }),
-    ...(input.template !== undefined && { template: input.template }),
-    ...(input.templateSkipList !== undefined && {
-      templateSkipList: serializeAws_restJson1ListOfString(input.templateSkipList, context),
-    }),
-    ...(input.title !== undefined && { title: input.title }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -5857,7 +5033,7 @@ export const deserializeAws_restJson1CreateApiKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApiKeyCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateApiKeyCommandError(output, context);
   }
   const contents: CreateApiKeyCommandOutput = {
@@ -5988,7 +5164,7 @@ export const deserializeAws_restJson1CreateAuthorizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAuthorizerCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateAuthorizerCommandError(output, context);
   }
   const contents: CreateAuthorizerCommandOutput = {
@@ -6111,7 +5287,7 @@ export const deserializeAws_restJson1CreateBasePathMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBasePathMappingCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBasePathMappingCommandError(output, context);
   }
   const contents: CreateBasePathMappingCommandOutput = {
@@ -6206,7 +5382,7 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDeploymentCommandError(output, context);
   }
   const contents: CreateDeploymentCommandOutput = {
@@ -6321,7 +5497,7 @@ export const deserializeAws_restJson1CreateDocumentationPartCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDocumentationPartCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDocumentationPartCommandError(output, context);
   }
   const contents: CreateDocumentationPartCommandOutput = {
@@ -6424,7 +5600,7 @@ export const deserializeAws_restJson1CreateDocumentationVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDocumentationVersionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDocumentationVersionCommandError(output, context);
   }
   const contents: CreateDocumentationVersionCommandOutput = {
@@ -6527,7 +5703,7 @@ export const deserializeAws_restJson1CreateDomainNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainNameCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDomainNameCommandError(output, context);
   }
   const contents: CreateDomainNameCommandOutput = {
@@ -6541,6 +5717,7 @@ export const deserializeAws_restJson1CreateDomainNameCommand = async (
     domainNameStatus: undefined,
     domainNameStatusMessage: undefined,
     endpointConfiguration: undefined,
+    mutualTlsAuthentication: undefined,
     regionalCertificateArn: undefined,
     regionalCertificateName: undefined,
     regionalDomainName: undefined,
@@ -6575,6 +5752,12 @@ export const deserializeAws_restJson1CreateDomainNameCommand = async (
   }
   if (data.endpointConfiguration !== undefined && data.endpointConfiguration !== null) {
     contents.endpointConfiguration = deserializeAws_restJson1EndpointConfiguration(data.endpointConfiguration, context);
+  }
+  if (data.mutualTlsAuthentication !== undefined && data.mutualTlsAuthentication !== null) {
+    contents.mutualTlsAuthentication = deserializeAws_restJson1MutualTlsAuthentication(
+      data.mutualTlsAuthentication,
+      context
+    );
   }
   if (data.regionalCertificateArn !== undefined && data.regionalCertificateArn !== null) {
     contents.regionalCertificateArn = data.regionalCertificateArn;
@@ -6662,7 +5845,7 @@ export const deserializeAws_restJson1CreateModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateModelCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateModelCommandError(output, context);
   }
   const contents: CreateModelCommandOutput = {
@@ -6773,7 +5956,7 @@ export const deserializeAws_restJson1CreateRequestValidatorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRequestValidatorCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateRequestValidatorCommandError(output, context);
   }
   const contents: CreateRequestValidatorCommandOutput = {
@@ -6872,7 +6055,7 @@ export const deserializeAws_restJson1CreateResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateResourceCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateResourceCommandError(output, context);
   }
   const contents: CreateResourceCommandOutput = {
@@ -6983,7 +6166,7 @@ export const deserializeAws_restJson1CreateRestApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRestApiCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateRestApiCommandError(output, context);
   }
   const contents: CreateRestApiCommandOutput = {
@@ -6992,6 +6175,7 @@ export const deserializeAws_restJson1CreateRestApiCommand = async (
     binaryMediaTypes: undefined,
     createdDate: undefined,
     description: undefined,
+    disableExecuteApiEndpoint: undefined,
     endpointConfiguration: undefined,
     id: undefined,
     minimumCompressionSize: undefined,
@@ -7013,6 +6197,9 @@ export const deserializeAws_restJson1CreateRestApiCommand = async (
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
+  }
+  if (data.disableExecuteApiEndpoint !== undefined && data.disableExecuteApiEndpoint !== null) {
+    contents.disableExecuteApiEndpoint = data.disableExecuteApiEndpoint;
   }
   if (data.endpointConfiguration !== undefined && data.endpointConfiguration !== null) {
     contents.endpointConfiguration = deserializeAws_restJson1EndpointConfiguration(data.endpointConfiguration, context);
@@ -7106,7 +6293,7 @@ export const deserializeAws_restJson1CreateStageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStageCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateStageCommandError(output, context);
   }
   const contents: CreateStageCommandOutput = {
@@ -7265,7 +6452,7 @@ export const deserializeAws_restJson1CreateUsagePlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUsagePlanCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateUsagePlanCommandError(output, context);
   }
   const contents: CreateUsagePlanCommandOutput = {
@@ -7388,7 +6575,7 @@ export const deserializeAws_restJson1CreateUsagePlanKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUsagePlanKeyCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateUsagePlanKeyCommandError(output, context);
   }
   const contents: CreateUsagePlanKeyCommandOutput = {
@@ -7487,7 +6674,7 @@ export const deserializeAws_restJson1CreateVpcLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVpcLinkCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateVpcLinkCommandError(output, context);
   }
   const contents: CreateVpcLinkCommandOutput = {
@@ -7582,7 +6769,7 @@ export const deserializeAws_restJson1DeleteApiKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApiKeyCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteApiKeyCommandError(output, context);
   }
   const contents: DeleteApiKeyCommandOutput = {
@@ -7649,7 +6836,7 @@ export const deserializeAws_restJson1DeleteAuthorizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAuthorizerCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteAuthorizerCommandError(output, context);
   }
   const contents: DeleteAuthorizerCommandOutput = {
@@ -7732,7 +6919,7 @@ export const deserializeAws_restJson1DeleteBasePathMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBasePathMappingCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBasePathMappingCommandError(output, context);
   }
   const contents: DeleteBasePathMappingCommandOutput = {
@@ -7815,7 +7002,7 @@ export const deserializeAws_restJson1DeleteClientCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteClientCertificateCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteClientCertificateCommandError(output, context);
   }
   const contents: DeleteClientCertificateCommandOutput = {
@@ -7890,7 +7077,7 @@ export const deserializeAws_restJson1DeleteDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDeploymentCommandError(output, context);
   }
   const contents: DeleteDeploymentCommandOutput = {
@@ -7965,7 +7152,7 @@ export const deserializeAws_restJson1DeleteDocumentationPartCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDocumentationPartCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDocumentationPartCommandError(output, context);
   }
   const contents: DeleteDocumentationPartCommandOutput = {
@@ -8048,7 +7235,7 @@ export const deserializeAws_restJson1DeleteDocumentationVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDocumentationVersionCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDocumentationVersionCommandError(output, context);
   }
   const contents: DeleteDocumentationVersionCommandOutput = {
@@ -8131,7 +7318,7 @@ export const deserializeAws_restJson1DeleteDomainNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainNameCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDomainNameCommandError(output, context);
   }
   const contents: DeleteDomainNameCommandOutput = {
@@ -8206,7 +7393,7 @@ export const deserializeAws_restJson1DeleteGatewayResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGatewayResponseCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteGatewayResponseCommandError(output, context);
   }
   const contents: DeleteGatewayResponseCommandOutput = {
@@ -8289,7 +7476,7 @@ export const deserializeAws_restJson1DeleteIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntegrationCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteIntegrationCommandError(output, context);
   }
   const contents: DeleteIntegrationCommandOutput = {
@@ -8364,7 +7551,7 @@ export const deserializeAws_restJson1DeleteIntegrationResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntegrationResponseCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteIntegrationResponseCommandError(output, context);
   }
   const contents: DeleteIntegrationResponseCommandOutput = {
@@ -8447,7 +7634,7 @@ export const deserializeAws_restJson1DeleteMethodCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMethodCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteMethodCommandError(output, context);
   }
   const contents: DeleteMethodCommandOutput = {
@@ -8522,7 +7709,7 @@ export const deserializeAws_restJson1DeleteMethodResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMethodResponseCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteMethodResponseCommandError(output, context);
   }
   const contents: DeleteMethodResponseCommandOutput = {
@@ -8605,7 +7792,7 @@ export const deserializeAws_restJson1DeleteModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteModelCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteModelCommandError(output, context);
   }
   const contents: DeleteModelCommandOutput = {
@@ -8688,7 +7875,7 @@ export const deserializeAws_restJson1DeleteRequestValidatorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRequestValidatorCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteRequestValidatorCommandError(output, context);
   }
   const contents: DeleteRequestValidatorCommandOutput = {
@@ -8771,7 +7958,7 @@ export const deserializeAws_restJson1DeleteResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteResourceCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteResourceCommandError(output, context);
   }
   const contents: DeleteResourceCommandOutput = {
@@ -8854,7 +8041,7 @@ export const deserializeAws_restJson1DeleteRestApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRestApiCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteRestApiCommandError(output, context);
   }
   const contents: DeleteRestApiCommandOutput = {
@@ -8929,7 +8116,7 @@ export const deserializeAws_restJson1DeleteStageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStageCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteStageCommandError(output, context);
   }
   const contents: DeleteStageCommandOutput = {
@@ -9004,7 +8191,7 @@ export const deserializeAws_restJson1DeleteUsagePlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUsagePlanCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteUsagePlanCommandError(output, context);
   }
   const contents: DeleteUsagePlanCommandOutput = {
@@ -9079,7 +8266,7 @@ export const deserializeAws_restJson1DeleteUsagePlanKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUsagePlanKeyCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteUsagePlanKeyCommandError(output, context);
   }
   const contents: DeleteUsagePlanKeyCommandOutput = {
@@ -9162,7 +8349,7 @@ export const deserializeAws_restJson1DeleteVpcLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVpcLinkCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteVpcLinkCommandError(output, context);
   }
   const contents: DeleteVpcLinkCommandOutput = {
@@ -9237,7 +8424,7 @@ export const deserializeAws_restJson1FlushStageAuthorizersCacheCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FlushStageAuthorizersCacheCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1FlushStageAuthorizersCacheCommandError(output, context);
   }
   const contents: FlushStageAuthorizersCacheCommandOutput = {
@@ -9312,7 +8499,7 @@ export const deserializeAws_restJson1FlushStageCacheCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<FlushStageCacheCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1FlushStageCacheCommandError(output, context);
   }
   const contents: FlushStageCacheCommandOutput = {
@@ -9387,7 +8574,7 @@ export const deserializeAws_restJson1GenerateClientCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateClientCertificateCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1GenerateClientCertificateCommandError(output, context);
   }
   const contents: GenerateClientCertificateCommandOutput = {
@@ -9478,7 +8665,7 @@ export const deserializeAws_restJson1GetAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAccountCommandError(output, context);
   }
   const contents: GetAccountCommandOutput = {
@@ -9561,7 +8748,7 @@ export const deserializeAws_restJson1GetApiKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApiKeyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetApiKeyCommandError(output, context);
   }
   const contents: GetApiKeyCommandOutput = {
@@ -9668,7 +8855,7 @@ export const deserializeAws_restJson1GetApiKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApiKeysCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetApiKeysCommandError(output, context);
   }
   const contents: GetApiKeysCommandOutput = {
@@ -9747,7 +8934,7 @@ export const deserializeAws_restJson1GetAuthorizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAuthorizerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAuthorizerCommandError(output, context);
   }
   const contents: GetAuthorizerCommandOutput = {
@@ -9854,7 +9041,7 @@ export const deserializeAws_restJson1GetAuthorizersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAuthorizersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAuthorizersCommandError(output, context);
   }
   const contents: GetAuthorizersCommandOutput = {
@@ -9937,7 +9124,7 @@ export const deserializeAws_restJson1GetBasePathMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBasePathMappingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBasePathMappingCommandError(output, context);
   }
   const contents: GetBasePathMappingCommandOutput = {
@@ -10016,7 +9203,7 @@ export const deserializeAws_restJson1GetBasePathMappingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBasePathMappingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBasePathMappingsCommandError(output, context);
   }
   const contents: GetBasePathMappingsCommandOutput = {
@@ -10091,7 +9278,7 @@ export const deserializeAws_restJson1GetClientCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetClientCertificateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetClientCertificateCommandError(output, context);
   }
   const contents: GetClientCertificateCommandOutput = {
@@ -10182,7 +9369,7 @@ export const deserializeAws_restJson1GetClientCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetClientCertificatesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetClientCertificatesCommandError(output, context);
   }
   const contents: GetClientCertificatesCommandOutput = {
@@ -10257,7 +9444,7 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDeploymentCommandError(output, context);
   }
   const contents: GetDeploymentCommandOutput = {
@@ -10348,7 +9535,7 @@ export const deserializeAws_restJson1GetDeploymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDeploymentsCommandError(output, context);
   }
   const contents: GetDeploymentsCommandOutput = {
@@ -10382,6 +9569,14 @@ const deserializeAws_restJson1GetDeploymentsCommandError = async (
     case "com.amazonaws.apigateway#BadRequestException":
       response = {
         ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.apigateway#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -10431,7 +9626,7 @@ export const deserializeAws_restJson1GetDocumentationPartCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentationPartCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDocumentationPartCommandError(output, context);
   }
   const contents: GetDocumentationPartCommandOutput = {
@@ -10510,7 +9705,7 @@ export const deserializeAws_restJson1GetDocumentationPartsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentationPartsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDocumentationPartsCommandError(output, context);
   }
   const contents: GetDocumentationPartsCommandOutput = {
@@ -10593,7 +9788,7 @@ export const deserializeAws_restJson1GetDocumentationVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentationVersionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDocumentationVersionCommandError(output, context);
   }
   const contents: GetDocumentationVersionCommandOutput = {
@@ -10672,7 +9867,7 @@ export const deserializeAws_restJson1GetDocumentationVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentationVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDocumentationVersionsCommandError(output, context);
   }
   const contents: GetDocumentationVersionsCommandOutput = {
@@ -10755,7 +9950,7 @@ export const deserializeAws_restJson1GetDomainNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainNameCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDomainNameCommandError(output, context);
   }
   const contents: GetDomainNameCommandOutput = {
@@ -10769,6 +9964,7 @@ export const deserializeAws_restJson1GetDomainNameCommand = async (
     domainNameStatus: undefined,
     domainNameStatusMessage: undefined,
     endpointConfiguration: undefined,
+    mutualTlsAuthentication: undefined,
     regionalCertificateArn: undefined,
     regionalCertificateName: undefined,
     regionalDomainName: undefined,
@@ -10803,6 +9999,12 @@ export const deserializeAws_restJson1GetDomainNameCommand = async (
   }
   if (data.endpointConfiguration !== undefined && data.endpointConfiguration !== null) {
     contents.endpointConfiguration = deserializeAws_restJson1EndpointConfiguration(data.endpointConfiguration, context);
+  }
+  if (data.mutualTlsAuthentication !== undefined && data.mutualTlsAuthentication !== null) {
+    contents.mutualTlsAuthentication = deserializeAws_restJson1MutualTlsAuthentication(
+      data.mutualTlsAuthentication,
+      context
+    );
   }
   if (data.regionalCertificateArn !== undefined && data.regionalCertificateArn !== null) {
     contents.regionalCertificateArn = data.regionalCertificateArn;
@@ -10890,7 +10092,7 @@ export const deserializeAws_restJson1GetDomainNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainNamesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDomainNamesCommandError(output, context);
   }
   const contents: GetDomainNamesCommandOutput = {
@@ -10965,7 +10167,7 @@ export const deserializeAws_restJson1GetExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetExportCommandError(output, context);
   }
   const contents: GetExportCommandOutput = {
@@ -11058,7 +10260,7 @@ export const deserializeAws_restJson1GetGatewayResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGatewayResponseCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetGatewayResponseCommandError(output, context);
   }
   const contents: GetGatewayResponseCommandOutput = {
@@ -11145,7 +10347,7 @@ export const deserializeAws_restJson1GetGatewayResponsesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGatewayResponsesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetGatewayResponsesCommandError(output, context);
   }
   const contents: GetGatewayResponsesCommandOutput = {
@@ -11228,7 +10430,7 @@ export const deserializeAws_restJson1GetIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetIntegrationCommandError(output, context);
   }
   const contents: GetIntegrationCommandOutput = {
@@ -11358,7 +10560,7 @@ export const deserializeAws_restJson1GetIntegrationResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntegrationResponseCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetIntegrationResponseCommandError(output, context);
   }
   const contents: GetIntegrationResponseCommandOutput = {
@@ -11445,7 +10647,7 @@ export const deserializeAws_restJson1GetMethodCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMethodCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMethodCommandError(output, context);
   }
   const contents: GetMethodCommandOutput = {
@@ -11556,7 +10758,7 @@ export const deserializeAws_restJson1GetMethodResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMethodResponseCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMethodResponseCommandError(output, context);
   }
   const contents: GetMethodResponseCommandOutput = {
@@ -11635,7 +10837,7 @@ export const deserializeAws_restJson1GetModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetModelCommandError(output, context);
   }
   const contents: GetModelCommandOutput = {
@@ -11722,7 +10924,7 @@ export const deserializeAws_restJson1GetModelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetModelsCommandError(output, context);
   }
   const contents: GetModelsCommandOutput = {
@@ -11805,7 +11007,7 @@ export const deserializeAws_restJson1GetModelTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetModelTemplateCommandError(output, context);
   }
   const contents: GetModelTemplateCommandOutput = {
@@ -11884,7 +11086,7 @@ export const deserializeAws_restJson1GetRequestValidatorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRequestValidatorCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRequestValidatorCommandError(output, context);
   }
   const contents: GetRequestValidatorCommandOutput = {
@@ -11967,7 +11169,7 @@ export const deserializeAws_restJson1GetRequestValidatorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRequestValidatorsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRequestValidatorsCommandError(output, context);
   }
   const contents: GetRequestValidatorsCommandOutput = {
@@ -12050,7 +11252,7 @@ export const deserializeAws_restJson1GetResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetResourceCommandError(output, context);
   }
   const contents: GetResourceCommandOutput = {
@@ -12137,7 +11339,7 @@ export const deserializeAws_restJson1GetResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetResourcesCommandError(output, context);
   }
   const contents: GetResourcesCommandOutput = {
@@ -12220,7 +11422,7 @@ export const deserializeAws_restJson1GetRestApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRestApiCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRestApiCommandError(output, context);
   }
   const contents: GetRestApiCommandOutput = {
@@ -12229,6 +11431,7 @@ export const deserializeAws_restJson1GetRestApiCommand = async (
     binaryMediaTypes: undefined,
     createdDate: undefined,
     description: undefined,
+    disableExecuteApiEndpoint: undefined,
     endpointConfiguration: undefined,
     id: undefined,
     minimumCompressionSize: undefined,
@@ -12250,6 +11453,9 @@ export const deserializeAws_restJson1GetRestApiCommand = async (
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
+  }
+  if (data.disableExecuteApiEndpoint !== undefined && data.disableExecuteApiEndpoint !== null) {
+    contents.disableExecuteApiEndpoint = data.disableExecuteApiEndpoint;
   }
   if (data.endpointConfiguration !== undefined && data.endpointConfiguration !== null) {
     contents.endpointConfiguration = deserializeAws_restJson1EndpointConfiguration(data.endpointConfiguration, context);
@@ -12335,7 +11541,7 @@ export const deserializeAws_restJson1GetRestApisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRestApisCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRestApisCommandError(output, context);
   }
   const contents: GetRestApisCommandOutput = {
@@ -12410,7 +11616,7 @@ export const deserializeAws_restJson1GetSdkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSdkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSdkCommandError(output, context);
   }
   const contents: GetSdkCommandOutput = {
@@ -12503,7 +11709,7 @@ export const deserializeAws_restJson1GetSdkTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSdkTypeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSdkTypeCommandError(output, context);
   }
   const contents: GetSdkTypeCommandOutput = {
@@ -12589,7 +11795,7 @@ export const deserializeAws_restJson1GetSdkTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSdkTypesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSdkTypesCommandError(output, context);
   }
   const contents: GetSdkTypesCommandOutput = {
@@ -12652,7 +11858,7 @@ export const deserializeAws_restJson1GetStageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetStageCommandError(output, context);
   }
   const contents: GetStageCommandOutput = {
@@ -12787,7 +11993,7 @@ export const deserializeAws_restJson1GetStagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStagesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetStagesCommandError(output, context);
   }
   const contents: GetStagesCommandOutput = {
@@ -12858,7 +12064,7 @@ export const deserializeAws_restJson1GetTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTagsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetTagsCommandError(output, context);
   }
   const contents: GetTagsCommandOutput = {
@@ -12945,7 +12151,7 @@ export const deserializeAws_restJson1GetUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUsageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetUsageCommandError(output, context);
   }
   const contents: GetUsageCommandOutput = {
@@ -13040,7 +12246,7 @@ export const deserializeAws_restJson1GetUsagePlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUsagePlanCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetUsagePlanCommandError(output, context);
   }
   const contents: GetUsagePlanCommandOutput = {
@@ -13147,7 +12353,7 @@ export const deserializeAws_restJson1GetUsagePlanKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUsagePlanKeyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetUsagePlanKeyCommandError(output, context);
   }
   const contents: GetUsagePlanKeyCommandOutput = {
@@ -13238,7 +12444,7 @@ export const deserializeAws_restJson1GetUsagePlanKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUsagePlanKeysCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetUsagePlanKeysCommandError(output, context);
   }
   const contents: GetUsagePlanKeysCommandOutput = {
@@ -13321,7 +12527,7 @@ export const deserializeAws_restJson1GetUsagePlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUsagePlansCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetUsagePlansCommandError(output, context);
   }
   const contents: GetUsagePlansCommandOutput = {
@@ -13412,7 +12618,7 @@ export const deserializeAws_restJson1GetVpcLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVpcLinkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetVpcLinkCommandError(output, context);
   }
   const contents: GetVpcLinkCommandOutput = {
@@ -13507,7 +12713,7 @@ export const deserializeAws_restJson1GetVpcLinksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVpcLinksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetVpcLinksCommandError(output, context);
   }
   const contents: GetVpcLinksCommandOutput = {
@@ -13582,7 +12788,7 @@ export const deserializeAws_restJson1ImportApiKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportApiKeysCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1ImportApiKeysCommandError(output, context);
   }
   const contents: ImportApiKeysCommandOutput = {
@@ -13681,7 +12887,7 @@ export const deserializeAws_restJson1ImportDocumentationPartsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportDocumentationPartsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ImportDocumentationPartsCommandError(output, context);
   }
   const contents: ImportDocumentationPartsCommandOutput = {
@@ -13772,7 +12978,7 @@ export const deserializeAws_restJson1ImportRestApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportRestApiCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1ImportRestApiCommandError(output, context);
   }
   const contents: ImportRestApiCommandOutput = {
@@ -13781,6 +12987,7 @@ export const deserializeAws_restJson1ImportRestApiCommand = async (
     binaryMediaTypes: undefined,
     createdDate: undefined,
     description: undefined,
+    disableExecuteApiEndpoint: undefined,
     endpointConfiguration: undefined,
     id: undefined,
     minimumCompressionSize: undefined,
@@ -13802,6 +13009,9 @@ export const deserializeAws_restJson1ImportRestApiCommand = async (
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
+  }
+  if (data.disableExecuteApiEndpoint !== undefined && data.disableExecuteApiEndpoint !== null) {
+    contents.disableExecuteApiEndpoint = data.disableExecuteApiEndpoint;
   }
   if (data.endpointConfiguration !== undefined && data.endpointConfiguration !== null) {
     contents.endpointConfiguration = deserializeAws_restJson1EndpointConfiguration(data.endpointConfiguration, context);
@@ -13903,7 +13113,7 @@ export const deserializeAws_restJson1PutGatewayResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutGatewayResponseCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutGatewayResponseCommandError(output, context);
   }
   const contents: PutGatewayResponseCommandOutput = {
@@ -14006,7 +13216,7 @@ export const deserializeAws_restJson1PutIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutIntegrationCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutIntegrationCommandError(output, context);
   }
   const contents: PutIntegrationCommandOutput = {
@@ -14152,7 +13362,7 @@ export const deserializeAws_restJson1PutIntegrationResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutIntegrationResponseCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutIntegrationResponseCommandError(output, context);
   }
   const contents: PutIntegrationResponseCommandOutput = {
@@ -14263,7 +13473,7 @@ export const deserializeAws_restJson1PutMethodCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMethodCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutMethodCommandError(output, context);
   }
   const contents: PutMethodCommandOutput = {
@@ -14398,7 +13608,7 @@ export const deserializeAws_restJson1PutMethodResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMethodResponseCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutMethodResponseCommandError(output, context);
   }
   const contents: PutMethodResponseCommandOutput = {
@@ -14501,7 +13711,7 @@ export const deserializeAws_restJson1PutRestApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRestApiCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutRestApiCommandError(output, context);
   }
   const contents: PutRestApiCommandOutput = {
@@ -14510,6 +13720,7 @@ export const deserializeAws_restJson1PutRestApiCommand = async (
     binaryMediaTypes: undefined,
     createdDate: undefined,
     description: undefined,
+    disableExecuteApiEndpoint: undefined,
     endpointConfiguration: undefined,
     id: undefined,
     minimumCompressionSize: undefined,
@@ -14531,6 +13742,9 @@ export const deserializeAws_restJson1PutRestApiCommand = async (
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
+  }
+  if (data.disableExecuteApiEndpoint !== undefined && data.disableExecuteApiEndpoint !== null) {
+    contents.disableExecuteApiEndpoint = data.disableExecuteApiEndpoint;
   }
   if (data.endpointConfiguration !== undefined && data.endpointConfiguration !== null) {
     contents.endpointConfiguration = deserializeAws_restJson1EndpointConfiguration(data.endpointConfiguration, context);
@@ -14640,7 +13854,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -14731,7 +13945,7 @@ export const deserializeAws_restJson1TestInvokeAuthorizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestInvokeAuthorizerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TestInvokeAuthorizerCommandError(output, context);
   }
   const contents: TestInvokeAuthorizerCommandOutput = {
@@ -14834,7 +14048,7 @@ export const deserializeAws_restJson1TestInvokeMethodCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestInvokeMethodCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TestInvokeMethodCommandError(output, context);
   }
   const contents: TestInvokeMethodCommandOutput = {
@@ -14933,7 +14147,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -15016,7 +14230,7 @@ export const deserializeAws_restJson1UpdateAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAccountCommandError(output, context);
   }
   const contents: UpdateAccountCommandOutput = {
@@ -15107,7 +14321,7 @@ export const deserializeAws_restJson1UpdateApiKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApiKeyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateApiKeyCommandError(output, context);
   }
   const contents: UpdateApiKeyCommandOutput = {
@@ -15230,7 +14444,7 @@ export const deserializeAws_restJson1UpdateAuthorizerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAuthorizerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAuthorizerCommandError(output, context);
   }
   const contents: UpdateAuthorizerCommandOutput = {
@@ -15345,7 +14559,7 @@ export const deserializeAws_restJson1UpdateBasePathMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBasePathMappingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateBasePathMappingCommandError(output, context);
   }
   const contents: UpdateBasePathMappingCommandOutput = {
@@ -15440,7 +14654,7 @@ export const deserializeAws_restJson1UpdateClientCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClientCertificateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateClientCertificateCommandError(output, context);
   }
   const contents: UpdateClientCertificateCommandOutput = {
@@ -15539,7 +14753,7 @@ export const deserializeAws_restJson1UpdateDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeploymentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDeploymentCommandError(output, context);
   }
   const contents: UpdateDeploymentCommandOutput = {
@@ -15638,7 +14852,7 @@ export const deserializeAws_restJson1UpdateDocumentationPartCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDocumentationPartCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDocumentationPartCommandError(output, context);
   }
   const contents: UpdateDocumentationPartCommandOutput = {
@@ -15741,7 +14955,7 @@ export const deserializeAws_restJson1UpdateDocumentationVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDocumentationVersionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDocumentationVersionCommandError(output, context);
   }
   const contents: UpdateDocumentationVersionCommandOutput = {
@@ -15836,7 +15050,7 @@ export const deserializeAws_restJson1UpdateDomainNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainNameCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDomainNameCommandError(output, context);
   }
   const contents: UpdateDomainNameCommandOutput = {
@@ -15850,6 +15064,7 @@ export const deserializeAws_restJson1UpdateDomainNameCommand = async (
     domainNameStatus: undefined,
     domainNameStatusMessage: undefined,
     endpointConfiguration: undefined,
+    mutualTlsAuthentication: undefined,
     regionalCertificateArn: undefined,
     regionalCertificateName: undefined,
     regionalDomainName: undefined,
@@ -15884,6 +15099,12 @@ export const deserializeAws_restJson1UpdateDomainNameCommand = async (
   }
   if (data.endpointConfiguration !== undefined && data.endpointConfiguration !== null) {
     contents.endpointConfiguration = deserializeAws_restJson1EndpointConfiguration(data.endpointConfiguration, context);
+  }
+  if (data.mutualTlsAuthentication !== undefined && data.mutualTlsAuthentication !== null) {
+    contents.mutualTlsAuthentication = deserializeAws_restJson1MutualTlsAuthentication(
+      data.mutualTlsAuthentication,
+      context
+    );
   }
   if (data.regionalCertificateArn !== undefined && data.regionalCertificateArn !== null) {
     contents.regionalCertificateArn = data.regionalCertificateArn;
@@ -15979,7 +15200,7 @@ export const deserializeAws_restJson1UpdateGatewayResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewayResponseCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateGatewayResponseCommandError(output, context);
   }
   const contents: UpdateGatewayResponseCommandOutput = {
@@ -16074,7 +15295,7 @@ export const deserializeAws_restJson1UpdateIntegrationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIntegrationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateIntegrationCommandError(output, context);
   }
   const contents: UpdateIntegrationCommandOutput = {
@@ -16220,7 +15441,7 @@ export const deserializeAws_restJson1UpdateIntegrationResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIntegrationResponseCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateIntegrationResponseCommandError(output, context);
   }
   const contents: UpdateIntegrationResponseCommandOutput = {
@@ -16323,7 +15544,7 @@ export const deserializeAws_restJson1UpdateMethodCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMethodCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateMethodCommandError(output, context);
   }
   const contents: UpdateMethodCommandOutput = {
@@ -16450,7 +15671,7 @@ export const deserializeAws_restJson1UpdateMethodResponseCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMethodResponseCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateMethodResponseCommandError(output, context);
   }
   const contents: UpdateMethodResponseCommandOutput = {
@@ -16553,7 +15774,7 @@ export const deserializeAws_restJson1UpdateModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateModelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateModelCommandError(output, context);
   }
   const contents: UpdateModelCommandOutput = {
@@ -16656,7 +15877,7 @@ export const deserializeAws_restJson1UpdateRequestValidatorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRequestValidatorCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateRequestValidatorCommandError(output, context);
   }
   const contents: UpdateRequestValidatorCommandOutput = {
@@ -16747,7 +15968,7 @@ export const deserializeAws_restJson1UpdateResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateResourceCommandError(output, context);
   }
   const contents: UpdateResourceCommandOutput = {
@@ -16850,7 +16071,7 @@ export const deserializeAws_restJson1UpdateRestApiCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRestApiCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateRestApiCommandError(output, context);
   }
   const contents: UpdateRestApiCommandOutput = {
@@ -16859,6 +16080,7 @@ export const deserializeAws_restJson1UpdateRestApiCommand = async (
     binaryMediaTypes: undefined,
     createdDate: undefined,
     description: undefined,
+    disableExecuteApiEndpoint: undefined,
     endpointConfiguration: undefined,
     id: undefined,
     minimumCompressionSize: undefined,
@@ -16880,6 +16102,9 @@ export const deserializeAws_restJson1UpdateRestApiCommand = async (
   }
   if (data.description !== undefined && data.description !== null) {
     contents.description = data.description;
+  }
+  if (data.disableExecuteApiEndpoint !== undefined && data.disableExecuteApiEndpoint !== null) {
+    contents.disableExecuteApiEndpoint = data.disableExecuteApiEndpoint;
   }
   if (data.endpointConfiguration !== undefined && data.endpointConfiguration !== null) {
     contents.endpointConfiguration = deserializeAws_restJson1EndpointConfiguration(data.endpointConfiguration, context);
@@ -16981,7 +16206,7 @@ export const deserializeAws_restJson1UpdateStageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateStageCommandError(output, context);
   }
   const contents: UpdateStageCommandOutput = {
@@ -17132,7 +16357,7 @@ export const deserializeAws_restJson1UpdateUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUsageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateUsageCommandError(output, context);
   }
   const contents: UpdateUsageCommandOutput = {
@@ -17227,7 +16452,7 @@ export const deserializeAws_restJson1UpdateUsagePlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUsagePlanCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateUsagePlanCommandError(output, context);
   }
   const contents: UpdateUsagePlanCommandOutput = {
@@ -17342,7 +16567,7 @@ export const deserializeAws_restJson1UpdateVpcLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVpcLinkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateVpcLinkCommandError(output, context);
   }
   const contents: UpdateVpcLinkCommandOutput = {
@@ -17706,6 +16931,16 @@ const serializeAws_restJson1MapOfStringToString = (input: { [key: string]: strin
   );
 };
 
+const serializeAws_restJson1MutualTlsAuthenticationInput = (
+  input: MutualTlsAuthenticationInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.truststoreUri !== undefined && { truststoreUri: input.truststoreUri }),
+    ...(input.truststoreVersion !== undefined && { truststoreVersion: input.truststoreVersion }),
+  };
+};
+
 const serializeAws_restJson1PatchOperation = (input: PatchOperation, context: __SerdeContext): any => {
   return {
     ...(input.from !== undefined && { from: input.from }),
@@ -17944,6 +17179,10 @@ const deserializeAws_restJson1DomainName = (output: any, context: __SerdeContext
     endpointConfiguration:
       output.endpointConfiguration !== undefined && output.endpointConfiguration !== null
         ? deserializeAws_restJson1EndpointConfiguration(output.endpointConfiguration, context)
+        : undefined,
+    mutualTlsAuthentication:
+      output.mutualTlsAuthentication !== undefined && output.mutualTlsAuthentication !== null
+        ? deserializeAws_restJson1MutualTlsAuthentication(output.mutualTlsAuthentication, context)
         : undefined,
     regionalCertificateArn:
       output.regionalCertificateArn !== undefined && output.regionalCertificateArn !== null
@@ -18407,6 +17646,24 @@ const deserializeAws_restJson1Model = (output: any, context: __SerdeContext): Mo
   } as any;
 };
 
+const deserializeAws_restJson1MutualTlsAuthentication = (
+  output: any,
+  context: __SerdeContext
+): MutualTlsAuthentication => {
+  return {
+    truststoreUri:
+      output.truststoreUri !== undefined && output.truststoreUri !== null ? output.truststoreUri : undefined,
+    truststoreVersion:
+      output.truststoreVersion !== undefined && output.truststoreVersion !== null
+        ? output.truststoreVersion
+        : undefined,
+    truststoreWarnings:
+      output.truststoreWarnings !== undefined && output.truststoreWarnings !== null
+        ? deserializeAws_restJson1ListOfString(output.truststoreWarnings, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1PathToMapOfMethodSnapshot = (
   output: any,
   context: __SerdeContext
@@ -18468,6 +17725,10 @@ const deserializeAws_restJson1RestApi = (output: any, context: __SerdeContext): 
         ? new Date(Math.round(output.createdDate * 1000))
         : undefined,
     description: output.description !== undefined && output.description !== null ? output.description : undefined,
+    disableExecuteApiEndpoint:
+      output.disableExecuteApiEndpoint !== undefined && output.disableExecuteApiEndpoint !== null
+        ? output.disableExecuteApiEndpoint
+        : undefined,
     endpointConfiguration:
       output.endpointConfiguration !== undefined && output.endpointConfiguration !== null
         ? deserializeAws_restJson1EndpointConfiguration(output.endpointConfiguration, context)

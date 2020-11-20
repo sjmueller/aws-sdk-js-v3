@@ -2,12 +2,64 @@ import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk
 import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 /**
+ * <p>Metadata assigned to an allocation. Each tag is made up of a key and a value.</p>
+ */
+export interface Tag {
+  /**
+   * <p>One part of a key-value pair that makes up a tag. A key is a label that acts like a
+   *             category for the specific tag values.</p>
+   */
+  Key: string | undefined;
+
+  /**
+   * <p>One part of a key-value pair that makes up a tag. A value acts as a descriptor within
+   *             a tag category (key). The value can be empty or null.</p>
+   */
+  Value: string | undefined;
+}
+
+export namespace Tag {
+  export const filterSensitiveLog = (obj: Tag): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Usage allocations allow you to split usage into buckets by tags.</p>
+ *         <p>Each UsageAllocation indicates the usage quantity for a specific set of tags.</p>
+ */
+export interface UsageAllocation {
+  /**
+   * <p>The total quantity allocated to this bucket of usage.</p>
+   */
+  AllocatedUsageQuantity: number | undefined;
+
+  /**
+   * <p>The set of tags that define the bucket of usage. For the bucket of items with no
+   *             tags, this parameter can be left out.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace UsageAllocation {
+  export const filterSensitiveLog = (obj: UsageAllocation): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>A UsageRecord indicates a quantity of usage for a given product, customer,
  *             dimension and time.</p>
  *         <p>Multiple requests with the same UsageRecords as input will be deduplicated to
  *             prevent double charges.</p>
  */
 export interface UsageRecord {
+  /**
+   * <p>The set of UsageAllocations to submit. The sum of all UsageAllocation quantities
+   *             must equal the Quantity of the UsageRecord.</p>
+   */
+  UsageAllocations?: UsageAllocation[];
+
   /**
    * <p>Timestamp, in UTC, for which the usage is being reported.</p>
    *         <p>Your application can meter usage for up to one hour in the past. Make sure the
@@ -22,17 +74,17 @@ export interface UsageRecord {
   Quantity?: number;
 
   /**
+   * <p>The CustomerIdentifier is obtained through the ResolveCustomer operation and
+   *             represents an individual buyer in your application.</p>
+   */
+  CustomerIdentifier: string | undefined;
+
+  /**
    * <p>During the process of registering a product on AWS Marketplace, up to eight
    *             dimensions are specified. These represent different units of value in your
    *             application.</p>
    */
   Dimension: string | undefined;
-
-  /**
-   * <p>The CustomerIdentifier is obtained through the ResolveCustomer operation and
-   *             represents an individual buyer in your application.</p>
-   */
-  CustomerIdentifier: string | undefined;
 }
 
 export namespace UsageRecord {
@@ -47,17 +99,17 @@ export namespace UsageRecord {
  */
 export interface BatchMeterUsageRequest {
   /**
+   * <p>The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at
+   *             a time.</p>
+   */
+  UsageRecords: UsageRecord[] | undefined;
+
+  /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
    *             code should be the same as the one used during the publishing of a new
    *             product.</p>
    */
   ProductCode: string | undefined;
-
-  /**
-   * <p>The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at
-   *             a time.</p>
-   */
-  UsageRecords: UsageRecord[] | undefined;
 }
 
 export namespace BatchMeterUsageRequest {
@@ -208,6 +260,37 @@ export namespace InvalidProductCodeException {
 }
 
 /**
+ * <p>The tag is invalid, or the number of tags is greater than 5.</p>
+ */
+export interface InvalidTagException extends __SmithyException, $MetadataBearer {
+  name: "InvalidTagException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidTagException {
+  export const filterSensitiveLog = (obj: InvalidTagException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The usage allocation objects are invalid, or the number of allocations is greater
+ *             than 500 for a single usage record.</p>
+ */
+export interface InvalidUsageAllocationsException extends __SmithyException, $MetadataBearer {
+  name: "InvalidUsageAllocationsException";
+  $fault: "client";
+  message?: string;
+}
+
+export namespace InvalidUsageAllocationsException {
+  export const filterSensitiveLog = (obj: InvalidUsageAllocationsException): any => ({
+    ...obj,
+  });
+}
+
+/**
  * <p>The usage dimension does not match one of the UsageDimensions associated with
  *             products.</p>
  */
@@ -312,12 +395,24 @@ export interface MeterUsageRequest {
   Timestamp: Date | undefined;
 
   /**
-   * <p>Checks whether you have the permissions required for the action, but does not make
-   *             the request. If you have the permissions, the request returns DryRunOperation;
-   *             otherwise, it returns UnauthorizedException. Defaults to <code>false</code> if not
+   * <p>It will be one of the fcp dimension name provided during the publishing of the
+   *             product.</p>
+   */
+  UsageDimension: string | undefined;
+
+  /**
+   * <p>The set of UsageAllocations to submit.</p>
+   *         <p>The sum of all UsageAllocation quantities must equal the
+   *             UsageQuantity of the MeterUsage request, and each UsageAllocation must have a
+   *             unique set of tags (include no tags).</p>
+   */
+  UsageAllocations?: UsageAllocation[];
+
+  /**
+   * <p>Consumption value for the hour. Defaults to <code>0</code> if not
    *             specified.</p>
    */
-  DryRun?: boolean;
+  UsageQuantity?: number;
 
   /**
    * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
@@ -327,16 +422,12 @@ export interface MeterUsageRequest {
   ProductCode: string | undefined;
 
   /**
-   * <p>Consumption value for the hour. Defaults to <code>0</code> if not
+   * <p>Checks whether you have the permissions required for the action, but does not make
+   *             the request. If you have the permissions, the request returns DryRunOperation;
+   *             otherwise, it returns UnauthorizedException. Defaults to <code>false</code> if not
    *             specified.</p>
    */
-  UsageQuantity?: number;
-
-  /**
-   * <p>It will be one of the fcp dimension name provided during the publishing of the
-   *             product.</p>
-   */
-  UsageDimension: string | undefined;
+  DryRun?: boolean;
 }
 
 export namespace MeterUsageRequest {
@@ -408,11 +499,9 @@ export namespace PlatformNotSupportedException {
 
 export interface RegisterUsageRequest {
   /**
-   * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
-   *             code should be the same as the one used during the publishing of a new
-   *             product.</p>
+   * <p>Public Key Version provided by AWS Marketplace</p>
    */
-  ProductCode: string | undefined;
+  PublicKeyVersion: number | undefined;
 
   /**
    * <p>(Optional) To scope down the registration to a specific running software instance
@@ -421,9 +510,11 @@ export interface RegisterUsageRequest {
   Nonce?: string;
 
   /**
-   * <p>Public Key Version provided by AWS Marketplace</p>
+   * <p>Product code is used to uniquely identify a product in AWS Marketplace. The product
+   *             code should be the same as the one used during the publishing of a new
+   *             product.</p>
    */
-  PublicKeyVersion: number | undefined;
+  ProductCode: string | undefined;
 }
 
 export namespace RegisterUsageRequest {

@@ -399,15 +399,6 @@ export const serializeAws_restJson1DeleteEnvironmentCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/applications/{ApplicationId}/environments/{EnvironmentId}";
-  if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
-    }
-    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EnvironmentId.");
-  }
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -416,6 +407,15 @@ export const serializeAws_restJson1DeleteEnvironmentCommand = async (
     resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
+  if (input.EnvironmentId !== undefined) {
+    const labelValue: string = input.EnvironmentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
+    }
+    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EnvironmentId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -439,14 +439,14 @@ export const serializeAws_restJson1DeleteHostedConfigurationVersionCommand = asy
   };
   let resolvedPath =
     "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/hostedconfigurationversions/{VersionNumber}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
+  if (input.ConfigurationProfileId !== undefined) {
+    const labelValue: string = input.ConfigurationProfileId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
     }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
+    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
   }
   if (input.VersionNumber !== undefined) {
     const labelValue: string = input.VersionNumber.toString();
@@ -457,14 +457,14 @@ export const serializeAws_restJson1DeleteHostedConfigurationVersionCommand = asy
   } else {
     throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
-  if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId;
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
     }
-    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -526,15 +526,6 @@ export const serializeAws_restJson1GetConfigurationCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Environment.");
   }
-  if (input.Configuration !== undefined) {
-    const labelValue: string = input.Configuration;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Configuration.");
-    }
-    resolvedPath = resolvedPath.replace("{Configuration}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Configuration.");
-  }
   if (input.Application !== undefined) {
     const labelValue: string = input.Application;
     if (labelValue.length <= 0) {
@@ -544,11 +535,20 @@ export const serializeAws_restJson1GetConfigurationCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: Application.");
   }
+  if (input.Configuration !== undefined) {
+    const labelValue: string = input.Configuration;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Configuration.");
+    }
+    resolvedPath = resolvedPath.replace("{Configuration}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Configuration.");
+  }
   const query: any = {
-    ...(input.ClientId !== undefined && { client_id: input.ClientId }),
     ...(input.ClientConfigurationVersion !== undefined && {
       client_configuration_version: input.ClientConfigurationVersion,
     }),
+    ...(input.ClientId !== undefined && { client_id: input.ClientId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -572,15 +572,6 @@ export const serializeAws_restJson1GetConfigurationProfileCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
-  if (input.ConfigurationProfileId !== undefined) {
-    const labelValue: string = input.ConfigurationProfileId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
-    }
-    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
-  }
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -589,6 +580,15 @@ export const serializeAws_restJson1GetConfigurationProfileCommand = async (
     resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
+  if (input.ConfigurationProfileId !== undefined) {
+    const labelValue: string = input.ConfigurationProfileId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ConfigurationProfileId.");
+    }
+    resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -738,15 +738,6 @@ export const serializeAws_restJson1GetHostedConfigurationVersionCommand = async 
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
   }
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.VersionNumber !== undefined) {
     const labelValue: string = input.VersionNumber.toString();
     if (labelValue.length <= 0) {
@@ -755,6 +746,15 @@ export const serializeAws_restJson1GetHostedConfigurationVersionCommand = async 
     resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: VersionNumber.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -778,8 +778,8 @@ export const serializeAws_restJson1ListApplicationsCommand = async (
   };
   let resolvedPath = "/applications";
   const query: any = {
-    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -883,8 +883,8 @@ export const serializeAws_restJson1ListDeploymentStrategiesCommand = async (
   };
   let resolvedPath = "/deploymentstrategies";
   const query: any = {
-    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
     ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { next_token: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -918,8 +918,8 @@ export const serializeAws_restJson1ListEnvironmentsCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1213,15 +1213,6 @@ export const serializeAws_restJson1UpdateConfigurationProfileCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.ConfigurationProfileId !== undefined) {
     const labelValue: string = input.ConfigurationProfileId;
     if (labelValue.length <= 0) {
@@ -1230,6 +1221,15 @@ export const serializeAws_restJson1UpdateConfigurationProfileCommand = async (
     resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1299,15 +1299,6 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/applications/{ApplicationId}/environments/{EnvironmentId}";
-  if (input.EnvironmentId !== undefined) {
-    const labelValue: string = input.EnvironmentId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
-    }
-    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: EnvironmentId.");
-  }
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -1316,6 +1307,15 @@ export const serializeAws_restJson1UpdateEnvironmentCommand = async (
     resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
+  if (input.EnvironmentId !== undefined) {
+    const labelValue: string = input.EnvironmentId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: EnvironmentId.");
+    }
+    resolvedPath = resolvedPath.replace("{EnvironmentId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: EnvironmentId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1343,15 +1343,6 @@ export const serializeAws_restJson1ValidateConfigurationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/applications/{ApplicationId}/configurationprofiles/{ConfigurationProfileId}/validators";
-  if (input.ApplicationId !== undefined) {
-    const labelValue: string = input.ApplicationId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
-    }
-    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ApplicationId.");
-  }
   if (input.ConfigurationProfileId !== undefined) {
     const labelValue: string = input.ConfigurationProfileId;
     if (labelValue.length <= 0) {
@@ -1360,6 +1351,15 @@ export const serializeAws_restJson1ValidateConfigurationCommand = async (
     resolvedPath = resolvedPath.replace("{ConfigurationProfileId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ConfigurationProfileId.");
+  }
+  if (input.ApplicationId !== undefined) {
+    const labelValue: string = input.ApplicationId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ApplicationId.");
+    }
+    resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
     ...(input.ConfigurationVersion !== undefined && { configuration_version: input.ConfigurationVersion }),
@@ -1382,7 +1382,7 @@ export const deserializeAws_restJson1CreateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateApplicationCommandError(output, context);
   }
   const contents: CreateApplicationCommandOutput = {
@@ -1453,7 +1453,7 @@ export const deserializeAws_restJson1CreateConfigurationProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationProfileCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateConfigurationProfileCommandError(output, context);
   }
   const contents: CreateConfigurationProfileCommandOutput = {
@@ -1548,7 +1548,7 @@ export const deserializeAws_restJson1CreateDeploymentStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentStrategyCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDeploymentStrategyCommandError(output, context);
   }
   const contents: CreateDeploymentStrategyCommandOutput = {
@@ -1639,7 +1639,7 @@ export const deserializeAws_restJson1CreateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEnvironmentCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateEnvironmentCommandError(output, context);
   }
   const contents: CreateEnvironmentCommandOutput = {
@@ -1730,7 +1730,7 @@ export const deserializeAws_restJson1CreateHostedConfigurationVersionCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHostedConfigurationVersionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateHostedConfigurationVersionCommandError(output, context);
   }
   const contents: CreateHostedConfigurationVersionCommandOutput = {
@@ -1742,20 +1742,20 @@ export const deserializeAws_restJson1CreateHostedConfigurationVersionCommand = a
     Description: undefined,
     VersionNumber: undefined,
   };
-  if (output.headers["content-type"] !== undefined) {
-    contents.ContentType = output.headers["content-type"];
-  }
   if (output.headers["description"] !== undefined) {
     contents.Description = output.headers["description"];
   }
   if (output.headers["configuration-profile-id"] !== undefined) {
     contents.ConfigurationProfileId = output.headers["configuration-profile-id"];
   }
-  if (output.headers["version-number"] !== undefined) {
-    contents.VersionNumber = parseInt(output.headers["version-number"], 10);
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
   }
   if (output.headers["application-id"] !== undefined) {
     contents.ApplicationId = output.headers["application-id"];
+  }
+  if (output.headers["version-number"] !== undefined) {
+    contents.VersionNumber = parseInt(output.headers["version-number"], 10);
   }
   const data: any = await collectBody(output.body, context);
   contents.Content = data;
@@ -1843,7 +1843,7 @@ export const deserializeAws_restJson1DeleteApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteApplicationCommandError(output, context);
   }
   const contents: DeleteApplicationCommandOutput = {
@@ -1910,7 +1910,7 @@ export const deserializeAws_restJson1DeleteConfigurationProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationProfileCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteConfigurationProfileCommandError(output, context);
   }
   const contents: DeleteConfigurationProfileCommandOutput = {
@@ -1985,7 +1985,7 @@ export const deserializeAws_restJson1DeleteDeploymentStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeploymentStrategyCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDeploymentStrategyCommandError(output, context);
   }
   const contents: DeleteDeploymentStrategyCommandOutput = {
@@ -2052,7 +2052,7 @@ export const deserializeAws_restJson1DeleteEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEnvironmentCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteEnvironmentCommandError(output, context);
   }
   const contents: DeleteEnvironmentCommandOutput = {
@@ -2127,7 +2127,7 @@ export const deserializeAws_restJson1DeleteHostedConfigurationVersionCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHostedConfigurationVersionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteHostedConfigurationVersionCommandError(output, context);
   }
   const contents: DeleteHostedConfigurationVersionCommandOutput = {
@@ -2194,7 +2194,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetApplicationCommandError(output, context);
   }
   const contents: GetApplicationCommandOutput = {
@@ -2273,7 +2273,7 @@ export const deserializeAws_restJson1GetConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetConfigurationCommandError(output, context);
   }
   const contents: GetConfigurationCommandOutput = {
@@ -2350,7 +2350,7 @@ export const deserializeAws_restJson1GetConfigurationProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConfigurationProfileCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetConfigurationProfileCommandError(output, context);
   }
   const contents: GetConfigurationProfileCommandOutput = {
@@ -2445,7 +2445,7 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDeploymentCommandError(output, context);
   }
   const contents: GetDeploymentCommandOutput = {
@@ -2584,7 +2584,7 @@ export const deserializeAws_restJson1GetDeploymentStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeploymentStrategyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDeploymentStrategyCommandError(output, context);
   }
   const contents: GetDeploymentStrategyCommandOutput = {
@@ -2683,7 +2683,7 @@ export const deserializeAws_restJson1GetEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEnvironmentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetEnvironmentCommandError(output, context);
   }
   const contents: GetEnvironmentCommandOutput = {
@@ -2774,7 +2774,7 @@ export const deserializeAws_restJson1GetHostedConfigurationVersionCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHostedConfigurationVersionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetHostedConfigurationVersionCommandError(output, context);
   }
   const contents: GetHostedConfigurationVersionCommandOutput = {
@@ -2786,20 +2786,20 @@ export const deserializeAws_restJson1GetHostedConfigurationVersionCommand = asyn
     Description: undefined,
     VersionNumber: undefined,
   };
-  if (output.headers["content-type"] !== undefined) {
-    contents.ContentType = output.headers["content-type"];
-  }
   if (output.headers["description"] !== undefined) {
     contents.Description = output.headers["description"];
   }
   if (output.headers["configuration-profile-id"] !== undefined) {
     contents.ConfigurationProfileId = output.headers["configuration-profile-id"];
   }
-  if (output.headers["version-number"] !== undefined) {
-    contents.VersionNumber = parseInt(output.headers["version-number"], 10);
+  if (output.headers["content-type"] !== undefined) {
+    contents.ContentType = output.headers["content-type"];
   }
   if (output.headers["application-id"] !== undefined) {
     contents.ApplicationId = output.headers["application-id"];
+  }
+  if (output.headers["version-number"] !== undefined) {
+    contents.VersionNumber = parseInt(output.headers["version-number"], 10);
   }
   const data: any = await collectBody(output.body, context);
   contents.Content = data;
@@ -2863,7 +2863,7 @@ export const deserializeAws_restJson1ListApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListApplicationsCommandError(output, context);
   }
   const contents: ListApplicationsCommandOutput = {
@@ -2930,7 +2930,7 @@ export const deserializeAws_restJson1ListConfigurationProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationProfilesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListConfigurationProfilesCommandError(output, context);
   }
   const contents: ListConfigurationProfilesCommandOutput = {
@@ -3005,7 +3005,7 @@ export const deserializeAws_restJson1ListDeploymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDeploymentsCommandError(output, context);
   }
   const contents: ListDeploymentsCommandOutput = {
@@ -3080,7 +3080,7 @@ export const deserializeAws_restJson1ListDeploymentStrategiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeploymentStrategiesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDeploymentStrategiesCommandError(output, context);
   }
   const contents: ListDeploymentStrategiesCommandOutput = {
@@ -3147,7 +3147,7 @@ export const deserializeAws_restJson1ListEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEnvironmentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListEnvironmentsCommandError(output, context);
   }
   const contents: ListEnvironmentsCommandOutput = {
@@ -3222,7 +3222,7 @@ export const deserializeAws_restJson1ListHostedConfigurationVersionsCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHostedConfigurationVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListHostedConfigurationVersionsCommandError(output, context);
   }
   const contents: ListHostedConfigurationVersionsCommandOutput = {
@@ -3297,7 +3297,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -3368,7 +3368,7 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeploymentCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartDeploymentCommandError(output, context);
   }
   const contents: StartDeploymentCommandOutput = {
@@ -3515,7 +3515,7 @@ export const deserializeAws_restJson1StopDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDeploymentCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1StopDeploymentCommandError(output, context);
   }
   const contents: StopDeploymentCommandOutput = {
@@ -3654,7 +3654,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -3721,7 +3721,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -3788,7 +3788,7 @@ export const deserializeAws_restJson1UpdateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateApplicationCommandError(output, context);
   }
   const contents: UpdateApplicationCommandOutput = {
@@ -3867,7 +3867,7 @@ export const deserializeAws_restJson1UpdateConfigurationProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConfigurationProfileCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateConfigurationProfileCommandError(output, context);
   }
   const contents: UpdateConfigurationProfileCommandOutput = {
@@ -3962,7 +3962,7 @@ export const deserializeAws_restJson1UpdateDeploymentStrategyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDeploymentStrategyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDeploymentStrategyCommandError(output, context);
   }
   const contents: UpdateDeploymentStrategyCommandOutput = {
@@ -4061,7 +4061,7 @@ export const deserializeAws_restJson1UpdateEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEnvironmentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateEnvironmentCommandError(output, context);
   }
   const contents: UpdateEnvironmentCommandOutput = {
@@ -4152,7 +4152,7 @@ export const deserializeAws_restJson1ValidateConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ValidateConfigurationCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1ValidateConfigurationCommandError(output, context);
   }
   const contents: ValidateConfigurationCommandOutput = {

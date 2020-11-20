@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeServersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeServersCommand(input, ...args));
+  return await client.send(new DescribeServersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: OpsWorksCM,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeServers(input, ...args);
 };
-export async function* describeServersPaginate(
+export async function* paginateDescribeServers(
   config: OpsWorksCMPaginationConfiguration,
   input: DescribeServersCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeServersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeServersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof OpsWorksCM) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeServersPaginate(
       throw new Error("Invalid client, expected OpsWorksCM | OpsWorksCMClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

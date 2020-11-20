@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSigningProfilesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSigningProfilesCommand(input, ...args));
+  return await client.send(new ListSigningProfilesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Signer,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSigningProfiles(input, ...args);
 };
-export async function* listSigningProfilesPaginate(
+export async function* paginateListSigningProfiles(
   config: SignerPaginationConfiguration,
   input: ListSigningProfilesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSigningProfilesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSigningProfilesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Signer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listSigningProfilesPaginate(
       throw new Error("Invalid client, expected Signer | SignerClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

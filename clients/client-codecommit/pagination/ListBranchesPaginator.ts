@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBranchesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBranchesCommand(input, ...args));
+  return await client.send(new ListBranchesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeCommit,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBranches(input, ...args);
 };
-export async function* listBranchesPaginate(
+export async function* paginateListBranches(
   config: CodeCommitPaginationConfiguration,
   input: ListBranchesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBranchesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBranchesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     if (config.client instanceof CodeCommit) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof CodeCommitClient) {
@@ -42,7 +42,7 @@ export async function* listBranchesPaginate(
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

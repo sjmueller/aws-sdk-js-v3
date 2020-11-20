@@ -44,11 +44,23 @@ export class GetDomainPermissionsPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeartifactClient";
+    const commandName = "GetDomainPermissionsPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetDomainPermissionsPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetDomainPermissionsPolicyResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

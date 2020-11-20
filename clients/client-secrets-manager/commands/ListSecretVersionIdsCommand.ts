@@ -44,11 +44,23 @@ export class ListSecretVersionIdsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecretsManagerClient";
+    const commandName = "ListSecretVersionIdsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListSecretVersionIdsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSecretVersionIdsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

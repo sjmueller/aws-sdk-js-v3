@@ -10,6 +10,16 @@ import {
   CreateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/CreateConfigurationSetEventDestinationCommand";
 import {
+  CreateContactCommand,
+  CreateContactCommandInput,
+  CreateContactCommandOutput,
+} from "./commands/CreateContactCommand";
+import {
+  CreateContactListCommand,
+  CreateContactListCommandInput,
+  CreateContactListCommandOutput,
+} from "./commands/CreateContactListCommand";
+import {
   CreateCustomVerificationEmailTemplateCommand,
   CreateCustomVerificationEmailTemplateCommandInput,
   CreateCustomVerificationEmailTemplateCommandOutput,
@@ -40,6 +50,11 @@ import {
   CreateEmailTemplateCommandOutput,
 } from "./commands/CreateEmailTemplateCommand";
 import {
+  CreateImportJobCommand,
+  CreateImportJobCommandInput,
+  CreateImportJobCommandOutput,
+} from "./commands/CreateImportJobCommand";
+import {
   DeleteConfigurationSetCommand,
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
@@ -49,6 +64,16 @@ import {
   DeleteConfigurationSetEventDestinationCommandInput,
   DeleteConfigurationSetEventDestinationCommandOutput,
 } from "./commands/DeleteConfigurationSetEventDestinationCommand";
+import {
+  DeleteContactCommand,
+  DeleteContactCommandInput,
+  DeleteContactCommandOutput,
+} from "./commands/DeleteContactCommand";
+import {
+  DeleteContactListCommand,
+  DeleteContactListCommandInput,
+  DeleteContactListCommandOutput,
+} from "./commands/DeleteContactListCommand";
 import {
   DeleteCustomVerificationEmailTemplateCommand,
   DeleteCustomVerificationEmailTemplateCommandInput,
@@ -95,6 +120,12 @@ import {
   GetConfigurationSetEventDestinationsCommandInput,
   GetConfigurationSetEventDestinationsCommandOutput,
 } from "./commands/GetConfigurationSetEventDestinationsCommand";
+import { GetContactCommand, GetContactCommandInput, GetContactCommandOutput } from "./commands/GetContactCommand";
+import {
+  GetContactListCommand,
+  GetContactListCommandInput,
+  GetContactListCommandOutput,
+} from "./commands/GetContactListCommand";
 import {
   GetCustomVerificationEmailTemplateCommand,
   GetCustomVerificationEmailTemplateCommandInput,
@@ -146,6 +177,11 @@ import {
   GetEmailTemplateCommandOutput,
 } from "./commands/GetEmailTemplateCommand";
 import {
+  GetImportJobCommand,
+  GetImportJobCommandInput,
+  GetImportJobCommandOutput,
+} from "./commands/GetImportJobCommand";
+import {
   GetSuppressedDestinationCommand,
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
@@ -155,6 +191,16 @@ import {
   ListConfigurationSetsCommandInput,
   ListConfigurationSetsCommandOutput,
 } from "./commands/ListConfigurationSetsCommand";
+import {
+  ListContactListsCommand,
+  ListContactListsCommandInput,
+  ListContactListsCommandOutput,
+} from "./commands/ListContactListsCommand";
+import {
+  ListContactsCommand,
+  ListContactsCommandInput,
+  ListContactsCommandOutput,
+} from "./commands/ListContactsCommand";
 import {
   ListCustomVerificationEmailTemplatesCommand,
   ListCustomVerificationEmailTemplatesCommandInput,
@@ -185,6 +231,11 @@ import {
   ListEmailTemplatesCommandInput,
   ListEmailTemplatesCommandOutput,
 } from "./commands/ListEmailTemplatesCommand";
+import {
+  ListImportJobsCommand,
+  ListImportJobsCommandInput,
+  ListImportJobsCommandOutput,
+} from "./commands/ListImportJobsCommand";
 import {
   ListSuppressedDestinationsCommand,
   ListSuppressedDestinationsCommandInput,
@@ -308,6 +359,16 @@ import {
   UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
 import {
+  UpdateContactCommand,
+  UpdateContactCommandInput,
+  UpdateContactCommandOutput,
+} from "./commands/UpdateContactCommand";
+import {
+  UpdateContactListCommand,
+  UpdateContactListCommandInput,
+  UpdateContactListCommandOutput,
+} from "./commands/UpdateContactListCommand";
+import {
   UpdateCustomVerificationEmailTemplateCommand,
   UpdateCustomVerificationEmailTemplateCommandInput,
   UpdateCustomVerificationEmailTemplateCommandOutput,
@@ -413,6 +474,71 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: CreateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<CreateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new CreateConfigurationSetEventDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a contact, which is an end-user who is receiving the email, and adds them to a
+   *             contact list.</p>
+   */
+  public createContact(
+    args: CreateContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContactCommandOutput>;
+  public createContact(
+    args: CreateContactCommandInput,
+    cb: (err: any, data?: CreateContactCommandOutput) => void
+  ): void;
+  public createContact(
+    args: CreateContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContactCommandOutput) => void
+  ): void;
+  public createContact(
+    args: CreateContactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContactCommandOutput) => void),
+    cb?: (err: any, data?: CreateContactCommandOutput) => void
+  ): Promise<CreateContactCommandOutput> | void {
+    const command = new CreateContactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a contact list.</p>
+   */
+  public createContactList(
+    args: CreateContactListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContactListCommandOutput>;
+  public createContactList(
+    args: CreateContactListCommandInput,
+    cb: (err: any, data?: CreateContactListCommandOutput) => void
+  ): void;
+  public createContactList(
+    args: CreateContactListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContactListCommandOutput) => void
+  ): void;
+  public createContactList(
+    args: CreateContactListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContactListCommandOutput) => void),
+    cb?: (err: any, data?: CreateContactListCommandOutput) => void
+  ): Promise<CreateContactListCommandOutput> | void {
+    const command = new CreateContactListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -663,6 +789,38 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * <p>Creates an import job for a data destination.</p>
+   */
+  public createImportJob(
+    args: CreateImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateImportJobCommandOutput>;
+  public createImportJob(
+    args: CreateImportJobCommandInput,
+    cb: (err: any, data?: CreateImportJobCommandOutput) => void
+  ): void;
+  public createImportJob(
+    args: CreateImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateImportJobCommandOutput) => void
+  ): void;
+  public createImportJob(
+    args: CreateImportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateImportJobCommandOutput) => void),
+    cb?: (err: any, data?: CreateImportJobCommandOutput) => void
+  ): Promise<CreateImportJobCommandOutput> | void {
+    const command = new CreateImportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Delete an existing configuration set.</p>
    *         <p>
    *             <i>Configuration sets</i> are groups of rules that you can apply to the
@@ -729,6 +887,70 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: DeleteConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<DeleteConfigurationSetEventDestinationCommandOutput> | void {
     const command = new DeleteConfigurationSetEventDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Removes a contact from a contact list.</p>
+   */
+  public deleteContact(
+    args: DeleteContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContactCommandOutput>;
+  public deleteContact(
+    args: DeleteContactCommandInput,
+    cb: (err: any, data?: DeleteContactCommandOutput) => void
+  ): void;
+  public deleteContact(
+    args: DeleteContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContactCommandOutput) => void
+  ): void;
+  public deleteContact(
+    args: DeleteContactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContactCommandOutput) => void),
+    cb?: (err: any, data?: DeleteContactCommandOutput) => void
+  ): Promise<DeleteContactCommandOutput> | void {
+    const command = new DeleteContactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a contact list and all of the contacts on that list.</p>
+   */
+  public deleteContactList(
+    args: DeleteContactListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContactListCommandOutput>;
+  public deleteContactList(
+    args: DeleteContactListCommandInput,
+    cb: (err: any, data?: DeleteContactListCommandOutput) => void
+  ): void;
+  public deleteContactList(
+    args: DeleteContactListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContactListCommandOutput) => void
+  ): void;
+  public deleteContactList(
+    args: DeleteContactListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContactListCommandOutput) => void),
+    cb?: (err: any, data?: DeleteContactListCommandOutput) => void
+  ): Promise<DeleteContactListCommandOutput> | void {
+    const command = new DeleteContactListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1078,6 +1300,65 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: GetConfigurationSetEventDestinationsCommandOutput) => void
   ): Promise<GetConfigurationSetEventDestinationsCommandOutput> | void {
     const command = new GetConfigurationSetEventDestinationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a contact from a contact list.</p>
+   */
+  public getContact(args: GetContactCommandInput, options?: __HttpHandlerOptions): Promise<GetContactCommandOutput>;
+  public getContact(args: GetContactCommandInput, cb: (err: any, data?: GetContactCommandOutput) => void): void;
+  public getContact(
+    args: GetContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContactCommandOutput) => void
+  ): void;
+  public getContact(
+    args: GetContactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContactCommandOutput) => void),
+    cb?: (err: any, data?: GetContactCommandOutput) => void
+  ): Promise<GetContactCommandOutput> | void {
+    const command = new GetContactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns contact list metadata. It does not return any information about the contacts
+   *             present in the list.</p>
+   */
+  public getContactList(
+    args: GetContactListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContactListCommandOutput>;
+  public getContactList(
+    args: GetContactListCommandInput,
+    cb: (err: any, data?: GetContactListCommandOutput) => void
+  ): void;
+  public getContactList(
+    args: GetContactListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContactListCommandOutput) => void
+  ): void;
+  public getContactList(
+    args: GetContactListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContactListCommandOutput) => void),
+    cb?: (err: any, data?: GetContactListCommandOutput) => void
+  ): Promise<GetContactListCommandOutput> | void {
+    const command = new GetContactListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1442,6 +1723,35 @@ export class SESv2 extends SESv2Client {
   }
 
   /**
+   * <p>Provides information about an import job.</p>
+   */
+  public getImportJob(
+    args: GetImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetImportJobCommandOutput>;
+  public getImportJob(args: GetImportJobCommandInput, cb: (err: any, data?: GetImportJobCommandOutput) => void): void;
+  public getImportJob(
+    args: GetImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetImportJobCommandOutput) => void
+  ): void;
+  public getImportJob(
+    args: GetImportJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetImportJobCommandOutput) => void),
+    cb?: (err: any, data?: GetImportJobCommandOutput) => void
+  ): Promise<GetImportJobCommandOutput> | void {
+    const command = new GetImportJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves information about a specific email address that's on the suppression list
    *             for your account.</p>
    */
@@ -1502,6 +1812,67 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: ListConfigurationSetsCommandOutput) => void
   ): Promise<ListConfigurationSetsCommandOutput> | void {
     const command = new ListConfigurationSetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all of the contact lists available.</p>
+   */
+  public listContactLists(
+    args: ListContactListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContactListsCommandOutput>;
+  public listContactLists(
+    args: ListContactListsCommandInput,
+    cb: (err: any, data?: ListContactListsCommandOutput) => void
+  ): void;
+  public listContactLists(
+    args: ListContactListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContactListsCommandOutput) => void
+  ): void;
+  public listContactLists(
+    args: ListContactListsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContactListsCommandOutput) => void),
+    cb?: (err: any, data?: ListContactListsCommandOutput) => void
+  ): Promise<ListContactListsCommandOutput> | void {
+    const command = new ListContactListsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the contacts present in a specific contact list.</p>
+   */
+  public listContacts(
+    args: ListContactsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContactsCommandOutput>;
+  public listContacts(args: ListContactsCommandInput, cb: (err: any, data?: ListContactsCommandOutput) => void): void;
+  public listContacts(
+    args: ListContactsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContactsCommandOutput) => void
+  ): void;
+  public listContacts(
+    args: ListContactsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContactsCommandOutput) => void),
+    cb?: (err: any, data?: ListContactsCommandOutput) => void
+  ): Promise<ListContactsCommandOutput> | void {
+    const command = new ListContactsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1709,6 +2080,38 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: ListEmailTemplatesCommandOutput) => void
   ): Promise<ListEmailTemplatesCommandOutput> | void {
     const command = new ListEmailTemplatesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all of the import jobs.</p>
+   */
+  public listImportJobs(
+    args: ListImportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListImportJobsCommandOutput>;
+  public listImportJobs(
+    args: ListImportJobsCommandInput,
+    cb: (err: any, data?: ListImportJobsCommandOutput) => void
+  ): void;
+  public listImportJobs(
+    args: ListImportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListImportJobsCommandOutput) => void
+  ): void;
+  public listImportJobs(
+    args: ListImportJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListImportJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListImportJobsCommandOutput) => void
+  ): Promise<ListImportJobsCommandOutput> | void {
+    const command = new ListImportJobsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2638,6 +3041,72 @@ export class SESv2 extends SESv2Client {
     cb?: (err: any, data?: UpdateConfigurationSetEventDestinationCommandOutput) => void
   ): Promise<UpdateConfigurationSetEventDestinationCommandOutput> | void {
     const command = new UpdateConfigurationSetEventDestinationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a contact's preferences for a list. It is not necessary to specify all
+   *             existing topic preferences in the TopicPreferences object, just the ones that need
+   *             updating.</p>
+   */
+  public updateContact(
+    args: UpdateContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactCommandOutput>;
+  public updateContact(
+    args: UpdateContactCommandInput,
+    cb: (err: any, data?: UpdateContactCommandOutput) => void
+  ): void;
+  public updateContact(
+    args: UpdateContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContactCommandOutput) => void
+  ): void;
+  public updateContact(
+    args: UpdateContactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContactCommandOutput) => void),
+    cb?: (err: any, data?: UpdateContactCommandOutput) => void
+  ): Promise<UpdateContactCommandOutput> | void {
+    const command = new UpdateContactCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates contact list metadata. This operation does a complete replacement.</p>
+   */
+  public updateContactList(
+    args: UpdateContactListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContactListCommandOutput>;
+  public updateContactList(
+    args: UpdateContactListCommandInput,
+    cb: (err: any, data?: UpdateContactListCommandOutput) => void
+  ): void;
+  public updateContactList(
+    args: UpdateContactListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContactListCommandOutput) => void
+  ): void;
+  public updateContactList(
+    args: UpdateContactListCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContactListCommandOutput) => void),
+    cb?: (err: any, data?: UpdateContactListCommandOutput) => void
+  ): Promise<UpdateContactListCommandOutput> | void {
+    const command = new UpdateContactListCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

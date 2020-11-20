@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListManagedSchemaArnsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListManagedSchemaArnsCommand(input, ...args));
+  return await client.send(new ListManagedSchemaArnsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudDirectory,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listManagedSchemaArns(input, ...args);
 };
-export async function* listManagedSchemaArnsPaginate(
+export async function* paginateListManagedSchemaArns(
   config: CloudDirectoryPaginationConfiguration,
   input: ListManagedSchemaArnsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListManagedSchemaArnsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListManagedSchemaArnsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CloudDirectory) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listManagedSchemaArnsPaginate(
       throw new Error("Invalid client, expected CloudDirectory | CloudDirectoryClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

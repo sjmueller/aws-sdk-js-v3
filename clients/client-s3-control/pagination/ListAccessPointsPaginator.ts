@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAccessPointsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAccessPointsCommand(input, ...args));
+  return await client.send(new ListAccessPointsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: S3Control,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccessPoints(input, ...args);
 };
-export async function* listAccessPointsPaginate(
+export async function* paginateListAccessPoints(
   config: S3ControlPaginationConfiguration,
   input: ListAccessPointsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAccessPointsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAccessPointsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof S3Control) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listAccessPointsPaginate(
       throw new Error("Invalid client, expected S3Control | S3ControlClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

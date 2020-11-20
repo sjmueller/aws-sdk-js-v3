@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCreatedArtifactsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCreatedArtifactsCommand(input, ...args));
+  return await client.send(new ListCreatedArtifactsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MigrationHub,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCreatedArtifacts(input, ...args);
 };
-export async function* listCreatedArtifactsPaginate(
+export async function* paginateListCreatedArtifacts(
   config: MigrationHubPaginationConfiguration,
   input: ListCreatedArtifactsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCreatedArtifactsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCreatedArtifactsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof MigrationHub) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listCreatedArtifactsPaginate(
       throw new Error("Invalid client, expected MigrationHub | MigrationHubClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

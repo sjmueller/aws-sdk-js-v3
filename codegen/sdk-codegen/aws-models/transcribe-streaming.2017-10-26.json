@@ -148,6 +148,12 @@
             "smithy.api#documentation": "<p>The offset from the beginning of the audio stream to the end of the audio that resulted in\n      the item.</p>"
           }
         },
+        "Speaker": {
+          "target": "com.amazonaws.transcribestreaming#String",
+          "traits": {
+            "smithy.api#documentation": "<p>If speaker identification is enabled, shows the speakers identified in the real-time stream.</p>"
+          }
+        },
         "Content": {
           "target": "com.amazonaws.transcribestreaming#String",
           "traits": {
@@ -219,6 +225,14 @@
           {
             "value": "en-AU",
             "name": "EN_AU"
+          },
+          {
+            "value": "it-IT",
+            "name": "IT_IT"
+          },
+          {
+            "value": "de-DE",
+            "name": "DE_DE"
           }
         ]
       }
@@ -257,12 +271,27 @@
         }
       }
     },
+    "com.amazonaws.transcribestreaming#NumberOfChannels": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#box": {},
+        "smithy.api#range": {
+          "min": 2
+        }
+      }
+    },
     "com.amazonaws.transcribestreaming#RequestId": {
       "type": "string"
     },
     "com.amazonaws.transcribestreaming#Result": {
       "type": "structure",
       "members": {
+        "StartTime": {
+          "target": "com.amazonaws.transcribestreaming#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>The offset in seconds from the beginning of the audio stream to the beginning of the\n      result.</p>"
+          }
+        },
         "IsPartial": {
           "target": "com.amazonaws.transcribestreaming#Boolean",
           "traits": {
@@ -275,16 +304,16 @@
             "smithy.api#documentation": "<p>The offset in seconds from the beginning of the audio stream to the end of the\n      result.</p>"
           }
         },
-        "StartTime": {
-          "target": "com.amazonaws.transcribestreaming#Double",
-          "traits": {
-            "smithy.api#documentation": "<p>The offset in seconds from the beginning of the audio stream to the beginning of the\n      result.</p>"
-          }
-        },
         "Alternatives": {
           "target": "com.amazonaws.transcribestreaming#AlternativeList",
           "traits": {
             "smithy.api#documentation": "<p>A list of possible transcriptions for the audio. Each alternative typically contains one\n        <code>item</code> that contains the result of the transcription.</p>"
+          }
+        },
+        "ChannelId": {
+          "target": "com.amazonaws.transcribestreaming#String",
+          "traits": {
+            "smithy.api#documentation": "<p>When channel identification is enabled, Amazon Transcribe transcribes the speech from each audio channel separately.</p>\n         <p>You can use <code>ChannelId</code> to retrieve the transcription results for a single channel in your audio stream.</p>"
           }
         },
         "ResultId": {
@@ -320,6 +349,10 @@
     "com.amazonaws.transcribestreaming#SessionId": {
       "type": "string",
       "traits": {
+        "smithy.api#length": {
+          "min": 36,
+          "max": 36
+        },
         "smithy.api#pattern": "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"
       }
     },
@@ -360,27 +393,33 @@
     "com.amazonaws.transcribestreaming#StartStreamTranscriptionRequest": {
       "type": "structure",
       "members": {
-        "VocabularyFilterName": {
-          "target": "com.amazonaws.transcribestreaming#VocabularyFilterName",
-          "traits": {
-            "smithy.api#documentation": "<p>The name of the vocabulary filter you've created that is unique to your AWS accountf.\n      Provide the name in this field to successfully use it in a stream.</p>",
-            "smithy.api#httpHeader": "x-amzn-transcribe-vocabulary-filter-name"
-          }
-        },
         "MediaEncoding": {
           "target": "com.amazonaws.transcribestreaming#MediaEncoding",
           "traits": {
-            "smithy.api#documentation": "<p>The encoding used for the input audio. </p>",
+            "smithy.api#documentation": "<p>The encoding used for the input audio. <code>pcm</code> is the only valid value.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-media-encoding",
             "smithy.api#required": {}
           }
         },
-        "LanguageCode": {
-          "target": "com.amazonaws.transcribestreaming#LanguageCode",
+        "VocabularyFilterMethod": {
+          "target": "com.amazonaws.transcribestreaming#VocabularyFilterMethod",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates the source language used in the input audio stream.</p>",
-            "smithy.api#httpHeader": "x-amzn-transcribe-language-code",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The manner in which you use your vocabulary filter to filter words in your transcript.\n        <code>Remove</code> removes filtered words from your transcription results.\n        <code>Mask</code> masks those words with a <code>***</code> in your transcription results.\n        <code>Tag</code> keeps the filtered words in your transcription results and tags them. The\n      tag appears as <code>VocabularyFilterMatch</code> equal to <code>True</code>\n         </p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-vocabulary-filter-method"
+          }
+        },
+        "ShowSpeakerLabel": {
+          "target": "com.amazonaws.transcribestreaming#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>When <code>true</code>, enables speaker identification in your real-time stream.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-show-speaker-label"
+          }
+        },
+        "SessionId": {
+          "target": "com.amazonaws.transcribestreaming#SessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>A identifier for the transcription session. Use this parameter when you want to retry a\n      session. If you don't provide a session ID, Amazon Transcribe will generate one for you and return it in\n      the response.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-session-id"
           }
         },
         "AudioStream": {
@@ -391,11 +430,19 @@
             "smithy.api#required": {}
           }
         },
-        "SessionId": {
-          "target": "com.amazonaws.transcribestreaming#SessionId",
+        "NumberOfChannels": {
+          "target": "com.amazonaws.transcribestreaming#NumberOfChannels",
           "traits": {
-            "smithy.api#documentation": "<p>A identifier for the transcription session. Use this parameter when you want to retry a\n      session. If you don't provide a session ID, Amazon Transcribe will generate one for you and return it in\n      the response.</p>",
-            "smithy.api#httpHeader": "x-amzn-transcribe-session-id"
+            "smithy.api#documentation": "<p>The number of channels that are in your audio stream.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-number-of-channels"
+          }
+        },
+        "LanguageCode": {
+          "target": "com.amazonaws.transcribestreaming#LanguageCode",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the source language used in the input audio stream.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-language-code",
+            "smithy.api#required": {}
           }
         },
         "VocabularyName": {
@@ -405,11 +452,11 @@
             "smithy.api#httpHeader": "x-amzn-transcribe-vocabulary-name"
           }
         },
-        "VocabularyFilterMethod": {
-          "target": "com.amazonaws.transcribestreaming#VocabularyFilterMethod",
+        "EnableChannelIdentification": {
+          "target": "com.amazonaws.transcribestreaming#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>The manner in which you use your vocabulary filter to filter words in your transcript.\n        <code>Remove</code> removes filtered words from your transcription results.\n        <code>Mask</code> masks those words with a <code>***</code> in your transcription results.\n        <code>Tag</code> keeps the filtered words in your transcription results and tags them. The\n      tag appears as <code>VocabularyFilterMatch</code> equal to <code>True</code>\n         </p>",
-            "smithy.api#httpHeader": "x-amzn-transcribe-vocabulary-filter-method"
+            "smithy.api#documentation": "<p>When <code>true</code>, instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription.</p>\n         <p>Amazon Transcribe also produces a transcription of each item. An item includes the start time, end time, and any alternative transcriptions.</p>\n         <p>You can't set both <code>ShowSpeakerLabel</code> and <code>EnableChannelIdentification</code> in the same request. If you set both, your request returns a <code>BadRequestException</code>.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-enable-channel-identification"
           }
         },
         "MediaSampleRateHertz": {
@@ -418,6 +465,13 @@
             "smithy.api#documentation": "<p>The sample rate, in Hertz, of the input audio. We suggest that you use 8000 Hz for low\n      quality audio and 16000 Hz for high quality audio.</p>",
             "smithy.api#httpHeader": "x-amzn-transcribe-sample-rate",
             "smithy.api#required": {}
+          }
+        },
+        "VocabularyFilterName": {
+          "target": "com.amazonaws.transcribestreaming#VocabularyFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the vocabulary filter you've created that is unique to your AWS account.\n      Provide the name in this field to successfully use it in a stream.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-vocabulary-filter-name"
           }
         }
       }
@@ -460,11 +514,32 @@
             "smithy.api#httpHeader": "x-amzn-transcribe-language-code"
           }
         },
+        "ShowSpeakerLabel": {
+          "target": "com.amazonaws.transcribestreaming#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Shows whether speaker identification was enabled in the stream.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-show-speaker-label"
+          }
+        },
         "RequestId": {
           "target": "com.amazonaws.transcribestreaming#RequestId",
           "traits": {
             "smithy.api#documentation": "<p>An identifier for the streaming transcription.</p>",
             "smithy.api#httpHeader": "x-amzn-request-id"
+          }
+        },
+        "NumberOfChannels": {
+          "target": "com.amazonaws.transcribestreaming#NumberOfChannels",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of channels identified in the stream.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-number-of-channels"
+          }
+        },
+        "SessionId": {
+          "target": "com.amazonaws.transcribestreaming#SessionId",
+          "traits": {
+            "smithy.api#documentation": "<p>An identifier for a specific transcription session.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-session-id"
           }
         },
         "MediaSampleRateHertz": {
@@ -474,11 +549,11 @@
             "smithy.api#httpHeader": "x-amzn-transcribe-sample-rate"
           }
         },
-        "SessionId": {
-          "target": "com.amazonaws.transcribestreaming#SessionId",
+        "EnableChannelIdentification": {
+          "target": "com.amazonaws.transcribestreaming#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>An identifier for a specific transcription session.</p>",
-            "smithy.api#httpHeader": "x-amzn-transcribe-session-id"
+            "smithy.api#documentation": "<p>Shows whether channel identification has been enabled in the stream.</p>",
+            "smithy.api#httpHeader": "x-amzn-transcribe-enable-channel-identification"
           }
         },
         "TranscriptResultStream": {
@@ -506,7 +581,7 @@
           "sdkId": "Transcribe Streaming",
           "arnNamespace": "transcribe",
           "cloudFormationName": "TranscribeStreaming",
-          "cloudTrailEventSource": "streaming.transcribe.amazonaws.com"
+          "cloudTrailEventSource": "transcribestreaming.amazonaws.com"
         },
         "aws.auth#sigv4": {
           "name": "transcribe"
@@ -547,16 +622,16 @@
     "com.amazonaws.transcribestreaming#TranscriptResultStream": {
       "type": "union",
       "members": {
-        "TranscriptEvent": {
-          "target": "com.amazonaws.transcribestreaming#TranscriptEvent",
-          "traits": {
-            "smithy.api#documentation": "<p>A portion of the transcription of the audio stream. Events are sent periodically from\n      Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio\n      stream, or it can be the entire transcription of that portion of the audio stream.\n      </p>"
-          }
-        },
         "BadRequestException": {
           "target": "com.amazonaws.transcribestreaming#BadRequestException",
           "traits": {
             "smithy.api#documentation": "<p>A client error occurred when the stream was created. Check the parameters of the request\n      and try your request again.</p>"
+          }
+        },
+        "TranscriptEvent": {
+          "target": "com.amazonaws.transcribestreaming#TranscriptEvent",
+          "traits": {
+            "smithy.api#documentation": "<p>A portion of the transcription of the audio stream. Events are sent periodically from\n      Amazon Transcribe to your application. The event can be a partial transcription of a section of the audio\n      stream, or it can be the entire transcription of that portion of the audio stream.\n      </p>"
           }
         },
         "InternalFailureException": {

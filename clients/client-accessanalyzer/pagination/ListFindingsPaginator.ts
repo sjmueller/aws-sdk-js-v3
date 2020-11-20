@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFindingsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFindingsCommand(input, ...args));
+  return await client.send(new ListFindingsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AccessAnalyzer,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFindings(input, ...args);
 };
-export async function* listFindingsPaginate(
+export async function* paginateListFindings(
   config: AccessAnalyzerPaginationConfiguration,
   input: ListFindingsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListFindingsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListFindingsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof AccessAnalyzer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listFindingsPaginate(
       throw new Error("Invalid client, expected AccessAnalyzer | AccessAnalyzerClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

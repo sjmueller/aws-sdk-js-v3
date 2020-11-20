@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/models_2";
+import { DescribePlacementGroupsRequest, DescribePlacementGroupsResult } from "../models/models_3";
 import {
   deserializeAws_ec2DescribePlacementGroupsCommand,
   serializeAws_ec2DescribePlacementGroupsCommand,
@@ -44,11 +44,23 @@ export class DescribePlacementGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribePlacementGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribePlacementGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePlacementGroupsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeStackEventsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeStackEventsCommand(input, ...args));
+  return await client.send(new DescribeStackEventsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudFormation,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeStackEvents(input, ...args);
 };
-export async function* describeStackEventsPaginate(
+export async function* paginateDescribeStackEvents(
   config: CloudFormationPaginationConfiguration,
   input: DescribeStackEventsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeStackEventsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeStackEventsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof CloudFormation) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof CloudFormationClient) {
@@ -42,7 +42,7 @@ export async function* describeStackEventsPaginate(
       throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

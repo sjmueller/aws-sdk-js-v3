@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSpeechSynthesisTasksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSpeechSynthesisTasksCommand(input, ...args));
+  return await client.send(new ListSpeechSynthesisTasksCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Polly,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSpeechSynthesisTasks(input, ...args);
 };
-export async function* listSpeechSynthesisTasksPaginate(
+export async function* paginateListSpeechSynthesisTasks(
   config: PollyPaginationConfiguration,
   input: ListSpeechSynthesisTasksCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSpeechSynthesisTasksCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSpeechSynthesisTasksCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Polly) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listSpeechSynthesisTasksPaginate(
       throw new Error("Invalid client, expected Polly | PollyClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

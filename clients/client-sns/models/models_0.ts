@@ -3,15 +3,14 @@ import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
 
 export interface AddPermissionInput {
   /**
-   * <p>The action you want to allow for the specified principal(s).</p>
-   *         <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
-   */
-  ActionName: string[] | undefined;
-
-  /**
    * <p>The ARN of the topic whose access control policy you wish to modify.</p>
    */
   TopicArn: string | undefined;
+
+  /**
+   * <p>A unique identifier for the new policy statement.</p>
+   */
+  Label: string | undefined;
 
   /**
    * <p>The AWS account IDs of the users (principals) who will be given access to the
@@ -21,9 +20,10 @@ export interface AddPermissionInput {
   AWSAccountId: string[] | undefined;
 
   /**
-   * <p>A unique identifier for the new policy statement.</p>
+   * <p>The action you want to allow for the specified principal(s).</p>
+   *         <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
    */
-  Label: string | undefined;
+  ActionName: string[] | undefined;
 }
 
 export namespace AddPermissionInput {
@@ -161,6 +161,11 @@ export namespace ThrottledException {
  */
 export interface ConfirmSubscriptionInput {
   /**
+   * <p>The ARN of the topic for which you wish to confirm a subscription.</p>
+   */
+  TopicArn: string | undefined;
+
+  /**
    * <p>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</p>
    */
   Token: string | undefined;
@@ -172,11 +177,6 @@ export interface ConfirmSubscriptionInput {
    *             requires AWS authentication. </p>
    */
   AuthenticateOnUnsubscribe?: string;
-
-  /**
-   * <p>The ARN of the topic for which you wish to confirm a subscription.</p>
-   */
-  TopicArn: string | undefined;
 }
 
 export namespace ConfirmSubscriptionInput {
@@ -239,10 +239,11 @@ export namespace SubscriptionLimitExceededException {
  */
 export interface CreatePlatformApplicationInput {
   /**
-   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>
-   *         </p>
+   * <p>Application names must be made up of only uppercase and lowercase ASCII letters,
+   *             numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters
+   *             long.</p>
    */
-  Attributes: { [key: string]: string } | undefined;
+  Name: string | undefined;
 
   /**
    * <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push
@@ -251,11 +252,10 @@ export interface CreatePlatformApplicationInput {
   Platform: string | undefined;
 
   /**
-   * <p>Application names must be made up of only uppercase and lowercase ASCII letters,
-   *             numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters
-   *             long.</p>
+   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>
+   *         </p>
    */
-  Name: string | undefined;
+  Attributes: { [key: string]: string } | undefined;
 }
 
 export namespace CreatePlatformApplicationInput {
@@ -301,21 +301,10 @@ export namespace CreateEndpointResponse {
  */
 export interface CreatePlatformEndpointInput {
   /**
-   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
-   */
-  Attributes?: { [key: string]: string };
-
-  /**
    * <p>PlatformApplicationArn returned from CreatePlatformApplication is used to create a an
    *             endpoint.</p>
    */
   PlatformApplicationArn: string | undefined;
-
-  /**
-   * <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The
-   *             data must be in UTF-8 format and less than 2KB.</p>
-   */
-  CustomUserData?: string;
 
   /**
    * <p>Unique identifier created by the notification service for an app on a device. The
@@ -325,6 +314,17 @@ export interface CreatePlatformEndpointInput {
    *             equivalent is called the registration ID.</p>
    */
   Token: string | undefined;
+
+  /**
+   * <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The
+   *             data must be in UTF-8 format and less than 2KB.</p>
+   */
+  CustomUserData?: string;
+
+  /**
+   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
+   */
+  Attributes?: { [key: string]: string };
 }
 
 export namespace CreatePlatformEndpointInput {
@@ -375,12 +375,13 @@ export namespace Tag {
  */
 export interface CreateTopicInput {
   /**
-   * <p>The list of tags to add to a new topic.</p>
-   *         <note>
-   *             <p>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code> and <code>sns:TagResource</code> permissions.</p>
-   *         </note>
+   * <p>The name of the topic you want to create.</p>
+   *         <p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII
+   *             letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters
+   *             long.</p>
+   *         <p>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code> suffix. </p>
    */
-  Tags?: Tag[];
+  Name: string | undefined;
 
   /**
    * <p>A map of attributes with their corresponding values.</p>
@@ -421,39 +422,46 @@ export interface CreateTopicInput {
    *          </ul>
    *
    *
-   *         <p>The following attribute applies only to FIFO topics:</p>
+   *         <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication. Amazon SNS uses a SHA-256 hash to
-   *                     generate the <code>MessageDeduplicationId</code> using the body of the message (but not the
-   *                     attributes of the message). </p>
+   *                   <code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO
+   *                 topic is created.</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent
-   *                     within the deduplication interval are treated as duplicates and only one copy of the message is
-   *                     delivered.
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code>
-   *                     overrides the generated one.
-   *                 </p>
+   *                <p>
+   *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication for
+   *                     FIFO topics. </p>
+   *
+   *                 <ul>
+   *                   <li>
+   *                         <p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>.
+   *                             If you create a FIFO topic and this attribute is <code>false</code>, you must
+   *                             specify a value for the <code>MessageDeduplicationId</code> parameter for the
+   *                             <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>,
+   *                             Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using
+   *                             the body of the message (but not the attributes of the message).</p>
+   *                         <p>(Optional) To override the generated value, you can specify a value
+   *                             for the the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
+   *                             action.</p>
+   *                      </li>
+   *                </ul>
    *             </li>
    *          </ul>
    */
   Attributes?: { [key: string]: string };
 
   /**
-   * <p>The name of the topic you want to create.</p>
-   *         <p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII
-   *             letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters
-   *             long.</p>
-   *         <p>For a FIFO (first-in-first-out) topic, the name must end with the <code>.fifo</code> suffix. </p>
+   * <p>The list of tags to add to a new topic.</p>
+   *         <note>
+   *             <p>To be able to tag a topic on creation, you must have the <code>sns:CreateTopic</code> and <code>sns:TagResource</code> permissions.</p>
+   *         </note>
    */
-  Name: string | undefined;
+  Tags?: Tag[];
 }
 
 export namespace CreateTopicInput {
@@ -916,6 +924,38 @@ export interface GetTopicAttributesResponse {
    *                     For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API Reference</i>.</p>
    *             </li>
    *          </ul>
+   *
+   *
+   *         <p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO
+   *                 topic is created.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication for
+   *                     FIFO topics. </p>
+   *
+   *                 <ul>
+   *                   <li>
+   *                         <p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>.
+   *                             If you create a FIFO topic and this attribute is <code>false</code>, you must
+   *                             specify a value for the <code>MessageDeduplicationId</code> parameter for the
+   *                             <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>,
+   *                             Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using
+   *                             the body of the message (but not the attributes of the message).</p>
+   *                         <p>(Optional) To override the generated value, you can specify a value
+   *                             for the the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
+   *                             action.</p>
+   *                      </li>
+   *                </ul>
+   *             </li>
+   *          </ul>
    */
   Attributes?: { [key: string]: string };
 }
@@ -953,14 +993,14 @@ export namespace ListEndpointsByPlatformApplicationInput {
  */
 export interface Endpoint {
   /**
-   * <p>Attributes for endpoint.</p>
-   */
-  Attributes?: { [key: string]: string };
-
-  /**
    * <p>EndpointArn for mobile app and device.</p>
    */
   EndpointArn?: string;
+
+  /**
+   * <p>Attributes for endpoint.</p>
+   */
+  Attributes?: { [key: string]: string };
 }
 
 export namespace Endpoint {
@@ -974,15 +1014,15 @@ export namespace Endpoint {
  */
 export interface ListEndpointsByPlatformApplicationResponse {
   /**
+   * <p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
+   */
+  Endpoints?: Endpoint[];
+
+  /**
    * <p>NextToken string is returned when calling ListEndpointsByPlatformApplication action if
    *             additional records are available after the first page results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
-   */
-  Endpoints?: Endpoint[];
 }
 
 export namespace ListEndpointsByPlatformApplicationResponse {
@@ -1014,17 +1054,17 @@ export namespace ListPhoneNumbersOptedOutInput {
  */
 export interface ListPhoneNumbersOptedOutResponse {
   /**
+   * <p>A list of phone numbers that are opted out of receiving SMS messages. The list is
+   *             paginated, and each page can contain up to 100 phone numbers.</p>
+   */
+  phoneNumbers?: string[];
+
+  /**
    * <p>A <code>NextToken</code> string is returned when you call the
    *                 <code>ListPhoneNumbersOptedOut</code> action if additional records are available
    *             after the first page of results.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>A list of phone numbers that are opted out of receiving SMS messages. The list is
-   *             paginated, and each page can contain up to 100 phone numbers.</p>
-   */
-  phoneNumbers?: string[];
 }
 
 export namespace ListPhoneNumbersOptedOutResponse {
@@ -1055,14 +1095,14 @@ export namespace ListPlatformApplicationsInput {
  */
 export interface PlatformApplication {
   /**
-   * <p>Attributes for platform application object.</p>
-   */
-  Attributes?: { [key: string]: string };
-
-  /**
    * <p>PlatformApplicationArn for platform application object.</p>
    */
   PlatformApplicationArn?: string;
+
+  /**
+   * <p>Attributes for platform application object.</p>
+   */
+  Attributes?: { [key: string]: string };
 }
 
 export namespace PlatformApplication {
@@ -1076,15 +1116,15 @@ export namespace PlatformApplication {
  */
 export interface ListPlatformApplicationsResponse {
   /**
+   * <p>Platform applications returned when calling ListPlatformApplications action.</p>
+   */
+  PlatformApplications?: PlatformApplication[];
+
+  /**
    * <p>NextToken string is returned when calling ListPlatformApplications action if
    *             additional records are available after the first page results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Platform applications returned when calling ListPlatformApplications action.</p>
-   */
-  PlatformApplications?: PlatformApplication[];
 }
 
 export namespace ListPlatformApplicationsResponse {
@@ -1114,9 +1154,9 @@ export namespace ListSubscriptionsInput {
  */
 export interface Subscription {
   /**
-   * <p>The subscription's protocol.</p>
+   * <p>The subscription's ARN.</p>
    */
-  Protocol?: string;
+  SubscriptionArn?: string;
 
   /**
    * <p>The subscription's owner.</p>
@@ -1124,9 +1164,9 @@ export interface Subscription {
   Owner?: string;
 
   /**
-   * <p>The subscription's ARN.</p>
+   * <p>The subscription's protocol.</p>
    */
-  SubscriptionArn?: string;
+  Protocol?: string;
 
   /**
    * <p>The subscription's endpoint (format depends on the protocol).</p>
@@ -1150,15 +1190,15 @@ export namespace Subscription {
  */
 export interface ListSubscriptionsResponse {
   /**
+   * <p>A list of subscriptions.</p>
+   */
+  Subscriptions?: Subscription[];
+
+  /**
    * <p>Token to pass along to the next <code>ListSubscriptions</code> request. This element
    *             is returned if there are more subscriptions to retrieve.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of subscriptions.</p>
-   */
-  Subscriptions?: Subscription[];
 }
 
 export namespace ListSubscriptionsResponse {
@@ -1172,14 +1212,14 @@ export namespace ListSubscriptionsResponse {
  */
 export interface ListSubscriptionsByTopicInput {
   /**
-   * <p>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The ARN of the topic for which you wish to find subscriptions.</p>
    */
   TopicArn: string | undefined;
+
+  /**
+   * <p>Token returned by the previous <code>ListSubscriptionsByTopic</code> request.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListSubscriptionsByTopicInput {
@@ -1193,15 +1233,15 @@ export namespace ListSubscriptionsByTopicInput {
  */
 export interface ListSubscriptionsByTopicResponse {
   /**
+   * <p>A list of subscriptions.</p>
+   */
+  Subscriptions?: Subscription[];
+
+  /**
    * <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This
    *             element is returned if there are more subscriptions to retrieve.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>A list of subscriptions.</p>
-   */
-  Subscriptions?: Subscription[];
 }
 
 export namespace ListSubscriptionsByTopicResponse {
@@ -1491,22 +1531,24 @@ export namespace PlatformApplicationDisabledException {
  *         <p>Name, type, and value must not be empty or null. In addition, the message body should
  *             not be empty or null. All parts of the message attribute, including name, type, and
  *             value, are included in the message size restriction, which is currently 256 KB (262,144
- *             bytes). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html">Using Amazon SNS Message
- *             Attributes</a>.</p>
+ *             bytes). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html">Amazon SNS message
+ *                 attributes</a> and <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing to a mobile phone</a>
+ *             in the <i>Amazon SNS Developer Guide.</i>
+ *          </p>
  */
 export interface MessageAttributeValue {
-  /**
-   * <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable
-   *                 Characters</a>.</p>
-   */
-  StringValue?: string;
-
   /**
    * <p>Amazon SNS supports the following logical data types: String, String.Array, Number, and
    *             Binary. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes">Message
    *                 Attribute Data Types</a>.</p>
    */
   DataType: string | undefined;
+
+  /**
+   * <p>Strings are Unicode with UTF8 binary encoding. For a list of code values, see <a href="https://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable
+   *                 Characters</a>.</p>
+   */
+  StringValue?: string;
 
   /**
    * <p>Binary type attributes can store any binary data, for example, compressed data,
@@ -1525,6 +1567,28 @@ export namespace MessageAttributeValue {
  * <p>Input for Publish action.</p>
  */
 export interface PublishInput {
+  /**
+   * <p>The topic you want to publish to.</p>
+   *         <p>If you don't specify a value for the <code>TopicArn</code> parameter, you must specify
+   *             a value for the <code>PhoneNumber</code> or <code>TargetArn</code> parameters.</p>
+   */
+  TopicArn?: string;
+
+  /**
+   * <p>If you don't specify a value for the <code>TargetArn</code> parameter, you must
+   *             specify a value for the <code>PhoneNumber</code> or <code>TopicArn</code>
+   *             parameters.</p>
+   */
+  TargetArn?: string;
+
+  /**
+   * <p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p>
+   *         <p>If you don't specify a value for the <code>PhoneNumber</code> parameter, you must
+   *             specify a value for the <code>TargetArn</code> or <code>TopicArn</code>
+   *             parameters.</p>
+   */
+  PhoneNumber?: string;
+
   /**
    * <p>The message you want to send.</p>
    *         <p>If you are publishing to a topic and you want to send the same message to all
@@ -1601,26 +1665,6 @@ export interface PublishInput {
   Subject?: string;
 
   /**
-   * <p>If you don't specify a value for the <code>TargetArn</code> parameter, you must
-   *             specify a value for the <code>PhoneNumber</code> or <code>TopicArn</code>
-   *             parameters.</p>
-   */
-  TargetArn?: string;
-
-  /**
-   * <p>Message attributes for Publish action.</p>
-   */
-  MessageAttributes?: { [key: string]: MessageAttributeValue };
-
-  /**
-   * <p>The phone number to which you want to deliver an SMS message. Use E.164 format.</p>
-   *         <p>If you don't specify a value for the <code>PhoneNumber</code> parameter, you must
-   *             specify a value for the <code>TargetArn</code> or <code>TopicArn</code>
-   *             parameters.</p>
-   */
-  PhoneNumber?: string;
-
-  /**
    * <p>Set <code>MessageStructure</code> to <code>json</code> if you want to send a different
    *             message for each protocol. For example, using one publish action, you can send a short
    *             message to your SMS subscribers and a longer message to your email subscribers. If you
@@ -1643,11 +1687,30 @@ export interface PublishInput {
   MessageStructure?: string;
 
   /**
-   * <p>The topic you want to publish to.</p>
-   *         <p>If you don't specify a value for the <code>TopicArn</code> parameter, you must specify
-   *             a value for the <code>PhoneNumber</code> or <code>TargetArn</code> parameters.</p>
+   * <p>Message attributes for Publish action.</p>
    */
-  TopicArn?: string;
+  MessageAttributes?: { [key: string]: MessageAttributeValue };
+
+  /**
+   * <p>This parameter applies only to FIFO (first-in-first-out) topics.
+   *             The <code>MessageDeduplicationId</code> can contain up to 128 alphanumeric characters (a-z, A-Z, 0-9)
+   *             and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *         <p>Every message must have a unique <code>MessageDeduplicationId</code>, which is a token used for deduplication of sent messages.
+   *             If a message with a particular <code>MessageDeduplicationId</code> is sent successfully, any message sent with the same <code>MessageDeduplicationId</code>
+   *             during the 5-minute deduplication interval is treated as a duplicate. </p>
+   *         <p>If the topic has <code>ContentBasedDeduplication</code> set, the system generates a <code>MessageDeduplicationId</code> based on the contents of the
+   *             message. Your <code>MessageDeduplicationId</code> overrides the generated one.</p>
+   */
+  MessageDeduplicationId?: string;
+
+  /**
+   * <p>This parameter applies only to FIFO (first-in-first-out) topics. The <code>MessageGroupId</code> can contain up to
+   *             128 alphanumeric characters (a-z, A-Z, 0-9) and punctuation <code>(!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~)</code>.</p>
+   *         <p>The <code>MessageGroupId</code> is a tag that specifies that a message belongs to a specific message group. Messages that belong to the
+   *             same message group are processed in a FIFO manner (however, messages in different message groups might be processed out of order).
+   *             Every message must include a <code>MessageGroupId</code>.</p>
+   */
+  MessageGroupId?: string;
 }
 
 export namespace PublishInput {
@@ -1665,6 +1728,13 @@ export interface PublishResponse {
    *         <p>Length Constraint: Maximum 100 characters</p>
    */
   MessageId?: string;
+
+  /**
+   * <p>This response element applies only to FIFO (first-in-first-out) topics. </p>
+   *         <p>The sequence number is a large, non-consecutive number that Amazon SNS assigns to each message.
+   *             The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for each <code>MessageGroupId</code>.</p>
+   */
+  SequenceNumber?: string;
 }
 
 export namespace PublishResponse {
@@ -1940,7 +2010,7 @@ export interface SetSubscriptionAttributesInput {
   /**
    * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
-   *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
+   *             parameters that this action uses:</p>
    *         <ul>
    *             <li>
    *                 <p>
@@ -1993,11 +2063,6 @@ export interface SetTopicAttributesInput {
   TopicArn: string | undefined;
 
   /**
-   * <p>The new value for the attribute.</p>
-   */
-  AttributeValue?: string;
-
-  /**
    * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
    *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
@@ -2032,30 +2097,38 @@ export interface SetTopicAttributesInput {
    *          </ul>
    *
    *
-   *         <p>The following attribute applies only to FIFO topics:</p>
+   *         <p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p>
    *         <ul>
    *             <li>
    *                 <p>
-   *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication. Amazon SNS uses a SHA-256 hash to
-   *                     generate the <code>MessageDeduplicationId</code> using the body of the message (but not the
-   *                     attributes of the message). </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     When <code>ContentBasedDeduplication</code> is in effect, messages with identical content sent
-   *                     within the deduplication interval are treated as duplicates and only one copy of the message is
-   *                     delivered.
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                     If the queue has <code>ContentBasedDeduplication</code> set, your <code>MessageDeduplicationId</code>
-   *                     overrides the generated one.
-   *                 </p>
+   *                     <code>ContentBasedDeduplication</code> –  Enables content-based deduplication for
+   *                     FIFO topics. </p>
+   *
+   *                 <ul>
+   *                   <li>
+   *                         <p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>.
+   *                             If you create a FIFO topic and this attribute is <code>false</code>, you must
+   *                             specify a value for the <code>MessageDeduplicationId</code> parameter for the
+   *                             <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p>
+   *                     </li>
+   *                   <li>
+   *                         <p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>,
+   *                             Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using
+   *                             the body of the message (but not the attributes of the message).</p>
+   *                         <p>(Optional) To override the generated value, you can specify a value
+   *                             for the the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code>
+   *                             action.</p>
+   *                      </li>
+   *                </ul>
    *             </li>
    *          </ul>
    */
   AttributeName: string | undefined;
+
+  /**
+   * <p>The new value for the attribute.</p>
+   */
+  AttributeValue?: string;
 }
 
 export namespace SetTopicAttributesInput {
@@ -2159,23 +2232,6 @@ export interface SubscribeInput {
   Endpoint?: string;
 
   /**
-   * <p>Sets whether the response from the <code>Subscribe</code> request includes the
-   *             subscription ARN, even if the subscription is not yet confirmed.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>If you set this parameter to <code>true</code>, the response includes the ARN in all cases, even
-   *           if the subscription is not yet confirmed. In addition to the ARN for confirmed subscriptions, the response
-   *           also includes the <code>pending subscription</code> ARN value for subscriptions that aren't yet confirmed. A
-   *           subscription becomes confirmed when the subscriber calls the <code>ConfirmSubscription</code> action with a
-   *           confirmation token.</p>
-   *             </li>
-   *          </ul>
-   *         <p></p>
-   *         <p>The default value is <code>false</code>.</p>
-   */
-  ReturnSubscriptionArn?: boolean;
-
-  /**
    * <p>A map of attributes with their corresponding values.</p>
    *         <p>The following lists the names, descriptions, and values of the special request
    *             parameters that the <code>SetTopicAttributes</code> action uses:</p>
@@ -2208,6 +2264,19 @@ export interface SubscribeInput {
    *          </ul>
    */
   Attributes?: { [key: string]: string };
+
+  /**
+   * <p>Sets whether the response from the <code>Subscribe</code> request includes the
+   *             subscription ARN, even if the subscription is not yet confirmed.</p>
+   *           <p>If you set this parameter to <code>true</code>, the response includes the ARN in all cases, even
+   *           if the subscription is not yet confirmed. In addition to the ARN for confirmed subscriptions, the response
+   *           also includes the <code>pending subscription</code> ARN value for subscriptions that aren't yet confirmed. A
+   *           subscription becomes confirmed when the subscriber calls the <code>ConfirmSubscription</code> action with a
+   *           confirmation token.</p>
+   *         <p></p>
+   *         <p>The default value is <code>false</code>.</p>
+   */
+  ReturnSubscriptionArn?: boolean;
 }
 
 export namespace SubscribeInput {
@@ -2237,15 +2306,15 @@ export namespace SubscribeResponse {
 
 export interface TagResourceRequest {
   /**
+   * <p>The ARN of the topic to which to add tags.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
    * <p>The tags to be added to the specified topic. A tag consists of a required key
    *             and an optional value.</p>
    */
   Tags: Tag[] | undefined;
-
-  /**
-   * <p>The ARN of the topic to which to add tags.</p>
-   */
-  ResourceArn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -2280,14 +2349,14 @@ export namespace UnsubscribeInput {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The list of tag keys to remove from the specified topic.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>The ARN of the topic from which to remove tags.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>The list of tag keys to remove from the specified topic.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTriggersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTriggersCommand(input, ...args));
+  return await client.send(new ListTriggersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Glue,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTriggers(input, ...args);
 };
-export async function* listTriggersPaginate(
+export async function* paginateListTriggers(
   config: GluePaginationConfiguration,
   input: ListTriggersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTriggersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTriggersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Glue) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listTriggersPaginate(
       throw new Error("Invalid client, expected Glue | GlueClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

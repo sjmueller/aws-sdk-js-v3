@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEnvironmentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEnvironmentsCommand(input, ...args));
+  return await client.send(new ListEnvironmentsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AppConfig,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEnvironments(input, ...args);
 };
-export async function* listEnvironmentsPaginate(
+export async function* paginateListEnvironments(
   config: AppConfigPaginationConfiguration,
   input: ListEnvironmentsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEnvironmentsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEnvironmentsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof AppConfig) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listEnvironmentsPaginate(
       throw new Error("Invalid client, expected AppConfig | AppConfigClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

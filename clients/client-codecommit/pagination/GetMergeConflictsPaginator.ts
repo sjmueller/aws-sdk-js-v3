@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetMergeConflictsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetMergeConflictsCommand(input, ...args));
+  return await client.send(new GetMergeConflictsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeCommit,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getMergeConflicts(input, ...args);
 };
-export async function* getMergeConflictsPaginate(
+export async function* paginateGetMergeConflicts(
   config: CodeCommitPaginationConfiguration,
   input: GetMergeConflictsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetMergeConflictsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetMergeConflictsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxConflictFiles"] = config.pageSize;
     if (config.client instanceof CodeCommit) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getMergeConflictsPaginate(
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

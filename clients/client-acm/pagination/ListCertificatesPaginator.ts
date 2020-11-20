@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCertificatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCertificatesCommand(input, ...args));
+  return await client.send(new ListCertificatesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ACM,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCertificates(input, ...args);
 };
-export async function* listCertificatesPaginate(
+export async function* paginateListCertificates(
   config: ACMPaginationConfiguration,
   input: ListCertificatesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCertificatesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCertificatesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof ACM) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listCertificatesPaginate(
       throw new Error("Invalid client, expected ACM | ACMClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

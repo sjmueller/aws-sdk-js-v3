@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetTextDetectionCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetTextDetectionCommand(input, ...args));
+  return await client.send(new GetTextDetectionCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Rekognition,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTextDetection(input, ...args);
 };
-export async function* getTextDetectionPaginate(
+export async function* paginateGetTextDetection(
   config: RekognitionPaginationConfiguration,
   input: GetTextDetectionCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTextDetectionCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTextDetectionCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Rekognition) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getTextDetectionPaginate(
       throw new Error("Invalid client, expected Rekognition | RekognitionClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

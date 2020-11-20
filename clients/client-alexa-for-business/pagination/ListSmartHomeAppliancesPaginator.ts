@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSmartHomeAppliancesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSmartHomeAppliancesCommand(input, ...args));
+  return await client.send(new ListSmartHomeAppliancesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AlexaForBusiness,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSmartHomeAppliances(input, ...args);
 };
-export async function* listSmartHomeAppliancesPaginate(
+export async function* paginateListSmartHomeAppliances(
   config: AlexaForBusinessPaginationConfiguration,
   input: ListSmartHomeAppliancesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSmartHomeAppliancesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSmartHomeAppliancesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof AlexaForBusiness) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listSmartHomeAppliancesPaginate(
       throw new Error("Invalid client, expected AlexaForBusiness | AlexaForBusinessClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

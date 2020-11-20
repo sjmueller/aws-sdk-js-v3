@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDirectoriesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDirectoriesCommand(input, ...args));
+  return await client.send(new ListDirectoriesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudDirectory,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDirectories(input, ...args);
 };
-export async function* listDirectoriesPaginate(
+export async function* paginateListDirectories(
   config: CloudDirectoryPaginationConfiguration,
   input: ListDirectoriesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDirectoriesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDirectoriesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CloudDirectory) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listDirectoriesPaginate(
       throw new Error("Invalid client, expected CloudDirectory | CloudDirectoryClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

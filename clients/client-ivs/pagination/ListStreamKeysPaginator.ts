@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListStreamKeysCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListStreamKeysCommand(input, ...args));
+  return await client.send(new ListStreamKeysCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Ivs,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listStreamKeys(input, ...args);
 };
-export async function* listStreamKeysPaginate(
+export async function* paginateListStreamKeys(
   config: IvsPaginationConfiguration,
   input: ListStreamKeysCommandInput,
   ...additionalArguments: any
 ): Paginator<ListStreamKeysCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListStreamKeysCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Ivs) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listStreamKeysPaginate(
       throw new Error("Invalid client, expected Ivs | IvsClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

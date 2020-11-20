@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBClusterSnapshotsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBClusterSnapshotsCommand(input, ...args));
+  return await client.send(new DescribeDBClusterSnapshotsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RDS,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBClusterSnapshots(input, ...args);
 };
-export async function* describeDBClusterSnapshotsPaginate(
+export async function* paginateDescribeDBClusterSnapshots(
   config: RDSPaginationConfiguration,
   input: DescribeDBClusterSnapshotsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBClusterSnapshotsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBClusterSnapshotsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof RDS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeDBClusterSnapshotsPaginate(
       throw new Error("Invalid client, expected RDS | RDSClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListKeysCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListKeysCommand(input, ...args));
+  return await client.send(new ListKeysCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: KMS,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listKeys(input, ...args);
 };
-export async function* listKeysPaginate(
+export async function* paginateListKeys(
   config: KMSPaginationConfiguration,
   input: ListKeysCommandInput,
   ...additionalArguments: any
 ): Paginator<ListKeysCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListKeysCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof KMS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listKeysPaginate(
       throw new Error("Invalid client, expected KMS | KMSClient");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

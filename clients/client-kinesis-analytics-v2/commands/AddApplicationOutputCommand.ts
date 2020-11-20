@@ -48,11 +48,23 @@ export class AddApplicationOutputCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisAnalyticsV2Client";
+    const commandName = "AddApplicationOutputCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AddApplicationOutputRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AddApplicationOutputResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

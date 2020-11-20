@@ -2,12 +2,14 @@ import {
   AbortConfig,
   AlertTarget,
   AttributePayload,
+  AuditCheckConfiguration,
   AuditFrequency,
+  AuditNotificationTarget,
   AuthorizerConfig,
+  AuthorizerStatus,
   AutoRegistrationStatus,
   Behavior,
   BillingGroupProperties,
-  CACertificateStatus,
   DayOfWeek,
   DimensionType,
   JobExecutionsRolloutConfig,
@@ -15,22 +17,350 @@ import {
   MitigationActionParams,
   PresignedUrlConfig,
   ProvisioningHook,
+  ResourceIdentifier,
   StreamFile,
   ThingGroupProperties,
   TimeoutConfig,
   TopicRuleDestinationStatus,
 } from "./models_0";
 import {
+  CACertificateStatus,
   CertificateStatus,
   Configuration,
   DomainConfigurationStatus,
+  HttpContext,
+  MqttContext,
   RegistrationConfig,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
 } from "./models_1";
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { SENSITIVE_STRING, SmithyException as __SmithyException } from "@aws-sdk/smithy-client";
+import { MetadataBearer as $MetadataBearer } from "@aws-sdk/types";
+
+/**
+ * <p>Specifies the TLS context to use for the test authorizer request.</p>
+ */
+export interface TlsContext {
+  /**
+   * <p>The value of the <code>serverName</code> key in a TLS authorization request.</p>
+   */
+  serverName?: string;
+}
+
+export namespace TlsContext {
+  export const filterSensitiveLog = (obj: TlsContext): any => ({
+    ...obj,
+  });
+}
+
+export interface TestInvokeAuthorizerRequest {
+  /**
+   * <p>The custom authorizer name.</p>
+   */
+  authorizerName: string | undefined;
+
+  /**
+   * <p>The token returned by your custom authentication service.</p>
+   */
+  token?: string;
+
+  /**
+   * <p>The signature made with the token and your custom authentication service's private
+   *          key. This value must be Base-64-encoded.</p>
+   */
+  tokenSignature?: string;
+
+  /**
+   * <p>Specifies a test HTTP authorization request.</p>
+   */
+  httpContext?: HttpContext;
+
+  /**
+   * <p>Specifies a test MQTT authorization request.</p>
+   */
+  mqttContext?: MqttContext;
+
+  /**
+   * <p>Specifies a test TLS authorization request.</p>
+   */
+  tlsContext?: TlsContext;
+}
+
+export namespace TestInvokeAuthorizerRequest {
+  export const filterSensitiveLog = (obj: TestInvokeAuthorizerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface TestInvokeAuthorizerResponse {
+  /**
+   * <p>True if the token is authenticated, otherwise false.</p>
+   */
+  isAuthenticated?: boolean;
+
+  /**
+   * <p>The principal ID.</p>
+   */
+  principalId?: string;
+
+  /**
+   * <p>IAM policy documents.</p>
+   */
+  policyDocuments?: string[];
+
+  /**
+   * <p>The number of seconds after which the temporary credentials are refreshed.</p>
+   */
+  refreshAfterInSeconds?: number;
+
+  /**
+   * <p>The number of seconds after which the connection is terminated.</p>
+   */
+  disconnectAfterInSeconds?: number;
+}
+
+export namespace TestInvokeAuthorizerResponse {
+  export const filterSensitiveLog = (obj: TestInvokeAuthorizerResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The input for the TransferCertificate operation.</p>
+ */
+export interface TransferCertificateRequest {
+  /**
+   * <p>The ID of the certificate. (The last part of the certificate ARN contains the
+   *          certificate ID.)</p>
+   */
+  certificateId: string | undefined;
+
+  /**
+   * <p>The AWS account.</p>
+   */
+  targetAwsAccount: string | undefined;
+
+  /**
+   * <p>The transfer message.</p>
+   */
+  transferMessage?: string;
+}
+
+export namespace TransferCertificateRequest {
+  export const filterSensitiveLog = (obj: TransferCertificateRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The output from the TransferCertificate operation.</p>
+ */
+export interface TransferCertificateResponse {
+  /**
+   * <p>The ARN of the certificate.</p>
+   */
+  transferredCertificateArn?: string;
+}
+
+export namespace TransferCertificateResponse {
+  export const filterSensitiveLog = (obj: TransferCertificateResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>You can't transfer the certificate because authorization policies are still
+ *          attached.</p>
+ */
+export interface TransferConflictException extends __SmithyException, $MetadataBearer {
+  name: "TransferConflictException";
+  $fault: "client";
+  /**
+   * <p>The message for the exception.</p>
+   */
+  message?: string;
+}
+
+export namespace TransferConflictException {
+  export const filterSensitiveLog = (obj: TransferConflictException): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The ARN of the resource.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * <p>A list of the keys of the tags to be removed from the resource.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+export namespace UntagResourceRequest {
+  export const filterSensitiveLog = (obj: UntagResourceRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UntagResourceResponse {}
+
+export namespace UntagResourceResponse {
+  export const filterSensitiveLog = (obj: UntagResourceResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAccountAuditConfigurationRequest {
+  /**
+   * <p>The ARN of the role that grants permission to AWS IoT to access information
+   *             about your devices, policies, certificates and other items as required when
+   *             performing an audit.</p>
+   */
+  roleArn?: string;
+
+  /**
+   * <p>Information about the targets to which audit notifications are sent.</p>
+   */
+  auditNotificationTargetConfigurations?: { [key: string]: AuditNotificationTarget };
+
+  /**
+   * <p>Specifies which audit checks are enabled and disabled for this account. Use
+   *             <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those
+   *             that are currently enabled.</p>
+   *           <p>Some data collection might start immediately when certain checks are enabled.
+   *             When a check is disabled, any data collected so far in relation to the check is deleted.</p>
+   *           <p>You cannot disable a check if it is used by any scheduled audit. You must first delete the check
+   *             from the scheduled audit or delete the scheduled audit itself.</p>
+   *           <p>On the first call to <code>UpdateAccountAuditConfiguration</code>,
+   *             this parameter is required and must specify at least one enabled check.</p>
+   */
+  auditCheckConfigurations?: { [key: string]: AuditCheckConfiguration };
+}
+
+export namespace UpdateAccountAuditConfigurationRequest {
+  export const filterSensitiveLog = (obj: UpdateAccountAuditConfigurationRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAccountAuditConfigurationResponse {}
+
+export namespace UpdateAccountAuditConfigurationResponse {
+  export const filterSensitiveLog = (obj: UpdateAccountAuditConfigurationResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAuditSuppressionRequest {
+  /**
+   * <p>An audit check name. Checks must be enabled
+   *         for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *         of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *         to select which checks are enabled.)</p>
+   */
+  checkName: string | undefined;
+
+  /**
+   * <p>Information that identifies the noncompliant resource.</p>
+   */
+  resourceIdentifier: ResourceIdentifier | undefined;
+
+  /**
+   * <p>
+   *       The expiration date (epoch timestamp in seconds) that you want the suppression to adhere to.
+   *     </p>
+   */
+  expirationDate?: Date;
+
+  /**
+   * <p>
+   *       Indicates whether a suppression should exist indefinitely or not.
+   *     </p>
+   */
+  suppressIndefinitely?: boolean;
+
+  /**
+   * <p>
+   *       The description of the audit suppression.
+   *     </p>
+   */
+  description?: string;
+}
+
+export namespace UpdateAuditSuppressionRequest {
+  export const filterSensitiveLog = (obj: UpdateAuditSuppressionRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAuditSuppressionResponse {}
+
+export namespace UpdateAuditSuppressionResponse {
+  export const filterSensitiveLog = (obj: UpdateAuditSuppressionResponse): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAuthorizerRequest {
+  /**
+   * <p>The authorizer name.</p>
+   */
+  authorizerName: string | undefined;
+
+  /**
+   * <p>The ARN of the authorizer's Lambda function.</p>
+   */
+  authorizerFunctionArn?: string;
+
+  /**
+   * <p>The key used to extract the token from the HTTP headers. </p>
+   */
+  tokenKeyName?: string;
+
+  /**
+   * <p>The public keys used to verify the token signature.</p>
+   */
+  tokenSigningPublicKeys?: { [key: string]: string };
+
+  /**
+   * <p>The status of the update authorizer request.</p>
+   */
+  status?: AuthorizerStatus | string;
+}
+
+export namespace UpdateAuthorizerRequest {
+  export const filterSensitiveLog = (obj: UpdateAuthorizerRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface UpdateAuthorizerResponse {
+  /**
+   * <p>The authorizer name.</p>
+   */
+  authorizerName?: string;
+
+  /**
+   * <p>The authorizer ARN.</p>
+   */
+  authorizerArn?: string;
+}
+
+export namespace UpdateAuthorizerResponse {
+  export const filterSensitiveLog = (obj: UpdateAuthorizerResponse): any => ({
+    ...obj,
+  });
+}
 
 export interface UpdateBillingGroupRequest {
+  /**
+   * <p>The name of the billing group.</p>
+   */
+  billingGroupName: string | undefined;
+
   /**
    * <p>The properties of the billing group.</p>
    */
@@ -43,11 +373,6 @@ export interface UpdateBillingGroupRequest {
    * 				<code>VersionConflictException</code>.</p>
    */
   expectedVersion?: number;
-
-  /**
-   * <p>The name of the billing group.</p>
-   */
-  billingGroupName: string | undefined;
 }
 
 export namespace UpdateBillingGroupRequest {
@@ -74,11 +399,6 @@ export namespace UpdateBillingGroupResponse {
  */
 export interface UpdateCACertificateRequest {
   /**
-   * <p>If true, removes auto registration.</p>
-   */
-  removeAutoRegistration?: boolean;
-
-  /**
    * <p>The CA certificate identifier.</p>
    */
   certificateId: string | undefined;
@@ -101,6 +421,11 @@ export interface UpdateCACertificateRequest {
    * <p>Information about the registration configuration.</p>
    */
   registrationConfig?: RegistrationConfig;
+
+  /**
+   * <p>If true, removes auto registration.</p>
+   */
+  removeAutoRegistration?: boolean;
 }
 
 export namespace UpdateCACertificateRequest {
@@ -158,21 +483,6 @@ export namespace UpdateDimensionRequest {
 
 export interface UpdateDimensionResponse {
   /**
-   * <p>The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.</p>
-   */
-  stringValues?: string[];
-
-  /**
-   * <p>The type of the dimension.</p>
-   */
-  type?: DimensionType | string;
-
-  /**
-   * <p>The date and time, in milliseconds since epoch, when the dimension was initially created.</p>
-   */
-  creationDate?: Date;
-
-  /**
    * <p>A unique identifier for the dimension.</p>
    */
   name?: string;
@@ -181,6 +491,21 @@ export interface UpdateDimensionResponse {
    * <p>The ARN (Amazon resource name) of the created dimension.</p>
    */
   arn?: string;
+
+  /**
+   * <p>The type of the dimension.</p>
+   */
+  type?: DimensionType | string;
+
+  /**
+   * <p>The value or list of values used to scope the dimension. For example, for topic filters, this is the pattern used to match the MQTT topic name.</p>
+   */
+  stringValues?: string[];
+
+  /**
+   * <p>The date and time, in milliseconds since epoch, when the dimension was initially created.</p>
+   */
+  creationDate?: Date;
 
   /**
    * <p>The date and time, in milliseconds since epoch, when the dimension was most recently updated.</p>
@@ -201,14 +526,14 @@ export interface UpdateDomainConfigurationRequest {
   domainConfigurationName: string | undefined;
 
   /**
-   * <p>The status to which the domain configuration should be updated.</p>
-   */
-  domainConfigurationStatus?: DomainConfigurationStatus | string;
-
-  /**
    * <p>An object that specifies the authorization service for a domain.</p>
    */
   authorizerConfig?: AuthorizerConfig;
+
+  /**
+   * <p>The status to which the domain configuration should be updated.</p>
+   */
+  domainConfigurationStatus?: DomainConfigurationStatus | string;
 
   /**
    * <p>Removes the authorization configuration from a domain.</p>
@@ -352,20 +677,14 @@ export interface UpdateJobRequest {
   jobId: string | undefined;
 
   /**
-   * <p>Configuration information for pre-signed S3 URLs.</p>
-   */
-  presignedUrlConfig?: PresignedUrlConfig;
-
-  /**
-   * <p>Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to <code>IN_PROGRESS</code>.
-   *             If the job execution status is not set to another terminal state before the time expires, it will be automatically set to <code>TIMED_OUT</code>. </p>
-   */
-  timeoutConfig?: TimeoutConfig;
-
-  /**
    * <p>A short text description of the job.</p>
    */
   description?: string;
+
+  /**
+   * <p>Configuration information for pre-signed S3 URLs.</p>
+   */
+  presignedUrlConfig?: PresignedUrlConfig;
 
   /**
    * <p>Allows you to create a staged rollout of the job.</p>
@@ -376,6 +695,25 @@ export interface UpdateJobRequest {
    * <p>Allows you to create criteria to abort a job.</p>
    */
   abortConfig?: AbortConfig;
+
+  /**
+   * <p>Specifies the amount of time each device has to finish its execution of the job. The timer is started when the job execution status is set to <code>IN_PROGRESS</code>.
+   *             If the job execution status is not set to another terminal state before the time expires, it will be automatically set to <code>TIMED_OUT</code>. </p>
+   */
+  timeoutConfig?: TimeoutConfig;
+
+  /**
+   * <p>The namespace used to indicate that a job is a customer-managed job.</p>
+   *         <p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that
+   *             contain the value in the following format.</p>
+   *         <p>
+   *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
+   *          </p>
+   *         <note>
+   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
+   *          </note>
+   */
+  namespaceId?: string;
 }
 
 export namespace UpdateJobRequest {
@@ -386,6 +724,11 @@ export namespace UpdateJobRequest {
 
 export interface UpdateMitigationActionRequest {
   /**
+   * <p>The friendly name for the mitigation action. You can't change the name by using <code>UpdateMitigationAction</code>. Instead, you must delete and re-create the mitigation action with the new name.</p>
+   */
+  actionName: string | undefined;
+
+  /**
    * <p>The ARN of the IAM role that is used to apply the mitigation action.</p>
    */
   roleArn?: string;
@@ -394,11 +737,6 @@ export interface UpdateMitigationActionRequest {
    * <p>Defines the type of action and the parameters for that action.</p>
    */
   actionParams?: MitigationActionParams;
-
-  /**
-   * <p>The friendly name for the mitigation action. You can't change the name by using <code>UpdateMitigationAction</code>. Instead, you must delete and re-create the mitigation action with the new name.</p>
-   */
-  actionName: string | undefined;
 }
 
 export namespace UpdateMitigationActionRequest {
@@ -409,14 +747,14 @@ export namespace UpdateMitigationActionRequest {
 
 export interface UpdateMitigationActionResponse {
   /**
-   * <p>A unique identifier for the mitigation action.</p>
-   */
-  actionId?: string;
-
-  /**
    * <p>The ARN for the new mitigation action.</p>
    */
   actionArn?: string;
+
+  /**
+   * <p>A unique identifier for the mitigation action.</p>
+   */
+  actionId?: string;
 }
 
 export namespace UpdateMitigationActionResponse {
@@ -432,19 +770,14 @@ export interface UpdateProvisioningTemplateRequest {
   templateName: string | undefined;
 
   /**
+   * <p>The description of the fleet provisioning template.</p>
+   */
+  description?: string;
+
+  /**
    * <p>True to enable the fleet provisioning template, otherwise false.</p>
    */
   enabled?: boolean;
-
-  /**
-   * <p>Removes pre-provisioning hook template.</p>
-   */
-  removePreProvisioningHook?: boolean;
-
-  /**
-   * <p>Updates the pre-provisioning hook template.</p>
-   */
-  preProvisioningHook?: ProvisioningHook;
 
   /**
    * <p>The ID of the default provisioning template version.</p>
@@ -452,15 +785,20 @@ export interface UpdateProvisioningTemplateRequest {
   defaultVersionId?: number;
 
   /**
-   * <p>The description of the fleet provisioning template.</p>
-   */
-  description?: string;
-
-  /**
    * <p>The ARN of the role associated with the provisioning template. This IoT role grants
    *          permission to provision a device.</p>
    */
   provisioningRoleArn?: string;
+
+  /**
+   * <p>Updates the pre-provisioning hook template.</p>
+   */
+  preProvisioningHook?: ProvisioningHook;
+
+  /**
+   * <p>Removes pre-provisioning hook template.</p>
+   */
+  removePreProvisioningHook?: boolean;
 }
 
 export namespace UpdateProvisioningTemplateRequest {
@@ -479,14 +817,14 @@ export namespace UpdateProvisioningTemplateResponse {
 
 export interface UpdateRoleAliasRequest {
   /**
-   * <p>The role ARN.</p>
-   */
-  roleArn?: string;
-
-  /**
    * <p>The role alias to update.</p>
    */
   roleAlias: string | undefined;
+
+  /**
+   * <p>The role ARN.</p>
+   */
+  roleArn?: string;
 
   /**
    * <p>The number of seconds the credential will be valid.</p>
@@ -502,14 +840,14 @@ export namespace UpdateRoleAliasRequest {
 
 export interface UpdateRoleAliasResponse {
   /**
-   * <p>The role alias ARN.</p>
-   */
-  roleAliasArn?: string;
-
-  /**
    * <p>The role alias.</p>
    */
   roleAlias?: string;
+
+  /**
+   * <p>The role alias ARN.</p>
+   */
+  roleAliasArn?: string;
 }
 
 export namespace UpdateRoleAliasResponse {
@@ -520,24 +858,11 @@ export namespace UpdateRoleAliasResponse {
 
 export interface UpdateScheduledAuditRequest {
   /**
-   * <p>The day of the week on which the scheduled audit takes place. Can be one of
-   *             "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the
-   *             "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".</p>
+   * <p>How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY",
+   *             "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by
+   *             the system.</p>
    */
-  dayOfWeek?: DayOfWeek | string;
-
-  /**
-   * <p>The name of the scheduled audit. (Max. 128 chars)</p>
-   */
-  scheduledAuditName: string | undefined;
-
-  /**
-   * <p>Which checks are performed during the scheduled audit. Checks must be enabled
-   *             for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
-   *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
-   *             to select which checks are enabled.)</p>
-   */
-  targetCheckNames?: string[];
+  frequency?: AuditFrequency | string;
 
   /**
    * <p>The day of the month on which the scheduled audit takes place. Can be "1"
@@ -548,11 +873,24 @@ export interface UpdateScheduledAuditRequest {
   dayOfMonth?: string;
 
   /**
-   * <p>How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY",
-   *             "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by
-   *             the system.</p>
+   * <p>The day of the week on which the scheduled audit takes place. Can be one of
+   *             "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the
+   *             "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".</p>
    */
-  frequency?: AuditFrequency | string;
+  dayOfWeek?: DayOfWeek | string;
+
+  /**
+   * <p>Which checks are performed during the scheduled audit. Checks must be enabled
+   *             for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list
+   *             of all checks, including those that are enabled or use <code>UpdateAccountAuditConfiguration</code>
+   *             to select which checks are enabled.)</p>
+   */
+  targetCheckNames?: string[];
+
+  /**
+   * <p>The name of the scheduled audit. (Max. 128 chars)</p>
+   */
+  scheduledAuditName: string | undefined;
 }
 
 export namespace UpdateScheduledAuditRequest {
@@ -576,10 +914,9 @@ export namespace UpdateScheduledAuditResponse {
 
 export interface UpdateSecurityProfileRequest {
   /**
-   * <p>If true, delete all <code>behaviors</code> defined for this security profile.
-   *         If any <code>behaviors</code> are defined in the current invocation, an exception occurs.</p>
+   * <p>The name of the security profile you want to update.</p>
    */
-  deleteBehaviors?: boolean;
+  securityProfileName: string | undefined;
 
   /**
    * <p>A description of the security profile.</p>
@@ -587,25 +924,41 @@ export interface UpdateSecurityProfileRequest {
   securityProfileDescription?: string;
 
   /**
-   * <p>The expected version of the security profile. A new version is generated whenever
-   *         the security profile is updated. If you specify a value that is different from the actual
-   *         version, a <code>VersionConflictException</code> is thrown.</p>
+   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
    */
-  expectedVersion?: number;
+  behaviors?: Behavior[];
 
   /**
-   * <p>The name of the security profile you want to update.</p>
+   * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
    */
-  securityProfileName: string | undefined;
+  alertTargets?: { [key: string]: AlertTarget };
 
   /**
-   * <p>A list of metrics whose data is retained (stored). By default, data is retained
+   * <p>
+   *             <i>Please use <a>UpdateSecurityProfileRequest$additionalMetricsToRetainV2</a> instead.</i>
+   *          </p>
+   *          <p>A list of metrics whose data is retained (stored). By default, data is retained
    *         for any metric used in the profile's <code>behaviors</code>, but it is also retained for
    *         any metric specified here.</p>
-   *          <p>
-   *             <b>Note:</b> This API field is deprecated. Please use <a>UpdateSecurityProfileRequest$additionalMetricsToRetainV2</a> instead.</p>
    */
   additionalMetricsToRetain?: string[];
+
+  /**
+   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.</p>
+   */
+  additionalMetricsToRetainV2?: MetricToRetain[];
+
+  /**
+   * <p>If true, delete all <code>behaviors</code> defined for this security profile.
+   *         If any <code>behaviors</code> are defined in the current invocation, an exception occurs.</p>
+   */
+  deleteBehaviors?: boolean;
+
+  /**
+   * <p>If true, delete all <code>alertTargets</code> defined for this security profile.
+   *         If any <code>alertTargets</code> are defined in the current invocation, an exception occurs.</p>
+   */
+  deleteAlertTargets?: boolean;
 
   /**
    * <p>If true, delete all <code>additionalMetricsToRetain</code> defined for this
@@ -615,25 +968,11 @@ export interface UpdateSecurityProfileRequest {
   deleteAdditionalMetricsToRetain?: boolean;
 
   /**
-   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
+   * <p>The expected version of the security profile. A new version is generated whenever
+   *         the security profile is updated. If you specify a value that is different from the actual
+   *         version, a <code>VersionConflictException</code> is thrown.</p>
    */
-  behaviors?: Behavior[];
-
-  /**
-   * <p>If true, delete all <code>alertTargets</code> defined for this security profile.
-   *         If any <code>alertTargets</code> are defined in the current invocation, an exception occurs.</p>
-   */
-  deleteAlertTargets?: boolean;
-
-  /**
-   * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
-   */
-  alertTargets?: { [key: string]: AlertTarget };
-
-  /**
-   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.</p>
-   */
-  additionalMetricsToRetainV2?: MetricToRetain[];
+  expectedVersion?: number;
 }
 
 export namespace UpdateSecurityProfileRequest {
@@ -644,38 +983,9 @@ export namespace UpdateSecurityProfileRequest {
 
 export interface UpdateSecurityProfileResponse {
   /**
-   * <p>A list of metrics whose data is retained (stored). By default, data is retained
-   *         for any metric used in the security profile's <code>behaviors</code>, but it is also retained for
-   *         any metric specified here.</p>
-   *          <p>
-   *             <b>Note:</b> This API field is deprecated. Please use <a>UpdateSecurityProfileResponse$additionalMetricsToRetainV2</a> instead.</p>
-   */
-  additionalMetricsToRetain?: string[];
-
-  /**
-   * <p>The time the security profile was created.</p>
-   */
-  creationDate?: Date;
-
-  /**
-   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.</p>
-   */
-  additionalMetricsToRetainV2?: MetricToRetain[];
-
-  /**
-   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
-   */
-  behaviors?: Behavior[];
-
-  /**
    * <p>The name of the security profile that was updated.</p>
    */
   securityProfileName?: string;
-
-  /**
-   * <p>The description of the security profile.</p>
-   */
-  securityProfileDescription?: string;
 
   /**
    * <p>The ARN of the security profile that was updated.</p>
@@ -683,9 +993,34 @@ export interface UpdateSecurityProfileResponse {
   securityProfileArn?: string;
 
   /**
-   * <p>The time the security profile was last modified.</p>
+   * <p>The description of the security profile.</p>
    */
-  lastModifiedDate?: Date;
+  securityProfileDescription?: string;
+
+  /**
+   * <p>Specifies the behaviors that, when violated by a device (thing), cause an alert.</p>
+   */
+  behaviors?: Behavior[];
+
+  /**
+   * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
+   */
+  alertTargets?: { [key: string]: AlertTarget };
+
+  /**
+   * <p>
+   *             <i>Please use <a>UpdateSecurityProfileResponse$additionalMetricsToRetainV2</a> instead.</i>
+   *          </p>
+   *          <p>A list of metrics whose data is retained (stored). By default, data is retained
+   *         for any metric used in the security profile's <code>behaviors</code>, but it is also retained for
+   *         any metric specified here.</p>
+   */
+  additionalMetricsToRetain?: string[];
+
+  /**
+   * <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.</p>
+   */
+  additionalMetricsToRetainV2?: MetricToRetain[];
 
   /**
    * <p>The updated version of the security profile.</p>
@@ -693,9 +1028,14 @@ export interface UpdateSecurityProfileResponse {
   version?: number;
 
   /**
-   * <p>Where the alerts are sent. (Alerts are always sent to the console.)</p>
+   * <p>The time the security profile was created.</p>
    */
-  alertTargets?: { [key: string]: AlertTarget };
+  creationDate?: Date;
+
+  /**
+   * <p>The time the security profile was last modified.</p>
+   */
+  lastModifiedDate?: Date;
 }
 
 export namespace UpdateSecurityProfileResponse {
@@ -706,16 +1046,6 @@ export namespace UpdateSecurityProfileResponse {
 
 export interface UpdateStreamRequest {
   /**
-   * <p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * <p>The files associated with the stream.</p>
-   */
-  files?: StreamFile[];
-
-  /**
    * <p>The stream ID.</p>
    */
   streamId: string | undefined;
@@ -724,6 +1054,16 @@ export interface UpdateStreamRequest {
    * <p>The description of the stream.</p>
    */
   description?: string;
+
+  /**
+   * <p>The files associated with the stream.</p>
+   */
+  files?: StreamFile[];
+
+  /**
+   * <p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>
+   */
+  roleArn?: string;
 }
 
 export namespace UpdateStreamRequest {
@@ -765,24 +1105,16 @@ export namespace UpdateStreamResponse {
  */
 export interface UpdateThingRequest {
   /**
-   * <p>The name of the thing type.</p>
-   */
-  thingTypeName?: string;
-
-  /**
-   * <p>The expected version of the thing record in the registry. If the version of the
-   * 			record in the registry does not match the expected version specified in the request, the
-   * 				<code>UpdateThing</code> request is rejected with a
-   * 				<code>VersionConflictException</code>.</p>
-   */
-  expectedVersion?: number;
-
-  /**
    * <p>The name of the thing to update.</p>
    * 		       <p>You can't change a thing's name. To change a thing's name, you must create a
    * 			new thing, give it the new name, and then delete the old thing.</p>
    */
   thingName: string | undefined;
+
+  /**
+   * <p>The name of the thing type.</p>
+   */
+  thingTypeName?: string;
 
   /**
    * <p>A list of thing attributes, a JSON string containing name-value pairs. For
@@ -793,6 +1125,14 @@ export interface UpdateThingRequest {
    * 		       <p>This data is used to add new attributes or update existing attributes.</p>
    */
   attributePayload?: AttributePayload;
+
+  /**
+   * <p>The expected version of the thing record in the registry. If the version of the
+   * 			record in the registry does not match the expected version specified in the request, the
+   * 				<code>UpdateThing</code> request is rejected with a
+   * 				<code>VersionConflictException</code>.</p>
+   */
+  expectedVersion?: number;
 
   /**
    * <p>Remove a thing type association. If <b>true</b>, the
@@ -825,15 +1165,15 @@ export interface UpdateThingGroupRequest {
   thingGroupName: string | undefined;
 
   /**
+   * <p>The thing group properties.</p>
+   */
+  thingGroupProperties: ThingGroupProperties | undefined;
+
+  /**
    * <p>The expected version of the thing group. If this does not match the version of the
    * 			thing group being updated, the update will fail.</p>
    */
   expectedVersion?: number;
-
-  /**
-   * <p>The thing group properties.</p>
-   */
-  thingGroupProperties: ThingGroupProperties | undefined;
 }
 
 export namespace UpdateThingGroupRequest {
@@ -857,19 +1197,6 @@ export namespace UpdateThingGroupResponse {
 
 export interface UpdateThingGroupsForThingRequest {
   /**
-   * <p>Override dynamic thing groups with static thing groups when 10-group limit is
-   * 			reached. If a thing belongs to 10 thing groups, and one or more of those groups are
-   * 			dynamic thing groups, adding a thing to a static group removes the thing from the last
-   * 			dynamic group.</p>
-   */
-  overrideDynamicGroups?: boolean;
-
-  /**
-   * <p>The groups from which the thing will be removed.</p>
-   */
-  thingGroupsToRemove?: string[];
-
-  /**
    * <p>The thing whose group memberships will be updated.</p>
    */
   thingName?: string;
@@ -878,6 +1205,19 @@ export interface UpdateThingGroupsForThingRequest {
    * <p>The groups to which the thing will be added.</p>
    */
   thingGroupsToAdd?: string[];
+
+  /**
+   * <p>The groups from which the thing will be removed.</p>
+   */
+  thingGroupsToRemove?: string[];
+
+  /**
+   * <p>Override dynamic thing groups with static thing groups when 10-group limit is
+   * 			reached. If a thing belongs to 10 thing groups, and one or more of those groups are
+   * 			dynamic thing groups, adding a thing to a static group removes the thing from the last
+   * 			dynamic group.</p>
+   */
+  overrideDynamicGroups?: boolean;
 }
 
 export namespace UpdateThingGroupsForThingRequest {

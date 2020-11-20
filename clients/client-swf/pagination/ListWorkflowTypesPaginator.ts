@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListWorkflowTypesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListWorkflowTypesCommand(input, ...args));
+  return await client.send(new ListWorkflowTypesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SWF,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listWorkflowTypes(input, ...args);
 };
-export async function* listWorkflowTypesPaginate(
+export async function* paginateListWorkflowTypes(
   config: SWFPaginationConfiguration,
   input: ListWorkflowTypesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListWorkflowTypesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListWorkflowTypesCommandOutput;
   while (hasNext) {
-    input["nextPageToken"] = token;
+    input.nextPageToken = token;
     input["maximumPageSize"] = config.pageSize;
     if (config.client instanceof SWF) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listWorkflowTypesPaginate(
       throw new Error("Invalid client, expected SWF | SWFClient");
     }
     yield page;
-    token = page["nextPageToken"];
+    token = page.nextPageToken;
     hasNext = !!token;
   }
   // @ts-ignore

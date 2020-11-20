@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetGroupsForCapacityReservationRequest, GetGroupsForCapacityReservationResult } from "../models/models_3";
+import { GetGroupsForCapacityReservationRequest, GetGroupsForCapacityReservationResult } from "../models/models_4";
 import {
   deserializeAws_ec2GetGroupsForCapacityReservationCommand,
   serializeAws_ec2GetGroupsForCapacityReservationCommand,
@@ -44,11 +44,23 @@ export class GetGroupsForCapacityReservationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "GetGroupsForCapacityReservationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetGroupsForCapacityReservationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetGroupsForCapacityReservationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

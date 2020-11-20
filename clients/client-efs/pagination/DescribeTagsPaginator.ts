@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeTagsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeTagsCommand(input, ...args));
+  return await client.send(new DescribeTagsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EFS,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeTags(input, ...args);
 };
-export async function* describeTagsPaginate(
+export async function* paginateDescribeTags(
   config: EFSPaginationConfiguration,
   input: DescribeTagsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTagsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTagsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof EFS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeTagsPaginate(
       throw new Error("Invalid client, expected EFS | EFSClient");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -139,9 +139,9 @@ export const serializeAws_restJson1ListDetectorsCommand = async (
     throw new Error("No value provided for input HTTP label: detectorModelName.");
   }
   const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.stateName !== undefined && { stateName: input.stateName }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -161,7 +161,7 @@ export const deserializeAws_restJson1BatchPutMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchPutMessageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchPutMessageCommandError(output, context);
   }
   const contents: BatchPutMessageCommandOutput = {
@@ -243,7 +243,7 @@ export const deserializeAws_restJson1BatchUpdateDetectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchUpdateDetectorCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchUpdateDetectorCommandError(output, context);
   }
   const contents: BatchUpdateDetectorCommandOutput = {
@@ -325,7 +325,7 @@ export const deserializeAws_restJson1DescribeDetectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDetectorCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeDetectorCommandError(output, context);
   }
   const contents: DescribeDetectorCommandOutput = {
@@ -412,7 +412,7 @@ export const deserializeAws_restJson1ListDetectorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDetectorsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDetectorsCommandError(output, context);
   }
   const contents: ListDetectorsCommandOutput = {

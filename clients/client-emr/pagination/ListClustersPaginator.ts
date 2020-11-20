@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListClustersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListClustersCommand(input, ...args));
+  return await client.send(new ListClustersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EMR,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listClusters(input, ...args);
 };
-export async function* listClustersPaginate(
+export async function* paginateListClusters(
   config: EMRPaginationConfiguration,
   input: ListClustersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListClustersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListClustersCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     if (config.client instanceof EMR) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof EMRClient) {
@@ -42,7 +42,7 @@ export async function* listClustersPaginate(
       throw new Error("Invalid client, expected EMR | EMRClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

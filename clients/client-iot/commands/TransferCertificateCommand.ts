@@ -1,5 +1,5 @@
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { TransferCertificateRequest, TransferCertificateResponse } from "../models/models_1";
+import { TransferCertificateRequest, TransferCertificateResponse } from "../models/models_2";
 import {
   deserializeAws_restJson1TransferCertificateCommand,
   serializeAws_restJson1TransferCertificateCommand,
@@ -44,11 +44,23 @@ export class TransferCertificateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "TransferCertificateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TransferCertificateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TransferCertificateResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

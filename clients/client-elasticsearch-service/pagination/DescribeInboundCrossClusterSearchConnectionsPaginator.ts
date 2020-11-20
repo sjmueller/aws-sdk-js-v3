@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeInboundCrossClusterSearchConnectionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeInboundCrossClusterSearchConnectionsCommand(input, ...args));
+  return await client.send(new DescribeInboundCrossClusterSearchConnectionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElasticsearchService,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeInboundCrossClusterSearchConnections(input, ...args);
 };
-export async function* describeInboundCrossClusterSearchConnectionsPaginate(
+export async function* paginateDescribeInboundCrossClusterSearchConnections(
   config: ElasticsearchServicePaginationConfiguration,
   input: DescribeInboundCrossClusterSearchConnectionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeInboundCrossClusterSearchConnectionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeInboundCrossClusterSearchConnectionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof ElasticsearchService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeInboundCrossClusterSearchConnectionsPaginate(
       throw new Error("Invalid client, expected ElasticsearchService | ElasticsearchServiceClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

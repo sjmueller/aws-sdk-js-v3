@@ -43,9 +43,24 @@ export class TimestampFormatHeadersCommand extends $Command<
 
     const stack = clientStack.concat(this.middlewareStack);
 
+    const { logger } = configuration;
+    const clientName = "RestXmlProtocolClient";
+    const commandName = "TimestampFormatHeadersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
-      logger: {} as any,
+      logger,
+      clientName,
+      commandName,
+      inputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
+      outputFilterSensitiveLog: TimestampFormatHeadersIO.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

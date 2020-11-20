@@ -4,6 +4,7 @@ import {
   deserializeAws_restXmlPutJobTaggingCommand,
   serializeAws_restXmlPutJobTaggingCommand,
 } from "../protocols/Aws_restXml";
+import { getProcessArnablesPlugin } from "@aws-sdk/middleware-sdk-s3-control";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -40,15 +41,28 @@ export class PutJobTaggingCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<PutJobTaggingCommandInput, PutJobTaggingCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getProcessArnablesPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3ControlClient";
+    const commandName = "PutJobTaggingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutJobTaggingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutJobTaggingResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

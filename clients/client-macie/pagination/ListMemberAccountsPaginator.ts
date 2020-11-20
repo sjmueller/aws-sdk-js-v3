@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListMemberAccountsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListMemberAccountsCommand(input, ...args));
+  return await client.send(new ListMemberAccountsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Macie,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMemberAccounts(input, ...args);
 };
-export async function* listMemberAccountsPaginate(
+export async function* paginateListMemberAccounts(
   config: MaciePaginationConfiguration,
   input: ListMemberAccountsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMemberAccountsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMemberAccountsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Macie) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listMemberAccountsPaginate(
       throw new Error("Invalid client, expected Macie | MacieClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

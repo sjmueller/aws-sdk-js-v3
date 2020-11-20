@@ -192,10 +192,10 @@ export const serializeAws_restJson1ListSigningJobsCommand = async (
   };
   let resolvedPath = "/signing-jobs";
   const query: any = {
-    ...(input.platformId !== undefined && { platformId: input.platformId }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.requestedBy !== undefined && { requestedBy: input.requestedBy }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.platformId !== undefined && { platformId: input.platformId }),
     ...(input.status !== undefined && { status: input.status }),
   };
   let body: any;
@@ -222,10 +222,10 @@ export const serializeAws_restJson1ListSigningPlatformsCommand = async (
   let resolvedPath = "/signing-platforms";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.partner !== undefined && { partner: input.partner }),
     ...(input.target !== undefined && { target: input.target }),
     ...(input.category !== undefined && { category: input.category }),
+    ...(input.partner !== undefined && { partner: input.partner }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -250,9 +250,9 @@ export const serializeAws_restJson1ListSigningProfilesCommand = async (
   };
   let resolvedPath = "/signing-profiles";
   const query: any = {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.includeCanceled !== undefined && { includeCanceled: input.includeCanceled.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -441,7 +441,7 @@ export const deserializeAws_restJson1CancelSigningProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelSigningProfileCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CancelSigningProfileCommandError(output, context);
   }
   const contents: CancelSigningProfileCommandOutput = {
@@ -516,7 +516,7 @@ export const deserializeAws_restJson1DescribeSigningJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSigningJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeSigningJobCommandError(output, context);
   }
   const contents: DescribeSigningJobCommandOutput = {
@@ -635,7 +635,7 @@ export const deserializeAws_restJson1GetSigningPlatformCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSigningPlatformCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSigningPlatformCommandError(output, context);
   }
   const contents: GetSigningPlatformCommandOutput = {
@@ -734,7 +734,7 @@ export const deserializeAws_restJson1GetSigningProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSigningProfileCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSigningProfileCommandError(output, context);
   }
   const contents: GetSigningProfileCommandOutput = {
@@ -841,7 +841,7 @@ export const deserializeAws_restJson1ListSigningJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSigningJobsCommandError(output, context);
   }
   const contents: ListSigningJobsCommandOutput = {
@@ -924,7 +924,7 @@ export const deserializeAws_restJson1ListSigningPlatformsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningPlatformsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSigningPlatformsCommandError(output, context);
   }
   const contents: ListSigningPlatformsCommandOutput = {
@@ -1007,7 +1007,7 @@ export const deserializeAws_restJson1ListSigningProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningProfilesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSigningProfilesCommandError(output, context);
   }
   const contents: ListSigningProfilesCommandOutput = {
@@ -1082,7 +1082,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -1153,7 +1153,7 @@ export const deserializeAws_restJson1PutSigningProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSigningProfileCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutSigningProfileCommandError(output, context);
   }
   const contents: PutSigningProfileCommandOutput = {
@@ -1240,7 +1240,7 @@ export const deserializeAws_restJson1StartSigningJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSigningJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartSigningJobCommandError(output, context);
   }
   const contents: StartSigningJobCommandOutput = {
@@ -1327,7 +1327,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1394,7 +1394,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {

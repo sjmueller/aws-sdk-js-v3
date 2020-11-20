@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBInstanceAutomatedBackupsCommand(input, ...args));
+  return await client.send(new DescribeDBInstanceAutomatedBackupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RDS,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBInstanceAutomatedBackups(input, ...args);
 };
-export async function* describeDBInstanceAutomatedBackupsPaginate(
+export async function* paginateDescribeDBInstanceAutomatedBackups(
   config: RDSPaginationConfiguration,
   input: DescribeDBInstanceAutomatedBackupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBInstanceAutomatedBackupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBInstanceAutomatedBackupsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof RDS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeDBInstanceAutomatedBackupsPaginate(
       throw new Error("Invalid client, expected RDS | RDSClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

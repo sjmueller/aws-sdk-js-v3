@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListApplicationRevisionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListApplicationRevisionsCommand(input, ...args));
+  return await client.send(new ListApplicationRevisionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeDeploy,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listApplicationRevisions(input, ...args);
 };
-export async function* listApplicationRevisionsPaginate(
+export async function* paginateListApplicationRevisions(
   config: CodeDeployPaginationConfiguration,
   input: ListApplicationRevisionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListApplicationRevisionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListApplicationRevisionsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     if (config.client instanceof CodeDeploy) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof CodeDeployClient) {
@@ -42,7 +42,7 @@ export async function* listApplicationRevisionsPaginate(
       throw new Error("Invalid client, expected CodeDeploy | CodeDeployClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

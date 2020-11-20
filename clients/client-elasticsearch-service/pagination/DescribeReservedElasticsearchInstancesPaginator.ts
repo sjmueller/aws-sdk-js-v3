@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeReservedElasticsearchInstancesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeReservedElasticsearchInstancesCommand(input, ...args));
+  return await client.send(new DescribeReservedElasticsearchInstancesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElasticsearchService,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeReservedElasticsearchInstances(input, ...args);
 };
-export async function* describeReservedElasticsearchInstancesPaginate(
+export async function* paginateDescribeReservedElasticsearchInstances(
   config: ElasticsearchServicePaginationConfiguration,
   input: DescribeReservedElasticsearchInstancesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReservedElasticsearchInstancesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReservedElasticsearchInstancesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof ElasticsearchService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeReservedElasticsearchInstancesPaginate(
       throw new Error("Invalid client, expected ElasticsearchService | ElasticsearchServiceClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

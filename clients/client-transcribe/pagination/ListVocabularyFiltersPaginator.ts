@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListVocabularyFiltersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListVocabularyFiltersCommand(input, ...args));
+  return await client.send(new ListVocabularyFiltersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Transcribe,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listVocabularyFilters(input, ...args);
 };
-export async function* listVocabularyFiltersPaginate(
+export async function* paginateListVocabularyFilters(
   config: TranscribePaginationConfiguration,
   input: ListVocabularyFiltersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVocabularyFiltersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVocabularyFiltersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Transcribe) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listVocabularyFiltersPaginate(
       throw new Error("Invalid client, expected Transcribe | TranscribeClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

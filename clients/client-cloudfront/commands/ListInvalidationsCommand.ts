@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { ListInvalidationsRequest, ListInvalidationsResult } from "../models/models_0";
+import { ListInvalidationsRequest, ListInvalidationsResult } from "../models/models_1";
 import {
   deserializeAws_restXmlListInvalidationsCommand,
   serializeAws_restXmlListInvalidationsCommand,
@@ -44,11 +44,23 @@ export class ListInvalidationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "ListInvalidationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListInvalidationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListInvalidationsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -44,11 +44,23 @@ export class ModifyCacheSubnetGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElastiCacheClient";
+    const commandName = "ModifyCacheSubnetGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyCacheSubnetGroupMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyCacheSubnetGroupResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

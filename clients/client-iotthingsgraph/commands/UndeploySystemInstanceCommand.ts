@@ -44,11 +44,23 @@ export class UndeploySystemInstanceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTThingsGraphClient";
+    const commandName = "UndeploySystemInstanceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UndeploySystemInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UndeploySystemInstanceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

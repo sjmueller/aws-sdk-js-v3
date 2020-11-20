@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DeleteMonitoringScheduleRequest } from "../models/models_0";
+import { DeleteMonitoringScheduleRequest } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteMonitoringScheduleCommand,
   serializeAws_json1_1DeleteMonitoringScheduleCommand,
@@ -44,11 +44,23 @@ export class DeleteMonitoringScheduleCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "DeleteMonitoringScheduleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteMonitoringScheduleRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

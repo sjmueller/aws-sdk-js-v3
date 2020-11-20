@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListJournalS3ExportsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListJournalS3ExportsCommand(input, ...args));
+  return await client.send(new ListJournalS3ExportsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: QLDB,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listJournalS3Exports(input, ...args);
 };
-export async function* listJournalS3ExportsPaginate(
+export async function* paginateListJournalS3Exports(
   config: QLDBPaginationConfiguration,
   input: ListJournalS3ExportsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListJournalS3ExportsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListJournalS3ExportsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof QLDB) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listJournalS3ExportsPaginate(
       throw new Error("Invalid client, expected QLDB | QLDBClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

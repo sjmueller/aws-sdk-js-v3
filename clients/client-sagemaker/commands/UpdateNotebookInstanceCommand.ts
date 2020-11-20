@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateNotebookInstanceInput, UpdateNotebookInstanceOutput } from "../models/models_1";
+import { UpdateNotebookInstanceInput, UpdateNotebookInstanceOutput } from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateNotebookInstanceCommand,
   serializeAws_json1_1UpdateNotebookInstanceCommand,
@@ -44,11 +44,23 @@ export class UpdateNotebookInstanceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "UpdateNotebookInstanceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateNotebookInstanceInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateNotebookInstanceOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

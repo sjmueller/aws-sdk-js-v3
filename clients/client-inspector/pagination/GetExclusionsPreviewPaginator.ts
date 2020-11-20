@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetExclusionsPreviewCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetExclusionsPreviewCommand(input, ...args));
+  return await client.send(new GetExclusionsPreviewCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Inspector,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getExclusionsPreview(input, ...args);
 };
-export async function* getExclusionsPreviewPaginate(
+export async function* paginateGetExclusionsPreview(
   config: InspectorPaginationConfiguration,
   input: GetExclusionsPreviewCommandInput,
   ...additionalArguments: any
 ): Paginator<GetExclusionsPreviewCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetExclusionsPreviewCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Inspector) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getExclusionsPreviewPaginate(
       throw new Error("Invalid client, expected Inspector | InspectorClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

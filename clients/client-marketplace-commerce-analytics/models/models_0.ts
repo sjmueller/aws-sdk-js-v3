@@ -48,28 +48,6 @@ export interface GenerateDataSetRequest {
   customerDefinedValues?: { [key: string]: string };
 
   /**
-   * The date a data set was published.
-   *         For daily data sets, provide a date with day-level granularity for the desired day.
-   *         For monthly data sets except those with prefix disbursed_amount, provide a date with month-level granularity for the desired month (the day value will be ignored).
-   *         For data sets with prefix disbursed_amount, provide a date with day-level granularity for the desired day. For these data sets we will look backwards in time over the range of 31 days until the first data set is found (the latest one).
-   */
-  dataSetPublicationDate: Date | undefined;
-
-  /**
-   * (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
-   *         For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file
-   *         "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile".
-   *         If the prefix directory structure does not exist, it will be created.
-   *         If no prefix is provided, the data set will be published to the S3 bucket root.
-   */
-  destinationS3Prefix?: string;
-
-  /**
-   * The name (friendly name, not ARN) of the destination S3 bucket.
-   */
-  destinationS3BucketName: string | undefined;
-
-  /**
    * <p>The desired data set type.</p>
    *         <p>
    *             <ul>
@@ -157,16 +135,54 @@ export interface GenerateDataSetRequest {
    *                     <strong>us_sales_and_use_tax_records</strong>
    *                     <p>From 2017-09-15 to present: Available monthly on the 15th day of the month by 24:00 UTC.</p>
    *                 </li>
+   *                 <li>
+   *                     <strong>disbursed_amount_by_product_with_uncollected_funds</strong>
+   *                     <p>This data set is deprecated. Download related reports from AMMP instead!</p>
+   *                 </li>
+   *                 <li>
+   *                     <strong>customer_profile_by_industry</strong>
+   *                     <p>This data set is deprecated. Download related reports from AMMP instead!</p>
+   *                 </li>
+   *                 <li>
+   *                     <strong>customer_profile_by_revenue</strong>
+   *                     <p>This data set is deprecated. Download related reports from AMMP instead!</p>
+   *                 </li>
+   *                 <li>
+   *                     <strong>customer_profile_by_geography</strong>
+   *                     <p>This data set is deprecated. Download related reports from AMMP instead!</p>
+   *                 </li>
    *             </ul>
    *         </p>
    */
   dataSetType: DataSetType | string | undefined;
 
   /**
+   * The date a data set was published.
+   *         For daily data sets, provide a date with day-level granularity for the desired day.
+   *         For monthly data sets except those with prefix disbursed_amount, provide a date with month-level granularity for the desired month (the day value will be ignored).
+   *         For data sets with prefix disbursed_amount, provide a date with day-level granularity for the desired day. For these data sets we will look backwards in time over the range of 31 days until the first data set is found (the latest one).
+   */
+  dataSetPublicationDate: Date | undefined;
+
+  /**
    * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
    *         AWS services.
    */
   roleNameArn: string | undefined;
+
+  /**
+   * The name (friendly name, not ARN) of the destination S3 bucket.
+   */
+  destinationS3BucketName: string | undefined;
+
+  /**
+   * (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
+   *         For example, if given the bucket name "mybucket" and the prefix "myprefix/mydatasets", the output file
+   *         "outputfile" would be published to "s3://mybucket/myprefix/mydatasets/outputfile".
+   *         If the prefix directory structure does not exist, it will be created.
+   *         If no prefix is provided, the data set will be published to the S3 bucket root.
+   */
+  destinationS3Prefix?: string;
 }
 
 export namespace GenerateDataSetRequest {
@@ -217,15 +233,26 @@ export type SupportDataSetType = "customer_support_contacts_data" | "test_custom
  */
 export interface StartSupportDataExportRequest {
   /**
+   * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
+   *         error has occurred.
+   */
+  snsTopicArn: string | undefined;
+
+  /**
+   * (Optional) Key-value pairs which will be returned, unmodified, in the
+   *         Amazon SNS notification message and the data set metadata file.
+   */
+  customerDefinedValues?: { [key: string]: string };
+
+  /**
    * The start date from which to retrieve the data set in UTC.  This parameter only affects the customer_support_contacts_data data set type.
    */
   fromDate: Date | undefined;
 
   /**
-   * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
-   *         error has occurred.
+   * The name (friendly name, not ARN) of the destination S3 bucket.
    */
-  snsTopicArn: string | undefined;
+  destinationS3BucketName: string | undefined;
 
   /**
    * <p>
@@ -244,10 +271,10 @@ export interface StartSupportDataExportRequest {
   dataSetType: SupportDataSetType | string | undefined;
 
   /**
-   * (Optional) Key-value pairs which will be returned, unmodified, in the
-   *         Amazon SNS notification message and the data set metadata file.
+   * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
+   *         AWS services.
    */
-  customerDefinedValues?: { [key: string]: string };
+  roleNameArn: string | undefined;
 
   /**
    * (Optional) The desired S3 prefix for the published data set, similar to a directory path in standard file systems.
@@ -257,17 +284,6 @@ export interface StartSupportDataExportRequest {
    *         If no prefix is provided, the data set will be published to the S3 bucket root.
    */
   destinationS3Prefix?: string;
-
-  /**
-   * The name (friendly name, not ARN) of the destination S3 bucket.
-   */
-  destinationS3BucketName: string | undefined;
-
-  /**
-   * The Amazon Resource Name (ARN) of the Role with an attached permissions policy to interact with the provided
-   *         AWS services.
-   */
-  roleNameArn: string | undefined;
 }
 
 export namespace StartSupportDataExportRequest {

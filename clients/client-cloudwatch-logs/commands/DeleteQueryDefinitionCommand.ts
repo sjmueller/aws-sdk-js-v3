@@ -44,11 +44,23 @@ export class DeleteQueryDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudWatchLogsClient";
+    const commandName = "DeleteQueryDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteQueryDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteQueryDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

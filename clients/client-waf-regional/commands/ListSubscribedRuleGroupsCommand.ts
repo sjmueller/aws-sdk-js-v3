@@ -44,11 +44,23 @@ export class ListSubscribedRuleGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WAFRegionalClient";
+    const commandName = "ListSubscribedRuleGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListSubscribedRuleGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSubscribedRuleGroupsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

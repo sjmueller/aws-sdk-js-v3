@@ -37,11 +37,23 @@ export class GetAppCommand extends $Command<GetAppCommandInput, GetAppCommandOut
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "GetAppCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetAppRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetAppResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

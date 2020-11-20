@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeJobQueuesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeJobQueuesCommand(input, ...args));
+  return await client.send(new DescribeJobQueuesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Batch,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeJobQueues(input, ...args);
 };
-export async function* describeJobQueuesPaginate(
+export async function* paginateDescribeJobQueues(
   config: BatchPaginationConfiguration,
   input: DescribeJobQueuesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeJobQueuesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeJobQueuesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Batch) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeJobQueuesPaginate(
       throw new Error("Invalid client, expected Batch | BatchClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

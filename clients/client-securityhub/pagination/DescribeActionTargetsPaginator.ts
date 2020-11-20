@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeActionTargetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeActionTargetsCommand(input, ...args));
+  return await client.send(new DescribeActionTargetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SecurityHub,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeActionTargets(input, ...args);
 };
-export async function* describeActionTargetsPaginate(
+export async function* paginateDescribeActionTargets(
   config: SecurityHubPaginationConfiguration,
   input: DescribeActionTargetsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeActionTargetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeActionTargetsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SecurityHub) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeActionTargetsPaginate(
       throw new Error("Invalid client, expected SecurityHub | SecurityHubClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

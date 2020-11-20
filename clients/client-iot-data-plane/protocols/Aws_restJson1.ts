@@ -116,8 +116,8 @@ export const serializeAws_restJson1ListNamedShadowsForThingCommand = async (
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.pageSize !== undefined && { pageSize: input.pageSize.toString() }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -211,7 +211,7 @@ export const deserializeAws_restJson1DeleteThingShadowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteThingShadowCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteThingShadowCommandError(output, context);
   }
   const contents: DeleteThingShadowCommandOutput = {
@@ -320,7 +320,7 @@ export const deserializeAws_restJson1GetThingShadowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetThingShadowCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetThingShadowCommandError(output, context);
   }
   const contents: GetThingShadowCommandOutput = {
@@ -429,7 +429,7 @@ export const deserializeAws_restJson1ListNamedShadowsForThingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNamedShadowsForThingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListNamedShadowsForThingCommandError(output, context);
   }
   const contents: ListNamedShadowsForThingCommandOutput = {
@@ -540,7 +540,7 @@ export const deserializeAws_restJson1PublishCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PublishCommandError(output, context);
   }
   const contents: PublishCommandOutput = {
@@ -615,7 +615,7 @@ export const deserializeAws_restJson1UpdateThingShadowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateThingShadowCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateThingShadowCommandError(output, context);
   }
   const contents: UpdateThingShadowCommandOutput = {

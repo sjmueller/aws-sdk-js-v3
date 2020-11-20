@@ -9,6 +9,7 @@ import {
   serializeAws_json1_1AdminInitiateAuthCommand,
 } from "../protocols/Aws_json1_1";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
+import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
 import {
@@ -44,15 +45,28 @@ export class AdminInitiateAuthCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<AdminInitiateAuthCommandInput, AdminInitiateAuthCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "AdminInitiateAuthCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AdminInitiateAuthRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AdminInitiateAuthResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

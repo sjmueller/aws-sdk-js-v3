@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeEventsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeEventsCommand(input, ...args));
+  return await client.send(new DescribeEventsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Redshift,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEvents(input, ...args);
 };
-export async function* describeEventsPaginate(
+export async function* paginateDescribeEvents(
   config: RedshiftPaginationConfiguration,
   input: DescribeEventsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeEventsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeEventsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof Redshift) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeEventsPaginate(
       throw new Error("Invalid client, expected Redshift | RedshiftClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

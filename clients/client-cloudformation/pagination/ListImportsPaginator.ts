@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListImportsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListImportsCommand(input, ...args));
+  return await client.send(new ListImportsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudFormation,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listImports(input, ...args);
 };
-export async function* listImportsPaginate(
+export async function* paginateListImports(
   config: CloudFormationPaginationConfiguration,
   input: ListImportsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListImportsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListImportsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof CloudFormation) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof CloudFormationClient) {
@@ -38,7 +38,7 @@ export async function* listImportsPaginate(
       throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

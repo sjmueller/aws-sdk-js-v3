@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeVTLDevicesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeVTLDevicesCommand(input, ...args));
+  return await client.send(new DescribeVTLDevicesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: StorageGateway,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeVTLDevices(input, ...args);
 };
-export async function* describeVTLDevicesPaginate(
+export async function* paginateDescribeVTLDevices(
   config: StorageGatewayPaginationConfiguration,
   input: DescribeVTLDevicesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeVTLDevicesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeVTLDevicesCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof StorageGateway) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeVTLDevicesPaginate(
       throw new Error("Invalid client, expected StorageGateway | StorageGatewayClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListServersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListServersCommand(input, ...args));
+  return await client.send(new ListServersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Transfer,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listServers(input, ...args);
 };
-export async function* listServersPaginate(
+export async function* paginateListServers(
   config: TransferPaginationConfiguration,
   input: ListServersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListServersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListServersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Transfer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listServersPaginate(
       throw new Error("Invalid client, expected Transfer | TransferClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

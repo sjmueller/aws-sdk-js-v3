@@ -1,5 +1,5 @@
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { GetLaunchTemplateDataRequest, GetLaunchTemplateDataResult } from "../models/models_3";
+import { GetLaunchTemplateDataRequest, GetLaunchTemplateDataResult } from "../models/models_4";
 import {
   deserializeAws_ec2GetLaunchTemplateDataCommand,
   serializeAws_ec2GetLaunchTemplateDataCommand,
@@ -44,11 +44,23 @@ export class GetLaunchTemplateDataCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "GetLaunchTemplateDataCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetLaunchTemplateDataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLaunchTemplateDataResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

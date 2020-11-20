@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetTraceGraphCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetTraceGraphCommand(input, ...args));
+  return await client.send(new GetTraceGraphCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: XRay,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTraceGraph(input, ...args);
 };
-export async function* getTraceGraphPaginate(
+export async function* paginateGetTraceGraph(
   config: XRayPaginationConfiguration,
   input: GetTraceGraphCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTraceGraphCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTraceGraphCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof XRay) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof XRayClient) {
@@ -42,7 +42,7 @@ export async function* getTraceGraphPaginate(
       throw new Error("Invalid client, expected XRay | XRayClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

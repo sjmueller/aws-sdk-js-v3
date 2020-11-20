@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeTapeRecoveryPointsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeTapeRecoveryPointsCommand(input, ...args));
+  return await client.send(new DescribeTapeRecoveryPointsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: StorageGateway,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeTapeRecoveryPoints(input, ...args);
 };
-export async function* describeTapeRecoveryPointsPaginate(
+export async function* paginateDescribeTapeRecoveryPoints(
   config: StorageGatewayPaginationConfiguration,
   input: DescribeTapeRecoveryPointsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeTapeRecoveryPointsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeTapeRecoveryPointsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof StorageGateway) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeTapeRecoveryPointsPaginate(
       throw new Error("Invalid client, expected StorageGateway | StorageGatewayClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

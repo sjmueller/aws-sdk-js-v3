@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListActionExecutionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListActionExecutionsCommand(input, ...args));
+  return await client.send(new ListActionExecutionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodePipeline,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listActionExecutions(input, ...args);
 };
-export async function* listActionExecutionsPaginate(
+export async function* paginateListActionExecutions(
   config: CodePipelinePaginationConfiguration,
   input: ListActionExecutionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListActionExecutionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListActionExecutionsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof CodePipeline) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listActionExecutionsPaginate(
       throw new Error("Invalid client, expected CodePipeline | CodePipelineClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

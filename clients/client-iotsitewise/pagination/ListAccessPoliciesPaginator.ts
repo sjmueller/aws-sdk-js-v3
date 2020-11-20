@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAccessPoliciesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAccessPoliciesCommand(input, ...args));
+  return await client.send(new ListAccessPoliciesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoTSiteWise,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccessPolicies(input, ...args);
 };
-export async function* listAccessPoliciesPaginate(
+export async function* paginateListAccessPolicies(
   config: IoTSiteWisePaginationConfiguration,
   input: ListAccessPoliciesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAccessPoliciesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAccessPoliciesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof IoTSiteWise) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listAccessPoliciesPaginate(
       throw new Error("Invalid client, expected IoTSiteWise | IoTSiteWiseClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

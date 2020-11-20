@@ -1,4 +1,4 @@
-@aws-sdk/client-transcribe-streaming
+# @aws-sdk/client-transcribe-streaming
 
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/client-transcribe-streaming/gamma.svg)](https://www.npmjs.com/package/@aws-sdk/client-transcribe-streaming)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/client-transcribe-streaming.svg)](https://www.npmjs.com/package/@aws-sdk/client-transcribe-streaming)
@@ -12,7 +12,7 @@ for a variety of purposes. For example:
 - Streaming transcriptions can generate real-time subtitles for live broadcast media.
 - Lawyers can make real-time annotations on top of streaming transcriptions during courtroom depositions.
 - Video game chat can be transcribed in real time so that hosts can moderate content or run real-time analysis.
-- Streaming transcriptions can provide assistance to the hearing impaired.This package supports
+- Streaming transcriptions can provide assistance to the hearing impaired.
 
 The JavaScript SDK Transcribe Streaming client encapsulates the API into a JavaScript library that can be run on
 browsers, Node.js and _potentially_ React Native. By default, the client uses HTTP/2 connection on Node.js, and uses

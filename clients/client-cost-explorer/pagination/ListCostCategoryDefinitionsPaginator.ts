@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCostCategoryDefinitionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCostCategoryDefinitionsCommand(input, ...args));
+  return await client.send(new ListCostCategoryDefinitionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CostExplorer,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCostCategoryDefinitions(input, ...args);
 };
-export async function* listCostCategoryDefinitionsPaginate(
+export async function* paginateListCostCategoryDefinitions(
   config: CostExplorerPaginationConfiguration,
   input: ListCostCategoryDefinitionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCostCategoryDefinitionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCostCategoryDefinitionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CostExplorer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listCostCategoryDefinitionsPaginate(
       throw new Error("Invalid client, expected CostExplorer | CostExplorerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

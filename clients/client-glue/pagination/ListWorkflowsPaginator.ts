@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListWorkflowsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListWorkflowsCommand(input, ...args));
+  return await client.send(new ListWorkflowsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Glue,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listWorkflows(input, ...args);
 };
-export async function* listWorkflowsPaginate(
+export async function* paginateListWorkflows(
   config: GluePaginationConfiguration,
   input: ListWorkflowsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListWorkflowsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListWorkflowsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Glue) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listWorkflowsPaginate(
       throw new Error("Invalid client, expected Glue | GlueClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

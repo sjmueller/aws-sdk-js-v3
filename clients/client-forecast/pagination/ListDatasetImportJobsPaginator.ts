@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDatasetImportJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDatasetImportJobsCommand(input, ...args));
+  return await client.send(new ListDatasetImportJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Forecast,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDatasetImportJobs(input, ...args);
 };
-export async function* listDatasetImportJobsPaginate(
+export async function* paginateListDatasetImportJobs(
   config: ForecastPaginationConfiguration,
   input: ListDatasetImportJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDatasetImportJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDatasetImportJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Forecast) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listDatasetImportJobsPaginate(
       throw new Error("Invalid client, expected Forecast | ForecastClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -35,6 +35,16 @@ import {
   CreateInvalidationCommandOutput,
 } from "./commands/CreateInvalidationCommand";
 import {
+  CreateKeyGroupCommand,
+  CreateKeyGroupCommandInput,
+  CreateKeyGroupCommandOutput,
+} from "./commands/CreateKeyGroupCommand";
+import {
+  CreateMonitoringSubscriptionCommand,
+  CreateMonitoringSubscriptionCommandInput,
+  CreateMonitoringSubscriptionCommandOutput,
+} from "./commands/CreateMonitoringSubscriptionCommand";
+import {
   CreateOriginRequestPolicyCommand,
   CreateOriginRequestPolicyCommandInput,
   CreateOriginRequestPolicyCommandOutput,
@@ -44,6 +54,11 @@ import {
   CreatePublicKeyCommandInput,
   CreatePublicKeyCommandOutput,
 } from "./commands/CreatePublicKeyCommand";
+import {
+  CreateRealtimeLogConfigCommand,
+  CreateRealtimeLogConfigCommandInput,
+  CreateRealtimeLogConfigCommandOutput,
+} from "./commands/CreateRealtimeLogConfigCommand";
 import {
   CreateStreamingDistributionCommand,
   CreateStreamingDistributionCommandInput,
@@ -80,6 +95,16 @@ import {
   DeleteFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/DeleteFieldLevelEncryptionProfileCommand";
 import {
+  DeleteKeyGroupCommand,
+  DeleteKeyGroupCommandInput,
+  DeleteKeyGroupCommandOutput,
+} from "./commands/DeleteKeyGroupCommand";
+import {
+  DeleteMonitoringSubscriptionCommand,
+  DeleteMonitoringSubscriptionCommandInput,
+  DeleteMonitoringSubscriptionCommandOutput,
+} from "./commands/DeleteMonitoringSubscriptionCommand";
+import {
   DeleteOriginRequestPolicyCommand,
   DeleteOriginRequestPolicyCommandInput,
   DeleteOriginRequestPolicyCommandOutput,
@@ -89,6 +114,11 @@ import {
   DeletePublicKeyCommandInput,
   DeletePublicKeyCommandOutput,
 } from "./commands/DeletePublicKeyCommand";
+import {
+  DeleteRealtimeLogConfigCommand,
+  DeleteRealtimeLogConfigCommandInput,
+  DeleteRealtimeLogConfigCommandOutput,
+} from "./commands/DeleteRealtimeLogConfigCommand";
 import {
   DeleteStreamingDistributionCommand,
   DeleteStreamingDistributionCommandInput,
@@ -149,6 +179,17 @@ import {
   GetInvalidationCommandInput,
   GetInvalidationCommandOutput,
 } from "./commands/GetInvalidationCommand";
+import { GetKeyGroupCommand, GetKeyGroupCommandInput, GetKeyGroupCommandOutput } from "./commands/GetKeyGroupCommand";
+import {
+  GetKeyGroupConfigCommand,
+  GetKeyGroupConfigCommandInput,
+  GetKeyGroupConfigCommandOutput,
+} from "./commands/GetKeyGroupConfigCommand";
+import {
+  GetMonitoringSubscriptionCommand,
+  GetMonitoringSubscriptionCommandInput,
+  GetMonitoringSubscriptionCommandOutput,
+} from "./commands/GetMonitoringSubscriptionCommand";
 import {
   GetOriginRequestPolicyCommand,
   GetOriginRequestPolicyCommandInput,
@@ -169,6 +210,11 @@ import {
   GetPublicKeyConfigCommandInput,
   GetPublicKeyConfigCommandOutput,
 } from "./commands/GetPublicKeyConfigCommand";
+import {
+  GetRealtimeLogConfigCommand,
+  GetRealtimeLogConfigCommandInput,
+  GetRealtimeLogConfigCommandOutput,
+} from "./commands/GetRealtimeLogConfigCommand";
 import {
   GetStreamingDistributionCommand,
   GetStreamingDistributionCommandInput,
@@ -195,10 +241,20 @@ import {
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "./commands/ListDistributionsByCachePolicyIdCommand";
 import {
+  ListDistributionsByKeyGroupCommand,
+  ListDistributionsByKeyGroupCommandInput,
+  ListDistributionsByKeyGroupCommandOutput,
+} from "./commands/ListDistributionsByKeyGroupCommand";
+import {
   ListDistributionsByOriginRequestPolicyIdCommand,
   ListDistributionsByOriginRequestPolicyIdCommandInput,
   ListDistributionsByOriginRequestPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByOriginRequestPolicyIdCommand";
+import {
+  ListDistributionsByRealtimeLogConfigCommand,
+  ListDistributionsByRealtimeLogConfigCommandInput,
+  ListDistributionsByRealtimeLogConfigCommandOutput,
+} from "./commands/ListDistributionsByRealtimeLogConfigCommand";
 import {
   ListDistributionsByWebACLIdCommand,
   ListDistributionsByWebACLIdCommandInput,
@@ -225,6 +281,11 @@ import {
   ListInvalidationsCommandOutput,
 } from "./commands/ListInvalidationsCommand";
 import {
+  ListKeyGroupsCommand,
+  ListKeyGroupsCommandInput,
+  ListKeyGroupsCommandOutput,
+} from "./commands/ListKeyGroupsCommand";
+import {
   ListOriginRequestPoliciesCommand,
   ListOriginRequestPoliciesCommandInput,
   ListOriginRequestPoliciesCommandOutput,
@@ -234,6 +295,11 @@ import {
   ListPublicKeysCommandInput,
   ListPublicKeysCommandOutput,
 } from "./commands/ListPublicKeysCommand";
+import {
+  ListRealtimeLogConfigsCommand,
+  ListRealtimeLogConfigsCommandInput,
+  ListRealtimeLogConfigsCommandOutput,
+} from "./commands/ListRealtimeLogConfigsCommand";
 import {
   ListStreamingDistributionsCommand,
   ListStreamingDistributionsCommandInput,
@@ -276,6 +342,11 @@ import {
   UpdateFieldLevelEncryptionProfileCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionProfileCommand";
 import {
+  UpdateKeyGroupCommand,
+  UpdateKeyGroupCommandInput,
+  UpdateKeyGroupCommandOutput,
+} from "./commands/UpdateKeyGroupCommand";
+import {
   UpdateOriginRequestPolicyCommand,
   UpdateOriginRequestPolicyCommandInput,
   UpdateOriginRequestPolicyCommandOutput,
@@ -285,6 +356,11 @@ import {
   UpdatePublicKeyCommandInput,
   UpdatePublicKeyCommandOutput,
 } from "./commands/UpdatePublicKeyCommand";
+import {
+  UpdateRealtimeLogConfigCommand,
+  UpdateRealtimeLogConfigCommandInput,
+  UpdateRealtimeLogConfigCommandOutput,
+} from "./commands/UpdateRealtimeLogConfigCommand";
 import {
   UpdateStreamingDistributionCommand,
   UpdateStreamingDistributionCommandInput,
@@ -317,7 +393,7 @@ export class CloudFront extends CloudFrontClient {
    * 			included in requests that CloudFront sends to the origin. CloudFront sends a request when it can’t
    * 			find an object in its cache that matches the request’s cache key. If you want to send
    * 			values to the origin but <i>not</i> include them in the cache key, use
-   * 			<code>CreateOriginRequestPolicy</code>.</p>
+   * 			<code>OriginRequestPolicy</code>.</p>
    * 		       <p>For more information about cache policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html">Controlling the cache key</a> in the
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    */
@@ -558,6 +634,80 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Creates a key group that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
+   * 		       <p>To create a key group, you must specify at least one public key for the key group. After you
+   * 			create a key group, you can reference it from one or more cache behaviors. When you
+   * 			reference a key group in a cache behavior, CloudFront requires signed URLs or signed cookies
+   * 			for all requests that match the cache behavior. The URLs or cookies must be signed with
+   * 			a private key whose corresponding public key is in the key group. The signed URL or
+   * 			cookie contains information about which public key CloudFront should use to verify the
+   * 			signature. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving private content</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  public createKeyGroup(
+    args: CreateKeyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateKeyGroupCommandOutput>;
+  public createKeyGroup(
+    args: CreateKeyGroupCommandInput,
+    cb: (err: any, data?: CreateKeyGroupCommandOutput) => void
+  ): void;
+  public createKeyGroup(
+    args: CreateKeyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateKeyGroupCommandOutput) => void
+  ): void;
+  public createKeyGroup(
+    args: CreateKeyGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateKeyGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateKeyGroupCommandOutput) => void
+  ): Promise<CreateKeyGroupCommandOutput> | void {
+    const command = new CreateKeyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Enables additional CloudWatch metrics for the specified CloudFront distribution. The
+   * 			additional metrics incur an additional cost.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional">Viewing additional CloudFront distribution metrics</a> in the
+   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  public createMonitoringSubscription(
+    args: CreateMonitoringSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMonitoringSubscriptionCommandOutput>;
+  public createMonitoringSubscription(
+    args: CreateMonitoringSubscriptionCommandInput,
+    cb: (err: any, data?: CreateMonitoringSubscriptionCommandOutput) => void
+  ): void;
+  public createMonitoringSubscription(
+    args: CreateMonitoringSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMonitoringSubscriptionCommandOutput) => void
+  ): void;
+  public createMonitoringSubscription(
+    args: CreateMonitoringSubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateMonitoringSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: CreateMonitoringSubscriptionCommandOutput) => void
+  ): Promise<CreateMonitoringSubscriptionCommandOutput> | void {
+    const command = new CreateMonitoringSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an origin request policy.</p>
    * 		       <p>After you create an origin request policy, you can attach it to one or more cache behaviors.
    * 			When it’s attached to a cache behavior, the origin request policy determines the values
@@ -580,7 +730,7 @@ export class CloudFront extends CloudFrontClient {
    *          </ul>
    * 		       <p>CloudFront sends a request when it can’t find a valid object in its cache that matches the
    * 			request. If you want to send values to the origin and also include them in the cache
-   * 			key, use <code>CreateCachePolicy</code>.</p>
+   * 			key, use <code>CachePolicy</code>.</p>
    * 		       <p>For more information about origin request policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html">Controlling origin requests</a> in the
    * 			<i>Amazon CloudFront Developer Guide</i>.</p>
    */
@@ -614,7 +764,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Add a new public key to CloudFront to use, for example, for field-level encryption. You can add a maximum of 10 public keys with one AWS account.</p>
+   * <p>Uploads a public key to CloudFront that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">signed URLs and signed cookies</a>, or with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html">field-level encryption</a>.</p>
    */
   public createPublicKey(
     args: CreatePublicKeyCommandInput,
@@ -635,6 +785,41 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: CreatePublicKeyCommandOutput) => void
   ): Promise<CreatePublicKeyCommandOutput> | void {
     const command = new CreatePublicKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a real-time log configuration.</p>
+   * 		       <p>After you create a real-time log configuration, you can attach it to one or more cache
+   * 			behaviors to send real-time log data to the specified Amazon Kinesis data stream.</p>
+   * 		       <p>For more information about real-time log configurations, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html">Real-time logs</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   */
+  public createRealtimeLogConfig(
+    args: CreateRealtimeLogConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRealtimeLogConfigCommandOutput>;
+  public createRealtimeLogConfig(
+    args: CreateRealtimeLogConfigCommandInput,
+    cb: (err: any, data?: CreateRealtimeLogConfigCommandOutput) => void
+  ): void;
+  public createRealtimeLogConfig(
+    args: CreateRealtimeLogConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRealtimeLogConfigCommandOutput) => void
+  ): void;
+  public createRealtimeLogConfig(
+    args: CreateRealtimeLogConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRealtimeLogConfigCommandOutput) => void),
+    cb?: (err: any, data?: CreateRealtimeLogConfigCommandOutput) => void
+  ): Promise<CreateRealtimeLogConfigCommandOutput> | void {
+    const command = new CreateRealtimeLogConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -900,6 +1085,76 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Deletes a key group.</p>
+   * 		       <p>You cannot delete a key group that is referenced in a cache behavior. First update
+   * 			your distributions to remove the key group from all cache behaviors, then delete the key
+   * 			group.</p>
+   * 		       <p>To delete a key group, you must provide the key group’s identifier and version. To get
+   * 			these values, use <code>ListKeyGroups</code> followed by <code>GetKeyGroup</code> or
+   * 			<code>GetKeyGroupConfig</code>.</p>
+   */
+  public deleteKeyGroup(
+    args: DeleteKeyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteKeyGroupCommandOutput>;
+  public deleteKeyGroup(
+    args: DeleteKeyGroupCommandInput,
+    cb: (err: any, data?: DeleteKeyGroupCommandOutput) => void
+  ): void;
+  public deleteKeyGroup(
+    args: DeleteKeyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteKeyGroupCommandOutput) => void
+  ): void;
+  public deleteKeyGroup(
+    args: DeleteKeyGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteKeyGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteKeyGroupCommandOutput) => void
+  ): Promise<DeleteKeyGroupCommandOutput> | void {
+    const command = new DeleteKeyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disables additional CloudWatch metrics for the specified CloudFront distribution.</p>
+   */
+  public deleteMonitoringSubscription(
+    args: DeleteMonitoringSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMonitoringSubscriptionCommandOutput>;
+  public deleteMonitoringSubscription(
+    args: DeleteMonitoringSubscriptionCommandInput,
+    cb: (err: any, data?: DeleteMonitoringSubscriptionCommandOutput) => void
+  ): void;
+  public deleteMonitoringSubscription(
+    args: DeleteMonitoringSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMonitoringSubscriptionCommandOutput) => void
+  ): void;
+  public deleteMonitoringSubscription(
+    args: DeleteMonitoringSubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteMonitoringSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteMonitoringSubscriptionCommandOutput) => void
+  ): Promise<DeleteMonitoringSubscriptionCommandOutput> | void {
+    const command = new DeleteMonitoringSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an origin request policy.</p>
    * 		       <p>You cannot delete an origin request policy if it’s attached to any cache behaviors. First
    * 			update your distributions to remove the origin request policy from all cache behaviors,
@@ -959,6 +1214,44 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: DeletePublicKeyCommandOutput) => void
   ): Promise<DeletePublicKeyCommandOutput> | void {
     const command = new DeletePublicKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a real-time log configuration.</p>
+   * 		       <p>You cannot delete a real-time log configuration if it’s attached to a cache behavior.
+   * 			First update your distributions to remove the real-time log configuration from all cache
+   * 			behaviors, then delete the real-time log configuration.</p>
+   * 		       <p>To delete a real-time log configuration, you can provide the configuration’s name or its
+   * 			Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
+   * 			uses the name to identify the real-time log configuration to delete.</p>
+   */
+  public deleteRealtimeLogConfig(
+    args: DeleteRealtimeLogConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteRealtimeLogConfigCommandOutput>;
+  public deleteRealtimeLogConfig(
+    args: DeleteRealtimeLogConfigCommandInput,
+    cb: (err: any, data?: DeleteRealtimeLogConfigCommandOutput) => void
+  ): void;
+  public deleteRealtimeLogConfig(
+    args: DeleteRealtimeLogConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRealtimeLogConfigCommandOutput) => void
+  ): void;
+  public deleteRealtimeLogConfig(
+    args: DeleteRealtimeLogConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRealtimeLogConfigCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRealtimeLogConfigCommandOutput) => void
+  ): Promise<DeleteRealtimeLogConfigCommandOutput> | void {
+    const command = new DeleteRealtimeLogConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1421,6 +1714,107 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Gets a key group, including the date and time when the key group was last modified.</p>
+   * 		       <p>To get a key group, you must provide the key group’s identifier. If the key group is
+   * 			referenced in a distribution’s cache behavior, you can get the key group’s identifier
+   * 			using <code>ListDistributions</code> or <code>GetDistribution</code>. If the key group
+   * 			is not referenced in a cache behavior, you can get the identifier using
+   * 			<code>ListKeyGroups</code>.</p>
+   */
+  public getKeyGroup(args: GetKeyGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyGroupCommandOutput>;
+  public getKeyGroup(args: GetKeyGroupCommandInput, cb: (err: any, data?: GetKeyGroupCommandOutput) => void): void;
+  public getKeyGroup(
+    args: GetKeyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetKeyGroupCommandOutput) => void
+  ): void;
+  public getKeyGroup(
+    args: GetKeyGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKeyGroupCommandOutput) => void),
+    cb?: (err: any, data?: GetKeyGroupCommandOutput) => void
+  ): Promise<GetKeyGroupCommandOutput> | void {
+    const command = new GetKeyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a key group configuration.</p>
+   * 		       <p>To get a key group configuration, you must provide the key group’s identifier. If the
+   * 			key group is referenced in a distribution’s cache behavior, you can get the key group’s
+   * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
+   * 			key group is not referenced in a cache behavior, you can get the identifier using
+   * 			<code>ListKeyGroups</code>.</p>
+   */
+  public getKeyGroupConfig(
+    args: GetKeyGroupConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetKeyGroupConfigCommandOutput>;
+  public getKeyGroupConfig(
+    args: GetKeyGroupConfigCommandInput,
+    cb: (err: any, data?: GetKeyGroupConfigCommandOutput) => void
+  ): void;
+  public getKeyGroupConfig(
+    args: GetKeyGroupConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetKeyGroupConfigCommandOutput) => void
+  ): void;
+  public getKeyGroupConfig(
+    args: GetKeyGroupConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetKeyGroupConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetKeyGroupConfigCommandOutput) => void
+  ): Promise<GetKeyGroupConfigCommandOutput> | void {
+    const command = new GetKeyGroupConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets information about whether additional CloudWatch metrics are enabled for the specified
+   * 			CloudFront distribution.</p>
+   */
+  public getMonitoringSubscription(
+    args: GetMonitoringSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMonitoringSubscriptionCommandOutput>;
+  public getMonitoringSubscription(
+    args: GetMonitoringSubscriptionCommandInput,
+    cb: (err: any, data?: GetMonitoringSubscriptionCommandOutput) => void
+  ): void;
+  public getMonitoringSubscription(
+    args: GetMonitoringSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMonitoringSubscriptionCommandOutput) => void
+  ): void;
+  public getMonitoringSubscription(
+    args: GetMonitoringSubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetMonitoringSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: GetMonitoringSubscriptionCommandOutput) => void
+  ): Promise<GetMonitoringSubscriptionCommandOutput> | void {
+    const command = new GetMonitoringSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets an origin request policy, including the following metadata:</p>
    * 		       <ul>
    *             <li>
@@ -1504,7 +1898,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Get the public key information.</p>
+   * <p>Gets a public key.</p>
    */
   public getPublicKey(
     args: GetPublicKeyCommandInput,
@@ -1533,7 +1927,7 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Return public key configuration informaation</p>
+   * <p>Gets a public key configuration.</p>
    */
   public getPublicKeyConfig(
     args: GetPublicKeyConfigCommandInput,
@@ -1554,6 +1948,41 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: GetPublicKeyConfigCommandOutput) => void
   ): Promise<GetPublicKeyConfigCommandOutput> | void {
     const command = new GetPublicKeyConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a real-time log configuration.</p>
+   * 		       <p>To get a real-time log configuration, you can provide the configuration’s name or its Amazon
+   * 			Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the
+   * 			name to identify the real-time log configuration to get.</p>
+   */
+  public getRealtimeLogConfig(
+    args: GetRealtimeLogConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRealtimeLogConfigCommandOutput>;
+  public getRealtimeLogConfig(
+    args: GetRealtimeLogConfigCommandInput,
+    cb: (err: any, data?: GetRealtimeLogConfigCommandOutput) => void
+  ): void;
+  public getRealtimeLogConfig(
+    args: GetRealtimeLogConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRealtimeLogConfigCommandOutput) => void
+  ): void;
+  public getRealtimeLogConfig(
+    args: GetRealtimeLogConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetRealtimeLogConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetRealtimeLogConfigCommandOutput) => void
+  ): Promise<GetRealtimeLogConfigCommandOutput> | void {
+    const command = new GetRealtimeLogConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1770,6 +2199,44 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Gets a list of distribution IDs for distributions that have a cache behavior that references
+   * 			the specified key group.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listDistributionsByKeyGroup(
+    args: ListDistributionsByKeyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByKeyGroupCommandOutput>;
+  public listDistributionsByKeyGroup(
+    args: ListDistributionsByKeyGroupCommandInput,
+    cb: (err: any, data?: ListDistributionsByKeyGroupCommandOutput) => void
+  ): void;
+  public listDistributionsByKeyGroup(
+    args: ListDistributionsByKeyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByKeyGroupCommandOutput) => void
+  ): void;
+  public listDistributionsByKeyGroup(
+    args: ListDistributionsByKeyGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDistributionsByKeyGroupCommandOutput) => void),
+    cb?: (err: any, data?: ListDistributionsByKeyGroupCommandOutput) => void
+  ): Promise<ListDistributionsByKeyGroupCommandOutput> | void {
+    const command = new ListDistributionsByKeyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of distribution IDs for distributions that have a cache behavior that’s
    * 			associated with the specified origin request policy.</p>
    * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
@@ -1799,6 +2266,47 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: ListDistributionsByOriginRequestPolicyIdCommandOutput) => void
   ): Promise<ListDistributionsByOriginRequestPolicyIdCommandOutput> | void {
     const command = new ListDistributionsByOriginRequestPolicyIdCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of distributions that have a cache behavior that’s associated with the specified
+   * 			real-time log configuration.</p>
+   * 		       <p>You can specify the real-time log configuration by its name or its Amazon Resource Name
+   * 			(ARN). You must provide at least one. If you provide both, CloudFront uses the name to
+   * 			identify the real-time log configuration to list distributions for.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request. </p>
+   */
+  public listDistributionsByRealtimeLogConfig(
+    args: ListDistributionsByRealtimeLogConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByRealtimeLogConfigCommandOutput>;
+  public listDistributionsByRealtimeLogConfig(
+    args: ListDistributionsByRealtimeLogConfigCommandInput,
+    cb: (err: any, data?: ListDistributionsByRealtimeLogConfigCommandOutput) => void
+  ): void;
+  public listDistributionsByRealtimeLogConfig(
+    args: ListDistributionsByRealtimeLogConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByRealtimeLogConfigCommandOutput) => void
+  ): void;
+  public listDistributionsByRealtimeLogConfig(
+    args: ListDistributionsByRealtimeLogConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDistributionsByRealtimeLogConfigCommandOutput) => void),
+    cb?: (err: any, data?: ListDistributionsByRealtimeLogConfigCommandOutput) => void
+  ): Promise<ListDistributionsByRealtimeLogConfigCommandOutput> | void {
+    const command = new ListDistributionsByRealtimeLogConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1938,6 +2446,43 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Gets a list of key groups.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listKeyGroups(
+    args: ListKeyGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListKeyGroupsCommandOutput>;
+  public listKeyGroups(
+    args: ListKeyGroupsCommandInput,
+    cb: (err: any, data?: ListKeyGroupsCommandOutput) => void
+  ): void;
+  public listKeyGroups(
+    args: ListKeyGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListKeyGroupsCommandOutput) => void
+  ): void;
+  public listKeyGroups(
+    args: ListKeyGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListKeyGroupsCommandOutput) => void),
+    cb?: (err: any, data?: ListKeyGroupsCommandOutput) => void
+  ): Promise<ListKeyGroupsCommandOutput> | void {
+    const command = new ListKeyGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gets a list of origin request policies.</p>
    * 		       <p>You can optionally apply a filter to return only the managed policies created by AWS, or
    * 			only the custom policies created in your AWS account.</p>
@@ -1998,6 +2543,43 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: ListPublicKeysCommandOutput) => void
   ): Promise<ListPublicKeysCommandOutput> | void {
     const command = new ListPublicKeysCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of real-time log configurations.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request. </p>
+   */
+  public listRealtimeLogConfigs(
+    args: ListRealtimeLogConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRealtimeLogConfigsCommandOutput>;
+  public listRealtimeLogConfigs(
+    args: ListRealtimeLogConfigsCommandInput,
+    cb: (err: any, data?: ListRealtimeLogConfigsCommandOutput) => void
+  ): void;
+  public listRealtimeLogConfigs(
+    args: ListRealtimeLogConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRealtimeLogConfigsCommandOutput) => void
+  ): void;
+  public listRealtimeLogConfigs(
+    args: ListRealtimeLogConfigsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRealtimeLogConfigsCommandOutput) => void),
+    cb?: (err: any, data?: ListRealtimeLogConfigsCommandOutput) => void
+  ): Promise<ListRealtimeLogConfigsCommandOutput> | void {
+    const command = new ListRealtimeLogConfigsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2386,6 +2968,55 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Updates a key group.</p>
+   * 		       <p>When you update a key group, all the fields are updated with the values provided in
+   * 			the request. You cannot update some fields independent of others. To update a key
+   * 			group:</p>
+   * 		       <ol>
+   *             <li>
+   * 				           <p>Get the current key group with <code>GetKeyGroup</code> or
+   * 					<code>GetKeyGroupConfig</code>.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Locally modify the fields in the key group that you want to update. For
+   * 					example, add or remove public key IDs.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Call <code>UpdateKeyGroup</code> with the entire key group object, including
+   * 					the fields that you modified and those that you didn’t.</p>
+   * 			         </li>
+   *          </ol>
+   */
+  public updateKeyGroup(
+    args: UpdateKeyGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKeyGroupCommandOutput>;
+  public updateKeyGroup(
+    args: UpdateKeyGroupCommandInput,
+    cb: (err: any, data?: UpdateKeyGroupCommandOutput) => void
+  ): void;
+  public updateKeyGroup(
+    args: UpdateKeyGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKeyGroupCommandOutput) => void
+  ): void;
+  public updateKeyGroup(
+    args: UpdateKeyGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateKeyGroupCommandOutput) => void),
+    cb?: (err: any, data?: UpdateKeyGroupCommandOutput) => void
+  ): Promise<UpdateKeyGroupCommandOutput> | void {
+    const command = new UpdateKeyGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates an origin request policy configuration.</p>
    * 		       <p>When you update an origin request policy configuration, all the fields are updated
    * 			with the values provided in the request. You cannot update some fields independent of
@@ -2456,6 +3087,58 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: UpdatePublicKeyCommandOutput) => void
   ): Promise<UpdatePublicKeyCommandOutput> | void {
     const command = new UpdatePublicKeyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a real-time log configuration.</p>
+   * 		       <p>When you update a real-time log configuration, all the parameters are updated with the
+   * 			values provided in the request. You cannot update some parameters independent of others.
+   * 			To update a real-time log configuration:</p>
+   * 		       <ol>
+   *             <li>
+   * 				           <p>Call <code>GetRealtimeLogConfig</code> to get the current real-time log
+   * 					configuration.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Locally modify the parameters in the real-time log configuration that you want
+   * 					to update.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Call this API (<code>UpdateRealtimeLogConfig</code>) by providing the entire
+   * 					real-time log configuration, including the parameters that you modified and
+   * 					those that you didn’t.</p>
+   * 			         </li>
+   *          </ol>
+   * 		       <p>You cannot update a real-time log configuration’s <code>Name</code> or
+   * 			<code>ARN</code>.</p>
+   */
+  public updateRealtimeLogConfig(
+    args: UpdateRealtimeLogConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRealtimeLogConfigCommandOutput>;
+  public updateRealtimeLogConfig(
+    args: UpdateRealtimeLogConfigCommandInput,
+    cb: (err: any, data?: UpdateRealtimeLogConfigCommandOutput) => void
+  ): void;
+  public updateRealtimeLogConfig(
+    args: UpdateRealtimeLogConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRealtimeLogConfigCommandOutput) => void
+  ): void;
+  public updateRealtimeLogConfig(
+    args: UpdateRealtimeLogConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRealtimeLogConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRealtimeLogConfigCommandOutput) => void
+  ): Promise<UpdateRealtimeLogConfigCommandOutput> | void {
+    const command = new UpdateRealtimeLogConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

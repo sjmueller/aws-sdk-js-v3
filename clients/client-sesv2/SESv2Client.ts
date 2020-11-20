@@ -6,6 +6,8 @@ import {
   CreateConfigurationSetEventDestinationCommandInput,
   CreateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/CreateConfigurationSetEventDestinationCommand";
+import { CreateContactCommandInput, CreateContactCommandOutput } from "./commands/CreateContactCommand";
+import { CreateContactListCommandInput, CreateContactListCommandOutput } from "./commands/CreateContactListCommand";
 import {
   CreateCustomVerificationEmailTemplateCommandInput,
   CreateCustomVerificationEmailTemplateCommandOutput,
@@ -30,6 +32,7 @@ import {
   CreateEmailTemplateCommandInput,
   CreateEmailTemplateCommandOutput,
 } from "./commands/CreateEmailTemplateCommand";
+import { CreateImportJobCommandInput, CreateImportJobCommandOutput } from "./commands/CreateImportJobCommand";
 import {
   DeleteConfigurationSetCommandInput,
   DeleteConfigurationSetCommandOutput,
@@ -38,6 +41,8 @@ import {
   DeleteConfigurationSetEventDestinationCommandInput,
   DeleteConfigurationSetEventDestinationCommandOutput,
 } from "./commands/DeleteConfigurationSetEventDestinationCommand";
+import { DeleteContactCommandInput, DeleteContactCommandOutput } from "./commands/DeleteContactCommand";
+import { DeleteContactListCommandInput, DeleteContactListCommandOutput } from "./commands/DeleteContactListCommand";
 import {
   DeleteCustomVerificationEmailTemplateCommandInput,
   DeleteCustomVerificationEmailTemplateCommandOutput,
@@ -75,6 +80,8 @@ import {
   GetConfigurationSetEventDestinationsCommandInput,
   GetConfigurationSetEventDestinationsCommandOutput,
 } from "./commands/GetConfigurationSetEventDestinationsCommand";
+import { GetContactCommandInput, GetContactCommandOutput } from "./commands/GetContactCommand";
+import { GetContactListCommandInput, GetContactListCommandOutput } from "./commands/GetContactListCommand";
 import {
   GetCustomVerificationEmailTemplateCommandInput,
   GetCustomVerificationEmailTemplateCommandOutput,
@@ -103,6 +110,7 @@ import {
   GetEmailIdentityPoliciesCommandOutput,
 } from "./commands/GetEmailIdentityPoliciesCommand";
 import { GetEmailTemplateCommandInput, GetEmailTemplateCommandOutput } from "./commands/GetEmailTemplateCommand";
+import { GetImportJobCommandInput, GetImportJobCommandOutput } from "./commands/GetImportJobCommand";
 import {
   GetSuppressedDestinationCommandInput,
   GetSuppressedDestinationCommandOutput,
@@ -111,6 +119,8 @@ import {
   ListConfigurationSetsCommandInput,
   ListConfigurationSetsCommandOutput,
 } from "./commands/ListConfigurationSetsCommand";
+import { ListContactListsCommandInput, ListContactListsCommandOutput } from "./commands/ListContactListsCommand";
+import { ListContactsCommandInput, ListContactsCommandOutput } from "./commands/ListContactsCommand";
 import {
   ListCustomVerificationEmailTemplatesCommandInput,
   ListCustomVerificationEmailTemplatesCommandOutput,
@@ -132,6 +142,7 @@ import {
   ListEmailIdentitiesCommandOutput,
 } from "./commands/ListEmailIdentitiesCommand";
 import { ListEmailTemplatesCommandInput, ListEmailTemplatesCommandOutput } from "./commands/ListEmailTemplatesCommand";
+import { ListImportJobsCommandInput, ListImportJobsCommandOutput } from "./commands/ListImportJobsCommand";
 import {
   ListSuppressedDestinationsCommandInput,
   ListSuppressedDestinationsCommandOutput,
@@ -221,6 +232,8 @@ import {
   UpdateConfigurationSetEventDestinationCommandInput,
   UpdateConfigurationSetEventDestinationCommandOutput,
 } from "./commands/UpdateConfigurationSetEventDestinationCommand";
+import { UpdateContactCommandInput, UpdateContactCommandOutput } from "./commands/UpdateContactCommand";
+import { UpdateContactListCommandInput, UpdateContactListCommandOutput } from "./commands/UpdateContactListCommand";
 import {
   UpdateCustomVerificationEmailTemplateCommandInput,
   UpdateCustomVerificationEmailTemplateCommandOutput,
@@ -285,14 +298,19 @@ import {
 export type ServiceInputTypes =
   | CreateConfigurationSetCommandInput
   | CreateConfigurationSetEventDestinationCommandInput
+  | CreateContactCommandInput
+  | CreateContactListCommandInput
   | CreateCustomVerificationEmailTemplateCommandInput
   | CreateDedicatedIpPoolCommandInput
   | CreateDeliverabilityTestReportCommandInput
   | CreateEmailIdentityCommandInput
   | CreateEmailIdentityPolicyCommandInput
   | CreateEmailTemplateCommandInput
+  | CreateImportJobCommandInput
   | DeleteConfigurationSetCommandInput
   | DeleteConfigurationSetEventDestinationCommandInput
+  | DeleteContactCommandInput
+  | DeleteContactListCommandInput
   | DeleteCustomVerificationEmailTemplateCommandInput
   | DeleteDedicatedIpPoolCommandInput
   | DeleteEmailIdentityCommandInput
@@ -303,6 +321,8 @@ export type ServiceInputTypes =
   | GetBlacklistReportsCommandInput
   | GetConfigurationSetCommandInput
   | GetConfigurationSetEventDestinationsCommandInput
+  | GetContactCommandInput
+  | GetContactListCommandInput
   | GetCustomVerificationEmailTemplateCommandInput
   | GetDedicatedIpCommandInput
   | GetDedicatedIpsCommandInput
@@ -313,14 +333,18 @@ export type ServiceInputTypes =
   | GetEmailIdentityCommandInput
   | GetEmailIdentityPoliciesCommandInput
   | GetEmailTemplateCommandInput
+  | GetImportJobCommandInput
   | GetSuppressedDestinationCommandInput
   | ListConfigurationSetsCommandInput
+  | ListContactListsCommandInput
+  | ListContactsCommandInput
   | ListCustomVerificationEmailTemplatesCommandInput
   | ListDedicatedIpPoolsCommandInput
   | ListDeliverabilityTestReportsCommandInput
   | ListDomainDeliverabilityCampaignsCommandInput
   | ListEmailIdentitiesCommandInput
   | ListEmailTemplatesCommandInput
+  | ListImportJobsCommandInput
   | ListSuppressedDestinationsCommandInput
   | ListTagsForResourceCommandInput
   | PutAccountDedicatedIpWarmupAttributesCommandInput
@@ -347,6 +371,8 @@ export type ServiceInputTypes =
   | TestRenderEmailTemplateCommandInput
   | UntagResourceCommandInput
   | UpdateConfigurationSetEventDestinationCommandInput
+  | UpdateContactCommandInput
+  | UpdateContactListCommandInput
   | UpdateCustomVerificationEmailTemplateCommandInput
   | UpdateEmailIdentityPolicyCommandInput
   | UpdateEmailTemplateCommandInput;
@@ -354,14 +380,19 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateConfigurationSetCommandOutput
   | CreateConfigurationSetEventDestinationCommandOutput
+  | CreateContactCommandOutput
+  | CreateContactListCommandOutput
   | CreateCustomVerificationEmailTemplateCommandOutput
   | CreateDedicatedIpPoolCommandOutput
   | CreateDeliverabilityTestReportCommandOutput
   | CreateEmailIdentityCommandOutput
   | CreateEmailIdentityPolicyCommandOutput
   | CreateEmailTemplateCommandOutput
+  | CreateImportJobCommandOutput
   | DeleteConfigurationSetCommandOutput
   | DeleteConfigurationSetEventDestinationCommandOutput
+  | DeleteContactCommandOutput
+  | DeleteContactListCommandOutput
   | DeleteCustomVerificationEmailTemplateCommandOutput
   | DeleteDedicatedIpPoolCommandOutput
   | DeleteEmailIdentityCommandOutput
@@ -372,6 +403,8 @@ export type ServiceOutputTypes =
   | GetBlacklistReportsCommandOutput
   | GetConfigurationSetCommandOutput
   | GetConfigurationSetEventDestinationsCommandOutput
+  | GetContactCommandOutput
+  | GetContactListCommandOutput
   | GetCustomVerificationEmailTemplateCommandOutput
   | GetDedicatedIpCommandOutput
   | GetDedicatedIpsCommandOutput
@@ -382,14 +415,18 @@ export type ServiceOutputTypes =
   | GetEmailIdentityCommandOutput
   | GetEmailIdentityPoliciesCommandOutput
   | GetEmailTemplateCommandOutput
+  | GetImportJobCommandOutput
   | GetSuppressedDestinationCommandOutput
   | ListConfigurationSetsCommandOutput
+  | ListContactListsCommandOutput
+  | ListContactsCommandOutput
   | ListCustomVerificationEmailTemplatesCommandOutput
   | ListDedicatedIpPoolsCommandOutput
   | ListDeliverabilityTestReportsCommandOutput
   | ListDomainDeliverabilityCampaignsCommandOutput
   | ListEmailIdentitiesCommandOutput
   | ListEmailTemplatesCommandOutput
+  | ListImportJobsCommandOutput
   | ListSuppressedDestinationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAccountDedicatedIpWarmupAttributesCommandOutput
@@ -416,6 +453,8 @@ export type ServiceOutputTypes =
   | TestRenderEmailTemplateCommandOutput
   | UntagResourceCommandOutput
   | UpdateConfigurationSetEventDestinationCommandOutput
+  | UpdateContactCommandOutput
+  | UpdateContactListCommandOutput
   | UpdateCustomVerificationEmailTemplateCommandOutput
   | UpdateEmailIdentityPolicyCommandOutput
   | UpdateEmailTemplateCommandOutput;

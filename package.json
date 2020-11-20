@@ -1,19 +1,22 @@
 {
   "name": "aws-sdk-js-v3",
   "private": true,
-  "version": "1.0.0-gamma.10",
+  "version": "1.0.0-rc.7",
   "description": "AWS SDK for JavaScript from the future",
   "main": "index.js",
   "scripts": {
+    "copy-models": "node ./scripts/copy-models",
     "generate-clients": "node ./scripts/generate-clients",
     "bootstrap": "yarn",
     "clean": "yarn clear-build-cache && yarn clear-build-info && lerna clean",
     "clear-build-cache": "rimraf ./packages/*/build  ./packages/*/build-es ./clients/*/dist",
     "clear-build-info": "rimraf ./packages/*/*.tsbuildinfo ./clients/*/*/*.tsbuildinfo",
+    "remove-documentation": "rimraf ./docs",
     "build:crypto-dependencies": "lerna run --scope '@aws-sdk/{types,util-utf8-browser,util-locate-window,hash-node}' --include-dependencies pretest",
     "build:protocols": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/aws-*' --include-dependencies pretest",
     "build:smithy-client": "yarn build:crypto-dependencies && lerna run --scope '@aws-sdk/client-rds-data' --include-dependencies pretest",
     "build:all": "yarn build:crypto-dependencies && lerna run build",
+    "build-documentation": "yarn remove-documentation && typedoc",
     "pretest:all": "yarn build:all",
     "test:all": "jest --coverage --passWithNoTests && lerna run test --scope '@aws-sdk/{fetch-http-handler,hash-blob-browser}'",
     "test:functional": "jest --config tests/functional/jest.config.js --passWithNoTests",
@@ -40,7 +43,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
-    "@commitlint/config-conventional": "^9.0.1",
+    "@commitlint/config-conventional": "^11.0.0",
     "@types/chai-as-promised": "^7.1.2",
     "@types/fs-extra": "^8.0.1",
     "@types/jest": "^26.0.4",
@@ -78,6 +81,7 @@
     "prettier": "2.1.0",
     "puppeteer": "^5.1.0",
     "ts-loader": "^7.0.5",
+    "typedoc-plugin-lerna-packages": "^0.3.1",
     "typescript": "~4.0.2",
     "verdaccio": "^4.7.2",
     "webpack": "^4.43.0",
@@ -86,8 +90,9 @@
   },
   "workspaces": {
     "packages": [
-      "packages/*",
       "clients/*",
+      "lib/*",
+      "packages/*",
       "protocol_tests/*"
     ],
     "nohoist": [

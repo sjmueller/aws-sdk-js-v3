@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListInstanceProfilesForRoleCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListInstanceProfilesForRoleCommand(input, ...args));
+  return await client.send(new ListInstanceProfilesForRoleCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IAM,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listInstanceProfilesForRole(input, ...args);
 };
-export async function* listInstanceProfilesForRolePaginate(
+export async function* paginateListInstanceProfilesForRole(
   config: IAMPaginationConfiguration,
   input: ListInstanceProfilesForRoleCommandInput,
   ...additionalArguments: any
 ): Paginator<ListInstanceProfilesForRoleCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListInstanceProfilesForRoleCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof IAM) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listInstanceProfilesForRolePaginate(
       throw new Error("Invalid client, expected IAM | IAMClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -44,11 +44,23 @@ export class DescribeDeliveryStreamCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "FirehoseClient";
+    const commandName = "DescribeDeliveryStreamCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDeliveryStreamInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDeliveryStreamOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

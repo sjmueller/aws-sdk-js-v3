@@ -1,5 +1,5 @@
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { ListCachePoliciesRequest, ListCachePoliciesResult } from "../models/models_0";
+import { ListCachePoliciesRequest, ListCachePoliciesResult } from "../models/models_1";
 import {
   deserializeAws_restXmlListCachePoliciesCommand,
   serializeAws_restXmlListCachePoliciesCommand,
@@ -44,11 +44,23 @@ export class ListCachePoliciesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "ListCachePoliciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListCachePoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListCachePoliciesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

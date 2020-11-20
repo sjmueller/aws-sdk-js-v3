@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/util-arn-parser",
-  "version": "1.0.0-gamma.3",
+  "version": "1.0.0-rc.3",
   "description": "A parser to Amazon Resource Names",
   "main": "./dist/cjs/index.js",
   "module": "./dist/es/index.js",
@@ -26,5 +26,14 @@
     "jest": "^26.1.0",
     "typescript": "~4.0.2"
   },
-  "types": "./dist/cjs/index.d.ts"
+  "types": "./dist/cjs/index.d.ts",
+  "engines": {
+    "node": ">= 10.0.0"
+  },
+  "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/master/packages/util-arn-parser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "packages/util-arn-parser"
+  }
 }

@@ -1,5 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { UpdateUserProfileRequest, UpdateUserProfileResponse } from "../models/models_1";
+import { UpdateUserProfileRequest, UpdateUserProfileResponse } from "../models/models_2";
 import {
   deserializeAws_json1_1UpdateUserProfileCommand,
   serializeAws_json1_1UpdateUserProfileCommand,
@@ -44,11 +44,23 @@ export class UpdateUserProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "UpdateUserProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateUserProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateUserProfileResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

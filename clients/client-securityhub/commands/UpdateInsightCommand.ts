@@ -1,5 +1,5 @@
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
-import { UpdateInsightRequest, UpdateInsightResponse } from "../models/models_0";
+import { UpdateInsightRequest, UpdateInsightResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateInsightCommand,
   serializeAws_restJson1UpdateInsightCommand,
@@ -44,11 +44,23 @@ export class UpdateInsightCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecurityHubClient";
+    const commandName = "UpdateInsightCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateInsightRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateInsightResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

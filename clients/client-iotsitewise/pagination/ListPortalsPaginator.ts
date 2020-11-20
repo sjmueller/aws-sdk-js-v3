@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPortalsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPortalsCommand(input, ...args));
+  return await client.send(new ListPortalsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoTSiteWise,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPortals(input, ...args);
 };
-export async function* listPortalsPaginate(
+export async function* paginateListPortals(
   config: IoTSiteWisePaginationConfiguration,
   input: ListPortalsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPortalsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPortalsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof IoTSiteWise) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listPortalsPaginate(
       throw new Error("Invalid client, expected IoTSiteWise | IoTSiteWiseClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

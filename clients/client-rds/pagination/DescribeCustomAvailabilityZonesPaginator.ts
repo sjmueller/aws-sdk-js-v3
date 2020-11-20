@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeCustomAvailabilityZonesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeCustomAvailabilityZonesCommand(input, ...args));
+  return await client.send(new DescribeCustomAvailabilityZonesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RDS,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeCustomAvailabilityZones(input, ...args);
 };
-export async function* describeCustomAvailabilityZonesPaginate(
+export async function* paginateDescribeCustomAvailabilityZones(
   config: RDSPaginationConfiguration,
   input: DescribeCustomAvailabilityZonesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCustomAvailabilityZonesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCustomAvailabilityZonesCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof RDS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeCustomAvailabilityZonesPaginate(
       throw new Error("Invalid client, expected RDS | RDSClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

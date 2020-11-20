@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAccountSettingsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAccountSettingsCommand(input, ...args));
+  return await client.send(new ListAccountSettingsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ECS,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccountSettings(input, ...args);
 };
-export async function* listAccountSettingsPaginate(
+export async function* paginateListAccountSettings(
   config: ECSPaginationConfiguration,
   input: ListAccountSettingsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAccountSettingsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAccountSettingsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof ECS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listAccountSettingsPaginate(
       throw new Error("Invalid client, expected ECS | ECSClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

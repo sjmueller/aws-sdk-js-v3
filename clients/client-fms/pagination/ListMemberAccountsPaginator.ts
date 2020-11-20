@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListMemberAccountsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListMemberAccountsCommand(input, ...args));
+  return await client.send(new ListMemberAccountsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: FMS,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMemberAccounts(input, ...args);
 };
-export async function* listMemberAccountsPaginate(
+export async function* paginateListMemberAccounts(
   config: FMSPaginationConfiguration,
   input: ListMemberAccountsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMemberAccountsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMemberAccountsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof FMS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listMemberAccountsPaginate(
       throw new Error("Invalid client, expected FMS | FMSClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

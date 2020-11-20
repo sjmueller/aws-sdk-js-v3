@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeEnvironmentManagedActionHistoryCommand(input, ...args));
+  return await client.send(new DescribeEnvironmentManagedActionHistoryCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElasticBeanstalk,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEnvironmentManagedActionHistory(input, ...args);
 };
-export async function* describeEnvironmentManagedActionHistoryPaginate(
+export async function* paginateDescribeEnvironmentManagedActionHistory(
   config: ElasticBeanstalkPaginationConfiguration,
   input: DescribeEnvironmentManagedActionHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeEnvironmentManagedActionHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeEnvironmentManagedActionHistoryCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof ElasticBeanstalk) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeEnvironmentManagedActionHistoryPaginate(
       throw new Error("Invalid client, expected ElasticBeanstalk | ElasticBeanstalkClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

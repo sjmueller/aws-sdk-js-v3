@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFlowDefinitionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFlowDefinitionsCommand(input, ...args));
+  return await client.send(new ListFlowDefinitionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SageMaker,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFlowDefinitions(input, ...args);
 };
-export async function* listFlowDefinitionsPaginate(
+export async function* paginateListFlowDefinitions(
   config: SageMakerPaginationConfiguration,
   input: ListFlowDefinitionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListFlowDefinitionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListFlowDefinitionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SageMaker) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listFlowDefinitionsPaginate(
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

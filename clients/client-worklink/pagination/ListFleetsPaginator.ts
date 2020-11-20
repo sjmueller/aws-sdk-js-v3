@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFleetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFleetsCommand(input, ...args));
+  return await client.send(new ListFleetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: WorkLink,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFleets(input, ...args);
 };
-export async function* listFleetsPaginate(
+export async function* paginateListFleets(
   config: WorkLinkPaginationConfiguration,
   input: ListFleetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListFleetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListFleetsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof WorkLink) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listFleetsPaginate(
       throw new Error("Invalid client, expected WorkLink | WorkLinkClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

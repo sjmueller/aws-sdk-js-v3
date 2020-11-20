@@ -3,10 +3,18 @@ import { CancelJobCommandInput, CancelJobCommandOutput } from "../commands/Cance
 import { CreateAddressCommandInput, CreateAddressCommandOutput } from "../commands/CreateAddressCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "../commands/CreateJobCommand";
+import {
+  CreateReturnShippingLabelCommandInput,
+  CreateReturnShippingLabelCommandOutput,
+} from "../commands/CreateReturnShippingLabelCommand";
 import { DescribeAddressCommandInput, DescribeAddressCommandOutput } from "../commands/DescribeAddressCommand";
 import { DescribeAddressesCommandInput, DescribeAddressesCommandOutput } from "../commands/DescribeAddressesCommand";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "../commands/DescribeClusterCommand";
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "../commands/DescribeJobCommand";
+import {
+  DescribeReturnShippingLabelCommandInput,
+  DescribeReturnShippingLabelCommandOutput,
+} from "../commands/DescribeReturnShippingLabelCommand";
 import { GetJobManifestCommandInput, GetJobManifestCommandOutput } from "../commands/GetJobManifestCommand";
 import { GetJobUnlockCodeCommandInput, GetJobUnlockCodeCommandOutput } from "../commands/GetJobUnlockCodeCommand";
 import { GetSnowballUsageCommandInput, GetSnowballUsageCommandOutput } from "../commands/GetSnowballUsageCommand";
@@ -21,6 +29,10 @@ import { ListJobsCommandInput, ListJobsCommandOutput } from "../commands/ListJob
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "../commands/UpdateClusterCommand";
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "../commands/UpdateJobCommand";
 import {
+  UpdateJobShipmentStateCommandInput,
+  UpdateJobShipmentStateCommandOutput,
+} from "../commands/UpdateJobShipmentStateCommand";
+import {
   Address,
   CancelClusterRequest,
   CancelClusterResult,
@@ -30,12 +42,15 @@ import {
   ClusterListEntry,
   ClusterMetadata,
   CompatibleImage,
+  ConflictException,
   CreateAddressRequest,
   CreateAddressResult,
   CreateClusterRequest,
   CreateClusterResult,
   CreateJobRequest,
   CreateJobResult,
+  CreateReturnShippingLabelRequest,
+  CreateReturnShippingLabelResult,
   DataTransfer,
   DescribeAddressRequest,
   DescribeAddressResult,
@@ -45,6 +60,8 @@ import {
   DescribeClusterResult,
   DescribeJobRequest,
   DescribeJobResult,
+  DescribeReturnShippingLabelRequest,
+  DescribeReturnShippingLabelResult,
   DeviceConfiguration,
   Ec2AmiResource,
   Ec2RequestFailedException,
@@ -80,6 +97,7 @@ import {
   ListJobsRequest,
   ListJobsResult,
   Notification,
+  ReturnShippingLabelAlreadyExistsException,
   S3Resource,
   Shipment,
   ShippingDetails,
@@ -90,6 +108,8 @@ import {
   UpdateClusterResult,
   UpdateJobRequest,
   UpdateJobResult,
+  UpdateJobShipmentStateRequest,
+  UpdateJobShipmentStateResult,
   WirelessConnection,
 } from "../models/models_0";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
@@ -167,6 +187,19 @@ export const serializeAws_json1_1CreateJobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateReturnShippingLabelCommand = async (
+  input: CreateReturnShippingLabelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.CreateReturnShippingLabel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateReturnShippingLabelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeAddressCommand = async (
   input: DescribeAddressCommandInput,
   context: __SerdeContext
@@ -216,6 +249,19 @@ export const serializeAws_json1_1DescribeJobCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeJobRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeReturnShippingLabelCommand = async (
+  input: DescribeReturnShippingLabelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.DescribeReturnShippingLabel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeReturnShippingLabelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -349,11 +395,24 @@ export const serializeAws_json1_1UpdateJobCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1UpdateJobShipmentStateCommand = async (
+  input: UpdateJobShipmentStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSIESnowballJobManagementService.UpdateJobShipmentState",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateJobShipmentStateRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const deserializeAws_json1_1CancelClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CancelClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -424,7 +483,7 @@ export const deserializeAws_json1_1CancelJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CancelJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -495,7 +554,7 @@ export const deserializeAws_json1_1CreateAddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAddressCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateAddressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -558,7 +617,7 @@ export const deserializeAws_json1_1CreateClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -637,7 +696,7 @@ export const deserializeAws_json1_1CreateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -720,11 +779,98 @@ const deserializeAws_json1_1CreateJobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateReturnShippingLabelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateReturnShippingLabelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateReturnShippingLabelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateReturnShippingLabelResult(data, context);
+  const response: CreateReturnShippingLabelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateReturnShippingLabelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateReturnShippingLabelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.snowball#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidInputCombinationException":
+    case "com.amazonaws.snowball#InvalidInputCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidJobStateException":
+    case "com.amazonaws.snowball#InvalidJobStateException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ReturnShippingLabelAlreadyExistsException":
+    case "com.amazonaws.snowball#ReturnShippingLabelAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ReturnShippingLabelAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeAddressCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAddressCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAddressCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -779,7 +925,7 @@ export const deserializeAws_json1_1DescribeAddressesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAddressesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAddressesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -842,7 +988,7 @@ export const deserializeAws_json1_1DescribeClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -897,7 +1043,7 @@ export const deserializeAws_json1_1DescribeJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -948,11 +1094,82 @@ const deserializeAws_json1_1DescribeJobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeReturnShippingLabelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReturnShippingLabelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeReturnShippingLabelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeReturnShippingLabelResult(data, context);
+  const response: DescribeReturnShippingLabelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeReturnShippingLabelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeReturnShippingLabelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.snowball#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidJobStateException":
+    case "com.amazonaws.snowball#InvalidJobStateException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetJobManifestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJobManifestCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetJobManifestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1015,7 +1232,7 @@ export const deserializeAws_json1_1GetJobUnlockCodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJobUnlockCodeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetJobUnlockCodeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1078,7 +1295,7 @@ export const deserializeAws_json1_1GetSnowballUsageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSnowballUsageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSnowballUsageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1125,7 +1342,7 @@ export const deserializeAws_json1_1GetSoftwareUpdatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSoftwareUpdatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSoftwareUpdatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1188,7 +1405,7 @@ export const deserializeAws_json1_1ListClusterJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClusterJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListClusterJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1251,7 +1468,7 @@ export const deserializeAws_json1_1ListClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListClustersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1306,7 +1523,7 @@ export const deserializeAws_json1_1ListCompatibleImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCompatibleImagesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListCompatibleImagesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1369,7 +1586,7 @@ export const deserializeAws_json1_1ListJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1424,7 +1641,7 @@ export const deserializeAws_json1_1UpdateClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClusterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateClusterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1511,7 +1728,7 @@ export const deserializeAws_json1_1UpdateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1602,6 +1819,69 @@ const deserializeAws_json1_1UpdateJobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateJobShipmentStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateJobShipmentStateCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateJobShipmentStateCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateJobShipmentStateResult(data, context);
+  const response: UpdateJobShipmentStateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateJobShipmentStateCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateJobShipmentStateCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidJobStateException":
+    case "com.amazonaws.snowball#InvalidJobStateException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidJobStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidResourceException":
+    case "com.amazonaws.snowball#InvalidResourceException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 const deserializeAws_json1_1ClusterLimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1610,6 +1890,21 @@ const deserializeAws_json1_1ClusterLimitExceededExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1ClusterLimitExceededException(body, context);
   const contents: ClusterLimitExceededException = {
     name: "ClusterLimitExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const contents: ConflictException = {
+    name: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1722,6 +2017,21 @@ const deserializeAws_json1_1KMSRequestFailedExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1ReturnShippingLabelAlreadyExistsExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ReturnShippingLabelAlreadyExistsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ReturnShippingLabelAlreadyExistsException(body, context);
+  const contents: ReturnShippingLabelAlreadyExistsException = {
+    name: "ReturnShippingLabelAlreadyExistsException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1UnsupportedAddressExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -1821,6 +2131,16 @@ const serializeAws_json1_1CreateJobRequest = (input: CreateJobRequest, context: 
   };
 };
 
+const serializeAws_json1_1CreateReturnShippingLabelRequest = (
+  input: CreateReturnShippingLabelRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.ShippingOption !== undefined && { ShippingOption: input.ShippingOption }),
+  };
+};
+
 const serializeAws_json1_1DescribeAddressesRequest = (
   input: DescribeAddressesRequest,
   context: __SerdeContext
@@ -1844,6 +2164,15 @@ const serializeAws_json1_1DescribeClusterRequest = (input: DescribeClusterReques
 };
 
 const serializeAws_json1_1DescribeJobRequest = (input: DescribeJobRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId }),
+  };
+};
+
+const serializeAws_json1_1DescribeReturnShippingLabelRequest = (
+  input: DescribeReturnShippingLabelRequest,
+  context: __SerdeContext
+): any => {
   return {
     ...(input.JobId !== undefined && { JobId: input.JobId }),
   };
@@ -2056,6 +2385,16 @@ const serializeAws_json1_1UpdateJobRequest = (input: UpdateJobRequest, context: 
   };
 };
 
+const serializeAws_json1_1UpdateJobShipmentStateRequest = (
+  input: UpdateJobShipmentStateRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.ShipmentState !== undefined && { ShipmentState: input.ShipmentState }),
+  };
+};
+
 const serializeAws_json1_1WirelessConnection = (input: WirelessConnection, context: __SerdeContext): any => {
   return {
     ...(input.IsWifiEnabled !== undefined && { IsWifiEnabled: input.IsWifiEnabled }),
@@ -2168,6 +2507,14 @@ const deserializeAws_json1_1CompatibleImageList = (output: any, context: __Serde
   return (output || []).map((entry: any) => deserializeAws_json1_1CompatibleImage(entry, context));
 };
 
+const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
+  return {
+    ConflictResource:
+      output.ConflictResource !== undefined && output.ConflictResource !== null ? output.ConflictResource : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateAddressResult = (output: any, context: __SerdeContext): CreateAddressResult => {
   return {
     AddressId: output.AddressId !== undefined && output.AddressId !== null ? output.AddressId : undefined,
@@ -2183,6 +2530,15 @@ const deserializeAws_json1_1CreateClusterResult = (output: any, context: __Serde
 const deserializeAws_json1_1CreateJobResult = (output: any, context: __SerdeContext): CreateJobResult => {
   return {
     JobId: output.JobId !== undefined && output.JobId !== null ? output.JobId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateReturnShippingLabelResult = (
+  output: any,
+  context: __SerdeContext
+): CreateReturnShippingLabelResult => {
+  return {
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
 
@@ -2240,6 +2596,19 @@ const deserializeAws_json1_1DescribeJobResult = (output: any, context: __SerdeCo
       output.SubJobMetadata !== undefined && output.SubJobMetadata !== null
         ? deserializeAws_json1_1JobMetadataList(output.SubJobMetadata, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeReturnShippingLabelResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeReturnShippingLabelResult => {
+  return {
+    ExpirationDate:
+      output.ExpirationDate !== undefined && output.ExpirationDate !== null
+        ? new Date(Math.round(output.ExpirationDate * 1000))
+        : undefined,
+    Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };
 
@@ -2564,6 +2933,15 @@ const deserializeAws_json1_1Notification = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_json1_1ReturnShippingLabelAlreadyExistsException = (
+  output: any,
+  context: __SerdeContext
+): ReturnShippingLabelAlreadyExistsException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1S3Resource = (output: any, context: __SerdeContext): S3Resource => {
   return {
     BucketArn: output.BucketArn !== undefined && output.BucketArn !== null ? output.BucketArn : undefined,
@@ -2636,6 +3014,13 @@ const deserializeAws_json1_1UpdateClusterResult = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1UpdateJobResult = (output: any, context: __SerdeContext): UpdateJobResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1UpdateJobShipmentStateResult = (
+  output: any,
+  context: __SerdeContext
+): UpdateJobShipmentStateResult => {
   return {} as any;
 };
 

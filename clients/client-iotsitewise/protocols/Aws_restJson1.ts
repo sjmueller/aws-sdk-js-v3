@@ -17,6 +17,10 @@ import { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "../
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "../commands/CreateDashboardCommand";
 import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "../commands/CreateGatewayCommand";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "../commands/CreatePortalCommand";
+import {
+  CreatePresignedPortalUrlCommandInput,
+  CreatePresignedPortalUrlCommandOutput,
+} from "../commands/CreatePresignedPortalUrlCommand";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "../commands/CreateProjectCommand";
 import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "../commands/DeleteAccessPolicyCommand";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "../commands/DeleteAssetCommand";
@@ -123,6 +127,7 @@ import {
   GatewaySummary,
   Greengrass,
   GroupIdentity,
+  IAMUserIdentity,
   Identity,
   Image,
   ImageFile,
@@ -526,6 +531,7 @@ export const serializeAws_restJson1CreatePortalCommand = async (
   let body: any;
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.portalAuthMode !== undefined && { portalAuthMode: input.portalAuthMode }),
     ...(input.portalContactEmail !== undefined && { portalContactEmail: input.portalContactEmail }),
     ...(input.portalDescription !== undefined && { portalDescription: input.portalDescription }),
     ...(input.portalLogoImageFile !== undefined && {
@@ -550,6 +556,49 @@ export const serializeAws_restJson1CreatePortalCommand = async (
     method: "POST",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreatePresignedPortalUrlCommand = async (
+  input: CreatePresignedPortalUrlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/portals/{portalId}/presigned-url";
+  if (input.portalId !== undefined) {
+    const labelValue: string = input.portalId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: portalId.");
+    }
+    resolvedPath = resolvedPath.replace("{portalId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: portalId.");
+  }
+  const query: any = {
+    ...(input.sessionDurationSeconds !== undefined && {
+      sessionDurationSeconds: input.sessionDurationSeconds.toString(),
+    }),
+  };
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "monitor." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -991,15 +1040,6 @@ export const serializeAws_restJson1DescribeAssetPropertyCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/assets/{assetId}/properties/{propertyId}";
-  if (input.propertyId !== undefined) {
-    const labelValue: string = input.propertyId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: propertyId.");
-    }
-    resolvedPath = resolvedPath.replace("{propertyId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: propertyId.");
-  }
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
     if (labelValue.length <= 0) {
@@ -1008,6 +1048,15 @@ export const serializeAws_restJson1DescribeAssetPropertyCommand = async (
     resolvedPath = resolvedPath.replace("{assetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: assetId.");
+  }
+  if (input.propertyId !== undefined) {
+    const labelValue: string = input.propertyId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: propertyId.");
+    }
+    resolvedPath = resolvedPath.replace("{propertyId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: propertyId.");
   }
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1111,15 +1160,6 @@ export const serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand
     "Content-Type": "",
   };
   let resolvedPath = "/20200301/gateways/{gatewayId}/capability/{capabilityNamespace}";
-  if (input.capabilityNamespace !== undefined) {
-    const labelValue: string = input.capabilityNamespace;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: capabilityNamespace.");
-    }
-    resolvedPath = resolvedPath.replace("{capabilityNamespace}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: capabilityNamespace.");
-  }
   if (input.gatewayId !== undefined) {
     const labelValue: string = input.gatewayId;
     if (labelValue.length <= 0) {
@@ -1128,6 +1168,15 @@ export const serializeAws_restJson1DescribeGatewayCapabilityConfigurationCommand
     resolvedPath = resolvedPath.replace("{gatewayId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: gatewayId.");
+  }
+  if (input.capabilityNamespace !== undefined) {
+    const labelValue: string = input.capabilityNamespace;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: capabilityNamespace.");
+    }
+    resolvedPath = resolvedPath.replace("{capabilityNamespace}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: capabilityNamespace.");
   }
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1303,17 +1352,17 @@ export const serializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
   };
   let resolvedPath = "/properties/aggregates";
   const query: any = {
-    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
-    ...(input.startDate !== undefined && { startDate: (input.startDate.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.endDate !== undefined && { endDate: (input.endDate.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.aggregateTypes !== undefined && { aggregateTypes: (input.aggregateTypes || []).map((_entry) => _entry) }),
     ...(input.assetId !== undefined && { assetId: input.assetId }),
+    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
     ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
+    ...(input.aggregateTypes !== undefined && { aggregateTypes: (input.aggregateTypes || []).map((_entry) => _entry) }),
     ...(input.resolution !== undefined && { resolution: input.resolution }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.timeOrdering !== undefined && { timeOrdering: input.timeOrdering }),
     ...(input.qualities !== undefined && { qualities: (input.qualities || []).map((_entry) => _entry) }),
+    ...(input.startDate !== undefined && { startDate: (input.startDate.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.endDate !== undefined && { endDate: (input.endDate.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.timeOrdering !== undefined && { timeOrdering: input.timeOrdering }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1346,8 +1395,8 @@ export const serializeAws_restJson1GetAssetPropertyValueCommand = async (
   let resolvedPath = "/properties/latest";
   const query: any = {
     ...(input.assetId !== undefined && { assetId: input.assetId }),
-    ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
     ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
+    ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1379,15 +1428,15 @@ export const serializeAws_restJson1GetAssetPropertyValueHistoryCommand = async (
   };
   let resolvedPath = "/properties/history";
   const query: any = {
+    ...(input.assetId !== undefined && { assetId: input.assetId }),
+    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
+    ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
+    ...(input.startDate !== undefined && { startDate: (input.startDate.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.endDate !== undefined && { endDate: (input.endDate.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.qualities !== undefined && { qualities: (input.qualities || []).map((_entry) => _entry) }),
     ...(input.timeOrdering !== undefined && { timeOrdering: input.timeOrdering }),
-    ...(input.propertyAlias !== undefined && { propertyAlias: input.propertyAlias }),
-    ...(input.propertyId !== undefined && { propertyId: input.propertyId }),
-    ...(input.startDate !== undefined && { startDate: (input.startDate.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
-    ...(input.assetId !== undefined && { assetId: input.assetId }),
-    ...(input.endDate !== undefined && { endDate: (input.endDate.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1419,11 +1468,12 @@ export const serializeAws_restJson1ListAccessPoliciesCommand = async (
   };
   let resolvedPath = "/access-policies";
   const query: any = {
-    ...(input.identityId !== undefined && { identityId: input.identityId }),
     ...(input.identityType !== undefined && { identityType: input.identityType }),
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.resourceId !== undefined && { resourceId: input.resourceId }),
+    ...(input.identityId !== undefined && { identityId: input.identityId }),
     ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
+    ...(input.resourceId !== undefined && { resourceId: input.resourceId }),
+    ...(input.iamArn !== undefined && { iamArn: input.iamArn }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
@@ -1489,10 +1539,10 @@ export const serializeAws_restJson1ListAssetsCommand = async (
   };
   let resolvedPath = "/assets";
   const query: any = {
-    ...(input.assetModelId !== undefined && { assetModelId: input.assetModelId }),
-    ...(input.filter !== undefined && { filter: input.filter }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.assetModelId !== undefined && { assetModelId: input.assetModelId }),
+    ...(input.filter !== undefined && { filter: input.filter }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1533,9 +1583,10 @@ export const serializeAws_restJson1ListAssociatedAssetsCommand = async (
     throw new Error("No value provided for input HTTP label: assetId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.hierarchyId !== undefined && { hierarchyId: input.hierarchyId }),
+    ...(input.traversalDirection !== undefined && { traversalDirection: input.traversalDirection }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1568,8 +1619,8 @@ export const serializeAws_restJson1ListDashboardsCommand = async (
   let resolvedPath = "/dashboards";
   const query: any = {
     ...(input.projectId !== undefined && { projectId: input.projectId }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1634,8 +1685,8 @@ export const serializeAws_restJson1ListPortalsCommand = async (
   };
   let resolvedPath = "/portals";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1676,8 +1727,8 @@ export const serializeAws_restJson1ListProjectAssetsCommand = async (
     throw new Error("No value provided for input HTTP label: projectId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1829,8 +1880,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   let resolvedPath = "/tags";
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1990,15 +2041,6 @@ export const serializeAws_restJson1UpdateAssetPropertyCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/assets/{assetId}/properties/{propertyId}";
-  if (input.propertyId !== undefined) {
-    const labelValue: string = input.propertyId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: propertyId.");
-    }
-    resolvedPath = resolvedPath.replace("{propertyId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: propertyId.");
-  }
   if (input.assetId !== undefined) {
     const labelValue: string = input.assetId;
     if (labelValue.length <= 0) {
@@ -2007,6 +2049,15 @@ export const serializeAws_restJson1UpdateAssetPropertyCommand = async (
     resolvedPath = resolvedPath.replace("{assetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: assetId.");
+  }
+  if (input.propertyId !== undefined) {
+    const labelValue: string = input.propertyId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: propertyId.");
+    }
+    resolvedPath = resolvedPath.replace("{propertyId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: propertyId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -2252,7 +2303,7 @@ export const deserializeAws_restJson1AssociateAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AssociateAssetsCommandError(output, context);
   }
   const contents: AssociateAssetsCommandOutput = {
@@ -2343,7 +2394,7 @@ export const deserializeAws_restJson1BatchAssociateProjectAssetsCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateProjectAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchAssociateProjectAssetsCommandError(output, context);
   }
   const contents: BatchAssociateProjectAssetsCommandOutput = {
@@ -2430,7 +2481,7 @@ export const deserializeAws_restJson1BatchDisassociateProjectAssetsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateProjectAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchDisassociateProjectAssetsCommandError(output, context);
   }
   const contents: BatchDisassociateProjectAssetsCommandOutput = {
@@ -2509,7 +2560,7 @@ export const deserializeAws_restJson1BatchPutAssetPropertyValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchPutAssetPropertyValueCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchPutAssetPropertyValueCommandError(output, context);
   }
   const contents: BatchPutAssetPropertyValueCommandOutput = {
@@ -2612,7 +2663,7 @@ export const deserializeAws_restJson1CreateAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateAccessPolicyCommandError(output, context);
   }
   const contents: CreateAccessPolicyCommandOutput = {
@@ -2703,7 +2754,7 @@ export const deserializeAws_restJson1CreateAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssetCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateAssetCommandError(output, context);
   }
   const contents: CreateAssetCommandOutput = {
@@ -2814,7 +2865,7 @@ export const deserializeAws_restJson1CreateAssetModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAssetModelCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateAssetModelCommandError(output, context);
   }
   const contents: CreateAssetModelCommandOutput = {
@@ -2925,7 +2976,7 @@ export const deserializeAws_restJson1CreateDashboardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDashboardCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDashboardCommandError(output, context);
   }
   const contents: CreateDashboardCommandOutput = {
@@ -3016,7 +3067,7 @@ export const deserializeAws_restJson1CreateGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGatewayCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateGatewayCommandError(output, context);
   }
   const contents: CreateGatewayCommandOutput = {
@@ -3107,7 +3158,7 @@ export const deserializeAws_restJson1CreatePortalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePortalCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreatePortalCommandError(output, context);
   }
   const contents: CreatePortalCommandOutput = {
@@ -3206,11 +3257,82 @@ const deserializeAws_restJson1CreatePortalCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1CreatePresignedPortalUrlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePresignedPortalUrlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreatePresignedPortalUrlCommandError(output, context);
+  }
+  const contents: CreatePresignedPortalUrlCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    presignedPortalUrl: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.presignedPortalUrl !== undefined && data.presignedPortalUrl !== null) {
+    contents.presignedPortalUrl = data.presignedPortalUrl;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1CreatePresignedPortalUrlCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePresignedPortalUrlCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iotsitewise#InternalFailureException":
+      response = {
+        ...(await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.iotsitewise#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.iotsitewise#ThrottlingException":
+      response = {
+        ...(await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateProjectCommandError(output, context);
   }
   const contents: CreateProjectCommandOutput = {
@@ -3301,7 +3423,7 @@ export const deserializeAws_restJson1DeleteAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteAccessPolicyCommandError(output, context);
   }
   const contents: DeleteAccessPolicyCommandOutput = {
@@ -3376,7 +3498,7 @@ export const deserializeAws_restJson1DeleteAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssetCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteAssetCommandError(output, context);
   }
   const contents: DeleteAssetCommandOutput = {
@@ -3463,7 +3585,7 @@ export const deserializeAws_restJson1DeleteAssetModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssetModelCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteAssetModelCommandError(output, context);
   }
   const contents: DeleteAssetModelCommandOutput = {
@@ -3550,7 +3672,7 @@ export const deserializeAws_restJson1DeleteDashboardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDashboardCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDashboardCommandError(output, context);
   }
   const contents: DeleteDashboardCommandOutput = {
@@ -3625,7 +3747,7 @@ export const deserializeAws_restJson1DeleteGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteGatewayCommandError(output, context);
   }
   const contents: DeleteGatewayCommandOutput = {
@@ -3700,7 +3822,7 @@ export const deserializeAws_restJson1DeletePortalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePortalCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeletePortalCommandError(output, context);
   }
   const contents: DeletePortalCommandOutput = {
@@ -3787,7 +3909,7 @@ export const deserializeAws_restJson1DeleteProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteProjectCommandError(output, context);
   }
   const contents: DeleteProjectCommandOutput = {
@@ -3862,7 +3984,7 @@ export const deserializeAws_restJson1DescribeAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeAccessPolicyCommandError(output, context);
   }
   const contents: DescribeAccessPolicyCommandOutput = {
@@ -3965,7 +4087,7 @@ export const deserializeAws_restJson1DescribeAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAssetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeAssetCommandError(output, context);
   }
   const contents: DescribeAssetCommandOutput = {
@@ -4076,7 +4198,7 @@ export const deserializeAws_restJson1DescribeAssetModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAssetModelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeAssetModelCommandError(output, context);
   }
   const contents: DescribeAssetModelCommandOutput = {
@@ -4187,7 +4309,7 @@ export const deserializeAws_restJson1DescribeAssetPropertyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAssetPropertyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeAssetPropertyCommandError(output, context);
   }
   const contents: DescribeAssetPropertyCommandOutput = {
@@ -4278,7 +4400,7 @@ export const deserializeAws_restJson1DescribeDashboardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDashboardCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeDashboardCommandError(output, context);
   }
   const contents: DescribeDashboardCommandOutput = {
@@ -4385,7 +4507,7 @@ export const deserializeAws_restJson1DescribeGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeGatewayCommandError(output, context);
   }
   const contents: DescribeGatewayCommandOutput = {
@@ -4491,7 +4613,7 @@ export const deserializeAws_restJson1DescribeGatewayCapabilityConfigurationComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGatewayCapabilityConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeGatewayCapabilityConfigurationCommandError(output, context);
   }
   const contents: DescribeGatewayCapabilityConfigurationCommandOutput = {
@@ -4582,7 +4704,7 @@ export const deserializeAws_restJson1DescribeLoggingOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoggingOptionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeLoggingOptionsCommandError(output, context);
   }
   const contents: DescribeLoggingOptionsCommandOutput = {
@@ -4661,12 +4783,13 @@ export const deserializeAws_restJson1DescribePortalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePortalCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribePortalCommandError(output, context);
   }
   const contents: DescribePortalCommandOutput = {
     $metadata: deserializeMetadata(output),
     portalArn: undefined,
+    portalAuthMode: undefined,
     portalClientId: undefined,
     portalContactEmail: undefined,
     portalCreationDate: undefined,
@@ -4682,6 +4805,9 @@ export const deserializeAws_restJson1DescribePortalCommand = async (
   const data: any = await parseBody(output.body, context);
   if (data.portalArn !== undefined && data.portalArn !== null) {
     contents.portalArn = data.portalArn;
+  }
+  if (data.portalAuthMode !== undefined && data.portalAuthMode !== null) {
+    contents.portalAuthMode = data.portalAuthMode;
   }
   if (data.portalClientId !== undefined && data.portalClientId !== null) {
     contents.portalClientId = data.portalClientId;
@@ -4784,7 +4910,7 @@ export const deserializeAws_restJson1DescribeProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeProjectCommandError(output, context);
   }
   const contents: DescribeProjectCommandOutput = {
@@ -4887,7 +5013,7 @@ export const deserializeAws_restJson1DisassociateAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateAssetsCommandError(output, context);
   }
   const contents: DisassociateAssetsCommandOutput = {
@@ -4970,7 +5096,7 @@ export const deserializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssetPropertyAggregatesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAssetPropertyAggregatesCommandError(output, context);
   }
   const contents: GetAssetPropertyAggregatesCommandOutput = {
@@ -5061,7 +5187,7 @@ export const deserializeAws_restJson1GetAssetPropertyValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssetPropertyValueCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAssetPropertyValueCommandError(output, context);
   }
   const contents: GetAssetPropertyValueCommandOutput = {
@@ -5148,7 +5274,7 @@ export const deserializeAws_restJson1GetAssetPropertyValueHistoryCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssetPropertyValueHistoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAssetPropertyValueHistoryCommandError(output, context);
   }
   const contents: GetAssetPropertyValueHistoryCommandOutput = {
@@ -5242,7 +5368,7 @@ export const deserializeAws_restJson1ListAccessPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessPoliciesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAccessPoliciesCommandError(output, context);
   }
   const contents: ListAccessPoliciesCommandOutput = {
@@ -5317,7 +5443,7 @@ export const deserializeAws_restJson1ListAssetModelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssetModelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAssetModelsCommandError(output, context);
   }
   const contents: ListAssetModelsCommandOutput = {
@@ -5392,7 +5518,7 @@ export const deserializeAws_restJson1ListAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAssetsCommandError(output, context);
   }
   const contents: ListAssetsCommandOutput = {
@@ -5475,7 +5601,7 @@ export const deserializeAws_restJson1ListAssociatedAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAssociatedAssetsCommandError(output, context);
   }
   const contents: ListAssociatedAssetsCommandOutput = {
@@ -5558,7 +5684,7 @@ export const deserializeAws_restJson1ListDashboardsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDashboardsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDashboardsCommandError(output, context);
   }
   const contents: ListDashboardsCommandOutput = {
@@ -5633,7 +5759,7 @@ export const deserializeAws_restJson1ListGatewaysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGatewaysCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListGatewaysCommandError(output, context);
   }
   const contents: ListGatewaysCommandOutput = {
@@ -5708,7 +5834,7 @@ export const deserializeAws_restJson1ListPortalsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPortalsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPortalsCommandError(output, context);
   }
   const contents: ListPortalsCommandOutput = {
@@ -5783,7 +5909,7 @@ export const deserializeAws_restJson1ListProjectAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProjectAssetsCommandError(output, context);
   }
   const contents: ListProjectAssetsCommandOutput = {
@@ -5858,7 +5984,7 @@ export const deserializeAws_restJson1ListProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProjectsCommandError(output, context);
   }
   const contents: ListProjectsCommandOutput = {
@@ -5933,7 +6059,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -6012,7 +6138,7 @@ export const deserializeAws_restJson1PutLoggingOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutLoggingOptionsCommandError(output, context);
   }
   const contents: PutLoggingOptionsCommandOutput = {
@@ -6095,7 +6221,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -6178,7 +6304,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -6253,7 +6379,7 @@ export const deserializeAws_restJson1UpdateAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAccessPolicyCommandError(output, context);
   }
   const contents: UpdateAccessPolicyCommandOutput = {
@@ -6328,7 +6454,7 @@ export const deserializeAws_restJson1UpdateAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssetCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAssetCommandError(output, context);
   }
   const contents: UpdateAssetCommandOutput = {
@@ -6423,7 +6549,7 @@ export const deserializeAws_restJson1UpdateAssetModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssetModelCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAssetModelCommandError(output, context);
   }
   const contents: UpdateAssetModelCommandOutput = {
@@ -6526,7 +6652,7 @@ export const deserializeAws_restJson1UpdateAssetPropertyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssetPropertyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAssetPropertyCommandError(output, context);
   }
   const contents: UpdateAssetPropertyCommandOutput = {
@@ -6609,7 +6735,7 @@ export const deserializeAws_restJson1UpdateDashboardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDashboardCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDashboardCommandError(output, context);
   }
   const contents: UpdateDashboardCommandOutput = {
@@ -6684,7 +6810,7 @@ export const deserializeAws_restJson1UpdateGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateGatewayCommandError(output, context);
   }
   const contents: UpdateGatewayCommandOutput = {
@@ -6767,7 +6893,7 @@ export const deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewayCapabilityConfigurationCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateGatewayCapabilityConfigurationCommandError(output, context);
   }
   const contents: UpdateGatewayCapabilityConfigurationCommandOutput = {
@@ -6866,7 +6992,7 @@ export const deserializeAws_restJson1UpdatePortalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePortalCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdatePortalCommandError(output, context);
   }
   const contents: UpdatePortalCommandOutput = {
@@ -6953,7 +7079,7 @@ export const deserializeAws_restJson1UpdateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateProjectCommandError(output, context);
   }
   const contents: UpdateProjectCommandOutput = {
@@ -7306,9 +7432,16 @@ const serializeAws_restJson1GroupIdentity = (input: GroupIdentity, context: __Se
   };
 };
 
+const serializeAws_restJson1IAMUserIdentity = (input: IAMUserIdentity, context: __SerdeContext): any => {
+  return {
+    ...(input.arn !== undefined && { arn: input.arn }),
+  };
+};
+
 const serializeAws_restJson1Identity = (input: Identity, context: __SerdeContext): any => {
   return {
     ...(input.group !== undefined && { group: serializeAws_restJson1GroupIdentity(input.group, context) }),
+    ...(input.iamUser !== undefined && { iamUser: serializeAws_restJson1IAMUserIdentity(input.iamUser, context) }),
     ...(input.user !== undefined && { user: serializeAws_restJson1UserIdentity(input.user, context) }),
   };
 };
@@ -7894,11 +8027,21 @@ const deserializeAws_restJson1GroupIdentity = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_restJson1IAMUserIdentity = (output: any, context: __SerdeContext): IAMUserIdentity => {
+  return {
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1Identity = (output: any, context: __SerdeContext): Identity => {
   return {
     group:
       output.group !== undefined && output.group !== null
         ? deserializeAws_restJson1GroupIdentity(output.group, context)
+        : undefined,
+    iamUser:
+      output.iamUser !== undefined && output.iamUser !== null
+        ? deserializeAws_restJson1IAMUserIdentity(output.iamUser, context)
         : undefined,
     user:
       output.user !== undefined && output.user !== null
@@ -7989,6 +8132,10 @@ const deserializeAws_restJson1PortalSummary = (output: any, context: __SerdeCont
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     startUrl: output.startUrl !== undefined && output.startUrl !== null ? output.startUrl : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? deserializeAws_restJson1PortalStatus(output.status, context)
+        : undefined,
   } as any;
 };
 

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<SearchFlowTemplatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new SearchFlowTemplatesCommand(input, ...args));
+  return await client.send(new SearchFlowTemplatesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoTThingsGraph,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.searchFlowTemplates(input, ...args);
 };
-export async function* searchFlowTemplatesPaginate(
+export async function* paginateSearchFlowTemplates(
   config: IoTThingsGraphPaginationConfiguration,
   input: SearchFlowTemplatesCommandInput,
   ...additionalArguments: any
 ): Paginator<SearchFlowTemplatesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: SearchFlowTemplatesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof IoTThingsGraph) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* searchFlowTemplatesPaginate(
       throw new Error("Invalid client, expected IoTThingsGraph | IoTThingsGraphClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

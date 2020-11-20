@@ -34,20 +34,29 @@ export const serializeAws_restJson1StartStreamTranscriptionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.VocabularyFilterName) && {
-      "x-amzn-transcribe-vocabulary-filter-name": input.VocabularyFilterName!,
-    }),
     ...(isSerializableHeaderValue(input.MediaEncoding) && { "x-amzn-transcribe-media-encoding": input.MediaEncoding! }),
-    ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
-    ...(isSerializableHeaderValue(input.SessionId) && { "x-amzn-transcribe-session-id": input.SessionId! }),
-    ...(isSerializableHeaderValue(input.VocabularyName) && {
-      "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
-    }),
     ...(isSerializableHeaderValue(input.VocabularyFilterMethod) && {
       "x-amzn-transcribe-vocabulary-filter-method": input.VocabularyFilterMethod!,
     }),
+    ...(isSerializableHeaderValue(input.ShowSpeakerLabel) && {
+      "x-amzn-transcribe-show-speaker-label": input.ShowSpeakerLabel!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.SessionId) && { "x-amzn-transcribe-session-id": input.SessionId! }),
+    ...(isSerializableHeaderValue(input.NumberOfChannels) && {
+      "x-amzn-transcribe-number-of-channels": input.NumberOfChannels!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.LanguageCode) && { "x-amzn-transcribe-language-code": input.LanguageCode! }),
+    ...(isSerializableHeaderValue(input.VocabularyName) && {
+      "x-amzn-transcribe-vocabulary-name": input.VocabularyName!,
+    }),
+    ...(isSerializableHeaderValue(input.EnableChannelIdentification) && {
+      "x-amzn-transcribe-enable-channel-identification": input.EnableChannelIdentification!.toString(),
+    }),
     ...(isSerializableHeaderValue(input.MediaSampleRateHertz) && {
       "x-amzn-transcribe-sample-rate": input.MediaSampleRateHertz!.toString(),
+    }),
+    ...(isSerializableHeaderValue(input.VocabularyFilterName) && {
+      "x-amzn-transcribe-vocabulary-filter-name": input.VocabularyFilterName!,
     }),
   };
   let resolvedPath = "/stream-transcription";
@@ -73,16 +82,19 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext & __EventStreamSerdeContext
 ): Promise<StartStreamTranscriptionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartStreamTranscriptionCommandError(output, context);
   }
   const contents: StartStreamTranscriptionCommandOutput = {
     $metadata: deserializeMetadata(output),
+    EnableChannelIdentification: undefined,
     LanguageCode: undefined,
     MediaEncoding: undefined,
     MediaSampleRateHertz: undefined,
+    NumberOfChannels: undefined,
     RequestId: undefined,
     SessionId: undefined,
+    ShowSpeakerLabel: undefined,
     TranscriptResultStream: undefined,
     VocabularyFilterMethod: undefined,
     VocabularyFilterName: undefined,
@@ -103,14 +115,23 @@ export const deserializeAws_restJson1StartStreamTranscriptionCommand = async (
   if (output.headers["x-amzn-transcribe-language-code"] !== undefined) {
     contents.LanguageCode = output.headers["x-amzn-transcribe-language-code"];
   }
+  if (output.headers["x-amzn-transcribe-show-speaker-label"] !== undefined) {
+    contents.ShowSpeakerLabel = output.headers["x-amzn-transcribe-show-speaker-label"] === "true";
+  }
   if (output.headers["x-amzn-request-id"] !== undefined) {
     contents.RequestId = output.headers["x-amzn-request-id"];
+  }
+  if (output.headers["x-amzn-transcribe-number-of-channels"] !== undefined) {
+    contents.NumberOfChannels = parseInt(output.headers["x-amzn-transcribe-number-of-channels"], 10);
+  }
+  if (output.headers["x-amzn-transcribe-session-id"] !== undefined) {
+    contents.SessionId = output.headers["x-amzn-transcribe-session-id"];
   }
   if (output.headers["x-amzn-transcribe-sample-rate"] !== undefined) {
     contents.MediaSampleRateHertz = parseInt(output.headers["x-amzn-transcribe-sample-rate"], 10);
   }
-  if (output.headers["x-amzn-transcribe-session-id"] !== undefined) {
-    contents.SessionId = output.headers["x-amzn-transcribe-session-id"];
+  if (output.headers["x-amzn-transcribe-enable-channel-identification"] !== undefined) {
+    contents.EnableChannelIdentification = output.headers["x-amzn-transcribe-enable-channel-identification"] === "true";
   }
   const data: any = context.eventStreamMarshaller.deserialize(output.body, async (event) => {
     const eventName = Object.keys(event)[0];
@@ -210,17 +231,17 @@ const deserializeAws_restJson1TranscriptResultStream_event = async (
   output: any,
   context: __SerdeContext
 ): Promise<TranscriptResultStream> => {
-  if (output["TranscriptEvent"] !== undefined) {
-    return {
-      TranscriptEvent: await deserializeAws_restJson1TranscriptEvent_event(output["TranscriptEvent"], context),
-    };
-  }
   if (output["BadRequestException"] !== undefined) {
     return {
       BadRequestException: await deserializeAws_restJson1BadRequestException_event(
         output["BadRequestException"],
         context
       ),
+    };
+  }
+  if (output["TranscriptEvent"] !== undefined) {
+    return {
+      TranscriptEvent: await deserializeAws_restJson1TranscriptEvent_event(output["TranscriptEvent"], context),
     };
   }
   if (output["InternalFailureException"] !== undefined) {
@@ -443,6 +464,7 @@ const deserializeAws_restJson1Item = (output: any, context: __SerdeContext): Ite
   return {
     Content: output.Content !== undefined && output.Content !== null ? output.Content : undefined,
     EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
+    Speaker: output.Speaker !== undefined && output.Speaker !== null ? output.Speaker : undefined,
     StartTime: output.StartTime !== undefined && output.StartTime !== null ? output.StartTime : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
     VocabularyFilterMatch:
@@ -462,6 +484,7 @@ const deserializeAws_restJson1Result = (output: any, context: __SerdeContext): R
       output.Alternatives !== undefined && output.Alternatives !== null
         ? deserializeAws_restJson1AlternativeList(output.Alternatives, context)
         : undefined,
+    ChannelId: output.ChannelId !== undefined && output.ChannelId !== null ? output.ChannelId : undefined,
     EndTime: output.EndTime !== undefined && output.EndTime !== null ? output.EndTime : undefined,
     IsPartial: output.IsPartial !== undefined && output.IsPartial !== null ? output.IsPartial : undefined,
     ResultId: output.ResultId !== undefined && output.ResultId !== null ? output.ResultId : undefined,

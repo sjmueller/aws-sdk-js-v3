@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetBotVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetBotVersionsCommand(input, ...args));
+  return await client.send(new GetBotVersionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: LexModelBuildingService,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getBotVersions(input, ...args);
 };
-export async function* getBotVersionsPaginate(
+export async function* paginateGetBotVersions(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetBotVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetBotVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetBotVersionsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof LexModelBuildingService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getBotVersionsPaginate(
       throw new Error("Invalid client, expected LexModelBuildingService | LexModelBuildingServiceClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

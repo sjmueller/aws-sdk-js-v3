@@ -88,6 +88,7 @@ import {
   DatastoreStorageSummary,
   DatastoreSummary,
   DeltaTime,
+  DeltaTimeSessionWindowConfiguration,
   DeviceRegistryEnrichActivity,
   DeviceShadowEnrichActivity,
   EstimatedResourceSize,
@@ -97,6 +98,8 @@ import {
   InvalidRequestException,
   IotEventsDestinationConfiguration,
   LambdaActivity,
+  LateDataRule,
+  LateDataRuleConfiguration,
   LimitExceededException,
   LoggingOptions,
   MathActivity,
@@ -249,6 +252,9 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
       contentDeliveryRules: serializeAws_restJson1DatasetContentDeliveryRules(input.contentDeliveryRules, context),
     }),
     ...(input.datasetName !== undefined && { datasetName: input.datasetName }),
+    ...(input.lateDataRules !== undefined && {
+      lateDataRules: serializeAws_restJson1LateDataRules(input.lateDataRules, context),
+    }),
     ...(input.retentionPeriod !== undefined && {
       retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
     }),
@@ -275,7 +281,7 @@ export const serializeAws_restJson1CreateDatasetContentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: any = {
-    "Content-Type": "",
+    "Content-Type": "application/json",
   };
   let resolvedPath = "/datasets/{datasetName}/content";
   if (input.datasetName !== undefined) {
@@ -288,6 +294,9 @@ export const serializeAws_restJson1CreateDatasetContentCommand = async (
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
   let body: any;
+  body = JSON.stringify({
+    ...(input.versionId !== undefined && { versionId: input.versionId }),
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -706,8 +715,8 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   };
   let resolvedPath = "/channels";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -742,10 +751,10 @@ export const serializeAws_restJson1ListDatasetContentsCommand = async (
   }
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.scheduledOnOrAfter !== undefined && {
       scheduledOnOrAfter: (input.scheduledOnOrAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.scheduledBefore !== undefined && {
       scheduledBefore: (input.scheduledBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
@@ -938,9 +947,9 @@ export const serializeAws_restJson1SampleChannelDataCommand = async (
     throw new Error("No value provided for input HTTP label: channelName.");
   }
   const query: any = {
-    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
-    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
     ...(input.maxMessages !== undefined && { maxMessages: input.maxMessages.toString() }),
+    ...(input.startTime !== undefined && { startTime: (input.startTime.toISOString().split(".")[0] + "Z").toString() }),
+    ...(input.endTime !== undefined && { endTime: (input.endTime.toISOString().split(".")[0] + "Z").toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1027,8 +1036,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   let resolvedPath = "/tags";
   const query: any = {
-    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys !== undefined && { tagKeys: (input.tagKeys || []).map((_entry) => _entry) }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1104,6 +1113,9 @@ export const serializeAws_restJson1UpdateDatasetCommand = async (
     ...(input.actions !== undefined && { actions: serializeAws_restJson1DatasetActions(input.actions, context) }),
     ...(input.contentDeliveryRules !== undefined && {
       contentDeliveryRules: serializeAws_restJson1DatasetContentDeliveryRules(input.contentDeliveryRules, context),
+    }),
+    ...(input.lateDataRules !== undefined && {
+      lateDataRules: serializeAws_restJson1LateDataRules(input.lateDataRules, context),
     }),
     ...(input.retentionPeriod !== undefined && {
       retentionPeriod: serializeAws_restJson1RetentionPeriod(input.retentionPeriod, context),
@@ -1202,7 +1214,7 @@ export const deserializeAws_restJson1BatchPutMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchPutMessageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchPutMessageCommandError(output, context);
   }
   const contents: BatchPutMessageCommandOutput = {
@@ -1292,7 +1304,7 @@ export const deserializeAws_restJson1CancelPipelineReprocessingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelPipelineReprocessingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CancelPipelineReprocessingCommandError(output, context);
   }
   const contents: CancelPipelineReprocessingCommandOutput = {
@@ -1375,7 +1387,7 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateChannelCommandError(output, context);
   }
   const contents: CreateChannelCommandOutput = {
@@ -1478,7 +1490,7 @@ export const deserializeAws_restJson1CreateDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDatasetCommandError(output, context);
   }
   const contents: CreateDatasetCommandOutput = {
@@ -1581,7 +1593,7 @@ export const deserializeAws_restJson1CreateDatasetContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatasetContentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDatasetContentCommandError(output, context);
   }
   const contents: CreateDatasetContentCommandOutput = {
@@ -1668,7 +1680,7 @@ export const deserializeAws_restJson1CreateDatastoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDatastoreCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDatastoreCommandError(output, context);
   }
   const contents: CreateDatastoreCommandOutput = {
@@ -1771,7 +1783,7 @@ export const deserializeAws_restJson1CreatePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreatePipelineCommandError(output, context);
   }
   const contents: CreatePipelineCommandOutput = {
@@ -1870,7 +1882,7 @@ export const deserializeAws_restJson1DeleteChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteChannelCommandError(output, context);
   }
   const contents: DeleteChannelCommandOutput = {
@@ -1953,7 +1965,7 @@ export const deserializeAws_restJson1DeleteDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDatasetCommandError(output, context);
   }
   const contents: DeleteDatasetCommandOutput = {
@@ -2036,7 +2048,7 @@ export const deserializeAws_restJson1DeleteDatasetContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatasetContentCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDatasetContentCommandError(output, context);
   }
   const contents: DeleteDatasetContentCommandOutput = {
@@ -2119,7 +2131,7 @@ export const deserializeAws_restJson1DeleteDatastoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDatastoreCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDatastoreCommandError(output, context);
   }
   const contents: DeleteDatastoreCommandOutput = {
@@ -2202,7 +2214,7 @@ export const deserializeAws_restJson1DeletePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeletePipelineCommandError(output, context);
   }
   const contents: DeletePipelineCommandOutput = {
@@ -2285,7 +2297,7 @@ export const deserializeAws_restJson1DescribeChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeChannelCommandError(output, context);
   }
   const contents: DescribeChannelCommandOutput = {
@@ -2376,7 +2388,7 @@ export const deserializeAws_restJson1DescribeDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatasetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeDatasetCommandError(output, context);
   }
   const contents: DescribeDatasetCommandOutput = {
@@ -2463,7 +2475,7 @@ export const deserializeAws_restJson1DescribeDatastoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDatastoreCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeDatastoreCommandError(output, context);
   }
   const contents: DescribeDatastoreCommandOutput = {
@@ -2554,7 +2566,7 @@ export const deserializeAws_restJson1DescribeLoggingOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoggingOptionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeLoggingOptionsCommandError(output, context);
   }
   const contents: DescribeLoggingOptionsCommandOutput = {
@@ -2641,7 +2653,7 @@ export const deserializeAws_restJson1DescribePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePipelineCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribePipelineCommandError(output, context);
   }
   const contents: DescribePipelineCommandOutput = {
@@ -2728,7 +2740,7 @@ export const deserializeAws_restJson1GetDatasetContentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDatasetContentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDatasetContentCommandError(output, context);
   }
   const contents: GetDatasetContentCommandOutput = {
@@ -2823,7 +2835,7 @@ export const deserializeAws_restJson1ListChannelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListChannelsCommandError(output, context);
   }
   const contents: ListChannelsCommandOutput = {
@@ -2906,7 +2918,7 @@ export const deserializeAws_restJson1ListDatasetContentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetContentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDatasetContentsCommandError(output, context);
   }
   const contents: ListDatasetContentsCommandOutput = {
@@ -3000,7 +3012,7 @@ export const deserializeAws_restJson1ListDatasetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatasetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDatasetsCommandError(output, context);
   }
   const contents: ListDatasetsCommandOutput = {
@@ -3083,7 +3095,7 @@ export const deserializeAws_restJson1ListDatastoresCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDatastoresCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDatastoresCommandError(output, context);
   }
   const contents: ListDatastoresCommandOutput = {
@@ -3166,7 +3178,7 @@ export const deserializeAws_restJson1ListPipelinesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPipelinesCommandError(output, context);
   }
   const contents: ListPipelinesCommandOutput = {
@@ -3249,7 +3261,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -3344,7 +3356,7 @@ export const deserializeAws_restJson1PutLoggingOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLoggingOptionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutLoggingOptionsCommandError(output, context);
   }
   const contents: PutLoggingOptionsCommandOutput = {
@@ -3419,7 +3431,7 @@ export const deserializeAws_restJson1RunPipelineActivityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RunPipelineActivityCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RunPipelineActivityCommandError(output, context);
   }
   const contents: RunPipelineActivityCommandOutput = {
@@ -3502,7 +3514,7 @@ export const deserializeAws_restJson1SampleChannelDataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SampleChannelDataCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SampleChannelDataCommandError(output, context);
   }
   const contents: SampleChannelDataCommandOutput = {
@@ -3589,7 +3601,7 @@ export const deserializeAws_restJson1StartPipelineReprocessingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartPipelineReprocessingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartPipelineReprocessingCommandError(output, context);
   }
   const contents: StartPipelineReprocessingCommandOutput = {
@@ -3684,7 +3696,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -3775,7 +3787,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -3866,7 +3878,7 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateChannelCommandError(output, context);
   }
   const contents: UpdateChannelCommandOutput = {
@@ -3949,7 +3961,7 @@ export const deserializeAws_restJson1UpdateDatasetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatasetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDatasetCommandError(output, context);
   }
   const contents: UpdateDatasetCommandOutput = {
@@ -4032,7 +4044,7 @@ export const deserializeAws_restJson1UpdateDatastoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDatastoreCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDatastoreCommandError(output, context);
   }
   const contents: UpdateDatastoreCommandOutput = {
@@ -4115,7 +4127,7 @@ export const deserializeAws_restJson1UpdatePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdatePipelineCommandError(output, context);
   }
   const contents: UpdatePipelineCommandOutput = {
@@ -4505,6 +4517,15 @@ const serializeAws_restJson1DeltaTime = (input: DeltaTime, context: __SerdeConte
   };
 };
 
+const serializeAws_restJson1DeltaTimeSessionWindowConfiguration = (
+  input: DeltaTimeSessionWindowConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.timeoutInMinutes !== undefined && { timeoutInMinutes: input.timeoutInMinutes }),
+  };
+};
+
 const serializeAws_restJson1DeviceRegistryEnrichActivity = (
   input: DeviceRegistryEnrichActivity,
   context: __SerdeContext
@@ -4563,6 +4584,33 @@ const serializeAws_restJson1LambdaActivity = (input: LambdaActivity, context: __
     ...(input.name !== undefined && { name: input.name }),
     ...(input.next !== undefined && { next: input.next }),
   };
+};
+
+const serializeAws_restJson1LateDataRule = (input: LateDataRule, context: __SerdeContext): any => {
+  return {
+    ...(input.ruleConfiguration !== undefined && {
+      ruleConfiguration: serializeAws_restJson1LateDataRuleConfiguration(input.ruleConfiguration, context),
+    }),
+    ...(input.ruleName !== undefined && { ruleName: input.ruleName }),
+  };
+};
+
+const serializeAws_restJson1LateDataRuleConfiguration = (
+  input: LateDataRuleConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.deltaTimeSessionWindowConfiguration !== undefined && {
+      deltaTimeSessionWindowConfiguration: serializeAws_restJson1DeltaTimeSessionWindowConfiguration(
+        input.deltaTimeSessionWindowConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
+const serializeAws_restJson1LateDataRules = (input: LateDataRule[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1LateDataRule(entry, context));
 };
 
 const serializeAws_restJson1LoggingOptions = (input: LoggingOptions, context: __SerdeContext): any => {
@@ -4826,6 +4874,10 @@ const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): 
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
+    lastMessageArrivalTime:
+      output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
+        ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
+        : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
@@ -4900,6 +4952,10 @@ const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeCon
     creationTime:
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    lastMessageArrivalTime:
+      output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
+        ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
         : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
@@ -4990,6 +5046,10 @@ const deserializeAws_restJson1Dataset = (output: any, context: __SerdeContext): 
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
+        : undefined,
+    lateDataRules:
+      output.lateDataRules !== undefined && output.lateDataRules !== null
+        ? deserializeAws_restJson1LateDataRules(output.lateDataRules, context)
         : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     retentionPeriod:
@@ -5183,6 +5243,10 @@ const deserializeAws_restJson1Datastore = (output: any, context: __SerdeContext)
       output.creationTime !== undefined && output.creationTime !== null
         ? new Date(Math.round(output.creationTime * 1000))
         : undefined,
+    lastMessageArrivalTime:
+      output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
+        ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
+        : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
@@ -5262,6 +5326,10 @@ const deserializeAws_restJson1DatastoreSummary = (output: any, context: __SerdeC
       output.datastoreStorage !== undefined && output.datastoreStorage !== null
         ? deserializeAws_restJson1DatastoreStorageSummary(output.datastoreStorage, context)
         : undefined,
+    lastMessageArrivalTime:
+      output.lastMessageArrivalTime !== undefined && output.lastMessageArrivalTime !== null
+        ? new Date(Math.round(output.lastMessageArrivalTime * 1000))
+        : undefined,
     lastUpdateTime:
       output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
         ? new Date(Math.round(output.lastUpdateTime * 1000))
@@ -5276,6 +5344,16 @@ const deserializeAws_restJson1DeltaTime = (output: any, context: __SerdeContext)
       output.offsetSeconds !== undefined && output.offsetSeconds !== null ? output.offsetSeconds : undefined,
     timeExpression:
       output.timeExpression !== undefined && output.timeExpression !== null ? output.timeExpression : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DeltaTimeSessionWindowConfiguration = (
+  output: any,
+  context: __SerdeContext
+): DeltaTimeSessionWindowConfiguration => {
+  return {
+    timeoutInMinutes:
+      output.timeoutInMinutes !== undefined && output.timeoutInMinutes !== null ? output.timeoutInMinutes : undefined,
   } as any;
 };
 
@@ -5350,6 +5428,35 @@ const deserializeAws_restJson1LambdaActivity = (output: any, context: __SerdeCon
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     next: output.next !== undefined && output.next !== null ? output.next : undefined,
   } as any;
+};
+
+const deserializeAws_restJson1LateDataRule = (output: any, context: __SerdeContext): LateDataRule => {
+  return {
+    ruleConfiguration:
+      output.ruleConfiguration !== undefined && output.ruleConfiguration !== null
+        ? deserializeAws_restJson1LateDataRuleConfiguration(output.ruleConfiguration, context)
+        : undefined,
+    ruleName: output.ruleName !== undefined && output.ruleName !== null ? output.ruleName : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LateDataRuleConfiguration = (
+  output: any,
+  context: __SerdeContext
+): LateDataRuleConfiguration => {
+  return {
+    deltaTimeSessionWindowConfiguration:
+      output.deltaTimeSessionWindowConfiguration !== undefined && output.deltaTimeSessionWindowConfiguration !== null
+        ? deserializeAws_restJson1DeltaTimeSessionWindowConfiguration(
+            output.deltaTimeSessionWindowConfiguration,
+            context
+          )
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LateDataRules = (output: any, context: __SerdeContext): LateDataRule[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1LateDataRule(entry, context));
 };
 
 const deserializeAws_restJson1LoggingOptions = (output: any, context: __SerdeContext): LoggingOptions => {

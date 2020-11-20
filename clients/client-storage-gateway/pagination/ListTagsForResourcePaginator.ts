@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTagsForResourceCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTagsForResourceCommand(input, ...args));
+  return await client.send(new ListTagsForResourceCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: StorageGateway,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTagsForResource(input, ...args);
 };
-export async function* listTagsForResourcePaginate(
+export async function* paginateListTagsForResource(
   config: StorageGatewayPaginationConfiguration,
   input: ListTagsForResourceCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTagsForResourceCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTagsForResourceCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof StorageGateway) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* listTagsForResourcePaginate(
       throw new Error("Invalid client, expected StorageGateway | StorageGatewayClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

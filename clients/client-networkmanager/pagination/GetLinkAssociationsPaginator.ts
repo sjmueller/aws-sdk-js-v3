@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetLinkAssociationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetLinkAssociationsCommand(input, ...args));
+  return await client.send(new GetLinkAssociationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: NetworkManager,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getLinkAssociations(input, ...args);
 };
-export async function* getLinkAssociationsPaginate(
+export async function* paginateGetLinkAssociations(
   config: NetworkManagerPaginationConfiguration,
   input: GetLinkAssociationsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetLinkAssociationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetLinkAssociationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof NetworkManager) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getLinkAssociationsPaginate(
       throw new Error("Invalid client, expected NetworkManager | NetworkManagerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

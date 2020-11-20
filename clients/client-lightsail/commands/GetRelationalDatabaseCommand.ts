@@ -1,6 +1,5 @@
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient";
-import { GetRelationalDatabaseRequest } from "../models/models_0";
-import { GetRelationalDatabaseResult } from "../models/models_1";
+import { GetRelationalDatabaseRequest, GetRelationalDatabaseResult } from "../models/models_1";
 import {
   deserializeAws_json1_1GetRelationalDatabaseCommand,
   serializeAws_json1_1GetRelationalDatabaseCommand,
@@ -45,11 +44,23 @@ export class GetRelationalDatabaseCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "GetRelationalDatabaseCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetRelationalDatabaseRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRelationalDatabaseResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

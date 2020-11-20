@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTablesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTablesCommand(input, ...args));
+  return await client.send(new ListTablesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DynamoDB,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTables(input, ...args);
 };
-export async function* listTablesPaginate(
+export async function* paginateListTables(
   config: DynamoDBPaginationConfiguration,
   input: ListTablesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTablesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTablesCommandOutput;
   while (hasNext) {
-    input["ExclusiveStartTableName"] = token;
+    input.ExclusiveStartTableName = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof DynamoDB) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -39,7 +39,7 @@ export async function* listTablesPaginate(
       throw new Error("Invalid client, expected DynamoDB | DynamoDBClient");
     }
     yield page;
-    token = page["LastEvaluatedTableName"];
+    token = page.LastEvaluatedTableName;
     hasNext = !!token;
   }
   // @ts-ignore

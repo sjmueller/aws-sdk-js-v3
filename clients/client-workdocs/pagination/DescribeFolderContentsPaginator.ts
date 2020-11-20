@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeFolderContentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeFolderContentsCommand(input, ...args));
+  return await client.send(new DescribeFolderContentsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: WorkDocs,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeFolderContents(input, ...args);
 };
-export async function* describeFolderContentsPaginate(
+export async function* paginateDescribeFolderContents(
   config: WorkDocsPaginationConfiguration,
   input: DescribeFolderContentsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeFolderContentsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeFolderContentsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof WorkDocs) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeFolderContentsPaginate(
       throw new Error("Invalid client, expected WorkDocs | WorkDocsClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

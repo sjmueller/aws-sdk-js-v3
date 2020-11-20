@@ -1,6 +1,5 @@
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
-import { DeleteTrialRequest } from "../models/models_0";
-import { DeleteTrialResponse } from "../models/models_1";
+import { DeleteTrialRequest, DeleteTrialResponse } from "../models/models_1";
 import {
   deserializeAws_json1_1DeleteTrialCommand,
   serializeAws_json1_1DeleteTrialCommand,
@@ -45,11 +44,23 @@ export class DeleteTrialCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "DeleteTrialCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteTrialRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTrialResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

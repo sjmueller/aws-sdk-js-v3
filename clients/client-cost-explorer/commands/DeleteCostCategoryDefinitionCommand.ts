@@ -44,11 +44,23 @@ export class DeleteCostCategoryDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CostExplorerClient";
+    const commandName = "DeleteCostCategoryDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteCostCategoryDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteCostCategoryDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

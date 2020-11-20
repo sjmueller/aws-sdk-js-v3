@@ -10,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetTagKeysCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetTagKeysCommand(input, ...args));
+  return await client.send(new GetTagKeysCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ResourceGroupsTaggingAPI,
@@ -20,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTagKeys(input, ...args);
 };
-export async function* getTagKeysPaginate(
+export async function* paginateGetTagKeys(
   config: ResourceGroupsTaggingAPIPaginationConfiguration,
   input: GetTagKeysCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTagKeysCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTagKeysCommandOutput;
   while (hasNext) {
-    input["PaginationToken"] = token;
+    input.PaginationToken = token;
     if (config.client instanceof ResourceGroupsTaggingAPI) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof ResourceGroupsTaggingAPIClient) {
@@ -38,7 +38,7 @@ export async function* getTagKeysPaginate(
       throw new Error("Invalid client, expected ResourceGroupsTaggingAPI | ResourceGroupsTaggingAPIClient");
     }
     yield page;
-    token = page["PaginationToken"];
+    token = page.PaginationToken;
     hasNext = !!token;
   }
   // @ts-ignore

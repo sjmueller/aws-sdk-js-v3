@@ -157,6 +157,14 @@ import {
   GetAWSOrganizationsAccessStatusCommandOutput,
 } from "../commands/GetAWSOrganizationsAccessStatusCommand";
 import {
+  GetProvisionedProductOutputsCommandInput,
+  GetProvisionedProductOutputsCommandOutput,
+} from "../commands/GetProvisionedProductOutputsCommand";
+import {
+  ImportAsProvisionedProductCommandInput,
+  ImportAsProvisionedProductCommandOutput,
+} from "../commands/ImportAsProvisionedProductCommand";
+import {
   ListAcceptedPortfolioSharesCommandInput,
   ListAcceptedPortfolioSharesCommandOutput,
 } from "../commands/ListAcceptedPortfolioSharesCommand";
@@ -365,6 +373,10 @@ import {
   FailedServiceActionAssociation,
   GetAWSOrganizationsAccessStatusInput,
   GetAWSOrganizationsAccessStatusOutput,
+  GetProvisionedProductOutputsInput,
+  GetProvisionedProductOutputsOutput,
+  ImportAsProvisionedProductInput,
+  ImportAsProvisionedProductOutput,
   InvalidParametersException,
   InvalidStateException,
   LaunchPath,
@@ -1153,6 +1165,32 @@ export const serializeAws_json1_1GetAWSOrganizationsAccessStatusCommand = async 
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetProvisionedProductOutputsCommand = async (
+  input: GetProvisionedProductOutputsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWS242ServiceCatalogService.GetProvisionedProductOutputs",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetProvisionedProductOutputsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ImportAsProvisionedProductCommand = async (
+  input: ImportAsProvisionedProductCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWS242ServiceCatalogService.ImportAsProvisionedProduct",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ImportAsProvisionedProductInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListAcceptedPortfolioSharesCommand = async (
   input: ListAcceptedPortfolioSharesCommandInput,
   context: __SerdeContext
@@ -1586,7 +1624,7 @@ export const deserializeAws_json1_1AcceptPortfolioShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptPortfolioShareCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AcceptPortfolioShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1657,7 +1695,7 @@ export const deserializeAws_json1_1AssociateBudgetWithResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateBudgetWithResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateBudgetWithResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1736,7 +1774,7 @@ export const deserializeAws_json1_1AssociatePrincipalWithPortfolioCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociatePrincipalWithPortfolioCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociatePrincipalWithPortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1807,7 +1845,7 @@ export const deserializeAws_json1_1AssociateProductWithPortfolioCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateProductWithPortfolioCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateProductWithPortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1878,7 +1916,7 @@ export const deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifac
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateServiceActionWithProvisioningArtifactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateServiceActionWithProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1949,7 +1987,7 @@ export const deserializeAws_json1_1AssociateTagOptionWithResourceCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateTagOptionWithResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateTagOptionWithResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2044,7 +2082,7 @@ export const deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningAr
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateServiceActionWithProvisioningArtifactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2099,7 +2137,7 @@ export const deserializeAws_json1_1BatchDisassociateServiceActionFromProvisionin
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2154,7 +2192,7 @@ export const deserializeAws_json1_1CopyProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyProductCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CopyProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2217,7 +2255,7 @@ export const deserializeAws_json1_1CreateConstraintCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConstraintCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateConstraintCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2296,7 +2334,7 @@ export const deserializeAws_json1_1CreatePortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePortfolioCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2367,7 +2405,7 @@ export const deserializeAws_json1_1CreatePortfolioShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePortfolioShareCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePortfolioShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2454,7 +2492,7 @@ export const deserializeAws_json1_1CreateProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProductCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2525,7 +2563,7 @@ export const deserializeAws_json1_1CreateProvisionedProductPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProvisionedProductPlanCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateProvisionedProductPlanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2596,7 +2634,7 @@ export const deserializeAws_json1_1CreateProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProvisioningArtifactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2667,7 +2705,7 @@ export const deserializeAws_json1_1CreateServiceActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceActionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateServiceActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2730,7 +2768,7 @@ export const deserializeAws_json1_1CreateTagOptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTagOptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateTagOptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2801,7 +2839,7 @@ export const deserializeAws_json1_1DeleteConstraintCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConstraintCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteConstraintCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2864,7 +2902,7 @@ export const deserializeAws_json1_1DeletePortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePortfolioCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeletePortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2943,7 +2981,7 @@ export const deserializeAws_json1_1DeletePortfolioShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePortfolioShareCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeletePortfolioShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3022,7 +3060,7 @@ export const deserializeAws_json1_1DeleteProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProductCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3101,7 +3139,7 @@ export const deserializeAws_json1_1DeleteProvisionedProductPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProvisionedProductPlanCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteProvisionedProductPlanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3164,7 +3202,7 @@ export const deserializeAws_json1_1DeleteProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProvisioningArtifactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3235,7 +3273,7 @@ export const deserializeAws_json1_1DeleteServiceActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceActionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteServiceActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3298,7 +3336,7 @@ export const deserializeAws_json1_1DeleteTagOptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagOptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteTagOptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3369,7 +3407,7 @@ export const deserializeAws_json1_1DescribeConstraintCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConstraintCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeConstraintCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3424,7 +3462,7 @@ export const deserializeAws_json1_1DescribeCopyProductStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCopyProductStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeCopyProductStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3479,7 +3517,7 @@ export const deserializeAws_json1_1DescribePortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePortfolioCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribePortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3534,7 +3572,7 @@ export const deserializeAws_json1_1DescribePortfolioShareStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribePortfolioShareStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribePortfolioShareStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3605,7 +3643,7 @@ export const deserializeAws_json1_1DescribeProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProductCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3668,7 +3706,7 @@ export const deserializeAws_json1_1DescribeProductAsAdminCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProductAsAdminCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeProductAsAdminCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3731,7 +3769,7 @@ export const deserializeAws_json1_1DescribeProductViewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProductViewCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeProductViewCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3794,7 +3832,7 @@ export const deserializeAws_json1_1DescribeProvisionedProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisionedProductCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeProvisionedProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3820,6 +3858,14 @@ const deserializeAws_json1_1DescribeProvisionedProductCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotFoundException":
     case "com.amazonaws.servicecatalog#ResourceNotFoundException":
       response = {
@@ -3849,7 +3895,7 @@ export const deserializeAws_json1_1DescribeProvisionedProductPlanCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisionedProductPlanCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeProvisionedProductPlanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3912,7 +3958,7 @@ export const deserializeAws_json1_1DescribeProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisioningArtifactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3975,7 +4021,7 @@ export const deserializeAws_json1_1DescribeProvisioningParametersCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProvisioningParametersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeProvisioningParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4038,7 +4084,7 @@ export const deserializeAws_json1_1DescribeRecordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRecordCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeRecordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4093,7 +4139,7 @@ export const deserializeAws_json1_1DescribeServiceActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceActionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeServiceActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4148,7 +4194,7 @@ export const deserializeAws_json1_1DescribeServiceActionExecutionParametersComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServiceActionExecutionParametersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeServiceActionExecutionParametersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4211,7 +4257,7 @@ export const deserializeAws_json1_1DescribeTagOptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagOptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTagOptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4274,7 +4320,7 @@ export const deserializeAws_json1_1DisableAWSOrganizationsAccessCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableAWSOrganizationsAccessCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisableAWSOrganizationsAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4345,7 +4391,7 @@ export const deserializeAws_json1_1DisassociateBudgetFromResourceCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateBudgetFromResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateBudgetFromResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4400,7 +4446,7 @@ export const deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociatePrincipalFromPortfolioCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociatePrincipalFromPortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4463,7 +4509,7 @@ export const deserializeAws_json1_1DisassociateProductFromPortfolioCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateProductFromPortfolioCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateProductFromPortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4534,7 +4580,7 @@ export const deserializeAws_json1_1DisassociateServiceActionFromProvisioningArti
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateServiceActionFromProvisioningArtifactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4589,7 +4635,7 @@ export const deserializeAws_json1_1DisassociateTagOptionFromResourceCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateTagOptionFromResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateTagOptionFromResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4652,7 +4698,7 @@ export const deserializeAws_json1_1EnableAWSOrganizationsAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableAWSOrganizationsAccessCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnableAWSOrganizationsAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4723,7 +4769,7 @@ export const deserializeAws_json1_1ExecuteProvisionedProductPlanCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteProvisionedProductPlanCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ExecuteProvisionedProductPlanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4794,7 +4840,7 @@ export const deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommand
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteProvisionedProductServiceActionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ExecuteProvisionedProductServiceActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4865,7 +4911,7 @@ export const deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAWSOrganizationsAccessStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4924,11 +4970,153 @@ const deserializeAws_json1_1GetAWSOrganizationsAccessStatusCommandError = async 
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1GetProvisionedProductOutputsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProvisionedProductOutputsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetProvisionedProductOutputsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetProvisionedProductOutputsOutput(data, context);
+  const response: GetProvisionedProductOutputsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetProvisionedProductOutputsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetProvisionedProductOutputsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1ImportAsProvisionedProductCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportAsProvisionedProductCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ImportAsProvisionedProductCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ImportAsProvisionedProductOutput(data, context);
+  const response: ImportAsProvisionedProductCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ImportAsProvisionedProductCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportAsProvisionedProductCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "DuplicateResourceException":
+    case "com.amazonaws.servicecatalog#DuplicateResourceException":
+      response = {
+        ...(await deserializeAws_json1_1DuplicateResourceExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParametersException":
+    case "com.amazonaws.servicecatalog#InvalidParametersException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParametersExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidStateException":
+    case "com.amazonaws.servicecatalog#InvalidStateException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidStateExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.servicecatalog#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListAcceptedPortfolioSharesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAcceptedPortfolioSharesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAcceptedPortfolioSharesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4991,7 +5179,7 @@ export const deserializeAws_json1_1ListBudgetsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBudgetsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListBudgetsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5054,7 +5242,7 @@ export const deserializeAws_json1_1ListConstraintsForPortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConstraintsForPortfolioCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListConstraintsForPortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5117,7 +5305,7 @@ export const deserializeAws_json1_1ListLaunchPathsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLaunchPathsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListLaunchPathsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5180,7 +5368,7 @@ export const deserializeAws_json1_1ListOrganizationPortfolioAccessCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOrganizationPortfolioAccessCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListOrganizationPortfolioAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5251,7 +5439,7 @@ export const deserializeAws_json1_1ListPortfolioAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPortfolioAccessCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPortfolioAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5314,7 +5502,7 @@ export const deserializeAws_json1_1ListPortfoliosCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPortfoliosCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPortfoliosCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5369,7 +5557,7 @@ export const deserializeAws_json1_1ListPortfoliosForProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPortfoliosForProductCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPortfoliosForProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5432,7 +5620,7 @@ export const deserializeAws_json1_1ListPrincipalsForPortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPrincipalsForPortfolioCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPrincipalsForPortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5495,7 +5683,7 @@ export const deserializeAws_json1_1ListProvisionedProductPlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisionedProductPlansCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListProvisionedProductPlansCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5558,7 +5746,7 @@ export const deserializeAws_json1_1ListProvisioningArtifactsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisioningArtifactsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListProvisioningArtifactsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5621,7 +5809,7 @@ export const deserializeAws_json1_1ListProvisioningArtifactsForServiceActionComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisioningArtifactsForServiceActionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListProvisioningArtifactsForServiceActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5684,7 +5872,7 @@ export const deserializeAws_json1_1ListRecordHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecordHistoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRecordHistoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5739,7 +5927,7 @@ export const deserializeAws_json1_1ListResourcesForTagOptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourcesForTagOptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListResourcesForTagOptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5810,7 +5998,7 @@ export const deserializeAws_json1_1ListServiceActionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServiceActionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListServiceActionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5865,7 +6053,7 @@ export const deserializeAws_json1_1ListServiceActionsForProvisioningArtifactComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServiceActionsForProvisioningArtifactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListServiceActionsForProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5928,7 +6116,7 @@ export const deserializeAws_json1_1ListStackInstancesForProvisionedProductComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStackInstancesForProvisionedProductCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListStackInstancesForProvisionedProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5991,7 +6179,7 @@ export const deserializeAws_json1_1ListTagOptionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagOptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagOptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6054,7 +6242,7 @@ export const deserializeAws_json1_1ProvisionProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ProvisionProductCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ProvisionProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6125,7 +6313,7 @@ export const deserializeAws_json1_1RejectPortfolioShareCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectPortfolioShareCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RejectPortfolioShareCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6180,7 +6368,7 @@ export const deserializeAws_json1_1ScanProvisionedProductsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ScanProvisionedProductsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ScanProvisionedProductsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6235,7 +6423,7 @@ export const deserializeAws_json1_1SearchProductsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchProductsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchProductsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6290,7 +6478,7 @@ export const deserializeAws_json1_1SearchProductsAsAdminCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchProductsAsAdminCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchProductsAsAdminCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6353,7 +6541,7 @@ export const deserializeAws_json1_1SearchProvisionedProductsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchProvisionedProductsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SearchProvisionedProductsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6408,7 +6596,7 @@ export const deserializeAws_json1_1TerminateProvisionedProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TerminateProvisionedProductCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TerminateProvisionedProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6463,7 +6651,7 @@ export const deserializeAws_json1_1UpdateConstraintCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateConstraintCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateConstraintCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6526,7 +6714,7 @@ export const deserializeAws_json1_1UpdatePortfolioCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePortfolioCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdatePortfolioCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6605,7 +6793,7 @@ export const deserializeAws_json1_1UpdateProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProductCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6676,7 +6864,7 @@ export const deserializeAws_json1_1UpdateProvisionedProductCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProvisionedProductCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateProvisionedProductCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6739,7 +6927,7 @@ export const deserializeAws_json1_1UpdateProvisionedProductPropertiesCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProvisionedProductPropertiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateProvisionedProductPropertiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6810,7 +6998,7 @@ export const deserializeAws_json1_1UpdateProvisioningArtifactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProvisioningArtifactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateProvisioningArtifactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6873,7 +7061,7 @@ export const deserializeAws_json1_1UpdateServiceActionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceActionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateServiceActionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6936,7 +7124,7 @@ export const deserializeAws_json1_1UpdateTagOptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTagOptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateTagOptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7523,6 +7711,7 @@ const serializeAws_json1_1DescribeProvisionedProductInput = (
   return {
     ...(input.AcceptLanguage !== undefined && { AcceptLanguage: input.AcceptLanguage }),
     ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Name !== undefined && { Name: input.Name }),
   };
 };
 
@@ -7719,6 +7908,34 @@ const serializeAws_json1_1GetAWSOrganizationsAccessStatusInput = (
   context: __SerdeContext
 ): any => {
   return {};
+};
+
+const serializeAws_json1_1GetProvisionedProductOutputsInput = (
+  input: GetProvisionedProductOutputsInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceptLanguage !== undefined && { AcceptLanguage: input.AcceptLanguage }),
+    ...(input.OutputKeys !== undefined && { OutputKeys: serializeAws_json1_1OutputKeys(input.OutputKeys, context) }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.ProvisionedProductId !== undefined && { ProvisionedProductId: input.ProvisionedProductId }),
+    ...(input.ProvisionedProductName !== undefined && { ProvisionedProductName: input.ProvisionedProductName }),
+  };
+};
+
+const serializeAws_json1_1ImportAsProvisionedProductInput = (
+  input: ImportAsProvisionedProductInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AcceptLanguage !== undefined && { AcceptLanguage: input.AcceptLanguage }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.PhysicalId !== undefined && { PhysicalId: input.PhysicalId }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProvisionedProductName !== undefined && { ProvisionedProductName: input.ProvisionedProductName }),
+    ...(input.ProvisioningArtifactId !== undefined && { ProvisioningArtifactId: input.ProvisioningArtifactId }),
+  };
 };
 
 const serializeAws_json1_1ListAcceptedPortfolioSharesInput = (
@@ -7956,6 +8173,10 @@ const serializeAws_json1_1OrganizationNode = (input: OrganizationNode, context: 
     ...(input.Type !== undefined && { Type: input.Type }),
     ...(input.Value !== undefined && { Value: input.Value }),
   };
+};
+
+const serializeAws_json1_1OutputKeys = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1ProductViewFilters = (input: { [key: string]: string[] }, context: __SerdeContext): any => {
@@ -8242,6 +8463,7 @@ const serializeAws_json1_1TerminateProvisionedProductInput = (
     ...(input.IgnoreErrors !== undefined && { IgnoreErrors: input.IgnoreErrors }),
     ...(input.ProvisionedProductId !== undefined && { ProvisionedProductId: input.ProvisionedProductId }),
     ...(input.ProvisionedProductName !== undefined && { ProvisionedProductName: input.ProvisionedProductName }),
+    ...(input.RetainPhysicalResources !== undefined && { RetainPhysicalResources: input.RetainPhysicalResources }),
     TerminateToken: input.TerminateToken ?? generateIdempotencyToken(),
   };
 };
@@ -9106,6 +9328,32 @@ const deserializeAws_json1_1GetAWSOrganizationsAccessStatusOutput = (
   } as any;
 };
 
+const deserializeAws_json1_1GetProvisionedProductOutputsOutput = (
+  output: any,
+  context: __SerdeContext
+): GetProvisionedProductOutputsOutput => {
+  return {
+    NextPageToken:
+      output.NextPageToken !== undefined && output.NextPageToken !== null ? output.NextPageToken : undefined,
+    Outputs:
+      output.Outputs !== undefined && output.Outputs !== null
+        ? deserializeAws_json1_1RecordOutputs(output.Outputs, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ImportAsProvisionedProductOutput = (
+  output: any,
+  context: __SerdeContext
+): ImportAsProvisionedProductOutput => {
+  return {
+    RecordDetail:
+      output.RecordDetail !== undefined && output.RecordDetail !== null
+        ? deserializeAws_json1_1RecordDetail(output.RecordDetail, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidParametersException = (
   output: any,
   context: __SerdeContext
@@ -9551,13 +9799,26 @@ const deserializeAws_json1_1ProvisionedProductAttribute = (
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     IdempotencyToken:
       output.IdempotencyToken !== undefined && output.IdempotencyToken !== null ? output.IdempotencyToken : undefined,
+    LastProvisioningRecordId:
+      output.LastProvisioningRecordId !== undefined && output.LastProvisioningRecordId !== null
+        ? output.LastProvisioningRecordId
+        : undefined,
     LastRecordId: output.LastRecordId !== undefined && output.LastRecordId !== null ? output.LastRecordId : undefined,
+    LastSuccessfulProvisioningRecordId:
+      output.LastSuccessfulProvisioningRecordId !== undefined && output.LastSuccessfulProvisioningRecordId !== null
+        ? output.LastSuccessfulProvisioningRecordId
+        : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     PhysicalId: output.PhysicalId !== undefined && output.PhysicalId !== null ? output.PhysicalId : undefined,
     ProductId: output.ProductId !== undefined && output.ProductId !== null ? output.ProductId : undefined,
+    ProductName: output.ProductName !== undefined && output.ProductName !== null ? output.ProductName : undefined,
     ProvisioningArtifactId:
       output.ProvisioningArtifactId !== undefined && output.ProvisioningArtifactId !== null
         ? output.ProvisioningArtifactId
+        : undefined,
+    ProvisioningArtifactName:
+      output.ProvisioningArtifactName !== undefined && output.ProvisioningArtifactName !== null
+        ? output.ProvisioningArtifactName
         : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
     StatusMessage:
@@ -9591,7 +9852,17 @@ const deserializeAws_json1_1ProvisionedProductDetail = (
     Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     IdempotencyToken:
       output.IdempotencyToken !== undefined && output.IdempotencyToken !== null ? output.IdempotencyToken : undefined,
+    LastProvisioningRecordId:
+      output.LastProvisioningRecordId !== undefined && output.LastProvisioningRecordId !== null
+        ? output.LastProvisioningRecordId
+        : undefined,
     LastRecordId: output.LastRecordId !== undefined && output.LastRecordId !== null ? output.LastRecordId : undefined,
+    LastSuccessfulProvisioningRecordId:
+      output.LastSuccessfulProvisioningRecordId !== undefined && output.LastSuccessfulProvisioningRecordId !== null
+        ? output.LastSuccessfulProvisioningRecordId
+        : undefined,
+    LaunchRoleArn:
+      output.LaunchRoleArn !== undefined && output.LaunchRoleArn !== null ? output.LaunchRoleArn : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     ProductId: output.ProductId !== undefined && output.ProductId !== null ? output.ProductId : undefined,
     ProvisioningArtifactId:
@@ -9878,6 +10149,8 @@ const deserializeAws_json1_1RecordDetail = (output: any, context: __SerdeContext
       output.CreatedTime !== undefined && output.CreatedTime !== null
         ? new Date(Math.round(output.CreatedTime * 1000))
         : undefined,
+    LaunchRoleArn:
+      output.LaunchRoleArn !== undefined && output.LaunchRoleArn !== null ? output.LaunchRoleArn : undefined,
     PathId: output.PathId !== undefined && output.PathId !== null ? output.PathId : undefined,
     ProductId: output.ProductId !== undefined && output.ProductId !== null ? output.ProductId : undefined,
     ProvisionedProductId:

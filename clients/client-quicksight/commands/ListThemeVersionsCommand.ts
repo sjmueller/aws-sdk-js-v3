@@ -1,5 +1,5 @@
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
-import { ListThemeVersionsRequest, ListThemeVersionsResponse } from "../models/models_0";
+import { ListThemeVersionsRequest, ListThemeVersionsResponse } from "../models/models_1";
 import {
   deserializeAws_restJson1ListThemeVersionsCommand,
   serializeAws_restJson1ListThemeVersionsCommand,
@@ -44,11 +44,23 @@ export class ListThemeVersionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "ListThemeVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListThemeVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListThemeVersionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

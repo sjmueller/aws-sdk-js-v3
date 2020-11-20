@@ -37,11 +37,23 @@ export class DeleteAppCommand extends $Command<DeleteAppCommandInput, DeleteAppC
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "DeleteAppCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteAppRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteAppResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetReplicationJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetReplicationJobsCommand(input, ...args));
+  return await client.send(new GetReplicationJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SMS,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getReplicationJobs(input, ...args);
 };
-export async function* getReplicationJobsPaginate(
+export async function* paginateGetReplicationJobs(
   config: SMSPaginationConfiguration,
   input: GetReplicationJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetReplicationJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetReplicationJobsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof SMS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getReplicationJobsPaginate(
       throw new Error("Invalid client, expected SMS | SMSClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeServicesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeServicesCommand(input, ...args));
+  return await client.send(new DescribeServicesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Pricing,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeServices(input, ...args);
 };
-export async function* describeServicesPaginate(
+export async function* paginateDescribeServices(
   config: PricingPaginationConfiguration,
   input: DescribeServicesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeServicesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeServicesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Pricing) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeServicesPaginate(
       throw new Error("Invalid client, expected Pricing | PricingClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

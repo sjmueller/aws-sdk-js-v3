@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "alwaysStrict": true,
-    "target": "es2017",
+    "target": "ES2018",
     "module": "commonjs",
     "declaration": true,
     "strict": true,
@@ -13,7 +13,8 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "declarationDir": "./types",
-    "outDir": "dist/cjs"
+    "outDir": "dist/cjs",
+    "types": ["mocha", "node"]
   },
   "typedocOptions": {
     "exclude": "**/node_modules/**",

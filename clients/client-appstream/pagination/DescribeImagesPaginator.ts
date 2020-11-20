@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeImagesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeImagesCommand(input, ...args));
+  return await client.send(new DescribeImagesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AppStream,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeImages(input, ...args);
 };
-export async function* describeImagesPaginate(
+export async function* paginateDescribeImages(
   config: AppStreamPaginationConfiguration,
   input: DescribeImagesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeImagesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeImagesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof AppStream) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describeImagesPaginate(
       throw new Error("Invalid client, expected AppStream | AppStreamClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -1,5 +1,30 @@
+import {
+  AssociateRoutingProfileQueuesCommandInput,
+  AssociateRoutingProfileQueuesCommandOutput,
+} from "./commands/AssociateRoutingProfileQueuesCommand";
+import { CreateContactFlowCommandInput, CreateContactFlowCommandOutput } from "./commands/CreateContactFlowCommand";
+import {
+  CreateRoutingProfileCommandInput,
+  CreateRoutingProfileCommandOutput,
+} from "./commands/CreateRoutingProfileCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
+import {
+  CreateUserHierarchyGroupCommandInput,
+  CreateUserHierarchyGroupCommandOutput,
+} from "./commands/CreateUserHierarchyGroupCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
+import {
+  DeleteUserHierarchyGroupCommandInput,
+  DeleteUserHierarchyGroupCommandOutput,
+} from "./commands/DeleteUserHierarchyGroupCommand";
+import {
+  DescribeContactFlowCommandInput,
+  DescribeContactFlowCommandOutput,
+} from "./commands/DescribeContactFlowCommand";
+import {
+  DescribeRoutingProfileCommandInput,
+  DescribeRoutingProfileCommandOutput,
+} from "./commands/DescribeRoutingProfileCommand";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "./commands/DescribeUserCommand";
 import {
   DescribeUserHierarchyGroupCommandInput,
@@ -9,6 +34,10 @@ import {
   DescribeUserHierarchyStructureCommandInput,
   DescribeUserHierarchyStructureCommandOutput,
 } from "./commands/DescribeUserHierarchyStructureCommand";
+import {
+  DisassociateRoutingProfileQueuesCommandInput,
+  DisassociateRoutingProfileQueuesCommandOutput,
+} from "./commands/DisassociateRoutingProfileQueuesCommand";
 import {
   GetContactAttributesCommandInput,
   GetContactAttributesCommandOutput,
@@ -25,7 +54,12 @@ import {
   ListHoursOfOperationsCommandOutput,
 } from "./commands/ListHoursOfOperationsCommand";
 import { ListPhoneNumbersCommandInput, ListPhoneNumbersCommandOutput } from "./commands/ListPhoneNumbersCommand";
+import { ListPromptsCommandInput, ListPromptsCommandOutput } from "./commands/ListPromptsCommand";
 import { ListQueuesCommandInput, ListQueuesCommandOutput } from "./commands/ListQueuesCommand";
+import {
+  ListRoutingProfileQueuesCommandInput,
+  ListRoutingProfileQueuesCommandOutput,
+} from "./commands/ListRoutingProfileQueuesCommand";
 import {
   ListRoutingProfilesCommandInput,
   ListRoutingProfilesCommandOutput,
@@ -72,9 +106,41 @@ import {
   UpdateContactAttributesCommandOutput,
 } from "./commands/UpdateContactAttributesCommand";
 import {
+  UpdateContactFlowContentCommandInput,
+  UpdateContactFlowContentCommandOutput,
+} from "./commands/UpdateContactFlowContentCommand";
+import {
+  UpdateContactFlowNameCommandInput,
+  UpdateContactFlowNameCommandOutput,
+} from "./commands/UpdateContactFlowNameCommand";
+import {
+  UpdateRoutingProfileConcurrencyCommandInput,
+  UpdateRoutingProfileConcurrencyCommandOutput,
+} from "./commands/UpdateRoutingProfileConcurrencyCommand";
+import {
+  UpdateRoutingProfileDefaultOutboundQueueCommandInput,
+  UpdateRoutingProfileDefaultOutboundQueueCommandOutput,
+} from "./commands/UpdateRoutingProfileDefaultOutboundQueueCommand";
+import {
+  UpdateRoutingProfileNameCommandInput,
+  UpdateRoutingProfileNameCommandOutput,
+} from "./commands/UpdateRoutingProfileNameCommand";
+import {
+  UpdateRoutingProfileQueuesCommandInput,
+  UpdateRoutingProfileQueuesCommandOutput,
+} from "./commands/UpdateRoutingProfileQueuesCommand";
+import {
   UpdateUserHierarchyCommandInput,
   UpdateUserHierarchyCommandOutput,
 } from "./commands/UpdateUserHierarchyCommand";
+import {
+  UpdateUserHierarchyGroupNameCommandInput,
+  UpdateUserHierarchyGroupNameCommandOutput,
+} from "./commands/UpdateUserHierarchyGroupNameCommand";
+import {
+  UpdateUserHierarchyStructureCommandInput,
+  UpdateUserHierarchyStructureCommandOutput,
+} from "./commands/UpdateUserHierarchyStructureCommand";
 import {
   UpdateUserIdentityInfoCommandInput,
   UpdateUserIdentityInfoCommandOutput,
@@ -141,11 +207,19 @@ import {
 } from "@aws-sdk/types";
 
 export type ServiceInputTypes =
+  | AssociateRoutingProfileQueuesCommandInput
+  | CreateContactFlowCommandInput
+  | CreateRoutingProfileCommandInput
   | CreateUserCommandInput
+  | CreateUserHierarchyGroupCommandInput
   | DeleteUserCommandInput
+  | DeleteUserHierarchyGroupCommandInput
+  | DescribeContactFlowCommandInput
+  | DescribeRoutingProfileCommandInput
   | DescribeUserCommandInput
   | DescribeUserHierarchyGroupCommandInput
   | DescribeUserHierarchyStructureCommandInput
+  | DisassociateRoutingProfileQueuesCommandInput
   | GetContactAttributesCommandInput
   | GetCurrentMetricDataCommandInput
   | GetFederationTokenCommandInput
@@ -153,7 +227,9 @@ export type ServiceInputTypes =
   | ListContactFlowsCommandInput
   | ListHoursOfOperationsCommandInput
   | ListPhoneNumbersCommandInput
+  | ListPromptsCommandInput
   | ListQueuesCommandInput
+  | ListRoutingProfileQueuesCommandInput
   | ListRoutingProfilesCommandInput
   | ListSecurityProfilesCommandInput
   | ListTagsForResourceCommandInput
@@ -169,18 +245,34 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateContactAttributesCommandInput
+  | UpdateContactFlowContentCommandInput
+  | UpdateContactFlowNameCommandInput
+  | UpdateRoutingProfileConcurrencyCommandInput
+  | UpdateRoutingProfileDefaultOutboundQueueCommandInput
+  | UpdateRoutingProfileNameCommandInput
+  | UpdateRoutingProfileQueuesCommandInput
   | UpdateUserHierarchyCommandInput
+  | UpdateUserHierarchyGroupNameCommandInput
+  | UpdateUserHierarchyStructureCommandInput
   | UpdateUserIdentityInfoCommandInput
   | UpdateUserPhoneConfigCommandInput
   | UpdateUserRoutingProfileCommandInput
   | UpdateUserSecurityProfilesCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateRoutingProfileQueuesCommandOutput
+  | CreateContactFlowCommandOutput
+  | CreateRoutingProfileCommandOutput
   | CreateUserCommandOutput
+  | CreateUserHierarchyGroupCommandOutput
   | DeleteUserCommandOutput
+  | DeleteUserHierarchyGroupCommandOutput
+  | DescribeContactFlowCommandOutput
+  | DescribeRoutingProfileCommandOutput
   | DescribeUserCommandOutput
   | DescribeUserHierarchyGroupCommandOutput
   | DescribeUserHierarchyStructureCommandOutput
+  | DisassociateRoutingProfileQueuesCommandOutput
   | GetContactAttributesCommandOutput
   | GetCurrentMetricDataCommandOutput
   | GetFederationTokenCommandOutput
@@ -188,7 +280,9 @@ export type ServiceOutputTypes =
   | ListContactFlowsCommandOutput
   | ListHoursOfOperationsCommandOutput
   | ListPhoneNumbersCommandOutput
+  | ListPromptsCommandOutput
   | ListQueuesCommandOutput
+  | ListRoutingProfileQueuesCommandOutput
   | ListRoutingProfilesCommandOutput
   | ListSecurityProfilesCommandOutput
   | ListTagsForResourceCommandOutput
@@ -204,7 +298,15 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateContactAttributesCommandOutput
+  | UpdateContactFlowContentCommandOutput
+  | UpdateContactFlowNameCommandOutput
+  | UpdateRoutingProfileConcurrencyCommandOutput
+  | UpdateRoutingProfileDefaultOutboundQueueCommandOutput
+  | UpdateRoutingProfileNameCommandOutput
+  | UpdateRoutingProfileQueuesCommandOutput
   | UpdateUserHierarchyCommandOutput
+  | UpdateUserHierarchyGroupNameCommandOutput
+  | UpdateUserHierarchyStructureCommandOutput
   | UpdateUserIdentityInfoCommandOutput
   | UpdateUserPhoneConfigCommandOutput
   | UpdateUserRoutingProfileCommandOutput
@@ -330,7 +432,14 @@ export type ConnectClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHa
  *    the right agents.</p>
  *          <p>There are limits to the number of Amazon Connect resources that you can create and limits to the
  *    number of requests that you can make per second. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect
- *     Service Limits</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *     Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>To connect programmatically to an AWS service, you use an endpoint. For a list of Amazon Connect
+ *    endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect
+ *     Endpoints</a>.</p>
+ *          <note>
+ *             <p>Working with contact flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+ *    Flow language</a>.</p>
+ *          </note>
  */
 export class ConnectClient extends __Client<
   __HttpHandlerOptions,

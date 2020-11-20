@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribePendingMaintenanceActionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribePendingMaintenanceActionsCommand(input, ...args));
+  return await client.send(new DescribePendingMaintenanceActionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DatabaseMigrationService,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describePendingMaintenanceActions(input, ...args);
 };
-export async function* describePendingMaintenanceActionsPaginate(
+export async function* paginateDescribePendingMaintenanceActions(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribePendingMaintenanceActionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribePendingMaintenanceActionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribePendingMaintenanceActionsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof DatabaseMigrationService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* describePendingMaintenanceActionsPaginate(
       throw new Error("Invalid client, expected DatabaseMigrationService | DatabaseMigrationServiceClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -14,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetSavingsPlansUtilizationDetailsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetSavingsPlansUtilizationDetailsCommand(input, ...args));
+  return await client.send(new GetSavingsPlansUtilizationDetailsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CostExplorer,
@@ -24,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getSavingsPlansUtilizationDetails(input, ...args);
 };
-export async function* getSavingsPlansUtilizationDetailsPaginate(
+export async function* paginateGetSavingsPlansUtilizationDetails(
   config: CostExplorerPaginationConfiguration,
   input: GetSavingsPlansUtilizationDetailsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetSavingsPlansUtilizationDetailsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetSavingsPlansUtilizationDetailsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CostExplorer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -43,7 +43,7 @@ export async function* getSavingsPlansUtilizationDetailsPaginate(
       throw new Error("Invalid client, expected CostExplorer | CostExplorerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore
