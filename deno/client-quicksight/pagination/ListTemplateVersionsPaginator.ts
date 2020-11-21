@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTemplateVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTemplateVersionsCommand(input, ...args));
+  return await client.send(new ListTemplateVersionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: QuickSight,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTemplateVersions(input, ...args);
 };
-export async function* listTemplateVersionsPaginate(
+export async function* paginateListTemplateVersions(
   config: QuickSightPaginationConfiguration,
   input: ListTemplateVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTemplateVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTemplateVersionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof QuickSight) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listTemplateVersionsPaginate(
       throw new Error("Invalid client, expected QuickSight | QuickSightClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

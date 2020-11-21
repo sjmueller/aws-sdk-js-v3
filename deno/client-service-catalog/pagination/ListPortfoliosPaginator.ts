@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPortfoliosCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPortfoliosCommand(input, ...args));
+  return await client.send(new ListPortfoliosCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ServiceCatalog,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPortfolios(input, ...args);
 };
-export async function* listPortfoliosPaginate(
+export async function* paginateListPortfolios(
   config: ServiceCatalogPaginationConfiguration,
   input: ListPortfoliosCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPortfoliosCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPortfoliosCommandOutput;
   while (hasNext) {
-    input["PageToken"] = token;
+    input.PageToken = token;
     input["PageSize"] = config.pageSize;
     if (config.client instanceof ServiceCatalog) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listPortfoliosPaginate(
       throw new Error("Invalid client, expected ServiceCatalog | ServiceCatalogClient");
     }
     yield page;
-    token = page["NextPageToken"];
+    token = page.NextPageToken;
     hasNext = !!token;
   }
   // @ts-ignore

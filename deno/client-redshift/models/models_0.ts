@@ -53,30 +53,9 @@ export type ReservedNodeOfferingType = "Regular" | "Upgradable";
  */
 export interface ReservedNode {
   /**
-   * <p>The recurring charges for the reserved node.</p>
-   */
-  RecurringCharges?: RecurringCharge[];
-
-  /**
-   * <p></p>
-   */
-  ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
-
-  /**
    * <p>The fixed cost Amazon Redshift charges you for this reserved node.</p>
    */
   FixedPrice?: number;
-
-  /**
-   * <p>The identifier for the reserved node offering.</p>
-   */
-  ReservedNodeOfferingId?: string;
-
-  /**
-   * <p>The time the reservation started. You purchase a reserved node offering for a
-   *             duration. This is the start time of that duration.</p>
-   */
-  StartTime?: Date;
 
   /**
    * <p>The state of the reserved compute node.</p>
@@ -105,19 +84,34 @@ export interface ReservedNode {
   State?: string;
 
   /**
+   * <p>The currency code for the reserved cluster.</p>
+   */
+  CurrencyCode?: string;
+
+  /**
+   * <p>The identifier for the reserved node offering.</p>
+   */
+  ReservedNodeOfferingId?: string;
+
+  /**
    * <p>The node type of the reserved node.</p>
    */
   NodeType?: string;
 
   /**
+   * <p></p>
+   */
+  ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
+
+  /**
+   * <p>The recurring charges for the reserved node.</p>
+   */
+  RecurringCharges?: RecurringCharge[];
+
+  /**
    * <p>The number of reserved compute nodes.</p>
    */
   NodeCount?: number;
-
-  /**
-   * <p>The duration of the node reservation in seconds.</p>
-   */
-  Duration?: number;
 
   /**
    * <p>The anticipated utilization of the reserved node, as defined in the reserved node
@@ -126,19 +120,25 @@ export interface ReservedNode {
   OfferingType?: string;
 
   /**
-   * <p>The unique identifier for the reservation.</p>
+   * <p>The time the reservation started. You purchase a reserved node offering for a
+   *             duration. This is the start time of that duration.</p>
    */
-  ReservedNodeId?: string;
+  StartTime?: Date;
 
   /**
-   * <p>The currency code for the reserved cluster.</p>
+   * <p>The duration of the node reservation in seconds.</p>
    */
-  CurrencyCode?: string;
+  Duration?: number;
 
   /**
    * <p>The hourly rate Amazon Redshift charges you for this reserved node.</p>
    */
   UsagePrice?: number;
+
+  /**
+   * <p>The unique identifier for the reservation.</p>
+   */
+  ReservedNodeId?: string;
 }
 
 export namespace ReservedNode {
@@ -303,14 +303,14 @@ export namespace AttributeValueTarget {
  */
 export interface AccountAttribute {
   /**
-   * <p>The name of the attribute.</p>
-   */
-  AttributeName?: string;
-
-  /**
    * <p>A list of attribute values.</p>
    */
   AttributeValues?: AttributeValueTarget[];
+
+  /**
+   * <p>The name of the attribute.</p>
+   */
+  AttributeName?: string;
 }
 
 export namespace AccountAttribute {
@@ -337,16 +337,16 @@ export namespace AccountAttributeList {
  */
 export interface AccountWithRestoreAccess {
   /**
-   * <p>The identifier of an AWS customer account authorized to restore a
-   *             snapshot.</p>
-   */
-  AccountId?: string;
-
-  /**
    * <p>The identifier of an AWS support account authorized to restore a snapshot. For AWS
    *             support, the identifier is <code>amazon-redshift-support</code>. </p>
    */
   AccountAlias?: string;
+
+  /**
+   * <p>The identifier of an AWS customer account authorized to restore a
+   *             snapshot.</p>
+   */
+  AccountId?: string;
 }
 
 export namespace AccountWithRestoreAccess {
@@ -370,12 +370,12 @@ export interface ClusterAssociatedToSchedule {
   /**
    * <p></p>
    */
-  ScheduleAssociationState?: ScheduleState | string;
+  ClusterIdentifier?: string;
 
   /**
    * <p></p>
    */
-  ClusterIdentifier?: string;
+  ScheduleAssociationState?: ScheduleState | string;
 }
 
 export namespace ClusterAssociatedToSchedule {
@@ -436,19 +436,14 @@ export namespace AuthorizationQuotaExceededFault {
  */
 export interface AuthorizeClusterSecurityGroupIngressMessage {
   /**
-   * <p>The name of the security group to which the ingress rule is added.</p>
+   * <p>The EC2 security group to be added the Amazon Redshift security group.</p>
    */
-  ClusterSecurityGroupName: string | undefined;
+  EC2SecurityGroupName?: string;
 
   /**
    * <p>The IP range to be added the Amazon Redshift security group.</p>
    */
   CIDRIP?: string;
-
-  /**
-   * <p>The EC2 security group to be added the Amazon Redshift security group.</p>
-   */
-  EC2SecurityGroupName?: string;
 
   /**
    * <p>The AWS account number of the owner of the security group specified by the
@@ -458,6 +453,11 @@ export interface AuthorizeClusterSecurityGroupIngressMessage {
    *         </p>
    */
   EC2SecurityGroupOwnerId?: string;
+
+  /**
+   * <p>The name of the security group to which the ingress rule is added.</p>
+   */
+  ClusterSecurityGroupName: string | undefined;
 }
 
 export namespace AuthorizeClusterSecurityGroupIngressMessage {
@@ -471,14 +471,14 @@ export namespace AuthorizeClusterSecurityGroupIngressMessage {
  */
 export interface Tag {
   /**
-   * <p>The value for the resource tag.</p>
-   */
-  Value?: string;
-
-  /**
    * <p>The key, or name, for the resource tag.</p>
    */
   Key?: string;
+
+  /**
+   * <p>The value for the resource tag.</p>
+   */
+  Value?: string;
 }
 
 export namespace Tag {
@@ -498,14 +498,14 @@ export interface EC2SecurityGroup {
   EC2SecurityGroupOwnerId?: string;
 
   /**
-   * <p>The name of the EC2 Security Group.</p>
-   */
-  EC2SecurityGroupName?: string;
-
-  /**
    * <p>The list of tags for the EC2 security group.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The name of the EC2 Security Group.</p>
+   */
+  EC2SecurityGroupName?: string;
 
   /**
    * <p>The status of the EC2 security group.</p>
@@ -550,22 +550,6 @@ export namespace IPRange {
  */
 export interface ClusterSecurityGroup {
   /**
-   * <p>The list of tags for the cluster security group.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The name of the cluster security group to which the operation was
-   *             applied.</p>
-   */
-  ClusterSecurityGroupName?: string;
-
-  /**
-   * <p>A description of the security group.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>A list of EC2 security groups that are permitted to access clusters associated with
    *             this cluster security group.</p>
    */
@@ -576,6 +560,22 @@ export interface ClusterSecurityGroup {
    *             with this cluster security group.</p>
    */
   IPRanges?: IPRange[];
+
+  /**
+   * <p>The name of the cluster security group to which the operation was
+   *             applied.</p>
+   */
+  ClusterSecurityGroupName?: string;
+
+  /**
+   * <p>The list of tags for the cluster security group.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A description of the security group.</p>
+   */
+  Description?: string;
 }
 
 export namespace ClusterSecurityGroup {
@@ -663,44 +663,20 @@ export namespace AuthorizeSnapshotAccessMessage {
  */
 export interface Snapshot {
   /**
-   * <p>A boolean that indicates whether the snapshot data is encrypted using the HSM keys
-   *             of the source cluster. <code>true</code> indicates that the data is encrypted using HSM
-   *             keys.</p>
+   * <p>The identifier of the cluster for which the snapshot was taken.</p>
    */
-  EncryptedWithHSM?: boolean;
+  ClusterIdentifier?: string;
 
   /**
-   * <p>The version ID of the Amazon Redshift engine that is running on the cluster.</p>
+   * <p>The VPC identifier of the cluster if the snapshot is from a cluster in a VPC.
+   *             Otherwise, this field is not in the output.</p>
    */
-  ClusterVersion?: string;
+  VpcId?: string;
 
   /**
-   * <p>The name of the maintenance track for the snapshot.</p>
+   * <p>The list of tags for the cluster snapshot.</p>
    */
-  MaintenanceTrackName?: string;
-
-  /**
-   * <p>The estimate of the time remaining before the snapshot backup will complete.
-   *             Returns <code>0</code> for a completed backup. </p>
-   */
-  EstimatedSecondsToCompletion?: number;
-
-  /**
-   * <p>The amount of time an in-progress snapshot backup has been running, or the amount
-   *             of time it took a completed backup to finish.</p>
-   */
-  ElapsedTimeInSeconds?: number;
-
-  /**
-   * <p>The number of megabytes per second being transferred to the snapshot backup.
-   *             Returns <code>0</code> for a completed backup. </p>
-   */
-  CurrentBackupRateInMegaBytesPerSecond?: number;
-
-  /**
-   * <p>The number of days until a manual snapshot will pass its retention period.</p>
-   */
-  ManualSnapshotRemainingDays?: number;
+  Tags?: Tag[];
 
   /**
    * <p>The snapshot status. The value of the status depends on the API operation used: </p>
@@ -723,9 +699,49 @@ export interface Snapshot {
   Status?: string;
 
   /**
-   * <p>The identifier of the cluster for which the snapshot was taken.</p>
+   * <p>The number of days until a manual snapshot will pass its retention period.</p>
    */
-  ClusterIdentifier?: string;
+  ManualSnapshotRemainingDays?: number;
+
+  /**
+   * <p>If <code>true</code>, the data in the snapshot is encrypted at rest.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>The amount of time an in-progress snapshot backup has been running, or the amount
+   *             of time it took a completed backup to finish.</p>
+   */
+  ElapsedTimeInSeconds?: number;
+
+  /**
+   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that was used to
+   *             encrypt data in the cluster from which the snapshot was taken.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>The source region from which the snapshot was copied.</p>
+   */
+  SourceRegion?: string;
+
+  /**
+   * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
+   *             snapshot is retained indefinitely. </p>
+   *
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   */
+  ManualSnapshotRetentionPeriod?: number;
+
+  /**
+   * <p>The name of the database that was created when the cluster was created.</p>
+   */
+  DBName?: string;
+
+  /**
+   * <p>The Availability Zone in which the cluster was created.</p>
+   */
+  AvailabilityZone?: string;
 
   /**
    * <p>The number of megabytes that have been transferred to the snapshot
@@ -746,17 +762,32 @@ export interface Snapshot {
   ActualIncrementalBackupSizeInMegaBytes?: number;
 
   /**
-   * <p>The number of nodes in the cluster.</p>
+   * <p>The master user name for the cluster.</p>
    */
-  NumberOfNodes?: number;
+  MasterUsername?: string;
 
   /**
-   * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
-   *             snapshot is retained indefinitely. </p>
-   *
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   * <p>The number of megabytes per second being transferred to the snapshot backup.
+   *             Returns <code>0</code> for a completed backup. </p>
    */
-  ManualSnapshotRetentionPeriod?: number;
+  CurrentBackupRateInMegaBytesPerSecond?: number;
+
+  /**
+   * <p>The size of the complete set of backup data that would be used to restore the
+   *             cluster.</p>
+   */
+  TotalBackupSizeInMegaBytes?: number;
+
+  /**
+   * <p>The estimate of the time remaining before the snapshot backup will complete.
+   *             Returns <code>0</code> for a completed backup. </p>
+   */
+  EstimatedSecondsToCompletion?: number;
+
+  /**
+   * <p>The port that the cluster is listening on.</p>
+   */
+  Port?: number;
 
   /**
    * <p>The time (in UTC format) when Amazon Redshift began the snapshot. A snapshot contains a
@@ -775,46 +806,32 @@ export interface Snapshot {
   EnhancedVpcRouting?: boolean;
 
   /**
-   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that was used to
-   *             encrypt data in the cluster from which the snapshot was taken.</p>
+   * <p>The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a>
+   *             and <a>CopyClusterSnapshot</a> are of type "manual". </p>
    */
-  KmsKeyId?: string;
+  SnapshotType?: string;
 
   /**
-   * <p>The source region from which the snapshot was copied.</p>
+   * <p>The time (UTC) when the cluster was originally created.</p>
    */
-  SourceRegion?: string;
+  ClusterCreateTime?: Date;
 
   /**
-   * <p>The name of the database that was created when the cluster was created.</p>
+   * <p>The number of nodes in the cluster.</p>
    */
-  DBName?: string;
+  NumberOfNodes?: number;
 
   /**
-   * <p>The master user name for the cluster.</p>
+   * <p>The node type of the nodes in the cluster.</p>
    */
-  MasterUsername?: string;
+  NodeType?: string;
 
   /**
-   * <p>The Availability Zone in which the cluster was created.</p>
+   * <p>A boolean that indicates whether the snapshot data is encrypted using the HSM keys
+   *             of the source cluster. <code>true</code> indicates that the data is encrypted using HSM
+   *             keys.</p>
    */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The VPC identifier of the cluster if the snapshot is from a cluster in a VPC.
-   *             Otherwise, this field is not in the output.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>If <code>true</code>, the data in the snapshot is encrypted at rest.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The snapshot identifier that is provided in the request.</p>
-   */
-  SnapshotIdentifier?: string;
+  EncryptedWithHSM?: boolean;
 
   /**
    * <p>The list of node types that this cluster snapshot is able to restore
@@ -823,36 +840,14 @@ export interface Snapshot {
   RestorableNodeTypes?: string[];
 
   /**
-   * <p>The port that the cluster is listening on.</p>
+   * <p>A timestamp representing the start of the retention period for the snapshot.</p>
    */
-  Port?: number;
+  SnapshotRetentionStartTime?: Date;
 
   /**
-   * <p>The size of the complete set of backup data that would be used to restore the
-   *             cluster.</p>
+   * <p>The name of the maintenance track for the snapshot.</p>
    */
-  TotalBackupSizeInMegaBytes?: number;
-
-  /**
-   * <p>The time (UTC) when the cluster was originally created.</p>
-   */
-  ClusterCreateTime?: Date;
-
-  /**
-   * <p>The snapshot type. Snapshots created using <a>CreateClusterSnapshot</a>
-   *             and <a>CopyClusterSnapshot</a> are of type "manual". </p>
-   */
-  SnapshotType?: string;
-
-  /**
-   * <p>The node type of the nodes in the cluster.</p>
-   */
-  NodeType?: string;
-
-  /**
-   * <p>The list of tags for the cluster snapshot.</p>
-   */
-  Tags?: Tag[];
+  MaintenanceTrackName?: string;
 
   /**
    * <p>For manual snapshots, the AWS customer account used to create or copy the snapshot.
@@ -862,9 +857,14 @@ export interface Snapshot {
   OwnerAccount?: string;
 
   /**
-   * <p>A timestamp representing the start of the retention period for the snapshot.</p>
+   * <p>The snapshot identifier that is provided in the request.</p>
    */
-  SnapshotRetentionStartTime?: Date;
+  SnapshotIdentifier?: string;
+
+  /**
+   * <p>The version ID of the Amazon Redshift engine that is running on the cluster.</p>
+   */
+  ClusterVersion?: string;
 }
 
 export namespace Snapshot {
@@ -969,14 +969,14 @@ export namespace SupportedPlatform {
  */
 export interface AvailabilityZone {
   /**
-   * <p>The name of the availability zone.</p>
-   */
-  Name?: string;
-
-  /**
    * <p></p>
    */
   SupportedPlatforms?: SupportedPlatform[];
+
+  /**
+   * <p>The name of the availability zone.</p>
+   */
+  Name?: string;
 }
 
 export namespace AvailabilityZone {
@@ -990,20 +990,20 @@ export namespace AvailabilityZone {
  */
 export interface DeleteClusterSnapshotMessage {
   /**
-   * <p>The unique identifier of the cluster the snapshot was created from. This parameter
-   *             is required if your IAM user has a policy containing a snapshot resource element that
-   *             specifies anything other than * for the cluster name.</p>
-   *         <p>Constraints: Must be the name of valid cluster.</p>
-   */
-  SnapshotClusterIdentifier?: string;
-
-  /**
    * <p>The unique identifier of the manual snapshot to be deleted.</p>
    *         <p>Constraints: Must be the name of an existing snapshot that is in the
    *                 <code>available</code>, <code>failed</code>, or <code>cancelled</code>
    *             state.</p>
    */
   SnapshotIdentifier: string | undefined;
+
+  /**
+   * <p>The unique identifier of the cluster the snapshot was created from. This parameter
+   *             is required if your IAM user has a policy containing a snapshot resource element that
+   *             specifies anything other than * for the cluster name.</p>
+   *         <p>Constraints: Must be the name of valid cluster.</p>
+   */
+  SnapshotClusterIdentifier?: string;
 }
 
 export namespace DeleteClusterSnapshotMessage {
@@ -1035,11 +1035,6 @@ export interface SnapshotErrorMessage {
   FailureReason?: string;
 
   /**
-   * <p>A unique identifier for the snapshot returning the error.</p>
-   */
-  SnapshotIdentifier?: string;
-
-  /**
    * <p>A unique identifier for the cluster.</p>
    */
   SnapshotClusterIdentifier?: string;
@@ -1048,6 +1043,11 @@ export interface SnapshotErrorMessage {
    * <p>The failure code for the error.</p>
    */
   FailureCode?: string;
+
+  /**
+   * <p>A unique identifier for the snapshot returning the error.</p>
+   */
+  SnapshotIdentifier?: string;
 }
 
 export namespace SnapshotErrorMessage {
@@ -1118,15 +1118,15 @@ export interface BatchModifyClusterSnapshotsMessage {
   ManualSnapshotRetentionPeriod?: number;
 
   /**
+   * <p>A list of snapshot identifiers you want to modify.</p>
+   */
+  SnapshotIdentifierList: string[] | undefined;
+
+  /**
    * <p>A boolean value indicating whether to override an exception if the retention period
    *             has passed. </p>
    */
   Force?: boolean;
-
-  /**
-   * <p>A list of snapshot identifiers you want to modify.</p>
-   */
-  SnapshotIdentifierList: string[] | undefined;
 }
 
 export namespace BatchModifyClusterSnapshotsMessage {
@@ -1249,38 +1249,12 @@ export namespace ResizeNotFoundFault {
  */
 export interface ResizeProgressMessage {
   /**
-   * <p>An enum with possible values of <code>ClassicResize</code> and
-   *                 <code>ElasticResize</code>. These values describe the type of resize operation being
-   *             performed. </p>
+   * <p>The status of the resize operation.</p>
+   *         <p>Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> |
+   *                 <code>SUCCEEDED</code> | <code>CANCELLING</code>
+   *         </p>
    */
-  ResizeType?: string;
-
-  /**
-   * <p>The number of nodes that the cluster will have after the resize operation is
-   *             complete.</p>
-   */
-  TargetNumberOfNodes?: number;
-
-  /**
-   * <p>The average rate of the resize operation over the last few minutes, measured in
-   *             megabytes per second. After the resize operation completes, this value shows the average
-   *             rate of the entire resize operation.</p>
-   */
-  AvgResizeRateInMegaBytesPerSecond?: number;
-
-  /**
-   * <p>The estimated time remaining, in seconds, until the resize operation is complete.
-   *             This value is calculated based on the average resize rate and the estimated amount of
-   *             data remaining to be processed. Once the resize operation is complete, this value will
-   *             be 0.</p>
-   */
-  EstimatedTimeToCompletionInSeconds?: number;
-
-  /**
-   * <p>The names of tables that have not been yet imported.</p>
-   *         <p>Valid Values: List of table names</p>
-   */
-  ImportTablesNotStarted?: string[];
+  Status?: string;
 
   /**
    * <p>The amount of seconds that have elapsed since the resize operation began. After the
@@ -1290,6 +1264,12 @@ export interface ResizeProgressMessage {
   ElapsedTimeInSeconds?: number;
 
   /**
+   * <p>The names of tables that have not been yet imported.</p>
+   *         <p>Valid Values: List of table names</p>
+   */
+  ImportTablesNotStarted?: string[];
+
+  /**
    * <p>The cluster type after the resize operation is complete.</p>
    *         <p>Valid Values: <code>multi-node</code> | <code>single-node</code>
    *         </p>
@@ -1297,9 +1277,18 @@ export interface ResizeProgressMessage {
   TargetClusterType?: string;
 
   /**
-   * <p>The percent of data transferred from source cluster to target cluster.</p>
+   * <p>The type of encryption for the cluster after the resize is complete.</p>
+   *         <p>Possible values are <code>KMS</code> and <code>None</code>. </p>
    */
-  DataTransferProgressPercent?: number;
+  TargetEncryptionType?: string;
+
+  /**
+   * <p>The estimated time remaining, in seconds, until the resize operation is complete.
+   *             This value is calculated based on the average resize rate and the estimated amount of
+   *             data remaining to be processed. Once the resize operation is complete, this value will
+   *             be 0.</p>
+   */
+  EstimatedTimeToCompletionInSeconds?: number;
 
   /**
    * <p>The node type that the cluster will have after the resize operation is
@@ -1314,22 +1303,17 @@ export interface ResizeProgressMessage {
   ImportTablesCompleted?: string[];
 
   /**
-   * <p>An optional string to provide additional details about the resize action.</p>
+   * <p>The number of nodes that the cluster will have after the resize operation is
+   *             complete.</p>
    */
-  Message?: string;
+  TargetNumberOfNodes?: number;
 
   /**
-   * <p>The estimated total amount of data, in megabytes, on the cluster before the resize
-   *             operation began.</p>
+   * <p>An enum with possible values of <code>ClassicResize</code> and
+   *                 <code>ElasticResize</code>. These values describe the type of resize operation being
+   *             performed. </p>
    */
-  TotalResizeDataInMegaBytes?: number;
-
-  /**
-   * <p>The type of encryption for the cluster after the resize is complete.</p>
-   *         <p>Possible values are <code>KMS</code> and <code>None</code>. In the China region
-   *             possible values are: <code>Legacy</code> and <code>None</code>.</p>
-   */
-  TargetEncryptionType?: string;
+  ResizeType?: string;
 
   /**
    * <p>While the resize operation is in progress, this value shows the current amount of
@@ -1341,18 +1325,33 @@ export interface ResizeProgressMessage {
   ProgressInMegaBytes?: number;
 
   /**
+   * <p>The average rate of the resize operation over the last few minutes, measured in
+   *             megabytes per second. After the resize operation completes, this value shows the average
+   *             rate of the entire resize operation.</p>
+   */
+  AvgResizeRateInMegaBytesPerSecond?: number;
+
+  /**
    * <p>The names of tables that are being currently imported.</p>
    *         <p>Valid Values: List of table names.</p>
    */
   ImportTablesInProgress?: string[];
 
   /**
-   * <p>The status of the resize operation.</p>
-   *         <p>Valid Values: <code>NONE</code> | <code>IN_PROGRESS</code> | <code>FAILED</code> |
-   *                 <code>SUCCEEDED</code> | <code>CANCELLING</code>
-   *         </p>
+   * <p>An optional string to provide additional details about the resize action.</p>
    */
-  Status?: string;
+  Message?: string;
+
+  /**
+   * <p>The estimated total amount of data, in megabytes, on the cluster before the resize
+   *             operation began.</p>
+   */
+  TotalResizeDataInMegaBytes?: number;
+
+  /**
+   * <p>The percent of data transferred from source cluster to target cluster.</p>
+   */
+  DataTransferProgressPercent?: number;
 }
 
 export namespace ResizeProgressMessage {
@@ -1366,6 +1365,11 @@ export namespace ResizeProgressMessage {
  */
 export interface ClusterNode {
   /**
+   * <p>The public IP address of a node within a cluster.</p>
+   */
+  PublicIPAddress?: string;
+
+  /**
    * <p>The private IP address of a node within a cluster.</p>
    */
   PrivateIPAddress?: string;
@@ -1374,11 +1378,6 @@ export interface ClusterNode {
    * <p>Whether the node is a leader node or a compute node.</p>
    */
   NodeRole?: string;
-
-  /**
-   * <p>The public IP address of a node within a cluster.</p>
-   */
-  PublicIPAddress?: string;
 }
 
 export namespace ClusterNode {
@@ -1437,15 +1436,15 @@ export interface ClusterParameterStatus {
   ParameterApplyStatus?: string;
 
   /**
+   * <p>The name of the parameter.</p>
+   */
+  ParameterName?: string;
+
+  /**
    * <p>The error that prevented the parameter from being applied to the
    *             database.</p>
    */
   ParameterApplyErrorDescription?: string;
-
-  /**
-   * <p>The name of the parameter.</p>
-   */
-  ParameterName?: string;
 }
 
 export namespace ClusterParameterStatus {
@@ -1459,16 +1458,6 @@ export namespace ClusterParameterStatus {
  */
 export interface ClusterParameterGroupStatus {
   /**
-   * <p>The name of the cluster parameter group.</p>
-   */
-  ParameterGroupName?: string;
-
-  /**
-   * <p>The status of parameter updates.</p>
-   */
-  ParameterApplyStatus?: string;
-
-  /**
    * <p>The list of parameter statuses.</p>
    *         <p>
    * For more information about parameters and parameter groups, go to
@@ -1476,6 +1465,16 @@ export interface ClusterParameterGroupStatus {
    * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
    */
   ClusterParameterStatusList?: ClusterParameterStatus[];
+
+  /**
+   * <p>The status of parameter updates.</p>
+   */
+  ParameterApplyStatus?: string;
+
+  /**
+   * <p>The name of the cluster parameter group.</p>
+   */
+  ParameterGroupName?: string;
 }
 
 export namespace ClusterParameterGroupStatus {
@@ -1511,15 +1510,15 @@ export namespace ClusterSecurityGroupMembership {
  */
 export interface ClusterSnapshotCopyStatus {
   /**
+   * <p>The name of the snapshot copy grant.</p>
+   */
+  SnapshotCopyGrantName?: string;
+
+  /**
    * <p>The number of days that automated snapshots are retained in the destination region
    *             after they are copied from a source region.</p>
    */
   RetentionPeriod?: number;
-
-  /**
-   * <p>The name of the snapshot copy grant.</p>
-   */
-  SnapshotCopyGrantName?: string;
 
   /**
    * <p>The number of days that automated snapshots are retained in the destination region
@@ -1559,6 +1558,11 @@ export interface DataTransferProgress {
   Status?: string;
 
   /**
+   * <p>Describes the data transfer rate in MB's per second.</p>
+   */
+  CurrentRateInMegaBytesPerSecond?: number;
+
+  /**
    * <p>Describes the number of seconds that have elapsed during the data transfer.</p>
    */
   ElapsedTimeInSeconds?: number;
@@ -1572,11 +1576,6 @@ export interface DataTransferProgress {
    * <p>Describes the total amount of data that has been transfered in MB's.</p>
    */
   DataTransferredInMegaBytes?: number;
-
-  /**
-   * <p>Describes the data transfer rate in MB's per second.</p>
-   */
-  CurrentRateInMegaBytesPerSecond?: number;
 }
 
 export namespace DataTransferProgress {
@@ -1590,14 +1589,14 @@ export namespace DataTransferProgress {
  */
 export interface DeferredMaintenanceWindow {
   /**
-   * <p>A unique identifier for the maintenance window.</p>
-   */
-  DeferMaintenanceIdentifier?: string;
-
-  /**
    * <p> A timestamp for the end of the time period when we defer maintenance.</p>
    */
   DeferMaintenanceEndTime?: Date;
+
+  /**
+   * <p>A unique identifier for the maintenance window.</p>
+   */
+  DeferMaintenanceIdentifier?: string;
 
   /**
    * <p> A timestamp for the beginning of the time period when we defer maintenance.</p>
@@ -1616,14 +1615,14 @@ export namespace DeferredMaintenanceWindow {
  */
 export interface ElasticIpStatus {
   /**
-   * <p>The status of the elastic IP (EIP) address.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>The elastic IP (EIP) address for the cluster.</p>
    */
   ElasticIp?: string;
+
+  /**
+   * <p>The status of the elastic IP (EIP) address.</p>
+   */
+  Status?: string;
 }
 
 export namespace ElasticIpStatus {
@@ -1658,17 +1657,17 @@ export namespace Endpoint {
  */
 export interface HsmStatus {
   /**
+   * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
+   *             retrieve the data encryption keys stored in an HSM.</p>
+   */
+  HsmClientCertificateIdentifier?: string;
+
+  /**
    * <p>Reports whether the Amazon Redshift cluster has finished applying any HSM settings
    *             changes specified in a modify cluster command.</p>
    *         <p>Values: active, applying</p>
    */
   Status?: string;
-
-  /**
-   * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
-   *             retrieve the data encryption keys stored in an HSM.</p>
-   */
-  HsmClientCertificateIdentifier?: string;
 
   /**
    * <p>Specifies the name of the HSM configuration that contains the information the
@@ -1730,9 +1729,9 @@ export namespace ClusterIamRole {
  */
 export interface PendingModifiedValues {
   /**
-   * <p>The pending or in-progress change of the service version.</p>
+   * <p>The pending or in-progress change of the cluster type.</p>
    */
-  ClusterVersion?: string;
+  ClusterType?: string;
 
   /**
    * <p>The pending or in-progress change of the ability to connect to the cluster from the
@@ -1741,25 +1740,36 @@ export interface PendingModifiedValues {
   PubliclyAccessible?: boolean;
 
   /**
+   * <p>The pending or in-progress change of the service version.</p>
+   */
+  ClusterVersion?: string;
+
+  /**
+   * <p>The pending or in-progress change of the master user password for the
+   *             cluster.</p>
+   */
+  MasterUserPassword?: string;
+
+  /**
    * <p>The pending or in-progress change of the new identifier for the cluster.</p>
    */
   ClusterIdentifier?: string;
 
   /**
-   * <p>The pending or in-progress change of the number of nodes in the cluster.</p>
+   * <p>The encryption type for a cluster. Possible values are: KMS and None. </p>
    */
-  NumberOfNodes?: number;
-
-  /**
-   * <p>The pending or in-progress change of the cluster type.</p>
-   */
-  ClusterType?: string;
+  EncryptionType?: string;
 
   /**
    * <p>The name of the maintenance track that the cluster will change to during the next
    *             maintenance window.</p>
    */
   MaintenanceTrackName?: string;
+
+  /**
+   * <p>The pending or in-progress change of the cluster's node type.</p>
+   */
+  NodeType?: string;
 
   /**
    * <p>An option that specifies whether to create the cluster with enhanced VPC routing
@@ -1772,27 +1782,15 @@ export interface PendingModifiedValues {
   EnhancedVpcRouting?: boolean;
 
   /**
-   * <p>The pending or in-progress change of the master user password for the
-   *             cluster.</p>
-   */
-  MasterUserPassword?: string;
-
-  /**
    * <p>The pending or in-progress change of the automated snapshot retention
    *             period.</p>
    */
   AutomatedSnapshotRetentionPeriod?: number;
 
   /**
-   * <p>The encryption type for a cluster. Possible values are: KMS and None. For the China
-   *             region the possible values are None, and Legacy. </p>
+   * <p>The pending or in-progress change of the number of nodes in the cluster.</p>
    */
-  EncryptionType?: string;
-
-  /**
-   * <p>The pending or in-progress change of the cluster's node type.</p>
-   */
-  NodeType?: string;
+  NumberOfNodes?: number;
 }
 
 export namespace PendingModifiedValues {
@@ -1806,14 +1804,14 @@ export namespace PendingModifiedValues {
  */
 export interface ResizeInfo {
   /**
-   * <p>A boolean value indicating if the resize operation can be cancelled.</p>
-   */
-  AllowCancelResize?: boolean;
-
-  /**
    * <p>Returns the value <code>ClassicResize</code>.</p>
    */
   ResizeType?: string;
+
+  /**
+   * <p>A boolean value indicating if the resize operation can be cancelled.</p>
+   */
+  AllowCancelResize?: boolean;
 }
 
 export namespace ResizeInfo {
@@ -1834,10 +1832,18 @@ export interface RestoreStatus {
   SnapshotSizeInMegaBytes?: number;
 
   /**
-   * <p>The number of megabytes that have been transferred from snapshot storage.
+   * <p>The amount of time an in-progress restore has been running, or the amount of time
+   *             it took a completed restore to finish.
    *             This field is only updated when you restore to DC2 and DS2 node types. </p>
    */
-  ProgressInMegaBytes?: number;
+  ElapsedTimeInSeconds?: number;
+
+  /**
+   * <p>The estimate of the time remaining before the restore will complete. Returns 0 for
+   *             a completed restore.
+   *             This field is only updated when you restore to DC2 and DS2 node types. </p>
+   */
+  EstimatedTimeToCompletionInSeconds?: number;
 
   /**
    * <p>The status of the restore action. Returns starting, restoring, completed, or
@@ -1853,18 +1859,10 @@ export interface RestoreStatus {
   CurrentRestoreRateInMegaBytesPerSecond?: number;
 
   /**
-   * <p>The estimate of the time remaining before the restore will complete. Returns 0 for
-   *             a completed restore.
+   * <p>The number of megabytes that have been transferred from snapshot storage.
    *             This field is only updated when you restore to DC2 and DS2 node types. </p>
    */
-  EstimatedTimeToCompletionInSeconds?: number;
-
-  /**
-   * <p>The amount of time an in-progress restore has been running, or the amount of time
-   *             it took a completed restore to finish.
-   *             This field is only updated when you restore to DC2 and DS2 node types. </p>
-   */
-  ElapsedTimeInSeconds?: number;
+  ProgressInMegaBytes?: number;
 }
 
 export namespace RestoreStatus {
@@ -1878,14 +1876,14 @@ export namespace RestoreStatus {
  */
 export interface VpcSecurityGroupMembership {
   /**
-   * <p>The identifier of the VPC security group.</p>
-   */
-  VpcSecurityGroupId?: string;
-
-  /**
    * <p>The status of the VPC security group.</p>
    */
   Status?: string;
+
+  /**
+   * <p>The identifier of the VPC security group.</p>
+   */
+  VpcSecurityGroupId?: string;
 }
 
 export namespace VpcSecurityGroupMembership {
@@ -1899,9 +1897,93 @@ export namespace VpcSecurityGroupMembership {
  */
 export interface Cluster {
   /**
+   * <p>The date and time when the next snapshot is expected to be taken for clusters with a valid snapshot schedule and backups enabled. </p>
+   */
+  ExpectedNextSnapshotScheduleTime?: Date;
+
+  /**
+   * <p>A boolean value that, if <code>true</code>, indicates that data in the cluster is
+   *             encrypted at rest.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>Cluster operations that are waiting to be started.</p>
+   */
+  PendingActions?: string[];
+
+  /**
+   * <p>The specific revision number of the database in the cluster.</p>
+   */
+  ClusterRevisionNumber?: string;
+
+  /**
+   * <p>The date and time that the cluster was created.</p>
+   */
+  ClusterCreateTime?: Date;
+
+  /**
+   * <p>The current state of the cluster snapshot schedule.</p>
+   */
+  SnapshotScheduleState?: ScheduleState | string;
+
+  /**
+   * <p>The nodes in the cluster.</p>
+   */
+  ClusterNodes?: ClusterNode[];
+
+  /**
+   * <p>A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that are
+   *             associated with the cluster. This parameter is returned only if the cluster is in a
+   *             VPC.</p>
+   */
+  VpcSecurityGroups?: VpcSecurityGroupMembership[];
+
+  /**
+   * <p>The status of the elastic IP (EIP) address.</p>
+   */
+  ElasticIpStatus?: ElasticIpStatus;
+
+  /**
+   * <p>The number of compute nodes in the cluster.</p>
+   */
+  NumberOfNodes?: number;
+
+  /**
+   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
+   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
+   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
+   *             the Amazon Redshift Cluster Management Guide.</p>
+   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
+   *         <p>Default: false</p>
+   */
+  EnhancedVpcRouting?: boolean;
+
+  /**
+   * <p>A value that describes the status of a cluster restore action. This parameter
+   *             returns null if the cluster was not created by restoring a snapshot.</p>
+   */
+  RestoreStatus?: RestoreStatus;
+
+  /**
    * <p>The connection endpoint.</p>
    */
   Endpoint?: Endpoint;
+
+  /**
+   * <p>A unique identifier for the cluster snapshot schedule.</p>
+   */
+  SnapshotScheduleIdentifier?: string;
+
+  /**
+   * <p>The list of tags for the cluster.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Describes a group of <code>DeferredMaintenanceWindow</code> objects.</p>
+   */
+  DeferredMaintenanceWindows?: DeferredMaintenanceWindow[];
 
   /**
    * <p>A value that reports whether the Amazon Redshift cluster has finished applying any
@@ -1912,92 +1994,15 @@ export interface Cluster {
   HsmStatus?: HsmStatus;
 
   /**
-   * <p>A boolean value that, if <code>true</code>, indicates that the cluster can be
-   *             accessed from a public network.</p>
+   * <p>The number of days that automatic cluster snapshots are retained.</p>
    */
-  PubliclyAccessible?: boolean;
+  AutomatedSnapshotRetentionPeriod?: number;
 
   /**
-   * <p>A value that returns the destination region and retention period that are
-   *             configured for cross-region snapshot copy.</p>
+   * <p>The list of cluster parameter groups that are associated with this cluster. Each
+   *             parameter group in the list is returned with its status.</p>
    */
-  ClusterSnapshotCopyStatus?: ClusterSnapshotCopyStatus;
-
-  /**
-   * <p>The identifier of the VPC the cluster is in, if the cluster is in a VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The status of the elastic IP (EIP) address.</p>
-   */
-  ElasticIpStatus?: ElasticIpStatus;
-
-  /**
-   * <p>The status of a modify operation, if any, initiated for the cluster.</p>
-   */
-  ModifyStatus?: string;
-
-  /**
-   * <p>The unique identifier of the cluster.</p>
-   */
-  ClusterIdentifier?: string;
-
-  /**
-   * <p>The list of tags for the cluster.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>A list of Amazon Virtual Private Cloud (Amazon VPC) security groups that are
-   *             associated with the cluster. This parameter is returned only if the cluster is in a
-   *             VPC.</p>
-   */
-  VpcSecurityGroups?: VpcSecurityGroupMembership[];
-
-  /**
-   * <p>The nodes in the cluster.</p>
-   */
-  ClusterNodes?: ClusterNode[];
-
-  /**
-   * <p>The weekly time range, in Universal Coordinated Time (UTC), during which system
-   *             maintenance can occur.</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>The current state of the cluster snapshot schedule.</p>
-   */
-  SnapshotScheduleState?: ScheduleState | string;
-
-  /**
-   * <p>The date and time in UTC when system maintenance can begin.</p>
-   */
-  NextMaintenanceWindowStartTime?: Date;
-
-  /**
-   * <p>Cluster operations that are waiting to be started.</p>
-   */
-  PendingActions?: string[];
-
-  /**
-   * <p>The date and time when the next snapshot is expected to be taken for clusters with a valid snapshot schedule and backups enabled. </p>
-   */
-  ExpectedNextSnapshotScheduleTime?: Date;
-
-  /**
-   * <p> The status of next expected snapshot for clusters having a valid snapshot schedule and backups enabled.  Possible values are the following:</p>
-   *         <ul>
-   *             <li>
-   *                <p>OnTrack - The next snapshot is expected to be taken on time. </p>
-   *             </li>
-   *             <li>
-   *                <p>Pending - The next snapshot is pending to be taken. </p>
-   *             </li>
-   *          </ul>
-   */
-  ExpectedNextSnapshotScheduleTimeStatus?: string;
+  ClusterParameterGroups?: ClusterParameterGroupStatus[];
 
   /**
    * <p>Returns the following:</p>
@@ -2014,22 +2019,6 @@ export interface Cluster {
   ResizeInfo?: ResizeInfo;
 
   /**
-   * <p>The public key for the cluster.</p>
-   */
-  ClusterPublicKey?: string;
-
-  /**
-   * <p>The number of days that automatic cluster snapshots are retained.</p>
-   */
-  AutomatedSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The list of cluster parameter groups that are associated with this cluster. Each
-   *             parameter group in the list is returned with its status.</p>
-   */
-  ClusterParameterGroups?: ClusterParameterGroupStatus[];
-
-  /**
    * <p>The name of the maintenance track for the cluster.</p>
    */
   MaintenanceTrackName?: string;
@@ -2040,9 +2029,22 @@ export interface Cluster {
   DataTransferProgress?: DataTransferProgress;
 
   /**
-   * <p>A unique identifier for the cluster snapshot schedule.</p>
+   * <p>The date and time in UTC when system maintenance can begin.</p>
    */
-  SnapshotScheduleIdentifier?: string;
+  NextMaintenanceWindowStartTime?: Date;
+
+  /**
+   * <p> The status of next expected snapshot for clusters having a valid snapshot schedule and backups enabled.  Possible values are the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>OnTrack - The next snapshot is expected to be taken on time. </p>
+   *             </li>
+   *             <li>
+   *                <p>Pending - The next snapshot is pending to be taken. </p>
+   *             </li>
+   *          </ul>
+   */
+  ExpectedNextSnapshotScheduleTimeStatus?: string;
 
   /**
    * <p>The version ID of the Amazon Redshift engine that is running on the cluster.</p>
@@ -2050,36 +2052,49 @@ export interface Cluster {
   ClusterVersion?: string;
 
   /**
-   * <p>The node type for the nodes in the cluster.</p>
+   * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
+   *             cluster to access other AWS services.</p>
    */
-  NodeType?: string;
+  IamRoles?: ClusterIamRole[];
 
   /**
-   * <p>The number of nodes that you can resize the cluster to with the elastic resize method.
+   * <p>A list of cluster security group that are associated with the cluster. Each
+   *             security group is represented by an element that contains
+   *                 <code>ClusterSecurityGroup.Name</code> and <code>ClusterSecurityGroup.Status</code>
+   *             subelements. </p>
+   *         <p>Cluster security groups are used when the cluster is not created in an Amazon
+   *             Virtual Private Cloud (VPC). Clusters that are created in a VPC use VPC security groups,
+   *             which are listed by the <b>VpcSecurityGroups</b> parameter.
    *         </p>
    */
-  ElasticResizeNumberOfNodeOptions?: string;
+  ClusterSecurityGroups?: ClusterSecurityGroupMembership[];
 
   /**
-   * <p>A value that describes the status of a cluster restore action. This parameter
-   *             returns null if the cluster was not created by restoring a snapshot.</p>
+   * <p>The availability status of the cluster for queries. Possible values are the following:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Available - The cluster is available for queries. </p>
+   *             </li>
+   *             <li>
+   *                <p>Unavailable - The cluster is not available for queries.</p>
+   *             </li>
+   *             <li>
+   *                <p>Maintenance - The cluster is intermittently available for queries due to maintenance activities.</p>
+   *             </li>
+   *             <li>
+   *                <p>Modifying - The cluster is intermittently available for queries due to changes that modify the cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>Failed - The cluster failed and is not available for queries.</p>
+   *             </li>
+   *          </ul>
    */
-  RestoreStatus?: RestoreStatus;
+  ClusterAvailabilityStatus?: string;
 
   /**
-   * <p>Describes a group of <code>DeferredMaintenanceWindow</code> objects.</p>
+   * <p>The public key for the cluster.</p>
    */
-  DeferredMaintenanceWindows?: DeferredMaintenanceWindow[];
-
-  /**
-   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
-   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
-   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
-   *             the Amazon Redshift Cluster Management Guide.</p>
-   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
-   *         <p>Default: false</p>
-   */
-  EnhancedVpcRouting?: boolean;
+  ClusterPublicKey?: string;
 
   /**
    * <p>A boolean value that, if <code>true</code>, indicates that major version upgrades
@@ -2088,26 +2103,53 @@ export interface Cluster {
   AllowVersionUpgrade?: boolean;
 
   /**
-   * <p>The number of compute nodes in the cluster.</p>
+   * <p>The weekly time range, in Universal Coordinated Time (UTC), during which system
+   *             maintenance can occur.</p>
    */
-  NumberOfNodes?: number;
+  PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>A boolean value that, if <code>true</code>, indicates that data in the cluster is
-   *             encrypted at rest.</p>
+   * <p>The unique identifier of the cluster.</p>
    */
-  Encrypted?: boolean;
+  ClusterIdentifier?: string;
 
   /**
-   * <p>The date and time that the cluster was created.</p>
+   * <p>The node type for the nodes in the cluster.</p>
    */
-  ClusterCreateTime?: Date;
+  NodeType?: string;
 
   /**
-   * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
-   *             cluster to access other AWS services.</p>
+   * <p>The status of a modify operation, if any, initiated for the cluster.</p>
    */
-  IamRoles?: ClusterIamRole[];
+  ModifyStatus?: string;
+
+  /**
+   * <p>A boolean value that, if <code>true</code>, indicates that the cluster can be
+   *             accessed from a public network.</p>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * <p>A value that returns the destination region and retention period that are
+   *             configured for cross-region snapshot copy.</p>
+   */
+  ClusterSnapshotCopyStatus?: ClusterSnapshotCopyStatus;
+
+  /**
+   * <p>The number of nodes that you can resize the cluster to with the elastic resize method.
+   *         </p>
+   */
+  ElasticResizeNumberOfNodeOptions?: string;
+
+  /**
+   * <p>The name of the Availability Zone in which the cluster is located.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The identifier of the VPC the cluster is in, if the cluster is in a VPC.</p>
+   */
+  VpcId?: string;
 
   /**
    * <p> The current state of the cluster. Possible values are the following:</p>
@@ -2217,68 +2259,17 @@ export interface Cluster {
   ClusterStatus?: string;
 
   /**
-   * <p>The availability status of the cluster for queries. Possible values are the following:</p>
-   *         <ul>
-   *             <li>
-   *                <p>Available - The cluster is available for queries. </p>
-   *             </li>
-   *             <li>
-   *                <p>Unavailable - The cluster is not available for queries.</p>
-   *             </li>
-   *             <li>
-   *                <p>Maintenance - The cluster is intermittently available for queries due to maintenance activities.</p>
-   *             </li>
-   *             <li>
-   *                <p>Modifying - The cluster is intermittently available for queries due to changes that modify the cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>Failed - The cluster failed and is not available for queries.</p>
-   *             </li>
-   *          </ul>
-   */
-  ClusterAvailabilityStatus?: string;
-
-  /**
-   * <p>The name of the Availability Zone in which the cluster is located.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>A list of cluster security group that are associated with the cluster. Each
-   *             security group is represented by an element that contains
-   *                 <code>ClusterSecurityGroup.Name</code> and <code>ClusterSecurityGroup.Status</code>
-   *             subelements. </p>
-   *         <p>Cluster security groups are used when the cluster is not created in an Amazon
-   *             Virtual Private Cloud (VPC). Clusters that are created in a VPC use VPC security groups,
-   *             which are listed by the <b>VpcSecurityGroups</b> parameter.
-   *         </p>
-   */
-  ClusterSecurityGroups?: ClusterSecurityGroupMembership[];
-
-  /**
    * <p>The AWS Key Management Service (AWS KMS) key ID of the encryption key used to
    *             encrypt data in the cluster.</p>
    */
   KmsKeyId?: string;
 
   /**
-   * <p>The default number of days to retain a manual snapshot. If the value is -1, the
-   *             snapshot is retained indefinitely. This setting doesn't change the retention period
-   *             of existing snapshots.</p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   * <p>The name of the initial database that was created when the cluster was created.
+   *             This same name is returned for the life of the cluster. If an initial database was not
+   *             specified, a database named <code>dev</code>dev was created by default. </p>
    */
-  ManualSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The specific revision number of the database in the cluster.</p>
-   */
-  ClusterRevisionNumber?: string;
-
-  /**
-   * <p>A value that, if present, indicates that changes to the cluster are pending.
-   *             Specific pending changes are identified by subelements.</p>
-   */
-  PendingModifiedValues?: PendingModifiedValues;
+  DBName?: string;
 
   /**
    * <p>The name of the subnet group that is associated with the cluster. This parameter is
@@ -2293,11 +2284,18 @@ export interface Cluster {
   MasterUsername?: string;
 
   /**
-   * <p>The name of the initial database that was created when the cluster was created.
-   *             This same name is returned for the life of the cluster. If an initial database was not
-   *             specified, a database named <code>dev</code>dev was created by default. </p>
+   * <p>A value that, if present, indicates that changes to the cluster are pending.
+   *             Specific pending changes are identified by subelements.</p>
    */
-  DBName?: string;
+  PendingModifiedValues?: PendingModifiedValues;
+
+  /**
+   * <p>The default number of days to retain a manual snapshot. If the value is -1, the
+   *             snapshot is retained indefinitely. This setting doesn't change the retention period
+   *             of existing snapshots.</p>
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   */
+  ManualSnapshotRetentionPeriod?: number;
 }
 
 export namespace Cluster {
@@ -2327,12 +2325,6 @@ export namespace ClusterAlreadyExistsFault {
  */
 export interface ClusterCredentials {
   /**
-   * <p>A temporary password that authorizes the user name returned by <code>DbUser</code>
-   *             to log on to the database <code>DbName</code>. </p>
-   */
-  DbPassword?: string;
-
-  /**
    * <p>A database user name that is authorized to log on to the database
    *                 <code>DbName</code> using the password <code>DbPassword</code>. If the specified
    *             DbUser exists in the database, the new user name has the same database privileges as the
@@ -2346,6 +2338,12 @@ export interface ClusterCredentials {
    * <p>The date and time the password in <code>DbPassword</code> expires.</p>
    */
   Expiration?: Date;
+
+  /**
+   * <p>A temporary password that authorizes the user name returned by <code>DbUser</code>
+   *             to log on to the database <code>DbName</code>. </p>
+   */
+  DbPassword?: string;
 }
 
 export namespace ClusterCredentials {
@@ -2388,14 +2386,14 @@ export namespace RevisionTarget {
  */
 export interface ClusterDbRevision {
   /**
-   * <p>A string representing the current cluster version.</p>
-   */
-  CurrentDatabaseRevision?: string;
-
-  /**
    * <p>The date on which the database revision was released.</p>
    */
   DatabaseRevisionReleaseDate?: Date;
+
+  /**
+   * <p>The unique identifier of the cluster.</p>
+   */
+  ClusterIdentifier?: string;
 
   /**
    * <p>A list of <code>RevisionTarget</code> objects, where each object describes the
@@ -2404,9 +2402,9 @@ export interface ClusterDbRevision {
   RevisionTargets?: RevisionTarget[];
 
   /**
-   * <p>The unique identifier of the cluster.</p>
+   * <p>A string representing the current cluster version.</p>
    */
-  ClusterIdentifier?: string;
+  CurrentDatabaseRevision?: string;
 }
 
 export namespace ClusterDbRevision {
@@ -2456,14 +2454,9 @@ export namespace ClusterOnLatestRevisionFault {
  */
 export interface ClusterParameterGroup {
   /**
-   * <p>The list of tags for the cluster parameter group.</p>
+   * <p>The name of the cluster parameter group.</p>
    */
-  Tags?: Tag[];
-
-  /**
-   * <p>The description of the parameter group.</p>
-   */
-  Description?: string;
+  ParameterGroupName?: string;
 
   /**
    * <p>The name of the cluster parameter group family that this cluster parameter group is
@@ -2472,9 +2465,14 @@ export interface ClusterParameterGroup {
   ParameterGroupFamily?: string;
 
   /**
-   * <p>The name of the cluster parameter group.</p>
+   * <p>The description of the parameter group.</p>
    */
-  ParameterGroupName?: string;
+  Description?: string;
+
+  /**
+   * <p>The list of tags for the cluster parameter group.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace ClusterParameterGroup {
@@ -2505,16 +2503,6 @@ export type ParameterApplyType = "dynamic" | "static";
  */
 export interface Parameter {
   /**
-   * <p>The data type of the parameter.</p>
-   */
-  DataType?: string;
-
-  /**
-   * <p>The valid range of values for the parameter.</p>
-   */
-  AllowedValues?: string;
-
-  /**
    * <p>The source of the parameter value, such as "engine-default" or "user".</p>
    */
   Source?: string;
@@ -2523,6 +2511,31 @@ export interface Parameter {
    * <p>The name of the parameter.</p>
    */
   ParameterName?: string;
+
+  /**
+   * <p>The data type of the parameter.</p>
+   */
+  DataType?: string;
+
+  /**
+   * <p>The earliest engine version to which the parameter can apply.</p>
+   */
+  MinimumEngineVersion?: string;
+
+  /**
+   * <p>The valid range of values for the parameter.</p>
+   */
+  AllowedValues?: string;
+
+  /**
+   * <p>The value of the parameter.</p>
+   */
+  ParameterValue?: string;
+
+  /**
+   * <p>A description of the parameter.</p>
+   */
+  Description?: string;
 
   /**
    * <p>Specifies how to apply the WLM configuration parameter. Some properties can be
@@ -2535,25 +2548,10 @@ export interface Parameter {
   ApplyType?: ParameterApplyType | string;
 
   /**
-   * <p>The value of the parameter.</p>
-   */
-  ParameterValue?: string;
-
-  /**
    * <p>If <code>true</code>, the parameter can be modified. Some parameters have security
    *             or operational implications that prevent them from being changed. </p>
    */
   IsModifiable?: boolean;
-
-  /**
-   * <p>A description of the parameter.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The earliest engine version to which the parameter can apply.</p>
-   */
-  MinimumEngineVersion?: string;
 }
 
 export namespace Parameter {
@@ -2652,12 +2650,6 @@ export namespace ClusterParameterGroupQuotaExceededFault {
  */
 export interface ClusterParameterGroupsMessage {
   /**
-   * <p>A list of <a>ClusterParameterGroup</a> instances. Each instance
-   *             describes one cluster parameter group. </p>
-   */
-  ParameterGroups?: ClusterParameterGroup[];
-
-  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -2665,6 +2657,12 @@ export interface ClusterParameterGroupsMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of <a>ClusterParameterGroup</a> instances. Each instance
+   *             describes one cluster parameter group. </p>
+   */
+  ParameterGroups?: ClusterParameterGroup[];
 }
 
 export namespace ClusterParameterGroupsMessage {
@@ -2756,6 +2754,12 @@ export namespace ClusterSecurityGroupQuotaExceededFault {
  */
 export interface ClustersMessage {
   /**
+   * <p>A list of <code>Cluster</code> objects, where each object describes one cluster.
+   *         </p>
+   */
+  Clusters?: Cluster[];
+
+  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -2763,12 +2767,6 @@ export interface ClustersMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of <code>Cluster</code> objects, where each object describes one cluster.
-   *         </p>
-   */
-  Clusters?: Cluster[];
 }
 
 export namespace ClustersMessage {
@@ -2814,11 +2812,6 @@ export namespace ClusterSnapshotQuotaExceededFault {
  */
 export interface Subnet {
   /**
-   * <p></p>
-   */
-  SubnetAvailabilityZone?: AvailabilityZone;
-
-  /**
    * <p>The identifier of the subnet.</p>
    */
   SubnetIdentifier?: string;
@@ -2827,6 +2820,11 @@ export interface Subnet {
    * <p>The status of the subnet.</p>
    */
   SubnetStatus?: string;
+
+  /**
+   * <p></p>
+   */
+  SubnetAvailabilityZone?: AvailabilityZone;
 }
 
 export namespace Subnet {
@@ -2845,19 +2843,9 @@ export interface ClusterSubnetGroup {
   Description?: string;
 
   /**
-   * <p>A list of the VPC <a>Subnet</a> elements. </p>
-   */
-  Subnets?: Subnet[];
-
-  /**
    * <p>The name of the cluster subnet group.</p>
    */
   ClusterSubnetGroupName?: string;
-
-  /**
-   * <p>The VPC ID of the cluster subnet group.</p>
-   */
-  VpcId?: string;
 
   /**
    * <p>The list of tags for the cluster subnet group.</p>
@@ -2865,10 +2853,20 @@ export interface ClusterSubnetGroup {
   Tags?: Tag[];
 
   /**
+   * <p>A list of the VPC <a>Subnet</a> elements. </p>
+   */
+  Subnets?: Subnet[];
+
+  /**
    * <p>The status of the cluster subnet group. Possible values are <code>Complete</code>,
    *                 <code>Incomplete</code> and <code>Invalid</code>. </p>
    */
   SubnetGroupStatus?: string;
+
+  /**
+   * <p>The VPC ID of the cluster subnet group.</p>
+   */
+  VpcId?: string;
 }
 
 export namespace ClusterSubnetGroup {
@@ -2899,6 +2897,11 @@ export namespace ClusterSubnetGroupAlreadyExistsFault {
  */
 export interface ClusterSubnetGroupMessage {
   /**
+   * <p>A list of <a>ClusterSubnetGroup</a> instances. </p>
+   */
+  ClusterSubnetGroups?: ClusterSubnetGroup[];
+
+  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -2906,11 +2909,6 @@ export interface ClusterSubnetGroupMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of <a>ClusterSubnetGroup</a> instances. </p>
-   */
-  ClusterSubnetGroups?: ClusterSubnetGroup[];
 }
 
 export namespace ClusterSubnetGroupMessage {
@@ -3031,14 +3029,6 @@ export namespace ClusterVersionsMessage {
  */
 export interface CopyClusterSnapshotMessage {
   /**
-   * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
-   *             snapshot is retained indefinitely. </p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
-   *         <p>The default value is -1.</p>
-   */
-  ManualSnapshotRetentionPeriod?: number;
-
-  /**
    * <p>The identifier of the cluster the source snapshot was created from. This parameter
    *             is required if your IAM user has a policy containing a snapshot resource element that
    *             specifies anything other than * for the cluster name.</p>
@@ -3052,16 +3042,12 @@ export interface CopyClusterSnapshotMessage {
   SourceSnapshotClusterIdentifier?: string;
 
   /**
-   * <p>The identifier for the source snapshot.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Must be the identifier for a valid automated snapshot whose state is
-   *                         <code>available</code>.</p>
-   *             </li>
-   *          </ul>
+   * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
+   *             snapshot is retained indefinitely. </p>
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   *         <p>The default value is -1.</p>
    */
-  SourceSnapshotIdentifier: string | undefined;
+  ManualSnapshotRetentionPeriod?: number;
 
   /**
    * <p>The identifier given to the new manual snapshot.</p>
@@ -3085,6 +3071,18 @@ export interface CopyClusterSnapshotMessage {
    *          </ul>
    */
   TargetSnapshotIdentifier: string | undefined;
+
+  /**
+   * <p>The identifier for the source snapshot.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must be the identifier for a valid automated snapshot whose state is
+   *                         <code>available</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceSnapshotIdentifier: string | undefined;
 }
 
 export namespace CopyClusterSnapshotMessage {
@@ -3127,79 +3125,6 @@ export namespace CopyToRegionDisabledFault {
  */
 export interface CreateClusterMessage {
   /**
-   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
-   *             use to encrypt data in the cluster.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the
-   *             cluster. For example, if you have several EC2 instances running in a specific
-   *             Availability Zone, then you might want the cluster to be provisioned in the same zone in
-   *             order to decrease network latency.</p>
-   *         <p>Default: A random, system-chosen Availability Zone in the region that is specified
-   *             by the endpoint.</p>
-   *         <p>Example: <code>us-east-2d</code>
-   *         </p>
-   *         <p>Constraint: The specified Availability Zone must be in the same region as the
-   *             current endpoint.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The weekly time range (in UTC) during which automated cluster maintenance can
-   *             occur.</p>
-   *         <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
-   *         </p>
-   *         <p> Default: A 30-minute window selected at random from an 8-hour block of time per
-   *             region, occurring on a random day of the week. For more information about the time
-   *             blocks for each region, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance Windows</a> in Amazon Redshift Cluster Management Guide.</p>
-   *         <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
-   *         <p>Constraints: Minimum 30-minute window.</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>Reserved.</p>
-   */
-  AdditionalInfo?: string;
-
-  /**
-   * <p>The name of the first database to be created when the cluster is created.</p>
-   *         <p>To create additional databases after the cluster is created, connect to the cluster
-   *             with a SQL client and use SQL commands to create a database. For more information, go to
-   *                 <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html">Create
-   *                 a Database</a> in the Amazon Redshift Database Developer Guide. </p>
-   *         <p>Default: <code>dev</code>
-   *         </p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Must contain 1 to 64 alphanumeric characters.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Must contain only lowercase letters.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Cannot be a word that is reserved by the service. A list of reserved words
-   *                     can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the
-   *                     Amazon Redshift Database Developer Guide. </p>
-   *             </li>
-   *          </ul>
-   */
-  DBName?: string;
-
-  /**
-   * <p>If <code>true</code>, the cluster can be accessed from a public network. </p>
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>A list of tag instances.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>The password associated with the master user account for the cluster that is being
    *             created.</p>
    *         <p>Constraints:</p>
@@ -3225,35 +3150,48 @@ export interface CreateClusterMessage {
   MasterUserPassword: string | undefined;
 
   /**
-   * <p>A list of Virtual Private Cloud (VPC) security groups to be associated with the
-   *             cluster.</p>
-   *         <p>Default: The default VPC security group is associated with the cluster.</p>
+   * <p>If <code>true</code>, the cluster can be accessed from a public network. </p>
    */
-  VpcSecurityGroupIds?: string[];
+  PubliclyAccessible?: boolean;
 
   /**
-   * <p>An optional parameter for the name of the maintenance track for the cluster. If you
-   *             don't provide a maintenance track name, the cluster is assigned to the
-   *                 <code>current</code> track.</p>
+   * <p>A list of tag instances.</p>
    */
-  MaintenanceTrackName?: string;
+  Tags?: Tag[];
 
   /**
-   * <p>The node type to be provisioned for the cluster. For information about node types,
-   *             go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes"> Working with
-   *                 Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
-   *         <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |
-   *                 <code>dc1.large</code> | <code>dc1.8xlarge</code> |
-   *                 <code>dc2.large</code> | <code>dc2.8xlarge</code> |
-   *                 <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
-   *          </p>
+   * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
+   *             retrieve the data encryption keys stored in an HSM.</p>
    */
-  NodeType: string | undefined;
+  HsmClientCertificateIdentifier?: string;
 
   /**
-   * <p>A unique identifier for the snapshot schedule.</p>
+   * <p>If <code>true</code>, the data in the cluster is encrypted at rest. </p>
+   *         <p>Default: false</p>
    */
-  SnapshotScheduleIdentifier?: string;
+  Encrypted?: boolean;
+
+  /**
+   * <p>The number of days that automated snapshots are retained. If the value is 0,
+   *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
+   *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
+   *         <p>Default: <code>1</code>
+   *         </p>
+   *         <p>Constraints: Must be a value from 0 to 35.</p>
+   */
+  AutomatedSnapshotRetentionPeriod?: number;
+
+  /**
+   * <p>The port number on which the cluster accepts incoming connections.</p>
+   *         <p>The cluster is accessible only via the JDBC and ODBC connection strings. Part of
+   *             the connection string requires the port on which the cluster will listen for incoming
+   *             connections.</p>
+   *         <p>Default: <code>5439</code>
+   *         </p>
+   *         <p>Valid Values: <code>1150-65535</code>
+   *         </p>
+   */
+  Port?: number;
 
   /**
    * <p>Specifies the name of the HSM configuration that contains the information the
@@ -3293,57 +3231,115 @@ export interface CreateClusterMessage {
   ClusterType?: string;
 
   /**
-   * <p>The port number on which the cluster accepts incoming connections.</p>
-   *         <p>The cluster is accessible only via the JDBC and ODBC connection strings. Part of
-   *             the connection string requires the port on which the cluster will listen for incoming
-   *             connections.</p>
-   *         <p>Default: <code>5439</code>
-   *         </p>
-   *         <p>Valid Values: <code>1150-65535</code>
-   *         </p>
+   * <p>A unique identifier for the snapshot schedule.</p>
    */
-  Port?: number;
+  SnapshotScheduleIdentifier?: string;
 
   /**
-   * <p>The number of days that automated snapshots are retained. If the value is 0,
-   *             automated snapshots are disabled. Even if automated snapshots are disabled, you can
-   *             still create manual snapshots when you want with <a>CreateClusterSnapshot</a>. </p>
-   *         <p>Default: <code>1</code>
+   * <p>A list of Virtual Private Cloud (VPC) security groups to be associated with the
+   *             cluster.</p>
+   *         <p>Default: The default VPC security group is associated with the cluster.</p>
+   */
+  VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>The name of a cluster subnet group to be associated with this cluster.</p>
+   *         <p>If this parameter is not provided the resulting cluster will be deployed outside
+   *             virtual private cloud (VPC).</p>
+   */
+  ClusterSubnetGroupName?: string;
+
+  /**
+   * <p>If <code>true</code>, major version upgrades can be applied during the maintenance
+   *             window to the Amazon Redshift engine that is running on the cluster.</p>
+   *         <p>When a new major version of the Amazon Redshift engine is released, you can request that
+   *             the service automatically apply upgrades during the maintenance window to the Amazon Redshift
+   *             engine that is running on your cluster.</p>
+   *         <p>Default: <code>true</code>
    *         </p>
-   *         <p>Constraints: Must be a value from 0 to 35.</p>
    */
-  AutomatedSnapshotRetentionPeriod?: number;
+  AllowVersionUpgrade?: boolean;
 
   /**
-   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
-   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
-   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
-   *             the Amazon Redshift Cluster Management Guide.</p>
-   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
-   *         <p>Default: false</p>
+   * <p>The default number of days to retain a manual snapshot. If the value is -1, the
+   *             snapshot is retained indefinitely. This setting doesn't change the retention period
+   *             of existing snapshots.</p>
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
    */
-  EnhancedVpcRouting?: boolean;
+  ManualSnapshotRetentionPeriod?: number;
 
   /**
-   * <p>The user name associated with the master user account for the cluster that is being
-   *             created.</p>
+   * <p>An optional parameter for the name of the maintenance track for the cluster. If you
+   *             don't provide a maintenance track name, the cluster is assigned to the
+   *                 <code>current</code> track.</p>
+   */
+  MaintenanceTrackName?: string;
+
+  /**
+   * <p>Reserved.</p>
+   */
+  AdditionalInfo?: string;
+
+  /**
+   * <p>The node type to be provisioned for the cluster. For information about node types,
+   *             go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes"> Working with
+   *                 Clusters</a> in the <i>Amazon Redshift Cluster Management Guide</i>. </p>
+   *         <p>Valid Values: <code>ds2.xlarge</code> | <code>ds2.8xlarge</code> |
+   *                 <code>dc1.large</code> | <code>dc1.8xlarge</code> |
+   *                 <code>dc2.large</code> | <code>dc2.8xlarge</code> |
+   *                 <code>ra3.4xlarge</code> | <code>ra3.16xlarge</code>
+   *          </p>
+   */
+  NodeType: string | undefined;
+
+  /**
+   * <p>The AWS Key Management Service (KMS) key ID of the encryption key that you want to
+   *             use to encrypt data in the cluster.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
+   *             cluster to access other AWS services. You must supply the IAM roles in their Amazon
+   *             Resource Name (ARN) format. You can supply up to 10 IAM roles in a single
+   *             request.</p>
+   *         <p>A cluster can have up to 10 IAM roles associated with it at any time.</p>
+   */
+  IamRoles?: string[];
+
+  /**
+   * <p>The Elastic IP (EIP) address for the cluster.</p>
+   *         <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible
+   *             through an Internet gateway. For more information about provisioning clusters in
+   *             EC2-VPC, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
+   *                 Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>
+   */
+  ElasticIp?: string;
+
+  /**
+   * <p>The name of the first database to be created when the cluster is created.</p>
+   *         <p>To create additional databases after the cluster is created, connect to the cluster
+   *             with a SQL client and use SQL commands to create a database. For more information, go to
+   *                 <a href="https://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html">Create
+   *                 a Database</a> in the Amazon Redshift Database Developer Guide. </p>
+   *         <p>Default: <code>dev</code>
+   *         </p>
    *         <p>Constraints:</p>
    *         <ul>
    *             <li>
-   *                 <p>Must be 1 - 128 alphanumeric characters. The user name can't be
-   *                         <code>PUBLIC</code>.</p>
+   *                 <p>Must contain 1 to 64 alphanumeric characters.</p>
    *             </li>
    *             <li>
-   *                 <p>First character must be a letter.</p>
+   *                 <p>Must contain only lowercase letters.</p>
    *             </li>
    *             <li>
-   *
-   *                 <p>Cannot be a reserved word. A list of reserved words can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
-   *                         Words</a> in the Amazon Redshift Database Developer Guide. </p>
+   *                 <p>Cannot be a word that is reserved by the service. A list of reserved words
+   *                     can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved Words</a> in the
+   *                     Amazon Redshift Database Developer Guide. </p>
    *             </li>
    *          </ul>
    */
-  MasterUsername: string | undefined;
+  DBName?: string;
 
   /**
    * <p>The number of compute nodes in the cluster. This parameter is required when the
@@ -3361,51 +3357,27 @@ export interface CreateClusterMessage {
   NumberOfNodes?: number;
 
   /**
-   * <p>The Elastic IP (EIP) address for the cluster.</p>
-   *         <p>Constraints: The cluster must be provisioned in EC2-VPC and publicly-accessible
-   *             through an Internet gateway. For more information about provisioning clusters in
-   *             EC2-VPC, go to <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms">Supported
-   *                 Platforms to Launch Your Cluster</a> in the Amazon Redshift Cluster Management Guide.</p>
-   */
-  ElasticIp?: string;
-
-  /**
-   * <p>If <code>true</code>, the data in the cluster is encrypted at rest. </p>
+   * <p>An option that specifies whether to create the cluster with enhanced VPC routing
+   *             enabled. To create a cluster that uses enhanced VPC routing, the cluster must be in a
+   *             VPC. For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/enhanced-vpc-routing.html">Enhanced VPC Routing</a> in
+   *             the Amazon Redshift Cluster Management Guide.</p>
+   *         <p>If this option is <code>true</code>, enhanced VPC routing is enabled. </p>
    *         <p>Default: false</p>
    */
-  Encrypted?: boolean;
+  EnhancedVpcRouting?: boolean;
 
   /**
-   * <p>Specifies the name of the HSM client certificate the Amazon Redshift cluster uses to
-   *             retrieve the data encryption keys stored in an HSM.</p>
-   */
-  HsmClientCertificateIdentifier?: string;
-
-  /**
-   * <p>The default number of days to retain a manual snapshot. If the value is -1, the
-   *             snapshot is retained indefinitely. This setting doesn't change the retention period
-   *             of existing snapshots.</p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
-   */
-  ManualSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>If <code>true</code>, major version upgrades can be applied during the maintenance
-   *             window to the Amazon Redshift engine that is running on the cluster.</p>
-   *         <p>When a new major version of the Amazon Redshift engine is released, you can request that
-   *             the service automatically apply upgrades during the maintenance window to the Amazon Redshift
-   *             engine that is running on your cluster.</p>
-   *         <p>Default: <code>true</code>
+   * <p>The weekly time range (in UTC) during which automated cluster maintenance can
+   *             occur.</p>
+   *         <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
    *         </p>
+   *         <p> Default: A 30-minute window selected at random from an 8-hour block of time per
+   *             region, occurring on a random day of the week. For more information about the time
+   *             blocks for each region, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows">Maintenance Windows</a> in Amazon Redshift Cluster Management Guide.</p>
+   *         <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
+   *         <p>Constraints: Minimum 30-minute window.</p>
    */
-  AllowVersionUpgrade?: boolean;
-
-  /**
-   * <p>The name of a cluster subnet group to be associated with this cluster.</p>
-   *         <p>If this parameter is not provided the resulting cluster will be deployed outside
-   *             virtual private cloud (VPC).</p>
-   */
-  ClusterSubnetGroupName?: string;
+  PreferredMaintenanceWindow?: string;
 
   /**
    * <p>The name of the parameter group to be associated with this cluster.</p>
@@ -3427,21 +3399,6 @@ export interface CreateClusterMessage {
    *          </ul>
    */
   ClusterParameterGroupName?: string;
-
-  /**
-   * <p>A list of security groups to be associated with this cluster.</p>
-   *         <p>Default: The default cluster security group for Amazon Redshift.</p>
-   */
-  ClusterSecurityGroups?: string[];
-
-  /**
-   * <p>A list of AWS Identity and Access Management (IAM) roles that can be used by the
-   *             cluster to access other AWS services. You must supply the IAM roles in their Amazon
-   *             Resource Name (ARN) format. You can supply up to 10 IAM roles in a single
-   *             request.</p>
-   *         <p>A cluster can have up to 10 IAM roles associated with it at any time.</p>
-   */
-  IamRoles?: string[];
 
   /**
    * <p>A unique identifier for the cluster. You use this identifier to refer to the
@@ -3470,6 +3427,47 @@ export interface CreateClusterMessage {
    *         </p>
    */
   ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>A list of security groups to be associated with this cluster.</p>
+   *         <p>Default: The default cluster security group for Amazon Redshift.</p>
+   */
+  ClusterSecurityGroups?: string[];
+
+  /**
+   * <p>The user name associated with the master user account for the cluster that is being
+   *             created.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must be 1 - 128 alphanumeric characters. The user name can't be
+   *                         <code>PUBLIC</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *
+   *                 <p>Cannot be a reserved word. A list of reserved words can be found in <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html">Reserved
+   *                         Words</a> in the Amazon Redshift Database Developer Guide. </p>
+   *             </li>
+   *          </ul>
+   */
+  MasterUsername: string | undefined;
+
+  /**
+   * <p>The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the
+   *             cluster. For example, if you have several EC2 instances running in a specific
+   *             Availability Zone, then you might want the cluster to be provisioned in the same zone in
+   *             order to decrease network latency.</p>
+   *         <p>Default: A random, system-chosen Availability Zone in the region that is specified
+   *             by the endpoint.</p>
+   *         <p>Example: <code>us-east-2d</code>
+   *         </p>
+   *         <p>Constraint: The specified Availability Zone must be in the same region as the
+   *             current endpoint.</p>
+   */
+  AvailabilityZone?: string;
 }
 
 export namespace CreateClusterMessage {
@@ -3713,6 +3711,11 @@ export namespace UnauthorizedOperation {
  */
 export interface CreateClusterParameterGroupMessage {
   /**
+   * <p>A description of the parameter group.</p>
+   */
+  Description: string | undefined;
+
+  /**
    * <p>The name of the cluster parameter group.</p>
    *         <p>Constraints:</p>
    *         <ul>
@@ -3750,11 +3753,6 @@ export interface CreateClusterParameterGroupMessage {
    * <p>A list of tag instances.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>A description of the parameter group.</p>
-   */
-  Description: string | undefined;
 }
 
 export namespace CreateClusterParameterGroupMessage {
@@ -3781,16 +3779,6 @@ export namespace CreateClusterParameterGroupResult {
  */
 export interface CreateClusterSecurityGroupMessage {
   /**
-   * <p>A description for the security group.</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>A list of tag instances.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>The name for the security group. Amazon Redshift stores the value as a lowercase
    *             string.</p>
    *         <p>Constraints:</p>
@@ -3810,6 +3798,16 @@ export interface CreateClusterSecurityGroupMessage {
    *         </p>
    */
   ClusterSecurityGroupName: string | undefined;
+
+  /**
+   * <p>A list of tag instances.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A description for the security group.</p>
+   */
+  Description: string | undefined;
 }
 
 export namespace CreateClusterSecurityGroupMessage {
@@ -3836,24 +3834,14 @@ export namespace CreateClusterSecurityGroupResult {
  */
 export interface CreateClusterSnapshotMessage {
   /**
-   * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
-   *             snapshot is retained indefinitely. </p>
-   *
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
-   *
-   *         <p>The default value is -1.</p>
+   * <p>The cluster identifier for which you want a snapshot.</p>
    */
-  ManualSnapshotRetentionPeriod?: number;
+  ClusterIdentifier: string | undefined;
 
   /**
    * <p>A list of tag instances.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>The cluster identifier for which you want a snapshot.</p>
-   */
-  ClusterIdentifier: string | undefined;
 
   /**
    * <p>A unique identifier for the snapshot that you are requesting. This identifier must
@@ -3877,6 +3865,16 @@ export interface CreateClusterSnapshotMessage {
    *         </p>
    */
   SnapshotIdentifier: string | undefined;
+
+  /**
+   * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
+   *             snapshot is retained indefinitely. </p>
+   *
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   *
+   *         <p>The default value is -1.</p>
+   */
+  ManualSnapshotRetentionPeriod?: number;
 }
 
 export namespace CreateClusterSnapshotMessage {
@@ -3914,6 +3912,11 @@ export interface CreateClusterSubnetGroupMessage {
   SubnetIds: string[] | undefined;
 
   /**
+   * <p>A description for the subnet group.</p>
+   */
+  Description: string | undefined;
+
+  /**
    * <p>The name for the subnet group. Amazon Redshift stores the value as a lowercase
    *             string.</p>
    *         <p>Constraints:</p>
@@ -3933,11 +3936,6 @@ export interface CreateClusterSubnetGroupMessage {
    *         </p>
    */
   ClusterSubnetGroupName: string | undefined;
-
-  /**
-   * <p>A description for the subnet group.</p>
-   */
-  Description: string | undefined;
 }
 
 export namespace CreateClusterSubnetGroupMessage {
@@ -3971,35 +3969,17 @@ export interface CreateEventSubscriptionMessage {
   SnsTopicArn: string | undefined;
 
   /**
-   * <p>A boolean value; set to <code>true</code> to activate the subscription, and set to
-   *                 <code>false</code> to create the subscription but not activate it. </p>
-   */
-  Enabled?: boolean;
-
-  /**
-   * <p>Specifies the Amazon Redshift event severity to be published by the event notification
-   *             subscription.</p>
-   *         <p>Values: ERROR, INFO</p>
-   */
-  Severity?: string;
-
-  /**
-   * <p>A list of one or more identifiers of Amazon Redshift source objects. All of the objects
-   *             must be of the same type as was specified in the source type parameter. The event
-   *             subscription will return only events generated by the specified objects. If not
-   *             specified, then events are returned for all objects within the source type
-   *             specified.</p>
-   *         <p>Example: my-cluster-1, my-cluster-2</p>
-   *         <p>Example: my-snapshot-20131010</p>
-   */
-  SourceIds?: string[];
-
-  /**
    * <p>Specifies the Amazon Redshift event categories to be published by the event notification
    *             subscription.</p>
    *         <p>Values: configuration, management, monitoring, security</p>
    */
   EventCategories?: string[];
+
+  /**
+   * <p>A boolean value; set to <code>true</code> to activate the subscription, and set to
+   *                 <code>false</code> to create the subscription but not activate it. </p>
+   */
+  Enabled?: boolean;
 
   /**
    * <p>The type of source that will be generating the events. For example, if you want to
@@ -4009,11 +3989,6 @@ export interface CreateEventSubscriptionMessage {
    *         <p>Valid values: cluster, cluster-parameter-group, cluster-security-group, cluster-snapshot, and scheduled-action.</p>
    */
   SourceType?: string;
-
-  /**
-   * <p>A list of tag instances.</p>
-   */
-  Tags?: Tag[];
 
   /**
    * <p>The name of the event subscription to be created.</p>
@@ -4034,6 +4009,29 @@ export interface CreateEventSubscriptionMessage {
    *          </ul>
    */
   SubscriptionName: string | undefined;
+
+  /**
+   * <p>Specifies the Amazon Redshift event severity to be published by the event notification
+   *             subscription.</p>
+   *         <p>Values: ERROR, INFO</p>
+   */
+  Severity?: string;
+
+  /**
+   * <p>A list of one or more identifiers of Amazon Redshift source objects. All of the objects
+   *             must be of the same type as was specified in the source type parameter. The event
+   *             subscription will return only events generated by the specified objects. If not
+   *             specified, then events are returned for all objects within the source type
+   *             specified.</p>
+   *         <p>Example: my-cluster-1, my-cluster-2</p>
+   *         <p>Example: my-snapshot-20131010</p>
+   */
+  SourceIds?: string[];
+
+  /**
+   * <p>A list of tag instances.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateEventSubscriptionMessage {
@@ -4046,12 +4044,6 @@ export namespace CreateEventSubscriptionMessage {
  * <p>Describes event subscriptions.</p>
  */
 export interface EventSubscription {
-  /**
-   * <p>A list of the sources that publish events to the Amazon Redshift event notification
-   *             subscription.</p>
-   */
-  SourceIdsList?: string[];
-
   /**
    * <p>The status of the Amazon Redshift event notification subscription.</p>
    *         <p>Constraints:</p>
@@ -4071,28 +4063,26 @@ export interface EventSubscription {
   Status?: string;
 
   /**
-   * <p>The list of Amazon Redshift event categories specified in the event notification
+   * <p>The list of tags for the event subscription.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>A list of the sources that publish events to the Amazon Redshift event notification
    *             subscription.</p>
-   *         <p>Values: Configuration, Management, Monitoring, Security</p>
    */
-  EventCategoriesList?: string[];
-
-  /**
-   * <p>The source type of the events returned by the Amazon Redshift event notification, such as
-   *             cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, or scheduled-action. </p>
-   */
-  SourceType?: string;
-
-  /**
-   * <p>A boolean value indicating whether the subscription is enabled; <code>true</code>
-   *             indicates that the subscription is enabled.</p>
-   */
-  Enabled?: boolean;
+  SourceIdsList?: string[];
 
   /**
    * <p>The name of the Amazon Redshift event notification subscription.</p>
    */
   CustSubscriptionId?: string;
+
+  /**
+   * <p>The AWS customer account associated with the Amazon Redshift event notification
+   *             subscription.</p>
+   */
+  CustomerAwsId?: string;
 
   /**
    * <p>The date and time the Amazon Redshift event notification subscription was
@@ -4108,21 +4098,29 @@ export interface EventSubscription {
   Severity?: string;
 
   /**
-   * <p>The AWS customer account associated with the Amazon Redshift event notification
-   *             subscription.</p>
+   * <p>A boolean value indicating whether the subscription is enabled; <code>true</code>
+   *             indicates that the subscription is enabled.</p>
    */
-  CustomerAwsId?: string;
-
-  /**
-   * <p>The list of tags for the event subscription.</p>
-   */
-  Tags?: Tag[];
+  Enabled?: boolean;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic used by the event
    *             notification subscription.</p>
    */
   SnsTopicArn?: string;
+
+  /**
+   * <p>The source type of the events returned by the Amazon Redshift event notification, such as
+   *             cluster, cluster-snapshot, cluster-parameter-group, cluster-security-group, or scheduled-action. </p>
+   */
+  SourceType?: string;
+
+  /**
+   * <p>The list of Amazon Redshift event categories specified in the event notification
+   *             subscription.</p>
+   *         <p>Values: Configuration, Management, Monitoring, Security</p>
+   */
+  EventCategoriesList?: string[];
 }
 
 export namespace EventSubscription {
@@ -4395,27 +4393,6 @@ export namespace HsmClientCertificateQuotaExceededFault {
  */
 export interface CreateHsmConfigurationMessage {
   /**
-   * <p>The IP address that the Amazon Redshift cluster must use to access the HSM.</p>
-   */
-  HsmIpAddress: string | undefined;
-
-  /**
-   * <p>The HSMs public certificate file. When using Cloud HSM, the file name is
-   *             server.pem.</p>
-   */
-  HsmServerPublicCertificate: string | undefined;
-
-  /**
-   * <p>A text description of the HSM configuration to be created.</p>
-   */
-  Description: string | undefined;
-
-  /**
-   * <p>The password required to access the HSM partition.</p>
-   */
-  HsmPartitionPassword: string | undefined;
-
-  /**
    * <p>The name of the partition in the HSM where the Amazon Redshift clusters will store their
    *             database encryption keys.</p>
    */
@@ -4430,6 +4407,27 @@ export interface CreateHsmConfigurationMessage {
    * <p>The identifier to be assigned to the new Amazon Redshift HSM configuration.</p>
    */
   HsmConfigurationIdentifier: string | undefined;
+
+  /**
+   * <p>The IP address that the Amazon Redshift cluster must use to access the HSM.</p>
+   */
+  HsmIpAddress: string | undefined;
+
+  /**
+   * <p>The password required to access the HSM partition.</p>
+   */
+  HsmPartitionPassword: string | undefined;
+
+  /**
+   * <p>A text description of the HSM configuration to be created.</p>
+   */
+  Description: string | undefined;
+
+  /**
+   * <p>The HSMs public certificate file. When using Cloud HSM, the file name is
+   *             server.pem.</p>
+   */
+  HsmServerPublicCertificate: string | undefined;
 }
 
 export namespace CreateHsmConfigurationMessage {
@@ -4450,6 +4448,16 @@ export interface HsmConfiguration {
   Description?: string;
 
   /**
+   * <p>The IP address that the Amazon Redshift cluster must use to access the HSM.</p>
+   */
+  HsmIpAddress?: string;
+
+  /**
+   * <p>The name of the Amazon Redshift HSM configuration.</p>
+   */
+  HsmConfigurationIdentifier?: string;
+
+  /**
    * <p>The list of tags for the HSM configuration.</p>
    */
   Tags?: Tag[];
@@ -4459,16 +4467,6 @@ export interface HsmConfiguration {
    *             database encryption keys.</p>
    */
   HsmPartitionName?: string;
-
-  /**
-   * <p>The name of the Amazon Redshift HSM configuration.</p>
-   */
-  HsmConfigurationIdentifier?: string;
-
-  /**
-   * <p>The IP address that the Amazon Redshift cluster must use to access the HSM.</p>
-   */
-  HsmIpAddress?: string;
 }
 
 export namespace HsmConfiguration {
@@ -4526,6 +4524,9 @@ export namespace HsmConfigurationQuotaExceededFault {
   });
 }
 
+/**
+ * <p>Describes a pause cluster operation. For example, a scheduled action to run the <code>PauseCluster</code> API operation. </p>
+ */
 export interface PauseClusterMessage {
   /**
    * <p>The identifier of the cluster to be paused.</p>
@@ -4539,6 +4540,9 @@ export namespace PauseClusterMessage {
   });
 }
 
+/**
+ * <p>Describes a resize cluster operation. For example, a scheduled action to run the <code>ResizeCluster</code> API operation. </p>
+ */
 export interface ResizeClusterMessage {
   /**
    * <p>The new node type for the nodes you are adding. If not specified, the cluster's current node type is used.</p>
@@ -4553,19 +4557,19 @@ export interface ResizeClusterMessage {
   Classic?: boolean;
 
   /**
-   * <p>The new number of nodes for the cluster.</p>
+   * <p>The new number of nodes for the cluster. If not specified, the cluster's current number of nodes is used.</p>
    */
   NumberOfNodes?: number;
-
-  /**
-   * <p>The unique identifier for the cluster to resize.</p>
-   */
-  ClusterIdentifier: string | undefined;
 
   /**
    * <p>The new cluster type for the specified cluster.</p>
    */
   ClusterType?: string;
+
+  /**
+   * <p>The unique identifier for the cluster to resize.</p>
+   */
+  ClusterIdentifier: string | undefined;
 }
 
 export namespace ResizeClusterMessage {
@@ -4574,6 +4578,9 @@ export namespace ResizeClusterMessage {
   });
 }
 
+/**
+ * <p>Describes a resume cluster operation. For example, a scheduled action to run the <code>ResumeCluster</code> API operation. </p>
+ */
 export interface ResumeClusterMessage {
   /**
    * <p>The identifier of the cluster to be resumed.</p>
@@ -4592,9 +4599,9 @@ export namespace ResumeClusterMessage {
  */
 export interface ScheduledActionType {
   /**
-   * <p>An action that runs a <code>ResizeCluster</code> API operation. </p>
+   * <p>An action that runs a <code>PauseCluster</code> API operation. </p>
    */
-  ResizeCluster?: ResizeClusterMessage;
+  PauseCluster?: PauseClusterMessage;
 
   /**
    * <p>An action that runs a <code>ResumeCluster</code> API operation. </p>
@@ -4602,9 +4609,9 @@ export interface ScheduledActionType {
   ResumeCluster?: ResumeClusterMessage;
 
   /**
-   * <p>An action that runs a <code>PauseCluster</code> API operation. </p>
+   * <p>An action that runs a <code>ResizeCluster</code> API operation. </p>
    */
-  PauseCluster?: PauseClusterMessage;
+  ResizeCluster?: ResizeClusterMessage;
 }
 
 export namespace ScheduledActionType {
@@ -4633,16 +4640,11 @@ export interface CreateScheduledActionMessage {
   IamRole: string | undefined;
 
   /**
-   * <p>The description of the scheduled action.
-   *             </p>
+   * <p>The start time in UTC of the scheduled action.
+   *             Before this time, the scheduled action does not trigger.
+   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
    */
-  ScheduledActionDescription?: string;
-
-  /**
-   * <p>The name of the scheduled action. The name must be unique within an account.
-   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
-   */
-  ScheduledActionName: string | undefined;
+  StartTime?: Date;
 
   /**
    * <p>The end time in UTC of the scheduled action. After this time, the scheduled action does not trigger.
@@ -4651,17 +4653,22 @@ export interface CreateScheduledActionMessage {
   EndTime?: Date;
 
   /**
+   * <p>The description of the scheduled action.
+   *             </p>
+   */
+  ScheduledActionDescription?: string;
+
+  /**
    * <p>The schedule in <code>at( )</code> or <code>cron( )</code> format.
    *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
    */
   Schedule: string | undefined;
 
   /**
-   * <p>The start time in UTC of the scheduled action.
-   *             Before this time, the scheduled action does not trigger.
-   *             For more information about this parameter, see <a>ScheduledAction</a>.</p>
+   * <p>The name of the scheduled action. The name must be unique within an account.
+   *             For more information about this parameter, see <a>ScheduledAction</a>. </p>
    */
-  StartTime?: Date;
+  ScheduledActionName: string | undefined;
 }
 
 export namespace CreateScheduledActionMessage {
@@ -4711,21 +4718,6 @@ export enum ScheduledActionState {
  */
 export interface ScheduledAction {
   /**
-   * <p>List of times when the scheduled action will run. </p>
-   */
-  NextInvocations?: Date[];
-
-  /**
-   * <p>The description of the scheduled action. </p>
-   */
-  ScheduledActionDescription?: string;
-
-  /**
-   * <p>The name of the scheduled action. </p>
-   */
-  ScheduledActionName?: string;
-
-  /**
    * <p>The IAM role to assume to run the scheduled action.
    *             This IAM role must have permission to run the Amazon Redshift API operation in the scheduled action.
    *             This IAM role must allow the Amazon Redshift scheduler (Principal scheduler.redshift.amazonaws.com) to assume permissions on your behalf.
@@ -4738,10 +4730,9 @@ export interface ScheduledAction {
   IamRole?: string;
 
   /**
-   * <p>A JSON format string of the Amazon Redshift API operation with input parameters. </p>
-   *         <p>"<code>{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}</code>". </p>
+   * <p>The description of the scheduled action. </p>
    */
-  TargetAction?: ScheduledActionType;
+  ScheduledActionDescription?: string;
 
   /**
    * <p>The end time in UTC when the schedule is no longer active. After this time, the scheduled action does not trigger. </p>
@@ -4749,9 +4740,15 @@ export interface ScheduledAction {
   EndTime?: Date;
 
   /**
-   * <p>The state of the scheduled action. For example, <code>DISABLED</code>. </p>
+   * <p>A JSON format string of the Amazon Redshift API operation with input parameters. </p>
+   *         <p>"<code>{\"ResizeCluster\":{\"NodeType\":\"ds2.8xlarge\",\"ClusterIdentifier\":\"my-test-cluster\",\"NumberOfNodes\":3}}</code>". </p>
    */
-  State?: ScheduledActionState | string;
+  TargetAction?: ScheduledActionType;
+
+  /**
+   * <p>The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger. </p>
+   */
+  StartTime?: Date;
 
   /**
    * <p>The schedule for a one-time (at format) or recurring (cron format) scheduled action.
@@ -4765,9 +4762,19 @@ export interface ScheduledAction {
   Schedule?: string;
 
   /**
-   * <p>The start time in UTC when the schedule is active. Before this time, the scheduled action does not trigger. </p>
+   * <p>The state of the scheduled action. For example, <code>DISABLED</code>. </p>
    */
-  StartTime?: Date;
+  State?: ScheduledActionState | string;
+
+  /**
+   * <p>List of times when the scheduled action will run. </p>
+   */
+  NextInvocations?: Date[];
+
+  /**
+   * <p>The name of the scheduled action. </p>
+   */
+  ScheduledActionName?: string;
 }
 
 export namespace ScheduledAction {
@@ -4826,6 +4833,12 @@ export namespace ScheduledActionTypeUnsupportedFault {
  */
 export interface CreateSnapshotCopyGrantMessage {
   /**
+   * <p>The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift
+   *             permission. If no key is specified, the default key is used.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
    * <p>The name of the snapshot copy grant. This name must be unique in the region for the
    *             AWS account.</p>
    *          <p>Constraints:</p>
@@ -4853,12 +4866,6 @@ export interface CreateSnapshotCopyGrantMessage {
    * <p>A list of tag instances.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>The unique identifier of the customer master key (CMK) to which to grant Amazon Redshift
-   *             permission. If no key is specified, the default key is used.</p>
-   */
-  KmsKeyId?: string;
 }
 
 export namespace CreateSnapshotCopyGrantMessage {
@@ -4884,15 +4891,15 @@ export interface SnapshotCopyGrant {
   Tags?: Tag[];
 
   /**
-   * <p>The name of the snapshot copy grant.</p>
-   */
-  SnapshotCopyGrantName?: string;
-
-  /**
    * <p>The unique identifier of the customer master key (CMK) in AWS KMS to which
    *             Amazon Redshift is granted permission.</p>
    */
   KmsKeyId?: string;
+
+  /**
+   * <p>The name of the snapshot copy grant.</p>
+   */
+  SnapshotCopyGrantName?: string;
 }
 
 export namespace SnapshotCopyGrant {
@@ -4960,15 +4967,9 @@ export interface CreateSnapshotScheduleMessage {
   ScheduleDescription?: string;
 
   /**
-   * <p>The definition of the snapshot schedule. The definition is made up of schedule
-   *             expressions, for example "cron(30 12 *)" or "rate(12 hours)". </p>
+   * <p>An optional set of tags you can use to search for the schedule.</p>
    */
-  ScheduleDefinitions?: string[];
-
-  /**
-   * <p></p>
-   */
-  DryRun?: boolean;
+  Tags?: Tag[];
 
   /**
    * <p></p>
@@ -4982,9 +4983,15 @@ export interface CreateSnapshotScheduleMessage {
   ScheduleIdentifier?: string;
 
   /**
-   * <p>An optional set of tags you can use to search for the schedule.</p>
+   * <p></p>
    */
-  Tags?: Tag[];
+  DryRun?: boolean;
+
+  /**
+   * <p>The definition of the snapshot schedule. The definition is made up of schedule
+   *             expressions, for example "cron(30 12 *)" or "rate(12 hours)". </p>
+   */
+  ScheduleDefinitions?: string[];
 }
 
 export namespace CreateSnapshotScheduleMessage {
@@ -5014,14 +5021,14 @@ export namespace ScheduleDefinitionTypeUnsupportedFault {
  */
 export interface SnapshotSchedule {
   /**
+   * <p>A unique identifier for the schedule.</p>
+   */
+  ScheduleIdentifier?: string;
+
+  /**
    * <p></p>
    */
   NextInvocations?: Date[];
-
-  /**
-   * <p>A list of clusters associated with the schedule. A maximum of 100 clusters is returned.</p>
-   */
-  AssociatedClusters?: ClusterAssociatedToSchedule[];
 
   /**
    * <p>The number of clusters associated with the schedule.</p>
@@ -5029,9 +5036,9 @@ export interface SnapshotSchedule {
   AssociatedClusterCount?: number;
 
   /**
-   * <p>A unique identifier for the schedule.</p>
+   * <p>A list of clusters associated with the schedule. A maximum of 100 clusters is returned.</p>
    */
-  ScheduleIdentifier?: string;
+  AssociatedClusters?: ClusterAssociatedToSchedule[];
 
   /**
    * <p>An optional set of tags describing the schedule.</p>
@@ -5039,14 +5046,14 @@ export interface SnapshotSchedule {
   Tags?: Tag[];
 
   /**
-   * <p>The description of the schedule.</p>
-   */
-  ScheduleDescription?: string;
-
-  /**
    * <p>A list of ScheduleDefinitions.</p>
    */
   ScheduleDefinitions?: string[];
+
+  /**
+   * <p>The description of the schedule.</p>
+   */
+  ScheduleDescription?: string;
 }
 
 export namespace SnapshotSchedule {
@@ -5151,25 +5158,16 @@ export enum UsageLimitPeriod {
 
 export interface CreateUsageLimitMessage {
   /**
-   * <p>The Amazon Redshift feature that you want to limit.</p>
-   */
-  FeatureType: UsageLimitFeatureType | string | undefined;
-
-  /**
    * <p>A list of tag instances.</p>
    */
   Tags?: Tag[];
 
   /**
-   * <p>The identifier of the cluster that you want to limit usage.</p>
+   * <p>The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB).
+   *             The value must be a positive number.
+   *             </p>
    */
-  ClusterIdentifier: string | undefined;
-
-  /**
-   * <p>The action that Amazon Redshift takes when the limit is reached. The default is log.
-   *             For more information about this parameter, see <a>UsageLimit</a>.</p>
-   */
-  BreachAction?: UsageLimitBreachAction | string;
+  Amount: number | undefined;
 
   /**
    * <p>The time period that the amount applies to. A <code>weekly</code> period begins on Sunday. The default is <code>monthly</code>.
@@ -5178,11 +5176,20 @@ export interface CreateUsageLimitMessage {
   Period?: UsageLimitPeriod | string;
 
   /**
-   * <p>The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB).
-   *             The value must be a positive number.
-   *             </p>
+   * <p>The action that Amazon Redshift takes when the limit is reached. The default is log.
+   *             For more information about this parameter, see <a>UsageLimit</a>.</p>
    */
-  Amount: number | undefined;
+  BreachAction?: UsageLimitBreachAction | string;
+
+  /**
+   * <p>The Amazon Redshift feature that you want to limit.</p>
+   */
+  FeatureType: UsageLimitFeatureType | string | undefined;
+
+  /**
+   * <p>The identifier of the cluster that you want to limit usage.</p>
+   */
+  ClusterIdentifier: string | undefined;
 
   /**
    * <p>The type of limit. Depending on the feature type, this can be based on a time duration or data size.
@@ -5224,19 +5231,19 @@ export interface UsageLimit {
   ClusterIdentifier?: string;
 
   /**
-   * <p>The Amazon Redshift feature to which the limit applies.</p>
-   */
-  FeatureType?: UsageLimitFeatureType | string;
-
-  /**
    * <p>A list of tag instances.</p>
    */
   Tags?: Tag[];
 
   /**
-   * <p>The type of limit. Depending on the feature type, this can be based on a time duration or data size.</p>
+   * <p>The identifier of the usage limit.</p>
    */
-  LimitType?: UsageLimitLimitType | string;
+  UsageLimitId?: string;
+
+  /**
+   * <p>The Amazon Redshift feature to which the limit applies.</p>
+   */
+  FeatureType?: UsageLimitFeatureType | string;
 
   /**
    * <p>The action that Amazon Redshift takes when the limit is reached. Possible values are: </p>
@@ -5258,19 +5265,19 @@ export interface UsageLimit {
   BreachAction?: UsageLimitBreachAction | string;
 
   /**
-   * <p>The time period that the amount applies to. A <code>weekly</code> period begins on Sunday. The default is <code>monthly</code>. </p>
+   * <p>The type of limit. Depending on the feature type, this can be based on a time duration or data size.</p>
    */
-  Period?: UsageLimitPeriod | string;
-
-  /**
-   * <p>The identifier of the usage limit.</p>
-   */
-  UsageLimitId?: string;
+  LimitType?: UsageLimitLimitType | string;
 
   /**
    * <p>The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB).</p>
    */
   Amount?: number;
+
+  /**
+   * <p>The time period that the amount applies to. A <code>weekly</code> period begins on Sunday. The default is <code>monthly</code>. </p>
+   */
+  Period?: UsageLimitPeriod | string;
 }
 
 export namespace UsageLimit {
@@ -5322,6 +5329,12 @@ export interface DefaultClusterParameters {
   Parameters?: Parameter[];
 
   /**
+   * <p>The name of the cluster parameter group family to which the engine default
+   *             parameters apply.</p>
+   */
+  ParameterGroupFamily?: string;
+
+  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -5329,12 +5342,6 @@ export interface DefaultClusterParameters {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>The name of the cluster parameter group family to which the engine default
-   *             parameters apply.</p>
-   */
-  ParameterGroupFamily?: string;
 }
 
 export namespace DefaultClusterParameters {
@@ -5383,6 +5390,14 @@ export interface DeleteClusterMessage {
   SkipFinalClusterSnapshot?: boolean;
 
   /**
+   * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
+   *             snapshot is retained indefinitely.</p>
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   *         <p>The default value is -1.</p>
+   */
+  FinalClusterSnapshotRetentionPeriod?: number;
+
+  /**
    * <p>The identifier of the final snapshot that is to be created immediately before
    *             deleting the cluster. If this parameter is provided,
    *                 <i>SkipFinalClusterSnapshot</i> must be <code>false</code>. </p>
@@ -5400,14 +5415,6 @@ export interface DeleteClusterMessage {
    *          </ul>
    */
   FinalClusterSnapshotIdentifier?: string;
-
-  /**
-   * <p>The number of days that a manual snapshot is retained. If the value is -1, the manual
-   *             snapshot is retained indefinitely.</p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
-   *         <p>The default value is -1.</p>
-   */
-  FinalClusterSnapshotRetentionPeriod?: number;
 }
 
 export namespace DeleteClusterMessage {
@@ -5752,15 +5759,15 @@ export namespace InvalidClusterSnapshotScheduleStateFault {
  */
 export interface DeleteTagsMessage {
   /**
-   * <p>The tag key that you want to delete.</p>
-   */
-  TagKeys: string[] | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) from which you want to remove the tag or tags. For
    *             example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </p>
    */
   ResourceName: string | undefined;
+
+  /**
+   * <p>The tag key that you want to delete.</p>
+   */
+  TagKeys: string[] | undefined;
 }
 
 export namespace DeleteTagsMessage {
@@ -5824,13 +5831,6 @@ export interface DescribeClusterDbRevisionsMessage {
   Marker?: string;
 
   /**
-   * <p>A unique identifier for a cluster whose <code>ClusterDbRevisions</code> you are
-   *             requesting. This parameter is case sensitive. All clusters defined for an account are
-   *             returned by default.</p>
-   */
-  ClusterIdentifier?: string;
-
-  /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified MaxRecords value, a value is returned
    *             in the <code>marker</code> field of the response. You can retrieve the next set of
@@ -5840,6 +5840,13 @@ export interface DescribeClusterDbRevisionsMessage {
    *         <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>A unique identifier for a cluster whose <code>ClusterDbRevisions</code> you are
+   *             requesting. This parameter is case sensitive. All clusters defined for an account are
+   *             returned by default.</p>
+   */
+  ClusterIdentifier?: string;
 }
 
 export namespace DescribeClusterDbRevisionsMessage {
@@ -5853,13 +5860,6 @@ export namespace DescribeClusterDbRevisionsMessage {
  */
 export interface DescribeClusterParameterGroupsMessage {
   /**
-   * <p>The name of a specific parameter group for which to return details. By default,
-   *             details about all parameter groups and the default parameter group are
-   *             returned.</p>
-   */
-  ParameterGroupName?: string;
-
-  /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
@@ -5869,6 +5869,13 @@ export interface DescribeClusterParameterGroupsMessage {
    *         <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>The name of a specific parameter group for which to return details. By default,
+   *             details about all parameter groups and the default parameter group are
+   *             returned.</p>
+   */
+  ParameterGroupName?: string;
 
   /**
    * <p>A tag key or keys for which you want to return all matching cluster parameter
@@ -5912,14 +5919,14 @@ export namespace DescribeClusterParameterGroupsMessage {
  */
 export interface DescribeClusterParametersMessage {
   /**
-   * <p>The parameter types to return. Specify <code>user</code> to show parameters that
-   *             are different form the default. Similarly, specify <code>engine-default</code> to show
-   *             parameters that are the same as the default parameter group. </p>
-   *         <p>Default: All parameter types returned.</p>
-   *         <p>Valid Values: <code>user</code> | <code>engine-default</code>
-   *         </p>
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterParameters</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
    */
-  Source?: string;
+  Marker?: string;
 
   /**
    * <p>The name of a cluster parameter group for which to return details.</p>
@@ -5938,14 +5945,14 @@ export interface DescribeClusterParametersMessage {
   MaxRecords?: number;
 
   /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeClusterParameters</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
+   * <p>The parameter types to return. Specify <code>user</code> to show parameters that
+   *             are different form the default. Similarly, specify <code>engine-default</code> to show
+   *             parameters that are the same as the default parameter group. </p>
+   *         <p>Default: All parameter types returned.</p>
+   *         <p>Valid Values: <code>user</code> | <code>engine-default</code>
+   *         </p>
    */
-  Marker?: string;
+  Source?: string;
 }
 
 export namespace DescribeClusterParametersMessage {
@@ -5958,26 +5965,6 @@ export namespace DescribeClusterParametersMessage {
  * <p></p>
  */
 export interface DescribeClustersMessage {
-  /**
-   * <p>A tag key or keys for which you want to return all matching clusters that are
-   *             associated with the specified key or keys. For example, suppose that you have clusters
-   *             that are tagged with keys called <code>owner</code> and <code>environment</code>. If you
-   *             specify both of these tag keys in the request, Amazon Redshift returns a response with the
-   *             clusters that have either or both of these tag keys associated with them.</p>
-   */
-  TagKeys?: string[];
-
-  /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
   /**
    * <p>The unique identifier of a cluster whose properties you are requesting. This
    *             parameter is case sensitive.</p>
@@ -5997,6 +5984,17 @@ export interface DescribeClustersMessage {
   Marker?: string;
 
   /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
+   *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
    * <p>A tag value or values for which you want to return all matching clusters that are
    *             associated with the specified tag value or values. For example, suppose that you have
    *             clusters that are tagged with values called <code>admin</code> and <code>test</code>. If
@@ -6005,6 +6003,15 @@ export interface DescribeClustersMessage {
    *             them.</p>
    */
   TagValues?: string[];
+
+  /**
+   * <p>A tag key or keys for which you want to return all matching clusters that are
+   *             associated with the specified key or keys. For example, suppose that you have clusters
+   *             that are tagged with keys called <code>owner</code> and <code>environment</code>. If you
+   *             specify both of these tag keys in the request, Amazon Redshift returns a response with the
+   *             clusters that have either or both of these tag keys associated with them.</p>
+   */
+  TagKeys?: string[];
 }
 
 export namespace DescribeClustersMessage {
@@ -6018,6 +6025,17 @@ export namespace DescribeClustersMessage {
  */
 export interface DescribeClusterSecurityGroupsMessage {
   /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterSecurityGroups</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   *         <p>Constraints: You can specify either the <b>ClusterSecurityGroupName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
+   */
+  Marker?: string;
+
+  /**
    * <p>A tag value or values for which you want to return all matching cluster security
    *             groups that are associated with the specified tag value or values. For example, suppose
    *             that you have security groups that are tagged with values called <code>admin</code> and
@@ -6028,15 +6046,12 @@ export interface DescribeClusterSecurityGroupsMessage {
   TagValues?: string[];
 
   /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeClusterSecurityGroups</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   *         <p>Constraints: You can specify either the <b>ClusterSecurityGroupName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
+   * <p>The name of a cluster security group for which you are requesting details. You can
+   *             specify either the <b>Marker</b> parameter or a <b>ClusterSecurityGroupName</b> parameter, but not both. </p>
+   *         <p> Example: <code>securitygroup1</code>
+   *         </p>
    */
-  Marker?: string;
+  ClusterSecurityGroupName?: string;
 
   /**
    * <p>A tag key or keys for which you want to return all matching cluster security groups
@@ -6058,14 +6073,6 @@ export interface DescribeClusterSecurityGroupsMessage {
    *         <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
-
-  /**
-   * <p>The name of a cluster security group for which you are requesting details. You can
-   *             specify either the <b>Marker</b> parameter or a <b>ClusterSecurityGroupName</b> parameter, but not both. </p>
-   *         <p> Example: <code>securitygroup1</code>
-   *         </p>
-   */
-  ClusterSecurityGroupName?: string;
 }
 
 export namespace DescribeClusterSecurityGroupsMessage {
@@ -6090,14 +6097,14 @@ export enum SortByOrder {
  */
 export interface SnapshotSortingEntity {
   /**
-   * <p>The category for sorting the snapshots.</p>
-   */
-  Attribute: SnapshotAttributeToSortBy | string | undefined;
-
-  /**
    * <p>The order for listing the attributes.</p>
    */
   SortOrder?: SortByOrder | string;
+
+  /**
+   * <p>The category for sorting the snapshots.</p>
+   */
+  Attribute: SnapshotAttributeToSortBy | string | undefined;
 }
 
 export namespace SnapshotSortingEntity {
@@ -6116,10 +6123,22 @@ export interface DescribeClusterSnapshotsMessage {
   ClusterIdentifier?: string;
 
   /**
-   * <p>The snapshot identifier of the snapshot about which to return
-   *             information.</p>
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterSnapshots</a> request exceed
+   *             the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
    */
-  SnapshotIdentifier?: string;
+  Marker?: string;
+
+  /**
+   * <p>The AWS customer account used to create or copy the snapshot. Use this field to
+   *             filter the results to snapshots owned by a particular account. To describe snapshots you
+   *             own, either specify your AWS customer account, or do not specify the
+   *             parameter.</p>
+   */
+  OwnerAccount?: string;
 
   /**
    * <p>The type of snapshots for which you are requesting information. By default,
@@ -6130,6 +6149,12 @@ export interface DescribeClusterSnapshotsMessage {
   SnapshotType?: string;
 
   /**
+   * <p>The snapshot identifier of the snapshot about which to return
+   *             information.</p>
+   */
+  SnapshotIdentifier?: string;
+
+  /**
    * <p>A value that requests only snapshots created at or after the specified time. The
    *             time value is specified in ISO 8601 format. For more information about ISO 8601, go to
    *             the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
@@ -6138,17 +6163,6 @@ export interface DescribeClusterSnapshotsMessage {
    *         </p>
    */
   StartTime?: Date;
-
-  /**
-   * <p>A time value that requests only snapshots created at or before the specified time.
-   *             The time value is specified in ISO 8601 format. For more information about ISO 8601, go
-   *             to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia
-   *                 page.</a>
-   *         </p>
-   *         <p>Example: <code>2012-07-16T18:00:00Z</code>
-   *         </p>
-   */
-  EndTime?: Date;
 
   /**
    * <p>A tag key or keys for which you want to return all matching cluster snapshots that
@@ -6164,6 +6178,27 @@ export interface DescribeClusterSnapshotsMessage {
    * <p></p>
    */
   SortingEntities?: SnapshotSortingEntity[];
+
+  /**
+   * <p>A time value that requests only snapshots created at or before the specified time.
+   *             The time value is specified in ISO 8601 format. For more information about ISO 8601, go
+   *             to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia
+   *                 page.</a>
+   *         </p>
+   *         <p>Example: <code>2012-07-16T18:00:00Z</code>
+   *         </p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching cluster snapshots
+   *             that are associated with the specified tag value or values. For example, suppose that
+   *             you have snapshots that are tagged with values called <code>admin</code> and
+   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
+   *             returns a response with the snapshots that have either or both of these tag values
+   *             associated with them.</p>
+   */
+  TagValues?: string[];
 
   /**
    * <p>The maximum number of response records to return in each call. If the number of
@@ -6203,34 +6238,6 @@ export interface DescribeClusterSnapshotsMessage {
    *          </ul>
    */
   ClusterExists?: boolean;
-
-  /**
-   * <p>The AWS customer account used to create or copy the snapshot. Use this field to
-   *             filter the results to snapshots owned by a particular account. To describe snapshots you
-   *             own, either specify your AWS customer account, or do not specify the
-   *             parameter.</p>
-   */
-  OwnerAccount?: string;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeClusterSnapshots</a> request exceed
-   *             the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>A tag value or values for which you want to return all matching cluster snapshots
-   *             that are associated with the specified tag value or values. For example, suppose that
-   *             you have snapshots that are tagged with values called <code>admin</code> and
-   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
-   *             returns a response with the snapshots that have either or both of these tag values
-   *             associated with them.</p>
-   */
-  TagValues?: string[];
 }
 
 export namespace DescribeClusterSnapshotsMessage {
@@ -6270,14 +6277,19 @@ export namespace SnapshotMessage {
  */
 export interface DescribeClusterSubnetGroupsMessage {
   /**
-   * <p>A tag value or values for which you want to return all matching cluster subnet
-   *             groups that are associated with the specified tag value or values. For example, suppose
-   *             that you have subnet groups that are tagged with values called <code>admin</code> and
-   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
-   *             returns a response with the subnet groups that have either or both of these tag values
-   *             associated with them.</p>
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeClusterSubnetGroups</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
    */
-  TagValues?: string[];
+  Marker?: string;
+
+  /**
+   * <p>The name of the cluster subnet group for which information is requested.</p>
+   */
+  ClusterSubnetGroupName?: string;
 
   /**
    * <p>The maximum number of response records to return in each call. If the number of
@@ -6301,19 +6313,14 @@ export interface DescribeClusterSubnetGroupsMessage {
   TagKeys?: string[];
 
   /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeClusterSubnetGroups</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
+   * <p>A tag value or values for which you want to return all matching cluster subnet
+   *             groups that are associated with the specified tag value or values. For example, suppose
+   *             that you have subnet groups that are tagged with values called <code>admin</code> and
+   *                 <code>test</code>. If you specify both of these tag values in the request, Amazon Redshift
+   *             returns a response with the subnet groups that have either or both of these tag values
+   *             associated with them.</p>
    */
-  Marker?: string;
-
-  /**
-   * <p>The name of the cluster subnet group for which information is requested.</p>
-   */
-  ClusterSubnetGroupName?: string;
+  TagValues?: string[];
 }
 
 export namespace DescribeClusterSubnetGroupsMessage {
@@ -6329,11 +6336,6 @@ export interface DescribeClusterTracksMessage {
   MaxRecords?: number;
 
   /**
-   * <p>The name of the maintenance track. </p>
-   */
-  MaintenanceTrackName?: string;
-
-  /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <code>DescribeClusterTracks</code> request exceed the
    *             value specified in <code>MaxRecords</code>, Amazon Redshift returns a value in the
@@ -6342,6 +6344,11 @@ export interface DescribeClusterTracksMessage {
    *             retrying the request. </p>
    */
   Marker?: string;
+
+  /**
+   * <p>The name of the maintenance track. </p>
+   */
+  MaintenanceTrackName?: string;
 }
 
 export namespace DescribeClusterTracksMessage {
@@ -6371,14 +6378,14 @@ export namespace SupportedOperation {
  */
 export interface UpdateTarget {
   /**
-   * <p>The name of the new maintenance track.</p>
-   */
-  MaintenanceTrackName?: string;
-
-  /**
    * <p>The cluster version for the new maintenance track.</p>
    */
   DatabaseVersion?: string;
+
+  /**
+   * <p>The name of the new maintenance track.</p>
+   */
+  MaintenanceTrackName?: string;
 
   /**
    * <p>A list of operations supported by the maintenance track.</p>
@@ -6401,16 +6408,16 @@ export namespace UpdateTarget {
  */
 export interface MaintenanceTrack {
   /**
-   * <p>The name of the maintenance track. Possible values are <code>current</code> and
-   *                 <code>trailing</code>.</p>
-   */
-  MaintenanceTrackName?: string;
-
-  /**
    * <p>An array of <a>UpdateTarget</a> objects to update with the maintenance
    *             track. </p>
    */
   UpdateTargets?: UpdateTarget[];
+
+  /**
+   * <p>The name of the maintenance track. Possible values are <code>current</code> and
+   *                 <code>trailing</code>.</p>
+   */
+  MaintenanceTrackName?: string;
 
   /**
    * <p>The version number for the cluster release.</p>
@@ -6426,17 +6433,17 @@ export namespace MaintenanceTrack {
 
 export interface TrackListMessage {
   /**
+   * <p>A list of maintenance tracks output by the <code>DescribeClusterTracks</code>
+   *             operation. </p>
+   */
+  MaintenanceTracks?: MaintenanceTrack[];
+
+  /**
    * <p>The starting point to return a set of response tracklist records. You can retrieve the
    *             next set of response records by providing the returned marker value in the
    *                 <code>Marker</code> parameter and retrying the request.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of maintenance tracks output by the <code>DescribeClusterTracks</code>
-   *             operation. </p>
-   */
-  MaintenanceTracks?: MaintenanceTrack[];
 }
 
 export namespace TrackListMessage {
@@ -6512,16 +6519,6 @@ export interface DescribeDefaultClusterParametersMessage {
   ParameterGroupFamily: string | undefined;
 
   /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeDefaultClusterParameters</a>
-   *             request exceed the value specified in <code>MaxRecords</code>, AWS returns a value in
-   *             the <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
@@ -6531,6 +6528,16 @@ export interface DescribeDefaultClusterParametersMessage {
    *         <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeDefaultClusterParameters</a>
+   *             request exceed the value specified in <code>MaxRecords</code>, AWS returns a value in
+   *             the <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
 }
 
 export namespace DescribeDefaultClusterParametersMessage {
@@ -6575,12 +6582,6 @@ export namespace DescribeEventCategoriesMessage {
  */
 export interface EventInfoMap {
   /**
-   * <p>The severity of the event.</p>
-   *         <p>Values: ERROR, INFO</p>
-   */
-  Severity?: string;
-
-  /**
    * <p>The category of an Amazon Redshift event.</p>
    */
   EventCategories?: string[];
@@ -6594,6 +6595,12 @@ export interface EventInfoMap {
    * <p>The description of an Amazon Redshift event.</p>
    */
   EventDescription?: string;
+
+  /**
+   * <p>The severity of the event.</p>
+   *         <p>Values: ERROR, INFO</p>
+   */
+  Severity?: string;
 }
 
 export namespace EventInfoMap {
@@ -6607,15 +6614,15 @@ export namespace EventInfoMap {
  */
 export interface EventCategoriesMap {
   /**
+   * <p>The events in the event category.</p>
+   */
+  Events?: EventInfoMap[];
+
+  /**
    * <p>The source type, such as cluster or cluster-snapshot, that the returned categories
    *             belong to.</p>
    */
   SourceType?: string;
-
-  /**
-   * <p>The events in the event category.</p>
-   */
-  Events?: EventInfoMap[];
 }
 
 export namespace EventCategoriesMap {
@@ -6652,6 +6659,36 @@ export type SourceType =
  */
 export interface DescribeEventsMessage {
   /**
+   * <p>The event source to retrieve events for. If no value is specified, all events are
+   *             returned.</p>
+   *         <p>Constraints:</p>
+   *         <p>If <i>SourceType</i> is supplied,
+   *                 <i>SourceIdentifier</i> must also be provided.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Specify <code>cluster</code> when <i>SourceIdentifier</i> is
+   *                     a cluster identifier.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Specify <code>cluster-security-group</code> when
+   *                         <i>SourceIdentifier</i> is a cluster security group
+   *                     name.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Specify <code>cluster-parameter-group</code> when
+   *                         <i>SourceIdentifier</i> is a cluster parameter group
+   *                     name.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Specify <code>cluster-snapshot</code> when
+   *                         <i>SourceIdentifier</i> is a cluster snapshot
+   *                     identifier.</p>
+   *             </li>
+   *          </ul>
+   */
+  SourceType?: SourceType | string;
+
+  /**
    * <p>The number of minutes prior to the time of the request for which to retrieve
    *             events. For example, if the request is sent at 18:00 and you specify a duration of 60,
    *             then only events which have occurred after 17:00 will be returned.</p>
@@ -6661,15 +6698,13 @@ export interface DescribeEventsMessage {
   Duration?: number;
 
   /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
+   * <p>The end of the time interval for which to retrieve events, specified in ISO 8601
+   *             format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
    *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
+   *         <p>Example: <code>2009-07-08T18:00Z</code>
+   *         </p>
    */
-  MaxRecords?: number;
+  EndTime?: Date;
 
   /**
    * <p>The identifier of the event source for which events will be returned. If this
@@ -6699,23 +6734,15 @@ export interface DescribeEventsMessage {
   SourceIdentifier?: string;
 
   /**
-   * <p>The end of the time interval for which to retrieve events, specified in ISO 8601
-   *             format. For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
    *         </p>
-   *         <p>Example: <code>2009-07-08T18:00Z</code>
-   *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
    */
-  EndTime?: Date;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeEvents</a> request exceed the value
-   *             specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
-   *             field of the response. You can retrieve the next set of response records by providing
-   *             the returned marker value in the <code>Marker</code> parameter and retrying the request.
-   *         </p>
-   */
-  Marker?: string;
+  MaxRecords?: number;
 
   /**
    * <p>The beginning of the time interval to retrieve events for, specified in ISO 8601
@@ -6727,34 +6754,14 @@ export interface DescribeEventsMessage {
   StartTime?: Date;
 
   /**
-   * <p>The event source to retrieve events for. If no value is specified, all events are
-   *             returned.</p>
-   *         <p>Constraints:</p>
-   *         <p>If <i>SourceType</i> is supplied,
-   *                 <i>SourceIdentifier</i> must also be provided.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Specify <code>cluster</code> when <i>SourceIdentifier</i> is
-   *                     a cluster identifier.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Specify <code>cluster-security-group</code> when
-   *                         <i>SourceIdentifier</i> is a cluster security group
-   *                     name.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Specify <code>cluster-parameter-group</code> when
-   *                         <i>SourceIdentifier</i> is a cluster parameter group
-   *                     name.</p>
-   *             </li>
-   *             <li>
-   *                 <p>Specify <code>cluster-snapshot</code> when
-   *                         <i>SourceIdentifier</i> is a cluster snapshot
-   *                     identifier.</p>
-   *             </li>
-   *          </ul>
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeEvents</a> request exceed the value
+   *             specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
+   *             field of the response. You can retrieve the next set of response records by providing
+   *             the returned marker value in the <code>Marker</code> parameter and retrying the request.
+   *         </p>
    */
-  SourceType?: SourceType | string;
+  Marker?: string;
 }
 
 export namespace DescribeEventsMessage {
@@ -6768,20 +6775,14 @@ export namespace DescribeEventsMessage {
  */
 export interface Event {
   /**
-   * <p>The date and time of the event.</p>
+   * <p>The text of this event.</p>
    */
-  Date?: Date;
+  Message?: string;
 
   /**
    * <p>The source type for this event.</p>
    */
   SourceType?: SourceType | string;
-
-  /**
-   * <p>The severity of the event.</p>
-   *         <p>Values: ERROR, INFO</p>
-   */
-  Severity?: string;
 
   /**
    * <p>The identifier for the source of the event.</p>
@@ -6800,9 +6801,15 @@ export interface Event {
   EventCategories?: string[];
 
   /**
-   * <p>The text of this event.</p>
+   * <p>The severity of the event.</p>
+   *         <p>Values: ERROR, INFO</p>
    */
-  Message?: string;
+  Severity?: string;
+
+  /**
+   * <p>The date and time of the event.</p>
+   */
+  Date?: Date;
 }
 
 export namespace Event {
@@ -6841,6 +6848,12 @@ export namespace EventsMessage {
  */
 export interface DescribeEventSubscriptionsMessage {
   /**
+   * <p>The name of the Amazon Redshift event notification subscription to be
+   *             described.</p>
+   */
+  SubscriptionName?: string;
+
+  /**
    * <p>A tag value or values for which you want to return all matching event notification
    *             subscriptions that are associated with the specified tag value or values. For example,
    *             suppose that you have subscriptions that are tagged with values called
@@ -6861,17 +6874,6 @@ export interface DescribeEventSubscriptionsMessage {
   Marker?: string;
 
   /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
    * <p>A tag key or keys for which you want to return all matching event notification
    *             subscriptions that are associated with the specified key or keys. For example, suppose
    *             that you have subscriptions that are tagged with keys called <code>owner</code> and
@@ -6882,10 +6884,15 @@ export interface DescribeEventSubscriptionsMessage {
   TagKeys?: string[];
 
   /**
-   * <p>The name of the Amazon Redshift event notification subscription to be
-   *             described.</p>
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
+   *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
    */
-  SubscriptionName?: string;
+  MaxRecords?: number;
 }
 
 export namespace DescribeEventSubscriptionsMessage {
@@ -6942,6 +6949,16 @@ export interface DescribeHsmClientCertificatesMessage {
   MaxRecords?: number;
 
   /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeHsmClientCertificates</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+
+  /**
    * <p>A tag value or values for which you want to return all matching HSM client
    *             certificates that are associated with the specified tag value or values. For example,
    *             suppose that you have HSM client certificates that are tagged with values called
@@ -6960,16 +6977,6 @@ export interface DescribeHsmClientCertificatesMessage {
    *             of these tag keys associated with them.</p>
    */
   TagKeys?: string[];
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeHsmClientCertificates</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
 }
 
 export namespace DescribeHsmClientCertificatesMessage {
@@ -6983,6 +6990,12 @@ export namespace DescribeHsmClientCertificatesMessage {
  */
 export interface HsmClientCertificateMessage {
   /**
+   * <p>A list of the identifiers for one or more HSM client certificates used by Amazon Redshift
+   *             clusters to store and retrieve database encryption keys in an HSM.</p>
+   */
+  HsmClientCertificates?: HsmClientCertificate[];
+
+  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -6990,12 +7003,6 @@ export interface HsmClientCertificateMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of the identifiers for one or more HSM client certificates used by Amazon Redshift
-   *             clusters to store and retrieve database encryption keys in an HSM.</p>
-   */
-  HsmClientCertificates?: HsmClientCertificate[];
 }
 
 export namespace HsmClientCertificateMessage {
@@ -7009,17 +7016,6 @@ export namespace HsmClientCertificateMessage {
  */
 export interface DescribeHsmConfigurationsMessage {
   /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
    * <p>A tag key or keys for which you want to return all matching HSM configurations that
    *             are associated with the specified key or keys. For example, suppose that you have HSM
    *             configurations that are tagged with keys called <code>owner</code> and
@@ -7028,13 +7024,6 @@ export interface DescribeHsmConfigurationsMessage {
    *             these tag keys associated with them.</p>
    */
   TagKeys?: string[];
-
-  /**
-   * <p>The identifier of a specific Amazon Redshift HSM configuration to be described. If no
-   *             identifier is specified, information is returned for all HSM configurations owned by
-   *             your AWS customer account.</p>
-   */
-  HsmConfigurationIdentifier?: string;
 
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -7047,6 +7036,13 @@ export interface DescribeHsmConfigurationsMessage {
   Marker?: string;
 
   /**
+   * <p>The identifier of a specific Amazon Redshift HSM configuration to be described. If no
+   *             identifier is specified, information is returned for all HSM configurations owned by
+   *             your AWS customer account.</p>
+   */
+  HsmConfigurationIdentifier?: string;
+
+  /**
    * <p>A tag value or values for which you want to return all matching HSM configurations
    *             that are associated with the specified tag value or values. For example, suppose that
    *             you have HSM configurations that are tagged with values called <code>admin</code> and
@@ -7055,6 +7051,17 @@ export interface DescribeHsmConfigurationsMessage {
    *             values associated with them.</p>
    */
   TagValues?: string[];
+
+  /**
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
+   *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
 }
 
 export namespace DescribeHsmConfigurationsMessage {
@@ -7111,16 +7118,6 @@ export namespace DescribeLoggingStatusMessage {
  */
 export interface LoggingStatus {
   /**
-   * <p>The prefix applied to the log file names.</p>
-   */
-  S3KeyPrefix?: string;
-
-  /**
-   * <p>The message indicating that logs failed to be delivered.</p>
-   */
-  LastFailureMessage?: string;
-
-  /**
    * <p>
    *             <code>true</code> if logging is on, <code>false</code> if logging is off.</p>
    */
@@ -7132,14 +7129,24 @@ export interface LoggingStatus {
   LastFailureTime?: Date;
 
   /**
+   * <p>The last time that logs were delivered.</p>
+   */
+  LastSuccessfulDeliveryTime?: Date;
+
+  /**
    * <p>The name of the S3 bucket where the log files are stored.</p>
    */
   BucketName?: string;
 
   /**
-   * <p>The last time that logs were delivered.</p>
+   * <p>The message indicating that logs failed to be delivered.</p>
    */
-  LastSuccessfulDeliveryTime?: Date;
+  LastFailureMessage?: string;
+
+  /**
+   * <p>The prefix applied to the log file names.</p>
+   */
+  S3KeyPrefix?: string;
 }
 
 export namespace LoggingStatus {
@@ -7170,6 +7177,11 @@ export enum OperatorType {
  */
 export interface NodeConfigurationOptionsFilter {
   /**
+   * <p>The name of the element to filter.</p>
+   */
+  Name?: NodeConfigurationOptionsFilterName | string;
+
+  /**
    * <p>List of values. Compare Name using Operator to Values.
    *             If filter Name is NumberOfNodes, then values can range from 0 to 200.
    *             If filter Name is EstimatedDiskUtilizationPercent, then values can range from 0 to 100.
@@ -7185,11 +7197,6 @@ export interface NodeConfigurationOptionsFilter {
    *             Provide a list of values for 'in'.</p>
    */
   Operator?: OperatorType | string;
-
-  /**
-   * <p>The name of the element to filter.</p>
-   */
-  Name?: NodeConfigurationOptionsFilterName | string;
 }
 
 export namespace NodeConfigurationOptionsFilter {
@@ -7220,21 +7227,6 @@ export interface DescribeNodeConfigurationOptionsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>A set of name, operator, and value items to filter the results.</p>
-   */
-  Filters?: NodeConfigurationOptionsFilter[];
-
-  /**
-   * <p>The identifier of the snapshot to evaluate for possible node configurations.</p>
-   */
-  SnapshotIdentifier?: string;
-
-  /**
-   * <p>The identifier of the cluster to evaluate for possible node configurations.</p>
-   */
-  ClusterIdentifier?: string;
-
-  /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeNodeConfigurationOptions</a> request
    *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
@@ -7250,6 +7242,21 @@ export interface DescribeNodeConfigurationOptionsMessage {
    *             optional if you own the snapshot.</p>
    */
   OwnerAccount?: string;
+
+  /**
+   * <p>The identifier of the snapshot to evaluate for possible node configurations.</p>
+   */
+  SnapshotIdentifier?: string;
+
+  /**
+   * <p>A set of name, operator, and value items to filter the results.</p>
+   */
+  Filters?: NodeConfigurationOptionsFilter[];
+
+  /**
+   * <p>The identifier of the cluster to evaluate for possible node configurations.</p>
+   */
+  ClusterIdentifier?: string;
 }
 
 export namespace DescribeNodeConfigurationOptionsMessage {
@@ -7273,14 +7280,14 @@ export interface NodeConfigurationOption {
   EstimatedDiskUtilizationPercent?: number;
 
   /**
-   * <p>The category of the node configuration recommendation.</p>
-   */
-  Mode?: Mode | string;
-
-  /**
    * <p>The node type, such as, "ds2.8xlarge".</p>
    */
   NodeType?: string;
+
+  /**
+   * <p>The category of the node configuration recommendation.</p>
+   */
+  Mode?: Mode | string;
 
   /**
    * <p>The number of nodes.</p>
@@ -7296,6 +7303,11 @@ export namespace NodeConfigurationOption {
 
 export interface NodeConfigurationOptionsMessage {
   /**
+   * <p>A list of valid node configurations.</p>
+   */
+  NodeConfigurationOptionList?: NodeConfigurationOption[];
+
+  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -7303,11 +7315,6 @@ export interface NodeConfigurationOptionsMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of valid node configurations.</p>
-   */
-  NodeConfigurationOptionList?: NodeConfigurationOption[];
 }
 
 export namespace NodeConfigurationOptionsMessage {
@@ -7321,18 +7328,15 @@ export namespace NodeConfigurationOptionsMessage {
  */
 export interface DescribeOrderableClusterOptionsMessage {
   /**
-   * <p>The node type filter value. Specify this parameter to show only the available
-   *             offerings matching the specified node type.</p>
+   * <p>The maximum number of response records to return in each call. If the number of
+   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
+   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
+   *             set of records by retrying the command with the returned marker value. </p>
+   *         <p>Default: <code>100</code>
+   *         </p>
+   *         <p>Constraints: minimum 20, maximum 100.</p>
    */
-  NodeType?: string;
-
-  /**
-   * <p>The version filter value. Specify this parameter to show only the available
-   *             offerings matching the specified version.</p>
-   *         <p>Default: All versions.</p>
-   *         <p>Constraints: Must be one of the version returned from <a>DescribeClusterVersions</a>.</p>
-   */
-  ClusterVersion?: string;
+  MaxRecords?: number;
 
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -7345,15 +7349,18 @@ export interface DescribeOrderableClusterOptionsMessage {
   Marker?: string;
 
   /**
-   * <p>The maximum number of response records to return in each call. If the number of
-   *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
-   *             is returned in a <code>marker</code> field of the response. You can retrieve the next
-   *             set of records by retrying the command with the returned marker value. </p>
-   *         <p>Default: <code>100</code>
-   *         </p>
-   *         <p>Constraints: minimum 20, maximum 100.</p>
+   * <p>The version filter value. Specify this parameter to show only the available
+   *             offerings matching the specified version.</p>
+   *         <p>Default: All versions.</p>
+   *         <p>Constraints: Must be one of the version returned from <a>DescribeClusterVersions</a>.</p>
    */
-  MaxRecords?: number;
+  ClusterVersion?: string;
+
+  /**
+   * <p>The node type filter value. Specify this parameter to show only the available
+   *             offerings matching the specified node type.</p>
+   */
+  NodeType?: string;
 }
 
 export namespace DescribeOrderableClusterOptionsMessage {
@@ -7372,9 +7379,9 @@ export interface OrderableClusterOption {
   ClusterType?: string;
 
   /**
-   * <p>The node type for the orderable cluster.</p>
+   * <p>The version of the orderable cluster.</p>
    */
-  NodeType?: string;
+  ClusterVersion?: string;
 
   /**
    * <p>A list of availability zones for the orderable cluster.</p>
@@ -7382,9 +7389,9 @@ export interface OrderableClusterOption {
   AvailabilityZones?: AvailabilityZone[];
 
   /**
-   * <p>The version of the orderable cluster.</p>
+   * <p>The node type for the orderable cluster.</p>
    */
-  ClusterVersion?: string;
+  NodeType?: string;
 }
 
 export namespace OrderableClusterOption {
@@ -7425,6 +7432,11 @@ export namespace OrderableClusterOptionsMessage {
  */
 export interface DescribeReservedNodeOfferingsMessage {
   /**
+   * <p>The unique identifier for the offering.</p>
+   */
+  ReservedNodeOfferingId?: string;
+
+  /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
@@ -7434,11 +7446,6 @@ export interface DescribeReservedNodeOfferingsMessage {
    *         <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
-
-  /**
-   * <p>The unique identifier for the offering.</p>
-   */
-  ReservedNodeOfferingId?: string;
 
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -7467,26 +7474,25 @@ export interface ReservedNodeOffering {
   ReservedNodeOfferingType?: ReservedNodeOfferingType | string;
 
   /**
-   * <p>The currency code for the compute nodes offering.</p>
-   */
-  CurrencyCode?: string;
-
-  /**
    * <p>The anticipated utilization of the reserved node, as defined in the reserved node
    *             offering.</p>
    */
   OfferingType?: string;
 
   /**
-   * <p>The rate you are charged for each hour the cluster that is using the offering is
-   *             running.</p>
+   * <p>The currency code for the compute nodes offering.</p>
    */
-  UsagePrice?: number;
+  CurrencyCode?: string;
 
   /**
    * <p>The node type offered by the reserved node offering.</p>
    */
   NodeType?: string;
+
+  /**
+   * <p>The offering identifier.</p>
+   */
+  ReservedNodeOfferingId?: string;
 
   /**
    * <p>The charge to your account regardless of whether you are creating any clusters
@@ -7496,20 +7502,21 @@ export interface ReservedNodeOffering {
   RecurringCharges?: RecurringCharge[];
 
   /**
-   * <p>The offering identifier.</p>
+   * <p>The upfront fixed charge you will pay to purchase the specific reserved node
+   *             offering.</p>
    */
-  ReservedNodeOfferingId?: string;
+  FixedPrice?: number;
+
+  /**
+   * <p>The rate you are charged for each hour the cluster that is using the offering is
+   *             running.</p>
+   */
+  UsagePrice?: number;
 
   /**
    * <p>The duration, in seconds, for which the offering will reserve the node.</p>
    */
   Duration?: number;
-
-  /**
-   * <p>The upfront fixed charge you will pay to purchase the specific reserved node
-   *             offering.</p>
-   */
-  FixedPrice?: number;
 }
 
 export namespace ReservedNodeOffering {
@@ -7523,11 +7530,6 @@ export namespace ReservedNodeOffering {
  */
 export interface ReservedNodeOfferingsMessage {
   /**
-   * <p>A list of <code>ReservedNodeOffering</code> objects.</p>
-   */
-  ReservedNodeOfferings?: ReservedNodeOffering[];
-
-  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -7535,6 +7537,11 @@ export interface ReservedNodeOfferingsMessage {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of <code>ReservedNodeOffering</code> objects.</p>
+   */
+  ReservedNodeOfferings?: ReservedNodeOffering[];
 }
 
 export namespace ReservedNodeOfferingsMessage {
@@ -7553,16 +7560,6 @@ export interface DescribeReservedNodesMessage {
   ReservedNodeId?: string;
 
   /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeReservedNodes</a> request exceed
-   *             the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
@@ -7572,6 +7569,16 @@ export interface DescribeReservedNodesMessage {
    *         <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeReservedNodes</a> request exceed
+   *             the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *                 <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
 }
 
 export namespace DescribeReservedNodesMessage {
@@ -7658,10 +7665,9 @@ export enum ScheduledActionTypeValues {
 
 export interface DescribeScheduledActionsMessage {
   /**
-   * <p>The start time in UTC of the scheduled actions to retrieve.
-   *             Only active scheduled actions that have invocations after this time are retrieved.</p>
+   * <p>List of scheduled action filters. </p>
    */
-  StartTime?: Date;
+  Filters?: ScheduledActionFilter[];
 
   /**
    * <p>If true, retrieve only active scheduled actions.
@@ -7702,14 +7708,15 @@ export interface DescribeScheduledActionsMessage {
   EndTime?: Date;
 
   /**
+   * <p>The start time in UTC of the scheduled actions to retrieve.
+   *             Only active scheduled actions that have invocations after this time are retrieved.</p>
+   */
+  StartTime?: Date;
+
+  /**
    * <p>The type of the scheduled actions to retrieve. </p>
    */
   TargetActionType?: ScheduledActionTypeValues | string;
-
-  /**
-   * <p>List of scheduled action filters. </p>
-   */
-  Filters?: ScheduledActionFilter[];
 }
 
 export namespace DescribeScheduledActionsMessage {
@@ -7720,11 +7727,6 @@ export namespace DescribeScheduledActionsMessage {
 
 export interface ScheduledActionsMessage {
   /**
-   * <p>List of retrieved scheduled actions. </p>
-   */
-  ScheduledActions?: ScheduledAction[];
-
-  /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <a>DescribeScheduledActions</a> request
    *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
@@ -7733,6 +7735,11 @@ export interface ScheduledActionsMessage {
    *             retrying the request. </p>
    */
   Marker?: string;
+
+  /**
+   * <p>List of retrieved scheduled actions. </p>
+   */
+  ScheduledActions?: ScheduledAction[];
 }
 
 export namespace ScheduledActionsMessage {
@@ -7746,6 +7753,15 @@ export namespace ScheduledActionsMessage {
  */
 export interface DescribeSnapshotCopyGrantsMessage {
   /**
+   * <p>A tag key or keys for which you want to return all matching resources that are
+   *             associated with the specified key or keys. For example, suppose that you have resources
+   *             tagged with keys called <code>owner</code> and <code>environment</code>. If you specify
+   *             both of these tag keys in the request, Amazon Redshift returns a response with all resources
+   *             that have either or both of these tag keys associated with them.</p>
+   */
+  TagKeys?: string[];
+
+  /**
    * <p>The maximum number of response records to return in each call. If the number of
    *             remaining response records exceeds the specified <code>MaxRecords</code> value, a value
    *             is returned in a <code>marker</code> field of the response. You can retrieve the next
@@ -7755,24 +7771,6 @@ export interface DescribeSnapshotCopyGrantsMessage {
    *         <p>Constraints: minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
-
-  /**
-   * <p>A tag value or values for which you want to return all matching resources that are
-   *             associated with the specified value or values. For example, suppose that you have
-   *             resources tagged with values called <code>admin</code> and <code>test</code>. If you
-   *             specify both of these tag values in the request, Amazon Redshift returns a response with all
-   *             resources that have either or both of these tag values associated with them.</p>
-   */
-  TagValues?: string[];
-
-  /**
-   * <p>A tag key or keys for which you want to return all matching resources that are
-   *             associated with the specified key or keys. For example, suppose that you have resources
-   *             tagged with keys called <code>owner</code> and <code>environment</code>. If you specify
-   *             both of these tag keys in the request, Amazon Redshift returns a response with all resources
-   *             that have either or both of these tag keys associated with them.</p>
-   */
-  TagKeys?: string[];
 
   /**
    * <p>An optional parameter that specifies the starting point to return a set of response
@@ -7789,6 +7787,15 @@ export interface DescribeSnapshotCopyGrantsMessage {
    * <p>The name of the snapshot copy grant.</p>
    */
   SnapshotCopyGrantName?: string;
+
+  /**
+   * <p>A tag value or values for which you want to return all matching resources that are
+   *             associated with the specified value or values. For example, suppose that you have
+   *             resources tagged with values called <code>admin</code> and <code>test</code>. If you
+   *             specify both of these tag values in the request, Amazon Redshift returns a response with all
+   *             resources that have either or both of these tag values associated with them.</p>
+   */
+  TagValues?: string[];
 }
 
 export namespace DescribeSnapshotCopyGrantsMessage {
@@ -7802,6 +7809,11 @@ export namespace DescribeSnapshotCopyGrantsMessage {
  */
 export interface SnapshotCopyGrantMessage {
   /**
+   * <p>The list of <code>SnapshotCopyGrant</code> objects.</p>
+   */
+  SnapshotCopyGrants?: SnapshotCopyGrant[];
+
+  /**
    * <p>An optional parameter that specifies the starting point to return a set of response
    *             records. When the results of a <code>DescribeSnapshotCopyGrant</code> request exceed the
    *             value specified in <code>MaxRecords</code>, AWS returns a value in the
@@ -7811,11 +7823,6 @@ export interface SnapshotCopyGrantMessage {
    *         <p>Constraints: You can specify either the <b>SnapshotCopyGrantName</b> parameter or the <b>Marker</b> parameter, but not both. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>The list of <code>SnapshotCopyGrant</code> objects.</p>
-   */
-  SnapshotCopyGrants?: SnapshotCopyGrant[];
 }
 
 export namespace SnapshotCopyGrantMessage {
@@ -7826,14 +7833,15 @@ export namespace SnapshotCopyGrantMessage {
 
 export interface DescribeSnapshotSchedulesMessage {
   /**
-   * <p>A unique identifier for a snapshot schedule.</p>
+   * <p>The unique identifier for the cluster whose snapshot schedules you want to
+   *             view.</p>
    */
-  ScheduleIdentifier?: string;
+  ClusterIdentifier?: string;
 
   /**
-   * <p>The key value for a snapshot schedule tag.</p>
+   * <p>The value corresponding to the key of the snapshot schedule tag.</p>
    */
-  TagKeys?: string[];
+  TagValues?: string[];
 
   /**
    * <p>The maximum number or response records to return in each call. If the number of
@@ -7845,15 +7853,14 @@ export interface DescribeSnapshotSchedulesMessage {
   MaxRecords?: number;
 
   /**
-   * <p>The unique identifier for the cluster whose snapshot schedules you want to
-   *             view.</p>
+   * <p>The key value for a snapshot schedule tag.</p>
    */
-  ClusterIdentifier?: string;
+  TagKeys?: string[];
 
   /**
-   * <p>The value corresponding to the key of the snapshot schedule tag.</p>
+   * <p>A unique identifier for a snapshot schedule.</p>
    */
-  TagValues?: string[];
+  ScheduleIdentifier?: string;
 
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
@@ -7898,12 +7905,11 @@ export namespace DescribeSnapshotSchedulesOutputMessage {
  */
 export interface DescribeTableRestoreStatusMessage {
   /**
-   * <p>An optional pagination token provided by a previous
-   *                 <code>DescribeTableRestoreStatus</code> request. If this parameter is specified, the
-   *             response includes only records beyond the marker, up to the value specified by the
-   *                 <code>MaxRecords</code> parameter.</p>
+   * <p>The maximum number of records to include in the response. If more records exist
+   *             than the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *             included in the response so that the remaining results can be retrieved.</p>
    */
-  Marker?: string;
+  MaxRecords?: number;
 
   /**
    * <p>The identifier of the table restore request to return status for. If you don't
@@ -7914,16 +7920,17 @@ export interface DescribeTableRestoreStatusMessage {
   TableRestoreRequestId?: string;
 
   /**
+   * <p>An optional pagination token provided by a previous
+   *                 <code>DescribeTableRestoreStatus</code> request. If this parameter is specified, the
+   *             response includes only records beyond the marker, up to the value specified by the
+   *                 <code>MaxRecords</code> parameter.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>The Amazon Redshift cluster that the table is being restored to.</p>
    */
   ClusterIdentifier?: string;
-
-  /**
-   * <p>The maximum number of records to include in the response. If more records exist
-   *             than the specified <code>MaxRecords</code> value, a pagination token called a marker is
-   *             included in the response so that the remaining results can be retrieved.</p>
-   */
-  MaxRecords?: number;
 }
 
 export namespace DescribeTableRestoreStatusMessage {
@@ -7955,14 +7962,20 @@ export type TableRestoreStatusType = "CANCELED" | "FAILED" | "IN_PROGRESS" | "PE
  */
 export interface TableRestoreStatus {
   /**
-   * <p>The name of the schema to restore the table to.</p>
+   * <p>The name of the source database that contains the table being restored.</p>
    */
-  TargetSchemaName?: string;
+  SourceDatabaseName?: string;
 
   /**
-   * <p>The total amount of data to restore to the new table, in megabytes (MB).</p>
+   * <p>The time that the table restore request was made, in Universal Coordinated Time
+   *             (UTC).</p>
    */
-  TotalDataInMegaBytes?: number;
+  RequestTime?: Date;
+
+  /**
+   * <p>The name of the source table being restored.</p>
+   */
+  SourceTableName?: string;
 
   /**
    * <p>The name of the database to restore the table to.</p>
@@ -7975,43 +7988,25 @@ export interface TableRestoreStatus {
   SnapshotIdentifier?: string;
 
   /**
+   * <p>The total amount of data to restore to the new table, in megabytes (MB).</p>
+   */
+  TotalDataInMegaBytes?: number;
+
+  /**
+   * <p>The name of the schema to restore the table to.</p>
+   */
+  TargetSchemaName?: string;
+
+  /**
    * <p>The identifier of the Amazon Redshift cluster that the table is being restored
    *             to.</p>
    */
   ClusterIdentifier?: string;
 
   /**
-   * <p>The time that the table restore request was made, in Universal Coordinated Time
-   *             (UTC).</p>
+   * <p>The name of the table to create as a result of the table restore request.</p>
    */
-  RequestTime?: Date;
-
-  /**
-   * <p>The amount of data restored to the new table so far, in megabytes (MB).</p>
-   */
-  ProgressInMegaBytes?: number;
-
-  /**
-   * <p>The name of the source database that contains the table being restored.</p>
-   */
-  SourceDatabaseName?: string;
-
-  /**
-   * <p>A description of the status of the table restore request. Status values include
-   *                 <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>,
-   *                 <code>PENDING</code>, <code>IN_PROGRESS</code>.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The name of the source schema that contains the table being restored.</p>
-   */
-  SourceSchemaName?: string;
-
-  /**
-   * <p>The name of the source table being restored.</p>
-   */
-  SourceTableName?: string;
+  NewTableName?: string;
 
   /**
    * <p>A value that describes the current state of the table restore request.</p>
@@ -8022,14 +8017,26 @@ export interface TableRestoreStatus {
   Status?: TableRestoreStatusType | string;
 
   /**
+   * <p>The name of the source schema that contains the table being restored.</p>
+   */
+  SourceSchemaName?: string;
+
+  /**
+   * <p>A description of the status of the table restore request. Status values include
+   *                 <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>,
+   *                 <code>PENDING</code>, <code>IN_PROGRESS</code>.</p>
+   */
+  Message?: string;
+
+  /**
+   * <p>The amount of data restored to the new table so far, in megabytes (MB).</p>
+   */
+  ProgressInMegaBytes?: number;
+
+  /**
    * <p>The unique identifier for the table restore request.</p>
    */
   TableRestoreRequestId?: string;
-
-  /**
-   * <p>The name of the table to create as a result of the table restore request.</p>
-   */
-  NewTableName?: string;
 }
 
 export namespace TableRestoreStatus {
@@ -8043,14 +8050,14 @@ export namespace TableRestoreStatus {
  */
 export interface TableRestoreStatusMessage {
   /**
-   * <p>A list of status details for one or more table restore requests.</p>
-   */
-  TableRestoreStatusDetails?: TableRestoreStatus[];
-
-  /**
    * <p>A pagination token that can be used in a subsequent <a>DescribeTableRestoreStatus</a> request.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of status details for one or more table restore requests.</p>
+   */
+  TableRestoreStatusDetails?: TableRestoreStatus[];
 }
 
 export namespace TableRestoreStatusMessage {
@@ -8063,21 +8070,6 @@ export namespace TableRestoreStatusMessage {
  * <p></p>
  */
 export interface DescribeTagsMessage {
-  /**
-   * <p>A tag value or values for which you want to return all matching resources that are
-   *             associated with the specified value or values. For example, suppose that you have
-   *             resources tagged with values called <code>admin</code> and <code>test</code>. If you
-   *             specify both of these tag values in the request, Amazon Redshift returns a response with all
-   *             resources that have either or both of these tag values associated with them.</p>
-   */
-  TagValues?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For
-   *             example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </p>
-   */
-  ResourceName?: string;
-
   /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
@@ -8144,6 +8136,21 @@ export interface DescribeTagsMessage {
    *             that have either or both of these tag keys associated with them.</p>
    */
   TagKeys?: string[];
+
+  /**
+   * <p>A tag value or values for which you want to return all matching resources that are
+   *             associated with the specified value or values. For example, suppose that you have
+   *             resources tagged with values called <code>admin</code> and <code>test</code>. If you
+   *             specify both of these tag values in the request, Amazon Redshift returns a response with all
+   *             resources that have either or both of these tag values associated with them.</p>
+   */
+  TagValues?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for which you want to describe the tag or tags. For
+   *             example, <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>. </p>
+   */
+  ResourceName?: string;
 }
 
 export namespace DescribeTagsMessage {
@@ -8156,11 +8163,6 @@ export namespace DescribeTagsMessage {
  * <p>A tag and its associated resource.</p>
  */
 export interface TaggedResource {
-  /**
-   * <p>The tag for the resource.</p>
-   */
-  Tag?: Tag;
-
   /**
    * <p>The Amazon Resource Name (ARN) with which the tag is associated, for example:
    *                 <code>arn:aws:redshift:us-east-2:123456789:cluster:t1</code>.</p>
@@ -8203,6 +8205,11 @@ export interface TaggedResource {
    *             Amazon Redshift Cluster Management Guide. </p>
    */
   ResourceType?: string;
+
+  /**
+   * <p>The tag for the resource.</p>
+   */
+  Tag?: Tag;
 }
 
 export namespace TaggedResource {
@@ -8238,39 +8245,9 @@ export namespace TaggedResourceListMessage {
 
 export interface DescribeUsageLimitsMessage {
   /**
-   * <p>A tag key or keys for which you want to return all matching usage limit objects
-   *             that are associated with the specified key or keys. For example, suppose that you
-   *             have parameter groups that are tagged with keys called <code>owner</code> and
-   *             <code>environment</code>. If you specify both of these tag keys in the request,
-   *             Amazon Redshift returns a response with the usage limit objects have either or both of these
-   *             tag keys associated with them.</p>
-   */
-  TagKeys?: string[];
-
-  /**
    * <p>The feature type for which you want to describe usage limits.</p>
    */
   FeatureType?: UsageLimitFeatureType | string;
-
-  /**
-   * <p>The identifier of the usage limit to describe.</p>
-   */
-  UsageLimitId?: string;
-
-  /**
-   * <p>The identifier of the cluster for which you want to describe usage limits.</p>
-   */
-  ClusterIdentifier?: string;
-
-  /**
-   * <p>An optional parameter that specifies the starting point to return a set of response
-   *             records. When the results of a <a>DescribeUsageLimits</a> request
-   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
-   *             <code>Marker</code> field of the response. You can retrieve the next set of response
-   *             records by providing the returned marker value in the <code>Marker</code> parameter and
-   *             retrying the request. </p>
-   */
-  Marker?: string;
 
   /**
    * <p>The maximum number of response records to return in each call. If the number of
@@ -8284,6 +8261,31 @@ export interface DescribeUsageLimitsMessage {
   MaxRecords?: number;
 
   /**
+   * <p>A tag key or keys for which you want to return all matching usage limit objects
+   *             that are associated with the specified key or keys. For example, suppose that you
+   *             have parameter groups that are tagged with keys called <code>owner</code> and
+   *             <code>environment</code>. If you specify both of these tag keys in the request,
+   *             Amazon Redshift returns a response with the usage limit objects have either or both of these
+   *             tag keys associated with them.</p>
+   */
+  TagKeys?: string[];
+
+  /**
+   * <p>The identifier of the usage limit to describe.</p>
+   */
+  UsageLimitId?: string;
+
+  /**
+   * <p>An optional parameter that specifies the starting point to return a set of response
+   *             records. When the results of a <a>DescribeUsageLimits</a> request
+   *             exceed the value specified in <code>MaxRecords</code>, AWS returns a value in the
+   *             <code>Marker</code> field of the response. You can retrieve the next set of response
+   *             records by providing the returned marker value in the <code>Marker</code> parameter and
+   *             retrying the request. </p>
+   */
+  Marker?: string;
+
+  /**
    * <p>A tag value or values for which you want to return all matching usage limit objects
    *             that are associated with the specified tag value or values. For example, suppose
    *             that you have parameter groups that are tagged with values called <code>admin</code> and
@@ -8292,6 +8294,11 @@ export interface DescribeUsageLimitsMessage {
    *             values associated with them.</p>
    */
   TagValues?: string[];
+
+  /**
+   * <p>The identifier of the cluster for which you want to describe usage limits.</p>
+   */
+  ClusterIdentifier?: string;
 }
 
 export namespace DescribeUsageLimitsMessage {
@@ -8302,6 +8309,12 @@ export namespace DescribeUsageLimitsMessage {
 
 export interface UsageLimitList {
   /**
+   * <p>Contains the output from the <a>DescribeUsageLimits</a>
+   *             action. </p>
+   */
+  UsageLimits?: UsageLimit[];
+
+  /**
    * <p>A value that indicates the starting point for the next set of response records in a
    *             subsequent request. If a value is returned in a response, you can retrieve the next set
    *             of records by providing this returned marker value in the <code>Marker</code> parameter
@@ -8309,12 +8322,6 @@ export interface UsageLimitList {
    *             records have been retrieved for the request. </p>
    */
   Marker?: string;
-
-  /**
-   * <p>Contains the output from the <a>DescribeUsageLimits</a>
-   *             action. </p>
-   */
-  UsageLimits?: UsageLimit[];
 }
 
 export namespace UsageLimitList {
@@ -8393,6 +8400,27 @@ export namespace SnapshotCopyAlreadyDisabledFault {
  */
 export interface EnableLoggingMessage {
   /**
+   * <p>The identifier of the cluster on which logging is to be started.</p>
+   *         <p>Example: <code>examplecluster</code>
+   *         </p>
+   */
+  ClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The name of an existing S3 bucket where the log files are to be stored.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must be in the same region as the cluster</p>
+   *             </li>
+   *             <li>
+   *                 <p>The cluster must have read bucket and put object permissions</p>
+   *             </li>
+   *          </ul>
+   */
+  BucketName: string | undefined;
+
+  /**
    * <p>The prefix applied to the log file names.</p>
    *         <p>Constraints:</p>
    *         <ul>
@@ -8423,27 +8451,6 @@ export interface EnableLoggingMessage {
    *          </ul>
    */
   S3KeyPrefix?: string;
-
-  /**
-   * <p>The name of an existing S3 bucket where the log files are to be stored.</p>
-   *         <p>Constraints:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>Must be in the same region as the cluster</p>
-   *             </li>
-   *             <li>
-   *                 <p>The cluster must have read bucket and put object permissions</p>
-   *             </li>
-   *          </ul>
-   */
-  BucketName: string | undefined;
-
-  /**
-   * <p>The identifier of the cluster on which logging is to be started.</p>
-   *         <p>Example: <code>examplecluster</code>
-   *         </p>
-   */
-  ClusterIdentifier: string | undefined;
 }
 
 export namespace EnableLoggingMessage {
@@ -8507,20 +8514,10 @@ export namespace InvalidS3KeyPrefixFault {
  */
 export interface EnableSnapshotCopyMessage {
   /**
-   * <p>The number of days to retain newly copied snapshots in the destination AWS Region
-   *             after they are copied from the source AWS Region. If the value is -1, the manual
-   *             snapshot is retained indefinitely. </p>
-   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   * <p>The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted
+   *             cluster are copied to the destination region.</p>
    */
-  ManualSnapshotRetentionPeriod?: number;
-
-  /**
-   * <p>The destination AWS Region that you want to copy snapshots to.</p>
-   *         <p>Constraints: Must be the name of a valid AWS Region. For more information, see
-   *                 <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.
-   *         </p>
-   */
-  DestinationRegion: string | undefined;
+  SnapshotCopyGrantName?: string;
 
   /**
    * <p>The unique identifier of the source cluster to copy snapshots from.</p>
@@ -8538,10 +8535,20 @@ export interface EnableSnapshotCopyMessage {
   RetentionPeriod?: number;
 
   /**
-   * <p>The name of the snapshot copy grant to use when snapshots of an AWS KMS-encrypted
-   *             cluster are copied to the destination region.</p>
+   * <p>The destination AWS Region that you want to copy snapshots to.</p>
+   *         <p>Constraints: Must be the name of a valid AWS Region. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region">Regions and Endpoints</a> in the Amazon Web Services General Reference.
+   *         </p>
    */
-  SnapshotCopyGrantName?: string;
+  DestinationRegion: string | undefined;
+
+  /**
+   * <p>The number of days to retain newly copied snapshots in the destination AWS Region
+   *             after they are copied from the source AWS Region. If the value is -1, the manual
+   *             snapshot is retained indefinitely. </p>
+   *         <p>The value must be either -1 or an integer between 1 and 3,653.</p>
+   */
+  ManualSnapshotRetentionPeriod?: number;
 }
 
 export namespace EnableSnapshotCopyMessage {
@@ -8613,14 +8620,28 @@ export namespace UnknownSnapshotCopyRegionFault {
  */
 export interface GetClusterCredentialsMessage {
   /**
-   * <p>A list of the names of existing database groups that the user named in
-   *                 <code>DbUser</code> will join for the current session, in addition to any group
-   *             memberships for an existing user. If not specified, a new user is added only to
-   *             PUBLIC.</p>
-   *         <p>Database group name constraints</p>
+   * <p>The number of seconds until the returned temporary password expires.</p>
+   *         <p>Constraint: minimum 900, maximum 3600.</p>
+   *         <p>Default: 900</p>
+   */
+  DurationSeconds?: number;
+
+  /**
+   * <p>The name of a database user. If a user name matching <code>DbUser</code> exists in
+   *             the database, the temporary user credentials have the same permissions as the existing
+   *             user. If <code>DbUser</code> doesn't exist in the database and <code>Autocreate</code>
+   *             is <code>True</code>, a new user is created using the value for <code>DbUser</code> with
+   *             PUBLIC permissions. If a database user matching the value for <code>DbUser</code>
+   *             doesn't exist and <code>Autocreate</code> is <code>False</code>, then the command
+   *             succeeds but the connection attempt will fail because the user doesn't exist in the
+   *             database.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">CREATE USER</a> in the Amazon
+   *             Redshift Database Developer Guide. </p>
+   *         <p>Constraints:</p>
    *         <ul>
    *             <li>
-   *                 <p>Must be 1 to 64 alphanumeric characters or hyphens</p>
+   *                 <p>Must be 1 to 64 alphanumeric characters or hyphens. The user name can't be
+   *                         <code>PUBLIC</code>.</p>
    *             </li>
    *             <li>
    *                 <p>Must contain only lowercase letters, numbers, underscore, plus sign, period
@@ -8638,14 +8659,7 @@ export interface GetClusterCredentialsMessage {
    *             </li>
    *          </ul>
    */
-  DbGroups?: string[];
-
-  /**
-   * <p>The number of seconds until the returned temporary password expires.</p>
-   *         <p>Constraint: minimum 900, maximum 3600.</p>
-   *         <p>Default: 900</p>
-   */
-  DurationSeconds?: number;
+  DbUser: string | undefined;
 
   /**
    * <p>Create a database user with the name specified for the user named in
@@ -8687,21 +8701,14 @@ export interface GetClusterCredentialsMessage {
   ClusterIdentifier: string | undefined;
 
   /**
-   * <p>The name of a database user. If a user name matching <code>DbUser</code> exists in
-   *             the database, the temporary user credentials have the same permissions as the existing
-   *             user. If <code>DbUser</code> doesn't exist in the database and <code>Autocreate</code>
-   *             is <code>True</code>, a new user is created using the value for <code>DbUser</code> with
-   *             PUBLIC permissions. If a database user matching the value for <code>DbUser</code>
-   *             doesn't exist and <code>Autocreate</code> is <code>False</code>, then the command
-   *             succeeds but the connection attempt will fail because the user doesn't exist in the
-   *             database.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/redshift/latest/dg/r_CREATE_USER.html">CREATE USER</a> in the Amazon
-   *             Redshift Database Developer Guide. </p>
-   *         <p>Constraints:</p>
+   * <p>A list of the names of existing database groups that the user named in
+   *                 <code>DbUser</code> will join for the current session, in addition to any group
+   *             memberships for an existing user. If not specified, a new user is added only to
+   *             PUBLIC.</p>
+   *         <p>Database group name constraints</p>
    *         <ul>
    *             <li>
-   *                 <p>Must be 1 to 64 alphanumeric characters or hyphens. The user name can't be
-   *                         <code>PUBLIC</code>.</p>
+   *                 <p>Must be 1 to 64 alphanumeric characters or hyphens</p>
    *             </li>
    *             <li>
    *                 <p>Must contain only lowercase letters, numbers, underscore, plus sign, period
@@ -8719,7 +8726,7 @@ export interface GetClusterCredentialsMessage {
    *             </li>
    *          </ul>
    */
-  DbUser: string | undefined;
+  DbGroups?: string[];
 }
 
 export namespace GetClusterCredentialsMessage {
@@ -8739,16 +8746,16 @@ export interface GetReservedNodeExchangeOfferingsInputMessage {
   MaxRecords?: number;
 
   /**
-   * <p>A value that indicates the starting point for the next set of
-   *             ReservedNodeOfferings.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>A string representing the node identifier for the DC1 Reserved Node to be
    *             exchanged.</p>
    */
   ReservedNodeId: string | undefined;
+
+  /**
+   * <p>A value that indicates the starting point for the next set of
+   *             ReservedNodeOfferings.</p>
+   */
+  Marker?: string;
 }
 
 export namespace GetReservedNodeExchangeOfferingsInputMessage {
@@ -8759,6 +8766,11 @@ export namespace GetReservedNodeExchangeOfferingsInputMessage {
 
 export interface GetReservedNodeExchangeOfferingsOutputMessage {
   /**
+   * <p>Returns an array of <a>ReservedNodeOffering</a> objects.</p>
+   */
+  ReservedNodeOfferings?: ReservedNodeOffering[];
+
+  /**
    * <p>An optional parameter that specifies the starting point for returning a set of
    *             response records. When the results of a <code>GetReservedNodeExchangeOfferings</code>
    *             request exceed the value specified in MaxRecords, Amazon Redshift returns a value in the
@@ -8767,11 +8779,6 @@ export interface GetReservedNodeExchangeOfferingsOutputMessage {
    *         </p>
    */
   Marker?: string;
-
-  /**
-   * <p>Returns an array of <a>ReservedNodeOffering</a> objects.</p>
-   */
-  ReservedNodeOfferings?: ReservedNodeOffering[];
 }
 
 export namespace GetReservedNodeExchangeOfferingsOutputMessage {

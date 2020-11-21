@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRecommendationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRecommendationsCommand(input, ...args));
+  return await client.send(new ListRecommendationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeGuruReviewer,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRecommendations(input, ...args);
 };
-export async function* listRecommendationsPaginate(
+export async function* paginateListRecommendations(
   config: CodeGuruReviewerPaginationConfiguration,
   input: ListRecommendationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRecommendationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRecommendationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CodeGuruReviewer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listRecommendationsPaginate(
       throw new Error("Invalid client, expected CodeGuruReviewer | CodeGuruReviewerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

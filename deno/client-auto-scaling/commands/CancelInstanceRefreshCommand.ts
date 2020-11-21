@@ -1,4 +1,3 @@
-
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
 import { CancelInstanceRefreshAnswer, CancelInstanceRefreshType } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class CancelInstanceRefreshCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingClient";
+    const commandName = "CancelInstanceRefreshCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CancelInstanceRefreshType.filterSensitiveLog,
       outputFilterSensitiveLog: CancelInstanceRefreshAnswer.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

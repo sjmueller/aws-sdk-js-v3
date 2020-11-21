@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAssetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAssetsCommand(input, ...args));
+  return await client.send(new ListAssetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoTSiteWise,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAssets(input, ...args);
 };
-export async function* listAssetsPaginate(
+export async function* paginateListAssets(
   config: IoTSiteWisePaginationConfiguration,
   input: ListAssetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAssetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAssetsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof IoTSiteWise) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listAssetsPaginate(
       throw new Error("Invalid client, expected IoTSiteWise | IoTSiteWiseClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

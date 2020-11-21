@@ -1804,7 +1804,7 @@ export const deserializeAws_restJson1CreateGatewayRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGatewayRouteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateGatewayRouteCommandError(output, context);
   }
   const contents: CreateGatewayRouteCommandOutput = {
@@ -1913,7 +1913,7 @@ export const deserializeAws_restJson1CreateMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMeshCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateMeshCommandError(output, context);
   }
   const contents: CreateMeshCommandOutput = {
@@ -2022,7 +2022,7 @@ export const deserializeAws_restJson1CreateRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRouteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateRouteCommandError(output, context);
   }
   const contents: CreateRouteCommandOutput = {
@@ -2131,7 +2131,7 @@ export const deserializeAws_restJson1CreateVirtualGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateVirtualGatewayCommandError(output, context);
   }
   const contents: CreateVirtualGatewayCommandOutput = {
@@ -2240,7 +2240,7 @@ export const deserializeAws_restJson1CreateVirtualNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualNodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateVirtualNodeCommandError(output, context);
   }
   const contents: CreateVirtualNodeCommandOutput = {
@@ -2349,7 +2349,7 @@ export const deserializeAws_restJson1CreateVirtualRouterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualRouterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateVirtualRouterCommandError(output, context);
   }
   const contents: CreateVirtualRouterCommandOutput = {
@@ -2458,7 +2458,7 @@ export const deserializeAws_restJson1CreateVirtualServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualServiceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateVirtualServiceCommandError(output, context);
   }
   const contents: CreateVirtualServiceCommandOutput = {
@@ -2567,7 +2567,7 @@ export const deserializeAws_restJson1DeleteGatewayRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGatewayRouteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteGatewayRouteCommandError(output, context);
   }
   const contents: DeleteGatewayRouteCommandOutput = {
@@ -2668,7 +2668,7 @@ export const deserializeAws_restJson1DeleteMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMeshCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteMeshCommandError(output, context);
   }
   const contents: DeleteMeshCommandOutput = {
@@ -2769,7 +2769,7 @@ export const deserializeAws_restJson1DeleteRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRouteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteRouteCommandError(output, context);
   }
   const contents: DeleteRouteCommandOutput = {
@@ -2870,7 +2870,7 @@ export const deserializeAws_restJson1DeleteVirtualGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteVirtualGatewayCommandError(output, context);
   }
   const contents: DeleteVirtualGatewayCommandOutput = {
@@ -2971,7 +2971,7 @@ export const deserializeAws_restJson1DeleteVirtualNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualNodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteVirtualNodeCommandError(output, context);
   }
   const contents: DeleteVirtualNodeCommandOutput = {
@@ -3072,7 +3072,7 @@ export const deserializeAws_restJson1DeleteVirtualRouterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualRouterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteVirtualRouterCommandError(output, context);
   }
   const contents: DeleteVirtualRouterCommandOutput = {
@@ -3173,7 +3173,7 @@ export const deserializeAws_restJson1DeleteVirtualServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualServiceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteVirtualServiceCommandError(output, context);
   }
   const contents: DeleteVirtualServiceCommandOutput = {
@@ -3274,7 +3274,7 @@ export const deserializeAws_restJson1DescribeGatewayRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeGatewayRouteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeGatewayRouteCommandError(output, context);
   }
   const contents: DescribeGatewayRouteCommandOutput = {
@@ -3367,7 +3367,7 @@ export const deserializeAws_restJson1DescribeMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeMeshCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeMeshCommandError(output, context);
   }
   const contents: DescribeMeshCommandOutput = {
@@ -3460,7 +3460,7 @@ export const deserializeAws_restJson1DescribeRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRouteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeRouteCommandError(output, context);
   }
   const contents: DescribeRouteCommandOutput = {
@@ -3553,7 +3553,7 @@ export const deserializeAws_restJson1DescribeVirtualGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeVirtualGatewayCommandError(output, context);
   }
   const contents: DescribeVirtualGatewayCommandOutput = {
@@ -3646,7 +3646,7 @@ export const deserializeAws_restJson1DescribeVirtualNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualNodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeVirtualNodeCommandError(output, context);
   }
   const contents: DescribeVirtualNodeCommandOutput = {
@@ -3739,7 +3739,7 @@ export const deserializeAws_restJson1DescribeVirtualRouterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualRouterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeVirtualRouterCommandError(output, context);
   }
   const contents: DescribeVirtualRouterCommandOutput = {
@@ -3832,7 +3832,7 @@ export const deserializeAws_restJson1DescribeVirtualServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualServiceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeVirtualServiceCommandError(output, context);
   }
   const contents: DescribeVirtualServiceCommandOutput = {
@@ -3925,7 +3925,7 @@ export const deserializeAws_restJson1ListGatewayRoutesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGatewayRoutesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListGatewayRoutesCommandError(output, context);
   }
   const contents: ListGatewayRoutesCommandOutput = {
@@ -4024,7 +4024,7 @@ export const deserializeAws_restJson1ListMeshesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMeshesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListMeshesCommandError(output, context);
   }
   const contents: ListMeshesCommandOutput = {
@@ -4123,7 +4123,7 @@ export const deserializeAws_restJson1ListRoutesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRoutesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRoutesCommandError(output, context);
   }
   const contents: ListRoutesCommandOutput = {
@@ -4222,7 +4222,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -4321,7 +4321,7 @@ export const deserializeAws_restJson1ListVirtualGatewaysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualGatewaysCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListVirtualGatewaysCommandError(output, context);
   }
   const contents: ListVirtualGatewaysCommandOutput = {
@@ -4420,7 +4420,7 @@ export const deserializeAws_restJson1ListVirtualNodesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualNodesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListVirtualNodesCommandError(output, context);
   }
   const contents: ListVirtualNodesCommandOutput = {
@@ -4519,7 +4519,7 @@ export const deserializeAws_restJson1ListVirtualRoutersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualRoutersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListVirtualRoutersCommandError(output, context);
   }
   const contents: ListVirtualRoutersCommandOutput = {
@@ -4618,7 +4618,7 @@ export const deserializeAws_restJson1ListVirtualServicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualServicesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListVirtualServicesCommandError(output, context);
   }
   const contents: ListVirtualServicesCommandOutput = {
@@ -4717,7 +4717,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -4816,7 +4816,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -4907,7 +4907,7 @@ export const deserializeAws_restJson1UpdateGatewayRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGatewayRouteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateGatewayRouteCommandError(output, context);
   }
   const contents: UpdateGatewayRouteCommandOutput = {
@@ -5016,7 +5016,7 @@ export const deserializeAws_restJson1UpdateMeshCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMeshCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateMeshCommandError(output, context);
   }
   const contents: UpdateMeshCommandOutput = {
@@ -5117,7 +5117,7 @@ export const deserializeAws_restJson1UpdateRouteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRouteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateRouteCommandError(output, context);
   }
   const contents: UpdateRouteCommandOutput = {
@@ -5226,7 +5226,7 @@ export const deserializeAws_restJson1UpdateVirtualGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVirtualGatewayCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateVirtualGatewayCommandError(output, context);
   }
   const contents: UpdateVirtualGatewayCommandOutput = {
@@ -5335,7 +5335,7 @@ export const deserializeAws_restJson1UpdateVirtualNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVirtualNodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateVirtualNodeCommandError(output, context);
   }
   const contents: UpdateVirtualNodeCommandOutput = {
@@ -5444,7 +5444,7 @@ export const deserializeAws_restJson1UpdateVirtualRouterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVirtualRouterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateVirtualRouterCommandError(output, context);
   }
   const contents: UpdateVirtualRouterCommandOutput = {
@@ -5553,7 +5553,7 @@ export const deserializeAws_restJson1UpdateVirtualServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVirtualServiceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateVirtualServiceCommandError(output, context);
   }
   const contents: UpdateVirtualServiceCommandOutput = {

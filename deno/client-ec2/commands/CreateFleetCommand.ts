@@ -42,11 +42,23 @@ export class CreateFleetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "CreateFleetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateFleetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateFleetResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

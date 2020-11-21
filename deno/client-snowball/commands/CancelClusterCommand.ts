@@ -45,11 +45,23 @@ export class CancelClusterCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SnowballClient";
+    const commandName = "CancelClusterCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CancelClusterRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CancelClusterResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

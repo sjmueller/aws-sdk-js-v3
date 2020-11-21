@@ -38,11 +38,23 @@ export class PublishCommand extends $Command<PublishCommandInput, PublishCommand
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SNSClient";
+    const commandName = "PublishCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PublishInput.filterSensitiveLog,
       outputFilterSensitiveLog: PublishResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

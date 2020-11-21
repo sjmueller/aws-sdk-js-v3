@@ -45,11 +45,23 @@ export class RestoreBackupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudHSMV2Client";
+    const commandName = "RestoreBackupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RestoreBackupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreBackupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

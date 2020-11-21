@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTranscriptionJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTranscriptionJobsCommand(input, ...args));
+  return await client.send(new ListTranscriptionJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Transcribe,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTranscriptionJobs(input, ...args);
 };
-export async function* listTranscriptionJobsPaginate(
+export async function* paginateListTranscriptionJobs(
   config: TranscribePaginationConfiguration,
   input: ListTranscriptionJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTranscriptionJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTranscriptionJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Transcribe) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listTranscriptionJobsPaginate(
       throw new Error("Invalid client, expected Transcribe | TranscribeClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeLoadBalancersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeLoadBalancersCommand(input, ...args));
+  return await client.send(new DescribeLoadBalancersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElasticLoadBalancingV2,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeLoadBalancers(input, ...args);
 };
-export async function* describeLoadBalancersPaginate(
+export async function* paginateDescribeLoadBalancers(
   config: ElasticLoadBalancingV2PaginationConfiguration,
   input: DescribeLoadBalancersCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeLoadBalancersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeLoadBalancersCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     if (config.client instanceof ElasticLoadBalancingV2) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof ElasticLoadBalancingV2Client) {
@@ -43,7 +43,7 @@ export async function* describeLoadBalancersPaginate(
       throw new Error("Invalid client, expected ElasticLoadBalancingV2 | ElasticLoadBalancingV2Client");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBParameterGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBParameterGroupsCommand(input, ...args));
+  return await client.send(new DescribeDBParameterGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Neptune,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBParameterGroups(input, ...args);
 };
-export async function* describeDBParameterGroupsPaginate(
+export async function* paginateDescribeDBParameterGroups(
   config: NeptunePaginationConfiguration,
   input: DescribeDBParameterGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBParameterGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBParameterGroupsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof Neptune) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeDBParameterGroupsPaginate(
       throw new Error("Invalid client, expected Neptune | NeptuneClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

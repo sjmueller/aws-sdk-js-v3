@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeAddressesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeAddressesCommand(input, ...args));
+  return await client.send(new DescribeAddressesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Snowball,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeAddresses(input, ...args);
 };
-export async function* describeAddressesPaginate(
+export async function* paginateDescribeAddresses(
   config: SnowballPaginationConfiguration,
   input: DescribeAddressesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeAddressesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeAddressesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Snowball) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeAddressesPaginate(
       throw new Error("Invalid client, expected Snowball | SnowballClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

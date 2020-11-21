@@ -49,11 +49,23 @@ export class DescribeProblemCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApplicationInsightsClient";
+    const commandName = "DescribeProblemCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeProblemRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeProblemResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

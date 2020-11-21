@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeClusterSecurityGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeClusterSecurityGroupsCommand(input, ...args));
+  return await client.send(new DescribeClusterSecurityGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Redshift,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeClusterSecurityGroups(input, ...args);
 };
-export async function* describeClusterSecurityGroupsPaginate(
+export async function* paginateDescribeClusterSecurityGroups(
   config: RedshiftPaginationConfiguration,
   input: DescribeClusterSecurityGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeClusterSecurityGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeClusterSecurityGroupsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof Redshift) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeClusterSecurityGroupsPaginate(
       throw new Error("Invalid client, expected Redshift | RedshiftClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeCertificatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeCertificatesCommand(input, ...args));
+  return await client.send(new DescribeCertificatesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DatabaseMigrationService,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeCertificates(input, ...args);
 };
-export async function* describeCertificatesPaginate(
+export async function* paginateDescribeCertificates(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeCertificatesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCertificatesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCertificatesCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof DatabaseMigrationService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeCertificatesPaginate(
       throw new Error("Invalid client, expected DatabaseMigrationService | DatabaseMigrationServiceClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

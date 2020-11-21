@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { GetOperationsForResourceRequest, GetOperationsForResourceResult } from "../models/models_0.ts";
+import { GetOperationsForResourceRequest, GetOperationsForResourceResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetOperationsForResourceCommand,
   serializeAws_json1_1GetOperationsForResourceCommand,
@@ -45,11 +45,23 @@ export class GetOperationsForResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "GetOperationsForResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetOperationsForResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOperationsForResourceResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

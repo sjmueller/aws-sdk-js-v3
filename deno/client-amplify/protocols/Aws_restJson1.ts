@@ -123,6 +123,7 @@ export const serializeAws_restJson1CreateAppCommand = async (
     }),
     ...(input.basicAuthCredentials !== undefined && { basicAuthCredentials: input.basicAuthCredentials }),
     ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
+    ...(input.customHeaders !== undefined && { customHeaders: input.customHeaders }),
     ...(input.customRules !== undefined && {
       customRules: serializeAws_restJson1CustomRules(input.customRules, context),
     }),
@@ -216,6 +217,7 @@ export const serializeAws_restJson1CreateBranchCommand = async (
     ...(input.enableAutoBuild !== undefined && { enableAutoBuild: input.enableAutoBuild }),
     ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
     ...(input.enableNotification !== undefined && { enableNotification: input.enableNotification }),
+    ...(input.enablePerformanceMode !== undefined && { enablePerformanceMode: input.enablePerformanceMode }),
     ...(input.enablePullRequestPreview !== undefined && { enablePullRequestPreview: input.enablePullRequestPreview }),
     ...(input.environmentVariables !== undefined && {
       environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
@@ -476,15 +478,6 @@ export const serializeAws_restJson1DeleteDomainAssociationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
-  if (input.domainName !== undefined) {
-    const labelValue: string = input.domainName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: domainName.");
-    }
-    resolvedPath = resolvedPath.replace("{domainName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: domainName.");
-  }
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
@@ -493,6 +486,15 @@ export const serializeAws_restJson1DeleteDomainAssociationCommand = async (
     resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
+  }
+  if (input.domainName !== undefined) {
+    const labelValue: string = input.domainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: domainName.");
+    }
+    resolvedPath = resolvedPath.replace("{domainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: domainName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -515,14 +517,14 @@ export const serializeAws_restJson1DeleteJobCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}";
-  if (input.jobId !== undefined) {
-    const labelValue: string = input.jobId;
+  if (input.appId !== undefined) {
+    const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: jobId.");
+      throw new Error("Empty value provided for input HTTP label: appId.");
     }
-    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: jobId.");
+    throw new Error("No value provided for input HTTP label: appId.");
   }
   if (input.branchName !== undefined) {
     const labelValue: string = input.branchName;
@@ -533,14 +535,14 @@ export const serializeAws_restJson1DeleteJobCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: branchName.");
   }
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
+  if (input.jobId !== undefined) {
+    const labelValue: string = input.jobId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
+      throw new Error("Empty value provided for input HTTP label: jobId.");
     }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: appId.");
+    throw new Error("No value provided for input HTTP label: jobId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -727,15 +729,6 @@ export const serializeAws_restJson1GetBranchCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}";
-  if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: branchName.");
-    }
-    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: branchName.");
-  }
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
@@ -744,6 +737,15 @@ export const serializeAws_restJson1GetBranchCommand = async (
     resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
+  }
+  if (input.branchName !== undefined) {
+    const labelValue: string = input.branchName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: branchName.");
+    }
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: branchName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -766,15 +768,6 @@ export const serializeAws_restJson1GetDomainAssociationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/domains/{domainName}";
-  if (input.domainName !== undefined) {
-    const labelValue: string = input.domainName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: domainName.");
-    }
-    resolvedPath = resolvedPath.replace("{domainName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: domainName.");
-  }
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
@@ -783,6 +776,15 @@ export const serializeAws_restJson1GetDomainAssociationCommand = async (
     resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
+  }
+  if (input.domainName !== undefined) {
+    const labelValue: string = input.domainName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: domainName.");
+    }
+    resolvedPath = resolvedPath.replace("{domainName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: domainName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -805,6 +807,15 @@ export const serializeAws_restJson1GetJobCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}";
+  if (input.appId !== undefined) {
+    const labelValue: string = input.appId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: appId.");
+    }
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: appId.");
+  }
   if (input.branchName !== undefined) {
     const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
@@ -822,15 +833,6 @@ export const serializeAws_restJson1GetJobCommand = async (
     resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
-  }
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -884,8 +886,8 @@ export const serializeAws_restJson1ListAppsCommand = async (
   };
   let resolvedPath = "/apps";
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -909,15 +911,6 @@ export const serializeAws_restJson1ListArtifactsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts";
-  if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: branchName.");
-    }
-    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: branchName.");
-  }
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
@@ -926,6 +919,15 @@ export const serializeAws_restJson1ListArtifactsCommand = async (
     resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
+  }
+  if (input.branchName !== undefined) {
+    const labelValue: string = input.branchName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: branchName.");
+    }
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: branchName.");
   }
   if (input.jobId !== undefined) {
     const labelValue: string = input.jobId;
@@ -937,8 +939,8 @@ export const serializeAws_restJson1ListArtifactsCommand = async (
     throw new Error("No value provided for input HTTP label: jobId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -972,9 +974,9 @@ export const serializeAws_restJson1ListBackendEnvironmentsCommand = async (
     throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.environmentName !== undefined && { environmentName: input.environmentName }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1068,15 +1070,6 @@ export const serializeAws_restJson1ListJobsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs";
-  if (input.branchName !== undefined) {
-    const labelValue: string = input.branchName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: branchName.");
-    }
-    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: branchName.");
-  }
   if (input.appId !== undefined) {
     const labelValue: string = input.appId;
     if (labelValue.length <= 0) {
@@ -1086,9 +1079,18 @@ export const serializeAws_restJson1ListJobsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: appId.");
   }
+  if (input.branchName !== undefined) {
+    const labelValue: string = input.branchName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: branchName.");
+    }
+    resolvedPath = resolvedPath.replace("{branchName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: branchName.");
+  }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1152,8 +1154,8 @@ export const serializeAws_restJson1ListWebhooksCommand = async (
     throw new Error("No value provided for input HTTP label: appId.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1267,6 +1269,15 @@ export const serializeAws_restJson1StopJobCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/apps/{appId}/branches/{branchName}/jobs/{jobId}/stop";
+  if (input.appId !== undefined) {
+    const labelValue: string = input.appId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: appId.");
+    }
+    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: appId.");
+  }
   if (input.branchName !== undefined) {
     const labelValue: string = input.branchName;
     if (labelValue.length <= 0) {
@@ -1284,15 +1295,6 @@ export const serializeAws_restJson1StopJobCommand = async (
     resolvedPath = resolvedPath.replace("{jobId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: jobId.");
-  }
-  if (input.appId !== undefined) {
-    const labelValue: string = input.appId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: appId.");
-    }
-    resolvedPath = resolvedPath.replace("{appId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1405,6 +1407,7 @@ export const serializeAws_restJson1UpdateAppCommand = async (
     }),
     ...(input.basicAuthCredentials !== undefined && { basicAuthCredentials: input.basicAuthCredentials }),
     ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
+    ...(input.customHeaders !== undefined && { customHeaders: input.customHeaders }),
     ...(input.customRules !== undefined && {
       customRules: serializeAws_restJson1CustomRules(input.customRules, context),
     }),
@@ -1470,6 +1473,7 @@ export const serializeAws_restJson1UpdateBranchCommand = async (
     ...(input.enableAutoBuild !== undefined && { enableAutoBuild: input.enableAutoBuild }),
     ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
     ...(input.enableNotification !== undefined && { enableNotification: input.enableNotification }),
+    ...(input.enablePerformanceMode !== undefined && { enablePerformanceMode: input.enablePerformanceMode }),
     ...(input.enablePullRequestPreview !== undefined && { enablePullRequestPreview: input.enablePullRequestPreview }),
     ...(input.environmentVariables !== undefined && {
       environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
@@ -1583,7 +1587,7 @@ export const deserializeAws_restJson1CreateAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAppCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateAppCommandError(output, context);
   }
   const contents: CreateAppCommandOutput = {
@@ -1670,7 +1674,7 @@ export const deserializeAws_restJson1CreateBackendEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackendEnvironmentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBackendEnvironmentCommandError(output, context);
   }
   const contents: CreateBackendEnvironmentCommandOutput = {
@@ -1757,7 +1761,7 @@ export const deserializeAws_restJson1CreateBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBranchCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBranchCommandError(output, context);
   }
   const contents: CreateBranchCommandOutput = {
@@ -1852,7 +1856,7 @@ export const deserializeAws_restJson1CreateDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeploymentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDeploymentCommandError(output, context);
   }
   const contents: CreateDeploymentCommandOutput = {
@@ -1939,7 +1943,7 @@ export const deserializeAws_restJson1CreateDomainAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDomainAssociationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDomainAssociationCommandError(output, context);
   }
   const contents: CreateDomainAssociationCommandOutput = {
@@ -2034,7 +2038,7 @@ export const deserializeAws_restJson1CreateWebhookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWebhookCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateWebhookCommandError(output, context);
   }
   const contents: CreateWebhookCommandOutput = {
@@ -2129,7 +2133,7 @@ export const deserializeAws_restJson1DeleteAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteAppCommandError(output, context);
   }
   const contents: DeleteAppCommandOutput = {
@@ -2216,7 +2220,7 @@ export const deserializeAws_restJson1DeleteBackendEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackendEnvironmentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBackendEnvironmentCommandError(output, context);
   }
   const contents: DeleteBackendEnvironmentCommandOutput = {
@@ -2303,7 +2307,7 @@ export const deserializeAws_restJson1DeleteBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBranchCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBranchCommandError(output, context);
   }
   const contents: DeleteBranchCommandOutput = {
@@ -2390,7 +2394,7 @@ export const deserializeAws_restJson1DeleteDomainAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainAssociationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDomainAssociationCommandError(output, context);
   }
   const contents: DeleteDomainAssociationCommandOutput = {
@@ -2477,7 +2481,7 @@ export const deserializeAws_restJson1DeleteJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteJobCommandError(output, context);
   }
   const contents: DeleteJobCommandOutput = {
@@ -2564,7 +2568,7 @@ export const deserializeAws_restJson1DeleteWebhookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWebhookCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteWebhookCommandError(output, context);
   }
   const contents: DeleteWebhookCommandOutput = {
@@ -2651,7 +2655,7 @@ export const deserializeAws_restJson1GenerateAccessLogsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateAccessLogsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GenerateAccessLogsCommandError(output, context);
   }
   const contents: GenerateAccessLogsCommandOutput = {
@@ -2730,7 +2734,7 @@ export const deserializeAws_restJson1GetAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAppCommandError(output, context);
   }
   const contents: GetAppCommandOutput = {
@@ -2809,7 +2813,7 @@ export const deserializeAws_restJson1GetArtifactUrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetArtifactUrlCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetArtifactUrlCommandError(output, context);
   }
   const contents: GetArtifactUrlCommandOutput = {
@@ -2900,7 +2904,7 @@ export const deserializeAws_restJson1GetBackendEnvironmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackendEnvironmentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackendEnvironmentCommandError(output, context);
   }
   const contents: GetBackendEnvironmentCommandOutput = {
@@ -2979,7 +2983,7 @@ export const deserializeAws_restJson1GetBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBranchCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBranchCommandError(output, context);
   }
   const contents: GetBranchCommandOutput = {
@@ -3058,7 +3062,7 @@ export const deserializeAws_restJson1GetDomainAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainAssociationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDomainAssociationCommandError(output, context);
   }
   const contents: GetDomainAssociationCommandOutput = {
@@ -3137,7 +3141,7 @@ export const deserializeAws_restJson1GetJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetJobCommandError(output, context);
   }
   const contents: GetJobCommandOutput = {
@@ -3224,7 +3228,7 @@ export const deserializeAws_restJson1GetWebhookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetWebhookCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetWebhookCommandError(output, context);
   }
   const contents: GetWebhookCommandOutput = {
@@ -3311,7 +3315,7 @@ export const deserializeAws_restJson1ListAppsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAppsCommandError(output, context);
   }
   const contents: ListAppsCommandOutput = {
@@ -3386,7 +3390,7 @@ export const deserializeAws_restJson1ListArtifactsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListArtifactsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListArtifactsCommandError(output, context);
   }
   const contents: ListArtifactsCommandOutput = {
@@ -3469,7 +3473,7 @@ export const deserializeAws_restJson1ListBackendEnvironmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackendEnvironmentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListBackendEnvironmentsCommandError(output, context);
   }
   const contents: ListBackendEnvironmentsCommandOutput = {
@@ -3544,7 +3548,7 @@ export const deserializeAws_restJson1ListBranchesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBranchesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListBranchesCommandError(output, context);
   }
   const contents: ListBranchesCommandOutput = {
@@ -3619,7 +3623,7 @@ export const deserializeAws_restJson1ListDomainAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainAssociationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDomainAssociationsCommandError(output, context);
   }
   const contents: ListDomainAssociationsCommandOutput = {
@@ -3694,7 +3698,7 @@ export const deserializeAws_restJson1ListJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListJobsCommandError(output, context);
   }
   const contents: ListJobsCommandOutput = {
@@ -3777,7 +3781,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -3848,7 +3852,7 @@ export const deserializeAws_restJson1ListWebhooksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWebhooksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListWebhooksCommandError(output, context);
   }
   const contents: ListWebhooksCommandOutput = {
@@ -3931,7 +3935,7 @@ export const deserializeAws_restJson1StartDeploymentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeploymentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartDeploymentCommandError(output, context);
   }
   const contents: StartDeploymentCommandOutput = {
@@ -4018,7 +4022,7 @@ export const deserializeAws_restJson1StartJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartJobCommandError(output, context);
   }
   const contents: StartJobCommandOutput = {
@@ -4105,7 +4109,7 @@ export const deserializeAws_restJson1StopJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StopJobCommandError(output, context);
   }
   const contents: StopJobCommandOutput = {
@@ -4192,7 +4196,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -4259,7 +4263,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -4326,7 +4330,7 @@ export const deserializeAws_restJson1UpdateAppCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAppCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAppCommandError(output, context);
   }
   const contents: UpdateAppCommandOutput = {
@@ -4405,7 +4409,7 @@ export const deserializeAws_restJson1UpdateBranchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBranchCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateBranchCommandError(output, context);
   }
   const contents: UpdateBranchCommandOutput = {
@@ -4492,7 +4496,7 @@ export const deserializeAws_restJson1UpdateDomainAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainAssociationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDomainAssociationCommandError(output, context);
   }
   const contents: UpdateDomainAssociationCommandOutput = {
@@ -4579,7 +4583,7 @@ export const deserializeAws_restJson1UpdateWebhookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWebhookCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateWebhookCommandError(output, context);
   }
   const contents: UpdateWebhookCommandOutput = {
@@ -4794,6 +4798,7 @@ const serializeAws_restJson1AutoBranchCreationConfig = (
     ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
     ...(input.enableAutoBuild !== undefined && { enableAutoBuild: input.enableAutoBuild }),
     ...(input.enableBasicAuth !== undefined && { enableBasicAuth: input.enableBasicAuth }),
+    ...(input.enablePerformanceMode !== undefined && { enablePerformanceMode: input.enablePerformanceMode }),
     ...(input.enablePullRequestPreview !== undefined && { enablePullRequestPreview: input.enablePullRequestPreview }),
     ...(input.environmentVariables !== undefined && {
       environmentVariables: serializeAws_restJson1EnvironmentVariables(input.environmentVariables, context),
@@ -4889,6 +4894,8 @@ const deserializeAws_restJson1App = (output: any, context: __SerdeContext): App 
       output.createTime !== undefined && output.createTime !== null
         ? new Date(Math.round(output.createTime * 1000))
         : undefined,
+    customHeaders:
+      output.customHeaders !== undefined && output.customHeaders !== null ? output.customHeaders : undefined,
     customRules:
       output.customRules !== undefined && output.customRules !== null
         ? deserializeAws_restJson1CustomRules(output.customRules, context)
@@ -4970,6 +4977,10 @@ const deserializeAws_restJson1AutoBranchCreationConfig = (
       output.enableAutoBuild !== undefined && output.enableAutoBuild !== null ? output.enableAutoBuild : undefined,
     enableBasicAuth:
       output.enableBasicAuth !== undefined && output.enableBasicAuth !== null ? output.enableBasicAuth : undefined,
+    enablePerformanceMode:
+      output.enablePerformanceMode !== undefined && output.enablePerformanceMode !== null
+        ? output.enablePerformanceMode
+        : undefined,
     enablePullRequestPreview:
       output.enablePullRequestPreview !== undefined && output.enablePullRequestPreview !== null
         ? output.enablePullRequestPreview
@@ -5062,6 +5073,10 @@ const deserializeAws_restJson1Branch = (output: any, context: __SerdeContext): B
     enableNotification:
       output.enableNotification !== undefined && output.enableNotification !== null
         ? output.enableNotification
+        : undefined,
+    enablePerformanceMode:
+      output.enablePerformanceMode !== undefined && output.enablePerformanceMode !== null
+        ? output.enablePerformanceMode
         : undefined,
     enablePullRequestPreview:
       output.enablePullRequestPreview !== undefined && output.enablePullRequestPreview !== null

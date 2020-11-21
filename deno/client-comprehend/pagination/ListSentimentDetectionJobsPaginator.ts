@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSentimentDetectionJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSentimentDetectionJobsCommand(input, ...args));
+  return await client.send(new ListSentimentDetectionJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Comprehend,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSentimentDetectionJobs(input, ...args);
 };
-export async function* listSentimentDetectionJobsPaginate(
+export async function* paginateListSentimentDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListSentimentDetectionJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSentimentDetectionJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSentimentDetectionJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Comprehend) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listSentimentDetectionJobsPaginate(
       throw new Error("Invalid client, expected Comprehend | ComprehendClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

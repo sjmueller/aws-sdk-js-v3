@@ -45,11 +45,23 @@ export class ListInstanceGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EMRClient";
+    const commandName = "ListInstanceGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListInstanceGroupsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListInstanceGroupsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

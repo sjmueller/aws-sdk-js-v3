@@ -45,11 +45,23 @@ export class DecreaseReplicationFactorCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DAXClient";
+    const commandName = "DecreaseReplicationFactorCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DecreaseReplicationFactorRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DecreaseReplicationFactorResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

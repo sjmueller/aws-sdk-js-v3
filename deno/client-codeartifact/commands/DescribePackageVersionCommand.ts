@@ -45,11 +45,23 @@ export class DescribePackageVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeartifactClient";
+    const commandName = "DescribePackageVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribePackageVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribePackageVersionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -475,8 +475,8 @@ export const serializeAws_restJson1BatchReadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/batchread";
   let body: any;
@@ -1082,8 +1082,8 @@ export const serializeAws_restJson1GetObjectAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes/get";
   let body: any;
@@ -1116,8 +1116,8 @@ export const serializeAws_restJson1GetObjectInformationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/information";
   let body: any;
@@ -1218,8 +1218,8 @@ export const serializeAws_restJson1ListAttachedIndicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/indices";
   let body: any;
@@ -1388,8 +1388,8 @@ export const serializeAws_restJson1ListIndexCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/targets";
   let body: any;
@@ -1447,8 +1447,8 @@ export const serializeAws_restJson1ListObjectAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
     ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
+    ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes";
   let body: any;
@@ -1480,8 +1480,8 @@ export const serializeAws_restJson1ListObjectChildrenCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/children";
   let body: any;
@@ -1539,8 +1539,8 @@ export const serializeAws_restJson1ListObjectParentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parent";
   let body: any;
@@ -1638,8 +1638,8 @@ export const serializeAws_restJson1ListPolicyAttachmentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "application/json",
-    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
     ...(isSerializableHeaderValue(input.DirectoryArn) && { "x-amz-data-partition": input.DirectoryArn! }),
+    ...(isSerializableHeaderValue(input.ConsistencyLevel) && { "x-amz-consistency-level": input.ConsistencyLevel! }),
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attachment";
   let body: any;
@@ -2132,7 +2132,7 @@ export const deserializeAws_restJson1AddFacetToObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddFacetToObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AddFacetToObjectCommandError(output, context);
   }
   const contents: AddFacetToObjectCommandOutput = {
@@ -2247,7 +2247,7 @@ export const deserializeAws_restJson1ApplySchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ApplySchemaCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ApplySchemaCommandError(output, context);
   }
   const contents: ApplySchemaCommandOutput = {
@@ -2370,7 +2370,7 @@ export const deserializeAws_restJson1AttachObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AttachObjectCommandError(output, context);
   }
   const contents: AttachObjectCommandOutput = {
@@ -2505,7 +2505,7 @@ export const deserializeAws_restJson1AttachPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AttachPolicyCommandError(output, context);
   }
   const contents: AttachPolicyCommandOutput = {
@@ -2620,7 +2620,7 @@ export const deserializeAws_restJson1AttachToIndexCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachToIndexCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AttachToIndexCommandError(output, context);
   }
   const contents: AttachToIndexCommandOutput = {
@@ -2763,7 +2763,7 @@ export const deserializeAws_restJson1AttachTypedLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachTypedLinkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AttachTypedLinkCommandError(output, context);
   }
   const contents: AttachTypedLinkCommandOutput = {
@@ -2890,7 +2890,7 @@ export const deserializeAws_restJson1BatchReadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchReadCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchReadCommandError(output, context);
   }
   const contents: BatchReadCommandOutput = {
@@ -2993,7 +2993,7 @@ export const deserializeAws_restJson1BatchWriteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchWriteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchWriteCommandError(output, context);
   }
   const contents: BatchWriteCommandOutput = {
@@ -3104,7 +3104,7 @@ export const deserializeAws_restJson1CreateDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDirectoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDirectoryCommandError(output, context);
   }
   const contents: CreateDirectoryCommandOutput = {
@@ -3227,7 +3227,7 @@ export const deserializeAws_restJson1CreateFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFacetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateFacetCommandError(output, context);
   }
   const contents: CreateFacetCommandOutput = {
@@ -3350,7 +3350,7 @@ export const deserializeAws_restJson1CreateIndexCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIndexCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateIndexCommandError(output, context);
   }
   const contents: CreateIndexCommandOutput = {
@@ -3485,7 +3485,7 @@ export const deserializeAws_restJson1CreateObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateObjectCommandError(output, context);
   }
   const contents: CreateObjectCommandOutput = {
@@ -3620,7 +3620,7 @@ export const deserializeAws_restJson1CreateSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSchemaCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateSchemaCommandError(output, context);
   }
   const contents: CreateSchemaCommandOutput = {
@@ -3723,7 +3723,7 @@ export const deserializeAws_restJson1CreateTypedLinkFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTypedLinkFacetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateTypedLinkFacetCommandError(output, context);
   }
   const contents: CreateTypedLinkFacetCommandOutput = {
@@ -3846,7 +3846,7 @@ export const deserializeAws_restJson1DeleteDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDirectoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDirectoryCommandError(output, context);
   }
   const contents: DeleteDirectoryCommandOutput = {
@@ -3965,7 +3965,7 @@ export const deserializeAws_restJson1DeleteFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFacetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteFacetCommandError(output, context);
   }
   const contents: DeleteFacetCommandOutput = {
@@ -4080,7 +4080,7 @@ export const deserializeAws_restJson1DeleteObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteObjectCommandError(output, context);
   }
   const contents: DeleteObjectCommandOutput = {
@@ -4195,7 +4195,7 @@ export const deserializeAws_restJson1DeleteSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSchemaCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteSchemaCommandError(output, context);
   }
   const contents: DeleteSchemaCommandOutput = {
@@ -4306,7 +4306,7 @@ export const deserializeAws_restJson1DeleteTypedLinkFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTypedLinkFacetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteTypedLinkFacetCommandError(output, context);
   }
   const contents: DeleteTypedLinkFacetCommandOutput = {
@@ -4413,7 +4413,7 @@ export const deserializeAws_restJson1DetachFromIndexCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachFromIndexCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DetachFromIndexCommandError(output, context);
   }
   const contents: DetachFromIndexCommandOutput = {
@@ -4540,7 +4540,7 @@ export const deserializeAws_restJson1DetachObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DetachObjectCommandError(output, context);
   }
   const contents: DetachObjectCommandOutput = {
@@ -4659,7 +4659,7 @@ export const deserializeAws_restJson1DetachPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DetachPolicyCommandError(output, context);
   }
   const contents: DetachPolicyCommandOutput = {
@@ -4774,7 +4774,7 @@ export const deserializeAws_restJson1DetachTypedLinkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachTypedLinkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DetachTypedLinkCommandError(output, context);
   }
   const contents: DetachTypedLinkCommandOutput = {
@@ -4889,7 +4889,7 @@ export const deserializeAws_restJson1DisableDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableDirectoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisableDirectoryCommandError(output, context);
   }
   const contents: DisableDirectoryCommandOutput = {
@@ -5000,7 +5000,7 @@ export const deserializeAws_restJson1EnableDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableDirectoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1EnableDirectoryCommandError(output, context);
   }
   const contents: EnableDirectoryCommandOutput = {
@@ -5111,7 +5111,7 @@ export const deserializeAws_restJson1GetAppliedSchemaVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppliedSchemaVersionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAppliedSchemaVersionCommandError(output, context);
   }
   const contents: GetAppliedSchemaVersionCommandOutput = {
@@ -5214,7 +5214,7 @@ export const deserializeAws_restJson1GetDirectoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDirectoryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDirectoryCommandError(output, context);
   }
   const contents: GetDirectoryCommandOutput = {
@@ -5309,7 +5309,7 @@ export const deserializeAws_restJson1GetFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFacetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetFacetCommandError(output, context);
   }
   const contents: GetFacetCommandOutput = {
@@ -5420,7 +5420,7 @@ export const deserializeAws_restJson1GetLinkAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLinkAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetLinkAttributesCommandError(output, context);
   }
   const contents: GetLinkAttributesCommandOutput = {
@@ -5539,7 +5539,7 @@ export const deserializeAws_restJson1GetObjectAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetObjectAttributesCommandError(output, context);
   }
   const contents: GetObjectAttributesCommandOutput = {
@@ -5658,7 +5658,7 @@ export const deserializeAws_restJson1GetObjectInformationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetObjectInformationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetObjectInformationCommandError(output, context);
   }
   const contents: GetObjectInformationCommandOutput = {
@@ -5773,7 +5773,7 @@ export const deserializeAws_restJson1GetSchemaAsJsonCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSchemaAsJsonCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSchemaAsJsonCommandError(output, context);
   }
   const contents: GetSchemaAsJsonCommandOutput = {
@@ -5880,7 +5880,7 @@ export const deserializeAws_restJson1GetTypedLinkFacetInformationCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTypedLinkFacetInformationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetTypedLinkFacetInformationCommandError(output, context);
   }
   const contents: GetTypedLinkFacetInformationCommandOutput = {
@@ -5999,7 +5999,7 @@ export const deserializeAws_restJson1ListAppliedSchemaArnsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppliedSchemaArnsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAppliedSchemaArnsCommandError(output, context);
   }
   const contents: ListAppliedSchemaArnsCommandOutput = {
@@ -6114,7 +6114,7 @@ export const deserializeAws_restJson1ListAttachedIndicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedIndicesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAttachedIndicesCommandError(output, context);
   }
   const contents: ListAttachedIndicesCommandOutput = {
@@ -6229,7 +6229,7 @@ export const deserializeAws_restJson1ListDevelopmentSchemaArnsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDevelopmentSchemaArnsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDevelopmentSchemaArnsCommandError(output, context);
   }
   const contents: ListDevelopmentSchemaArnsCommandOutput = {
@@ -6344,7 +6344,7 @@ export const deserializeAws_restJson1ListDirectoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDirectoriesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDirectoriesCommandError(output, context);
   }
   const contents: ListDirectoriesCommandOutput = {
@@ -6451,7 +6451,7 @@ export const deserializeAws_restJson1ListFacetAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFacetAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListFacetAttributesCommandError(output, context);
   }
   const contents: ListFacetAttributesCommandOutput = {
@@ -6574,7 +6574,7 @@ export const deserializeAws_restJson1ListFacetNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFacetNamesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListFacetNamesCommandError(output, context);
   }
   const contents: ListFacetNamesCommandOutput = {
@@ -6689,7 +6689,7 @@ export const deserializeAws_restJson1ListIncomingTypedLinksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIncomingTypedLinksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListIncomingTypedLinksCommandError(output, context);
   }
   const contents: ListIncomingTypedLinksCommandOutput = {
@@ -6820,7 +6820,7 @@ export const deserializeAws_restJson1ListIndexCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIndexCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListIndexCommandError(output, context);
   }
   const contents: ListIndexCommandOutput = {
@@ -6959,7 +6959,7 @@ export const deserializeAws_restJson1ListManagedSchemaArnsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListManagedSchemaArnsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListManagedSchemaArnsCommandError(output, context);
   }
   const contents: ListManagedSchemaArnsCommandOutput = {
@@ -7058,7 +7058,7 @@ export const deserializeAws_restJson1ListObjectAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListObjectAttributesCommandError(output, context);
   }
   const contents: ListObjectAttributesCommandOutput = {
@@ -7189,7 +7189,7 @@ export const deserializeAws_restJson1ListObjectChildrenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectChildrenCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListObjectChildrenCommandError(output, context);
   }
   const contents: ListObjectChildrenCommandOutput = {
@@ -7320,7 +7320,7 @@ export const deserializeAws_restJson1ListObjectParentPathsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectParentPathsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListObjectParentPathsCommandError(output, context);
   }
   const contents: ListObjectParentPathsCommandOutput = {
@@ -7446,7 +7446,7 @@ export const deserializeAws_restJson1ListObjectParentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectParentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListObjectParentsCommandError(output, context);
   }
   const contents: ListObjectParentsCommandOutput = {
@@ -7581,7 +7581,7 @@ export const deserializeAws_restJson1ListObjectPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListObjectPoliciesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListObjectPoliciesCommandError(output, context);
   }
   const contents: ListObjectPoliciesCommandOutput = {
@@ -7704,7 +7704,7 @@ export const deserializeAws_restJson1ListOutgoingTypedLinksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOutgoingTypedLinksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListOutgoingTypedLinksCommandError(output, context);
   }
   const contents: ListOutgoingTypedLinksCommandOutput = {
@@ -7835,7 +7835,7 @@ export const deserializeAws_restJson1ListPolicyAttachmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPolicyAttachmentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPolicyAttachmentsCommandError(output, context);
   }
   const contents: ListPolicyAttachmentsCommandOutput = {
@@ -7966,7 +7966,7 @@ export const deserializeAws_restJson1ListPublishedSchemaArnsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPublishedSchemaArnsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPublishedSchemaArnsCommandError(output, context);
   }
   const contents: ListPublishedSchemaArnsCommandOutput = {
@@ -8081,7 +8081,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -8196,7 +8196,7 @@ export const deserializeAws_restJson1ListTypedLinkFacetAttributesCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTypedLinkFacetAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTypedLinkFacetAttributesCommandError(output, context);
   }
   const contents: ListTypedLinkFacetAttributesCommandOutput = {
@@ -8319,7 +8319,7 @@ export const deserializeAws_restJson1ListTypedLinkFacetNamesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTypedLinkFacetNamesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTypedLinkFacetNamesCommandError(output, context);
   }
   const contents: ListTypedLinkFacetNamesCommandOutput = {
@@ -8434,7 +8434,7 @@ export const deserializeAws_restJson1LookupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<LookupPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1LookupPolicyCommandError(output, context);
   }
   const contents: LookupPolicyCommandOutput = {
@@ -8557,7 +8557,7 @@ export const deserializeAws_restJson1PublishSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishSchemaCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PublishSchemaCommandError(output, context);
   }
   const contents: PublishSchemaCommandOutput = {
@@ -8668,7 +8668,7 @@ export const deserializeAws_restJson1PutSchemaFromJsonCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSchemaFromJsonCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutSchemaFromJsonCommandError(output, context);
   }
   const contents: PutSchemaFromJsonCommandOutput = {
@@ -8779,7 +8779,7 @@ export const deserializeAws_restJson1RemoveFacetFromObjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveFacetFromObjectCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RemoveFacetFromObjectCommandError(output, context);
   }
   const contents: RemoveFacetFromObjectCommandOutput = {
@@ -8894,7 +8894,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -9001,7 +9001,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -9108,7 +9108,7 @@ export const deserializeAws_restJson1UpdateFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFacetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateFacetCommandError(output, context);
   }
   const contents: UpdateFacetCommandOutput = {
@@ -9239,7 +9239,7 @@ export const deserializeAws_restJson1UpdateLinkAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLinkAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateLinkAttributesCommandError(output, context);
   }
   const contents: UpdateLinkAttributesCommandOutput = {
@@ -9354,7 +9354,7 @@ export const deserializeAws_restJson1UpdateObjectAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateObjectAttributesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateObjectAttributesCommandError(output, context);
   }
   const contents: UpdateObjectAttributesCommandOutput = {
@@ -9481,7 +9481,7 @@ export const deserializeAws_restJson1UpdateSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSchemaCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateSchemaCommandError(output, context);
   }
   const contents: UpdateSchemaCommandOutput = {
@@ -9584,7 +9584,7 @@ export const deserializeAws_restJson1UpdateTypedLinkFacetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTypedLinkFacetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateTypedLinkFacetCommandError(output, context);
   }
   const contents: UpdateTypedLinkFacetCommandOutput = {
@@ -9715,7 +9715,7 @@ export const deserializeAws_restJson1UpgradeAppliedSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpgradeAppliedSchemaCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpgradeAppliedSchemaCommandError(output, context);
   }
   const contents: UpgradeAppliedSchemaCommandOutput = {
@@ -9838,7 +9838,7 @@ export const deserializeAws_restJson1UpgradePublishedSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpgradePublishedSchemaCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpgradePublishedSchemaCommandError(output, context);
   }
   const contents: UpgradePublishedSchemaCommandOutput = {

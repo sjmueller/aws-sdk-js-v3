@@ -1,4 +1,3 @@
-
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient.ts";
 import { SearchQuantumTasksRequest, SearchQuantumTasksResponse } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class SearchQuantumTasksCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BraketClient";
+    const commandName = "SearchQuantumTasksCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SearchQuantumTasksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchQuantumTasksResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -389,7 +389,7 @@ export const deserializeAws_json1_1CreateIdentityPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIdentityPoolCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateIdentityPoolCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -484,7 +484,7 @@ export const deserializeAws_json1_1DeleteIdentitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIdentitiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteIdentitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -555,7 +555,7 @@ export const deserializeAws_json1_1DeleteIdentityPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIdentityPoolCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteIdentityPoolCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -639,7 +639,7 @@ export const deserializeAws_json1_1DescribeIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIdentityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeIdentityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -726,7 +726,7 @@ export const deserializeAws_json1_1DescribeIdentityPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeIdentityPoolCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeIdentityPoolCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -813,7 +813,7 @@ export const deserializeAws_json1_1GetCredentialsForIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCredentialsForIdentityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetCredentialsForIdentityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -924,7 +924,7 @@ export const deserializeAws_json1_1GetIdCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIdCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetIdCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1035,7 +1035,7 @@ export const deserializeAws_json1_1GetIdentityPoolRolesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIdentityPoolRolesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetIdentityPoolRolesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1130,7 +1130,7 @@ export const deserializeAws_json1_1GetOpenIdTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOpenIdTokenCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetOpenIdTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1233,7 +1233,7 @@ export const deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommand = a
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOpenIdTokenForDeveloperIdentityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetOpenIdTokenForDeveloperIdentityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1336,7 +1336,7 @@ export const deserializeAws_json1_1ListIdentitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIdentitiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListIdentitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1423,7 +1423,7 @@ export const deserializeAws_json1_1ListIdentityPoolsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIdentityPoolsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListIdentityPoolsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1510,7 +1510,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1597,7 +1597,7 @@ export const deserializeAws_json1_1LookupDeveloperIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<LookupDeveloperIdentityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1LookupDeveloperIdentityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1692,7 +1692,7 @@ export const deserializeAws_json1_1MergeDeveloperIdentitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergeDeveloperIdentitiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1MergeDeveloperIdentitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1787,7 +1787,7 @@ export const deserializeAws_json1_1SetIdentityPoolRolesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetIdentityPoolRolesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SetIdentityPoolRolesCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1887,7 +1887,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1974,7 +1974,7 @@ export const deserializeAws_json1_1UnlinkDeveloperIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UnlinkDeveloperIdentityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UnlinkDeveloperIdentityCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2066,7 +2066,7 @@ export const deserializeAws_json1_1UnlinkIdentityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UnlinkIdentityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UnlinkIdentityCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2166,7 +2166,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2253,7 +2253,7 @@ export const deserializeAws_json1_1UpdateIdentityPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIdentityPoolCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateIdentityPoolCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

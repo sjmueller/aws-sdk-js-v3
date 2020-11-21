@@ -1,6 +1,16 @@
 
 import { KafkaClient } from "./KafkaClient.ts";
 import {
+  BatchAssociateScramSecretCommand,
+  BatchAssociateScramSecretCommandInput,
+  BatchAssociateScramSecretCommandOutput,
+} from "./commands/BatchAssociateScramSecretCommand.ts";
+import {
+  BatchDisassociateScramSecretCommand,
+  BatchDisassociateScramSecretCommandInput,
+  BatchDisassociateScramSecretCommandOutput,
+} from "./commands/BatchDisassociateScramSecretCommand.ts";
+import {
   CreateClusterCommand,
   CreateClusterCommandInput,
   CreateClusterCommandOutput,
@@ -15,6 +25,11 @@ import {
   DeleteClusterCommandInput,
   DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand.ts";
+import {
+  DeleteConfigurationCommand,
+  DeleteConfigurationCommandInput,
+  DeleteConfigurationCommandOutput,
+} from "./commands/DeleteConfigurationCommand.ts";
 import {
   DescribeClusterCommand,
   DescribeClusterCommandInput,
@@ -72,6 +87,11 @@ import {
 } from "./commands/ListKafkaVersionsCommand.ts";
 import { ListNodesCommand, ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand.ts";
 import {
+  ListScramSecretsCommand,
+  ListScramSecretsCommandInput,
+  ListScramSecretsCommandOutput,
+} from "./commands/ListScramSecretsCommand.ts";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -108,6 +128,11 @@ import {
   UpdateClusterKafkaVersionCommandOutput,
 } from "./commands/UpdateClusterKafkaVersionCommand.ts";
 import {
+  UpdateConfigurationCommand,
+  UpdateConfigurationCommandInput,
+  UpdateConfigurationCommandOutput,
+} from "./commands/UpdateConfigurationCommand.ts";
+import {
   UpdateMonitoringCommand,
   UpdateMonitoringCommandInput,
   UpdateMonitoringCommandOutput,
@@ -118,6 +143,70 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  * <p>The operations for managing an Amazon MSK cluster.</p>
  */
 export class Kafka extends KafkaClient {
+  /**
+   * <p>Associates one or more Scram Secrets with an Amazon MSK cluster.</p>
+   */
+  public batchAssociateScramSecret(
+    args: BatchAssociateScramSecretCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchAssociateScramSecretCommandOutput>;
+  public batchAssociateScramSecret(
+    args: BatchAssociateScramSecretCommandInput,
+    cb: (err: any, data?: BatchAssociateScramSecretCommandOutput) => void
+  ): void;
+  public batchAssociateScramSecret(
+    args: BatchAssociateScramSecretCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchAssociateScramSecretCommandOutput) => void
+  ): void;
+  public batchAssociateScramSecret(
+    args: BatchAssociateScramSecretCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchAssociateScramSecretCommandOutput) => void),
+    cb?: (err: any, data?: BatchAssociateScramSecretCommandOutput) => void
+  ): Promise<BatchAssociateScramSecretCommandOutput> | void {
+    const command = new BatchAssociateScramSecretCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Disassociates one or more Scram Secrets from an Amazon MSK cluster.</p>
+   */
+  public batchDisassociateScramSecret(
+    args: BatchDisassociateScramSecretCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDisassociateScramSecretCommandOutput>;
+  public batchDisassociateScramSecret(
+    args: BatchDisassociateScramSecretCommandInput,
+    cb: (err: any, data?: BatchDisassociateScramSecretCommandOutput) => void
+  ): void;
+  public batchDisassociateScramSecret(
+    args: BatchDisassociateScramSecretCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDisassociateScramSecretCommandOutput) => void
+  ): void;
+  public batchDisassociateScramSecret(
+    args: BatchDisassociateScramSecretCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchDisassociateScramSecretCommandOutput) => void),
+    cb?: (err: any, data?: BatchDisassociateScramSecretCommandOutput) => void
+  ): Promise<BatchDisassociateScramSecretCommandOutput> | void {
+    const command = new BatchDisassociateScramSecretCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates a new MSK cluster.</p>
    */
@@ -204,6 +293,38 @@ export class Kafka extends KafkaClient {
     cb?: (err: any, data?: DeleteClusterCommandOutput) => void
   ): Promise<DeleteClusterCommandOutput> | void {
     const command = new DeleteClusterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes an MSK Configuration.</p>
+   */
+  public deleteConfiguration(
+    args: DeleteConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConfigurationCommandOutput>;
+  public deleteConfiguration(
+    args: DeleteConfigurationCommandInput,
+    cb: (err: any, data?: DeleteConfigurationCommandOutput) => void
+  ): void;
+  public deleteConfiguration(
+    args: DeleteConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConfigurationCommandOutput) => void
+  ): void;
+  public deleteConfiguration(
+    args: DeleteConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteConfigurationCommandOutput) => void
+  ): Promise<DeleteConfigurationCommandOutput> | void {
+    const command = new DeleteConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -590,6 +711,38 @@ export class Kafka extends KafkaClient {
   }
 
   /**
+   * <p>Returns a list of the Scram Secrets associated with an Amazon MSK cluster.</p>
+   */
+  public listScramSecrets(
+    args: ListScramSecretsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListScramSecretsCommandOutput>;
+  public listScramSecrets(
+    args: ListScramSecretsCommandInput,
+    cb: (err: any, data?: ListScramSecretsCommandOutput) => void
+  ): void;
+  public listScramSecrets(
+    args: ListScramSecretsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListScramSecretsCommandOutput) => void
+  ): void;
+  public listScramSecrets(
+    args: ListScramSecretsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListScramSecretsCommandOutput) => void),
+    cb?: (err: any, data?: ListScramSecretsCommandOutput) => void
+  ): Promise<ListScramSecretsCommandOutput> | void {
+    const command = new ListScramSecretsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of the tags associated with the specified resource.</p>
    */
   public listTagsForResource(
@@ -826,6 +979,38 @@ export class Kafka extends KafkaClient {
     cb?: (err: any, data?: UpdateClusterKafkaVersionCommandOutput) => void
   ): Promise<UpdateClusterKafkaVersionCommandOutput> | void {
     const command = new UpdateClusterKafkaVersionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates an MSK configuration.</p>
+   */
+  public updateConfiguration(
+    args: UpdateConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConfigurationCommandOutput>;
+  public updateConfiguration(
+    args: UpdateConfigurationCommandInput,
+    cb: (err: any, data?: UpdateConfigurationCommandOutput) => void
+  ): void;
+  public updateConfiguration(
+    args: UpdateConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConfigurationCommandOutput) => void
+  ): void;
+  public updateConfiguration(
+    args: UpdateConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConfigurationCommandOutput) => void
+  ): Promise<UpdateConfigurationCommandOutput> | void {
+    const command = new UpdateConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

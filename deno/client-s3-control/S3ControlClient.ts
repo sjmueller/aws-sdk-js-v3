@@ -1,16 +1,35 @@
 
 import { CreateAccessPointCommandInput, CreateAccessPointCommandOutput } from "./commands/CreateAccessPointCommand.ts";
+import { CreateBucketCommandInput, CreateBucketCommandOutput } from "./commands/CreateBucketCommand.ts";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand.ts";
 import { DeleteAccessPointCommandInput, DeleteAccessPointCommandOutput } from "./commands/DeleteAccessPointCommand.ts";
 import {
   DeleteAccessPointPolicyCommandInput,
   DeleteAccessPointPolicyCommandOutput,
 } from "./commands/DeleteAccessPointPolicyCommand.ts";
+import { DeleteBucketCommandInput, DeleteBucketCommandOutput } from "./commands/DeleteBucketCommand.ts";
+import {
+  DeleteBucketLifecycleConfigurationCommandInput,
+  DeleteBucketLifecycleConfigurationCommandOutput,
+} from "./commands/DeleteBucketLifecycleConfigurationCommand.ts";
+import { DeleteBucketPolicyCommandInput, DeleteBucketPolicyCommandOutput } from "./commands/DeleteBucketPolicyCommand.ts";
+import {
+  DeleteBucketTaggingCommandInput,
+  DeleteBucketTaggingCommandOutput,
+} from "./commands/DeleteBucketTaggingCommand.ts";
 import { DeleteJobTaggingCommandInput, DeleteJobTaggingCommandOutput } from "./commands/DeleteJobTaggingCommand.ts";
 import {
   DeletePublicAccessBlockCommandInput,
   DeletePublicAccessBlockCommandOutput,
 } from "./commands/DeletePublicAccessBlockCommand.ts";
+import {
+  DeleteStorageLensConfigurationCommandInput,
+  DeleteStorageLensConfigurationCommandOutput,
+} from "./commands/DeleteStorageLensConfigurationCommand.ts";
+import {
+  DeleteStorageLensConfigurationTaggingCommandInput,
+  DeleteStorageLensConfigurationTaggingCommandOutput,
+} from "./commands/DeleteStorageLensConfigurationTaggingCommand.ts";
 import { DescribeJobCommandInput, DescribeJobCommandOutput } from "./commands/DescribeJobCommand.ts";
 import { GetAccessPointCommandInput, GetAccessPointCommandOutput } from "./commands/GetAccessPointCommand.ts";
 import {
@@ -21,22 +40,59 @@ import {
   GetAccessPointPolicyStatusCommandInput,
   GetAccessPointPolicyStatusCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusCommand.ts";
+import { GetBucketCommandInput, GetBucketCommandOutput } from "./commands/GetBucketCommand.ts";
+import {
+  GetBucketLifecycleConfigurationCommandInput,
+  GetBucketLifecycleConfigurationCommandOutput,
+} from "./commands/GetBucketLifecycleConfigurationCommand.ts";
+import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./commands/GetBucketPolicyCommand.ts";
+import { GetBucketTaggingCommandInput, GetBucketTaggingCommandOutput } from "./commands/GetBucketTaggingCommand.ts";
 import { GetJobTaggingCommandInput, GetJobTaggingCommandOutput } from "./commands/GetJobTaggingCommand.ts";
 import {
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput,
 } from "./commands/GetPublicAccessBlockCommand.ts";
+import {
+  GetStorageLensConfigurationCommandInput,
+  GetStorageLensConfigurationCommandOutput,
+} from "./commands/GetStorageLensConfigurationCommand.ts";
+import {
+  GetStorageLensConfigurationTaggingCommandInput,
+  GetStorageLensConfigurationTaggingCommandOutput,
+} from "./commands/GetStorageLensConfigurationTaggingCommand.ts";
 import { ListAccessPointsCommandInput, ListAccessPointsCommandOutput } from "./commands/ListAccessPointsCommand.ts";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand.ts";
+import {
+  ListRegionalBucketsCommandInput,
+  ListRegionalBucketsCommandOutput,
+} from "./commands/ListRegionalBucketsCommand.ts";
+import {
+  ListStorageLensConfigurationsCommandInput,
+  ListStorageLensConfigurationsCommandOutput,
+} from "./commands/ListStorageLensConfigurationsCommand.ts";
 import {
   PutAccessPointPolicyCommandInput,
   PutAccessPointPolicyCommandOutput,
 } from "./commands/PutAccessPointPolicyCommand.ts";
+import {
+  PutBucketLifecycleConfigurationCommandInput,
+  PutBucketLifecycleConfigurationCommandOutput,
+} from "./commands/PutBucketLifecycleConfigurationCommand.ts";
+import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand.ts";
+import { PutBucketTaggingCommandInput, PutBucketTaggingCommandOutput } from "./commands/PutBucketTaggingCommand.ts";
 import { PutJobTaggingCommandInput, PutJobTaggingCommandOutput } from "./commands/PutJobTaggingCommand.ts";
 import {
   PutPublicAccessBlockCommandInput,
   PutPublicAccessBlockCommandOutput,
 } from "./commands/PutPublicAccessBlockCommand.ts";
+import {
+  PutStorageLensConfigurationCommandInput,
+  PutStorageLensConfigurationCommandOutput,
+} from "./commands/PutStorageLensConfigurationCommand.ts";
+import {
+  PutStorageLensConfigurationTaggingCommandInput,
+  PutStorageLensConfigurationTaggingCommandOutput,
+} from "./commands/PutStorageLensConfigurationTaggingCommand.ts";
 import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "./commands/UpdateJobPriorityCommand.ts";
 import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "./commands/UpdateJobStatusCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
@@ -57,7 +113,11 @@ import {
 } from "../middleware-host-header/mod.ts";
 import { getLoggerPlugin } from "../middleware-logger/mod.ts";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
-import { getPrependAccountIdPlugin } from "../middleware-sdk-s3-control/mod.ts";
+import {
+  S3ControlInputConfig,
+  S3ControlResolvedConfig,
+  resolveS3ControlConfig,
+} from "../middleware-sdk-s3-control/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -91,43 +151,83 @@ import {
 
 export type ServiceInputTypes =
   | CreateAccessPointCommandInput
+  | CreateBucketCommandInput
   | CreateJobCommandInput
   | DeleteAccessPointCommandInput
   | DeleteAccessPointPolicyCommandInput
+  | DeleteBucketCommandInput
+  | DeleteBucketLifecycleConfigurationCommandInput
+  | DeleteBucketPolicyCommandInput
+  | DeleteBucketTaggingCommandInput
   | DeleteJobTaggingCommandInput
   | DeletePublicAccessBlockCommandInput
+  | DeleteStorageLensConfigurationCommandInput
+  | DeleteStorageLensConfigurationTaggingCommandInput
   | DescribeJobCommandInput
   | GetAccessPointCommandInput
   | GetAccessPointPolicyCommandInput
   | GetAccessPointPolicyStatusCommandInput
+  | GetBucketCommandInput
+  | GetBucketLifecycleConfigurationCommandInput
+  | GetBucketPolicyCommandInput
+  | GetBucketTaggingCommandInput
   | GetJobTaggingCommandInput
   | GetPublicAccessBlockCommandInput
+  | GetStorageLensConfigurationCommandInput
+  | GetStorageLensConfigurationTaggingCommandInput
   | ListAccessPointsCommandInput
   | ListJobsCommandInput
+  | ListRegionalBucketsCommandInput
+  | ListStorageLensConfigurationsCommandInput
   | PutAccessPointPolicyCommandInput
+  | PutBucketLifecycleConfigurationCommandInput
+  | PutBucketPolicyCommandInput
+  | PutBucketTaggingCommandInput
   | PutJobTaggingCommandInput
   | PutPublicAccessBlockCommandInput
+  | PutStorageLensConfigurationCommandInput
+  | PutStorageLensConfigurationTaggingCommandInput
   | UpdateJobPriorityCommandInput
   | UpdateJobStatusCommandInput;
 
 export type ServiceOutputTypes =
   | CreateAccessPointCommandOutput
+  | CreateBucketCommandOutput
   | CreateJobCommandOutput
   | DeleteAccessPointCommandOutput
   | DeleteAccessPointPolicyCommandOutput
+  | DeleteBucketCommandOutput
+  | DeleteBucketLifecycleConfigurationCommandOutput
+  | DeleteBucketPolicyCommandOutput
+  | DeleteBucketTaggingCommandOutput
   | DeleteJobTaggingCommandOutput
   | DeletePublicAccessBlockCommandOutput
+  | DeleteStorageLensConfigurationCommandOutput
+  | DeleteStorageLensConfigurationTaggingCommandOutput
   | DescribeJobCommandOutput
   | GetAccessPointCommandOutput
   | GetAccessPointPolicyCommandOutput
   | GetAccessPointPolicyStatusCommandOutput
+  | GetBucketCommandOutput
+  | GetBucketLifecycleConfigurationCommandOutput
+  | GetBucketPolicyCommandOutput
+  | GetBucketTaggingCommandOutput
   | GetJobTaggingCommandOutput
   | GetPublicAccessBlockCommandOutput
+  | GetStorageLensConfigurationCommandOutput
+  | GetStorageLensConfigurationTaggingCommandOutput
   | ListAccessPointsCommandOutput
   | ListJobsCommandOutput
+  | ListRegionalBucketsCommandOutput
+  | ListStorageLensConfigurationsCommandOutput
   | PutAccessPointPolicyCommandOutput
+  | PutBucketLifecycleConfigurationCommandOutput
+  | PutBucketPolicyCommandOutput
+  | PutBucketTaggingCommandOutput
   | PutJobTaggingCommandOutput
   | PutPublicAccessBlockCommandOutput
+  | PutStorageLensConfigurationCommandOutput
+  | PutStorageLensConfigurationTaggingCommandOutput
   | UpdateJobPriorityCommandOutput
   | UpdateJobStatusCommandOutput;
 
@@ -232,7 +332,8 @@ export type S3ControlClientConfig = Partial<__SmithyConfiguration<__HttpHandlerO
   AwsAuthInputConfig &
   RetryInputConfig &
   UserAgentInputConfig &
-  HostHeaderInputConfig;
+  HostHeaderInputConfig &
+  S3ControlInputConfig;
 
 export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
@@ -241,11 +342,13 @@ export type S3ControlClientResolvedConfig = __SmithyResolvedConfiguration<__Http
   AwsAuthResolvedConfig &
   RetryResolvedConfig &
   UserAgentResolvedConfig &
-  HostHeaderResolvedConfig;
+  HostHeaderResolvedConfig &
+  S3ControlResolvedConfig;
 
 /**
  * <p>
  *          AWS S3 Control provides access to Amazon S3 control plane operations.
+ *
  *       </p>
  */
 export class S3ControlClient extends __Client<
@@ -267,13 +370,13 @@ export class S3ControlClient extends __Client<
     let _config_4 = resolveRetryConfig(_config_3);
     let _config_5 = resolveUserAgentConfig(_config_4);
     let _config_6 = resolveHostHeaderConfig(_config_5);
-    super(_config_6);
-    this.config = _config_6;
+    let _config_7 = resolveS3ControlConfig(_config_6);
+    super(_config_7);
+    this.config = _config_7;
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
-    this.middlewareStack.use(getPrependAccountIdPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
   }

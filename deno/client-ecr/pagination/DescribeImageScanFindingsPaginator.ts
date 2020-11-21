@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeImageScanFindingsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeImageScanFindingsCommand(input, ...args));
+  return await client.send(new DescribeImageScanFindingsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ECR,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeImageScanFindings(input, ...args);
 };
-export async function* describeImageScanFindingsPaginate(
+export async function* paginateDescribeImageScanFindings(
   config: ECRPaginationConfiguration,
   input: DescribeImageScanFindingsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeImageScanFindingsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeImageScanFindingsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof ECR) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeImageScanFindingsPaginate(
       throw new Error("Invalid client, expected ECR | ECRClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

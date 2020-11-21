@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetFlowTemplateRevisionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetFlowTemplateRevisionsCommand(input, ...args));
+  return await client.send(new GetFlowTemplateRevisionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoTThingsGraph,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getFlowTemplateRevisions(input, ...args);
 };
-export async function* getFlowTemplateRevisionsPaginate(
+export async function* paginateGetFlowTemplateRevisions(
   config: IoTThingsGraphPaginationConfiguration,
   input: GetFlowTemplateRevisionsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetFlowTemplateRevisionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetFlowTemplateRevisionsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof IoTThingsGraph) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getFlowTemplateRevisionsPaginate(
       throw new Error("Invalid client, expected IoTThingsGraph | IoTThingsGraphClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -1,4 +1,3 @@
-
 export * from "./BackupClient.ts";
 export * from "./Backup.ts";
 export * from "./commands/CreateBackupPlanCommand.ts";
@@ -13,6 +12,7 @@ export * from "./commands/DeleteRecoveryPointCommand.ts";
 export * from "./commands/DescribeBackupJobCommand.ts";
 export * from "./commands/DescribeBackupVaultCommand.ts";
 export * from "./commands/DescribeCopyJobCommand.ts";
+export * from "./commands/DescribeGlobalSettingsCommand.ts";
 export * from "./commands/DescribeProtectedResourceCommand.ts";
 export * from "./commands/DescribeRecoveryPointCommand.ts";
 export * from "./commands/DescribeRegionSettingsCommand.ts";
@@ -59,6 +59,7 @@ export * from "./commands/StopBackupJobCommand.ts";
 export * from "./commands/TagResourceCommand.ts";
 export * from "./commands/UntagResourceCommand.ts";
 export * from "./commands/UpdateBackupPlanCommand.ts";
+export * from "./commands/UpdateGlobalSettingsCommand.ts";
 export * from "./commands/UpdateRecoveryPointLifecycleCommand.ts";
 export * from "./commands/UpdateRegionSettingsCommand.ts";
 export * from "./pagination/Interfaces.ts";

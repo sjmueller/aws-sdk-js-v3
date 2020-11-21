@@ -1,7 +1,9 @@
-
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
 import { DeletePolicyType } from "../models/models_0.ts";
-import { deserializeAws_queryDeletePolicyCommand, serializeAws_queryDeletePolicyCommand } from "../protocols/Aws_query.ts";
+import {
+  deserializeAws_queryDeletePolicyCommand,
+  serializeAws_queryDeletePolicyCommand,
+} from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
@@ -42,11 +44,23 @@ export class DeletePolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingClient";
+    const commandName = "DeletePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeletePolicyType.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

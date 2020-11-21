@@ -1,9 +1,16 @@
 
 export * from "./CostExplorerClient.ts";
 export * from "./CostExplorer.ts";
+export * from "./commands/CreateAnomalyMonitorCommand.ts";
+export * from "./commands/CreateAnomalySubscriptionCommand.ts";
 export * from "./commands/CreateCostCategoryDefinitionCommand.ts";
+export * from "./commands/DeleteAnomalyMonitorCommand.ts";
+export * from "./commands/DeleteAnomalySubscriptionCommand.ts";
 export * from "./commands/DeleteCostCategoryDefinitionCommand.ts";
 export * from "./commands/DescribeCostCategoryDefinitionCommand.ts";
+export * from "./commands/GetAnomaliesCommand.ts";
+export * from "./commands/GetAnomalyMonitorsCommand.ts";
+export * from "./commands/GetAnomalySubscriptionsCommand.ts";
 export * from "./commands/GetCostAndUsageCommand.ts";
 export * from "./commands/GetCostAndUsageWithResourcesCommand.ts";
 export * from "./commands/GetCostForecastCommand.ts";
@@ -22,6 +29,9 @@ export * from "./commands/GetTagsCommand.ts";
 export * from "./commands/GetUsageForecastCommand.ts";
 export * from "./commands/ListCostCategoryDefinitionsCommand.ts";
 export * from "./pagination/ListCostCategoryDefinitionsPaginator.ts";
+export * from "./commands/ProvideAnomalyFeedbackCommand.ts";
+export * from "./commands/UpdateAnomalyMonitorCommand.ts";
+export * from "./commands/UpdateAnomalySubscriptionCommand.ts";
 export * from "./commands/UpdateCostCategoryDefinitionCommand.ts";
 export * from "./pagination/Interfaces.ts";
 export * from "./models/index.ts";

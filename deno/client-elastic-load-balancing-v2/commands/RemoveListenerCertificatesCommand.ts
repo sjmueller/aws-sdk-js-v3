@@ -49,11 +49,23 @@ export class RemoveListenerCertificatesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticLoadBalancingV2Client";
+    const commandName = "RemoveListenerCertificatesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RemoveListenerCertificatesInput.filterSensitiveLog,
       outputFilterSensitiveLog: RemoveListenerCertificatesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

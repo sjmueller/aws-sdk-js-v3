@@ -1,4 +1,3 @@
-
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
 import { ListNamedQueriesInput, ListNamedQueriesOutput } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class ListNamedQueriesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AthenaClient";
+    const commandName = "ListNamedQueriesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListNamedQueriesInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListNamedQueriesOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

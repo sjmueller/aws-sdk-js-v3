@@ -51,11 +51,23 @@ export class UploadDocumentsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudSearchDomainClient";
+    const commandName = "UploadDocumentsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UploadDocumentsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UploadDocumentsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

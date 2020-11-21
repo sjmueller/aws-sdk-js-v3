@@ -1,4 +1,3 @@
-
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
 import { AttachInstancesQuery } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class AttachInstancesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingClient";
+    const commandName = "AttachInstancesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AttachInstancesQuery.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

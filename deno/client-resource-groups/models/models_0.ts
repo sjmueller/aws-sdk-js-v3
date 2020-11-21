@@ -46,8 +46,8 @@ export interface GroupConfigurationParameter {
    *                             parameters.</p>
    *                     </li>
    *                </ul>
-   *                 <p>For more information about EC2 capacity reservation groups, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group">Working with capacity reservation groups</a> in the <i>EC2 Users
-   *                         Guide</i>.</p>
+   *                 <p>For more information about EC2 capacity reservation groups, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group">Working with capacity reservation groups</a> in the <i>EC2
+   *                         Users Guide</i>.</p>
    *             </li>
    *          </ul>
    */
@@ -86,8 +86,8 @@ export interface GroupConfigurationItem {
    *                 <p>
    *                   <code>AWS::EC2::CapacityReservationPool</code>
    *                </p>
-   *                 <p>For more information about EC2 capacity reservation groups, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group">Working with capacity reservation groups</a> in the <i>EC2 Users
-   *                         Guide</i>.</p>
+   *                 <p>For more information about EC2 capacity reservation groups, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/capacity-reservations-using.html#create-cr-group">Working with capacity reservation groups</a> in the <i>EC2
+   *                         Users Guide</i>.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -116,14 +116,111 @@ export enum QueryType {
 }
 
 /**
- * <p>The query that is used to define a resource group or a search for resources.</p>
+ * <p>The query that is used to define a resource group or a search for resources. A query
+ *             specifies both a query type and a query string as a JSON object. See the examples
+ *             section for example JSON strings.</p>
+ *         <p>The examples that follow are shown as standard JSON strings. If you include such a
+ *             string as a parameter to the AWS CLI or an SDK API, you might need to 'escape' the
+ *             string into a single line. For example, see the <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html">Quoting
+ *                 strings</a> in the <i>AWS CLI User Guide</i>.</p>
+ *                 <p>
+ *             <b>Example 1</b>
+ *          </p>
+ *                 <p>The following generic example shows a resource query JSON string that includes
+ *                     only resources that meet the following criteria:</p>
+ *                 <ul>
+ *             <li>
+ *                         <p>The resource type must be either <code>resource_type1</code> or
+ *                                 <code>resource_type2</code>.</p>
+ *                     </li>
+ *             <li>
+ *                         <p>The resource must have a tag <code>Key1</code> with a value of either
+ *                                 <code>ValueA</code> or <code>ValueB</code>.</p>
+ *                     </li>
+ *             <li>
+ *                         <p>The resource must have a tag <code>Key2</code> with a value of either
+ *                                 <code>ValueC</code> or <code>ValueD</code>.</p>
+ *                     </li>
+ *          </ul>
+ *                 <p>
+ *             <code>{
+ *     "Type": "TAG_FILTERS_1_0",
+ *     "Query": {
+ *         "ResourceTypeFilters": [ "resource_type1", "resource_type2"],
+ *         "TagFilters": [
+ *             {
+ *                 "Key": "Key1",
+ *                 "Values": ["ValueA","ValueB"]
+ *             },
+ *             {
+ *                 "Key":"Key2",
+ *                 "Values":["ValueC","ValueD"]
+ *             }
+ *         ]
+ *     }
+ * }</code>
+ *          </p>
+ *         <p>This has the equivalent "shortcut" syntax of the following:</p>
+ *         <p>
+ *             <code>{
+ *     "Type": "TAG_FILTERS_1_0",
+ *     "Query": {
+ *         "ResourceTypeFilters": [ "resource_type1", "resource_type2"],
+ *         "TagFilters": [
+ *             { "Key1": ["ValueA","ValueB"] },
+ *             { "Key2": ["ValueC","ValueD"]
+ *             }
+ *         ]
+ *     }
+ * }</code>
+ *          </p>
+ *         <p>
+ *             <b>Example 2</b>
+ *          </p>
+ *         <p>The following example shows a resource query JSON string that includes only
+ *                     Amazon EC2 instances that are tagged <code>Stage</code> with a value of
+ *                         <code>Test</code>.</p>
+ *                 <p>
+ *             <code>{
+ *     "Type": "TAG_FILTERS_1_0",
+ *     "Query": "{
+ *         "ResourceTypeFilters": "AWS::EC2::Instance",
+ *         "TagFilters": { "Stage": "Test" }
+ *     }
+ * }</code>
+ *          </p>
+ *         <p>
+ *             <b>Example 3</b>
+ *          </p>
+ *         <p>The following example shows a resource query JSON string that includes
+ *                     resource of any supported type as long as it is tagged <code>Stage</code> with a
+ *                     value of <code>Prod</code>.</p>
+ *         <p>
+ *             <code>{
+ *     "Type": "TAG_FILTERS_1_0",
+ *     "Query": {
+ *         "ResourceTypeFilters": "AWS::AllSupported",
+ *         "TagFilters": { "Stage": "Prod" }
+ *     }
+ * }</code>
+ *          </p>
+ *         <p>
+ *             <b>Example 4</b>
+ *          </p>
+ *         <p>The following example shows a resource query JSON string that includes only
+ *                     Amazon EC2 instances and Amazon S3 buckets that are part of the specified AWS CloudFormation
+ *                     stack.</p>
+ *         <p>
+ *             <code>{
+ *     "Type": "CLOUDFORMATION_STACK_1_0",
+ *     "Query": {
+ *         "ResourceTypeFilters": [ "AWS::EC2::Instance", "AWS::S3::Bucket" ],
+ *         "StackIdentifier": "arn:aws:cloudformation:us-west-2:123456789012:stack/AWStestuseraccount/fb0d5000-aba8-00e8-aa9e-50d5cEXAMPLE"
+ *     }
+ * }</code>
+ *          </p>
  */
 export interface ResourceQuery {
-  /**
-   * <p>The query that defines a group or a search.</p>
-   */
-  Query: string | undefined;
-
   /**
    * <p>The type of the query. You can use the following values:</p>
    *         <ul>
@@ -131,40 +228,44 @@ export interface ResourceQuery {
    *                 <p>
    *                   <i>
    *                      <code>CLOUDFORMATION_STACK_1_0:</code>
-   *                   </i> A JSON syntax that
-   *                     lets you specify a CloudFormation stack ARN.</p>
+   *                   </i>Specifies that the
+   *                         <code>Query</code> contains an ARN for a CloudFormation stack.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <i>
    *                      <code>TAG_FILTERS_1_0:</code>
-   *                   </i> A JSON syntax that lets you
-   *                     specify a collection of simple tag filters for resource types and tags, as
-   *                     supported by the AWS Tagging API <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters">
-   *                      <code>ResourceTypeFilters</code> parameter of the
-   *                             <code>tagging:GetResources</code>
-   *                   </a> operation. If you specify more
-   *                     than one tag key, only resources that match all tag keys, and at least one value
-   *                     of each specified tag key, are returned in your query. If you specify more than
-   *                     one value for a tag key, a resource matches the filter if it has a tag key value
-   *                     that matches <i>any</i> of the specified values.</p>
+   *                   </i>Specifies that the
+   *                         <code>Query</code> parameter contains a JSON string that represents a
+   *                     collection of simple tag filters for resource types and tags. The JSON string
+   *                     uses a syntax similar to the <code>
+   *                      <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html">GetResources</a>
+   *                   </code> operation, but uses only the <code>
+   *                      <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-ResourceTypeFilters"> ResourceTypeFilters</a>
+   *                   </code> and <code>
+   *                      <a href="https://docs.aws.amazon.com/resourcegroupstagging/latest/APIReference/API_GetResources.html#resourcegrouptagging-GetResources-request-TagFiltersTagFilters">TagFilters</a>
+   *                   </code> fields. If you specify more than one tag key,
+   *                     only resources that match all tag keys, and at least one value of each specified
+   *                     tag key, are returned in your query. If you specify more than one value for a
+   *                     tag key, a resource matches the filter if it has a tag key value that matches
+   *                         <i>any</i> of the specified values.</p>
    *                 <p>For example, consider the following sample query for resources that have two
    *                     tags, <code>Stage</code> and <code>Version</code>, with two values each:</p>
    *                 <p>
-   *                   <code>[{"Key":"Stage","Values":["Test","Deploy"]},{"Key":"Version","Values":["1","2"]}]</code>
+   *                   <code>[{"Stage":["Test","Deploy"]},{"Version":["1","2"]}]</code>
    *                </p>
    *                 <p>The results of this query could include the following.</p>
    *                 <ul>
    *                   <li>
    *                         <p>An EC2 instance that has the following two tags:
-   *                                 <code>{"Key":"Stage","Value":"Deploy"}</code>, and
-   *                                 <code>{"Key":"Version","Value":"2"}</code>
+   *                                 <code>{"Stage":"Deploy"}</code>, and
+   *                             <code>{"Version":"2"}</code>
    *                      </p>
    *                     </li>
    *                   <li>
    *                         <p>An S3 bucket that has the following two tags:
-   *                                 <code>{"Key":"Stage","Value":"Test"}</code>, and
-   *                                 <code>{"Key":"Version","Value":"1"}</code>
+   *                                 <code>{"Stage":"Test"}</code>, and
+   *                             <code>{"Version":"1"}</code>
    *                      </p>
    *                     </li>
    *                </ul>
@@ -172,15 +273,15 @@ export interface ResourceQuery {
    *                 <ul>
    *                   <li>
    *                         <p>An EC2 instance that has only the following tag:
-   *                                 <code>{"Key":"Stage","Value":"Deploy"}</code>.</p>
+   *                                 <code>{"Stage":"Deploy"}</code>.</p>
    *                         <p>The instance does not have <b>all</b> of the
    *                             tag keys specified in the filter, so it is excluded from the
    *                             results.</p>
    *                     </li>
    *                   <li>
    *                         <p>An RDS database that has the following two tags:
-   *                                 <code>{"Key":"Stage","Value":"Archived"}</code>, and
-   *                                 <code>{"Key":"Version","Value":"4"}</code>
+   *                                 <code>{"Stage":"Archived"}</code> and
+   *                             <code>{"Version":"4"}</code>
    *                      </p>
    *                         <p>The database has all of the tag keys, but none of those keys has an
    *                             associated value that matches at least one of the specified values in
@@ -191,6 +292,11 @@ export interface ResourceQuery {
    *          </ul>
    */
   Type: QueryType | string | undefined;
+
+  /**
+   * <p>The query that defines a group or a search.</p>
+   */
+  Query: string | undefined;
 }
 
 export namespace ResourceQuery {
@@ -201,9 +307,14 @@ export namespace ResourceQuery {
 
 export interface CreateGroupInput {
   /**
-   * <p>The tags to add to the group. A tag is key-value pair string.</p>
+   * <p>The resource query that determines which AWS resources are members of this
+   *             group.</p>
+   *         <note>
+   *             <p>You can specify either a <code>ResourceQuery</code> or a
+   *                     <code>Configuration</code>, but not both.</p>
+   *         </note>
    */
-  Tags?: { [key: string]: string };
+  ResourceQuery?: ResourceQuery;
 
   /**
    * <p>The description of the resource group. Descriptions can consist of letters, numbers,
@@ -221,14 +332,9 @@ export interface CreateGroupInput {
   Name: string | undefined;
 
   /**
-   * <p>The resource query that determines which AWS resources are members of this
-   *             group.</p>
-   *         <note>
-   *             <p>You can specify either a <code>ResourceQuery</code> or a
-   *                     <code>Configuration</code>, but not both.</p>
-   *         </note>
+   * <p>The tags to add to the group. A tag is key-value pair string.</p>
    */
-  ResourceQuery?: ResourceQuery;
+  Tags?: { [key: string]: string };
 
   /**
    * <p>A configuration associates the resource group with an AWS service and specifies how
@@ -249,14 +355,14 @@ export namespace CreateGroupInput {
 }
 
 /**
- * <p>A resource group that contains AWS resources. You can assign resources to the group by
- *             associating either of the following elements with the group:</p>
+ * <p>A resource group that contains AWS resources. You can assign resources to the group
+ *             by associating either of the following elements with the group:</p>
  *         <ul>
  *             <li>
  *                 <p>
  *                   <a>ResourceQuery</a> - Use a resource query to specify a set of tag
- *                     keys and values. All resources in the same AWS Region and AWS account that have
- *                     those keys with the same values are included in the group. You can add a
+ *                     keys and values. All resources in the same AWS Region and AWS account that
+ *                     have those keys with the same values are included in the group. You can add a
  *                     resource query when you create the
  *                     group.</p>
  *             </li>
@@ -270,9 +376,9 @@ export namespace CreateGroupInput {
  */
 export interface Group {
   /**
-   * <p>The name of the resource group.</p>
+   * <p>The description of the resource group.</p>
    */
-  Name: string | undefined;
+  Description?: string;
 
   /**
    * <p>The ARN of the resource group.</p>
@@ -280,9 +386,9 @@ export interface Group {
   GroupArn: string | undefined;
 
   /**
-   * <p>The description of the resource group.</p>
+   * <p>The name of the resource group.</p>
    */
-  Description?: string;
+  Name: string | undefined;
 }
 
 export namespace Group {
@@ -306,15 +412,15 @@ export enum GroupConfigurationStatus {
  */
 export interface GroupConfiguration {
   /**
-   * <p>The current status of an attempt to update the group configuration.</p>
-   */
-  Status?: GroupConfigurationStatus | string;
-
-  /**
    * <p>If present, the new configuration that is in the process of being applied to the
    *             group.</p>
    */
   ProposedConfiguration?: GroupConfigurationItem[];
+
+  /**
+   * <p>The current status of an attempt to update the group configuration.</p>
+   */
+  Status?: GroupConfigurationStatus | string;
 
   /**
    * <p>If present, the reason why a request to update the group configuration failed.</p>
@@ -335,9 +441,9 @@ export namespace GroupConfiguration {
 
 export interface CreateGroupOutput {
   /**
-   * <p>The description of the resource group.</p>
+   * <p>The resource query associated with the group.</p>
    */
-  Group?: Group;
+  ResourceQuery?: ResourceQuery;
 
   /**
    * <p>The tags associated with the group.</p>
@@ -359,9 +465,9 @@ export interface CreateGroupOutput {
   GroupConfiguration?: GroupConfiguration;
 
   /**
-   * <p>The resource query associated with the group.</p>
+   * <p>The description of the resource group.</p>
    */
-  ResourceQuery?: ResourceQuery;
+  Group?: Group;
 }
 
 export namespace CreateGroupOutput {
@@ -433,14 +539,14 @@ export namespace TooManyRequestsException {
 
 export interface DeleteGroupInput {
   /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>The name or the ARN of the resource group to delete.</p>
    */
   Group?: string;
+
+  /**
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   */
+  GroupName?: string;
 }
 
 export namespace DeleteGroupInput {
@@ -479,14 +585,14 @@ export namespace NotFoundException {
 
 export interface GetGroupInput {
   /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>The name or the ARN of the resource group to retrieve.</p>
    */
   Group?: string;
+
+  /**
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   */
+  GroupName?: string;
 }
 
 export namespace GetGroupInput {
@@ -558,16 +664,16 @@ export namespace GetGroupQueryInput {
  */
 export interface GroupQuery {
   /**
-   * <p>The name of the resource group that is associated with the specified resource
-   *             query.</p>
-   */
-  GroupName: string | undefined;
-
-  /**
    * <p>The resource query that determines which AWS resources are members of the associated
    *             resource group.</p>
    */
   ResourceQuery: ResourceQuery | undefined;
+
+  /**
+   * <p>The name of the resource group that is associated with the specified resource
+   *             query.</p>
+   */
+  GroupName: string | undefined;
 }
 
 export namespace GroupQuery {
@@ -604,14 +710,14 @@ export namespace GetTagsInput {
 
 export interface GetTagsOutput {
   /**
-   * <p>The ARN of the tagged resource group.</p>
-   */
-  Arn?: string;
-
-  /**
    * <p>The tags associated with the specified resource group.</p>
    */
   Tags?: { [key: string]: string };
+
+  /**
+   * <p>The ARN of the tagged resource group.</p>
+   */
+  Arn?: string;
 }
 
 export namespace GetTagsOutput {
@@ -643,9 +749,9 @@ export namespace GroupResourcesInput {
  */
 export interface FailedResource {
   /**
-   * <p>The error code associated with the failure.</p>
+   * <p>The ARN of the resource that failed to be added or removed.</p>
    */
-  ErrorCode?: string;
+  ResourceArn?: string;
 
   /**
    * <p>The error message text associated with the failure.</p>
@@ -653,9 +759,9 @@ export interface FailedResource {
   ErrorMessage?: string;
 
   /**
-   * <p>The ARN of the resource that failed to be added or removed.</p>
+   * <p>The error code associated with the failure.</p>
    */
-  ResourceArn?: string;
+  ErrorCode?: string;
 }
 
 export namespace FailedResource {
@@ -694,15 +800,15 @@ export enum ResourceFilterName {
  */
 export interface ResourceFilter {
   /**
-   * <p>The name of the filter. Filter names are case-sensitive.</p>
-   */
-  Name: ResourceFilterName | string | undefined;
-
-  /**
    * <p>One or more filter values. Allowed filter values vary by resource filter name, and are
    *             case-sensitive.</p>
    */
   Values: string[] | undefined;
+
+  /**
+   * <p>The name of the filter. Filter names are case-sensitive.</p>
+   */
+  Name: ResourceFilterName | string | undefined;
 }
 
 export namespace ResourceFilter {
@@ -713,14 +819,29 @@ export namespace ResourceFilter {
 
 export interface ListGroupResourcesInput {
   /**
+   * <p>The total number of results that you want included on each page of the
+   * response. If you do not include this parameter, it defaults to a value that is specific to the
+   * operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   * response element is present and has a value (is not null). Include that value as the
+   * <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   * of the results. Note that the service might return fewer results than the maximum even when there
+   * are more results available. You should check <code>NextToken</code> after every operation to
+   * ensure that you receive all of the results.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The name or the ARN of the resource group</p>
    */
   Group?: string;
 
   /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   * <p>The parameter for receiving additional results if you receive a
+   * <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   * indicates that more output is available. Set this parameter to the value provided by a previous
+   * call's <code>NextToken</code> response to indicate where the output should continue from.</p>
    */
-  GroupName?: string;
+  NextToken?: string;
 
   /**
    * <p>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply
@@ -736,13 +857,13 @@ export interface ListGroupResourcesInput {
    *             </li>
    *          </ul>
    *         <p>When you specify a <code>resource-type</code> filter for
-   *                 <code>ListGroupResources</code>, AWS Resource Groups validates your filter resource
-   *             types against the types that are defined in the query associated with the group. For
-   *             example, if a group contains only S3 buckets because its query specifies only that
-   *             resource type, but your <code>resource-type</code> filter includes EC2 instances, AWS
-   *             Resource Groups does not filter for EC2 instances. In this case, a
-   *                 <code>ListGroupResources</code> request returns a <code>BadRequestException</code>
-   *             error with a message similar to the following:</p>
+   *                 <code>ListGroupResources</code>, AWS Resource Groups validates your filter resource types
+   *             against the types that are defined in the query associated with the group. For example,
+   *             if a group contains only S3 buckets because its query specifies only that resource type,
+   *             but your <code>resource-type</code> filter includes EC2 instances, AWS Resource Groups
+   *             does not filter for EC2 instances. In this case, a <code>ListGroupResources</code>
+   *             request returns a <code>BadRequestException</code> error with a message similar to the
+   *             following:</p>
    *         <p>
    *             <code>The resource types specified as filters in the request are not
    *             valid.</code>
@@ -756,24 +877,9 @@ export interface ListGroupResourcesInput {
   Filters?: ResourceFilter[];
 
   /**
-   * <p>The parameter for receiving additional results if you receive a
-   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
-   *     indicates that more output is available. Set this parameter to the value provided by a previous
-   *     call's <code>NextToken</code> response to indicate where the output should continue from.</p>
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
    */
-  NextToken?: string;
-
-  /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that the service might return fewer results than the maximum even when there
-   *     are more results available. You should check <code>NextToken</code> after every operation to
-   *     ensure that you receive all of the results.</p>
-   */
-  MaxResults?: number;
+  GroupName?: string;
 }
 
 export namespace ListGroupResourcesInput {
@@ -789,11 +895,11 @@ export enum QueryErrorCode {
 
 /**
  * <p>A two-part error structure that can occur in <code>ListGroupResources</code> or
- *                 <code>SearchResources</code> operations on CloudFormation stack-based queries. The
- *             error occurs if the CloudFormation stack on which the query is based either does not
- *             exist, or has a status that renders the stack inactive. A <code>QueryError</code>
- *             occurrence does not necessarily mean that AWS Resource Groups could not complete the
- *             operation, but the resulting group might have no member resources.</p>
+ *                 <code>SearchResources</code> operations on CloudFormation stack-based queries. The error
+ *             occurs if the CloudFormation stack on which the query is based either does not exist, or has a
+ *             status that renders the stack inactive. A <code>QueryError</code> occurrence does not
+ *             necessarily mean that AWS Resource Groups could not complete the operation, but the resulting
+ *             group might have no member resources.</p>
  */
 export interface QueryError {
   /**
@@ -823,14 +929,14 @@ export namespace QueryError {
  */
 export interface ResourceIdentifier {
   /**
-   * <p>The resource type of a resource, such as <code>AWS::EC2::Instance</code>.</p>
-   */
-  ResourceType?: string;
-
-  /**
    * <p>The ARN of a resource.</p>
    */
   ResourceArn?: string;
+
+  /**
+   * <p>The resource type of a resource, such as <code>AWS::EC2::Instance</code>.</p>
+   */
+  ResourceType?: string;
 }
 
 export namespace ResourceIdentifier {
@@ -841,12 +947,10 @@ export namespace ResourceIdentifier {
 
 export interface ListGroupResourcesOutput {
   /**
-   * <p>If present, indicates that more output is available than is
-   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
-   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
-   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * <p>The ARNs and resource types of resources that are members of the group that you
+   *             specified.</p>
    */
-  NextToken?: string;
+  ResourceIdentifiers?: ResourceIdentifier[];
 
   /**
    * <p>A list of <code>QueryError</code> objects. Each error is an object that contains
@@ -857,10 +961,12 @@ export interface ListGroupResourcesOutput {
   QueryErrors?: QueryError[];
 
   /**
-   * <p>The ARNs and resource types of resources that are members of the group that you
-   *             specified.</p>
+   * <p>If present, indicates that more output is available than is
+   * included in the current response. Use this value in the <code>NextToken</code> request parameter
+   * in a subsequent call to the operation to get the next part of the output. You should repeat this
+   * until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
-  ResourceIdentifiers?: ResourceIdentifier[];
+  NextToken?: string;
 }
 
 export namespace ListGroupResourcesOutput {
@@ -896,15 +1002,15 @@ export enum GroupFilterName {
  */
 export interface GroupFilter {
   /**
-   * <p>The name of the filter. Filter names are case-sensitive.</p>
-   */
-  Name: GroupFilterName | string | undefined;
-
-  /**
    * <p>One or more filter values. Allowed filter values vary by group filter name, and are
    *             case-sensitive.</p>
    */
   Values: string[] | undefined;
+
+  /**
+   * <p>The name of the filter. Filter names are case-sensitive.</p>
+   */
+  Name: GroupFilterName | string | undefined;
 }
 
 export namespace GroupFilter {
@@ -915,24 +1021,24 @@ export namespace GroupFilter {
 
 export interface ListGroupsInput {
   /**
-   * <p>The parameter for receiving additional results if you receive a
-   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
-   *     indicates that more output is available. Set this parameter to the value provided by a previous
-   *     call's <code>NextToken</code> response to indicate where the output should continue from.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that the service might return fewer results than the maximum even when there
-   *     are more results available. You should check <code>NextToken</code> after every operation to
-   *     ensure that you receive all of the results.</p>
+   * response. If you do not include this parameter, it defaults to a value that is specific to the
+   * operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   * response element is present and has a value (is not null). Include that value as the
+   * <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   * of the results. Note that the service might return fewer results than the maximum even when there
+   * are more results available. You should check <code>NextToken</code> after every operation to
+   * ensure that you receive all of the results.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The parameter for receiving additional results if you receive a
+   * <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   * indicates that more output is available. Set this parameter to the value provided by a previous
+   * call's <code>NextToken</code> response to indicate where the output should continue from.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>Filters, formatted as <a>GroupFilter</a> objects, that you want to apply to
@@ -974,14 +1080,14 @@ export namespace ListGroupsInput {
  */
 export interface GroupIdentifier {
   /**
-   * <p>The name of the resource group.</p>
-   */
-  GroupName?: string;
-
-  /**
    * <p>The ARN of the resource group.</p>
    */
   GroupArn?: string;
+
+  /**
+   * <p>The name of the resource group.</p>
+   */
+  GroupName?: string;
 }
 
 export namespace GroupIdentifier {
@@ -992,18 +1098,18 @@ export namespace GroupIdentifier {
 
 export interface ListGroupsOutput {
   /**
+   * <p>If present, indicates that more output is available than is
+   * included in the current response. Use this value in the <code>NextToken</code> request parameter
+   * in a subsequent call to the operation to get the next part of the output. You should repeat this
+   * until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>A list of <a>GroupIdentifier</a> objects. Each identifier is an object that
    *             contains both the <code>Name</code> and the <code>GroupArn</code>.</p>
    */
   GroupIdentifiers?: GroupIdentifier[];
-
-  /**
-   * <p>If present, indicates that more output is available than is
-   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
-   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
-   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>This output element is deprecated and shouldn't be used. Refer to
@@ -1020,28 +1126,28 @@ export namespace ListGroupsOutput {
 
 export interface SearchResourcesInput {
   /**
+   * <p>The total number of results that you want included on each page of the
+   * response. If you do not include this parameter, it defaults to a value that is specific to the
+   * operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
+   * response element is present and has a value (is not null). Include that value as the
+   * <code>NextToken</code> request parameter in the next call to the operation to get the next part
+   * of the results. Note that the service might return fewer results than the maximum even when there
+   * are more results available. You should check <code>NextToken</code> after every operation to
+   * ensure that you receive all of the results.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The search query, using the same formats that are supported for resource group
    *             definition. For more information, see <a>CreateGroup</a>.</p>
    */
   ResourceQuery: ResourceQuery | undefined;
 
   /**
-   * <p>The total number of results that you want included on each page of the
-   *     response. If you do not include this parameter, it defaults to a value that is specific to the
-   *     operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-   *     response element is present and has a value (is not null). Include that value as the
-   *     <code>NextToken</code> request parameter in the next call to the operation to get the next part
-   *     of the results. Note that the service might return fewer results than the maximum even when there
-   *     are more results available. You should check <code>NextToken</code> after every operation to
-   *     ensure that you receive all of the results.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The parameter for receiving additional results if you receive a
-   *     <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
-   *     indicates that more output is available. Set this parameter to the value provided by a previous
-   *     call's <code>NextToken</code> response to indicate where the output should continue from.</p>
+   * <code>NextToken</code> response in a previous request. A <code>NextToken</code> response
+   * indicates that more output is available. Set this parameter to the value provided by a previous
+   * call's <code>NextToken</code> response to indicate where the output should continue from.</p>
    */
   NextToken?: string;
 }
@@ -1054,6 +1160,12 @@ export namespace SearchResourcesInput {
 
 export interface SearchResourcesOutput {
   /**
+   * <p>The ARNs and resource types of resources that are members of the group that you
+   *             specified.</p>
+   */
+  ResourceIdentifiers?: ResourceIdentifier[];
+
+  /**
    * <p>A list of <code>QueryError</code> objects. Each error is an object that contains
    *                 <code>ErrorCode</code> and <code>Message</code> structures. Possible values for
    *                 <code>ErrorCode</code> are <code>CLOUDFORMATION_STACK_INACTIVE</code> and
@@ -1063,17 +1175,11 @@ export interface SearchResourcesOutput {
 
   /**
    * <p>If present, indicates that more output is available than is
-   *     included in the current response. Use this value in the <code>NextToken</code> request parameter
-   *     in a subsequent call to the operation to get the next part of the output. You should repeat this
-   *     until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * included in the current response. Use this value in the <code>NextToken</code> request parameter
+   * in a subsequent call to the operation to get the next part of the output. You should repeat this
+   * until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The ARNs and resource types of resources that are members of the group that you
-   *             specified.</p>
-   */
-  ResourceIdentifiers?: ResourceIdentifier[];
 }
 
 export namespace SearchResourcesOutput {
@@ -1121,14 +1227,14 @@ export namespace TagOutput {
 
 export interface UngroupResourcesInput {
   /**
-   * <p>The ARNs of the resources to be removed from the group.</p>
-   */
-  ResourceArns: string[] | undefined;
-
-  /**
    * <p>The name or the ARN of the resource group from which to remove the resources.</p>
    */
   Group: string | undefined;
+
+  /**
+   * <p>The ARNs of the resources to be removed from the group.</p>
+   */
+  ResourceArns: string[] | undefined;
 }
 
 export namespace UngroupResourcesInput {
@@ -1157,15 +1263,15 @@ export namespace UngroupResourcesOutput {
 
 export interface UntagInput {
   /**
-   * <p>The keys of the tags to be removed.</p>
-   */
-  Keys: string[] | undefined;
-
-  /**
    * <p>The ARN of the resource group from which to remove tags. The command removed both the
    *             specified keys and any values associated with those keys.</p>
    */
   Arn: string | undefined;
+
+  /**
+   * <p>The keys of the tags to be removed.</p>
+   */
+  Keys: string[] | undefined;
 }
 
 export namespace UntagInput {
@@ -1176,14 +1282,14 @@ export namespace UntagInput {
 
 export interface UntagOutput {
   /**
-   * <p>The keys of the tags that were removed.</p>
-   */
-  Keys?: string[];
-
-  /**
    * <p>The ARN of the resource group from which tags have been removed.</p>
    */
   Arn?: string;
+
+  /**
+   * <p>The keys of the tags that were removed.</p>
+   */
+  Keys?: string[];
 }
 
 export namespace UntagOutput {
@@ -1199,15 +1305,15 @@ export interface UpdateGroupInput {
   GroupName?: string;
 
   /**
+   * <p>The name or the ARN of the resource group to modify.</p>
+   */
+  Group?: string;
+
+  /**
    * <p>The new description that you want to update the resource group with. Descriptions can
    *             contain letters, numbers, hyphens, underscores, periods, and spaces.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The name or the ARN of the resource group to modify.</p>
-   */
-  Group?: string;
 }
 
 export namespace UpdateGroupInput {
@@ -1231,15 +1337,15 @@ export namespace UpdateGroupOutput {
 
 export interface UpdateGroupQueryInput {
   /**
+   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   */
+  GroupName?: string;
+
+  /**
    * <p>The resource query to determine which AWS resources are members of this resource
    *             group.</p>
    */
   ResourceQuery: ResourceQuery | undefined;
-
-  /**
-   * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
-   */
-  GroupName?: string;
 
   /**
    * <p>The name or the ARN of the resource group to query.</p>

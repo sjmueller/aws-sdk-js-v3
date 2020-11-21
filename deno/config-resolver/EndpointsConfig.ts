@@ -21,6 +21,7 @@ interface PreviouslyResolved {
 
 export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> {
   endpoint: Provider<Endpoint>;
+  isCustomEndpoint: boolean;
 }
 
 export const resolveEndpointsConfig = <T>(
@@ -29,6 +30,7 @@ export const resolveEndpointsConfig = <T>(
   ...input,
   tls: input.tls ?? true,
   endpoint: input.endpoint ? normalizeEndpoint(input) : () => getEndPointFromRegion(input),
+  isCustomEndpoint: input.endpoint ? true : false,
 });
 
 const normalizeEndpoint = (input: EndpointsInputConfig & PreviouslyResolved): Provider<Endpoint> => {

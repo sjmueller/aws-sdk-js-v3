@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   GetTransitGatewayRouteTablePropagationsRequest,
   GetTransitGatewayRouteTablePropagationsResult,
-} from "../models/models_3.ts";
+} from "../models/models_4.ts";
 import {
   deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand,
   serializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand,
@@ -52,11 +52,23 @@ export class GetTransitGatewayRouteTablePropagationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "GetTransitGatewayRouteTablePropagationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetTransitGatewayRouteTablePropagationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTransitGatewayRouteTablePropagationsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

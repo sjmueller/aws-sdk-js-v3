@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeEnvironmentMembershipsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeEnvironmentMembershipsCommand(input, ...args));
+  return await client.send(new DescribeEnvironmentMembershipsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Cloud9,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEnvironmentMemberships(input, ...args);
 };
-export async function* describeEnvironmentMembershipsPaginate(
+export async function* paginateDescribeEnvironmentMemberships(
   config: Cloud9PaginationConfiguration,
   input: DescribeEnvironmentMembershipsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeEnvironmentMembershipsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeEnvironmentMembershipsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Cloud9) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeEnvironmentMembershipsPaginate(
       throw new Error("Invalid client, expected Cloud9 | Cloud9Client");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

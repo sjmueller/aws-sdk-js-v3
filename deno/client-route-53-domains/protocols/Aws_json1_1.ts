@@ -535,7 +535,7 @@ export const deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptDomainTransferFromAnotherAwsAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -606,7 +606,7 @@ export const deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelDomainTransferToAnotherAwsAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CancelDomainTransferToAnotherAwsAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -669,7 +669,7 @@ export const deserializeAws_json1_1CheckDomainAvailabilityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckDomainAvailabilityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CheckDomainAvailabilityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -732,7 +732,7 @@ export const deserializeAws_json1_1CheckDomainTransferabilityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CheckDomainTransferabilityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CheckDomainTransferabilityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -795,7 +795,7 @@ export const deserializeAws_json1_1DeleteTagsForDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTagsForDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteTagsForDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -866,7 +866,7 @@ export const deserializeAws_json1_1DisableDomainAutoRenewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableDomainAutoRenewCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisableDomainAutoRenewCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -929,7 +929,7 @@ export const deserializeAws_json1_1DisableDomainTransferLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableDomainTransferLockCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisableDomainTransferLockCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1016,7 +1016,7 @@ export const deserializeAws_json1_1EnableDomainAutoRenewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableDomainAutoRenewCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnableDomainAutoRenewCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1087,7 +1087,7 @@ export const deserializeAws_json1_1EnableDomainTransferLockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableDomainTransferLockCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnableDomainTransferLockCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1174,7 +1174,7 @@ export const deserializeAws_json1_1GetContactReachabilityStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContactReachabilityStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetContactReachabilityStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1245,7 +1245,7 @@ export const deserializeAws_json1_1GetDomainDetailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainDetailCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetDomainDetailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1308,7 +1308,7 @@ export const deserializeAws_json1_1GetDomainSuggestionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDomainSuggestionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetDomainSuggestionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1371,7 +1371,7 @@ export const deserializeAws_json1_1GetOperationDetailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOperationDetailCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetOperationDetailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1426,7 +1426,7 @@ export const deserializeAws_json1_1ListDomainsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDomainsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListDomainsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1481,7 +1481,7 @@ export const deserializeAws_json1_1ListOperationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOperationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListOperationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1536,7 +1536,7 @@ export const deserializeAws_json1_1ListTagsForDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1607,7 +1607,7 @@ export const deserializeAws_json1_1RegisterDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RegisterDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1702,7 +1702,7 @@ export const deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountComm
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectDomainTransferFromAnotherAwsAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RejectDomainTransferFromAnotherAwsAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1765,7 +1765,7 @@ export const deserializeAws_json1_1RenewDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RenewDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RenewDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1852,7 +1852,7 @@ export const deserializeAws_json1_1ResendContactReachabilityEmailCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResendContactReachabilityEmailCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ResendContactReachabilityEmailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1923,7 +1923,7 @@ export const deserializeAws_json1_1RetrieveDomainAuthCodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetrieveDomainAuthCodeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RetrieveDomainAuthCodeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1986,7 +1986,7 @@ export const deserializeAws_json1_1TransferDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TransferDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TransferDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2081,7 +2081,7 @@ export const deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TransferDomainToAnotherAwsAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TransferDomainToAnotherAwsAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2152,7 +2152,7 @@ export const deserializeAws_json1_1UpdateDomainContactCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainContactCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateDomainContactCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2239,7 +2239,7 @@ export const deserializeAws_json1_1UpdateDomainContactPrivacyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainContactPrivacyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateDomainContactPrivacyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2326,7 +2326,7 @@ export const deserializeAws_json1_1UpdateDomainNameserversCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDomainNameserversCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateDomainNameserversCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2413,7 +2413,7 @@ export const deserializeAws_json1_1UpdateTagsForDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTagsForDomainCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateTagsForDomainCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2484,7 +2484,7 @@ export const deserializeAws_json1_1ViewBillingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ViewBillingCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ViewBillingCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

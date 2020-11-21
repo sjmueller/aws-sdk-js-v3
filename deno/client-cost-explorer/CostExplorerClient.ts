@@ -1,8 +1,24 @@
 
 import {
+  CreateAnomalyMonitorCommandInput,
+  CreateAnomalyMonitorCommandOutput,
+} from "./commands/CreateAnomalyMonitorCommand.ts";
+import {
+  CreateAnomalySubscriptionCommandInput,
+  CreateAnomalySubscriptionCommandOutput,
+} from "./commands/CreateAnomalySubscriptionCommand.ts";
+import {
   CreateCostCategoryDefinitionCommandInput,
   CreateCostCategoryDefinitionCommandOutput,
 } from "./commands/CreateCostCategoryDefinitionCommand.ts";
+import {
+  DeleteAnomalyMonitorCommandInput,
+  DeleteAnomalyMonitorCommandOutput,
+} from "./commands/DeleteAnomalyMonitorCommand.ts";
+import {
+  DeleteAnomalySubscriptionCommandInput,
+  DeleteAnomalySubscriptionCommandOutput,
+} from "./commands/DeleteAnomalySubscriptionCommand.ts";
 import {
   DeleteCostCategoryDefinitionCommandInput,
   DeleteCostCategoryDefinitionCommandOutput,
@@ -11,6 +27,12 @@ import {
   DescribeCostCategoryDefinitionCommandInput,
   DescribeCostCategoryDefinitionCommandOutput,
 } from "./commands/DescribeCostCategoryDefinitionCommand.ts";
+import { GetAnomaliesCommandInput, GetAnomaliesCommandOutput } from "./commands/GetAnomaliesCommand.ts";
+import { GetAnomalyMonitorsCommandInput, GetAnomalyMonitorsCommandOutput } from "./commands/GetAnomalyMonitorsCommand.ts";
+import {
+  GetAnomalySubscriptionsCommandInput,
+  GetAnomalySubscriptionsCommandOutput,
+} from "./commands/GetAnomalySubscriptionsCommand.ts";
 import { GetCostAndUsageCommandInput, GetCostAndUsageCommandOutput } from "./commands/GetCostAndUsageCommand.ts";
 import {
   GetCostAndUsageWithResourcesCommandInput,
@@ -56,6 +78,18 @@ import {
   ListCostCategoryDefinitionsCommandInput,
   ListCostCategoryDefinitionsCommandOutput,
 } from "./commands/ListCostCategoryDefinitionsCommand.ts";
+import {
+  ProvideAnomalyFeedbackCommandInput,
+  ProvideAnomalyFeedbackCommandOutput,
+} from "./commands/ProvideAnomalyFeedbackCommand.ts";
+import {
+  UpdateAnomalyMonitorCommandInput,
+  UpdateAnomalyMonitorCommandOutput,
+} from "./commands/UpdateAnomalyMonitorCommand.ts";
+import {
+  UpdateAnomalySubscriptionCommandInput,
+  UpdateAnomalySubscriptionCommandOutput,
+} from "./commands/UpdateAnomalySubscriptionCommand.ts";
 import {
   UpdateCostCategoryDefinitionCommandInput,
   UpdateCostCategoryDefinitionCommandOutput,
@@ -110,9 +144,16 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | CreateAnomalyMonitorCommandInput
+  | CreateAnomalySubscriptionCommandInput
   | CreateCostCategoryDefinitionCommandInput
+  | DeleteAnomalyMonitorCommandInput
+  | DeleteAnomalySubscriptionCommandInput
   | DeleteCostCategoryDefinitionCommandInput
   | DescribeCostCategoryDefinitionCommandInput
+  | GetAnomaliesCommandInput
+  | GetAnomalyMonitorsCommandInput
+  | GetAnomalySubscriptionsCommandInput
   | GetCostAndUsageCommandInput
   | GetCostAndUsageWithResourcesCommandInput
   | GetCostForecastCommandInput
@@ -128,12 +169,22 @@ export type ServiceInputTypes =
   | GetTagsCommandInput
   | GetUsageForecastCommandInput
   | ListCostCategoryDefinitionsCommandInput
+  | ProvideAnomalyFeedbackCommandInput
+  | UpdateAnomalyMonitorCommandInput
+  | UpdateAnomalySubscriptionCommandInput
   | UpdateCostCategoryDefinitionCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateAnomalyMonitorCommandOutput
+  | CreateAnomalySubscriptionCommandOutput
   | CreateCostCategoryDefinitionCommandOutput
+  | DeleteAnomalyMonitorCommandOutput
+  | DeleteAnomalySubscriptionCommandOutput
   | DeleteCostCategoryDefinitionCommandOutput
   | DescribeCostCategoryDefinitionCommandOutput
+  | GetAnomaliesCommandOutput
+  | GetAnomalyMonitorsCommandOutput
+  | GetAnomalySubscriptionsCommandOutput
   | GetCostAndUsageCommandOutput
   | GetCostAndUsageWithResourcesCommandOutput
   | GetCostForecastCommandOutput
@@ -149,6 +200,9 @@ export type ServiceOutputTypes =
   | GetTagsCommandOutput
   | GetUsageForecastCommandOutput
   | ListCostCategoryDefinitionsCommandOutput
+  | ProvideAnomalyFeedbackCommandOutput
+  | UpdateAnomalyMonitorCommandOutput
+  | UpdateAnomalySubscriptionCommandOutput
   | UpdateCostCategoryDefinitionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

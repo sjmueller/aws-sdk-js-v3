@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTextTranslationJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTextTranslationJobsCommand(input, ...args));
+  return await client.send(new ListTextTranslationJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Translate,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTextTranslationJobs(input, ...args);
 };
-export async function* listTextTranslationJobsPaginate(
+export async function* paginateListTextTranslationJobs(
   config: TranslatePaginationConfiguration,
   input: ListTextTranslationJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTextTranslationJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTextTranslationJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Translate) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listTextTranslationJobsPaginate(
       throw new Error("Invalid client, expected Translate | TranslateClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

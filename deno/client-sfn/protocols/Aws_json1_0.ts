@@ -44,6 +44,7 @@ import {
   ActivitySucceededEventDetails,
   ActivityTimedOutEventDetails,
   ActivityWorkerLimitExceeded,
+  CloudWatchEventsExecutionDataDetails,
   CloudWatchLogsLogGroup,
   CreateActivityInput,
   CreateActivityOutput,
@@ -75,6 +76,7 @@ import {
   GetExecutionHistoryInput,
   GetExecutionHistoryOutput,
   HistoryEvent,
+  HistoryEventExecutionDataDetails,
   InvalidArn,
   InvalidDefinition,
   InvalidExecutionInput,
@@ -82,6 +84,7 @@ import {
   InvalidName,
   InvalidOutput,
   InvalidToken,
+  InvalidTracingConfiguration,
   LambdaFunctionFailedEventDetails,
   LambdaFunctionScheduleFailedEventDetails,
   LambdaFunctionScheduledEventDetails,
@@ -134,6 +137,7 @@ import {
   TaskTimedOut,
   TaskTimedOutEventDetails,
   TooManyTags,
+  TracingConfiguration,
   UntagResourceInput,
   UntagResourceOutput,
   UpdateStateMachineInput,
@@ -439,7 +443,7 @@ export const deserializeAws_json1_0CreateActivityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateActivityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0CreateActivityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -510,7 +514,7 @@ export const deserializeAws_json1_0CreateStateMachineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStateMachineCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0CreateStateMachineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -564,6 +568,14 @@ const deserializeAws_json1_0CreateStateMachineCommandError = async (
     case "com.amazonaws.sfn#InvalidName":
       response = {
         ...(await deserializeAws_json1_0InvalidNameResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidTracingConfiguration":
+    case "com.amazonaws.sfn#InvalidTracingConfiguration":
+      response = {
+        ...(await deserializeAws_json1_0InvalidTracingConfigurationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -629,7 +641,7 @@ export const deserializeAws_json1_0DeleteActivityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteActivityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DeleteActivityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -684,7 +696,7 @@ export const deserializeAws_json1_0DeleteStateMachineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStateMachineCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DeleteStateMachineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -739,7 +751,7 @@ export const deserializeAws_json1_0DescribeActivityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeActivityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DescribeActivityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -802,7 +814,7 @@ export const deserializeAws_json1_0DescribeExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeExecutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DescribeExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -865,7 +877,7 @@ export const deserializeAws_json1_0DescribeStateMachineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStateMachineCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DescribeStateMachineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -928,7 +940,7 @@ export const deserializeAws_json1_0DescribeStateMachineForExecutionCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStateMachineForExecutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DescribeStateMachineForExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -991,7 +1003,7 @@ export const deserializeAws_json1_0GetActivityTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetActivityTaskCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0GetActivityTaskCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1062,7 +1074,7 @@ export const deserializeAws_json1_0GetExecutionHistoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExecutionHistoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0GetExecutionHistoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1133,7 +1145,7 @@ export const deserializeAws_json1_0ListActivitiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListActivitiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListActivitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1188,7 +1200,7 @@ export const deserializeAws_json1_0ListExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListExecutionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListExecutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1267,7 +1279,7 @@ export const deserializeAws_json1_0ListStateMachinesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStateMachinesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListStateMachinesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1322,7 +1334,7 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1385,7 +1397,7 @@ export const deserializeAws_json1_0SendTaskFailureCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTaskFailureCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0SendTaskFailureCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1456,7 +1468,7 @@ export const deserializeAws_json1_0SendTaskHeartbeatCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTaskHeartbeatCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0SendTaskHeartbeatCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1527,7 +1539,7 @@ export const deserializeAws_json1_0SendTaskSuccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTaskSuccessCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0SendTaskSuccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1606,7 +1618,7 @@ export const deserializeAws_json1_0StartExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartExecutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0StartExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1709,7 +1721,7 @@ export const deserializeAws_json1_0StopExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopExecutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0StopExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1772,7 +1784,7 @@ export const deserializeAws_json1_0TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1843,7 +1855,7 @@ export const deserializeAws_json1_0UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1906,7 +1918,7 @@ export const deserializeAws_json1_0UpdateStateMachineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStateMachineCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0UpdateStateMachineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1952,6 +1964,14 @@ const deserializeAws_json1_0UpdateStateMachineCommandError = async (
     case "com.amazonaws.sfn#InvalidLoggingConfiguration":
       response = {
         ...(await deserializeAws_json1_0InvalidLoggingConfigurationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidTracingConfiguration":
+    case "com.amazonaws.sfn#InvalidTracingConfiguration":
+      response = {
+        ...(await deserializeAws_json1_0InvalidTracingConfigurationResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2192,6 +2212,21 @@ const deserializeAws_json1_0InvalidTokenResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_0InvalidTracingConfigurationResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidTracingConfiguration> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_0InvalidTracingConfiguration(body, context);
+  const contents: InvalidTracingConfiguration = {
+    name: "InvalidTracingConfiguration",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_0MissingRequiredParameterResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2364,6 +2399,9 @@ const serializeAws_json1_0CreateStateMachineInput = (input: CreateStateMachineIn
     ...(input.name !== undefined && { name: input.name }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
     ...(input.tags !== undefined && { tags: serializeAws_json1_0TagList(input.tags, context) }),
+    ...(input.tracingConfiguration !== undefined && {
+      tracingConfiguration: serializeAws_json1_0TracingConfiguration(input.tracingConfiguration, context),
+    }),
     ...(input.type !== undefined && { type: input.type }),
   };
 };
@@ -2423,6 +2461,7 @@ const serializeAws_json1_0GetExecutionHistoryInput = (
 ): any => {
   return {
     ...(input.executionArn !== undefined && { executionArn: input.executionArn }),
+    ...(input.includeExecutionData !== undefined && { includeExecutionData: input.includeExecutionData }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.reverseOrder !== undefined && { reverseOrder: input.reverseOrder }),
@@ -2509,6 +2548,7 @@ const serializeAws_json1_0StartExecutionInput = (input: StartExecutionInput, con
     ...(input.input !== undefined && { input: input.input }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.stateMachineArn !== undefined && { stateMachineArn: input.stateMachineArn }),
+    ...(input.traceHeader !== undefined && { traceHeader: input.traceHeader }),
   };
 };
 
@@ -2542,6 +2582,12 @@ const serializeAws_json1_0TagResourceInput = (input: TagResourceInput, context: 
   };
 };
 
+const serializeAws_json1_0TracingConfiguration = (input: TracingConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.enabled !== undefined && { enabled: input.enabled }),
+  };
+};
+
 const serializeAws_json1_0UntagResourceInput = (input: UntagResourceInput, context: __SerdeContext): any => {
   return {
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
@@ -2557,6 +2603,9 @@ const serializeAws_json1_0UpdateStateMachineInput = (input: UpdateStateMachineIn
     }),
     ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
     ...(input.stateMachineArn !== undefined && { stateMachineArn: input.stateMachineArn }),
+    ...(input.tracingConfiguration !== undefined && {
+      tracingConfiguration: serializeAws_json1_0TracingConfiguration(input.tracingConfiguration, context),
+    }),
   };
 };
 
@@ -2607,6 +2656,10 @@ const deserializeAws_json1_0ActivityScheduledEventDetails = (
         ? output.heartbeatInSeconds
         : undefined,
     input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    inputDetails:
+      output.inputDetails !== undefined && output.inputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
+        : undefined,
     resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     timeoutInSeconds:
       output.timeoutInSeconds !== undefined && output.timeoutInSeconds !== null ? output.timeoutInSeconds : undefined,
@@ -2638,6 +2691,10 @@ const deserializeAws_json1_0ActivitySucceededEventDetails = (
 ): ActivitySucceededEventDetails => {
   return {
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
+        : undefined,
   } as any;
 };
 
@@ -2657,6 +2714,15 @@ const deserializeAws_json1_0ActivityWorkerLimitExceeded = (
 ): ActivityWorkerLimitExceeded => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0CloudWatchEventsExecutionDataDetails = (
+  output: any,
+  context: __SerdeContext
+): CloudWatchEventsExecutionDataDetails => {
+  return {
+    included: output.included !== undefined && output.included !== null ? output.included : undefined,
   } as any;
 };
 
@@ -2719,8 +2785,16 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
   return {
     executionArn: output.executionArn !== undefined && output.executionArn !== null ? output.executionArn : undefined,
     input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    inputDetails:
+      output.inputDetails !== undefined && output.inputDetails !== null
+        ? deserializeAws_json1_0CloudWatchEventsExecutionDataDetails(output.inputDetails, context)
+        : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0CloudWatchEventsExecutionDataDetails(output.outputDetails, context)
+        : undefined,
     startDate:
       output.startDate !== undefined && output.startDate !== null
         ? new Date(Math.round(output.startDate * 1000))
@@ -2732,6 +2806,7 @@ const deserializeAws_json1_0DescribeExecutionOutput = (
       output.stopDate !== undefined && output.stopDate !== null
         ? new Date(Math.round(output.stopDate * 1000))
         : undefined,
+    traceHeader: output.traceHeader !== undefined && output.traceHeader !== null ? output.traceHeader : undefined,
   } as any;
 };
 
@@ -2749,6 +2824,10 @@ const deserializeAws_json1_0DescribeStateMachineForExecutionOutput = (
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
     stateMachineArn:
       output.stateMachineArn !== undefined && output.stateMachineArn !== null ? output.stateMachineArn : undefined,
+    tracingConfiguration:
+      output.tracingConfiguration !== undefined && output.tracingConfiguration !== null
+        ? deserializeAws_json1_0TracingConfiguration(output.tracingConfiguration, context)
+        : undefined,
     updateDate:
       output.updateDate !== undefined && output.updateDate !== null
         ? new Date(Math.round(output.updateDate * 1000))
@@ -2775,6 +2854,10 @@ const deserializeAws_json1_0DescribeStateMachineOutput = (
     stateMachineArn:
       output.stateMachineArn !== undefined && output.stateMachineArn !== null ? output.stateMachineArn : undefined,
     status: output.status !== undefined && output.status !== null ? output.status : undefined,
+    tracingConfiguration:
+      output.tracingConfiguration !== undefined && output.tracingConfiguration !== null
+        ? deserializeAws_json1_0TracingConfiguration(output.tracingConfiguration, context)
+        : undefined,
     type: output.type !== undefined && output.type !== null ? output.type : undefined,
   } as any;
 };
@@ -2845,6 +2928,10 @@ const deserializeAws_json1_0ExecutionStartedEventDetails = (
 ): ExecutionStartedEventDetails => {
   return {
     input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    inputDetails:
+      output.inputDetails !== undefined && output.inputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
+        : undefined,
     roleArn: output.roleArn !== undefined && output.roleArn !== null ? output.roleArn : undefined,
   } as any;
 };
@@ -2855,6 +2942,10 @@ const deserializeAws_json1_0ExecutionSucceededEventDetails = (
 ): ExecutionSucceededEventDetails => {
   return {
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
+        : undefined,
   } as any;
 };
 
@@ -3037,6 +3128,15 @@ const deserializeAws_json1_0HistoryEvent = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_json1_0HistoryEventExecutionDataDetails = (
+  output: any,
+  context: __SerdeContext
+): HistoryEventExecutionDataDetails => {
+  return {
+    truncated: output.truncated !== undefined && output.truncated !== null ? output.truncated : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0HistoryEventList = (output: any, context: __SerdeContext): HistoryEvent[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_0HistoryEvent(entry, context));
 };
@@ -3086,6 +3186,15 @@ const deserializeAws_json1_0InvalidToken = (output: any, context: __SerdeContext
   } as any;
 };
 
+const deserializeAws_json1_0InvalidTracingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): InvalidTracingConfiguration => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_0LambdaFunctionFailedEventDetails = (
   output: any,
   context: __SerdeContext
@@ -3102,6 +3211,10 @@ const deserializeAws_json1_0LambdaFunctionScheduledEventDetails = (
 ): LambdaFunctionScheduledEventDetails => {
   return {
     input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    inputDetails:
+      output.inputDetails !== undefined && output.inputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
+        : undefined,
     resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     timeoutInSeconds:
       output.timeoutInSeconds !== undefined && output.timeoutInSeconds !== null ? output.timeoutInSeconds : undefined,
@@ -3134,6 +3247,10 @@ const deserializeAws_json1_0LambdaFunctionSucceededEventDetails = (
 ): LambdaFunctionSucceededEventDetails => {
   return {
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
+        : undefined,
   } as any;
 };
 
@@ -3285,6 +3402,10 @@ const deserializeAws_json1_0StateEnteredEventDetails = (
 ): StateEnteredEventDetails => {
   return {
     input: output.input !== undefined && output.input !== null ? output.input : undefined,
+    inputDetails:
+      output.inputDetails !== undefined && output.inputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
+        : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
   } as any;
 };
@@ -3296,6 +3417,10 @@ const deserializeAws_json1_0StateExitedEventDetails = (
   return {
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
+        : undefined,
   } as any;
 };
 
@@ -3402,6 +3527,10 @@ const deserializeAws_json1_0TaskScheduledEventDetails = (
   context: __SerdeContext
 ): TaskScheduledEventDetails => {
   return {
+    heartbeatInSeconds:
+      output.heartbeatInSeconds !== undefined && output.heartbeatInSeconds !== null
+        ? output.heartbeatInSeconds
+        : undefined,
     parameters: output.parameters !== undefined && output.parameters !== null ? output.parameters : undefined,
     region: output.region !== undefined && output.region !== null ? output.region : undefined,
     resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
@@ -3451,6 +3580,10 @@ const deserializeAws_json1_0TaskSubmittedEventDetails = (
 ): TaskSubmittedEventDetails => {
   return {
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
+        : undefined,
     resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
   } as any;
@@ -3462,6 +3595,10 @@ const deserializeAws_json1_0TaskSucceededEventDetails = (
 ): TaskSucceededEventDetails => {
   return {
     output: output.output !== undefined && output.output !== null ? output.output : undefined,
+    outputDetails:
+      output.outputDetails !== undefined && output.outputDetails !== null
+        ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.outputDetails, context)
+        : undefined,
     resource: output.resource !== undefined && output.resource !== null ? output.resource : undefined,
     resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
   } as any;
@@ -3489,6 +3626,12 @@ const deserializeAws_json1_0TooManyTags = (output: any, context: __SerdeContext)
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
     resourceName: output.resourceName !== undefined && output.resourceName !== null ? output.resourceName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_0TracingConfiguration = (output: any, context: __SerdeContext): TracingConfiguration => {
+  return {
+    enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
   } as any;
 };
 

@@ -45,11 +45,23 @@ export class DownloadDBLogFilePortionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "DownloadDBLogFilePortionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DownloadDBLogFilePortionMessage.filterSensitiveLog,
       outputFilterSensitiveLog: DownloadDBLogFilePortionDetails.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

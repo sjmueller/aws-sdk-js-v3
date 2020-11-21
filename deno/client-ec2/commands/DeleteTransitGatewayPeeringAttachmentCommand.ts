@@ -1,9 +1,7 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import {
-  DeleteTransitGatewayPeeringAttachmentRequest,
-  DeleteTransitGatewayPeeringAttachmentResult,
-} from "../models/models_1.ts";
+import { DeleteTransitGatewayPeeringAttachmentRequest } from "../models/models_1.ts";
+import { DeleteTransitGatewayPeeringAttachmentResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand,
   serializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand,
@@ -49,11 +47,23 @@ export class DeleteTransitGatewayPeeringAttachmentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DeleteTransitGatewayPeeringAttachmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteTransitGatewayPeeringAttachmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteTransitGatewayPeeringAttachmentResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -16,7 +16,7 @@ export async function createRequest<
   };
   const clientStack = client.middlewareStack.clone();
 
-  //add middleware to the last of 'build' step
+  // @ts-ignore: add middleware to the last of 'build' step
   clientStack.add(interceptMiddleware, {
     step: "build",
     priority: "low",
@@ -24,6 +24,6 @@ export async function createRequest<
 
   const handler = command.resolveMiddleware(clientStack, client.config, undefined);
 
-  //@ts-ignore
+  // @ts-ignore
   return await handler(command).then((output) => output.output.request);
 }

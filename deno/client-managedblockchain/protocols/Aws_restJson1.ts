@@ -281,6 +281,15 @@ export const serializeAws_restJson1DeleteNodeCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
+  if (input.MemberId !== undefined) {
+    const labelValue: string = input.MemberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberId.");
+  }
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
     if (labelValue.length <= 0) {
@@ -298,15 +307,6 @@ export const serializeAws_restJson1DeleteNodeCommand = async (
     resolvedPath = resolvedPath.replace("{NodeId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NodeId.");
-  }
-  if (input.MemberId !== undefined) {
-    const labelValue: string = input.MemberId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MemberId.");
-    }
-    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -329,15 +329,6 @@ export const serializeAws_restJson1GetMemberCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}";
-  if (input.MemberId !== undefined) {
-    const labelValue: string = input.MemberId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: MemberId.");
-    }
-    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: MemberId.");
-  }
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
     if (labelValue.length <= 0) {
@@ -346,6 +337,15 @@ export const serializeAws_restJson1GetMemberCommand = async (
     resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
+  }
+  if (input.MemberId !== undefined) {
+    const labelValue: string = input.MemberId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: MemberId.");
+    }
+    resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: MemberId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -398,6 +398,15 @@ export const serializeAws_restJson1GetNodeCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}/nodes/{NodeId}";
+  if (input.NetworkId !== undefined) {
+    const labelValue: string = input.NetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: NetworkId.");
+  }
   if (input.NodeId !== undefined) {
     const labelValue: string = input.NodeId;
     if (labelValue.length <= 0) {
@@ -415,15 +424,6 @@ export const serializeAws_restJson1GetNodeCommand = async (
     resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
-  }
-  if (input.NetworkId !== undefined) {
-    const labelValue: string = input.NetworkId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: NetworkId.");
-    }
-    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -446,15 +446,6 @@ export const serializeAws_restJson1GetProposalCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/networks/{NetworkId}/proposals/{ProposalId}";
-  if (input.ProposalId !== undefined) {
-    const labelValue: string = input.ProposalId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: ProposalId.");
-    }
-    resolvedPath = resolvedPath.replace("{ProposalId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: ProposalId.");
-  }
   if (input.NetworkId !== undefined) {
     const labelValue: string = input.NetworkId;
     if (labelValue.length <= 0) {
@@ -463,6 +454,15 @@ export const serializeAws_restJson1GetProposalCommand = async (
     resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: NetworkId.");
+  }
+  if (input.ProposalId !== undefined) {
+    const labelValue: string = input.ProposalId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ProposalId.");
+    }
+    resolvedPath = resolvedPath.replace("{ProposalId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ProposalId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -553,8 +553,8 @@ export const serializeAws_restJson1ListNetworksCommand = async (
     ...(input.Status !== undefined && { status: input.Status }),
     ...(input.Framework !== undefined && { framework: input.Framework }),
     ...(input.Name !== undefined && { name: input.Name }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -677,8 +677,8 @@ export const serializeAws_restJson1ListProposalVotesCommand = async (
     throw new Error("No value provided for input HTTP label: ProposalId.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -732,15 +732,6 @@ export const serializeAws_restJson1UpdateMemberCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/networks/{NetworkId}/members/{MemberId}";
-  if (input.NetworkId !== undefined) {
-    const labelValue: string = input.NetworkId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: NetworkId.");
-    }
-    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: NetworkId.");
-  }
   if (input.MemberId !== undefined) {
     const labelValue: string = input.MemberId;
     if (labelValue.length <= 0) {
@@ -749,6 +740,15 @@ export const serializeAws_restJson1UpdateMemberCommand = async (
     resolvedPath = resolvedPath.replace("{MemberId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: MemberId.");
+  }
+  if (input.NetworkId !== undefined) {
+    const labelValue: string = input.NetworkId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: NetworkId.");
+    }
+    resolvedPath = resolvedPath.replace("{NetworkId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -874,7 +874,7 @@ export const deserializeAws_restJson1CreateMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateMemberCommandError(output, context);
   }
   const contents: CreateMemberCommandOutput = {
@@ -985,7 +985,7 @@ export const deserializeAws_restJson1CreateNetworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNetworkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateNetworkCommandError(output, context);
   }
   const contents: CreateNetworkCommandOutput = {
@@ -1084,7 +1084,7 @@ export const deserializeAws_restJson1CreateNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateNodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateNodeCommandError(output, context);
   }
   const contents: CreateNodeCommandOutput = {
@@ -1195,7 +1195,7 @@ export const deserializeAws_restJson1CreateProposalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProposalCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateProposalCommandError(output, context);
   }
   const contents: CreateProposalCommandOutput = {
@@ -1290,7 +1290,7 @@ export const deserializeAws_restJson1DeleteMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteMemberCommandError(output, context);
   }
   const contents: DeleteMemberCommandOutput = {
@@ -1381,7 +1381,7 @@ export const deserializeAws_restJson1DeleteNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteNodeCommandError(output, context);
   }
   const contents: DeleteNodeCommandOutput = {
@@ -1472,7 +1472,7 @@ export const deserializeAws_restJson1GetMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMemberCommandError(output, context);
   }
   const contents: GetMemberCommandOutput = {
@@ -1559,7 +1559,7 @@ export const deserializeAws_restJson1GetNetworkCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNetworkCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetNetworkCommandError(output, context);
   }
   const contents: GetNetworkCommandOutput = {
@@ -1646,7 +1646,7 @@ export const deserializeAws_restJson1GetNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetNodeCommandError(output, context);
   }
   const contents: GetNodeCommandOutput = {
@@ -1733,7 +1733,7 @@ export const deserializeAws_restJson1GetProposalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProposalCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetProposalCommandError(output, context);
   }
   const contents: GetProposalCommandOutput = {
@@ -1820,7 +1820,7 @@ export const deserializeAws_restJson1ListInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListInvitationsCommandError(output, context);
   }
   const contents: ListInvitationsCommandOutput = {
@@ -1919,7 +1919,7 @@ export const deserializeAws_restJson1ListMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMembersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListMembersCommandError(output, context);
   }
   const contents: ListMembersCommandOutput = {
@@ -2002,7 +2002,7 @@ export const deserializeAws_restJson1ListNetworksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNetworksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListNetworksCommandError(output, context);
   }
   const contents: ListNetworksCommandOutput = {
@@ -2085,7 +2085,7 @@ export const deserializeAws_restJson1ListNodesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNodesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListNodesCommandError(output, context);
   }
   const contents: ListNodesCommandOutput = {
@@ -2168,7 +2168,7 @@ export const deserializeAws_restJson1ListProposalsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProposalsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProposalsCommandError(output, context);
   }
   const contents: ListProposalsCommandOutput = {
@@ -2259,7 +2259,7 @@ export const deserializeAws_restJson1ListProposalVotesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProposalVotesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProposalVotesCommandError(output, context);
   }
   const contents: ListProposalVotesCommandOutput = {
@@ -2342,7 +2342,7 @@ export const deserializeAws_restJson1RejectInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectInvitationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RejectInvitationCommandError(output, context);
   }
   const contents: RejectInvitationCommandOutput = {
@@ -2433,7 +2433,7 @@ export const deserializeAws_restJson1UpdateMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateMemberCommandError(output, context);
   }
   const contents: UpdateMemberCommandOutput = {
@@ -2516,7 +2516,7 @@ export const deserializeAws_restJson1UpdateNodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateNodeCommandError(output, context);
   }
   const contents: UpdateNodeCommandOutput = {
@@ -2599,7 +2599,7 @@ export const deserializeAws_restJson1VoteOnProposalCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<VoteOnProposalCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1VoteOnProposalCommandError(output, context);
   }
   const contents: VoteOnProposalCommandOutput = {
@@ -2949,6 +2949,7 @@ const serializeAws_restJson1NodeConfiguration = (input: NodeConfiguration, conte
         context
       ),
     }),
+    ...(input.StateDB !== undefined && { StateDB: input.StateDB }),
   };
 };
 
@@ -3238,6 +3239,7 @@ const deserializeAws_restJson1Node = (output: any, context: __SerdeContext): Nod
         : undefined,
     MemberId: output.MemberId !== undefined && output.MemberId !== null ? output.MemberId : undefined,
     NetworkId: output.NetworkId !== undefined && output.NetworkId !== null ? output.NetworkId : undefined,
+    StateDB: output.StateDB !== undefined && output.StateDB !== null ? output.StateDB : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };

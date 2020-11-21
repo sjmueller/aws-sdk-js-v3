@@ -1,4 +1,3 @@
-
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient.ts";
 import { StartSchemaCreationRequest, StartSchemaCreationResponse } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class StartSchemaCreationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppSyncClient";
+    const commandName = "StartSchemaCreationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartSchemaCreationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartSchemaCreationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

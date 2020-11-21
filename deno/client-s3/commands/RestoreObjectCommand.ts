@@ -1,6 +1,7 @@
 
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client.ts";
-import { RestoreObjectOutput, RestoreObjectRequest } from "../models/models_0.ts";
+import { RestoreObjectOutput } from "../models/models_0.ts";
+import { RestoreObjectRequest } from "../models/models_1.ts";
 import {
   deserializeAws_restXmlRestoreObjectCommand,
   serializeAws_restXmlRestoreObjectCommand,
@@ -47,11 +48,23 @@ export class RestoreObjectCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "RestoreObjectCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RestoreObjectRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreObjectOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDeadLetterSourceQueuesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDeadLetterSourceQueuesCommand(input, ...args));
+  return await client.send(new ListDeadLetterSourceQueuesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SQS,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDeadLetterSourceQueues(input, ...args);
 };
-export async function* listDeadLetterSourceQueuesPaginate(
+export async function* paginateListDeadLetterSourceQueues(
   config: SQSPaginationConfiguration,
   input: ListDeadLetterSourceQueuesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDeadLetterSourceQueuesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDeadLetterSourceQueuesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SQS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listDeadLetterSourceQueuesPaginate(
       throw new Error("Invalid client, expected SQS | SQSClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

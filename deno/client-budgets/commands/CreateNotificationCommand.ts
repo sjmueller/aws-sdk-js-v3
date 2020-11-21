@@ -1,4 +1,3 @@
-
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient.ts";
 import { CreateNotificationRequest, CreateNotificationResponse } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class CreateNotificationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BudgetsClient";
+    const commandName = "CreateNotificationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateNotificationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateNotificationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

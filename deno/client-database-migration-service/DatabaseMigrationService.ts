@@ -221,6 +221,11 @@ import {
   ModifyReplicationTaskCommandOutput,
 } from "./commands/ModifyReplicationTaskCommand.ts";
 import {
+  MoveReplicationTaskCommand,
+  MoveReplicationTaskCommandInput,
+  MoveReplicationTaskCommandOutput,
+} from "./commands/MoveReplicationTaskCommand.ts";
+import {
   RebootReplicationInstanceCommand,
   RebootReplicationInstanceCommandInput,
   RebootReplicationInstanceCommandOutput,
@@ -284,7 +289,9 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
    * <p>Adds metadata tags to an AWS DMS resource, including replication instance, endpoint,
    *          security group, and migration task. These tags can also be used with cost allocation
    *          reporting to track cost associated with DMS resources, or used in a Condition statement in
-   *          an IAM policy for DMS.</p>
+   *          an IAM policy for DMS. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
+   *                <code>Tag</code>
+   *             </a> data type description.</p>
    */
   public addTagsToResource(
     args: AddTagsToResourceCommandInput,
@@ -465,8 +472,9 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
    * <p>Creates the replication instance using the specified parameters.</p>
    *          <p>AWS DMS requires that your account have certain roles with appropriate permissions
    *          before you can create a replication instance. For information on the required roles, see
-   *          <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.APIRole.html">Creating the IAM Roles to Use With the AWS CLI and AWS DMS API</a>. For
-   *          information on the required permissions, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.IAMPermissions.html">IAM Permissions Needed to Use AWS DMS</a>.</p>
+   *       <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.APIRole">Creating the IAM Roles to Use With the AWS CLI and AWS DMS API</a>. For
+   *          information on the required permissions, see
+   *       <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#CHAP_Security.IAMPermissions">IAM Permissions Needed to Use AWS DMS</a>.</p>
    */
   public createReplicationInstance(
     args: CreateReplicationInstanceCommandInput,
@@ -1599,7 +1607,11 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   * <p>Lists all tags for an AWS DMS resource.</p>
+   * <p>Lists all metadata tags attached to an AWS DMS resource, including
+   *          replication instance, endpoint, security group, and migration task.
+   *          For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
+   *                <code>Tag</code>
+   *             </a> data type description.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1798,6 +1810,41 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
+   * <p>Moves a replication task from its current replication instance to a different target
+   *          replication instance using the specified parameters. The target replication instance must
+   *          be created with the same or later AWS DMS version as the current replication
+   *          instance.</p>
+   */
+  public moveReplicationTask(
+    args: MoveReplicationTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MoveReplicationTaskCommandOutput>;
+  public moveReplicationTask(
+    args: MoveReplicationTaskCommandInput,
+    cb: (err: any, data?: MoveReplicationTaskCommandOutput) => void
+  ): void;
+  public moveReplicationTask(
+    args: MoveReplicationTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MoveReplicationTaskCommandOutput) => void
+  ): void;
+  public moveReplicationTask(
+    args: MoveReplicationTaskCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MoveReplicationTaskCommandOutput) => void),
+    cb?: (err: any, data?: MoveReplicationTaskCommandOutput) => void
+  ): Promise<MoveReplicationTaskCommandOutput> | void {
+    const command = new MoveReplicationTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Reboots a replication instance. Rebooting results in a momentary outage, until the
    *          replication instance becomes available again.</p>
    */
@@ -1894,7 +1941,12 @@ export class DatabaseMigrationService extends DatabaseMigrationServiceClient {
   }
 
   /**
-   * <p>Removes metadata tags from a DMS resource.</p>
+   * <p>Removes metadata tags from an AWS DMS resource, including replication instance,
+   *          endpoint, security group, and migration task. For more information, see
+   *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
+   *                <code>Tag</code>
+   *             </a>
+   *          data type description.</p>
    */
   public removeTagsFromResource(
     args: RemoveTagsFromResourceCommandInput,

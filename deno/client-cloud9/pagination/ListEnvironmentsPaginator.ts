@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEnvironmentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEnvironmentsCommand(input, ...args));
+  return await client.send(new ListEnvironmentsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Cloud9,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEnvironments(input, ...args);
 };
-export async function* listEnvironmentsPaginate(
+export async function* paginateListEnvironments(
   config: Cloud9PaginationConfiguration,
   input: ListEnvironmentsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEnvironmentsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEnvironmentsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Cloud9) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listEnvironmentsPaginate(
       throw new Error("Invalid client, expected Cloud9 | Cloud9Client");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

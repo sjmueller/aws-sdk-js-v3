@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListHumanLoopsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListHumanLoopsCommand(input, ...args));
+  return await client.send(new ListHumanLoopsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SageMakerA2IRuntime,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listHumanLoops(input, ...args);
 };
-export async function* listHumanLoopsPaginate(
+export async function* paginateListHumanLoops(
   config: SageMakerA2IRuntimePaginationConfiguration,
   input: ListHumanLoopsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListHumanLoopsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListHumanLoopsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SageMakerA2IRuntime) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listHumanLoopsPaginate(
       throw new Error("Invalid client, expected SageMakerA2IRuntime | SageMakerA2IRuntimeClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -2,7 +2,7 @@
 import { buildQueryString } from "../querystring-builder/mod.ts";
 import { HttpRequest } from "../types/mod.ts";
 
-export function formatUrl(request: HttpRequest): string {
+export function formatUrl(request: Omit<HttpRequest, "headers"|"method">): string {
   const { port, query } = request;
   let { protocol, path, hostname } = request;
   if (protocol && protocol.substr(-1) !== ":") {

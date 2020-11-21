@@ -1,4 +1,3 @@
-
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient.ts";
 import { UpdateSubscriberRequest, UpdateSubscriberResponse } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class UpdateSubscriberCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BudgetsClient";
+    const commandName = "UpdateSubscriberCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateSubscriberRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateSubscriberResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

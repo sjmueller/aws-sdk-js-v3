@@ -1,4 +1,3 @@
-
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
 import { UpdateDirectoryConfigRequest, UpdateDirectoryConfigResult } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class UpdateDirectoryConfigCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppStreamClient";
+    const commandName = "UpdateDirectoryConfigCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDirectoryConfigRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDirectoryConfigResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

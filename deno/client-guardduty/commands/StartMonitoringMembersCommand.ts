@@ -45,11 +45,23 @@ export class StartMonitoringMembersCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GuardDutyClient";
+    const commandName = "StartMonitoringMembersCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartMonitoringMembersRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartMonitoringMembersResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

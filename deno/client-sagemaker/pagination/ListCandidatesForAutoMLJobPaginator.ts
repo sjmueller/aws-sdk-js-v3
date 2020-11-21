@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCandidatesForAutoMLJobCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCandidatesForAutoMLJobCommand(input, ...args));
+  return await client.send(new ListCandidatesForAutoMLJobCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SageMaker,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCandidatesForAutoMLJob(input, ...args);
 };
-export async function* listCandidatesForAutoMLJobPaginate(
+export async function* paginateListCandidatesForAutoMLJob(
   config: SageMakerPaginationConfiguration,
   input: ListCandidatesForAutoMLJobCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCandidatesForAutoMLJobCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCandidatesForAutoMLJobCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SageMaker) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listCandidatesForAutoMLJobPaginate(
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

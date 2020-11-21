@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetUpgradeHistoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetUpgradeHistoryCommand(input, ...args));
+  return await client.send(new GetUpgradeHistoryCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElasticsearchService,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getUpgradeHistory(input, ...args);
 };
-export async function* getUpgradeHistoryPaginate(
+export async function* paginateGetUpgradeHistory(
   config: ElasticsearchServicePaginationConfiguration,
   input: GetUpgradeHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetUpgradeHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetUpgradeHistoryCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof ElasticsearchService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getUpgradeHistoryPaginate(
       throw new Error("Invalid client, expected ElasticsearchService | ElasticsearchServiceClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

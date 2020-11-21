@@ -13,6 +13,7 @@ export * from "./commands/GetQueueUrlCommand.ts";
 export * from "./commands/ListDeadLetterSourceQueuesCommand.ts";
 export * from "./pagination/ListDeadLetterSourceQueuesPaginator.ts";
 export * from "./commands/ListQueuesCommand.ts";
+export * from "./pagination/ListQueuesPaginator.ts";
 export * from "./commands/ListQueueTagsCommand.ts";
 export * from "./commands/PurgeQueueCommand.ts";
 export * from "./commands/ReceiveMessageCommand.ts";

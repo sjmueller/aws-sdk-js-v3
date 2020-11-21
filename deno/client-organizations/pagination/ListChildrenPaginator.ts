@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListChildrenCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListChildrenCommand(input, ...args));
+  return await client.send(new ListChildrenCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Organizations,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listChildren(input, ...args);
 };
-export async function* listChildrenPaginate(
+export async function* paginateListChildren(
   config: OrganizationsPaginationConfiguration,
   input: ListChildrenCommandInput,
   ...additionalArguments: any
 ): Paginator<ListChildrenCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListChildrenCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Organizations) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listChildrenPaginate(
       throw new Error("Invalid client, expected Organizations | OrganizationsClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

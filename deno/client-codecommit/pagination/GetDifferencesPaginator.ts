@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetDifferencesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetDifferencesCommand(input, ...args));
+  return await client.send(new GetDifferencesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeCommit,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getDifferences(input, ...args);
 };
-export async function* getDifferencesPaginate(
+export async function* paginateGetDifferences(
   config: CodeCommitPaginationConfiguration,
   input: GetDifferencesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetDifferencesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetDifferencesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CodeCommit) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getDifferencesPaginate(
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

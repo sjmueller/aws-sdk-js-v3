@@ -37,5 +37,6 @@ export * from "./commands/TagResourceCommand.ts";
 export * from "./commands/UntagResourceCommand.ts";
 export * from "./commands/UpdateAgentCommand.ts";
 export * from "./commands/UpdateTaskCommand.ts";
+export * from "./commands/UpdateTaskExecutionCommand.ts";
 export * from "./pagination/Interfaces.ts";
 export * from "./models/index.ts";

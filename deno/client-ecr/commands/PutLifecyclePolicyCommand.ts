@@ -45,11 +45,23 @@ export class PutLifecyclePolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECRClient";
+    const commandName = "PutLifecyclePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutLifecyclePolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutLifecyclePolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

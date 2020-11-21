@@ -44,6 +44,10 @@ import {
   AssociateDhcpOptionsCommandOutput,
 } from "./commands/AssociateDhcpOptionsCommand.ts";
 import {
+  AssociateEnclaveCertificateIamRoleCommandInput,
+  AssociateEnclaveCertificateIamRoleCommandOutput,
+} from "./commands/AssociateEnclaveCertificateIamRoleCommand.ts";
+import {
   AssociateIamInstanceProfileCommandInput,
   AssociateIamInstanceProfileCommandOutput,
 } from "./commands/AssociateIamInstanceProfileCommand.ts";
@@ -128,6 +132,10 @@ import {
   CreateCapacityReservationCommandInput,
   CreateCapacityReservationCommandOutput,
 } from "./commands/CreateCapacityReservationCommand.ts";
+import {
+  CreateCarrierGatewayCommandInput,
+  CreateCarrierGatewayCommandOutput,
+} from "./commands/CreateCarrierGatewayCommand.ts";
 import {
   CreateClientVpnEndpointCommandInput,
   CreateClientVpnEndpointCommandOutput,
@@ -248,6 +256,10 @@ import {
   CreateTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayPeeringAttachmentCommand.ts";
 import {
+  CreateTransitGatewayPrefixListReferenceCommandInput,
+  CreateTransitGatewayPrefixListReferenceCommandOutput,
+} from "./commands/CreateTransitGatewayPrefixListReferenceCommand.ts";
+import {
   CreateTransitGatewayRouteCommandInput,
   CreateTransitGatewayRouteCommandOutput,
 } from "./commands/CreateTransitGatewayRouteCommand.ts";
@@ -283,6 +295,10 @@ import {
   CreateVpnConnectionRouteCommandOutput,
 } from "./commands/CreateVpnConnectionRouteCommand.ts";
 import { CreateVpnGatewayCommandInput, CreateVpnGatewayCommandOutput } from "./commands/CreateVpnGatewayCommand.ts";
+import {
+  DeleteCarrierGatewayCommandInput,
+  DeleteCarrierGatewayCommandOutput,
+} from "./commands/DeleteCarrierGatewayCommand.ts";
 import {
   DeleteClientVpnEndpointCommandInput,
   DeleteClientVpnEndpointCommandOutput,
@@ -392,6 +408,10 @@ import {
   DeleteTransitGatewayPeeringAttachmentCommandOutput,
 } from "./commands/DeleteTransitGatewayPeeringAttachmentCommand.ts";
 import {
+  DeleteTransitGatewayPrefixListReferenceCommandInput,
+  DeleteTransitGatewayPrefixListReferenceCommandOutput,
+} from "./commands/DeleteTransitGatewayPrefixListReferenceCommand.ts";
+import {
   DeleteTransitGatewayRouteCommandInput,
   DeleteTransitGatewayRouteCommandOutput,
 } from "./commands/DeleteTransitGatewayRouteCommand.ts";
@@ -466,6 +486,10 @@ import {
   DescribeCapacityReservationsCommandInput,
   DescribeCapacityReservationsCommandOutput,
 } from "./commands/DescribeCapacityReservationsCommand.ts";
+import {
+  DescribeCarrierGatewaysCommandInput,
+  DescribeCarrierGatewaysCommandOutput,
+} from "./commands/DescribeCarrierGatewaysCommand.ts";
 import {
   DescribeClassicLinkInstancesCommandInput,
   DescribeClassicLinkInstancesCommandOutput,
@@ -893,6 +917,10 @@ import {
   DisassociateClientVpnTargetNetworkCommandOutput,
 } from "./commands/DisassociateClientVpnTargetNetworkCommand.ts";
 import {
+  DisassociateEnclaveCertificateIamRoleCommandInput,
+  DisassociateEnclaveCertificateIamRoleCommandOutput,
+} from "./commands/DisassociateEnclaveCertificateIamRoleCommand.ts";
+import {
   DisassociateIamInstanceProfileCommandInput,
   DisassociateIamInstanceProfileCommandOutput,
 } from "./commands/DisassociateIamInstanceProfileCommand.ts";
@@ -955,6 +983,10 @@ import {
   ExportTransitGatewayRoutesCommandOutput,
 } from "./commands/ExportTransitGatewayRoutesCommand.ts";
 import {
+  GetAssociatedEnclaveCertificateIamRolesCommandInput,
+  GetAssociatedEnclaveCertificateIamRolesCommandOutput,
+} from "./commands/GetAssociatedEnclaveCertificateIamRolesCommand.ts";
+import {
   GetAssociatedIpv6PoolCidrsCommandInput,
   GetAssociatedIpv6PoolCidrsCommandOutput,
 } from "./commands/GetAssociatedIpv6PoolCidrsCommand.ts";
@@ -1013,6 +1045,10 @@ import {
   GetTransitGatewayMulticastDomainAssociationsCommandInput,
   GetTransitGatewayMulticastDomainAssociationsCommandOutput,
 } from "./commands/GetTransitGatewayMulticastDomainAssociationsCommand.ts";
+import {
+  GetTransitGatewayPrefixListReferencesCommandInput,
+  GetTransitGatewayPrefixListReferencesCommandOutput,
+} from "./commands/GetTransitGatewayPrefixListReferencesCommand.ts";
 import {
   GetTransitGatewayRouteTableAssociationsCommandInput,
   GetTransitGatewayRouteTableAssociationsCommandOutput,
@@ -1130,6 +1166,14 @@ import {
   ModifyTrafficMirrorSessionCommandOutput,
 } from "./commands/ModifyTrafficMirrorSessionCommand.ts";
 import {
+  ModifyTransitGatewayCommandInput,
+  ModifyTransitGatewayCommandOutput,
+} from "./commands/ModifyTransitGatewayCommand.ts";
+import {
+  ModifyTransitGatewayPrefixListReferenceCommandInput,
+  ModifyTransitGatewayPrefixListReferenceCommandOutput,
+} from "./commands/ModifyTransitGatewayPrefixListReferenceCommand.ts";
+import {
   ModifyTransitGatewayVpcAttachmentCommandInput,
   ModifyTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/ModifyTransitGatewayVpcAttachmentCommand.ts";
@@ -1161,6 +1205,10 @@ import {
   ModifyVpnConnectionCommandInput,
   ModifyVpnConnectionCommandOutput,
 } from "./commands/ModifyVpnConnectionCommand.ts";
+import {
+  ModifyVpnConnectionOptionsCommandInput,
+  ModifyVpnConnectionOptionsCommandOutput,
+} from "./commands/ModifyVpnConnectionOptionsCommand.ts";
 import {
   ModifyVpnTunnelCertificateCommandInput,
   ModifyVpnTunnelCertificateCommandOutput,
@@ -1404,6 +1452,7 @@ export type ServiceInputTypes =
   | AssociateAddressCommandInput
   | AssociateClientVpnTargetNetworkCommandInput
   | AssociateDhcpOptionsCommandInput
+  | AssociateEnclaveCertificateIamRoleCommandInput
   | AssociateIamInstanceProfileCommandInput
   | AssociateRouteTableCommandInput
   | AssociateSubnetCidrBlockCommandInput
@@ -1432,6 +1481,7 @@ export type ServiceInputTypes =
   | CopyImageCommandInput
   | CopySnapshotCommandInput
   | CreateCapacityReservationCommandInput
+  | CreateCarrierGatewayCommandInput
   | CreateClientVpnEndpointCommandInput
   | CreateClientVpnRouteCommandInput
   | CreateCustomerGatewayCommandInput
@@ -1473,6 +1523,7 @@ export type ServiceInputTypes =
   | CreateTransitGatewayCommandInput
   | CreateTransitGatewayMulticastDomainCommandInput
   | CreateTransitGatewayPeeringAttachmentCommandInput
+  | CreateTransitGatewayPrefixListReferenceCommandInput
   | CreateTransitGatewayRouteCommandInput
   | CreateTransitGatewayRouteTableCommandInput
   | CreateTransitGatewayVpcAttachmentCommandInput
@@ -1485,6 +1536,7 @@ export type ServiceInputTypes =
   | CreateVpnConnectionCommandInput
   | CreateVpnConnectionRouteCommandInput
   | CreateVpnGatewayCommandInput
+  | DeleteCarrierGatewayCommandInput
   | DeleteClientVpnEndpointCommandInput
   | DeleteClientVpnRouteCommandInput
   | DeleteCustomerGatewayCommandInput
@@ -1521,6 +1573,7 @@ export type ServiceInputTypes =
   | DeleteTransitGatewayCommandInput
   | DeleteTransitGatewayMulticastDomainCommandInput
   | DeleteTransitGatewayPeeringAttachmentCommandInput
+  | DeleteTransitGatewayPrefixListReferenceCommandInput
   | DeleteTransitGatewayRouteCommandInput
   | DeleteTransitGatewayRouteTableCommandInput
   | DeleteTransitGatewayVpcAttachmentCommandInput
@@ -1545,6 +1598,7 @@ export type ServiceInputTypes =
   | DescribeBundleTasksCommandInput
   | DescribeByoipCidrsCommandInput
   | DescribeCapacityReservationsCommandInput
+  | DescribeCarrierGatewaysCommandInput
   | DescribeClassicLinkInstancesCommandInput
   | DescribeClientVpnAuthorizationRulesCommandInput
   | DescribeClientVpnConnectionsCommandInput
@@ -1665,6 +1719,7 @@ export type ServiceInputTypes =
   | DisableVpcClassicLinkDnsSupportCommandInput
   | DisassociateAddressCommandInput
   | DisassociateClientVpnTargetNetworkCommandInput
+  | DisassociateEnclaveCertificateIamRoleCommandInput
   | DisassociateIamInstanceProfileCommandInput
   | DisassociateRouteTableCommandInput
   | DisassociateSubnetCidrBlockCommandInput
@@ -1682,6 +1737,7 @@ export type ServiceInputTypes =
   | ExportClientVpnClientConfigurationCommandInput
   | ExportImageCommandInput
   | ExportTransitGatewayRoutesCommandInput
+  | GetAssociatedEnclaveCertificateIamRolesCommandInput
   | GetAssociatedIpv6PoolCidrsCommandInput
   | GetCapacityReservationUsageCommandInput
   | GetCoipPoolUsageCommandInput
@@ -1699,6 +1755,7 @@ export type ServiceInputTypes =
   | GetReservedInstancesExchangeQuoteCommandInput
   | GetTransitGatewayAttachmentPropagationsCommandInput
   | GetTransitGatewayMulticastDomainAssociationsCommandInput
+  | GetTransitGatewayPrefixListReferencesCommandInput
   | GetTransitGatewayRouteTableAssociationsCommandInput
   | GetTransitGatewayRouteTablePropagationsCommandInput
   | ImportClientVpnClientCertificateRevocationListCommandInput
@@ -1734,6 +1791,8 @@ export type ServiceInputTypes =
   | ModifyTrafficMirrorFilterNetworkServicesCommandInput
   | ModifyTrafficMirrorFilterRuleCommandInput
   | ModifyTrafficMirrorSessionCommandInput
+  | ModifyTransitGatewayCommandInput
+  | ModifyTransitGatewayPrefixListReferenceCommandInput
   | ModifyTransitGatewayVpcAttachmentCommandInput
   | ModifyVolumeAttributeCommandInput
   | ModifyVolumeCommandInput
@@ -1745,6 +1804,7 @@ export type ServiceInputTypes =
   | ModifyVpcPeeringConnectionOptionsCommandInput
   | ModifyVpcTenancyCommandInput
   | ModifyVpnConnectionCommandInput
+  | ModifyVpnConnectionOptionsCommandInput
   | ModifyVpnTunnelCertificateCommandInput
   | ModifyVpnTunnelOptionsCommandInput
   | MonitorInstancesCommandInput
@@ -1817,6 +1877,7 @@ export type ServiceOutputTypes =
   | AssociateAddressCommandOutput
   | AssociateClientVpnTargetNetworkCommandOutput
   | AssociateDhcpOptionsCommandOutput
+  | AssociateEnclaveCertificateIamRoleCommandOutput
   | AssociateIamInstanceProfileCommandOutput
   | AssociateRouteTableCommandOutput
   | AssociateSubnetCidrBlockCommandOutput
@@ -1845,6 +1906,7 @@ export type ServiceOutputTypes =
   | CopyImageCommandOutput
   | CopySnapshotCommandOutput
   | CreateCapacityReservationCommandOutput
+  | CreateCarrierGatewayCommandOutput
   | CreateClientVpnEndpointCommandOutput
   | CreateClientVpnRouteCommandOutput
   | CreateCustomerGatewayCommandOutput
@@ -1886,6 +1948,7 @@ export type ServiceOutputTypes =
   | CreateTransitGatewayCommandOutput
   | CreateTransitGatewayMulticastDomainCommandOutput
   | CreateTransitGatewayPeeringAttachmentCommandOutput
+  | CreateTransitGatewayPrefixListReferenceCommandOutput
   | CreateTransitGatewayRouteCommandOutput
   | CreateTransitGatewayRouteTableCommandOutput
   | CreateTransitGatewayVpcAttachmentCommandOutput
@@ -1898,6 +1961,7 @@ export type ServiceOutputTypes =
   | CreateVpnConnectionCommandOutput
   | CreateVpnConnectionRouteCommandOutput
   | CreateVpnGatewayCommandOutput
+  | DeleteCarrierGatewayCommandOutput
   | DeleteClientVpnEndpointCommandOutput
   | DeleteClientVpnRouteCommandOutput
   | DeleteCustomerGatewayCommandOutput
@@ -1934,6 +1998,7 @@ export type ServiceOutputTypes =
   | DeleteTransitGatewayCommandOutput
   | DeleteTransitGatewayMulticastDomainCommandOutput
   | DeleteTransitGatewayPeeringAttachmentCommandOutput
+  | DeleteTransitGatewayPrefixListReferenceCommandOutput
   | DeleteTransitGatewayRouteCommandOutput
   | DeleteTransitGatewayRouteTableCommandOutput
   | DeleteTransitGatewayVpcAttachmentCommandOutput
@@ -1958,6 +2023,7 @@ export type ServiceOutputTypes =
   | DescribeBundleTasksCommandOutput
   | DescribeByoipCidrsCommandOutput
   | DescribeCapacityReservationsCommandOutput
+  | DescribeCarrierGatewaysCommandOutput
   | DescribeClassicLinkInstancesCommandOutput
   | DescribeClientVpnAuthorizationRulesCommandOutput
   | DescribeClientVpnConnectionsCommandOutput
@@ -2078,6 +2144,7 @@ export type ServiceOutputTypes =
   | DisableVpcClassicLinkDnsSupportCommandOutput
   | DisassociateAddressCommandOutput
   | DisassociateClientVpnTargetNetworkCommandOutput
+  | DisassociateEnclaveCertificateIamRoleCommandOutput
   | DisassociateIamInstanceProfileCommandOutput
   | DisassociateRouteTableCommandOutput
   | DisassociateSubnetCidrBlockCommandOutput
@@ -2095,6 +2162,7 @@ export type ServiceOutputTypes =
   | ExportClientVpnClientConfigurationCommandOutput
   | ExportImageCommandOutput
   | ExportTransitGatewayRoutesCommandOutput
+  | GetAssociatedEnclaveCertificateIamRolesCommandOutput
   | GetAssociatedIpv6PoolCidrsCommandOutput
   | GetCapacityReservationUsageCommandOutput
   | GetCoipPoolUsageCommandOutput
@@ -2112,6 +2180,7 @@ export type ServiceOutputTypes =
   | GetReservedInstancesExchangeQuoteCommandOutput
   | GetTransitGatewayAttachmentPropagationsCommandOutput
   | GetTransitGatewayMulticastDomainAssociationsCommandOutput
+  | GetTransitGatewayPrefixListReferencesCommandOutput
   | GetTransitGatewayRouteTableAssociationsCommandOutput
   | GetTransitGatewayRouteTablePropagationsCommandOutput
   | ImportClientVpnClientCertificateRevocationListCommandOutput
@@ -2147,6 +2216,8 @@ export type ServiceOutputTypes =
   | ModifyTrafficMirrorFilterNetworkServicesCommandOutput
   | ModifyTrafficMirrorFilterRuleCommandOutput
   | ModifyTrafficMirrorSessionCommandOutput
+  | ModifyTransitGatewayCommandOutput
+  | ModifyTransitGatewayPrefixListReferenceCommandOutput
   | ModifyTransitGatewayVpcAttachmentCommandOutput
   | ModifyVolumeAttributeCommandOutput
   | ModifyVolumeCommandOutput
@@ -2158,6 +2229,7 @@ export type ServiceOutputTypes =
   | ModifyVpcPeeringConnectionOptionsCommandOutput
   | ModifyVpcTenancyCommandOutput
   | ModifyVpnConnectionCommandOutput
+  | ModifyVpnConnectionOptionsCommandOutput
   | ModifyVpnTunnelCertificateCommandOutput
   | ModifyVpnTunnelOptionsCommandOutput
   | MonitorInstancesCommandOutput

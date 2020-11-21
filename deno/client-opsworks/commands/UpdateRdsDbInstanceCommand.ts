@@ -45,11 +45,23 @@ export class UpdateRdsDbInstanceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "OpsWorksClient";
+    const commandName = "UpdateRdsDbInstanceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateRdsDbInstanceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

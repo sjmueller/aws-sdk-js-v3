@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { ListDistributionsRequest, ListDistributionsResult } from "../models/models_0.ts";
+import { ListDistributionsRequest, ListDistributionsResult } from "../models/models_1.ts";
 import {
   deserializeAws_restXmlListDistributionsCommand,
   serializeAws_restXmlListDistributionsCommand,
@@ -45,11 +45,23 @@ export class ListDistributionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "ListDistributionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListDistributionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListDistributionsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

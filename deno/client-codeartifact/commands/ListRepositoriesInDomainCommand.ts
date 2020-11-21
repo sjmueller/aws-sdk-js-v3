@@ -45,11 +45,23 @@ export class ListRepositoriesInDomainCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CodeartifactClient";
+    const commandName = "ListRepositoriesInDomainCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListRepositoriesInDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRepositoriesInDomainResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDomainsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDomainsCommand(input, ...args));
+  return await client.send(new ListDomainsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Route53Domains,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDomains(input, ...args);
 };
-export async function* listDomainsPaginate(
+export async function* paginateListDomains(
   config: Route53DomainsPaginationConfiguration,
   input: ListDomainsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDomainsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDomainsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof Route53Domains) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listDomainsPaginate(
       throw new Error("Invalid client, expected Route53Domains | Route53DomainsClient");
     }
     yield page;
-    token = page["NextPageMarker"];
+    token = page.NextPageMarker;
     hasNext = !!token;
   }
   // @ts-ignore

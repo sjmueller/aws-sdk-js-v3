@@ -4,9 +4,17 @@ import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/Cre
 import { DeleteServerCommandInput, DeleteServerCommandOutput } from "../commands/DeleteServerCommand.ts";
 import { DeleteSshPublicKeyCommandInput, DeleteSshPublicKeyCommandOutput } from "../commands/DeleteSshPublicKeyCommand.ts";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand.ts";
+import {
+  DescribeSecurityPolicyCommandInput,
+  DescribeSecurityPolicyCommandOutput,
+} from "../commands/DescribeSecurityPolicyCommand.ts";
 import { DescribeServerCommandInput, DescribeServerCommandOutput } from "../commands/DescribeServerCommand.ts";
 import { DescribeUserCommandInput, DescribeUserCommandOutput } from "../commands/DescribeUserCommand.ts";
 import { ImportSshPublicKeyCommandInput, ImportSshPublicKeyCommandOutput } from "../commands/ImportSshPublicKeyCommand.ts";
+import {
+  ListSecurityPoliciesCommandInput,
+  ListSecurityPoliciesCommandOutput,
+} from "../commands/ListSecurityPoliciesCommand.ts";
 import { ListServersCommandInput, ListServersCommandOutput } from "../commands/ListServersCommand.ts";
 import {
   ListTagsForResourceCommandInput,
@@ -33,10 +41,13 @@ import {
   DeleteServerRequest,
   DeleteSshPublicKeyRequest,
   DeleteUserRequest,
+  DescribeSecurityPolicyRequest,
+  DescribeSecurityPolicyResponse,
   DescribeServerRequest,
   DescribeServerResponse,
   DescribeUserRequest,
   DescribeUserResponse,
+  DescribedSecurityPolicy,
   DescribedServer,
   DescribedUser,
   EndpointDetails,
@@ -47,6 +58,8 @@ import {
   InternalServiceError,
   InvalidNextTokenException,
   InvalidRequestException,
+  ListSecurityPoliciesRequest,
+  ListSecurityPoliciesResponse,
   ListServersRequest,
   ListServersResponse,
   ListTagsForResourceRequest,
@@ -148,6 +161,19 @@ export const serializeAws_json1_1DeleteUserCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeSecurityPolicyCommand = async (
+  input: DescribeSecurityPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.DescribeSecurityPolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeSecurityPolicyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DescribeServerCommand = async (
   input: DescribeServerCommandInput,
   context: __SerdeContext
@@ -184,6 +210,19 @@ export const serializeAws_json1_1ImportSshPublicKeyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ImportSshPublicKeyRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListSecurityPoliciesCommand = async (
+  input: ListSecurityPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "TransferService.ListSecurityPolicies",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListSecurityPoliciesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -321,7 +360,7 @@ export const deserializeAws_json1_1CreateServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -416,7 +455,7 @@ export const deserializeAws_json1_1CreateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -503,7 +542,7 @@ export const deserializeAws_json1_1DeleteServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteServerCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -587,7 +626,7 @@ export const deserializeAws_json1_1DeleteSshPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSshPublicKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSshPublicKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -671,7 +710,7 @@ export const deserializeAws_json1_1DeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteUserCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -743,11 +782,90 @@ const deserializeAws_json1_1DeleteUserCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeSecurityPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSecurityPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeSecurityPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeSecurityPolicyResponse(data, context);
+  const response: DescribeSecurityPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeSecurityPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSecurityPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.transfer#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeServerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -826,7 +944,7 @@ export const deserializeAws_json1_1DescribeUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -905,7 +1023,7 @@ export const deserializeAws_json1_1ImportSshPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportSshPublicKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ImportSshPublicKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -996,11 +1114,90 @@ const deserializeAws_json1_1ImportSshPublicKeyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListSecurityPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSecurityPoliciesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListSecurityPoliciesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListSecurityPoliciesResponse(data, context);
+  const response: ListSecurityPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListSecurityPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSecurityPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalServiceError":
+    case "com.amazonaws.transfer#InternalServiceError":
+      response = {
+        ...(await deserializeAws_json1_1InternalServiceErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidNextTokenException":
+    case "com.amazonaws.transfer#InvalidNextTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidNextTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.transfer#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.transfer#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListServersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListServersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1079,7 +1276,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1158,7 +1355,7 @@ export const deserializeAws_json1_1ListUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListUsersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1245,7 +1442,7 @@ export const deserializeAws_json1_1StartServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartServerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartServerCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1329,7 +1526,7 @@ export const deserializeAws_json1_1StopServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopServerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopServerCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1413,7 +1610,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1489,7 +1686,7 @@ export const deserializeAws_json1_1TestIdentityProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TestIdentityProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TestIdentityProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1568,7 +1765,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1644,7 +1841,7 @@ export const deserializeAws_json1_1UpdateServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateServerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1755,7 +1952,7 @@ export const deserializeAws_json1_1UpdateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1991,6 +2188,7 @@ const serializeAws_json1_1CreateServerRequest = (input: CreateServerRequest, con
     ...(input.IdentityProviderType !== undefined && { IdentityProviderType: input.IdentityProviderType }),
     ...(input.LoggingRole !== undefined && { LoggingRole: input.LoggingRole }),
     ...(input.Protocols !== undefined && { Protocols: serializeAws_json1_1Protocols(input.Protocols, context) }),
+    ...(input.SecurityPolicyName !== undefined && { SecurityPolicyName: input.SecurityPolicyName }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
   };
 };
@@ -2035,6 +2233,15 @@ const serializeAws_json1_1DeleteUserRequest = (input: DeleteUserRequest, context
   };
 };
 
+const serializeAws_json1_1DescribeSecurityPolicyRequest = (
+  input: DescribeSecurityPolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SecurityPolicyName !== undefined && { SecurityPolicyName: input.SecurityPolicyName }),
+  };
+};
+
 const serializeAws_json1_1DescribeServerRequest = (input: DescribeServerRequest, context: __SerdeContext): any => {
   return {
     ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
@@ -2052,6 +2259,9 @@ const serializeAws_json1_1EndpointDetails = (input: EndpointDetails, context: __
   return {
     ...(input.AddressAllocationIds !== undefined && {
       AddressAllocationIds: serializeAws_json1_1AddressAllocationIds(input.AddressAllocationIds, context),
+    }),
+    ...(input.SecurityGroupIds !== undefined && {
+      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(input.SecurityGroupIds, context),
     }),
     ...(input.SubnetIds !== undefined && { SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context) }),
     ...(input.VpcEndpointId !== undefined && { VpcEndpointId: input.VpcEndpointId }),
@@ -2088,6 +2298,16 @@ const serializeAws_json1_1ImportSshPublicKeyRequest = (
   };
 };
 
+const serializeAws_json1_1ListSecurityPoliciesRequest = (
+  input: ListSecurityPoliciesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListServersRequest = (input: ListServersRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
@@ -2115,6 +2335,10 @@ const serializeAws_json1_1ListUsersRequest = (input: ListUsersRequest, context: 
 };
 
 const serializeAws_json1_1Protocols = (input: (Protocol | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
 
@@ -2189,6 +2413,7 @@ const serializeAws_json1_1UpdateServerRequest = (input: UpdateServerRequest, con
     }),
     ...(input.LoggingRole !== undefined && { LoggingRole: input.LoggingRole }),
     ...(input.Protocols !== undefined && { Protocols: serializeAws_json1_1Protocols(input.Protocols, context) }),
+    ...(input.SecurityPolicyName !== undefined && { SecurityPolicyName: input.SecurityPolicyName }),
     ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
   };
 };
@@ -2236,6 +2461,35 @@ const deserializeAws_json1_1CreateUserResponse = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1DescribedSecurityPolicy = (
+  output: any,
+  context: __SerdeContext
+): DescribedSecurityPolicy => {
+  return {
+    Fips: output.Fips !== undefined && output.Fips !== null ? output.Fips : undefined,
+    SecurityPolicyName:
+      output.SecurityPolicyName !== undefined && output.SecurityPolicyName !== null
+        ? output.SecurityPolicyName
+        : undefined,
+    SshCiphers:
+      output.SshCiphers !== undefined && output.SshCiphers !== null
+        ? deserializeAws_json1_1SecurityPolicyOptions(output.SshCiphers, context)
+        : undefined,
+    SshKexs:
+      output.SshKexs !== undefined && output.SshKexs !== null
+        ? deserializeAws_json1_1SecurityPolicyOptions(output.SshKexs, context)
+        : undefined,
+    SshMacs:
+      output.SshMacs !== undefined && output.SshMacs !== null
+        ? deserializeAws_json1_1SecurityPolicyOptions(output.SshMacs, context)
+        : undefined,
+    TlsCiphers:
+      output.TlsCiphers !== undefined && output.TlsCiphers !== null
+        ? deserializeAws_json1_1SecurityPolicyOptions(output.TlsCiphers, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribedServer = (output: any, context: __SerdeContext): DescribedServer => {
   return {
     Arn: output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
@@ -2261,6 +2515,10 @@ const deserializeAws_json1_1DescribedServer = (output: any, context: __SerdeCont
     Protocols:
       output.Protocols !== undefined && output.Protocols !== null
         ? deserializeAws_json1_1Protocols(output.Protocols, context)
+        : undefined,
+    SecurityPolicyName:
+      output.SecurityPolicyName !== undefined && output.SecurityPolicyName !== null
+        ? output.SecurityPolicyName
         : undefined,
     ServerId: output.ServerId !== undefined && output.ServerId !== null ? output.ServerId : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
@@ -2295,6 +2553,18 @@ const deserializeAws_json1_1DescribedUser = (output: any, context: __SerdeContex
   } as any;
 };
 
+const deserializeAws_json1_1DescribeSecurityPolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeSecurityPolicyResponse => {
+  return {
+    SecurityPolicy:
+      output.SecurityPolicy !== undefined && output.SecurityPolicy !== null
+        ? deserializeAws_json1_1DescribedSecurityPolicy(output.SecurityPolicy, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeServerResponse = (output: any, context: __SerdeContext): DescribeServerResponse => {
   return {
     Server:
@@ -2319,6 +2589,10 @@ const deserializeAws_json1_1EndpointDetails = (output: any, context: __SerdeCont
     AddressAllocationIds:
       output.AddressAllocationIds !== undefined && output.AddressAllocationIds !== null
         ? deserializeAws_json1_1AddressAllocationIds(output.AddressAllocationIds, context)
+        : undefined,
+    SecurityGroupIds:
+      output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
+        ? deserializeAws_json1_1SecurityGroupIds(output.SecurityGroupIds, context)
         : undefined,
     SubnetIds:
       output.SubnetIds !== undefined && output.SubnetIds !== null
@@ -2429,6 +2703,19 @@ const deserializeAws_json1_1ListedUsers = (output: any, context: __SerdeContext)
   return (output || []).map((entry: any) => deserializeAws_json1_1ListedUser(entry, context));
 };
 
+const deserializeAws_json1_1ListSecurityPoliciesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListSecurityPoliciesResponse => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    SecurityPolicyNames:
+      output.SecurityPolicyNames !== undefined && output.SecurityPolicyNames !== null
+        ? deserializeAws_json1_1SecurityPolicyNames(output.SecurityPolicyNames, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListServersResponse = (output: any, context: __SerdeContext): ListServersResponse => {
   return {
     NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
@@ -2486,6 +2773,18 @@ const deserializeAws_json1_1ResourceNotFoundException = (
     Resource: output.Resource !== undefined && output.Resource !== null ? output.Resource : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1SecurityPolicyNames = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1SecurityPolicyOptions = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ServiceUnavailableException = (

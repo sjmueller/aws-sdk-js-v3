@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetSitesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetSitesCommand(input, ...args));
+  return await client.send(new GetSitesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: NetworkManager,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getSites(input, ...args);
 };
-export async function* getSitesPaginate(
+export async function* paginateGetSites(
   config: NetworkManagerPaginationConfiguration,
   input: GetSitesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetSitesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetSitesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof NetworkManager) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* getSitesPaginate(
       throw new Error("Invalid client, expected NetworkManager | NetworkManagerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetUserDefinedFunctionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetUserDefinedFunctionsCommand(input, ...args));
+  return await client.send(new GetUserDefinedFunctionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Glue,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getUserDefinedFunctions(input, ...args);
 };
-export async function* getUserDefinedFunctionsPaginate(
+export async function* paginateGetUserDefinedFunctions(
   config: GluePaginationConfiguration,
   input: GetUserDefinedFunctionsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetUserDefinedFunctionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetUserDefinedFunctionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Glue) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getUserDefinedFunctionsPaginate(
       throw new Error("Invalid client, expected Glue | GlueClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

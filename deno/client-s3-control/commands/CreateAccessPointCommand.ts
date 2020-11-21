@@ -1,10 +1,11 @@
 
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient.ts";
-import { CreateAccessPointRequest } from "../models/models_0.ts";
+import { CreateAccessPointRequest, CreateAccessPointResult } from "../models/models_0.ts";
 import {
   deserializeAws_restXmlCreateAccessPointCommand,
   serializeAws_restXmlCreateAccessPointCommand,
 } from "../protocols/Aws_restXml.ts";
+import { getProcessArnablesPlugin } from "../../middleware-sdk-s3-control/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
@@ -19,7 +20,7 @@ import {
 } from "../../types/mod.ts";
 
 export type CreateAccessPointCommandInput = CreateAccessPointRequest;
-export type CreateAccessPointCommandOutput = __MetadataBearer;
+export type CreateAccessPointCommandOutput = CreateAccessPointResult & __MetadataBearer;
 
 export class CreateAccessPointCommand extends $Command<
   CreateAccessPointCommandInput,
@@ -41,15 +42,28 @@ export class CreateAccessPointCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateAccessPointCommandInput, CreateAccessPointCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getProcessArnablesPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3ControlClient";
+    const commandName = "CreateAccessPointCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateAccessPointRequest.filterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      outputFilterSensitiveLog: CreateAccessPointResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

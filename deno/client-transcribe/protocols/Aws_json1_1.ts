@@ -1,5 +1,9 @@
 
 import {
+  CreateLanguageModelCommandInput,
+  CreateLanguageModelCommandOutput,
+} from "../commands/CreateLanguageModelCommand.ts";
+import {
   CreateMedicalVocabularyCommandInput,
   CreateMedicalVocabularyCommandOutput,
 } from "../commands/CreateMedicalVocabularyCommand.ts";
@@ -8,6 +12,10 @@ import {
   CreateVocabularyFilterCommandInput,
   CreateVocabularyFilterCommandOutput,
 } from "../commands/CreateVocabularyFilterCommand.ts";
+import {
+  DeleteLanguageModelCommandInput,
+  DeleteLanguageModelCommandOutput,
+} from "../commands/DeleteLanguageModelCommand.ts";
 import {
   DeleteMedicalTranscriptionJobCommandInput,
   DeleteMedicalTranscriptionJobCommandOutput,
@@ -26,6 +34,10 @@ import {
   DeleteVocabularyFilterCommandOutput,
 } from "../commands/DeleteVocabularyFilterCommand.ts";
 import {
+  DescribeLanguageModelCommandInput,
+  DescribeLanguageModelCommandOutput,
+} from "../commands/DescribeLanguageModelCommand.ts";
+import {
   GetMedicalTranscriptionJobCommandInput,
   GetMedicalTranscriptionJobCommandOutput,
 } from "../commands/GetMedicalTranscriptionJobCommand.ts";
@@ -42,6 +54,7 @@ import {
   GetVocabularyFilterCommandInput,
   GetVocabularyFilterCommandOutput,
 } from "../commands/GetVocabularyFilterCommand.ts";
+import { ListLanguageModelsCommandInput, ListLanguageModelsCommandOutput } from "../commands/ListLanguageModelsCommand.ts";
 import {
   ListMedicalTranscriptionJobsCommandInput,
   ListMedicalTranscriptionJobsCommandOutput,
@@ -80,17 +93,22 @@ import {
   BadRequestException,
   ConflictException,
   ContentRedaction,
+  CreateLanguageModelRequest,
+  CreateLanguageModelResponse,
   CreateMedicalVocabularyRequest,
   CreateMedicalVocabularyResponse,
   CreateVocabularyFilterRequest,
   CreateVocabularyFilterResponse,
   CreateVocabularyRequest,
   CreateVocabularyResponse,
+  DeleteLanguageModelRequest,
   DeleteMedicalTranscriptionJobRequest,
   DeleteMedicalVocabularyRequest,
   DeleteTranscriptionJobRequest,
   DeleteVocabularyFilterRequest,
   DeleteVocabularyRequest,
+  DescribeLanguageModelRequest,
+  DescribeLanguageModelResponse,
   GetMedicalTranscriptionJobRequest,
   GetMedicalTranscriptionJobResponse,
   GetMedicalVocabularyRequest,
@@ -101,9 +119,14 @@ import {
   GetVocabularyFilterResponse,
   GetVocabularyRequest,
   GetVocabularyResponse,
+  InputDataConfig,
   InternalFailureException,
   JobExecutionSettings,
+  LanguageCode,
+  LanguageModel,
   LimitExceededException,
+  ListLanguageModelsRequest,
+  ListLanguageModelsResponse,
   ListMedicalTranscriptionJobsRequest,
   ListMedicalTranscriptionJobsResponse,
   ListMedicalVocabulariesRequest,
@@ -119,6 +142,7 @@ import {
   MedicalTranscriptionJob,
   MedicalTranscriptionJobSummary,
   MedicalTranscriptionSetting,
+  ModelSettings,
   NotFoundException,
   Settings,
   StartMedicalTranscriptionJobRequest,
@@ -146,6 +170,19 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
+
+export const serializeAws_json1_1CreateLanguageModelCommand = async (
+  input: CreateLanguageModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Transcribe.CreateLanguageModel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateLanguageModelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 export const serializeAws_json1_1CreateMedicalVocabularyCommand = async (
   input: CreateMedicalVocabularyCommandInput,
@@ -183,6 +220,19 @@ export const serializeAws_json1_1CreateVocabularyFilterCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateVocabularyFilterRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteLanguageModelCommand = async (
+  input: DeleteLanguageModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Transcribe.DeleteLanguageModel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteLanguageModelRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -251,6 +301,19 @@ export const serializeAws_json1_1DeleteVocabularyFilterCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DescribeLanguageModelCommand = async (
+  input: DescribeLanguageModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Transcribe.DescribeLanguageModel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeLanguageModelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetMedicalTranscriptionJobCommand = async (
   input: GetMedicalTranscriptionJobCommandInput,
   context: __SerdeContext
@@ -313,6 +376,19 @@ export const serializeAws_json1_1GetVocabularyFilterCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1GetVocabularyFilterRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListLanguageModelsCommand = async (
+  input: ListLanguageModelsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "Transcribe.ListLanguageModels",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListLanguageModelsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -446,11 +522,90 @@ export const serializeAws_json1_1UpdateVocabularyFilterCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const deserializeAws_json1_1CreateLanguageModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLanguageModelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateLanguageModelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateLanguageModelResponse(data, context);
+  const response: CreateLanguageModelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateLanguageModelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLanguageModelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribe#BadRequestException":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.transcribe#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.transcribe#InternalFailureException":
+      response = {
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.transcribe#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateMedicalVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMedicalVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateMedicalVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -529,7 +684,7 @@ export const deserializeAws_json1_1CreateVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -608,7 +763,7 @@ export const deserializeAws_json1_1CreateVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVocabularyFilterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateVocabularyFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -683,11 +838,79 @@ const deserializeAws_json1_1CreateVocabularyFilterCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteLanguageModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLanguageModelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteLanguageModelCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteLanguageModelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteLanguageModelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLanguageModelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribe#BadRequestException":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.transcribe#InternalFailureException":
+      response = {
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.transcribe#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteMedicalTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMedicalTranscriptionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteMedicalTranscriptionJobCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -755,7 +978,7 @@ export const deserializeAws_json1_1DeleteMedicalVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMedicalVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteMedicalVocabularyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -831,7 +1054,7 @@ export const deserializeAws_json1_1DeleteTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTranscriptionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteTranscriptionJobCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -899,7 +1122,7 @@ export const deserializeAws_json1_1DeleteVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteVocabularyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -975,7 +1198,7 @@ export const deserializeAws_json1_1DeleteVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVocabularyFilterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteVocabularyFilterCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1047,11 +1270,90 @@ const deserializeAws_json1_1DeleteVocabularyFilterCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeLanguageModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLanguageModelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeLanguageModelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeLanguageModelResponse(data, context);
+  const response: DescribeLanguageModelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeLanguageModelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeLanguageModelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribe#BadRequestException":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.transcribe#InternalFailureException":
+      response = {
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.transcribe#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.transcribe#NotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1GetMedicalTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMedicalTranscriptionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetMedicalTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1130,7 +1432,7 @@ export const deserializeAws_json1_1GetMedicalVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMedicalVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetMedicalVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1209,7 +1511,7 @@ export const deserializeAws_json1_1GetTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTranscriptionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1288,7 +1590,7 @@ export const deserializeAws_json1_1GetVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1367,7 +1669,7 @@ export const deserializeAws_json1_1GetVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVocabularyFilterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetVocabularyFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1442,11 +1744,82 @@ const deserializeAws_json1_1GetVocabularyFilterCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListLanguageModelsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLanguageModelsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListLanguageModelsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListLanguageModelsResponse(data, context);
+  const response: ListLanguageModelsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListLanguageModelsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLanguageModelsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.transcribe#BadRequestException":
+      response = {
+        ...(await deserializeAws_json1_1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalFailureException":
+    case "com.amazonaws.transcribe#InternalFailureException":
+      response = {
+        ...(await deserializeAws_json1_1InternalFailureExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.transcribe#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListMedicalTranscriptionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMedicalTranscriptionJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListMedicalTranscriptionJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1517,7 +1890,7 @@ export const deserializeAws_json1_1ListMedicalVocabulariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMedicalVocabulariesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListMedicalVocabulariesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1588,7 +1961,7 @@ export const deserializeAws_json1_1ListTranscriptionJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTranscriptionJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTranscriptionJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1659,7 +2032,7 @@ export const deserializeAws_json1_1ListVocabulariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVocabulariesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListVocabulariesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1730,7 +2103,7 @@ export const deserializeAws_json1_1ListVocabularyFiltersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVocabularyFiltersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListVocabularyFiltersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1801,7 +2174,7 @@ export const deserializeAws_json1_1StartMedicalTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMedicalTranscriptionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartMedicalTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1880,7 +2253,7 @@ export const deserializeAws_json1_1StartTranscriptionJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartTranscriptionJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartTranscriptionJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1959,7 +2332,7 @@ export const deserializeAws_json1_1UpdateMedicalVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMedicalVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateMedicalVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2046,7 +2419,7 @@ export const deserializeAws_json1_1UpdateVocabularyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVocabularyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateVocabularyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2133,7 +2506,7 @@ export const deserializeAws_json1_1UpdateVocabularyFilterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVocabularyFilterCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateVocabularyFilterCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2290,6 +2663,20 @@ const serializeAws_json1_1ContentRedaction = (input: ContentRedaction, context: 
   };
 };
 
+const serializeAws_json1_1CreateLanguageModelRequest = (
+  input: CreateLanguageModelRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BaseModelName !== undefined && { BaseModelName: input.BaseModelName }),
+    ...(input.InputDataConfig !== undefined && {
+      InputDataConfig: serializeAws_json1_1InputDataConfig(input.InputDataConfig, context),
+    }),
+    ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.ModelName !== undefined && { ModelName: input.ModelName }),
+  };
+};
+
 const serializeAws_json1_1CreateMedicalVocabularyRequest = (
   input: CreateMedicalVocabularyRequest,
   context: __SerdeContext
@@ -2319,6 +2706,15 @@ const serializeAws_json1_1CreateVocabularyRequest = (input: CreateVocabularyRequ
     ...(input.Phrases !== undefined && { Phrases: serializeAws_json1_1Phrases(input.Phrases, context) }),
     ...(input.VocabularyFileUri !== undefined && { VocabularyFileUri: input.VocabularyFileUri }),
     ...(input.VocabularyName !== undefined && { VocabularyName: input.VocabularyName }),
+  };
+};
+
+const serializeAws_json1_1DeleteLanguageModelRequest = (
+  input: DeleteLanguageModelRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ModelName !== undefined && { ModelName: input.ModelName }),
   };
 };
 
@@ -2366,6 +2762,15 @@ const serializeAws_json1_1DeleteVocabularyRequest = (input: DeleteVocabularyRequ
   };
 };
 
+const serializeAws_json1_1DescribeLanguageModelRequest = (
+  input: DescribeLanguageModelRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ModelName !== undefined && { ModelName: input.ModelName }),
+  };
+};
+
 const serializeAws_json1_1GetMedicalTranscriptionJobRequest = (
   input: GetMedicalTranscriptionJobRequest,
   context: __SerdeContext
@@ -2410,10 +2815,34 @@ const serializeAws_json1_1GetVocabularyRequest = (input: GetVocabularyRequest, c
   };
 };
 
+const serializeAws_json1_1InputDataConfig = (input: InputDataConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+    ...(input.S3Uri !== undefined && { S3Uri: input.S3Uri }),
+    ...(input.TuningDataS3Uri !== undefined && { TuningDataS3Uri: input.TuningDataS3Uri }),
+  };
+};
+
 const serializeAws_json1_1JobExecutionSettings = (input: JobExecutionSettings, context: __SerdeContext): any => {
   return {
     ...(input.AllowDeferredExecution !== undefined && { AllowDeferredExecution: input.AllowDeferredExecution }),
     ...(input.DataAccessRoleArn !== undefined && { DataAccessRoleArn: input.DataAccessRoleArn }),
+  };
+};
+
+const serializeAws_json1_1LanguageOptions = (input: (LanguageCode | string)[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
+const serializeAws_json1_1ListLanguageModelsRequest = (
+  input: ListLanguageModelsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NameContains !== undefined && { NameContains: input.NameContains }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.StatusEquals !== undefined && { StatusEquals: input.StatusEquals }),
   };
 };
 
@@ -2493,6 +2922,12 @@ const serializeAws_json1_1MedicalTranscriptionSetting = (
   };
 };
 
+const serializeAws_json1_1ModelSettings = (input: ModelSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.LanguageModelName !== undefined && { LanguageModelName: input.LanguageModelName }),
+  };
+};
+
 const serializeAws_json1_1Phrases = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
 };
@@ -2524,6 +2959,7 @@ const serializeAws_json1_1StartMedicalTranscriptionJobRequest = (
     }),
     ...(input.OutputBucketName !== undefined && { OutputBucketName: input.OutputBucketName }),
     ...(input.OutputEncryptionKMSKeyId !== undefined && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
+    ...(input.OutputKey !== undefined && { OutputKey: input.OutputKey }),
     ...(input.Settings !== undefined && {
       Settings: serializeAws_json1_1MedicalTranscriptionSetting(input.Settings, context),
     }),
@@ -2540,15 +2976,23 @@ const serializeAws_json1_1StartTranscriptionJobRequest = (
     ...(input.ContentRedaction !== undefined && {
       ContentRedaction: serializeAws_json1_1ContentRedaction(input.ContentRedaction, context),
     }),
+    ...(input.IdentifyLanguage !== undefined && { IdentifyLanguage: input.IdentifyLanguage }),
     ...(input.JobExecutionSettings !== undefined && {
       JobExecutionSettings: serializeAws_json1_1JobExecutionSettings(input.JobExecutionSettings, context),
     }),
     ...(input.LanguageCode !== undefined && { LanguageCode: input.LanguageCode }),
+    ...(input.LanguageOptions !== undefined && {
+      LanguageOptions: serializeAws_json1_1LanguageOptions(input.LanguageOptions, context),
+    }),
     ...(input.Media !== undefined && { Media: serializeAws_json1_1Media(input.Media, context) }),
     ...(input.MediaFormat !== undefined && { MediaFormat: input.MediaFormat }),
     ...(input.MediaSampleRateHertz !== undefined && { MediaSampleRateHertz: input.MediaSampleRateHertz }),
+    ...(input.ModelSettings !== undefined && {
+      ModelSettings: serializeAws_json1_1ModelSettings(input.ModelSettings, context),
+    }),
     ...(input.OutputBucketName !== undefined && { OutputBucketName: input.OutputBucketName }),
     ...(input.OutputEncryptionKMSKeyId !== undefined && { OutputEncryptionKMSKeyId: input.OutputEncryptionKMSKeyId }),
+    ...(input.OutputKey !== undefined && { OutputKey: input.OutputKey }),
     ...(input.Settings !== undefined && { Settings: serializeAws_json1_1Settings(input.Settings, context) }),
     ...(input.TranscriptionJobName !== undefined && { TranscriptionJobName: input.TranscriptionJobName }),
   };
@@ -2610,6 +3054,23 @@ const deserializeAws_json1_1ContentRedaction = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1CreateLanguageModelResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateLanguageModelResponse => {
+  return {
+    BaseModelName:
+      output.BaseModelName !== undefined && output.BaseModelName !== null ? output.BaseModelName : undefined,
+    InputDataConfig:
+      output.InputDataConfig !== undefined && output.InputDataConfig !== null
+        ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
+        : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
+    ModelName: output.ModelName !== undefined && output.ModelName !== null ? output.ModelName : undefined,
+    ModelStatus: output.ModelStatus !== undefined && output.ModelStatus !== null ? output.ModelStatus : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1CreateMedicalVocabularyResponse = (
   output: any,
   context: __SerdeContext
@@ -2662,6 +3123,18 @@ const deserializeAws_json1_1CreateVocabularyResponse = (
       output.VocabularyName !== undefined && output.VocabularyName !== null ? output.VocabularyName : undefined,
     VocabularyState:
       output.VocabularyState !== undefined && output.VocabularyState !== null ? output.VocabularyState : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeLanguageModelResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeLanguageModelResponse => {
+  return {
+    LanguageModel:
+      output.LanguageModel !== undefined && output.LanguageModel !== null
+        ? deserializeAws_json1_1LanguageModel(output.LanguageModel, context)
+        : undefined,
   } as any;
 };
 
@@ -2744,6 +3217,18 @@ const deserializeAws_json1_1GetVocabularyResponse = (output: any, context: __Ser
   } as any;
 };
 
+const deserializeAws_json1_1InputDataConfig = (output: any, context: __SerdeContext): InputDataConfig => {
+  return {
+    DataAccessRoleArn:
+      output.DataAccessRoleArn !== undefined && output.DataAccessRoleArn !== null
+        ? output.DataAccessRoleArn
+        : undefined,
+    S3Uri: output.S3Uri !== undefined && output.S3Uri !== null ? output.S3Uri : undefined,
+    TuningDataS3Uri:
+      output.TuningDataS3Uri !== undefined && output.TuningDataS3Uri !== null ? output.TuningDataS3Uri : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1InternalFailureException = (
   output: any,
   context: __SerdeContext
@@ -2766,9 +3251,54 @@ const deserializeAws_json1_1JobExecutionSettings = (output: any, context: __Serd
   } as any;
 };
 
+const deserializeAws_json1_1LanguageModel = (output: any, context: __SerdeContext): LanguageModel => {
+  return {
+    BaseModelName:
+      output.BaseModelName !== undefined && output.BaseModelName !== null ? output.BaseModelName : undefined,
+    CreateTime:
+      output.CreateTime !== undefined && output.CreateTime !== null
+        ? new Date(Math.round(output.CreateTime * 1000))
+        : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    InputDataConfig:
+      output.InputDataConfig !== undefined && output.InputDataConfig !== null
+        ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
+        : undefined,
+    LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    ModelName: output.ModelName !== undefined && output.ModelName !== null ? output.ModelName : undefined,
+    ModelStatus: output.ModelStatus !== undefined && output.ModelStatus !== null ? output.ModelStatus : undefined,
+    UpgradeAvailability:
+      output.UpgradeAvailability !== undefined && output.UpgradeAvailability !== null
+        ? output.UpgradeAvailability
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LanguageOptions = (output: any, context: __SerdeContext): (LanguageCode | string)[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1LimitExceededException = (output: any, context: __SerdeContext): LimitExceededException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListLanguageModelsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListLanguageModelsResponse => {
+  return {
+    Models:
+      output.Models !== undefined && output.Models !== null
+        ? deserializeAws_json1_1Models(output.Models, context)
+        : undefined,
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
   } as any;
 };
 
@@ -2974,6 +3504,19 @@ const deserializeAws_json1_1MedicalTranscriptionSetting = (
   } as any;
 };
 
+const deserializeAws_json1_1Models = (output: any, context: __SerdeContext): LanguageModel[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1LanguageModel(entry, context));
+};
+
+const deserializeAws_json1_1ModelSettings = (output: any, context: __SerdeContext): ModelSettings => {
+  return {
+    LanguageModelName:
+      output.LanguageModelName !== undefined && output.LanguageModelName !== null
+        ? output.LanguageModelName
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1NotFoundException = (output: any, context: __SerdeContext): NotFoundException => {
   return {
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
@@ -3062,11 +3605,21 @@ const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeCon
         : undefined,
     FailureReason:
       output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    IdentifiedLanguageScore:
+      output.IdentifiedLanguageScore !== undefined && output.IdentifiedLanguageScore !== null
+        ? output.IdentifiedLanguageScore
+        : undefined,
+    IdentifyLanguage:
+      output.IdentifyLanguage !== undefined && output.IdentifyLanguage !== null ? output.IdentifyLanguage : undefined,
     JobExecutionSettings:
       output.JobExecutionSettings !== undefined && output.JobExecutionSettings !== null
         ? deserializeAws_json1_1JobExecutionSettings(output.JobExecutionSettings, context)
         : undefined,
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
+    LanguageOptions:
+      output.LanguageOptions !== undefined && output.LanguageOptions !== null
+        ? deserializeAws_json1_1LanguageOptions(output.LanguageOptions, context)
+        : undefined,
     Media:
       output.Media !== undefined && output.Media !== null
         ? deserializeAws_json1_1Media(output.Media, context)
@@ -3075,6 +3628,10 @@ const deserializeAws_json1_1TranscriptionJob = (output: any, context: __SerdeCon
     MediaSampleRateHertz:
       output.MediaSampleRateHertz !== undefined && output.MediaSampleRateHertz !== null
         ? output.MediaSampleRateHertz
+        : undefined,
+    ModelSettings:
+      output.ModelSettings !== undefined && output.ModelSettings !== null
+        ? deserializeAws_json1_1ModelSettings(output.ModelSettings, context)
         : undefined,
     Settings:
       output.Settings !== undefined && output.Settings !== null
@@ -3125,7 +3682,17 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
         : undefined,
     FailureReason:
       output.FailureReason !== undefined && output.FailureReason !== null ? output.FailureReason : undefined,
+    IdentifiedLanguageScore:
+      output.IdentifiedLanguageScore !== undefined && output.IdentifiedLanguageScore !== null
+        ? output.IdentifiedLanguageScore
+        : undefined,
+    IdentifyLanguage:
+      output.IdentifyLanguage !== undefined && output.IdentifyLanguage !== null ? output.IdentifyLanguage : undefined,
     LanguageCode: output.LanguageCode !== undefined && output.LanguageCode !== null ? output.LanguageCode : undefined,
+    ModelSettings:
+      output.ModelSettings !== undefined && output.ModelSettings !== null
+        ? deserializeAws_json1_1ModelSettings(output.ModelSettings, context)
+        : undefined,
     OutputLocationType:
       output.OutputLocationType !== undefined && output.OutputLocationType !== null
         ? output.OutputLocationType

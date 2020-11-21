@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEnabledProductsForImportCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEnabledProductsForImportCommand(input, ...args));
+  return await client.send(new ListEnabledProductsForImportCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SecurityHub,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEnabledProductsForImport(input, ...args);
 };
-export async function* listEnabledProductsForImportPaginate(
+export async function* paginateListEnabledProductsForImport(
   config: SecurityHubPaginationConfiguration,
   input: ListEnabledProductsForImportCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEnabledProductsForImportCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEnabledProductsForImportCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SecurityHub) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listEnabledProductsForImportPaginate(
       throw new Error("Invalid client, expected SecurityHub | SecurityHubClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

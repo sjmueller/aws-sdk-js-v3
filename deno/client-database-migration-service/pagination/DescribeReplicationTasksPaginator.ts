@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeReplicationTasksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeReplicationTasksCommand(input, ...args));
+  return await client.send(new DescribeReplicationTasksCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DatabaseMigrationService,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeReplicationTasks(input, ...args);
 };
-export async function* describeReplicationTasksPaginate(
+export async function* paginateDescribeReplicationTasks(
   config: DatabaseMigrationServicePaginationConfiguration,
   input: DescribeReplicationTasksCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReplicationTasksCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReplicationTasksCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof DatabaseMigrationService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeReplicationTasksPaginate(
       throw new Error("Invalid client, expected DatabaseMigrationService | DatabaseMigrationServiceClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -17,6 +17,11 @@ export interface AbortMultipartUploadInput {
   vaultName: string | undefined;
 
   /**
+   * <p>The upload ID of the multipart upload to delete.</p>
+   */
+  uploadId: string | undefined;
+
+  /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
    *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
@@ -24,11 +29,6 @@ export interface AbortMultipartUploadInput {
    *          ('-') in the ID.</p>
    */
   accountId: string | undefined;
-
-  /**
-   * <p>The upload ID of the multipart upload to delete.</p>
-   */
-  uploadId: string | undefined;
 }
 
 export namespace AbortMultipartUploadInput {
@@ -44,14 +44,14 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
   name: "InvalidParameterValueException";
   $fault: "client";
   /**
-   * <p>Returned if a parameter of the request is incorrectly specified.</p>
-   */
-  message?: string;
-
-  /**
    * <p>Client</p>
    */
   type?: string;
+
+  /**
+   * <p>Returned if a parameter of the request is incorrectly specified.</p>
+   */
+  message?: string;
 
   /**
    * <p>400 Bad Request</p>
@@ -72,14 +72,14 @@ export interface MissingParameterValueException extends __SmithyException, $Meta
   name: "MissingParameterValueException";
   $fault: "client";
   /**
-   * <p>400 Bad Request</p>
-   */
-  code?: string;
-
-  /**
    * <p>Client.</p>
    */
   type?: string;
+
+  /**
+   * <p>400 Bad Request</p>
+   */
+  code?: string;
 
   /**
    * <p>Returned if no authentication data is found for the request.</p>
@@ -106,15 +106,15 @@ export interface ResourceNotFoundException extends __SmithyException, $MetadataB
   code?: string;
 
   /**
-   * <p>Client</p>
-   */
-  type?: string;
-
-  /**
    * <p>Returned if the specified resource (such as a vault, upload ID, or job ID) doesn't
    *          exist.</p>
    */
   message?: string;
+
+  /**
+   * <p>Client</p>
+   */
+  type?: string;
 }
 
 export namespace ResourceNotFoundException {
@@ -130,14 +130,14 @@ export interface ServiceUnavailableException extends __SmithyException, $Metadat
   name: "ServiceUnavailableException";
   $fault: "server";
   /**
-   * <p>500 Internal Server Error</p>
-   */
-  code?: string;
-
-  /**
    * <p>Server</p>
    */
   type?: string;
+
+  /**
+   * <p>500 Internal Server Error</p>
+   */
+  code?: string;
 
   /**
    * <p>Returned if the service cannot complete the request.</p>
@@ -187,9 +187,9 @@ export enum Type {
  */
 export interface Grantee {
   /**
-   * <p>The canonical user ID of the grantee.</p>
+   * <p>Type of grantee</p>
    */
-  ID?: string;
+  Type: Type | string | undefined;
 
   /**
    * <p>Screen name of the grantee.</p>
@@ -197,9 +197,9 @@ export interface Grantee {
   DisplayName?: string;
 
   /**
-   * <p>Type of grantee</p>
+   * <p>The canonical user ID of the grantee.</p>
    */
-  Type: Type | string | undefined;
+  ID?: string;
 
   /**
    * <p>URI of the grantee group.</p>
@@ -258,12 +258,6 @@ export enum ActionCode {
  */
 export interface AddTagsToVaultInput {
   /**
-   * <p>The tags to add to the vault. Each tag is composed of a key and a value. The value
-   *          can be an empty string.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * <p>The name of the vault.</p>
    */
   vaultName: string | undefined;
@@ -276,6 +270,12 @@ export interface AddTagsToVaultInput {
    *          ('-') in the ID.</p>
    */
   accountId: string | undefined;
+
+  /**
+   * <p>The tags to add to the vault. Each tag is composed of a key and a value. The value
+   *          can be an empty string.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace AddTagsToVaultInput {
@@ -291,11 +291,6 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
   name: "LimitExceededException";
   $fault: "client";
   /**
-   * <p>Client</p>
-   */
-  type?: string;
-
-  /**
    * <p>400 Bad Request</p>
    */
   code?: string;
@@ -304,6 +299,11 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * <p>Returned if the request results in a vault limit or tags limit being exceeded.</p>
    */
   message?: string;
+
+  /**
+   * <p>Client</p>
+   */
+  type?: string;
 }
 
 export namespace LimitExceededException {
@@ -320,6 +320,11 @@ export namespace LimitExceededException {
  */
 export interface ArchiveCreationOutput {
   /**
+   * <p>The relative URI path of the newly added archive resource.</p>
+   */
+  location?: string;
+
+  /**
    * <p>The checksum of the archive computed by Amazon S3 Glacier.</p>
    */
   checksum?: string;
@@ -328,11 +333,6 @@ export interface ArchiveCreationOutput {
    * <p>The ID of the archive. This value is also included as part of the location.</p>
    */
   archiveId?: string;
-
-  /**
-   * <p>The relative URI path of the newly added archive resource.</p>
-   */
-  location?: string;
 }
 
 export namespace ArchiveCreationOutput {
@@ -359,15 +359,6 @@ export enum CannedACL {
  */
 export interface CompleteMultipartUploadInput {
   /**
-   * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
-   *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
-   *          credentials used to sign the request. If you use an account ID, do not include any hyphens
-   *          ('-') in the ID.</p>
-   */
-  accountId: string | undefined;
-
-  /**
    * <p>The upload ID of the multipart upload.</p>
    */
   uploadId: string | undefined;
@@ -382,6 +373,15 @@ export interface CompleteMultipartUploadInput {
    *          the sizes of the individual parts that you uploaded.</p>
    */
   archiveSize?: string;
+
+  /**
+   * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
+   *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
+   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          credentials used to sign the request. If you use an account ID, do not include any hyphens
+   *          ('-') in the ID.</p>
+   */
+  accountId: string | undefined;
 
   /**
    * <p>The SHA256 tree hash of the entire archive. It is the tree hash of SHA256 tree hash
@@ -403,11 +403,6 @@ export namespace CompleteMultipartUploadInput {
  */
 export interface CompleteVaultLockInput {
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The <code>lockId</code> value is the lock ID obtained from a <a>InitiateVaultLock</a> request.</p>
    */
   lockId: string | undefined;
@@ -420,6 +415,11 @@ export interface CompleteVaultLockInput {
    *          If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
    */
   accountId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace CompleteVaultLockInput {
@@ -433,6 +433,11 @@ export namespace CompleteVaultLockInput {
  */
 export interface CreateVaultInput {
   /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
+
+  /**
    * <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS
    *          account ID associated with the credentials used to sign the request. You can either specify
    *          an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon S3
@@ -440,11 +445,6 @@ export interface CreateVaultInput {
    *          If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
    */
   accountId: string | undefined;
-
-  /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
 }
 
 export namespace CreateVaultInput {
@@ -480,6 +480,17 @@ export enum FileHeaderInfo {
  */
 export interface CSVInput {
   /**
+   * <p>A value used to separate individual records from each other.</p>
+   */
+  RecordDelimiter?: string;
+
+  /**
+   * <p>A single character used to indicate that a row should be ignored when the character is
+   *             present at the start of that row.</p>
+   */
+  Comments?: string;
+
+  /**
    * <p>Describes the first line of input. Valid values are <code>None</code>,
    *                 <code>Ignore</code>, and <code>Use</code>.</p>
    */
@@ -489,12 +500,6 @@ export interface CSVInput {
    * <p>A value used to separate individual fields from each other within a record.</p>
    */
   FieldDelimiter?: string;
-
-  /**
-   * <p>A single character used to indicate that a row should be ignored when the character is
-   *             present at the start of that row.</p>
-   */
-  Comments?: string;
 
   /**
    * <p>A single character used for escaping the quotation-mark character inside an already
@@ -507,11 +512,6 @@ export interface CSVInput {
    *             value.</p>
    */
   QuoteCharacter?: string;
-
-  /**
-   * <p>A value used to separate individual records from each other.</p>
-   */
-  RecordDelimiter?: string;
 }
 
 export namespace CSVInput {
@@ -531,6 +531,12 @@ export enum QuoteFields {
  */
 export interface CSVOutput {
   /**
+   * <p>A single character used for escaping the quotation-mark character inside an already
+   *             escaped value.</p>
+   */
+  QuoteEscapeCharacter?: string;
+
+  /**
    * <p>A value used to separate individual records from each other.</p>
    */
   RecordDelimiter?: string;
@@ -540,12 +546,6 @@ export interface CSVOutput {
    *             value.</p>
    */
   QuoteCharacter?: string;
-
-  /**
-   * <p>A single character used for escaping the quotation-mark character inside an already
-   *             escaped value.</p>
-   */
-  QuoteEscapeCharacter?: string;
 
   /**
    * <p>A value used to separate individual fields from each other within a record.</p>
@@ -570,18 +570,18 @@ export namespace CSVOutput {
  */
 export interface DataRetrievalRule {
   /**
+   * <p>The type of data retrieval policy to set.</p>
+   *          <p>Valid values: BytesPerHour|FreeTier|None</p>
+   */
+  Strategy?: string;
+
+  /**
    * <p>The maximum number of bytes that can be retrieved in an hour.</p>
    *          <p>This field is required only if the value of the Strategy field is
    *             <code>BytesPerHour</code>. Your PUT operation will be rejected if the Strategy field is
    *          not set to <code>BytesPerHour</code> and you set this field.</p>
    */
   BytesPerHour?: number;
-
-  /**
-   * <p>The type of data retrieval policy to set.</p>
-   *          <p>Valid values: BytesPerHour|FreeTier|None</p>
-   */
-  Strategy?: string;
 }
 
 export namespace DataRetrievalRule {
@@ -612,16 +612,6 @@ export namespace DataRetrievalPolicy {
  */
 export interface DeleteArchiveInput {
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
-   * <p>The ID of the archive to delete.</p>
-   */
-  archiveId: string | undefined;
-
-  /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
    *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
@@ -629,6 +619,16 @@ export interface DeleteArchiveInput {
    *          ('-') in the ID.</p>
    */
   accountId: string | undefined;
+
+  /**
+   * <p>The ID of the archive to delete.</p>
+   */
+  archiveId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace DeleteArchiveInput {
@@ -642,6 +642,11 @@ export namespace DeleteArchiveInput {
  */
 export interface DeleteVaultInput {
   /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
+
+  /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
    *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
@@ -649,11 +654,6 @@ export interface DeleteVaultInput {
    *          ('-') in the ID.</p>
    */
   accountId: string | undefined;
-
-  /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
 }
 
 export namespace DeleteVaultInput {
@@ -667,6 +667,11 @@ export namespace DeleteVaultInput {
  */
 export interface DeleteVaultAccessPolicyInput {
   /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
+
+  /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
    *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
@@ -674,11 +679,6 @@ export interface DeleteVaultAccessPolicyInput {
    *          ('-') in the ID. </p>
    */
   accountId: string | undefined;
-
-  /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
 }
 
 export namespace DeleteVaultAccessPolicyInput {
@@ -693,6 +693,11 @@ export namespace DeleteVaultAccessPolicyInput {
  */
 export interface DeleteVaultNotificationsInput {
   /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
+
+  /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
    *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
@@ -700,11 +705,6 @@ export interface DeleteVaultNotificationsInput {
    *          ('-') in the ID. </p>
    */
   accountId: string | undefined;
-
-  /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
 }
 
 export namespace DeleteVaultNotificationsInput {
@@ -718,6 +718,11 @@ export namespace DeleteVaultNotificationsInput {
  */
 export interface DescribeJobInput {
   /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
+
+  /**
    * <p>The ID of the job to describe.</p>
    */
   jobId: string | undefined;
@@ -730,11 +735,6 @@ export interface DescribeJobInput {
    *          ('-') in the ID. </p>
    */
   accountId: string | undefined;
-
-  /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
 }
 
 export namespace DescribeJobInput {
@@ -747,18 +747,6 @@ export namespace DescribeJobInput {
  * <p>Describes the options for a range inventory retrieval job.</p>
  */
 export interface InventoryRetrievalJobDescription {
-  /**
-   * <p>The output format for the vault inventory list, which is set by the <b>InitiateJob</b> request when initiating a job to retrieve a vault
-   *             inventory. Valid values are <code>CSV</code> and <code>JSON</code>.</p>
-   */
-  Format?: string;
-
-  /**
-   * <p>The maximum number of inventory items returned per vault inventory retrieval
-   *             request. This limit is set when initiating the job with the a <b>InitiateJob</b> request. </p>
-   */
-  Limit?: string;
-
   /**
    * <p>An opaque string that represents where to continue pagination of the vault
    *             inventory retrieval results. You use the marker in a new <b>InitiateJob</b> request to obtain additional inventory items. If there are
@@ -781,6 +769,18 @@ export interface InventoryRetrievalJobDescription {
    *             format, for example <code>2013-03-20T17:03:43Z</code>.</p>
    */
   EndDate?: string;
+
+  /**
+   * <p>The maximum number of inventory items returned per vault inventory retrieval
+   *             request. This limit is set when initiating the job with the a <b>InitiateJob</b> request. </p>
+   */
+  Limit?: string;
+
+  /**
+   * <p>The output format for the vault inventory list, which is set by the <b>InitiateJob</b> request when initiating a job to retrieve a vault
+   *             inventory. Valid values are <code>CSV</code> and <code>JSON</code>.</p>
+   */
+  Format?: string;
 }
 
 export namespace InventoryRetrievalJobDescription {
@@ -799,16 +799,16 @@ export enum EncryptionType {
  */
 export interface Encryption {
   /**
-   * <p>Optional. If the encryption type is <code>aws:kms</code>, you can use this value to
-   *             specify the encryption context for the job results.</p>
-   */
-  KMSContext?: string;
-
-  /**
    * <p>The server-side encryption algorithm used when storing job results in Amazon S3, for
    *             example <code>AES256</code> or <code>aws:kms</code>.</p>
    */
   EncryptionType?: EncryptionType | string;
+
+  /**
+   * <p>Optional. If the encryption type is <code>aws:kms</code>, you can use this value to
+   *             specify the encryption context for the job results.</p>
+   */
+  KMSContext?: string;
 
   /**
    * <p>The AWS KMS key ID to use for object encryption. All GET and PUT requests for an
@@ -835,6 +835,26 @@ export enum StorageClass {
  */
 export interface S3Location {
   /**
+   * <p>The prefix that is prepended to the results for this request.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>The tag-set that is applied to the job results.</p>
+   */
+  Tagging?: { [key: string]: string };
+
+  /**
+   * <p>Contains information about the encryption used to store the job results in Amazon S3.</p>
+   */
+  Encryption?: Encryption;
+
+  /**
+   * <p>A map of metadata to store with the job results in Amazon S3.</p>
+   */
+  UserMetadata?: { [key: string]: string };
+
+  /**
    * <p>The canned access control list (ACL) to apply to the job results.</p>
    */
   CannedACL?: CannedACL | string;
@@ -850,29 +870,9 @@ export interface S3Location {
   AccessControlList?: Grant[];
 
   /**
-   * <p>A map of metadata to store with the job results in Amazon S3.</p>
-   */
-  UserMetadata?: { [key: string]: string };
-
-  /**
-   * <p>The prefix that is prepended to the results for this request.</p>
-   */
-  Prefix?: string;
-
-  /**
    * <p>The name of the Amazon S3 bucket where the job results are stored.</p>
    */
   BucketName?: string;
-
-  /**
-   * <p>Contains information about the encryption used to store the job results in Amazon S3.</p>
-   */
-  Encryption?: Encryption;
-
-  /**
-   * <p>The tag-set that is applied to the job results.</p>
-   */
-  Tagging?: { [key: string]: string };
 }
 
 export namespace S3Location {
@@ -938,16 +938,6 @@ export namespace OutputSerialization {
  */
 export interface SelectParameters {
   /**
-   * <p>The type of the provided expression, for example <code>SQL</code>.</p>
-   */
-  ExpressionType?: ExpressionType | string;
-
-  /**
-   * <p>Describes the serialization format of the object.</p>
-   */
-  InputSerialization?: InputSerialization;
-
-  /**
    * <p>The expression that is used to select the object.</p>
    */
   Expression?: string;
@@ -956,6 +946,16 @@ export interface SelectParameters {
    * <p>Describes how the results of the select job are serialized.</p>
    */
   OutputSerialization?: OutputSerialization;
+
+  /**
+   * <p>Describes the serialization format of the object.</p>
+   */
+  InputSerialization?: InputSerialization;
+
+  /**
+   * <p>The type of the provided expression, for example <code>SQL</code>.</p>
+   */
+  ExpressionType?: ExpressionType | string;
 }
 
 export namespace SelectParameters {
@@ -975,25 +975,31 @@ export enum StatusCode {
  */
 export interface GlacierJobDescription {
   /**
-   * <p>An opaque string that identifies an Amazon S3 Glacier job.</p>
+   * <p>For an archive retrieval job, this value is the size in bytes of the archive being
+   *             requested for download. For an inventory retrieval or select job, this value is
+   *             null.</p>
    */
-  JobId?: string;
+  ArchiveSizeInBytes?: number;
 
   /**
-   * <p>The status code can be <code>InProgress</code>, <code>Succeeded</code>, or
-   *                 <code>Failed</code>, and indicates the status of the job.</p>
+   * <p>For an inventory retrieval job, this value is the size in bytes of the inventory
+   *             requested for download. For an archive retrieval or select job, this value is
+   *             null.</p>
    */
-  StatusCode?: StatusCode | string;
+  InventorySizeInBytes?: number;
 
   /**
-   * <p>Contains the job output location.</p>
+   * <p>The job type. This value is either <code>ArchiveRetrieval</code>,
+   *                 <code>InventoryRetrieval</code>, or
+   *             <code>Select</code>. </p>
    */
-  JobOutputPath?: string;
+  Action?: ActionCode | string;
 
   /**
-   * <p>The job description provided when initiating the job.</p>
+   * <p>The UTC date when the job was created. This value is a string representation of ISO
+   *             8601 date format, for example <code>"2012-03-20T17:03:43.221Z"</code>.</p>
    */
-  JobDescription?: string;
+  CreationDate?: string;
 
   /**
    * <p>The SHA256 tree hash of the entire archive for an archive retrieval. For inventory
@@ -1002,33 +1008,15 @@ export interface GlacierJobDescription {
   ArchiveSHA256TreeHash?: string;
 
   /**
-   * <p>The retrieved byte range for archive retrieval jobs in the form
-   *                 <i>StartByteValue</i>-<i>EndByteValue</i>. If no range
-   *             was specified in the archive retrieval, then the whole archive is retrieved. In this
-   *             case, <i>StartByteValue</i> equals 0 and <i>EndByteValue</i>
-   *             equals the size of the archive minus 1. For inventory retrieval or select jobs, this
-   *             field is null. </p>
+   * <p>An opaque string that identifies an Amazon S3 Glacier job.</p>
    */
-  RetrievalByteRange?: string;
+  JobId?: string;
 
   /**
    * <p>The archive ID requested for a select job or archive retrieval. Otherwise, this
    *             field is null.</p>
    */
   ArchiveId?: string;
-
-  /**
-   * <p>The job status. When a job is completed, you get the job's output using Get Job
-   *             Output (GET output).</p>
-   */
-  Completed?: boolean;
-
-  /**
-   * <p>For an archive retrieval job, this value is the size in bytes of the archive being
-   *             requested for download. For an inventory retrieval or select job, this value is
-   *             null.</p>
-   */
-  ArchiveSizeInBytes?: number;
 
   /**
    * <p>Contains the parameters used for a select.</p>
@@ -1042,28 +1030,31 @@ export interface GlacierJobDescription {
   CompletionDate?: string;
 
   /**
-   * <p>The UTC date when the job was created. This value is a string representation of ISO
-   *             8601 date format, for example <code>"2012-03-20T17:03:43.221Z"</code>.</p>
+   * <p>The retrieved byte range for archive retrieval jobs in the form
+   *                 <i>StartByteValue</i>-<i>EndByteValue</i>. If no range
+   *             was specified in the archive retrieval, then the whole archive is retrieved. In this
+   *             case, <i>StartByteValue</i> equals 0 and <i>EndByteValue</i>
+   *             equals the size of the archive minus 1. For inventory retrieval or select jobs, this
+   *             field is null. </p>
    */
-  CreationDate?: string;
+  RetrievalByteRange?: string;
 
   /**
-   * <p>A friendly message that describes the job status.</p>
+   * <p>The job status. When a job is completed, you get the job's output using Get Job
+   *             Output (GET output).</p>
    */
-  StatusMessage?: string;
+  Completed?: boolean;
+
+  /**
+   * <p>The job description provided when initiating the job.</p>
+   */
+  JobDescription?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the vault from which an archive retrieval was
    *             requested.</p>
    */
   VaultARN?: string;
-
-  /**
-   * <p>The job type. This value is either <code>ArchiveRetrieval</code>,
-   *                 <code>InventoryRetrieval</code>, or
-   *             <code>Select</code>. </p>
-   */
-  Action?: ActionCode | string;
 
   /**
    * <p>The tier to use for a select or an archive retrieval. Valid values are
@@ -1073,16 +1064,30 @@ export interface GlacierJobDescription {
   Tier?: string;
 
   /**
-   * <p>For an inventory retrieval job, this value is the size in bytes of the inventory
-   *             requested for download. For an archive retrieval or select job, this value is
-   *             null.</p>
+   * <p>The status code can be <code>InProgress</code>, <code>Succeeded</code>, or
+   *                 <code>Failed</code>, and indicates the status of the job.</p>
    */
-  InventorySizeInBytes?: number;
+  StatusCode?: StatusCode | string;
 
   /**
-   * <p>Parameters used for range inventory retrieval.</p>
+   * <p>Contains the job output location.</p>
    */
-  InventoryRetrievalParameters?: InventoryRetrievalJobDescription;
+  JobOutputPath?: string;
+
+  /**
+   * <p>A friendly message that describes the job status.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>Contains the location where the data from the select job is stored.</p>
+   */
+  OutputLocation?: OutputLocation;
+
+  /**
+   * <p>An Amazon SNS topic that receives notification.</p>
+   */
+  SNSTopic?: string;
 
   /**
    * <p>For an archive retrieval job, this value is the checksum of the archive. Otherwise,
@@ -1117,14 +1122,9 @@ export interface GlacierJobDescription {
   SHA256TreeHash?: string;
 
   /**
-   * <p>Contains the location where the data from the select job is stored.</p>
+   * <p>Parameters used for range inventory retrieval.</p>
    */
-  OutputLocation?: OutputLocation;
-
-  /**
-   * <p>An Amazon SNS topic that receives notification.</p>
-   */
-  SNSTopic?: string;
+  InventoryRetrievalParameters?: InventoryRetrievalJobDescription;
 }
 
 export namespace GlacierJobDescription {
@@ -1164,25 +1164,6 @@ export namespace DescribeVaultInput {
  */
 export interface DescribeVaultOutput {
   /**
-   * <p>Total size, in bytes, of the archives in the vault as of the last inventory date.
-   *          This field will return null if an inventory has not yet run on the vault, for example if
-   *          you just created the vault.</p>
-   */
-  SizeInBytes?: number;
-
-  /**
-   * <p>The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed the last
-   *          vault inventory.  This value should be a string in the ISO 8601 date format, for example
-   *             <code>2012-03-20T17:03:43.221Z</code>.</p>
-   */
-  LastInventoryDate?: string;
-
-  /**
-   * <p>The name of the vault.</p>
-   */
-  VaultName?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the vault.</p>
    */
   VaultARN?: string;
@@ -1200,6 +1181,25 @@ export interface DescribeVaultOutput {
    *             <code>2012-03-20T17:03:43.221Z</code>.</p>
    */
   CreationDate?: string;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  VaultName?: string;
+
+  /**
+   * <p>The Universal Coordinated Time (UTC) date when Amazon S3 Glacier completed the last
+   *          vault inventory.  This value should be a string in the ISO 8601 date format, for example
+   *             <code>2012-03-20T17:03:43.221Z</code>.</p>
+   */
+  LastInventoryDate?: string;
+
+  /**
+   * <p>Total size, in bytes, of the archives in the vault as of the last inventory date.
+   *          This field will return null if an inventory has not yet run on the vault, for example if
+   *          you just created the vault.</p>
+   */
+  SizeInBytes?: number;
 }
 
 export namespace DescribeVaultOutput {
@@ -1250,25 +1250,6 @@ export namespace GetDataRetrievalPolicyOutput {
  */
 export interface GetJobOutputInput {
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
-   * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
-   *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
-   *          credentials used to sign the request. If you use an account ID, do not include any hyphens
-   *          ('-') in the ID.</p>
-   */
-  accountId: string | undefined;
-
-  /**
-   * <p>The job ID whose data is downloaded.</p>
-   */
-  jobId: string | undefined;
-
-  /**
    * <p>The range of bytes to retrieve from the output. For example, if you want to download
    *          the first 1,048,576 bytes, specify the range as <code>bytes=0-1048575</code>. By default, this operation
    *          downloads the entire output.</p>
@@ -1307,6 +1288,25 @@ export interface GetJobOutputInput {
    *          </ol>
    */
   range?: string;
+
+  /**
+   * <p>The job ID whose data is downloaded.</p>
+   */
+  jobId: string | undefined;
+
+  /**
+   * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
+   *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
+   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          credentials used to sign the request. If you use an account ID, do not include any hyphens
+   *          ('-') in the ID.</p>
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace GetJobOutputInput {
@@ -1320,20 +1320,6 @@ export namespace GetJobOutputInput {
  */
 export interface GetJobOutputOutput {
   /**
-   * <p>Indicates the range units accepted. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFC2616</a>. </p>
-   */
-  acceptRanges?: string;
-
-  /**
-   * <p>The Content-Type depends on whether the job output is an archive or a vault
-   *          inventory. For archive data, the Content-Type is application/octet-stream. For vault
-   *          inventory, if you requested CSV format when you initiated the job, the Content-Type is
-   *          text/csv. Otherwise, by default, vault inventory is returned as JSON, and the Content-Type
-   *          is application/json.</p>
-   */
-  contentType?: string;
-
-  /**
    * <p>The range of bytes returned by Amazon S3 Glacier. If only partial output is downloaded,
    *          the response provides the range of bytes Amazon S3 Glacier returned. For example, bytes
    *          0-1048575/8388608 returns the first 1 MB from 8 MB.</p>
@@ -1344,6 +1330,26 @@ export interface GetJobOutputOutput {
    * <p>The description of an archive.</p>
    */
   archiveDescription?: string;
+
+  /**
+   * <p>Indicates the range units accepted. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html">RFC2616</a>. </p>
+   */
+  acceptRanges?: string;
+
+  /**
+   * <p>The HTTP response code for a job output request. The value depends on whether a range
+   *          was specified in the request.</p>
+   */
+  status?: number;
+
+  /**
+   * <p>The Content-Type depends on whether the job output is an archive or a vault
+   *          inventory. For archive data, the Content-Type is application/octet-stream. For vault
+   *          inventory, if you requested CSV format when you initiated the job, the Content-Type is
+   *          text/csv. Otherwise, by default, vault inventory is returned as JSON, and the Content-Type
+   *          is application/json.</p>
+   */
+  contentType?: string;
 
   /**
    * <p>The job data, either archive data or inventory data.</p>
@@ -1386,11 +1392,6 @@ export namespace GetJobOutputOutput {
  */
 export interface GetVaultAccessPolicyInput {
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
    *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
@@ -1398,6 +1399,11 @@ export interface GetVaultAccessPolicyInput {
    *          ('-') in the ID.</p>
    */
   accountId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace GetVaultAccessPolicyInput {
@@ -1443,6 +1449,11 @@ export namespace GetVaultAccessPolicyOutput {
  */
 export interface GetVaultLockInput {
   /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
+
+  /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
    *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
@@ -1450,11 +1461,6 @@ export interface GetVaultLockInput {
    *          ('-') in the ID.</p>
    */
   accountId: string | undefined;
-
-  /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
 }
 
 export namespace GetVaultLockInput {
@@ -1468,10 +1474,10 @@ export namespace GetVaultLockInput {
  */
 export interface GetVaultLockOutput {
   /**
-   * <p>The state of the vault lock. <code>InProgress</code> or
-   *          <code>Locked</code>.</p>
+   * <p>The UTC date and time at which the vault lock was put into the
+   *             <code>InProgress</code> state.</p>
    */
-  State?: string;
+  CreationDate?: string;
 
   /**
    * <p>The vault lock policy as a JSON string, which uses "\" as an escape
@@ -1486,10 +1492,10 @@ export interface GetVaultLockOutput {
   ExpirationDate?: string;
 
   /**
-   * <p>The UTC date and time at which the vault lock was put into the
-   *             <code>InProgress</code> state.</p>
+   * <p>The state of the vault lock. <code>InProgress</code> or
+   *          <code>Locked</code>.</p>
    */
-  CreationDate?: string;
+  State?: string;
 }
 
 export namespace GetVaultLockOutput {
@@ -1504,11 +1510,6 @@ export namespace GetVaultLockOutput {
  */
 export interface GetVaultNotificationsInput {
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
    *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
@@ -1516,6 +1517,11 @@ export interface GetVaultNotificationsInput {
    *          ('-') in the ID.</p>
    */
   accountId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace GetVaultNotificationsInput {
@@ -1568,6 +1574,20 @@ export namespace GetVaultNotificationsOutput {
  */
 export interface InventoryRetrievalJobInput {
   /**
+   * <p>An opaque string that represents where to continue pagination of the vault inventory
+   *          retrieval results. You use the marker in a new <b>InitiateJob</b>
+   *          request to obtain additional inventory items. If there are no more inventory items, this
+   *          value is <code>null</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Specifies the maximum number of inventory items returned per vault inventory
+   *          retrieval request. Valid values are greater than or equal to 1.</p>
+   */
+  Limit?: string;
+
+  /**
    * <p>The end of the date range in UTC for vault inventory retrieval that includes archives
    *          created before this date. This value should be a string in the ISO 8601 date format, for
    *          example <code>2013-03-20T17:03:43Z</code>.</p>
@@ -1580,20 +1600,6 @@ export interface InventoryRetrievalJobInput {
    *          format, for example <code>2013-03-20T17:03:43Z</code>.</p>
    */
   StartDate?: string;
-
-  /**
-   * <p>Specifies the maximum number of inventory items returned per vault inventory
-   *          retrieval request. Valid values are greater than or equal to 1.</p>
-   */
-  Limit?: string;
-
-  /**
-   * <p>An opaque string that represents where to continue pagination of the vault inventory
-   *          retrieval results. You use the marker in a new <b>InitiateJob</b>
-   *          request to obtain additional inventory items. If there are no more inventory items, this
-   *          value is <code>null</code>.</p>
-   */
-  Marker?: string;
 }
 
 export namespace InventoryRetrievalJobInput {
@@ -1607,17 +1613,25 @@ export namespace InventoryRetrievalJobInput {
  */
 export interface JobParameters {
   /**
-   * <p>The byte range to retrieve for an archive retrieval. in the form
-   *             "<i>StartByteValue</i>-<i>EndByteValue</i>" If not
-   *          specified, the whole archive is retrieved. If specified, the byte range must be megabyte
-   *          (1024*1024) aligned which means that <i>StartByteValue</i> must be divisible
-   *          by 1 MB and <i>EndByteValue</i> plus 1 must be divisible by 1 MB or be the
-   *          end of the archive specified as the archive byte size value minus 1. If RetrievalByteRange
-   *          is not megabyte aligned, this operation returns a 400 response. </p>
-   *          <p>An error occurs if you specify this field for an inventory retrieval job
-   *          request.</p>
+   * <p>The tier to use for a select or an archive retrieval job. Valid values are
+   *             <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>.
+   *             <code>Standard</code> is the default.</p>
    */
-  RetrievalByteRange?: string;
+  Tier?: string;
+
+  /**
+   * <p>The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification when the job is
+   *          completed and the output is ready for you to download. The specified topic publishes the
+   *          notification to its subscribers. The SNS topic must exist.</p>
+   */
+  SNSTopic?: string;
+
+  /**
+   * <p>The optional description for the job. The description must be less than or equal to
+   *          1,024 bytes. The allowable characters are 7-bit ASCII without control codes-specifically,
+   *          ASCII values 32-126 decimal or 0x20-0x7E hexadecimal.</p>
+   */
+  Description?: string;
 
   /**
    * <p>Input parameters used for range inventory retrieval.</p>
@@ -1633,35 +1647,17 @@ export interface JobParameters {
   Format?: string;
 
   /**
-   * <p>The optional description for the job. The description must be less than or equal to
-   *          1,024 bytes. The allowable characters are 7-bit ASCII without control codes-specifically,
-   *          ASCII values 32-126 decimal or 0x20-0x7E hexadecimal.</p>
+   * <p>The byte range to retrieve for an archive retrieval. in the form
+   *             "<i>StartByteValue</i>-<i>EndByteValue</i>" If not
+   *          specified, the whole archive is retrieved. If specified, the byte range must be megabyte
+   *          (1024*1024) aligned which means that <i>StartByteValue</i> must be divisible
+   *          by 1 MB and <i>EndByteValue</i> plus 1 must be divisible by 1 MB or be the
+   *          end of the archive specified as the archive byte size value minus 1. If RetrievalByteRange
+   *          is not megabyte aligned, this operation returns a 400 response. </p>
+   *          <p>An error occurs if you specify this field for an inventory retrieval job
+   *          request.</p>
    */
-  Description?: string;
-
-  /**
-   * <p>The tier to use for a select or an archive retrieval job. Valid values are
-   *             <code>Expedited</code>, <code>Standard</code>, or <code>Bulk</code>.
-   *             <code>Standard</code> is the default.</p>
-   */
-  Tier?: string;
-
-  /**
-   * <p>Contains information about the location where the select job results are stored.</p>
-   */
-  OutputLocation?: OutputLocation;
-
-  /**
-   * <p>The job type. You can initiate a job to perform a select query on an archive,
-   *          retrieve an archive, or get an inventory of a vault.
-   *          Valid values are "select", "archive-retrieval" and "inventory-retrieval".</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>Contains the parameters that define a job.</p>
-   */
-  SelectParameters?: SelectParameters;
+  RetrievalByteRange?: string;
 
   /**
    * <p>The ID of the archive that you want to retrieve. This field is required only if
@@ -1672,11 +1668,21 @@ export interface JobParameters {
   ArchiveId?: string;
 
   /**
-   * <p>The Amazon SNS topic ARN to which Amazon S3 Glacier sends a notification when the job is
-   *          completed and the output is ready for you to download. The specified topic publishes the
-   *          notification to its subscribers. The SNS topic must exist.</p>
+   * <p>Contains information about the location where the select job results are stored.</p>
    */
-  SNSTopic?: string;
+  OutputLocation?: OutputLocation;
+
+  /**
+   * <p>Contains the parameters that define a job.</p>
+   */
+  SelectParameters?: SelectParameters;
+
+  /**
+   * <p>The job type. You can initiate a job to perform a select query on an archive,
+   *          retrieve an archive, or get an inventory of a vault.
+   *          Valid values are "select", "archive-retrieval" and "inventory-retrieval".</p>
+   */
+  Type?: string;
 }
 
 export namespace JobParameters {
@@ -1690,9 +1696,9 @@ export namespace JobParameters {
  */
 export interface InitiateJobInput {
   /**
-   * <p>The name of the vault.</p>
+   * <p>Provides options for specifying job information.</p>
    */
-  vaultName: string | undefined;
+  jobParameters?: JobParameters;
 
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
@@ -1704,9 +1710,9 @@ export interface InitiateJobInput {
   accountId: string | undefined;
 
   /**
-   * <p>Provides options for specifying job information.</p>
+   * <p>The name of the vault.</p>
    */
-  jobParameters?: JobParameters;
+  vaultName: string | undefined;
 }
 
 export namespace InitiateJobInput {
@@ -1720,14 +1726,14 @@ export namespace InitiateJobInput {
  */
 export interface InitiateJobOutput {
   /**
-   * <p>The relative URI path of the job.</p>
-   */
-  location?: string;
-
-  /**
    * <p>The ID of the job.</p>
    */
   jobId?: string;
+
+  /**
+   * <p>The relative URI path of the job.</p>
+   */
+  location?: string;
 
   /**
    * <p>The path to the location of where the select results are stored.</p>
@@ -1768,14 +1774,14 @@ export interface PolicyEnforcedException extends __SmithyException, $MetadataBea
   name: "PolicyEnforcedException";
   $fault: "client";
   /**
-   * <p>Client</p>
-   */
-  type?: string;
-
-  /**
    * <p>InitiateJob request denied by current data retrieval policy.</p>
    */
   message?: string;
+
+  /**
+   * <p>Client</p>
+   */
+  type?: string;
 
   /**
    * <p>PolicyEnforcedException</p>
@@ -1795,17 +1801,6 @@ export namespace PolicyEnforcedException {
  */
 export interface InitiateMultipartUploadInput {
   /**
-   * <p>The size of each part except the last, in bytes. The last part can be smaller than
-   *          this part size.</p>
-   */
-  partSize?: string;
-
-  /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The archive description that you are uploading in parts.</p>
    *          <p>The part size must be a megabyte (1024 KB) multiplied by a power of 2, for example
    *          1048576 (1 MB), 2097152 (2 MB), 4194304 (4 MB), 8388608 (8 MB), and so on. The minimum
@@ -1821,6 +1816,17 @@ export interface InitiateMultipartUploadInput {
    *          ('-') in the ID. </p>
    */
   accountId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
+
+  /**
+   * <p>The size of each part except the last, in bytes. The last part can be smaller than
+   *          this part size.</p>
+   */
+  partSize?: string;
 }
 
 export namespace InitiateMultipartUploadInput {
@@ -1834,15 +1840,15 @@ export namespace InitiateMultipartUploadInput {
  */
 export interface InitiateMultipartUploadOutput {
   /**
-   * <p>The relative URI path of the multipart upload ID Amazon S3 Glacier created.</p>
-   */
-  location?: string;
-
-  /**
    * <p>The ID of the multipart upload. This value is also included as part of the
    *          location.</p>
    */
   uploadId?: string;
+
+  /**
+   * <p>The relative URI path of the multipart upload ID Amazon S3 Glacier created.</p>
+   */
+  location?: string;
 }
 
 export namespace InitiateMultipartUploadOutput {
@@ -1872,11 +1878,6 @@ export namespace VaultLockPolicy {
  */
 export interface InitiateVaultLockInput {
   /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
    * <p>The vault lock policy as a JSON string, which uses "\" as an escape
    *          character.</p>
    */
@@ -1890,6 +1891,11 @@ export interface InitiateVaultLockInput {
    *          If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
    */
   accountId: string | undefined;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
 }
 
 export namespace InitiateVaultLockInput {
@@ -1919,10 +1925,9 @@ export namespace InitiateVaultLockOutput {
  */
 export interface ListJobsInput {
   /**
-   * <p>The state of the jobs to return. You can specify <code>true</code> or
-   *             <code>false</code>.</p>
+   * <p>The name of the vault.</p>
    */
-  completed?: string;
+  vaultName: string | undefined;
 
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
@@ -1942,9 +1947,10 @@ export interface ListJobsInput {
   marker?: string;
 
   /**
-   * <p>The name of the vault.</p>
+   * <p>The state of the jobs to return. You can specify <code>true</code> or
+   *             <code>false</code>.</p>
    */
-  vaultName: string | undefined;
+  completed?: string;
 
   /**
    * <p>The type of job status to return. You can specify the following values:
@@ -1998,13 +2004,10 @@ export namespace ListJobsOutput {
  */
 export interface ListMultipartUploadsInput {
   /**
-   * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
-   *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
-   *          credentials used to sign the request. If you use an account ID, do not include any hyphens
-   *          ('-') in the ID. </p>
+   * <p>Specifies the maximum number of uploads returned in the response body. If this value
+   *          is not specified, the List Uploads operation returns up to 50 uploads.</p>
    */
-  accountId: string | undefined;
+  limit?: string;
 
   /**
    * <p>The name of the vault.</p>
@@ -2012,10 +2015,13 @@ export interface ListMultipartUploadsInput {
   vaultName: string | undefined;
 
   /**
-   * <p>Specifies the maximum number of uploads returned in the response body. If this value
-   *          is not specified, the List Uploads operation returns up to 50 uploads.</p>
+   * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
+   *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
+   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          credentials used to sign the request. If you use an account ID, do not include any hyphens
+   *          ('-') in the ID. </p>
    */
-  limit?: string;
+  accountId: string | undefined;
 
   /**
    * <p>An opaque string used for pagination. This value specifies the upload at which the
@@ -2037,11 +2043,9 @@ export namespace ListMultipartUploadsInput {
  */
 export interface UploadListElement {
   /**
-   * <p>The part size, in bytes, specified in the Initiate Multipart Upload request. This is
-   *          the size of all the parts in the upload except the last part, which may be smaller than
-   *          this size.</p>
+   * <p>The Amazon Resource Name (ARN) of the vault that contains the archive.</p>
    */
-  PartSizeInBytes?: number;
+  VaultARN?: string;
 
   /**
    * <p>The ID of a multipart upload.</p>
@@ -2049,20 +2053,22 @@ export interface UploadListElement {
   MultipartUploadId?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the vault that contains the archive.</p>
+   * <p>The UTC time at which the multipart upload was initiated.</p>
    */
-  VaultARN?: string;
+  CreationDate?: string;
+
+  /**
+   * <p>The part size, in bytes, specified in the Initiate Multipart Upload request. This is
+   *          the size of all the parts in the upload except the last part, which may be smaller than
+   *          this size.</p>
+   */
+  PartSizeInBytes?: number;
 
   /**
    * <p>The description of the archive that was specified in the Initiate Multipart Upload
    *          request.</p>
    */
   ArchiveDescription?: string;
-
-  /**
-   * <p>The UTC time at which the multipart upload was initiated.</p>
-   */
-  CreationDate?: string;
 }
 
 export namespace UploadListElement {
@@ -2076,16 +2082,16 @@ export namespace UploadListElement {
  */
 export interface ListMultipartUploadsOutput {
   /**
+   * <p>A list of in-progress multipart uploads.</p>
+   */
+  UploadsList?: UploadListElement[];
+
+  /**
    * <p>An opaque string that represents where to continue pagination of the results. You use
    *          the marker in a new List Multipart Uploads request to obtain more uploads in the list. If
    *          there are no more uploads, this value is <code>null</code>.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of in-progress multipart uploads.</p>
-   */
-  UploadsList?: UploadListElement[];
 }
 
 export namespace ListMultipartUploadsOutput {
@@ -2099,23 +2105,6 @@ export namespace ListMultipartUploadsOutput {
  *          in a specific multipart upload.</p>
  */
 export interface ListPartsInput {
-  /**
-   * <p>An opaque string used for pagination. This value specifies the part at which the
-   *          listing of parts should begin. Get the marker value from the response of a previous List
-   *          Parts response. You need only include the marker if you are continuing the pagination of
-   *          results started in a previous List Parts request.</p>
-   */
-  marker?: string;
-
-  /**
-   * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
-   *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
-   *          credentials used to sign the request. If you use an account ID, do not include any hyphens
-   *          ('-') in the ID. </p>
-   */
-  accountId: string | undefined;
-
   /**
    * <p>The upload ID of the multipart upload.</p>
    */
@@ -2132,6 +2121,23 @@ export interface ListPartsInput {
    *          never exceeds the limit.</p>
    */
   limit?: string;
+
+  /**
+   * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
+   *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
+   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          credentials used to sign the request. If you use an account ID, do not include any hyphens
+   *          ('-') in the ID. </p>
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>An opaque string used for pagination. This value specifies the part at which the
+   *          listing of parts should begin. Get the marker value from the response of a previous List
+   *          Parts response. You need only include the marker if you are continuing the pagination of
+   *          results started in a previous List Parts request.</p>
+   */
+  marker?: string;
 }
 
 export namespace ListPartsInput {
@@ -2167,10 +2173,29 @@ export namespace PartListElement {
  */
 export interface ListPartsOutput {
   /**
+   * <p>The UTC time at which the multipart upload was initiated.</p>
+   */
+  CreationDate?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the vault to which the multipart upload was
    *          initiated.</p>
    */
   VaultARN?: string;
+
+  /**
+   * <p>An opaque string that represents where to continue pagination of the results. You use
+   *          the marker in a new List Parts request to obtain more jobs in the list. If there are no
+   *          more parts, this value is <code>null</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of the part sizes of the multipart upload. Each object in the array contains a
+   *          <code>RangeBytes</code> and <code>sha256-tree-hash</code> name/value
+   *          pair.</p>
+   */
+  Parts?: PartListElement[];
 
   /**
    * <p>The description of the archive that was specified in the Initiate Multipart Upload
@@ -2184,29 +2209,10 @@ export interface ListPartsOutput {
   MultipartUploadId?: string;
 
   /**
-   * <p>An opaque string that represents where to continue pagination of the results. You use
-   *          the marker in a new List Parts request to obtain more jobs in the list. If there are no
-   *          more parts, this value is <code>null</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The UTC time at which the multipart upload was initiated.</p>
-   */
-  CreationDate?: string;
-
-  /**
    * <p>The part size in bytes. This is the same value that you specified in the Initiate
    *          Multipart Upload request.</p>
    */
   PartSizeInBytes?: number;
-
-  /**
-   * <p>A list of the part sizes of the multipart upload. Each object in the array contains a
-   *          <code>RangeBytes</code> and <code>sha256-tree-hash</code> name/value
-   *          pair.</p>
-   */
-  Parts?: PartListElement[];
 }
 
 export namespace ListPartsOutput {
@@ -2236,11 +2242,6 @@ export namespace ListProvisionedCapacityInput {
  */
 export interface ProvisionedCapacityDescription {
   /**
-   * <p>The date that the provisioned capacity unit expires, in Universal Coordinated Time (UTC).</p>
-   */
-  ExpirationDate?: string;
-
-  /**
    * <p>The date that the provisioned capacity unit was purchased, in Universal Coordinated Time (UTC).</p>
    */
   StartDate?: string;
@@ -2249,6 +2250,11 @@ export interface ProvisionedCapacityDescription {
    * <p>The ID that identifies the provisioned capacity unit.</p>
    */
   CapacityId?: string;
+
+  /**
+   * <p>The date that the provisioned capacity unit expires, in Universal Coordinated Time (UTC).</p>
+   */
+  ExpirationDate?: string;
 }
 
 export namespace ProvisionedCapacityDescription {
@@ -2275,6 +2281,11 @@ export namespace ListProvisionedCapacityOutput {
  */
 export interface ListTagsForVaultInput {
   /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
+
+  /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
    *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
@@ -2282,11 +2293,6 @@ export interface ListTagsForVaultInput {
    *          ('-') in the ID.</p>
    */
   accountId: string | undefined;
-
-  /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
 }
 
 export namespace ListTagsForVaultInput {
@@ -2401,6 +2407,15 @@ export namespace PurchaseProvisionedCapacityOutput {
  */
 export interface RemoveTagsFromVaultInput {
   /**
+   * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
+   *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
+   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          credentials used to sign the request. If you use an account ID, do not include any hyphens
+   *          ('-') in the ID.</p>
+   */
+  accountId: string | undefined;
+
+  /**
    * <p>The name of the vault.</p>
    */
   vaultName: string | undefined;
@@ -2409,15 +2424,6 @@ export interface RemoveTagsFromVaultInput {
    * <p>A list of tag keys. Each corresponding tag is removed from the vault.</p>
    */
   TagKeys?: string[];
-
-  /**
-   * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
-   *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
-   *          credentials used to sign the request. If you use an account ID, do not include any hyphens
-   *          ('-') in the ID.</p>
-   */
-  accountId: string | undefined;
 }
 
 export namespace RemoveTagsFromVaultInput {
@@ -2431,11 +2437,6 @@ export namespace RemoveTagsFromVaultInput {
  */
 export interface SetDataRetrievalPolicyInput {
   /**
-   * <p>The data retrieval policy in JSON format.</p>
-   */
-  Policy?: DataRetrievalPolicy;
-
-  /**
    * <p>The <code>AccountId</code> value is the AWS account ID. This value must match the AWS
    *          account ID associated with the credentials used to sign the request. You can either specify
    *          an AWS account ID or optionally a single '<code>-</code>' (hyphen), in which case Amazon
@@ -2443,6 +2444,11 @@ export interface SetDataRetrievalPolicyInput {
    *          If you specify your account ID, do not include any hyphens ('-') in the ID.</p>
    */
   accountId: string | undefined;
+
+  /**
+   * <p>The data retrieval policy in JSON format.</p>
+   */
+  Policy?: DataRetrievalPolicy;
 }
 
 export namespace SetDataRetrievalPolicyInput {
@@ -2456,11 +2462,6 @@ export namespace SetDataRetrievalPolicyInput {
  */
 export interface SetVaultAccessPolicyInput {
   /**
-   * <p>The vault access policy as a JSON string.</p>
-   */
-  policy?: VaultAccessPolicy;
-
-  /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
    *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
    *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
@@ -2468,6 +2469,11 @@ export interface SetVaultAccessPolicyInput {
    *          ('-') in the ID.</p>
    */
   accountId: string | undefined;
+
+  /**
+   * <p>The vault access policy as a JSON string.</p>
+   */
+  policy?: VaultAccessPolicy;
 
   /**
    * <p>The name of the vault.</p>
@@ -2520,9 +2526,10 @@ export interface RequestTimeoutException extends __SmithyException, $MetadataBea
   name: "RequestTimeoutException";
   $fault: "client";
   /**
-   * <p>Client</p>
+   * <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the
+   *          upload.</p>
    */
-  type?: string;
+  message?: string;
 
   /**
    * <p>408 Request Timeout</p>
@@ -2530,10 +2537,9 @@ export interface RequestTimeoutException extends __SmithyException, $MetadataBea
   code?: string;
 
   /**
-   * <p>Returned if, when uploading an archive, Amazon S3 Glacier times out while receiving the
-   *          upload.</p>
+   * <p>Client</p>
    */
-  message?: string;
+  type?: string;
 }
 
 export namespace RequestTimeoutException {
@@ -2547,9 +2553,9 @@ export namespace RequestTimeoutException {
  */
 export interface UploadArchiveInput {
   /**
-   * <p>The data to upload.</p>
+   * <p>The SHA256 tree hash of the data being uploaded.</p>
    */
-  body?: Readable | ReadableStream | Blob;
+  checksum?: string;
 
   /**
    * <p>The name of the vault.</p>
@@ -2557,9 +2563,14 @@ export interface UploadArchiveInput {
   vaultName: string | undefined;
 
   /**
-   * <p>The SHA256 tree hash of the data being uploaded.</p>
+   * <p>The optional description of the archive you are uploading.</p>
    */
-  checksum?: string;
+  archiveDescription?: string;
+
+  /**
+   * <p>The data to upload.</p>
+   */
+  body?: Readable | ReadableStream | Blob;
 
   /**
    * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
@@ -2569,11 +2580,6 @@ export interface UploadArchiveInput {
    *          ('-') in the ID. </p>
    */
   accountId: string | undefined;
-
-  /**
-   * <p>The optional description of the archive you are uploading.</p>
-   */
-  archiveDescription?: string;
 }
 
 export namespace UploadArchiveInput {
@@ -2588,24 +2594,18 @@ export namespace UploadArchiveInput {
  */
 export interface UploadMultipartPartInput {
   /**
+   * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
+   *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
+   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
+   *          credentials used to sign the request. If you use an account ID, do not include any hyphens
+   *          ('-') in the ID. </p>
+   */
+  accountId: string | undefined;
+
+  /**
    * <p>The SHA256 tree hash of the data being uploaded.</p>
    */
   checksum?: string;
-
-  /**
-   * <p>The name of the vault.</p>
-   */
-  vaultName: string | undefined;
-
-  /**
-   * <p>The upload ID of the multipart upload.</p>
-   */
-  uploadId: string | undefined;
-
-  /**
-   * <p>The data to upload.</p>
-   */
-  body?: Readable | ReadableStream | Blob;
 
   /**
    * <p>Identifies the range of bytes in the assembled archive that will be uploaded in this
@@ -2616,13 +2616,19 @@ export interface UploadMultipartPartInput {
   range?: string;
 
   /**
-   * <p>The <code>AccountId</code> value is the AWS account ID of the account that owns the
-   *          vault. You can either specify an AWS account ID or optionally a single '<code>-</code>'
-   *          (hyphen), in which case Amazon S3 Glacier uses the AWS account ID associated with the
-   *          credentials used to sign the request. If you use an account ID, do not include any hyphens
-   *          ('-') in the ID. </p>
+   * <p>The data to upload.</p>
    */
-  accountId: string | undefined;
+  body?: Readable | ReadableStream | Blob;
+
+  /**
+   * <p>The name of the vault.</p>
+   */
+  vaultName: string | undefined;
+
+  /**
+   * <p>The upload ID of the multipart upload.</p>
+   */
+  uploadId: string | undefined;
 }
 
 export namespace UploadMultipartPartInput {

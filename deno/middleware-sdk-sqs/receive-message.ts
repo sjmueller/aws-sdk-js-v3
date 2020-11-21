@@ -45,9 +45,7 @@ export function receiveMessageMiddleware(options: PreviouslyResolved): Initializ
       throw new Error("Invalid MD5 checksum on messages: " + messageIds.join(", "));
     }
 
-    return next({
-      ...args,
-    });
+    return resp;
   };
 }
 

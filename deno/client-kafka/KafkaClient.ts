@@ -1,10 +1,22 @@
 
+import {
+  BatchAssociateScramSecretCommandInput,
+  BatchAssociateScramSecretCommandOutput,
+} from "./commands/BatchAssociateScramSecretCommand.ts";
+import {
+  BatchDisassociateScramSecretCommandInput,
+  BatchDisassociateScramSecretCommandOutput,
+} from "./commands/BatchDisassociateScramSecretCommand.ts";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand.ts";
 import {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
 } from "./commands/CreateConfigurationCommand.ts";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "./commands/DeleteClusterCommand.ts";
+import {
+  DeleteConfigurationCommandInput,
+  DeleteConfigurationCommandOutput,
+} from "./commands/DeleteConfigurationCommand.ts";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "./commands/DescribeClusterCommand.ts";
 import {
   DescribeClusterOperationCommandInput,
@@ -38,6 +50,7 @@ import {
 import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "./commands/ListConfigurationsCommand.ts";
 import { ListKafkaVersionsCommandInput, ListKafkaVersionsCommandOutput } from "./commands/ListKafkaVersionsCommand.ts";
 import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand.ts";
+import { ListScramSecretsCommandInput, ListScramSecretsCommandOutput } from "./commands/ListScramSecretsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -58,6 +71,10 @@ import {
   UpdateClusterKafkaVersionCommandInput,
   UpdateClusterKafkaVersionCommandOutput,
 } from "./commands/UpdateClusterKafkaVersionCommand.ts";
+import {
+  UpdateConfigurationCommandInput,
+  UpdateConfigurationCommandOutput,
+} from "./commands/UpdateConfigurationCommand.ts";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "./commands/UpdateMonitoringCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -109,9 +126,12 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | BatchAssociateScramSecretCommandInput
+  | BatchDisassociateScramSecretCommandInput
   | CreateClusterCommandInput
   | CreateConfigurationCommandInput
   | DeleteClusterCommandInput
+  | DeleteConfigurationCommandInput
   | DescribeClusterCommandInput
   | DescribeClusterOperationCommandInput
   | DescribeConfigurationCommandInput
@@ -124,6 +144,7 @@ export type ServiceInputTypes =
   | ListConfigurationsCommandInput
   | ListKafkaVersionsCommandInput
   | ListNodesCommandInput
+  | ListScramSecretsCommandInput
   | ListTagsForResourceCommandInput
   | RebootBrokerCommandInput
   | TagResourceCommandInput
@@ -132,12 +153,16 @@ export type ServiceInputTypes =
   | UpdateBrokerStorageCommandInput
   | UpdateClusterConfigurationCommandInput
   | UpdateClusterKafkaVersionCommandInput
+  | UpdateConfigurationCommandInput
   | UpdateMonitoringCommandInput;
 
 export type ServiceOutputTypes =
+  | BatchAssociateScramSecretCommandOutput
+  | BatchDisassociateScramSecretCommandOutput
   | CreateClusterCommandOutput
   | CreateConfigurationCommandOutput
   | DeleteClusterCommandOutput
+  | DeleteConfigurationCommandOutput
   | DescribeClusterCommandOutput
   | DescribeClusterOperationCommandOutput
   | DescribeConfigurationCommandOutput
@@ -150,6 +175,7 @@ export type ServiceOutputTypes =
   | ListConfigurationsCommandOutput
   | ListKafkaVersionsCommandOutput
   | ListNodesCommandOutput
+  | ListScramSecretsCommandOutput
   | ListTagsForResourceCommandOutput
   | RebootBrokerCommandOutput
   | TagResourceCommandOutput
@@ -158,6 +184,7 @@ export type ServiceOutputTypes =
   | UpdateBrokerStorageCommandOutput
   | UpdateClusterConfigurationCommandOutput
   | UpdateClusterKafkaVersionCommandOutput
+  | UpdateConfigurationCommandOutput
   | UpdateMonitoringCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

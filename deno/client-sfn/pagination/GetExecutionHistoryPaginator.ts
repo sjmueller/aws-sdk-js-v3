@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetExecutionHistoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetExecutionHistoryCommand(input, ...args));
+  return await client.send(new GetExecutionHistoryCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SFN,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getExecutionHistory(input, ...args);
 };
-export async function* getExecutionHistoryPaginate(
+export async function* paginateGetExecutionHistory(
   config: SFNPaginationConfiguration,
   input: GetExecutionHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetExecutionHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetExecutionHistoryCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof SFN) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getExecutionHistoryPaginate(
       throw new Error("Invalid client, expected SFN | SFNClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeCanariesLastRunCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeCanariesLastRunCommand(input, ...args));
+  return await client.send(new DescribeCanariesLastRunCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Synthetics,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeCanariesLastRun(input, ...args);
 };
-export async function* describeCanariesLastRunPaginate(
+export async function* paginateDescribeCanariesLastRun(
   config: SyntheticsPaginationConfiguration,
   input: DescribeCanariesLastRunCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCanariesLastRunCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCanariesLastRunCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Synthetics) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeCanariesLastRunPaginate(
       throw new Error("Invalid client, expected Synthetics | SyntheticsClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

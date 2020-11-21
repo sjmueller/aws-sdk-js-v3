@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFileSharesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFileSharesCommand(input, ...args));
+  return await client.send(new ListFileSharesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: StorageGateway,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFileShares(input, ...args);
 };
-export async function* listFileSharesPaginate(
+export async function* paginateListFileShares(
   config: StorageGatewayPaginationConfiguration,
   input: ListFileSharesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListFileSharesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListFileSharesCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof StorageGateway) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listFileSharesPaginate(
       throw new Error("Invalid client, expected StorageGateway | StorageGatewayClient");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

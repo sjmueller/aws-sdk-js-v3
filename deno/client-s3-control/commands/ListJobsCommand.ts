@@ -2,6 +2,7 @@
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient.ts";
 import { ListJobsRequest, ListJobsResult } from "../models/models_0.ts";
 import { deserializeAws_restXmlListJobsCommand, serializeAws_restXmlListJobsCommand } from "../protocols/Aws_restXml.ts";
+import { getProcessArnablesPlugin } from "../../middleware-sdk-s3-control/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
@@ -38,15 +39,28 @@ export class ListJobsCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<ListJobsCommandInput, ListJobsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getProcessArnablesPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3ControlClient";
+    const commandName = "ListJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListJobsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListJobsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -45,11 +45,23 @@ export class UpdateDynamicThingGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "UpdateDynamicThingGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDynamicThingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDynamicThingGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

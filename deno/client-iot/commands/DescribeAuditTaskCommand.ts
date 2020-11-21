@@ -1,6 +1,7 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { DescribeAuditTaskRequest, DescribeAuditTaskResponse } from "../models/models_0.ts";
+import { DescribeAuditTaskRequest } from "../models/models_0.ts";
+import { DescribeAuditTaskResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1DescribeAuditTaskCommand,
   serializeAws_restJson1DescribeAuditTaskCommand,
@@ -45,11 +46,23 @@ export class DescribeAuditTaskCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "DescribeAuditTaskCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeAuditTaskRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeAuditTaskResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

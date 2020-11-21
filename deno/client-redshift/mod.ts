@@ -52,6 +52,7 @@ export * from "./commands/DescribeClusterTracksCommand.ts";
 export * from "./commands/DescribeClusterVersionsCommand.ts";
 export * from "./pagination/DescribeClusterVersionsPaginator.ts";
 export * from "./commands/DescribeDefaultClusterParametersCommand.ts";
+export * from "./pagination/DescribeDefaultClusterParametersPaginator.ts";
 export * from "./commands/DescribeEventCategoriesCommand.ts";
 export * from "./commands/DescribeEventsCommand.ts";
 export * from "./pagination/DescribeEventsPaginator.ts";

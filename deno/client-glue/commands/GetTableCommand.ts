@@ -38,11 +38,23 @@ export class GetTableCommand extends $Command<GetTableCommandInput, GetTableComm
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GlueClient";
+    const commandName = "GetTableCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetTableRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetTableResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { UpdateTrialRequest, UpdateTrialResponse } from "../models/models_1.ts";
+import { UpdateTrialRequest, UpdateTrialResponse } from "../models/models_2.ts";
 import {
   deserializeAws_json1_1UpdateTrialCommand,
   serializeAws_json1_1UpdateTrialCommand,
@@ -45,11 +45,23 @@ export class UpdateTrialCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "UpdateTrialCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateTrialRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateTrialResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

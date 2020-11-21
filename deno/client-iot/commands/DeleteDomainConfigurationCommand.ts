@@ -45,11 +45,23 @@ export class DeleteDomainConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "DeleteDomainConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteDomainConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteDomainConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

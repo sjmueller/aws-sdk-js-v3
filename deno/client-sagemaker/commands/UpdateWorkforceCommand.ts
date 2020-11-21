@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { UpdateWorkforceRequest, UpdateWorkforceResponse } from "../models/models_1.ts";
+import { UpdateWorkforceRequest, UpdateWorkforceResponse } from "../models/models_2.ts";
 import {
   deserializeAws_json1_1UpdateWorkforceCommand,
   serializeAws_json1_1UpdateWorkforceCommand,
@@ -45,11 +45,23 @@ export class UpdateWorkforceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "UpdateWorkforceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateWorkforceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateWorkforceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

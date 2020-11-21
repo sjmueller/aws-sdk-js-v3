@@ -240,7 +240,7 @@ export const deserializeAws_restJson1CreateOutpostCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOutpostCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateOutpostCommandError(output, context);
   }
   const contents: CreateOutpostCommandOutput = {
@@ -327,7 +327,7 @@ export const deserializeAws_restJson1DeleteOutpostCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOutpostCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteOutpostCommandError(output, context);
   }
   const contents: DeleteOutpostCommandOutput = {
@@ -402,7 +402,7 @@ export const deserializeAws_restJson1DeleteSiteCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSiteCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteSiteCommandError(output, context);
   }
   const contents: DeleteSiteCommandOutput = {
@@ -477,7 +477,7 @@ export const deserializeAws_restJson1GetOutpostCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOutpostCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetOutpostCommandError(output, context);
   }
   const contents: GetOutpostCommandOutput = {
@@ -556,7 +556,7 @@ export const deserializeAws_restJson1GetOutpostInstanceTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOutpostInstanceTypesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetOutpostInstanceTypesCommandError(output, context);
   }
   const contents: GetOutpostInstanceTypesCommandOutput = {
@@ -647,7 +647,7 @@ export const deserializeAws_restJson1ListOutpostsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOutpostsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListOutpostsCommandError(output, context);
   }
   const contents: ListOutpostsCommandOutput = {
@@ -722,7 +722,7 @@ export const deserializeAws_restJson1ListSitesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSitesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSitesCommandError(output, context);
   }
   const contents: ListSitesCommandOutput = {

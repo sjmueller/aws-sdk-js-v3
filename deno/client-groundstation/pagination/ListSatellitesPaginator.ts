@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSatellitesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSatellitesCommand(input, ...args));
+  return await client.send(new ListSatellitesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GroundStation,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSatellites(input, ...args);
 };
-export async function* listSatellitesPaginate(
+export async function* paginateListSatellites(
   config: GroundStationPaginationConfiguration,
   input: ListSatellitesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSatellitesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSatellitesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof GroundStation) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listSatellitesPaginate(
       throw new Error("Invalid client, expected GroundStation | GroundStationClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

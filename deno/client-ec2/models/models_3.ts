@@ -5,6 +5,7 @@ import {
   AllocationStrategy,
   AllowedPrincipal,
   AssociationStatus,
+  AttributeValue,
   BatchState,
   BlockDeviceMapping,
   CapacityReservationState,
@@ -16,16 +17,13 @@ import {
   IamInstanceProfileSpecification,
   InstanceInterruptionBehavior,
   IpPermission,
-  PrivateIpAddressSpecification,
   ReservedInstancesListing,
   ResourceType,
   SpotInstanceType,
   Subnet,
-  SubnetAssociation,
   SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
-  TargetConfigurationRequest,
   Tenancy,
   TransitGatewayAssociation,
   TransitGatewayAssociationState,
@@ -48,7 +46,15 @@ import {
   DnsNameState,
   GroupIdentifier,
   InstanceIpv6Address,
-  ResponseLaunchTemplateData,
+  LocalGatewayRouteTableVpcAssociation,
+  ManagedPrefixList,
+  NatGateway,
+  NetworkAcl,
+  NetworkInterface,
+  NetworkInterfaceAttachment,
+  NetworkInterfacePermission,
+  PlacementGroup,
+  PrivateIpAddressSpecification,
   RouteTable,
   ServiceConfiguration,
   ServiceTypeDetail,
@@ -74,17 +80,1376 @@ import {
   FastSnapshotRestoreStateCode,
   Filter,
   IdFormat,
-  PaymentOption,
+  LocalGatewayRouteTable,
   PermissionGroup,
   ProductCode,
 } from "./models_2.ts";
 import { SENSITIVE_STRING } from "../../smithy-client/mod.ts";
 
-export interface DescribePrefixListsRequest {
+export interface DescribeLocalGatewayRouteTablesResult {
+  /**
+   * <p>Information about the local gateway route tables.</p>
+   */
+  LocalGatewayRouteTables?: LocalGatewayRouteTable[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeLocalGatewayRouteTablesResult {
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTablesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {
+  /**
+   * <p>The IDs of the associations.</p>
+   */
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociationIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-virtual-interface-group-association-id</code> - The ID of the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the association.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
   /**
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest {
+  export const filterSensitiveLog = (
+    obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest
+  ): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes an association between a local gateway route table and a virtual interface group.</p>
+ */
+export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
+  /**
+   * <p>The ID of the association.</p>
+   */
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociationId?: string;
+
+  /**
+   * <p>The ID of the virtual interface group.</p>
+   */
+  LocalGatewayVirtualInterfaceGroupId?: string;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   */
+  LocalGatewayRouteTableId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group.</p>
+   */
+  LocalGatewayRouteTableArn?: string;
+
+  /**
+   * <p>The AWS account ID that owns the local gateway virtual interface group association.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The state of the association.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The tags assigned to the association.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
+  export const filterSensitiveLog = (obj: LocalGatewayRouteTableVirtualInterfaceGroupAssociation): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult {
+  /**
+   * <p>Information about the associations.</p>
+   */
+  LocalGatewayRouteTableVirtualInterfaceGroupAssociations?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult {
+  export const filterSensitiveLog = (
+    obj: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResult
+  ): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocalGatewayRouteTableVpcAssociationsRequest {
+  /**
+   * <p>The IDs of the associations.</p>
+   */
+  LocalGatewayRouteTableVpcAssociationIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-vpc-association-id</code> - The ID of the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeLocalGatewayRouteTableVpcAssociationsRequest {
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTableVpcAssociationsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocalGatewayRouteTableVpcAssociationsResult {
+  /**
+   * <p>Information about the associations.</p>
+   */
+  LocalGatewayRouteTableVpcAssociations?: LocalGatewayRouteTableVpcAssociation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeLocalGatewayRouteTableVpcAssociationsResult {
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayRouteTableVpcAssociationsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocalGatewaysRequest {
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-virtual-interface-group-association-id</code> - The ID of the association.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-route-table-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the association.</p>
+   *             </li>
+   *          </ul>
+   */
+  LocalGatewayIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeLocalGatewaysRequest {
+  export const filterSensitiveLog = (obj: DescribeLocalGatewaysRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a local gateway.</p>
+ */
+export interface LocalGateway {
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The AWS account ID that owns the local gateway.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The state of the local gateway.</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The tags assigned to the local gateway.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace LocalGateway {
+  export const filterSensitiveLog = (obj: LocalGateway): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocalGatewaysResult {
+  /**
+   * <p>Information about the local gateways.</p>
+   */
+  LocalGateways?: LocalGateway[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeLocalGatewaysResult {
+  export const filterSensitiveLog = (obj: DescribeLocalGatewaysResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocalGatewayVirtualInterfaceGroupsRequest {
+  /**
+   * <p>The IDs of the virtual interface groups.</p>
+   */
+  LocalGatewayVirtualInterfaceGroupIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-id</code> - The ID of a local gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>local-gateway-virtual-interface-group-id</code> - The ID of the virtual interface group.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeLocalGatewayVirtualInterfaceGroupsRequest {
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfaceGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a local gateway virtual interface group.</p>
+ */
+export interface LocalGatewayVirtualInterfaceGroup {
+  /**
+   * <p>The ID of the virtual interface group.</p>
+   */
+  LocalGatewayVirtualInterfaceGroupId?: string;
+
+  /**
+   * <p>The IDs of the virtual interfaces.</p>
+   */
+  LocalGatewayVirtualInterfaceIds?: string[];
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>The AWS account ID that owns the local gateway virtual interface group.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The tags assigned to the virtual interface group.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace LocalGatewayVirtualInterfaceGroup {
+  export const filterSensitiveLog = (obj: LocalGatewayVirtualInterfaceGroup): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocalGatewayVirtualInterfaceGroupsResult {
+  /**
+   * <p>The virtual interface groups.</p>
+   */
+  LocalGatewayVirtualInterfaceGroups?: LocalGatewayVirtualInterfaceGroup[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeLocalGatewayVirtualInterfaceGroupsResult {
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfaceGroupsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocalGatewayVirtualInterfacesRequest {
+  /**
+   * <p>The IDs of the virtual interfaces.</p>
+   */
+  LocalGatewayVirtualInterfaceIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DescribeLocalGatewayVirtualInterfacesRequest {
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfacesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Describes a local gateway virtual interface.</p>
+ */
+export interface LocalGatewayVirtualInterface {
+  /**
+   * <p>The ID of the virtual interface.</p>
+   */
+  LocalGatewayVirtualInterfaceId?: string;
+
+  /**
+   * <p>The ID of the local gateway.</p>
+   */
+  LocalGatewayId?: string;
+
+  /**
+   * <p>The ID of the VLAN.</p>
+   */
+  Vlan?: number;
+
+  /**
+   * <p>The local address.</p>
+   */
+  LocalAddress?: string;
+
+  /**
+   * <p>The peer address.</p>
+   */
+  PeerAddress?: string;
+
+  /**
+   * <p>The Border Gateway Protocol (BGP) Autonomous System Number (ASN) of the local gateway.</p>
+   */
+  LocalBgpAsn?: number;
+
+  /**
+   * <p>The peer BGP ASN.</p>
+   */
+  PeerBgpAsn?: number;
+
+  /**
+   * <p>The AWS account ID that owns the local gateway virtual interface.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The tags assigned to the virtual interface.</p>
+   */
+  Tags?: Tag[];
+}
+
+export namespace LocalGatewayVirtualInterface {
+  export const filterSensitiveLog = (obj: LocalGatewayVirtualInterface): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeLocalGatewayVirtualInterfacesResult {
+  /**
+   * <p>Information about the virtual interfaces.</p>
+   */
+  LocalGatewayVirtualInterfaces?: LocalGatewayVirtualInterface[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeLocalGatewayVirtualInterfacesResult {
+  export const filterSensitiveLog = (obj: DescribeLocalGatewayVirtualInterfacesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeManagedPrefixListsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters.</p>
+   *         <ul>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the prefix list owner.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>prefix-list-name</code> - The name of the prefix list.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more prefix list IDs.</p>
+   */
+  PrefixListIds?: string[];
+}
+
+export namespace DescribeManagedPrefixListsRequest {
+  export const filterSensitiveLog = (obj: DescribeManagedPrefixListsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeManagedPrefixListsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the prefix lists.</p>
+   */
+  PrefixLists?: ManagedPrefixList[];
+}
+
+export namespace DescribeManagedPrefixListsResult {
+  export const filterSensitiveLog = (obj: DescribeManagedPrefixListsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeMovingAddressesRequest {
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>moving-status</code> - The status of the Elastic IP address
+   *           (<code>MovingToVpc</code> | <code>RestoringToClassic</code>).</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The maximum number of results to return for the request in a single page. The remaining
+   *       results of the initial request can be seen by sending another request with the returned
+   *       <code>NextToken</code> value. This value can be between 5 and 1000; if
+   *       <code>MaxResults</code> is given a value outside of this range, an error is returned.</p>
+   *          <p>Default: If no value is provided, the default is 1000.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more Elastic IP addresses.</p>
+   */
+  PublicIps?: string[];
+}
+
+export namespace DescribeMovingAddressesRequest {
+  export const filterSensitiveLog = (obj: DescribeMovingAddressesRequest): any => ({
+    ...obj,
+  });
+}
+
+export type MoveStatus = "movingToVpc" | "restoringToClassic";
+
+/**
+ * <p>Describes the status of a moving Elastic IP address.</p>
+ */
+export interface MovingAddressStatus {
+  /**
+   * <p>The status of the Elastic IP address that's being moved to the EC2-VPC platform, or restored to the EC2-Classic platform.</p>
+   */
+  MoveStatus?: MoveStatus | string;
+
+  /**
+   * <p>The Elastic IP address.</p>
+   */
+  PublicIp?: string;
+}
+
+export namespace MovingAddressStatus {
+  export const filterSensitiveLog = (obj: MovingAddressStatus): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeMovingAddressesResult {
+  /**
+   * <p>The status for each Elastic IP address.</p>
+   */
+  MovingAddressStatuses?: MovingAddressStatus[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeMovingAddressesResult {
+  export const filterSensitiveLog = (obj: DescribeMovingAddressesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeNatGatewaysRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>nat-gateway-id</code> - The ID of the NAT gateway.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the NAT gateway (<code>pending</code> |
+   *               <code>failed</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet in which the NAT gateway resides.</p>
+   *             </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   * 		          </li>
+   *             <li>
+   * 			            <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   * 		          </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC in which the NAT gateway resides.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filter?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>One or more NAT gateway IDs.</p>
+   */
+  NatGatewayIds?: string[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeNatGatewaysRequest {
+  export const filterSensitiveLog = (obj: DescribeNatGatewaysRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeNatGatewaysResult {
+  /**
+   * <p>Information about the NAT gateways.</p>
+   */
+  NatGateways?: NatGateway[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeNatGatewaysResult {
+  export const filterSensitiveLog = (obj: DescribeNatGatewaysResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeNetworkAclsRequest {
+  /**
+   * <p>One or more filters.</p>
+   * 		       <ul>
+   *             <li>
+   * 		             <p>
+   *                   <code>association.association-id</code> - The ID of an association ID for the ACL.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>association.network-acl-id</code> - The ID of the network ACL involved in the association.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>association.subnet-id</code> - The ID of the subnet involved in the association.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>default</code> - Indicates whether the ACL is the default network ACL for the VPC.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.cidr</code> - The IPv4 CIDR range specified in the entry.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.icmp.code</code> - The ICMP code specified in the entry, if any.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.icmp.type</code> - The ICMP type specified in the entry, if any.</p>
+   * 		          </li>
+   *             <li>
+   *                   <p>
+   *                   <code>entry.ipv6-cidr</code> - The IPv6 CIDR range specified in the entry.</p>
+   *                </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.port-range.from</code> - The start of the port range specified in the entry. </p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.port-range.to</code> - The end of the port range specified in the entry. </p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.protocol</code> - The protocol specified in the entry (<code>tcp</code> | <code>udp</code> | <code>icmp</code> or a protocol number).</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.rule-action</code> - Allows or denies the matching traffic (<code>allow</code> | <code>deny</code>).</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>entry.rule-number</code> - The number of an entry (in other words, rule) in
+   *                     the set of ACL entries.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>network-acl-id</code> - The ID of the network ACL.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>owner-id</code> - The ID of the AWS account that owns the network ACL.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>vpc-id</code> - The ID of the VPC for the network ACL.</p>
+   * 		          </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more network ACL IDs.</p>
+   * 		       <p>Default: Describes all your network ACLs.</p>
+   */
+  NetworkAclIds?: string[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeNetworkAclsRequest {
+  export const filterSensitiveLog = (obj: DescribeNetworkAclsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeNetworkAclsResult {
+  /**
+   * <p>Information about one or more network ACLs.</p>
+   */
+  NetworkAcls?: NetworkAcl[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeNetworkAclsResult {
+  export const filterSensitiveLog = (obj: DescribeNetworkAclsResult): any => ({
+    ...obj,
+  });
+}
+
+export type NetworkInterfaceAttribute = "attachment" | "description" | "groupSet" | "sourceDestCheck";
+
+/**
+ * <p>Contains the parameters for DescribeNetworkInterfaceAttribute.</p>
+ */
+export interface DescribeNetworkInterfaceAttributeRequest {
+  /**
+   * <p>The attribute of the network interface. This parameter is required.</p>
+   */
+  Attribute?: NetworkInterfaceAttribute | string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId: string | undefined;
+}
+
+export namespace DescribeNetworkInterfaceAttributeRequest {
+  export const filterSensitiveLog = (obj: DescribeNetworkInterfaceAttributeRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of DescribeNetworkInterfaceAttribute.</p>
+ */
+export interface DescribeNetworkInterfaceAttributeResult {
+  /**
+   * <p>The attachment (if any) of the network interface.</p>
+   */
+  Attachment?: NetworkInterfaceAttachment;
+
+  /**
+   * <p>The description of the network interface.</p>
+   */
+  Description?: AttributeValue;
+
+  /**
+   * <p>The security groups associated with the network interface.</p>
+   */
+  Groups?: GroupIdentifier[];
+
+  /**
+   * <p>The ID of the network interface.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>Indicates whether source/destination checking is enabled.</p>
+   */
+  SourceDestCheck?: AttributeBooleanValue;
+}
+
+export namespace DescribeNetworkInterfaceAttributeResult {
+  export const filterSensitiveLog = (obj: DescribeNetworkInterfaceAttributeResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for DescribeNetworkInterfacePermissions.</p>
+ */
+export interface DescribeNetworkInterfacePermissionsRequest {
+  /**
+   * <p>One or more network interface permission IDs.</p>
+   */
+  NetworkInterfacePermissionIds?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>network-interface-permission.network-interface-permission-id</code> - The ID of the
+   * 				permission.</p>
+   *             </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>network-interface-permission.network-interface-id</code> - The ID of
+   * 					the network interface.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>network-interface-permission.aws-account-id</code> - The AWS account
+   * 					ID.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>network-interface-permission.aws-service</code> - The AWS
+   * 					service.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>network-interface-permission.permission</code> - The type of
+   * 					permission (<code>INSTANCE-ATTACH</code> |
+   * 					<code>EIP-ASSOCIATE</code>).</p>
+   * 			         </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining results,
+   * 			make another call with the returned <code>NextToken</code> value. If this parameter is not specified, up to 50 results are returned by default.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeNetworkInterfacePermissionsRequest {
+  export const filterSensitiveLog = (obj: DescribeNetworkInterfacePermissionsRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output for DescribeNetworkInterfacePermissions.</p>
+ */
+export interface DescribeNetworkInterfacePermissionsResult {
+  /**
+   * <p>The network interface permissions.</p>
+   */
+  NetworkInterfacePermissions?: NetworkInterfacePermission[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeNetworkInterfacePermissionsResult {
+  export const filterSensitiveLog = (obj: DescribeNetworkInterfacePermissionsResult): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the parameters for DescribeNetworkInterfaces.</p>
+ */
+export interface DescribeNetworkInterfacesRequest {
+  /**
+   * <p>One or more filters.</p>
+   * 		       <ul>
+   *             <li>
+   * 		             <p>
+   *                   <code>addresses.private-ip-address</code> - The private IPv4 addresses
+   *                     associated with the network interface.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>addresses.primary</code> - Whether the private IPv4 address is the primary
+   *                     IP address associated with the network interface. </p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>addresses.association.public-ip</code> - The association ID returned when
+   *                     the network interface was associated with the Elastic IP address
+   *                     (IPv4).</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>addresses.association.owner-id</code> - The owner ID of the addresses associated with the network interface.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>association.association-id</code> - The association ID returned when the
+   *                     network interface was associated with an IPv4 address.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>association.allocation-id</code> - The allocation ID returned when you
+   *                     allocated the Elastic IP address (IPv4) for your network interface.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>association.ip-owner-id</code> - The owner of the Elastic IP address
+   *                     (IPv4) associated with the network interface.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>association.public-ip</code> - The address of the Elastic IP address
+   *                     (IPv4) bound to the network interface.</p>
+   * 		          </li>
+   *             <li>
+   * 		 		          <p>
+   *                   <code>association.public-dns-name</code> - The public DNS name for the network
+   *                     interface (IPv4).</p>
+   * 		 	        </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>attachment.attachment-id</code> - The ID of the interface attachment.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>attachment.attach-time</code> - The time that the network interface was attached to an instance.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>attachment.delete-on-termination</code> - Indicates whether the attachment is deleted when an instance is terminated.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>attachment.device-index</code> - The device index to which the network interface is attached.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>availability-zone</code> - The Availability Zone of the network interface.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>description</code> - The description of the network interface.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>group-id</code> - The ID of a security group associated with the network interface.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>group-name</code> - The name of a security group associated with the network interface.</p>
+   * 		          </li>
+   *             <li>
+   *                   <p>
+   *                   <code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with
+   *                     the network interface.</p>
+   *                </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>mac-address</code> - The MAC address of the network interface.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>network-interface-id</code> - The ID of the network interface.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>owner-id</code> - The AWS account ID of the network interface owner.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>private-ip-address</code> - The private IPv4 address or addresses of the
+   *                     network interface.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>requester-id</code> - The ID of the entity that launched the instance on your behalf (for example, AWS Management Console, Auto Scaling, and so on).</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>requester-managed</code> - Indicates whether the network interface is being managed by an AWS service (for example, AWS Management Console, Auto Scaling, and so on).</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>source-dest-check</code> - Indicates whether the network interface performs source/destination checking.
+   * 		            A value of <code>true</code> means checking is enabled, and <code>false</code> means checking is disabled.
+   * 		            The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC. </p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>status</code> - The status of the network interface. If the network interface is not attached to an instance, the status is <code>available</code>;
+   * 		            if a network interface is attached to an instance the status is <code>in-use</code>.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>subnet-id</code> - The ID of the subnet for the network interface.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   * 		          </li>
+   *             <li>
+   * 		             <p>
+   *                   <code>vpc-id</code> - The ID of the VPC for the network interface.</p>
+   * 		          </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more network interface IDs.</p>
+   * 		       <p>Default: Describes all your network interfaces.</p>
+   */
+  NetworkInterfaceIds?: string[];
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this request. The request returns a token that you
+   *             can specify in a subsequent call to get the next set of results. You cannot specify this
+   *             parameter and the network interface IDs parameter in the same request.</p>
+   */
+  MaxResults?: number;
+}
+
+export namespace DescribeNetworkInterfacesRequest {
+  export const filterSensitiveLog = (obj: DescribeNetworkInterfacesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Contains the output of DescribeNetworkInterfaces.</p>
+ */
+export interface DescribeNetworkInterfacesResult {
+  /**
+   * <p>Information about one or more network interfaces.</p>
+   */
+  NetworkInterfaces?: NetworkInterface[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export namespace DescribeNetworkInterfacesResult {
+  export const filterSensitiveLog = (obj: DescribeNetworkInterfacesResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePlacementGroupsRequest {
+  /**
+   * <p>The filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                     <code>group-name</code> - The name of the placement group.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>state</code> - The state of the placement group (<code>pending</code> |
+   *                         <code>available</code> | <code>deleting</code> |
+   *                     <code>deleted</code>).</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                     <code>strategy</code> - The strategy of the placement group
+   *                         (<code>cluster</code> | <code>spread</code> |
+   *                     <code>partition</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The names of the placement groups.</p>
+   *         <p>Default: Describes all your placement groups, or only those otherwise
+   *             specified.</p>
+   */
+  GroupNames?: string[];
+
+  /**
+   * <p>The IDs of the placement groups.</p>
+   */
+  GroupIds?: string[];
+}
+
+export namespace DescribePlacementGroupsRequest {
+  export const filterSensitiveLog = (obj: DescribePlacementGroupsRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePlacementGroupsResult {
+  /**
+   * <p>Information about the placement groups.</p>
+   */
+  PlacementGroups?: PlacementGroup[];
+}
+
+export namespace DescribePlacementGroupsResult {
+  export const filterSensitiveLog = (obj: DescribePlacementGroupsResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribePrefixListsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 
   /**
    * <p>One or more filters.</p>
@@ -102,17 +1467,15 @@ export interface DescribePrefixListsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>One or more prefix list IDs.</p>
@@ -154,14 +1517,14 @@ export namespace PrefixList {
 
 export interface DescribePrefixListsResult {
   /**
-   * <p>All available prefix lists.</p>
-   */
-  PrefixLists?: PrefixList[];
-
-  /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>All available prefix lists.</p>
+   */
+  PrefixLists?: PrefixList[];
 }
 
 export namespace DescribePrefixListsResult {
@@ -172,9 +1535,11 @@ export namespace DescribePrefixListsResult {
 
 export interface DescribePrincipalIdFormatRequest {
   /**
-   * <p>The token to request the next page of results.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  NextToken?: string;
+  DryRun?: boolean;
 
   /**
    * <p>The type of resource: <code>bundle</code> |
@@ -201,11 +1566,9 @@ export interface DescribePrincipalIdFormatRequest {
   MaxResults?: number;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The token to request the next page of results.</p>
    */
-  DryRun?: boolean;
+  NextToken?: string;
 }
 
 export namespace DescribePrincipalIdFormatRequest {
@@ -237,14 +1600,14 @@ export namespace PrincipalIdFormat {
 
 export interface DescribePrincipalIdFormatResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the ID format settings for the ARN.</p>
    */
   Principals?: PrincipalIdFormat[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is null when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribePrincipalIdFormatResult {
@@ -258,6 +1621,17 @@ export interface DescribePublicIpv4PoolsRequest {
    * <p>The IDs of the address pools.</p>
    */
   PoolIds?: string[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>One or more filters.</p>
@@ -274,17 +1648,6 @@ export interface DescribePublicIpv4PoolsRequest {
    *          </ul>
    */
   Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace DescribePublicIpv4PoolsRequest {
@@ -298,24 +1661,24 @@ export namespace DescribePublicIpv4PoolsRequest {
  */
 export interface PublicIpv4PoolRange {
   /**
-   * <p>The last IP address in the range.</p>
-   */
-  LastAddress?: string;
-
-  /**
-   * <p>The number of available addresses in the range.</p>
-   */
-  AvailableAddressCount?: number;
-
-  /**
    * <p>The first IP address in the range.</p>
    */
   FirstAddress?: string;
 
   /**
+   * <p>The last IP address in the range.</p>
+   */
+  LastAddress?: string;
+
+  /**
    * <p>The number of addresses in the range.</p>
    */
   AddressCount?: number;
+
+  /**
+   * <p>The number of available addresses in the range.</p>
+   */
+  AvailableAddressCount?: number;
 }
 
 export namespace PublicIpv4PoolRange {
@@ -329,24 +1692,9 @@ export namespace PublicIpv4PoolRange {
  */
 export interface PublicIpv4Pool {
   /**
-   * <p>The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises public IP addresses.</p>
-   */
-  NetworkBorderGroup?: string;
-
-  /**
-   * <p>The total number of addresses.</p>
-   */
-  TotalAddressCount?: number;
-
-  /**
    * <p>The ID of the address pool.</p>
    */
   PoolId?: string;
-
-  /**
-   * <p>The total number of available addresses.</p>
-   */
-  TotalAvailableAddressCount?: number;
 
   /**
    * <p>A description of the address pool.</p>
@@ -357,6 +1705,21 @@ export interface PublicIpv4Pool {
    * <p>The address ranges.</p>
    */
   PoolAddressRanges?: PublicIpv4PoolRange[];
+
+  /**
+   * <p>The total number of addresses.</p>
+   */
+  TotalAddressCount?: number;
+
+  /**
+   * <p>The total number of available addresses.</p>
+   */
+  TotalAvailableAddressCount?: number;
+
+  /**
+   * <p>The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises public IP addresses.</p>
+   */
+  NetworkBorderGroup?: string;
 
   /**
    * <p>Any tags for the address pool.</p>
@@ -390,23 +1753,6 @@ export namespace DescribePublicIpv4PoolsResult {
 
 export interface DescribeRegionsRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The names of the Regions. You can specify any Regions, whether they are enabled and disabled for your account.</p>
-   */
-  RegionNames?: string[];
-
-  /**
-   * <p>Indicates whether to display all Regions, including Regions that are disabled for your account.</p>
-   */
-  AllRegions?: boolean;
-
-  /**
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -425,6 +1771,23 @@ export interface DescribeRegionsRequest {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The names of the Regions. You can specify any Regions, whether they are enabled and disabled for your account.</p>
+   */
+  RegionNames?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether to display all Regions, including Regions that are disabled for your account.</p>
+   */
+  AllRegions?: boolean;
 }
 
 export namespace DescribeRegionsRequest {
@@ -438,10 +1801,9 @@ export namespace DescribeRegionsRequest {
  */
 export interface Region {
   /**
-   * <p>The Region opt-in status. The possible values are <code>opt-in-not-required</code>, <code>opted-in</code>, and
-   *         <code>not-opted-in</code>.</p>
+   * <p>The Region service endpoint.</p>
    */
-  OptInStatus?: string;
+  Endpoint?: string;
 
   /**
    * <p>The name of the Region.</p>
@@ -449,9 +1811,10 @@ export interface Region {
   RegionName?: string;
 
   /**
-   * <p>The Region service endpoint.</p>
+   * <p>The Region opt-in status. The possible values are <code>opt-in-not-required</code>, <code>opted-in</code>, and
+   *         <code>not-opted-in</code>.</p>
    */
-  Endpoint?: string;
+  OptInStatus?: string;
 }
 
 export namespace Region {
@@ -490,26 +1853,6 @@ export type OfferingTypeValues =
  * <p>Contains the parameters for DescribeReservedInstances.</p>
  */
 export interface DescribeReservedInstancesRequest {
-  /**
-   * <p>One or more Reserved Instance IDs.</p>
-   *          <p>Default: Describes all your Reserved Instances, or only those otherwise specified.</p>
-   */
-  ReservedInstancesIds?: string[];
-
-  /**
-   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API
-   * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
-   * 			offering type.</p>
-   */
-  OfferingType?: OfferingTypeValues | string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
   /**
    * <p>One or more filters.</p>
    *          <ul>
@@ -584,6 +1927,26 @@ export interface DescribeReservedInstancesRequest {
    * <p>Describes whether the Reserved Instance is Standard or Convertible.</p>
    */
   OfferingClass?: OfferingClassType | string;
+
+  /**
+   * <p>One or more Reserved Instance IDs.</p>
+   *          <p>Default: Describes all your Reserved Instances, or only those otherwise specified.</p>
+   */
+  ReservedInstancesIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API
+   * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
+   * 			offering type.</p>
+   */
+  OfferingType?: OfferingTypeValues | string;
 }
 
 export namespace DescribeReservedInstancesRequest {
@@ -601,14 +1964,14 @@ export type RecurringChargeFrequency = "Hourly";
  */
 export interface RecurringCharge {
   /**
-   * <p>The frequency of the recurring charge.</p>
-   */
-  Frequency?: RecurringChargeFrequency | string;
-
-  /**
    * <p>The amount of the recurring charge.</p>
    */
   Amount?: number;
+
+  /**
+   * <p>The frequency of the recurring charge.</p>
+   */
+  Frequency?: RecurringChargeFrequency | string;
 }
 
 export namespace RecurringCharge {
@@ -635,19 +1998,49 @@ export type ReservedInstanceState =
  */
 export interface ReservedInstances {
   /**
-   * <p>The tenancy of the instance.</p>
-   */
-  InstanceTenancy?: Tenancy | string;
-
-  /**
-   * <p>Any tags assigned to the resource.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>The Availability Zone in which the Reserved Instance can be used.</p>
    */
   AvailabilityZone?: string;
+
+  /**
+   * <p>The duration of the Reserved Instance, in seconds.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>The time when the Reserved Instance expires.</p>
+   */
+  End?: Date;
+
+  /**
+   * <p>The purchase price of the Reserved Instance.</p>
+   */
+  FixedPrice?: number;
+
+  /**
+   * <p>The number of reservations purchased.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>The instance type on which the Reserved Instance can be used.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The Reserved Instance product platform description.</p>
+   */
+  ProductDescription?: RIProductDescription | string;
+
+  /**
+   * <p>The ID of the Reserved Instance.</p>
+   */
+  ReservedInstancesId?: string;
+
+  /**
+   * <p>The date and time the Reserved Instance started.</p>
+   */
+  Start?: Date;
 
   /**
    * <p>The state of the Reserved Instance purchase.</p>
@@ -660,40 +2053,20 @@ export interface ReservedInstances {
   UsagePrice?: number;
 
   /**
-   * <p>The ID of the Reserved Instance.</p>
+   * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes.
+   * 				At this time, the only supported currency is <code>USD</code>.</p>
    */
-  ReservedInstancesId?: string;
+  CurrencyCode?: CurrencyCodeValues | string;
 
   /**
-   * <p>The duration of the Reserved Instance, in seconds.</p>
+   * <p>The tenancy of the instance.</p>
    */
-  Duration?: number;
-
-  /**
-   * <p>The scope of the Reserved Instance.</p>
-   */
-  Scope?: Scope | string;
-
-  /**
-   * <p>The time when the Reserved Instance expires.</p>
-   */
-  End?: Date;
+  InstanceTenancy?: Tenancy | string;
 
   /**
    * <p>The offering class of the Reserved Instance.</p>
    */
   OfferingClass?: OfferingClassType | string;
-
-  /**
-   * <p>The date and time the Reserved Instance started.</p>
-   */
-  Start?: Date;
-
-  /**
-   * <p>The currency of the Reserved Instance. It's specified using ISO 4217 standard currency codes.
-   * 				At this time, the only supported currency is <code>USD</code>.</p>
-   */
-  CurrencyCode?: CurrencyCodeValues | string;
 
   /**
    * <p>The Reserved Instance offering type.</p>
@@ -706,24 +2079,14 @@ export interface ReservedInstances {
   RecurringCharges?: RecurringCharge[];
 
   /**
-   * <p>The purchase price of the Reserved Instance.</p>
+   * <p>The scope of the Reserved Instance.</p>
    */
-  FixedPrice?: number;
+  Scope?: Scope | string;
 
   /**
-   * <p>The Reserved Instance product platform description.</p>
+   * <p>Any tags assigned to the resource.</p>
    */
-  ProductDescription?: RIProductDescription | string;
-
-  /**
-   * <p>The number of reservations purchased.</p>
-   */
-  InstanceCount?: number;
-
-  /**
-   * <p>The instance type on which the Reserved Instance can be used.</p>
-   */
-  InstanceType?: _InstanceType | string;
+  Tags?: Tag[];
 }
 
 export namespace ReservedInstances {
@@ -753,11 +2116,6 @@ export namespace DescribeReservedInstancesResult {
  */
 export interface DescribeReservedInstancesListingsRequest {
   /**
-   * <p>One or more Reserved Instance listing IDs.</p>
-   */
-  ReservedInstancesListingId?: string;
-
-  /**
    * <p>One or more filters.</p>
    *          <ul>
    *             <li>
@@ -785,6 +2143,11 @@ export interface DescribeReservedInstancesListingsRequest {
    * <p>One or more Reserved Instance IDs.</p>
    */
   ReservedInstancesId?: string;
+
+  /**
+   * <p>One or more Reserved Instance listing IDs.</p>
+   */
+  ReservedInstancesListingId?: string;
 }
 
 export namespace DescribeReservedInstancesListingsRequest {
@@ -895,19 +2258,9 @@ export namespace DescribeReservedInstancesModificationsRequest {
  */
 export interface ReservedInstancesConfiguration {
   /**
-   * <p>The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.</p>
+   * <p>The Availability Zone for the modified Reserved Instances.</p>
    */
-  Platform?: string;
-
-  /**
-   * <p>The instance type for the modified Reserved Instances.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.</p>
-   */
-  Scope?: Scope | string;
+  AvailabilityZone?: string;
 
   /**
    * <p>The number of modified Reserved Instances.</p>
@@ -918,9 +2271,19 @@ export interface ReservedInstancesConfiguration {
   InstanceCount?: number;
 
   /**
-   * <p>The Availability Zone for the modified Reserved Instances.</p>
+   * <p>The instance type for the modified Reserved Instances.</p>
    */
-  AvailabilityZone?: string;
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The network platform of the modified Reserved Instances, which is either EC2-Classic or EC2-VPC.</p>
+   */
+  Platform?: string;
+
+  /**
+   * <p>Whether the Reserved Instance is applied to instances in a Region or instances in a specific Availability Zone.</p>
+   */
+  Scope?: Scope | string;
 }
 
 export namespace ReservedInstancesConfiguration {
@@ -934,14 +2297,14 @@ export namespace ReservedInstancesConfiguration {
  */
 export interface ReservedInstancesModificationResult {
   /**
-   * <p>The target Reserved Instances configurations supplied as part of the modification request.</p>
-   */
-  TargetConfiguration?: ReservedInstancesConfiguration;
-
-  /**
    * <p>The ID for the Reserved Instances that were created as part of the modification request. This field is only available when the modification is fulfilled.</p>
    */
   ReservedInstancesId?: string;
+
+  /**
+   * <p>The target Reserved Instances configurations supplied as part of the modification request.</p>
+   */
+  TargetConfiguration?: ReservedInstancesConfiguration;
 }
 
 export namespace ReservedInstancesModificationResult {
@@ -971,16 +2334,6 @@ export namespace ReservedInstancesId {
  */
 export interface ReservedInstancesModification {
   /**
-   * <p>The IDs of one or more Reserved Instances.</p>
-   */
-  ReservedInstancesIds?: ReservedInstancesId[];
-
-  /**
-   * <p>The status of the Reserved Instances modification request.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>A unique, case-sensitive key supplied by the client to ensure that the request is idempotent.
    * 			For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring
    * 				Idempotency</a>.</p>
@@ -988,9 +2341,9 @@ export interface ReservedInstancesModification {
   ClientToken?: string;
 
   /**
-   * <p>Contains target configurations along with their corresponding new Reserved Instance IDs.</p>
+   * <p>The time when the modification request was created.</p>
    */
-  ModificationResults?: ReservedInstancesModificationResult[];
+  CreateDate?: Date;
 
   /**
    * <p>The time for the modification to become effective.</p>
@@ -998,19 +2351,29 @@ export interface ReservedInstancesModification {
   EffectiveDate?: Date;
 
   /**
-   * <p>The reason for the status.</p>
+   * <p>Contains target configurations along with their corresponding new Reserved Instance IDs.</p>
    */
-  StatusMessage?: string;
+  ModificationResults?: ReservedInstancesModificationResult[];
 
   /**
-   * <p>The time when the modification request was created.</p>
+   * <p>The IDs of one or more Reserved Instances.</p>
    */
-  CreateDate?: Date;
+  ReservedInstancesIds?: ReservedInstancesId[];
 
   /**
    * <p>A unique ID for the Reserved Instance modification.</p>
    */
   ReservedInstancesModificationId?: string;
+
+  /**
+   * <p>The status of the Reserved Instances modification request.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The reason for the status.</p>
+   */
+  StatusMessage?: string;
 
   /**
    * <p>The time when the modification request was last updated.</p>
@@ -1029,15 +2392,15 @@ export namespace ReservedInstancesModification {
  */
 export interface DescribeReservedInstancesModificationsResult {
   /**
-   * <p>The Reserved Instance modification information.</p>
-   */
-  ReservedInstancesModifications?: ReservedInstancesModification[];
-
-  /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when
    * 			there are no more results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The Reserved Instance modification information.</p>
+   */
+  ReservedInstancesModifications?: ReservedInstancesModification[];
 }
 
 export namespace DescribeReservedInstancesModificationsResult {
@@ -1051,67 +2414,9 @@ export namespace DescribeReservedInstancesModificationsResult {
  */
 export interface DescribeReservedInstancesOfferingsRequest {
   /**
-   * <p>The offering class of the Reserved Instance. Can be <code>standard</code> or <code>convertible</code>.</p>
-   */
-  OfferingClass?: OfferingClassType | string;
-
-  /**
-   * <p>The instance type that the reservation will cover (for example, <code>m1.small</code>). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the
-   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The Reserved Instance product platform description. Instances that include <code>(Amazon
-   *         VPC)</code> in the description are for use with Amazon VPC.</p>
-   */
-  ProductDescription?: RIProductDescription | string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The Availability Zone in which the Reserved Instance can be used.</p>
    */
   AvailabilityZone?: string;
-
-  /**
-   * <p>The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy
-   *       of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant hardware
-   *       (i.e., Dedicated Instances).</p>
-   *          <p>
-   *             <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p>
-   *          <p>Default: <code>default</code>
-   *          </p>
-   */
-  InstanceTenancy?: Tenancy | string;
-
-  /**
-   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API
-   * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
-   * 			offering type. </p>
-   */
-  OfferingType?: OfferingTypeValues | string;
-
-  /**
-   * <p>The minimum duration (in seconds) to filter when searching for offerings.</p>
-   * 		       <p>Default: 2592000 (1 month)</p>
-   */
-  MinDuration?: number;
-
-  /**
-   * <p>Include Reserved Instance Marketplace offerings in the response.</p>
-   */
-  IncludeMarketplace?: boolean;
 
   /**
    * <p>One or more filters.</p>
@@ -1176,10 +2481,67 @@ export interface DescribeReservedInstancesOfferingsRequest {
   Filters?: Filter[];
 
   /**
+   * <p>Include Reserved Instance Marketplace offerings in the response.</p>
+   */
+  IncludeMarketplace?: boolean;
+
+  /**
+   * <p>The instance type that the reservation will cover (for example, <code>m1.small</code>). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the
+   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
    * <p>The maximum duration (in seconds) to filter when searching for offerings.</p>
    * 		       <p>Default: 94608000 (3 years)</p>
    */
   MaxDuration?: number;
+
+  /**
+   * <p>The maximum number of instances to filter when searching for offerings.</p>
+   * 		       <p>Default: 20</p>
+   */
+  MaxInstanceCount?: number;
+
+  /**
+   * <p>The minimum duration (in seconds) to filter when searching for offerings.</p>
+   * 		       <p>Default: 2592000 (1 month)</p>
+   */
+  MinDuration?: number;
+
+  /**
+   * <p>The offering class of the Reserved Instance. Can be <code>standard</code> or <code>convertible</code>.</p>
+   */
+  OfferingClass?: OfferingClassType | string;
+
+  /**
+   * <p>The Reserved Instance product platform description. Instances that include <code>(Amazon
+   *         VPC)</code> in the description are for use with Amazon VPC.</p>
+   */
+  ProductDescription?: RIProductDescription | string;
+
+  /**
+   * <p>One or more Reserved Instances offering IDs.</p>
+   */
+  ReservedInstancesOfferingIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tenancy of the instances covered by the reservation. A Reserved Instance with a tenancy
+   *       of <code>dedicated</code> is applied to instances that run in a VPC on single-tenant hardware
+   *       (i.e., Dedicated Instances).</p>
+   *          <p>
+   *             <b>Important:</b> The <code>host</code> value cannot be used with this parameter. Use the <code>default</code> or <code>dedicated</code> values only.</p>
+   *          <p>Default: <code>default</code>
+   *          </p>
+   */
+  InstanceTenancy?: Tenancy | string;
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining
@@ -1190,15 +2552,16 @@ export interface DescribeReservedInstancesOfferingsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The maximum number of instances to filter when searching for offerings.</p>
-   * 		       <p>Default: 20</p>
+   * <p>The token to retrieve the next page of results.</p>
    */
-  MaxInstanceCount?: number;
+  NextToken?: string;
 
   /**
-   * <p>One or more Reserved Instances offering IDs.</p>
+   * <p>The Reserved Instance offering type. If you are using tools that predate the 2011-11-01 API
+   * 			version, you only have access to the <code>Medium Utilization</code> Reserved Instance
+   * 			offering type. </p>
    */
-  ReservedInstancesOfferingIds?: string[];
+  OfferingType?: OfferingTypeValues | string;
 }
 
 export namespace DescribeReservedInstancesOfferingsRequest {
@@ -1238,6 +2601,55 @@ export interface ReservedInstancesOffering {
   AvailabilityZone?: string;
 
   /**
+   * <p>The duration of the Reserved Instance, in seconds.</p>
+   */
+  Duration?: number;
+
+  /**
+   * <p>The purchase price of the Reserved Instance.</p>
+   */
+  FixedPrice?: number;
+
+  /**
+   * <p>The instance type on which the Reserved Instance can be used.</p>
+   */
+  InstanceType?: _InstanceType | string;
+
+  /**
+   * <p>The Reserved Instance product platform description.</p>
+   */
+  ProductDescription?: RIProductDescription | string;
+
+  /**
+   * <p>The ID of the Reserved Instance offering. This is the offering ID used in <a>GetReservedInstancesExchangeQuote</a>
+   *      to confirm that an exchange can be made.</p>
+   */
+  ReservedInstancesOfferingId?: string;
+
+  /**
+   * <p>The usage price of the Reserved Instance, per hour.</p>
+   */
+  UsagePrice?: number;
+
+  /**
+   * <p>The currency of the Reserved Instance offering you are purchasing. It's
+   * 				specified using ISO 4217 standard currency codes. At this time,
+   * 				the only supported currency is <code>USD</code>.</p>
+   */
+  CurrencyCode?: CurrencyCodeValues | string;
+
+  /**
+   * <p>The tenancy of the instance.</p>
+   */
+  InstanceTenancy?: Tenancy | string;
+
+  /**
+   * <p>Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS.
+   *         If it's a Reserved Instance Marketplace offering, this is <code>true</code>.</p>
+   */
+  Marketplace?: boolean;
+
+  /**
    * <p>If <code>convertible</code> it can be exchanged for Reserved Instances of
    *       the same or higher monetary value, with different configurations. If <code>standard</code>, it is not
    *       possible to perform an exchange.</p>
@@ -1250,11 +2662,6 @@ export interface ReservedInstancesOffering {
   OfferingType?: OfferingTypeValues | string;
 
   /**
-   * <p>The Reserved Instance product platform description.</p>
-   */
-  ProductDescription?: RIProductDescription | string;
-
-  /**
    * <p>The pricing details of the Reserved Instance offering.</p>
    */
   PricingDetails?: PricingDetail[];
@@ -1265,53 +2672,9 @@ export interface ReservedInstancesOffering {
   RecurringCharges?: RecurringCharge[];
 
   /**
-   * <p>Indicates whether the offering is available through the Reserved Instance Marketplace (resale) or AWS.
-   *         If it's a Reserved Instance Marketplace offering, this is <code>true</code>.</p>
-   */
-  Marketplace?: boolean;
-
-  /**
    * <p>Whether the Reserved Instance is applied to instances in a Region or an Availability Zone.</p>
    */
   Scope?: Scope | string;
-
-  /**
-   * <p>The tenancy of the instance.</p>
-   */
-  InstanceTenancy?: Tenancy | string;
-
-  /**
-   * <p>The usage price of the Reserved Instance, per hour.</p>
-   */
-  UsagePrice?: number;
-
-  /**
-   * <p>The duration of the Reserved Instance, in seconds.</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>The instance type on which the Reserved Instance can be used.</p>
-   */
-  InstanceType?: _InstanceType | string;
-
-  /**
-   * <p>The purchase price of the Reserved Instance.</p>
-   */
-  FixedPrice?: number;
-
-  /**
-   * <p>The currency of the Reserved Instance offering you are purchasing. It's
-   * 				specified using ISO 4217 standard currency codes. At this time,
-   * 				the only supported currency is <code>USD</code>.</p>
-   */
-  CurrencyCode?: CurrencyCodeValues | string;
-
-  /**
-   * <p>The ID of the Reserved Instance offering. This is the offering ID used in <a>GetReservedInstancesExchangeQuote</a>
-   *      to confirm that an exchange can be made.</p>
-   */
-  ReservedInstancesOfferingId?: string;
 }
 
 export namespace ReservedInstancesOffering {
@@ -1343,19 +2706,6 @@ export namespace DescribeReservedInstancesOfferingsResult {
 }
 
 export interface DescribeRouteTablesRequest {
-  /**
-   * <p>One or more route table IDs.</p>
-   * 		       <p>Default: Describes all your route tables.</p>
-   */
-  RouteTableIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
   /**
    * <p>One or more filters.</p>
    * 		       <ul>
@@ -1463,6 +2813,19 @@ export interface DescribeRouteTablesRequest {
   Filters?: Filter[];
 
   /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more route table IDs.</p>
+   * 		       <p>Default: Describes all your route tables.</p>
+   */
+  RouteTableIds?: string[];
+
+  /**
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
@@ -1485,14 +2848,14 @@ export namespace DescribeRouteTablesRequest {
  */
 export interface DescribeRouteTablesResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about one or more route tables.</p>
    */
   RouteTables?: RouteTable[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeRouteTablesResult {
@@ -1527,6 +2890,11 @@ export namespace SlotDateTimeRangeRequest {
  */
 export interface ScheduledInstanceRecurrenceRequest {
   /**
+   * <p>The frequency (<code>Daily</code>, <code>Weekly</code>, or <code>Monthly</code>).</p>
+   */
+  Frequency?: string;
+
+  /**
    * <p>The interval quantity. The interval unit depends on the value of <code>Frequency</code>. For example, every 2
    *          weeks or every 2 months.</p>
    */
@@ -1538,9 +2906,9 @@ export interface ScheduledInstanceRecurrenceRequest {
   OccurrenceDays?: number[];
 
   /**
-   * <p>The frequency (<code>Daily</code>, <code>Weekly</code>, or <code>Monthly</code>).</p>
+   * <p>Indicates whether the occurrence is relative to the end of the specified week or month. You can't specify this value with a daily schedule.</p>
    */
-  Frequency?: string;
+  OccurrenceRelativeToEnd?: boolean;
 
   /**
    * <p>The unit for <code>OccurrenceDays</code> (<code>DayOfWeek</code> or <code>DayOfMonth</code>).
@@ -1549,11 +2917,6 @@ export interface ScheduledInstanceRecurrenceRequest {
    *         You can't specify this value with a daily schedule.</p>
    */
   OccurrenceUnit?: string;
-
-  /**
-   * <p>Indicates whether the occurrence is relative to the end of the specified week or month. You can't specify this value with a daily schedule.</p>
-   */
-  OccurrenceRelativeToEnd?: boolean;
 }
 
 export namespace ScheduledInstanceRecurrenceRequest {
@@ -1567,35 +2930,11 @@ export namespace ScheduledInstanceRecurrenceRequest {
  */
 export interface DescribeScheduledInstanceAvailabilityRequest {
   /**
-   * <p>The time period for the first schedule to start.</p>
-   */
-  FirstSlotStartTimeRange: SlotDateTimeRangeRequest | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The maximum available duration, in hours. This value must be greater than <code>MinSlotDurationInHours</code>
-   *          and less than 1,720.</p>
-   */
-  MaxSlotDurationInHours?: number;
-
-  /**
-   * <p>The maximum number of results to return in a single call.
-   *          This value can be between 5 and 300. The default value is 300.
-   *          To retrieve the remaining results, make another call with the returned
-   *          <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>The filters.</p>
@@ -1621,9 +2960,33 @@ export interface DescribeScheduledInstanceAvailabilityRequest {
   Filters?: Filter[];
 
   /**
+   * <p>The time period for the first schedule to start.</p>
+   */
+  FirstSlotStartTimeRange: SlotDateTimeRangeRequest | undefined;
+
+  /**
+   * <p>The maximum number of results to return in a single call.
+   *          This value can be between 5 and 300. The default value is 300.
+   *          To retrieve the remaining results, make another call with the returned
+   *          <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The maximum available duration, in hours. This value must be greater than <code>MinSlotDurationInHours</code>
+   *          and less than 1,720.</p>
+   */
+  MaxSlotDurationInHours?: number;
+
+  /**
    * <p>The minimum available duration, in hours. The minimum required duration is 1,200 hours per year. For example, the minimum daily schedule is 4 hours, the minimum weekly schedule is 24 hours, and the minimum monthly schedule is 100 hours.</p>
    */
   MinSlotDurationInHours?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>The schedule recurrence.</p>
@@ -1647,14 +3010,10 @@ export interface ScheduledInstanceRecurrence {
   Frequency?: string;
 
   /**
-   * <p>The unit for <code>occurrenceDaySet</code> (<code>DayOfWeek</code> or <code>DayOfMonth</code>).</p>
+   * <p>The interval quantity. The interval unit depends on the value of <code>frequency</code>. For example, every 2
+   *          weeks or every 2 months.</p>
    */
-  OccurrenceUnit?: string;
-
-  /**
-   * <p>Indicates whether the occurrence is relative to the end of the specified week or month.</p>
-   */
-  OccurrenceRelativeToEnd?: boolean;
+  Interval?: number;
 
   /**
    * <p>The days. For a monthly schedule, this is one or more days of the month (1-31). For a weekly schedule, this is one or more days of the week (1-7, where 1 is Sunday).</p>
@@ -1662,10 +3021,14 @@ export interface ScheduledInstanceRecurrence {
   OccurrenceDaySet?: number[];
 
   /**
-   * <p>The interval quantity. The interval unit depends on the value of <code>frequency</code>. For example, every 2
-   *          weeks or every 2 months.</p>
+   * <p>Indicates whether the occurrence is relative to the end of the specified week or month.</p>
    */
-  Interval?: number;
+  OccurrenceRelativeToEnd?: boolean;
+
+  /**
+   * <p>The unit for <code>occurrenceDaySet</code> (<code>DayOfWeek</code> or <code>DayOfMonth</code>).</p>
+   */
+  OccurrenceUnit?: string;
 }
 
 export namespace ScheduledInstanceRecurrence {
@@ -1684,54 +3047,14 @@ export interface ScheduledInstanceAvailability {
   AvailabilityZone?: string;
 
   /**
-   * <p>The minimum term. The only possible value is 365 days.</p>
-   */
-  MinTermDurationInDays?: number;
-
-  /**
-   * <p>The number of hours in the schedule.</p>
-   */
-  SlotDurationInHours?: number;
-
-  /**
-   * <p>The purchase token. This token expires in two hours.</p>
-   */
-  PurchaseToken?: string;
-
-  /**
-   * <p>The maximum term. The only possible value is 365 days.</p>
-   */
-  MaxTermDurationInDays?: number;
-
-  /**
-   * <p>The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
-   */
-  Platform?: string;
-
-  /**
    * <p>The number of available instances.</p>
    */
   AvailableInstanceCount?: number;
 
   /**
-   * <p>The network platform (<code>EC2-Classic</code> or <code>EC2-VPC</code>).</p>
-   */
-  NetworkPlatform?: string;
-
-  /**
-   * <p>The total number of hours for a single instance for the entire term.</p>
-   */
-  TotalScheduledInstanceHours?: number;
-
-  /**
    * <p>The time period for the first schedule to start.</p>
    */
   FirstSlotStartTime?: Date;
-
-  /**
-   * <p>The schedule recurrence.</p>
-   */
-  Recurrence?: ScheduledInstanceRecurrence;
 
   /**
    * <p>The hourly price for a single instance.</p>
@@ -1742,6 +3065,46 @@ export interface ScheduledInstanceAvailability {
    * <p>The instance type. You can specify one of the C3, C4, M4, or R3 instance types.</p>
    */
   InstanceType?: string;
+
+  /**
+   * <p>The maximum term. The only possible value is 365 days.</p>
+   */
+  MaxTermDurationInDays?: number;
+
+  /**
+   * <p>The minimum term. The only possible value is 365 days.</p>
+   */
+  MinTermDurationInDays?: number;
+
+  /**
+   * <p>The network platform (<code>EC2-Classic</code> or <code>EC2-VPC</code>).</p>
+   */
+  NetworkPlatform?: string;
+
+  /**
+   * <p>The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
+   */
+  Platform?: string;
+
+  /**
+   * <p>The purchase token. This token expires in two hours.</p>
+   */
+  PurchaseToken?: string;
+
+  /**
+   * <p>The schedule recurrence.</p>
+   */
+  Recurrence?: ScheduledInstanceRecurrence;
+
+  /**
+   * <p>The number of hours in the schedule.</p>
+   */
+  SlotDurationInHours?: number;
+
+  /**
+   * <p>The total number of hours for a single instance for the entire term.</p>
+   */
+  TotalScheduledInstanceHours?: number;
 }
 
 export namespace ScheduledInstanceAvailability {
@@ -1755,14 +3118,14 @@ export namespace ScheduledInstanceAvailability {
  */
 export interface DescribeScheduledInstanceAvailabilityResult {
   /**
-   * <p>Information about the available Scheduled Instances.</p>
-   */
-  ScheduledInstanceAvailabilitySet?: ScheduledInstanceAvailability[];
-
-  /**
    * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the available Scheduled Instances.</p>
+   */
+  ScheduledInstanceAvailabilitySet?: ScheduledInstanceAvailability[];
 }
 
 export namespace DescribeScheduledInstanceAvailabilityResult {
@@ -1797,22 +3160,11 @@ export namespace SlotStartTimeRangeRequest {
  */
 export interface DescribeScheduledInstancesRequest {
   /**
-   * <p>The token for the next set of results.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call.
-   *          This value can be between 5 and 300. The default value is 100.
-   *          To retrieve the remaining results, make another call with the returned
-   *          <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The Scheduled Instance IDs.</p>
-   */
-  ScheduledInstanceIds?: string[];
+  DryRun?: boolean;
 
   /**
    * <p>The filters.</p>
@@ -1838,11 +3190,22 @@ export interface DescribeScheduledInstancesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The maximum number of results to return in a single call.
+   *          This value can be between 5 and 300. The default value is 100.
+   *          To retrieve the remaining results, make another call with the returned
+   *          <code>NextToken</code> value.</p>
    */
-  DryRun?: boolean;
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The Scheduled Instance IDs.</p>
+   */
+  ScheduledInstanceIds?: string[];
 
   /**
    * <p>The time period for the first schedule to start.</p>
@@ -1861,64 +3224,9 @@ export namespace DescribeScheduledInstancesRequest {
  */
 export interface ScheduledInstance {
   /**
-   * <p>The number of instances.</p>
-   */
-  InstanceCount?: number;
-
-  /**
-   * <p>The total number of hours for a single instance for the entire term.</p>
-   */
-  TotalScheduledInstanceHours?: number;
-
-  /**
-   * <p>The start date for the Scheduled Instance.</p>
-   */
-  TermStartDate?: Date;
-
-  /**
-   * <p>The instance type.</p>
-   */
-  InstanceType?: string;
-
-  /**
-   * <p>The end date for the Scheduled Instance.</p>
-   */
-  TermEndDate?: Date;
-
-  /**
-   * <p>The network platform (<code>EC2-Classic</code> or <code>EC2-VPC</code>).</p>
-   */
-  NetworkPlatform?: string;
-
-  /**
-   * <p>The number of hours in the schedule.</p>
-   */
-  SlotDurationInHours?: number;
-
-  /**
-   * <p>The time that the previous schedule ended or will end.</p>
-   */
-  PreviousSlotEndTime?: Date;
-
-  /**
-   * <p>The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
-   */
-  Platform?: string;
-
-  /**
-   * <p>The schedule recurrence.</p>
-   */
-  Recurrence?: ScheduledInstanceRecurrence;
-
-  /**
    * <p>The Availability Zone.</p>
    */
   AvailabilityZone?: string;
-
-  /**
-   * <p>The Scheduled Instance ID.</p>
-   */
-  ScheduledInstanceId?: string;
 
   /**
    * <p>The date when the Scheduled Instance was purchased.</p>
@@ -1926,14 +3234,69 @@ export interface ScheduledInstance {
   CreateDate?: Date;
 
   /**
+   * <p>The hourly price for a single instance.</p>
+   */
+  HourlyPrice?: string;
+
+  /**
+   * <p>The number of instances.</p>
+   */
+  InstanceCount?: number;
+
+  /**
+   * <p>The instance type.</p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>The network platform (<code>EC2-Classic</code> or <code>EC2-VPC</code>).</p>
+   */
+  NetworkPlatform?: string;
+
+  /**
    * <p>The time for the next schedule to start.</p>
    */
   NextSlotStartTime?: Date;
 
   /**
-   * <p>The hourly price for a single instance.</p>
+   * <p>The platform (<code>Linux/UNIX</code> or <code>Windows</code>).</p>
    */
-  HourlyPrice?: string;
+  Platform?: string;
+
+  /**
+   * <p>The time that the previous schedule ended or will end.</p>
+   */
+  PreviousSlotEndTime?: Date;
+
+  /**
+   * <p>The schedule recurrence.</p>
+   */
+  Recurrence?: ScheduledInstanceRecurrence;
+
+  /**
+   * <p>The Scheduled Instance ID.</p>
+   */
+  ScheduledInstanceId?: string;
+
+  /**
+   * <p>The number of hours in the schedule.</p>
+   */
+  SlotDurationInHours?: number;
+
+  /**
+   * <p>The end date for the Scheduled Instance.</p>
+   */
+  TermEndDate?: Date;
+
+  /**
+   * <p>The start date for the Scheduled Instance.</p>
+   */
+  TermStartDate?: Date;
+
+  /**
+   * <p>The total number of hours for a single instance for the entire term.</p>
+   */
+  TotalScheduledInstanceHours?: number;
 }
 
 export namespace ScheduledInstance {
@@ -2023,33 +3386,6 @@ export namespace DescribeSecurityGroupReferencesResult {
 }
 
 export interface DescribeSecurityGroupsRequest {
-  /**
-   * <p>The IDs of the security groups. Required for security groups in a nondefault VPC.</p>
-   *          <p>Default: Describes all your security groups.</p>
-   */
-  GroupIds?: string[];
-
-  /**
-   * <p>[EC2-Classic and default VPC only] The names of the security groups. You can specify either
-   * 			the security group name or the security group ID. For security groups in a nondefault VPC, use
-   * 			the <code>group-name</code> filter to describe security groups by name.</p>
-   *          <p>Default: Describes all your security groups.</p>
-   */
-  GroupNames?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another request with the returned <code>NextToken</code> value. This value
-   *             can be between 5 and 1000. If this parameter is not specified, then all results are
-   *             returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>The filters. If using multiple filters for rules, the results include security groups for which any combination of rules - not necessarily a single rule - match all filters.</p>
    *          <ul>
@@ -2178,11 +3514,38 @@ export interface DescribeSecurityGroupsRequest {
   Filters?: Filter[];
 
   /**
+   * <p>The IDs of the security groups. Required for security groups in a nondefault VPC.</p>
+   *          <p>Default: Describes all your security groups.</p>
+   */
+  GroupIds?: string[];
+
+  /**
+   * <p>[EC2-Classic and default VPC only] The names of the security groups. You can specify either
+   * 			the security group name or the security group ID. For security groups in a nondefault VPC, use
+   * 			the <code>group-name</code> filter to describe security groups by name.</p>
+   *          <p>Default: Describes all your security groups.</p>
+   */
+  GroupNames?: string[];
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another request with the returned <code>NextToken</code> value. This value
+   *             can be between 5 and 1000. If this parameter is not specified, then all results are
+   *             returned.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeSecurityGroupsRequest {
@@ -2196,29 +3559,14 @@ export namespace DescribeSecurityGroupsRequest {
  */
 export interface SecurityGroup {
   /**
-   * <p>[VPC only] The outbound rules associated with the security group.</p>
+   * <p>A description of the security group.</p>
    */
-  IpPermissionsEgress?: IpPermission[];
+  Description?: string;
 
   /**
    * <p>The name of the security group.</p>
    */
   GroupName?: string;
-
-  /**
-   * <p>[VPC only] The ID of the VPC for the security group.</p>
-   */
-  VpcId?: string;
-
-  /**
-   * <p>Any tags assigned to the security group.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ID of the security group.</p>
-   */
-  GroupId?: string;
 
   /**
    * <p>The inbound rules associated with the security group.</p>
@@ -2231,9 +3579,24 @@ export interface SecurityGroup {
   OwnerId?: string;
 
   /**
-   * <p>A description of the security group.</p>
+   * <p>The ID of the security group.</p>
    */
-  Description?: string;
+  GroupId?: string;
+
+  /**
+   * <p>[VPC only] The outbound rules associated with the security group.</p>
+   */
+  IpPermissionsEgress?: IpPermission[];
+
+  /**
+   * <p>Any tags assigned to the security group.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>[VPC only] The ID of the VPC for the security group.</p>
+   */
+  VpcId?: string;
 }
 
 export namespace SecurityGroup {
@@ -2264,6 +3627,11 @@ export type SnapshotAttributeName = "createVolumePermission" | "productCodes";
 
 export interface DescribeSnapshotAttributeRequest {
   /**
+   * <p>The snapshot attribute you would like to view.</p>
+   */
+  Attribute: SnapshotAttributeName | string | undefined;
+
+  /**
    * <p>The ID of the EBS snapshot.</p>
    */
   SnapshotId: string | undefined;
@@ -2274,11 +3642,6 @@ export interface DescribeSnapshotAttributeRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The snapshot attribute you would like to view.</p>
-   */
-  Attribute: SnapshotAttributeName | string | undefined;
 }
 
 export namespace DescribeSnapshotAttributeRequest {
@@ -2293,14 +3656,14 @@ export namespace DescribeSnapshotAttributeRequest {
  */
 export interface CreateVolumePermission {
   /**
-   * <p>The AWS account ID to be added or removed.</p>
-   */
-  UserId?: string;
-
-  /**
    * <p>The group to be added or removed. The possible value is <code>all</code>.</p>
    */
   Group?: PermissionGroup | string;
+
+  /**
+   * <p>The AWS account ID to be added or removed.</p>
+   */
+  UserId?: string;
 }
 
 export namespace CreateVolumePermission {
@@ -2311,9 +3674,10 @@ export namespace CreateVolumePermission {
 
 export interface DescribeSnapshotAttributeResult {
   /**
-   * <p>The ID of the EBS snapshot.</p>
+   * <p>The users and groups that have the permissions for creating volumes from the
+   *       snapshot.</p>
    */
-  SnapshotId?: string;
+  CreateVolumePermissions?: CreateVolumePermission[];
 
   /**
    * <p>The product codes.</p>
@@ -2321,10 +3685,9 @@ export interface DescribeSnapshotAttributeResult {
   ProductCodes?: ProductCode[];
 
   /**
-   * <p>The users and groups that have the permissions for creating volumes from the
-   *       snapshot.</p>
+   * <p>The ID of the EBS snapshot.</p>
    */
-  CreateVolumePermissions?: CreateVolumePermission[];
+  SnapshotId?: string;
 }
 
 export namespace DescribeSnapshotAttributeResult {
@@ -2334,23 +3697,6 @@ export namespace DescribeSnapshotAttributeResult {
 }
 
 export interface DescribeSnapshotsRequest {
-  /**
-   * <p>The IDs of the AWS accounts that can create volumes from the snapshot.</p>
-   */
-  RestorableByUserIds?: string[];
-
-  /**
-   * <p>The snapshot IDs.</p>
-   *          <p>Default: Describes the snapshots for which you have create volume permissions.</p>
-   */
-  SnapshotIds?: string[];
-
-  /**
-   * <p>Scopes the results to snapshots with the specified owners. You can specify a combination of
-   *       AWS account IDs, <code>self</code>, and <code>amazon</code>.</p>
-   */
-  OwnerIds?: string[];
-
   /**
    * <p>The filters.</p>
    *          <ul>
@@ -2415,13 +3761,6 @@ export interface DescribeSnapshotsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The maximum number of snapshot results returned by <code>DescribeSnapshots</code> in
    *       paginated output. When this parameter is used, <code>DescribeSnapshots</code> only returns
    *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
@@ -2442,6 +3781,30 @@ export interface DescribeSnapshotsRequest {
    *         <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Scopes the results to snapshots with the specified owners. You can specify a combination of
+   *       AWS account IDs, <code>self</code>, and <code>amazon</code>.</p>
+   */
+  OwnerIds?: string[];
+
+  /**
+   * <p>The IDs of the AWS accounts that can create volumes from the snapshot.</p>
+   */
+  RestorableByUserIds?: string[];
+
+  /**
+   * <p>The snapshot IDs.</p>
+   *          <p>Default: Describes the snapshots for which you have create volume permissions.</p>
+   */
+  SnapshotIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeSnapshotsRequest {
@@ -2546,6 +3909,12 @@ export namespace DescribeSpotFleetInstancesRequest {
  */
 export interface DescribeSpotFleetInstancesResponse {
   /**
+   * <p>The running instances. This list is refreshed periodically and might be out of
+   *             date.</p>
+   */
+  ActiveInstances?: ActiveInstance[];
+
+  /**
    * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
@@ -2554,12 +3923,6 @@ export interface DescribeSpotFleetInstancesResponse {
    * <p>The ID of the Spot Fleet request.</p>
    */
   SpotFleetRequestId?: string;
-
-  /**
-   * <p>The running instances. This list is refreshed periodically and might be out of
-   *             date.</p>
-   */
-  ActiveInstances?: ActiveInstance[];
 }
 
 export namespace DescribeSpotFleetInstancesResponse {
@@ -2580,31 +3943,16 @@ export enum EventType {
  */
 export interface DescribeSpotFleetRequestHistoryRequest {
   /**
-   * <p>The type of events to describe. By default, all events are described.</p>
-   */
-  EventType?: EventType | string;
-
-  /**
-   * <p>The ID of the Spot Fleet request.</p>
-   */
-  SpotFleetRequestId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The starting date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   */
-  StartTime: Date | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The type of events to describe. By default, all events are described.</p>
+   */
+  EventType?: EventType | string;
 
   /**
    * <p>The maximum number of results to return in a single call.
@@ -2613,6 +3961,21 @@ export interface DescribeSpotFleetRequestHistoryRequest {
    *       <code>NextToken</code> value.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The ID of the Spot Fleet request.</p>
+   */
+  SpotFleetRequestId: string | undefined;
+
+  /**
+   * <p>The starting date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   */
+  StartTime: Date | undefined;
 }
 
 export namespace DescribeSpotFleetRequestHistoryRequest {
@@ -2625,11 +3988,6 @@ export namespace DescribeSpotFleetRequestHistoryRequest {
  * <p>Describes an event in the history of the Spot Fleet request.</p>
  */
 export interface HistoryRecord {
-  /**
-   * <p>The date and time of the event, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   */
-  Timestamp?: Date;
-
   /**
    * <p>Information about the event.</p>
    */
@@ -2657,6 +4015,11 @@ export interface HistoryRecord {
    *          </ul>
    */
   EventType?: EventType | string;
+
+  /**
+   * <p>The date and time of the event, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   */
+  Timestamp?: Date;
 }
 
 export namespace HistoryRecord {
@@ -2675,14 +4038,11 @@ export interface DescribeSpotFleetRequestHistoryResponse {
   HistoryRecords?: HistoryRecord[];
 
   /**
-   * <p>The starting date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * <p>The last date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *       All records up to this time were retrieved.</p>
+   *          <p>If <code>nextToken</code> indicates that there are more results, this value is not present.</p>
    */
-  StartTime?: Date;
-
-  /**
-   * <p>The ID of the Spot Fleet request.</p>
-   */
-  SpotFleetRequestId?: string;
+  LastEvaluatedTime?: Date;
 
   /**
    * <p>The token required to retrieve the next set of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -2690,11 +4050,14 @@ export interface DescribeSpotFleetRequestHistoryResponse {
   NextToken?: string;
 
   /**
-   * <p>The last date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *       All records up to this time were retrieved.</p>
-   *          <p>If <code>nextToken</code> indicates that there are more results, this value is not present.</p>
+   * <p>The ID of the Spot Fleet request.</p>
    */
-  LastEvaluatedTime?: Date;
+  SpotFleetRequestId?: string;
+
+  /**
+   * <p>The starting date and time for the events, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   */
+  StartTime?: Date;
 }
 
 export namespace DescribeSpotFleetRequestHistoryResponse {
@@ -2767,6 +4130,15 @@ export namespace SpotFleetMonitoring {
  */
 export interface InstanceNetworkInterfaceSpecification {
   /**
+   * <p>Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The
+   *             public IP address can only be assigned to a network interface for eth0, and can only be
+   *             assigned to a new network interface, not an existing one. You cannot specify more than one
+   *             network interface in the request. If launching into a default subnet, the default value is
+   *             <code>true</code>.</p>
+   */
+  AssociatePublicIpAddress?: boolean;
+
+  /**
    * <p>If set to <code>true</code>, the interface is deleted when the instance is terminated. You can
    *             specify <code>true</code> only if creating a new network interface when launching an
    *             instance.</p>
@@ -2774,10 +4146,9 @@ export interface InstanceNetworkInterfaceSpecification {
   DeleteOnTermination?: boolean;
 
   /**
-   * <p>The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching
-   *         	more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
+   * <p>The description of the network interface. Applies only if creating a network interface when launching an instance.</p>
    */
-  PrivateIpAddress?: string;
+  Description?: string;
 
   /**
    * <p>The position of the network interface in the attachment order.
@@ -2786,52 +4157,6 @@ export interface InstanceNetworkInterfaceSpecification {
    *           you must specify the device index.</p>
    */
   DeviceIndex?: number;
-
-  /**
-   * <p>One or more IPv6 addresses to assign to the network interface. You cannot specify
-   *             this option and the option to assign a number of IPv6 addresses in the same request. You
-   *             cannot specify this option if you've specified a minimum number of instances to
-   *             launch.</p>
-   */
-  Ipv6Addresses?: InstanceIpv6Address[];
-
-  /**
-   * <p>The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're
-   *         	launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
-   */
-  SecondaryPrivateIpAddressCount?: number;
-
-  /**
-   * <p>The ID of the network interface.</p>
-   *         <p>If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.</p>
-   */
-  NetworkInterfaceId?: string;
-
-  /**
-   * <p>The type of network interface. To create an Elastic Fabric Adapter (EFA), specify
-   * 			<code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the
-   * 			<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   * 		       <p>If you are not creating an EFA, specify <code>interface</code> or omit this parameter.</p>
-   * 		       <p>Valid values: <code>interface</code> | <code>efa</code>
-   *          </p>
-   */
-  InterfaceType?: string;
-
-  /**
-   * <p>One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're
-   *         	launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
-   */
-  PrivateIpAddresses?: PrivateIpAddressSpecification[];
-
-  /**
-   * <p>The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The description of the network interface. Applies only if creating a network interface when launching an instance.</p>
-   */
-  Description?: string;
 
   /**
    * <p>The IDs of the security groups for the network interface. Applies only if creating a network interface when launching an instance.</p>
@@ -2847,13 +4172,65 @@ export interface InstanceNetworkInterfaceSpecification {
   Ipv6AddressCount?: number;
 
   /**
-   * <p>Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The
-   *             public IP address can only be assigned to a network interface for eth0, and can only be
-   *             assigned to a new network interface, not an existing one. You cannot specify more than one
-   *             network interface in the request. If launching into a default subnet, the default value is
-   *             <code>true</code>.</p>
+   * <p>One or more IPv6 addresses to assign to the network interface. You cannot specify
+   *             this option and the option to assign a number of IPv6 addresses in the same request. You
+   *             cannot specify this option if you've specified a minimum number of instances to
+   *             launch.</p>
    */
-  AssociatePublicIpAddress?: boolean;
+  Ipv6Addresses?: InstanceIpv6Address[];
+
+  /**
+   * <p>The ID of the network interface.</p>
+   *         <p>If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.</p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>The private IPv4 address of the network interface. Applies only if creating a network interface when launching an instance. You cannot specify this option if you're launching
+   *         	more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>One or more private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're
+   *         	launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
+   */
+  PrivateIpAddresses?: PrivateIpAddressSpecification[];
+
+  /**
+   * <p>The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're
+   *         	launching more than one instance in a <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html">RunInstances</a> request.</p>
+   */
+  SecondaryPrivateIpAddressCount?: number;
+
+  /**
+   * <p>The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>Indicates whether to assign a carrier IP address to the network interface.</p>
+   *         <p>You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone. For more information about carrier IP addresses, see Carrier IP addresses in the AWS Wavelength Developer Guide.</p>
+   */
+  AssociateCarrierIpAddress?: boolean;
+
+  /**
+   * <p>The type of network interface.</p>
+   * 	        <p>To create an Elastic Fabric Adapter (EFA), specify
+   * 			<code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the
+   * 			<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * 		       <p>If you are not creating an EFA, specify <code>interface</code> or omit this parameter.</p>
+   * 		       <p>Valid values: <code>interface</code> | <code>efa</code>
+   *          </p>
+   */
+  InterfaceType?: string;
+
+  /**
+   * <p>The index of the network card. Some instance types support multiple network cards.
+   *             The primary network interface must be assigned to network card index 0.
+   *             The default is network card index 0.</p>
+   */
+  NetworkCardIndex?: number;
 }
 
 export namespace InstanceNetworkInterfaceSpecification {
@@ -2867,13 +4244,6 @@ export namespace InstanceNetworkInterfaceSpecification {
  */
 export interface SpotPlacement {
   /**
-   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy
-   *        of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code> tenancy is not
-   *        supported for Spot Instances.</p>
-   */
-  Tenancy?: Tenancy | string;
-
-  /**
    * <p>The Availability Zone.</p>
    *          <p>[Spot Fleet only] To specify multiple Availability Zones, separate them using commas; for example, "us-west-2a, us-west-2b".</p>
    */
@@ -2883,6 +4253,13 @@ export interface SpotPlacement {
    * <p>The name of the placement group.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy
+   *        of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code> tenancy is not
+   *        supported for Spot Instances.</p>
+   */
+  Tenancy?: Tenancy | string;
 }
 
 export namespace SpotPlacement {
@@ -2896,11 +4273,6 @@ export namespace SpotPlacement {
  */
 export interface SpotFleetTagSpecification {
   /**
-   * <p>The tags.</p>
-   */
-  Tags?: Tag[];
-
-  /**
    * <p>The type of resource. Currently, the only resource type that is supported is
    *                 <code>instance</code>. To tag the Spot Fleet request on creation, use the
    *             <code>TagSpecifications</code> parameter in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetRequestConfigData.html">
@@ -2908,6 +4280,11 @@ export interface SpotFleetTagSpecification {
    *             </a>.</p>
    */
   ResourceType?: ResourceType | string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace SpotFleetTagSpecification {
@@ -2918,10 +4295,20 @@ export namespace SpotFleetTagSpecification {
 
 /**
  * <p>Describes the launch specification for one or more Spot Instances. If you include
- *             On-Demand capacity in your fleet request, you can't use
+ *             On-Demand capacity in your fleet request or want to specify an EFA network device, you can't use
  *                 <code>SpotFleetLaunchSpecification</code>; you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
  */
 export interface SpotFleetLaunchSpecification {
+  /**
+   * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
+   */
+  SecurityGroups?: GroupIdentifier[];
+
+  /**
+   * <p>Deprecated.</p>
+   */
+  AddressingType?: string;
+
   /**
    * <p>One or more block devices that are mapped to the Spot Instances. You can't specify both
    *             a snapshot ID and an encryption value. This is because only blank volumes can be
@@ -2931,11 +4318,6 @@ export interface SpotFleetLaunchSpecification {
   BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
-   * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
-   */
-  SecurityGroups?: GroupIdentifier[];
-
-  /**
    * <p>Indicates whether the instances are optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
    *          <p>Default: <code>false</code>
    *          </p>
@@ -2943,20 +4325,14 @@ export interface SpotFleetLaunchSpecification {
   EbsOptimized?: boolean;
 
   /**
-   * <p>One or more network interfaces. If you specify a network interface, you must specify
-   *           subnet IDs and security group IDs using the network interface.</p>
+   * <p>The IAM instance profile.</p>
    */
-  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
+  IamInstanceProfile?: IamInstanceProfileSpecification;
 
   /**
-   * <p>The name of the key pair.</p>
+   * <p>The ID of the AMI.</p>
    */
-  KeyName?: string;
-
-  /**
-   * <p>The placement information.</p>
-   */
-  Placement?: SpotPlacement;
+  ImageId?: string;
 
   /**
    * <p>The instance type.</p>
@@ -2964,9 +4340,39 @@ export interface SpotFleetLaunchSpecification {
   InstanceType?: _InstanceType | string;
 
   /**
+   * <p>The ID of the kernel.</p>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>The name of the key pair.</p>
+   */
+  KeyName?: string;
+
+  /**
    * <p>Enable or disable monitoring for the instances.</p>
    */
   Monitoring?: SpotFleetMonitoring;
+
+  /**
+   * <p>One or more network interfaces. If you specify a network interface, you must specify
+   *           subnet IDs and security group IDs using the network interface.</p>
+   *          <note>
+   *             <p>
+   *                <code>SpotFleetLaunchSpecification</code> currently does not support Elastic Fabric Adapter (EFA). To specify an EFA, you must use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_LaunchTemplateConfig.html">LaunchTemplateConfig</a>.</p>
+   *          </note>
+   */
+  NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
+
+  /**
+   * <p>The placement information.</p>
+   */
+  Placement?: SpotPlacement;
+
+  /**
+   * <p>The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.</p>
+   */
+  RamdiskId?: string;
 
   /**
    * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance.
@@ -2977,24 +4383,15 @@ export interface SpotFleetLaunchSpecification {
   SpotPrice?: string;
 
   /**
-   * <p>The tags to apply during creation.</p>
+   * <p>The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate
+   *           them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".</p>
    */
-  TagSpecifications?: SpotFleetTagSpecification[];
-
-  /**
-   * <p>The ID of the RAM disk. Some kernels require additional drivers at launch. Check the kernel requirements for information about whether you need to specify a RAM disk. To find kernel requirements, refer to the AWS Resource Center and search for the kernel ID.</p>
-   */
-  RamdiskId?: string;
+  SubnetId?: string;
 
   /**
    * <p>The Base64-encoded user data that instances use when starting up.</p>
    */
   UserData?: string;
-
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId?: string;
 
   /**
    * <p>The number of units provided by the specified instance type. These are the same units that you chose to set the target capacity in terms of instances, or a performance characteristic such as vCPUs, memory, or I/O.</p>
@@ -3003,25 +4400,9 @@ export interface SpotFleetLaunchSpecification {
   WeightedCapacity?: number;
 
   /**
-   * <p>The IAM instance profile.</p>
+   * <p>The tags to apply during creation.</p>
    */
-  IamInstanceProfile?: IamInstanceProfileSpecification;
-
-  /**
-   * <p>The IDs of the subnets in which to launch the instances. To specify multiple subnets, separate
-   *           them using commas; for example, "subnet-1234abcdeexample1, subnet-0987cdef6example2".</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>Deprecated.</p>
-   */
-  AddressingType?: string;
-
-  /**
-   * <p>The ID of the kernel.</p>
-   */
-  KernelId?: string;
+  TagSpecifications?: SpotFleetTagSpecification[];
 }
 
 export namespace SpotFleetLaunchSpecification {
@@ -3035,15 +4416,6 @@ export namespace SpotFleetLaunchSpecification {
  */
 export interface LaunchTemplateOverrides {
   /**
-   * <p>The priority for the launch template override. If <b>OnDemandAllocationStrategy</b> is set to <code>prioritized</code>, Spot Fleet uses
-   *             priority to determine which launch template override to use first in fulfilling
-   *             On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at <code>0</code>. The lower
-   *             the number, the higher the priority. If no number is set, the launch template override
-   *             has the lowest priority.</p>
-   */
-  Priority?: number;
-
-  /**
    * <p>The instance type.</p>
    */
   InstanceType?: _InstanceType | string;
@@ -3054,11 +4426,6 @@ export interface LaunchTemplateOverrides {
   SpotPrice?: string;
 
   /**
-   * <p>The number of units provided by the specified instance type.</p>
-   */
-  WeightedCapacity?: number;
-
-  /**
    * <p>The ID of the subnet in which to launch the instances.</p>
    */
   SubnetId?: string;
@@ -3067,6 +4434,20 @@ export interface LaunchTemplateOverrides {
    * <p>The Availability Zone in which to launch the instances.</p>
    */
   AvailabilityZone?: string;
+
+  /**
+   * <p>The number of units provided by the specified instance type.</p>
+   */
+  WeightedCapacity?: number;
+
+  /**
+   * <p>The priority for the launch template override. If <b>OnDemandAllocationStrategy</b> is set to <code>prioritized</code>, Spot Fleet uses
+   *             priority to determine which launch template override to use first in fulfilling
+   *             On-Demand capacity. The highest priority is launched first. Valid values are whole numbers starting at <code>0</code>. The lower
+   *             the number, the higher the priority. If no number is set, the launch template override
+   *             has the lowest priority.</p>
+   */
+  Priority?: number;
 }
 
 export namespace LaunchTemplateOverrides {
@@ -3167,14 +4548,14 @@ export namespace TargetGroupsConfig {
  */
 export interface LoadBalancersConfig {
   /**
-   * <p>The target groups.</p>
-   */
-  TargetGroupsConfig?: TargetGroupsConfig;
-
-  /**
    * <p>The Classic Load Balancers.</p>
    */
   ClassicLoadBalancersConfig?: ClassicLoadBalancersConfig;
+
+  /**
+   * <p>The target groups.</p>
+   */
+  TargetGroupsConfig?: TargetGroupsConfig;
 }
 
 export namespace LoadBalancersConfig {
@@ -3188,51 +4569,59 @@ export enum OnDemandAllocationStrategy {
   PRIORITIZED = "prioritized",
 }
 
+export enum ReplacementStrategy {
+  LAUNCH = "launch",
+}
+
+/**
+ * <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your
+ *             Spot Instance is at an elevated risk of being interrupted. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#spot-fleet-capacity-rebalance">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ */
+export interface SpotCapacityRebalance {
+  /**
+   * <p>The replacement strategy to use. Only available for fleets of type
+   *                 <code>maintain</code>. You must specify a value, otherwise you get an error.</p>
+   *         <p>To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance
+   *             notification is emitted for a Spot Instance in the fleet, specify
+   *             <code>launch</code>.</p>
+   *         <note>
+   *             <p>When a replacement instance is launched, the instance marked for rebalance is not
+   *                 automatically terminated. You can terminate it, or you can leave it running. You are
+   *                 charged for all instances while they are running.</p>
+   *         </note>
+   */
+  ReplacementStrategy?: ReplacementStrategy | string;
+}
+
+export namespace SpotCapacityRebalance {
+  export const filterSensitiveLog = (obj: SpotCapacityRebalance): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The strategies for managing your Spot Instances that are at an elevated risk of being
+ *             interrupted.</p>
+ */
+export interface SpotMaintenanceStrategies {
+  /**
+   * <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an
+   *             elevated risk of being interrupted.</p>
+   */
+  CapacityRebalance?: SpotCapacityRebalance;
+}
+
+export namespace SpotMaintenanceStrategies {
+  export const filterSensitiveLog = (obj: SpotMaintenanceStrategies): any => ({
+    ...obj,
+  });
+}
+
 /**
  * <p>Describes the configuration of a Spot Fleet request.</p>
  */
 export interface SpotFleetRequestConfigData {
-  /**
-   * <p>The key-value pair for tagging the Spot Fleet request on creation. The value for
-   *                 <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the
-   *             Spot Fleet request fails. To tag instances at launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
-   *                 template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in
-   *             the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">
-   *                <code>SpotFleetTagSpecification</code>
-   *             </a> (valid only if you use
-   *                 <code>LaunchSpecifications</code>). For information about tagging after launch, see
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your Resources</a>.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>The number of units to request for the Spot Fleet. You can choose to set the target
-   *             capacity in terms of instances or a performance characteristic that is important to your
-   *             application workload, such as vCPUs, memory, or I/O. If the request type is
-   *                 <code>maintain</code>, you can specify a target capacity of 0 and add capacity
-   *             later.</p>
-   */
-  TargetCapacity: number | undefined;
-
-  /**
-   * <p>The start date and time of the request, in UTC format
-   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *             By default, Amazon EC2 starts fulfilling the request immediately.</p>
-   */
-  ValidFrom?: Date;
-
-  /**
-   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
-   */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
-
-  /**
-   * <p>The launch template and overrides. If you specify <code>LaunchTemplateConfigs</code>,
-   *             you can't specify <code>LaunchSpecifications</code>. If you include On-Demand capacity
-   *             in your request, you must use <code>LaunchTemplateConfigs</code>.</p>
-   */
-  LaunchTemplateConfigs?: LaunchTemplateConfig[];
-
   /**
    * <p>Indicates how to allocate the target Spot Instance capacity across the Spot Instance pools specified by
    *             the Spot Fleet request.</p>
@@ -3247,19 +4636,42 @@ export interface SpotFleetRequestConfigData {
   AllocationStrategy?: AllocationStrategy | string;
 
   /**
+   * <p>The order of the launch template overrides to use in fulfilling On-Demand capacity.
+   *             If you specify <code>lowestPrice</code>, Spot Fleet uses price to determine the order,
+   *             launching the lowest price first. If you specify <code>prioritized</code>, Spot Fleet uses the
+   *             priority that you assign to each Spot Fleet launch template override, launching the highest
+   *             priority first. If you do not specify a value, Spot Fleet defaults to
+   *             <code>lowestPrice</code>.</p>
+   */
+  OnDemandAllocationStrategy?: OnDemandAllocationStrategy | string;
+
+  /**
+   * <p>The strategies for managing your Spot Instances that are at an
+   *             elevated risk of being interrupted.</p>
+   */
+  SpotMaintenanceStrategies?: SpotMaintenanceStrategies;
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of
+   *             your listings. This helps to avoid duplicate listings. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Indicates whether running Spot Instances should be terminated if you decrease the target
+   *             capacity of the Spot Fleet request below the current size of the Spot Fleet.</p>
+   */
+  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | string;
+
+  /**
    * <p>The number of units fulfilled by this request compared to the set target capacity. You cannot set this value.</p>
    */
   FulfilledCapacity?: number;
 
   /**
-   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.</p>
+   * <p>The number of On-Demand units fulfilled by this request compared to the set target On-Demand capacity.</p>
    */
-  SpotPrice?: string;
-
-  /**
-   * <p>Indicates whether Spot Fleet should replace unhealthy instances.</p>
-   */
-  ReplaceUnhealthyInstances?: boolean;
+  OnDemandFulfilledCapacity?: number;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that
@@ -3273,38 +4685,42 @@ export interface SpotFleetRequestConfigData {
   IamFleetRole: string | undefined;
 
   /**
-   * <p>The maximum amount per hour for Spot Instances that you're willing to pay.
-   *             You can use the <code>spotdMaxTotalPrice</code> parameter, the <code>onDemandMaxTotalPrice</code>
-   *             parameter, or both parameters to ensure that your fleet cost does not exceed
-   *             your budget. If you set a maximum price per hour for the On-Demand Instances and
-   *             Spot Instances in your request, Spot Fleet will launch instances until it reaches
-   *             the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached,
-   *             the fleet stops launching instances even if it hasn’t met the target capacity.</p>
+   * <p>The launch specifications for the Spot Fleet request. If you specify
+   *                 <code>LaunchSpecifications</code>, you can't specify
+   *                 <code>LaunchTemplateConfigs</code>. If you include On-Demand capacity in your
+   *             request, you must use <code>LaunchTemplateConfigs</code>.</p>
    */
-  SpotMaxTotalPrice?: string;
+  LaunchSpecifications?: SpotFleetLaunchSpecification[];
 
   /**
-   * <p>The number of Spot pools across which to allocate your target Spot capacity. Valid
-   *             only when Spot <b>AllocationStrategy</b> is set to
-   *                 <code>lowest-price</code>. Spot Fleet selects the cheapest Spot pools and evenly
-   *             allocates your target Spot capacity across the number of Spot pools that you
-   *             specify.</p>
+   * <p>The launch template and overrides. If you specify <code>LaunchTemplateConfigs</code>,
+   *             you can't specify <code>LaunchSpecifications</code>. If you include On-Demand capacity
+   *             in your request, you must use <code>LaunchTemplateConfigs</code>.</p>
    */
-  InstancePoolsToUseCount?: number;
+  LaunchTemplateConfigs?: LaunchTemplateConfig[];
 
   /**
-   * <p>One or more Classic Load Balancers and target groups to attach to the Spot Fleet request.
-   *           Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups.</p>
-   *          <p>With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types:
-   *           C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.</p>
+   * <p>The maximum price per unit hour that you are willing to pay for a Spot Instance. The default is the On-Demand price.</p>
    */
-  LoadBalancersConfig?: LoadBalancersConfig;
+  SpotPrice?: string;
 
   /**
-   * <p>Indicates whether running Spot Instances should be terminated if you decrease the target
-   *             capacity of the Spot Fleet request below the current size of the Spot Fleet.</p>
+   * <p>The number of units to request for the Spot Fleet. You can choose to set the target
+   *             capacity in terms of instances or a performance characteristic that is important to your
+   *             application workload, such as vCPUs, memory, or I/O. If the request type is
+   *                 <code>maintain</code>, you can specify a target capacity of 0 and add capacity
+   *             later.</p>
    */
-  ExcessCapacityTerminationPolicy?: ExcessCapacityTerminationPolicy | string;
+  TargetCapacity: number | undefined;
+
+  /**
+   * <p>The number of On-Demand units to request. You can choose to set the target capacity
+   *             in terms of instances or a performance characteristic that is important to your
+   *             application workload, such as vCPUs, memory, or I/O. If the request type is
+   *                 <code>maintain</code>, you can specify a target capacity of 0 and add capacity
+   *             later.</p>
+   */
+  OnDemandTargetCapacity?: number;
 
   /**
    * <p>The maximum amount per hour for On-Demand Instances that you're willing to pay.
@@ -3318,12 +4734,21 @@ export interface SpotFleetRequestConfigData {
   OnDemandMaxTotalPrice?: string;
 
   /**
-   * <p>The end date and time of the request, in UTC format
-   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *             After the end date and time, no new Spot Instance requests are placed or able to fulfill the request.
-   *             If no value is specified, the Spot Fleet request remains until you cancel it.</p>
+   * <p>The maximum amount per hour for Spot Instances that you're willing to pay.
+   *             You can use the <code>spotdMaxTotalPrice</code> parameter, the <code>onDemandMaxTotalPrice</code>
+   *             parameter, or both parameters to ensure that your fleet cost does not exceed
+   *             your budget. If you set a maximum price per hour for the On-Demand Instances and
+   *             Spot Instances in your request, Spot Fleet will launch instances until it reaches
+   *             the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached,
+   *             the fleet stops launching instances even if it hasn’t met the target capacity.</p>
    */
-  ValidUntil?: Date;
+  SpotMaxTotalPrice?: string;
+
+  /**
+   * <p>Indicates whether running Spot Instances are terminated when the Spot Fleet request
+   *             expires.</p>
+   */
+  TerminateInstancesWithExpiration?: boolean;
 
   /**
    * <p>The type of request. Indicates whether the Spot Fleet only requests the target capacity
@@ -3339,48 +4764,59 @@ export interface SpotFleetRequestConfigData {
   Type?: FleetType | string;
 
   /**
-   * <p>The launch specifications for the Spot Fleet request. If you specify
-   *                 <code>LaunchSpecifications</code>, you can't specify
-   *                 <code>LaunchTemplateConfigs</code>. If you include On-Demand capacity in your
-   *             request, you must use <code>LaunchTemplateConfigs</code>.</p>
+   * <p>The start date and time of the request, in UTC format
+   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *             By default, Amazon EC2 starts fulfilling the request immediately.</p>
    */
-  LaunchSpecifications?: SpotFleetLaunchSpecification[];
+  ValidFrom?: Date;
 
   /**
-   * <p>The order of the launch template overrides to use in fulfilling On-Demand capacity.
-   *             If you specify <code>lowestPrice</code>, Spot Fleet uses price to determine the order,
-   *             launching the lowest price first. If you specify <code>prioritized</code>, Spot Fleet uses the
-   *             priority that you assign to each Spot Fleet launch template override, launching the highest
-   *             priority first. If you do not specify a value, Spot Fleet defaults to
-   *             <code>lowestPrice</code>.</p>
+   * <p>The end date and time of the request, in UTC format
+   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *             After the end date and time, no new Spot Instance requests are placed or able to fulfill the request.
+   *             If no value is specified, the Spot Fleet request remains until you cancel it.</p>
    */
-  OnDemandAllocationStrategy?: OnDemandAllocationStrategy | string;
+  ValidUntil?: Date;
 
   /**
-   * <p>The number of On-Demand units fulfilled by this request compared to the set target On-Demand capacity.</p>
+   * <p>Indicates whether Spot Fleet should replace unhealthy instances.</p>
    */
-  OnDemandFulfilledCapacity?: number;
+  ReplaceUnhealthyInstances?: boolean;
 
   /**
-   * <p>The number of On-Demand units to request. You can choose to set the target capacity
-   *             in terms of instances or a performance characteristic that is important to your
-   *             application workload, such as vCPUs, memory, or I/O. If the request type is
-   *                 <code>maintain</code>, you can specify a target capacity of 0 and add capacity
-   *             later.</p>
+   * <p>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</p>
    */
-  OnDemandTargetCapacity?: number;
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
 
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of
-   *             your listings. This helps to avoid duplicate listings. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   * <p>One or more Classic Load Balancers and target groups to attach to the Spot Fleet request.
+   *           Spot Fleet registers the running Spot Instances with the specified Classic Load Balancers and target groups.</p>
+   *          <p>With Network Load Balancers, Spot Fleet cannot register instances that have the following instance types:
+   *           C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.</p>
    */
-  ClientToken?: string;
+  LoadBalancersConfig?: LoadBalancersConfig;
 
   /**
-   * <p>Indicates whether running Spot Instances are terminated when the Spot Fleet request
-   *             expires.</p>
+   * <p>The number of Spot pools across which to allocate your target Spot capacity. Valid
+   *             only when Spot <b>AllocationStrategy</b> is set to
+   *                 <code>lowest-price</code>. Spot Fleet selects the cheapest Spot pools and evenly
+   *             allocates your target Spot capacity across the number of Spot pools that you
+   *             specify.</p>
    */
-  TerminateInstancesWithExpiration?: boolean;
+  InstancePoolsToUseCount?: number;
+
+  /**
+   * <p>The key-value pair for tagging the Spot Fleet request on creation. The value for
+   *                 <code>ResourceType</code> must be <code>spot-fleet-request</code>, otherwise the
+   *             Spot Fleet request fails. To tag instances at launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch
+   *                 template</a> (valid only if you use <code>LaunchTemplateConfigs</code>) or in
+   *             the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotFleetTagSpecification.html">
+   *                <code>SpotFleetTagSpecification</code>
+   *             </a> (valid only if you use
+   *                 <code>LaunchSpecifications</code>). For information about tagging after launch, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your Resources</a>.</p>
+   */
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace SpotFleetRequestConfigData {
@@ -3393,16 +4829,6 @@ export namespace SpotFleetRequestConfigData {
  * <p>Describes a Spot Fleet request.</p>
  */
 export interface SpotFleetRequestConfig {
-  /**
-   * <p>The ID of the Spot Fleet request.</p>
-   */
-  SpotFleetRequestId?: string;
-
-  /**
-   * <p>The state of the Spot Fleet request.</p>
-   */
-  SpotFleetRequestState?: BatchState | string;
-
   /**
    * <p>The progress of the Spot Fleet request.
    *           If there is an error, the status is <code>error</code>.
@@ -3422,6 +4848,16 @@ export interface SpotFleetRequestConfig {
    * <p>The configuration of the Spot Fleet request.</p>
    */
   SpotFleetRequestConfig?: SpotFleetRequestConfigData;
+
+  /**
+   * <p>The ID of the Spot Fleet request.</p>
+   */
+  SpotFleetRequestId?: string;
+
+  /**
+   * <p>The state of the Spot Fleet request.</p>
+   */
+  SpotFleetRequestState?: BatchState | string;
 
   /**
    * <p>The tags for a Spot Fleet resource.</p>
@@ -3460,31 +4896,6 @@ export namespace DescribeSpotFleetRequestsResponse {
  * <p>Contains the parameters for DescribeSpotInstanceRequests.</p>
  */
 export interface DescribeSpotInstanceRequestsRequest {
-  /**
-   * <p>The token to request the next set of results. This value is <code>null</code> when
-   *             there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more Spot Instance request IDs.</p>
-   */
-  SpotInstanceRequestIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return in a single call. Specify a value between 5
-   *             and 1000. To retrieve the remaining results, make another call with the returned
-   *                 <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
   /**
    * <p>One or more filters.</p>
    *          <ul>
@@ -3531,7 +4942,7 @@ export interface DescribeSpotInstanceRequestsRequest {
    *             <li>
    *                <p>
    *                   <code>launch.block-device-mapping.volume-type</code> - The type of EBS volume:
-   *                <code>gp2</code> for General Purpose SSD, <code>io1</code> for Provisioned IOPS SSD, <code>st1</code> for
+   *                <code>gp2</code> for General Purpose SSD, <code>io1</code> or <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for
    *                Throughput Optimized HDD, <code>sc1</code>for Cold HDD, or <code>standard</code> for Magnetic.</p>
    *             </li>
    *             <li>
@@ -3659,6 +5070,31 @@ export interface DescribeSpotInstanceRequestsRequest {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more Spot Instance request IDs.</p>
+   */
+  SpotInstanceRequestIds?: string[];
+
+  /**
+   * <p>The token to request the next set of results. This value is <code>null</code> when
+   *             there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call. Specify a value between 5
+   *             and 1000. To retrieve the remaining results, make another call with the returned
+   *                 <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeSpotInstanceRequestsRequest {
@@ -3689,29 +5125,9 @@ export namespace RunInstancesMonitoringEnabled {
  */
 export interface LaunchSpecification {
   /**
-   * <p>One or more block device mapping entries.</p>
-   */
-  BlockDeviceMappings?: BlockDeviceMapping[];
-
-  /**
-   * <p>The ID of the subnet in which to launch the instance.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The ID of the kernel.</p>
-   */
-  KernelId?: string;
-
-  /**
    * <p>The Base64-encoded user data for the instance.</p>
    */
   UserData?: string;
-
-  /**
-   * <p>Deprecated.</p>
-   */
-  AddressingType?: string;
 
   /**
    * <p>One or more security groups. When requesting instances in a VPC, you must specify the IDs of the security groups. When requesting instances in EC2-Classic, you can specify the names or the IDs of the security groups.</p>
@@ -3719,9 +5135,14 @@ export interface LaunchSpecification {
   SecurityGroups?: GroupIdentifier[];
 
   /**
-   * <p>The ID of the AMI.</p>
+   * <p>Deprecated.</p>
    */
-  ImageId?: string;
+  AddressingType?: string;
+
+  /**
+   * <p>One or more block device mapping entries.</p>
+   */
+  BlockDeviceMappings?: BlockDeviceMapping[];
 
   /**
    * <p>Indicates whether the instance is optimized for EBS I/O. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal EBS I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS Optimized instance.</p>
@@ -3731,9 +5152,14 @@ export interface LaunchSpecification {
   EbsOptimized?: boolean;
 
   /**
-   * <p>The ID of the RAM disk.</p>
+   * <p>The IAM instance profile.</p>
    */
-  RamdiskId?: string;
+  IamInstanceProfile?: IamInstanceProfileSpecification;
+
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId?: string;
 
   /**
    * <p>The instance type.</p>
@@ -3741,9 +5167,9 @@ export interface LaunchSpecification {
   InstanceType?: _InstanceType | string;
 
   /**
-   * <p>The placement information for the instance.</p>
+   * <p>The ID of the kernel.</p>
    */
-  Placement?: SpotPlacement;
+  KernelId?: string;
 
   /**
    * <p>The name of the key pair.</p>
@@ -3757,9 +5183,19 @@ export interface LaunchSpecification {
   NetworkInterfaces?: InstanceNetworkInterfaceSpecification[];
 
   /**
-   * <p>The IAM instance profile.</p>
+   * <p>The placement information for the instance.</p>
    */
-  IamInstanceProfile?: IamInstanceProfileSpecification;
+  Placement?: SpotPlacement;
+
+  /**
+   * <p>The ID of the RAM disk.</p>
+   */
+  RamdiskId?: string;
+
+  /**
+   * <p>The ID of the subnet in which to launch the instance.</p>
+   */
+  SubnetId?: string;
 
   /**
    * <p>Describes the monitoring of an instance.</p>
@@ -3780,9 +5216,10 @@ export type SpotInstanceState = "active" | "cancelled" | "closed" | "failed" | "
  */
 export interface SpotInstanceStatus {
   /**
-   * <p>The date and time of the most recent status update, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * <p>The status code. For a list of status codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand">Spot status codes</a>
+   *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
-  UpdateTime?: Date;
+  Code?: string;
 
   /**
    * <p>The description for the status code.</p>
@@ -3790,10 +5227,9 @@ export interface SpotInstanceStatus {
   Message?: string;
 
   /**
-   * <p>The status code. For a list of status codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html#spot-instance-bid-status-understand">Spot status codes</a>
-   *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   * <p>The date and time of the most recent status update, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
-  Code?: string;
+  UpdateTime?: Date;
 }
 
 export namespace SpotInstanceStatus {
@@ -3807,35 +5243,34 @@ export namespace SpotInstanceStatus {
  */
 export interface SpotInstanceRequest {
   /**
+   * <p>If you specified a duration and your Spot Instance request was fulfilled, this is the fixed hourly price in effect for the Spot Instance while it runs.</p>
+   */
+  ActualBlockHourlyPrice?: string;
+
+  /**
+   * <p>The Availability Zone group. If you specify the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone.</p>
+   */
+  AvailabilityZoneGroup?: string;
+
+  /**
+   * <p>The duration for the Spot Instance, in minutes.</p>
+   */
+  BlockDurationMinutes?: number;
+
+  /**
+   * <p>The date and time when the Spot Instance request was created, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   */
+  CreateTime?: Date;
+
+  /**
    * <p>The fault codes for the Spot Instance request, if any.</p>
    */
   Fault?: SpotInstanceStateFault;
 
   /**
-   * <p>The start date of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *         The request becomes active at this date and time.</p>
+   * <p>The instance ID, if an instance has been launched to fulfill the Spot Instance request.</p>
    */
-  ValidFrom?: Date;
-
-  /**
-   * <p>Additional information for launching instances.</p>
-   */
-  LaunchSpecification?: LaunchSpecification;
-
-  /**
-   * <p>The ID of the Spot Instance request.</p>
-   */
-  SpotInstanceRequestId?: string;
-
-  /**
-   * <p>The product description associated with the Spot Instance.</p>
-   */
-  ProductDescription?: RIProductDescription | string;
-
-  /**
-   * <p>If you specified a duration and your Spot Instance request was fulfilled, this is the fixed hourly price in effect for the Spot Instance while it runs.</p>
-   */
-  ActualBlockHourlyPrice?: string;
+  InstanceId?: string;
 
   /**
    * <p>The instance launch group. Launch groups are Spot Instances that launch together and terminate together.</p>
@@ -3843,14 +5278,29 @@ export interface SpotInstanceRequest {
   LaunchGroup?: string;
 
   /**
-   * <p>The behavior when a Spot Instance is interrupted.</p>
+   * <p>Additional information for launching instances.</p>
    */
-  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
+  LaunchSpecification?: LaunchSpecification;
 
   /**
-   * <p>The Availability Zone group. If you specify the same Availability Zone group for all Spot Instance requests, all Spot Instances are launched in the same Availability Zone.</p>
+   * <p>The Availability Zone in which the request is launched.</p>
    */
-  AvailabilityZoneGroup?: string;
+  LaunchedAvailabilityZone?: string;
+
+  /**
+   * <p>The product description associated with the Spot Instance.</p>
+   */
+  ProductDescription?: RIProductDescription | string;
+
+  /**
+   * <p>The ID of the Spot Instance request.</p>
+   */
+  SpotInstanceRequestId?: string;
+
+  /**
+   * <p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>
+   */
+  SpotPrice?: string;
 
   /**
    * <p>The state of the Spot Instance request. Spot status information helps track your Spot
@@ -3860,12 +5310,9 @@ export interface SpotInstanceRequest {
   State?: SpotInstanceState | string;
 
   /**
-   * <p>The end date of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-   *         If this is a one-time request, it remains active until all instances launch, the request is canceled, or this date is reached.
-   * 		If the request is persistent, it remains active until it is canceled or this date is reached.
-   *         The default end date is 7 days from the current date.</p>
+   * <p>The status code and status message describing the Spot Instance request.</p>
    */
-  ValidUntil?: Date;
+  Status?: SpotInstanceStatus;
 
   /**
    * <p>Any tags assigned to the resource.</p>
@@ -3878,34 +5325,33 @@ export interface SpotInstanceRequest {
   Type?: SpotInstanceType | string;
 
   /**
-   * <p>The instance ID, if an instance has been launched to fulfill the Spot Instance request.</p>
+   * <p>The start date of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *         The request becomes active at this date and time.</p>
    */
-  InstanceId?: string;
+  ValidFrom?: Date;
 
   /**
-   * <p>The status code and status message describing the Spot Instance request.</p>
+   * <p>The end date of the request, in UTC format
+   *                 (<i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   *          <ul>
+   *             <li>
+   *                 <p>For a persistent request, the request remains active until the <code>validUntil</code> date
+   *                     and time is reached. Otherwise, the request remains active until you cancel it.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>For a one-time request, the request remains active until all instances launch,
+   *                     the request is canceled, or the <code>validUntil</code> date and time is reached. By default, the
+   *                     request is valid for 7 days from the date the request was created.</p>
+   *            </li>
+   *          </ul>
    */
-  Status?: SpotInstanceStatus;
+  ValidUntil?: Date;
 
   /**
-   * <p>The date and time when the Spot Instance request was created, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   * <p>The behavior when a Spot Instance is interrupted.</p>
    */
-  CreateTime?: Date;
-
-  /**
-   * <p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>
-   */
-  SpotPrice?: string;
-
-  /**
-   * <p>The Availability Zone in which the request is launched.</p>
-   */
-  LaunchedAvailabilityZone?: string;
-
-  /**
-   * <p>The duration for the Spot Instance, in minutes.</p>
-   */
-  BlockDurationMinutes?: number;
+  InstanceInterruptionBehavior?: InstanceInterruptionBehavior | string;
 }
 
 export namespace SpotInstanceRequest {
@@ -3941,48 +5387,6 @@ export namespace DescribeSpotInstanceRequestsResult {
  */
 export interface DescribeSpotPriceHistoryRequest {
   /**
-   * <p>The date and time, up to the current date, from which to stop retrieving the price history data,
-   *        in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>Filters the results by the specified instance types.</p>
-   */
-  InstanceTypes?: (_InstanceType | string)[];
-
-  /**
-   * <p>The date and time, up to the past 90 days, from which to start retrieving the price history data,
-   *        in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call.
-   *        Specify a value between 1 and 1000. The default value is 1000.
-   *        To retrieve the remaining results, make another call with the returned
-   *        <code>NextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Filters the results by the specified Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>One or more filters.</p>
    *          <ul>
    *             <li>
@@ -3995,8 +5399,12 @@ export interface DescribeSpotPriceHistoryRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>product-description</code> - The product description for the Spot price
-   *            (<code>Linux/UNIX</code> | <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon VPC)</code> | <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon VPC)</code>).</p>
+   *                     <code>product-description</code> - The product description for the Spot price
+   *                         (<code>Linux/UNIX</code> | <code>Red Hat Enterprise Linux</code> |
+   *                         <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon
+   *                         VPC)</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code>
+   *                         | <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon
+   *                     VPC)</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4015,9 +5423,51 @@ export interface DescribeSpotPriceHistoryRequest {
   Filters?: Filter[];
 
   /**
+   * <p>Filters the results by the specified Availability Zone.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *        and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *        Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The date and time, up to the current date, from which to stop retrieving the price history data,
+   *        in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   */
+  EndTime?: Date;
+
+  /**
+   * <p>Filters the results by the specified instance types.</p>
+   */
+  InstanceTypes?: (_InstanceType | string)[];
+
+  /**
+   * <p>The maximum number of results to return in a single call.
+   *        Specify a value between 1 and 1000. The default value is 1000.
+   *        To retrieve the remaining results, make another call with the returned
+   *        <code>NextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>Filters the results by the specified basic product descriptions.</p>
    */
   ProductDescriptions?: string[];
+
+  /**
+   * <p>The date and time, up to the past 90 days, from which to start retrieving the price history data,
+   *        in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   */
+  StartTime?: Date;
 }
 
 export namespace DescribeSpotPriceHistoryRequest {
@@ -4031,9 +5481,9 @@ export namespace DescribeSpotPriceHistoryRequest {
  */
 export interface SpotPrice {
   /**
-   * <p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>
+   * <p>The Availability Zone.</p>
    */
-  SpotPrice?: string;
+  AvailabilityZone?: string;
 
   /**
    * <p>The instance type.</p>
@@ -4046,14 +5496,14 @@ export interface SpotPrice {
   ProductDescription?: RIProductDescription | string;
 
   /**
+   * <p>The maximum price per hour that you are willing to pay for a Spot Instance.</p>
+   */
+  SpotPrice?: string;
+
+  /**
    * <p>The date and time the request was created, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
   Timestamp?: Date;
-
-  /**
-   * <p>The Availability Zone.</p>
-   */
-  AvailabilityZone?: string;
 }
 
 export namespace SpotPrice {
@@ -4086,6 +5536,13 @@ export namespace DescribeSpotPriceHistoryResult {
 
 export interface DescribeStaleSecurityGroupsRequest {
   /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
    */
   MaxResults?: number;
@@ -4099,13 +5556,6 @@ export interface DescribeStaleSecurityGroupsRequest {
    * <p>The ID of the VPC.</p>
    */
   VpcId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 }
 
 export namespace DescribeStaleSecurityGroupsRequest {
@@ -4119,6 +5569,27 @@ export namespace DescribeStaleSecurityGroupsRequest {
  */
 export interface StaleIpPermission {
   /**
+   * <p>The start of the port range for the TCP and UDP protocols, or an ICMP type number. A value of
+   *         <code>-1</code> indicates all ICMP types. </p>
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The IP protocol name (for <code>tcp</code>, <code>udp</code>, and <code>icmp</code>) or number  (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers)</a>.</p>
+   */
+  IpProtocol?: string;
+
+  /**
+   * <p>The IP ranges. Not applicable for stale security group rules.</p>
+   */
+  IpRanges?: string[];
+
+  /**
+   * <p>The prefix list IDs. Not applicable for stale security group rules.</p>
+   */
+  PrefixListIds?: string[];
+
+  /**
    * <p>The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of
    *         <code>-1</code> indicates all ICMP types. </p>
    */
@@ -4128,27 +5599,6 @@ export interface StaleIpPermission {
    * <p>The security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.</p>
    */
   UserIdGroupPairs?: UserIdGroupPair[];
-
-  /**
-   * <p>The IP protocol name (for <code>tcp</code>, <code>udp</code>, and <code>icmp</code>) or number  (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers)</a>.</p>
-   */
-  IpProtocol?: string;
-
-  /**
-   * <p>The prefix list IDs. Not applicable for stale security group rules.</p>
-   */
-  PrefixListIds?: string[];
-
-  /**
-   * <p>The IP ranges. Not applicable for stale security group rules.</p>
-   */
-  IpRanges?: string[];
-
-  /**
-   * <p>The start of the port range for the TCP and UDP protocols, or an ICMP type number. A value of
-   *         <code>-1</code> indicates all ICMP types. </p>
-   */
-  FromPort?: number;
 }
 
 export namespace StaleIpPermission {
@@ -4162,9 +5612,24 @@ export namespace StaleIpPermission {
  */
 export interface StaleSecurityGroup {
   /**
+   * <p>The description of the security group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the security group.</p>
+   */
+  GroupId?: string;
+
+  /**
    * <p>The name of the security group.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>Information about the stale inbound rules in the security group.</p>
+   */
+  StaleIpPermissions?: StaleIpPermission[];
 
   /**
    * <p>Information about the stale outbound rules in the security group.</p>
@@ -4175,21 +5640,6 @@ export interface StaleSecurityGroup {
    * <p>The ID of the VPC for the security group.</p>
    */
   VpcId?: string;
-
-  /**
-   * <p>Information about the stale inbound rules in the security group.</p>
-   */
-  StaleIpPermissions?: StaleIpPermission[];
-
-  /**
-   * <p>The ID of the security group.</p>
-   */
-  GroupId?: string;
-
-  /**
-   * <p>The description of the security group.</p>
-   */
-  Description?: string;
 }
 
 export namespace StaleSecurityGroup {
@@ -4200,14 +5650,14 @@ export namespace StaleSecurityGroup {
 
 export interface DescribeStaleSecurityGroupsResult {
   /**
-   * <p>Information about the stale security groups.</p>
-   */
-  StaleSecurityGroupSet?: StaleSecurityGroup[];
-
-  /**
    * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the stale security groups.</p>
+   */
+  StaleSecurityGroupSet?: StaleSecurityGroup[];
 }
 
 export namespace DescribeStaleSecurityGroupsResult {
@@ -4217,24 +5667,6 @@ export namespace DescribeStaleSecurityGroupsResult {
 }
 
 export interface DescribeSubnetsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
   /**
    * <p>One or more filters.</p>
    *         <ul>
@@ -4318,6 +5750,24 @@ export interface DescribeSubnetsRequest {
    * 		       <p>Default: Describes all your subnets.</p>
    */
   SubnetIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeSubnetsRequest {
@@ -4345,6 +5795,13 @@ export namespace DescribeSubnetsResult {
 }
 
 export interface DescribeTagsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
   /**
    * <p>The filters.</p>
    *          <ul>
@@ -4375,23 +5832,16 @@ export interface DescribeTagsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to return in a single call.
    *       This value can be between 5 and 1000.
    * 			To retrieve the remaining results, make another call with the returned <code>NextToken</code> value.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeTagsRequest {
@@ -4405,14 +5855,9 @@ export namespace DescribeTagsRequest {
  */
 export interface TagDescription {
   /**
-   * <p>The tag value.</p>
+   * <p>The tag key.</p>
    */
-  Value?: string;
-
-  /**
-   * <p>The resource type.</p>
-   */
-  ResourceType?: ResourceType | string;
+  Key?: string;
 
   /**
    * <p>The ID of the resource.</p>
@@ -4420,9 +5865,14 @@ export interface TagDescription {
   ResourceId?: string;
 
   /**
-   * <p>The tag key.</p>
+   * <p>The resource type.</p>
    */
-  Key?: string;
+  ResourceType?: ResourceType | string;
+
+  /**
+   * <p>The tag value.</p>
+   */
+  Value?: string;
 }
 
 export namespace TagDescription {
@@ -4452,6 +5902,18 @@ export namespace DescribeTagsResult {
 
 export interface DescribeTrafficMirrorFiltersRequest {
   /**
+   * <p>The ID of the Traffic Mirror filter.</p>
+   */
+  TrafficMirrorFilterIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
@@ -4467,27 +5929,15 @@ export interface DescribeTrafficMirrorFiltersRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The ID of the Traffic Mirror filter.</p>
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
-  TrafficMirrorFilterIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+  MaxResults?: number;
 
   /**
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace DescribeTrafficMirrorFiltersRequest {
@@ -4519,6 +5969,13 @@ export interface DescribeTrafficMirrorSessionsRequest {
    * <p>The ID of the Traffic Mirror session.</p>
    */
   TrafficMirrorSessionIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 
   /**
    * <p>One or more filters. The possible values are:</p>
@@ -4564,22 +6021,15 @@ export interface DescribeTrafficMirrorSessionsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The token for the next page of results.</p>
    */
-  DryRun?: boolean;
+  NextToken?: string;
 }
 
 export namespace DescribeTrafficMirrorSessionsRequest {
@@ -4590,14 +6040,14 @@ export namespace DescribeTrafficMirrorSessionsRequest {
 
 export interface DescribeTrafficMirrorSessionsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Describes one or more Traffic Mirror sessions. By default, all Traffic Mirror sessions are described. Alternatively, you can filter the results.</p>
    */
   TrafficMirrorSessions?: TrafficMirrorSession[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. The value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeTrafficMirrorSessionsResult {
@@ -4611,6 +6061,13 @@ export interface DescribeTrafficMirrorTargetsRequest {
    * <p>The ID of the Traffic Mirror targets.</p>
    */
   TrafficMirrorTargetIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 
   /**
    * <p>One or more filters. The possible values are:</p>
@@ -4640,22 +6097,15 @@ export interface DescribeTrafficMirrorTargetsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
-  DryRun?: boolean;
+  MaxResults?: number;
 
   /**
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace DescribeTrafficMirrorTargetsRequest {
@@ -4684,22 +6134,9 @@ export namespace DescribeTrafficMirrorTargetsResult {
 
 export interface DescribeTransitGatewayAttachmentsRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The IDs of the attachments.</p>
    */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
+  TransitGatewayAttachmentIds?: string[];
 
   /**
    * <p>One or more filters. The possible values are:</p>
@@ -4723,11 +6160,13 @@ export interface DescribeTransitGatewayAttachmentsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>resource-type</code> - The resource type (<code>vpc</code> | <code>vpn</code>).</p>
+   *                   <code>resource-type</code> - The resource type. Valid values are <code>vpc</code> |
+   *                         <code>vpn</code> | <code>direct-connect-gateway</code> |
+   *                         <code>peering</code>.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p>
+   *                   <code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4746,9 +6185,22 @@ export interface DescribeTransitGatewayAttachmentsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The IDs of the attachments.</p>
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
-  TransitGatewayAttachmentIds?: string[];
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeTransitGatewayAttachmentsRequest {
@@ -4762,14 +6214,14 @@ export namespace DescribeTransitGatewayAttachmentsRequest {
  */
 export interface TransitGatewayAttachmentAssociation {
   /**
-   * <p>The state of the association.</p>
-   */
-  State?: TransitGatewayAssociationState | string;
-
-  /**
    * <p>The ID of the route table for the transit gateway.</p>
    */
   TransitGatewayRouteTableId?: string;
+
+  /**
+   * <p>The state of the association.</p>
+   */
+  State?: TransitGatewayAssociationState | string;
 }
 
 export namespace TransitGatewayAttachmentAssociation {
@@ -4783,34 +6235,14 @@ export namespace TransitGatewayAttachmentAssociation {
  */
 export interface TransitGatewayAttachment {
   /**
-   * <p>The ID of the resource.</p>
+   * <p>The ID of the attachment.</p>
    */
-  ResourceId?: string;
-
-  /**
-   * <p>The resource type.</p>
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
+  TransitGatewayAttachmentId?: string;
 
   /**
    * <p>The ID of the transit gateway.</p>
    */
   TransitGatewayId?: string;
-
-  /**
-   * <p>The tags for the attachment.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The creation time.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The attachment state.</p>
-   */
-  State?: TransitGatewayAttachmentState | string;
 
   /**
    * <p>The ID of the AWS account that owns the transit gateway.</p>
@@ -4823,14 +6255,34 @@ export interface TransitGatewayAttachment {
   ResourceOwnerId?: string;
 
   /**
-   * <p>The ID of the attachment.</p>
+   * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
    */
-  TransitGatewayAttachmentId?: string;
+  ResourceType?: TransitGatewayAttachmentResourceType | string;
+
+  /**
+   * <p>The ID of the resource.</p>
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The attachment state. Note that the <code>initiating</code> state has been deprecated.</p>
+   */
+  State?: TransitGatewayAttachmentState | string;
 
   /**
    * <p>The association.</p>
    */
   Association?: TransitGatewayAttachmentAssociation;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The tags for the attachment.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace TransitGatewayAttachment {
@@ -4859,10 +6311,9 @@ export namespace DescribeTransitGatewayAttachmentsResult {
 
 export interface DescribeTransitGatewayMulticastDomainsRequest {
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>The ID of the transit gateway multicast domain.</p>
    */
-  MaxResults?: number;
+  TransitGatewayMulticastDomainIds?: string[];
 
   /**
    * <p>One or more filters. The possible values are:</p>
@@ -4884,9 +6335,10 @@ export interface DescribeTransitGatewayMulticastDomainsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The ID of the transit gateway multicast domain.</p>
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
-  TransitGatewayMulticastDomainIds?: string[];
+  MaxResults?: number;
 
   /**
    * <p>The token for the next page of results.</p>
@@ -4927,11 +6379,6 @@ export namespace DescribeTransitGatewayMulticastDomainsResult {
 
 export interface DescribeTransitGatewayPeeringAttachmentsRequest {
   /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>One or more IDs of the transit gateway peering attachments.</p>
    */
   TransitGatewayAttachmentIds?: string[];
@@ -4953,7 +6400,16 @@ export interface DescribeTransitGatewayPeeringAttachmentsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>state</code> - The state of the peering attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p>
+   *                   <code>state</code> - The state of the peering attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -4968,6 +6424,11 @@ export interface DescribeTransitGatewayPeeringAttachmentsRequest {
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -4985,14 +6446,14 @@ export namespace DescribeTransitGatewayPeeringAttachmentsRequest {
 
 export interface DescribeTransitGatewayPeeringAttachmentsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The transit gateway peering attachments.</p>
    */
   TransitGatewayPeeringAttachments?: TransitGatewayPeeringAttachment[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeTransitGatewayPeeringAttachmentsResult {
@@ -5006,12 +6467,6 @@ export interface DescribeTransitGatewayRouteTablesRequest {
    * <p>The IDs of the transit gateway route tables.</p>
    */
   TransitGatewayRouteTableIds?: string[];
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
 
   /**
    * <p>One or more filters. The possible values are:</p>
@@ -5028,7 +6483,7 @@ export interface DescribeTransitGatewayRouteTablesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p>
+   *                   <code>state</code> - The state of the route table (<code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>pending</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5041,6 +6496,12 @@ export interface DescribeTransitGatewayRouteTablesRequest {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>The token for the next page of results.</p>
@@ -5080,13 +6541,6 @@ export namespace DescribeTransitGatewayRouteTablesResult {
 }
 
 export interface DescribeTransitGatewaysRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
   /**
    * <p>The IDs of the transit gateways.</p>
    */
@@ -5135,7 +6589,7 @@ export interface DescribeTransitGatewaysRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p>
+   *                   <code>state</code> - The state of the transit gateway (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>modifying</code> | <code>pending</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5155,6 +6609,13 @@ export interface DescribeTransitGatewaysRequest {
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeTransitGatewaysRequest {
@@ -5183,29 +6644,16 @@ export namespace DescribeTransitGatewaysResult {
 
 export interface DescribeTransitGatewayVpcAttachmentsRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The IDs of the attachments.</p>
    */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
+  TransitGatewayAttachmentIds?: string[];
 
   /**
    * <p>One or more filters. The possible values are:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p>
+   *                   <code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5224,9 +6672,22 @@ export interface DescribeTransitGatewayVpcAttachmentsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The IDs of the attachments.</p>
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
-  TransitGatewayAttachmentIds?: string[];
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeTransitGatewayVpcAttachmentsRequest {
@@ -5262,16 +6723,16 @@ export interface DescribeVolumeAttributeRequest {
   Attribute: VolumeAttributeName | string | undefined;
 
   /**
+   * <p>The ID of the volume.</p>
+   */
+  VolumeId: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId: string | undefined;
 }
 
 export namespace DescribeVolumeAttributeRequest {
@@ -5282,11 +6743,6 @@ export namespace DescribeVolumeAttributeRequest {
 
 export interface DescribeVolumeAttributeResult {
   /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId?: string;
-
-  /**
    * <p>The state of <code>autoEnableIO</code> attribute.</p>
    */
   AutoEnableIO?: AttributeBooleanValue;
@@ -5295,6 +6751,11 @@ export interface DescribeVolumeAttributeResult {
    * <p>A list of product codes.</p>
    */
   ProductCodes?: ProductCode[];
+
+  /**
+   * <p>The ID of the volume.</p>
+   */
+  VolumeId?: string;
 }
 
 export namespace DescribeVolumeAttributeResult {
@@ -5304,11 +6765,6 @@ export namespace DescribeVolumeAttributeResult {
 }
 
 export interface DescribeVolumesRequest {
-  /**
-   * <p>The volume IDs.</p>
-   */
-  VolumeIds?: string[];
-
   /**
    * <p>The filters.</p>
    *          <ul>
@@ -5372,7 +6828,7 @@ export interface DescribeVolumesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>status</code> - The status of the volume (<code>creating</code> |
+   *                   <code>status</code> - The state of the volume (<code>creating</code> |
    *             <code>available</code> | <code>in-use</code> | <code>deleting</code> |
    *             <code>deleted</code> | <code>error</code>).</p>
    *             </li>
@@ -5392,7 +6848,7 @@ export interface DescribeVolumesRequest {
    *             <li>
    *                <p>
    *                   <code>volume-type</code> - The Amazon EBS volume type. This can be <code>gp2</code>
-   *           for General Purpose SSD, <code>io1</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD,
+   *           for General Purpose SSD, <code>io1</code> or <code>io2</code> for Provisioned IOPS SSD, <code>st1</code> for Throughput Optimized HDD,
    *             <code>sc1</code> for Cold HDD, or <code>standard</code> for Magnetic volumes.</p>
    *             </li>
    *          </ul>
@@ -5400,20 +6856,16 @@ export interface DescribeVolumesRequest {
   Filters?: Filter[];
 
   /**
+   * <p>The volume IDs.</p>
+   */
+  VolumeIds?: string[];
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The <code>NextToken</code> value returned from a previous paginated
-   *         <code>DescribeVolumes</code> request where <code>MaxResults</code> was used and the results
-   *       exceeded the value of that parameter. Pagination continues from the end of the previous
-   *       results that returned the <code>NextToken</code> value. This value is <code>null</code> when
-   *       there are no more results to return.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>The maximum number of volume results returned by <code>DescribeVolumes</code> in paginated
@@ -5427,6 +6879,15 @@ export interface DescribeVolumesRequest {
    *       volume IDs parameter in the same request.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The <code>NextToken</code> value returned from a previous paginated
+   *         <code>DescribeVolumes</code> request where <code>MaxResults</code> was used and the results
+   *       exceeded the value of that parameter. Pagination continues from the end of the previous
+   *       results that returned the <code>NextToken</code> value. This value is <code>null</code> when
+   *       there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeVolumesRequest {
@@ -5458,6 +6919,18 @@ export namespace DescribeVolumesResult {
 
 export interface DescribeVolumesModificationsRequest {
   /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of the volumes.</p>
+   */
+  VolumeIds?: string[];
+
+  /**
    * <p>The filters.</p>
    *          <ul>
    *             <li>
@@ -5476,7 +6949,7 @@ export interface DescribeVolumesModificationsRequest {
    *             <li>
    *                <p>
    *                   <code>original-volume-type</code> - The original volume type of the volume (standard |
-   *           io1 | gp2 | sc1 | st1).</p>
+   *           io1 | io2 | gp2 | sc1 | st1).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5497,7 +6970,7 @@ export interface DescribeVolumesModificationsRequest {
    *             <li>
    *                <p>
    *                   <code>target-volume-type</code> - The target volume type of the volume (standard |
-   *           io1 | gp2 | sc1 | st1).</p>
+   *           io1 | io2 | gp2 | sc1 | st1).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5517,22 +6990,10 @@ export interface DescribeVolumesModificationsRequest {
   NextToken?: string;
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The maximum number of results (up to a limit of 500) to be returned in a paginated
    *       request.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The IDs of the volumes.</p>
-   */
-  VolumeIds?: string[];
 }
 
 export namespace DescribeVolumesModificationsRequest {
@@ -5549,9 +7010,9 @@ export type VolumeModificationState = "completed" | "failed" | "modifying" | "op
  */
 export interface VolumeModification {
   /**
-   * <p>The original IOPS rate of the volume.</p>
+   * <p>The ID of the volume.</p>
    */
-  OriginalIops?: number;
+  VolumeId?: string;
 
   /**
    * <p>The current modification state. The modification state is null for unmodified
@@ -5560,9 +7021,9 @@ export interface VolumeModification {
   ModificationState?: VolumeModificationState | string;
 
   /**
-   * <p>The target EBS volume type of the volume.</p>
+   * <p>A status message about the modification progress or failure.</p>
    */
-  TargetVolumeType?: VolumeType | string;
+  StatusMessage?: string;
 
   /**
    * <p>The target size of the volume, in GiB.</p>
@@ -5570,9 +7031,24 @@ export interface VolumeModification {
   TargetSize?: number;
 
   /**
+   * <p>The target IOPS rate of the volume.</p>
+   */
+  TargetIops?: number;
+
+  /**
+   * <p>The target EBS volume type of the volume.</p>
+   */
+  TargetVolumeType?: VolumeType | string;
+
+  /**
    * <p>The original size of the volume, in GiB.</p>
    */
   OriginalSize?: number;
+
+  /**
+   * <p>The original IOPS rate of the volume.</p>
+   */
+  OriginalIops?: number;
 
   /**
    * <p>The original EBS volume type of the volume.</p>
@@ -5580,34 +7056,19 @@ export interface VolumeModification {
   OriginalVolumeType?: VolumeType | string;
 
   /**
-   * <p>The modification completion or failure time.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId?: string;
-
-  /**
    * <p>The modification progress, from 0 to 100 percent complete.</p>
    */
   Progress?: number;
 
   /**
-   * <p>A status message about the modification progress or failure.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The target IOPS rate of the volume.</p>
-   */
-  TargetIops?: number;
-
-  /**
    * <p>The modification start time.</p>
    */
   StartTime?: Date;
+
+  /**
+   * <p>The modification completion or failure time.</p>
+   */
+  EndTime?: Date;
 }
 
 export namespace VolumeModification {
@@ -5702,19 +7163,6 @@ export interface DescribeVolumeStatusRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The IDs of the volumes.</p>
-   *          <p>Default: Describes all your volumes.</p>
-   */
-  VolumeIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The maximum number of volume results returned by <code>DescribeVolumeStatus</code> in
    *       paginated output. When this parameter is used, the request only returns
    *         <code>MaxResults</code> results in a single page along with a <code>NextToken</code>
@@ -5733,6 +7181,19 @@ export interface DescribeVolumeStatusRequest {
    *       more results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The IDs of the volumes.</p>
+   *          <p>Default: Describes all your volumes.</p>
+   */
+  VolumeIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeVolumeStatusRequest {
@@ -5746,9 +7207,9 @@ export namespace DescribeVolumeStatusRequest {
  */
 export interface VolumeStatusAction {
   /**
-   * <p>The event type associated with this operation.</p>
+   * <p>The code identifying the operation, for example, <code>enable-volume-io</code>.</p>
    */
-  EventType?: string;
+  Code?: string;
 
   /**
    * <p>A description of the operation.</p>
@@ -5756,14 +7217,14 @@ export interface VolumeStatusAction {
   Description?: string;
 
   /**
-   * <p>The code identifying the operation, for example, <code>enable-volume-io</code>.</p>
-   */
-  Code?: string;
-
-  /**
    * <p>The ID of the event associated with this operation.</p>
    */
   EventId?: string;
+
+  /**
+   * <p>The event type associated with this operation.</p>
+   */
+  EventType?: string;
 }
 
 export namespace VolumeStatusAction {
@@ -5777,14 +7238,14 @@ export namespace VolumeStatusAction {
  */
 export interface VolumeStatusAttachmentStatus {
   /**
-   * <p>The ID of the attached instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
    * <p>The maximum IOPS supported by the attached instance.</p>
    */
   IoPerformance?: string;
+
+  /**
+   * <p>The ID of the attached instance.</p>
+   */
+  InstanceId?: string;
 }
 
 export namespace VolumeStatusAttachmentStatus {
@@ -5798,24 +7259,14 @@ export namespace VolumeStatusAttachmentStatus {
  */
 export interface VolumeStatusEvent {
   /**
-   * <p>The ID of this event.</p>
-   */
-  EventId?: string;
-
-  /**
-   * <p>The earliest start time of the event.</p>
-   */
-  NotBefore?: Date;
-
-  /**
    * <p>A description of the event.</p>
    */
   Description?: string;
 
   /**
-   * <p>The ID of the instance associated with the event.</p>
+   * <p>The ID of this event.</p>
    */
-  InstanceId?: string;
+  EventId?: string;
 
   /**
    * <p>The type of this event.</p>
@@ -5826,6 +7277,16 @@ export interface VolumeStatusEvent {
    * <p>The latest end time of the event.</p>
    */
   NotAfter?: Date;
+
+  /**
+   * <p>The earliest start time of the event.</p>
+   */
+  NotBefore?: Date;
+
+  /**
+   * <p>The ID of the instance associated with the event.</p>
+   */
+  InstanceId?: string;
 }
 
 export namespace VolumeStatusEvent {
@@ -5841,14 +7302,14 @@ export type VolumeStatusName = "io-enabled" | "io-performance";
  */
 export interface VolumeStatusDetails {
   /**
-   * <p>The intended status of the volume status.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>The name of the volume status.</p>
    */
   Name?: VolumeStatusName | string;
+
+  /**
+   * <p>The intended status of the volume status.</p>
+   */
+  Status?: string;
 }
 
 export namespace VolumeStatusDetails {
@@ -5885,19 +7346,14 @@ export namespace VolumeStatusInfo {
  */
 export interface VolumeStatusItem {
   /**
+   * <p>The details of the operation.</p>
+   */
+  Actions?: VolumeStatusAction[];
+
+  /**
    * <p>The Availability Zone of the volume.</p>
    */
   AvailabilityZone?: string;
-
-  /**
-   * <p>Information about the instances to which the volume is attached.</p>
-   */
-  AttachmentStatuses?: VolumeStatusAttachmentStatus[];
-
-  /**
-   * <p>The volume status.</p>
-   */
-  VolumeStatus?: VolumeStatusInfo;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
@@ -5905,19 +7361,24 @@ export interface VolumeStatusItem {
   OutpostArn?: string;
 
   /**
-   * <p>The volume ID.</p>
-   */
-  VolumeId?: string;
-
-  /**
    * <p>A list of events associated with the volume.</p>
    */
   Events?: VolumeStatusEvent[];
 
   /**
-   * <p>The details of the operation.</p>
+   * <p>The volume ID.</p>
    */
-  Actions?: VolumeStatusAction[];
+  VolumeId?: string;
+
+  /**
+   * <p>The volume status.</p>
+   */
+  VolumeStatus?: VolumeStatusInfo;
+
+  /**
+   * <p>Information about the instances to which the volume is attached.</p>
+   */
+  AttachmentStatuses?: VolumeStatusAttachmentStatus[];
 }
 
 export namespace VolumeStatusItem {
@@ -5928,15 +7389,15 @@ export namespace VolumeStatusItem {
 
 export interface DescribeVolumeStatusResult {
   /**
-   * <p>Information about the status of the volumes.</p>
-   */
-  VolumeStatuses?: VolumeStatusItem[];
-
-  /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
    *       when there are no more results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the status of the volumes.</p>
+   */
+  VolumeStatuses?: VolumeStatusItem[];
 }
 
 export namespace DescribeVolumeStatusResult {
@@ -5949,6 +7410,11 @@ export type VpcAttributeName = "enableDnsHostnames" | "enableDnsSupport";
 
 export interface DescribeVpcAttributeRequest {
   /**
+   * <p>The VPC attribute.</p>
+   */
+  Attribute: VpcAttributeName | string | undefined;
+
+  /**
    * <p>The ID of the VPC.</p>
    */
   VpcId: string | undefined;
@@ -5959,11 +7425,6 @@ export interface DescribeVpcAttributeRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The VPC attribute.</p>
-   */
-  Attribute: VpcAttributeName | string | undefined;
 }
 
 export namespace DescribeVpcAttributeRequest {
@@ -5979,19 +7440,19 @@ export interface DescribeVpcAttributeResult {
   VpcId?: string;
 
   /**
+   * <p>Indicates whether the instances launched in the VPC get DNS hostnames.
+   * 				If this attribute is <code>true</code>, instances in the VPC get DNS hostnames;
+   * 				otherwise, they do not.</p>
+   */
+  EnableDnsHostnames?: AttributeBooleanValue;
+
+  /**
    * <p>Indicates whether DNS resolution is enabled for
    * 				the VPC. If this attribute is <code>true</code>, the Amazon DNS server
    * 				resolves DNS hostnames for your instances to their corresponding
    * 				IP addresses; otherwise, it does not.</p>
    */
   EnableDnsSupport?: AttributeBooleanValue;
-
-  /**
-   * <p>Indicates whether the instances launched in the VPC get DNS hostnames.
-   * 				If this attribute is <code>true</code>, instances in the VPC get DNS hostnames;
-   * 				otherwise, they do not.</p>
-   */
-  EnableDnsHostnames?: AttributeBooleanValue;
 }
 
 export namespace DescribeVpcAttributeResult {
@@ -6046,11 +7507,6 @@ export namespace DescribeVpcClassicLinkRequest {
  */
 export interface VpcClassicLink {
   /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-
-  /**
    * <p>Indicates whether the VPC is enabled for ClassicLink.</p>
    */
   ClassicLinkEnabled?: boolean;
@@ -6059,6 +7515,11 @@ export interface VpcClassicLink {
    * <p>Any tags assigned to the VPC.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
 }
 
 export namespace VpcClassicLink {
@@ -6088,14 +7549,14 @@ export interface DescribeVpcClassicLinkDnsSupportRequest {
   MaxResults?: number;
 
   /**
-   * <p>One or more VPC IDs.</p>
-   */
-  VpcIds?: string[];
-
-  /**
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>One or more VPC IDs.</p>
+   */
+  VpcIds?: string[];
 }
 
 export namespace DescribeVpcClassicLinkDnsSupportRequest {
@@ -6127,14 +7588,14 @@ export namespace ClassicLinkDnsSupport {
 
 export interface DescribeVpcClassicLinkDnsSupportResult {
   /**
-   * <p>Information about the ClassicLink DNS support status of the VPCs.</p>
-   */
-  Vpcs?: ClassicLinkDnsSupport[];
-
-  /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Information about the ClassicLink DNS support status of the VPCs.</p>
+   */
+  Vpcs?: ClassicLinkDnsSupport[];
 }
 
 export namespace DescribeVpcClassicLinkDnsSupportResult {
@@ -6144,6 +7605,18 @@ export namespace DescribeVpcClassicLinkDnsSupportResult {
 }
 
 export interface DescribeVpcEndpointConnectionNotificationsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the notification.</p>
+   */
+  ConnectionNotificationId?: string;
+
   /**
    * <p>One or more filters.</p>
    *         <ul>
@@ -6189,18 +7662,6 @@ export interface DescribeVpcEndpointConnectionNotificationsRequest {
    * <p>The token to request the next page of results.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The ID of the notification.</p>
-   */
-  ConnectionNotificationId?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
 }
 
 export namespace DescribeVpcEndpointConnectionNotificationsRequest {
@@ -6230,6 +7691,13 @@ export namespace DescribeVpcEndpointConnectionNotificationsResult {
 
 export interface DescribeVpcEndpointConnectionsRequest {
   /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>One or more filters.</p>
    * 		       <ul>
    *             <li>
@@ -6257,13 +7725,6 @@ export interface DescribeVpcEndpointConnectionsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The maximum number of results to return for the request in a single page. The remaining
    *             results of the initial request can be seen by sending another request with the returned
    *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
@@ -6289,14 +7750,14 @@ export namespace DescribeVpcEndpointConnectionsRequest {
  */
 export interface VpcEndpointConnection {
   /**
+   * <p>The ID of the service to which the endpoint is connected.</p>
+   */
+  ServiceId?: string;
+
+  /**
    * <p>The ID of the VPC endpoint.</p>
    */
   VpcEndpointId?: string;
-
-  /**
-   * <p>The state of the VPC endpoint.</p>
-   */
-  VpcEndpointState?: State | string;
 
   /**
    * <p>The AWS account ID of the owner of the VPC endpoint.</p>
@@ -6304,14 +7765,14 @@ export interface VpcEndpointConnection {
   VpcEndpointOwner?: string;
 
   /**
-   * <p>The ID of the service to which the endpoint is connected.</p>
+   * <p>The state of the VPC endpoint.</p>
    */
-  ServiceId?: string;
+  VpcEndpointState?: State | string;
 
   /**
-   * <p>The Amazon Resource Names (ARNs) of the network load balancers for the service.</p>
+   * <p>The date and time that the VPC endpoint was created.</p>
    */
-  NetworkLoadBalancerArns?: string[];
+  CreationTimestamp?: Date;
 
   /**
    * <p>The DNS entries for the VPC endpoint.</p>
@@ -6319,9 +7780,14 @@ export interface VpcEndpointConnection {
   DnsEntries?: DnsEntry[];
 
   /**
-   * <p>The date and time that the VPC endpoint was created.</p>
+   * <p>The Amazon Resource Names (ARNs) of the network load balancers for the service.</p>
    */
-  CreationTimestamp?: Date;
+  NetworkLoadBalancerArns?: string[];
+
+  /**
+   * <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
+   */
+  GatewayLoadBalancerArns?: string[];
 }
 
 export namespace VpcEndpointConnection {
@@ -6360,6 +7826,11 @@ export interface DescribeVpcEndpointsRequest {
   DryRun?: boolean;
 
   /**
+   * <p>One or more endpoint IDs.</p>
+   */
+  VpcEndpointIds?: string[];
+
+  /**
    * <p>One or more filters.</p>
    *         <ul>
    *             <li>
@@ -6382,6 +7853,10 @@ export interface DescribeVpcEndpointsRequest {
    *                         <code>rejected</code> | <code>failed</code>).</p>
    *             </li>
    *             <li>
+   *                 <p>
+   *                   <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p>
+   *             </li>
+   *             <li>
    *         		     <p>
    *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *         	   </li>
@@ -6392,11 +7867,6 @@ export interface DescribeVpcEndpointsRequest {
    *          </ul>
    */
   Filters?: Filter[];
-
-  /**
-   * <p>One or more endpoint IDs.</p>
-   */
-  VpcEndpointIds?: string[];
 
   /**
    * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
@@ -6421,14 +7891,14 @@ export namespace DescribeVpcEndpointsRequest {
  */
 export interface DescribeVpcEndpointsResult {
   /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the endpoints.</p>
    */
   VpcEndpoints?: VpcEndpoint[];
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeVpcEndpointsResult {
@@ -6444,6 +7914,11 @@ export interface DescribeVpcEndpointServiceConfigurationsRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The IDs of one or more services.</p>
+   */
+  ServiceIds?: string[];
 
   /**
    * <p>One or more filters.</p>
@@ -6475,11 +7950,6 @@ export interface DescribeVpcEndpointServiceConfigurationsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The IDs of one or more services.</p>
-   */
-  ServiceIds?: string[];
-
-  /**
    * <p>The maximum number of results to return for the request in a single page. The remaining
    *             results of the initial request can be seen by sending another request with the returned
    *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
@@ -6502,14 +7972,14 @@ export namespace DescribeVpcEndpointServiceConfigurationsRequest {
 
 export interface DescribeVpcEndpointServiceConfigurationsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about one or more services.</p>
    */
   ServiceConfigurations?: ServiceConfiguration[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeVpcEndpointServiceConfigurationsResult {
@@ -6519,6 +7989,18 @@ export namespace DescribeVpcEndpointServiceConfigurationsResult {
 }
 
 export interface DescribeVpcEndpointServicePermissionsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the service.</p>
+   */
+  ServiceId: string | undefined;
+
   /**
    * <p>One or more filters.</p>
    * 		       <ul>
@@ -6537,23 +8019,6 @@ export interface DescribeVpcEndpointServicePermissionsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The ID of the service.</p>
-   */
-  ServiceId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to return for the request in a single page. The remaining
    *             results of the initial request can be seen by sending another request with the returned
    *                 <code>NextToken</code> value. This value can be between 5 and 1,000; if
@@ -6561,6 +8026,11 @@ export interface DescribeVpcEndpointServicePermissionsRequest {
    *             returned.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeVpcEndpointServicePermissionsRequest {
@@ -6571,14 +8041,14 @@ export namespace DescribeVpcEndpointServicePermissionsRequest {
 
 export interface DescribeVpcEndpointServicePermissionsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about one or more allowed principals.</p>
    */
   AllowedPrincipals?: AllowedPrincipal[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeVpcEndpointServicePermissionsResult {
@@ -6592,9 +8062,16 @@ export namespace DescribeVpcEndpointServicePermissionsResult {
  */
 export interface DescribeVpcEndpointServicesRequest {
   /**
-   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  NextToken?: string;
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more service names.</p>
+   */
+  ServiceNames?: string[];
 
   /**
    * <p>One or more filters.</p>
@@ -6616,22 +8093,15 @@ export interface DescribeVpcEndpointServicesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
    *         <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
    */
   MaxResults?: number;
 
   /**
-   * <p>One or more service names.</p>
+   * <p>The token for the next set of items to return. (You received this token from a prior call.)</p>
    */
-  ServiceNames?: string[];
+  NextToken?: string;
 }
 
 export namespace DescribeVpcEndpointServicesRequest {
@@ -6645,14 +8115,49 @@ export namespace DescribeVpcEndpointServicesRequest {
  */
 export interface ServiceDetail {
   /**
-   * <p>Indicates whether the service supports endpoint policies.</p>
+   * <p>The Amazon Resource Name (ARN) of the service.</p>
    */
-  VpcEndpointPolicySupported?: boolean;
+  ServiceName?: string;
+
+  /**
+   * <p>The ID of the endpoint service.</p>
+   */
+  ServiceId?: string;
+
+  /**
+   * <p>The type of service.</p>
+   */
+  ServiceType?: ServiceTypeDetail[];
+
+  /**
+   * <p>The Availability Zones in which the service is available.</p>
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * <p>The AWS account ID of the service owner.</p>
+   */
+  Owner?: string;
 
   /**
    * <p>The DNS names for the service.</p>
    */
   BaseEndpointDnsNames?: string[];
+
+  /**
+   * <p>The private DNS name for the service.</p>
+   */
+  PrivateDnsName?: string;
+
+  /**
+   * <p>Indicates whether the service supports endpoint policies.</p>
+   */
+  VpcEndpointPolicySupported?: boolean;
+
+  /**
+   * <p>Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.</p>
+   */
+  AcceptanceRequired?: boolean;
 
   /**
    * <p>Indicates whether the service manages its VPC endpoints. Management of the service VPC
@@ -6661,50 +8166,15 @@ export interface ServiceDetail {
   ManagesVpcEndpoints?: boolean;
 
   /**
-   * <p>The type of service.</p>
+   * <p>Any tags assigned to the service.</p>
    */
-  ServiceType?: ServiceTypeDetail[];
+  Tags?: Tag[];
 
   /**
    * <p>The verification state of the VPC endpoint service.</p>
    *         <p>Consumers of the endpoint service cannot use the private name when the state is not <code>verified</code>.</p>
    */
   PrivateDnsNameVerificationState?: DnsNameState | string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the service.</p>
-   */
-  ServiceName?: string;
-
-  /**
-   * <p>Any tags assigned to the service.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The Availability Zones in which the service is available.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>The ID of the endpoint service.</p>
-   */
-  ServiceId?: string;
-
-  /**
-   * <p>Indicates whether VPC endpoint connection requests to the service must be accepted by the service owner.</p>
-   */
-  AcceptanceRequired?: boolean;
-
-  /**
-   * <p>The private DNS name for the service.</p>
-   */
-  PrivateDnsName?: string;
-
-  /**
-   * <p>The AWS account ID of the service owner.</p>
-   */
-  Owner?: string;
 }
 
 export namespace ServiceDetail {
@@ -6723,14 +8193,14 @@ export interface DescribeVpcEndpointServicesResult {
   ServiceNames?: string[];
 
   /**
-   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the service.</p>
    */
   ServiceDetails?: ServiceDetail[];
+
+  /**
+   * <p>The token to use when requesting the next set of items. If there are no additional items to return, the string is empty.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeVpcEndpointServicesResult {
@@ -6740,19 +8210,6 @@ export namespace DescribeVpcEndpointServicesResult {
 }
 
 export interface DescribeVpcPeeringConnectionsRequest {
-  /**
-   * <p>One or more VPC peering connection IDs.</p>
-   *          <p>Default: Describes all your VPC peering connections.</p>
-   */
-  VpcPeeringConnectionIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
   /**
    * <p>One or more filters.</p>
    *          <ul>
@@ -6820,15 +8277,28 @@ export interface DescribeVpcPeeringConnectionsRequest {
   Filters?: Filter[];
 
   /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  MaxResults?: number;
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more VPC peering connection IDs.</p>
+   *          <p>Default: Describes all your VPC peering connections.</p>
+   */
+  VpcPeeringConnectionIds?: string[];
 
   /**
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace DescribeVpcPeeringConnectionsRequest {
@@ -6856,13 +8326,6 @@ export namespace DescribeVpcPeeringConnectionsResult {
 }
 
 export interface DescribeVpcsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
   /**
    * <p>One or more filters.</p>
    *         <ul>
@@ -6941,6 +8404,19 @@ export interface DescribeVpcsRequest {
   Filters?: Filter[];
 
   /**
+   * <p>One or more VPC IDs.</p>
+   * 		       <p>Default: Describes all your VPCs.</p>
+   */
+  VpcIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
@@ -6950,12 +8426,6 @@ export interface DescribeVpcsRequest {
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>One or more VPC IDs.</p>
-   * 		       <p>Default: Describes all your VPCs.</p>
-   */
-  VpcIds?: string[];
 }
 
 export namespace DescribeVpcsRequest {
@@ -6986,13 +8456,6 @@ export namespace DescribeVpcsResult {
  * <p>Contains the parameters for DescribeVpnConnections.</p>
  */
 export interface DescribeVpnConnectionsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
   /**
    * <p>One or more filters.</p>
    *         <ul>
@@ -7054,6 +8517,13 @@ export interface DescribeVpnConnectionsRequest {
    *         <p>Default: Describes your VPN connections.</p>
    */
   VpnConnectionIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeVpnConnectionsRequest {
@@ -7082,19 +8552,6 @@ export namespace DescribeVpnConnectionsResult {
  * <p>Contains the parameters for DescribeVpnGateways.</p>
  */
 export interface DescribeVpnGatewaysRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more virtual private gateway IDs.</p>
-   *         <p>Default: Describes all your virtual private gateways.</p>
-   */
-  VpnGatewayIds?: string[];
-
   /**
    * <p>One or more filters.</p>
    *         <ul>
@@ -7138,6 +8595,19 @@ export interface DescribeVpnGatewaysRequest {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>One or more virtual private gateway IDs.</p>
+   *         <p>Default: Describes all your virtual private gateways.</p>
+   */
+  VpnGatewayIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DescribeVpnGatewaysRequest {
@@ -7164,11 +8634,6 @@ export namespace DescribeVpnGatewaysResult {
 
 export interface DetachClassicLinkVpcRequest {
   /**
-   * <p>The ID of the VPC to which the instance is linked.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -7179,6 +8644,11 @@ export interface DetachClassicLinkVpcRequest {
    * <p>The ID of the instance to unlink from the VPC.</p>
    */
   InstanceId: string | undefined;
+
+  /**
+   * <p>The ID of the VPC to which the instance is linked.</p>
+   */
+  VpcId: string | undefined;
 }
 
 export namespace DetachClassicLinkVpcRequest {
@@ -7230,6 +8700,11 @@ export namespace DetachInternetGatewayRequest {
  */
 export interface DetachNetworkInterfaceRequest {
   /**
+   * <p>The ID of the attachment.</p>
+   */
+  AttachmentId: string | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *             and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *             Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -7257,11 +8732,6 @@ export interface DetachNetworkInterfaceRequest {
    *         </note>
    */
   Force?: boolean;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  AttachmentId: string | undefined;
 }
 
 export namespace DetachNetworkInterfaceRequest {
@@ -7272,16 +8742,9 @@ export namespace DetachNetworkInterfaceRequest {
 
 export interface DetachVolumeRequest {
   /**
-   * <p>The ID of the volume.</p>
+   * <p>The device name.</p>
    */
-  VolumeId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+  Device?: string;
 
   /**
    * <p>Forces detachment if the previous detachment attempt did not occur cleanly (for example,
@@ -7299,9 +8762,16 @@ export interface DetachVolumeRequest {
   InstanceId?: string;
 
   /**
-   * <p>The device name.</p>
+   * <p>The ID of the volume.</p>
    */
-  Device?: string;
+  VolumeId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DetachVolumeRequest {
@@ -7315,14 +8785,14 @@ export namespace DetachVolumeRequest {
  */
 export interface DetachVpnGatewayRequest {
   /**
-   * <p>The ID of the virtual private gateway.</p>
-   */
-  VpnGatewayId: string | undefined;
-
-  /**
    * <p>The ID of the VPC.</p>
    */
   VpcId: string | undefined;
+
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   */
+  VpnGatewayId: string | undefined;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -7368,13 +8838,6 @@ export namespace DisableEbsEncryptionByDefaultResult {
 
 export interface DisableFastSnapshotRestoresRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>One or more Availability Zones. For example, <code>us-east-2a</code>.</p>
    */
   AvailabilityZones: string[] | undefined;
@@ -7383,6 +8846,13 @@ export interface DisableFastSnapshotRestoresRequest {
    * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>.</p>
    */
   SourceSnapshotIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DisableFastSnapshotRestoresRequest {
@@ -7396,19 +8866,9 @@ export namespace DisableFastSnapshotRestoresRequest {
  */
 export interface DisableFastSnapshotRestoreSuccessItem {
   /**
-   * <p>The state of fast snapshot restores for the snapshot.</p>
+   * <p>The ID of the snapshot.</p>
    */
-  State?: FastSnapshotRestoreStateCode | string;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
-   */
-  EnablingTime?: Date;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
-   */
-  DisabledTime?: Date;
+  SnapshotId?: string;
 
   /**
    * <p>The Availability Zone.</p>
@@ -7416,34 +8876,9 @@ export interface DisableFastSnapshotRestoreSuccessItem {
   AvailabilityZone?: string;
 
   /**
-   * <p>The ID of the AWS account that enabled fast snapshot restores on the snapshot.</p>
+   * <p>The state of fast snapshot restores for the snapshot.</p>
    */
-  OwnerId?: string;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
-   */
-  OptimizingTime?: Date;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
-   */
-  EnabledTime?: Date;
-
-  /**
-   * <p>The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
-   */
-  OwnerAlias?: string;
-
-  /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
-   */
-  DisablingTime?: Date;
+  State?: FastSnapshotRestoreStateCode | string;
 
   /**
    * <p>The reason for the state transition. The possible values are as follows:</p>
@@ -7461,6 +8896,41 @@ export interface DisableFastSnapshotRestoreSuccessItem {
    *          </ul>
    */
   StateTransitionReason?: string;
+
+  /**
+   * <p>The ID of the AWS account that enabled fast snapshot restores on the snapshot.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
+   */
+  OwnerAlias?: string;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
+   */
+  EnablingTime?: Date;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
+   */
+  OptimizingTime?: Date;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
+   */
+  EnabledTime?: Date;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
+   */
+  DisablingTime?: Date;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
+   */
+  DisabledTime?: Date;
 }
 
 export namespace DisableFastSnapshotRestoreSuccessItem {
@@ -7534,14 +9004,14 @@ export namespace DisableFastSnapshotRestoreErrorItem {
 
 export interface DisableFastSnapshotRestoresResult {
   /**
-   * <p>Information about the snapshots for which fast snapshot restores could not be disabled.</p>
-   */
-  Unsuccessful?: DisableFastSnapshotRestoreErrorItem[];
-
-  /**
    * <p>Information about the snapshots for which fast snapshot restores were successfully disabled.</p>
    */
   Successful?: DisableFastSnapshotRestoreSuccessItem[];
+
+  /**
+   * <p>Information about the snapshots for which fast snapshot restores could not be disabled.</p>
+   */
+  Unsuccessful?: DisableFastSnapshotRestoreErrorItem[];
 }
 
 export namespace DisableFastSnapshotRestoresResult {
@@ -7552,11 +9022,9 @@ export namespace DisableFastSnapshotRestoresResult {
 
 export interface DisableTransitGatewayRouteTablePropagationRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The ID of the propagation route table.</p>
    */
-  DryRun?: boolean;
+  TransitGatewayRouteTableId: string | undefined;
 
   /**
    * <p>The ID of the attachment.</p>
@@ -7564,9 +9032,11 @@ export interface DisableTransitGatewayRouteTablePropagationRequest {
   TransitGatewayAttachmentId: string | undefined;
 
   /**
-   * <p>The ID of the propagation route table.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  TransitGatewayRouteTableId: string | undefined;
+  DryRun?: boolean;
 }
 
 export namespace DisableTransitGatewayRouteTablePropagationRequest {
@@ -7587,9 +9057,14 @@ export interface TransitGatewayPropagation {
   TransitGatewayAttachmentId?: string;
 
   /**
-   * <p>The state.</p>
+   * <p>The ID of the resource.</p>
    */
-  State?: TransitGatewayPropagationState | string;
+  ResourceId?: string;
+
+  /**
+   * <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
+   */
+  ResourceType?: TransitGatewayAttachmentResourceType | string;
 
   /**
    * <p>The ID of the transit gateway route table.</p>
@@ -7597,14 +9072,9 @@ export interface TransitGatewayPropagation {
   TransitGatewayRouteTableId?: string;
 
   /**
-   * <p>The resource type.</p>
+   * <p>The state.</p>
    */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
-
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
+  State?: TransitGatewayPropagationState | string;
 }
 
 export namespace TransitGatewayPropagation {
@@ -7631,13 +9101,6 @@ export namespace DisableTransitGatewayRouteTablePropagationResult {
  */
 export interface DisableVgwRoutePropagationRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The ID of the virtual private gateway.</p>
    */
   GatewayId: string | undefined;
@@ -7646,6 +9109,13 @@ export interface DisableVgwRoutePropagationRequest {
    * <p>The ID of the route table.</p>
    */
   RouteTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DisableVgwRoutePropagationRequest {
@@ -7656,16 +9126,16 @@ export namespace DisableVgwRoutePropagationRequest {
 
 export interface DisableVpcClassicLinkRequest {
   /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId: string | undefined;
 }
 
 export namespace DisableVpcClassicLinkRequest {
@@ -7720,16 +9190,16 @@ export interface DisassociateAddressRequest {
   AssociationId?: string;
 
   /**
+   * <p>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</p>
+   */
+  PublicIp?: string;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</p>
-   */
-  PublicIp?: string;
 }
 
 export namespace DisassociateAddressRequest {
@@ -7740,9 +9210,9 @@ export namespace DisassociateAddressRequest {
 
 export interface DisassociateClientVpnTargetNetworkRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * <p>The ID of the Client VPN endpoint from which to disassociate the target network.</p>
    */
-  DryRun?: boolean;
+  ClientVpnEndpointId: string | undefined;
 
   /**
    * <p>The ID of the target network association.</p>
@@ -7750,9 +9220,9 @@ export interface DisassociateClientVpnTargetNetworkRequest {
   AssociationId: string | undefined;
 
   /**
-   * <p>The ID of the Client VPN endpoint from which to disassociate the target network.</p>
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
-  ClientVpnEndpointId: string | undefined;
+  DryRun?: boolean;
 }
 
 export namespace DisassociateClientVpnTargetNetworkRequest {
@@ -7775,6 +9245,42 @@ export interface DisassociateClientVpnTargetNetworkResult {
 
 export namespace DisassociateClientVpnTargetNetworkResult {
   export const filterSensitiveLog = (obj: DisassociateClientVpnTargetNetworkResult): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateEnclaveCertificateIamRoleRequest {
+  /**
+   * <p>The ARN of the ACM certificate from which to disassociate the IAM role.</p>
+   */
+  CertificateArn?: string;
+
+  /**
+   * <p>The ARN of the IAM role to disassociate.</p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace DisassociateEnclaveCertificateIamRoleRequest {
+  export const filterSensitiveLog = (obj: DisassociateEnclaveCertificateIamRoleRequest): any => ({
+    ...obj,
+  });
+}
+
+export interface DisassociateEnclaveCertificateIamRoleResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+export namespace DisassociateEnclaveCertificateIamRoleResult {
+  export const filterSensitiveLog = (obj: DisassociateEnclaveCertificateIamRoleResult): any => ({
     ...obj,
   });
 }
@@ -7858,13 +9364,6 @@ export namespace DisassociateSubnetCidrBlockResult {
 
 export interface DisassociateTransitGatewayMulticastDomainRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The ID of the transit gateway multicast domain.</p>
    */
   TransitGatewayMulticastDomainId?: string;
@@ -7878,6 +9377,13 @@ export interface DisassociateTransitGatewayMulticastDomainRequest {
    * <p>The IDs of the subnets;</p>
    */
   SubnetIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace DisassociateTransitGatewayMulticastDomainRequest {
@@ -7901,6 +9407,11 @@ export namespace DisassociateTransitGatewayMulticastDomainResult {
 
 export interface DisassociateTransitGatewayRouteTableRequest {
   /**
+   * <p>The ID of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
    * <p>The ID of the attachment.</p>
    */
   TransitGatewayAttachmentId: string | undefined;
@@ -7911,11 +9422,6 @@ export interface DisassociateTransitGatewayRouteTableRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
 }
 
 export namespace DisassociateTransitGatewayRouteTableRequest {
@@ -7952,9 +9458,9 @@ export namespace DisassociateVpcCidrBlockRequest {
 
 export interface DisassociateVpcCidrBlockResult {
   /**
-   * <p>The ID of the VPC.</p>
+   * <p>Information about the IPv6 CIDR block association.</p>
    */
-  VpcId?: string;
+  Ipv6CidrBlockAssociation?: VpcIpv6CidrBlockAssociation;
 
   /**
    * <p>Information about the IPv4 CIDR block association.</p>
@@ -7962,9 +9468,9 @@ export interface DisassociateVpcCidrBlockResult {
   CidrBlockAssociation?: VpcCidrBlockAssociation;
 
   /**
-   * <p>Information about the IPv6 CIDR block association.</p>
+   * <p>The ID of the VPC.</p>
    */
-  Ipv6CidrBlockAssociation?: VpcIpv6CidrBlockAssociation;
+  VpcId?: string;
 }
 
 export namespace DisassociateVpcCidrBlockResult {
@@ -8008,17 +9514,17 @@ export interface EnableFastSnapshotRestoresRequest {
   AvailabilityZones: string[] | undefined;
 
   /**
+   * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>. You can specify
+   *       a snapshot that was shared with you from another AWS account.</p>
+   */
+  SourceSnapshotIds: string[] | undefined;
+
+  /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The IDs of one or more snapshots. For example, <code>snap-1234567890abcdef0</code>. You can specify
-   *       a snapshot that was shared with you from another AWS account.</p>
-   */
-  SourceSnapshotIds: string[] | undefined;
 }
 
 export namespace EnableFastSnapshotRestoresRequest {
@@ -8032,14 +9538,19 @@ export namespace EnableFastSnapshotRestoresRequest {
  */
 export interface EnableFastSnapshotRestoreSuccessItem {
   /**
-   * <p>The ID of the AWS account that enabled fast snapshot restores on the snapshot.</p>
+   * <p>The ID of the snapshot.</p>
    */
-  OwnerId?: string;
+  SnapshotId?: string;
 
   /**
    * <p>The Availability Zone.</p>
    */
   AvailabilityZone?: string;
+
+  /**
+   * <p>The state of fast snapshot restores.</p>
+   */
+  State?: FastSnapshotRestoreStateCode | string;
 
   /**
    * <p>The reason for the state transition. The possible values are as follows:</p>
@@ -8059,9 +9570,29 @@ export interface EnableFastSnapshotRestoreSuccessItem {
   StateTransitionReason?: string;
 
   /**
+   * <p>The ID of the AWS account that enabled fast snapshot restores on the snapshot.</p>
+   */
+  OwnerId?: string;
+
+  /**
    * <p>The AWS owner alias that enabled fast snapshot restores on the snapshot. This is intended for future use.</p>
    */
   OwnerAlias?: string;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
+   */
+  EnablingTime?: Date;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
+   */
+  OptimizingTime?: Date;
+
+  /**
+   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
+   */
+  EnabledTime?: Date;
 
   /**
    * <p>The time at which fast snapshot restores entered the <code>disabling</code> state.</p>
@@ -8072,31 +9603,6 @@ export interface EnableFastSnapshotRestoreSuccessItem {
    * <p>The time at which fast snapshot restores entered the <code>disabled</code> state.</p>
    */
   DisabledTime?: Date;
-
-  /**
-   * <p>The ID of the snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The state of fast snapshot restores.</p>
-   */
-  State?: FastSnapshotRestoreStateCode | string;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabling</code> state.</p>
-   */
-  EnablingTime?: Date;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>enabled</code> state.</p>
-   */
-  EnabledTime?: Date;
-
-  /**
-   * <p>The time at which fast snapshot restores entered the <code>optimizing</code> state.</p>
-   */
-  OptimizingTime?: Date;
 }
 
 export namespace EnableFastSnapshotRestoreSuccessItem {
@@ -8110,14 +9616,14 @@ export namespace EnableFastSnapshotRestoreSuccessItem {
  */
 export interface EnableFastSnapshotRestoreStateError {
   /**
-   * <p>The error message.</p>
-   */
-  Message?: string;
-
-  /**
    * <p>The error code.</p>
    */
   Code?: string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  Message?: string;
 }
 
 export namespace EnableFastSnapshotRestoreStateError {
@@ -8131,14 +9637,14 @@ export namespace EnableFastSnapshotRestoreStateError {
  */
 export interface EnableFastSnapshotRestoreStateErrorItem {
   /**
-   * <p>The error.</p>
-   */
-  Error?: EnableFastSnapshotRestoreStateError;
-
-  /**
    * <p>The Availability Zone.</p>
    */
   AvailabilityZone?: string;
+
+  /**
+   * <p>The error.</p>
+   */
+  Error?: EnableFastSnapshotRestoreStateError;
 }
 
 export namespace EnableFastSnapshotRestoreStateErrorItem {
@@ -8152,14 +9658,14 @@ export namespace EnableFastSnapshotRestoreStateErrorItem {
  */
 export interface EnableFastSnapshotRestoreErrorItem {
   /**
-   * <p>The errors.</p>
-   */
-  FastSnapshotRestoreStateErrors?: EnableFastSnapshotRestoreStateErrorItem[];
-
-  /**
    * <p>The ID of the snapshot.</p>
    */
   SnapshotId?: string;
+
+  /**
+   * <p>The errors.</p>
+   */
+  FastSnapshotRestoreStateErrors?: EnableFastSnapshotRestoreStateErrorItem[];
 }
 
 export namespace EnableFastSnapshotRestoreErrorItem {
@@ -8188,13 +9694,6 @@ export namespace EnableFastSnapshotRestoresResult {
 
 export interface EnableTransitGatewayRouteTablePropagationRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The ID of the propagation route table.</p>
    */
   TransitGatewayRouteTableId: string | undefined;
@@ -8203,6 +9702,13 @@ export interface EnableTransitGatewayRouteTablePropagationRequest {
    * <p>The ID of the attachment.</p>
    */
   TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace EnableTransitGatewayRouteTablePropagationRequest {
@@ -8229,13 +9735,6 @@ export namespace EnableTransitGatewayRouteTablePropagationResult {
  */
 export interface EnableVgwRoutePropagationRequest {
   /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
    * <p>The ID of the virtual private gateway that is attached to a VPC. The virtual private gateway must be attached to the same VPC that the routing tables are associated with. </p>
    */
   GatewayId: string | undefined;
@@ -8244,6 +9743,13 @@ export interface EnableVgwRoutePropagationRequest {
    * <p>The ID of the route table. The routing table must be associated with the same VPC that the virtual private gateway is attached to. </p>
    */
   RouteTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   * 			Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace EnableVgwRoutePropagationRequest {
@@ -8374,14 +9880,14 @@ export namespace ClientCertificateRevocationListStatus {
 
 export interface ExportClientVpnClientCertificateRevocationListResult {
   /**
-   * <p>The current state of the client certificate revocation list.</p>
-   */
-  Status?: ClientCertificateRevocationListStatus;
-
-  /**
    * <p>Information about the client certificate revocation list.</p>
    */
   CertificateRevocationList?: string;
+
+  /**
+   * <p>The current state of the client certificate revocation list.</p>
+   */
+  Status?: ClientCertificateRevocationListStatus;
 }
 
 export namespace ExportClientVpnClientCertificateRevocationListResult {
@@ -8426,14 +9932,14 @@ export namespace ExportClientVpnClientConfigurationResult {
  */
 export interface ExportTaskS3LocationRequest {
   /**
-   * <p>The prefix (logical hierarchy) in the bucket.</p>
-   */
-  S3Prefix?: string;
-
-  /**
    * <p>The destination Amazon S3 bucket.</p>
    */
   S3Bucket: string | undefined;
+
+  /**
+   * <p>The prefix (logical hierarchy) in the bucket.</p>
+   */
+  S3Prefix?: string;
 }
 
 export namespace ExportTaskS3LocationRequest {
@@ -8444,27 +9950,9 @@ export namespace ExportTaskS3LocationRequest {
 
 export interface ExportImageRequest {
   /**
-   * <p>The name of the role that grants VM Import/Export permission to export images to your Amazon
-   *    S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.</p>
+   * <p>Token to enable idempotency for export image requests.</p>
    */
-  RoleName?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The tags to apply to the image being exported.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>The ID of the image.</p>
-   */
-  ImageId: string | undefined;
+  ClientToken?: string;
 
   /**
    * <p>A description of the image being exported. The maximum length is 255 characters.</p>
@@ -8477,15 +9965,33 @@ export interface ExportImageRequest {
   DiskImageFormat: DiskImageFormat | string | undefined;
 
   /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the image.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
    * <p>Information about the destination Amazon S3 bucket. The bucket must exist and grant WRITE
    *    and READ_ACP permissions to the AWS account vm-import-export@amazon.com.</p>
    */
   S3ExportLocation: ExportTaskS3LocationRequest | undefined;
 
   /**
-   * <p>Token to enable idempotency for export image requests.</p>
+   * <p>The name of the role that grants VM Import/Export permission to export images to your Amazon
+   *    S3 bucket. If this parameter is not specified, the default role is named 'vmimport'.</p>
    */
-  ClientToken?: string;
+  RoleName?: string;
+
+  /**
+   * <p>The tags to apply to the image being exported.</p>
+   */
+  TagSpecifications?: TagSpecification[];
 }
 
 export namespace ExportImageRequest {
@@ -8496,40 +10002,19 @@ export namespace ExportImageRequest {
 
 export interface ExportImageResult {
   /**
-   * <p>The disk image format for the exported image.</p>
-   */
-  DiskImageFormat?: DiskImageFormat | string;
-
-  /**
-   * <p>The status message for the export image task.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The percent complete of the export image task.</p>
-   */
-  Progress?: string;
-
-  /**
    * <p>A description of the image being exported.</p>
    */
   Description?: string;
 
   /**
+   * <p>The disk image format for the exported image.</p>
+   */
+  DiskImageFormat?: DiskImageFormat | string;
+
+  /**
    * <p>The ID of the export image task.</p>
    */
   ExportImageTaskId?: string;
-
-  /**
-   * <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>,
-   *     <code>deleting</code>, and <code>deleted</code>.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>Any tags assigned to the image being exported.</p>
-   */
-  Tags?: Tag[];
 
   /**
    * <p>The ID of the image.</p>
@@ -8543,9 +10028,30 @@ export interface ExportImageResult {
   RoleName?: string;
 
   /**
+   * <p>The percent complete of the export image task.</p>
+   */
+  Progress?: string;
+
+  /**
    * <p>Information about the destination Amazon S3 bucket.</p>
    */
   S3ExportLocation?: ExportTaskS3Location;
+
+  /**
+   * <p>The status of the export image task. The possible values are <code>active</code>, <code>completed</code>,
+   *     <code>deleting</code>, and <code>deleted</code>.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The status message for the export image task.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>Any tags assigned to the image being exported.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace ExportImageResult {
@@ -8556,16 +10062,9 @@ export namespace ExportImageResult {
 
 export interface ExportTransitGatewayRoutesRequest {
   /**
-   * <p>The name of the S3 bucket.</p>
+   * <p>The ID of the route table.</p>
    */
-  S3Bucket: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+  TransitGatewayRouteTableId: string | undefined;
 
   /**
    * <p>One or more filters. The possible values are:</p>
@@ -8596,7 +10095,7 @@ export interface ExportTransitGatewayRoutesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> |  <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p>
+   *                   <code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8604,17 +10103,24 @@ export interface ExportTransitGatewayRoutesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>type</code> - The type of route (<code>active</code> |
-   *                <code>blackhole</code>).</p>
+   *                   <code>type</code> - The type of route (<code>propagated</code> |
+   *                <code>static</code>).</p>
    *             </li>
    *          </ul>
    */
   Filters?: Filter[];
 
   /**
-   * <p>The ID of the route table.</p>
+   * <p>The name of the S3 bucket.</p>
    */
-  TransitGatewayRouteTableId: string | undefined;
+  S3Bucket: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
 }
 
 export namespace ExportTransitGatewayRoutesRequest {
@@ -8637,6 +10143,71 @@ export namespace ExportTransitGatewayRoutesResult {
   });
 }
 
+export interface GetAssociatedEnclaveCertificateIamRolesRequest {
+  /**
+   * <p>The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon
+   * 			S3 object information.</p>
+   */
+  CertificateArn?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export namespace GetAssociatedEnclaveCertificateIamRolesRequest {
+  export const filterSensitiveLog = (obj: GetAssociatedEnclaveCertificateIamRolesRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about the associated IAM roles.</p>
+ */
+export interface AssociatedRole {
+  /**
+   * <p>The ARN of the associated IAM role.</p>
+   */
+  AssociatedRoleArn?: string;
+
+  /**
+   * <p>The name of the Amazon S3 bucket in which the Amazon S3 object is stored.</p>
+   */
+  CertificateS3BucketName?: string;
+
+  /**
+   * <p>The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle
+   * 			is stored. The object key is formated as follows:  <code>certificate_arn</code>/<code>role_arn</code>.
+   * 		</p>
+   */
+  CertificateS3ObjectKey?: string;
+
+  /**
+   * <p>The ID of the KMS customer master key (CMK) used to encrypt the private key.</p>
+   */
+  EncryptionKmsKeyId?: string;
+}
+
+export namespace AssociatedRole {
+  export const filterSensitiveLog = (obj: AssociatedRole): any => ({
+    ...obj,
+  });
+}
+
+export interface GetAssociatedEnclaveCertificateIamRolesResult {
+  /**
+   * <p>Information about the associated IAM roles.</p>
+   */
+  AssociatedRoles?: AssociatedRole[];
+}
+
+export namespace GetAssociatedEnclaveCertificateIamRolesResult {
+  export const filterSensitiveLog = (obj: GetAssociatedEnclaveCertificateIamRolesResult): any => ({
+    ...obj,
+  });
+}
+
 export interface GetAssociatedIpv6PoolCidrsRequest {
   /**
    * <p>The ID of the IPv6 address pool.</p>
@@ -8644,15 +10215,15 @@ export interface GetAssociatedIpv6PoolCidrsRequest {
   PoolId: string | undefined;
 
   /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The maximum number of results to return with a single call.
    * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -8673,14 +10244,14 @@ export namespace GetAssociatedIpv6PoolCidrsRequest {
  */
 export interface Ipv6CidrAssociation {
   /**
-   * <p>The resource that's associated with the IPv6 CIDR block.</p>
-   */
-  AssociatedResource?: string;
-
-  /**
    * <p>The IPv6 CIDR block.</p>
    */
   Ipv6Cidr?: string;
+
+  /**
+   * <p>The resource that's associated with the IPv6 CIDR block.</p>
+   */
+  AssociatedResource?: string;
 }
 
 export namespace Ipv6CidrAssociation {
@@ -8691,14 +10262,14 @@ export namespace Ipv6CidrAssociation {
 
 export interface GetAssociatedIpv6PoolCidrsResult {
   /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Information about the IPv6 CIDR block associations.</p>
    */
   Ipv6CidrAssociations?: Ipv6CidrAssociation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetAssociatedIpv6PoolCidrsResult {
@@ -8714,15 +10285,15 @@ export interface GetCapacityReservationUsageRequest {
   CapacityReservationId: string | undefined;
 
   /**
+   * <p>The token to use to retrieve the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
    * 		       <p>Valid range: Minimum value of 1. Maximum value of 1000.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -8741,14 +10312,14 @@ export namespace GetCapacityReservationUsageRequest {
  */
 export interface InstanceUsage {
   /**
-   * <p>The number of instances the AWS account currently has in the Capacity Reservation.</p>
-   */
-  UsedInstanceCount?: number;
-
-  /**
    * <p>The ID of the AWS account that is making use of the Capacity Reservation.</p>
    */
   AccountId?: string;
+
+  /**
+   * <p>The number of instances the AWS account currently has in the Capacity Reservation.</p>
+   */
+  UsedInstanceCount?: number;
 }
 
 export namespace InstanceUsage {
@@ -8759,9 +10330,9 @@ export namespace InstanceUsage {
 
 export interface GetCapacityReservationUsageResult {
   /**
-   * <p>The number of instances for which the Capacity Reservation reserves capacity.</p>
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    */
-  TotalInstanceCount?: number;
+  NextToken?: string;
 
   /**
    * <p>The ID of the Capacity Reservation.</p>
@@ -8772,6 +10343,16 @@ export interface GetCapacityReservationUsageResult {
    * <p>The type of instance for which the Capacity Reservation reserves capacity.</p>
    */
   InstanceType?: string;
+
+  /**
+   * <p>The number of instances for which the Capacity Reservation reserves capacity.</p>
+   */
+  TotalInstanceCount?: number;
+
+  /**
+   * <p>The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.</p>
+   */
+  AvailableInstanceCount?: number;
 
   /**
    * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
@@ -8806,19 +10387,9 @@ export interface GetCapacityReservationUsageResult {
   State?: CapacityReservationState | string;
 
   /**
-   * <p>The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.</p>
-   */
-  AvailableInstanceCount?: number;
-
-  /**
    * <p>Information about the Capacity Reservation usage.</p>
    */
   InstanceUsages?: InstanceUsage[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetCapacityReservationUsageResult {
@@ -8867,6 +10438,12 @@ export interface GetCoipPoolUsageRequest {
   Filters?: Filter[];
 
   /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token for the next page of results.</p>
    */
   NextToken?: string;
@@ -8877,12 +10454,6 @@ export interface GetCoipPoolUsageRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace GetCoipPoolUsageRequest {
@@ -8896,24 +10467,24 @@ export namespace GetCoipPoolUsageRequest {
  */
 export interface CoipAddressUsage {
   /**
-   * <p>The AWS service.</p>
-   */
-  AwsService?: string;
-
-  /**
    * <p>The allocation ID of the address.</p>
    */
   AllocationId?: string;
 
   /**
-   * <p>The customer-owned IP address.</p>
-   */
-  CoIp?: string;
-
-  /**
    * <p>The AWS account ID.</p>
    */
   AwsAccountId?: string;
+
+  /**
+   * <p>The AWS service.</p>
+   */
+  AwsService?: string;
+
+  /**
+   * <p>The customer-owned IP address.</p>
+   */
+  CoIp?: string;
 }
 
 export namespace CoipAddressUsage {
@@ -8924,6 +10495,11 @@ export namespace CoipAddressUsage {
 
 export interface GetCoipPoolUsageResult {
   /**
+   * <p>The ID of the customer-owned address pool.</p>
+   */
+  CoipPoolId?: string;
+
+  /**
    * <p>Information about the address usage.</p>
    */
   CoipAddressUsages?: CoipAddressUsage[];
@@ -8932,11 +10508,6 @@ export interface GetCoipPoolUsageResult {
    * <p>The ID of the local gateway route table.</p>
    */
   LocalGatewayRouteTableId?: string;
-
-  /**
-   * <p>The ID of the customer-owned address pool.</p>
-   */
-  CoipPoolId?: string;
 }
 
 export namespace GetCoipPoolUsageResult {
@@ -8946,12 +10517,6 @@ export namespace GetCoipPoolUsageResult {
 }
 
 export interface GetConsoleOutputRequest {
-  /**
-   * <p>When enabled, retrieves the latest console output for the instance.</p>
-   *         <p>Default: disabled (<code>false</code>)</p>
-   */
-  Latest?: boolean;
-
   /**
    * <p>The ID of the instance.</p>
    */
@@ -8963,6 +10528,12 @@ export interface GetConsoleOutputRequest {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>When enabled, retrieves the latest console output for the instance.</p>
+   *         <p>Default: disabled (<code>false</code>)</p>
+   */
+  Latest?: boolean;
 }
 
 export namespace GetConsoleOutputRequest {
@@ -8973,15 +10544,15 @@ export namespace GetConsoleOutputRequest {
 
 export interface GetConsoleOutputResult {
   /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
    * <p>The console output, base64-encoded. If you are using a command line tool, the tool
    *             decodes the output for you.</p>
    */
   Output?: string;
-
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
 
   /**
    * <p>The time at which the output was last updated.</p>
@@ -9023,14 +10594,14 @@ export namespace GetConsoleScreenshotRequest {
 
 export interface GetConsoleScreenshotResult {
   /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
    * <p>The data that comprises the image.</p>
    */
   ImageData?: string;
+
+  /**
+   * <p>The ID of the instance.</p>
+   */
+  InstanceId?: string;
 }
 
 export namespace GetConsoleScreenshotResult {
@@ -9039,20 +10610,20 @@ export namespace GetConsoleScreenshotResult {
   });
 }
 
-export type UnlimitedSupportedInstanceFamily = "t2" | "t3" | "t3a";
+export type UnlimitedSupportedInstanceFamily = "t2" | "t3" | "t3a" | "t4g";
 
 export interface GetDefaultCreditSpecificationRequest {
-  /**
-   * <p>The instance family.</p>
-   */
-  InstanceFamily: UnlimitedSupportedInstanceFamily | string | undefined;
-
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
    *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The instance family.</p>
+   */
+  InstanceFamily: UnlimitedSupportedInstanceFamily | string | undefined;
 }
 
 export namespace GetDefaultCreditSpecificationRequest {
@@ -9134,1243 +10705,6 @@ export interface GetEbsEncryptionByDefaultRequest {
 
 export namespace GetEbsEncryptionByDefaultRequest {
   export const filterSensitiveLog = (obj: GetEbsEncryptionByDefaultRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetEbsEncryptionByDefaultResult {
-  /**
-   * <p>Indicates whether encryption by default is enabled.</p>
-   */
-  EbsEncryptionByDefault?: boolean;
-}
-
-export namespace GetEbsEncryptionByDefaultResult {
-  export const filterSensitiveLog = (obj: GetEbsEncryptionByDefaultResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetGroupsForCapacityReservationRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token to use to retrieve the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The ID of the Capacity Reservation.</p>
-   */
-  CapacityReservationId: string | undefined;
-}
-
-export namespace GetGroupsForCapacityReservationRequest {
-  export const filterSensitiveLog = (obj: GetGroupsForCapacityReservationRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a resource group to which a Capacity Reservation has been added.</p>
- */
-export interface CapacityReservationGroup {
-  /**
-   * <p>The ARN of the resource group.</p>
-   */
-  GroupArn?: string;
-
-  /**
-   * <p>The ID of the AWS account that owns the resource group.</p>
-   */
-  OwnerId?: string;
-}
-
-export namespace CapacityReservationGroup {
-  export const filterSensitiveLog = (obj: CapacityReservationGroup): any => ({
-    ...obj,
-  });
-}
-
-export interface GetGroupsForCapacityReservationResult {
-  /**
-   * <p>Information about the resource groups to which the Capacity Reservation has been added.</p>
-   */
-  CapacityReservationGroups?: CapacityReservationGroup[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetGroupsForCapacityReservationResult {
-  export const filterSensitiveLog = (obj: GetGroupsForCapacityReservationResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetHostReservationPurchasePreviewRequest {
-  /**
-   * <p>The IDs of the Dedicated Hosts with which the reservation is associated.</p>
-   */
-  HostIdSet: string[] | undefined;
-
-  /**
-   * <p>The offering ID of the reservation.</p>
-   */
-  OfferingId: string | undefined;
-}
-
-export namespace GetHostReservationPurchasePreviewRequest {
-  export const filterSensitiveLog = (obj: GetHostReservationPurchasePreviewRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the result of the purchase.</p>
- */
-export interface Purchase {
-  /**
-   * <p>The payment option for the reservation.</p>
-   */
-  PaymentOption?: PaymentOption | string;
-
-  /**
-   * <p>The ID of the reservation.</p>
-   */
-  HostReservationId?: string;
-
-  /**
-   * <p>The instance family on the Dedicated Host that the reservation can be associated
-   *             with.</p>
-   */
-  InstanceFamily?: string;
-
-  /**
-   * <p>The IDs of the Dedicated Hosts associated with the reservation.</p>
-   */
-  HostIdSet?: string[];
-
-  /**
-   * <p>The currency in which the <code>UpfrontPrice</code> and <code>HourlyPrice</code>
-   *             amounts are specified. At this time, the only supported currency is
-   *             <code>USD</code>.</p>
-   */
-  CurrencyCode?: CurrencyCodeValues | string;
-
-  /**
-   * <p>The hourly price of the reservation per hour.</p>
-   */
-  HourlyPrice?: string;
-
-  /**
-   * <p>The duration of the reservation's term in seconds.</p>
-   */
-  Duration?: number;
-
-  /**
-   * <p>The upfront price of the reservation.</p>
-   */
-  UpfrontPrice?: string;
-}
-
-export namespace Purchase {
-  export const filterSensitiveLog = (obj: Purchase): any => ({
-    ...obj,
-  });
-}
-
-export interface GetHostReservationPurchasePreviewResult {
-  /**
-   * <p>The currency in which the <code>totalUpfrontPrice</code> and
-   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
-   *             supported currency is <code>USD</code>.</p>
-   */
-  CurrencyCode?: CurrencyCodeValues | string;
-
-  /**
-   * <p>The potential total hourly price of the reservation per hour.</p>
-   */
-  TotalHourlyPrice?: string;
-
-  /**
-   * <p>The purchase information of the Dedicated Host reservation and the Dedicated Hosts
-   *             associated with it.</p>
-   */
-  Purchase?: Purchase[];
-
-  /**
-   * <p>The potential total upfront price. This is billed immediately.</p>
-   */
-  TotalUpfrontPrice?: string;
-}
-
-export namespace GetHostReservationPurchasePreviewResult {
-  export const filterSensitiveLog = (obj: GetHostReservationPurchasePreviewResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetLaunchTemplateDataRequest {
-  /**
-   * <p>The ID of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace GetLaunchTemplateDataRequest {
-  export const filterSensitiveLog = (obj: GetLaunchTemplateDataRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetLaunchTemplateDataResult {
-  /**
-   * <p>The instance data.</p>
-   */
-  LaunchTemplateData?: ResponseLaunchTemplateData;
-}
-
-export namespace GetLaunchTemplateDataResult {
-  export const filterSensitiveLog = (obj: GetLaunchTemplateDataResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetManagedPrefixListAssociationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   */
-  PrefixListId: string | undefined;
-}
-
-export namespace GetManagedPrefixListAssociationsRequest {
-  export const filterSensitiveLog = (obj: GetManagedPrefixListAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the resource with which a prefix list is associated.</p>
- */
-export interface PrefixListAssociation {
-  /**
-   * <p>The owner of the resource.</p>
-   */
-  ResourceOwner?: string;
-
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-}
-
-export namespace PrefixListAssociation {
-  export const filterSensitiveLog = (obj: PrefixListAssociation): any => ({
-    ...obj,
-  });
-}
-
-export interface GetManagedPrefixListAssociationsResult {
-  /**
-   * <p>Information about the associations.</p>
-   */
-  PrefixListAssociations?: PrefixListAssociation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetManagedPrefixListAssociationsResult {
-  export const filterSensitiveLog = (obj: GetManagedPrefixListAssociationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetManagedPrefixListEntriesRequest {
-  /**
-   * <p>The version of the prefix list for which to return the entries. The default is the current version.</p>
-   */
-  TargetVersion?: number;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The ID of the prefix list.</p>
-   */
-  PrefixListId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace GetManagedPrefixListEntriesRequest {
-  export const filterSensitiveLog = (obj: GetManagedPrefixListEntriesRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a prefix list entry.</p>
- */
-export interface PrefixListEntry {
-  /**
-   * <p>The CIDR block.</p>
-   */
-  Cidr?: string;
-
-  /**
-   * <p>The description.</p>
-   */
-  Description?: string;
-}
-
-export namespace PrefixListEntry {
-  export const filterSensitiveLog = (obj: PrefixListEntry): any => ({
-    ...obj,
-  });
-}
-
-export interface GetManagedPrefixListEntriesResult {
-  /**
-   * <p>Information about the prefix list entries.</p>
-   */
-  Entries?: PrefixListEntry[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetManagedPrefixListEntriesResult {
-  export const filterSensitiveLog = (obj: GetManagedPrefixListEntriesResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetPasswordDataRequest {
-  /**
-   * <p>The ID of the Windows instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export namespace GetPasswordDataRequest {
-  export const filterSensitiveLog = (obj: GetPasswordDataRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface GetPasswordDataResult {
-  /**
-   * <p>The ID of the Windows instance.</p>
-   */
-  InstanceId?: string;
-
-  /**
-   * <p>The time the data was last updated.</p>
-   */
-  Timestamp?: Date;
-
-  /**
-   * <p>The password of the instance. Returns an empty string if the password is not
-   *             available.</p>
-   */
-  PasswordData?: string;
-}
-
-export namespace GetPasswordDataResult {
-  export const filterSensitiveLog = (obj: GetPasswordDataResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the parameters for GetReservedInstanceExchangeQuote.</p>
- */
-export interface GetReservedInstancesExchangeQuoteRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *       and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *       Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The configuration of the target Convertible Reserved Instance to exchange for your
-   *             current Convertible Reserved Instances.</p>
-   */
-  TargetConfigurations?: TargetConfigurationRequest[];
-
-  /**
-   * <p>The IDs of the Convertible Reserved Instances to exchange.</p>
-   */
-  ReservedInstanceIds: string[] | undefined;
-}
-
-export namespace GetReservedInstancesExchangeQuoteRequest {
-  export const filterSensitiveLog = (obj: GetReservedInstancesExchangeQuoteRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The cost associated with the Reserved Instance.</p>
- */
-export interface ReservationValue {
-  /**
-   * <p>The hourly rate of the reservation.</p>
-   */
-  HourlyPrice?: string;
-
-  /**
-   * <p>The remaining upfront cost of the reservation.</p>
-   */
-  RemainingUpfrontValue?: string;
-
-  /**
-   * <p>The balance of the total value (the sum of remainingUpfrontValue + hourlyPrice * number of hours remaining).</p>
-   */
-  RemainingTotalValue?: string;
-}
-
-export namespace ReservationValue {
-  export const filterSensitiveLog = (obj: ReservationValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The total value of the Convertible Reserved Instance.</p>
- */
-export interface ReservedInstanceReservationValue {
-  /**
-   * <p>The ID of the Convertible Reserved Instance that you are exchanging.</p>
-   */
-  ReservedInstanceId?: string;
-
-  /**
-   * <p>The total value of the Convertible Reserved Instance that you are exchanging.</p>
-   */
-  ReservationValue?: ReservationValue;
-}
-
-export namespace ReservedInstanceReservationValue {
-  export const filterSensitiveLog = (obj: ReservedInstanceReservationValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Information about the Convertible Reserved Instance offering.</p>
- */
-export interface TargetConfiguration {
-  /**
-   * <p>The number of instances the Convertible Reserved Instance offering can be applied to. This parameter is
-   *       reserved and cannot be specified in a request</p>
-   */
-  InstanceCount?: number;
-
-  /**
-   * <p>The ID of the Convertible Reserved Instance offering.</p>
-   */
-  OfferingId?: string;
-}
-
-export namespace TargetConfiguration {
-  export const filterSensitiveLog = (obj: TargetConfiguration): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The total value of the new Convertible Reserved Instances.</p>
- */
-export interface TargetReservationValue {
-  /**
-   * <p>The total value of the Convertible Reserved Instances that make up the exchange. This is the sum of
-   *       the list value, remaining upfront price, and additional upfront cost of the exchange.</p>
-   */
-  ReservationValue?: ReservationValue;
-
-  /**
-   * <p>The configuration of the Convertible Reserved Instances that make up the exchange.</p>
-   */
-  TargetConfiguration?: TargetConfiguration;
-}
-
-export namespace TargetReservationValue {
-  export const filterSensitiveLog = (obj: TargetReservationValue): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Contains the output of GetReservedInstancesExchangeQuote.</p>
- */
-export interface GetReservedInstancesExchangeQuoteResult {
-  /**
-   * <p>If <code>true</code>, the exchange is valid. If <code>false</code>, the exchange cannot be completed.</p>
-   */
-  IsValidExchange?: boolean;
-
-  /**
-   * <p>The configuration of your Convertible Reserved Instances.</p>
-   */
-  ReservedInstanceValueSet?: ReservedInstanceReservationValue[];
-
-  /**
-   * <p>The values of the target Convertible Reserved Instances.</p>
-   */
-  TargetConfigurationValueSet?: TargetReservationValue[];
-
-  /**
-   * <p>The new end date of the reservation term.</p>
-   */
-  OutputReservedInstancesWillExpireAt?: Date;
-
-  /**
-   * <p>The cost associated with the Reserved Instance.</p>
-   */
-  TargetConfigurationValueRollup?: ReservationValue;
-
-  /**
-   * <p>Describes the reason why the exchange cannot be completed.</p>
-   */
-  ValidationFailureReason?: string;
-
-  /**
-   * <p>The cost associated with the Reserved Instance.</p>
-   */
-  ReservedInstanceValueRollup?: ReservationValue;
-
-  /**
-   * <p>The currency of the transaction.</p>
-   */
-  CurrencyCode?: string;
-
-  /**
-   * <p>The total true upfront charge for the exchange.</p>
-   */
-  PaymentDue?: string;
-}
-
-export namespace GetReservedInstancesExchangeQuoteResult {
-  export const filterSensitiveLog = (obj: GetReservedInstancesExchangeQuoteResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetTransitGatewayAttachmentPropagationsRequest {
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
-
-export namespace GetTransitGatewayAttachmentPropagationsRequest {
-  export const filterSensitiveLog = (obj: GetTransitGatewayAttachmentPropagationsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a propagation route table.</p>
- */
-export interface TransitGatewayAttachmentPropagation {
-  /**
-   * <p>The ID of the propagation route table.</p>
-   */
-  TransitGatewayRouteTableId?: string;
-
-  /**
-   * <p>The state of the propagation route table.</p>
-   */
-  State?: TransitGatewayPropagationState | string;
-}
-
-export namespace TransitGatewayAttachmentPropagation {
-  export const filterSensitiveLog = (obj: TransitGatewayAttachmentPropagation): any => ({
-    ...obj,
-  });
-}
-
-export interface GetTransitGatewayAttachmentPropagationsResult {
-  /**
-   * <p>Information about the propagation route tables.</p>
-   */
-  TransitGatewayAttachmentPropagations?: TransitGatewayAttachmentPropagation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetTransitGatewayAttachmentPropagationsResult {
-  export const filterSensitiveLog = (obj: GetTransitGatewayAttachmentPropagationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetTransitGatewayMulticastDomainAssociationsRequest {
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>resource-id</code> - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>resource-type</code> - The type of resource. The valid value is: <code>vpc</code>.</p>
-   *             </li>
-   *             <li>
-   *
-   *                 <p>
-   *                   <code>state</code> - The state of the subnet association. Valid values are
-   *                         <code>associated</code> |
-   *                         <code>associating</code>
-   *                     | <code>disassociated</code> | <code>disassociating</code>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>subnet-id</code> - The ID of the subnet.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
-
-export namespace GetTransitGatewayMulticastDomainAssociationsRequest {
-  export const filterSensitiveLog = (obj: GetTransitGatewayMulticastDomainAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the resources associated with the transit gateway multicast domain.</p>
- */
-export interface TransitGatewayMulticastDomainAssociation {
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The subnet associated with the transit gateway multicast domain.</p>
-   */
-  Subnet?: SubnetAssociation;
-
-  /**
-   * <p>The type of resource, for example a VPC attachment.</p>
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
-
-  /**
-   * <p>The ID of the transit gateway attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-}
-
-export namespace TransitGatewayMulticastDomainAssociation {
-  export const filterSensitiveLog = (obj: TransitGatewayMulticastDomainAssociation): any => ({
-    ...obj,
-  });
-}
-
-export interface GetTransitGatewayMulticastDomainAssociationsResult {
-  /**
-   * <p>Information about the multicast domain associations.</p>
-   */
-  MulticastDomainAssociations?: TransitGatewayMulticastDomainAssociation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetTransitGatewayMulticastDomainAssociationsResult {
-  export const filterSensitiveLog = (obj: GetTransitGatewayMulticastDomainAssociationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetTransitGatewayRouteTableAssociationsRequest {
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>resource-id</code> - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The resource type (<code>vpc</code> | <code>vpn</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export namespace GetTransitGatewayRouteTableAssociationsRequest {
-  export const filterSensitiveLog = (obj: GetTransitGatewayRouteTableAssociationsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes an association between a route table and a resource attachment.</p>
- */
-export interface TransitGatewayRouteTableAssociation {
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * <p>The state of the association.</p>
-   */
-  State?: TransitGatewayAssociationState | string;
-
-  /**
-   * <p>The resource type.</p>
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
-}
-
-export namespace TransitGatewayRouteTableAssociation {
-  export const filterSensitiveLog = (obj: TransitGatewayRouteTableAssociation): any => ({
-    ...obj,
-  });
-}
-
-export interface GetTransitGatewayRouteTableAssociationsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the associations.</p>
-   */
-  Associations?: TransitGatewayRouteTableAssociation[];
-}
-
-export namespace GetTransitGatewayRouteTableAssociationsResult {
-  export const filterSensitiveLog = (obj: GetTransitGatewayRouteTableAssociationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface GetTransitGatewayRouteTablePropagationsRequest {
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>One or more filters. The possible values are:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>resource-id</code> - The ID of the resource.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>resource-type</code> - The resource type (<code>vpc</code> | <code>vpn</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment-id</code> - The ID of the attachment.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
-
-export namespace GetTransitGatewayRouteTablePropagationsRequest {
-  export const filterSensitiveLog = (obj: GetTransitGatewayRouteTablePropagationsRequest): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes a route table propagation.</p>
- */
-export interface TransitGatewayRouteTablePropagation {
-  /**
-   * <p>The type of resource.</p>
-   */
-  ResourceType?: TransitGatewayAttachmentResourceType | string;
-
-  /**
-   * <p>The ID of the resource.</p>
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * <p>The state of the resource.</p>
-   */
-  State?: TransitGatewayPropagationState | string;
-}
-
-export namespace TransitGatewayRouteTablePropagation {
-  export const filterSensitiveLog = (obj: TransitGatewayRouteTablePropagation): any => ({
-    ...obj,
-  });
-}
-
-export interface GetTransitGatewayRouteTablePropagationsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the route table propagations.</p>
-   */
-  TransitGatewayRouteTablePropagations?: TransitGatewayRouteTablePropagation[];
-}
-
-export namespace GetTransitGatewayRouteTablePropagationsResult {
-  export const filterSensitiveLog = (obj: GetTransitGatewayRouteTablePropagationsResult): any => ({
-    ...obj,
-  });
-}
-
-export interface ImportClientVpnClientCertificateRevocationListRequest {
-  /**
-   * <p>The ID of the Client VPN endpoint to which the client certificate revocation list applies.</p>
-   */
-  ClientVpnEndpointId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The client certificate revocation list file. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/cvpn-working-certificates.html#cvpn-working-certificates-generate">Generate a Client Certificate Revocation List</a> in the
-   * 				<i>AWS Client VPN Administrator Guide</i>.</p>
-   */
-  CertificateRevocationList: string | undefined;
-}
-
-export namespace ImportClientVpnClientCertificateRevocationListRequest {
-  export const filterSensitiveLog = (obj: ImportClientVpnClientCertificateRevocationListRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ImportClientVpnClientCertificateRevocationListResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
-
-export namespace ImportClientVpnClientCertificateRevocationListResult {
-  export const filterSensitiveLog = (obj: ImportClientVpnClientCertificateRevocationListResult): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the client-specific data.</p>
- */
-export interface ClientData {
-  /**
-   * <p>A user-defined comment about the disk upload.</p>
-   */
-  Comment?: string;
-
-  /**
-   * <p>The time that the disk upload starts.</p>
-   */
-  UploadStart?: Date;
-
-  /**
-   * <p>The time that the disk upload ends.</p>
-   */
-  UploadEnd?: Date;
-
-  /**
-   * <p>The size of the uploaded disk image, in GiB.</p>
-   */
-  UploadSize?: number;
-}
-
-export namespace ClientData {
-  export const filterSensitiveLog = (obj: ClientData): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the Amazon S3 bucket for the disk image.</p>
- */
-export interface UserBucket {
-  /**
-   * <p>The file name of the disk image.</p>
-   */
-  S3Key?: string;
-
-  /**
-   * <p>The name of the Amazon S3 bucket where the disk image is located.</p>
-   */
-  S3Bucket?: string;
-}
-
-export namespace UserBucket {
-  export const filterSensitiveLog = (obj: UserBucket): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>Describes the disk container object for an import image task.</p>
- */
-export interface ImageDiskContainer {
-  /**
-   * <p>The URL to the Amazon S3-based disk image being imported. The URL can either be a https URL (https://..) or an
-   *    Amazon S3 URL (s3://..)</p>
-   */
-  Url?: string;
-
-  /**
-   * <p>The ID of the EBS snapshot to be used for importing the snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The format of the disk image being imported.</p>
-   *          <p>Valid values: <code>OVA</code> | <code>VHD</code> | <code>VHDX</code> |<code>VMDK</code>
-   *          </p>
-   */
-  Format?: string;
-
-  /**
-   * <p>The description of the disk image.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The block device mapping for the disk.</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>The S3 bucket for the disk image.</p>
-   */
-  UserBucket?: UserBucket;
-}
-
-export namespace ImageDiskContainer {
-  export const filterSensitiveLog = (obj: ImageDiskContainer): any => ({
-    ...obj,
-  });
-}
-
-/**
- * <p>The request information of license configurations.</p>
- */
-export interface ImportImageLicenseConfigurationRequest {
-  /**
-   * <p>The ARN of a license configuration.</p>
-   */
-  LicenseConfigurationArn?: string;
-}
-
-export namespace ImportImageLicenseConfigurationRequest {
-  export const filterSensitiveLog = (obj: ImportImageLicenseConfigurationRequest): any => ({
-    ...obj,
-  });
-}
-
-export interface ImportImageRequest {
-  /**
-   * <p>The ARNs of the license configurations.</p>
-   */
-  LicenseSpecifications?: ImportImageLicenseConfigurationRequest[];
-
-  /**
-   * <p>An identifier for the symmetric AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the
-   *    encrypted AMI. This parameter is only required if you want to use a non-default CMK; if this
-   *    parameter is not specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is
-   *    specified, the <code>Encrypted</code> flag must also be set. </p>
-   *          <p>The CMK identifier may be provided in any of the following formats: </p>
-   *          <ul>
-   *             <li>
-   *                <p>Key ID</p>
-   *             </li>
-   *             <li>
-   *                <p>Key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the Region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p>
-   *             </li>
-   *          </ul>
-   *          <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even
-   *    though you provided an invalid identifier. This action will eventually report failure. </p>
-   *          <p>The specified CMK must exist in the Region that the AMI is being copied to.</p>
-   *          <p>Amazon EBS does not support asymmetric CMKs.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>The operating system of the virtual machine.</p>
-   *          <p>Valid values: <code>Windows</code> | <code>Linux</code>
-   *          </p>
-   */
-  Platform?: string;
-
-  /**
-   * <p>The tags to apply to the image being imported.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>The architecture of the virtual machine.</p>
-   *          <p>Valid values: <code>i386</code> | <code>x86_64</code> | <code>arm64</code>
-   *          </p>
-   */
-  Architecture?: string;
-
-  /**
-   * <p>The token to enable idempotency for VM import requests.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>A description string for the import image task.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The client-specific data.</p>
-   */
-  ClientData?: ClientData;
-
-  /**
-   * <p>The name of the role to use when not using the default role, 'vmimport'.</p>
-   */
-  RoleName?: string;
-
-  /**
-   * <p>Information about the disk containers.</p>
-   */
-  DiskContainers?: ImageDiskContainer[];
-
-  /**
-   * <p>The license type to be used for the Amazon Machine Image (AMI) after importing.</p>
-   *          <p>By default, we detect the source-system operating system (OS) and apply the appropriate license. Specify
-   *     <code>AWS</code> to replace the source-system license with an AWS license, if appropriate. Specify <code>BYOL</code>
-   *    to retain the source-system license, if appropriate.</p>
-   *          <p>To use <code>BYOL</code>, you must have existing licenses with rights to use these licenses in a third party
-   *    cloud, such as AWS. For more information, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html#prerequisites-image">Prerequisites</a> in the
-   *    VM Import/Export User Guide.</p>
-   */
-  LicenseType?: string;
-
-  /**
-   * <p>Specifies whether the destination AMI of the imported image should be encrypted. The default CMK for EBS is used
-   *    unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the
-   *     <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>The target hypervisor platform.</p>
-   *          <p>Valid values: <code>xen</code>
-   *          </p>
-   */
-  Hypervisor?: string;
-}
-
-export namespace ImportImageRequest {
-  export const filterSensitiveLog = (obj: ImportImageRequest): any => ({
     ...obj,
   });
 }

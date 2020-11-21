@@ -1,4 +1,3 @@
-
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
 import { DescribeAccountLimitsAnswer } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class DescribeAccountLimitsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingClient";
+    const commandName = "DescribeAccountLimitsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: (input: any) => input,
       outputFilterSensitiveLog: DescribeAccountLimitsAnswer.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

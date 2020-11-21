@@ -114,15 +114,6 @@ export const serializeAws_restJson1CreateApplicationVersionCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/applications/{ApplicationId}/versions/{SemanticVersion}";
-  if (input.SemanticVersion !== undefined) {
-    const labelValue: string = input.SemanticVersion;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SemanticVersion.");
-    }
-    resolvedPath = resolvedPath.replace("{SemanticVersion}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SemanticVersion.");
-  }
   if (input.ApplicationId !== undefined) {
     const labelValue: string = input.ApplicationId;
     if (labelValue.length <= 0) {
@@ -131,6 +122,15 @@ export const serializeAws_restJson1CreateApplicationVersionCommand = async (
     resolvedPath = resolvedPath.replace("{ApplicationId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: ApplicationId.");
+  }
+  if (input.SemanticVersion !== undefined) {
+    const labelValue: string = input.SemanticVersion;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: SemanticVersion.");
+    }
+    resolvedPath = resolvedPath.replace("{SemanticVersion}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: SemanticVersion.");
   }
   let body: any;
   body = JSON.stringify({
@@ -389,9 +389,9 @@ export const serializeAws_restJson1ListApplicationDependenciesCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   const query: any = {
-    ...(input.MaxItems !== undefined && { maxItems: input.MaxItems.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.SemanticVersion !== undefined && { semanticVersion: input.SemanticVersion }),
+    ...(input.MaxItems !== undefined && { maxItems: input.MaxItems.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -578,7 +578,7 @@ export const deserializeAws_restJson1CreateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateApplicationCommandError(output, context);
   }
   const contents: CreateApplicationCommandOutput = {
@@ -713,7 +713,7 @@ export const deserializeAws_restJson1CreateApplicationVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationVersionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateApplicationVersionCommandError(output, context);
   }
   const contents: CreateApplicationVersionCommandOutput = {
@@ -835,7 +835,7 @@ export const deserializeAws_restJson1CreateCloudFormationChangeSetCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCloudFormationChangeSetCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateCloudFormationChangeSetCommandError(output, context);
   }
   const contents: CreateCloudFormationChangeSetCommandOutput = {
@@ -926,7 +926,7 @@ export const deserializeAws_restJson1CreateCloudFormationTemplateCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCloudFormationTemplateCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateCloudFormationTemplateCommandError(output, context);
   }
   const contents: CreateCloudFormationTemplateCommandOutput = {
@@ -1037,7 +1037,7 @@ export const deserializeAws_restJson1DeleteApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteApplicationCommandError(output, context);
   }
   const contents: DeleteApplicationCommandOutput = {
@@ -1128,7 +1128,7 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetApplicationCommandError(output, context);
   }
   const contents: GetApplicationCommandOutput = {
@@ -1263,7 +1263,7 @@ export const deserializeAws_restJson1GetApplicationPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetApplicationPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetApplicationPolicyCommandError(output, context);
   }
   const contents: GetApplicationPolicyCommandOutput = {
@@ -1350,7 +1350,7 @@ export const deserializeAws_restJson1GetCloudFormationTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCloudFormationTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetCloudFormationTemplateCommandError(output, context);
   }
   const contents: GetCloudFormationTemplateCommandOutput = {
@@ -1461,7 +1461,7 @@ export const deserializeAws_restJson1ListApplicationDependenciesCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationDependenciesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListApplicationDependenciesCommandError(output, context);
   }
   const contents: ListApplicationDependenciesCommandOutput = {
@@ -1552,7 +1552,7 @@ export const deserializeAws_restJson1ListApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListApplicationsCommandError(output, context);
   }
   const contents: ListApplicationsCommandOutput = {
@@ -1635,7 +1635,7 @@ export const deserializeAws_restJson1ListApplicationVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListApplicationVersionsCommandError(output, context);
   }
   const contents: ListApplicationVersionsCommandOutput = {
@@ -1726,7 +1726,7 @@ export const deserializeAws_restJson1PutApplicationPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutApplicationPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutApplicationPolicyCommandError(output, context);
   }
   const contents: PutApplicationPolicyCommandOutput = {
@@ -1813,7 +1813,7 @@ export const deserializeAws_restJson1UnshareApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UnshareApplicationCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UnshareApplicationCommandError(output, context);
   }
   const contents: UnshareApplicationCommandOutput = {
@@ -1896,7 +1896,7 @@ export const deserializeAws_restJson1UpdateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateApplicationCommandError(output, context);
   }
   const contents: UpdateApplicationCommandOutput = {

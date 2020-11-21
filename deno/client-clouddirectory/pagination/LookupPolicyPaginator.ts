@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<LookupPolicyCommandOutput> => {
   // @ts-ignore
-  return await client.send(new LookupPolicyCommand(input, ...args));
+  return await client.send(new LookupPolicyCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudDirectory,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.lookupPolicy(input, ...args);
 };
-export async function* lookupPolicyPaginate(
+export async function* paginateLookupPolicy(
   config: CloudDirectoryPaginationConfiguration,
   input: LookupPolicyCommandInput,
   ...additionalArguments: any
 ): Paginator<LookupPolicyCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: LookupPolicyCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CloudDirectory) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* lookupPolicyPaginate(
       throw new Error("Invalid client, expected CloudDirectory | CloudDirectoryClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

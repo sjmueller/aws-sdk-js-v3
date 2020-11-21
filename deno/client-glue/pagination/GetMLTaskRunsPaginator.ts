@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetMLTaskRunsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetMLTaskRunsCommand(input, ...args));
+  return await client.send(new GetMLTaskRunsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Glue,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getMLTaskRuns(input, ...args);
 };
-export async function* getMLTaskRunsPaginate(
+export async function* paginateGetMLTaskRuns(
   config: GluePaginationConfiguration,
   input: GetMLTaskRunsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetMLTaskRunsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetMLTaskRunsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Glue) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getMLTaskRunsPaginate(
       throw new Error("Invalid client, expected Glue | GlueClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

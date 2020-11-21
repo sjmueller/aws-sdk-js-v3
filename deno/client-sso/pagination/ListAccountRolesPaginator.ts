@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAccountRolesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAccountRolesCommand(input, ...args));
+  return await client.send(new ListAccountRolesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SSO,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAccountRoles(input, ...args);
 };
-export async function* listAccountRolesPaginate(
+export async function* paginateListAccountRoles(
   config: SSOPaginationConfiguration,
   input: ListAccountRolesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAccountRolesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAccountRolesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof SSO) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listAccountRolesPaginate(
       throw new Error("Invalid client, expected SSO | SSOClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

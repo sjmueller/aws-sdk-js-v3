@@ -45,11 +45,23 @@ export class ModifyLaunchTemplateCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "ModifyLaunchTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ModifyLaunchTemplateRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ModifyLaunchTemplateResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

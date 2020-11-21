@@ -6,6 +6,7 @@ import {
   serializeAws_restXmlUploadPartCopyCommand,
 } from "../protocols/Aws_restXml.ts";
 import { getBucketEndpointPlugin } from "../../middleware-bucket-endpoint/mod.ts";
+import { getThrow200ExceptionsPlugin } from "../../middleware-sdk-s3/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { getSsecPlugin } from "../../middleware-ssec/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
@@ -43,17 +44,30 @@ export class UploadPartCopyCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UploadPartCopyCommandInput, UploadPartCopyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getThrow200ExceptionsPlugin(configuration));
     this.middlewareStack.use(getSsecPlugin(configuration));
     this.middlewareStack.use(getBucketEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "UploadPartCopyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UploadPartCopyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UploadPartCopyOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -45,11 +45,23 @@ export class DescribeConfigurationAggregatorsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConfigServiceClient";
+    const commandName = "DescribeConfigurationAggregatorsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeConfigurationAggregatorsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeConfigurationAggregatorsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

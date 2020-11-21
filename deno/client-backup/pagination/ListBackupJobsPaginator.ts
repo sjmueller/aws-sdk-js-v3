@@ -1,4 +1,3 @@
-
 import { Backup } from "../Backup.ts";
 import { BackupClient } from "../BackupClient.ts";
 import {
@@ -15,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBackupJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBackupJobsCommand(input, ...args));
+  return await client.send(new ListBackupJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Backup,
@@ -25,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBackupJobs(input, ...args);
 };
-export async function* listBackupJobsPaginate(
+export async function* paginateListBackupJobs(
   config: BackupPaginationConfiguration,
   input: ListBackupJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBackupJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBackupJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Backup) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +43,7 @@ export async function* listBackupJobsPaginate(
       throw new Error("Invalid client, expected Backup | BackupClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeBackupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeBackupsCommand(input, ...args));
+  return await client.send(new DescribeBackupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudHSMV2,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeBackups(input, ...args);
 };
-export async function* describeBackupsPaginate(
+export async function* paginateDescribeBackups(
   config: CloudHSMV2PaginationConfiguration,
   input: DescribeBackupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeBackupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeBackupsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CloudHSMV2) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeBackupsPaginate(
       throw new Error("Invalid client, expected CloudHSMV2 | CloudHSMV2Client");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

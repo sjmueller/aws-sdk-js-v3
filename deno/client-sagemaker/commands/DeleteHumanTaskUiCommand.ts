@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { DeleteHumanTaskUiRequest, DeleteHumanTaskUiResponse } from "../models/models_0.ts";
+import { DeleteHumanTaskUiRequest, DeleteHumanTaskUiResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1DeleteHumanTaskUiCommand,
   serializeAws_json1_1DeleteHumanTaskUiCommand,
@@ -45,11 +45,23 @@ export class DeleteHumanTaskUiCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "DeleteHumanTaskUiCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteHumanTaskUiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteHumanTaskUiResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

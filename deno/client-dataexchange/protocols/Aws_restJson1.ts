@@ -195,15 +195,6 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
-  if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DataSetId.");
-    }
-    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DataSetId.");
-  }
   if (input.RevisionId !== undefined) {
     const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
@@ -212,6 +203,15 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
     resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
+  }
+  if (input.DataSetId !== undefined) {
+    const labelValue: string = input.DataSetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DataSetId.");
+    }
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   if (input.AssetId !== undefined) {
     const labelValue: string = input.AssetId;
@@ -273,15 +273,6 @@ export const serializeAws_restJson1DeleteRevisionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
-  if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DataSetId.");
-    }
-    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DataSetId.");
-  }
   if (input.RevisionId !== undefined) {
     const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
@@ -290,6 +281,15 @@ export const serializeAws_restJson1DeleteRevisionCommand = async (
     resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
+  }
+  if (input.DataSetId !== undefined) {
+    const labelValue: string = input.DataSetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DataSetId.");
+    }
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -312,14 +312,14 @@ export const serializeAws_restJson1GetAssetCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
-  if (input.AssetId !== undefined) {
-    const labelValue: string = input.AssetId;
+  if (input.RevisionId !== undefined) {
+    const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AssetId.");
+      throw new Error("Empty value provided for input HTTP label: RevisionId.");
     }
-    resolvedPath = resolvedPath.replace("{AssetId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: AssetId.");
+    throw new Error("No value provided for input HTTP label: RevisionId.");
   }
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
@@ -330,14 +330,14 @@ export const serializeAws_restJson1GetAssetCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
-  if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId;
+  if (input.AssetId !== undefined) {
+    const labelValue: string = input.AssetId;
     if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RevisionId.");
+      throw new Error("Empty value provided for input HTTP label: AssetId.");
     }
-    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
+    resolvedPath = resolvedPath.replace("{AssetId}", __extendedEncodeURIComponent(labelValue));
   } else {
-    throw new Error("No value provided for input HTTP label: RevisionId.");
+    throw new Error("No value provided for input HTTP label: AssetId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -420,15 +420,6 @@ export const serializeAws_restJson1GetRevisionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
-  if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RevisionId.");
-    }
-    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RevisionId.");
-  }
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
@@ -437,6 +428,15 @@ export const serializeAws_restJson1GetRevisionCommand = async (
     resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
+  }
+  if (input.RevisionId !== undefined) {
+    const labelValue: string = input.RevisionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RevisionId.");
+    }
+    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RevisionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -469,8 +469,8 @@ export const serializeAws_restJson1ListDataSetRevisionsCommand = async (
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -495,8 +495,8 @@ export const serializeAws_restJson1ListDataSetsCommand = async (
   };
   let resolvedPath = "/v1/data-sets";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.Origin !== undefined && { origin: input.Origin }),
   };
   let body: any;
@@ -522,10 +522,10 @@ export const serializeAws_restJson1ListJobsCommand = async (
   };
   let resolvedPath = "/v1/jobs";
   const query: any = {
+    ...(input.RevisionId !== undefined && { revisionId: input.RevisionId }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.DataSetId !== undefined && { dataSetId: input.DataSetId }),
-    ...(input.RevisionId !== undefined && { revisionId: input.RevisionId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -549,15 +549,6 @@ export const serializeAws_restJson1ListRevisionAssetsCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets";
-  if (input.RevisionId !== undefined) {
-    const labelValue: string = input.RevisionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RevisionId.");
-    }
-    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RevisionId.");
-  }
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
     if (labelValue.length <= 0) {
@@ -567,9 +558,18 @@ export const serializeAws_restJson1ListRevisionAssetsCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
+  if (input.RevisionId !== undefined) {
+    const labelValue: string = input.RevisionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RevisionId.");
+    }
+    resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RevisionId.");
+  }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -720,15 +720,6 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}/assets/{AssetId}";
-  if (input.AssetId !== undefined) {
-    const labelValue: string = input.AssetId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: AssetId.");
-    }
-    resolvedPath = resolvedPath.replace("{AssetId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: AssetId.");
-  }
   if (input.RevisionId !== undefined) {
     const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
@@ -737,6 +728,15 @@ export const serializeAws_restJson1UpdateAssetCommand = async (
     resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
+  }
+  if (input.AssetId !== undefined) {
+    const labelValue: string = input.AssetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: AssetId.");
+    }
+    resolvedPath = resolvedPath.replace("{AssetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: AssetId.");
   }
   if (input.DataSetId !== undefined) {
     const labelValue: string = input.DataSetId;
@@ -805,15 +805,6 @@ export const serializeAws_restJson1UpdateRevisionCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/v1/data-sets/{DataSetId}/revisions/{RevisionId}";
-  if (input.DataSetId !== undefined) {
-    const labelValue: string = input.DataSetId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: DataSetId.");
-    }
-    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: DataSetId.");
-  }
   if (input.RevisionId !== undefined) {
     const labelValue: string = input.RevisionId;
     if (labelValue.length <= 0) {
@@ -822,6 +813,15 @@ export const serializeAws_restJson1UpdateRevisionCommand = async (
     resolvedPath = resolvedPath.replace("{RevisionId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: RevisionId.");
+  }
+  if (input.DataSetId !== undefined) {
+    const labelValue: string = input.DataSetId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: DataSetId.");
+    }
+    resolvedPath = resolvedPath.replace("{DataSetId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   let body: any;
   body = JSON.stringify({
@@ -844,7 +844,7 @@ export const deserializeAws_restJson1CancelJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelJobCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1CancelJobCommandError(output, context);
   }
   const contents: CancelJobCommandOutput = {
@@ -927,7 +927,7 @@ export const deserializeAws_restJson1CreateDataSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDataSetCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateDataSetCommandError(output, context);
   }
   const contents: CreateDataSetCommandOutput = {
@@ -1054,7 +1054,7 @@ export const deserializeAws_restJson1CreateJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateJobCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateJobCommandError(output, context);
   }
   const contents: CreateJobCommandOutput = {
@@ -1169,7 +1169,7 @@ export const deserializeAws_restJson1CreateRevisionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRevisionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateRevisionCommandError(output, context);
   }
   const contents: CreateRevisionCommandOutput = {
@@ -1288,7 +1288,7 @@ export const deserializeAws_restJson1DeleteAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAssetCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteAssetCommandError(output, context);
   }
   const contents: DeleteAssetCommandOutput = {
@@ -1379,7 +1379,7 @@ export const deserializeAws_restJson1DeleteDataSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDataSetCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteDataSetCommandError(output, context);
   }
   const contents: DeleteDataSetCommandOutput = {
@@ -1470,7 +1470,7 @@ export const deserializeAws_restJson1DeleteRevisionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRevisionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteRevisionCommandError(output, context);
   }
   const contents: DeleteRevisionCommandOutput = {
@@ -1561,7 +1561,7 @@ export const deserializeAws_restJson1GetAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAssetCommandError(output, context);
   }
   const contents: GetAssetCommandOutput = {
@@ -1676,7 +1676,7 @@ export const deserializeAws_restJson1GetDataSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataSetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDataSetCommandError(output, context);
   }
   const contents: GetDataSetCommandOutput = {
@@ -1795,7 +1795,7 @@ export const deserializeAws_restJson1GetJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetJobCommandError(output, context);
   }
   const contents: GetJobCommandOutput = {
@@ -1902,7 +1902,7 @@ export const deserializeAws_restJson1GetRevisionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRevisionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRevisionCommandError(output, context);
   }
   const contents: GetRevisionCommandOutput = {
@@ -2013,7 +2013,7 @@ export const deserializeAws_restJson1ListDataSetRevisionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataSetRevisionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDataSetRevisionsCommandError(output, context);
   }
   const contents: ListDataSetRevisionsCommandOutput = {
@@ -2096,7 +2096,7 @@ export const deserializeAws_restJson1ListDataSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataSetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListDataSetsCommandError(output, context);
   }
   const contents: ListDataSetsCommandOutput = {
@@ -2179,7 +2179,7 @@ export const deserializeAws_restJson1ListJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListJobsCommandError(output, context);
   }
   const contents: ListJobsCommandOutput = {
@@ -2262,7 +2262,7 @@ export const deserializeAws_restJson1ListRevisionAssetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRevisionAssetsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRevisionAssetsCommandError(output, context);
   }
   const contents: ListRevisionAssetsCommandOutput = {
@@ -2345,7 +2345,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -2392,7 +2392,7 @@ export const deserializeAws_restJson1StartJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartJobCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartJobCommandError(output, context);
   }
   const contents: StartJobCommandOutput = {
@@ -2483,7 +2483,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -2526,7 +2526,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -2569,7 +2569,7 @@ export const deserializeAws_restJson1UpdateAssetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAssetCommandError(output, context);
   }
   const contents: UpdateAssetCommandOutput = {
@@ -2700,7 +2700,7 @@ export const deserializeAws_restJson1UpdateDataSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataSetCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDataSetCommandError(output, context);
   }
   const contents: UpdateDataSetCommandOutput = {
@@ -2823,7 +2823,7 @@ export const deserializeAws_restJson1UpdateRevisionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRevisionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateRevisionCommandError(output, context);
   }
   const contents: UpdateRevisionCommandOutput = {

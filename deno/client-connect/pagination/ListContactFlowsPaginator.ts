@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListContactFlowsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListContactFlowsCommand(input, ...args));
+  return await client.send(new ListContactFlowsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Connect,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listContactFlows(input, ...args);
 };
-export async function* listContactFlowsPaginate(
+export async function* paginateListContactFlows(
   config: ConnectPaginationConfiguration,
   input: ListContactFlowsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListContactFlowsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListContactFlowsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Connect) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listContactFlowsPaginate(
       throw new Error("Invalid client, expected Connect | ConnectClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -1,4 +1,3 @@
-
 import { AssociateFleetCommandInput, AssociateFleetCommandOutput } from "../commands/AssociateFleetCommand.ts";
 import {
   BatchAssociateUserStackCommandInput,
@@ -14,13 +13,19 @@ import {
   CreateDirectoryConfigCommandOutput,
 } from "../commands/CreateDirectoryConfigCommand.ts";
 import { CreateFleetCommandInput, CreateFleetCommandOutput } from "../commands/CreateFleetCommand.ts";
-import { CreateImageBuilderCommandInput, CreateImageBuilderCommandOutput } from "../commands/CreateImageBuilderCommand.ts";
+import {
+  CreateImageBuilderCommandInput,
+  CreateImageBuilderCommandOutput,
+} from "../commands/CreateImageBuilderCommand.ts";
 import {
   CreateImageBuilderStreamingURLCommandInput,
   CreateImageBuilderStreamingURLCommandOutput,
 } from "../commands/CreateImageBuilderStreamingURLCommand.ts";
 import { CreateStackCommandInput, CreateStackCommandOutput } from "../commands/CreateStackCommand.ts";
-import { CreateStreamingURLCommandInput, CreateStreamingURLCommandOutput } from "../commands/CreateStreamingURLCommand.ts";
+import {
+  CreateStreamingURLCommandInput,
+  CreateStreamingURLCommandOutput,
+} from "../commands/CreateStreamingURLCommand.ts";
 import {
   CreateUsageReportSubscriptionCommandInput,
   CreateUsageReportSubscriptionCommandOutput,
@@ -31,7 +36,10 @@ import {
   DeleteDirectoryConfigCommandOutput,
 } from "../commands/DeleteDirectoryConfigCommand.ts";
 import { DeleteFleetCommandInput, DeleteFleetCommandOutput } from "../commands/DeleteFleetCommand.ts";
-import { DeleteImageBuilderCommandInput, DeleteImageBuilderCommandOutput } from "../commands/DeleteImageBuilderCommand.ts";
+import {
+  DeleteImageBuilderCommandInput,
+  DeleteImageBuilderCommandOutput,
+} from "../commands/DeleteImageBuilderCommand.ts";
 import { DeleteImageCommandInput, DeleteImageCommandOutput } from "../commands/DeleteImageCommand.ts";
 import {
   DeleteImagePermissionsCommandInput,
@@ -200,6 +208,7 @@ import {
   ListTagsForResourceResponse,
   NetworkAccessConfiguration,
   OperationNotPermittedException,
+  RequestLimitExceededException,
   ResourceAlreadyExistsException,
   ResourceError,
   ResourceInUseException,
@@ -864,7 +873,7 @@ export const deserializeAws_json1_1AssociateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateFleetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -959,7 +968,7 @@ export const deserializeAws_json1_1BatchAssociateUserStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchAssociateUserStackCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchAssociateUserStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -985,6 +994,14 @@ const deserializeAws_json1_1BatchAssociateUserStackCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "OperationNotPermittedException":
     case "com.amazonaws.appstream#OperationNotPermittedException":
       response = {
@@ -1014,7 +1031,7 @@ export const deserializeAws_json1_1BatchDisassociateUserStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDisassociateUserStackCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchDisassociateUserStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1040,6 +1057,22 @@ const deserializeAws_json1_1BatchDisassociateUserStackCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InvalidParameterCombinationException":
+    case "com.amazonaws.appstream#InvalidParameterCombinationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterCombinationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -1061,7 +1094,7 @@ export const deserializeAws_json1_1CopyImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CopyImageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CopyImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1156,7 +1189,7 @@ export const deserializeAws_json1_1CreateDirectoryConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDirectoryConfigCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDirectoryConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1190,6 +1223,14 @@ const deserializeAws_json1_1CreateDirectoryConfigCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "LimitExceededException":
     case "com.amazonaws.appstream#LimitExceededException":
       response = {
@@ -1198,10 +1239,26 @@ const deserializeAws_json1_1CreateDirectoryConfigCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
         ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appstream#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1227,7 +1284,7 @@ export const deserializeAws_json1_1CreateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFleetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1309,6 +1366,14 @@ const deserializeAws_json1_1CreateFleetCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "RequestLimitExceededException":
+    case "com.amazonaws.appstream#RequestLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RequestLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
@@ -1354,7 +1419,7 @@ export const deserializeAws_json1_1CreateImageBuilderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImageBuilderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateImageBuilderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1436,6 +1501,14 @@ const deserializeAws_json1_1CreateImageBuilderCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "RequestLimitExceededException":
+    case "com.amazonaws.appstream#RequestLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RequestLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceAlreadyExistsException":
     case "com.amazonaws.appstream#ResourceAlreadyExistsException":
       response = {
@@ -1481,7 +1554,7 @@ export const deserializeAws_json1_1CreateImageBuilderStreamingURLCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateImageBuilderStreamingURLCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateImageBuilderStreamingURLCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1544,7 +1617,7 @@ export const deserializeAws_json1_1CreateStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStackCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1647,7 +1720,7 @@ export const deserializeAws_json1_1CreateStreamingURLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamingURLCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateStreamingURLCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1726,7 +1799,7 @@ export const deserializeAws_json1_1CreateUsageReportSubscriptionCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUsageReportSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateUsageReportSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1797,7 +1870,7 @@ export const deserializeAws_json1_1CreateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1884,7 +1957,7 @@ export const deserializeAws_json1_1DeleteDirectoryConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDirectoryConfigCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDirectoryConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1947,7 +2020,7 @@ export const deserializeAws_json1_1DeleteFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFleetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2018,7 +2091,7 @@ export const deserializeAws_json1_1DeleteImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2097,7 +2170,7 @@ export const deserializeAws_json1_1DeleteImageBuilderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImageBuilderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteImageBuilderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2168,7 +2241,7 @@ export const deserializeAws_json1_1DeleteImagePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteImagePermissionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteImagePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2231,7 +2304,7 @@ export const deserializeAws_json1_1DeleteStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStackCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2302,7 +2375,7 @@ export const deserializeAws_json1_1DeleteUsageReportSubscriptionCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUsageReportSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteUsageReportSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2365,7 +2438,7 @@ export const deserializeAws_json1_1DeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2420,7 +2493,7 @@ export const deserializeAws_json1_1DescribeDirectoryConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDirectoryConfigsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDirectoryConfigsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2475,7 +2548,7 @@ export const deserializeAws_json1_1DescribeFleetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeFleetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeFleetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2530,7 +2603,7 @@ export const deserializeAws_json1_1DescribeImageBuildersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImageBuildersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeImageBuildersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2585,7 +2658,7 @@ export const deserializeAws_json1_1DescribeImagePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImagePermissionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeImagePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2640,7 +2713,7 @@ export const deserializeAws_json1_1DescribeImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImagesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeImagesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2703,7 +2776,7 @@ export const deserializeAws_json1_1DescribeSessionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSessionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeSessionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2758,7 +2831,7 @@ export const deserializeAws_json1_1DescribeStacksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStacksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeStacksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2813,7 +2886,7 @@ export const deserializeAws_json1_1DescribeUsageReportSubscriptionsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUsageReportSubscriptionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeUsageReportSubscriptionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2876,7 +2949,7 @@ export const deserializeAws_json1_1DescribeUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUsersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeUsersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2939,7 +3012,7 @@ export const deserializeAws_json1_1DescribeUserStackAssociationsCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserStackAssociationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeUserStackAssociationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2973,6 +3046,14 @@ const deserializeAws_json1_1DescribeUserStackAssociationsCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -2994,7 +3075,7 @@ export const deserializeAws_json1_1DisableUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisableUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3049,7 +3130,7 @@ export const deserializeAws_json1_1DisassociateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateFleetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3079,6 +3160,14 @@ const deserializeAws_json1_1DisassociateFleetCommandError = async (
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3120,7 +3209,7 @@ export const deserializeAws_json1_1EnableUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnableUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3183,7 +3272,7 @@ export const deserializeAws_json1_1ExpireSessionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExpireSessionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ExpireSessionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3230,7 +3319,7 @@ export const deserializeAws_json1_1ListAssociatedFleetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedFleetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAssociatedFleetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3277,7 +3366,7 @@ export const deserializeAws_json1_1ListAssociatedStacksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssociatedStacksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAssociatedStacksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3324,7 +3413,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3379,7 +3468,7 @@ export const deserializeAws_json1_1StartFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartFleetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3445,6 +3534,14 @@ const deserializeAws_json1_1StartFleetCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "RequestLimitExceededException":
+    case "com.amazonaws.appstream#RequestLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RequestLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceNotAvailableException":
     case "com.amazonaws.appstream#ResourceNotAvailableException":
       response = {
@@ -3482,7 +3579,7 @@ export const deserializeAws_json1_1StartImageBuilderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImageBuilderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartImageBuilderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3569,7 +3666,7 @@ export const deserializeAws_json1_1StopFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopFleetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3632,7 +3729,7 @@ export const deserializeAws_json1_1StopImageBuilderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopImageBuilderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopImageBuilderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3703,7 +3800,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3774,7 +3871,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3829,7 +3926,7 @@ export const deserializeAws_json1_1UpdateDirectoryConfigCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDirectoryConfigCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateDirectoryConfigCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3859,6 +3956,22 @@ const deserializeAws_json1_1UpdateDirectoryConfigCommandError = async (
     case "com.amazonaws.appstream#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRoleException":
+    case "com.amazonaws.appstream#InvalidRoleException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidRoleExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OperationNotPermittedException":
+    case "com.amazonaws.appstream#OperationNotPermittedException":
+      response = {
+        ...(await deserializeAws_json1_1OperationNotPermittedExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -3900,7 +4013,7 @@ export const deserializeAws_json1_1UpdateFleetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFleetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateFleetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3982,6 +4095,14 @@ const deserializeAws_json1_1UpdateFleetCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "RequestLimitExceededException":
+    case "com.amazonaws.appstream#RequestLimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1RequestLimitExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ResourceInUseException":
     case "com.amazonaws.appstream#ResourceInUseException":
       response = {
@@ -4027,7 +4148,7 @@ export const deserializeAws_json1_1UpdateImagePermissionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateImagePermissionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateImagePermissionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4098,7 +4219,7 @@ export const deserializeAws_json1_1UpdateStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStackCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4318,6 +4439,21 @@ const deserializeAws_json1_1OperationNotPermittedExceptionResponse = async (
   return contents;
 };
 
+const deserializeAws_json1_1RequestLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<RequestLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1RequestLimitExceededException(body, context);
+  const contents: RequestLimitExceededException = {
+    name: "RequestLimitExceededException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
 const deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4497,6 +4633,7 @@ const serializeAws_json1_1CreateFleetRequest = (input: CreateFleetRequest, conte
     ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
     ...(input.MaxUserDurationInSeconds !== undefined && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
     ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.StreamView !== undefined && { StreamView: input.StreamView }),
     ...(input.Tags !== undefined && { Tags: serializeAws_json1_1Tags(input.Tags, context) }),
     ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
@@ -5002,6 +5139,7 @@ const serializeAws_json1_1UpdateFleetRequest = (input: UpdateFleetRequest, conte
     ...(input.InstanceType !== undefined && { InstanceType: input.InstanceType }),
     ...(input.MaxUserDurationInSeconds !== undefined && { MaxUserDurationInSeconds: input.MaxUserDurationInSeconds }),
     ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.StreamView !== undefined && { StreamView: input.StreamView }),
     ...(input.VpcConfig !== undefined && { VpcConfig: serializeAws_json1_1VpcConfig(input.VpcConfig, context) }),
   };
 };
@@ -5535,6 +5673,7 @@ const deserializeAws_json1_1Fleet = (output: any, context: __SerdeContext): Flee
         : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
+    StreamView: output.StreamView !== undefined && output.StreamView !== null ? output.StreamView : undefined,
     VpcConfig:
       output.VpcConfig !== undefined && output.VpcConfig !== null
         ? deserializeAws_json1_1VpcConfig(output.VpcConfig, context)
@@ -5814,6 +5953,15 @@ const deserializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
   context: __SerdeContext
 ): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1RequestLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): RequestLimitExceededException => {
+  return {
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceAlreadyExistsException = (

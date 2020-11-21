@@ -45,11 +45,23 @@ export class CreateBatchPredictionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MachineLearningClient";
+    const commandName = "CreateBatchPredictionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateBatchPredictionInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateBatchPredictionOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

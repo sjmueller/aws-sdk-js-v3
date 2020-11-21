@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListStreamProcessorsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListStreamProcessorsCommand(input, ...args));
+  return await client.send(new ListStreamProcessorsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Rekognition,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listStreamProcessors(input, ...args);
 };
-export async function* listStreamProcessorsPaginate(
+export async function* paginateListStreamProcessors(
   config: RekognitionPaginationConfiguration,
   input: ListStreamProcessorsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListStreamProcessorsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListStreamProcessorsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Rekognition) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listStreamProcessorsPaginate(
       throw new Error("Invalid client, expected Rekognition | RekognitionClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -52,11 +52,23 @@ export class GetVoiceConnectorEmergencyCallingConfigurationCommand extends $Comm
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "GetVoiceConnectorEmergencyCallingConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetVoiceConnectorEmergencyCallingConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetVoiceConnectorEmergencyCallingConfigurationResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -14,6 +14,10 @@ import {
   DeleteAppReplicationConfigurationCommandOutput,
 } from "./commands/DeleteAppReplicationConfigurationCommand.ts";
 import {
+  DeleteAppValidationConfigurationCommandInput,
+  DeleteAppValidationConfigurationCommandOutput,
+} from "./commands/DeleteAppValidationConfigurationCommand.ts";
+import {
   DeleteReplicationJobCommandInput,
   DeleteReplicationJobCommandOutput,
 } from "./commands/DeleteReplicationJobCommand.ts";
@@ -36,16 +40,29 @@ import {
   GetAppReplicationConfigurationCommandInput,
   GetAppReplicationConfigurationCommandOutput,
 } from "./commands/GetAppReplicationConfigurationCommand.ts";
+import {
+  GetAppValidationConfigurationCommandInput,
+  GetAppValidationConfigurationCommandOutput,
+} from "./commands/GetAppValidationConfigurationCommand.ts";
+import {
+  GetAppValidationOutputCommandInput,
+  GetAppValidationOutputCommandOutput,
+} from "./commands/GetAppValidationOutputCommand.ts";
 import { GetConnectorsCommandInput, GetConnectorsCommandOutput } from "./commands/GetConnectorsCommand.ts";
 import { GetReplicationJobsCommandInput, GetReplicationJobsCommandOutput } from "./commands/GetReplicationJobsCommand.ts";
 import { GetReplicationRunsCommandInput, GetReplicationRunsCommandOutput } from "./commands/GetReplicationRunsCommand.ts";
 import { GetServersCommandInput, GetServersCommandOutput } from "./commands/GetServersCommand.ts";
+import { ImportAppCatalogCommandInput, ImportAppCatalogCommandOutput } from "./commands/ImportAppCatalogCommand.ts";
 import {
   ImportServerCatalogCommandInput,
   ImportServerCatalogCommandOutput,
 } from "./commands/ImportServerCatalogCommand.ts";
 import { LaunchAppCommandInput, LaunchAppCommandOutput } from "./commands/LaunchAppCommand.ts";
 import { ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand.ts";
+import {
+  NotifyAppValidationOutputCommandInput,
+  NotifyAppValidationOutputCommandOutput,
+} from "./commands/NotifyAppValidationOutputCommand.ts";
 import {
   PutAppLaunchConfigurationCommandInput,
   PutAppLaunchConfigurationCommandOutput,
@@ -55,9 +72,17 @@ import {
   PutAppReplicationConfigurationCommandOutput,
 } from "./commands/PutAppReplicationConfigurationCommand.ts";
 import {
+  PutAppValidationConfigurationCommandInput,
+  PutAppValidationConfigurationCommandOutput,
+} from "./commands/PutAppValidationConfigurationCommand.ts";
+import {
   StartAppReplicationCommandInput,
   StartAppReplicationCommandOutput,
 } from "./commands/StartAppReplicationCommand.ts";
+import {
+  StartOnDemandAppReplicationCommandInput,
+  StartOnDemandAppReplicationCommandOutput,
+} from "./commands/StartOnDemandAppReplicationCommand.ts";
 import {
   StartOnDemandReplicationRunCommandInput,
   StartOnDemandReplicationRunCommandOutput,
@@ -124,6 +149,7 @@ export type ServiceInputTypes =
   | DeleteAppCommandInput
   | DeleteAppLaunchConfigurationCommandInput
   | DeleteAppReplicationConfigurationCommandInput
+  | DeleteAppValidationConfigurationCommandInput
   | DeleteReplicationJobCommandInput
   | DeleteServerCatalogCommandInput
   | DisassociateConnectorCommandInput
@@ -132,16 +158,22 @@ export type ServiceInputTypes =
   | GetAppCommandInput
   | GetAppLaunchConfigurationCommandInput
   | GetAppReplicationConfigurationCommandInput
+  | GetAppValidationConfigurationCommandInput
+  | GetAppValidationOutputCommandInput
   | GetConnectorsCommandInput
   | GetReplicationJobsCommandInput
   | GetReplicationRunsCommandInput
   | GetServersCommandInput
+  | ImportAppCatalogCommandInput
   | ImportServerCatalogCommandInput
   | LaunchAppCommandInput
   | ListAppsCommandInput
+  | NotifyAppValidationOutputCommandInput
   | PutAppLaunchConfigurationCommandInput
   | PutAppReplicationConfigurationCommandInput
+  | PutAppValidationConfigurationCommandInput
   | StartAppReplicationCommandInput
+  | StartOnDemandAppReplicationCommandInput
   | StartOnDemandReplicationRunCommandInput
   | StopAppReplicationCommandInput
   | TerminateAppCommandInput
@@ -154,6 +186,7 @@ export type ServiceOutputTypes =
   | DeleteAppCommandOutput
   | DeleteAppLaunchConfigurationCommandOutput
   | DeleteAppReplicationConfigurationCommandOutput
+  | DeleteAppValidationConfigurationCommandOutput
   | DeleteReplicationJobCommandOutput
   | DeleteServerCatalogCommandOutput
   | DisassociateConnectorCommandOutput
@@ -162,16 +195,22 @@ export type ServiceOutputTypes =
   | GetAppCommandOutput
   | GetAppLaunchConfigurationCommandOutput
   | GetAppReplicationConfigurationCommandOutput
+  | GetAppValidationConfigurationCommandOutput
+  | GetAppValidationOutputCommandOutput
   | GetConnectorsCommandOutput
   | GetReplicationJobsCommandOutput
   | GetReplicationRunsCommandOutput
   | GetServersCommandOutput
+  | ImportAppCatalogCommandOutput
   | ImportServerCatalogCommandOutput
   | LaunchAppCommandOutput
   | ListAppsCommandOutput
+  | NotifyAppValidationOutputCommandOutput
   | PutAppLaunchConfigurationCommandOutput
   | PutAppReplicationConfigurationCommandOutput
+  | PutAppValidationConfigurationCommandOutput
   | StartAppReplicationCommandOutput
+  | StartOnDemandAppReplicationCommandOutput
   | StartOnDemandReplicationRunCommandOutput
   | StopAppReplicationCommandOutput
   | TerminateAppCommandOutput
@@ -291,24 +330,20 @@ export type SMSClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandle
   HostHeaderResolvedConfig;
 
 /**
- * <fullname>AAWS Sever Migration Service</fullname>
- *         <p>This is the <i>AWS Sever Migration Service API Reference</i>. It provides descriptions,
- *             syntax, and usage examples for each of the actions and data types for the AWS Sever Migration Service
- *             (AWS SMS). The topic for each action shows the Query API request parameters and the XML
- *             response. You can also view the XML request elements in the WSDL.</p>
- *         <p>Alternatively, you can use one of the AWS SDKs to access an API that's tailored to the
- *             programming language or platform that you're using. For more information, see <a href="http://aws.amazon.com/tools/#SDKs">AWS SDKs</a>.</p>
- *         <p>To learn more about the Server Migration Service, see the following resources:</p>
+ * <fullname>AWS Server Migration Service</fullname>
+ *         <p>AWS Server Migration Service (AWS SMS) makes it easier and faster for you to migrate your
+ *             on-premises workloads to AWS. To learn more about AWS SMS, see the following
+ *             resources:</p>
  *         <ul>
  *             <li>
  *                 <p>
- *                   <a href="https://aws.amazon.com/server-migration-service/">AWS Sever Migration Service
- *                         product page</a>
+ *                   <a href="http://aws.amazon.com/server-migration-service/">AWS Server Migration Service
+ *                     product page</a>
  *                </p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/server-migration-service/latest/userguide/server-migration.html">AWS Sever Migration Service User Guide</a>
+ *                   <a href="https://docs.aws.amazon.com/server-migration-service/latest/userguide/">AWS Server Migration Service User Guide</a>
  *                </p>
  *             </li>
  *          </ul>

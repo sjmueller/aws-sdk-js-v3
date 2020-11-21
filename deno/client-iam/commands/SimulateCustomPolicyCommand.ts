@@ -45,11 +45,23 @@ export class SimulateCustomPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IAMClient";
+    const commandName = "SimulateCustomPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SimulateCustomPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SimulatePolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -7,16 +7,16 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
  */
 export interface AbortEnvironmentUpdateMessage {
   /**
-   * <p>This specifies the ID of the environment with the in-progress update that you want to
-   *       cancel.</p>
-   */
-  EnvironmentId?: string;
-
-  /**
    * <p>This specifies the name of the environment with the in-progress update that you want to
    *       cancel.</p>
    */
   EnvironmentName?: string;
+
+  /**
+   * <p>This specifies the ID of the environment with the in-progress update that you want to
+   *       cancel.</p>
+   */
+  EnvironmentId?: string;
 }
 
 export namespace AbortEnvironmentUpdateMessage {
@@ -56,6 +56,12 @@ export type ActionType = "InstanceRefresh" | "PlatformUpdate" | "Unknown";
  */
 export interface MaxAgeRule {
   /**
+   * <p>Set to <code>true</code> to delete a version's source bundle from Amazon S3 when
+   *       Elastic Beanstalk deletes the application version.</p>
+   */
+  DeleteSourceFromS3?: boolean;
+
+  /**
    * <p>Specify <code>true</code> to apply the rule, or <code>false</code> to disable
    *       it.</p>
    */
@@ -65,12 +71,6 @@ export interface MaxAgeRule {
    * <p>Specify the number of days to retain an application versions.</p>
    */
   MaxAgeInDays?: number;
-
-  /**
-   * <p>Set to <code>true</code> to delete a version's source bundle from Amazon S3 when
-   *       Elastic Beanstalk deletes the application version.</p>
-   */
-  DeleteSourceFromS3?: boolean;
 }
 
 export namespace MaxAgeRule {
@@ -85,12 +85,6 @@ export namespace MaxAgeRule {
  */
 export interface MaxCountRule {
   /**
-   * <p>Set to <code>true</code> to delete a version's source bundle from Amazon S3 when
-   *       Elastic Beanstalk deletes the application version.</p>
-   */
-  DeleteSourceFromS3?: boolean;
-
-  /**
    * <p>Specify <code>true</code> to apply the rule, or <code>false</code> to disable
    *       it.</p>
    */
@@ -100,6 +94,12 @@ export interface MaxCountRule {
    * <p>Specify the maximum number of application versions to retain.</p>
    */
   MaxCount?: number;
+
+  /**
+   * <p>Set to <code>true</code> to delete a version's source bundle from Amazon S3 when
+   *       Elastic Beanstalk deletes the application version.</p>
+   */
+  DeleteSourceFromS3?: boolean;
 }
 
 export namespace MaxCountRule {
@@ -173,14 +173,14 @@ export namespace ApplicationResourceLifecycleConfig {
  */
 export interface ApplicationDescription {
   /**
+   * <p>The date when the application was last modified.</p>
+   */
+  DateUpdated?: Date;
+
+  /**
    * <p>The name of the application.</p>
    */
   ApplicationName?: string;
-
-  /**
-   * <p>The lifecycle settings for the application.</p>
-   */
-  ResourceLifecycleConfig?: ApplicationResourceLifecycleConfig;
 
   /**
    * <p>The names of the versions for this application.</p>
@@ -188,19 +188,9 @@ export interface ApplicationDescription {
   Versions?: string[];
 
   /**
-   * <p>The date when the application was created.</p>
+   * <p>The lifecycle settings for the application.</p>
    */
-  DateCreated?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the application.</p>
-   */
-  ApplicationArn?: string;
-
-  /**
-   * <p>The date when the application was last modified.</p>
-   */
-  DateUpdated?: Date;
+  ResourceLifecycleConfig?: ApplicationResourceLifecycleConfig;
 
   /**
    * <p>User-defined description of the application.</p>
@@ -208,9 +198,19 @@ export interface ApplicationDescription {
   Description?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the application.</p>
+   */
+  ApplicationArn?: string;
+
+  /**
    * <p>The names of the configuration templates associated with this application.</p>
    */
   ConfigurationTemplates?: string[];
+
+  /**
+   * <p>The date when the application was created.</p>
+   */
+  DateCreated?: Date;
 }
 
 export namespace ApplicationDescription {
@@ -269,28 +269,10 @@ export interface Latency {
   P95?: number;
 
   /**
-   * <p>The average latency for the slowest 90 percent of requests over the last 10
-   *       seconds.</p>
-   */
-  P10?: number;
-
-  /**
-   * <p>The average latency for the slowest 1 percent of requests over the last 10
-   *       seconds.</p>
-   */
-  P99?: number;
-
-  /**
    * <p>The average latency for the slowest 15 percent of requests over the last 10
    *       seconds.</p>
    */
   P85?: number;
-
-  /**
-   * <p>The average latency for the slowest 0.1 percent of requests over the last 10
-   *       seconds.</p>
-   */
-  P999?: number;
 
   /**
    * <p>The average latency for the slowest 25 percent of requests over the last 10
@@ -303,6 +285,24 @@ export interface Latency {
    *       seconds.</p>
    */
   P90?: number;
+
+  /**
+   * <p>The average latency for the slowest 0.1 percent of requests over the last 10
+   *       seconds.</p>
+   */
+  P999?: number;
+
+  /**
+   * <p>The average latency for the slowest 90 percent of requests over the last 10
+   *       seconds.</p>
+   */
+  P10?: number;
+
+  /**
+   * <p>The average latency for the slowest 1 percent of requests over the last 10
+   *       seconds.</p>
+   */
+  P99?: number;
 }
 
 export namespace Latency {
@@ -318,10 +318,10 @@ export namespace Latency {
  */
 export interface StatusCodes {
   /**
-   * <p>The percentage of requests over the last 10 seconds that resulted in a 2xx (200, 201,
+   * <p>The percentage of requests over the last 10 seconds that resulted in a 3xx (300, 301,
    *       etc.) status code.</p>
    */
-  Status2xx?: number;
+  Status3xx?: number;
 
   /**
    * <p>The percentage of requests over the last 10 seconds that resulted in a 4xx (400, 401,
@@ -330,16 +330,16 @@ export interface StatusCodes {
   Status4xx?: number;
 
   /**
-   * <p>The percentage of requests over the last 10 seconds that resulted in a 3xx (300, 301,
-   *       etc.) status code.</p>
-   */
-  Status3xx?: number;
-
-  /**
    * <p>The percentage of requests over the last 10 seconds that resulted in a 5xx (500, 501,
    *       etc.) status code.</p>
    */
   Status5xx?: number;
+
+  /**
+   * <p>The percentage of requests over the last 10 seconds that resulted in a 2xx (200, 201,
+   *       etc.) status code.</p>
+   */
+  Status2xx?: number;
 }
 
 export namespace StatusCodes {
@@ -359,6 +359,12 @@ export interface ApplicationMetrics {
   Latency?: Latency;
 
   /**
+   * <p>Average number of requests handled by the web server per second over the last 10
+   *       seconds.</p>
+   */
+  RequestCount?: number;
+
+  /**
    * <p>Represents the percentage of requests over the last 10 seconds that resulted in each
    *       type of status code response.</p>
    */
@@ -370,12 +376,6 @@ export interface ApplicationMetrics {
    *         (<code>duration</code>).</p>
    */
   Duration?: number;
-
-  /**
-   * <p>Average number of requests handled by the web server per second over the last 10
-   *       seconds.</p>
-   */
-  RequestCount?: number;
 }
 
 export namespace ApplicationMetrics {
@@ -431,23 +431,6 @@ export interface SourceBuildInformation {
   SourceLocation: string | undefined;
 
   /**
-   * <p>The type of repository.</p>
-   *          <ul>
-   *             <li>
-   * 	              <p>
-   *                   <code>Git</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   * 	              <p>
-   *                   <code>Zip</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  SourceType: SourceType | string | undefined;
-
-  /**
    * <p>Location where the repository is stored.</p>
    *          <ul>
    *             <li>
@@ -463,6 +446,23 @@ export interface SourceBuildInformation {
    *          </ul>
    */
   SourceRepository: SourceRepository | string | undefined;
+
+  /**
+   * <p>The type of repository.</p>
+   *          <ul>
+   *             <li>
+   * 	              <p>
+   *                   <code>Git</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   * 	              <p>
+   *                   <code>Zip</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  SourceType: SourceType | string | undefined;
 }
 
 export namespace SourceBuildInformation {
@@ -499,29 +499,14 @@ export type ApplicationVersionStatus = "Building" | "Failed" | "Processed" | "Pr
  */
 export interface ApplicationVersionDescription {
   /**
-   * <p>The storage location of the application version's source bundle in Amazon S3.</p>
-   */
-  SourceBundle?: S3Location;
-
-  /**
    * <p>The name of the application to which the application version belongs.</p>
    */
   ApplicationName?: string;
 
   /**
-   * <p>A unique identifier for the application version.</p>
+   * <p>The storage location of the application version's source bundle in Amazon S3.</p>
    */
-  VersionLabel?: string;
-
-  /**
-   * <p>The creation date of the application version.</p>
-   */
-  DateCreated?: Date;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the application version.</p>
-   */
-  ApplicationVersionArn?: string;
+  SourceBundle?: S3Location;
 
   /**
    * <p>The last modified date of the application version.</p>
@@ -529,20 +514,15 @@ export interface ApplicationVersionDescription {
   DateUpdated?: Date;
 
   /**
-   * <p>The description of the application version.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Reference to the artifact from the AWS CodeBuild build.</p>
-   */
-  BuildArn?: string;
-
-  /**
    * <p>If the version's source code was retrieved from AWS CodeCommit, the location of the
    *       source code for the application version.</p>
    */
   SourceBuildInformation?: SourceBuildInformation;
+
+  /**
+   * <p>A unique identifier for the application version.</p>
+   */
+  VersionLabel?: string;
 
   /**
    * <p>The processing status of the application version. Reflects the state of the application
@@ -577,6 +557,26 @@ export interface ApplicationVersionDescription {
    *          </ul>
    */
   Status?: ApplicationVersionStatus | string;
+
+  /**
+   * <p>The description of the application version.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Reference to the artifact from the AWS CodeBuild build.</p>
+   */
+  BuildArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the application version.</p>
+   */
+  ApplicationVersionArn?: string;
+
+  /**
+   * <p>The creation date of the application version.</p>
+   */
+  DateCreated?: Date;
 }
 
 export namespace ApplicationVersionDescription {
@@ -656,24 +656,24 @@ export namespace ApplyEnvironmentManagedActionRequest {
  */
 export interface ApplyEnvironmentManagedActionResult {
   /**
-   * <p>The status of the managed action.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>A description of the managed action.</p>
    */
   ActionDescription?: string;
 
   /**
-   * <p>The type of managed action.</p>
+   * <p>The status of the managed action.</p>
    */
-  ActionType?: ActionType | string;
+  Status?: string;
 
   /**
    * <p>The action ID of the managed action.</p>
    */
   ActionId?: string;
+
+  /**
+   * <p>The type of managed action.</p>
+   */
+  ActionType?: ActionType | string;
 }
 
 export namespace ApplyEnvironmentManagedActionResult {
@@ -838,17 +838,17 @@ export interface ComposeEnvironmentsMessage {
   VersionLabels?: string[];
 
   /**
-   * <p>The name of the application to which the specified source bundles belong.</p>
-   */
-  ApplicationName?: string;
-
-  /**
    * <p>The name of the group to which the target environments belong. Specify a group name
    *       only if the environment name defined in each target environment's manifest ends with a +
    *       (plus) character. See <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-cfg-manifest.html">Environment Manifest
    *         (env.yaml)</a> for details.</p>
    */
   GroupName?: string;
+
+  /**
+   * <p>The name of the application to which the specified source bundles belong.</p>
+   */
+  ApplicationName?: string;
 }
 
 export namespace ComposeEnvironmentsMessage {
@@ -865,14 +865,14 @@ export namespace ComposeEnvironmentsMessage {
  */
 export interface EnvironmentLink {
   /**
-   * <p>The name of the link.</p>
-   */
-  LinkName?: string;
-
-  /**
    * <p>The name of the linked environment (the dependency).</p>
    */
   EnvironmentName?: string;
+
+  /**
+   * <p>The name of the link.</p>
+   */
+  LinkName?: string;
 }
 
 export namespace EnvironmentLink {
@@ -899,14 +899,14 @@ export type EnvironmentHealthStatus =
  */
 export interface Listener {
   /**
-   * <p>The protocol that is used by the Listener.</p>
-   */
-  Protocol?: string;
-
-  /**
    * <p>The port that is used by the Listener.</p>
    */
   Port?: number;
+
+  /**
+   * <p>The protocol that is used by the Listener.</p>
+   */
+  Protocol?: string;
 }
 
 export namespace Listener {
@@ -958,7 +958,15 @@ export namespace EnvironmentResourcesDescription {
   });
 }
 
-export type EnvironmentStatus = "Launching" | "Ready" | "Terminated" | "Terminating" | "Updating";
+export type EnvironmentStatus =
+  | "Aborting"
+  | "Launching"
+  | "LinkingFrom"
+  | "LinkingTo"
+  | "Ready"
+  | "Terminated"
+  | "Terminating"
+  | "Updating";
 
 /**
  * <p>Describes the properties of an environment tier</p>
@@ -981,16 +989,6 @@ export interface EnvironmentTier {
   Name?: string;
 
   /**
-   * <p>The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the
-   *       latest compatible worker tier version.</p>
-   *          <note>
-   *             <p>This member is deprecated. Any specific version that you set may become out of date.
-   *         We recommend leaving it unspecified.</p>
-   *          </note>
-   */
-  Version?: string;
-
-  /**
    * <p>The type of this environment tier.</p>
    *          <p>Valid values:</p>
    *          <ul>
@@ -1005,6 +1003,16 @@ export interface EnvironmentTier {
    *          </ul>
    */
   Type?: string;
+
+  /**
+   * <p>The version of this environment tier. When you don't set a value to it, Elastic Beanstalk uses the
+   *       latest compatible worker tier version.</p>
+   *          <note>
+   *             <p>This member is deprecated. Any specific version that you set may become out of date.
+   *         We recommend leaving it unspecified.</p>
+   *          </note>
+   */
+  Version?: string;
 }
 
 export namespace EnvironmentTier {
@@ -1018,39 +1026,6 @@ export namespace EnvironmentTier {
  */
 export interface EnvironmentDescription {
   /**
-   * <p>A list of links to other environments in the same group.</p>
-   */
-  EnvironmentLinks?: EnvironmentLink[];
-
-  /**
-   * <p>Returns the health status of the application running in your environment. For more
-   *       information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">Health Colors and
-   *         Statuses</a>.</p>
-   */
-  HealthStatus?: EnvironmentHealthStatus | string;
-
-  /**
-   * <p>For load-balanced, autoscaling environments, the URL to the LoadBalancer. For
-   *       single-instance environments, the IP address of the instance.</p>
-   */
-  EndpointURL?: string;
-
-  /**
-   * <p>The ARN of the platform version.</p>
-   */
-  PlatformArn?: string;
-
-  /**
-   * <p>The ID of this environment.</p>
-   */
-  EnvironmentId?: string;
-
-  /**
-   * <p>The name of the application associated with this environment.</p>
-   */
-  ApplicationName?: string;
-
-  /**
    * <p>Indicates if there is an in-progress environment configuration update or application
    *       version deployment that you can cancel.</p>
    *          <p>
@@ -1061,75 +1036,27 @@ export interface EnvironmentDescription {
   AbortableOperationInProgress?: boolean;
 
   /**
-   * <p>The creation date for this environment.</p>
+   * <p>The name of the configuration template used to originally launch this
+   *       environment.</p>
    */
-  DateCreated?: Date;
+  TemplateName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the environment's operations role. For more information,
-   *       see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
+   * <p>Returns the health status of the application running in your environment. For more
+   *       information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">Health Colors and
+   *         Statuses</a>.</p>
    */
-  OperationsRole?: string;
+  HealthStatus?: EnvironmentHealthStatus | string;
 
   /**
-   * <p>Describes the current tier of this environment.</p>
+   * <p>A list of links to other environments in the same group.</p>
    */
-  Tier?: EnvironmentTier;
+  EnvironmentLinks?: EnvironmentLink[];
 
   /**
-   * <p>The URL to the CNAME for this environment.</p>
+   * <p>The description of the AWS resources used by this environment.</p>
    */
-  CNAME?: string;
-
-  /**
-   * <p>Describes this environment.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p> The name of the <code>SolutionStack</code> deployed with this environment. </p>
-   */
-  SolutionStackName?: string;
-
-  /**
-   * <p>The current operational status of the environment:</p>
-   *
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Launching</code>: Environment is in the process of initial deployment.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Updating</code>: Environment is in the process of updating its configuration
-   *           settings or application version.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Ready</code>: Environment is available to have an action performed on it, such as
-   *           update or terminate.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Terminating</code>: Environment is in the shut-down process.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Terminated</code>: Environment is not running.</p>
-   *             </li>
-   *          </ul>
-   */
-  Status?: EnvironmentStatus | string;
-
-  /**
-   * <p>The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.</p>
-   */
-  EnvironmentArn?: string;
-
-  /**
-   * <p>The last modified date for this environment.</p>
-   */
-  DateUpdated?: Date;
+  Resources?: EnvironmentResourcesDescription;
 
   /**
    * <p>Describes the health status of the environment. AWS Elastic Beanstalk indicates the
@@ -1167,20 +1094,101 @@ export interface EnvironmentDescription {
   VersionLabel?: string;
 
   /**
+   * <p> The name of the <code>SolutionStack</code> deployed with this environment. </p>
+   */
+  SolutionStackName?: string;
+
+  /**
+   * <p>The last modified date for this environment.</p>
+   */
+  DateUpdated?: Date;
+
+  /**
    * <p>The name of this environment.</p>
    */
   EnvironmentName?: string;
 
   /**
-   * <p>The description of the AWS resources used by this environment.</p>
+   * <p>Describes this environment.</p>
    */
-  Resources?: EnvironmentResourcesDescription;
+  Description?: string;
 
   /**
-   * <p>The name of the configuration template used to originally launch this
-   *       environment.</p>
+   * <p>The environment's Amazon Resource Name (ARN), which can be used in other API requests that require an ARN.</p>
    */
-  TemplateName?: string;
+  EnvironmentArn?: string;
+
+  /**
+   * <p>The current operational status of the environment:</p>
+   *
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Launching</code>: Environment is in the process of initial deployment.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Updating</code>: Environment is in the process of updating its configuration
+   *           settings or application version.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Ready</code>: Environment is available to have an action performed on it, such as
+   *           update or terminate.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Terminating</code>: Environment is in the shut-down process.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Terminated</code>: Environment is not running.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: EnvironmentStatus | string;
+
+  /**
+   * <p>The name of the application associated with this environment.</p>
+   */
+  ApplicationName?: string;
+
+  /**
+   * <p>The URL to the CNAME for this environment.</p>
+   */
+  CNAME?: string;
+
+  /**
+   * <p>The ARN of the platform version.</p>
+   */
+  PlatformArn?: string;
+
+  /**
+   * <p>For load-balanced, autoscaling environments, the URL to the LoadBalancer. For
+   *       single-instance environments, the IP address of the instance.</p>
+   */
+  EndpointURL?: string;
+
+  /**
+   * <p>The creation date for this environment.</p>
+   */
+  DateCreated?: Date;
+
+  /**
+   * <p>Describes the current tier of this environment.</p>
+   */
+  Tier?: EnvironmentTier;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the environment's operations role. For more information,
+   *       see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
+   */
+  OperationsRole?: string;
+
+  /**
+   * <p>The ID of this environment.</p>
+   */
+  EnvironmentId?: string;
 }
 
 export namespace EnvironmentDescription {
@@ -1261,6 +1269,11 @@ export interface CreateApplicationMessage {
   ResourceLifecycleConfig?: ApplicationResourceLifecycleConfig;
 
   /**
+   * <p>The name of the application. Must be unique within your account.</p>
+   */
+  ApplicationName: string | undefined;
+
+  /**
    * <p>Your description of the application.</p>
    */
   Description?: string;
@@ -1271,11 +1284,6 @@ export interface CreateApplicationMessage {
    *       application don't inherit the tags.</p>
    */
   Tags?: Tag[];
-
-  /**
-   * <p>The name of the application. Must be unique within your account.</p>
-   */
-  ApplicationName: string | undefined;
 }
 
 export namespace CreateApplicationMessage {
@@ -1331,9 +1339,19 @@ export enum ComputeType {
  */
 export interface BuildConfiguration {
   /**
-   * <p>How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.</p>
+   * <p>The name of the artifact of the CodeBuild build.
+   *     If provided, Elastic Beanstalk stores the build artifact in the S3 location
+   *     <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>-<i>artifact-name</i>.zip.
+   *     If not provided, Elastic Beanstalk stores the build artifact in the S3 location
+   *     <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>.zip.
+   *     </p>
    */
-  TimeoutInMinutes?: number;
+  ArtifactName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.</p>
+   */
+  CodeBuildServiceRole: string | undefined;
 
   /**
    * <p>Information about the compute resources the build project will use.</p>
@@ -1358,24 +1376,14 @@ export interface BuildConfiguration {
   ComputeType?: ComputeType | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.</p>
-   */
-  CodeBuildServiceRole: string | undefined;
-
-  /**
    * <p>The ID of the Docker image to use for this build project.</p>
    */
   Image: string | undefined;
 
   /**
-   * <p>The name of the artifact of the CodeBuild build.
-   *     If provided, Elastic Beanstalk stores the build artifact in the S3 location
-   *     <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>-<i>artifact-name</i>.zip.
-   *     If not provided, Elastic Beanstalk stores the build artifact in the S3 location
-   *     <i>S3-bucket</i>/resources/<i>application-name</i>/codebuild/codebuild-<i>version-label</i>.zip.
-   *     </p>
+   * <p>How long in minutes, from 5 to 480 (8 hours), for AWS CodeBuild to wait until timing out any related build that does not get marked as completed. The default is 60 minutes.</p>
    */
-  ArtifactName?: string;
+  TimeoutInMinutes?: number;
 }
 
 export namespace BuildConfiguration {
@@ -1394,15 +1402,28 @@ export interface CreateApplicationVersionMessage {
   Description?: string;
 
   /**
+   * <p>Settings for an AWS CodeBuild build.</p>
+   */
+  BuildConfiguration?: BuildConfiguration;
+
+  /**
+   * <p>Specify a commit in an AWS CodeCommit Git repository to use as the source code for the
+   *       application version.</p>
+   */
+  SourceBuildInformation?: SourceBuildInformation;
+
+  /**
+   * <p>Specifies the tags applied to the application version.</p>
+   *          <p>Elastic Beanstalk applies these tags only to the application version. Environments that use the
+   *       application version don't inherit the tags.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>Set to <code>true</code> to create an application with the specified name if it doesn't
    *       already exist.</p>
    */
   AutoCreateApplication?: boolean;
-
-  /**
-   * <p>Settings for an AWS CodeBuild build.</p>
-   */
-  BuildConfiguration?: BuildConfiguration;
 
   /**
    * <p>Pre-processes and validates the environment manifest (<code>env.yaml</code>) and
@@ -1421,11 +1442,12 @@ export interface CreateApplicationVersionMessage {
   Process?: boolean;
 
   /**
-   * <p>Specifies the tags applied to the application version.</p>
-   *          <p>Elastic Beanstalk applies these tags only to the application version. Environments that use the
-   *       application version don't inherit the tags.</p>
+   * <p>A label identifying this version.</p>
+   *          <p>Constraint: Must be unique per application. If an application version already exists
+   *       with this label for the specified application, AWS Elastic Beanstalk returns an
+   *         <code>InvalidParameterValue</code> error. </p>
    */
-  Tags?: Tag[];
+  VersionLabel: string | undefined;
 
   /**
    * <p> The name of the application. If no application is found with this name, and
@@ -1433,12 +1455,6 @@ export interface CreateApplicationVersionMessage {
    *         <code>InvalidParameterValue</code> error. </p>
    */
   ApplicationName: string | undefined;
-
-  /**
-   * <p>Specify a commit in an AWS CodeCommit Git repository to use as the source code for the
-   *       application version.</p>
-   */
-  SourceBuildInformation?: SourceBuildInformation;
 
   /**
    * <p>The Amazon S3 bucket and key that identify the location of the source bundle for this
@@ -1453,14 +1469,6 @@ export interface CreateApplicationVersionMessage {
    *       application.</p>
    */
   SourceBundle?: S3Location;
-
-  /**
-   * <p>A label identifying this version.</p>
-   *          <p>Constraint: Must be unique per application. If an application version already exists
-   *       with this label for the specified application, AWS Elastic Beanstalk returns an
-   *         <code>InvalidParameterValue</code> error. </p>
-   */
-  VersionLabel: string | undefined;
 }
 
 export namespace CreateApplicationVersionMessage {
@@ -1531,14 +1539,14 @@ export interface ConfigurationOptionSetting {
   OptionName?: string;
 
   /**
-   * <p>The current value for the configuration option.</p>
-   */
-  Value?: string;
-
-  /**
    * <p>A unique resource name for the option setting. Use it for a time–based scaling configuration option.</p>
    */
   ResourceName?: string;
+
+  /**
+   * <p>The current value for the configuration option.</p>
+   */
+  Value?: string;
 
   /**
    * <p>A unique namespace that identifies the option's associated AWS resource.</p>
@@ -1557,11 +1565,6 @@ export namespace ConfigurationOptionSetting {
  */
 export interface ConfigurationSettingsDescription {
   /**
-   * <p>The name of the application associated with this configuration set.</p>
-   */
-  ApplicationName?: string;
-
-  /**
    * <p> If not <code>null</code>, the name of the environment for this configuration set.
    *     </p>
    */
@@ -1573,14 +1576,20 @@ export interface ConfigurationSettingsDescription {
   PlatformArn?: string;
 
   /**
+   * <p>The name of the application associated with this configuration set.</p>
+   */
+  ApplicationName?: string;
+
+  /**
    * <p>The date (in UTC time) when this configuration set was last modified.</p>
    */
   DateUpdated?: Date;
 
   /**
-   * <p>The date (in UTC time) when this configuration set was created.</p>
+   * <p>A list of the configuration options and their values in this configuration
+   *       set.</p>
    */
-  DateCreated?: Date;
+  OptionSettings?: ConfigurationOptionSetting[];
 
   /**
    * <p>The name of the solution stack this configuration set uses.</p>
@@ -1593,10 +1602,15 @@ export interface ConfigurationSettingsDescription {
   Description?: string;
 
   /**
-   * <p>A list of the configuration options and their values in this configuration
-   *       set.</p>
+   * <p>The date (in UTC time) when this configuration set was created.</p>
    */
-  OptionSettings?: ConfigurationOptionSetting[];
+  DateCreated?: Date;
+
+  /**
+   * <p> If not <code>null</code>, the name of the configuration template for this
+   *       configuration set. </p>
+   */
+  TemplateName?: string;
 
   /**
    * <p> If this configuration set is associated with an environment, the
@@ -1626,12 +1640,6 @@ export interface ConfigurationSettingsDescription {
    *          </ul>
    */
   DeploymentStatus?: ConfigurationDeploymentStatus | string;
-
-  /**
-   * <p> If not <code>null</code>, the name of the configuration template for this
-   *       configuration set. </p>
-   */
-  TemplateName?: string;
 }
 
 export namespace ConfigurationSettingsDescription {
@@ -1645,14 +1653,14 @@ export namespace ConfigurationSettingsDescription {
  */
 export interface SourceConfiguration {
   /**
-   * <p>The name of the configuration template.</p>
-   */
-  TemplateName?: string;
-
-  /**
    * <p>The name of the application associated with the configuration.</p>
    */
   ApplicationName?: string;
+
+  /**
+   * <p>The name of the configuration template.</p>
+   */
+  TemplateName?: string;
 }
 
 export namespace SourceConfiguration {
@@ -1666,17 +1674,6 @@ export namespace SourceConfiguration {
  */
 export interface CreateConfigurationTemplateMessage {
   /**
-   * <p>Specifies the tags applied to the configuration template.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The name of the Elastic Beanstalk application to associate with this configuration
-   *       template.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the custom platform. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/custom-platforms.html"> Custom
    *         Platforms</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
    *          <note>
@@ -1688,12 +1685,15 @@ export interface CreateConfigurationTemplateMessage {
   PlatformArn?: string;
 
   /**
-   * <p>The ID of an environment whose settings you want to use to create the configuration
-   *       template. You must specify <code>EnvironmentId</code> if you don't specify
-   *         <code>PlatformArn</code>, <code>SolutionStackName</code>, or
-   *         <code>SourceConfiguration</code>.</p>
+   * <p>Specifies the tags applied to the configuration template.</p>
    */
-  EnvironmentId?: string;
+  Tags?: Tag[];
+
+  /**
+   * <p>The name of the Elastic Beanstalk application to associate with this configuration
+   *       template.</p>
+   */
+  ApplicationName: string | undefined;
 
   /**
    * <p>An optional description for this configuration.</p>
@@ -1701,18 +1701,12 @@ export interface CreateConfigurationTemplateMessage {
   Description?: string;
 
   /**
-   * <p>An Elastic Beanstalk configuration template to base this one on. If specified, Elastic Beanstalk uses the configuration values from the specified
-   *       configuration template to create a new configuration.</p>
-   *          <p>Values specified in <code>OptionSettings</code> override any values obtained from the
+   * <p>The ID of an environment whose settings you want to use to create the configuration
+   *       template. You must specify <code>EnvironmentId</code> if you don't specify
+   *         <code>PlatformArn</code>, <code>SolutionStackName</code>, or
    *         <code>SourceConfiguration</code>.</p>
-   *          <p>You must specify <code>SourceConfiguration</code> if you don't specify
-   *         <code>PlatformArn</code>, <code>EnvironmentId</code>, or
-   *       <code>SolutionStackName</code>.</p>
-   *          <p>Constraint: If both solution stack name and source configuration are specified, the
-   *       solution stack of the source configuration template must match the specified solution stack
-   *       name.</p>
    */
-  SourceConfiguration?: SourceConfiguration;
+  EnvironmentId?: string;
 
   /**
    * <p>The name of an Elastic Beanstalk solution stack (platform version) that this configuration uses. For
@@ -1744,6 +1738,20 @@ export interface CreateConfigurationTemplateMessage {
    *         <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
    */
   OptionSettings?: ConfigurationOptionSetting[];
+
+  /**
+   * <p>An Elastic Beanstalk configuration template to base this one on. If specified, Elastic Beanstalk uses the configuration values from the specified
+   *       configuration template to create a new configuration.</p>
+   *          <p>Values specified in <code>OptionSettings</code> override any values obtained from the
+   *         <code>SourceConfiguration</code>.</p>
+   *          <p>You must specify <code>SourceConfiguration</code> if you don't specify
+   *         <code>PlatformArn</code>, <code>EnvironmentId</code>, or
+   *       <code>SolutionStackName</code>.</p>
+   *          <p>Constraint: If both solution stack name and source configuration are specified, the
+   *       solution stack of the source configuration template must match the specified solution stack
+   *       name.</p>
+   */
+  SourceConfiguration?: SourceConfiguration;
 }
 
 export namespace CreateConfigurationTemplateMessage {
@@ -1793,6 +1801,11 @@ export namespace TooManyConfigurationTemplatesException {
  */
 export interface OptionSpecification {
   /**
+   * <p>The name of the configuration option.</p>
+   */
+  OptionName?: string;
+
+  /**
    * <p>A unique namespace identifying the option's associated AWS resource.</p>
    */
   Namespace?: string;
@@ -1801,11 +1814,6 @@ export interface OptionSpecification {
    * <p>A unique resource name for a time-based scaling configuration option.</p>
    */
   ResourceName?: string;
-
-  /**
-   * <p>The name of the configuration option.</p>
-   */
-  OptionName?: string;
 }
 
 export namespace OptionSpecification {
@@ -1819,11 +1827,9 @@ export namespace OptionSpecification {
  */
 export interface CreateEnvironmentMessage {
   /**
-   * <p>If specified, AWS Elastic Beanstalk sets the specified configuration options to the
-   *       requested value in the configuration set for the new environment. These override the values
-   *       obtained from the solution stack or the configuration template.</p>
+   * <p>Specifies the tags applied to resources in the environment.</p>
    */
-  OptionSettings?: ConfigurationOptionSetting[];
+  Tags?: Tag[];
 
   /**
    * <p>The name of the Elastic Beanstalk configuration template to use with the environment.</p>
@@ -1835,28 +1841,28 @@ export interface CreateEnvironmentMessage {
   TemplateName?: string;
 
   /**
-   * <p>The name of an Elastic Beanstalk solution stack (platform version) to use with the environment. If
-   *       specified, Elastic Beanstalk sets the configuration values to the default values associated with the
-   *       specified solution stack. For a list of current solution stacks, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html">Elastic Beanstalk Supported Platforms</a> in the <i>AWS Elastic Beanstalk
-   *         Platforms</i> guide.</p>
-   *          <note>
-   *             <p>If you specify <code>SolutionStackName</code>, don't specify <code>PlatformArn</code> or
-   *           <code>TemplateName</code>.</p>
-   *          </note>
+   * <p>If specified, AWS Elastic Beanstalk sets the specified configuration options to the
+   *       requested value in the configuration set for the new environment. These override the values
+   *       obtained from the solution stack or the configuration template.</p>
    */
-  SolutionStackName?: string;
+  OptionSettings?: ConfigurationOptionSetting[];
 
   /**
-   * <p>If specified, the environment attempts to use this value as the prefix for the CNAME in
-   *       your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by
-   *       appending a random alphanumeric string to the environment name.</p>
+   * <p>Specifies the tier to use in creating this environment. The environment tier that you
+   *       choose determines whether Elastic Beanstalk provisions resources to support a web application that handles
+   *       HTTP(S) requests or a web application that handles background-processing tasks.</p>
    */
-  CNAMEPrefix?: string;
+  Tier?: EnvironmentTier;
 
   /**
-   * <p>Specifies the tags applied to resources in the environment.</p>
+   * <p>The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's
+   *       operations role. If specified, Elastic Beanstalk uses the operations role for permissions to downstream
+   *       services during this call and during subsequent calls acting on this environment. To specify
+   *       an operations role, you must have the <code>iam:PassRole</code> permission for the role. For
+   *       more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
+   *         <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
    */
-  Tags?: Tag[];
+  OperationsRole?: string;
 
   /**
    * <p>The name of the group to which the target environment belongs. Specify a group name
@@ -1867,9 +1873,22 @@ export interface CreateEnvironmentMessage {
   GroupName?: string;
 
   /**
-   * <p>Your description for this environment.</p>
+   * <p>The name of the application version to deploy.</p>
+   *          <p>Default: If not specified, Elastic Beanstalk attempts to deploy the sample application.</p>
    */
-  Description?: string;
+  VersionLabel?: string;
+
+  /**
+   * <p>If specified, the environment attempts to use this value as the prefix for the CNAME in
+   *       your Elastic Beanstalk environment URL. If not specified, the CNAME is generated automatically by
+   *       appending a random alphanumeric string to the environment name.</p>
+   */
+  CNAMEPrefix?: string;
+
+  /**
+   * <p>The name of the application that is associated with this environment.</p>
+   */
+  ApplicationName: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the custom platform to use with the environment. For
@@ -1884,6 +1903,29 @@ export interface CreateEnvironmentMessage {
   PlatformArn?: string;
 
   /**
+   * <p>A list of custom user-defined configuration options to remove from the configuration
+   *       set for this new environment.</p>
+   */
+  OptionsToRemove?: OptionSpecification[];
+
+  /**
+   * <p>The name of an Elastic Beanstalk solution stack (platform version) to use with the environment. If
+   *       specified, Elastic Beanstalk sets the configuration values to the default values associated with the
+   *       specified solution stack. For a list of current solution stacks, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/platforms/platforms-supported.html">Elastic Beanstalk Supported Platforms</a> in the <i>AWS Elastic Beanstalk
+   *         Platforms</i> guide.</p>
+   *          <note>
+   *             <p>If you specify <code>SolutionStackName</code>, don't specify <code>PlatformArn</code> or
+   *           <code>TemplateName</code>.</p>
+   *          </note>
+   */
+  SolutionStackName?: string;
+
+  /**
+   * <p>Your description for this environment.</p>
+   */
+  Description?: string;
+
+  /**
    * <p>A unique name for the environment.</p>
    *          <p>Constraint: Must be from 4 to 40 characters in length. The name can contain only
    *       letters, numbers, and hyphens. It can't start or end with a hyphen. This name must be unique
@@ -1893,40 +1935,6 @@ export interface CreateEnvironmentMessage {
    *       the CNAME, and therefore part of the visible URL for your application.</p>
    */
   EnvironmentName?: string;
-
-  /**
-   * <p>The name of the application that is associated with this environment.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
-   * <p>The name of the application version to deploy.</p>
-   *          <p>Default: If not specified, Elastic Beanstalk attempts to deploy the sample application.</p>
-   */
-  VersionLabel?: string;
-
-  /**
-   * <p>A list of custom user-defined configuration options to remove from the configuration
-   *       set for this new environment.</p>
-   */
-  OptionsToRemove?: OptionSpecification[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an existing IAM role to be used as the environment's
-   *       operations role. If specified, Elastic Beanstalk uses the operations role for permissions to downstream
-   *       services during this call and during subsequent calls acting on this environment. To specify
-   *       an operations role, you must have the <code>iam:PassRole</code> permission for the role. For
-   *       more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/iam-operationsrole.html">Operations roles</a> in the
-   *         <i>AWS Elastic Beanstalk Developer Guide</i>.</p>
-   */
-  OperationsRole?: string;
-
-  /**
-   * <p>Specifies the tier to use in creating this environment. The environment tier that you
-   *       choose determines whether Elastic Beanstalk provisions resources to support a web application that handles
-   *       HTTP(S) requests or a web application that handles background-processing tasks.</p>
-   */
-  Tier?: EnvironmentTier;
 }
 
 export namespace CreateEnvironmentMessage {
@@ -1940,9 +1948,11 @@ export namespace CreateEnvironmentMessage {
  */
 export interface CreatePlatformVersionRequest {
   /**
-   * <p>The number, such as 1.0.2, for the new platform version.</p>
+   * <p>Specifies the tags applied to the new platform version.</p>
+   *          <p>Elastic Beanstalk applies these tags only to the platform version. Environments that you create using
+   *       the platform version don't inherit the tags.</p>
    */
-  PlatformVersion: string | undefined;
+  Tags?: Tag[];
 
   /**
    * <p>The location of the platform definition archive in Amazon S3.</p>
@@ -1950,14 +1960,14 @@ export interface CreatePlatformVersionRequest {
   PlatformDefinitionBundle: S3Location | undefined;
 
   /**
-   * <p>The name of your custom platform.</p>
-   */
-  PlatformName: string | undefined;
-
-  /**
    * <p>The name of the builder environment.</p>
    */
   EnvironmentName?: string;
+
+  /**
+   * <p>The number, such as 1.0.2, for the new platform version.</p>
+   */
+  PlatformVersion: string | undefined;
 
   /**
    * <p>The configuration option settings to apply to the builder environment.</p>
@@ -1965,11 +1975,9 @@ export interface CreatePlatformVersionRequest {
   OptionSettings?: ConfigurationOptionSetting[];
 
   /**
-   * <p>Specifies the tags applied to the new platform version.</p>
-   *          <p>Elastic Beanstalk applies these tags only to the platform version. Environments that you create using
-   *       the platform version don't inherit the tags.</p>
+   * <p>The name of your custom platform.</p>
    */
-  Tags?: Tag[];
+  PlatformName: string | undefined;
 }
 
 export namespace CreatePlatformVersionRequest {
@@ -2009,19 +2017,40 @@ export interface PlatformSummary {
   PlatformBranchLifecycleState?: string;
 
   /**
-   * <p>The version of the operating system used by the platform version.</p>
+   * <p>The category of platform version.</p>
    */
-  OperatingSystemVersion?: string;
+  PlatformCategory?: string;
 
   /**
-   * <p>The additions associated with the platform version.</p>
+   * <p>The ARN of the platform version.</p>
    */
-  SupportedAddonList?: string[];
+  PlatformArn?: string;
 
   /**
-   * <p>The tiers in which the platform version runs.</p>
+   * <p>The operating system used by the platform version.</p>
    */
-  SupportedTierList?: string[];
+  OperatingSystemName?: string;
+
+  /**
+   * <p>The status of the platform version. You can create an environment from the platform
+   *       version once it is ready.</p>
+   */
+  PlatformStatus?: PlatformStatus | string;
+
+  /**
+   * <p>The AWS account ID of the person who created the platform version.</p>
+   */
+  PlatformOwner?: string;
+
+  /**
+   * <p>The version string of the platform version.</p>
+   */
+  PlatformVersion?: string;
+
+  /**
+   * <p>The platform branch to which the platform version belongs.</p>
+   */
+  PlatformBranchName?: string;
 
   /**
    * <p>The state of the platform version in its lifecycle.</p>
@@ -2032,40 +2061,19 @@ export interface PlatformSummary {
   PlatformLifecycleState?: string;
 
   /**
-   * <p>The AWS account ID of the person who created the platform version.</p>
+   * <p>The tiers in which the platform version runs.</p>
    */
-  PlatformOwner?: string;
+  SupportedTierList?: string[];
 
   /**
-   * <p>The platform branch to which the platform version belongs.</p>
+   * <p>The additions associated with the platform version.</p>
    */
-  PlatformBranchName?: string;
+  SupportedAddonList?: string[];
 
   /**
-   * <p>The status of the platform version. You can create an environment from the platform
-   *       version once it is ready.</p>
+   * <p>The version of the operating system used by the platform version.</p>
    */
-  PlatformStatus?: PlatformStatus | string;
-
-  /**
-   * <p>The version string of the platform version.</p>
-   */
-  PlatformVersion?: string;
-
-  /**
-   * <p>The operating system used by the platform version.</p>
-   */
-  OperatingSystemName?: string;
-
-  /**
-   * <p>The category of platform version.</p>
-   */
-  PlatformCategory?: string;
-
-  /**
-   * <p>The ARN of the platform version.</p>
-   */
-  PlatformArn?: string;
+  OperatingSystemVersion?: string;
 }
 
 export namespace PlatformSummary {
@@ -2076,14 +2084,14 @@ export namespace PlatformSummary {
 
 export interface CreatePlatformVersionResult {
   /**
-   * <p>Detailed information about the new version of the custom platform.</p>
-   */
-  PlatformSummary?: PlatformSummary;
-
-  /**
    * <p>The builder used to create the custom platform.</p>
    */
   Builder?: Builder;
+
+  /**
+   * <p>Detailed information about the new version of the custom platform.</p>
+   */
+  PlatformSummary?: PlatformSummary;
 }
 
 export namespace CreatePlatformVersionResult {
@@ -2258,14 +2266,14 @@ export namespace DeleteConfigurationTemplateMessage {
  */
 export interface DeleteEnvironmentConfigurationMessage {
   /**
-   * <p>The name of the application the environment is associated with.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>The name of the environment to delete the draft configuration from.</p>
    */
   EnvironmentName: string | undefined;
+
+  /**
+   * <p>The name of the application the environment is associated with.</p>
+   */
+  ApplicationName: string | undefined;
 }
 
 export namespace DeleteEnvironmentConfigurationMessage {
@@ -2342,9 +2350,14 @@ export namespace ResourceQuota {
  */
 export interface ResourceQuotas {
   /**
-   * <p>The quota for environments in the AWS account.</p>
+   * <p>The quota for configuration templates in the AWS account.</p>
    */
-  EnvironmentQuota?: ResourceQuota;
+  ConfigurationTemplateQuota?: ResourceQuota;
+
+  /**
+   * <p>The quota for applications in the AWS account.</p>
+   */
+  ApplicationQuota?: ResourceQuota;
 
   /**
    * <p>The quota for custom platforms in the AWS account.</p>
@@ -2357,14 +2370,9 @@ export interface ResourceQuotas {
   ApplicationVersionQuota?: ResourceQuota;
 
   /**
-   * <p>The quota for configuration templates in the AWS account.</p>
+   * <p>The quota for environments in the AWS account.</p>
    */
-  ConfigurationTemplateQuota?: ResourceQuota;
-
-  /**
-   * <p>The quota for applications in the AWS account.</p>
-   */
-  ApplicationQuota?: ResourceQuota;
+  EnvironmentQuota?: ResourceQuota;
 }
 
 export namespace ResourceQuotas {
@@ -2414,11 +2422,9 @@ export interface DescribeApplicationVersionsMessage {
   ApplicationName?: string;
 
   /**
-   * <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other
-   *       parameter values must be identical to the ones specified in the initial request.</p>
-   *          <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
+   * <p>Specify a version label to show a specific application version.</p>
    */
-  NextToken?: string;
+  VersionLabels?: string[];
 
   /**
    * <p>For a paginated request. Specify a maximum number of application versions to include in
@@ -2429,9 +2435,11 @@ export interface DescribeApplicationVersionsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>Specify a version label to show a specific application version.</p>
+   * <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other
+   *       parameter values must be identical to the ones specified in the initial request.</p>
+   *          <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
    */
-  VersionLabels?: string[];
+  NextToken?: string;
 }
 
 export namespace DescribeApplicationVersionsMessage {
@@ -2470,6 +2478,11 @@ export type ConfigurationOptionValueType = "List" | "Scalar";
  */
 export interface ConfigurationOptionDescription {
   /**
+   * <p>The default value for this configuration option.</p>
+   */
+  DefaultValue?: string;
+
+  /**
    * <p>An indication of which action is required if the value for this configuration option
    *       changes:</p>
    *          <ul>
@@ -2495,10 +2508,10 @@ export interface ConfigurationOptionDescription {
   ChangeSeverity?: string;
 
   /**
-   * <p>If specified, values for the configuration option are selected from this
-   *       list.</p>
+   * <p>If specified, the configuration option must be a string value no longer than this
+   *       value.</p>
    */
-  ValueOptions?: string[];
+  MaxLength?: number;
 
   /**
    * <p>An indication of whether the user defined this configuration option:</p>
@@ -2519,6 +2532,40 @@ export interface ConfigurationOptionDescription {
    *          </p>
    */
   UserDefined?: boolean;
+
+  /**
+   * <p>The name of the configuration option.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A unique namespace identifying the option's associated AWS resource.</p>
+   */
+  Namespace?: string;
+
+  /**
+   * <p>If specified, the configuration option must be a numeric value less than this
+   *       value.</p>
+   */
+  MaxValue?: number;
+
+  /**
+   * <p>If specified, the configuration option must be a numeric value greater than this
+   *       value.</p>
+   */
+  MinValue?: number;
+
+  /**
+   * <p>If specified, the configuration option must be a string value that satisfies this
+   *       regular expression.</p>
+   */
+  Regex?: OptionRestrictionRegex;
+
+  /**
+   * <p>If specified, values for the configuration option are selected from this
+   *       list.</p>
+   */
+  ValueOptions?: string[];
 
   /**
    * <p>An indication of which type of values this option has and whether it is allowable to
@@ -2548,45 +2595,6 @@ export interface ConfigurationOptionDescription {
    *          </ul>
    */
   ValueType?: ConfigurationOptionValueType | string;
-
-  /**
-   * <p>The default value for this configuration option.</p>
-   */
-  DefaultValue?: string;
-
-  /**
-   * <p>If specified, the configuration option must be a numeric value greater than this
-   *       value.</p>
-   */
-  MinValue?: number;
-
-  /**
-   * <p>A unique namespace identifying the option's associated AWS resource.</p>
-   */
-  Namespace?: string;
-
-  /**
-   * <p>The name of the configuration option.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>If specified, the configuration option must be a string value no longer than this
-   *       value.</p>
-   */
-  MaxLength?: number;
-
-  /**
-   * <p>If specified, the configuration option must be a numeric value less than this
-   *       value.</p>
-   */
-  MaxValue?: number;
-
-  /**
-   * <p>If specified, the configuration option must be a string value that satisfies this
-   *       regular expression.</p>
-   */
-  Regex?: OptionRestrictionRegex;
 }
 
 export namespace ConfigurationOptionDescription {
@@ -2600,6 +2608,11 @@ export namespace ConfigurationOptionDescription {
  */
 export interface ConfigurationOptionsDescription {
   /**
+   * <p>The ARN of the platform version.</p>
+   */
+  PlatformArn?: string;
+
+  /**
    * <p>The name of the solution stack these configuration options belong to.</p>
    */
   SolutionStackName?: string;
@@ -2608,11 +2621,6 @@ export interface ConfigurationOptionsDescription {
    * <p> A list of <a>ConfigurationOptionDescription</a>. </p>
    */
   Options?: ConfigurationOptionDescription[];
-
-  /**
-   * <p>The ARN of the platform version.</p>
-   */
-  PlatformArn?: string;
 }
 
 export namespace ConfigurationOptionsDescription {
@@ -2631,15 +2639,9 @@ export interface DescribeConfigurationOptionsMessage {
   Options?: OptionSpecification[];
 
   /**
-   * <p>The ARN of the custom platform.</p>
+   * <p>The name of the environment whose configuration options you want to describe.</p>
    */
-  PlatformArn?: string;
-
-  /**
-   * <p>The name of the configuration template whose configuration options you want to
-   *       describe.</p>
-   */
-  TemplateName?: string;
+  EnvironmentName?: string;
 
   /**
    * <p>The name of the solution stack whose configuration options you want to
@@ -2655,9 +2657,15 @@ export interface DescribeConfigurationOptionsMessage {
   ApplicationName?: string;
 
   /**
-   * <p>The name of the environment whose configuration options you want to describe.</p>
+   * <p>The name of the configuration template whose configuration options you want to
+   *       describe.</p>
    */
-  EnvironmentName?: string;
+  TemplateName?: string;
+
+  /**
+   * <p>The ARN of the custom platform.</p>
+   */
+  PlatformArn?: string;
 }
 
 export namespace DescribeConfigurationOptionsMessage {
@@ -2694,15 +2702,6 @@ export interface DescribeConfigurationSettingsMessage {
   ApplicationName: string | undefined;
 
   /**
-   * <p>The name of the environment to describe.</p>
-   *          <p> Condition: You must specify either this or a TemplateName, but not both. If you
-   *       specify both, AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code> error.
-   *       If you do not specify either, AWS Elastic Beanstalk returns
-   *         <code>MissingRequiredParameter</code> error. </p>
-   */
-  EnvironmentName?: string;
-
-  /**
    * <p>The name of the configuration template to describe.</p>
    *          <p> Conditional: You must specify either this parameter or an EnvironmentName, but not
    *       both. If you specify both, AWS Elastic Beanstalk returns an
@@ -2710,6 +2709,15 @@ export interface DescribeConfigurationSettingsMessage {
    *       Beanstalk returns a <code>MissingRequiredParameter</code> error. </p>
    */
   TemplateName?: string;
+
+  /**
+   * <p>The name of the environment to describe.</p>
+   *          <p> Condition: You must specify either this or a TemplateName, but not both. If you
+   *       specify both, AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code> error.
+   *       If you do not specify either, AWS Elastic Beanstalk returns
+   *         <code>MissingRequiredParameter</code> error. </p>
+   */
+  EnvironmentName?: string;
 }
 
 export namespace DescribeConfigurationSettingsMessage {
@@ -2734,12 +2742,6 @@ export enum EnvironmentHealthAttribute {
  */
 export interface DescribeEnvironmentHealthRequest {
   /**
-   * <p>Specify the environment by name.</p>
-   *          <p>You must specify either this or an EnvironmentName, or both.</p>
-   */
-  EnvironmentName?: string;
-
-  /**
    * <p>Specify the environment by ID.</p>
    *          <p>You must specify either this or an EnvironmentName, or both.</p>
    */
@@ -2751,6 +2753,12 @@ export interface DescribeEnvironmentHealthRequest {
    *       environment.</p>
    */
   AttributeNames?: (EnvironmentHealthAttribute | string)[];
+
+  /**
+   * <p>Specify the environment by name.</p>
+   *          <p>You must specify either this or an EnvironmentName, or both.</p>
+   */
+  EnvironmentName?: string;
 }
 
 export namespace DescribeEnvironmentHealthRequest {
@@ -2773,6 +2781,33 @@ export interface InstanceHealthSummary {
 
   /**
    * <p>
+   *             <b>Grey.</b> AWS Elastic Beanstalk and the health agent are
+   *       reporting no data on an instance.</p>
+   */
+  NoData?: number;
+
+  /**
+   * <p>
+   *             <b>Grey.</b> AWS Elastic Beanstalk and the health agent are
+   *       reporting an insufficient amount of data on an instance.</p>
+   */
+  Unknown?: number;
+
+  /**
+   * <p>
+   *             <b>Green.</b> An operation is in progress on an instance.</p>
+   */
+  Info?: number;
+
+  /**
+   * <p>
+   *             <b>Grey.</b> An operation is in progress on an instance within the
+   *       command timeout.</p>
+   */
+  Pending?: number;
+
+  /**
+   * <p>
    *             <b>Yellow.</b> The health agent is reporting a moderate number of
    *       request failures or other issues for an instance or environment.</p>
    */
@@ -2787,37 +2822,10 @@ export interface InstanceHealthSummary {
 
   /**
    * <p>
-   *             <b>Grey.</b> AWS Elastic Beanstalk and the health agent are
-   *       reporting an insufficient amount of data on an instance.</p>
-   */
-  Unknown?: number;
-
-  /**
-   * <p>
    *             <b>Red.</b> The health agent is reporting a very high number of
    *       request failures or other issues for an instance or environment.</p>
    */
   Severe?: number;
-
-  /**
-   * <p>
-   *             <b>Grey.</b> An operation is in progress on an instance within the
-   *       command timeout.</p>
-   */
-  Pending?: number;
-
-  /**
-   * <p>
-   *             <b>Green.</b> An operation is in progress on an instance.</p>
-   */
-  Info?: number;
-
-  /**
-   * <p>
-   *             <b>Grey.</b> AWS Elastic Beanstalk and the health agent are
-   *       reporting no data on an instance.</p>
-   */
-  NoData?: number;
 }
 
 export namespace InstanceHealthSummary {
@@ -2836,15 +2844,19 @@ export interface DescribeEnvironmentHealthResult {
   EnvironmentName?: string;
 
   /**
-   * <p>The environment's operational status. <code>Ready</code>, <code>Launching</code>,
-   *         <code>Updating</code>, <code>Terminating</code>, or <code>Terminated</code>.</p>
-   */
-  Status?: EnvironmentHealth | string;
-
-  /**
    * <p>Application request metrics for the environment.</p>
    */
   ApplicationMetrics?: ApplicationMetrics;
+
+  /**
+   * <p>Summary health information for the instances in the environment.</p>
+   */
+  InstancesHealth?: InstanceHealthSummary;
+
+  /**
+   * <p>The date and time that the health information was retrieved.</p>
+   */
+  RefreshedAt?: Date;
 
   /**
    * <p>Descriptions of the data that contributed to the environment's current health
@@ -2853,26 +2865,22 @@ export interface DescribeEnvironmentHealthResult {
   Causes?: string[];
 
   /**
-   * <p>The date and time that the health information was retrieved.</p>
+   * <p>The <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">health color</a> of the
+   *       environment.</p>
    */
-  RefreshedAt?: Date;
+  Color?: string;
 
   /**
-   * <p>Summary health information for the instances in the environment.</p>
+   * <p>The environment's operational status. <code>Ready</code>, <code>Launching</code>,
+   *         <code>Updating</code>, <code>Terminating</code>, or <code>Terminated</code>.</p>
    */
-  InstancesHealth?: InstanceHealthSummary;
+  Status?: EnvironmentHealth | string;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">health status</a> of the
    *       environment. For example, <code>Ok</code>.</p>
    */
   HealthStatus?: string;
-
-  /**
-   * <p>The <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">health color</a> of the
-   *       environment.</p>
-   */
-  Color?: string;
 }
 
 export namespace DescribeEnvironmentHealthResult {
@@ -2905,6 +2913,11 @@ export namespace InvalidRequestException {
  */
 export interface DescribeEnvironmentManagedActionHistoryRequest {
   /**
+   * <p>The pagination token returned by a previous request.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The environment ID of the target environment.</p>
    */
   EnvironmentId?: string;
@@ -2913,11 +2926,6 @@ export interface DescribeEnvironmentManagedActionHistoryRequest {
    * <p>The name of the target environment.</p>
    */
   EnvironmentName?: string;
-
-  /**
-   * <p>The pagination token returned by a previous request.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>The maximum number of items to return for a single request.</p>
@@ -2945,11 +2953,6 @@ export type FailureType =
  */
 export interface ManagedActionHistoryItem {
   /**
-   * <p>If the action failed, the type of failure.</p>
-   */
-  FailureType?: FailureType | string;
-
-  /**
    * <p>The status of the action.</p>
    */
   Status?: ActionHistoryStatus | string;
@@ -2960,9 +2963,9 @@ export interface ManagedActionHistoryItem {
   ActionId?: string;
 
   /**
-   * <p>If the action failed, a description of the failure.</p>
+   * <p>The type of the managed action.</p>
    */
-  FailureDescription?: string;
+  ActionType?: ActionType | string;
 
   /**
    * <p>The date and time that the action finished executing.</p>
@@ -2970,9 +2973,14 @@ export interface ManagedActionHistoryItem {
   FinishedTime?: Date;
 
   /**
-   * <p>The type of the managed action.</p>
+   * <p>If the action failed, a description of the failure.</p>
    */
-  ActionType?: ActionType | string;
+  FailureDescription?: string;
+
+  /**
+   * <p>If the action failed, the type of failure.</p>
+   */
+  FailureType?: FailureType | string;
 
   /**
    * <p>The date and time that the action started executing.</p>
@@ -2996,15 +3004,15 @@ export namespace ManagedActionHistoryItem {
  */
 export interface DescribeEnvironmentManagedActionHistoryResult {
   /**
-   * <p>A list of completed and failed managed actions.</p>
-   */
-  ManagedActionHistoryItems?: ManagedActionHistoryItem[];
-
-  /**
    * <p>A pagination token that you pass to <a>DescribeEnvironmentManagedActionHistory</a> to get the next page of
    *       results.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list of completed and failed managed actions.</p>
+   */
+  ManagedActionHistoryItems?: ManagedActionHistoryItem[];
 }
 
 export namespace DescribeEnvironmentManagedActionHistoryResult {
@@ -3018,14 +3026,14 @@ export namespace DescribeEnvironmentManagedActionHistoryResult {
  */
 export interface DescribeEnvironmentManagedActionsRequest {
   /**
-   * <p>The name of the target environment.</p>
-   */
-  EnvironmentName?: string;
-
-  /**
    * <p>The environment ID of the target environment.</p>
    */
   EnvironmentId?: string;
+
+  /**
+   * <p>The name of the target environment.</p>
+   */
+  EnvironmentName?: string;
 
   /**
    * <p>To show only actions with a particular status, specify a status.</p>
@@ -3044,20 +3052,20 @@ export namespace DescribeEnvironmentManagedActionsRequest {
  */
 export interface ManagedAction {
   /**
-   * <p>A unique identifier for the managed action.</p>
+   * <p>The start time of the maintenance window in which the managed action will
+   *       execute.</p>
    */
-  ActionId?: string;
+  WindowStartTime?: Date;
+
+  /**
+   * <p>A description of the managed action.</p>
+   */
+  ActionDescription?: string;
 
   /**
    * <p>The type of managed action.</p>
    */
   ActionType?: ActionType | string;
-
-  /**
-   * <p>The start time of the maintenance window in which the managed action will
-   *       execute.</p>
-   */
-  WindowStartTime?: Date;
 
   /**
    * <p>The status of the managed action. If the action is <code>Scheduled</code>, you can
@@ -3066,9 +3074,9 @@ export interface ManagedAction {
   Status?: ActionStatus | string;
 
   /**
-   * <p>A description of the managed action.</p>
+   * <p>A unique identifier for the managed action.</p>
    */
-  ActionDescription?: string;
+  ActionId?: string;
 }
 
 export namespace ManagedAction {
@@ -3226,24 +3234,19 @@ export namespace Trigger {
  */
 export interface EnvironmentResourceDescription {
   /**
-   * <p>The Auto Scaling launch configurations in use by this environment.</p>
-   */
-  LaunchConfigurations?: LaunchConfiguration[];
-
-  /**
    * <p>The Amazon EC2 instances used by this environment.</p>
    */
   Instances?: Instance[];
 
   /**
-   * <p>The Amazon EC2 launch templates in use by this environment.</p>
+   * <p> The <code>AutoScalingGroups</code> used by this environment. </p>
    */
-  LaunchTemplates?: LaunchTemplate[];
+  AutoScalingGroups?: AutoScalingGroup[];
 
   /**
-   * <p>The LoadBalancers in use by this environment.</p>
+   * <p>The name of the environment.</p>
    */
-  LoadBalancers?: LoadBalancer[];
+  EnvironmentName?: string;
 
   /**
    * <p>The <code>AutoScaling</code> triggers in use by this environment. </p>
@@ -3256,14 +3259,19 @@ export interface EnvironmentResourceDescription {
   Queues?: Queue[];
 
   /**
-   * <p>The name of the environment.</p>
+   * <p>The LoadBalancers in use by this environment.</p>
    */
-  EnvironmentName?: string;
+  LoadBalancers?: LoadBalancer[];
 
   /**
-   * <p> The <code>AutoScalingGroups</code> used by this environment. </p>
+   * <p>The Amazon EC2 launch templates in use by this environment.</p>
    */
-  AutoScalingGroups?: AutoScalingGroup[];
+  LaunchTemplates?: LaunchTemplate[];
+
+  /**
+   * <p>The Auto Scaling launch configurations in use by this environment.</p>
+   */
+  LaunchConfigurations?: LaunchConfiguration[];
 }
 
 export namespace EnvironmentResourceDescription {
@@ -3299,6 +3307,37 @@ export interface DescribeEnvironmentsMessage {
   EnvironmentNames?: string[];
 
   /**
+   * <p> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then
+   *       environments deleted after this date are displayed. </p>
+   */
+  IncludedDeletedBackTo?: Date;
+
+  /**
+   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only
+   *       those that are associated with this application version.</p>
+   */
+  VersionLabel?: string;
+
+  /**
+   * <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other
+   *       parameter values must be identical to the ones specified in the initial request.</p>
+   *          <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only
+   *       those that are associated with this application.</p>
+   */
+  ApplicationName?: string;
+
+  /**
+   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only
+   *       those that have the specified IDs.</p>
+   */
+  EnvironmentIds?: string[];
+
+  /**
    * <p>Indicates whether to include deleted environments:</p>
    *          <p>
    *             <code>true</code>: Environments that have been deleted after
@@ -3315,37 +3354,6 @@ export interface DescribeEnvironmentsMessage {
    *       retrieved in a single response.</p>
    */
   MaxRecords?: number;
-
-  /**
-   * <p> If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then
-   *       environments deleted after this date are displayed. </p>
-   */
-  IncludedDeletedBackTo?: Date;
-
-  /**
-   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only
-   *       those that have the specified IDs.</p>
-   */
-  EnvironmentIds?: string[];
-
-  /**
-   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only
-   *       those that are associated with this application.</p>
-   */
-  ApplicationName?: string;
-
-  /**
-   * <p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other
-   *       parameter values must be identical to the ones specified in the initial request.</p>
-   *          <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only
-   *       those that are associated with this application version.</p>
-   */
-  VersionLabel?: string;
 }
 
 export namespace DescribeEnvironmentsMessage {
@@ -3360,6 +3368,12 @@ export type EventSeverity = "DEBUG" | "ERROR" | "FATAL" | "INFO" | "TRACE" | "WA
  * <p>Request to retrieve a list of events for an environment.</p>
  */
 export interface DescribeEventsMessage {
+  /**
+   * <p> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that
+   *       occur up to, but not including, the <code>EndTime</code>. </p>
+   */
+  EndTime?: Date;
+
   /**
    * <p>If specified, AWS Elastic Beanstalk restricts the described events to include only
    *       those associated with this request ID.</p>
@@ -3379,28 +3393,9 @@ export interface DescribeEventsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that
-   *       occur on or after this time.</p>
+   * <p>Pagination token. If specified, the events return the next batch of results.</p>
    */
-  StartTime?: Date;
-
-  /**
-   * <p> If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that
-   *       occur up to, but not including, the <code>EndTime</code>. </p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>If specified, limits the events returned from this call to include only those with the
-   *       specified severity or higher.</p>
-   */
-  Severity?: EventSeverity | string;
-
-  /**
-   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only
-   *       those associated with this application.</p>
-   */
-  ApplicationName?: string;
+  NextToken?: string;
 
   /**
    * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
@@ -3409,27 +3404,40 @@ export interface DescribeEventsMessage {
   EnvironmentName?: string;
 
   /**
-   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
-   *       associated with this environment.</p>
-   */
-  EnvironmentId?: string;
-
-  /**
    * <p>The ARN of a custom platform version. If specified, AWS Elastic Beanstalk restricts the
    *       returned descriptions to those associated with this custom platform version.</p>
    */
   PlatformArn?: string;
 
   /**
+   * <p>If specified, limits the events returned from this call to include only those with the
+   *       specified severity or higher.</p>
+   */
+  Severity?: EventSeverity | string;
+
+  /**
+   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
+   *       associated with this environment.</p>
+   */
+  EnvironmentId?: string;
+
+  /**
+   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only
+   *       those associated with this application.</p>
+   */
+  ApplicationName?: string;
+
+  /**
+   * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that
+   *       occur on or after this time.</p>
+   */
+  StartTime?: Date;
+
+  /**
    * <p>If specified, AWS Elastic Beanstalk restricts the returned descriptions to those
    *       associated with this application version.</p>
    */
   VersionLabel?: string;
-
-  /**
-   * <p>Pagination token. If specified, the events return the next batch of results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace DescribeEventsMessage {
@@ -3443,19 +3451,9 @@ export namespace DescribeEventsMessage {
  */
 export interface EventDescription {
   /**
-   * <p>The severity level of this event.</p>
+   * <p>The name of the configuration associated with this event.</p>
    */
-  Severity?: EventSeverity | string;
-
-  /**
-   * <p>The event message.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>The name of the environment associated with this event.</p>
-   */
-  EnvironmentName?: string;
+  TemplateName?: string;
 
   /**
    * <p>The web service request ID for the activity of this event.</p>
@@ -3463,14 +3461,9 @@ export interface EventDescription {
   RequestId?: string;
 
   /**
-   * <p>The ARN of the platform version.</p>
+   * <p>The date when the event occurred.</p>
    */
-  PlatformArn?: string;
-
-  /**
-   * <p>The release label for the application version associated with this event.</p>
-   */
-  VersionLabel?: string;
+  EventDate?: Date;
 
   /**
    * <p>The application associated with the event.</p>
@@ -3478,14 +3471,29 @@ export interface EventDescription {
   ApplicationName?: string;
 
   /**
-   * <p>The date when the event occurred.</p>
+   * <p>The severity level of this event.</p>
    */
-  EventDate?: Date;
+  Severity?: EventSeverity | string;
 
   /**
-   * <p>The name of the configuration associated with this event.</p>
+   * <p>The release label for the application version associated with this event.</p>
    */
-  TemplateName?: string;
+  VersionLabel?: string;
+
+  /**
+   * <p>The ARN of the platform version.</p>
+   */
+  PlatformArn?: string;
+
+  /**
+   * <p>The name of the environment associated with this event.</p>
+   */
+  EnvironmentName?: string;
+
+  /**
+   * <p>The event message.</p>
+   */
+  Message?: string;
 }
 
 export namespace EventDescription {
@@ -3499,15 +3507,15 @@ export namespace EventDescription {
  */
 export interface EventDescriptionsMessage {
   /**
+   * <p> A list of <a>EventDescription</a>. </p>
+   */
+  Events?: EventDescription[];
+
+  /**
    * <p> If returned, this indicates that there are more results to obtain. Use this token in
    *       the next <a>DescribeEvents</a> call to get the next batch of events. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p> A list of <a>EventDescription</a>. </p>
-   */
-  Events?: EventDescription[];
 }
 
 export namespace EventDescriptionsMessage {
@@ -3535,6 +3543,18 @@ export enum InstancesHealthAttribute {
  */
 export interface DescribeInstancesHealthRequest {
   /**
+   * <p>Specifies the response elements you wish to receive. To retrieve all attributes, set to
+   *         <code>All</code>. If no attribute names are specified, returns a list of
+   *       instances.</p>
+   */
+  AttributeNames?: (InstancesHealthAttribute | string)[];
+
+  /**
+   * <p>Specify the pagination token returned by a previous call.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>Specify the AWS Elastic Beanstalk environment by ID.</p>
    */
   EnvironmentId?: string;
@@ -3543,18 +3563,6 @@ export interface DescribeInstancesHealthRequest {
    * <p>Specify the AWS Elastic Beanstalk environment by name.</p>
    */
   EnvironmentName?: string;
-
-  /**
-   * <p>Specify the pagination token returned by a previous call.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Specifies the response elements you wish to receive. To retrieve all attributes, set to
-   *         <code>All</code>. If no attribute names are specified, returns a list of
-   *       instances.</p>
-   */
-  AttributeNames?: (InstancesHealthAttribute | string)[];
 }
 
 export namespace DescribeInstancesHealthRequest {
@@ -3567,6 +3575,11 @@ export namespace DescribeInstancesHealthRequest {
  * <p>Information about an application version deployment.</p>
  */
 export interface Deployment {
+  /**
+   * <p>The version label of the application version in the deployment.</p>
+   */
+  VersionLabel?: string;
+
   /**
    * <p>The ID of the deployment. This number increases by one each time that you deploy source
    *       code or change instance configuration settings.</p>
@@ -3593,11 +3606,6 @@ export interface Deployment {
   Status?: string;
 
   /**
-   * <p>The version label of the application version in the deployment.</p>
-   */
-  VersionLabel?: string;
-
-  /**
    * <p>For in-progress deployments, the time that the deployment started.</p>
    *          <p>For completed deployments, the time that the deployment ended.</p>
    */
@@ -3615,23 +3623,30 @@ export namespace Deployment {
  */
 export interface CPUUtilization {
   /**
-   * <p>Percentage of time that the CPU has spent in the <code>Idle</code> state over the last
-   *       10 seconds.</p>
-   */
-  Idle?: number;
-
-  /**
    * <p>Percentage of time that the CPU has spent in the <code>User</code> state over the last
    *       10 seconds.</p>
    */
   User?: number;
 
   /**
+   * <p>Percentage of time that the CPU has spent in the <code>Idle</code> state over the last
+   *       10 seconds.</p>
+   */
+  Idle?: number;
+
+  /**
    * <p>Available on Linux environments only.</p>
-   *          <p>Percentage of time that the CPU has spent in the <code>System</code> state over the
+   *          <p>Percentage of time that the CPU has spent in the <code>IRQ</code> state over the last
+   *       10 seconds.</p>
+   */
+  IRQ?: number;
+
+  /**
+   * <p>Available on Windows environments only.</p>
+   *          <p>Percentage of time that the CPU has spent in the <code>Privileged</code> state over the
    *       last 10 seconds.</p>
    */
-  System?: number;
+  Privileged?: number;
 
   /**
    * <p>Available on Linux environments only.</p>
@@ -3649,24 +3664,17 @@ export interface CPUUtilization {
 
   /**
    * <p>Available on Linux environments only.</p>
+   *          <p>Percentage of time that the CPU has spent in the <code>System</code> state over the
+   *       last 10 seconds.</p>
+   */
+  System?: number;
+
+  /**
+   * <p>Available on Linux environments only.</p>
    *          <p>Percentage of time that the CPU has spent in the <code>Nice</code> state over the last
    *       10 seconds.</p>
    */
   Nice?: number;
-
-  /**
-   * <p>Available on Windows environments only.</p>
-   *          <p>Percentage of time that the CPU has spent in the <code>Privileged</code> state over the
-   *       last 10 seconds.</p>
-   */
-  Privileged?: number;
-
-  /**
-   * <p>Available on Linux environments only.</p>
-   *          <p>Percentage of time that the CPU has spent in the <code>IRQ</code> state over the last
-   *       10 seconds.</p>
-   */
-  IRQ?: number;
 }
 
 export namespace CPUUtilization {
@@ -3680,16 +3688,16 @@ export namespace CPUUtilization {
  */
 export interface SystemStatus {
   /**
+   * <p>CPU utilization metrics for the instance.</p>
+   */
+  CPUUtilization?: CPUUtilization;
+
+  /**
    * <p>Load average in the last 1-minute, 5-minute, and 15-minute periods.
    *       For more information, see
    *         <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-metrics.html#health-enhanced-metrics-os">Operating System Metrics</a>.</p>
    */
   LoadAverage?: number[];
-
-  /**
-   * <p>CPU utilization metrics for the instance.</p>
-   */
-  CPUUtilization?: CPUUtilization;
 }
 
 export namespace SystemStatus {
@@ -3709,31 +3717,24 @@ export interface SingleInstanceHealth {
   InstanceId?: string;
 
   /**
-   * <p>The time at which the EC2 instance was launched.</p>
-   */
-  LaunchedAt?: Date;
-
-  /**
    * <p>The instance's type.</p>
    */
   InstanceType?: string;
 
   /**
-   * <p>The availability zone in which the instance runs.</p>
+   * <p>Information about the most recent deployment to an instance.</p>
    */
-  AvailabilityZone?: string;
+  Deployment?: Deployment;
 
   /**
-   * <p>Returns the health status of the specified instance. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">Health
-   *         Colors and Statuses</a>.</p>
+   * <p>Operating system metrics from the instance.</p>
    */
-  HealthStatus?: string;
+  System?: SystemStatus;
 
   /**
-   * <p>Represents the causes, which provide more information about the current health
-   *       status.</p>
+   * <p>The time at which the EC2 instance was launched.</p>
    */
-  Causes?: string[];
+  LaunchedAt?: Date;
 
   /**
    * <p>Represents the color indicator that gives you information about the health of the EC2
@@ -3743,19 +3744,26 @@ export interface SingleInstanceHealth {
   Color?: string;
 
   /**
+   * <p>Returns the health status of the specified instance. For more information, see <a href="https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/health-enhanced-status.html">Health
+   *         Colors and Statuses</a>.</p>
+   */
+  HealthStatus?: string;
+
+  /**
+   * <p>The availability zone in which the instance runs.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
    * <p>Request metrics from your application.</p>
    */
   ApplicationMetrics?: ApplicationMetrics;
 
   /**
-   * <p>Operating system metrics from the instance.</p>
+   * <p>Represents the causes, which provide more information about the current health
+   *       status.</p>
    */
-  System?: SystemStatus;
-
-  /**
-   * <p>Information about the most recent deployment to an instance.</p>
-   */
-  Deployment?: Deployment;
+  Causes?: string[];
 }
 
 export namespace SingleInstanceHealth {
@@ -3777,14 +3785,14 @@ export interface DescribeInstancesHealthResult {
   InstanceHealthList?: SingleInstanceHealth[];
 
   /**
-   * <p>Pagination token for the next page of results, if available.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The date and time that the health information was retrieved.</p>
    */
   RefreshedAt?: Date;
+
+  /**
+   * <p>Pagination token for the next page of results, if available.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace DescribeInstancesHealthResult {
@@ -3811,14 +3819,14 @@ export namespace DescribePlatformVersionRequest {
  */
 export interface CustomAmi {
   /**
-   * <p>THe ID of the image used to create the custom AMI.</p>
-   */
-  ImageId?: string;
-
-  /**
    * <p>The type of virtualization used to create the custom AMI.</p>
    */
   VirtualizationType?: string;
+
+  /**
+   * <p>THe ID of the image used to create the custom AMI.</p>
+   */
+  ImageId?: string;
 }
 
 export namespace CustomAmi {
@@ -3832,14 +3840,14 @@ export namespace CustomAmi {
  */
 export interface PlatformFramework {
   /**
-   * <p>The name of the framework.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The version of the framework.</p>
    */
   Version?: string;
+
+  /**
+   * <p>The name of the framework.</p>
+   */
+  Name?: string;
 }
 
 export namespace PlatformFramework {
@@ -3853,14 +3861,14 @@ export namespace PlatformFramework {
  */
 export interface PlatformProgrammingLanguage {
   /**
-   * <p>The name of the programming language.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The version of the programming language.</p>
    */
   Version?: string;
+
+  /**
+   * <p>The name of the programming language.</p>
+   */
+  Name?: string;
 }
 
 export namespace PlatformProgrammingLanguage {
@@ -3874,49 +3882,14 @@ export namespace PlatformProgrammingLanguage {
  */
 export interface PlatformDescription {
   /**
-   * <p>The status of the platform version.</p>
-   */
-  PlatformStatus?: PlatformStatus | string;
-
-  /**
-   * <p>The state of the platform version in its lifecycle.</p>
-   *          <p>Possible values: <code>Recommended</code> | <code>null</code>
-   *          </p>
-   *          <p>If a null value is returned, the platform version isn't the recommended one for its
-   *       branch. Each platform branch has a single recommended platform version, typically the most
-   *       recent one.</p>
-   */
-  PlatformLifecycleState?: string;
-
-  /**
-   * <p>Information about the maintainer of the platform version.</p>
-   */
-  Maintainer?: string;
-
-  /**
    * <p>The platform branch to which the platform version belongs.</p>
    */
   PlatformBranchName?: string;
 
   /**
-   * <p>The AWS account ID of the person who created the platform version.</p>
+   * <p>The status of the platform version.</p>
    */
-  PlatformOwner?: string;
-
-  /**
-   * <p>The frameworks supported by the platform version.</p>
-   */
-  Frameworks?: PlatformFramework[];
-
-  /**
-   * <p>The version of the operating system used by the platform version.</p>
-   */
-  OperatingSystemVersion?: string;
-
-  /**
-   * <p>The tiers supported by the platform version.</p>
-   */
-  SupportedTierList?: string[];
+  PlatformStatus?: PlatformStatus | string;
 
   /**
    * <p>The name of the platform version.</p>
@@ -3924,9 +3897,39 @@ export interface PlatformDescription {
   PlatformName?: string;
 
   /**
-   * <p>The date when the platform version was created.</p>
+   * <p>Information about the maintainer of the platform version.</p>
    */
-  DateCreated?: Date;
+  Maintainer?: string;
+
+  /**
+   * <p>The AWS account ID of the person who created the platform version.</p>
+   */
+  PlatformOwner?: string;
+
+  /**
+   * <p>The programming languages supported by the platform version.</p>
+   */
+  ProgrammingLanguages?: PlatformProgrammingLanguage[];
+
+  /**
+   * <p>The additions supported by the platform version.</p>
+   */
+  SupportedAddonList?: string[];
+
+  /**
+   * <p>The name of the solution stack used by the platform version.</p>
+   */
+  SolutionStackName?: string;
+
+  /**
+   * <p>The frameworks supported by the platform version.</p>
+   */
+  Frameworks?: PlatformFramework[];
+
+  /**
+   * <p>The date when the platform version was last updated.</p>
+   */
+  DateUpdated?: Date;
 
   /**
    * <p>The custom AMIs supported by the platform version.</p>
@@ -3939,19 +3942,9 @@ export interface PlatformDescription {
   Description?: string;
 
   /**
-   * <p>The version of the platform version.</p>
+   * <p>The category of the platform version.</p>
    */
-  PlatformVersion?: string;
-
-  /**
-   * <p>The ARN of the platform version.</p>
-   */
-  PlatformArn?: string;
-
-  /**
-   * <p>The date when the platform version was last updated.</p>
-   */
-  DateUpdated?: Date;
+  PlatformCategory?: string;
 
   /**
    * <p>The operating system used by the platform version.</p>
@@ -3959,14 +3952,9 @@ export interface PlatformDescription {
   OperatingSystemName?: string;
 
   /**
-   * <p>The category of the platform version.</p>
+   * <p>The ARN of the platform version.</p>
    */
-  PlatformCategory?: string;
-
-  /**
-   * <p>The programming languages supported by the platform version.</p>
-   */
-  ProgrammingLanguages?: PlatformProgrammingLanguage[];
+  PlatformArn?: string;
 
   /**
    * <p>The state of the platform version's branch in its lifecycle.</p>
@@ -3977,14 +3965,34 @@ export interface PlatformDescription {
   PlatformBranchLifecycleState?: string;
 
   /**
-   * <p>The name of the solution stack used by the platform version.</p>
+   * <p>The date when the platform version was created.</p>
    */
-  SolutionStackName?: string;
+  DateCreated?: Date;
 
   /**
-   * <p>The additions supported by the platform version.</p>
+   * <p>The version of the operating system used by the platform version.</p>
    */
-  SupportedAddonList?: string[];
+  OperatingSystemVersion?: string;
+
+  /**
+   * <p>The version of the platform version.</p>
+   */
+  PlatformVersion?: string;
+
+  /**
+   * <p>The tiers supported by the platform version.</p>
+   */
+  SupportedTierList?: string[];
+
+  /**
+   * <p>The state of the platform version in its lifecycle.</p>
+   *          <p>Possible values: <code>Recommended</code> | <code>null</code>
+   *          </p>
+   *          <p>If a null value is returned, the platform version isn't the recommended one for its
+   *       branch. Each platform branch has a single recommended platform version, typically the most
+   *       recent one.</p>
+   */
+  PlatformLifecycleState?: string;
 }
 
 export namespace PlatformDescription {
@@ -4065,16 +4073,16 @@ export interface SearchFilter {
   Operator?: string;
 
   /**
-   * <p>The list of values applied to the <code>Attribute</code> and <code>Operator</code>
-   *       attributes. Number of values and valid values vary by <code>Attribute</code>.</p>
-   */
-  Values?: string[];
-
-  /**
    * <p>The result attribute to which the filter values are applied. Valid values vary by API
    *       action.</p>
    */
   Attribute?: string;
+
+  /**
+   * <p>The list of values applied to the <code>Attribute</code> and <code>Operator</code>
+   *       attributes. Number of values and valid values vary by <code>Attribute</code>.</p>
+   */
+  Values?: string[];
 }
 
 export namespace SearchFilter {
@@ -4084,6 +4092,14 @@ export namespace SearchFilter {
 }
 
 export interface ListPlatformBranchesRequest {
+  /**
+   * <p>For a paginated request. Specify a token from a previous response page to retrieve the
+   *       next response page. All other parameter values must be identical to the ones specified in the
+   *       initial request.</p>
+   *          <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
+   */
+  NextToken?: string;
+
   /**
    * <p>Criteria for restricting the resulting list of platform branches. The filter is evaluated
    *       as a logical conjunction (AND) of the separate <code>SearchFilter</code> terms.</p>
@@ -4159,14 +4175,6 @@ export interface ListPlatformBranchesRequest {
   Filters?: SearchFilter[];
 
   /**
-   * <p>For a paginated request. Specify a token from a previous response page to retrieve the
-   *       next response page. All other parameter values must be identical to the ones specified in the
-   *       initial request.</p>
-   *          <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of platform branch values returned in one call.</p>
    */
   MaxRecords?: number;
@@ -4183,16 +4191,24 @@ export namespace ListPlatformBranchesRequest {
  */
 export interface PlatformBranchSummary {
   /**
+   * <p>The support life cycle state of the platform branch.</p>
+   *          <p>Possible values: <code>beta</code> | <code>supported</code> | <code>deprecated</code> |
+   *       <code>retired</code>
+   *          </p>
+   */
+  LifecycleState?: string;
+
+  /**
+   * <p>The name of the platform branch.</p>
+   */
+  BranchName?: string;
+
+  /**
    * <p>The environment tiers that platform versions in this branch support.</p>
    *          <p>Possible values: <code>WebServer/Standard</code> | <code>Worker/SQS/HTTP</code>
    *          </p>
    */
   SupportedTierList?: string[];
-
-  /**
-   * <p>The name of the platform to which this platform branch belongs.</p>
-   */
-  PlatformName?: string;
 
   /**
    * <p>An ordinal number that designates the order in which platform branches have been added to
@@ -4205,17 +4221,9 @@ export interface PlatformBranchSummary {
   BranchOrder?: number;
 
   /**
-   * <p>The support life cycle state of the platform branch.</p>
-   *          <p>Possible values: <code>beta</code> | <code>supported</code> | <code>deprecated</code> |
-   *       <code>retired</code>
-   *          </p>
+   * <p>The name of the platform to which this platform branch belongs.</p>
    */
-  LifecycleState?: string;
-
-  /**
-   * <p>The name of the platform branch.</p>
-   */
-  BranchName?: string;
+  PlatformName?: string;
 }
 
 export namespace PlatformBranchSummary {
@@ -4250,6 +4258,28 @@ export namespace ListPlatformBranchesResult {
  */
 export interface PlatformFilter {
   /**
+   * <p>The platform version attribute to which the filter values are applied.</p>
+   *          <p>Valid values: <code>PlatformName</code> | <code>PlatformVersion</code> |
+   *         <code>PlatformStatus</code> | <code>PlatformBranchName</code> |
+   *         <code>PlatformLifecycleState</code> | <code>PlatformOwner</code> |
+   *         <code>SupportedTier</code> | <code>SupportedAddon</code> |
+   *         <code>ProgrammingLanguageName</code> | <code>OperatingSystemName</code>
+   *          </p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The operator to apply to the <code>Type</code> with each of the
+   *       <code>Values</code>.</p>
+   *          <p>Valid values: <code>=</code> | <code>!=</code> |
+   *         <code><</code> | <code><=</code> |
+   *         <code>></code> | <code>>=</code> |
+   *         <code>contains</code> | <code>begins_with</code> | <code>ends_with</code>
+   *          </p>
+   */
+  Operator?: string;
+
+  /**
    * <p>The list of values applied to the filtering platform version attribute. Only one value is supported
    *       for all current operators.</p>
    *          <p>The following list shows valid filter values for some filter attributes.</p>
@@ -4280,28 +4310,6 @@ export interface PlatformFilter {
    *          </ul>
    */
   Values?: string[];
-
-  /**
-   * <p>The operator to apply to the <code>Type</code> with each of the
-   *       <code>Values</code>.</p>
-   *          <p>Valid values: <code>=</code> | <code>!=</code> |
-   *         <code><</code> | <code><=</code> |
-   *         <code>></code> | <code>>=</code> |
-   *         <code>contains</code> | <code>begins_with</code> | <code>ends_with</code>
-   *          </p>
-   */
-  Operator?: string;
-
-  /**
-   * <p>The platform version attribute to which the filter values are applied.</p>
-   *          <p>Valid values: <code>PlatformName</code> | <code>PlatformVersion</code> |
-   *         <code>PlatformStatus</code> | <code>PlatformBranchName</code> |
-   *         <code>PlatformLifecycleState</code> | <code>PlatformOwner</code> |
-   *         <code>SupportedTier</code> | <code>SupportedAddon</code> |
-   *         <code>ProgrammingLanguageName</code> | <code>OperatingSystemName</code>
-   *          </p>
-   */
-  Type?: string;
 }
 
 export namespace PlatformFilter {
@@ -4317,19 +4325,19 @@ export interface ListPlatformVersionsRequest {
   MaxRecords?: number;
 
   /**
-   * <p>Criteria for restricting the resulting list of platform versions. The filter is
-   *       interpreted as a logical conjunction (AND) of the separate <code>PlatformFilter</code>
-   *       terms.</p>
-   */
-  Filters?: PlatformFilter[];
-
-  /**
    * <p>For a paginated request. Specify a token from a previous response page to retrieve the
    *       next response page. All other parameter values must be identical to the ones specified in the
    *       initial request.</p>
    *          <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Criteria for restricting the resulting list of platform versions. The filter is
+   *       interpreted as a logical conjunction (AND) of the separate <code>PlatformFilter</code>
+   *       terms.</p>
+   */
+  Filters?: PlatformFilter[];
 }
 
 export namespace ListPlatformVersionsRequest {
@@ -4496,20 +4504,20 @@ export namespace RequestEnvironmentInfoMessage {
  */
 export interface RestartAppServerMessage {
   /**
-   * <p>The ID of the environment to restart the server for.</p>
-   *          <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not
-   *       specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error.
-   *     </p>
-   */
-  EnvironmentId?: string;
-
-  /**
    * <p>The name of the environment to restart the server for.</p>
    *          <p> Condition: You must specify either this or an EnvironmentId, or both. If you do not
    *       specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error.
    *     </p>
    */
   EnvironmentName?: string;
+
+  /**
+   * <p>The ID of the environment to restart the server for.</p>
+   *          <p> Condition: You must specify either this or an EnvironmentName, or both. If you do not
+   *       specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error.
+   *     </p>
+   */
+  EnvironmentId?: string;
 }
 
 export namespace RestartAppServerMessage {
@@ -4523,14 +4531,9 @@ export namespace RestartAppServerMessage {
  */
 export interface RetrieveEnvironmentInfoMessage {
   /**
-   * <p>The ID of the data's environment.</p>
-   *          <p>If no such environment is found, returns an <code>InvalidParameterValue</code>
-   *       error.</p>
-   *          <p>Condition: You must specify either this or an EnvironmentName, or both. If you do not
-   *       specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
-   *       error.</p>
+   * <p>The type of information to retrieve.</p>
    */
-  EnvironmentId?: string;
+  InfoType: EnvironmentInfoType | string | undefined;
 
   /**
    * <p>The name of the data's environment.</p>
@@ -4542,9 +4545,14 @@ export interface RetrieveEnvironmentInfoMessage {
   EnvironmentName?: string;
 
   /**
-   * <p>The type of information to retrieve.</p>
+   * <p>The ID of the data's environment.</p>
+   *          <p>If no such environment is found, returns an <code>InvalidParameterValue</code>
+   *       error.</p>
+   *          <p>Condition: You must specify either this or an EnvironmentName, or both. If you do not
+   *       specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code>
+   *       error.</p>
    */
-  InfoType: EnvironmentInfoType | string | undefined;
+  EnvironmentId?: string;
 }
 
 export namespace RetrieveEnvironmentInfoMessage {
@@ -4558,17 +4566,17 @@ export namespace RetrieveEnvironmentInfoMessage {
  */
 export interface EnvironmentInfoDescription {
   /**
-   * <p>The type of information retrieved.</p>
-   */
-  InfoType?: EnvironmentInfoType | string;
-
-  /**
    * <p>The retrieved information. Currently contains a presigned Amazon S3 URL. The files are
    *       deleted after 15 minutes.</p>
    *          <p>Anyone in possession of this URL can access the files before they are deleted. Make the
    *       URL available only to trusted parties.</p>
    */
   Message?: string;
+
+  /**
+   * <p>The type of information retrieved.</p>
+   */
+  InfoType?: EnvironmentInfoType | string;
 
   /**
    * <p>The Amazon EC2 Instance ID for this information.</p>
@@ -4608,13 +4616,13 @@ export namespace RetrieveEnvironmentInfoResultMessage {
  */
 export interface SwapEnvironmentCNAMEsMessage {
   /**
-   * <p>The ID of the source environment.</p>
+   * <p>The name of the source environment.</p>
    *          <p> Condition: You must specify at least the <code>SourceEnvironmentID</code> or the
    *       <code>SourceEnvironmentName</code>. You may also specify both. If you specify the
-   *       <code>SourceEnvironmentId</code>, you must specify the
-   *       <code>DestinationEnvironmentId</code>. </p>
+   *       <code>SourceEnvironmentName</code>, you must specify the
+   *       <code>DestinationEnvironmentName</code>. </p>
    */
-  SourceEnvironmentId?: string;
+  SourceEnvironmentName?: string;
 
   /**
    * <p>The name of the destination environment.</p>
@@ -4634,13 +4642,13 @@ export interface SwapEnvironmentCNAMEsMessage {
   DestinationEnvironmentId?: string;
 
   /**
-   * <p>The name of the source environment.</p>
+   * <p>The ID of the source environment.</p>
    *          <p> Condition: You must specify at least the <code>SourceEnvironmentID</code> or the
    *       <code>SourceEnvironmentName</code>. You may also specify both. If you specify the
-   *       <code>SourceEnvironmentName</code>, you must specify the
-   *       <code>DestinationEnvironmentName</code>. </p>
+   *       <code>SourceEnvironmentId</code>, you must specify the
+   *       <code>DestinationEnvironmentId</code>. </p>
    */
-  SourceEnvironmentName?: string;
+  SourceEnvironmentId?: string;
 }
 
 export namespace SwapEnvironmentCNAMEsMessage {
@@ -4711,18 +4719,18 @@ export namespace TerminateEnvironmentMessage {
  */
 export interface UpdateApplicationMessage {
   /**
-   * <p>A new description for the application.</p>
-   *          <p>Default: If not specified, AWS Elastic Beanstalk does not update the
-   *       description.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The name of the application to update. If no such application is found,
    *         <code>UpdateApplication</code> returns an <code>InvalidParameterValue</code> error.
    *     </p>
    */
   ApplicationName: string | undefined;
+
+  /**
+   * <p>A new description for the application.</p>
+   *          <p>Default: If not specified, AWS Elastic Beanstalk does not update the
+   *       description.</p>
+   */
+  Description?: string;
 }
 
 export namespace UpdateApplicationMessage {
@@ -4759,18 +4767,18 @@ export interface UpdateApplicationVersionMessage {
   Description?: string;
 
   /**
-   * <p>The name of the application associated with this version.</p>
-   *          <p> If no application is found with this name, <code>UpdateApplication</code> returns an
-   *         <code>InvalidParameterValue</code> error.</p>
-   */
-  ApplicationName: string | undefined;
-
-  /**
    * <p>The name of the version to update.</p>
    *          <p>If no application version is found with this label, <code>UpdateApplication</code>
    *       returns an <code>InvalidParameterValue</code> error. </p>
    */
   VersionLabel: string | undefined;
+
+  /**
+   * <p>The name of the application associated with this version.</p>
+   *          <p> If no application is found with this name, <code>UpdateApplication</code> returns an
+   *         <code>InvalidParameterValue</code> error.</p>
+   */
+  ApplicationName: string | undefined;
 }
 
 export namespace UpdateApplicationVersionMessage {
@@ -4783,19 +4791,6 @@ export namespace UpdateApplicationVersionMessage {
  * <p>The result message containing the options for the specified solution stack.</p>
  */
 export interface UpdateConfigurationTemplateMessage {
-  /**
-   * <p>A list of configuration option settings to update with the new specified option
-   *       value.</p>
-   */
-  OptionSettings?: ConfigurationOptionSetting[];
-
-  /**
-   * <p>A list of configuration options to remove from the configuration set.</p>
-   *          <p> Constraint: You can remove only <code>UserDefined</code> configuration options.
-   *     </p>
-   */
-  OptionsToRemove?: OptionSpecification[];
-
   /**
    * <p>The name of the application associated with the configuration template to
    *       update.</p>
@@ -4811,6 +4806,19 @@ export interface UpdateConfigurationTemplateMessage {
    *       error. </p>
    */
   TemplateName: string | undefined;
+
+  /**
+   * <p>A list of configuration option settings to update with the new specified option
+   *       value.</p>
+   */
+  OptionSettings?: ConfigurationOptionSetting[];
+
+  /**
+   * <p>A list of configuration options to remove from the configuration set.</p>
+   *          <p> Constraint: You can remove only <code>UserDefined</code> configuration options.
+   *     </p>
+   */
+  OptionsToRemove?: OptionSpecification[];
 
   /**
    * <p>A new description for the configuration.</p>
@@ -4842,21 +4850,10 @@ export interface UpdateEnvironmentMessage {
   TemplateName?: string;
 
   /**
-   * <p>If specified, AWS Elastic Beanstalk updates the configuration set associated with the
-   *       running environment and sets the specified configuration options to the requested
-   *       value.</p>
+   * <p>This specifies the platform version that the environment will run after the environment
+   *       is updated.</p>
    */
-  OptionSettings?: ConfigurationOptionSetting[];
-
-  /**
-   * <p>The name of the application with which the environment is associated.</p>
-   */
-  ApplicationName?: string;
-
-  /**
-   * <p>The ARN of the platform, if used.</p>
-   */
-  PlatformArn?: string;
+  SolutionStackName?: string;
 
   /**
    * <p>The name of the group to which the target environment belongs. Specify a group name
@@ -4865,22 +4862,6 @@ export interface UpdateEnvironmentMessage {
    *         (env.yaml)</a> for details.</p>
    */
   GroupName?: string;
-
-  /**
-   * <p>If this parameter is specified, AWS Elastic Beanstalk deploys the named application
-   *       version to the environment. If no such application version is found, returns an
-   *         <code>InvalidParameterValue</code> error. </p>
-   */
-  VersionLabel?: string;
-
-  /**
-   * <p>The name of the environment to update. If no environment with this name exists, AWS
-   *       Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </p>
-   *          <p>Condition: You must specify either this or an EnvironmentId, or both. If you do not
-   *       specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error.
-   *     </p>
-   */
-  EnvironmentName?: string;
 
   /**
    * <p>The ID of the environment to update.</p>
@@ -4893,11 +4874,9 @@ export interface UpdateEnvironmentMessage {
   EnvironmentId?: string;
 
   /**
-   * <p>This specifies the tier to use to update the environment.</p>
-   *          <p>Condition: At this time, if you change the tier version, name, or type, AWS Elastic
-   *       Beanstalk returns <code>InvalidParameterValue</code> error. </p>
+   * <p>The ARN of the platform, if used.</p>
    */
-  Tier?: EnvironmentTier;
+  PlatformArn?: string;
 
   /**
    * <p>If this parameter is specified, AWS Elastic Beanstalk updates the description of this
@@ -4906,10 +4885,39 @@ export interface UpdateEnvironmentMessage {
   Description?: string;
 
   /**
-   * <p>This specifies the platform version that the environment will run after the environment
-   *       is updated.</p>
+   * <p>The name of the application with which the environment is associated.</p>
    */
-  SolutionStackName?: string;
+  ApplicationName?: string;
+
+  /**
+   * <p>This specifies the tier to use to update the environment.</p>
+   *          <p>Condition: At this time, if you change the tier version, name, or type, AWS Elastic
+   *       Beanstalk returns <code>InvalidParameterValue</code> error. </p>
+   */
+  Tier?: EnvironmentTier;
+
+  /**
+   * <p>The name of the environment to update. If no environment with this name exists, AWS
+   *       Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </p>
+   *          <p>Condition: You must specify either this or an EnvironmentId, or both. If you do not
+   *       specify either, AWS Elastic Beanstalk returns <code>MissingRequiredParameter</code> error.
+   *     </p>
+   */
+  EnvironmentName?: string;
+
+  /**
+   * <p>If specified, AWS Elastic Beanstalk updates the configuration set associated with the
+   *       running environment and sets the specified configuration options to the requested
+   *       value.</p>
+   */
+  OptionSettings?: ConfigurationOptionSetting[];
+
+  /**
+   * <p>If this parameter is specified, AWS Elastic Beanstalk deploys the named application
+   *       version to the environment. If no such application version is found, returns an
+   *         <code>InvalidParameterValue</code> error. </p>
+   */
+  VersionLabel?: string;
 }
 
 export namespace UpdateEnvironmentMessage {
@@ -4941,19 +4949,19 @@ export namespace TooManyTagsException {
 
 export interface UpdateTagsForResourceMessage {
   /**
+   * <p>A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.</p>
+   *          <p>Specify at least one of these parameters: <code>TagsToAdd</code>,
+   *       <code>TagsToRemove</code>.</p>
+   */
+  TagsToRemove?: string[];
+
+  /**
    * <p>A list of tags to add or update. If a key of an existing tag is added, the tag's value is
    *       updated.</p>
    *          <p>Specify at least one of these parameters: <code>TagsToAdd</code>,
    *         <code>TagsToRemove</code>.</p>
    */
   TagsToAdd?: Tag[];
-
-  /**
-   * <p>A list of tag keys to remove. If a tag key doesn't exist, it is silently ignored.</p>
-   *          <p>Specify at least one of these parameters: <code>TagsToAdd</code>,
-   *       <code>TagsToRemove</code>.</p>
-   */
-  TagsToRemove?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resouce to be updated.</p>
@@ -4980,11 +4988,6 @@ export interface ValidationMessage {
   Message?: string;
 
   /**
-   * <p>The namespace to which the option belongs.</p>
-   */
-  Namespace?: string;
-
-  /**
    * <p>An indication of the severity of this message:</p>
    *          <ul>
    *             <li>
@@ -5005,6 +5008,11 @@ export interface ValidationMessage {
    * <p>The name of the option.</p>
    */
   OptionName?: string;
+
+  /**
+   * <p>The namespace to which the option belongs.</p>
+   */
+  Namespace?: string;
 }
 
 export namespace ValidationMessage {
@@ -5040,16 +5048,16 @@ export interface ValidateConfigurationSettingsMessage {
   EnvironmentName?: string;
 
   /**
-   * <p>The name of the configuration template to validate the settings against.</p>
-   *          <p>Condition: You cannot specify both this and an environment name.</p>
-   */
-  TemplateName?: string;
-
-  /**
    * <p>The name of the application that the configuration template or environment belongs
    *       to.</p>
    */
   ApplicationName: string | undefined;
+
+  /**
+   * <p>The name of the configuration template to validate the settings against.</p>
+   *          <p>Condition: You cannot specify both this and an environment name.</p>
+   */
+  TemplateName?: string;
 
   /**
    * <p>A list of the options and desired values to evaluate.</p>

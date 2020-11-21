@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSecurityProfilesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSecurityProfilesCommand(input, ...args));
+  return await client.send(new ListSecurityProfilesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Connect,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSecurityProfiles(input, ...args);
 };
-export async function* listSecurityProfilesPaginate(
+export async function* paginateListSecurityProfiles(
   config: ConnectPaginationConfiguration,
   input: ListSecurityProfilesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSecurityProfilesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSecurityProfilesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Connect) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listSecurityProfilesPaginate(
       throw new Error("Invalid client, expected Connect | ConnectClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

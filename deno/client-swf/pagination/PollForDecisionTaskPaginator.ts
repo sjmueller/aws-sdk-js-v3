@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<PollForDecisionTaskCommandOutput> => {
   // @ts-ignore
-  return await client.send(new PollForDecisionTaskCommand(input, ...args));
+  return await client.send(new PollForDecisionTaskCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SWF,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.pollForDecisionTask(input, ...args);
 };
-export async function* pollForDecisionTaskPaginate(
+export async function* paginatePollForDecisionTask(
   config: SWFPaginationConfiguration,
   input: PollForDecisionTaskCommandInput,
   ...additionalArguments: any
 ): Paginator<PollForDecisionTaskCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: PollForDecisionTaskCommandOutput;
   while (hasNext) {
-    input["nextPageToken"] = token;
+    input.nextPageToken = token;
     input["maximumPageSize"] = config.pageSize;
     if (config.client instanceof SWF) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* pollForDecisionTaskPaginate(
       throw new Error("Invalid client, expected SWF | SWFClient");
     }
     yield page;
-    token = page["nextPageToken"];
+    token = page.nextPageToken;
     hasNext = !!token;
   }
   // @ts-ignore

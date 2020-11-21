@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetAssetPropertyValueHistoryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetAssetPropertyValueHistoryCommand(input, ...args));
+  return await client.send(new GetAssetPropertyValueHistoryCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: IoTSiteWise,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getAssetPropertyValueHistory(input, ...args);
 };
-export async function* getAssetPropertyValueHistoryPaginate(
+export async function* paginateGetAssetPropertyValueHistory(
   config: IoTSiteWisePaginationConfiguration,
   input: GetAssetPropertyValueHistoryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetAssetPropertyValueHistoryCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetAssetPropertyValueHistoryCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof IoTSiteWise) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getAssetPropertyValueHistoryPaginate(
       throw new Error("Invalid client, expected IoTSiteWise | IoTSiteWiseClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

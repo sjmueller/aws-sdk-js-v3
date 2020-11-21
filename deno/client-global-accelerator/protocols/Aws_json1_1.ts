@@ -108,6 +108,7 @@ import {
   ListTagsForResourceResponse,
   Listener,
   ListenerNotFoundException,
+  PortOverride,
   PortRange,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResponse,
@@ -467,7 +468,7 @@ export const deserializeAws_json1_1AdvertiseByoipCidrCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AdvertiseByoipCidrCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AdvertiseByoipCidrCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -554,7 +555,7 @@ export const deserializeAws_json1_1CreateAcceleratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAcceleratorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateAcceleratorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -625,7 +626,7 @@ export const deserializeAws_json1_1CreateEndpointGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEndpointGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateEndpointGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -728,7 +729,7 @@ export const deserializeAws_json1_1CreateListenerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateListenerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateListenerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -815,7 +816,7 @@ export const deserializeAws_json1_1DeleteAcceleratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAcceleratorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteAcceleratorCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -899,7 +900,7 @@ export const deserializeAws_json1_1DeleteEndpointGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEndpointGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteEndpointGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -967,7 +968,7 @@ export const deserializeAws_json1_1DeleteListenerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteListenerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteListenerCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1043,7 +1044,7 @@ export const deserializeAws_json1_1DeprovisionByoipCidrCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeprovisionByoipCidrCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeprovisionByoipCidrCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1130,7 +1131,7 @@ export const deserializeAws_json1_1DescribeAcceleratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAcceleratorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAcceleratorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1201,7 +1202,7 @@ export const deserializeAws_json1_1DescribeAcceleratorAttributesCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAcceleratorAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAcceleratorAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1272,7 +1273,7 @@ export const deserializeAws_json1_1DescribeEndpointGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEndpointGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEndpointGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1343,7 +1344,7 @@ export const deserializeAws_json1_1DescribeListenerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeListenerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeListenerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1414,7 +1415,7 @@ export const deserializeAws_json1_1ListAcceleratorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAcceleratorsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAcceleratorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1485,7 +1486,7 @@ export const deserializeAws_json1_1ListByoipCidrsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListByoipCidrsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListByoipCidrsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1564,7 +1565,7 @@ export const deserializeAws_json1_1ListEndpointGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEndpointGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListEndpointGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1643,7 +1644,7 @@ export const deserializeAws_json1_1ListListenersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListListenersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListListenersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1722,7 +1723,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1793,7 +1794,7 @@ export const deserializeAws_json1_1ProvisionByoipCidrCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ProvisionByoipCidrCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ProvisionByoipCidrCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1880,7 +1881,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1951,7 +1952,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2022,7 +2023,7 @@ export const deserializeAws_json1_1UpdateAcceleratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAcceleratorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateAcceleratorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2093,7 +2094,7 @@ export const deserializeAws_json1_1UpdateAcceleratorAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAcceleratorAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateAcceleratorAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2172,7 +2173,7 @@ export const deserializeAws_json1_1UpdateEndpointGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEndpointGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateEndpointGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2259,7 +2260,7 @@ export const deserializeAws_json1_1UpdateListenerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateListenerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateListenerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2346,7 +2347,7 @@ export const deserializeAws_json1_1WithdrawByoipCidrCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<WithdrawByoipCidrCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1WithdrawByoipCidrCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2706,6 +2707,9 @@ const serializeAws_json1_1CreateEndpointGroupRequest = (
     ...(input.HealthCheckProtocol !== undefined && { HealthCheckProtocol: input.HealthCheckProtocol }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
     ...(input.ListenerArn !== undefined && { ListenerArn: input.ListenerArn }),
+    ...(input.PortOverrides !== undefined && {
+      PortOverrides: serializeAws_json1_1PortOverrides(input.PortOverrides, context),
+    }),
     ...(input.ThresholdCount !== undefined && { ThresholdCount: input.ThresholdCount }),
     ...(input.TrafficDialPercentage !== undefined && { TrafficDialPercentage: input.TrafficDialPercentage }),
   };
@@ -2847,6 +2851,17 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   };
 };
 
+const serializeAws_json1_1PortOverride = (input: PortOverride, context: __SerdeContext): any => {
+  return {
+    ...(input.EndpointPort !== undefined && { EndpointPort: input.EndpointPort }),
+    ...(input.ListenerPort !== undefined && { ListenerPort: input.ListenerPort }),
+  };
+};
+
+const serializeAws_json1_1PortOverrides = (input: PortOverride[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_json1_1PortOverride(entry, context));
+};
+
 const serializeAws_json1_1PortRange = (input: PortRange, context: __SerdeContext): any => {
   return {
     ...(input.FromPort !== undefined && { FromPort: input.FromPort }),
@@ -2938,6 +2953,9 @@ const serializeAws_json1_1UpdateEndpointGroupRequest = (
     ...(input.HealthCheckPath !== undefined && { HealthCheckPath: input.HealthCheckPath }),
     ...(input.HealthCheckPort !== undefined && { HealthCheckPort: input.HealthCheckPort }),
     ...(input.HealthCheckProtocol !== undefined && { HealthCheckProtocol: input.HealthCheckProtocol }),
+    ...(input.PortOverrides !== undefined && {
+      PortOverrides: serializeAws_json1_1PortOverrides(input.PortOverrides, context),
+    }),
     ...(input.ThresholdCount !== undefined && { ThresholdCount: input.ThresholdCount }),
     ...(input.TrafficDialPercentage !== undefined && { TrafficDialPercentage: input.TrafficDialPercentage }),
   };
@@ -3227,6 +3245,10 @@ const deserializeAws_json1_1EndpointGroup = (output: any, context: __SerdeContex
       output.HealthCheckProtocol !== undefined && output.HealthCheckProtocol !== null
         ? output.HealthCheckProtocol
         : undefined,
+    PortOverrides:
+      output.PortOverrides !== undefined && output.PortOverrides !== null
+        ? deserializeAws_json1_1PortOverrides(output.PortOverrides, context)
+        : undefined,
     ThresholdCount:
       output.ThresholdCount !== undefined && output.ThresholdCount !== null ? output.ThresholdCount : undefined,
     TrafficDialPercentage:
@@ -3407,6 +3429,17 @@ const deserializeAws_json1_1ListTagsForResourceResponse = (
     Tags:
       output.Tags !== undefined && output.Tags !== null ? deserializeAws_json1_1Tags(output.Tags, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1PortOverride = (output: any, context: __SerdeContext): PortOverride => {
+  return {
+    EndpointPort: output.EndpointPort !== undefined && output.EndpointPort !== null ? output.EndpointPort : undefined,
+    ListenerPort: output.ListenerPort !== undefined && output.ListenerPort !== null ? output.ListenerPort : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1PortOverrides = (output: any, context: __SerdeContext): PortOverride[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1PortOverride(entry, context));
 };
 
 const deserializeAws_json1_1PortRange = (output: any, context: __SerdeContext): PortRange => {

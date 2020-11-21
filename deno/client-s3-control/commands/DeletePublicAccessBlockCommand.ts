@@ -5,6 +5,7 @@ import {
   deserializeAws_restXmlDeletePublicAccessBlockCommand,
   serializeAws_restXmlDeletePublicAccessBlockCommand,
 } from "../protocols/Aws_restXml.ts";
+import { getProcessArnablesPlugin } from "../../middleware-sdk-s3-control/mod.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
@@ -41,15 +42,28 @@ export class DeletePublicAccessBlockCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeletePublicAccessBlockCommandInput, DeletePublicAccessBlockCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getProcessArnablesPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3ControlClient";
+    const commandName = "DeletePublicAccessBlockCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeletePublicAccessBlockRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

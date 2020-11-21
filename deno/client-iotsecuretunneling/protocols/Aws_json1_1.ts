@@ -138,7 +138,7 @@ export const deserializeAws_json1_1CloseTunnelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CloseTunnelCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CloseTunnelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -193,7 +193,7 @@ export const deserializeAws_json1_1DescribeTunnelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTunnelCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTunnelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -248,7 +248,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -303,7 +303,7 @@ export const deserializeAws_json1_1ListTunnelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTunnelsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTunnelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -350,7 +350,7 @@ export const deserializeAws_json1_1OpenTunnelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<OpenTunnelCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1OpenTunnelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -405,7 +405,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -460,7 +460,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

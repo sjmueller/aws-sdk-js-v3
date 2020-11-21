@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListLedgersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListLedgersCommand(input, ...args));
+  return await client.send(new ListLedgersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: QLDB,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listLedgers(input, ...args);
 };
-export async function* listLedgersPaginate(
+export async function* paginateListLedgers(
   config: QLDBPaginationConfiguration,
   input: ListLedgersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListLedgersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListLedgersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof QLDB) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listLedgersPaginate(
       throw new Error("Invalid client, expected QLDB | QLDBClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

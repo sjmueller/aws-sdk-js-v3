@@ -22,6 +22,7 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand.ts";
 import {
+  AdMarkerPassthrough,
   AvailSuppression,
   BadRequestException,
   Bumper,
@@ -30,6 +31,7 @@ import {
   DashConfigurationForPut,
   HlsConfiguration,
   LivePreRollConfiguration,
+  ManifestProcessingRules,
   PlaybackConfiguration,
 } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
@@ -113,8 +115,8 @@ export const serializeAws_restJson1ListPlaybackConfigurationsCommand = async (
   };
   let resolvedPath = "/playbackConfigurations";
   const query: any = {
-    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -183,6 +185,9 @@ export const serializeAws_restJson1PutPlaybackConfigurationCommand = async (
     }),
     ...(input.LivePreRollConfiguration !== undefined && {
       LivePreRollConfiguration: serializeAws_restJson1LivePreRollConfiguration(input.LivePreRollConfiguration, context),
+    }),
+    ...(input.ManifestProcessingRules !== undefined && {
+      ManifestProcessingRules: serializeAws_restJson1ManifestProcessingRules(input.ManifestProcessingRules, context),
     }),
     ...(input.Name !== undefined && { Name: input.Name }),
     ...(input.PersonalizationThresholdSeconds !== undefined && {
@@ -276,7 +281,7 @@ export const deserializeAws_restJson1DeletePlaybackConfigurationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePlaybackConfigurationCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeletePlaybackConfigurationCommandError(output, context);
   }
   const contents: DeletePlaybackConfigurationCommandOutput = {
@@ -319,7 +324,7 @@ export const deserializeAws_restJson1GetPlaybackConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPlaybackConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetPlaybackConfigurationCommandError(output, context);
   }
   const contents: GetPlaybackConfigurationCommandOutput = {
@@ -331,6 +336,7 @@ export const deserializeAws_restJson1GetPlaybackConfigurationCommand = async (
     DashConfiguration: undefined,
     HlsConfiguration: undefined,
     LivePreRollConfiguration: undefined,
+    ManifestProcessingRules: undefined,
     Name: undefined,
     PersonalizationThresholdSeconds: undefined,
     PlaybackConfigurationArn: undefined,
@@ -363,6 +369,12 @@ export const deserializeAws_restJson1GetPlaybackConfigurationCommand = async (
   if (data.LivePreRollConfiguration !== undefined && data.LivePreRollConfiguration !== null) {
     contents.LivePreRollConfiguration = deserializeAws_restJson1LivePreRollConfiguration(
       data.LivePreRollConfiguration,
+      context
+    );
+  }
+  if (data.ManifestProcessingRules !== undefined && data.ManifestProcessingRules !== null) {
+    contents.ManifestProcessingRules = deserializeAws_restJson1ManifestProcessingRules(
+      data.ManifestProcessingRules,
       context
     );
   }
@@ -429,7 +441,7 @@ export const deserializeAws_restJson1ListPlaybackConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPlaybackConfigurationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListPlaybackConfigurationsCommandError(output, context);
   }
   const contents: ListPlaybackConfigurationsCommandOutput = {
@@ -480,7 +492,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -535,7 +547,7 @@ export const deserializeAws_restJson1PutPlaybackConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutPlaybackConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutPlaybackConfigurationCommandError(output, context);
   }
   const contents: PutPlaybackConfigurationCommandOutput = {
@@ -547,6 +559,7 @@ export const deserializeAws_restJson1PutPlaybackConfigurationCommand = async (
     DashConfiguration: undefined,
     HlsConfiguration: undefined,
     LivePreRollConfiguration: undefined,
+    ManifestProcessingRules: undefined,
     Name: undefined,
     PersonalizationThresholdSeconds: undefined,
     PlaybackConfigurationArn: undefined,
@@ -579,6 +592,12 @@ export const deserializeAws_restJson1PutPlaybackConfigurationCommand = async (
   if (data.LivePreRollConfiguration !== undefined && data.LivePreRollConfiguration !== null) {
     contents.LivePreRollConfiguration = deserializeAws_restJson1LivePreRollConfiguration(
       data.LivePreRollConfiguration,
+      context
+    );
+  }
+  if (data.ManifestProcessingRules !== undefined && data.ManifestProcessingRules !== null) {
+    contents.ManifestProcessingRules = deserializeAws_restJson1ManifestProcessingRules(
+      data.ManifestProcessingRules,
       context
     );
   }
@@ -645,7 +664,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -696,7 +715,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -770,6 +789,12 @@ const serializeAws_restJson1__mapOf__string = (input: { [key: string]: string },
   );
 };
 
+const serializeAws_restJson1AdMarkerPassthrough = (input: AdMarkerPassthrough, context: __SerdeContext): any => {
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+  };
+};
+
 const serializeAws_restJson1AvailSuppression = (input: AvailSuppression, context: __SerdeContext): any => {
   return {
     ...(input.Mode !== undefined && { Mode: input.Mode }),
@@ -811,6 +836,17 @@ const serializeAws_restJson1LivePreRollConfiguration = (
   };
 };
 
+const serializeAws_restJson1ManifestProcessingRules = (
+  input: ManifestProcessingRules,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AdMarkerPassthrough !== undefined && {
+      AdMarkerPassthrough: serializeAws_restJson1AdMarkerPassthrough(input.AdMarkerPassthrough, context),
+    }),
+  };
+};
+
 const deserializeAws_restJson1__listOfPlaybackConfigurations = (
   output: any,
   context: __SerdeContext
@@ -826,6 +862,12 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1AdMarkerPassthrough = (output: any, context: __SerdeContext): AdMarkerPassthrough => {
+  return {
+    Enabled: output.Enabled !== undefined && output.Enabled !== null ? output.Enabled : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1AvailSuppression = (output: any, context: __SerdeContext): AvailSuppression => {
@@ -894,6 +936,18 @@ const deserializeAws_restJson1LivePreRollConfiguration = (
   } as any;
 };
 
+const deserializeAws_restJson1ManifestProcessingRules = (
+  output: any,
+  context: __SerdeContext
+): ManifestProcessingRules => {
+  return {
+    AdMarkerPassthrough:
+      output.AdMarkerPassthrough !== undefined && output.AdMarkerPassthrough !== null
+        ? deserializeAws_restJson1AdMarkerPassthrough(output.AdMarkerPassthrough, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1PlaybackConfiguration = (output: any, context: __SerdeContext): PlaybackConfiguration => {
   return {
     AdDecisionServerUrl:
@@ -919,6 +973,10 @@ const deserializeAws_restJson1PlaybackConfiguration = (output: any, context: __S
     HlsConfiguration:
       output.HlsConfiguration !== undefined && output.HlsConfiguration !== null
         ? deserializeAws_restJson1HlsConfiguration(output.HlsConfiguration, context)
+        : undefined,
+    ManifestProcessingRules:
+      output.ManifestProcessingRules !== undefined && output.ManifestProcessingRules !== null
+        ? deserializeAws_restJson1ManifestProcessingRules(output.ManifestProcessingRules, context)
         : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     PersonalizationThresholdSeconds:

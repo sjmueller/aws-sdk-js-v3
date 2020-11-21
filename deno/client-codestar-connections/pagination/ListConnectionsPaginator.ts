@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListConnectionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListConnectionsCommand(input, ...args));
+  return await client.send(new ListConnectionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeStarConnections,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listConnections(input, ...args);
 };
-export async function* listConnectionsPaginate(
+export async function* paginateListConnections(
   config: CodeStarConnectionsPaginationConfiguration,
   input: ListConnectionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListConnectionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListConnectionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CodeStarConnections) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listConnectionsPaginate(
       throw new Error("Invalid client, expected CodeStarConnections | CodeStarConnectionsClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

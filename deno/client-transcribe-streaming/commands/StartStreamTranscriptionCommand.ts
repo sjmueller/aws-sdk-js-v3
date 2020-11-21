@@ -52,11 +52,23 @@ export class StartStreamTranscriptionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "TranscribeStreamingClient";
+    const commandName = "StartStreamTranscriptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartStreamTranscriptionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartStreamTranscriptionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

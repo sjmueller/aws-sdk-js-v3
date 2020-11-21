@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRecipesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRecipesCommand(input, ...args));
+  return await client.send(new ListRecipesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Personalize,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRecipes(input, ...args);
 };
-export async function* listRecipesPaginate(
+export async function* paginateListRecipes(
   config: PersonalizePaginationConfiguration,
   input: ListRecipesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRecipesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRecipesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Personalize) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listRecipesPaginate(
       throw new Error("Invalid client, expected Personalize | PersonalizeClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

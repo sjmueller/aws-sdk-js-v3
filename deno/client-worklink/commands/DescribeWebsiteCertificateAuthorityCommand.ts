@@ -49,11 +49,23 @@ export class DescribeWebsiteCertificateAuthorityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkLinkClient";
+    const commandName = "DescribeWebsiteCertificateAuthorityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeWebsiteCertificateAuthorityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeWebsiteCertificateAuthorityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

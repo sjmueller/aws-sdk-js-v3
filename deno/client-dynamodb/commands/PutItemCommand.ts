@@ -38,11 +38,23 @@ export class PutItemCommand extends $Command<PutItemCommandInput, PutItemCommand
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DynamoDBClient";
+    const commandName = "PutItemCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutItemInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutItemOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

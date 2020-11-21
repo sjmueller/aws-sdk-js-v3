@@ -1,7 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { CreateLaunchTemplateVersionRequest } from "../models/models_0.ts";
-import { CreateLaunchTemplateVersionResult } from "../models/models_1.ts";
+import { CreateLaunchTemplateVersionRequest, CreateLaunchTemplateVersionResult } from "../models/models_1.ts";
 import {
   deserializeAws_ec2CreateLaunchTemplateVersionCommand,
   serializeAws_ec2CreateLaunchTemplateVersionCommand,
@@ -46,11 +45,23 @@ export class CreateLaunchTemplateVersionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "CreateLaunchTemplateVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateLaunchTemplateVersionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateLaunchTemplateVersionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

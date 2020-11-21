@@ -220,7 +220,7 @@ export const deserializeAws_restJson1DescribeAcceleratorOfferingsCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAcceleratorOfferingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeAcceleratorOfferingsCommandError(output, context);
   }
   const contents: DescribeAcceleratorOfferingsCommandOutput = {
@@ -294,7 +294,7 @@ export const deserializeAws_restJson1DescribeAcceleratorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAcceleratorsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeAcceleratorsCommandError(output, context);
   }
   const contents: DescribeAcceleratorsCommandOutput = {
@@ -369,7 +369,7 @@ export const deserializeAws_restJson1DescribeAcceleratorTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAcceleratorTypesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeAcceleratorTypesCommandError(output, context);
   }
   const contents: DescribeAcceleratorTypesCommandOutput = {
@@ -424,7 +424,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -495,7 +495,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -562,7 +562,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {

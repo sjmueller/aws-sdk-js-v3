@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListOutpostsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListOutpostsCommand(input, ...args));
+  return await client.send(new ListOutpostsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Outposts,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listOutposts(input, ...args);
 };
-export async function* listOutpostsPaginate(
+export async function* paginateListOutposts(
   config: OutpostsPaginationConfiguration,
   input: ListOutpostsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListOutpostsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListOutpostsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Outposts) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listOutpostsPaginate(
       throw new Error("Invalid client, expected Outposts | OutpostsClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

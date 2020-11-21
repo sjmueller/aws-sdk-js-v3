@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDocumentClassificationJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDocumentClassificationJobsCommand(input, ...args));
+  return await client.send(new ListDocumentClassificationJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Comprehend,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDocumentClassificationJobs(input, ...args);
 };
-export async function* listDocumentClassificationJobsPaginate(
+export async function* paginateListDocumentClassificationJobs(
   config: ComprehendPaginationConfiguration,
   input: ListDocumentClassificationJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDocumentClassificationJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDocumentClassificationJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Comprehend) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listDocumentClassificationJobsPaginate(
       throw new Error("Invalid client, expected Comprehend | ComprehendClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

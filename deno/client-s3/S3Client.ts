@@ -24,6 +24,10 @@ import {
   DeleteBucketEncryptionCommandOutput,
 } from "./commands/DeleteBucketEncryptionCommand.ts";
 import {
+  DeleteBucketIntelligentTieringConfigurationCommandInput,
+  DeleteBucketIntelligentTieringConfigurationCommandOutput,
+} from "./commands/DeleteBucketIntelligentTieringConfigurationCommand.ts";
+import {
   DeleteBucketInventoryConfigurationCommandInput,
   DeleteBucketInventoryConfigurationCommandOutput,
 } from "./commands/DeleteBucketInventoryConfigurationCommand.ts";
@@ -35,6 +39,10 @@ import {
   DeleteBucketMetricsConfigurationCommandInput,
   DeleteBucketMetricsConfigurationCommandOutput,
 } from "./commands/DeleteBucketMetricsConfigurationCommand.ts";
+import {
+  DeleteBucketOwnershipControlsCommandInput,
+  DeleteBucketOwnershipControlsCommandOutput,
+} from "./commands/DeleteBucketOwnershipControlsCommand.ts";
 import { DeleteBucketPolicyCommandInput, DeleteBucketPolicyCommandOutput } from "./commands/DeleteBucketPolicyCommand.ts";
 import {
   DeleteBucketReplicationCommandInput,
@@ -73,6 +81,10 @@ import {
   GetBucketEncryptionCommandOutput,
 } from "./commands/GetBucketEncryptionCommand.ts";
 import {
+  GetBucketIntelligentTieringConfigurationCommandInput,
+  GetBucketIntelligentTieringConfigurationCommandOutput,
+} from "./commands/GetBucketIntelligentTieringConfigurationCommand.ts";
+import {
   GetBucketInventoryConfigurationCommandInput,
   GetBucketInventoryConfigurationCommandOutput,
 } from "./commands/GetBucketInventoryConfigurationCommand.ts";
@@ -90,6 +102,10 @@ import {
   GetBucketNotificationConfigurationCommandInput,
   GetBucketNotificationConfigurationCommandOutput,
 } from "./commands/GetBucketNotificationConfigurationCommand.ts";
+import {
+  GetBucketOwnershipControlsCommandInput,
+  GetBucketOwnershipControlsCommandOutput,
+} from "./commands/GetBucketOwnershipControlsCommand.ts";
 import { GetBucketPolicyCommandInput, GetBucketPolicyCommandOutput } from "./commands/GetBucketPolicyCommand.ts";
 import {
   GetBucketPolicyStatusCommandInput,
@@ -130,6 +146,10 @@ import {
   ListBucketAnalyticsConfigurationsCommandOutput,
 } from "./commands/ListBucketAnalyticsConfigurationsCommand.ts";
 import {
+  ListBucketIntelligentTieringConfigurationsCommandInput,
+  ListBucketIntelligentTieringConfigurationsCommandOutput,
+} from "./commands/ListBucketIntelligentTieringConfigurationsCommand.ts";
+import {
   ListBucketInventoryConfigurationsCommandInput,
   ListBucketInventoryConfigurationsCommandOutput,
 } from "./commands/ListBucketInventoryConfigurationsCommand.ts";
@@ -161,6 +181,10 @@ import {
   PutBucketEncryptionCommandOutput,
 } from "./commands/PutBucketEncryptionCommand.ts";
 import {
+  PutBucketIntelligentTieringConfigurationCommandInput,
+  PutBucketIntelligentTieringConfigurationCommandOutput,
+} from "./commands/PutBucketIntelligentTieringConfigurationCommand.ts";
+import {
   PutBucketInventoryConfigurationCommandInput,
   PutBucketInventoryConfigurationCommandOutput,
 } from "./commands/PutBucketInventoryConfigurationCommand.ts";
@@ -177,6 +201,10 @@ import {
   PutBucketNotificationConfigurationCommandInput,
   PutBucketNotificationConfigurationCommandOutput,
 } from "./commands/PutBucketNotificationConfigurationCommand.ts";
+import {
+  PutBucketOwnershipControlsCommandInput,
+  PutBucketOwnershipControlsCommandOutput,
+} from "./commands/PutBucketOwnershipControlsCommand.ts";
 import { PutBucketPolicyCommandInput, PutBucketPolicyCommandOutput } from "./commands/PutBucketPolicyCommand.ts";
 import {
   PutBucketReplicationCommandInput,
@@ -241,7 +269,7 @@ import {
 } from "../middleware-host-header/mod.ts";
 import { getLoggerPlugin } from "../middleware-logger/mod.ts";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
-import { getValidateBucketNamePlugin } from "../middleware-sdk-s3/mod.ts";
+import { getUseRegionalEndpointPlugin, getValidateBucketNamePlugin } from "../middleware-sdk-s3/mod.ts";
 import {
   AwsAuthInputConfig,
   AwsAuthResolvedConfig,
@@ -287,9 +315,11 @@ export type ServiceInputTypes =
   | DeleteBucketCommandInput
   | DeleteBucketCorsCommandInput
   | DeleteBucketEncryptionCommandInput
+  | DeleteBucketIntelligentTieringConfigurationCommandInput
   | DeleteBucketInventoryConfigurationCommandInput
   | DeleteBucketLifecycleCommandInput
   | DeleteBucketMetricsConfigurationCommandInput
+  | DeleteBucketOwnershipControlsCommandInput
   | DeleteBucketPolicyCommandInput
   | DeleteBucketReplicationCommandInput
   | DeleteBucketTaggingCommandInput
@@ -303,12 +333,14 @@ export type ServiceInputTypes =
   | GetBucketAnalyticsConfigurationCommandInput
   | GetBucketCorsCommandInput
   | GetBucketEncryptionCommandInput
+  | GetBucketIntelligentTieringConfigurationCommandInput
   | GetBucketInventoryConfigurationCommandInput
   | GetBucketLifecycleConfigurationCommandInput
   | GetBucketLocationCommandInput
   | GetBucketLoggingCommandInput
   | GetBucketMetricsConfigurationCommandInput
   | GetBucketNotificationConfigurationCommandInput
+  | GetBucketOwnershipControlsCommandInput
   | GetBucketPolicyCommandInput
   | GetBucketPolicyStatusCommandInput
   | GetBucketReplicationCommandInput
@@ -327,6 +359,7 @@ export type ServiceInputTypes =
   | HeadBucketCommandInput
   | HeadObjectCommandInput
   | ListBucketAnalyticsConfigurationsCommandInput
+  | ListBucketIntelligentTieringConfigurationsCommandInput
   | ListBucketInventoryConfigurationsCommandInput
   | ListBucketMetricsConfigurationsCommandInput
   | ListBucketsCommandInput
@@ -340,11 +373,13 @@ export type ServiceInputTypes =
   | PutBucketAnalyticsConfigurationCommandInput
   | PutBucketCorsCommandInput
   | PutBucketEncryptionCommandInput
+  | PutBucketIntelligentTieringConfigurationCommandInput
   | PutBucketInventoryConfigurationCommandInput
   | PutBucketLifecycleConfigurationCommandInput
   | PutBucketLoggingCommandInput
   | PutBucketMetricsConfigurationCommandInput
   | PutBucketNotificationConfigurationCommandInput
+  | PutBucketOwnershipControlsCommandInput
   | PutBucketPolicyCommandInput
   | PutBucketReplicationCommandInput
   | PutBucketRequestPaymentCommandInput
@@ -373,9 +408,11 @@ export type ServiceOutputTypes =
   | DeleteBucketCommandOutput
   | DeleteBucketCorsCommandOutput
   | DeleteBucketEncryptionCommandOutput
+  | DeleteBucketIntelligentTieringConfigurationCommandOutput
   | DeleteBucketInventoryConfigurationCommandOutput
   | DeleteBucketLifecycleCommandOutput
   | DeleteBucketMetricsConfigurationCommandOutput
+  | DeleteBucketOwnershipControlsCommandOutput
   | DeleteBucketPolicyCommandOutput
   | DeleteBucketReplicationCommandOutput
   | DeleteBucketTaggingCommandOutput
@@ -389,12 +426,14 @@ export type ServiceOutputTypes =
   | GetBucketAnalyticsConfigurationCommandOutput
   | GetBucketCorsCommandOutput
   | GetBucketEncryptionCommandOutput
+  | GetBucketIntelligentTieringConfigurationCommandOutput
   | GetBucketInventoryConfigurationCommandOutput
   | GetBucketLifecycleConfigurationCommandOutput
   | GetBucketLocationCommandOutput
   | GetBucketLoggingCommandOutput
   | GetBucketMetricsConfigurationCommandOutput
   | GetBucketNotificationConfigurationCommandOutput
+  | GetBucketOwnershipControlsCommandOutput
   | GetBucketPolicyCommandOutput
   | GetBucketPolicyStatusCommandOutput
   | GetBucketReplicationCommandOutput
@@ -413,6 +452,7 @@ export type ServiceOutputTypes =
   | HeadBucketCommandOutput
   | HeadObjectCommandOutput
   | ListBucketAnalyticsConfigurationsCommandOutput
+  | ListBucketIntelligentTieringConfigurationsCommandOutput
   | ListBucketInventoryConfigurationsCommandOutput
   | ListBucketMetricsConfigurationsCommandOutput
   | ListBucketsCommandOutput
@@ -426,11 +466,13 @@ export type ServiceOutputTypes =
   | PutBucketAnalyticsConfigurationCommandOutput
   | PutBucketCorsCommandOutput
   | PutBucketEncryptionCommandOutput
+  | PutBucketIntelligentTieringConfigurationCommandOutput
   | PutBucketInventoryConfigurationCommandOutput
   | PutBucketLifecycleConfigurationCommandOutput
   | PutBucketLoggingCommandOutput
   | PutBucketMetricsConfigurationCommandOutput
   | PutBucketNotificationConfigurationCommandOutput
+  | PutBucketOwnershipControlsCommandOutput
   | PutBucketPolicyCommandOutput
   | PutBucketReplicationCommandOutput
   | PutBucketRequestPaymentCommandOutput
@@ -576,8 +618,8 @@ export type S3ClientConfig = Partial<__SmithyConfiguration<__HttpHandlerOptions>
   AwsAuthInputConfig &
   RetryInputConfig &
   UserAgentInputConfig &
-  BucketEndpointInputConfig &
   HostHeaderInputConfig &
+  BucketEndpointInputConfig &
   EventStreamSerdeInputConfig;
 
 export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
@@ -587,8 +629,8 @@ export type S3ClientResolvedConfig = __SmithyResolvedConfiguration<__HttpHandler
   AwsAuthResolvedConfig &
   RetryResolvedConfig &
   UserAgentResolvedConfig &
-  BucketEndpointResolvedConfig &
   HostHeaderResolvedConfig &
+  BucketEndpointResolvedConfig &
   EventStreamSerdeResolvedConfig;
 
 /**
@@ -612,8 +654,8 @@ export class S3Client extends __Client<
     let _config_3 = resolveAwsAuthConfig(_config_2);
     let _config_4 = resolveRetryConfig(_config_3);
     let _config_5 = resolveUserAgentConfig(_config_4);
-    let _config_6 = resolveBucketEndpointConfig(_config_5);
-    let _config_7 = resolveHostHeaderConfig(_config_6);
+    let _config_6 = resolveHostHeaderConfig(_config_5);
+    let _config_7 = resolveBucketEndpointConfig(_config_6);
     let _config_8 = resolveEventStreamSerdeConfig(_config_7);
     super(_config_8);
     this.config = _config_8;
@@ -621,10 +663,11 @@ export class S3Client extends __Client<
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
-    this.middlewareStack.use(getValidateBucketNamePlugin(this.config));
-    this.middlewareStack.use(getAddExpectContinuePlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
+    this.middlewareStack.use(getValidateBucketNamePlugin(this.config));
+    this.middlewareStack.use(getUseRegionalEndpointPlugin(this.config));
+    this.middlewareStack.use(getAddExpectContinuePlugin(this.config));
   }
 
   destroy(): void {

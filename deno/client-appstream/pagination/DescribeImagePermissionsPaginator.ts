@@ -1,4 +1,3 @@
-
 import { AppStream } from "../AppStream.ts";
 import { AppStreamClient } from "../AppStreamClient.ts";
 import {
@@ -15,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeImagePermissionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeImagePermissionsCommand(input, ...args));
+  return await client.send(new DescribeImagePermissionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AppStream,
@@ -25,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeImagePermissions(input, ...args);
 };
-export async function* describeImagePermissionsPaginate(
+export async function* paginateDescribeImagePermissions(
   config: AppStreamPaginationConfiguration,
   input: DescribeImagePermissionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeImagePermissionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeImagePermissionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof AppStream) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +43,7 @@ export async function* describeImagePermissionsPaginate(
       throw new Error("Invalid client, expected AppStream | AppStreamClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

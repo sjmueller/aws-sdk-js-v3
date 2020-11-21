@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetSlotTypesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetSlotTypesCommand(input, ...args));
+  return await client.send(new GetSlotTypesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: LexModelBuildingService,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getSlotTypes(input, ...args);
 };
-export async function* getSlotTypesPaginate(
+export async function* paginateGetSlotTypes(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetSlotTypesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetSlotTypesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetSlotTypesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof LexModelBuildingService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getSlotTypesPaginate(
       throw new Error("Invalid client, expected LexModelBuildingService | LexModelBuildingServiceClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -1,6 +1,7 @@
 
 export * from "./FSxClient.ts";
 export * from "./FSx.ts";
+export * from "./commands/AssociateFileSystemAliasesCommand.ts";
 export * from "./commands/CancelDataRepositoryTaskCommand.ts";
 export * from "./commands/CreateBackupCommand.ts";
 export * from "./commands/CreateDataRepositoryTaskCommand.ts";
@@ -12,8 +13,11 @@ export * from "./commands/DescribeBackupsCommand.ts";
 export * from "./pagination/DescribeBackupsPaginator.ts";
 export * from "./commands/DescribeDataRepositoryTasksCommand.ts";
 export * from "./pagination/DescribeDataRepositoryTasksPaginator.ts";
+export * from "./commands/DescribeFileSystemAliasesCommand.ts";
+export * from "./pagination/DescribeFileSystemAliasesPaginator.ts";
 export * from "./commands/DescribeFileSystemsCommand.ts";
 export * from "./pagination/DescribeFileSystemsPaginator.ts";
+export * from "./commands/DisassociateFileSystemAliasesCommand.ts";
 export * from "./commands/ListTagsForResourceCommand.ts";
 export * from "./commands/TagResourceCommand.ts";
 export * from "./commands/UntagResourceCommand.ts";

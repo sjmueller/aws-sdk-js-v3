@@ -11,6 +11,7 @@ export * from "./commands/CreateAssetModelCommand.ts";
 export * from "./commands/CreateDashboardCommand.ts";
 export * from "./commands/CreateGatewayCommand.ts";
 export * from "./commands/CreatePortalCommand.ts";
+export * from "./commands/CreatePresignedPortalUrlCommand.ts";
 export * from "./commands/CreateProjectCommand.ts";
 export * from "./commands/DeleteAccessPolicyCommand.ts";
 export * from "./commands/DeleteAssetCommand.ts";

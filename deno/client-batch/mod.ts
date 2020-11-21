@@ -1,4 +1,3 @@
-
 export * from "./BatchClient.ts";
 export * from "./Batch.ts";
 export * from "./commands/CancelJobCommand.ts";
@@ -16,9 +15,12 @@ export * from "./pagination/DescribeJobQueuesPaginator.ts";
 export * from "./commands/DescribeJobsCommand.ts";
 export * from "./commands/ListJobsCommand.ts";
 export * from "./pagination/ListJobsPaginator.ts";
+export * from "./commands/ListTagsForResourceCommand.ts";
 export * from "./commands/RegisterJobDefinitionCommand.ts";
 export * from "./commands/SubmitJobCommand.ts";
+export * from "./commands/TagResourceCommand.ts";
 export * from "./commands/TerminateJobCommand.ts";
+export * from "./commands/UntagResourceCommand.ts";
 export * from "./commands/UpdateComputeEnvironmentCommand.ts";
 export * from "./commands/UpdateJobQueueCommand.ts";
 export * from "./pagination/Interfaces.ts";

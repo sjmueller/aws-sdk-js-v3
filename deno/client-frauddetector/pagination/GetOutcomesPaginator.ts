@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetOutcomesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetOutcomesCommand(input, ...args));
+  return await client.send(new GetOutcomesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: FraudDetector,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getOutcomes(input, ...args);
 };
-export async function* getOutcomesPaginate(
+export async function* paginateGetOutcomes(
   config: FraudDetectorPaginationConfiguration,
   input: GetOutcomesCommandInput,
   ...additionalArguments: any
 ): Paginator<GetOutcomesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetOutcomesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof FraudDetector) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* getOutcomesPaginate(
       throw new Error("Invalid client, expected FraudDetector | FraudDetectorClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

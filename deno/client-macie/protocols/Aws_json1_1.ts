@@ -148,7 +148,7 @@ export const deserializeAws_json1_1AssociateMemberAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateMemberAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateMemberAccountCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -216,7 +216,7 @@ export const deserializeAws_json1_1AssociateS3ResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateS3ResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateS3ResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -295,7 +295,7 @@ export const deserializeAws_json1_1DisassociateMemberAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateMemberAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateMemberAccountCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -355,7 +355,7 @@ export const deserializeAws_json1_1DisassociateS3ResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateS3ResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateS3ResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -426,7 +426,7 @@ export const deserializeAws_json1_1ListMemberAccountsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMemberAccountsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListMemberAccountsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -489,7 +489,7 @@ export const deserializeAws_json1_1ListS3ResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListS3ResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListS3ResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -560,7 +560,7 @@ export const deserializeAws_json1_1UpdateS3ResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateS3ResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateS3ResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

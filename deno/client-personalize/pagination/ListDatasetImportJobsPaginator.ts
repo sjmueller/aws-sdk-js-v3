@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDatasetImportJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDatasetImportJobsCommand(input, ...args));
+  return await client.send(new ListDatasetImportJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Personalize,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDatasetImportJobs(input, ...args);
 };
-export async function* listDatasetImportJobsPaginate(
+export async function* paginateListDatasetImportJobs(
   config: PersonalizePaginationConfiguration,
   input: ListDatasetImportJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDatasetImportJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDatasetImportJobsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Personalize) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listDatasetImportJobsPaginate(
       throw new Error("Invalid client, expected Personalize | PersonalizeClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

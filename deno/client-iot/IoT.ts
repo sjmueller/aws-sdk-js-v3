@@ -72,6 +72,11 @@ import {
   ConfirmTopicRuleDestinationCommandOutput,
 } from "./commands/ConfirmTopicRuleDestinationCommand.ts";
 import {
+  CreateAuditSuppressionCommand,
+  CreateAuditSuppressionCommandInput,
+  CreateAuditSuppressionCommandOutput,
+} from "./commands/CreateAuditSuppressionCommand.ts";
+import {
   CreateAuthorizerCommand,
   CreateAuthorizerCommandInput,
   CreateAuthorizerCommandOutput,
@@ -188,6 +193,11 @@ import {
   DeleteAccountAuditConfigurationCommandInput,
   DeleteAccountAuditConfigurationCommandOutput,
 } from "./commands/DeleteAccountAuditConfigurationCommand.ts";
+import {
+  DeleteAuditSuppressionCommand,
+  DeleteAuditSuppressionCommandInput,
+  DeleteAuditSuppressionCommandOutput,
+} from "./commands/DeleteAuditSuppressionCommand.ts";
 import {
   DeleteAuthorizerCommand,
   DeleteAuthorizerCommandInput,
@@ -330,6 +340,11 @@ import {
   DescribeAuditMitigationActionsTaskCommandInput,
   DescribeAuditMitigationActionsTaskCommandOutput,
 } from "./commands/DescribeAuditMitigationActionsTaskCommand.ts";
+import {
+  DescribeAuditSuppressionCommand,
+  DescribeAuditSuppressionCommandInput,
+  DescribeAuditSuppressionCommandOutput,
+} from "./commands/DescribeAuditSuppressionCommand.ts";
 import {
   DescribeAuditTaskCommand,
   DescribeAuditTaskCommandInput,
@@ -567,6 +582,11 @@ import {
   ListAuditMitigationActionsTasksCommandInput,
   ListAuditMitigationActionsTasksCommandOutput,
 } from "./commands/ListAuditMitigationActionsTasksCommand.ts";
+import {
+  ListAuditSuppressionsCommand,
+  ListAuditSuppressionsCommandInput,
+  ListAuditSuppressionsCommandOutput,
+} from "./commands/ListAuditSuppressionsCommand.ts";
 import {
   ListAuditTasksCommand,
   ListAuditTasksCommandInput,
@@ -878,6 +898,11 @@ import {
   UpdateAccountAuditConfigurationCommandInput,
   UpdateAccountAuditConfigurationCommandOutput,
 } from "./commands/UpdateAccountAuditConfigurationCommand.ts";
+import {
+  UpdateAuditSuppressionCommand,
+  UpdateAuditSuppressionCommandInput,
+  UpdateAuditSuppressionCommandOutput,
+} from "./commands/UpdateAuditSuppressionCommand.ts";
 import {
   UpdateAuthorizerCommand,
   UpdateAuthorizerCommandInput,
@@ -1500,6 +1525,40 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>
+   *       Creates a Device Defender audit suppression.
+   *     </p>
+   */
+  public createAuditSuppression(
+    args: CreateAuditSuppressionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAuditSuppressionCommandOutput>;
+  public createAuditSuppression(
+    args: CreateAuditSuppressionCommandInput,
+    cb: (err: any, data?: CreateAuditSuppressionCommandOutput) => void
+  ): void;
+  public createAuditSuppression(
+    args: CreateAuditSuppressionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAuditSuppressionCommandOutput) => void
+  ): void;
+  public createAuditSuppression(
+    args: CreateAuditSuppressionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateAuditSuppressionCommandOutput) => void),
+    cb?: (err: any, data?: CreateAuditSuppressionCommandOutput) => void
+  ): Promise<CreateAuditSuppressionCommandOutput> | void {
+    const command = new CreateAuditSuppressionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates an authorizer.</p>
    */
   public createAuthorizer(
@@ -1792,7 +1851,7 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Each mitigation action can apply only one type of change.</p>
+   * <p>Defines an action that can be applied to audit findings by using StartAuditMitigationActionsTask. Only certain types of mitigation actions can be applied to specific check names. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/device-defender-mitigation-actions.html">Mitigation actions</a>. Each mitigation action can apply only one type of change.</p>
    */
   public createMitigationAction(
     args: CreateMitigationActionCommandInput,
@@ -2339,6 +2398,40 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: DeleteAccountAuditConfigurationCommandOutput) => void
   ): Promise<DeleteAccountAuditConfigurationCommandOutput> | void {
     const command = new DeleteAccountAuditConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Deletes a Device Defender audit suppression.
+   *     </p>
+   */
+  public deleteAuditSuppression(
+    args: DeleteAuditSuppressionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAuditSuppressionCommandOutput>;
+  public deleteAuditSuppression(
+    args: DeleteAuditSuppressionCommandInput,
+    cb: (err: any, data?: DeleteAuditSuppressionCommandOutput) => void
+  ): void;
+  public deleteAuditSuppression(
+    args: DeleteAuditSuppressionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAuditSuppressionCommandOutput) => void
+  ): void;
+  public deleteAuditSuppression(
+    args: DeleteAuditSuppressionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAuditSuppressionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAuditSuppressionCommandOutput) => void
+  ): Promise<DeleteAuditSuppressionCommandOutput> | void {
+    const command = new DeleteAuditSuppressionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3309,6 +3402,40 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: DescribeAuditMitigationActionsTaskCommandOutput) => void
   ): Promise<DescribeAuditMitigationActionsTaskCommandOutput> | void {
     const command = new DescribeAuditMitigationActionsTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Gets information about a Device Defender audit suppression.
+   *     </p>
+   */
+  public describeAuditSuppression(
+    args: DescribeAuditSuppressionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAuditSuppressionCommandOutput>;
+  public describeAuditSuppression(
+    args: DescribeAuditSuppressionCommandInput,
+    cb: (err: any, data?: DescribeAuditSuppressionCommandOutput) => void
+  ): void;
+  public describeAuditSuppression(
+    args: DescribeAuditSuppressionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAuditSuppressionCommandOutput) => void
+  ): void;
+  public describeAuditSuppression(
+    args: DescribeAuditSuppressionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAuditSuppressionCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAuditSuppressionCommandOutput) => void
+  ): Promise<DescribeAuditSuppressionCommandOutput> | void {
+    const command = new DescribeAuditSuppressionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4797,7 +4924,7 @@ export class IoT extends IoTClient {
 
   /**
    * <p>Lists the findings (results) of a Device Defender audit or of the audits
-   *         performed during a specified time period. (Findings are retained for 180 days.)</p>
+   *         performed during a specified time period. (Findings are retained for 90 days.)</p>
    */
   public listAuditFindings(
     args: ListAuditFindingsCommandInput,
@@ -4882,6 +5009,40 @@ export class IoT extends IoTClient {
     cb?: (err: any, data?: ListAuditMitigationActionsTasksCommandOutput) => void
   ): Promise<ListAuditMitigationActionsTasksCommandOutput> | void {
     const command = new ListAuditMitigationActionsTasksCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *       Lists your Device Defender audit listings.
+   *     </p>
+   */
+  public listAuditSuppressions(
+    args: ListAuditSuppressionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAuditSuppressionsCommandOutput>;
+  public listAuditSuppressions(
+    args: ListAuditSuppressionsCommandInput,
+    cb: (err: any, data?: ListAuditSuppressionsCommandOutput) => void
+  ): void;
+  public listAuditSuppressions(
+    args: ListAuditSuppressionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAuditSuppressionsCommandOutput) => void
+  ): void;
+  public listAuditSuppressions(
+    args: ListAuditSuppressionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAuditSuppressionsCommandOutput) => void),
+    cb?: (err: any, data?: ListAuditSuppressionsCommandOutput) => void
+  ): Promise<ListAuditSuppressionsCommandOutput> | void {
+    const command = new ListAuditSuppressionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -6016,6 +6177,9 @@ export class IoT extends IoTClient {
    * 			For example, calling <code>ListThings</code> with attributeName=Color and
    * 			attributeValue=Red retrieves all things in the registry that contain an attribute
    * 				<b>Color</b> with the value <b>Red</b>. </p>
+   * 		       <note>
+   * 			         <p>You will not be charged for calling this API if an <code>Access denied</code> error is returned. You will also not be charged if no attributes or pagination token was provided in request and no pagination token and no results were returned.</p>
+   * 		       </note>
    */
   public listThings(args: ListThingsCommandInput, options?: __HttpHandlerOptions): Promise<ListThingsCommandOutput>;
   public listThings(args: ListThingsCommandInput, cb: (err: any, data?: ListThingsCommandOutput) => void): void;
@@ -7066,6 +7230,40 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>
+   *       Updates a Device Defender audit suppression.
+   *     </p>
+   */
+  public updateAuditSuppression(
+    args: UpdateAuditSuppressionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAuditSuppressionCommandOutput>;
+  public updateAuditSuppression(
+    args: UpdateAuditSuppressionCommandInput,
+    cb: (err: any, data?: UpdateAuditSuppressionCommandOutput) => void
+  ): void;
+  public updateAuditSuppression(
+    args: UpdateAuditSuppressionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAuditSuppressionCommandOutput) => void
+  ): void;
+  public updateAuditSuppression(
+    args: UpdateAuditSuppressionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateAuditSuppressionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateAuditSuppressionCommandOutput) => void
+  ): Promise<UpdateAuditSuppressionCommandOutput> | void {
+    const command = new UpdateAuditSuppressionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates an authorizer.</p>
    */
   public updateAuthorizer(
@@ -7164,10 +7362,11 @@ export class IoT extends IoTClient {
   /**
    * <p>Updates the status of the specified certificate. This operation is
    *          idempotent.</p>
-   *          <p>Moving a certificate from the ACTIVE state (including REVOKED) will not disconnect
-   *          currently connected devices, but these devices will be unable to reconnect.</p>
-   *          <p>The ACTIVE state is required to authenticate devices connecting to AWS IoT using a
-   *          certificate.</p>
+   *          <p>Certificates must be in the ACTIVE state to authenticate devices that use
+   *          a certificate to connect to AWS IoT.</p>
+   *          <p>Within a few minutes of updating a certificate from the ACTIVE state to any other
+   *          state, AWS IoT disconnects all devices that used that certificate to connect. Devices cannot
+   *          use a certificate that is not in the ACTIVE state to reconnect.</p>
    */
   public updateCertificate(
     args: UpdateCertificateCommandInput,

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEntitiesDetectionJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEntitiesDetectionJobsCommand(input, ...args));
+  return await client.send(new ListEntitiesDetectionJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Comprehend,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEntitiesDetectionJobs(input, ...args);
 };
-export async function* listEntitiesDetectionJobsPaginate(
+export async function* paginateListEntitiesDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListEntitiesDetectionJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEntitiesDetectionJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEntitiesDetectionJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Comprehend) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listEntitiesDetectionJobsPaginate(
       throw new Error("Invalid client, expected Comprehend | ComprehendClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

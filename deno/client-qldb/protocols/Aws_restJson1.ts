@@ -77,15 +77,6 @@ export const serializeAws_restJson1CancelJournalKinesisStreamCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/ledgers/{LedgerName}/journal-kinesis-streams/{StreamId}";
-  if (input.StreamId !== undefined) {
-    const labelValue: string = input.StreamId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: StreamId.");
-    }
-    resolvedPath = resolvedPath.replace("{StreamId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: StreamId.");
-  }
   if (input.LedgerName !== undefined) {
     const labelValue: string = input.LedgerName;
     if (labelValue.length <= 0) {
@@ -94,6 +85,15 @@ export const serializeAws_restJson1CancelJournalKinesisStreamCommand = async (
     resolvedPath = resolvedPath.replace("{LedgerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: LedgerName.");
+  }
+  if (input.StreamId !== undefined) {
+    const labelValue: string = input.StreamId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: StreamId.");
+    }
+    resolvedPath = resolvedPath.replace("{StreamId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: StreamId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -173,15 +173,6 @@ export const serializeAws_restJson1DescribeJournalKinesisStreamCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/ledgers/{LedgerName}/journal-kinesis-streams/{StreamId}";
-  if (input.StreamId !== undefined) {
-    const labelValue: string = input.StreamId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: StreamId.");
-    }
-    resolvedPath = resolvedPath.replace("{StreamId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: StreamId.");
-  }
   if (input.LedgerName !== undefined) {
     const labelValue: string = input.LedgerName;
     if (labelValue.length <= 0) {
@@ -190,6 +181,15 @@ export const serializeAws_restJson1DescribeJournalKinesisStreamCommand = async (
     resolvedPath = resolvedPath.replace("{LedgerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: LedgerName.");
+  }
+  if (input.StreamId !== undefined) {
+    const labelValue: string = input.StreamId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: StreamId.");
+    }
+    resolvedPath = resolvedPath.replace("{StreamId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: StreamId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -440,8 +440,8 @@ export const serializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand = a
     throw new Error("No value provided for input HTTP label: LedgerName.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -501,8 +501,8 @@ export const serializeAws_restJson1ListJournalS3ExportsForLedgerCommand = async 
     throw new Error("No value provided for input HTTP label: Name.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { next_token: input.NextToken }),
+    ...(input.MaxResults !== undefined && { max_results: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -722,7 +722,7 @@ export const deserializeAws_restJson1CancelJournalKinesisStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelJournalKinesisStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CancelJournalKinesisStreamCommandError(output, context);
   }
   const contents: CancelJournalKinesisStreamCommandOutput = {
@@ -793,7 +793,7 @@ export const deserializeAws_restJson1CreateLedgerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLedgerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateLedgerCommandError(output, context);
   }
   const contents: CreateLedgerCommandOutput = {
@@ -888,7 +888,7 @@ export const deserializeAws_restJson1DeleteLedgerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLedgerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteLedgerCommandError(output, context);
   }
   const contents: DeleteLedgerCommandOutput = {
@@ -963,7 +963,7 @@ export const deserializeAws_restJson1DescribeJournalKinesisStreamCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJournalKinesisStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeJournalKinesisStreamCommandError(output, context);
   }
   const contents: DescribeJournalKinesisStreamCommandOutput = {
@@ -1034,7 +1034,7 @@ export const deserializeAws_restJson1DescribeJournalS3ExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeJournalS3ExportCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeJournalS3ExportCommandError(output, context);
   }
   const contents: DescribeJournalS3ExportCommandOutput = {
@@ -1089,7 +1089,7 @@ export const deserializeAws_restJson1DescribeLedgerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLedgerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeLedgerCommandError(output, context);
   }
   const contents: DescribeLedgerCommandOutput = {
@@ -1168,7 +1168,7 @@ export const deserializeAws_restJson1ExportJournalToS3Command = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportJournalToS3CommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ExportJournalToS3CommandError(output, context);
   }
   const contents: ExportJournalToS3CommandOutput = {
@@ -1231,7 +1231,7 @@ export const deserializeAws_restJson1GetBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBlockCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBlockCommandError(output, context);
   }
   const contents: GetBlockCommandOutput = {
@@ -1306,7 +1306,7 @@ export const deserializeAws_restJson1GetDigestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDigestCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDigestCommandError(output, context);
   }
   const contents: GetDigestCommandOutput = {
@@ -1381,7 +1381,7 @@ export const deserializeAws_restJson1GetRevisionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRevisionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRevisionCommandError(output, context);
   }
   const contents: GetRevisionCommandOutput = {
@@ -1456,7 +1456,7 @@ export const deserializeAws_restJson1ListJournalKinesisStreamsForLedgerCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJournalKinesisStreamsForLedgerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListJournalKinesisStreamsForLedgerCommandError(output, context);
   }
   const contents: ListJournalKinesisStreamsForLedgerCommandOutput = {
@@ -1531,7 +1531,7 @@ export const deserializeAws_restJson1ListJournalS3ExportsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJournalS3ExportsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListJournalS3ExportsCommandError(output, context);
   }
   const contents: ListJournalS3ExportsCommandOutput = {
@@ -1582,7 +1582,7 @@ export const deserializeAws_restJson1ListJournalS3ExportsForLedgerCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListJournalS3ExportsForLedgerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListJournalS3ExportsForLedgerCommandError(output, context);
   }
   const contents: ListJournalS3ExportsForLedgerCommandOutput = {
@@ -1633,7 +1633,7 @@ export const deserializeAws_restJson1ListLedgersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLedgersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListLedgersCommandError(output, context);
   }
   const contents: ListLedgersCommandOutput = {
@@ -1684,7 +1684,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -1747,7 +1747,7 @@ export const deserializeAws_restJson1StreamJournalToKinesisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StreamJournalToKinesisCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StreamJournalToKinesisCommandError(output, context);
   }
   const contents: StreamJournalToKinesisCommandOutput = {
@@ -1818,7 +1818,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1877,7 +1877,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -1936,7 +1936,7 @@ export const deserializeAws_restJson1UpdateLedgerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLedgerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateLedgerCommandError(output, context);
   }
   const contents: UpdateLedgerCommandOutput = {

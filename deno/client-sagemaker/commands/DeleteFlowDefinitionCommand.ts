@@ -1,6 +1,6 @@
 
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient.ts";
-import { DeleteFlowDefinitionRequest, DeleteFlowDefinitionResponse } from "../models/models_0.ts";
+import { DeleteFlowDefinitionRequest, DeleteFlowDefinitionResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1DeleteFlowDefinitionCommand,
   serializeAws_json1_1DeleteFlowDefinitionCommand,
@@ -45,11 +45,23 @@ export class DeleteFlowDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SageMakerClient";
+    const commandName = "DeleteFlowDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteFlowDefinitionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteFlowDefinitionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

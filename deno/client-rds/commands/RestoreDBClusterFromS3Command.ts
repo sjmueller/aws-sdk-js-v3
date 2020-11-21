@@ -45,11 +45,23 @@ export class RestoreDBClusterFromS3Command extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RDSClient";
+    const commandName = "RestoreDBClusterFromS3Command";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RestoreDBClusterFromS3Message.filterSensitiveLog,
       outputFilterSensitiveLog: RestoreDBClusterFromS3Result.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

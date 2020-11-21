@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFleetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFleetsCommand(input, ...args));
+  return await client.send(new ListFleetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RoboMaker,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFleets(input, ...args);
 };
-export async function* listFleetsPaginate(
+export async function* paginateListFleets(
   config: RoboMakerPaginationConfiguration,
   input: ListFleetsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListFleetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListFleetsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof RoboMaker) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listFleetsPaginate(
       throw new Error("Invalid client, expected RoboMaker | RoboMakerClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

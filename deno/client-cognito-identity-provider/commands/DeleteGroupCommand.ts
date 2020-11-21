@@ -10,6 +10,7 @@ import {
   serializeAws_json1_1DeleteGroupCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
+import { getAwsAuthPlugin } from "../../middleware-signing/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
@@ -45,15 +46,28 @@ export class DeleteGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<DeleteGroupCommandInput, DeleteGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "DeleteGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

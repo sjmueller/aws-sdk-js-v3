@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { GetHostReservationPurchasePreviewRequest, GetHostReservationPurchasePreviewResult } from "../models/models_3.ts";
+import { GetHostReservationPurchasePreviewRequest, GetHostReservationPurchasePreviewResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2GetHostReservationPurchasePreviewCommand,
   serializeAws_ec2GetHostReservationPurchasePreviewCommand,
@@ -45,11 +45,23 @@ export class GetHostReservationPurchasePreviewCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "GetHostReservationPurchasePreviewCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetHostReservationPurchasePreviewRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetHostReservationPurchasePreviewResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

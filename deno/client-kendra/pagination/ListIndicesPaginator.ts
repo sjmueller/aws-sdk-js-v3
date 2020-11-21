@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListIndicesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListIndicesCommand(input, ...args));
+  return await client.send(new ListIndicesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Kendra,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listIndices(input, ...args);
 };
-export async function* listIndicesPaginate(
+export async function* paginateListIndices(
   config: KendraPaginationConfiguration,
   input: ListIndicesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListIndicesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListIndicesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Kendra) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listIndicesPaginate(
       throw new Error("Invalid client, expected Kendra | KendraClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

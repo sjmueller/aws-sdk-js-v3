@@ -1,6 +1,6 @@
 
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient.ts";
-import { ListTemplateVersionsRequest, ListTemplateVersionsResponse } from "../models/models_0.ts";
+import { ListTemplateVersionsRequest, ListTemplateVersionsResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1ListTemplateVersionsCommand,
   serializeAws_restJson1ListTemplateVersionsCommand,
@@ -45,11 +45,23 @@ export class ListTemplateVersionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "QuickSightClient";
+    const commandName = "ListTemplateVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListTemplateVersionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListTemplateVersionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

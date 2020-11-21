@@ -47,6 +47,10 @@ import {
   ConfirmTopicRuleDestinationCommandInput,
   ConfirmTopicRuleDestinationCommandOutput,
 } from "./commands/ConfirmTopicRuleDestinationCommand.ts";
+import {
+  CreateAuditSuppressionCommandInput,
+  CreateAuditSuppressionCommandOutput,
+} from "./commands/CreateAuditSuppressionCommand.ts";
 import { CreateAuthorizerCommandInput, CreateAuthorizerCommandOutput } from "./commands/CreateAuthorizerCommand.ts";
 import { CreateBillingGroupCommandInput, CreateBillingGroupCommandOutput } from "./commands/CreateBillingGroupCommand.ts";
 import {
@@ -111,6 +115,10 @@ import {
   DeleteAccountAuditConfigurationCommandInput,
   DeleteAccountAuditConfigurationCommandOutput,
 } from "./commands/DeleteAccountAuditConfigurationCommand.ts";
+import {
+  DeleteAuditSuppressionCommandInput,
+  DeleteAuditSuppressionCommandOutput,
+} from "./commands/DeleteAuditSuppressionCommand.ts";
 import { DeleteAuthorizerCommandInput, DeleteAuthorizerCommandOutput } from "./commands/DeleteAuthorizerCommand.ts";
 import { DeleteBillingGroupCommandInput, DeleteBillingGroupCommandOutput } from "./commands/DeleteBillingGroupCommand.ts";
 import {
@@ -186,6 +194,10 @@ import {
   DescribeAuditMitigationActionsTaskCommandInput,
   DescribeAuditMitigationActionsTaskCommandOutput,
 } from "./commands/DescribeAuditMitigationActionsTaskCommand.ts";
+import {
+  DescribeAuditSuppressionCommandInput,
+  DescribeAuditSuppressionCommandOutput,
+} from "./commands/DescribeAuditSuppressionCommand.ts";
 import { DescribeAuditTaskCommandInput, DescribeAuditTaskCommandOutput } from "./commands/DescribeAuditTaskCommand.ts";
 import { DescribeAuthorizerCommandInput, DescribeAuthorizerCommandOutput } from "./commands/DescribeAuthorizerCommand.ts";
 import {
@@ -310,6 +322,10 @@ import {
   ListAuditMitigationActionsTasksCommandInput,
   ListAuditMitigationActionsTasksCommandOutput,
 } from "./commands/ListAuditMitigationActionsTasksCommand.ts";
+import {
+  ListAuditSuppressionsCommandInput,
+  ListAuditSuppressionsCommandOutput,
+} from "./commands/ListAuditSuppressionsCommand.ts";
 import { ListAuditTasksCommandInput, ListAuditTasksCommandOutput } from "./commands/ListAuditTasksCommand.ts";
 import { ListAuthorizersCommandInput, ListAuthorizersCommandOutput } from "./commands/ListAuthorizersCommand.ts";
 import { ListBillingGroupsCommandInput, ListBillingGroupsCommandOutput } from "./commands/ListBillingGroupsCommand.ts";
@@ -503,6 +519,10 @@ import {
   UpdateAccountAuditConfigurationCommandInput,
   UpdateAccountAuditConfigurationCommandOutput,
 } from "./commands/UpdateAccountAuditConfigurationCommand.ts";
+import {
+  UpdateAuditSuppressionCommandInput,
+  UpdateAuditSuppressionCommandOutput,
+} from "./commands/UpdateAuditSuppressionCommand.ts";
 import { UpdateAuthorizerCommandInput, UpdateAuthorizerCommandOutput } from "./commands/UpdateAuthorizerCommand.ts";
 import { UpdateBillingGroupCommandInput, UpdateBillingGroupCommandOutput } from "./commands/UpdateBillingGroupCommand.ts";
 import {
@@ -625,6 +645,7 @@ export type ServiceInputTypes =
   | CancelJobExecutionCommandInput
   | ClearDefaultAuthorizerCommandInput
   | ConfirmTopicRuleDestinationCommandInput
+  | CreateAuditSuppressionCommandInput
   | CreateAuthorizerCommandInput
   | CreateBillingGroupCommandInput
   | CreateCertificateFromCsrCommandInput
@@ -650,6 +671,7 @@ export type ServiceInputTypes =
   | CreateTopicRuleCommandInput
   | CreateTopicRuleDestinationCommandInput
   | DeleteAccountAuditConfigurationCommandInput
+  | DeleteAuditSuppressionCommandInput
   | DeleteAuthorizerCommandInput
   | DeleteBillingGroupCommandInput
   | DeleteCACertificateCommandInput
@@ -680,6 +702,7 @@ export type ServiceInputTypes =
   | DescribeAccountAuditConfigurationCommandInput
   | DescribeAuditFindingCommandInput
   | DescribeAuditMitigationActionsTaskCommandInput
+  | DescribeAuditSuppressionCommandInput
   | DescribeAuditTaskCommandInput
   | DescribeAuthorizerCommandInput
   | DescribeBillingGroupCommandInput
@@ -729,6 +752,7 @@ export type ServiceInputTypes =
   | ListAuditFindingsCommandInput
   | ListAuditMitigationActionsExecutionsCommandInput
   | ListAuditMitigationActionsTasksCommandInput
+  | ListAuditSuppressionsCommandInput
   | ListAuditTasksCommandInput
   | ListAuthorizersCommandInput
   | ListBillingGroupsCommandInput
@@ -796,6 +820,7 @@ export type ServiceInputTypes =
   | TransferCertificateCommandInput
   | UntagResourceCommandInput
   | UpdateAccountAuditConfigurationCommandInput
+  | UpdateAuditSuppressionCommandInput
   | UpdateAuthorizerCommandInput
   | UpdateBillingGroupCommandInput
   | UpdateCACertificateCommandInput
@@ -834,6 +859,7 @@ export type ServiceOutputTypes =
   | CancelJobExecutionCommandOutput
   | ClearDefaultAuthorizerCommandOutput
   | ConfirmTopicRuleDestinationCommandOutput
+  | CreateAuditSuppressionCommandOutput
   | CreateAuthorizerCommandOutput
   | CreateBillingGroupCommandOutput
   | CreateCertificateFromCsrCommandOutput
@@ -859,6 +885,7 @@ export type ServiceOutputTypes =
   | CreateTopicRuleCommandOutput
   | CreateTopicRuleDestinationCommandOutput
   | DeleteAccountAuditConfigurationCommandOutput
+  | DeleteAuditSuppressionCommandOutput
   | DeleteAuthorizerCommandOutput
   | DeleteBillingGroupCommandOutput
   | DeleteCACertificateCommandOutput
@@ -889,6 +916,7 @@ export type ServiceOutputTypes =
   | DescribeAccountAuditConfigurationCommandOutput
   | DescribeAuditFindingCommandOutput
   | DescribeAuditMitigationActionsTaskCommandOutput
+  | DescribeAuditSuppressionCommandOutput
   | DescribeAuditTaskCommandOutput
   | DescribeAuthorizerCommandOutput
   | DescribeBillingGroupCommandOutput
@@ -938,6 +966,7 @@ export type ServiceOutputTypes =
   | ListAuditFindingsCommandOutput
   | ListAuditMitigationActionsExecutionsCommandOutput
   | ListAuditMitigationActionsTasksCommandOutput
+  | ListAuditSuppressionsCommandOutput
   | ListAuditTasksCommandOutput
   | ListAuthorizersCommandOutput
   | ListBillingGroupsCommandOutput
@@ -1005,6 +1034,7 @@ export type ServiceOutputTypes =
   | TransferCertificateCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccountAuditConfigurationCommandOutput
+  | UpdateAuditSuppressionCommandOutput
   | UpdateAuthorizerCommandOutput
   | UpdateBillingGroupCommandOutput
   | UpdateCACertificateCommandOutput

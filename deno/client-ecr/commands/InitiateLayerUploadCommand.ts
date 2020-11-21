@@ -45,11 +45,23 @@ export class InitiateLayerUploadCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ECRClient";
+    const commandName = "InitiateLayerUploadCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: InitiateLayerUploadRequest.filterSensitiveLog,
       outputFilterSensitiveLog: InitiateLayerUploadResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

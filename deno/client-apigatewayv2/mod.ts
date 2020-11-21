@@ -58,6 +58,7 @@ export * from "./commands/GetVpcLinkCommand.ts";
 export * from "./commands/GetVpcLinksCommand.ts";
 export * from "./commands/ImportApiCommand.ts";
 export * from "./commands/ReimportApiCommand.ts";
+export * from "./commands/ResetAuthorizersCacheCommand.ts";
 export * from "./commands/TagResourceCommand.ts";
 export * from "./commands/UntagResourceCommand.ts";
 export * from "./commands/UpdateApiCommand.ts";

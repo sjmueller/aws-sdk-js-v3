@@ -91,11 +91,10 @@ export interface DestinationConfig {
   /**
    * <p>The name of the IoT thing to which you want to connect.</p>
    */
-  thingName: string | undefined;
+  thingName?: string;
 
   /**
-   * <p>A list of service names that identity the target application. Currently, you can
-   * 			only specify a single name. The AWS IoT client running on the destination device reads
+   * <p>A list of service names that identity the target application. The AWS IoT client running on the destination device reads
    * 			this value and uses it to look up a port or an IP address and a port. The AWS IoT client
    * 			instantiates the local proxy which uses this information to connect to the destination
    * 			application.</p>
@@ -159,14 +158,9 @@ export namespace TimeoutConfig {
  */
 export interface Tunnel {
   /**
-   * <p>The time when the tunnel was created.</p>
+   * <p>A unique alpha-numeric ID that identifies a tunnel.</p>
    */
-  createdAt?: Date;
-
-  /**
-   * <p>Timeout configuration for the tunnel.</p>
-   */
-  timeoutConfig?: TimeoutConfig;
+  tunnelId?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a tunnel. The tunnel ARN format is
@@ -176,19 +170,14 @@ export interface Tunnel {
   tunnelArn?: string;
 
   /**
-   * <p>The last time the tunnel was updated.</p>
+   * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
    */
-  lastUpdatedAt?: Date;
+  status?: TunnelStatus | string;
 
   /**
    * <p>The connection state of the source application.</p>
    */
   sourceConnectionState?: ConnectionState;
-
-  /**
-   * <p>A unique alpha-numeric ID that identifies a tunnel.</p>
-   */
-  tunnelId?: string;
 
   /**
    * <p>The connection state of the destination application.</p>
@@ -201,11 +190,6 @@ export interface Tunnel {
   description?: string;
 
   /**
-   * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
-   */
-  status?: TunnelStatus | string;
-
-  /**
    * <p>The destination configuration that specifies the thing name of the destination
    * 			device and a service name that the local proxy uses to connect to the destination
    * 			application.</p>
@@ -213,9 +197,24 @@ export interface Tunnel {
   destinationConfig?: DestinationConfig;
 
   /**
+   * <p>Timeout configuration for the tunnel.</p>
+   */
+  timeoutConfig?: TimeoutConfig;
+
+  /**
    * <p>A list of tag metadata associated with the secure tunnel.</p>
    */
   tags?: Tag[];
+
+  /**
+   * <p>The time when the tunnel was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The last time the tunnel was updated.</p>
+   */
+  lastUpdatedAt?: Date;
 }
 
 export namespace Tunnel {
@@ -291,14 +290,9 @@ export namespace ListTunnelsRequest {
  */
 export interface TunnelSummary {
   /**
-   * <p>The time the tunnel was last updated.</p>
+   * <p>The unique alpha-numeric identifier for the tunnel.</p>
    */
-  lastUpdatedAt?: Date;
-
-  /**
-   * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
-   */
-  status?: TunnelStatus | string;
+  tunnelId?: string;
 
   /**
    * <p>The Amazon Resource Name of the tunnel. The tunnel ARN format is
@@ -306,6 +300,11 @@ export interface TunnelSummary {
    *          </p>
    */
   tunnelArn?: string;
+
+  /**
+   * <p>The status of a tunnel. Valid values are: Open and Closed.</p>
+   */
+  status?: TunnelStatus | string;
 
   /**
    * <p>A description of the tunnel.</p>
@@ -318,9 +317,9 @@ export interface TunnelSummary {
   createdAt?: Date;
 
   /**
-   * <p>The unique alpha-numeric identifier for the tunnel.</p>
+   * <p>The time the tunnel was last updated.</p>
    */
-  tunnelId?: string;
+  lastUpdatedAt?: Date;
 }
 
 export namespace TunnelSummary {
@@ -331,14 +330,14 @@ export namespace TunnelSummary {
 
 export interface ListTunnelsResponse {
   /**
-   * <p>A token to used to retrieve the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>A short description of the tunnels in an AWS account.</p>
    */
   tunnelSummaries?: TunnelSummary[];
+
+  /**
+   * <p>A token to used to retrieve the next set of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListTunnelsResponse {
@@ -364,14 +363,14 @@ export namespace LimitExceededException {
 
 export interface OpenTunnelRequest {
   /**
+   * <p>A short text description of the tunnel. </p>
+   */
+  description?: string;
+
+  /**
    * <p>A collection of tag metadata.</p>
    */
   tags?: Tag[];
-
-  /**
-   * <p>Timeout configuration for a tunnel.</p>
-   */
-  timeoutConfig?: TimeoutConfig;
 
   /**
    * <p>The destination configuration for the OpenTunnel request.</p>
@@ -379,9 +378,9 @@ export interface OpenTunnelRequest {
   destinationConfig?: DestinationConfig;
 
   /**
-   * <p>A short text description of the tunnel. </p>
+   * <p>Timeout configuration for a tunnel.</p>
    */
-  description?: string;
+  timeoutConfig?: TimeoutConfig;
 }
 
 export namespace OpenTunnelRequest {
@@ -392,17 +391,16 @@ export namespace OpenTunnelRequest {
 
 export interface OpenTunnelResponse {
   /**
+   * <p>A unique alpha-numeric tunnel ID.</p>
+   */
+  tunnelId?: string;
+
+  /**
    * <p>The Amazon Resource Name for the tunnel. The tunnel ARN format is
    * 				<code>arn:aws:tunnel:<region>:<account-id>:tunnel/<tunnel-id></code>
    *          </p>
    */
   tunnelArn?: string;
-
-  /**
-   * <p>The access token the destination local proxy uses to connect to AWS IoT Secure
-   * 			Tunneling.</p>
-   */
-  destinationAccessToken?: string;
 
   /**
    * <p>The access token the source local proxy uses to connect to AWS IoT Secure
@@ -411,29 +409,30 @@ export interface OpenTunnelResponse {
   sourceAccessToken?: string;
 
   /**
-   * <p>A unique alpha-numeric tunnel ID.</p>
+   * <p>The access token the destination local proxy uses to connect to AWS IoT Secure
+   * 			Tunneling.</p>
    */
-  tunnelId?: string;
+  destinationAccessToken?: string;
 }
 
 export namespace OpenTunnelResponse {
   export const filterSensitiveLog = (obj: OpenTunnelResponse): any => ({
     ...obj,
-    ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
     ...(obj.sourceAccessToken && { sourceAccessToken: SENSITIVE_STRING }),
+    ...(obj.destinationAccessToken && { destinationAccessToken: SENSITIVE_STRING }),
   });
 }
 
 export interface TagResourceRequest {
   /**
-   * <p>The tags for the resource.</p>
-   */
-  tags: Tag[] | undefined;
-
-  /**
    * <p>The ARN of the resource.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>The tags for the resource.</p>
+   */
+  tags: Tag[] | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -452,14 +451,14 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
-   * <p>The keys of the tags to remove.</p>
-   */
-  tagKeys: string[] | undefined;
-
-  /**
    * <p>The resource ARN.</p>
    */
   resourceArn: string | undefined;
+
+  /**
+   * <p>The keys of the tags to remove.</p>
+   */
+  tagKeys: string[] | undefined;
 }
 
 export namespace UntagResourceRequest {

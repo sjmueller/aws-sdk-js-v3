@@ -52,11 +52,23 @@ export class DisassociateWebsiteCertificateAuthorityCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkLinkClient";
+    const commandName = "DisassociateWebsiteCertificateAuthorityCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DisassociateWebsiteCertificateAuthorityRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DisassociateWebsiteCertificateAuthorityResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

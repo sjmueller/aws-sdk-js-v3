@@ -18,6 +18,10 @@ import { CreateAssetModelCommandInput, CreateAssetModelCommandOutput } from "./c
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand.ts";
 import { CreateGatewayCommandInput, CreateGatewayCommandOutput } from "./commands/CreateGatewayCommand.ts";
 import { CreatePortalCommandInput, CreatePortalCommandOutput } from "./commands/CreatePortalCommand.ts";
+import {
+  CreatePresignedPortalUrlCommandInput,
+  CreatePresignedPortalUrlCommandOutput,
+} from "./commands/CreatePresignedPortalUrlCommand.ts";
 import { CreateProjectCommandInput, CreateProjectCommandOutput } from "./commands/CreateProjectCommand.ts";
 import { DeleteAccessPolicyCommandInput, DeleteAccessPolicyCommandOutput } from "./commands/DeleteAccessPolicyCommand.ts";
 import { DeleteAssetCommandInput, DeleteAssetCommandOutput } from "./commands/DeleteAssetCommand.ts";
@@ -155,6 +159,7 @@ export type ServiceInputTypes =
   | CreateDashboardCommandInput
   | CreateGatewayCommandInput
   | CreatePortalCommandInput
+  | CreatePresignedPortalUrlCommandInput
   | CreateProjectCommandInput
   | DeleteAccessPolicyCommandInput
   | DeleteAssetCommandInput
@@ -211,6 +216,7 @@ export type ServiceOutputTypes =
   | CreateDashboardCommandOutput
   | CreateGatewayCommandOutput
   | CreatePortalCommandOutput
+  | CreatePresignedPortalUrlCommandOutput
   | CreateProjectCommandOutput
   | DeleteAccessPolicyCommandOutput
   | DeleteAssetCommandOutput

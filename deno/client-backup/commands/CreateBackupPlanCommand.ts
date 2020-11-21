@@ -1,4 +1,3 @@
-
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
 import { CreateBackupPlanInput, CreateBackupPlanOutput } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class CreateBackupPlanCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BackupClient";
+    const commandName = "CreateBackupPlanCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateBackupPlanInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateBackupPlanOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

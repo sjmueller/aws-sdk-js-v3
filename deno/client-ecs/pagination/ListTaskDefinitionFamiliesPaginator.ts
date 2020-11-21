@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTaskDefinitionFamiliesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTaskDefinitionFamiliesCommand(input, ...args));
+  return await client.send(new ListTaskDefinitionFamiliesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ECS,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTaskDefinitionFamilies(input, ...args);
 };
-export async function* listTaskDefinitionFamiliesPaginate(
+export async function* paginateListTaskDefinitionFamilies(
   config: ECSPaginationConfiguration,
   input: ListTaskDefinitionFamiliesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTaskDefinitionFamiliesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTaskDefinitionFamiliesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof ECS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listTaskDefinitionFamiliesPaginate(
       throw new Error("Invalid client, expected ECS | ECSClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

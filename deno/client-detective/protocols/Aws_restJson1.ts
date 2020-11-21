@@ -340,7 +340,7 @@ export const deserializeAws_restJson1AcceptInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptInvitationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1AcceptInvitationCommandError(output, context);
   }
   const contents: AcceptInvitationCommandOutput = {
@@ -415,7 +415,7 @@ export const deserializeAws_restJson1CreateGraphCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGraphCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateGraphCommandError(output, context);
   }
   const contents: CreateGraphCommandOutput = {
@@ -486,7 +486,7 @@ export const deserializeAws_restJson1CreateMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateMembersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateMembersCommandError(output, context);
   }
   const contents: CreateMembersCommandOutput = {
@@ -569,7 +569,7 @@ export const deserializeAws_restJson1DeleteGraphCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGraphCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteGraphCommandError(output, context);
   }
   const contents: DeleteGraphCommandOutput = {
@@ -636,7 +636,7 @@ export const deserializeAws_restJson1DeleteMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteMembersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteMembersCommandError(output, context);
   }
   const contents: DeleteMembersCommandOutput = {
@@ -719,7 +719,7 @@ export const deserializeAws_restJson1DisassociateMembershipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateMembershipCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisassociateMembershipCommandError(output, context);
   }
   const contents: DisassociateMembershipCommandOutput = {
@@ -794,7 +794,7 @@ export const deserializeAws_restJson1GetMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMembersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMembersCommandError(output, context);
   }
   const contents: GetMembersCommandOutput = {
@@ -869,7 +869,7 @@ export const deserializeAws_restJson1ListGraphsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGraphsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListGraphsCommandError(output, context);
   }
   const contents: ListGraphsCommandOutput = {
@@ -936,7 +936,7 @@ export const deserializeAws_restJson1ListInvitationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInvitationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListInvitationsCommandError(output, context);
   }
   const contents: ListInvitationsCommandOutput = {
@@ -1003,7 +1003,7 @@ export const deserializeAws_restJson1ListMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMembersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListMembersCommandError(output, context);
   }
   const contents: ListMembersCommandOutput = {
@@ -1078,7 +1078,7 @@ export const deserializeAws_restJson1RejectInvitationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectInvitationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RejectInvitationCommandError(output, context);
   }
   const contents: RejectInvitationCommandOutput = {
@@ -1153,7 +1153,7 @@ export const deserializeAws_restJson1StartMonitoringMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartMonitoringMemberCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartMonitoringMemberCommandError(output, context);
   }
   const contents: StartMonitoringMemberCommandOutput = {

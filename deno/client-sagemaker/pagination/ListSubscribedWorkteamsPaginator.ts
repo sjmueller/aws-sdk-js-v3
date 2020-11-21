@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSubscribedWorkteamsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSubscribedWorkteamsCommand(input, ...args));
+  return await client.send(new ListSubscribedWorkteamsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SageMaker,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSubscribedWorkteams(input, ...args);
 };
-export async function* listSubscribedWorkteamsPaginate(
+export async function* paginateListSubscribedWorkteams(
   config: SageMakerPaginationConfiguration,
   input: ListSubscribedWorkteamsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSubscribedWorkteamsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSubscribedWorkteamsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SageMaker) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listSubscribedWorkteamsPaginate(
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

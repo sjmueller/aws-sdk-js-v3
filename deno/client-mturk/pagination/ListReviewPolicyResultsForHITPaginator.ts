@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListReviewPolicyResultsForHITCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListReviewPolicyResultsForHITCommand(input, ...args));
+  return await client.send(new ListReviewPolicyResultsForHITCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MTurk,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listReviewPolicyResultsForHIT(input, ...args);
 };
-export async function* listReviewPolicyResultsForHITPaginate(
+export async function* paginateListReviewPolicyResultsForHIT(
   config: MTurkPaginationConfiguration,
   input: ListReviewPolicyResultsForHITCommandInput,
   ...additionalArguments: any
 ): Paginator<ListReviewPolicyResultsForHITCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListReviewPolicyResultsForHITCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof MTurk) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listReviewPolicyResultsForHITPaginate(
       throw new Error("Invalid client, expected MTurk | MTurkClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

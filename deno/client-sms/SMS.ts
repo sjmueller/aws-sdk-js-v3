@@ -18,6 +18,11 @@ import {
   DeleteAppReplicationConfigurationCommandOutput,
 } from "./commands/DeleteAppReplicationConfigurationCommand.ts";
 import {
+  DeleteAppValidationConfigurationCommand,
+  DeleteAppValidationConfigurationCommandInput,
+  DeleteAppValidationConfigurationCommandOutput,
+} from "./commands/DeleteAppValidationConfigurationCommand.ts";
+import {
   DeleteReplicationJobCommand,
   DeleteReplicationJobCommandInput,
   DeleteReplicationJobCommandOutput,
@@ -54,6 +59,16 @@ import {
   GetAppReplicationConfigurationCommandOutput,
 } from "./commands/GetAppReplicationConfigurationCommand.ts";
 import {
+  GetAppValidationConfigurationCommand,
+  GetAppValidationConfigurationCommandInput,
+  GetAppValidationConfigurationCommandOutput,
+} from "./commands/GetAppValidationConfigurationCommand.ts";
+import {
+  GetAppValidationOutputCommand,
+  GetAppValidationOutputCommandInput,
+  GetAppValidationOutputCommandOutput,
+} from "./commands/GetAppValidationOutputCommand.ts";
+import {
   GetConnectorsCommand,
   GetConnectorsCommandInput,
   GetConnectorsCommandOutput,
@@ -70,12 +85,22 @@ import {
 } from "./commands/GetReplicationRunsCommand.ts";
 import { GetServersCommand, GetServersCommandInput, GetServersCommandOutput } from "./commands/GetServersCommand.ts";
 import {
+  ImportAppCatalogCommand,
+  ImportAppCatalogCommandInput,
+  ImportAppCatalogCommandOutput,
+} from "./commands/ImportAppCatalogCommand.ts";
+import {
   ImportServerCatalogCommand,
   ImportServerCatalogCommandInput,
   ImportServerCatalogCommandOutput,
 } from "./commands/ImportServerCatalogCommand.ts";
 import { LaunchAppCommand, LaunchAppCommandInput, LaunchAppCommandOutput } from "./commands/LaunchAppCommand.ts";
 import { ListAppsCommand, ListAppsCommandInput, ListAppsCommandOutput } from "./commands/ListAppsCommand.ts";
+import {
+  NotifyAppValidationOutputCommand,
+  NotifyAppValidationOutputCommandInput,
+  NotifyAppValidationOutputCommandOutput,
+} from "./commands/NotifyAppValidationOutputCommand.ts";
 import {
   PutAppLaunchConfigurationCommand,
   PutAppLaunchConfigurationCommandInput,
@@ -87,10 +112,20 @@ import {
   PutAppReplicationConfigurationCommandOutput,
 } from "./commands/PutAppReplicationConfigurationCommand.ts";
 import {
+  PutAppValidationConfigurationCommand,
+  PutAppValidationConfigurationCommandInput,
+  PutAppValidationConfigurationCommandOutput,
+} from "./commands/PutAppValidationConfigurationCommand.ts";
+import {
   StartAppReplicationCommand,
   StartAppReplicationCommandInput,
   StartAppReplicationCommandOutput,
 } from "./commands/StartAppReplicationCommand.ts";
+import {
+  StartOnDemandAppReplicationCommand,
+  StartOnDemandAppReplicationCommandInput,
+  StartOnDemandAppReplicationCommandOutput,
+} from "./commands/StartOnDemandAppReplicationCommand.ts";
 import {
   StartOnDemandReplicationRunCommand,
   StartOnDemandReplicationRunCommandInput,
@@ -115,24 +150,20 @@ import {
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
- * <fullname>AAWS Sever Migration Service</fullname>
- *         <p>This is the <i>AWS Sever Migration Service API Reference</i>. It provides descriptions,
- *             syntax, and usage examples for each of the actions and data types for the AWS Sever Migration Service
- *             (AWS SMS). The topic for each action shows the Query API request parameters and the XML
- *             response. You can also view the XML request elements in the WSDL.</p>
- *         <p>Alternatively, you can use one of the AWS SDKs to access an API that's tailored to the
- *             programming language or platform that you're using. For more information, see <a href="http://aws.amazon.com/tools/#SDKs">AWS SDKs</a>.</p>
- *         <p>To learn more about the Server Migration Service, see the following resources:</p>
+ * <fullname>AWS Server Migration Service</fullname>
+ *         <p>AWS Server Migration Service (AWS SMS) makes it easier and faster for you to migrate your
+ *             on-premises workloads to AWS. To learn more about AWS SMS, see the following
+ *             resources:</p>
  *         <ul>
  *             <li>
  *                 <p>
- *                   <a href="https://aws.amazon.com/server-migration-service/">AWS Sever Migration Service
- *                         product page</a>
+ *                   <a href="http://aws.amazon.com/server-migration-service/">AWS Server Migration Service
+ *                     product page</a>
  *                </p>
  *             </li>
  *             <li>
  *                 <p>
- *                   <a href="https://docs.aws.amazon.com/server-migration-service/latest/userguide/server-migration.html">AWS Sever Migration Service User Guide</a>
+ *                   <a href="https://docs.aws.amazon.com/server-migration-service/latest/userguide/">AWS Server Migration Service User Guide</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -200,7 +231,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Deletes an existing application. Optionally deletes the launched stack associated with
+   * <p>Deletes the specified application. Optionally deletes the launched stack associated with
    *             the application and all AWS SMS replication jobs for servers in the application.</p>
    */
   public deleteApp(args: DeleteAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAppCommandOutput>;
@@ -227,7 +258,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Deletes existing launch configuration for an application.</p>
+   * <p>Deletes the launch configuration for the specified application.</p>
    */
   public deleteAppLaunchConfiguration(
     args: DeleteAppLaunchConfigurationCommandInput,
@@ -259,7 +290,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Deletes existing replication configuration for an application.</p>
+   * <p>Deletes the replication configuration for the specified application.</p>
    */
   public deleteAppReplicationConfiguration(
     args: DeleteAppReplicationConfigurationCommandInput,
@@ -280,6 +311,38 @@ export class SMS extends SMSClient {
     cb?: (err: any, data?: DeleteAppReplicationConfigurationCommandOutput) => void
   ): Promise<DeleteAppReplicationConfigurationCommandOutput> | void {
     const command = new DeleteAppReplicationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the validation configuration for the specified application.</p>
+   */
+  public deleteAppValidationConfiguration(
+    args: DeleteAppValidationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAppValidationConfigurationCommandOutput>;
+  public deleteAppValidationConfiguration(
+    args: DeleteAppValidationConfigurationCommandInput,
+    cb: (err: any, data?: DeleteAppValidationConfigurationCommandOutput) => void
+  ): void;
+  public deleteAppValidationConfiguration(
+    args: DeleteAppValidationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAppValidationConfigurationCommandOutput) => void
+  ): void;
+  public deleteAppValidationConfiguration(
+    args: DeleteAppValidationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAppValidationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAppValidationConfigurationCommandOutput) => void
+  ): Promise<DeleteAppValidationConfigurationCommandOutput> | void {
+    const command = new DeleteAppValidationConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -425,7 +488,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Generates an Amazon CloudFormation template based on the current launch configuration and writes it to
+   * <p>Generates an AWS CloudFormation template based on the current launch configuration and writes it to
    *             an Amazon S3 object in the customer’s Amazon S3 bucket.</p>
    */
   public generateTemplate(
@@ -458,7 +521,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Retrieve information about an application.</p>
+   * <p>Retrieve information about the specified application.</p>
    */
   public getApp(args: GetAppCommandInput, options?: __HttpHandlerOptions): Promise<GetAppCommandOutput>;
   public getApp(args: GetAppCommandInput, cb: (err: any, data?: GetAppCommandOutput) => void): void;
@@ -484,7 +547,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Retrieves the application launch configuration associated with an application.</p>
+   * <p>Retrieves the application launch configuration associated with the specified application.</p>
    */
   public getAppLaunchConfiguration(
     args: GetAppLaunchConfigurationCommandInput,
@@ -516,7 +579,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Retrieves an application replication configuration associatd with an
+   * <p>Retrieves the application replication configuration associated with the specified
    *             application.</p>
    */
   public getAppReplicationConfiguration(
@@ -538,6 +601,70 @@ export class SMS extends SMSClient {
     cb?: (err: any, data?: GetAppReplicationConfigurationCommandOutput) => void
   ): Promise<GetAppReplicationConfigurationCommandOutput> | void {
     const command = new GetAppReplicationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves information about a configuration for validating an application.</p>
+   */
+  public getAppValidationConfiguration(
+    args: GetAppValidationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAppValidationConfigurationCommandOutput>;
+  public getAppValidationConfiguration(
+    args: GetAppValidationConfigurationCommandInput,
+    cb: (err: any, data?: GetAppValidationConfigurationCommandOutput) => void
+  ): void;
+  public getAppValidationConfiguration(
+    args: GetAppValidationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAppValidationConfigurationCommandOutput) => void
+  ): void;
+  public getAppValidationConfiguration(
+    args: GetAppValidationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppValidationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: GetAppValidationConfigurationCommandOutput) => void
+  ): Promise<GetAppValidationConfigurationCommandOutput> | void {
+    const command = new GetAppValidationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves output from validating an application.</p>
+   */
+  public getAppValidationOutput(
+    args: GetAppValidationOutputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAppValidationOutputCommandOutput>;
+  public getAppValidationOutput(
+    args: GetAppValidationOutputCommandInput,
+    cb: (err: any, data?: GetAppValidationOutputCommandOutput) => void
+  ): void;
+  public getAppValidationOutput(
+    args: GetAppValidationOutputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAppValidationOutputCommandOutput) => void
+  ): void;
+  public getAppValidationOutput(
+    args: GetAppValidationOutputCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAppValidationOutputCommandOutput) => void),
+    cb?: (err: any, data?: GetAppValidationOutputCommandOutput) => void
+  ): Promise<GetAppValidationOutputCommandOutput> | void {
+    const command = new GetAppValidationOutputCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -672,8 +799,40 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * <p>Allows application import from AWS Migration Hub.</p>
+   */
+  public importAppCatalog(
+    args: ImportAppCatalogCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportAppCatalogCommandOutput>;
+  public importAppCatalog(
+    args: ImportAppCatalogCommandInput,
+    cb: (err: any, data?: ImportAppCatalogCommandOutput) => void
+  ): void;
+  public importAppCatalog(
+    args: ImportAppCatalogCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportAppCatalogCommandOutput) => void
+  ): void;
+  public importAppCatalog(
+    args: ImportAppCatalogCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportAppCatalogCommandOutput) => void),
+    cb?: (err: any, data?: ImportAppCatalogCommandOutput) => void
+  ): Promise<ImportAppCatalogCommandOutput> | void {
+    const command = new ImportAppCatalogCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Gathers a complete list of on-premises servers. Connectors must be installed and
-   *             monitoring all servers that you want to import.</p>
+   *             monitoring all servers to import.</p>
    *         <p>This call returns immediately, but might take additional time to retrieve all the
    *             servers.</p>
    */
@@ -707,7 +866,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Launches an application stack.</p>
+   * <p>Launches the specified application as a stack in AWS CloudFormation.</p>
    */
   public launchApp(args: LaunchAppCommandInput, options?: __HttpHandlerOptions): Promise<LaunchAppCommandOutput>;
   public launchApp(args: LaunchAppCommandInput, cb: (err: any, data?: LaunchAppCommandOutput) => void): void;
@@ -733,7 +892,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Returns a list of summaries for all applications.</p>
+   * <p>Retrieves summaries for all applications.</p>
    */
   public listApps(args: ListAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListAppsCommandOutput>;
   public listApps(args: ListAppsCommandInput, cb: (err: any, data?: ListAppsCommandOutput) => void): void;
@@ -759,7 +918,39 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Creates a launch configuration for an application.</p>
+   * <p>Provides information to AWS SMS about whether application validation is successful.</p>
+   */
+  public notifyAppValidationOutput(
+    args: NotifyAppValidationOutputCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<NotifyAppValidationOutputCommandOutput>;
+  public notifyAppValidationOutput(
+    args: NotifyAppValidationOutputCommandInput,
+    cb: (err: any, data?: NotifyAppValidationOutputCommandOutput) => void
+  ): void;
+  public notifyAppValidationOutput(
+    args: NotifyAppValidationOutputCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: NotifyAppValidationOutputCommandOutput) => void
+  ): void;
+  public notifyAppValidationOutput(
+    args: NotifyAppValidationOutputCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: NotifyAppValidationOutputCommandOutput) => void),
+    cb?: (err: any, data?: NotifyAppValidationOutputCommandOutput) => void
+  ): Promise<NotifyAppValidationOutputCommandOutput> | void {
+    const command = new NotifyAppValidationOutputCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates the launch configuration for the specified application.</p>
    */
   public putAppLaunchConfiguration(
     args: PutAppLaunchConfigurationCommandInput,
@@ -791,7 +982,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Creates or updates a replication configuration for an application.</p>
+   * <p>Creates or updates the replication configuration for the specified application.</p>
    */
   public putAppReplicationConfiguration(
     args: PutAppReplicationConfigurationCommandInput,
@@ -823,7 +1014,40 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Starts replicating an application.</p>
+   * <p>Creates or updates a validation configuration for the specified application.</p>
+   */
+  public putAppValidationConfiguration(
+    args: PutAppValidationConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAppValidationConfigurationCommandOutput>;
+  public putAppValidationConfiguration(
+    args: PutAppValidationConfigurationCommandInput,
+    cb: (err: any, data?: PutAppValidationConfigurationCommandOutput) => void
+  ): void;
+  public putAppValidationConfiguration(
+    args: PutAppValidationConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAppValidationConfigurationCommandOutput) => void
+  ): void;
+  public putAppValidationConfiguration(
+    args: PutAppValidationConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutAppValidationConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: PutAppValidationConfigurationCommandOutput) => void
+  ): Promise<PutAppValidationConfigurationCommandOutput> | void {
+    const command = new PutAppValidationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts replicating the specified application by creating replication jobs for each server in the
+   *             application.</p>
    */
   public startAppReplication(
     args: StartAppReplicationCommandInput,
@@ -855,11 +1079,43 @@ export class SMS extends SMSClient {
   }
 
   /**
+   * <p>Starts an on-demand replication run for the specified application.</p>
+   */
+  public startOnDemandAppReplication(
+    args: StartOnDemandAppReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartOnDemandAppReplicationCommandOutput>;
+  public startOnDemandAppReplication(
+    args: StartOnDemandAppReplicationCommandInput,
+    cb: (err: any, data?: StartOnDemandAppReplicationCommandOutput) => void
+  ): void;
+  public startOnDemandAppReplication(
+    args: StartOnDemandAppReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartOnDemandAppReplicationCommandOutput) => void
+  ): void;
+  public startOnDemandAppReplication(
+    args: StartOnDemandAppReplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartOnDemandAppReplicationCommandOutput) => void),
+    cb?: (err: any, data?: StartOnDemandAppReplicationCommandOutput) => void
+  ): Promise<StartOnDemandAppReplicationCommandOutput> | void {
+    const command = new StartOnDemandAppReplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Starts an on-demand replication run for the specified replication job. This
    *             replication run starts immediately. This replication run is in addition to the ones
    *             already scheduled.</p>
-   *         <p>There is a limit on the number of on-demand replications runs you can request in a
-   *             24-hour period.</p>
+   *         <p>There is a limit on the number of on-demand replications runs that you can request
+   *             in a 24-hour period.</p>
    */
   public startOnDemandReplicationRun(
     args: StartOnDemandReplicationRunCommandInput,
@@ -891,7 +1147,8 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Stops replicating an application.</p>
+   * <p>Stops replicating the specified application by deleting the replication job for each server in
+   *             the application.</p>
    */
   public stopAppReplication(
     args: StopAppReplicationCommandInput,
@@ -923,7 +1180,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Terminates the stack for an application.</p>
+   * <p>Terminates the stack for the specified application.</p>
    */
   public terminateApp(
     args: TerminateAppCommandInput,
@@ -952,7 +1209,7 @@ export class SMS extends SMSClient {
   }
 
   /**
-   * <p>Updates an application.</p>
+   * <p>Updates the specified application.</p>
    */
   public updateApp(args: UpdateAppCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAppCommandOutput>;
   public updateApp(args: UpdateAppCommandInput, cb: (err: any, data?: UpdateAppCommandOutput) => void): void;

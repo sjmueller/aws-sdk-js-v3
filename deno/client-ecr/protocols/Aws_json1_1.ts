@@ -578,7 +578,7 @@ export const deserializeAws_json1_1BatchCheckLayerAvailabilityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCheckLayerAvailabilityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchCheckLayerAvailabilityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -649,7 +649,7 @@ export const deserializeAws_json1_1BatchDeleteImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchDeleteImageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchDeleteImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -720,7 +720,7 @@ export const deserializeAws_json1_1BatchGetImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetImageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchGetImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -791,7 +791,7 @@ export const deserializeAws_json1_1CompleteLayerUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteLayerUploadCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CompleteLayerUploadCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -910,7 +910,7 @@ export const deserializeAws_json1_1CreateRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRepositoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1013,7 +1013,7 @@ export const deserializeAws_json1_1DeleteLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLifecyclePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteLifecyclePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1092,7 +1092,7 @@ export const deserializeAws_json1_1DeleteRepositoryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRepositoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteRepositoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1179,7 +1179,7 @@ export const deserializeAws_json1_1DeleteRepositoryPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRepositoryPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteRepositoryPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1258,7 +1258,7 @@ export const deserializeAws_json1_1DescribeImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImagesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeImagesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1337,7 +1337,7 @@ export const deserializeAws_json1_1DescribeImageScanFindingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImageScanFindingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeImageScanFindingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1424,7 +1424,7 @@ export const deserializeAws_json1_1DescribeRepositoriesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRepositoriesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeRepositoriesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1495,7 +1495,7 @@ export const deserializeAws_json1_1GetAuthorizationTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAuthorizationTokenCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetAuthorizationTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1558,7 +1558,7 @@ export const deserializeAws_json1_1GetDownloadUrlForLayerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDownloadUrlForLayerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetDownloadUrlForLayerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1645,7 +1645,7 @@ export const deserializeAws_json1_1GetLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetLifecyclePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1724,7 +1724,7 @@ export const deserializeAws_json1_1GetLifecyclePolicyPreviewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyPreviewCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetLifecyclePolicyPreviewCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1803,7 +1803,7 @@ export const deserializeAws_json1_1GetRepositoryPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRepositoryPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRepositoryPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1882,7 +1882,7 @@ export const deserializeAws_json1_1InitiateLayerUploadCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InitiateLayerUploadCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1InitiateLayerUploadCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1961,7 +1961,7 @@ export const deserializeAws_json1_1ListImagesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListImagesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListImagesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2032,7 +2032,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2103,7 +2103,7 @@ export const deserializeAws_json1_1PutImageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutImageCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutImageCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2230,7 +2230,7 @@ export const deserializeAws_json1_1PutImageScanningConfigurationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutImageScanningConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutImageScanningConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2301,7 +2301,7 @@ export const deserializeAws_json1_1PutImageTagMutabilityCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutImageTagMutabilityCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutImageTagMutabilityCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2372,7 +2372,7 @@ export const deserializeAws_json1_1PutLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLifecyclePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutLifecyclePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2443,7 +2443,7 @@ export const deserializeAws_json1_1SetRepositoryPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetRepositoryPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SetRepositoryPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2514,7 +2514,7 @@ export const deserializeAws_json1_1StartImageScanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImageScanCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartImageScanCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2609,7 +2609,7 @@ export const deserializeAws_json1_1StartLifecyclePolicyPreviewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartLifecyclePolicyPreviewCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartLifecyclePolicyPreviewCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2696,7 +2696,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2783,7 +2783,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2870,7 +2870,7 @@ export const deserializeAws_json1_1UploadLayerPartCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadLayerPartCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UploadLayerPartCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4120,7 +4120,15 @@ const deserializeAws_json1_1ImageAlreadyExistsException = (
 
 const deserializeAws_json1_1ImageDetail = (output: any, context: __SerdeContext): ImageDetail => {
   return {
+    artifactMediaType:
+      output.artifactMediaType !== undefined && output.artifactMediaType !== null
+        ? output.artifactMediaType
+        : undefined,
     imageDigest: output.imageDigest !== undefined && output.imageDigest !== null ? output.imageDigest : undefined,
+    imageManifestMediaType:
+      output.imageManifestMediaType !== undefined && output.imageManifestMediaType !== null
+        ? output.imageManifestMediaType
+        : undefined,
     imagePushedAt:
       output.imagePushedAt !== undefined && output.imagePushedAt !== null
         ? new Date(Math.round(output.imagePushedAt * 1000))

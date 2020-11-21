@@ -725,7 +725,7 @@ export const deserializeAws_json1_1AcceptQualificationRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptQualificationRequestCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AcceptQualificationRequestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -788,7 +788,7 @@ export const deserializeAws_json1_1ApproveAssignmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ApproveAssignmentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ApproveAssignmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -851,7 +851,7 @@ export const deserializeAws_json1_1AssociateQualificationWithWorkerCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateQualificationWithWorkerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateQualificationWithWorkerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -914,7 +914,7 @@ export const deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAdditionalAssignmentsForHITCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateAdditionalAssignmentsForHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -977,7 +977,7 @@ export const deserializeAws_json1_1CreateHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHITCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1040,7 +1040,7 @@ export const deserializeAws_json1_1CreateHITTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHITTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateHITTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1103,7 +1103,7 @@ export const deserializeAws_json1_1CreateHITWithHITTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHITWithHITTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateHITWithHITTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1166,7 +1166,7 @@ export const deserializeAws_json1_1CreateQualificationTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateQualificationTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateQualificationTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1229,7 +1229,7 @@ export const deserializeAws_json1_1CreateWorkerBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWorkerBlockCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateWorkerBlockCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1292,7 +1292,7 @@ export const deserializeAws_json1_1DeleteHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHITCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1355,7 +1355,7 @@ export const deserializeAws_json1_1DeleteQualificationTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteQualificationTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteQualificationTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1418,7 +1418,7 @@ export const deserializeAws_json1_1DeleteWorkerBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkerBlockCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteWorkerBlockCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1481,7 +1481,7 @@ export const deserializeAws_json1_1DisassociateQualificationFromWorkerCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateQualificationFromWorkerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateQualificationFromWorkerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1544,7 +1544,7 @@ export const deserializeAws_json1_1GetAccountBalanceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountBalanceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetAccountBalanceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1607,7 +1607,7 @@ export const deserializeAws_json1_1GetAssignmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAssignmentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetAssignmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1670,7 +1670,7 @@ export const deserializeAws_json1_1GetFileUploadURLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFileUploadURLCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetFileUploadURLCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1733,7 +1733,7 @@ export const deserializeAws_json1_1GetHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHITCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1796,7 +1796,7 @@ export const deserializeAws_json1_1GetQualificationScoreCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetQualificationScoreCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetQualificationScoreCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1859,7 +1859,7 @@ export const deserializeAws_json1_1GetQualificationTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetQualificationTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetQualificationTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1922,7 +1922,7 @@ export const deserializeAws_json1_1ListAssignmentsForHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAssignmentsForHITCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAssignmentsForHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1985,7 +1985,7 @@ export const deserializeAws_json1_1ListBonusPaymentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBonusPaymentsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListBonusPaymentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2048,7 +2048,7 @@ export const deserializeAws_json1_1ListHITsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHITsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListHITsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2111,7 +2111,7 @@ export const deserializeAws_json1_1ListHITsForQualificationTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHITsForQualificationTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListHITsForQualificationTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2174,7 +2174,7 @@ export const deserializeAws_json1_1ListQualificationRequestsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListQualificationRequestsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListQualificationRequestsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2237,7 +2237,7 @@ export const deserializeAws_json1_1ListQualificationTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListQualificationTypesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListQualificationTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2300,7 +2300,7 @@ export const deserializeAws_json1_1ListReviewableHITsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReviewableHITsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListReviewableHITsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2363,7 +2363,7 @@ export const deserializeAws_json1_1ListReviewPolicyResultsForHITCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReviewPolicyResultsForHITCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListReviewPolicyResultsForHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2426,7 +2426,7 @@ export const deserializeAws_json1_1ListWorkerBlocksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkerBlocksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListWorkerBlocksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2489,7 +2489,7 @@ export const deserializeAws_json1_1ListWorkersWithQualificationTypeCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWorkersWithQualificationTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListWorkersWithQualificationTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2552,7 +2552,7 @@ export const deserializeAws_json1_1NotifyWorkersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<NotifyWorkersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1NotifyWorkersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2615,7 +2615,7 @@ export const deserializeAws_json1_1RejectAssignmentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectAssignmentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RejectAssignmentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2678,7 +2678,7 @@ export const deserializeAws_json1_1RejectQualificationRequestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RejectQualificationRequestCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RejectQualificationRequestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2741,7 +2741,7 @@ export const deserializeAws_json1_1SendBonusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendBonusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SendBonusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2804,7 +2804,7 @@ export const deserializeAws_json1_1SendTestEventNotificationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendTestEventNotificationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SendTestEventNotificationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2867,7 +2867,7 @@ export const deserializeAws_json1_1UpdateExpirationForHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateExpirationForHITCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateExpirationForHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2930,7 +2930,7 @@ export const deserializeAws_json1_1UpdateHITReviewStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateHITReviewStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateHITReviewStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2993,7 +2993,7 @@ export const deserializeAws_json1_1UpdateHITTypeOfHITCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateHITTypeOfHITCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateHITTypeOfHITCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3056,7 +3056,7 @@ export const deserializeAws_json1_1UpdateNotificationSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateNotificationSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateNotificationSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3119,7 +3119,7 @@ export const deserializeAws_json1_1UpdateQualificationTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateQualificationTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateQualificationTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

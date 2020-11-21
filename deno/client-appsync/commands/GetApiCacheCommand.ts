@@ -1,4 +1,3 @@
-
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient.ts";
 import { GetApiCacheRequest, GetApiCacheResponse } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class GetApiCacheCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppSyncClient";
+    const commandName = "GetApiCacheCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetApiCacheRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetApiCacheResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,4 +1,3 @@
-
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient.ts";
 import { CreateAnalyzerRequest, CreateAnalyzerResponse } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class CreateAnalyzerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AccessAnalyzerClient";
+    const commandName = "CreateAnalyzerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateAnalyzerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateAnalyzerResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

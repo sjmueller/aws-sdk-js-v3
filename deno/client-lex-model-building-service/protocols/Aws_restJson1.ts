@@ -255,15 +255,6 @@ export const serializeAws_restJson1DeleteBotAliasCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bots/{botName}/aliases/{name}";
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -272,6 +263,15 @@ export const serializeAws_restJson1DeleteBotAliasCommand = async (
     resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
+  }
+  if (input.botName !== undefined) {
+    const labelValue: string = input.botName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botName.");
+    }
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -294,6 +294,15 @@ export const serializeAws_restJson1DeleteBotChannelAssociationCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bots/{botName}/aliases/{botAlias}/channels/{name}";
+  if (input.name !== undefined) {
+    const labelValue: string = input.name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: name.");
+    }
+    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: name.");
+  }
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -311,15 +320,6 @@ export const serializeAws_restJson1DeleteBotChannelAssociationCommand = async (
     resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botAlias.");
-  }
-  if (input.name !== undefined) {
-    const labelValue: string = input.name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: name.");
-    }
-    resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -342,15 +342,6 @@ export const serializeAws_restJson1DeleteBotVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bots/{name}/versions/{version}";
-  if (input.version !== undefined) {
-    const labelValue: string = input.version;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: version.");
-    }
-    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: version.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -359,6 +350,15 @@ export const serializeAws_restJson1DeleteBotVersionCommand = async (
     resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
+  }
+  if (input.version !== undefined) {
+    const labelValue: string = input.version;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: version.");
+    }
+    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: version.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -480,15 +480,6 @@ export const serializeAws_restJson1DeleteSlotTypeVersionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/slottypes/{name}/version/{version}";
-  if (input.version !== undefined) {
-    const labelValue: string = input.version;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: version.");
-    }
-    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: version.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -497,6 +488,15 @@ export const serializeAws_restJson1DeleteSlotTypeVersionCommand = async (
     resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
+  }
+  if (input.version !== undefined) {
+    const labelValue: string = input.version;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: version.");
+    }
+    resolvedPath = resolvedPath.replace("{version}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: version.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -558,15 +558,6 @@ export const serializeAws_restJson1GetBotCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bots/{name}/versions/{versionOrAlias}";
-  if (input.versionOrAlias !== undefined) {
-    const labelValue: string = input.versionOrAlias;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: versionOrAlias.");
-    }
-    resolvedPath = resolvedPath.replace("{versionOrAlias}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: versionOrAlias.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -575,6 +566,15 @@ export const serializeAws_restJson1GetBotCommand = async (
     resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
+  }
+  if (input.versionOrAlias !== undefined) {
+    const labelValue: string = input.versionOrAlias;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: versionOrAlias.");
+    }
+    resolvedPath = resolvedPath.replace("{versionOrAlias}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: versionOrAlias.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -597,15 +597,6 @@ export const serializeAws_restJson1GetBotAliasCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/bots/{botName}/aliases/{name}";
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -614,6 +605,15 @@ export const serializeAws_restJson1GetBotAliasCommand = async (
     resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
+  }
+  if (input.botName !== undefined) {
+    const labelValue: string = input.botName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botName.");
+    }
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botName.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -647,8 +647,8 @@ export const serializeAws_restJson1GetBotAliasesCommand = async (
   }
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -681,15 +681,6 @@ export const serializeAws_restJson1GetBotChannelAssociationCommand = async (
   } else {
     throw new Error("No value provided for input HTTP label: name.");
   }
-  if (input.botAlias !== undefined) {
-    const labelValue: string = input.botAlias;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botAlias.");
-    }
-    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botAlias.");
-  }
   if (input.botName !== undefined) {
     const labelValue: string = input.botName;
     if (labelValue.length <= 0) {
@@ -698,6 +689,15 @@ export const serializeAws_restJson1GetBotChannelAssociationCommand = async (
     resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: botName.");
+  }
+  if (input.botAlias !== undefined) {
+    const labelValue: string = input.botAlias;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botAlias.");
+    }
+    resolvedPath = resolvedPath.replace("{botAlias}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botAlias.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -739,9 +739,9 @@ export const serializeAws_restJson1GetBotChannelAssociationsCommand = async (
     throw new Error("No value provided for input HTTP label: botAlias.");
   }
   const query: any = {
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -767,8 +767,8 @@ export const serializeAws_restJson1GetBotsCommand = async (
   let resolvedPath = "/bots";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -858,10 +858,10 @@ export const serializeAws_restJson1GetBuiltinIntentsCommand = async (
   };
   let resolvedPath = "/builtins/intents";
   const query: any = {
-    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
     ...(input.locale !== undefined && { locale: input.locale }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -888,8 +888,8 @@ export const serializeAws_restJson1GetBuiltinSlotTypesCommand = async (
   const query: any = {
     ...(input.locale !== undefined && { locale: input.locale }),
     ...(input.signatureContains !== undefined && { signatureContains: input.signatureContains }),
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -914,10 +914,10 @@ export const serializeAws_restJson1GetExportCommand = async (
   };
   let resolvedPath = "/exports";
   const query: any = {
-    ...(input.exportType !== undefined && { exportType: input.exportType }),
-    ...(input.version !== undefined && { version: input.version }),
     ...(input.name !== undefined && { name: input.name }),
+    ...(input.version !== undefined && { version: input.version }),
     ...(input.resourceType !== undefined && { resourceType: input.resourceType }),
+    ...(input.exportType !== undefined && { exportType: input.exportType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1047,8 +1047,8 @@ export const serializeAws_restJson1GetIntentVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1113,8 +1113,8 @@ export const serializeAws_restJson1GetSlotTypesCommand = async (
   let resolvedPath = "/slottypes";
   const query: any = {
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
-    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
     ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
+    ...(input.nameContains !== undefined && { nameContains: input.nameContains }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1148,8 +1148,8 @@ export const serializeAws_restJson1GetSlotTypeVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   const query: any = {
-    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1184,8 +1184,8 @@ export const serializeAws_restJson1GetUtterancesViewCommand = async (
   }
   const query: any = {
     view: "aggregation",
-    ...(input.statusType !== undefined && { status_type: input.statusType }),
     ...(input.botVersions !== undefined && { bot_versions: (input.botVersions || []).map((_entry) => _entry) }),
+    ...(input.statusType !== undefined && { status_type: input.statusType }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1261,9 +1261,13 @@ export const serializeAws_restJson1PutBotCommand = async (
     ...(input.createVersion !== undefined && { createVersion: input.createVersion }),
     ...(input.description !== undefined && { description: input.description }),
     ...(input.detectSentiment !== undefined && { detectSentiment: input.detectSentiment }),
+    ...(input.enableModelImprovements !== undefined && { enableModelImprovements: input.enableModelImprovements }),
     ...(input.idleSessionTTLInSeconds !== undefined && { idleSessionTTLInSeconds: input.idleSessionTTLInSeconds }),
     ...(input.intents !== undefined && { intents: serializeAws_restJson1IntentList(input.intents, context) }),
     ...(input.locale !== undefined && { locale: input.locale }),
+    ...(input.nluIntentConfidenceThreshold !== undefined && {
+      nluIntentConfidenceThreshold: input.nluIntentConfidenceThreshold,
+    }),
     ...(input.processBehavior !== undefined && { processBehavior: input.processBehavior }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1TagList(input.tags, context) }),
     ...(input.voiceId !== undefined && { voiceId: input.voiceId }),
@@ -1288,15 +1292,6 @@ export const serializeAws_restJson1PutBotAliasCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/bots/{botName}/aliases/{name}";
-  if (input.botName !== undefined) {
-    const labelValue: string = input.botName;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: botName.");
-    }
-    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: botName.");
-  }
   if (input.name !== undefined) {
     const labelValue: string = input.name;
     if (labelValue.length <= 0) {
@@ -1305,6 +1300,15 @@ export const serializeAws_restJson1PutBotAliasCommand = async (
     resolvedPath = resolvedPath.replace("{name}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: name.");
+  }
+  if (input.botName !== undefined) {
+    const labelValue: string = input.botName;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: botName.");
+    }
+    resolvedPath = resolvedPath.replace("{botName}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: botName.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1530,7 +1534,7 @@ export const deserializeAws_restJson1CreateBotVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBotVersionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBotVersionCommandError(output, context);
   }
   const contents: CreateBotVersionCommandOutput = {
@@ -1542,6 +1546,7 @@ export const deserializeAws_restJson1CreateBotVersionCommand = async (
     createdDate: undefined,
     description: undefined,
     detectSentiment: undefined,
+    enableModelImprovements: undefined,
     failureReason: undefined,
     idleSessionTTLInSeconds: undefined,
     intents: undefined,
@@ -1573,6 +1578,9 @@ export const deserializeAws_restJson1CreateBotVersionCommand = async (
   }
   if (data.detectSentiment !== undefined && data.detectSentiment !== null) {
     contents.detectSentiment = data.detectSentiment;
+  }
+  if (data.enableModelImprovements !== undefined && data.enableModelImprovements !== null) {
+    contents.enableModelImprovements = data.enableModelImprovements;
   }
   if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = data.failureReason;
@@ -1685,7 +1693,7 @@ export const deserializeAws_restJson1CreateIntentVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIntentVersionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateIntentVersionCommandError(output, context);
   }
   const contents: CreateIntentVersionCommandOutput = {
@@ -1840,7 +1848,7 @@ export const deserializeAws_restJson1CreateSlotTypeVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSlotTypeVersionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateSlotTypeVersionCommandError(output, context);
   }
   const contents: CreateSlotTypeVersionCommandOutput = {
@@ -1974,7 +1982,7 @@ export const deserializeAws_restJson1DeleteBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBotCommandError(output, context);
   }
   const contents: DeleteBotCommandOutput = {
@@ -2065,7 +2073,7 @@ export const deserializeAws_restJson1DeleteBotAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotAliasCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBotAliasCommandError(output, context);
   }
   const contents: DeleteBotAliasCommandOutput = {
@@ -2156,7 +2164,7 @@ export const deserializeAws_restJson1DeleteBotChannelAssociationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotChannelAssociationCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBotChannelAssociationCommandError(output, context);
   }
   const contents: DeleteBotChannelAssociationCommandOutput = {
@@ -2239,7 +2247,7 @@ export const deserializeAws_restJson1DeleteBotVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBotVersionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBotVersionCommandError(output, context);
   }
   const contents: DeleteBotVersionCommandOutput = {
@@ -2330,7 +2338,7 @@ export const deserializeAws_restJson1DeleteIntentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntentCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteIntentCommandError(output, context);
   }
   const contents: DeleteIntentCommandOutput = {
@@ -2421,7 +2429,7 @@ export const deserializeAws_restJson1DeleteIntentVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIntentVersionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteIntentVersionCommandError(output, context);
   }
   const contents: DeleteIntentVersionCommandOutput = {
@@ -2512,7 +2520,7 @@ export const deserializeAws_restJson1DeleteSlotTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotTypeCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteSlotTypeCommandError(output, context);
   }
   const contents: DeleteSlotTypeCommandOutput = {
@@ -2603,7 +2611,7 @@ export const deserializeAws_restJson1DeleteSlotTypeVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSlotTypeVersionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteSlotTypeVersionCommandError(output, context);
   }
   const contents: DeleteSlotTypeVersionCommandOutput = {
@@ -2694,7 +2702,7 @@ export const deserializeAws_restJson1DeleteUtterancesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUtterancesCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteUtterancesCommandError(output, context);
   }
   const contents: DeleteUtterancesCommandOutput = {
@@ -2769,7 +2777,7 @@ export const deserializeAws_restJson1GetBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBotCommandError(output, context);
   }
   const contents: GetBotCommandOutput = {
@@ -2781,12 +2789,14 @@ export const deserializeAws_restJson1GetBotCommand = async (
     createdDate: undefined,
     description: undefined,
     detectSentiment: undefined,
+    enableModelImprovements: undefined,
     failureReason: undefined,
     idleSessionTTLInSeconds: undefined,
     intents: undefined,
     lastUpdatedDate: undefined,
     locale: undefined,
     name: undefined,
+    nluIntentConfidenceThreshold: undefined,
     status: undefined,
     version: undefined,
     voiceId: undefined,
@@ -2813,6 +2823,9 @@ export const deserializeAws_restJson1GetBotCommand = async (
   if (data.detectSentiment !== undefined && data.detectSentiment !== null) {
     contents.detectSentiment = data.detectSentiment;
   }
+  if (data.enableModelImprovements !== undefined && data.enableModelImprovements !== null) {
+    contents.enableModelImprovements = data.enableModelImprovements;
+  }
   if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = data.failureReason;
   }
@@ -2830,6 +2843,9 @@ export const deserializeAws_restJson1GetBotCommand = async (
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
+  }
+  if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
+    contents.nluIntentConfidenceThreshold = data.nluIntentConfidenceThreshold;
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = data.status;
@@ -2908,7 +2924,7 @@ export const deserializeAws_restJson1GetBotAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotAliasCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBotAliasCommandError(output, context);
   }
   const contents: GetBotAliasCommandOutput = {
@@ -3015,7 +3031,7 @@ export const deserializeAws_restJson1GetBotAliasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotAliasesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBotAliasesCommandError(output, context);
   }
   const contents: GetBotAliasesCommandOutput = {
@@ -3090,7 +3106,7 @@ export const deserializeAws_restJson1GetBotChannelAssociationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotChannelAssociationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBotChannelAssociationCommandError(output, context);
   }
   const contents: GetBotChannelAssociationCommandOutput = {
@@ -3201,7 +3217,7 @@ export const deserializeAws_restJson1GetBotChannelAssociationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotChannelAssociationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBotChannelAssociationsCommandError(output, context);
   }
   const contents: GetBotChannelAssociationsCommandOutput = {
@@ -3279,7 +3295,7 @@ export const deserializeAws_restJson1GetBotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBotsCommandError(output, context);
   }
   const contents: GetBotsCommandOutput = {
@@ -3362,7 +3378,7 @@ export const deserializeAws_restJson1GetBotVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBotVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBotVersionsCommandError(output, context);
   }
   const contents: GetBotVersionsCommandOutput = {
@@ -3445,7 +3461,7 @@ export const deserializeAws_restJson1GetBuiltinIntentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinIntentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBuiltinIntentCommandError(output, context);
   }
   const contents: GetBuiltinIntentCommandOutput = {
@@ -3532,7 +3548,7 @@ export const deserializeAws_restJson1GetBuiltinIntentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinIntentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBuiltinIntentsCommandError(output, context);
   }
   const contents: GetBuiltinIntentsCommandOutput = {
@@ -3607,7 +3623,7 @@ export const deserializeAws_restJson1GetBuiltinSlotTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBuiltinSlotTypesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBuiltinSlotTypesCommandError(output, context);
   }
   const contents: GetBuiltinSlotTypesCommandOutput = {
@@ -3682,7 +3698,7 @@ export const deserializeAws_restJson1GetExportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExportCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetExportCommandError(output, context);
   }
   const contents: GetExportCommandOutput = {
@@ -3785,7 +3801,7 @@ export const deserializeAws_restJson1GetImportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetImportCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetImportCommandError(output, context);
   }
   const contents: GetImportCommandOutput = {
@@ -3888,7 +3904,7 @@ export const deserializeAws_restJson1GetIntentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetIntentCommandError(output, context);
   }
   const contents: GetIntentCommandOutput = {
@@ -4027,7 +4043,7 @@ export const deserializeAws_restJson1GetIntentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetIntentsCommandError(output, context);
   }
   const contents: GetIntentsCommandOutput = {
@@ -4110,7 +4126,7 @@ export const deserializeAws_restJson1GetIntentVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIntentVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetIntentVersionsCommandError(output, context);
   }
   const contents: GetIntentVersionsCommandOutput = {
@@ -4193,7 +4209,7 @@ export const deserializeAws_restJson1GetSlotTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSlotTypeCommandError(output, context);
   }
   const contents: GetSlotTypeCommandOutput = {
@@ -4311,7 +4327,7 @@ export const deserializeAws_restJson1GetSlotTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSlotTypesCommandError(output, context);
   }
   const contents: GetSlotTypesCommandOutput = {
@@ -4394,7 +4410,7 @@ export const deserializeAws_restJson1GetSlotTypeVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSlotTypeVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSlotTypeVersionsCommandError(output, context);
   }
   const contents: GetSlotTypeVersionsCommandOutput = {
@@ -4477,7 +4493,7 @@ export const deserializeAws_restJson1GetUtterancesViewCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUtterancesViewCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetUtterancesViewCommandError(output, context);
   }
   const contents: GetUtterancesViewCommandOutput = {
@@ -4552,7 +4568,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -4631,7 +4647,7 @@ export const deserializeAws_restJson1PutBotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBotCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutBotCommandError(output, context);
   }
   const contents: PutBotCommandOutput = {
@@ -4644,12 +4660,14 @@ export const deserializeAws_restJson1PutBotCommand = async (
     createdDate: undefined,
     description: undefined,
     detectSentiment: undefined,
+    enableModelImprovements: undefined,
     failureReason: undefined,
     idleSessionTTLInSeconds: undefined,
     intents: undefined,
     lastUpdatedDate: undefined,
     locale: undefined,
     name: undefined,
+    nluIntentConfidenceThreshold: undefined,
     status: undefined,
     tags: undefined,
     version: undefined,
@@ -4680,6 +4698,9 @@ export const deserializeAws_restJson1PutBotCommand = async (
   if (data.detectSentiment !== undefined && data.detectSentiment !== null) {
     contents.detectSentiment = data.detectSentiment;
   }
+  if (data.enableModelImprovements !== undefined && data.enableModelImprovements !== null) {
+    contents.enableModelImprovements = data.enableModelImprovements;
+  }
   if (data.failureReason !== undefined && data.failureReason !== null) {
     contents.failureReason = data.failureReason;
   }
@@ -4697,6 +4718,9 @@ export const deserializeAws_restJson1PutBotCommand = async (
   }
   if (data.name !== undefined && data.name !== null) {
     contents.name = data.name;
+  }
+  if (data.nluIntentConfidenceThreshold !== undefined && data.nluIntentConfidenceThreshold !== null) {
+    contents.nluIntentConfidenceThreshold = data.nluIntentConfidenceThreshold;
   }
   if (data.status !== undefined && data.status !== null) {
     contents.status = data.status;
@@ -4786,7 +4810,7 @@ export const deserializeAws_restJson1PutBotAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBotAliasCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutBotAliasCommandError(output, context);
   }
   const contents: PutBotAliasCommandOutput = {
@@ -4905,7 +4929,7 @@ export const deserializeAws_restJson1PutIntentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutIntentCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutIntentCommandError(output, context);
   }
   const contents: PutIntentCommandOutput = {
@@ -5056,7 +5080,7 @@ export const deserializeAws_restJson1PutSlotTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSlotTypeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutSlotTypeCommandError(output, context);
   }
   const contents: PutSlotTypeCommandOutput = {
@@ -5186,7 +5210,7 @@ export const deserializeAws_restJson1StartImportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartImportCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartImportCommandError(output, context);
   }
   const contents: StartImportCommandOutput = {
@@ -5281,7 +5305,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -5364,7 +5388,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {

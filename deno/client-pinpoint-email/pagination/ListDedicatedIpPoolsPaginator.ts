@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDedicatedIpPoolsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDedicatedIpPoolsCommand(input, ...args));
+  return await client.send(new ListDedicatedIpPoolsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: PinpointEmail,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDedicatedIpPools(input, ...args);
 };
-export async function* listDedicatedIpPoolsPaginate(
+export async function* paginateListDedicatedIpPools(
   config: PinpointEmailPaginationConfiguration,
   input: ListDedicatedIpPoolsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDedicatedIpPoolsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDedicatedIpPoolsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["PageSize"] = config.pageSize;
     if (config.client instanceof PinpointEmail) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listDedicatedIpPoolsPaginate(
       throw new Error("Invalid client, expected PinpointEmail | PinpointEmailClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

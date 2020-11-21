@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeReservedCacheNodesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeReservedCacheNodesCommand(input, ...args));
+  return await client.send(new DescribeReservedCacheNodesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElastiCache,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeReservedCacheNodes(input, ...args);
 };
-export async function* describeReservedCacheNodesPaginate(
+export async function* paginateDescribeReservedCacheNodes(
   config: ElastiCachePaginationConfiguration,
   input: DescribeReservedCacheNodesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReservedCacheNodesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReservedCacheNodesCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof ElastiCache) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeReservedCacheNodesPaginate(
       throw new Error("Invalid client, expected ElastiCache | ElastiCacheClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

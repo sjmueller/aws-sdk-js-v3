@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListRequestedServiceQuotaChangeHistoryByQuotaCommand(input, ...args));
+  return await client.send(new ListRequestedServiceQuotaChangeHistoryByQuotaCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ServiceQuotas,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listRequestedServiceQuotaChangeHistoryByQuota(input, ...args);
 };
-export async function* listRequestedServiceQuotaChangeHistoryByQuotaPaginate(
+export async function* paginateListRequestedServiceQuotaChangeHistoryByQuota(
   config: ServiceQuotasPaginationConfiguration,
   input: ListRequestedServiceQuotaChangeHistoryByQuotaCommandInput,
   ...additionalArguments: any
 ): Paginator<ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListRequestedServiceQuotaChangeHistoryByQuotaCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof ServiceQuotas) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listRequestedServiceQuotaChangeHistoryByQuotaPaginate(
       throw new Error("Invalid client, expected ServiceQuotas | ServiceQuotasClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -1,10 +1,22 @@
 
+import {
+  BatchAssociateScramSecretCommandInput,
+  BatchAssociateScramSecretCommandOutput,
+} from "../commands/BatchAssociateScramSecretCommand.ts";
+import {
+  BatchDisassociateScramSecretCommandInput,
+  BatchDisassociateScramSecretCommandOutput,
+} from "../commands/BatchDisassociateScramSecretCommand.ts";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand.ts";
 import {
   CreateConfigurationCommandInput,
   CreateConfigurationCommandOutput,
 } from "../commands/CreateConfigurationCommand.ts";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand.ts";
+import {
+  DeleteConfigurationCommandInput,
+  DeleteConfigurationCommandOutput,
+} from "../commands/DeleteConfigurationCommand.ts";
 import { DescribeClusterCommandInput, DescribeClusterCommandOutput } from "../commands/DescribeClusterCommand.ts";
 import {
   DescribeClusterOperationCommandInput,
@@ -38,6 +50,7 @@ import {
 import { ListConfigurationsCommandInput, ListConfigurationsCommandOutput } from "../commands/ListConfigurationsCommand.ts";
 import { ListKafkaVersionsCommandInput, ListKafkaVersionsCommandOutput } from "../commands/ListKafkaVersionsCommand.ts";
 import { ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand.ts";
+import { ListScramSecretsCommandInput, ListScramSecretsCommandOutput } from "../commands/ListScramSecretsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -58,6 +71,10 @@ import {
   UpdateClusterKafkaVersionCommandInput,
   UpdateClusterKafkaVersionCommandOutput,
 } from "../commands/UpdateClusterKafkaVersionCommand.ts";
+import {
+  UpdateConfigurationCommandInput,
+  UpdateConfigurationCommandOutput,
+} from "../commands/UpdateConfigurationCommand.ts";
 import { UpdateMonitoringCommandInput, UpdateMonitoringCommandOutput } from "../commands/UpdateMonitoringCommand.ts";
 import {
   BadRequestException,
@@ -99,12 +116,15 @@ import {
   Prometheus,
   PrometheusInfo,
   S3,
+  Sasl,
+  Scram,
   ServiceUnavailableException,
   StateInfo,
   StorageInfo,
   Tls,
   TooManyRequestsException,
   UnauthorizedException,
+  UnprocessedScramSecret,
   ZookeeperNodeInfo,
 } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
@@ -118,6 +138,76 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "../../types/mod.ts";
+
+export const serializeAws_restJson1BatchAssociateScramSecretCommand = async (
+  input: BatchAssociateScramSecretCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/clusters/{ClusterArn}/scram-secrets";
+  if (input.ClusterArn !== undefined) {
+    const labelValue: string = input.ClusterArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ClusterArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ClusterArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ClusterArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.SecretArnList !== undefined && {
+      secretArnList: serializeAws_restJson1__listOf__string(input.SecretArnList, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1BatchDisassociateScramSecretCommand = async (
+  input: BatchDisassociateScramSecretCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/clusters/{ClusterArn}/scram-secrets";
+  if (input.ClusterArn !== undefined) {
+    const labelValue: string = input.ClusterArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ClusterArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ClusterArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ClusterArn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.SecretArnList !== undefined && {
+      secretArnList: serializeAws_restJson1__listOf__string(input.SecretArnList, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PATCH",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateClusterCommand = async (
   input: CreateClusterCommandInput,
@@ -228,6 +318,36 @@ export const serializeAws_restJson1DeleteClusterCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteConfigurationCommand = async (
+  input: DeleteConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/configurations/{Arn}";
+  if (input.Arn !== undefined) {
+    const labelValue: string = input.Arn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Arn.");
+    }
+    resolvedPath = resolvedPath.replace("{Arn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Arn.");
+  }
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeClusterCommand = async (
   input: DescribeClusterCommandInput,
   context: __SerdeContext
@@ -326,15 +446,6 @@ export const serializeAws_restJson1DescribeConfigurationRevisionCommand = async 
     "Content-Type": "",
   };
   let resolvedPath = "/v1/configurations/{Arn}/revisions/{Revision}";
-  if (input.Arn !== undefined) {
-    const labelValue: string = input.Arn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Arn.");
-    }
-    resolvedPath = resolvedPath.replace("{Arn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Arn.");
-  }
   if (input.Revision !== undefined) {
     const labelValue: string = input.Revision.toString();
     if (labelValue.length <= 0) {
@@ -343,6 +454,15 @@ export const serializeAws_restJson1DescribeConfigurationRevisionCommand = async 
     resolvedPath = resolvedPath.replace("{Revision}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: Revision.");
+  }
+  if (input.Arn !== undefined) {
+    const labelValue: string = input.Arn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Arn.");
+    }
+    resolvedPath = resolvedPath.replace("{Arn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Arn.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -430,8 +550,8 @@ export const serializeAws_restJson1ListClusterOperationsCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -457,8 +577,8 @@ export const serializeAws_restJson1ListClustersCommand = async (
   let resolvedPath = "/v1/clusters";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.ClusterNameFilter !== undefined && { clusterNameFilter: input.ClusterNameFilter }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.ClusterNameFilter !== undefined && { clusterNameFilter: input.ClusterNameFilter }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -569,6 +689,41 @@ export const serializeAws_restJson1ListNodesCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/v1/clusters/{ClusterArn}/nodes";
+  if (input.ClusterArn !== undefined) {
+    const labelValue: string = input.ClusterArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: ClusterArn.");
+    }
+    resolvedPath = resolvedPath.replace("{ClusterArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: ClusterArn.");
+  }
+  const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+  };
+  let body: any;
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListScramSecretsCommand = async (
+  input: ListScramSecretsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/v1/clusters/{ClusterArn}/scram-secrets";
   if (input.ClusterArn !== undefined) {
     const labelValue: string = input.ClusterArn;
     if (labelValue.length <= 0) {
@@ -876,6 +1031,40 @@ export const serializeAws_restJson1UpdateClusterKafkaVersionCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateConfigurationCommand = async (
+  input: UpdateConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/v1/configurations/{Arn}";
+  if (input.Arn !== undefined) {
+    const labelValue: string = input.Arn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Arn.");
+    }
+    resolvedPath = resolvedPath.replace("{Arn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Arn.");
+  }
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.ServerProperties !== undefined && { serverProperties: context.base64Encoder(input.ServerProperties) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateMonitoringCommand = async (
   input: UpdateMonitoringCommandInput,
   context: __SerdeContext
@@ -916,11 +1105,231 @@ export const serializeAws_restJson1UpdateMonitoringCommand = async (
   });
 };
 
+export const deserializeAws_restJson1BatchAssociateScramSecretCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchAssociateScramSecretCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchAssociateScramSecretCommandError(output, context);
+  }
+  const contents: BatchAssociateScramSecretCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ClusterArn: undefined,
+    UnprocessedScramSecrets: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.clusterArn !== undefined && data.clusterArn !== null) {
+    contents.ClusterArn = data.clusterArn;
+  }
+  if (data.unprocessedScramSecrets !== undefined && data.unprocessedScramSecrets !== null) {
+    contents.UnprocessedScramSecrets = deserializeAws_restJson1__listOfUnprocessedScramSecret(
+      data.unprocessedScramSecrets,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchAssociateScramSecretCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchAssociateScramSecretCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_restJson1BatchDisassociateScramSecretCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDisassociateScramSecretCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1BatchDisassociateScramSecretCommandError(output, context);
+  }
+  const contents: BatchDisassociateScramSecretCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ClusterArn: undefined,
+    UnprocessedScramSecrets: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.clusterArn !== undefined && data.clusterArn !== null) {
+    contents.ClusterArn = data.clusterArn;
+  }
+  if (data.unprocessedScramSecrets !== undefined && data.unprocessedScramSecrets !== null) {
+    contents.UnprocessedScramSecrets = deserializeAws_restJson1__listOfUnprocessedScramSecret(
+      data.unprocessedScramSecrets,
+      context
+    );
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1BatchDisassociateScramSecretCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDisassociateScramSecretCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1CreateClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateClusterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateClusterCommandError(output, context);
   }
   const contents: CreateClusterCommandOutput = {
@@ -1031,7 +1440,7 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateConfigurationCommandError(output, context);
   }
   const contents: CreateConfigurationCommandOutput = {
@@ -1040,6 +1449,7 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
     CreationTime: undefined,
     LatestRevision: undefined,
     Name: undefined,
+    State: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
@@ -1053,6 +1463,9 @@ export const deserializeAws_restJson1CreateConfigurationCommand = async (
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
+  }
+  if (data.state !== undefined && data.state !== null) {
+    contents.State = data.state;
   }
   return Promise.resolve(contents);
 };
@@ -1146,7 +1559,7 @@ export const deserializeAws_restJson1DeleteClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteClusterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteClusterCommandError(output, context);
   }
   const contents: DeleteClusterCommandOutput = {
@@ -1225,11 +1638,94 @@ const deserializeAws_restJson1DeleteClusterCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeleteConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteConfigurationCommandError(output, context);
+  }
+  const contents: DeleteConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    State: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.Arn = data.arn;
+  }
+  if (data.state !== undefined && data.state !== null) {
+    contents.State = data.state;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeleteConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeClusterCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClusterCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeClusterCommandError(output, context);
   }
   const contents: DescribeClusterCommandOutput = {
@@ -1316,7 +1812,7 @@ export const deserializeAws_restJson1DescribeClusterOperationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeClusterOperationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeClusterOperationCommandError(output, context);
   }
   const contents: DescribeClusterOperationCommandOutput = {
@@ -1403,7 +1899,7 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeConfigurationCommandError(output, context);
   }
   const contents: DescribeConfigurationCommandOutput = {
@@ -1414,6 +1910,7 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
     KafkaVersions: undefined,
     LatestRevision: undefined,
     Name: undefined,
+    State: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.arn !== undefined && data.arn !== null) {
@@ -1433,6 +1930,9 @@ export const deserializeAws_restJson1DescribeConfigurationCommand = async (
   }
   if (data.name !== undefined && data.name !== null) {
     contents.Name = data.name;
+  }
+  if (data.state !== undefined && data.state !== null) {
+    contents.State = data.state;
   }
   return Promise.resolve(contents);
 };
@@ -1518,7 +2018,7 @@ export const deserializeAws_restJson1DescribeConfigurationRevisionCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConfigurationRevisionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeConfigurationRevisionCommandError(output, context);
   }
   const contents: DescribeConfigurationRevisionCommandOutput = {
@@ -1629,17 +2129,21 @@ export const deserializeAws_restJson1GetBootstrapBrokersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBootstrapBrokersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBootstrapBrokersCommandError(output, context);
   }
   const contents: GetBootstrapBrokersCommandOutput = {
     $metadata: deserializeMetadata(output),
     BootstrapBrokerString: undefined,
+    BootstrapBrokerStringSaslScram: undefined,
     BootstrapBrokerStringTls: undefined,
   };
   const data: any = await parseBody(output.body, context);
   if (data.bootstrapBrokerString !== undefined && data.bootstrapBrokerString !== null) {
     contents.BootstrapBrokerString = data.bootstrapBrokerString;
+  }
+  if (data.bootstrapBrokerStringSaslScram !== undefined && data.bootstrapBrokerStringSaslScram !== null) {
+    contents.BootstrapBrokerStringSaslScram = data.bootstrapBrokerStringSaslScram;
   }
   if (data.bootstrapBrokerStringTls !== undefined && data.bootstrapBrokerStringTls !== null) {
     contents.BootstrapBrokerStringTls = data.bootstrapBrokerStringTls;
@@ -1720,7 +2224,7 @@ export const deserializeAws_restJson1GetCompatibleKafkaVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCompatibleKafkaVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetCompatibleKafkaVersionsCommandError(output, context);
   }
   const contents: GetCompatibleKafkaVersionsCommandOutput = {
@@ -1826,7 +2330,7 @@ export const deserializeAws_restJson1ListClusterOperationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClusterOperationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListClusterOperationsCommandError(output, context);
   }
   const contents: ListClusterOperationsCommandOutput = {
@@ -1912,7 +2416,7 @@ export const deserializeAws_restJson1ListClustersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListClustersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListClustersCommandError(output, context);
   }
   const contents: ListClustersCommandOutput = {
@@ -1995,7 +2499,7 @@ export const deserializeAws_restJson1ListConfigurationRevisionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationRevisionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListConfigurationRevisionsCommandError(output, context);
   }
   const contents: ListConfigurationRevisionsCommandOutput = {
@@ -2094,7 +2598,7 @@ export const deserializeAws_restJson1ListConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConfigurationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListConfigurationsCommandError(output, context);
   }
   const contents: ListConfigurationsCommandOutput = {
@@ -2185,7 +2689,7 @@ export const deserializeAws_restJson1ListKafkaVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListKafkaVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListKafkaVersionsCommandError(output, context);
   }
   const contents: ListKafkaVersionsCommandOutput = {
@@ -2268,7 +2772,7 @@ export const deserializeAws_restJson1ListNodesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListNodesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListNodesCommandError(output, context);
   }
   const contents: ListNodesCommandOutput = {
@@ -2347,11 +2851,118 @@ const deserializeAws_restJson1ListNodesCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListScramSecretsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListScramSecretsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListScramSecretsCommandError(output, context);
+  }
+  const contents: ListScramSecretsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    NextToken: undefined,
+    SecretArnList: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.NextToken = data.nextToken;
+  }
+  if (data.secretArnList !== undefined && data.secretArnList !== null) {
+    contents.SecretArnList = deserializeAws_restJson1__listOf__string(data.secretArnList, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListScramSecretsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListScramSecretsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "TooManyRequestsException":
+    case "com.amazonaws.kafka#TooManyRequestsException":
+      response = {
+        ...(await deserializeAws_restJson1TooManyRequestsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -2422,7 +3033,7 @@ export const deserializeAws_restJson1RebootBrokerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RebootBrokerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RebootBrokerCommandError(output, context);
   }
   const contents: RebootBrokerCommandOutput = {
@@ -2529,7 +3140,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -2596,7 +3207,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -2663,7 +3274,7 @@ export const deserializeAws_restJson1UpdateBrokerCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBrokerCountCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateBrokerCountCommandError(output, context);
   }
   const contents: UpdateBrokerCountCommandOutput = {
@@ -2754,7 +3365,7 @@ export const deserializeAws_restJson1UpdateBrokerStorageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBrokerStorageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateBrokerStorageCommandError(output, context);
   }
   const contents: UpdateBrokerStorageCommandOutput = {
@@ -2845,7 +3456,7 @@ export const deserializeAws_restJson1UpdateClusterConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClusterConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateClusterConfigurationCommandError(output, context);
   }
   const contents: UpdateClusterConfigurationCommandOutput = {
@@ -2944,7 +3555,7 @@ export const deserializeAws_restJson1UpdateClusterKafkaVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateClusterKafkaVersionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateClusterKafkaVersionCommandError(output, context);
   }
   const contents: UpdateClusterKafkaVersionCommandOutput = {
@@ -3047,11 +3658,110 @@ const deserializeAws_restJson1UpdateClusterKafkaVersionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateConfigurationCommandError(output, context);
+  }
+  const contents: UpdateConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    Arn: undefined,
+    LatestRevision: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.arn !== undefined && data.arn !== null) {
+    contents.Arn = data.arn;
+  }
+  if (data.latestRevision !== undefined && data.latestRevision !== null) {
+    contents.LatestRevision = deserializeAws_restJson1ConfigurationRevision(data.latestRevision, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BadRequestException":
+    case "com.amazonaws.kafka#BadRequestException":
+      response = {
+        ...(await deserializeAws_restJson1BadRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ForbiddenException":
+    case "com.amazonaws.kafka#ForbiddenException":
+      response = {
+        ...(await deserializeAws_restJson1ForbiddenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerErrorException":
+    case "com.amazonaws.kafka#InternalServerErrorException":
+      response = {
+        ...(await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "NotFoundException":
+    case "com.amazonaws.kafka#NotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1NotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.kafka#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "UnauthorizedException":
+    case "com.amazonaws.kafka#UnauthorizedException":
+      response = {
+        ...(await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateMonitoringCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateMonitoringCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateMonitoringCommandError(output, context);
   }
   const contents: UpdateMonitoringCommandOutput = {
@@ -3362,6 +4072,7 @@ const serializeAws_restJson1BrokerNodeGroupInfo = (input: BrokerNodeGroupInfo, c
 
 const serializeAws_restJson1ClientAuthentication = (input: ClientAuthentication, context: __SerdeContext): any => {
   return {
+    ...(input.Sasl !== undefined && { sasl: serializeAws_restJson1Sasl(input.Sasl, context) }),
     ...(input.Tls !== undefined && { tls: serializeAws_restJson1Tls(input.Tls, context) }),
   };
 };
@@ -3462,6 +4173,18 @@ const serializeAws_restJson1S3 = (input: S3, context: __SerdeContext): any => {
   };
 };
 
+const serializeAws_restJson1Sasl = (input: Sasl, context: __SerdeContext): any => {
+  return {
+    ...(input.Scram !== undefined && { scram: serializeAws_restJson1Scram(input.Scram, context) }),
+  };
+};
+
+const serializeAws_restJson1Scram = (input: Scram, context: __SerdeContext): any => {
+  return {
+    ...(input.Enabled !== undefined && { enabled: input.Enabled }),
+  };
+};
+
 const serializeAws_restJson1StorageInfo = (input: StorageInfo, context: __SerdeContext): any => {
   return {
     ...(input.EbsStorageInfo !== undefined && {
@@ -3531,6 +4254,13 @@ const deserializeAws_restJson1__listOfKafkaVersion = (output: any, context: __Se
 
 const deserializeAws_restJson1__listOfNodeInfo = (output: any, context: __SerdeContext): NodeInfo[] => {
   return (output || []).map((entry: any) => deserializeAws_restJson1NodeInfo(entry, context));
+};
+
+const deserializeAws_restJson1__listOfUnprocessedScramSecret = (
+  output: any,
+  context: __SerdeContext
+): UnprocessedScramSecret[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1UnprocessedScramSecret(entry, context));
 };
 
 const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeContext): { [key: string]: string } => {
@@ -3624,6 +4354,10 @@ const deserializeAws_restJson1BrokerSoftwareInfo = (output: any, context: __Serd
 
 const deserializeAws_restJson1ClientAuthentication = (output: any, context: __SerdeContext): ClientAuthentication => {
   return {
+    Sasl:
+      output.sasl !== undefined && output.sasl !== null
+        ? deserializeAws_restJson1Sasl(output.sasl, context)
+        : undefined,
     Tls: output.tls !== undefined && output.tls !== null ? deserializeAws_restJson1Tls(output.tls, context) : undefined,
   } as any;
 };
@@ -3691,6 +4425,10 @@ const deserializeAws_restJson1ClusterInfo = (output: any, context: __SerdeContex
     ZookeeperConnectString:
       output.zookeeperConnectString !== undefined && output.zookeeperConnectString !== null
         ? output.zookeeperConnectString
+        : undefined,
+    ZookeeperConnectStringTls:
+      output.zookeeperConnectStringTls !== undefined && output.zookeeperConnectStringTls !== null
+        ? output.zookeeperConnectStringTls
         : undefined,
   } as any;
 };
@@ -3775,6 +4513,7 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
         ? deserializeAws_restJson1ConfigurationRevision(output.latestRevision, context)
         : undefined,
     Name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    State: output.state !== undefined && output.state !== null ? output.state : undefined,
   } as any;
 };
 
@@ -3954,6 +4693,21 @@ const deserializeAws_restJson1S3 = (output: any, context: __SerdeContext): S3 =>
   } as any;
 };
 
+const deserializeAws_restJson1Sasl = (output: any, context: __SerdeContext): Sasl => {
+  return {
+    Scram:
+      output.scram !== undefined && output.scram !== null
+        ? deserializeAws_restJson1Scram(output.scram, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1Scram = (output: any, context: __SerdeContext): Scram => {
+  return {
+    Enabled: output.enabled !== undefined && output.enabled !== null ? output.enabled : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1StateInfo = (output: any, context: __SerdeContext): StateInfo => {
   return {
     Code: output.code !== undefined && output.code !== null ? output.code : undefined,
@@ -3976,6 +4730,17 @@ const deserializeAws_restJson1Tls = (output: any, context: __SerdeContext): Tls 
       output.certificateAuthorityArnList !== undefined && output.certificateAuthorityArnList !== null
         ? deserializeAws_restJson1__listOf__string(output.certificateAuthorityArnList, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UnprocessedScramSecret = (
+  output: any,
+  context: __SerdeContext
+): UnprocessedScramSecret => {
+  return {
+    ErrorCode: output.errorCode !== undefined && output.errorCode !== null ? output.errorCode : undefined,
+    ErrorMessage: output.errorMessage !== undefined && output.errorMessage !== null ? output.errorMessage : undefined,
+    SecretArn: output.secretArn !== undefined && output.secretArn !== null ? output.secretArn : undefined,
   } as any;
 };
 

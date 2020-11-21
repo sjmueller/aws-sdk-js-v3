@@ -1,6 +1,10 @@
 
 import { CreateSavingsPlanCommandInput, CreateSavingsPlanCommandOutput } from "./commands/CreateSavingsPlanCommand.ts";
 import {
+  DeleteQueuedSavingsPlanCommandInput,
+  DeleteQueuedSavingsPlanCommandOutput,
+} from "./commands/DeleteQueuedSavingsPlanCommand.ts";
+import {
   DescribeSavingsPlanRatesCommandInput,
   DescribeSavingsPlanRatesCommandOutput,
 } from "./commands/DescribeSavingsPlanRatesCommand.ts";
@@ -73,6 +77,7 @@ import {
 
 export type ServiceInputTypes =
   | CreateSavingsPlanCommandInput
+  | DeleteQueuedSavingsPlanCommandInput
   | DescribeSavingsPlanRatesCommandInput
   | DescribeSavingsPlansCommandInput
   | DescribeSavingsPlansOfferingRatesCommandInput
@@ -83,6 +88,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | CreateSavingsPlanCommandOutput
+  | DeleteQueuedSavingsPlanCommandOutput
   | DescribeSavingsPlanRatesCommandOutput
   | DescribeSavingsPlansCommandOutput
   | DescribeSavingsPlansOfferingRatesCommandOutput

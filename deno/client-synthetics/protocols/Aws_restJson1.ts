@@ -475,7 +475,7 @@ export const deserializeAws_restJson1CreateCanaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCanaryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateCanaryCommandError(output, context);
   }
   const contents: CreateCanaryCommandOutput = {
@@ -538,7 +538,7 @@ export const deserializeAws_restJson1DeleteCanaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCanaryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteCanaryCommandError(output, context);
   }
   const contents: DeleteCanaryCommandOutput = {
@@ -613,7 +613,7 @@ export const deserializeAws_restJson1DescribeCanariesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCanariesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeCanariesCommandError(output, context);
   }
   const contents: DescribeCanariesCommandOutput = {
@@ -680,7 +680,7 @@ export const deserializeAws_restJson1DescribeCanariesLastRunCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCanariesLastRunCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeCanariesLastRunCommandError(output, context);
   }
   const contents: DescribeCanariesLastRunCommandOutput = {
@@ -747,7 +747,7 @@ export const deserializeAws_restJson1DescribeRuntimeVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRuntimeVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeRuntimeVersionsCommandError(output, context);
   }
   const contents: DescribeRuntimeVersionsCommandOutput = {
@@ -814,7 +814,7 @@ export const deserializeAws_restJson1GetCanaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCanaryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetCanaryCommandError(output, context);
   }
   const contents: GetCanaryCommandOutput = {
@@ -877,7 +877,7 @@ export const deserializeAws_restJson1GetCanaryRunsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCanaryRunsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetCanaryRunsCommandError(output, context);
   }
   const contents: GetCanaryRunsCommandOutput = {
@@ -952,7 +952,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -1023,7 +1023,7 @@ export const deserializeAws_restJson1StartCanaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartCanaryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartCanaryCommandError(output, context);
   }
   const contents: StartCanaryCommandOutput = {
@@ -1098,7 +1098,7 @@ export const deserializeAws_restJson1StopCanaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopCanaryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StopCanaryCommandError(output, context);
   }
   const contents: StopCanaryCommandOutput = {
@@ -1173,7 +1173,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1240,7 +1240,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -1307,7 +1307,7 @@ export const deserializeAws_restJson1UpdateCanaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCanaryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateCanaryCommandError(output, context);
   }
   const contents: UpdateCanaryCommandOutput = {
@@ -1458,6 +1458,10 @@ const serializeAws_restJson1CanaryCodeInput = (input: CanaryCodeInput, context: 
 
 const serializeAws_restJson1CanaryRunConfigInput = (input: CanaryRunConfigInput, context: __SerdeContext): any => {
   return {
+    ...(input.ActiveTracing !== undefined && { ActiveTracing: input.ActiveTracing }),
+    ...(input.EnvironmentVariables !== undefined && {
+      EnvironmentVariables: serializeAws_restJson1EnvironmentVariablesMap(input.EnvironmentVariables, context),
+    }),
     ...(input.MemoryInMB !== undefined && { MemoryInMB: input.MemoryInMB }),
     ...(input.TimeoutInSeconds !== undefined && { TimeoutInSeconds: input.TimeoutInSeconds }),
   };
@@ -1468,6 +1472,19 @@ const serializeAws_restJson1CanaryScheduleInput = (input: CanaryScheduleInput, c
     ...(input.DurationInSeconds !== undefined && { DurationInSeconds: input.DurationInSeconds }),
     ...(input.Expression !== undefined && { Expression: input.Expression }),
   };
+};
+
+const serializeAws_restJson1EnvironmentVariablesMap = (
+  input: { [key: string]: string },
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
 };
 
 const serializeAws_restJson1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
@@ -1583,6 +1600,7 @@ const deserializeAws_restJson1CanaryRun = (output: any, context: __SerdeContext)
       output.ArtifactS3Location !== undefined && output.ArtifactS3Location !== null
         ? output.ArtifactS3Location
         : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Status:
       output.Status !== undefined && output.Status !== null
@@ -1597,6 +1615,8 @@ const deserializeAws_restJson1CanaryRun = (output: any, context: __SerdeContext)
 
 const deserializeAws_restJson1CanaryRunConfigOutput = (output: any, context: __SerdeContext): CanaryRunConfigOutput => {
   return {
+    ActiveTracing:
+      output.ActiveTracing !== undefined && output.ActiveTracing !== null ? output.ActiveTracing : undefined,
     MemoryInMB: output.MemoryInMB !== undefined && output.MemoryInMB !== null ? output.MemoryInMB : undefined,
     TimeoutInSeconds:
       output.TimeoutInSeconds !== undefined && output.TimeoutInSeconds !== null ? output.TimeoutInSeconds : undefined,

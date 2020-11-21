@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBusinessReportSchedulesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBusinessReportSchedulesCommand(input, ...args));
+  return await client.send(new ListBusinessReportSchedulesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AlexaForBusiness,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBusinessReportSchedules(input, ...args);
 };
-export async function* listBusinessReportSchedulesPaginate(
+export async function* paginateListBusinessReportSchedules(
   config: AlexaForBusinessPaginationConfiguration,
   input: ListBusinessReportSchedulesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBusinessReportSchedulesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBusinessReportSchedulesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof AlexaForBusiness) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listBusinessReportSchedulesPaginate(
       throw new Error("Invalid client, expected AlexaForBusiness | AlexaForBusinessClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -47,11 +47,23 @@ export class GetBucketNotificationConfigurationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "S3Client";
+    const commandName = "GetBucketNotificationConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetBucketNotificationConfigurationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: NotificationConfiguration.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

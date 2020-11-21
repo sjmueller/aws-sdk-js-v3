@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListProtectionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListProtectionsCommand(input, ...args));
+  return await client.send(new ListProtectionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Shield,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProtections(input, ...args);
 };
-export async function* listProtectionsPaginate(
+export async function* paginateListProtections(
   config: ShieldPaginationConfiguration,
   input: ListProtectionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProtectionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProtectionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Shield) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listProtectionsPaginate(
       throw new Error("Invalid client, expected Shield | ShieldClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

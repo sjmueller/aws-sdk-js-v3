@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTagsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTagsCommand(input, ...args));
+  return await client.send(new ListTagsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudTrail,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTags(input, ...args);
 };
-export async function* listTagsPaginate(
+export async function* paginateListTags(
   config: CloudTrailPaginationConfiguration,
   input: ListTagsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTagsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTagsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof CloudTrail) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof CloudTrailClient) {
@@ -39,7 +39,7 @@ export async function* listTagsPaginate(
       throw new Error("Invalid client, expected CloudTrail | CloudTrailClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

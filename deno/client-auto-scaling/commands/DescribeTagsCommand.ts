@@ -1,7 +1,9 @@
-
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
 import { DescribeTagsType, TagsType } from "../models/models_0.ts";
-import { deserializeAws_queryDescribeTagsCommand, serializeAws_queryDescribeTagsCommand } from "../protocols/Aws_query.ts";
+import {
+  deserializeAws_queryDescribeTagsCommand,
+  serializeAws_queryDescribeTagsCommand,
+} from "../protocols/Aws_query.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
@@ -42,11 +44,23 @@ export class DescribeTagsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingClient";
+    const commandName = "DescribeTagsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeTagsType.filterSensitiveLog,
       outputFilterSensitiveLog: TagsType.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

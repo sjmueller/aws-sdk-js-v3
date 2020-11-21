@@ -49,11 +49,23 @@ export class GetHLSStreamingSessionURLCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "KinesisVideoArchivedMediaClient";
+    const commandName = "GetHLSStreamingSessionURLCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetHLSStreamingSessionURLInput.filterSensitiveLog,
       outputFilterSensitiveLog: GetHLSStreamingSessionURLOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

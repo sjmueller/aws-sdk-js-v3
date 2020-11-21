@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeEcsClustersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeEcsClustersCommand(input, ...args));
+  return await client.send(new DescribeEcsClustersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: OpsWorks,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeEcsClusters(input, ...args);
 };
-export async function* describeEcsClustersPaginate(
+export async function* paginateDescribeEcsClusters(
   config: OpsWorksPaginationConfiguration,
   input: DescribeEcsClustersCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeEcsClustersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeEcsClustersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof OpsWorks) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeEcsClustersPaginate(
       throw new Error("Invalid client, expected OpsWorks | OpsWorksClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

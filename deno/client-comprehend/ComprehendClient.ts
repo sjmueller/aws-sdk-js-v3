@@ -61,6 +61,10 @@ import {
   DescribeKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/DescribeKeyPhrasesDetectionJobCommand.ts";
 import {
+  DescribePiiEntitiesDetectionJobCommandInput,
+  DescribePiiEntitiesDetectionJobCommandOutput,
+} from "./commands/DescribePiiEntitiesDetectionJobCommand.ts";
+import {
   DescribeSentimentDetectionJobCommandInput,
   DescribeSentimentDetectionJobCommandOutput,
 } from "./commands/DescribeSentimentDetectionJobCommand.ts";
@@ -74,6 +78,7 @@ import {
 } from "./commands/DetectDominantLanguageCommand.ts";
 import { DetectEntitiesCommandInput, DetectEntitiesCommandOutput } from "./commands/DetectEntitiesCommand.ts";
 import { DetectKeyPhrasesCommandInput, DetectKeyPhrasesCommandOutput } from "./commands/DetectKeyPhrasesCommand.ts";
+import { DetectPiiEntitiesCommandInput, DetectPiiEntitiesCommandOutput } from "./commands/DetectPiiEntitiesCommand.ts";
 import { DetectSentimentCommandInput, DetectSentimentCommandOutput } from "./commands/DetectSentimentCommand.ts";
 import { DetectSyntaxCommandInput, DetectSyntaxCommandOutput } from "./commands/DetectSyntaxCommand.ts";
 import {
@@ -101,6 +106,10 @@ import {
   ListKeyPhrasesDetectionJobsCommandInput,
   ListKeyPhrasesDetectionJobsCommandOutput,
 } from "./commands/ListKeyPhrasesDetectionJobsCommand.ts";
+import {
+  ListPiiEntitiesDetectionJobsCommandInput,
+  ListPiiEntitiesDetectionJobsCommandOutput,
+} from "./commands/ListPiiEntitiesDetectionJobsCommand.ts";
 import {
   ListSentimentDetectionJobsCommandInput,
   ListSentimentDetectionJobsCommandOutput,
@@ -130,6 +139,10 @@ import {
   StartKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StartKeyPhrasesDetectionJobCommand.ts";
 import {
+  StartPiiEntitiesDetectionJobCommandInput,
+  StartPiiEntitiesDetectionJobCommandOutput,
+} from "./commands/StartPiiEntitiesDetectionJobCommand.ts";
+import {
   StartSentimentDetectionJobCommandInput,
   StartSentimentDetectionJobCommandOutput,
 } from "./commands/StartSentimentDetectionJobCommand.ts";
@@ -149,6 +162,10 @@ import {
   StopKeyPhrasesDetectionJobCommandInput,
   StopKeyPhrasesDetectionJobCommandOutput,
 } from "./commands/StopKeyPhrasesDetectionJobCommand.ts";
+import {
+  StopPiiEntitiesDetectionJobCommandInput,
+  StopPiiEntitiesDetectionJobCommandOutput,
+} from "./commands/StopPiiEntitiesDetectionJobCommand.ts";
 import {
   StopSentimentDetectionJobCommandInput,
   StopSentimentDetectionJobCommandOutput,
@@ -233,11 +250,13 @@ export type ServiceInputTypes =
   | DescribeEntitiesDetectionJobCommandInput
   | DescribeEntityRecognizerCommandInput
   | DescribeKeyPhrasesDetectionJobCommandInput
+  | DescribePiiEntitiesDetectionJobCommandInput
   | DescribeSentimentDetectionJobCommandInput
   | DescribeTopicsDetectionJobCommandInput
   | DetectDominantLanguageCommandInput
   | DetectEntitiesCommandInput
   | DetectKeyPhrasesCommandInput
+  | DetectPiiEntitiesCommandInput
   | DetectSentimentCommandInput
   | DetectSyntaxCommandInput
   | ListDocumentClassificationJobsCommandInput
@@ -247,6 +266,7 @@ export type ServiceInputTypes =
   | ListEntitiesDetectionJobsCommandInput
   | ListEntityRecognizersCommandInput
   | ListKeyPhrasesDetectionJobsCommandInput
+  | ListPiiEntitiesDetectionJobsCommandInput
   | ListSentimentDetectionJobsCommandInput
   | ListTagsForResourceCommandInput
   | ListTopicsDetectionJobsCommandInput
@@ -254,11 +274,13 @@ export type ServiceInputTypes =
   | StartDominantLanguageDetectionJobCommandInput
   | StartEntitiesDetectionJobCommandInput
   | StartKeyPhrasesDetectionJobCommandInput
+  | StartPiiEntitiesDetectionJobCommandInput
   | StartSentimentDetectionJobCommandInput
   | StartTopicsDetectionJobCommandInput
   | StopDominantLanguageDetectionJobCommandInput
   | StopEntitiesDetectionJobCommandInput
   | StopKeyPhrasesDetectionJobCommandInput
+  | StopPiiEntitiesDetectionJobCommandInput
   | StopSentimentDetectionJobCommandInput
   | StopTrainingDocumentClassifierCommandInput
   | StopTrainingEntityRecognizerCommandInput
@@ -286,11 +308,13 @@ export type ServiceOutputTypes =
   | DescribeEntitiesDetectionJobCommandOutput
   | DescribeEntityRecognizerCommandOutput
   | DescribeKeyPhrasesDetectionJobCommandOutput
+  | DescribePiiEntitiesDetectionJobCommandOutput
   | DescribeSentimentDetectionJobCommandOutput
   | DescribeTopicsDetectionJobCommandOutput
   | DetectDominantLanguageCommandOutput
   | DetectEntitiesCommandOutput
   | DetectKeyPhrasesCommandOutput
+  | DetectPiiEntitiesCommandOutput
   | DetectSentimentCommandOutput
   | DetectSyntaxCommandOutput
   | ListDocumentClassificationJobsCommandOutput
@@ -300,6 +324,7 @@ export type ServiceOutputTypes =
   | ListEntitiesDetectionJobsCommandOutput
   | ListEntityRecognizersCommandOutput
   | ListKeyPhrasesDetectionJobsCommandOutput
+  | ListPiiEntitiesDetectionJobsCommandOutput
   | ListSentimentDetectionJobsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTopicsDetectionJobsCommandOutput
@@ -307,11 +332,13 @@ export type ServiceOutputTypes =
   | StartDominantLanguageDetectionJobCommandOutput
   | StartEntitiesDetectionJobCommandOutput
   | StartKeyPhrasesDetectionJobCommandOutput
+  | StartPiiEntitiesDetectionJobCommandOutput
   | StartSentimentDetectionJobCommandOutput
   | StartTopicsDetectionJobCommandOutput
   | StopDominantLanguageDetectionJobCommandOutput
   | StopEntitiesDetectionJobCommandOutput
   | StopKeyPhrasesDetectionJobCommandOutput
+  | StopPiiEntitiesDetectionJobCommandOutput
   | StopSentimentDetectionJobCommandOutput
   | StopTrainingDocumentClassifierCommandOutput
   | StopTrainingEntityRecognizerCommandOutput
@@ -432,9 +459,10 @@ export type ComprehendClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
   HostHeaderResolvedConfig;
 
 /**
- * <p>Amazon Comprehend is an AWS service for gaining insight into the content of documents. Use these
- *       actions to determine the topics contained in your documents, the topics they discuss, the
- *       predominant sentiment expressed in them, the predominant language used, and more.</p>
+ * <p>Amazon Comprehend is an AWS service for gaining insight into the content of documents.
+ *       Use these actions to determine the topics contained in your documents, the topics they
+ *       discuss, the predominant sentiment expressed in them, the predominant language used, and
+ *       more.</p>
  */
 export class ComprehendClient extends __Client<
   __HttpHandlerOptions,

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListMailboxPermissionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListMailboxPermissionsCommand(input, ...args));
+  return await client.send(new ListMailboxPermissionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: WorkMail,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMailboxPermissions(input, ...args);
 };
-export async function* listMailboxPermissionsPaginate(
+export async function* paginateListMailboxPermissions(
   config: WorkMailPaginationConfiguration,
   input: ListMailboxPermissionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMailboxPermissionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMailboxPermissionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof WorkMail) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listMailboxPermissionsPaginate(
       throw new Error("Invalid client, expected WorkMail | WorkMailClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

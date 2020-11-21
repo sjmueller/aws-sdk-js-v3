@@ -45,11 +45,23 @@ export class CreateProgressUpdateStreamCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MigrationHubClient";
+    const commandName = "CreateProgressUpdateStreamCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateProgressUpdateStreamRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateProgressUpdateStreamResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

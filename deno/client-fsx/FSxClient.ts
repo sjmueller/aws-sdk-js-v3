@@ -1,5 +1,9 @@
 
 import {
+  AssociateFileSystemAliasesCommandInput,
+  AssociateFileSystemAliasesCommandOutput,
+} from "./commands/AssociateFileSystemAliasesCommand.ts";
+import {
   CancelDataRepositoryTaskCommandInput,
   CancelDataRepositoryTaskCommandOutput,
 } from "./commands/CancelDataRepositoryTaskCommand.ts";
@@ -21,9 +25,17 @@ import {
   DescribeDataRepositoryTasksCommandOutput,
 } from "./commands/DescribeDataRepositoryTasksCommand.ts";
 import {
+  DescribeFileSystemAliasesCommandInput,
+  DescribeFileSystemAliasesCommandOutput,
+} from "./commands/DescribeFileSystemAliasesCommand.ts";
+import {
   DescribeFileSystemsCommandInput,
   DescribeFileSystemsCommandOutput,
 } from "./commands/DescribeFileSystemsCommand.ts";
+import {
+  DisassociateFileSystemAliasesCommandInput,
+  DisassociateFileSystemAliasesCommandOutput,
+} from "./commands/DisassociateFileSystemAliasesCommand.ts";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -81,6 +93,7 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | AssociateFileSystemAliasesCommandInput
   | CancelDataRepositoryTaskCommandInput
   | CreateBackupCommandInput
   | CreateDataRepositoryTaskCommandInput
@@ -90,13 +103,16 @@ export type ServiceInputTypes =
   | DeleteFileSystemCommandInput
   | DescribeBackupsCommandInput
   | DescribeDataRepositoryTasksCommandInput
+  | DescribeFileSystemAliasesCommandInput
   | DescribeFileSystemsCommandInput
+  | DisassociateFileSystemAliasesCommandInput
   | ListTagsForResourceCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateFileSystemCommandInput;
 
 export type ServiceOutputTypes =
+  | AssociateFileSystemAliasesCommandOutput
   | CancelDataRepositoryTaskCommandOutput
   | CreateBackupCommandOutput
   | CreateDataRepositoryTaskCommandOutput
@@ -106,7 +122,9 @@ export type ServiceOutputTypes =
   | DeleteFileSystemCommandOutput
   | DescribeBackupsCommandOutput
   | DescribeDataRepositoryTasksCommandOutput
+  | DescribeFileSystemAliasesCommandOutput
   | DescribeFileSystemsCommandOutput
+  | DisassociateFileSystemAliasesCommandOutput
   | ListTagsForResourceCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput

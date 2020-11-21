@@ -13,16 +13,32 @@ import {
   AssociateProactiveEngagementDetailsCommandOutput,
 } from "../commands/AssociateProactiveEngagementDetailsCommand.ts";
 import { CreateProtectionCommandInput, CreateProtectionCommandOutput } from "../commands/CreateProtectionCommand.ts";
+import {
+  CreateProtectionGroupCommandInput,
+  CreateProtectionGroupCommandOutput,
+} from "../commands/CreateProtectionGroupCommand.ts";
 import { CreateSubscriptionCommandInput, CreateSubscriptionCommandOutput } from "../commands/CreateSubscriptionCommand.ts";
 import { DeleteProtectionCommandInput, DeleteProtectionCommandOutput } from "../commands/DeleteProtectionCommand.ts";
+import {
+  DeleteProtectionGroupCommandInput,
+  DeleteProtectionGroupCommandOutput,
+} from "../commands/DeleteProtectionGroupCommand.ts";
 import { DeleteSubscriptionCommandInput, DeleteSubscriptionCommandOutput } from "../commands/DeleteSubscriptionCommand.ts";
 import { DescribeAttackCommandInput, DescribeAttackCommandOutput } from "../commands/DescribeAttackCommand.ts";
+import {
+  DescribeAttackStatisticsCommandInput,
+  DescribeAttackStatisticsCommandOutput,
+} from "../commands/DescribeAttackStatisticsCommand.ts";
 import { DescribeDRTAccessCommandInput, DescribeDRTAccessCommandOutput } from "../commands/DescribeDRTAccessCommand.ts";
 import {
   DescribeEmergencyContactSettingsCommandInput,
   DescribeEmergencyContactSettingsCommandOutput,
 } from "../commands/DescribeEmergencyContactSettingsCommand.ts";
 import { DescribeProtectionCommandInput, DescribeProtectionCommandOutput } from "../commands/DescribeProtectionCommand.ts";
+import {
+  DescribeProtectionGroupCommandInput,
+  DescribeProtectionGroupCommandOutput,
+} from "../commands/DescribeProtectionGroupCommand.ts";
 import {
   DescribeSubscriptionCommandInput,
   DescribeSubscriptionCommandOutput,
@@ -52,11 +68,23 @@ import {
   GetSubscriptionStateCommandOutput,
 } from "../commands/GetSubscriptionStateCommand.ts";
 import { ListAttacksCommandInput, ListAttacksCommandOutput } from "../commands/ListAttacksCommand.ts";
+import {
+  ListProtectionGroupsCommandInput,
+  ListProtectionGroupsCommandOutput,
+} from "../commands/ListProtectionGroupsCommand.ts";
 import { ListProtectionsCommandInput, ListProtectionsCommandOutput } from "../commands/ListProtectionsCommand.ts";
+import {
+  ListResourcesInProtectionGroupCommandInput,
+  ListResourcesInProtectionGroupCommandOutput,
+} from "../commands/ListResourcesInProtectionGroupCommand.ts";
 import {
   UpdateEmergencyContactSettingsCommandInput,
   UpdateEmergencyContactSettingsCommandOutput,
 } from "../commands/UpdateEmergencyContactSettingsCommand.ts";
+import {
+  UpdateProtectionGroupCommandInput,
+  UpdateProtectionGroupCommandOutput,
+} from "../commands/UpdateProtectionGroupCommand.ts";
 import { UpdateSubscriptionCommandInput, UpdateSubscriptionCommandOutput } from "../commands/UpdateSubscriptionCommand.ts";
 import {
   AccessDeniedException,
@@ -71,23 +99,34 @@ import {
   AssociateProactiveEngagementDetailsResponse,
   AttackDetail,
   AttackProperty,
+  AttackStatisticsDataItem,
   AttackSummary,
   AttackVectorDescription,
+  AttackVolume,
+  AttackVolumeStatistics,
   Contributor,
+  CreateProtectionGroupRequest,
+  CreateProtectionGroupResponse,
   CreateProtectionRequest,
   CreateProtectionResponse,
   CreateSubscriptionRequest,
   CreateSubscriptionResponse,
+  DeleteProtectionGroupRequest,
+  DeleteProtectionGroupResponse,
   DeleteProtectionRequest,
   DeleteProtectionResponse,
   DeleteSubscriptionRequest,
   DeleteSubscriptionResponse,
   DescribeAttackRequest,
   DescribeAttackResponse,
+  DescribeAttackStatisticsRequest,
+  DescribeAttackStatisticsResponse,
   DescribeDRTAccessRequest,
   DescribeDRTAccessResponse,
   DescribeEmergencyContactSettingsRequest,
   DescribeEmergencyContactSettingsResponse,
+  DescribeProtectionGroupRequest,
+  DescribeProtectionGroupResponse,
   DescribeProtectionRequest,
   DescribeProtectionResponse,
   DescribeSubscriptionRequest,
@@ -114,24 +153,37 @@ import {
   LimitsExceededException,
   ListAttacksRequest,
   ListAttacksResponse,
+  ListProtectionGroupsRequest,
+  ListProtectionGroupsResponse,
   ListProtectionsRequest,
   ListProtectionsResponse,
+  ListResourcesInProtectionGroupRequest,
+  ListResourcesInProtectionGroupResponse,
   LockedSubscriptionException,
   Mitigation,
   NoAssociatedRoleException,
   OptimisticLockException,
   Protection,
+  ProtectionGroup,
+  ProtectionGroupArbitraryPatternLimits,
+  ProtectionGroupLimits,
+  ProtectionGroupPatternTypeLimits,
+  ProtectionLimits,
   ResourceAlreadyExistsException,
   ResourceNotFoundException,
   SubResourceSummary,
   Subscription,
+  SubscriptionLimits,
   SummarizedAttackVector,
   SummarizedCounter,
   TimeRange,
   UpdateEmergencyContactSettingsRequest,
   UpdateEmergencyContactSettingsResponse,
+  UpdateProtectionGroupRequest,
+  UpdateProtectionGroupResponse,
   UpdateSubscriptionRequest,
   UpdateSubscriptionResponse,
+  ValidationExceptionField,
 } from "../models/models_0.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
@@ -208,6 +260,19 @@ export const serializeAws_json1_1CreateProtectionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1CreateProtectionGroupCommand = async (
+  input: CreateProtectionGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShield_20160616.CreateProtectionGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateProtectionGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1CreateSubscriptionCommand = async (
   input: CreateSubscriptionCommandInput,
   context: __SerdeContext
@@ -234,6 +299,19 @@ export const serializeAws_json1_1DeleteProtectionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteProtectionGroupCommand = async (
+  input: DeleteProtectionGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShield_20160616.DeleteProtectionGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteProtectionGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteSubscriptionCommand = async (
   input: DeleteSubscriptionCommandInput,
   context: __SerdeContext
@@ -257,6 +335,19 @@ export const serializeAws_json1_1DescribeAttackCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeAttackRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeAttackStatisticsCommand = async (
+  input: DescribeAttackStatisticsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShield_20160616.DescribeAttackStatistics",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeAttackStatisticsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -296,6 +387,19 @@ export const serializeAws_json1_1DescribeProtectionCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeProtectionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeProtectionGroupCommand = async (
+  input: DescribeProtectionGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShield_20160616.DescribeProtectionGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeProtectionGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -403,6 +507,19 @@ export const serializeAws_json1_1ListAttacksCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListProtectionGroupsCommand = async (
+  input: ListProtectionGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShield_20160616.ListProtectionGroups",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListProtectionGroupsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListProtectionsCommand = async (
   input: ListProtectionsCommandInput,
   context: __SerdeContext
@@ -416,6 +533,19 @@ export const serializeAws_json1_1ListProtectionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListResourcesInProtectionGroupCommand = async (
+  input: ListResourcesInProtectionGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShield_20160616.ListResourcesInProtectionGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListResourcesInProtectionGroupRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1UpdateEmergencyContactSettingsCommand = async (
   input: UpdateEmergencyContactSettingsCommandInput,
   context: __SerdeContext
@@ -426,6 +556,19 @@ export const serializeAws_json1_1UpdateEmergencyContactSettingsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateEmergencyContactSettingsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateProtectionGroupCommand = async (
+  input: UpdateProtectionGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSShield_20160616.UpdateProtectionGroup",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateProtectionGroupRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -446,7 +589,7 @@ export const deserializeAws_json1_1AssociateDRTLogBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDRTLogBucketCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateDRTLogBucketCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -557,7 +700,7 @@ export const deserializeAws_json1_1AssociateDRTRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateDRTRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateDRTRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -652,7 +795,7 @@ export const deserializeAws_json1_1AssociateHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateHealthCheckCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateHealthCheckCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -739,7 +882,7 @@ export const deserializeAws_json1_1AssociateProactiveEngagementDetailsCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateProactiveEngagementDetailsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateProactiveEngagementDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -826,7 +969,7 @@ export const deserializeAws_json1_1CreateProtectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProtectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateProtectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -925,11 +1068,106 @@ const deserializeAws_json1_1CreateProtectionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1CreateProtectionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProtectionGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateProtectionGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateProtectionGroupResponse(data, context);
+  const response: CreateProtectionGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateProtectionGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateProtectionGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitsExceededException":
+    case "com.amazonaws.shield#LimitsExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitsExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
+      response = {
+        ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.shield#ResourceAlreadyExistsException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceAlreadyExistsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1CreateSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -992,7 +1230,7 @@ export const deserializeAws_json1_1DeleteProtectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProtectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteProtectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1059,11 +1297,82 @@ const deserializeAws_json1_1DeleteProtectionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteProtectionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProtectionGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteProtectionGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteProtectionGroupResponse(data, context);
+  const response: DeleteProtectionGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteProtectionGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProtectionGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
+      response = {
+        ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1134,7 +1443,7 @@ export const deserializeAws_json1_1DescribeAttackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAttackCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeAttackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1193,11 +1502,66 @@ const deserializeAws_json1_1DescribeAttackCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeAttackStatisticsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAttackStatisticsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeAttackStatisticsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeAttackStatisticsResponse(data, context);
+  const response: DescribeAttackStatisticsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeAttackStatisticsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAttackStatisticsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeDRTAccessCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDRTAccessCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDRTAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1260,7 +1624,7 @@ export const deserializeAws_json1_1DescribeEmergencyContactSettingsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeEmergencyContactSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeEmergencyContactSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1323,7 +1687,7 @@ export const deserializeAws_json1_1DescribeProtectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProtectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeProtectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1390,11 +1754,74 @@ const deserializeAws_json1_1DescribeProtectionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DescribeProtectionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeProtectionGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeProtectionGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeProtectionGroupResponse(data, context);
+  const response: DescribeProtectionGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeProtectionGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeProtectionGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1457,7 +1884,7 @@ export const deserializeAws_json1_1DisableProactiveEngagementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableProactiveEngagementCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisableProactiveEngagementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1544,7 +1971,7 @@ export const deserializeAws_json1_1DisassociateDRTLogBucketCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDRTLogBucketCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateDRTLogBucketCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1639,7 +2066,7 @@ export const deserializeAws_json1_1DisassociateDRTRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateDRTRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateDRTRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1718,7 +2145,7 @@ export const deserializeAws_json1_1DisassociateHealthCheckCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateHealthCheckCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateHealthCheckCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1797,7 +2224,7 @@ export const deserializeAws_json1_1EnableProactiveEngagementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableProactiveEngagementCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnableProactiveEngagementCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1884,7 +2311,7 @@ export const deserializeAws_json1_1GetSubscriptionStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSubscriptionStateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSubscriptionStateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1939,7 +2366,7 @@ export const deserializeAws_json1_1ListAttacksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttacksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAttacksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2006,11 +2433,82 @@ const deserializeAws_json1_1ListAttacksCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListProtectionGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProtectionGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListProtectionGroupsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListProtectionGroupsResponse(data, context);
+  const response: ListProtectionGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListProtectionGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProtectionGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.shield#InvalidPaginationTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1ListProtectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProtectionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListProtectionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2077,11 +2575,82 @@ const deserializeAws_json1_1ListProtectionsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1ListResourcesInProtectionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourcesInProtectionGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListResourcesInProtectionGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListResourcesInProtectionGroupResponse(data, context);
+  const response: ListResourcesInProtectionGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListResourcesInProtectionGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourcesInProtectionGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidPaginationTokenException":
+    case "com.amazonaws.shield#InvalidPaginationTokenException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidPaginationTokenExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateEmergencyContactSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEmergencyContactSettingsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateEmergencyContactSettingsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2156,11 +2725,90 @@ const deserializeAws_json1_1UpdateEmergencyContactSettingsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1UpdateProtectionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProtectionGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateProtectionGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateProtectionGroupResponse(data, context);
+  const response: UpdateProtectionGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateProtectionGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateProtectionGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.shield#InternalErrorException":
+      response = {
+        ...(await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterException":
+    case "com.amazonaws.shield#InvalidParameterException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "OptimisticLockException":
+    case "com.amazonaws.shield#OptimisticLockException":
+      response = {
+        ...(await deserializeAws_json1_1OptimisticLockExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.shield#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1UpdateSubscriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSubscriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateSubscriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2474,6 +3122,19 @@ const serializeAws_json1_1AssociateProactiveEngagementDetailsRequest = (
   };
 };
 
+const serializeAws_json1_1CreateProtectionGroupRequest = (
+  input: CreateProtectionGroupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Aggregation !== undefined && { Aggregation: input.Aggregation }),
+    ...(input.Members !== undefined && { Members: serializeAws_json1_1ProtectionGroupMembers(input.Members, context) }),
+    ...(input.Pattern !== undefined && { Pattern: input.Pattern }),
+    ...(input.ProtectionGroupId !== undefined && { ProtectionGroupId: input.ProtectionGroupId }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+  };
+};
+
 const serializeAws_json1_1CreateProtectionRequest = (input: CreateProtectionRequest, context: __SerdeContext): any => {
   return {
     ...(input.Name !== undefined && { Name: input.Name }),
@@ -2486,6 +3147,15 @@ const serializeAws_json1_1CreateSubscriptionRequest = (
   context: __SerdeContext
 ): any => {
   return {};
+};
+
+const serializeAws_json1_1DeleteProtectionGroupRequest = (
+  input: DeleteProtectionGroupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ProtectionGroupId !== undefined && { ProtectionGroupId: input.ProtectionGroupId }),
+  };
 };
 
 const serializeAws_json1_1DeleteProtectionRequest = (input: DeleteProtectionRequest, context: __SerdeContext): any => {
@@ -2507,6 +3177,13 @@ const serializeAws_json1_1DescribeAttackRequest = (input: DescribeAttackRequest,
   };
 };
 
+const serializeAws_json1_1DescribeAttackStatisticsRequest = (
+  input: DescribeAttackStatisticsRequest,
+  context: __SerdeContext
+): any => {
+  return {};
+};
+
 const serializeAws_json1_1DescribeDRTAccessRequest = (
   input: DescribeDRTAccessRequest,
   context: __SerdeContext
@@ -2519,6 +3196,15 @@ const serializeAws_json1_1DescribeEmergencyContactSettingsRequest = (
   context: __SerdeContext
 ): any => {
   return {};
+};
+
+const serializeAws_json1_1DescribeProtectionGroupRequest = (
+  input: DescribeProtectionGroupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ProtectionGroupId !== undefined && { ProtectionGroupId: input.ProtectionGroupId }),
+  };
 };
 
 const serializeAws_json1_1DescribeProtectionRequest = (
@@ -2609,11 +3295,36 @@ const serializeAws_json1_1ListAttacksRequest = (input: ListAttacksRequest, conte
   };
 };
 
+const serializeAws_json1_1ListProtectionGroupsRequest = (
+  input: ListProtectionGroupsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListProtectionsRequest = (input: ListProtectionsRequest, context: __SerdeContext): any => {
   return {
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
   };
+};
+
+const serializeAws_json1_1ListResourcesInProtectionGroupRequest = (
+  input: ListResourcesInProtectionGroupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ProtectionGroupId !== undefined && { ProtectionGroupId: input.ProtectionGroupId }),
+  };
+};
+
+const serializeAws_json1_1ProtectionGroupMembers = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_json1_1ResourceArnFilterList = (input: string[], context: __SerdeContext): any => {
@@ -2635,6 +3346,19 @@ const serializeAws_json1_1UpdateEmergencyContactSettingsRequest = (
     ...(input.EmergencyContactList !== undefined && {
       EmergencyContactList: serializeAws_json1_1EmergencyContactList(input.EmergencyContactList, context),
     }),
+  };
+};
+
+const serializeAws_json1_1UpdateProtectionGroupRequest = (
+  input: UpdateProtectionGroupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Aggregation !== undefined && { Aggregation: input.Aggregation }),
+    ...(input.Members !== undefined && { Members: serializeAws_json1_1ProtectionGroupMembers(input.Members, context) }),
+    ...(input.Pattern !== undefined && { Pattern: input.Pattern }),
+    ...(input.ProtectionGroupId !== undefined && { ProtectionGroupId: input.ProtectionGroupId }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -2739,6 +3463,26 @@ const deserializeAws_json1_1AttackProperty = (output: any, context: __SerdeConte
   } as any;
 };
 
+const deserializeAws_json1_1AttackStatisticsDataItem = (
+  output: any,
+  context: __SerdeContext
+): AttackStatisticsDataItem => {
+  return {
+    AttackCount: output.AttackCount !== undefined && output.AttackCount !== null ? output.AttackCount : undefined,
+    AttackVolume:
+      output.AttackVolume !== undefined && output.AttackVolume !== null
+        ? deserializeAws_json1_1AttackVolume(output.AttackVolume, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AttackStatisticsDataList = (
+  output: any,
+  context: __SerdeContext
+): AttackStatisticsDataItem[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1AttackStatisticsDataItem(entry, context));
+};
+
 const deserializeAws_json1_1AttackSummaries = (output: any, context: __SerdeContext): AttackSummary[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1AttackSummary(entry, context));
 };
@@ -2776,11 +3520,41 @@ const deserializeAws_json1_1AttackVectorDescriptionList = (
   return (output || []).map((entry: any) => deserializeAws_json1_1AttackVectorDescription(entry, context));
 };
 
+const deserializeAws_json1_1AttackVolume = (output: any, context: __SerdeContext): AttackVolume => {
+  return {
+    BitsPerSecond:
+      output.BitsPerSecond !== undefined && output.BitsPerSecond !== null
+        ? deserializeAws_json1_1AttackVolumeStatistics(output.BitsPerSecond, context)
+        : undefined,
+    PacketsPerSecond:
+      output.PacketsPerSecond !== undefined && output.PacketsPerSecond !== null
+        ? deserializeAws_json1_1AttackVolumeStatistics(output.PacketsPerSecond, context)
+        : undefined,
+    RequestsPerSecond:
+      output.RequestsPerSecond !== undefined && output.RequestsPerSecond !== null
+        ? deserializeAws_json1_1AttackVolumeStatistics(output.RequestsPerSecond, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AttackVolumeStatistics = (output: any, context: __SerdeContext): AttackVolumeStatistics => {
+  return {
+    Max: output.Max !== undefined && output.Max !== null ? output.Max : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Contributor = (output: any, context: __SerdeContext): Contributor => {
   return {
     Name: output.Name !== undefined && output.Name !== null ? output.Name : undefined,
     Value: output.Value !== undefined && output.Value !== null ? output.Value : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1CreateProtectionGroupResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateProtectionGroupResponse => {
+  return {} as any;
 };
 
 const deserializeAws_json1_1CreateProtectionResponse = (
@@ -2796,6 +3570,13 @@ const deserializeAws_json1_1CreateSubscriptionResponse = (
   output: any,
   context: __SerdeContext
 ): CreateSubscriptionResponse => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteProtectionGroupResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteProtectionGroupResponse => {
   return {} as any;
 };
 
@@ -2822,6 +3603,22 @@ const deserializeAws_json1_1DescribeAttackResponse = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1DescribeAttackStatisticsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeAttackStatisticsResponse => {
+  return {
+    DataItems:
+      output.DataItems !== undefined && output.DataItems !== null
+        ? deserializeAws_json1_1AttackStatisticsDataList(output.DataItems, context)
+        : undefined,
+    TimeRange:
+      output.TimeRange !== undefined && output.TimeRange !== null
+        ? deserializeAws_json1_1TimeRange(output.TimeRange, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1DescribeDRTAccessResponse = (
   output: any,
   context: __SerdeContext
@@ -2843,6 +3640,18 @@ const deserializeAws_json1_1DescribeEmergencyContactSettingsResponse = (
     EmergencyContactList:
       output.EmergencyContactList !== undefined && output.EmergencyContactList !== null
         ? deserializeAws_json1_1EmergencyContactList(output.EmergencyContactList, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeProtectionGroupResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeProtectionGroupResponse => {
+  return {
+    ProtectionGroup:
+      output.ProtectionGroup !== undefined && output.ProtectionGroup !== null
+        ? deserializeAws_json1_1ProtectionGroup(output.ProtectionGroup, context)
         : undefined,
   } as any;
 };
@@ -2963,7 +3772,12 @@ const deserializeAws_json1_1InvalidParameterException = (
   context: __SerdeContext
 ): InvalidParameterException => {
   return {
+    fields:
+      output.fields !== undefined && output.fields !== null
+        ? deserializeAws_json1_1ValidationExceptionFieldList(output.fields, context)
+        : undefined,
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    reason: output.reason !== undefined && output.reason !== null ? output.reason : undefined,
   } as any;
 };
 
@@ -3008,6 +3822,19 @@ const deserializeAws_json1_1ListAttacksResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1ListProtectionGroupsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListProtectionGroupsResponse => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    ProtectionGroups:
+      output.ProtectionGroups !== undefined && output.ProtectionGroups !== null
+        ? deserializeAws_json1_1ProtectionGroups(output.ProtectionGroups, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListProtectionsResponse = (
   output: any,
   context: __SerdeContext
@@ -3017,6 +3844,19 @@ const deserializeAws_json1_1ListProtectionsResponse = (
     Protections:
       output.Protections !== undefined && output.Protections !== null
         ? deserializeAws_json1_1Protections(output.Protections, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListResourcesInProtectionGroupResponse = (
+  output: any,
+  context: __SerdeContext
+): ListResourcesInProtectionGroupResponse => {
+  return {
+    NextToken: output.NextToken !== undefined && output.NextToken !== null ? output.NextToken : undefined,
+    ResourceArns:
+      output.ResourceArns !== undefined && output.ResourceArns !== null
+        ? deserializeAws_json1_1ResourceArnList(output.ResourceArns, context)
         : undefined,
   } as any;
 };
@@ -3075,6 +3915,73 @@ const deserializeAws_json1_1Protection = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1ProtectionGroup = (output: any, context: __SerdeContext): ProtectionGroup => {
+  return {
+    Aggregation: output.Aggregation !== undefined && output.Aggregation !== null ? output.Aggregation : undefined,
+    Members:
+      output.Members !== undefined && output.Members !== null
+        ? deserializeAws_json1_1ProtectionGroupMembers(output.Members, context)
+        : undefined,
+    Pattern: output.Pattern !== undefined && output.Pattern !== null ? output.Pattern : undefined,
+    ProtectionGroupId:
+      output.ProtectionGroupId !== undefined && output.ProtectionGroupId !== null
+        ? output.ProtectionGroupId
+        : undefined,
+    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ProtectionGroupArbitraryPatternLimits = (
+  output: any,
+  context: __SerdeContext
+): ProtectionGroupArbitraryPatternLimits => {
+  return {
+    MaxMembers: output.MaxMembers !== undefined && output.MaxMembers !== null ? output.MaxMembers : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ProtectionGroupLimits = (output: any, context: __SerdeContext): ProtectionGroupLimits => {
+  return {
+    MaxProtectionGroups:
+      output.MaxProtectionGroups !== undefined && output.MaxProtectionGroups !== null
+        ? output.MaxProtectionGroups
+        : undefined,
+    PatternTypeLimits:
+      output.PatternTypeLimits !== undefined && output.PatternTypeLimits !== null
+        ? deserializeAws_json1_1ProtectionGroupPatternTypeLimits(output.PatternTypeLimits, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ProtectionGroupMembers = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1ProtectionGroupPatternTypeLimits = (
+  output: any,
+  context: __SerdeContext
+): ProtectionGroupPatternTypeLimits => {
+  return {
+    ArbitraryPatternLimits:
+      output.ArbitraryPatternLimits !== undefined && output.ArbitraryPatternLimits !== null
+        ? deserializeAws_json1_1ProtectionGroupArbitraryPatternLimits(output.ArbitraryPatternLimits, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ProtectionGroups = (output: any, context: __SerdeContext): ProtectionGroup[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ProtectionGroup(entry, context));
+};
+
+const deserializeAws_json1_1ProtectionLimits = (output: any, context: __SerdeContext): ProtectionLimits => {
+  return {
+    ProtectedResourceTypeLimits:
+      output.ProtectedResourceTypeLimits !== undefined && output.ProtectedResourceTypeLimits !== null
+        ? deserializeAws_json1_1Limits(output.ProtectedResourceTypeLimits, context)
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1Protections = (output: any, context: __SerdeContext): Protection[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1Protection(entry, context));
 };
@@ -3085,7 +3992,12 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
 ): ResourceAlreadyExistsException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ResourceArnList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
@@ -3094,6 +4006,7 @@ const deserializeAws_json1_1ResourceNotFoundException = (
 ): ResourceNotFoundException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    resourceType: output.resourceType !== undefined && output.resourceType !== null ? output.resourceType : undefined,
   } as any;
 };
 
@@ -3133,9 +4046,26 @@ const deserializeAws_json1_1Subscription = (output: any, context: __SerdeContext
       output.StartTime !== undefined && output.StartTime !== null
         ? new Date(Math.round(output.StartTime * 1000))
         : undefined,
+    SubscriptionLimits:
+      output.SubscriptionLimits !== undefined && output.SubscriptionLimits !== null
+        ? deserializeAws_json1_1SubscriptionLimits(output.SubscriptionLimits, context)
+        : undefined,
     TimeCommitmentInSeconds:
       output.TimeCommitmentInSeconds !== undefined && output.TimeCommitmentInSeconds !== null
         ? output.TimeCommitmentInSeconds
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1SubscriptionLimits = (output: any, context: __SerdeContext): SubscriptionLimits => {
+  return {
+    ProtectionGroupLimits:
+      output.ProtectionGroupLimits !== undefined && output.ProtectionGroupLimits !== null
+        ? deserializeAws_json1_1ProtectionGroupLimits(output.ProtectionGroupLimits, context)
+        : undefined,
+    ProtectionLimits:
+      output.ProtectionLimits !== undefined && output.ProtectionLimits !== null
+        ? deserializeAws_json1_1ProtectionLimits(output.ProtectionLimits, context)
         : undefined,
   } as any;
 };
@@ -3172,6 +4102,19 @@ const deserializeAws_json1_1SummarizedCounterList = (output: any, context: __Ser
   return (output || []).map((entry: any) => deserializeAws_json1_1SummarizedCounter(entry, context));
 };
 
+const deserializeAws_json1_1TimeRange = (output: any, context: __SerdeContext): TimeRange => {
+  return {
+    FromInclusive:
+      output.FromInclusive !== undefined && output.FromInclusive !== null
+        ? new Date(Math.round(output.FromInclusive * 1000))
+        : undefined,
+    ToExclusive:
+      output.ToExclusive !== undefined && output.ToExclusive !== null
+        ? new Date(Math.round(output.ToExclusive * 1000))
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1TopContributors = (output: any, context: __SerdeContext): Contributor[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1Contributor(entry, context));
 };
@@ -3183,11 +4126,35 @@ const deserializeAws_json1_1UpdateEmergencyContactSettingsResponse = (
   return {} as any;
 };
 
+const deserializeAws_json1_1UpdateProtectionGroupResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateProtectionGroupResponse => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1UpdateSubscriptionResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateSubscriptionResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1ValidationExceptionField = (
+  output: any,
+  context: __SerdeContext
+): ValidationExceptionField => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ValidationExceptionFieldList = (
+  output: any,
+  context: __SerdeContext
+): ValidationExceptionField[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ValidationExceptionField(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

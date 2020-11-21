@@ -98,7 +98,7 @@ export const deserializeAws_json1_1DeleteReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteReportDefinitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteReportDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -161,7 +161,7 @@ export const deserializeAws_json1_1DescribeReportDefinitionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReportDefinitionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeReportDefinitionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -216,7 +216,7 @@ export const deserializeAws_json1_1ModifyReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyReportDefinitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ModifyReportDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -279,7 +279,7 @@ export const deserializeAws_json1_1PutReportDefinitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutReportDefinitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutReportDefinitionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

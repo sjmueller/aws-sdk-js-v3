@@ -1,6 +1,7 @@
 
 export * from "./MediaPackageClient.ts";
 export * from "./MediaPackage.ts";
+export * from "./commands/ConfigureLogsCommand.ts";
 export * from "./commands/CreateChannelCommand.ts";
 export * from "./commands/CreateHarvestJobCommand.ts";
 export * from "./commands/CreateOriginEndpointCommand.ts";
@@ -10,8 +11,11 @@ export * from "./commands/DescribeChannelCommand.ts";
 export * from "./commands/DescribeHarvestJobCommand.ts";
 export * from "./commands/DescribeOriginEndpointCommand.ts";
 export * from "./commands/ListChannelsCommand.ts";
+export * from "./pagination/ListChannelsPaginator.ts";
 export * from "./commands/ListHarvestJobsCommand.ts";
+export * from "./pagination/ListHarvestJobsPaginator.ts";
 export * from "./commands/ListOriginEndpointsCommand.ts";
+export * from "./pagination/ListOriginEndpointsPaginator.ts";
 export * from "./commands/ListTagsForResourceCommand.ts";
 export * from "./commands/RotateChannelCredentialsCommand.ts";
 export * from "./commands/RotateIngestEndpointCredentialsCommand.ts";
@@ -19,4 +23,5 @@ export * from "./commands/TagResourceCommand.ts";
 export * from "./commands/UntagResourceCommand.ts";
 export * from "./commands/UpdateChannelCommand.ts";
 export * from "./commands/UpdateOriginEndpointCommand.ts";
+export * from "./pagination/Interfaces.ts";
 export * from "./models/index.ts";

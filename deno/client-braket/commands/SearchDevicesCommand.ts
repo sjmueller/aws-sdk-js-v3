@@ -1,4 +1,3 @@
-
 import { BraketClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BraketClient.ts";
 import { SearchDevicesRequest, SearchDevicesResponse } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class SearchDevicesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BraketClient";
+    const commandName = "SearchDevicesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: SearchDevicesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: SearchDevicesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

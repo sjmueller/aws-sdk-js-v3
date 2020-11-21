@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListStreamConsumersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListStreamConsumersCommand(input, ...args));
+  return await client.send(new ListStreamConsumersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Kinesis,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listStreamConsumers(input, ...args);
 };
-export async function* listStreamConsumersPaginate(
+export async function* paginateListStreamConsumers(
   config: KinesisPaginationConfiguration,
   input: ListStreamConsumersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListStreamConsumersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListStreamConsumersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Kinesis) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listStreamConsumersPaginate(
       throw new Error("Invalid client, expected Kinesis | KinesisClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

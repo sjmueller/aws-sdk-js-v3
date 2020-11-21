@@ -297,7 +297,7 @@ export const deserializeAws_json1_1CreateDeliveryStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDeliveryStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDeliveryStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -376,7 +376,7 @@ export const deserializeAws_json1_1DeleteDeliveryStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDeliveryStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDeliveryStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -439,7 +439,7 @@ export const deserializeAws_json1_1DescribeDeliveryStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDeliveryStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDeliveryStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -494,7 +494,7 @@ export const deserializeAws_json1_1ListDeliveryStreamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDeliveryStreamsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListDeliveryStreamsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -541,7 +541,7 @@ export const deserializeAws_json1_1ListTagsForDeliveryStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForDeliveryStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForDeliveryStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -612,7 +612,7 @@ export const deserializeAws_json1_1PutRecordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRecordCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutRecordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -691,7 +691,7 @@ export const deserializeAws_json1_1PutRecordBatchCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRecordBatchCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutRecordBatchCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -770,7 +770,7 @@ export const deserializeAws_json1_1StartDeliveryStreamEncryptionCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDeliveryStreamEncryptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartDeliveryStreamEncryptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -857,7 +857,7 @@ export const deserializeAws_json1_1StopDeliveryStreamEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopDeliveryStreamEncryptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopDeliveryStreamEncryptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -936,7 +936,7 @@ export const deserializeAws_json1_1TagDeliveryStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagDeliveryStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagDeliveryStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1015,7 +1015,7 @@ export const deserializeAws_json1_1UntagDeliveryStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagDeliveryStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagDeliveryStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1094,7 +1094,7 @@ export const deserializeAws_json1_1UpdateDestinationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDestinationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateDestinationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

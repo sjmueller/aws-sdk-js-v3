@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFiltersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFiltersCommand(input, ...args));
+  return await client.send(new ListFiltersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GuardDuty,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFilters(input, ...args);
 };
-export async function* listFiltersPaginate(
+export async function* paginateListFilters(
   config: GuardDutyPaginationConfiguration,
   input: ListFiltersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListFiltersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListFiltersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof GuardDuty) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listFiltersPaginate(
       throw new Error("Invalid client, expected GuardDuty | GuardDutyClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

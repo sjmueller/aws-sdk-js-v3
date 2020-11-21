@@ -45,11 +45,23 @@ export class UpdatePackagingGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MediaPackageVodClient";
+    const commandName = "UpdatePackagingGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdatePackagingGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdatePackagingGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

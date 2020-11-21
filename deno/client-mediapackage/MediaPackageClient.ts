@@ -1,4 +1,5 @@
 
+import { ConfigureLogsCommandInput, ConfigureLogsCommandOutput } from "./commands/ConfigureLogsCommand.ts";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand.ts";
 import { CreateHarvestJobCommandInput, CreateHarvestJobCommandOutput } from "./commands/CreateHarvestJobCommand.ts";
 import {
@@ -91,6 +92,7 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | ConfigureLogsCommandInput
   | CreateChannelCommandInput
   | CreateHarvestJobCommandInput
   | CreateOriginEndpointCommandInput
@@ -111,6 +113,7 @@ export type ServiceInputTypes =
   | UpdateOriginEndpointCommandInput;
 
 export type ServiceOutputTypes =
+  | ConfigureLogsCommandOutput
   | CreateChannelCommandOutput
   | CreateHarvestJobCommandOutput
   | CreateOriginEndpointCommandOutput

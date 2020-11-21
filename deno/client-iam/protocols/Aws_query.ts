@@ -2883,7 +2883,7 @@ export const deserializeAws_queryAddClientIDToOpenIDConnectProviderCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddClientIDToOpenIDConnectProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAddClientIDToOpenIDConnectProviderCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2958,7 +2958,7 @@ export const deserializeAws_queryAddRoleToInstanceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddRoleToInstanceProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAddRoleToInstanceProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3041,7 +3041,7 @@ export const deserializeAws_queryAddUserToGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddUserToGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAddUserToGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3108,7 +3108,7 @@ export const deserializeAws_queryAttachGroupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachGroupPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAttachGroupPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3191,7 +3191,7 @@ export const deserializeAws_queryAttachRolePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachRolePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAttachRolePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3282,7 +3282,7 @@ export const deserializeAws_queryAttachUserPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachUserPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAttachUserPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3365,7 +3365,7 @@ export const deserializeAws_queryChangePasswordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ChangePasswordCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryChangePasswordCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3456,7 +3456,7 @@ export const deserializeAws_queryCreateAccessKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccessKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateAccessKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3526,7 +3526,7 @@ export const deserializeAws_queryCreateAccountAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAccountAliasCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateAccountAliasCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -3593,7 +3593,7 @@ export const deserializeAws_queryCreateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3671,7 +3671,7 @@ export const deserializeAws_queryCreateInstanceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInstanceProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateInstanceProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3741,7 +3741,7 @@ export const deserializeAws_queryCreateLoginProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoginProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateLoginProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3827,7 +3827,7 @@ export const deserializeAws_queryCreateOpenIDConnectProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateOpenIDConnectProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateOpenIDConnectProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3905,7 +3905,7 @@ export const deserializeAws_queryCreatePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreatePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3991,7 +3991,7 @@ export const deserializeAws_queryCreatePolicyVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePolicyVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreatePolicyVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4077,7 +4077,7 @@ export const deserializeAws_queryCreateRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4171,7 +4171,7 @@ export const deserializeAws_queryCreateSAMLProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSAMLProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateSAMLProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4249,7 +4249,7 @@ export const deserializeAws_queryCreateServiceLinkedRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceLinkedRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateServiceLinkedRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4327,7 +4327,7 @@ export const deserializeAws_queryCreateServiceSpecificCredentialCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateServiceSpecificCredentialCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateServiceSpecificCredentialCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4400,7 +4400,7 @@ export const deserializeAws_queryCreateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4494,7 +4494,7 @@ export const deserializeAws_queryCreateVirtualMFADeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVirtualMFADeviceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateVirtualMFADeviceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4564,7 +4564,7 @@ export const deserializeAws_queryDeactivateMFADeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeactivateMFADeviceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeactivateMFADeviceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4639,7 +4639,7 @@ export const deserializeAws_queryDeleteAccessKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccessKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteAccessKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4706,7 +4706,7 @@ export const deserializeAws_queryDeleteAccountAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccountAliasCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteAccountAliasCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4773,7 +4773,7 @@ export const deserializeAws_queryDeleteAccountPasswordPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAccountPasswordPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteAccountPasswordPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4840,7 +4840,7 @@ export const deserializeAws_queryDeleteGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4915,7 +4915,7 @@ export const deserializeAws_queryDeleteGroupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteGroupPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -4982,7 +4982,7 @@ export const deserializeAws_queryDeleteInstanceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInstanceProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteInstanceProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5057,7 +5057,7 @@ export const deserializeAws_queryDeleteLoginProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoginProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteLoginProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5132,7 +5132,7 @@ export const deserializeAws_queryDeleteOpenIDConnectProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteOpenIDConnectProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteOpenIDConnectProviderCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5199,7 +5199,7 @@ export const deserializeAws_queryDeletePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeletePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5282,7 +5282,7 @@ export const deserializeAws_queryDeletePolicyVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeletePolicyVersionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5365,7 +5365,7 @@ export const deserializeAws_queryDeleteRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteRoleCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5456,7 +5456,7 @@ export const deserializeAws_queryDeleteRolePermissionsBoundaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRolePermissionsBoundaryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteRolePermissionsBoundaryCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5523,7 +5523,7 @@ export const deserializeAws_queryDeleteRolePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRolePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteRolePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5598,7 +5598,7 @@ export const deserializeAws_queryDeleteSAMLProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSAMLProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteSAMLProviderCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5673,7 +5673,7 @@ export const deserializeAws_queryDeleteServerCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServerCertificateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteServerCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5748,7 +5748,7 @@ export const deserializeAws_queryDeleteServiceLinkedRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceLinkedRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteServiceLinkedRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5818,7 +5818,7 @@ export const deserializeAws_queryDeleteServiceSpecificCredentialCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteServiceSpecificCredentialCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteServiceSpecificCredentialCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5869,7 +5869,7 @@ export const deserializeAws_queryDeleteSigningCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSigningCertificateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteSigningCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5936,7 +5936,7 @@ export const deserializeAws_queryDeleteSSHPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSSHPublicKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteSSHPublicKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -5987,7 +5987,7 @@ export const deserializeAws_queryDeleteUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteUserCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6070,7 +6070,7 @@ export const deserializeAws_queryDeleteUserPermissionsBoundaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserPermissionsBoundaryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteUserPermissionsBoundaryCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6129,7 +6129,7 @@ export const deserializeAws_queryDeleteUserPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteUserPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6196,7 +6196,7 @@ export const deserializeAws_queryDeleteVirtualMFADeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualMFADeviceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteVirtualMFADeviceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6271,7 +6271,7 @@ export const deserializeAws_queryDetachGroupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachGroupPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDetachGroupPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6346,7 +6346,7 @@ export const deserializeAws_queryDetachRolePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachRolePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDetachRolePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6429,7 +6429,7 @@ export const deserializeAws_queryDetachUserPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachUserPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDetachUserPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6504,7 +6504,7 @@ export const deserializeAws_queryEnableMFADeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableMFADeviceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryEnableMFADeviceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -6595,7 +6595,7 @@ export const deserializeAws_queryGenerateCredentialReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateCredentialReportCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGenerateCredentialReportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6657,7 +6657,7 @@ export const deserializeAws_queryGenerateOrganizationsAccessReportCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateOrganizationsAccessReportCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGenerateOrganizationsAccessReportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6714,7 +6714,7 @@ export const deserializeAws_queryGenerateServiceLastAccessedDetailsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GenerateServiceLastAccessedDetailsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGenerateServiceLastAccessedDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6779,7 +6779,7 @@ export const deserializeAws_queryGetAccessKeyLastUsedCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccessKeyLastUsedCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetAccessKeyLastUsedCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6825,7 +6825,7 @@ export const deserializeAws_queryGetAccountAuthorizationDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountAuthorizationDetailsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetAccountAuthorizationDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6882,7 +6882,7 @@ export const deserializeAws_queryGetAccountPasswordPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountPasswordPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetAccountPasswordPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6944,7 +6944,7 @@ export const deserializeAws_queryGetAccountSummaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountSummaryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetAccountSummaryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6998,7 +6998,7 @@ export const deserializeAws_queryGetContextKeysForCustomPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContextKeysForCustomPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetContextKeysForCustomPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7052,7 +7052,7 @@ export const deserializeAws_queryGetContextKeysForPrincipalPolicyCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetContextKeysForPrincipalPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetContextKeysForPrincipalPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7114,7 +7114,7 @@ export const deserializeAws_queryGetCredentialReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetCredentialReportCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetCredentialReportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7192,7 +7192,7 @@ export const deserializeAws_queryGetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7254,7 +7254,7 @@ export const deserializeAws_queryGetGroupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetGroupPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7316,7 +7316,7 @@ export const deserializeAws_queryGetInstanceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetInstanceProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetInstanceProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7378,7 +7378,7 @@ export const deserializeAws_queryGetLoginProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoginProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetLoginProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7440,7 +7440,7 @@ export const deserializeAws_queryGetOpenIDConnectProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOpenIDConnectProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetOpenIDConnectProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7510,7 +7510,7 @@ export const deserializeAws_queryGetOrganizationsAccessReportCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOrganizationsAccessReportCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetOrganizationsAccessReportCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7564,7 +7564,7 @@ export const deserializeAws_queryGetPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7634,7 +7634,7 @@ export const deserializeAws_queryGetPolicyVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetPolicyVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7704,7 +7704,7 @@ export const deserializeAws_queryGetRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7766,7 +7766,7 @@ export const deserializeAws_queryGetRolePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRolePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetRolePolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7828,7 +7828,7 @@ export const deserializeAws_queryGetSAMLProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSAMLProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetSAMLProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7898,7 +7898,7 @@ export const deserializeAws_queryGetServerCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServerCertificateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetServerCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7960,7 +7960,7 @@ export const deserializeAws_queryGetServiceLastAccessedDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceLastAccessedDetailsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetServiceLastAccessedDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8025,7 +8025,7 @@ export const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceLastAccessedDetailsWithEntitiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8090,7 +8090,7 @@ export const deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetServiceLinkedRoleDeletionStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetServiceLinkedRoleDeletionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8163,7 +8163,7 @@ export const deserializeAws_queryGetSSHPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSSHPublicKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetSSHPublicKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8225,7 +8225,7 @@ export const deserializeAws_queryGetUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8287,7 +8287,7 @@ export const deserializeAws_queryGetUserPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetUserPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryGetUserPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8349,7 +8349,7 @@ export const deserializeAws_queryListAccessKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccessKeysCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListAccessKeysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8411,7 +8411,7 @@ export const deserializeAws_queryListAccountAliasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAccountAliasesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListAccountAliasesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8465,7 +8465,7 @@ export const deserializeAws_queryListAttachedGroupPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedGroupPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListAttachedGroupPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8535,7 +8535,7 @@ export const deserializeAws_queryListAttachedRolePoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedRolePoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListAttachedRolePoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8605,7 +8605,7 @@ export const deserializeAws_queryListAttachedUserPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAttachedUserPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListAttachedUserPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8675,7 +8675,7 @@ export const deserializeAws_queryListEntitiesForPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEntitiesForPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListEntitiesForPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8745,7 +8745,7 @@ export const deserializeAws_queryListGroupPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListGroupPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8807,7 +8807,7 @@ export const deserializeAws_queryListGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8861,7 +8861,7 @@ export const deserializeAws_queryListGroupsForUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsForUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListGroupsForUserCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8923,7 +8923,7 @@ export const deserializeAws_queryListInstanceProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceProfilesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListInstanceProfilesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -8977,7 +8977,7 @@ export const deserializeAws_queryListInstanceProfilesForRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInstanceProfilesForRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListInstanceProfilesForRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9039,7 +9039,7 @@ export const deserializeAws_queryListMFADevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMFADevicesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListMFADevicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9101,7 +9101,7 @@ export const deserializeAws_queryListOpenIDConnectProvidersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListOpenIDConnectProvidersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListOpenIDConnectProvidersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9155,7 +9155,7 @@ export const deserializeAws_queryListPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9209,7 +9209,7 @@ export const deserializeAws_queryListPoliciesGrantingServiceAccessCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesGrantingServiceAccessCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListPoliciesGrantingServiceAccessCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9274,7 +9274,7 @@ export const deserializeAws_queryListPolicyVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPolicyVersionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListPolicyVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9344,7 +9344,7 @@ export const deserializeAws_queryListRolePoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRolePoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListRolePoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9406,7 +9406,7 @@ export const deserializeAws_queryListRolesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRolesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListRolesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9460,7 +9460,7 @@ export const deserializeAws_queryListRoleTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRoleTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListRoleTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9522,7 +9522,7 @@ export const deserializeAws_queryListSAMLProvidersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSAMLProvidersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListSAMLProvidersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9576,7 +9576,7 @@ export const deserializeAws_queryListServerCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServerCertificatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListServerCertificatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9630,7 +9630,7 @@ export const deserializeAws_queryListServiceSpecificCredentialsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListServiceSpecificCredentialsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListServiceSpecificCredentialsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9695,7 +9695,7 @@ export const deserializeAws_queryListSigningCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSigningCertificatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListSigningCertificatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9757,7 +9757,7 @@ export const deserializeAws_queryListSSHPublicKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSSHPublicKeysCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListSSHPublicKeysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9811,7 +9811,7 @@ export const deserializeAws_queryListUserPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListUserPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9873,7 +9873,7 @@ export const deserializeAws_queryListUsersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUsersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListUsersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9927,7 +9927,7 @@ export const deserializeAws_queryListUserTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListUserTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -9989,7 +9989,7 @@ export const deserializeAws_queryListVirtualMFADevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualMFADevicesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryListVirtualMFADevicesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10035,7 +10035,7 @@ export const deserializeAws_queryPutGroupPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutGroupPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryPutGroupPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10110,7 +10110,7 @@ export const deserializeAws_queryPutRolePermissionsBoundaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRolePermissionsBoundaryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryPutRolePermissionsBoundaryCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10193,7 +10193,7 @@ export const deserializeAws_queryPutRolePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRolePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryPutRolePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10276,7 +10276,7 @@ export const deserializeAws_queryPutUserPermissionsBoundaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutUserPermissionsBoundaryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryPutUserPermissionsBoundaryCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10351,7 +10351,7 @@ export const deserializeAws_queryPutUserPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutUserPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryPutUserPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10426,7 +10426,7 @@ export const deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveClientIDFromOpenIDConnectProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10493,7 +10493,7 @@ export const deserializeAws_queryRemoveRoleFromInstanceProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveRoleFromInstanceProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRemoveRoleFromInstanceProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10568,7 +10568,7 @@ export const deserializeAws_queryRemoveUserFromGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveUserFromGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRemoveUserFromGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10635,7 +10635,7 @@ export const deserializeAws_queryResetServiceSpecificCredentialCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetServiceSpecificCredentialCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryResetServiceSpecificCredentialCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10692,7 +10692,7 @@ export const deserializeAws_queryResyncMFADeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResyncMFADeviceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryResyncMFADeviceCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10767,7 +10767,7 @@ export const deserializeAws_querySetDefaultPolicyVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetDefaultPolicyVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetDefaultPolicyVersionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10842,7 +10842,7 @@ export const deserializeAws_querySetSecurityTokenServicePreferencesCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetSecurityTokenServicePreferencesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetSecurityTokenServicePreferencesCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -10893,7 +10893,7 @@ export const deserializeAws_querySimulateCustomPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimulateCustomPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySimulateCustomPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -10955,7 +10955,7 @@ export const deserializeAws_querySimulatePrincipalPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SimulatePrincipalPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySimulatePrincipalPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11025,7 +11025,7 @@ export const deserializeAws_queryTagRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryTagRoleCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -11108,7 +11108,7 @@ export const deserializeAws_queryTagUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryTagUserCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -11191,7 +11191,7 @@ export const deserializeAws_queryUntagRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUntagRoleCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -11258,7 +11258,7 @@ export const deserializeAws_queryUntagUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUntagUserCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -11325,7 +11325,7 @@ export const deserializeAws_queryUpdateAccessKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccessKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateAccessKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -11392,7 +11392,7 @@ export const deserializeAws_queryUpdateAccountPasswordPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAccountPasswordPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateAccountPasswordPolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -11467,7 +11467,7 @@ export const deserializeAws_queryUpdateAssumeRolePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAssumeRolePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateAssumeRolePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -11550,7 +11550,7 @@ export const deserializeAws_queryUpdateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateGroupCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -11625,7 +11625,7 @@ export const deserializeAws_queryUpdateLoginProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLoginProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateLoginProfileCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -11708,7 +11708,7 @@ export const deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateOpenIDConnectProviderThumbprintCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateOpenIDConnectProviderThumbprintCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -11775,7 +11775,7 @@ export const deserializeAws_queryUpdateRoleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRoleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateRoleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11845,7 +11845,7 @@ export const deserializeAws_queryUpdateRoleDescriptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRoleDescriptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateRoleDescriptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11915,7 +11915,7 @@ export const deserializeAws_queryUpdateSAMLProviderCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSAMLProviderCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateSAMLProviderCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -11993,7 +11993,7 @@ export const deserializeAws_queryUpdateServerCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServerCertificateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateServerCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -12068,7 +12068,7 @@ export const deserializeAws_queryUpdateServiceSpecificCredentialCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateServiceSpecificCredentialCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateServiceSpecificCredentialCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -12119,7 +12119,7 @@ export const deserializeAws_queryUpdateSigningCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSigningCertificateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateSigningCertificateCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -12186,7 +12186,7 @@ export const deserializeAws_queryUpdateSSHPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSSHPublicKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateSSHPublicKeyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -12237,7 +12237,7 @@ export const deserializeAws_queryUpdateUserCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUpdateUserCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -12328,7 +12328,7 @@ export const deserializeAws_queryUploadServerCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadServerCertificateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUploadServerCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12414,7 +12414,7 @@ export const deserializeAws_queryUploadSigningCertificateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadSigningCertificateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUploadSigningCertificateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -12516,7 +12516,7 @@ export const deserializeAws_queryUploadSSHPublicKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UploadSSHPublicKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryUploadSSHPublicKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -13018,11 +13018,11 @@ const serializeAws_queryAddClientIDToOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClientID !== undefined) {
-    entries["ClientID"] = input.ClientID;
-  }
   if (input.OpenIDConnectProviderArn !== undefined) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
+  }
+  if (input.ClientID !== undefined) {
+    entries["ClientID"] = input.ClientID;
   }
   return entries;
 };
@@ -13032,33 +13032,33 @@ const serializeAws_queryAddRoleToInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
-    entries["RoleName"] = input.RoleName;
-  }
   if (input.InstanceProfileName !== undefined) {
     entries["InstanceProfileName"] = input.InstanceProfileName;
+  }
+  if (input.RoleName !== undefined) {
+    entries["RoleName"] = input.RoleName;
   }
   return entries;
 };
 
 const serializeAws_queryAddUserToGroupRequest = (input: AddUserToGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
-    entries["UserName"] = input.UserName;
-  }
   if (input.GroupName !== undefined) {
     entries["GroupName"] = input.GroupName;
+  }
+  if (input.UserName !== undefined) {
+    entries["UserName"] = input.UserName;
   }
   return entries;
 };
 
 const serializeAws_queryAttachGroupPolicyRequest = (input: AttachGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined) {
-    entries["PolicyArn"] = input.PolicyArn;
-  }
   if (input.GroupName !== undefined) {
     entries["GroupName"] = input.GroupName;
+  }
+  if (input.PolicyArn !== undefined) {
+    entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
 };
@@ -13087,11 +13087,11 @@ const serializeAws_queryAttachUserPolicyRequest = (input: AttachUserPolicyReques
 
 const serializeAws_queryChangePasswordRequest = (input: ChangePasswordRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.OldPassword !== undefined) {
-    entries["OldPassword"] = input.OldPassword;
-  }
   if (input.NewPassword !== undefined) {
     entries["NewPassword"] = input.NewPassword;
+  }
+  if (input.OldPassword !== undefined) {
+    entries["OldPassword"] = input.OldPassword;
   }
   return entries;
 };
@@ -13108,6 +13108,9 @@ const serializeAws_queryclientIDListType = (input: string[], context: __SerdeCon
 
 const serializeAws_queryContextEntry = (input: ContextEntry, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.ContextKeyName !== undefined) {
+    entries["ContextKeyName"] = input.ContextKeyName;
+  }
   if (input.ContextKeyType !== undefined) {
     entries["ContextKeyType"] = input.ContextKeyType;
   }
@@ -13117,9 +13120,6 @@ const serializeAws_queryContextEntry = (input: ContextEntry, context: __SerdeCon
       const loc = `ContextKeyValues.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.ContextKeyName !== undefined) {
-    entries["ContextKeyName"] = input.ContextKeyName;
   }
   return entries;
 };
@@ -13168,11 +13168,11 @@ const serializeAws_queryCreateAccountAliasRequest = (
 
 const serializeAws_queryCreateGroupRequest = (input: CreateGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined) {
-    entries["GroupName"] = input.GroupName;
-  }
   if (input.Path !== undefined) {
     entries["Path"] = input.Path;
+  }
+  if (input.GroupName !== undefined) {
+    entries["GroupName"] = input.GroupName;
   }
   return entries;
 };
@@ -13182,11 +13182,11 @@ const serializeAws_queryCreateInstanceProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.InstanceProfileName !== undefined) {
-    entries["InstanceProfileName"] = input.InstanceProfileName;
-  }
   if (input.Path !== undefined) {
     entries["Path"] = input.Path;
+  }
+  if (input.InstanceProfileName !== undefined) {
+    entries["InstanceProfileName"] = input.InstanceProfileName;
   }
   return entries;
 };
@@ -13196,14 +13196,14 @@ const serializeAws_queryCreateLoginProfileRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
-    entries["UserName"] = input.UserName;
-  }
   if (input.Password !== undefined) {
     entries["Password"] = input.Password;
   }
   if (input.PasswordResetRequired !== undefined) {
     entries["PasswordResetRequired"] = input.PasswordResetRequired;
+  }
+  if (input.UserName !== undefined) {
+    entries["UserName"] = input.UserName;
   }
   return entries;
 };
@@ -13216,17 +13216,17 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
   if (input.Url !== undefined) {
     entries["Url"] = input.Url;
   }
-  if (input.ThumbprintList !== undefined) {
-    const memberEntries = serializeAws_querythumbprintListType(input.ThumbprintList, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ThumbprintList.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.ClientIDList !== undefined) {
     const memberEntries = serializeAws_queryclientIDListType(input.ClientIDList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ClientIDList.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ThumbprintList !== undefined) {
+    const memberEntries = serializeAws_querythumbprintListType(input.ThumbprintList, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ThumbprintList.${key}`;
       entries[loc] = value;
     });
   }
@@ -13235,17 +13235,17 @@ const serializeAws_queryCreateOpenIDConnectProviderRequest = (
 
 const serializeAws_queryCreatePolicyRequest = (input: CreatePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyName !== undefined) {
-    entries["PolicyName"] = input.PolicyName;
-  }
-  if (input.Path !== undefined) {
-    entries["Path"] = input.Path;
-  }
   if (input.PolicyDocument !== undefined) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
+  if (input.PolicyName !== undefined) {
+    entries["PolicyName"] = input.PolicyName;
+  }
   if (input.Description !== undefined) {
     entries["Description"] = input.Description;
+  }
+  if (input.Path !== undefined) {
+    entries["Path"] = input.Path;
   }
   return entries;
 };
@@ -13258,23 +13258,22 @@ const serializeAws_queryCreatePolicyVersionRequest = (
   if (input.PolicyDocument !== undefined) {
     entries["PolicyDocument"] = input.PolicyDocument;
   }
-  if (input.SetAsDefault !== undefined) {
-    entries["SetAsDefault"] = input.SetAsDefault;
-  }
   if (input.PolicyArn !== undefined) {
     entries["PolicyArn"] = input.PolicyArn;
+  }
+  if (input.SetAsDefault !== undefined) {
+    entries["SetAsDefault"] = input.SetAsDefault;
   }
   return entries;
 };
 
 const serializeAws_queryCreateRoleRequest = (input: CreateRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_querytagListType(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
-      entries[loc] = value;
-    });
+  if (input.PermissionsBoundary !== undefined) {
+    entries["PermissionsBoundary"] = input.PermissionsBoundary;
+  }
+  if (input.Description !== undefined) {
+    entries["Description"] = input.Description;
   }
   if (input.Path !== undefined) {
     entries["Path"] = input.Path;
@@ -13282,17 +13281,18 @@ const serializeAws_queryCreateRoleRequest = (input: CreateRoleRequest, context: 
   if (input.MaxSessionDuration !== undefined) {
     entries["MaxSessionDuration"] = input.MaxSessionDuration;
   }
-  if (input.RoleName !== undefined) {
-    entries["RoleName"] = input.RoleName;
-  }
-  if (input.Description !== undefined) {
-    entries["Description"] = input.Description;
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_querytagListType(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.AssumeRolePolicyDocument !== undefined) {
     entries["AssumeRolePolicyDocument"] = input.AssumeRolePolicyDocument;
   }
-  if (input.PermissionsBoundary !== undefined) {
-    entries["PermissionsBoundary"] = input.PermissionsBoundary;
+  if (input.RoleName !== undefined) {
+    entries["RoleName"] = input.RoleName;
   }
   return entries;
 };
@@ -13316,14 +13316,14 @@ const serializeAws_queryCreateServiceLinkedRoleRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.CustomSuffix !== undefined) {
+    entries["CustomSuffix"] = input.CustomSuffix;
+  }
   if (input.AWSServiceName !== undefined) {
     entries["AWSServiceName"] = input.AWSServiceName;
   }
   if (input.Description !== undefined) {
     entries["Description"] = input.Description;
-  }
-  if (input.CustomSuffix !== undefined) {
-    entries["CustomSuffix"] = input.CustomSuffix;
   }
   return entries;
 };
@@ -13333,22 +13333,22 @@ const serializeAws_queryCreateServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServiceName !== undefined) {
-    entries["ServiceName"] = input.ServiceName;
-  }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
+  }
+  if (input.ServiceName !== undefined) {
+    entries["ServiceName"] = input.ServiceName;
   }
   return entries;
 };
 
 const serializeAws_queryCreateUserRequest = (input: CreateUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Path !== undefined) {
-    entries["Path"] = input.Path;
-  }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
+  }
+  if (input.Path !== undefined) {
+    entries["Path"] = input.Path;
   }
   if (input.Tags !== undefined) {
     const memberEntries = serializeAws_querytagListType(input.Tags, context);
@@ -13393,11 +13393,11 @@ const serializeAws_queryDeactivateMFADeviceRequest = (
 
 const serializeAws_queryDeleteAccessKeyRequest = (input: DeleteAccessKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
-    entries["UserName"] = input.UserName;
-  }
   if (input.AccessKeyId !== undefined) {
     entries["AccessKeyId"] = input.AccessKeyId;
+  }
+  if (input.UserName !== undefined) {
+    entries["UserName"] = input.UserName;
   }
   return entries;
 };
@@ -13415,11 +13415,11 @@ const serializeAws_queryDeleteAccountAliasRequest = (
 
 const serializeAws_queryDeleteGroupPolicyRequest = (input: DeleteGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyName !== undefined) {
-    entries["PolicyName"] = input.PolicyName;
-  }
   if (input.GroupName !== undefined) {
     entries["GroupName"] = input.GroupName;
+  }
+  if (input.PolicyName !== undefined) {
+    entries["PolicyName"] = input.PolicyName;
   }
   return entries;
 };
@@ -13500,11 +13500,11 @@ const serializeAws_queryDeleteRolePermissionsBoundaryRequest = (
 
 const serializeAws_queryDeleteRolePolicyRequest = (input: DeleteRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyName !== undefined) {
-    entries["PolicyName"] = input.PolicyName;
-  }
   if (input.RoleName !== undefined) {
     entries["RoleName"] = input.RoleName;
+  }
+  if (input.PolicyName !== undefined) {
+    entries["PolicyName"] = input.PolicyName;
   }
   return entries;
 };
@@ -13569,11 +13569,11 @@ const serializeAws_queryDeleteSigningCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
-    entries["UserName"] = input.UserName;
-  }
   if (input.CertificateId !== undefined) {
     entries["CertificateId"] = input.CertificateId;
+  }
+  if (input.UserName !== undefined) {
+    entries["UserName"] = input.UserName;
   }
   return entries;
 };
@@ -13583,11 +13583,11 @@ const serializeAws_queryDeleteSSHPublicKeyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.SSHPublicKeyId !== undefined) {
-    entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
-  }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
+  }
+  if (input.SSHPublicKeyId !== undefined) {
+    entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
   }
   return entries;
 };
@@ -13646,11 +13646,11 @@ const serializeAws_queryDetachGroupPolicyRequest = (input: DetachGroupPolicyRequ
 
 const serializeAws_queryDetachRolePolicyRequest = (input: DetachRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
-    entries["RoleName"] = input.RoleName;
-  }
   if (input.PolicyArn !== undefined) {
     entries["PolicyArn"] = input.PolicyArn;
+  }
+  if (input.RoleName !== undefined) {
+    entries["RoleName"] = input.RoleName;
   }
   return entries;
 };
@@ -13668,17 +13668,17 @@ const serializeAws_queryDetachUserPolicyRequest = (input: DetachUserPolicyReques
 
 const serializeAws_queryEnableMFADeviceRequest = (input: EnableMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.UserName !== undefined) {
+    entries["UserName"] = input.UserName;
+  }
   if (input.SerialNumber !== undefined) {
     entries["SerialNumber"] = input.SerialNumber;
-  }
-  if (input.AuthenticationCode1 !== undefined) {
-    entries["AuthenticationCode1"] = input.AuthenticationCode1;
   }
   if (input.AuthenticationCode2 !== undefined) {
     entries["AuthenticationCode2"] = input.AuthenticationCode2;
   }
-  if (input.UserName !== undefined) {
-    entries["UserName"] = input.UserName;
+  if (input.AuthenticationCode1 !== undefined) {
+    entries["AuthenticationCode1"] = input.AuthenticationCode1;
   }
   return entries;
 };
@@ -13712,11 +13712,11 @@ const serializeAws_queryGenerateServiceLastAccessedDetailsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Arn !== undefined) {
-    entries["Arn"] = input.Arn;
-  }
   if (input.Granularity !== undefined) {
     entries["Granularity"] = input.Granularity;
+  }
+  if (input.Arn !== undefined) {
+    entries["Arn"] = input.Arn;
   }
   return entries;
 };
@@ -13773,9 +13773,6 @@ const serializeAws_queryGetContextKeysForPrincipalPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicySourceArn !== undefined) {
-    entries["PolicySourceArn"] = input.PolicySourceArn;
-  }
   if (input.PolicyInputList !== undefined) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -13783,30 +13780,33 @@ const serializeAws_queryGetContextKeysForPrincipalPolicyRequest = (
       entries[loc] = value;
     });
   }
+  if (input.PolicySourceArn !== undefined) {
+    entries["PolicySourceArn"] = input.PolicySourceArn;
+  }
   return entries;
 };
 
 const serializeAws_queryGetGroupPolicyRequest = (input: GetGroupPolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyName !== undefined) {
-    entries["PolicyName"] = input.PolicyName;
-  }
   if (input.GroupName !== undefined) {
     entries["GroupName"] = input.GroupName;
+  }
+  if (input.PolicyName !== undefined) {
+    entries["PolicyName"] = input.PolicyName;
   }
   return entries;
 };
 
 const serializeAws_queryGetGroupRequest = (input: GetGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
   if (input.GroupName !== undefined) {
     entries["GroupName"] = input.GroupName;
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
+  }
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
   }
   return entries;
 };
@@ -13846,17 +13846,17 @@ const serializeAws_queryGetOrganizationsAccessReportRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
   if (input.SortKey !== undefined) {
     entries["SortKey"] = input.SortKey;
+  }
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
   }
   if (input.JobId !== undefined) {
     entries["JobId"] = input.JobId;
   }
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
   }
   return entries;
 };
@@ -13871,22 +13871,22 @@ const serializeAws_queryGetPolicyRequest = (input: GetPolicyRequest, context: __
 
 const serializeAws_queryGetPolicyVersionRequest = (input: GetPolicyVersionRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.VersionId !== undefined) {
-    entries["VersionId"] = input.VersionId;
-  }
   if (input.PolicyArn !== undefined) {
     entries["PolicyArn"] = input.PolicyArn;
+  }
+  if (input.VersionId !== undefined) {
+    entries["VersionId"] = input.VersionId;
   }
   return entries;
 };
 
 const serializeAws_queryGetRolePolicyRequest = (input: GetRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyName !== undefined) {
-    entries["PolicyName"] = input.PolicyName;
-  }
   if (input.RoleName !== undefined) {
     entries["RoleName"] = input.RoleName;
+  }
+  if (input.PolicyName !== undefined) {
+    entries["PolicyName"] = input.PolicyName;
   }
   return entries;
 };
@@ -13923,14 +13923,14 @@ const serializeAws_queryGetServiceLastAccessedDetailsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
   if (input.JobId !== undefined) {
     entries["JobId"] = input.JobId;
   }
   if (input.MaxItems !== undefined) {
     entries["MaxItems"] = input.MaxItems;
-  }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
   }
   return entries;
 };
@@ -13940,8 +13940,8 @@ const serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.JobId !== undefined) {
-    entries["JobId"] = input.JobId;
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
   }
   if (input.ServiceNamespace !== undefined) {
     entries["ServiceNamespace"] = input.ServiceNamespace;
@@ -13949,8 +13949,8 @@ const serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesRequest = (
   if (input.MaxItems !== undefined) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
+  if (input.JobId !== undefined) {
+    entries["JobId"] = input.JobId;
   }
   return entries;
 };
@@ -13968,11 +13968,11 @@ const serializeAws_queryGetServiceLinkedRoleDeletionStatusRequest = (
 
 const serializeAws_queryGetSSHPublicKeyRequest = (input: GetSSHPublicKeyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
-    entries["UserName"] = input.UserName;
-  }
   if (input.SSHPublicKeyId !== undefined) {
     entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
+  }
+  if (input.UserName !== undefined) {
+    entries["UserName"] = input.UserName;
   }
   if (input.Encoding !== undefined) {
     entries["Encoding"] = input.Encoding;
@@ -14001,14 +14001,14 @@ const serializeAws_queryGetUserRequest = (input: GetUserRequest, context: __Serd
 
 const serializeAws_queryListAccessKeysRequest = (input: ListAccessKeysRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
   }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
+  }
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
   }
   return entries;
 };
@@ -14018,11 +14018,11 @@ const serializeAws_queryListAccountAliasesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
+  }
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
   }
   return entries;
 };
@@ -14032,17 +14032,17 @@ const serializeAws_queryListAttachedGroupPoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.GroupName !== undefined) {
-    entries["GroupName"] = input.GroupName;
-  }
-  if (input.PathPrefix !== undefined) {
-    entries["PathPrefix"] = input.PathPrefix;
-  }
   if (input.MaxItems !== undefined) {
     entries["MaxItems"] = input.MaxItems;
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
+  }
+  if (input.GroupName !== undefined) {
+    entries["GroupName"] = input.GroupName;
+  }
+  if (input.PathPrefix !== undefined) {
+    entries["PathPrefix"] = input.PathPrefix;
   }
   return entries;
 };
@@ -14052,17 +14052,17 @@ const serializeAws_queryListAttachedRolePoliciesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PathPrefix !== undefined) {
-    entries["PathPrefix"] = input.PathPrefix;
-  }
-  if (input.RoleName !== undefined) {
-    entries["RoleName"] = input.RoleName;
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
   }
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input.RoleName !== undefined) {
+    entries["RoleName"] = input.RoleName;
+  }
+  if (input.PathPrefix !== undefined) {
+    entries["PathPrefix"] = input.PathPrefix;
   }
   return entries;
 };
@@ -14075,14 +14075,14 @@ const serializeAws_queryListAttachedUserPoliciesRequest = (
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
   }
+  if (input.UserName !== undefined) {
+    entries["UserName"] = input.UserName;
+  }
   if (input.PathPrefix !== undefined) {
     entries["PathPrefix"] = input.PathPrefix;
   }
   if (input.MaxItems !== undefined) {
     entries["MaxItems"] = input.MaxItems;
-  }
-  if (input.UserName !== undefined) {
-    entries["UserName"] = input.UserName;
   }
   return entries;
 };
@@ -14092,65 +14092,65 @@ const serializeAws_queryListEntitiesForPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.EntityFilter !== undefined) {
+    entries["EntityFilter"] = input.EntityFilter;
+  }
+  if (input.PolicyArn !== undefined) {
+    entries["PolicyArn"] = input.PolicyArn;
+  }
   if (input.PathPrefix !== undefined) {
     entries["PathPrefix"] = input.PathPrefix;
   }
   if (input.PolicyUsageFilter !== undefined) {
     entries["PolicyUsageFilter"] = input.PolicyUsageFilter;
   }
-  if (input.EntityFilter !== undefined) {
-    entries["EntityFilter"] = input.EntityFilter;
-  }
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
-  if (input.PolicyArn !== undefined) {
-    entries["PolicyArn"] = input.PolicyArn;
-  }
   return entries;
 };
 
 const serializeAws_queryListGroupPoliciesRequest = (input: ListGroupPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
   if (input.MaxItems !== undefined) {
     entries["MaxItems"] = input.MaxItems;
   }
   if (input.GroupName !== undefined) {
     entries["GroupName"] = input.GroupName;
   }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
   return entries;
 };
 
 const serializeAws_queryListGroupsForUserRequest = (input: ListGroupsForUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
   }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
   }
   return entries;
 };
 
 const serializeAws_queryListGroupsRequest = (input: ListGroupsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
   if (input.PathPrefix !== undefined) {
     entries["PathPrefix"] = input.PathPrefix;
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
+  }
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
   }
   return entries;
 };
@@ -14160,14 +14160,14 @@ const serializeAws_queryListInstanceProfilesForRoleRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
-    entries["RoleName"] = input.RoleName;
-  }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
     entries["MaxItems"] = input.MaxItems;
+  }
+  if (input.RoleName !== undefined) {
+    entries["RoleName"] = input.RoleName;
   }
   return entries;
 };
@@ -14177,28 +14177,28 @@ const serializeAws_queryListInstanceProfilesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
+  }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
   }
   if (input.PathPrefix !== undefined) {
     entries["PathPrefix"] = input.PathPrefix;
   }
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
   return entries;
 };
 
 const serializeAws_queryListMFADevicesRequest = (input: ListMFADevicesRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
+  }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
-  }
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
   }
   return entries;
 };
@@ -14216,9 +14216,6 @@ const serializeAws_queryListPoliciesGrantingServiceAccessRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Arn !== undefined) {
-    entries["Arn"] = input.Arn;
-  }
   if (input.ServiceNamespaces !== undefined) {
     const memberEntries = serializeAws_queryserviceNamespaceListType(input.ServiceNamespaces, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14229,28 +14226,31 @@ const serializeAws_queryListPoliciesGrantingServiceAccessRequest = (
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
   }
+  if (input.Arn !== undefined) {
+    entries["Arn"] = input.Arn;
+  }
   return entries;
 };
 
 const serializeAws_queryListPoliciesRequest = (input: ListPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
   if (input.PolicyUsageFilter !== undefined) {
     entries["PolicyUsageFilter"] = input.PolicyUsageFilter;
+  }
+  if (input.Scope !== undefined) {
+    entries["Scope"] = input.Scope;
   }
   if (input.PathPrefix !== undefined) {
     entries["PathPrefix"] = input.PathPrefix;
   }
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
+  }
   if (input.OnlyAttached !== undefined) {
     entries["OnlyAttached"] = input.OnlyAttached;
   }
-  if (input.Scope !== undefined) {
-    entries["Scope"] = input.Scope;
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
   }
   return entries;
 };
@@ -14260,39 +14260,39 @@ const serializeAws_queryListPolicyVersionsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
   if (input.MaxItems !== undefined) {
     entries["MaxItems"] = input.MaxItems;
   }
   if (input.PolicyArn !== undefined) {
     entries["PolicyArn"] = input.PolicyArn;
   }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
   return entries;
 };
 
 const serializeAws_queryListRolePoliciesRequest = (input: ListRolePoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
   if (input.RoleName !== undefined) {
     entries["RoleName"] = input.RoleName;
   }
   if (input.MaxItems !== undefined) {
     entries["MaxItems"] = input.MaxItems;
   }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
   return entries;
 };
 
 const serializeAws_queryListRolesRequest = (input: ListRolesRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
   if (input.PathPrefix !== undefined) {
     entries["PathPrefix"] = input.PathPrefix;
+  }
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
@@ -14302,14 +14302,14 @@ const serializeAws_queryListRolesRequest = (input: ListRolesRequest, context: __
 
 const serializeAws_queryListRoleTagsRequest = (input: ListRoleTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
-    entries["RoleName"] = input.RoleName;
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
+  if (input.RoleName !== undefined) {
+    entries["RoleName"] = input.RoleName;
   }
   return entries;
 };
@@ -14324,11 +14324,11 @@ const serializeAws_queryListServerCertificatesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
   if (input.PathPrefix !== undefined) {
     entries["PathPrefix"] = input.PathPrefix;
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
     entries["MaxItems"] = input.MaxItems;
@@ -14341,11 +14341,11 @@ const serializeAws_queryListServiceSpecificCredentialsRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
-    entries["UserName"] = input.UserName;
-  }
   if (input.ServiceName !== undefined) {
     entries["ServiceName"] = input.ServiceName;
+  }
+  if (input.UserName !== undefined) {
+    entries["UserName"] = input.UserName;
   }
   return entries;
 };
@@ -14358,67 +14358,67 @@ const serializeAws_queryListSigningCertificatesRequest = (
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
   }
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
+  }
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
   }
   return entries;
 };
 
 const serializeAws_queryListSSHPublicKeysRequest = (input: ListSSHPublicKeysRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
   }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
+  }
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
   }
   return entries;
 };
 
 const serializeAws_queryListUserPoliciesRequest = (input: ListUserPoliciesRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
   }
   if (input.MaxItems !== undefined) {
     entries["MaxItems"] = input.MaxItems;
-  }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
   }
   return entries;
 };
 
 const serializeAws_queryListUsersRequest = (input: ListUsersRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
   }
   if (input.PathPrefix !== undefined) {
     entries["PathPrefix"] = input.PathPrefix;
   }
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
+  }
   return entries;
 };
 
 const serializeAws_queryListUserTagsRequest = (input: ListUserTagsRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
   }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
+  }
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
   }
   return entries;
 };
@@ -14428,14 +14428,14 @@ const serializeAws_queryListVirtualMFADevicesRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.AssignmentStatus !== undefined) {
-    entries["AssignmentStatus"] = input.AssignmentStatus;
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
   }
   if (input.MaxItems !== undefined) {
     entries["MaxItems"] = input.MaxItems;
   }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
+  if (input.AssignmentStatus !== undefined) {
+    entries["AssignmentStatus"] = input.AssignmentStatus;
   }
   return entries;
 };
@@ -14445,11 +14445,11 @@ const serializeAws_queryPutGroupPolicyRequest = (input: PutGroupPolicyRequest, c
   if (input.PolicyName !== undefined) {
     entries["PolicyName"] = input.PolicyName;
   }
-  if (input.GroupName !== undefined) {
-    entries["GroupName"] = input.GroupName;
-  }
   if (input.PolicyDocument !== undefined) {
     entries["PolicyDocument"] = input.PolicyDocument;
+  }
+  if (input.GroupName !== undefined) {
+    entries["GroupName"] = input.GroupName;
   }
   return entries;
 };
@@ -14459,22 +14459,22 @@ const serializeAws_queryPutRolePermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PermissionsBoundary !== undefined) {
-    entries["PermissionsBoundary"] = input.PermissionsBoundary;
-  }
   if (input.RoleName !== undefined) {
     entries["RoleName"] = input.RoleName;
+  }
+  if (input.PermissionsBoundary !== undefined) {
+    entries["PermissionsBoundary"] = input.PermissionsBoundary;
   }
   return entries;
 };
 
 const serializeAws_queryPutRolePolicyRequest = (input: PutRolePolicyRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.PolicyName !== undefined) {
-    entries["PolicyName"] = input.PolicyName;
-  }
   if (input.RoleName !== undefined) {
     entries["RoleName"] = input.RoleName;
+  }
+  if (input.PolicyName !== undefined) {
+    entries["PolicyName"] = input.PolicyName;
   }
   if (input.PolicyDocument !== undefined) {
     entries["PolicyDocument"] = input.PolicyDocument;
@@ -14487,11 +14487,11 @@ const serializeAws_queryPutUserPermissionsBoundaryRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
-    entries["UserName"] = input.UserName;
-  }
   if (input.PermissionsBoundary !== undefined) {
     entries["PermissionsBoundary"] = input.PermissionsBoundary;
+  }
+  if (input.UserName !== undefined) {
+    entries["UserName"] = input.UserName;
   }
   return entries;
 };
@@ -14501,11 +14501,11 @@ const serializeAws_queryPutUserPolicyRequest = (input: PutUserPolicyRequest, con
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
   }
-  if (input.PolicyName !== undefined) {
-    entries["PolicyName"] = input.PolicyName;
-  }
   if (input.PolicyDocument !== undefined) {
     entries["PolicyDocument"] = input.PolicyDocument;
+  }
+  if (input.PolicyName !== undefined) {
+    entries["PolicyName"] = input.PolicyName;
   }
   return entries;
 };
@@ -14515,11 +14515,11 @@ const serializeAws_queryRemoveClientIDFromOpenIDConnectProviderRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClientID !== undefined) {
-    entries["ClientID"] = input.ClientID;
-  }
   if (input.OpenIDConnectProviderArn !== undefined) {
     entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
+  }
+  if (input.ClientID !== undefined) {
+    entries["ClientID"] = input.ClientID;
   }
   return entries;
 };
@@ -14543,11 +14543,11 @@ const serializeAws_queryRemoveUserFromGroupRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
-    entries["UserName"] = input.UserName;
-  }
   if (input.GroupName !== undefined) {
     entries["GroupName"] = input.GroupName;
+  }
+  if (input.UserName !== undefined) {
+    entries["UserName"] = input.UserName;
   }
   return entries;
 };
@@ -14557,11 +14557,11 @@ const serializeAws_queryResetServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ServiceSpecificCredentialId !== undefined) {
-    entries["ServiceSpecificCredentialId"] = input.ServiceSpecificCredentialId;
-  }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
+  }
+  if (input.ServiceSpecificCredentialId !== undefined) {
+    entries["ServiceSpecificCredentialId"] = input.ServiceSpecificCredentialId;
   }
   return entries;
 };
@@ -14578,17 +14578,17 @@ const serializeAws_queryResourceNameListType = (input: string[], context: __Serd
 
 const serializeAws_queryResyncMFADeviceRequest = (input: ResyncMFADeviceRequest, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.AuthenticationCode2 !== undefined) {
+    entries["AuthenticationCode2"] = input.AuthenticationCode2;
+  }
+  if (input.AuthenticationCode1 !== undefined) {
+    entries["AuthenticationCode1"] = input.AuthenticationCode1;
+  }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
   }
   if (input.SerialNumber !== undefined) {
     entries["SerialNumber"] = input.SerialNumber;
-  }
-  if (input.AuthenticationCode1 !== undefined) {
-    entries["AuthenticationCode1"] = input.AuthenticationCode1;
-  }
-  if (input.AuthenticationCode2 !== undefined) {
-    entries["AuthenticationCode2"] = input.AuthenticationCode2;
   }
   return entries;
 };
@@ -14608,11 +14608,11 @@ const serializeAws_querySetDefaultPolicyVersionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyArn !== undefined) {
-    entries["PolicyArn"] = input.PolicyArn;
-  }
   if (input.VersionId !== undefined) {
     entries["VersionId"] = input.VersionId;
+  }
+  if (input.PolicyArn !== undefined) {
+    entries["PolicyArn"] = input.PolicyArn;
   }
   return entries;
 };
@@ -14633,10 +14633,19 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ContextEntries !== undefined) {
-    const memberEntries = serializeAws_queryContextEntryListType(input.ContextEntries, context);
+  if (input.ResourcePolicy !== undefined) {
+    entries["ResourcePolicy"] = input.ResourcePolicy;
+  }
+  if (input.CallerArn !== undefined) {
+    entries["CallerArn"] = input.CallerArn;
+  }
+  if (input.ResourceHandlingOption !== undefined) {
+    entries["ResourceHandlingOption"] = input.ResourceHandlingOption;
+  }
+  if (input.ResourceArns !== undefined) {
+    const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ContextEntries.${key}`;
+      const loc = `ResourceArns.${key}`;
       entries[loc] = value;
     });
   }
@@ -14646,18 +14655,6 @@ const serializeAws_querySimulateCustomPolicyRequest = (
       const loc = `ActionNames.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.ResourceOwner !== undefined) {
-    entries["ResourceOwner"] = input.ResourceOwner;
-  }
-  if (input.ResourceHandlingOption !== undefined) {
-    entries["ResourceHandlingOption"] = input.ResourceHandlingOption;
-  }
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
-  if (input.ResourcePolicy !== undefined) {
-    entries["ResourcePolicy"] = input.ResourcePolicy;
   }
   if (input.PolicyInputList !== undefined) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
@@ -14669,22 +14666,25 @@ const serializeAws_querySimulateCustomPolicyRequest = (
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
   }
-  if (input.CallerArn !== undefined) {
-    entries["CallerArn"] = input.CallerArn;
-  }
-  if (input.ResourceArns !== undefined) {
-    const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ResourceArns.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.PermissionsBoundaryPolicyInputList !== undefined) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PermissionsBoundaryPolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `PermissionsBoundaryPolicyInputList.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.ResourceOwner !== undefined) {
+    entries["ResourceOwner"] = input.ResourceOwner;
+  }
+  if (input.ContextEntries !== undefined) {
+    const memberEntries = serializeAws_queryContextEntryListType(input.ContextEntries, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ContextEntries.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
   }
   return entries;
 };
@@ -14694,6 +14694,25 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.ResourceHandlingOption !== undefined) {
+    entries["ResourceHandlingOption"] = input.ResourceHandlingOption;
+  }
+  if (input.ActionNames !== undefined) {
+    const memberEntries = serializeAws_queryActionNameListType(input.ActionNames, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ActionNames.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ResourcePolicy !== undefined) {
+    entries["ResourcePolicy"] = input.ResourcePolicy;
+  }
+  if (input.MaxItems !== undefined) {
+    entries["MaxItems"] = input.MaxItems;
+  }
   if (input.ContextEntries !== undefined) {
     const memberEntries = serializeAws_queryContextEntryListType(input.ContextEntries, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14708,38 +14727,6 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
       entries[loc] = value;
     });
   }
-  if (input.ResourceArns !== undefined) {
-    const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ResourceArns.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.CallerArn !== undefined) {
-    entries["CallerArn"] = input.CallerArn;
-  }
-  if (input.ResourcePolicy !== undefined) {
-    entries["ResourcePolicy"] = input.ResourcePolicy;
-  }
-  if (input.PolicySourceArn !== undefined) {
-    entries["PolicySourceArn"] = input.PolicySourceArn;
-  }
-  if (input.MaxItems !== undefined) {
-    entries["MaxItems"] = input.MaxItems;
-  }
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
-  if (input.ResourceHandlingOption !== undefined) {
-    entries["ResourceHandlingOption"] = input.ResourceHandlingOption;
-  }
-  if (input.ActionNames !== undefined) {
-    const memberEntries = serializeAws_queryActionNameListType(input.ActionNames, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ActionNames.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.PolicyInputList !== undefined) {
     const memberEntries = serializeAws_querySimulationPolicyListType(input.PolicyInputList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -14749,6 +14736,19 @@ const serializeAws_querySimulatePrincipalPolicyRequest = (
   }
   if (input.ResourceOwner !== undefined) {
     entries["ResourceOwner"] = input.ResourceOwner;
+  }
+  if (input.PolicySourceArn !== undefined) {
+    entries["PolicySourceArn"] = input.PolicySourceArn;
+  }
+  if (input.ResourceArns !== undefined) {
+    const memberEntries = serializeAws_queryResourceNameListType(input.ResourceArns, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ResourceArns.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.CallerArn !== undefined) {
+    entries["CallerArn"] = input.CallerArn;
   }
   return entries;
 };
@@ -14765,11 +14765,11 @@ const serializeAws_querySimulationPolicyListType = (input: string[], context: __
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Key !== undefined) {
-    entries["Key"] = input.Key;
-  }
   if (input.Value !== undefined) {
     entries["Value"] = input.Value;
+  }
+  if (input.Key !== undefined) {
+    entries["Key"] = input.Key;
   }
   return entries;
 };
@@ -14839,30 +14839,30 @@ const serializeAws_querythumbprintListType = (input: string[], context: __SerdeC
 
 const serializeAws_queryUntagRoleRequest = (input: UntagRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
-    entries["RoleName"] = input.RoleName;
-  }
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.RoleName !== undefined) {
+    entries["RoleName"] = input.RoleName;
   }
   return entries;
 };
 
 const serializeAws_queryUntagUserRequest = (input: UntagUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UserName !== undefined) {
-    entries["UserName"] = input.UserName;
-  }
   if (input.TagKeys !== undefined) {
     const memberEntries = serializeAws_querytagKeyListType(input.TagKeys, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.UserName !== undefined) {
+    entries["UserName"] = input.UserName;
   }
   return entries;
 };
@@ -14872,11 +14872,11 @@ const serializeAws_queryUpdateAccessKeyRequest = (input: UpdateAccessKeyRequest,
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
   }
-  if (input.Status !== undefined) {
-    entries["Status"] = input.Status;
-  }
   if (input.AccessKeyId !== undefined) {
     entries["AccessKeyId"] = input.AccessKeyId;
+  }
+  if (input.Status !== undefined) {
+    entries["Status"] = input.Status;
   }
   return entries;
 };
@@ -14886,32 +14886,32 @@ const serializeAws_queryUpdateAccountPasswordPolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.HardExpiry !== undefined) {
-    entries["HardExpiry"] = input.HardExpiry;
-  }
-  if (input.RequireUppercaseCharacters !== undefined) {
-    entries["RequireUppercaseCharacters"] = input.RequireUppercaseCharacters;
-  }
-  if (input.RequireNumbers !== undefined) {
-    entries["RequireNumbers"] = input.RequireNumbers;
-  }
-  if (input.RequireSymbols !== undefined) {
-    entries["RequireSymbols"] = input.RequireSymbols;
-  }
-  if (input.MinimumPasswordLength !== undefined) {
-    entries["MinimumPasswordLength"] = input.MinimumPasswordLength;
+  if (input.RequireLowercaseCharacters !== undefined) {
+    entries["RequireLowercaseCharacters"] = input.RequireLowercaseCharacters;
   }
   if (input.PasswordReusePrevention !== undefined) {
     entries["PasswordReusePrevention"] = input.PasswordReusePrevention;
   }
-  if (input.AllowUsersToChangePassword !== undefined) {
-    entries["AllowUsersToChangePassword"] = input.AllowUsersToChangePassword;
+  if (input.HardExpiry !== undefined) {
+    entries["HardExpiry"] = input.HardExpiry;
   }
   if (input.MaxPasswordAge !== undefined) {
     entries["MaxPasswordAge"] = input.MaxPasswordAge;
   }
-  if (input.RequireLowercaseCharacters !== undefined) {
-    entries["RequireLowercaseCharacters"] = input.RequireLowercaseCharacters;
+  if (input.RequireUppercaseCharacters !== undefined) {
+    entries["RequireUppercaseCharacters"] = input.RequireUppercaseCharacters;
+  }
+  if (input.RequireSymbols !== undefined) {
+    entries["RequireSymbols"] = input.RequireSymbols;
+  }
+  if (input.AllowUsersToChangePassword !== undefined) {
+    entries["AllowUsersToChangePassword"] = input.AllowUsersToChangePassword;
+  }
+  if (input.RequireNumbers !== undefined) {
+    entries["RequireNumbers"] = input.RequireNumbers;
+  }
+  if (input.MinimumPasswordLength !== undefined) {
+    entries["MinimumPasswordLength"] = input.MinimumPasswordLength;
   }
   return entries;
 };
@@ -14921,25 +14921,25 @@ const serializeAws_queryUpdateAssumeRolePolicyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PolicyDocument !== undefined) {
-    entries["PolicyDocument"] = input.PolicyDocument;
-  }
   if (input.RoleName !== undefined) {
     entries["RoleName"] = input.RoleName;
+  }
+  if (input.PolicyDocument !== undefined) {
+    entries["PolicyDocument"] = input.PolicyDocument;
   }
   return entries;
 };
 
 const serializeAws_queryUpdateGroupRequest = (input: UpdateGroupRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NewPath !== undefined) {
-    entries["NewPath"] = input.NewPath;
+  if (input.NewGroupName !== undefined) {
+    entries["NewGroupName"] = input.NewGroupName;
   }
   if (input.GroupName !== undefined) {
     entries["GroupName"] = input.GroupName;
   }
-  if (input.NewGroupName !== undefined) {
-    entries["NewGroupName"] = input.NewGroupName;
+  if (input.NewPath !== undefined) {
+    entries["NewPath"] = input.NewPath;
   }
   return entries;
 };
@@ -14966,15 +14966,15 @@ const serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.OpenIDConnectProviderArn !== undefined) {
-    entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
-  }
   if (input.ThumbprintList !== undefined) {
     const memberEntries = serializeAws_querythumbprintListType(input.ThumbprintList, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ThumbprintList.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.OpenIDConnectProviderArn !== undefined) {
+    entries["OpenIDConnectProviderArn"] = input.OpenIDConnectProviderArn;
   }
   return entries;
 };
@@ -14984,25 +14984,25 @@ const serializeAws_queryUpdateRoleDescriptionRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.RoleName !== undefined) {
-    entries["RoleName"] = input.RoleName;
-  }
   if (input.Description !== undefined) {
     entries["Description"] = input.Description;
+  }
+  if (input.RoleName !== undefined) {
+    entries["RoleName"] = input.RoleName;
   }
   return entries;
 };
 
 const serializeAws_queryUpdateRoleRequest = (input: UpdateRoleRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Description !== undefined) {
-    entries["Description"] = input.Description;
-  }
   if (input.MaxSessionDuration !== undefined) {
     entries["MaxSessionDuration"] = input.MaxSessionDuration;
   }
   if (input.RoleName !== undefined) {
     entries["RoleName"] = input.RoleName;
+  }
+  if (input.Description !== undefined) {
+    entries["Description"] = input.Description;
   }
   return entries;
 };
@@ -15026,11 +15026,11 @@ const serializeAws_queryUpdateServerCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.NewServerCertificateName !== undefined) {
-    entries["NewServerCertificateName"] = input.NewServerCertificateName;
-  }
   if (input.NewPath !== undefined) {
     entries["NewPath"] = input.NewPath;
+  }
+  if (input.NewServerCertificateName !== undefined) {
+    entries["NewServerCertificateName"] = input.NewServerCertificateName;
   }
   if (input.ServerCertificateName !== undefined) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
@@ -15043,14 +15043,14 @@ const serializeAws_queryUpdateServiceSpecificCredentialRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Status !== undefined) {
-    entries["Status"] = input.Status;
+  if (input.ServiceSpecificCredentialId !== undefined) {
+    entries["ServiceSpecificCredentialId"] = input.ServiceSpecificCredentialId;
   }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
   }
-  if (input.ServiceSpecificCredentialId !== undefined) {
-    entries["ServiceSpecificCredentialId"] = input.ServiceSpecificCredentialId;
+  if (input.Status !== undefined) {
+    entries["Status"] = input.Status;
   }
   return entries;
 };
@@ -15060,14 +15060,14 @@ const serializeAws_queryUpdateSigningCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.CertificateId !== undefined) {
+    entries["CertificateId"] = input.CertificateId;
+  }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
   }
   if (input.Status !== undefined) {
     entries["Status"] = input.Status;
-  }
-  if (input.CertificateId !== undefined) {
-    entries["CertificateId"] = input.CertificateId;
   }
   return entries;
 };
@@ -15077,28 +15077,28 @@ const serializeAws_queryUpdateSSHPublicKeyRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Status !== undefined) {
-    entries["Status"] = input.Status;
+  if (input.SSHPublicKeyId !== undefined) {
+    entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
   }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
   }
-  if (input.SSHPublicKeyId !== undefined) {
-    entries["SSHPublicKeyId"] = input.SSHPublicKeyId;
+  if (input.Status !== undefined) {
+    entries["Status"] = input.Status;
   }
   return entries;
 };
 
 const serializeAws_queryUpdateUserRequest = (input: UpdateUserRequest, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.NewPath !== undefined) {
-    entries["NewPath"] = input.NewPath;
-  }
   if (input.UserName !== undefined) {
     entries["UserName"] = input.UserName;
   }
   if (input.NewUserName !== undefined) {
     entries["NewUserName"] = input.NewUserName;
+  }
+  if (input.NewPath !== undefined) {
+    entries["NewPath"] = input.NewPath;
   }
   return entries;
 };
@@ -15108,20 +15108,20 @@ const serializeAws_queryUploadServerCertificateRequest = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.PrivateKey !== undefined) {
-    entries["PrivateKey"] = input.PrivateKey;
-  }
-  if (input.Path !== undefined) {
-    entries["Path"] = input.Path;
-  }
-  if (input.CertificateBody !== undefined) {
-    entries["CertificateBody"] = input.CertificateBody;
-  }
   if (input.CertificateChain !== undefined) {
     entries["CertificateChain"] = input.CertificateChain;
   }
   if (input.ServerCertificateName !== undefined) {
     entries["ServerCertificateName"] = input.ServerCertificateName;
+  }
+  if (input.CertificateBody !== undefined) {
+    entries["CertificateBody"] = input.CertificateBody;
+  }
+  if (input.PrivateKey !== undefined) {
+    entries["PrivateKey"] = input.PrivateKey;
+  }
+  if (input.Path !== undefined) {
+    entries["Path"] = input.Path;
   }
   return entries;
 };
@@ -15156,18 +15156,15 @@ const serializeAws_queryUploadSSHPublicKeyRequest = (
 
 const deserializeAws_queryAccessDetail = (output: any, context: __SerdeContext): AccessDetail => {
   let contents: any = {
-    ServiceName: undefined,
-    EntityPath: undefined,
+    ServiceNamespace: undefined,
     TotalAuthenticatedEntities: undefined,
     Region: undefined,
+    ServiceName: undefined,
+    EntityPath: undefined,
     LastAuthenticatedTime: undefined,
-    ServiceNamespace: undefined,
   };
-  if (output["ServiceName"] !== undefined) {
-    contents.ServiceName = output["ServiceName"];
-  }
-  if (output["EntityPath"] !== undefined) {
-    contents.EntityPath = output["EntityPath"];
+  if (output["ServiceNamespace"] !== undefined) {
+    contents.ServiceNamespace = output["ServiceNamespace"];
   }
   if (output["TotalAuthenticatedEntities"] !== undefined) {
     contents.TotalAuthenticatedEntities = parseInt(output["TotalAuthenticatedEntities"]);
@@ -15175,11 +15172,14 @@ const deserializeAws_queryAccessDetail = (output: any, context: __SerdeContext):
   if (output["Region"] !== undefined) {
     contents.Region = output["Region"];
   }
+  if (output["ServiceName"] !== undefined) {
+    contents.ServiceName = output["ServiceName"];
+  }
+  if (output["EntityPath"] !== undefined) {
+    contents.EntityPath = output["EntityPath"];
+  }
   if (output["LastAuthenticatedTime"] !== undefined) {
     contents.LastAuthenticatedTime = new Date(output["LastAuthenticatedTime"]);
-  }
-  if (output["ServiceNamespace"] !== undefined) {
-    contents.ServiceNamespace = output["ServiceNamespace"];
   }
   return contents;
 };
@@ -15190,66 +15190,66 @@ const deserializeAws_queryAccessDetails = (output: any, context: __SerdeContext)
 
 const deserializeAws_queryAccessKey = (output: any, context: __SerdeContext): AccessKey => {
   let contents: any = {
-    AccessKeyId: undefined,
-    Status: undefined,
-    SecretAccessKey: undefined,
     UserName: undefined,
     CreateDate: undefined,
+    SecretAccessKey: undefined,
+    AccessKeyId: undefined,
+    Status: undefined,
   };
-  if (output["AccessKeyId"] !== undefined) {
-    contents.AccessKeyId = output["AccessKeyId"];
-  }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
-  }
-  if (output["SecretAccessKey"] !== undefined) {
-    contents.SecretAccessKey = output["SecretAccessKey"];
-  }
   if (output["UserName"] !== undefined) {
     contents.UserName = output["UserName"];
   }
   if (output["CreateDate"] !== undefined) {
     contents.CreateDate = new Date(output["CreateDate"]);
+  }
+  if (output["SecretAccessKey"] !== undefined) {
+    contents.SecretAccessKey = output["SecretAccessKey"];
+  }
+  if (output["AccessKeyId"] !== undefined) {
+    contents.AccessKeyId = output["AccessKeyId"];
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
   }
   return contents;
 };
 
 const deserializeAws_queryAccessKeyLastUsed = (output: any, context: __SerdeContext): AccessKeyLastUsed => {
   let contents: any = {
-    ServiceName: undefined,
-    LastUsedDate: undefined,
     Region: undefined,
+    LastUsedDate: undefined,
+    ServiceName: undefined,
   };
-  if (output["ServiceName"] !== undefined) {
-    contents.ServiceName = output["ServiceName"];
+  if (output["Region"] !== undefined) {
+    contents.Region = output["Region"];
   }
   if (output["LastUsedDate"] !== undefined) {
     contents.LastUsedDate = new Date(output["LastUsedDate"]);
   }
-  if (output["Region"] !== undefined) {
-    contents.Region = output["Region"];
+  if (output["ServiceName"] !== undefined) {
+    contents.ServiceName = output["ServiceName"];
   }
   return contents;
 };
 
 const deserializeAws_queryAccessKeyMetadata = (output: any, context: __SerdeContext): AccessKeyMetadata => {
   let contents: any = {
-    AccessKeyId: undefined,
     UserName: undefined,
-    Status: undefined,
     CreateDate: undefined,
+    Status: undefined,
+    AccessKeyId: undefined,
   };
-  if (output["AccessKeyId"] !== undefined) {
-    contents.AccessKeyId = output["AccessKeyId"];
-  }
   if (output["UserName"] !== undefined) {
     contents.UserName = output["UserName"];
+  }
+  if (output["CreateDate"] !== undefined) {
+    contents.CreateDate = new Date(output["CreateDate"]);
   }
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = new Date(output["CreateDate"]);
+  if (output["AccessKeyId"] !== undefined) {
+    contents.AccessKeyId = output["AccessKeyId"];
   }
   return contents;
 };
@@ -15271,14 +15271,14 @@ const deserializeAws_queryAttachedPermissionsBoundary = (
   context: __SerdeContext
 ): AttachedPermissionsBoundary => {
   let contents: any = {
-    PermissionsBoundaryArn: undefined,
     PermissionsBoundaryType: undefined,
+    PermissionsBoundaryArn: undefined,
   };
-  if (output["PermissionsBoundaryArn"] !== undefined) {
-    contents.PermissionsBoundaryArn = output["PermissionsBoundaryArn"];
-  }
   if (output["PermissionsBoundaryType"] !== undefined) {
     contents.PermissionsBoundaryType = output["PermissionsBoundaryType"];
+  }
+  if (output["PermissionsBoundaryArn"] !== undefined) {
+    contents.PermissionsBoundaryArn = output["PermissionsBoundaryArn"];
   }
   return contents;
 };
@@ -15289,14 +15289,14 @@ const deserializeAws_queryattachedPoliciesListType = (output: any, context: __Se
 
 const deserializeAws_queryAttachedPolicy = (output: any, context: __SerdeContext): AttachedPolicy => {
   let contents: any = {
-    PolicyName: undefined,
     PolicyArn: undefined,
+    PolicyName: undefined,
   };
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = output["PolicyName"];
-  }
   if (output["PolicyArn"] !== undefined) {
     contents.PolicyArn = output["PolicyArn"];
+  }
+  if (output["PolicyName"] !== undefined) {
+    contents.PolicyName = output["PolicyName"];
   }
   return contents;
 };
@@ -15550,12 +15550,9 @@ const deserializeAws_queryDeletionTaskFailureReasonType = (
   context: __SerdeContext
 ): DeletionTaskFailureReasonType => {
   let contents: any = {
-    Reason: undefined,
     RoleUsageList: undefined,
+    Reason: undefined,
   };
-  if (output["Reason"] !== undefined) {
-    contents.Reason = output["Reason"];
-  }
   if (output.RoleUsageList === "") {
     contents.RoleUsageList = [];
   }
@@ -15564,6 +15561,9 @@ const deserializeAws_queryDeletionTaskFailureReasonType = (
       __getArrayIfSingleItem(output["RoleUsageList"]["member"]),
       context
     );
+  }
+  if (output["Reason"] !== undefined) {
+    contents.Reason = output["Reason"];
   }
   return contents;
 };
@@ -15627,26 +15627,26 @@ const deserializeAws_queryentityDetailsListType = (output: any, context: __Serde
 
 const deserializeAws_queryEntityInfo = (output: any, context: __SerdeContext): EntityInfo => {
   let contents: any = {
-    Name: undefined,
-    Id: undefined,
-    Path: undefined,
-    Arn: undefined,
     Type: undefined,
+    Path: undefined,
+    Name: undefined,
+    Arn: undefined,
+    Id: undefined,
   };
-  if (output["Name"] !== undefined) {
-    contents.Name = output["Name"];
-  }
-  if (output["Id"] !== undefined) {
-    contents.Id = output["Id"];
+  if (output["Type"] !== undefined) {
+    contents.Type = output["Type"];
   }
   if (output["Path"] !== undefined) {
     contents.Path = output["Path"];
   }
+  if (output["Name"] !== undefined) {
+    contents.Name = output["Name"];
+  }
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
   }
-  if (output["Type"] !== undefined) {
-    contents.Type = output["Type"];
+  if (output["Id"] !== undefined) {
+    contents.Id = output["Id"];
   }
   return contents;
 };
@@ -15666,14 +15666,14 @@ const deserializeAws_queryEntityTemporarilyUnmodifiableException = (
 
 const deserializeAws_queryErrorDetails = (output: any, context: __SerdeContext): ErrorDetails => {
   let contents: any = {
-    Code: undefined,
     Message: undefined,
+    Code: undefined,
   };
-  if (output["Code"] !== undefined) {
-    contents.Code = output["Code"];
-  }
   if (output["Message"] !== undefined) {
     contents.Message = output["Message"];
+  }
+  if (output["Code"] !== undefined) {
+    contents.Code = output["Code"];
   }
   return contents;
 };
@@ -15693,48 +15693,18 @@ const deserializeAws_queryEvalDecisionDetailsType = (
 
 const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeContext): EvaluationResult => {
   let contents: any = {
-    EvalDecision: undefined,
     EvalActionName: undefined,
-    EvalDecisionDetails: undefined,
-    OrganizationsDecisionDetail: undefined,
-    EvalResourceName: undefined,
-    MatchedStatements: undefined,
     MissingContextValues: undefined,
     PermissionsBoundaryDecisionDetail: undefined,
+    EvalDecision: undefined,
+    EvalResourceName: undefined,
+    OrganizationsDecisionDetail: undefined,
+    MatchedStatements: undefined,
     ResourceSpecificResults: undefined,
+    EvalDecisionDetails: undefined,
   };
-  if (output["EvalDecision"] !== undefined) {
-    contents.EvalDecision = output["EvalDecision"];
-  }
   if (output["EvalActionName"] !== undefined) {
     contents.EvalActionName = output["EvalActionName"];
-  }
-  if (output.EvalDecisionDetails === "") {
-    contents.EvalDecisionDetails = {};
-  }
-  if (output["EvalDecisionDetails"] !== undefined && output["EvalDecisionDetails"]["entry"] !== undefined) {
-    contents.EvalDecisionDetails = deserializeAws_queryEvalDecisionDetailsType(
-      __getArrayIfSingleItem(output["EvalDecisionDetails"]["entry"]),
-      context
-    );
-  }
-  if (output["OrganizationsDecisionDetail"] !== undefined) {
-    contents.OrganizationsDecisionDetail = deserializeAws_queryOrganizationsDecisionDetail(
-      output["OrganizationsDecisionDetail"],
-      context
-    );
-  }
-  if (output["EvalResourceName"] !== undefined) {
-    contents.EvalResourceName = output["EvalResourceName"];
-  }
-  if (output.MatchedStatements === "") {
-    contents.MatchedStatements = [];
-  }
-  if (output["MatchedStatements"] !== undefined && output["MatchedStatements"]["member"] !== undefined) {
-    contents.MatchedStatements = deserializeAws_queryStatementListType(
-      __getArrayIfSingleItem(output["MatchedStatements"]["member"]),
-      context
-    );
   }
   if (output.MissingContextValues === "") {
     contents.MissingContextValues = [];
@@ -15751,12 +15721,42 @@ const deserializeAws_queryEvaluationResult = (output: any, context: __SerdeConte
       context
     );
   }
+  if (output["EvalDecision"] !== undefined) {
+    contents.EvalDecision = output["EvalDecision"];
+  }
+  if (output["EvalResourceName"] !== undefined) {
+    contents.EvalResourceName = output["EvalResourceName"];
+  }
+  if (output["OrganizationsDecisionDetail"] !== undefined) {
+    contents.OrganizationsDecisionDetail = deserializeAws_queryOrganizationsDecisionDetail(
+      output["OrganizationsDecisionDetail"],
+      context
+    );
+  }
+  if (output.MatchedStatements === "") {
+    contents.MatchedStatements = [];
+  }
+  if (output["MatchedStatements"] !== undefined && output["MatchedStatements"]["member"] !== undefined) {
+    contents.MatchedStatements = deserializeAws_queryStatementListType(
+      __getArrayIfSingleItem(output["MatchedStatements"]["member"]),
+      context
+    );
+  }
   if (output.ResourceSpecificResults === "") {
     contents.ResourceSpecificResults = [];
   }
   if (output["ResourceSpecificResults"] !== undefined && output["ResourceSpecificResults"]["member"] !== undefined) {
     contents.ResourceSpecificResults = deserializeAws_queryResourceSpecificResultListType(
       __getArrayIfSingleItem(output["ResourceSpecificResults"]["member"]),
+      context
+    );
+  }
+  if (output.EvalDecisionDetails === "") {
+    contents.EvalDecisionDetails = {};
+  }
+  if (output["EvalDecisionDetails"] !== undefined && output["EvalDecisionDetails"]["entry"] !== undefined) {
+    contents.EvalDecisionDetails = deserializeAws_queryEvalDecisionDetailsType(
+      __getArrayIfSingleItem(output["EvalDecisionDetails"]["entry"]),
       context
     );
   }
@@ -15772,14 +15772,14 @@ const deserializeAws_queryGenerateCredentialReportResponse = (
   context: __SerdeContext
 ): GenerateCredentialReportResponse => {
   let contents: any = {
-    State: undefined,
     Description: undefined,
+    State: undefined,
   };
-  if (output["State"] !== undefined) {
-    contents.State = output["State"];
-  }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
+  }
+  if (output["State"] !== undefined) {
+    contents.State = output["State"];
   }
   return contents;
 };
@@ -15815,14 +15815,14 @@ const deserializeAws_queryGetAccessKeyLastUsedResponse = (
   context: __SerdeContext
 ): GetAccessKeyLastUsedResponse => {
   let contents: any = {
-    AccessKeyLastUsed: undefined,
     UserName: undefined,
+    AccessKeyLastUsed: undefined,
   };
-  if (output["AccessKeyLastUsed"] !== undefined) {
-    contents.AccessKeyLastUsed = deserializeAws_queryAccessKeyLastUsed(output["AccessKeyLastUsed"], context);
-  }
   if (output["UserName"] !== undefined) {
     contents.UserName = output["UserName"];
+  }
+  if (output["AccessKeyLastUsed"] !== undefined) {
+    contents.AccessKeyLastUsed = deserializeAws_queryAccessKeyLastUsed(output["AccessKeyLastUsed"], context);
   }
   return contents;
 };
@@ -15832,19 +15832,19 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
   context: __SerdeContext
 ): GetAccountAuthorizationDetailsResponse => {
   let contents: any = {
-    RoleDetailList: undefined,
+    Policies: undefined,
     IsTruncated: undefined,
     UserDetailList: undefined,
-    Marker: undefined,
-    Policies: undefined,
     GroupDetailList: undefined,
+    Marker: undefined,
+    RoleDetailList: undefined,
   };
-  if (output.RoleDetailList === "") {
-    contents.RoleDetailList = [];
+  if (output.Policies === "") {
+    contents.Policies = [];
   }
-  if (output["RoleDetailList"] !== undefined && output["RoleDetailList"]["member"] !== undefined) {
-    contents.RoleDetailList = deserializeAws_queryroleDetailListType(
-      __getArrayIfSingleItem(output["RoleDetailList"]["member"]),
+  if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
+    contents.Policies = deserializeAws_queryManagedPolicyDetailListType(
+      __getArrayIfSingleItem(output["Policies"]["member"]),
       context
     );
   }
@@ -15860,24 +15860,24 @@ const deserializeAws_queryGetAccountAuthorizationDetailsResponse = (
       context
     );
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
-  if (output.Policies === "") {
-    contents.Policies = [];
-  }
-  if (output["Policies"] !== undefined && output["Policies"]["member"] !== undefined) {
-    contents.Policies = deserializeAws_queryManagedPolicyDetailListType(
-      __getArrayIfSingleItem(output["Policies"]["member"]),
-      context
-    );
-  }
   if (output.GroupDetailList === "") {
     contents.GroupDetailList = [];
   }
   if (output["GroupDetailList"] !== undefined && output["GroupDetailList"]["member"] !== undefined) {
     contents.GroupDetailList = deserializeAws_querygroupDetailListType(
       __getArrayIfSingleItem(output["GroupDetailList"]["member"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  if (output.RoleDetailList === "") {
+    contents.RoleDetailList = [];
+  }
+  if (output["RoleDetailList"] !== undefined && output["RoleDetailList"]["member"] !== undefined) {
+    contents.RoleDetailList = deserializeAws_queryroleDetailListType(
+      __getArrayIfSingleItem(output["RoleDetailList"]["member"]),
       context
     );
   }
@@ -15941,35 +15941,35 @@ const deserializeAws_queryGetCredentialReportResponse = (
 ): GetCredentialReportResponse => {
   let contents: any = {
     Content: undefined,
-    ReportFormat: undefined,
     GeneratedTime: undefined,
+    ReportFormat: undefined,
   };
   if (output["Content"] !== undefined) {
     contents.Content = context.base64Decoder(output["Content"]);
   }
-  if (output["ReportFormat"] !== undefined) {
-    contents.ReportFormat = output["ReportFormat"];
-  }
   if (output["GeneratedTime"] !== undefined) {
     contents.GeneratedTime = new Date(output["GeneratedTime"]);
+  }
+  if (output["ReportFormat"] !== undefined) {
+    contents.ReportFormat = output["ReportFormat"];
   }
   return contents;
 };
 
 const deserializeAws_queryGetGroupPolicyResponse = (output: any, context: __SerdeContext): GetGroupPolicyResponse => {
   let contents: any = {
-    PolicyDocument: undefined,
-    PolicyName: undefined,
     GroupName: undefined,
+    PolicyName: undefined,
+    PolicyDocument: undefined,
   };
-  if (output["PolicyDocument"] !== undefined) {
-    contents.PolicyDocument = output["PolicyDocument"];
+  if (output["GroupName"] !== undefined) {
+    contents.GroupName = output["GroupName"];
   }
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = output["PolicyName"];
   }
-  if (output["GroupName"] !== undefined) {
-    contents.GroupName = output["GroupName"];
+  if (output["PolicyDocument"] !== undefined) {
+    contents.PolicyDocument = output["PolicyDocument"];
   }
   return contents;
 };
@@ -15977,12 +15977,15 @@ const deserializeAws_queryGetGroupPolicyResponse = (output: any, context: __Serd
 const deserializeAws_queryGetGroupResponse = (output: any, context: __SerdeContext): GetGroupResponse => {
   let contents: any = {
     Group: undefined,
+    IsTruncated: undefined,
     Marker: undefined,
     Users: undefined,
-    IsTruncated: undefined,
   };
   if (output["Group"] !== undefined) {
     contents.Group = deserializeAws_queryGroup(output["Group"], context);
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -15992,9 +15995,6 @@ const deserializeAws_queryGetGroupResponse = (output: any, context: __SerdeConte
   }
   if (output["Users"] !== undefined && output["Users"]["member"] !== undefined) {
     contents.Users = deserializeAws_queryuserListType(__getArrayIfSingleItem(output["Users"]["member"]), context);
-  }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   return contents;
 };
@@ -16027,32 +16027,32 @@ const deserializeAws_queryGetOpenIDConnectProviderResponse = (
   context: __SerdeContext
 ): GetOpenIDConnectProviderResponse => {
   let contents: any = {
-    ThumbprintList: undefined,
-    Url: undefined,
-    CreateDate: undefined,
     ClientIDList: undefined,
+    CreateDate: undefined,
+    Url: undefined,
+    ThumbprintList: undefined,
   };
-  if (output.ThumbprintList === "") {
-    contents.ThumbprintList = [];
-  }
-  if (output["ThumbprintList"] !== undefined && output["ThumbprintList"]["member"] !== undefined) {
-    contents.ThumbprintList = deserializeAws_querythumbprintListType(
-      __getArrayIfSingleItem(output["ThumbprintList"]["member"]),
-      context
-    );
-  }
-  if (output["Url"] !== undefined) {
-    contents.Url = output["Url"];
-  }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = new Date(output["CreateDate"]);
-  }
   if (output.ClientIDList === "") {
     contents.ClientIDList = [];
   }
   if (output["ClientIDList"] !== undefined && output["ClientIDList"]["member"] !== undefined) {
     contents.ClientIDList = deserializeAws_queryclientIDListType(
       __getArrayIfSingleItem(output["ClientIDList"]["member"]),
+      context
+    );
+  }
+  if (output["CreateDate"] !== undefined) {
+    contents.CreateDate = new Date(output["CreateDate"]);
+  }
+  if (output["Url"] !== undefined) {
+    contents.Url = output["Url"];
+  }
+  if (output.ThumbprintList === "") {
+    contents.ThumbprintList = [];
+  }
+  if (output["ThumbprintList"] !== undefined && output["ThumbprintList"]["member"] !== undefined) {
+    contents.ThumbprintList = deserializeAws_querythumbprintListType(
+      __getArrayIfSingleItem(output["ThumbprintList"]["member"]),
       context
     );
   }
@@ -16064,39 +16064,30 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
   context: __SerdeContext
 ): GetOrganizationsAccessReportResponse => {
   let contents: any = {
-    JobCreationDate: undefined,
-    JobStatus: undefined,
-    IsTruncated: undefined,
-    NumberOfServicesAccessible: undefined,
     Marker: undefined,
     ErrorDetails: undefined,
-    NumberOfServicesNotAccessed: undefined,
+    NumberOfServicesAccessible: undefined,
     JobCompletionDate: undefined,
+    NumberOfServicesNotAccessed: undefined,
     AccessDetails: undefined,
+    JobCreationDate: undefined,
+    IsTruncated: undefined,
+    JobStatus: undefined,
   };
-  if (output["JobCreationDate"] !== undefined) {
-    contents.JobCreationDate = new Date(output["JobCreationDate"]);
-  }
-  if (output["JobStatus"] !== undefined) {
-    contents.JobStatus = output["JobStatus"];
-  }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
-  }
-  if (output["NumberOfServicesAccessible"] !== undefined) {
-    contents.NumberOfServicesAccessible = parseInt(output["NumberOfServicesAccessible"]);
-  }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
   if (output["ErrorDetails"] !== undefined) {
     contents.ErrorDetails = deserializeAws_queryErrorDetails(output["ErrorDetails"], context);
   }
-  if (output["NumberOfServicesNotAccessed"] !== undefined) {
-    contents.NumberOfServicesNotAccessed = parseInt(output["NumberOfServicesNotAccessed"]);
+  if (output["NumberOfServicesAccessible"] !== undefined) {
+    contents.NumberOfServicesAccessible = parseInt(output["NumberOfServicesAccessible"]);
   }
   if (output["JobCompletionDate"] !== undefined) {
     contents.JobCompletionDate = new Date(output["JobCompletionDate"]);
+  }
+  if (output["NumberOfServicesNotAccessed"] !== undefined) {
+    contents.NumberOfServicesNotAccessed = parseInt(output["NumberOfServicesNotAccessed"]);
   }
   if (output.AccessDetails === "") {
     contents.AccessDetails = [];
@@ -16106,6 +16097,15 @@ const deserializeAws_queryGetOrganizationsAccessReportResponse = (
       __getArrayIfSingleItem(output["AccessDetails"]["member"]),
       context
     );
+  }
+  if (output["JobCreationDate"] !== undefined) {
+    contents.JobCreationDate = new Date(output["JobCreationDate"]);
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output["JobStatus"] !== undefined) {
+    contents.JobStatus = output["JobStatus"];
   }
   return contents;
 };
@@ -16135,18 +16135,18 @@ const deserializeAws_queryGetPolicyVersionResponse = (
 
 const deserializeAws_queryGetRolePolicyResponse = (output: any, context: __SerdeContext): GetRolePolicyResponse => {
   let contents: any = {
+    RoleName: undefined,
     PolicyName: undefined,
     PolicyDocument: undefined,
-    RoleName: undefined,
   };
+  if (output["RoleName"] !== undefined) {
+    contents.RoleName = output["RoleName"];
+  }
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = output["PolicyName"];
   }
   if (output["PolicyDocument"] !== undefined) {
     contents.PolicyDocument = output["PolicyDocument"];
-  }
-  if (output["RoleName"] !== undefined) {
-    contents.RoleName = output["RoleName"];
   }
   return contents;
 };
@@ -16164,17 +16164,17 @@ const deserializeAws_queryGetRoleResponse = (output: any, context: __SerdeContex
 const deserializeAws_queryGetSAMLProviderResponse = (output: any, context: __SerdeContext): GetSAMLProviderResponse => {
   let contents: any = {
     ValidUntil: undefined,
-    SAMLMetadataDocument: undefined,
     CreateDate: undefined,
+    SAMLMetadataDocument: undefined,
   };
   if (output["ValidUntil"] !== undefined) {
     contents.ValidUntil = new Date(output["ValidUntil"]);
   }
-  if (output["SAMLMetadataDocument"] !== undefined) {
-    contents.SAMLMetadataDocument = output["SAMLMetadataDocument"];
-  }
   if (output["CreateDate"] !== undefined) {
     contents.CreateDate = new Date(output["CreateDate"]);
+  }
+  if (output["SAMLMetadataDocument"] !== undefined) {
+    contents.SAMLMetadataDocument = output["SAMLMetadataDocument"];
   }
   return contents;
 };
@@ -16197,15 +16197,27 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
   context: __SerdeContext
 ): GetServiceLastAccessedDetailsResponse => {
   let contents: any = {
+    JobCompletionDate: undefined,
+    Marker: undefined,
+    IsTruncated: undefined,
+    Error: undefined,
     JobCreationDate: undefined,
     ServicesLastAccessed: undefined,
     JobStatus: undefined,
-    IsTruncated: undefined,
     JobType: undefined,
-    Marker: undefined,
-    JobCompletionDate: undefined,
-    Error: undefined,
   };
+  if (output["JobCompletionDate"] !== undefined) {
+    contents.JobCompletionDate = new Date(output["JobCompletionDate"]);
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output["Error"] !== undefined) {
+    contents.Error = deserializeAws_queryErrorDetails(output["Error"], context);
+  }
   if (output["JobCreationDate"] !== undefined) {
     contents.JobCreationDate = new Date(output["JobCreationDate"]);
   }
@@ -16221,20 +16233,8 @@ const deserializeAws_queryGetServiceLastAccessedDetailsResponse = (
   if (output["JobStatus"] !== undefined) {
     contents.JobStatus = output["JobStatus"];
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
-  }
   if (output["JobType"] !== undefined) {
     contents.JobType = output["JobType"];
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
-  if (output["JobCompletionDate"] !== undefined) {
-    contents.JobCompletionDate = new Date(output["JobCompletionDate"]);
-  }
-  if (output["Error"] !== undefined) {
-    contents.Error = deserializeAws_queryErrorDetails(output["Error"], context);
   }
   return contents;
 };
@@ -16244,14 +16244,29 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse = (
   context: __SerdeContext
 ): GetServiceLastAccessedDetailsWithEntitiesResponse => {
   let contents: any = {
+    EntityDetailsList: undefined,
+    JobStatus: undefined,
+    Marker: undefined,
     IsTruncated: undefined,
     Error: undefined,
     JobCompletionDate: undefined,
-    Marker: undefined,
     JobCreationDate: undefined,
-    JobStatus: undefined,
-    EntityDetailsList: undefined,
   };
+  if (output.EntityDetailsList === "") {
+    contents.EntityDetailsList = [];
+  }
+  if (output["EntityDetailsList"] !== undefined && output["EntityDetailsList"]["member"] !== undefined) {
+    contents.EntityDetailsList = deserializeAws_queryentityDetailsListType(
+      __getArrayIfSingleItem(output["EntityDetailsList"]["member"]),
+      context
+    );
+  }
+  if (output["JobStatus"] !== undefined) {
+    contents.JobStatus = output["JobStatus"];
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
   }
@@ -16261,23 +16276,8 @@ const deserializeAws_queryGetServiceLastAccessedDetailsWithEntitiesResponse = (
   if (output["JobCompletionDate"] !== undefined) {
     contents.JobCompletionDate = new Date(output["JobCompletionDate"]);
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
   if (output["JobCreationDate"] !== undefined) {
     contents.JobCreationDate = new Date(output["JobCreationDate"]);
-  }
-  if (output["JobStatus"] !== undefined) {
-    contents.JobStatus = output["JobStatus"];
-  }
-  if (output.EntityDetailsList === "") {
-    contents.EntityDetailsList = [];
-  }
-  if (output["EntityDetailsList"] !== undefined && output["EntityDetailsList"]["member"] !== undefined) {
-    contents.EntityDetailsList = deserializeAws_queryentityDetailsListType(
-      __getArrayIfSingleItem(output["EntityDetailsList"]["member"]),
-      context
-    );
   }
   return contents;
 };
@@ -16339,57 +16339,54 @@ const deserializeAws_queryGetUserResponse = (output: any, context: __SerdeContex
 
 const deserializeAws_queryGroup = (output: any, context: __SerdeContext): Group => {
   let contents: any = {
-    CreateDate: undefined,
-    GroupId: undefined,
-    GroupName: undefined,
     Arn: undefined,
+    GroupName: undefined,
     Path: undefined,
+    GroupId: undefined,
+    CreateDate: undefined,
   };
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = new Date(output["CreateDate"]);
-  }
-  if (output["GroupId"] !== undefined) {
-    contents.GroupId = output["GroupId"];
+  if (output["Arn"] !== undefined) {
+    contents.Arn = output["Arn"];
   }
   if (output["GroupName"] !== undefined) {
     contents.GroupName = output["GroupName"];
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
-  }
   if (output["Path"] !== undefined) {
     contents.Path = output["Path"];
+  }
+  if (output["GroupId"] !== undefined) {
+    contents.GroupId = output["GroupId"];
+  }
+  if (output["CreateDate"] !== undefined) {
+    contents.CreateDate = new Date(output["CreateDate"]);
   }
   return contents;
 };
 
 const deserializeAws_queryGroupDetail = (output: any, context: __SerdeContext): GroupDetail => {
   let contents: any = {
-    Arn: undefined,
-    GroupPolicyList: undefined,
-    Path: undefined,
-    CreateDate: undefined,
-    AttachedManagedPolicies: undefined,
-    GroupName: undefined,
     GroupId: undefined,
+    CreateDate: undefined,
+    Arn: undefined,
+    Path: undefined,
+    GroupName: undefined,
+    AttachedManagedPolicies: undefined,
+    GroupPolicyList: undefined,
   };
+  if (output["GroupId"] !== undefined) {
+    contents.GroupId = output["GroupId"];
+  }
+  if (output["CreateDate"] !== undefined) {
+    contents.CreateDate = new Date(output["CreateDate"]);
+  }
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
-  }
-  if (output.GroupPolicyList === "") {
-    contents.GroupPolicyList = [];
-  }
-  if (output["GroupPolicyList"] !== undefined && output["GroupPolicyList"]["member"] !== undefined) {
-    contents.GroupPolicyList = deserializeAws_querypolicyDetailListType(
-      __getArrayIfSingleItem(output["GroupPolicyList"]["member"]),
-      context
-    );
   }
   if (output["Path"] !== undefined) {
     contents.Path = output["Path"];
   }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = new Date(output["CreateDate"]);
+  if (output["GroupName"] !== undefined) {
+    contents.GroupName = output["GroupName"];
   }
   if (output.AttachedManagedPolicies === "") {
     contents.AttachedManagedPolicies = [];
@@ -16400,11 +16397,14 @@ const deserializeAws_queryGroupDetail = (output: any, context: __SerdeContext): 
       context
     );
   }
-  if (output["GroupName"] !== undefined) {
-    contents.GroupName = output["GroupName"];
+  if (output.GroupPolicyList === "") {
+    contents.GroupPolicyList = [];
   }
-  if (output["GroupId"] !== undefined) {
-    contents.GroupId = output["GroupId"];
+  if (output["GroupPolicyList"] !== undefined && output["GroupPolicyList"]["member"] !== undefined) {
+    contents.GroupPolicyList = deserializeAws_querypolicyDetailListType(
+      __getArrayIfSingleItem(output["GroupPolicyList"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -16424,32 +16424,32 @@ const deserializeAws_querygroupNameListType = (output: any, context: __SerdeCont
 const deserializeAws_queryInstanceProfile = (output: any, context: __SerdeContext): InstanceProfile => {
   let contents: any = {
     Arn: undefined,
-    InstanceProfileName: undefined,
-    Path: undefined,
-    InstanceProfileId: undefined,
     CreateDate: undefined,
+    InstanceProfileName: undefined,
     Roles: undefined,
+    InstanceProfileId: undefined,
+    Path: undefined,
   };
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
   }
-  if (output["InstanceProfileName"] !== undefined) {
-    contents.InstanceProfileName = output["InstanceProfileName"];
-  }
-  if (output["Path"] !== undefined) {
-    contents.Path = output["Path"];
-  }
-  if (output["InstanceProfileId"] !== undefined) {
-    contents.InstanceProfileId = output["InstanceProfileId"];
-  }
   if (output["CreateDate"] !== undefined) {
     contents.CreateDate = new Date(output["CreateDate"]);
+  }
+  if (output["InstanceProfileName"] !== undefined) {
+    contents.InstanceProfileName = output["InstanceProfileName"];
   }
   if (output.Roles === "") {
     contents.Roles = [];
   }
   if (output["Roles"] !== undefined && output["Roles"]["member"] !== undefined) {
     contents.Roles = deserializeAws_queryroleListType(__getArrayIfSingleItem(output["Roles"]["member"]), context);
+  }
+  if (output["InstanceProfileId"] !== undefined) {
+    contents.InstanceProfileId = output["InstanceProfileId"];
+  }
+  if (output["Path"] !== undefined) {
+    contents.Path = output["Path"];
   }
   return contents;
 };
@@ -16545,10 +16545,13 @@ const deserializeAws_queryLimitExceededException = (output: any, context: __Serd
 
 const deserializeAws_queryListAccessKeysResponse = (output: any, context: __SerdeContext): ListAccessKeysResponse => {
   let contents: any = {
-    AccessKeyMetadata: undefined,
     Marker: undefined,
+    AccessKeyMetadata: undefined,
     IsTruncated: undefined,
   };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output.AccessKeyMetadata === "") {
     contents.AccessKeyMetadata = [];
   }
@@ -16557,9 +16560,6 @@ const deserializeAws_queryListAccessKeysResponse = (output: any, context: __Serd
       __getArrayIfSingleItem(output["AccessKeyMetadata"]["member"]),
       context
     );
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
@@ -16572,13 +16572,10 @@ const deserializeAws_queryListAccountAliasesResponse = (
   context: __SerdeContext
 ): ListAccountAliasesResponse => {
   let contents: any = {
-    IsTruncated: undefined,
     AccountAliases: undefined,
+    IsTruncated: undefined,
     Marker: undefined,
   };
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
-  }
   if (output.AccountAliases === "") {
     contents.AccountAliases = [];
   }
@@ -16587,6 +16584,9 @@ const deserializeAws_queryListAccountAliasesResponse = (
       __getArrayIfSingleItem(output["AccountAliases"]["member"]),
       context
     );
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
@@ -16599,13 +16599,10 @@ const deserializeAws_queryListAttachedGroupPoliciesResponse = (
   context: __SerdeContext
 ): ListAttachedGroupPoliciesResponse => {
   let contents: any = {
-    Marker: undefined,
     IsTruncated: undefined,
     AttachedPolicies: undefined,
+    Marker: undefined,
   };
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
   }
@@ -16617,6 +16614,9 @@ const deserializeAws_queryListAttachedGroupPoliciesResponse = (
       __getArrayIfSingleItem(output["AttachedPolicies"]["member"]),
       context
     );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
   }
   return contents;
 };
@@ -16680,12 +16680,21 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
   context: __SerdeContext
 ): ListEntitiesForPolicyResponse => {
   let contents: any = {
+    PolicyRoles: undefined,
     Marker: undefined,
     PolicyUsers: undefined,
     IsTruncated: undefined,
-    PolicyRoles: undefined,
     PolicyGroups: undefined,
   };
+  if (output.PolicyRoles === "") {
+    contents.PolicyRoles = [];
+  }
+  if (output["PolicyRoles"] !== undefined && output["PolicyRoles"]["member"] !== undefined) {
+    contents.PolicyRoles = deserializeAws_queryPolicyRoleListType(
+      __getArrayIfSingleItem(output["PolicyRoles"]["member"]),
+      context
+    );
+  }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
@@ -16700,15 +16709,6 @@ const deserializeAws_queryListEntitiesForPolicyResponse = (
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
-  }
-  if (output.PolicyRoles === "") {
-    contents.PolicyRoles = [];
-  }
-  if (output["PolicyRoles"] !== undefined && output["PolicyRoles"]["member"] !== undefined) {
-    contents.PolicyRoles = deserializeAws_queryPolicyRoleListType(
-      __getArrayIfSingleItem(output["PolicyRoles"]["member"]),
-      context
-    );
   }
   if (output.PolicyGroups === "") {
     contents.PolicyGroups = [];
@@ -16727,10 +16727,13 @@ const deserializeAws_queryListGroupPoliciesResponse = (
   context: __SerdeContext
 ): ListGroupPoliciesResponse => {
   let contents: any = {
+    IsTruncated: undefined,
     PolicyNames: undefined,
     Marker: undefined,
-    IsTruncated: undefined,
   };
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
   }
@@ -16743,9 +16746,6 @@ const deserializeAws_queryListGroupPoliciesResponse = (
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
-  }
   return contents;
 };
 
@@ -16754,10 +16754,13 @@ const deserializeAws_queryListGroupsForUserResponse = (
   context: __SerdeContext
 ): ListGroupsForUserResponse => {
   let contents: any = {
+    Marker: undefined,
     IsTruncated: undefined,
     Groups: undefined,
-    Marker: undefined,
   };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
   }
@@ -16766,30 +16769,27 @@ const deserializeAws_queryListGroupsForUserResponse = (
   }
   if (output["Groups"] !== undefined && output["Groups"]["member"] !== undefined) {
     contents.Groups = deserializeAws_querygroupListType(__getArrayIfSingleItem(output["Groups"]["member"]), context);
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
   }
   return contents;
 };
 
 const deserializeAws_queryListGroupsResponse = (output: any, context: __SerdeContext): ListGroupsResponse => {
   let contents: any = {
+    Groups: undefined,
     Marker: undefined,
     IsTruncated: undefined,
-    Groups: undefined,
   };
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
-  }
   if (output.Groups === "") {
     contents.Groups = [];
   }
   if (output["Groups"] !== undefined && output["Groups"]["member"] !== undefined) {
     contents.Groups = deserializeAws_querygroupListType(__getArrayIfSingleItem(output["Groups"]["member"]), context);
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   return contents;
 };
@@ -16799,10 +16799,13 @@ const deserializeAws_queryListInstanceProfilesForRoleResponse = (
   context: __SerdeContext
 ): ListInstanceProfilesForRoleResponse => {
   let contents: any = {
+    IsTruncated: undefined,
     InstanceProfiles: undefined,
     Marker: undefined,
-    IsTruncated: undefined,
   };
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
   if (output.InstanceProfiles === "") {
     contents.InstanceProfiles = [];
   }
@@ -16814,9 +16817,6 @@ const deserializeAws_queryListInstanceProfilesForRoleResponse = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
-  }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   return contents;
 };
@@ -16826,10 +16826,13 @@ const deserializeAws_queryListInstanceProfilesResponse = (
   context: __SerdeContext
 ): ListInstanceProfilesResponse => {
   let contents: any = {
+    IsTruncated: undefined,
     Marker: undefined,
     InstanceProfiles: undefined,
-    IsTruncated: undefined,
   };
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
@@ -16842,18 +16845,18 @@ const deserializeAws_queryListInstanceProfilesResponse = (
       context
     );
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
-  }
   return contents;
 };
 
 const deserializeAws_queryListMFADevicesResponse = (output: any, context: __SerdeContext): ListMFADevicesResponse => {
   let contents: any = {
-    MFADevices: undefined,
     Marker: undefined,
+    MFADevices: undefined,
     IsTruncated: undefined,
   };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output.MFADevices === "") {
     contents.MFADevices = [];
   }
@@ -16862,9 +16865,6 @@ const deserializeAws_queryListMFADevicesResponse = (output: any, context: __Serd
       __getArrayIfSingleItem(output["MFADevices"]["member"]),
       context
     );
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
   }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
@@ -16949,13 +16949,10 @@ const deserializeAws_queryListPoliciesGrantingServiceAccessResponse = (
 
 const deserializeAws_queryListPoliciesResponse = (output: any, context: __SerdeContext): ListPoliciesResponse => {
   let contents: any = {
-    Marker: undefined,
     IsTruncated: undefined,
     Policies: undefined,
+    Marker: undefined,
   };
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
   }
@@ -16967,6 +16964,9 @@ const deserializeAws_queryListPoliciesResponse = (output: any, context: __SerdeC
       __getArrayIfSingleItem(output["Policies"]["member"]),
       context
     );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
   }
   return contents;
 };
@@ -16983,13 +16983,10 @@ const deserializeAws_queryListPolicyVersionsResponse = (
   context: __SerdeContext
 ): ListPolicyVersionsResponse => {
   let contents: any = {
-    IsTruncated: undefined,
     Versions: undefined,
     Marker: undefined,
+    IsTruncated: undefined,
   };
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
-  }
   if (output.Versions === "") {
     contents.Versions = [];
   }
@@ -17001,6 +16998,9 @@ const deserializeAws_queryListPolicyVersionsResponse = (
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
   }
   return contents;
 };
@@ -17034,42 +17034,42 @@ const deserializeAws_queryListRolePoliciesResponse = (
 
 const deserializeAws_queryListRolesResponse = (output: any, context: __SerdeContext): ListRolesResponse => {
   let contents: any = {
-    Marker: undefined,
-    IsTruncated: undefined,
     Roles: undefined,
+    IsTruncated: undefined,
+    Marker: undefined,
   };
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
-  }
   if (output.Roles === "") {
     contents.Roles = [];
   }
   if (output["Roles"] !== undefined && output["Roles"]["member"] !== undefined) {
     contents.Roles = deserializeAws_queryroleListType(__getArrayIfSingleItem(output["Roles"]["member"]), context);
   }
-  return contents;
-};
-
-const deserializeAws_queryListRoleTagsResponse = (output: any, context: __SerdeContext): ListRoleTagsResponse => {
-  let contents: any = {
-    IsTruncated: undefined,
-    Marker: undefined,
-    Tags: undefined,
-  };
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
   }
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
+  return contents;
+};
+
+const deserializeAws_queryListRoleTagsResponse = (output: any, context: __SerdeContext): ListRoleTagsResponse => {
+  let contents: any = {
+    Tags: undefined,
+    IsTruncated: undefined,
+    Marker: undefined,
+  };
   if (output.Tags === "") {
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
   }
   return contents;
 };
@@ -17098,10 +17098,16 @@ const deserializeAws_queryListServerCertificatesResponse = (
   context: __SerdeContext
 ): ListServerCertificatesResponse => {
   let contents: any = {
-    ServerCertificateMetadataList: undefined,
     IsTruncated: undefined,
     Marker: undefined,
+    ServerCertificateMetadataList: undefined,
   };
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output.ServerCertificateMetadataList === "") {
     contents.ServerCertificateMetadataList = [];
   }
@@ -17113,12 +17119,6 @@ const deserializeAws_queryListServerCertificatesResponse = (
       __getArrayIfSingleItem(output["ServerCertificateMetadataList"]["member"]),
       context
     );
-  }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
   }
   return contents;
 };
@@ -17204,10 +17204,16 @@ const deserializeAws_queryListUserPoliciesResponse = (
   context: __SerdeContext
 ): ListUserPoliciesResponse => {
   let contents: any = {
-    PolicyNames: undefined,
     IsTruncated: undefined,
     Marker: undefined,
+    PolicyNames: undefined,
   };
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output.PolicyNames === "") {
     contents.PolicyNames = [];
   }
@@ -17217,21 +17223,18 @@ const deserializeAws_queryListUserPoliciesResponse = (
       context
     );
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
   return contents;
 };
 
 const deserializeAws_queryListUsersResponse = (output: any, context: __SerdeContext): ListUsersResponse => {
   let contents: any = {
+    IsTruncated: undefined,
     Users: undefined,
     Marker: undefined,
-    IsTruncated: undefined,
   };
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
   if (output.Users === "") {
     contents.Users = [];
   }
@@ -17241,29 +17244,26 @@ const deserializeAws_queryListUsersResponse = (output: any, context: __SerdeCont
   if (output["Marker"] !== undefined) {
     contents.Marker = output["Marker"];
   }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
-  }
   return contents;
 };
 
 const deserializeAws_queryListUserTagsResponse = (output: any, context: __SerdeContext): ListUserTagsResponse => {
   let contents: any = {
-    Tags: undefined,
-    IsTruncated: undefined,
     Marker: undefined,
+    IsTruncated: undefined,
+    Tags: undefined,
   };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
   if (output.Tags === "") {
     contents.Tags = [];
   }
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
-  }
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
   }
   return contents;
 };
@@ -17273,10 +17273,13 @@ const deserializeAws_queryListVirtualMFADevicesResponse = (
   context: __SerdeContext
 ): ListVirtualMFADevicesResponse => {
   let contents: any = {
+    Marker: undefined,
     IsTruncated: undefined,
     VirtualMFADevices: undefined,
-    Marker: undefined,
   };
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   if (output["IsTruncated"] !== undefined) {
     contents.IsTruncated = output["IsTruncated"] == "true";
   }
@@ -17289,26 +17292,23 @@ const deserializeAws_queryListVirtualMFADevicesResponse = (
       context
     );
   }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
   return contents;
 };
 
 const deserializeAws_queryLoginProfile = (output: any, context: __SerdeContext): LoginProfile => {
   let contents: any = {
     CreateDate: undefined,
-    PasswordResetRequired: undefined,
     UserName: undefined,
+    PasswordResetRequired: undefined,
   };
   if (output["CreateDate"] !== undefined) {
     contents.CreateDate = new Date(output["CreateDate"]);
   }
-  if (output["PasswordResetRequired"] !== undefined) {
-    contents.PasswordResetRequired = output["PasswordResetRequired"] == "true";
-  }
   if (output["UserName"] !== undefined) {
     contents.UserName = output["UserName"];
+  }
+  if (output["PasswordResetRequired"] !== undefined) {
+    contents.PasswordResetRequired = output["PasswordResetRequired"] == "true";
   }
   return contents;
 };
@@ -17341,31 +17341,19 @@ const deserializeAws_queryMalformedPolicyDocumentException = (
 
 const deserializeAws_queryManagedPolicyDetail = (output: any, context: __SerdeContext): ManagedPolicyDetail => {
   let contents: any = {
-    PolicyName: undefined,
-    CreateDate: undefined,
-    IsAttachable: undefined,
-    Path: undefined,
     Description: undefined,
     PermissionsBoundaryUsageCount: undefined,
     PolicyVersionList: undefined,
     Arn: undefined,
-    DefaultVersionId: undefined,
     UpdateDate: undefined,
     PolicyId: undefined,
+    IsAttachable: undefined,
+    CreateDate: undefined,
     AttachmentCount: undefined,
+    DefaultVersionId: undefined,
+    PolicyName: undefined,
+    Path: undefined,
   };
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = output["PolicyName"];
-  }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = new Date(output["CreateDate"]);
-  }
-  if (output["IsAttachable"] !== undefined) {
-    contents.IsAttachable = output["IsAttachable"] == "true";
-  }
-  if (output["Path"] !== undefined) {
-    contents.Path = output["Path"];
-  }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
   }
@@ -17384,17 +17372,29 @@ const deserializeAws_queryManagedPolicyDetail = (output: any, context: __SerdeCo
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
   }
-  if (output["DefaultVersionId"] !== undefined) {
-    contents.DefaultVersionId = output["DefaultVersionId"];
-  }
   if (output["UpdateDate"] !== undefined) {
     contents.UpdateDate = new Date(output["UpdateDate"]);
   }
   if (output["PolicyId"] !== undefined) {
     contents.PolicyId = output["PolicyId"];
   }
+  if (output["IsAttachable"] !== undefined) {
+    contents.IsAttachable = output["IsAttachable"] == "true";
+  }
+  if (output["CreateDate"] !== undefined) {
+    contents.CreateDate = new Date(output["CreateDate"]);
+  }
   if (output["AttachmentCount"] !== undefined) {
     contents.AttachmentCount = parseInt(output["AttachmentCount"]);
+  }
+  if (output["DefaultVersionId"] !== undefined) {
+    contents.DefaultVersionId = output["DefaultVersionId"];
+  }
+  if (output["PolicyName"] !== undefined) {
+    contents.PolicyName = output["PolicyName"];
+  }
+  if (output["Path"] !== undefined) {
+    contents.Path = output["Path"];
   }
   return contents;
 };
@@ -17409,17 +17409,17 @@ const deserializeAws_queryManagedPolicyDetailListType = (
 const deserializeAws_queryMFADevice = (output: any, context: __SerdeContext): MFADevice => {
   let contents: any = {
     UserName: undefined,
-    SerialNumber: undefined,
     EnableDate: undefined,
+    SerialNumber: undefined,
   };
   if (output["UserName"] !== undefined) {
     contents.UserName = output["UserName"];
   }
-  if (output["SerialNumber"] !== undefined) {
-    contents.SerialNumber = output["SerialNumber"];
-  }
   if (output["EnableDate"] !== undefined) {
     contents.EnableDate = new Date(output["EnableDate"]);
+  }
+  if (output["SerialNumber"] !== undefined) {
+    contents.SerialNumber = output["SerialNumber"];
   }
   return contents;
 };
@@ -17473,46 +17473,46 @@ const deserializeAws_queryOrganizationsDecisionDetail = (
 
 const deserializeAws_queryPasswordPolicy = (output: any, context: __SerdeContext): PasswordPolicy => {
   let contents: any = {
-    RequireLowercaseCharacters: undefined,
-    MinimumPasswordLength: undefined,
-    RequireNumbers: undefined,
-    ExpirePasswords: undefined,
-    PasswordReusePrevention: undefined,
-    HardExpiry: undefined,
-    MaxPasswordAge: undefined,
-    RequireUppercaseCharacters: undefined,
-    AllowUsersToChangePassword: undefined,
     RequireSymbols: undefined,
+    PasswordReusePrevention: undefined,
+    AllowUsersToChangePassword: undefined,
+    MinimumPasswordLength: undefined,
+    RequireLowercaseCharacters: undefined,
+    RequireNumbers: undefined,
+    HardExpiry: undefined,
+    RequireUppercaseCharacters: undefined,
+    MaxPasswordAge: undefined,
+    ExpirePasswords: undefined,
   };
-  if (output["RequireLowercaseCharacters"] !== undefined) {
-    contents.RequireLowercaseCharacters = output["RequireLowercaseCharacters"] == "true";
-  }
-  if (output["MinimumPasswordLength"] !== undefined) {
-    contents.MinimumPasswordLength = parseInt(output["MinimumPasswordLength"]);
-  }
-  if (output["RequireNumbers"] !== undefined) {
-    contents.RequireNumbers = output["RequireNumbers"] == "true";
-  }
-  if (output["ExpirePasswords"] !== undefined) {
-    contents.ExpirePasswords = output["ExpirePasswords"] == "true";
+  if (output["RequireSymbols"] !== undefined) {
+    contents.RequireSymbols = output["RequireSymbols"] == "true";
   }
   if (output["PasswordReusePrevention"] !== undefined) {
     contents.PasswordReusePrevention = parseInt(output["PasswordReusePrevention"]);
   }
+  if (output["AllowUsersToChangePassword"] !== undefined) {
+    contents.AllowUsersToChangePassword = output["AllowUsersToChangePassword"] == "true";
+  }
+  if (output["MinimumPasswordLength"] !== undefined) {
+    contents.MinimumPasswordLength = parseInt(output["MinimumPasswordLength"]);
+  }
+  if (output["RequireLowercaseCharacters"] !== undefined) {
+    contents.RequireLowercaseCharacters = output["RequireLowercaseCharacters"] == "true";
+  }
+  if (output["RequireNumbers"] !== undefined) {
+    contents.RequireNumbers = output["RequireNumbers"] == "true";
+  }
   if (output["HardExpiry"] !== undefined) {
     contents.HardExpiry = output["HardExpiry"] == "true";
-  }
-  if (output["MaxPasswordAge"] !== undefined) {
-    contents.MaxPasswordAge = parseInt(output["MaxPasswordAge"]);
   }
   if (output["RequireUppercaseCharacters"] !== undefined) {
     contents.RequireUppercaseCharacters = output["RequireUppercaseCharacters"] == "true";
   }
-  if (output["AllowUsersToChangePassword"] !== undefined) {
-    contents.AllowUsersToChangePassword = output["AllowUsersToChangePassword"] == "true";
+  if (output["MaxPasswordAge"] !== undefined) {
+    contents.MaxPasswordAge = parseInt(output["MaxPasswordAge"]);
   }
-  if (output["RequireSymbols"] !== undefined) {
-    contents.RequireSymbols = output["RequireSymbols"] == "true";
+  if (output["ExpirePasswords"] !== undefined) {
+    contents.ExpirePasswords = output["ExpirePasswords"] == "true";
   }
   return contents;
 };
@@ -17545,32 +17545,23 @@ const deserializeAws_queryPermissionsBoundaryDecisionDetail = (
 
 const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Policy => {
   let contents: any = {
-    Arn: undefined,
-    PolicyId: undefined,
-    CreateDate: undefined,
+    DefaultVersionId: undefined,
     AttachmentCount: undefined,
-    IsAttachable: undefined,
     PolicyName: undefined,
     Path: undefined,
-    DefaultVersionId: undefined,
+    PermissionsBoundaryUsageCount: undefined,
     UpdateDate: undefined,
     Description: undefined,
-    PermissionsBoundaryUsageCount: undefined,
+    Arn: undefined,
+    IsAttachable: undefined,
+    PolicyId: undefined,
+    CreateDate: undefined,
   };
-  if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
-  }
-  if (output["PolicyId"] !== undefined) {
-    contents.PolicyId = output["PolicyId"];
-  }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = new Date(output["CreateDate"]);
+  if (output["DefaultVersionId"] !== undefined) {
+    contents.DefaultVersionId = output["DefaultVersionId"];
   }
   if (output["AttachmentCount"] !== undefined) {
     contents.AttachmentCount = parseInt(output["AttachmentCount"]);
-  }
-  if (output["IsAttachable"] !== undefined) {
-    contents.IsAttachable = output["IsAttachable"] == "true";
   }
   if (output["PolicyName"] !== undefined) {
     contents.PolicyName = output["PolicyName"];
@@ -17578,8 +17569,8 @@ const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Polic
   if (output["Path"] !== undefined) {
     contents.Path = output["Path"];
   }
-  if (output["DefaultVersionId"] !== undefined) {
-    contents.DefaultVersionId = output["DefaultVersionId"];
+  if (output["PermissionsBoundaryUsageCount"] !== undefined) {
+    contents.PermissionsBoundaryUsageCount = parseInt(output["PermissionsBoundaryUsageCount"]);
   }
   if (output["UpdateDate"] !== undefined) {
     contents.UpdateDate = new Date(output["UpdateDate"]);
@@ -17587,8 +17578,17 @@ const deserializeAws_queryPolicy = (output: any, context: __SerdeContext): Polic
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
   }
-  if (output["PermissionsBoundaryUsageCount"] !== undefined) {
-    contents.PermissionsBoundaryUsageCount = parseInt(output["PermissionsBoundaryUsageCount"]);
+  if (output["Arn"] !== undefined) {
+    contents.Arn = output["Arn"];
+  }
+  if (output["IsAttachable"] !== undefined) {
+    contents.IsAttachable = output["IsAttachable"] == "true";
+  }
+  if (output["PolicyId"] !== undefined) {
+    contents.PolicyId = output["PolicyId"];
+  }
+  if (output["CreateDate"] !== undefined) {
+    contents.CreateDate = new Date(output["CreateDate"]);
   }
   return contents;
 };
@@ -17633,23 +17633,23 @@ const deserializeAws_queryPolicyGrantingServiceAccess = (
   context: __SerdeContext
 ): PolicyGrantingServiceAccess => {
   let contents: any = {
-    PolicyType: undefined,
-    PolicyName: undefined,
-    EntityName: undefined,
     PolicyArn: undefined,
+    PolicyType: undefined,
+    EntityName: undefined,
+    PolicyName: undefined,
     EntityType: undefined,
   };
+  if (output["PolicyArn"] !== undefined) {
+    contents.PolicyArn = output["PolicyArn"];
+  }
   if (output["PolicyType"] !== undefined) {
     contents.PolicyType = output["PolicyType"];
-  }
-  if (output["PolicyName"] !== undefined) {
-    contents.PolicyName = output["PolicyName"];
   }
   if (output["EntityName"] !== undefined) {
     contents.EntityName = output["EntityName"];
   }
-  if (output["PolicyArn"] !== undefined) {
-    contents.PolicyArn = output["PolicyArn"];
+  if (output["PolicyName"] !== undefined) {
+    contents.PolicyName = output["PolicyName"];
   }
   if (output["EntityType"] !== undefined) {
     contents.EntityType = output["EntityType"];
@@ -17741,14 +17741,11 @@ const deserializeAws_queryPolicyUserListType = (output: any, context: __SerdeCon
 
 const deserializeAws_queryPolicyVersion = (output: any, context: __SerdeContext): PolicyVersion => {
   let contents: any = {
-    IsDefaultVersion: undefined,
     Document: undefined,
     CreateDate: undefined,
     VersionId: undefined,
+    IsDefaultVersion: undefined,
   };
-  if (output["IsDefaultVersion"] !== undefined) {
-    contents.IsDefaultVersion = output["IsDefaultVersion"] == "true";
-  }
   if (output["Document"] !== undefined) {
     contents.Document = output["Document"];
   }
@@ -17757,6 +17754,9 @@ const deserializeAws_queryPolicyVersion = (output: any, context: __SerdeContext)
   }
   if (output["VersionId"] !== undefined) {
     contents.VersionId = output["VersionId"];
+  }
+  if (output["IsDefaultVersion"] !== undefined) {
+    contents.IsDefaultVersion = output["IsDefaultVersion"] == "true";
   }
   return contents;
 };
@@ -17806,37 +17806,13 @@ const deserializeAws_queryResetServiceSpecificCredentialResponse = (
 
 const deserializeAws_queryResourceSpecificResult = (output: any, context: __SerdeContext): ResourceSpecificResult => {
   let contents: any = {
-    PermissionsBoundaryDecisionDetail: undefined,
-    MissingContextValues: undefined,
-    EvalDecisionDetails: undefined,
     EvalResourceName: undefined,
     MatchedStatements: undefined,
     EvalResourceDecision: undefined,
+    EvalDecisionDetails: undefined,
+    PermissionsBoundaryDecisionDetail: undefined,
+    MissingContextValues: undefined,
   };
-  if (output["PermissionsBoundaryDecisionDetail"] !== undefined) {
-    contents.PermissionsBoundaryDecisionDetail = deserializeAws_queryPermissionsBoundaryDecisionDetail(
-      output["PermissionsBoundaryDecisionDetail"],
-      context
-    );
-  }
-  if (output.MissingContextValues === "") {
-    contents.MissingContextValues = [];
-  }
-  if (output["MissingContextValues"] !== undefined && output["MissingContextValues"]["member"] !== undefined) {
-    contents.MissingContextValues = deserializeAws_queryContextKeyNamesResultListType(
-      __getArrayIfSingleItem(output["MissingContextValues"]["member"]),
-      context
-    );
-  }
-  if (output.EvalDecisionDetails === "") {
-    contents.EvalDecisionDetails = {};
-  }
-  if (output["EvalDecisionDetails"] !== undefined && output["EvalDecisionDetails"]["entry"] !== undefined) {
-    contents.EvalDecisionDetails = deserializeAws_queryEvalDecisionDetailsType(
-      __getArrayIfSingleItem(output["EvalDecisionDetails"]["entry"]),
-      context
-    );
-  }
   if (output["EvalResourceName"] !== undefined) {
     contents.EvalResourceName = output["EvalResourceName"];
   }
@@ -17852,6 +17828,30 @@ const deserializeAws_queryResourceSpecificResult = (output: any, context: __Serd
   if (output["EvalResourceDecision"] !== undefined) {
     contents.EvalResourceDecision = output["EvalResourceDecision"];
   }
+  if (output.EvalDecisionDetails === "") {
+    contents.EvalDecisionDetails = {};
+  }
+  if (output["EvalDecisionDetails"] !== undefined && output["EvalDecisionDetails"]["entry"] !== undefined) {
+    contents.EvalDecisionDetails = deserializeAws_queryEvalDecisionDetailsType(
+      __getArrayIfSingleItem(output["EvalDecisionDetails"]["entry"]),
+      context
+    );
+  }
+  if (output["PermissionsBoundaryDecisionDetail"] !== undefined) {
+    contents.PermissionsBoundaryDecisionDetail = deserializeAws_queryPermissionsBoundaryDecisionDetail(
+      output["PermissionsBoundaryDecisionDetail"],
+      context
+    );
+  }
+  if (output.MissingContextValues === "") {
+    contents.MissingContextValues = [];
+  }
+  if (output["MissingContextValues"] !== undefined && output["MissingContextValues"]["member"] !== undefined) {
+    contents.MissingContextValues = deserializeAws_queryContextKeyNamesResultListType(
+      __getArrayIfSingleItem(output["MissingContextValues"]["member"]),
+      context
+    );
+  }
   return contents;
 };
 
@@ -17864,18 +17864,87 @@ const deserializeAws_queryResourceSpecificResultListType = (
 
 const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role => {
   let contents: any = {
+    PermissionsBoundary: undefined,
+    Description: undefined,
+    RoleName: undefined,
+    MaxSessionDuration: undefined,
+    Arn: undefined,
+    Path: undefined,
+    AssumeRolePolicyDocument: undefined,
+    RoleId: undefined,
+    Tags: undefined,
+    RoleLastUsed: undefined,
+    CreateDate: undefined,
+  };
+  if (output["PermissionsBoundary"] !== undefined) {
+    contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
+      output["PermissionsBoundary"],
+      context
+    );
+  }
+  if (output["Description"] !== undefined) {
+    contents.Description = output["Description"];
+  }
+  if (output["RoleName"] !== undefined) {
+    contents.RoleName = output["RoleName"];
+  }
+  if (output["MaxSessionDuration"] !== undefined) {
+    contents.MaxSessionDuration = parseInt(output["MaxSessionDuration"]);
+  }
+  if (output["Arn"] !== undefined) {
+    contents.Arn = output["Arn"];
+  }
+  if (output["Path"] !== undefined) {
+    contents.Path = output["Path"];
+  }
+  if (output["AssumeRolePolicyDocument"] !== undefined) {
+    contents.AssumeRolePolicyDocument = output["AssumeRolePolicyDocument"];
+  }
+  if (output["RoleId"] !== undefined) {
+    contents.RoleId = output["RoleId"];
+  }
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+  }
+  if (output["RoleLastUsed"] !== undefined) {
+    contents.RoleLastUsed = deserializeAws_queryRoleLastUsed(output["RoleLastUsed"], context);
+  }
+  if (output["CreateDate"] !== undefined) {
+    contents.CreateDate = new Date(output["CreateDate"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): RoleDetail => {
+  let contents: any = {
+    InstanceProfileList: undefined,
+    AssumeRolePolicyDocument: undefined,
     CreateDate: undefined,
     Tags: undefined,
-    AssumeRolePolicyDocument: undefined,
+    PermissionsBoundary: undefined,
+    RoleId: undefined,
+    Arn: undefined,
     RoleLastUsed: undefined,
     RoleName: undefined,
-    PermissionsBoundary: undefined,
     Path: undefined,
-    Description: undefined,
-    Arn: undefined,
-    RoleId: undefined,
-    MaxSessionDuration: undefined,
+    AttachedManagedPolicies: undefined,
+    RolePolicyList: undefined,
   };
+  if (output.InstanceProfileList === "") {
+    contents.InstanceProfileList = [];
+  }
+  if (output["InstanceProfileList"] !== undefined && output["InstanceProfileList"]["member"] !== undefined) {
+    contents.InstanceProfileList = deserializeAws_queryinstanceProfileListType(
+      __getArrayIfSingleItem(output["InstanceProfileList"]["member"]),
+      context
+    );
+  }
+  if (output["AssumeRolePolicyDocument"] !== undefined) {
+    contents.AssumeRolePolicyDocument = output["AssumeRolePolicyDocument"];
+  }
   if (output["CreateDate"] !== undefined) {
     contents.CreateDate = new Date(output["CreateDate"]);
   }
@@ -17885,8 +17954,17 @@ const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role =>
   if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
     contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
-  if (output["AssumeRolePolicyDocument"] !== undefined) {
-    contents.AssumeRolePolicyDocument = output["AssumeRolePolicyDocument"];
+  if (output["PermissionsBoundary"] !== undefined) {
+    contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
+      output["PermissionsBoundary"],
+      context
+    );
+  }
+  if (output["RoleId"] !== undefined) {
+    contents.RoleId = output["RoleId"];
+  }
+  if (output["Arn"] !== undefined) {
+    contents.Arn = output["Arn"];
   }
   if (output["RoleLastUsed"] !== undefined) {
     contents.RoleLastUsed = deserializeAws_queryRoleLastUsed(output["RoleLastUsed"], context);
@@ -17894,74 +17972,8 @@ const deserializeAws_queryRole = (output: any, context: __SerdeContext): Role =>
   if (output["RoleName"] !== undefined) {
     contents.RoleName = output["RoleName"];
   }
-  if (output["PermissionsBoundary"] !== undefined) {
-    contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
-      output["PermissionsBoundary"],
-      context
-    );
-  }
   if (output["Path"] !== undefined) {
     contents.Path = output["Path"];
-  }
-  if (output["Description"] !== undefined) {
-    contents.Description = output["Description"];
-  }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
-  }
-  if (output["RoleId"] !== undefined) {
-    contents.RoleId = output["RoleId"];
-  }
-  if (output["MaxSessionDuration"] !== undefined) {
-    contents.MaxSessionDuration = parseInt(output["MaxSessionDuration"]);
-  }
-  return contents;
-};
-
-const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): RoleDetail => {
-  let contents: any = {
-    PermissionsBoundary: undefined,
-    RoleName: undefined,
-    Arn: undefined,
-    Path: undefined,
-    AssumeRolePolicyDocument: undefined,
-    CreateDate: undefined,
-    RolePolicyList: undefined,
-    AttachedManagedPolicies: undefined,
-    RoleId: undefined,
-    InstanceProfileList: undefined,
-    RoleLastUsed: undefined,
-    Tags: undefined,
-  };
-  if (output["PermissionsBoundary"] !== undefined) {
-    contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
-      output["PermissionsBoundary"],
-      context
-    );
-  }
-  if (output["RoleName"] !== undefined) {
-    contents.RoleName = output["RoleName"];
-  }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
-  }
-  if (output["Path"] !== undefined) {
-    contents.Path = output["Path"];
-  }
-  if (output["AssumeRolePolicyDocument"] !== undefined) {
-    contents.AssumeRolePolicyDocument = output["AssumeRolePolicyDocument"];
-  }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = new Date(output["CreateDate"]);
-  }
-  if (output.RolePolicyList === "") {
-    contents.RolePolicyList = [];
-  }
-  if (output["RolePolicyList"] !== undefined && output["RolePolicyList"]["member"] !== undefined) {
-    contents.RolePolicyList = deserializeAws_querypolicyDetailListType(
-      __getArrayIfSingleItem(output["RolePolicyList"]["member"]),
-      context
-    );
   }
   if (output.AttachedManagedPolicies === "") {
     contents.AttachedManagedPolicies = [];
@@ -17972,26 +17984,14 @@ const deserializeAws_queryRoleDetail = (output: any, context: __SerdeContext): R
       context
     );
   }
-  if (output["RoleId"] !== undefined) {
-    contents.RoleId = output["RoleId"];
+  if (output.RolePolicyList === "") {
+    contents.RolePolicyList = [];
   }
-  if (output.InstanceProfileList === "") {
-    contents.InstanceProfileList = [];
-  }
-  if (output["InstanceProfileList"] !== undefined && output["InstanceProfileList"]["member"] !== undefined) {
-    contents.InstanceProfileList = deserializeAws_queryinstanceProfileListType(
-      __getArrayIfSingleItem(output["InstanceProfileList"]["member"]),
+  if (output["RolePolicyList"] !== undefined && output["RolePolicyList"]["member"] !== undefined) {
+    contents.RolePolicyList = deserializeAws_querypolicyDetailListType(
+      __getArrayIfSingleItem(output["RolePolicyList"]["member"]),
       context
     );
-  }
-  if (output["RoleLastUsed"] !== undefined) {
-    contents.RoleLastUsed = deserializeAws_queryRoleLastUsed(output["RoleLastUsed"], context);
-  }
-  if (output.Tags === "") {
-    contents.Tags = [];
-  }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
   }
   return contents;
 };
@@ -18002,14 +18002,14 @@ const deserializeAws_queryroleDetailListType = (output: any, context: __SerdeCon
 
 const deserializeAws_queryRoleLastUsed = (output: any, context: __SerdeContext): RoleLastUsed => {
   let contents: any = {
-    Region: undefined,
     LastUsedDate: undefined,
+    Region: undefined,
   };
-  if (output["Region"] !== undefined) {
-    contents.Region = output["Region"];
-  }
   if (output["LastUsedDate"] !== undefined) {
     contents.LastUsedDate = new Date(output["LastUsedDate"]);
+  }
+  if (output["Region"] !== undefined) {
+    contents.Region = output["Region"];
   }
   return contents;
 };
@@ -18066,21 +18066,21 @@ const deserializeAws_querySAMLProviderListType = (output: any, context: __SerdeC
 
 const deserializeAws_queryServerCertificate = (output: any, context: __SerdeContext): ServerCertificate => {
   let contents: any = {
-    ServerCertificateMetadata: undefined,
-    CertificateChain: undefined,
     CertificateBody: undefined,
+    CertificateChain: undefined,
+    ServerCertificateMetadata: undefined,
   };
+  if (output["CertificateBody"] !== undefined) {
+    contents.CertificateBody = output["CertificateBody"];
+  }
+  if (output["CertificateChain"] !== undefined) {
+    contents.CertificateChain = output["CertificateChain"];
+  }
   if (output["ServerCertificateMetadata"] !== undefined) {
     contents.ServerCertificateMetadata = deserializeAws_queryServerCertificateMetadata(
       output["ServerCertificateMetadata"],
       context
     );
-  }
-  if (output["CertificateChain"] !== undefined) {
-    contents.CertificateChain = output["CertificateChain"];
-  }
-  if (output["CertificateBody"] !== undefined) {
-    contents.CertificateBody = output["CertificateBody"];
   }
   return contents;
 };
@@ -18090,21 +18090,15 @@ const deserializeAws_queryServerCertificateMetadata = (
   context: __SerdeContext
 ): ServerCertificateMetadata => {
   let contents: any = {
-    ServerCertificateId: undefined,
-    ServerCertificateName: undefined,
-    Expiration: undefined,
+    Arn: undefined,
     Path: undefined,
     UploadDate: undefined,
-    Arn: undefined,
+    ServerCertificateId: undefined,
+    Expiration: undefined,
+    ServerCertificateName: undefined,
   };
-  if (output["ServerCertificateId"] !== undefined) {
-    contents.ServerCertificateId = output["ServerCertificateId"];
-  }
-  if (output["ServerCertificateName"] !== undefined) {
-    contents.ServerCertificateName = output["ServerCertificateName"];
-  }
-  if (output["Expiration"] !== undefined) {
-    contents.Expiration = new Date(output["Expiration"]);
+  if (output["Arn"] !== undefined) {
+    contents.Arn = output["Arn"];
   }
   if (output["Path"] !== undefined) {
     contents.Path = output["Path"];
@@ -18112,8 +18106,14 @@ const deserializeAws_queryServerCertificateMetadata = (
   if (output["UploadDate"] !== undefined) {
     contents.UploadDate = new Date(output["UploadDate"]);
   }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
+  if (output["ServerCertificateId"] !== undefined) {
+    contents.ServerCertificateId = output["ServerCertificateId"];
+  }
+  if (output["Expiration"] !== undefined) {
+    contents.Expiration = new Date(output["Expiration"]);
+  }
+  if (output["ServerCertificateName"] !== undefined) {
+    contents.ServerCertificateName = output["ServerCertificateName"];
   }
   return contents;
 };
@@ -18137,14 +18137,20 @@ const deserializeAws_queryServiceFailureException = (output: any, context: __Ser
 
 const deserializeAws_queryServiceLastAccessed = (output: any, context: __SerdeContext): ServiceLastAccessed => {
   let contents: any = {
-    TrackedActionsLastAccessed: undefined,
-    ServiceName: undefined,
     LastAuthenticated: undefined,
-    LastAuthenticatedRegion: undefined,
-    ServiceNamespace: undefined,
-    LastAuthenticatedEntity: undefined,
     TotalAuthenticatedEntities: undefined,
+    TrackedActionsLastAccessed: undefined,
+    LastAuthenticatedEntity: undefined,
+    LastAuthenticatedRegion: undefined,
+    ServiceName: undefined,
+    ServiceNamespace: undefined,
   };
+  if (output["LastAuthenticated"] !== undefined) {
+    contents.LastAuthenticated = new Date(output["LastAuthenticated"]);
+  }
+  if (output["TotalAuthenticatedEntities"] !== undefined) {
+    contents.TotalAuthenticatedEntities = parseInt(output["TotalAuthenticatedEntities"]);
+  }
   if (output.TrackedActionsLastAccessed === "") {
     contents.TrackedActionsLastAccessed = [];
   }
@@ -18157,23 +18163,17 @@ const deserializeAws_queryServiceLastAccessed = (output: any, context: __SerdeCo
       context
     );
   }
-  if (output["ServiceName"] !== undefined) {
-    contents.ServiceName = output["ServiceName"];
-  }
-  if (output["LastAuthenticated"] !== undefined) {
-    contents.LastAuthenticated = new Date(output["LastAuthenticated"]);
+  if (output["LastAuthenticatedEntity"] !== undefined) {
+    contents.LastAuthenticatedEntity = output["LastAuthenticatedEntity"];
   }
   if (output["LastAuthenticatedRegion"] !== undefined) {
     contents.LastAuthenticatedRegion = output["LastAuthenticatedRegion"];
   }
+  if (output["ServiceName"] !== undefined) {
+    contents.ServiceName = output["ServiceName"];
+  }
   if (output["ServiceNamespace"] !== undefined) {
     contents.ServiceNamespace = output["ServiceNamespace"];
-  }
-  if (output["LastAuthenticatedEntity"] !== undefined) {
-    contents.LastAuthenticatedEntity = output["LastAuthenticatedEntity"];
-  }
-  if (output["TotalAuthenticatedEntities"] !== undefined) {
-    contents.TotalAuthenticatedEntities = parseInt(output["TotalAuthenticatedEntities"]);
   }
   return contents;
 };
@@ -18200,34 +18200,34 @@ const deserializeAws_queryServiceSpecificCredential = (
   context: __SerdeContext
 ): ServiceSpecificCredential => {
   let contents: any = {
-    UserName: undefined,
-    CreateDate: undefined,
-    ServiceUserName: undefined,
-    Status: undefined,
     ServiceName: undefined,
     ServicePassword: undefined,
+    UserName: undefined,
     ServiceSpecificCredentialId: undefined,
+    CreateDate: undefined,
+    Status: undefined,
+    ServiceUserName: undefined,
   };
-  if (output["UserName"] !== undefined) {
-    contents.UserName = output["UserName"];
-  }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = new Date(output["CreateDate"]);
-  }
-  if (output["ServiceUserName"] !== undefined) {
-    contents.ServiceUserName = output["ServiceUserName"];
-  }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
-  }
   if (output["ServiceName"] !== undefined) {
     contents.ServiceName = output["ServiceName"];
   }
   if (output["ServicePassword"] !== undefined) {
     contents.ServicePassword = output["ServicePassword"];
   }
+  if (output["UserName"] !== undefined) {
+    contents.UserName = output["UserName"];
+  }
   if (output["ServiceSpecificCredentialId"] !== undefined) {
     contents.ServiceSpecificCredentialId = output["ServiceSpecificCredentialId"];
+  }
+  if (output["CreateDate"] !== undefined) {
+    contents.CreateDate = new Date(output["CreateDate"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
+  if (output["ServiceUserName"] !== undefined) {
+    contents.ServiceUserName = output["ServiceUserName"];
   }
   return contents;
 };
@@ -18237,30 +18237,30 @@ const deserializeAws_queryServiceSpecificCredentialMetadata = (
   context: __SerdeContext
 ): ServiceSpecificCredentialMetadata => {
   let contents: any = {
-    ServiceSpecificCredentialId: undefined,
-    ServiceUserName: undefined,
-    ServiceName: undefined,
-    CreateDate: undefined,
     Status: undefined,
+    ServiceUserName: undefined,
     UserName: undefined,
+    ServiceName: undefined,
+    ServiceSpecificCredentialId: undefined,
+    CreateDate: undefined,
   };
-  if (output["ServiceSpecificCredentialId"] !== undefined) {
-    contents.ServiceSpecificCredentialId = output["ServiceSpecificCredentialId"];
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
   }
   if (output["ServiceUserName"] !== undefined) {
     contents.ServiceUserName = output["ServiceUserName"];
   }
+  if (output["UserName"] !== undefined) {
+    contents.UserName = output["UserName"];
+  }
   if (output["ServiceName"] !== undefined) {
     contents.ServiceName = output["ServiceName"];
   }
+  if (output["ServiceSpecificCredentialId"] !== undefined) {
+    contents.ServiceSpecificCredentialId = output["ServiceSpecificCredentialId"];
+  }
   if (output["CreateDate"] !== undefined) {
     contents.CreateDate = new Date(output["CreateDate"]);
-  }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
-  }
-  if (output["UserName"] !== undefined) {
-    contents.UserName = output["UserName"];
   }
   return contents;
 };
@@ -18274,14 +18274,17 @@ const deserializeAws_queryServiceSpecificCredentialsListType = (
 
 const deserializeAws_querySigningCertificate = (output: any, context: __SerdeContext): SigningCertificate => {
   let contents: any = {
-    CertificateBody: undefined,
+    UploadDate: undefined,
+    UserName: undefined,
     CertificateId: undefined,
     Status: undefined,
-    UserName: undefined,
-    UploadDate: undefined,
+    CertificateBody: undefined,
   };
-  if (output["CertificateBody"] !== undefined) {
-    contents.CertificateBody = output["CertificateBody"];
+  if (output["UploadDate"] !== undefined) {
+    contents.UploadDate = new Date(output["UploadDate"]);
+  }
+  if (output["UserName"] !== undefined) {
+    contents.UserName = output["UserName"];
   }
   if (output["CertificateId"] !== undefined) {
     contents.CertificateId = output["CertificateId"];
@@ -18289,27 +18292,18 @@ const deserializeAws_querySigningCertificate = (output: any, context: __SerdeCon
   if (output["Status"] !== undefined) {
     contents.Status = output["Status"];
   }
-  if (output["UserName"] !== undefined) {
-    contents.UserName = output["UserName"];
-  }
-  if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = new Date(output["UploadDate"]);
+  if (output["CertificateBody"] !== undefined) {
+    contents.CertificateBody = output["CertificateBody"];
   }
   return contents;
 };
 
 const deserializeAws_querySimulatePolicyResponse = (output: any, context: __SerdeContext): SimulatePolicyResponse => {
   let contents: any = {
+    EvaluationResults: undefined,
     IsTruncated: undefined,
     Marker: undefined,
-    EvaluationResults: undefined,
   };
-  if (output["IsTruncated"] !== undefined) {
-    contents.IsTruncated = output["IsTruncated"] == "true";
-  }
-  if (output["Marker"] !== undefined) {
-    contents.Marker = output["Marker"];
-  }
   if (output.EvaluationResults === "") {
     contents.EvaluationResults = [];
   }
@@ -18319,35 +18313,41 @@ const deserializeAws_querySimulatePolicyResponse = (output: any, context: __Serd
       context
     );
   }
+  if (output["IsTruncated"] !== undefined) {
+    contents.IsTruncated = output["IsTruncated"] == "true";
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = output["Marker"];
+  }
   return contents;
 };
 
 const deserializeAws_querySSHPublicKey = (output: any, context: __SerdeContext): SSHPublicKey => {
   let contents: any = {
-    UploadDate: undefined,
-    UserName: undefined,
-    Status: undefined,
     SSHPublicKeyBody: undefined,
-    Fingerprint: undefined,
+    UserName: undefined,
+    UploadDate: undefined,
     SSHPublicKeyId: undefined,
+    Fingerprint: undefined,
+    Status: undefined,
   };
-  if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = new Date(output["UploadDate"]);
+  if (output["SSHPublicKeyBody"] !== undefined) {
+    contents.SSHPublicKeyBody = output["SSHPublicKeyBody"];
   }
   if (output["UserName"] !== undefined) {
     contents.UserName = output["UserName"];
   }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
+  if (output["UploadDate"] !== undefined) {
+    contents.UploadDate = new Date(output["UploadDate"]);
   }
-  if (output["SSHPublicKeyBody"] !== undefined) {
-    contents.SSHPublicKeyBody = output["SSHPublicKeyBody"];
+  if (output["SSHPublicKeyId"] !== undefined) {
+    contents.SSHPublicKeyId = output["SSHPublicKeyId"];
   }
   if (output["Fingerprint"] !== undefined) {
     contents.Fingerprint = output["Fingerprint"];
   }
-  if (output["SSHPublicKeyId"] !== undefined) {
-    contents.SSHPublicKeyId = output["SSHPublicKeyId"];
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
   }
   return contents;
 };
@@ -18358,44 +18358,44 @@ const deserializeAws_querySSHPublicKeyListType = (output: any, context: __SerdeC
 
 const deserializeAws_querySSHPublicKeyMetadata = (output: any, context: __SerdeContext): SSHPublicKeyMetadata => {
   let contents: any = {
-    UploadDate: undefined,
-    Status: undefined,
     UserName: undefined,
     SSHPublicKeyId: undefined,
+    UploadDate: undefined,
+    Status: undefined,
   };
-  if (output["UploadDate"] !== undefined) {
-    contents.UploadDate = new Date(output["UploadDate"]);
-  }
-  if (output["Status"] !== undefined) {
-    contents.Status = output["Status"];
-  }
   if (output["UserName"] !== undefined) {
     contents.UserName = output["UserName"];
   }
   if (output["SSHPublicKeyId"] !== undefined) {
     contents.SSHPublicKeyId = output["SSHPublicKeyId"];
   }
+  if (output["UploadDate"] !== undefined) {
+    contents.UploadDate = new Date(output["UploadDate"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = output["Status"];
+  }
   return contents;
 };
 
 const deserializeAws_queryStatement = (output: any, context: __SerdeContext): Statement => {
   let contents: any = {
-    SourcePolicyId: undefined,
-    EndPosition: undefined,
     SourcePolicyType: undefined,
+    EndPosition: undefined,
     StartPosition: undefined,
+    SourcePolicyId: undefined,
   };
-  if (output["SourcePolicyId"] !== undefined) {
-    contents.SourcePolicyId = output["SourcePolicyId"];
+  if (output["SourcePolicyType"] !== undefined) {
+    contents.SourcePolicyType = output["SourcePolicyType"];
   }
   if (output["EndPosition"] !== undefined) {
     contents.EndPosition = deserializeAws_queryPosition(output["EndPosition"], context);
   }
-  if (output["SourcePolicyType"] !== undefined) {
-    contents.SourcePolicyType = output["SourcePolicyType"];
-  }
   if (output["StartPosition"] !== undefined) {
     contents.StartPosition = deserializeAws_queryPosition(output["StartPosition"], context);
+  }
+  if (output["SourcePolicyId"] !== undefined) {
+    contents.SourcePolicyId = output["SourcePolicyId"];
   }
   return contents;
 };
@@ -18416,14 +18416,14 @@ const deserializeAws_querysummaryMapType = (output: any, context: __SerdeContext
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
-    Key: undefined,
     Value: undefined,
+    Key: undefined,
   };
-  if (output["Key"] !== undefined) {
-    contents.Key = output["Key"];
-  }
   if (output["Value"] !== undefined) {
     contents.Value = output["Value"];
+  }
+  if (output["Key"] !== undefined) {
+    contents.Key = output["Key"];
   }
   return contents;
 };
@@ -18441,19 +18441,19 @@ const deserializeAws_queryTrackedActionLastAccessed = (
   context: __SerdeContext
 ): TrackedActionLastAccessed => {
   let contents: any = {
-    LastAccessedTime: undefined,
-    LastAccessedEntity: undefined,
     LastAccessedRegion: undefined,
+    LastAccessedEntity: undefined,
+    LastAccessedTime: undefined,
     ActionName: undefined,
   };
-  if (output["LastAccessedTime"] !== undefined) {
-    contents.LastAccessedTime = new Date(output["LastAccessedTime"]);
+  if (output["LastAccessedRegion"] !== undefined) {
+    contents.LastAccessedRegion = output["LastAccessedRegion"];
   }
   if (output["LastAccessedEntity"] !== undefined) {
     contents.LastAccessedEntity = output["LastAccessedEntity"];
   }
-  if (output["LastAccessedRegion"] !== undefined) {
-    contents.LastAccessedRegion = output["LastAccessedRegion"];
+  if (output["LastAccessedTime"] !== undefined) {
+    contents.LastAccessedTime = new Date(output["LastAccessedTime"]);
   }
   if (output["ActionName"] !== undefined) {
     contents.ActionName = output["ActionName"];
@@ -18569,32 +18569,17 @@ const deserializeAws_queryUploadSSHPublicKeyResponse = (
 
 const deserializeAws_queryUser = (output: any, context: __SerdeContext): User => {
   let contents: any = {
-    UserId: undefined,
     UserName: undefined,
-    PasswordLastUsed: undefined,
-    PermissionsBoundary: undefined,
-    Arn: undefined,
     Path: undefined,
     Tags: undefined,
     CreateDate: undefined,
+    Arn: undefined,
+    PasswordLastUsed: undefined,
+    PermissionsBoundary: undefined,
+    UserId: undefined,
   };
-  if (output["UserId"] !== undefined) {
-    contents.UserId = output["UserId"];
-  }
   if (output["UserName"] !== undefined) {
     contents.UserName = output["UserName"];
-  }
-  if (output["PasswordLastUsed"] !== undefined) {
-    contents.PasswordLastUsed = new Date(output["PasswordLastUsed"]);
-  }
-  if (output["PermissionsBoundary"] !== undefined) {
-    contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
-      output["PermissionsBoundary"],
-      context
-    );
-  }
-  if (output["Arn"] !== undefined) {
-    contents.Arn = output["Arn"];
   }
   if (output["Path"] !== undefined) {
     contents.Path = output["Path"];
@@ -18608,24 +18593,11 @@ const deserializeAws_queryUser = (output: any, context: __SerdeContext): User =>
   if (output["CreateDate"] !== undefined) {
     contents.CreateDate = new Date(output["CreateDate"]);
   }
-  return contents;
-};
-
-const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): UserDetail => {
-  let contents: any = {
-    Arn: undefined,
-    PermissionsBoundary: undefined,
-    Tags: undefined,
-    GroupList: undefined,
-    CreateDate: undefined,
-    UserPolicyList: undefined,
-    AttachedManagedPolicies: undefined,
-    UserName: undefined,
-    Path: undefined,
-    UserId: undefined,
-  };
   if (output["Arn"] !== undefined) {
     contents.Arn = output["Arn"];
+  }
+  if (output["PasswordLastUsed"] !== undefined) {
+    contents.PasswordLastUsed = new Date(output["PasswordLastUsed"]);
   }
   if (output["PermissionsBoundary"] !== undefined) {
     contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
@@ -18633,23 +18605,27 @@ const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): U
       context
     );
   }
-  if (output.Tags === "") {
-    contents.Tags = [];
+  if (output["UserId"] !== undefined) {
+    contents.UserId = output["UserId"];
   }
-  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
-    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
-  }
-  if (output.GroupList === "") {
-    contents.GroupList = [];
-  }
-  if (output["GroupList"] !== undefined && output["GroupList"]["member"] !== undefined) {
-    contents.GroupList = deserializeAws_querygroupNameListType(
-      __getArrayIfSingleItem(output["GroupList"]["member"]),
-      context
-    );
-  }
-  if (output["CreateDate"] !== undefined) {
-    contents.CreateDate = new Date(output["CreateDate"]);
+  return contents;
+};
+
+const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): UserDetail => {
+  let contents: any = {
+    UserId: undefined,
+    UserPolicyList: undefined,
+    CreateDate: undefined,
+    GroupList: undefined,
+    AttachedManagedPolicies: undefined,
+    PermissionsBoundary: undefined,
+    Path: undefined,
+    Tags: undefined,
+    UserName: undefined,
+    Arn: undefined,
+  };
+  if (output["UserId"] !== undefined) {
+    contents.UserId = output["UserId"];
   }
   if (output.UserPolicyList === "") {
     contents.UserPolicyList = [];
@@ -18657,6 +18633,18 @@ const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): U
   if (output["UserPolicyList"] !== undefined && output["UserPolicyList"]["member"] !== undefined) {
     contents.UserPolicyList = deserializeAws_querypolicyDetailListType(
       __getArrayIfSingleItem(output["UserPolicyList"]["member"]),
+      context
+    );
+  }
+  if (output["CreateDate"] !== undefined) {
+    contents.CreateDate = new Date(output["CreateDate"]);
+  }
+  if (output.GroupList === "") {
+    contents.GroupList = [];
+  }
+  if (output["GroupList"] !== undefined && output["GroupList"]["member"] !== undefined) {
+    contents.GroupList = deserializeAws_querygroupNameListType(
+      __getArrayIfSingleItem(output["GroupList"]["member"]),
       context
     );
   }
@@ -18669,14 +18657,26 @@ const deserializeAws_queryUserDetail = (output: any, context: __SerdeContext): U
       context
     );
   }
-  if (output["UserName"] !== undefined) {
-    contents.UserName = output["UserName"];
+  if (output["PermissionsBoundary"] !== undefined) {
+    contents.PermissionsBoundary = deserializeAws_queryAttachedPermissionsBoundary(
+      output["PermissionsBoundary"],
+      context
+    );
   }
   if (output["Path"] !== undefined) {
     contents.Path = output["Path"];
   }
-  if (output["UserId"] !== undefined) {
-    contents.UserId = output["UserId"];
+  if (output.Tags === "") {
+    contents.Tags = [];
+  }
+  if (output["Tags"] !== undefined && output["Tags"]["member"] !== undefined) {
+    contents.Tags = deserializeAws_querytagListType(__getArrayIfSingleItem(output["Tags"]["member"]), context);
+  }
+  if (output["UserName"] !== undefined) {
+    contents.UserName = output["UserName"];
+  }
+  if (output["Arn"] !== undefined) {
+    contents.Arn = output["Arn"];
   }
   return contents;
 };
@@ -18691,26 +18691,26 @@ const deserializeAws_queryuserListType = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryVirtualMFADevice = (output: any, context: __SerdeContext): VirtualMFADevice => {
   let contents: any = {
-    QRCodePNG: undefined,
-    EnableDate: undefined,
-    SerialNumber: undefined,
-    Base32StringSeed: undefined,
     User: undefined,
+    SerialNumber: undefined,
+    EnableDate: undefined,
+    Base32StringSeed: undefined,
+    QRCodePNG: undefined,
   };
-  if (output["QRCodePNG"] !== undefined) {
-    contents.QRCodePNG = context.base64Decoder(output["QRCodePNG"]);
-  }
-  if (output["EnableDate"] !== undefined) {
-    contents.EnableDate = new Date(output["EnableDate"]);
+  if (output["User"] !== undefined) {
+    contents.User = deserializeAws_queryUser(output["User"], context);
   }
   if (output["SerialNumber"] !== undefined) {
     contents.SerialNumber = output["SerialNumber"];
   }
+  if (output["EnableDate"] !== undefined) {
+    contents.EnableDate = new Date(output["EnableDate"]);
+  }
   if (output["Base32StringSeed"] !== undefined) {
     contents.Base32StringSeed = context.base64Decoder(output["Base32StringSeed"]);
   }
-  if (output["User"] !== undefined) {
-    contents.User = deserializeAws_queryUser(output["User"], context);
+  if (output["QRCodePNG"] !== undefined) {
+    contents.QRCodePNG = context.base64Decoder(output["QRCodePNG"]);
   }
   return contents;
 };

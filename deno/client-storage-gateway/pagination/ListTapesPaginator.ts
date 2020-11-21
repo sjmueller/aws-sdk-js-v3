@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTapesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTapesCommand(input, ...args));
+  return await client.send(new ListTapesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: StorageGateway,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTapes(input, ...args);
 };
-export async function* listTapesPaginate(
+export async function* paginateListTapes(
   config: StorageGatewayPaginationConfiguration,
   input: ListTapesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTapesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTapesCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof StorageGateway) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listTapesPaginate(
       throw new Error("Invalid client, expected StorageGateway | StorageGatewayClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

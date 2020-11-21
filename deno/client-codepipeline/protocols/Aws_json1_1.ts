@@ -129,6 +129,7 @@ import {
   ArtifactStore,
   BlockerDeclaration,
   ConcurrentModificationException,
+  ConflictException,
   CreateCustomActionTypeInput,
   CreateCustomActionTypeOutput,
   CreatePipelineInput,
@@ -752,7 +753,7 @@ export const deserializeAws_json1_1AcknowledgeJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcknowledgeJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AcknowledgeJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -823,7 +824,7 @@ export const deserializeAws_json1_1AcknowledgeThirdPartyJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcknowledgeThirdPartyJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AcknowledgeThirdPartyJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -902,7 +903,7 @@ export const deserializeAws_json1_1CreateCustomActionTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateCustomActionTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateCustomActionTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -989,7 +990,7 @@ export const deserializeAws_json1_1CreatePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePipelineCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePipelineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1116,7 +1117,7 @@ export const deserializeAws_json1_1DeleteCustomActionTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCustomActionTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteCustomActionTypeCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1176,7 +1177,7 @@ export const deserializeAws_json1_1DeletePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePipelineCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeletePipelineCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1236,7 +1237,7 @@ export const deserializeAws_json1_1DeleteWebhookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWebhookCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteWebhookCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1299,7 +1300,7 @@ export const deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterWebhookWithThirdPartyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeregisterWebhookWithThirdPartyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1362,7 +1363,7 @@ export const deserializeAws_json1_1DisableStageTransitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableStageTransitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisableStageTransitionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1430,7 +1431,7 @@ export const deserializeAws_json1_1EnableStageTransitionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableStageTransitionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnableStageTransitionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1498,7 +1499,7 @@ export const deserializeAws_json1_1GetJobDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetJobDetailsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetJobDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1561,7 +1562,7 @@ export const deserializeAws_json1_1GetPipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPipelineCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetPipelineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1632,7 +1633,7 @@ export const deserializeAws_json1_1GetPipelineExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPipelineExecutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetPipelineExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1703,7 +1704,7 @@ export const deserializeAws_json1_1GetPipelineStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPipelineStateCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetPipelineStateCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1766,7 +1767,7 @@ export const deserializeAws_json1_1GetThirdPartyJobDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetThirdPartyJobDetailsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetThirdPartyJobDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1845,7 +1846,7 @@ export const deserializeAws_json1_1ListActionExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListActionExecutionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListActionExecutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1924,7 +1925,7 @@ export const deserializeAws_json1_1ListActionTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListActionTypesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListActionTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1987,7 +1988,7 @@ export const deserializeAws_json1_1ListPipelineExecutionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPipelineExecutionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPipelineExecutionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2058,7 +2059,7 @@ export const deserializeAws_json1_1ListPipelinesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPipelinesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPipelinesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2121,7 +2122,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2200,7 +2201,7 @@ export const deserializeAws_json1_1ListWebhooksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWebhooksCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListWebhooksCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2263,7 +2264,7 @@ export const deserializeAws_json1_1PollForJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PollForJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PollForJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2326,7 +2327,7 @@ export const deserializeAws_json1_1PollForThirdPartyJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PollForThirdPartyJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PollForThirdPartyJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2389,7 +2390,7 @@ export const deserializeAws_json1_1PutActionRevisionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutActionRevisionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutActionRevisionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2468,7 +2469,7 @@ export const deserializeAws_json1_1PutApprovalResultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutApprovalResultCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutApprovalResultCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2563,7 +2564,7 @@ export const deserializeAws_json1_1PutJobFailureResultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutJobFailureResultCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutJobFailureResultCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2631,7 +2632,7 @@ export const deserializeAws_json1_1PutJobSuccessResultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutJobSuccessResultCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutJobSuccessResultCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2707,7 +2708,7 @@ export const deserializeAws_json1_1PutThirdPartyJobFailureResultCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutThirdPartyJobFailureResultCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutThirdPartyJobFailureResultCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2783,7 +2784,7 @@ export const deserializeAws_json1_1PutThirdPartyJobSuccessResultCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutThirdPartyJobSuccessResultCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutThirdPartyJobSuccessResultCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2859,7 +2860,7 @@ export const deserializeAws_json1_1PutWebhookCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutWebhookCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutWebhookCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2970,7 +2971,7 @@ export const deserializeAws_json1_1RegisterWebhookWithThirdPartyCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterWebhookWithThirdPartyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RegisterWebhookWithThirdPartyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3033,7 +3034,7 @@ export const deserializeAws_json1_1RetryStageExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RetryStageExecutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RetryStageExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3059,6 +3060,14 @@ const deserializeAws_json1_1RetryStageExecutionCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.codepipeline#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "NotLatestPipelineExecutionException":
     case "com.amazonaws.codepipeline#NotLatestPipelineExecutionException":
       response = {
@@ -3120,7 +3129,7 @@ export const deserializeAws_json1_1StartPipelineExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartPipelineExecutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartPipelineExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3146,6 +3155,14 @@ const deserializeAws_json1_1StartPipelineExecutionCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.codepipeline#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "PipelineNotFoundException":
     case "com.amazonaws.codepipeline#PipelineNotFoundException":
       response = {
@@ -3183,7 +3200,7 @@ export const deserializeAws_json1_1StopPipelineExecutionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopPipelineExecutionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopPipelineExecutionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3209,6 +3226,14 @@ const deserializeAws_json1_1StopPipelineExecutionCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.codepipeline#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "DuplicatedStopRequestException":
     case "com.amazonaws.codepipeline#DuplicatedStopRequestException":
       response = {
@@ -3262,7 +3287,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3357,7 +3382,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3444,7 +3469,7 @@ export const deserializeAws_json1_1UpdatePipelineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdatePipelineCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdatePipelineCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3588,6 +3613,21 @@ const deserializeAws_json1_1ConcurrentModificationExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1ConcurrentModificationException(body, context);
   const contents: ConcurrentModificationException = {
     name: "ConcurrentModificationException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1ConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ConflictException(body, context);
+  const contents: ConflictException = {
+    name: "ConflictException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -4811,6 +4851,10 @@ const deserializeAws_json1_1ActionDeclaration = (output: any, context: __SerdeCo
 
 const deserializeAws_json1_1ActionExecution = (output: any, context: __SerdeContext): ActionExecution => {
   return {
+    actionExecutionId:
+      output.actionExecutionId !== undefined && output.actionExecutionId !== null
+        ? output.actionExecutionId
+        : undefined,
     errorDetails:
       output.errorDetails !== undefined && output.errorDetails !== null
         ? deserializeAws_json1_1ErrorDetails(output.errorDetails, context)
@@ -5162,6 +5206,12 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   output: any,
   context: __SerdeContext
 ): ConcurrentModificationException => {
+  return {
+    message: output.message !== undefined && output.message !== null ? output.message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
   return {
     message: output.message !== undefined && output.message !== null ? output.message : undefined,
   } as any;
@@ -5989,6 +6039,10 @@ const deserializeAws_json1_1StageState = (output: any, context: __SerdeContext):
     actionStates:
       output.actionStates !== undefined && output.actionStates !== null
         ? deserializeAws_json1_1ActionStateList(output.actionStates, context)
+        : undefined,
+    inboundExecution:
+      output.inboundExecution !== undefined && output.inboundExecution !== null
+        ? deserializeAws_json1_1StageExecution(output.inboundExecution, context)
         : undefined,
     inboundTransitionState:
       output.inboundTransitionState !== undefined && output.inboundTransitionState !== null

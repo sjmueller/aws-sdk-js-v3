@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DeleteVpcRequest } from "../models/models_1.ts";
+import { DeleteVpcRequest } from "../models/models_2.ts";
 import { deserializeAws_ec2DeleteVpcCommand, serializeAws_ec2DeleteVpcCommand } from "../protocols/Aws_ec2.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
@@ -38,11 +38,23 @@ export class DeleteVpcCommand extends $Command<DeleteVpcCommandInput, DeleteVpcC
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DeleteVpcCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteVpcRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

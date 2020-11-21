@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAliasesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAliasesCommand(input, ...args));
+  return await client.send(new ListAliasesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: KMS,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAliases(input, ...args);
 };
-export async function* listAliasesPaginate(
+export async function* paginateListAliases(
   config: KMSPaginationConfiguration,
   input: ListAliasesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAliasesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAliasesCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof KMS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listAliasesPaginate(
       throw new Error("Invalid client, expected KMS | KMSClient");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

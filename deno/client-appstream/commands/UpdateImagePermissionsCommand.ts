@@ -1,4 +1,3 @@
-
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
 import { UpdateImagePermissionsRequest, UpdateImagePermissionsResult } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class UpdateImagePermissionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppStreamClient";
+    const commandName = "UpdateImagePermissionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateImagePermissionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateImagePermissionsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDetectorsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDetectorsCommand(input, ...args));
+  return await client.send(new ListDetectorsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GuardDuty,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDetectors(input, ...args);
 };
-export async function* listDetectorsPaginate(
+export async function* paginateListDetectors(
   config: GuardDutyPaginationConfiguration,
   input: ListDetectorsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDetectorsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDetectorsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof GuardDuty) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listDetectorsPaginate(
       throw new Error("Invalid client, expected GuardDuty | GuardDutyClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

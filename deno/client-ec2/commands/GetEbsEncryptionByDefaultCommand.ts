@@ -1,6 +1,7 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { GetEbsEncryptionByDefaultRequest, GetEbsEncryptionByDefaultResult } from "../models/models_3.ts";
+import { GetEbsEncryptionByDefaultRequest } from "../models/models_3.ts";
+import { GetEbsEncryptionByDefaultResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2GetEbsEncryptionByDefaultCommand,
   serializeAws_ec2GetEbsEncryptionByDefaultCommand,
@@ -45,11 +46,23 @@ export class GetEbsEncryptionByDefaultCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "GetEbsEncryptionByDefaultCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetEbsEncryptionByDefaultRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetEbsEncryptionByDefaultResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

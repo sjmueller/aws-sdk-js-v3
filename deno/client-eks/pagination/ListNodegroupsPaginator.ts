@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListNodegroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListNodegroupsCommand(input, ...args));
+  return await client.send(new ListNodegroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EKS,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listNodegroups(input, ...args);
 };
-export async function* listNodegroupsPaginate(
+export async function* paginateListNodegroups(
   config: EKSPaginationConfiguration,
   input: ListNodegroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListNodegroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListNodegroupsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof EKS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listNodegroupsPaginate(
       throw new Error("Invalid client, expected EKS | EKSClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

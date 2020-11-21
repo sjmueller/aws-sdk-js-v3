@@ -1,7 +1,4 @@
 
-export function isArrayBuffer(arg: any): arg is ArrayBuffer {
-  return (
-    (typeof ArrayBuffer === "function" && arg instanceof ArrayBuffer) ||
-    Object.prototype.toString.call(arg) === "[object ArrayBuffer]"
-  );
-}
+export const isArrayBuffer = (arg: any): arg is ArrayBuffer =>
+  (typeof ArrayBuffer === "function" && arg instanceof ArrayBuffer) ||
+  Object.prototype.toString.call(arg) === "[object ArrayBuffer]";

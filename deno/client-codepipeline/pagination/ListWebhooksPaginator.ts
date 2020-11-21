@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListWebhooksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListWebhooksCommand(input, ...args));
+  return await client.send(new ListWebhooksCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodePipeline,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listWebhooks(input, ...args);
 };
-export async function* listWebhooksPaginate(
+export async function* paginateListWebhooks(
   config: CodePipelinePaginationConfiguration,
   input: ListWebhooksCommandInput,
   ...additionalArguments: any
 ): Paginator<ListWebhooksCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListWebhooksCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CodePipeline) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listWebhooksPaginate(
       throw new Error("Invalid client, expected CodePipeline | CodePipelineClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

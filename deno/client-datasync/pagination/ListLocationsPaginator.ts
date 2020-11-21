@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListLocationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListLocationsCommand(input, ...args));
+  return await client.send(new ListLocationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DataSync,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listLocations(input, ...args);
 };
-export async function* listLocationsPaginate(
+export async function* paginateListLocations(
   config: DataSyncPaginationConfiguration,
   input: ListLocationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListLocationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListLocationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof DataSync) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listLocationsPaginate(
       throw new Error("Invalid client, expected DataSync | DataSyncClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

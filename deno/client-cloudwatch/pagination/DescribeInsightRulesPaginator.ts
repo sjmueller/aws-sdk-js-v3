@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeInsightRulesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeInsightRulesCommand(input, ...args));
+  return await client.send(new DescribeInsightRulesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudWatch,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeInsightRules(input, ...args);
 };
-export async function* describeInsightRulesPaginate(
+export async function* paginateDescribeInsightRules(
   config: CloudWatchPaginationConfiguration,
   input: DescribeInsightRulesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeInsightRulesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeInsightRulesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CloudWatch) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeInsightRulesPaginate(
       throw new Error("Invalid client, expected CloudWatch | CloudWatchClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

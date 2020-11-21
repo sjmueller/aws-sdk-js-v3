@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetUsageStatisticsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetUsageStatisticsCommand(input, ...args));
+  return await client.send(new GetUsageStatisticsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GuardDuty,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getUsageStatistics(input, ...args);
 };
-export async function* getUsageStatisticsPaginate(
+export async function* paginateGetUsageStatistics(
   config: GuardDutyPaginationConfiguration,
   input: GetUsageStatisticsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetUsageStatisticsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetUsageStatisticsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof GuardDuty) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getUsageStatisticsPaginate(
       throw new Error("Invalid client, expected GuardDuty | GuardDutyClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

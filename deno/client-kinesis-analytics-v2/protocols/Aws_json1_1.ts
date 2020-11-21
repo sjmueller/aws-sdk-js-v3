@@ -593,7 +593,7 @@ export const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddApplicationCloudWatchLoggingOptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -688,7 +688,7 @@ export const deserializeAws_json1_1AddApplicationInputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddApplicationInputCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddApplicationInputCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -783,7 +783,7 @@ export const deserializeAws_json1_1AddApplicationInputProcessingConfigurationCom
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddApplicationInputProcessingConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddApplicationInputProcessingConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -870,7 +870,7 @@ export const deserializeAws_json1_1AddApplicationOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddApplicationOutputCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddApplicationOutputCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -957,7 +957,7 @@ export const deserializeAws_json1_1AddApplicationReferenceDataSourceCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddApplicationReferenceDataSourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddApplicationReferenceDataSourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1044,7 +1044,7 @@ export const deserializeAws_json1_1AddApplicationVpcConfigurationCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddApplicationVpcConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddApplicationVpcConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1074,6 +1074,14 @@ const deserializeAws_json1_1AddApplicationVpcConfigurationCommandError = async (
     case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidApplicationConfigurationException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationConfigurationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1123,7 +1131,7 @@ export const deserializeAws_json1_1CreateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1226,7 +1234,7 @@ export const deserializeAws_json1_1CreateApplicationSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateApplicationSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateApplicationSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1252,6 +1260,14 @@ const deserializeAws_json1_1CreateApplicationSnapshotCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "InvalidApplicationConfigurationException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationConfigurationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       response = {
@@ -1321,7 +1337,7 @@ export const deserializeAws_json1_1DeleteApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1416,7 +1432,7 @@ export const deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationCloudWatchLoggingOptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteApplicationCloudWatchLoggingOptionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1511,7 +1527,7 @@ export const deserializeAws_json1_1DeleteApplicationInputProcessingConfiguration
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationInputProcessingConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteApplicationInputProcessingConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1598,7 +1614,7 @@ export const deserializeAws_json1_1DeleteApplicationOutputCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationOutputCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteApplicationOutputCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1685,7 +1701,7 @@ export const deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationReferenceDataSourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteApplicationReferenceDataSourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1772,7 +1788,7 @@ export const deserializeAws_json1_1DeleteApplicationSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteApplicationSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1859,7 +1875,7 @@ export const deserializeAws_json1_1DeleteApplicationVpcConfigurationCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteApplicationVpcConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1889,6 +1905,14 @@ const deserializeAws_json1_1DeleteApplicationVpcConfigurationCommandError = asyn
     case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
       response = {
         ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidApplicationConfigurationException":
+    case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidApplicationConfigurationExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -1938,7 +1962,7 @@ export const deserializeAws_json1_1DescribeApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeApplicationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2009,7 +2033,7 @@ export const deserializeAws_json1_1DescribeApplicationSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeApplicationSnapshotCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeApplicationSnapshotCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2080,7 +2104,7 @@ export const deserializeAws_json1_1DiscoverInputSchemaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DiscoverInputSchemaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DiscoverInputSchemaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2167,7 +2191,7 @@ export const deserializeAws_json1_1ListApplicationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListApplicationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2222,7 +2246,7 @@ export const deserializeAws_json1_1ListApplicationSnapshotsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListApplicationSnapshotsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListApplicationSnapshotsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2285,7 +2309,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2356,7 +2380,7 @@ export const deserializeAws_json1_1StartApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartApplicationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2443,7 +2467,7 @@ export const deserializeAws_json1_1StopApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopApplicationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2469,6 +2493,14 @@ const deserializeAws_json1_1StopApplicationCommandError = async (
   const errorTypeParts: String = parsedOutput.body["__type"].split("#");
   errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
+      response = {
+        ...(await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidApplicationConfigurationException":
     case "com.amazonaws.kinesisanalyticsv2#InvalidApplicationConfigurationException":
       response = {
@@ -2530,7 +2562,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2617,7 +2649,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2704,7 +2736,7 @@ export const deserializeAws_json1_1UpdateApplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateApplicationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateApplicationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4125,6 +4157,7 @@ const serializeAws_json1_1StartApplicationRequest = (input: StartApplicationRequ
 const serializeAws_json1_1StopApplicationRequest = (input: StopApplicationRequest, context: __SerdeContext): any => {
   return {
     ...(input.ApplicationName !== undefined && { ApplicationName: input.ApplicationName }),
+    ...(input.Force !== undefined && { Force: input.Force }),
   };
 };
 
@@ -4781,6 +4814,15 @@ const deserializeAws_json1_1FlinkApplicationConfigurationDescription = (
   } as any;
 };
 
+const deserializeAws_json1_1FlinkRunConfiguration = (output: any, context: __SerdeContext): FlinkRunConfiguration => {
+  return {
+    AllowNonRestoredState:
+      output.AllowNonRestoredState !== undefined && output.AllowNonRestoredState !== null
+        ? output.AllowNonRestoredState
+        : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1InAppStreamNames = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
 };
@@ -5198,6 +5240,10 @@ const deserializeAws_json1_1RunConfigurationDescription = (
             output.ApplicationRestoreConfigurationDescription,
             context
           )
+        : undefined,
+    FlinkRunConfigurationDescription:
+      output.FlinkRunConfigurationDescription !== undefined && output.FlinkRunConfigurationDescription !== null
+        ? deserializeAws_json1_1FlinkRunConfiguration(output.FlinkRunConfigurationDescription, context)
         : undefined,
   } as any;
 };

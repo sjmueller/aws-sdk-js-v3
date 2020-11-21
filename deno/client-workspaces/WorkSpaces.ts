@@ -1,6 +1,11 @@
 
 import { WorkSpacesClient } from "./WorkSpacesClient.ts";
 import {
+  AssociateConnectionAliasCommand,
+  AssociateConnectionAliasCommandInput,
+  AssociateConnectionAliasCommandOutput,
+} from "./commands/AssociateConnectionAliasCommand.ts";
+import {
   AssociateIpGroupsCommand,
   AssociateIpGroupsCommandInput,
   AssociateIpGroupsCommandOutput,
@@ -16,6 +21,11 @@ import {
   CopyWorkspaceImageCommandOutput,
 } from "./commands/CopyWorkspaceImageCommand.ts";
 import {
+  CreateConnectionAliasCommand,
+  CreateConnectionAliasCommandInput,
+  CreateConnectionAliasCommandOutput,
+} from "./commands/CreateConnectionAliasCommand.ts";
+import {
   CreateIpGroupCommand,
   CreateIpGroupCommandInput,
   CreateIpGroupCommandOutput,
@@ -26,6 +36,11 @@ import {
   CreateWorkspacesCommandInput,
   CreateWorkspacesCommandOutput,
 } from "./commands/CreateWorkspacesCommand.ts";
+import {
+  DeleteConnectionAliasCommand,
+  DeleteConnectionAliasCommandInput,
+  DeleteConnectionAliasCommandOutput,
+} from "./commands/DeleteConnectionAliasCommand.ts";
 import {
   DeleteIpGroupCommand,
   DeleteIpGroupCommandInput,
@@ -57,6 +72,16 @@ import {
   DescribeClientPropertiesCommandInput,
   DescribeClientPropertiesCommandOutput,
 } from "./commands/DescribeClientPropertiesCommand.ts";
+import {
+  DescribeConnectionAliasPermissionsCommand,
+  DescribeConnectionAliasPermissionsCommandInput,
+  DescribeConnectionAliasPermissionsCommandOutput,
+} from "./commands/DescribeConnectionAliasPermissionsCommand.ts";
+import {
+  DescribeConnectionAliasesCommand,
+  DescribeConnectionAliasesCommandInput,
+  DescribeConnectionAliasesCommandOutput,
+} from "./commands/DescribeConnectionAliasesCommand.ts";
 import {
   DescribeIpGroupsCommand,
   DescribeIpGroupsCommandInput,
@@ -102,6 +127,11 @@ import {
   DescribeWorkspacesConnectionStatusCommandInput,
   DescribeWorkspacesConnectionStatusCommandOutput,
 } from "./commands/DescribeWorkspacesConnectionStatusCommand.ts";
+import {
+  DisassociateConnectionAliasCommand,
+  DisassociateConnectionAliasCommandInput,
+  DisassociateConnectionAliasCommandOutput,
+} from "./commands/DisassociateConnectionAliasCommand.ts";
 import {
   DisassociateIpGroupsCommand,
   DisassociateIpGroupsCommandInput,
@@ -198,6 +228,11 @@ import {
   TerminateWorkspacesCommandOutput,
 } from "./commands/TerminateWorkspacesCommand.ts";
 import {
+  UpdateConnectionAliasPermissionCommand,
+  UpdateConnectionAliasPermissionCommandInput,
+  UpdateConnectionAliasPermissionCommandOutput,
+} from "./commands/UpdateConnectionAliasPermissionCommand.ts";
+import {
   UpdateRulesOfIpGroupCommand,
   UpdateRulesOfIpGroupCommandInput,
   UpdateRulesOfIpGroupCommandOutput,
@@ -215,6 +250,45 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *          Amazon Linux desktops for your users.</p>
  */
 export class WorkSpaces extends WorkSpacesClient {
+  /**
+   * <p>Associates the specified connection alias with the specified directory to enable cross-Region redirection.
+   *          For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
+   *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+   *
+   *          <note>
+   *             <p>Before performing this operation, call <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html">
+   *             DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p>
+   *          </note>
+   */
+  public associateConnectionAlias(
+    args: AssociateConnectionAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateConnectionAliasCommandOutput>;
+  public associateConnectionAlias(
+    args: AssociateConnectionAliasCommandInput,
+    cb: (err: any, data?: AssociateConnectionAliasCommandOutput) => void
+  ): void;
+  public associateConnectionAlias(
+    args: AssociateConnectionAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateConnectionAliasCommandOutput) => void
+  ): void;
+  public associateConnectionAlias(
+    args: AssociateConnectionAliasCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AssociateConnectionAliasCommandOutput) => void),
+    cb?: (err: any, data?: AssociateConnectionAliasCommandOutput) => void
+  ): Promise<AssociateConnectionAliasCommandOutput> | void {
+    const command = new AssociateConnectionAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Associates the specified IP access control group with the specified directory.</p>
    */
@@ -282,7 +356,16 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Copies the specified image from the specified Region to the current Region.</p>
+   * <p>Copies the specified image from the specified Region to the current Region.
+   *          For more information about copying images, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html">
+   *             Copy a Custom WorkSpaces Image</a>.</p>
+   *
+   *          <important>
+   *             <p>Before copying a shared image, be sure to verify that it has been shared from the
+   *             correct AWS account. To determine if an image has been shared and to see the AWS
+   *             account ID that owns an image, use the <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html">DescribeWorkSpaceImages</a> and <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html">DescribeWorkspaceImagePermissions</a> API operations. </p>
+   *          </important>
    */
   public copyWorkspaceImage(
     args: CopyWorkspaceImageCommandInput,
@@ -303,6 +386,40 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: CopyWorkspaceImageCommandOutput) => void
   ): Promise<CopyWorkspaceImageCommandOutput> | void {
     const command = new CopyWorkspaceImageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates the specified connection alias for use with cross-Region redirection. For more information, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
+   *          Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+   */
+  public createConnectionAlias(
+    args: CreateConnectionAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConnectionAliasCommandOutput>;
+  public createConnectionAlias(
+    args: CreateConnectionAliasCommandInput,
+    cb: (err: any, data?: CreateConnectionAliasCommandOutput) => void
+  ): void;
+  public createConnectionAlias(
+    args: CreateConnectionAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConnectionAliasCommandOutput) => void
+  ): void;
+  public createConnectionAlias(
+    args: CreateConnectionAliasCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateConnectionAliasCommandOutput) => void),
+    cb?: (err: any, data?: CreateConnectionAliasCommandOutput) => void
+  ): Promise<CreateConnectionAliasCommandOutput> | void {
+    const command = new CreateConnectionAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -403,6 +520,55 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: CreateWorkspacesCommandOutput) => void
   ): Promise<CreateWorkspacesCommandOutput> | void {
     const command = new CreateWorkspacesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
+   *          Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+   *
+   *          <important>
+   *             <p>
+   *                <b>If you will no longer be using a fully qualified domain name (FQDN) as the registration code
+   *             for your WorkSpaces users, you must take certain precautions to prevent potential security issues.</b>
+   *             For more information, see
+   *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html#cross-region-redirection-security-considerations">
+   *                Security Considerations if You Stop Using Cross-Region Redirection</a>.</p>
+   *          </important>
+   *
+   *          <note>
+   *             <p>To delete a connection alias that has been shared, the shared account must first disassociate the connection alias
+   *             from any directories it has been associated with. Then you must unshare the connection alias from the account it has
+   *             been shared with. You can delete a connection alias only after it is no longer shared with any accounts or
+   *             associated with any directories.</p>
+   *          </note>
+   */
+  public deleteConnectionAlias(
+    args: DeleteConnectionAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectionAliasCommandOutput>;
+  public deleteConnectionAlias(
+    args: DeleteConnectionAliasCommandInput,
+    cb: (err: any, data?: DeleteConnectionAliasCommandOutput) => void
+  ): void;
+  public deleteConnectionAlias(
+    args: DeleteConnectionAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectionAliasCommandOutput) => void
+  ): void;
+  public deleteConnectionAlias(
+    args: DeleteConnectionAliasCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteConnectionAliasCommandOutput) => void),
+    cb?: (err: any, data?: DeleteConnectionAliasCommandOutput) => void
+  ): Promise<DeleteConnectionAliasCommandOutput> | void {
+    const command = new DeleteConnectionAliasCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -628,6 +794,74 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: DescribeClientPropertiesCommandOutput) => void
   ): Promise<DescribeClientPropertiesCommandOutput> | void {
     const command = new DescribeClientPropertiesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a list that describes the connection aliases used for cross-Region redirection. For more information, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
+   *          Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+   */
+  public describeConnectionAliases(
+    args: DescribeConnectionAliasesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConnectionAliasesCommandOutput>;
+  public describeConnectionAliases(
+    args: DescribeConnectionAliasesCommandInput,
+    cb: (err: any, data?: DescribeConnectionAliasesCommandOutput) => void
+  ): void;
+  public describeConnectionAliases(
+    args: DescribeConnectionAliasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConnectionAliasesCommandOutput) => void
+  ): void;
+  public describeConnectionAliases(
+    args: DescribeConnectionAliasesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConnectionAliasesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConnectionAliasesCommandOutput) => void
+  ): Promise<DescribeConnectionAliasesCommandOutput> | void {
+    const command = new DescribeConnectionAliasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Describes the permissions that the owner of a connection alias has granted to another AWS account for
+   *          the specified connection alias. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
+   *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+   */
+  public describeConnectionAliasPermissions(
+    args: DescribeConnectionAliasPermissionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConnectionAliasPermissionsCommandOutput>;
+  public describeConnectionAliasPermissions(
+    args: DescribeConnectionAliasPermissionsCommandInput,
+    cb: (err: any, data?: DescribeConnectionAliasPermissionsCommandOutput) => void
+  ): void;
+  public describeConnectionAliasPermissions(
+    args: DescribeConnectionAliasPermissionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConnectionAliasPermissionsCommandOutput) => void
+  ): void;
+  public describeConnectionAliasPermissions(
+    args: DescribeConnectionAliasPermissionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeConnectionAliasPermissionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeConnectionAliasPermissionsCommandOutput) => void
+  ): Promise<DescribeConnectionAliasPermissionsCommandOutput> | void {
+    const command = new DescribeConnectionAliasPermissionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -930,6 +1164,46 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
+   * <p>Disassociates a connection alias from a directory. Disassociating a connection alias disables cross-Region
+   *          redirection between two directories in different AWS Regions. For more information, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
+   *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+   *
+   *          <note>
+   *             <p>Before performing this operation, call <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html">
+   *             DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p>
+   *          </note>
+   */
+  public disassociateConnectionAlias(
+    args: DisassociateConnectionAliasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateConnectionAliasCommandOutput>;
+  public disassociateConnectionAlias(
+    args: DisassociateConnectionAliasCommandInput,
+    cb: (err: any, data?: DisassociateConnectionAliasCommandOutput) => void
+  ): void;
+  public disassociateConnectionAlias(
+    args: DisassociateConnectionAliasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateConnectionAliasCommandOutput) => void
+  ): void;
+  public disassociateConnectionAlias(
+    args: DisassociateConnectionAliasCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DisassociateConnectionAliasCommandOutput) => void),
+    cb?: (err: any, data?: DisassociateConnectionAliasCommandOutput) => void
+  ): Promise<DisassociateConnectionAliasCommandOutput> | void {
+    const command = new DisassociateConnectionAliasCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disassociates the specified IP access control group from the specified directory.</p>
    */
   public disassociateIpGroups(
@@ -962,9 +1236,11 @@ export class WorkSpaces extends WorkSpacesClient {
   }
 
   /**
-   * <p>Imports the specified Windows 7 or Windows 10 Bring Your Own License (BYOL) image into
-   *          Amazon WorkSpaces. The image must be an already licensed EC2 image that is in your AWS
-   *          account, and you must own the image. </p>
+   * <p>Imports the specified Windows 10 Bring Your Own License (BYOL) image into Amazon
+   *          WorkSpaces. The image must be an already licensed Amazon EC2 image that is in your AWS
+   *          account, and you must own the image. For more information about creating BYOL images, see
+   *             <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html">
+   *             Bring Your Own Windows Desktop Licenses</a>.</p>
    */
   public importWorkspaceImage(
     args: ImportWorkspaceImageCommandInput,
@@ -998,6 +1274,10 @@ export class WorkSpaces extends WorkSpacesClient {
   /**
    * <p>Retrieves a list of IP address ranges, specified as IPv4 CIDR blocks, that you can use
    *          for the network management interface when you enable Bring Your Own License (BYOL). </p>
+   *
+   *          <p>This operation can be run only by AWS accounts that are enabled for BYOL. If your account
+   *          isn't enabled for BYOL, you'll receive an <code>AccessDeniedException</code> error.</p>
+   *
    *          <p>The management network interface is connected to a secure Amazon WorkSpaces management
    *          network. It is used for interactive streaming of the WorkSpace desktop to Amazon WorkSpaces
    *          clients, and to allow Amazon WorkSpaces to manage the WorkSpace.</p>
@@ -1560,12 +1840,21 @@ export class WorkSpaces extends WorkSpacesClient {
 
   /**
    * <p>Terminates the specified WorkSpaces.</p>
-   *          <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data is
-   *          destroyed. If you need to archive any user data, contact Amazon Web Services before
-   *          terminating the WorkSpace.</p>
+   *
+   *          <important>
+   *             <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data is
+   *             destroyed. If you need to archive any user data, contact AWS Support before
+   *             terminating the WorkSpace.</p>
+   *          </important>
+   *
    *          <p>You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.</p>
    *          <p>This operation is asynchronous and returns before the WorkSpaces have been completely
-   *          terminated.</p>
+   *          terminated. After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned
+   *          only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely
+   *          returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html">
+   *             DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has
+   *          been successfully terminated.</p>
    */
   public terminateWorkspaces(
     args: TerminateWorkspacesCommandInput,
@@ -1586,6 +1875,57 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: TerminateWorkspacesCommandOutput) => void
   ): Promise<TerminateWorkspacesCommandOutput> | void {
     const command = new TerminateWorkspacesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Shares or unshares a connection alias with one account by specifying whether that account has permission to
+   *          associate the connection alias with a directory. If the association permission is granted, the connection alias
+   *          is shared with that account. If the association permission is revoked, the connection alias is unshared with the
+   *          account. For more information, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/cross-region-redirection.html">
+   *             Cross-Region Redirection for Amazon WorkSpaces</a>.</p>
+   *
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>Before performing this operation, call <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeConnectionAliases.html">
+   *                   DescribeConnectionAliases</a> to make sure that the current state of the connection alias is <code>CREATED</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>To delete a connection alias that has been shared, the shared account must first disassociate the
+   *                   connection alias from any directories it has been associated with. Then you must unshare the connection
+   *                   alias from the account it has been shared with. You can delete a connection alias only after it is no
+   *                   longer shared with any accounts or associated with any directories.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  public updateConnectionAliasPermission(
+    args: UpdateConnectionAliasPermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectionAliasPermissionCommandOutput>;
+  public updateConnectionAliasPermission(
+    args: UpdateConnectionAliasPermissionCommandInput,
+    cb: (err: any, data?: UpdateConnectionAliasPermissionCommandOutput) => void
+  ): void;
+  public updateConnectionAliasPermission(
+    args: UpdateConnectionAliasPermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectionAliasPermissionCommandOutput) => void
+  ): void;
+  public updateConnectionAliasPermission(
+    args: UpdateConnectionAliasPermissionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConnectionAliasPermissionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConnectionAliasPermissionCommandOutput) => void
+  ): Promise<UpdateConnectionAliasPermissionCommandOutput> | void {
+    const command = new UpdateConnectionAliasPermissionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1632,7 +1972,9 @@ export class WorkSpaces extends WorkSpacesClient {
   /**
    * <p>Shares or unshares an image with one account by specifying whether that account has permission to copy
    *          the image. If the copy image permission is granted, the image is shared with that account. If the copy image
-   *          permission is revoked, the image is unshared with the account.</p>
+   *          permission is revoked, the image is unshared with the account. For more information about sharing images, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html">
+   *             Share or Unshare a Custom WorkSpaces Image</a>.</p>
    *
    *          <note>
    *             <ul>

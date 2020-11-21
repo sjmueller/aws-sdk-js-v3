@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListResolverEndpointIpAddressesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListResolverEndpointIpAddressesCommand(input, ...args));
+  return await client.send(new ListResolverEndpointIpAddressesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Route53Resolver,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listResolverEndpointIpAddresses(input, ...args);
 };
-export async function* listResolverEndpointIpAddressesPaginate(
+export async function* paginateListResolverEndpointIpAddresses(
   config: Route53ResolverPaginationConfiguration,
   input: ListResolverEndpointIpAddressesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListResolverEndpointIpAddressesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListResolverEndpointIpAddressesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Route53Resolver) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listResolverEndpointIpAddressesPaginate(
       throw new Error("Invalid client, expected Route53Resolver | Route53ResolverClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

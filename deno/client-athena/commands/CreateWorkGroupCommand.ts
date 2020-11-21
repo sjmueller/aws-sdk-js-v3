@@ -1,4 +1,3 @@
-
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
 import { CreateWorkGroupInput, CreateWorkGroupOutput } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class CreateWorkGroupCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AthenaClient";
+    const commandName = "CreateWorkGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateWorkGroupInput.filterSensitiveLog,
       outputFilterSensitiveLog: CreateWorkGroupOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

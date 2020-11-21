@@ -1,10 +1,12 @@
-
 import { CancelQuantumTaskCommandInput, CancelQuantumTaskCommandOutput } from "../commands/CancelQuantumTaskCommand.ts";
 import { CreateQuantumTaskCommandInput, CreateQuantumTaskCommandOutput } from "../commands/CreateQuantumTaskCommand.ts";
 import { GetDeviceCommandInput, GetDeviceCommandOutput } from "../commands/GetDeviceCommand.ts";
 import { GetQuantumTaskCommandInput, GetQuantumTaskCommandOutput } from "../commands/GetQuantumTaskCommand.ts";
 import { SearchDevicesCommandInput, SearchDevicesCommandOutput } from "../commands/SearchDevicesCommand.ts";
-import { SearchQuantumTasksCommandInput, SearchQuantumTasksCommandOutput } from "../commands/SearchQuantumTasksCommand.ts";
+import {
+  SearchQuantumTasksCommandInput,
+  SearchQuantumTasksCommandOutput,
+} from "../commands/SearchQuantumTasksCommand.ts";
 import {
   AccessDeniedException,
   ConflictException,
@@ -218,7 +220,7 @@ export const deserializeAws_restJson1CancelQuantumTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CancelQuantumTaskCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CancelQuantumTaskCommandError(output, context);
   }
   const contents: CancelQuantumTaskCommandOutput = {
@@ -317,7 +319,7 @@ export const deserializeAws_restJson1CreateQuantumTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateQuantumTaskCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateQuantumTaskCommandError(output, context);
   }
   const contents: CreateQuantumTaskCommandOutput = {
@@ -412,7 +414,7 @@ export const deserializeAws_restJson1GetDeviceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDeviceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDeviceCommandError(output, context);
   }
   const contents: GetDeviceCommandOutput = {
@@ -519,7 +521,7 @@ export const deserializeAws_restJson1GetQuantumTaskCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetQuantumTaskCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetQuantumTaskCommandError(output, context);
   }
   const contents: GetQuantumTaskCommandOutput = {
@@ -642,7 +644,7 @@ export const deserializeAws_restJson1SearchDevicesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchDevicesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SearchDevicesCommandError(output, context);
   }
   const contents: SearchDevicesCommandOutput = {
@@ -725,7 +727,7 @@ export const deserializeAws_restJson1SearchQuantumTasksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchQuantumTasksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SearchQuantumTasksCommandError(output, context);
   }
   const contents: SearchQuantumTasksCommandOutput = {

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListS3ResourcesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListS3ResourcesCommand(input, ...args));
+  return await client.send(new ListS3ResourcesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Macie,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listS3Resources(input, ...args);
 };
-export async function* listS3ResourcesPaginate(
+export async function* paginateListS3Resources(
   config: MaciePaginationConfiguration,
   input: ListS3ResourcesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListS3ResourcesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListS3ResourcesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Macie) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listS3ResourcesPaginate(
       throw new Error("Invalid client, expected Macie | MacieClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

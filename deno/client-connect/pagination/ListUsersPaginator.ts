@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListUsersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListUsersCommand(input, ...args));
+  return await client.send(new ListUsersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Connect,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listUsers(input, ...args);
 };
-export async function* listUsersPaginate(
+export async function* paginateListUsers(
   config: ConnectPaginationConfiguration,
   input: ListUsersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListUsersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListUsersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Connect) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listUsersPaginate(
       throw new Error("Invalid client, expected Connect | ConnectClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

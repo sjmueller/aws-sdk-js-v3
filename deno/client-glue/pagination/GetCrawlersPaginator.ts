@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetCrawlersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetCrawlersCommand(input, ...args));
+  return await client.send(new GetCrawlersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Glue,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCrawlers(input, ...args);
 };
-export async function* getCrawlersPaginate(
+export async function* paginateGetCrawlers(
   config: GluePaginationConfiguration,
   input: GetCrawlersCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCrawlersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCrawlersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Glue) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* getCrawlersPaginate(
       throw new Error("Invalid client, expected Glue | GlueClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -49,11 +49,23 @@ export class ListWebsiteCertificateAuthoritiesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkLinkClient";
+    const commandName = "ListWebsiteCertificateAuthoritiesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListWebsiteCertificateAuthoritiesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListWebsiteCertificateAuthoritiesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

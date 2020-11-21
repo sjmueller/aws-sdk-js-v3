@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeLocalGatewayVirtualInterfacesRequest,
   DescribeLocalGatewayVirtualInterfacesResult,
-} from "../models/models_2.ts";
+} from "../models/models_3.ts";
 import {
   deserializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand,
   serializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand,
@@ -49,11 +49,23 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeLocalGatewayVirtualInterfacesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeLocalGatewayVirtualInterfacesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLocalGatewayVirtualInterfacesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

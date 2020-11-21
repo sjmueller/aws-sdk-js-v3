@@ -21,13 +21,6 @@ export enum ContainerStatus {
  */
 export interface Container {
   /**
-   * <p>The DNS endpoint of the container. Use the endpoint to identify the specific
-   *          container when sending requests to the data plane. The service assigns this value when the
-   *          container is created. Once the value has been assigned, it does not change.</p>
-   */
-  Endpoint?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the container. The ARN has the following
    *          format:</p>
    *          <p>arn:aws:<region>:<account that owns this container>:container/<name of
@@ -35,6 +28,11 @@ export interface Container {
    *          <p>For example: arn:aws:mediastore:us-west-2:111122223333:container/movies </p>
    */
   ARN?: string;
+
+  /**
+   * <p>Unix timestamp.</p>
+   */
+  CreationTime?: Date;
 
   /**
    * <p>The status of container creation or deletion. The status is one of the following:
@@ -50,9 +48,11 @@ export interface Container {
   AccessLoggingEnabled?: boolean;
 
   /**
-   * <p>Unix timestamp.</p>
+   * <p>The DNS endpoint of the container. Use the endpoint to identify the specific
+   *          container when sending requests to the data plane. The service assigns this value when the
+   *          container is created. Once the value has been assigned, it does not change.</p>
    */
-  CreationTime?: Date;
+  Endpoint?: string;
 
   /**
    * <p>The name of the container.</p>
@@ -108,22 +108,6 @@ export namespace ContainerNotFoundException {
  */
 export interface CorsRule {
   /**
-   * <p>One or more headers in the response that you want users to be able to access from
-   *          their applications (for example, from a JavaScript <code>XMLHttpRequest</code>
-   *          object).</p>
-   *          <p>This element is optional for each rule.</p>
-   */
-  ExposeHeaders?: string[];
-
-  /**
-   * <p>Identifies an HTTP method that the origin that is specified in the rule is allowed to
-   *          execute.</p>
-   *          <p>Each CORS rule must contain at least one <code>AllowedMethods</code> and one
-   *             <code>AllowedOrigins</code> element.</p>
-   */
-  AllowedMethods?: (MethodName | string)[];
-
-  /**
    * <p>Specifies which headers are allowed in a preflight <code>OPTIONS</code> request
    *          through the <code>Access-Control-Request-Headers</code> header. Each header name that is
    *          specified in <code>Access-Control-Request-Headers</code> must have a corresponding entry in
@@ -131,13 +115,6 @@ export interface CorsRule {
    *          <p>This element can contain only one wildcard character (*).</p>
    */
   AllowedHeaders: string[] | undefined;
-
-  /**
-   * <p>The time in seconds that your browser caches the preflight response for the specified
-   *          resource.</p>
-   *          <p>A CORS rule can have only one <code>MaxAgeSeconds</code> element.</p>
-   */
-  MaxAgeSeconds?: number;
 
   /**
    * <p>One or more response headers that you want users to be able to access from their
@@ -148,6 +125,29 @@ export interface CorsRule {
    *          all origins.</p>
    */
   AllowedOrigins: string[] | undefined;
+
+  /**
+   * <p>Identifies an HTTP method that the origin that is specified in the rule is allowed to
+   *          execute.</p>
+   *          <p>Each CORS rule must contain at least one <code>AllowedMethods</code> and one
+   *             <code>AllowedOrigins</code> element.</p>
+   */
+  AllowedMethods?: (MethodName | string)[];
+
+  /**
+   * <p>One or more headers in the response that you want users to be able to access from
+   *          their applications (for example, from a JavaScript <code>XMLHttpRequest</code>
+   *          object).</p>
+   *          <p>This element is optional for each rule.</p>
+   */
+  ExposeHeaders?: string[];
+
+  /**
+   * <p>The time in seconds that your browser caches the preflight response for the specified
+   *          resource.</p>
+   *          <p>A CORS rule can have only one <code>MaxAgeSeconds</code> element.</p>
+   */
+  MaxAgeSeconds?: number;
 }
 
 export namespace CorsRule {
@@ -179,16 +179,16 @@ export namespace CorsPolicyNotFoundException {
  */
 export interface Tag {
   /**
-   * <p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or
-   *             "companyB." Tag values are case-sensitive.</p>
-   */
-  Value?: string;
-
-  /**
    * <p>Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are
    *             case-sensitive.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>Part of the key:value pair that defines a tag. You can use a tag value to describe a specific value within a category, such as "companyA" or
+   *             "companyB." Tag values are case-sensitive.</p>
+   */
+  Value?: string;
 }
 
 export namespace Tag {
@@ -516,14 +516,14 @@ export namespace GetMetricPolicyInput {
  */
 export interface MetricPolicyRule {
   /**
-   * <p>A path or file name that defines which objects to include in the group. Wildcards (*) are acceptable.</p>
-   */
-  ObjectGroup: string | undefined;
-
-  /**
    * <p>A name that allows you to refer to the object group.</p>
    */
   ObjectGroupName: string | undefined;
+
+  /**
+   * <p>A path or file name that defines which objects to include in the group. Wildcards (*) are acceptable.</p>
+   */
+  ObjectGroup: string | undefined;
 }
 
 export namespace MetricPolicyRule {
@@ -538,14 +538,14 @@ export namespace MetricPolicyRule {
  */
 export interface MetricPolicy {
   /**
-   * <p>A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas">request a quota increase</a> to allow up to 300 rules per policy.</p>
-   */
-  MetricPolicyRules?: MetricPolicyRule[];
-
-  /**
    * <p>A setting to enable or disable metrics at the container level.</p>
    */
   ContainerLevelMetrics: ContainerLevelMetrics | string | undefined;
+
+  /**
+   * <p>A parameter that holds an array of rules that enable metrics at the object level. This parameter is optional, but if you choose to include it, you must also include at least one rule. By default, you can include up to five rules. You can also <a href="https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediastore/quotas">request a quota increase</a> to allow up to 300 rules per policy.</p>
+   */
+  MetricPolicyRules?: MetricPolicyRule[];
 }
 
 export namespace MetricPolicy {
@@ -569,17 +569,17 @@ export namespace GetMetricPolicyOutput {
 
 export interface ListContainersInput {
   /**
+   * <p>Enter the maximum number of containers in the response. Use from 1 to 255 characters.
+   *       </p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>Only if you used <code>MaxResults</code> in the first command, enter the token (which
    *          was included in the previous response) to obtain the next set of containers. This token is
    *          included in a response only if there actually are more containers to list.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Enter the maximum number of containers in the response. Use from 1 to 255 characters.
-   *       </p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListContainersInput {
@@ -637,6 +637,11 @@ export namespace ListTagsForResourceOutput {
 
 export interface PutContainerPolicyInput {
   /**
+   * <p>The name of the container.</p>
+   */
+  ContainerName: string | undefined;
+
+  /**
    * <p>The contents of the policy, which includes the following: </p>
    *          <ul>
    *             <li>
@@ -649,11 +654,6 @@ export interface PutContainerPolicyInput {
    *          </ul>
    */
   Policy: string | undefined;
-
-  /**
-   * <p>The name of the container.</p>
-   */
-  ContainerName: string | undefined;
 }
 
 export namespace PutContainerPolicyInput {
@@ -672,14 +672,14 @@ export namespace PutContainerPolicyOutput {
 
 export interface PutCorsPolicyInput {
   /**
-   * <p>The CORS policy to apply to the container.  </p>
-   */
-  CorsPolicy: CorsRule[] | undefined;
-
-  /**
    * <p>The name of the container that you want to assign the CORS policy to.</p>
    */
   ContainerName: string | undefined;
+
+  /**
+   * <p>The CORS policy to apply to the container.  </p>
+   */
+  CorsPolicy: CorsRule[] | undefined;
 }
 
 export namespace PutCorsPolicyInput {
@@ -724,11 +724,6 @@ export namespace PutLifecyclePolicyOutput {
 
 export interface PutMetricPolicyInput {
   /**
-   * <p>The name of the container that you want to add the metric policy to.</p>
-   */
-  ContainerName: string | undefined;
-
-  /**
    * <p>The metric policy that you want to associate with the container. In the policy, you must indicate whether you want MediaStore to send container-level metrics. You can also include up to five rules to define groups of objects that you want MediaStore to send object-level metrics for.  If you include rules in the policy, construct each rule with both of the following:</p>
    *          <ul>
    *             <li>
@@ -740,6 +735,11 @@ export interface PutMetricPolicyInput {
    *          </ul>
    */
   MetricPolicy: MetricPolicy | undefined;
+
+  /**
+   * <p>The name of the container that you want to add the metric policy to.</p>
+   */
+  ContainerName: string | undefined;
 }
 
 export namespace PutMetricPolicyInput {
@@ -829,16 +829,16 @@ export namespace TagResourceOutput {
 
 export interface UntagResourceInput {
   /**
-   * <p>The Amazon Resource Name (ARN) for the container.</p>
-   */
-  Resource: string | undefined;
-
-  /**
    * <p>A comma-separated list of keys for tags that you want to remove from the container. For example, if your container has two tags (customer:CompanyA
    *             and priority:High) and you want to remove one of the tags (priority:High), you specify the key for the tag that you want to remove
    *             (priority).</p>
    */
   TagKeys: string[] | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the container.</p>
+   */
+  Resource: string | undefined;
 }
 
 export namespace UntagResourceInput {

@@ -45,11 +45,23 @@ export class UpdateNFSFileShareCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "UpdateNFSFileShareCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateNFSFileShareInput.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateNFSFileShareOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

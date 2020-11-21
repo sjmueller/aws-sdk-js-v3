@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDominantLanguageDetectionJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDominantLanguageDetectionJobsCommand(input, ...args));
+  return await client.send(new ListDominantLanguageDetectionJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Comprehend,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDominantLanguageDetectionJobs(input, ...args);
 };
-export async function* listDominantLanguageDetectionJobsPaginate(
+export async function* paginateListDominantLanguageDetectionJobs(
   config: ComprehendPaginationConfiguration,
   input: ListDominantLanguageDetectionJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDominantLanguageDetectionJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDominantLanguageDetectionJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Comprehend) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listDominantLanguageDetectionJobsPaginate(
       throw new Error("Invalid client, expected Comprehend | ComprehendClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

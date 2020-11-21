@@ -56,11 +56,23 @@ export class DescribeInboundCrossClusterSearchConnectionsCommand extends $Comman
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ElasticsearchServiceClient";
+    const commandName = "DescribeInboundCrossClusterSearchConnectionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeInboundCrossClusterSearchConnectionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeInboundCrossClusterSearchConnectionsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

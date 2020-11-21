@@ -171,7 +171,7 @@ export const deserializeAws_restJson1CreateParticipantConnectionCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateParticipantConnectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateParticipantConnectionCommandError(output, context);
   }
   const contents: CreateParticipantConnectionCommandOutput = {
@@ -254,7 +254,7 @@ export const deserializeAws_restJson1DisconnectParticipantCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisconnectParticipantCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DisconnectParticipantCommandError(output, context);
   }
   const contents: DisconnectParticipantCommandOutput = {
@@ -329,7 +329,7 @@ export const deserializeAws_restJson1GetTranscriptCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTranscriptCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetTranscriptCommandError(output, context);
   }
   const contents: GetTranscriptCommandOutput = {
@@ -416,7 +416,7 @@ export const deserializeAws_restJson1SendEventCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendEventCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SendEventCommandError(output, context);
   }
   const contents: SendEventCommandOutput = {
@@ -499,7 +499,7 @@ export const deserializeAws_restJson1SendMessageCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SendMessageCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SendMessageCommandError(output, context);
   }
   const contents: SendMessageCommandOutput = {

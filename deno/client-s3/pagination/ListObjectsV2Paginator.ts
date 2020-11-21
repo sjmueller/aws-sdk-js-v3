@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListObjectsV2CommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListObjectsV2Command(input, ...args));
+  return await client.send(new ListObjectsV2Command(input), ...args);
 };
 const makePagedRequest = async (
   client: S3,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listObjectsV2(input, ...args);
 };
-export async function* listObjectsV2Paginate(
+export async function* paginateListObjectsV2(
   config: S3PaginationConfiguration,
   input: ListObjectsV2CommandInput,
   ...additionalArguments: any
 ): Paginator<ListObjectsV2CommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListObjectsV2CommandOutput;
   while (hasNext) {
-    input["ContinuationToken"] = token;
+    input.ContinuationToken = token;
     input["MaxKeys"] = config.pageSize;
     if (config.client instanceof S3) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listObjectsV2Paginate(
       throw new Error("Invalid client, expected S3 | S3Client");
     }
     yield page;
-    token = page["NextContinuationToken"];
+    token = page.NextContinuationToken;
     hasNext = !!token;
   }
   // @ts-ignore

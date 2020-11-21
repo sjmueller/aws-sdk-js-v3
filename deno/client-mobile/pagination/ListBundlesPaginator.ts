@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBundlesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBundlesCommand(input, ...args));
+  return await client.send(new ListBundlesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Mobile,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBundles(input, ...args);
 };
-export async function* listBundlesPaginate(
+export async function* paginateListBundles(
   config: MobilePaginationConfiguration,
   input: ListBundlesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBundlesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBundlesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Mobile) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listBundlesPaginate(
       throw new Error("Invalid client, expected Mobile | MobileClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

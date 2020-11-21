@@ -4,12 +4,13 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient.ts";
-import { UpdateDeviceStatusRequest, UpdateDeviceStatusResponse } from "../models/models_0.ts";
+import { UpdateDeviceStatusRequest, UpdateDeviceStatusResponse } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1UpdateDeviceStatusCommand,
   serializeAws_json1_1UpdateDeviceStatusCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
+import { getAwsAuthPlugin } from "../../middleware-signing/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
@@ -45,15 +46,28 @@ export class UpdateDeviceStatusCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<UpdateDeviceStatusCommandInput, UpdateDeviceStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "UpdateDeviceStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateDeviceStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateDeviceStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

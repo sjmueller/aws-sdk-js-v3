@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListStreamsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListStreamsCommand(input, ...args));
+  return await client.send(new ListStreamsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: KinesisVideo,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listStreams(input, ...args);
 };
-export async function* listStreamsPaginate(
+export async function* paginateListStreams(
   config: KinesisVideoPaginationConfiguration,
   input: ListStreamsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListStreamsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListStreamsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof KinesisVideo) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listStreamsPaginate(
       throw new Error("Invalid client, expected KinesisVideo | KinesisVideoClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

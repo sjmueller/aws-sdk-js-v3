@@ -288,10 +288,11 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Creates a data set. A data set stores data retrieved from a data store by applying a
-   *          "queryAction" (a SQL query) or a "containerAction" (executing a containerized application).
-   *          This operation creates the skeleton of a data set. The data set can be populated manually
-   *          by calling "CreateDatasetContent" or automatically according to a "trigger" you specify.</p>
+   * <p>Creates a dataset. A dataset stores data retrieved from a data store by applying a
+   *         <code>queryAction</code> (a SQL query) or a <code>containerAction</code> (executing a
+   *       containerized application). This operation creates the skeleton of a dataset. The dataset can
+   *       be populated manually by calling <code>CreateDatasetContent</code> or automatically according
+   *       to a trigger you specify.</p>
    */
   public createDataset(
     args: CreateDatasetCommandInput,
@@ -323,8 +324,8 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Creates the content of a data set by applying a "queryAction" (a SQL query) or a "containerAction"
-   *          (executing a containerized application).</p>
+   * <p>Creates the content of a data set by applying a <code>queryAction</code> (a SQL query)
+   *       or a <code>containerAction</code> (executing a containerized application).</p>
    */
   public createDatasetContent(
     args: CreateDatasetContentCommandInput,
@@ -455,8 +456,9 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Deletes the specified data set.</p>
-   *          <p>You do not have to delete the content of the data set before you perform this operation.</p>
+   * <p>Deletes the specified dataset.</p>
+   *          <p>You do not have to delete the content of the dataset before you perform this
+   *       operation.</p>
    */
   public deleteDataset(
     args: DeleteDatasetCommandInput,
@@ -488,7 +490,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Deletes the content of the specified data set.</p>
+   * <p>Deletes the content of the specified dataset.</p>
    */
   public deleteDatasetContent(
     args: DeleteDatasetContentCommandInput,
@@ -616,7 +618,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Retrieves information about a data set.</p>
+   * <p>Retrieves information about a dataset.</p>
    */
   public describeDataset(
     args: DescribeDatasetCommandInput,
@@ -744,7 +746,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Retrieves the contents of a data set as pre-signed URIs.</p>
+   * <p>Retrieves the contents of a data set as presigned URIs.</p>
    */
   public getDatasetContent(
     args: GetDatasetContentCommandInput,
@@ -930,7 +932,7 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Lists the tags (metadata) which you have assigned to the resource.</p>
+   * <p>Lists the tags (metadata) that you have assigned to the resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -963,11 +965,10 @@ export class IoTAnalytics extends IoTAnalyticsClient {
 
   /**
    * <p>Sets or updates the AWS IoT Analytics logging options.</p>
-   *          <p>Note that if you update the value of any <code>loggingOptions</code> field, it takes up to one
-   *           minute for the change to take effect. Also, if you change the policy attached to the role
-   *           you specified in the roleArn field (for example, to correct an invalid policy) it takes
-   *           up to 5 minutes for that change to take effect.
-   *       </p>
+   *          <p>If you update the value of any <code>loggingOptions</code> field, it takes up to one
+   *       minute for the change to take effect. Also, if you change the policy attached to the role you
+   *       specified in the <code>roleArn</code> field (for example, to correct an invalid policy), it
+   *       takes up to five minutes for that change to take effect. </p>
    */
   public putLoggingOptions(
     args: PutLoggingOptionsCommandInput,
@@ -1096,8 +1097,8 @@ export class IoTAnalytics extends IoTAnalyticsClient {
   }
 
   /**
-   * <p>Adds to or modifies the tags of the given resource.  Tags are metadata
-   *           which can be used to manage a resource.</p>
+   * <p>Adds to or modifies the tags of the given resource. Tags are metadata that can be used
+   *       to manage a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;

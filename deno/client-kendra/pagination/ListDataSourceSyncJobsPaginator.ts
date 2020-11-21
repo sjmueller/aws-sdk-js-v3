@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDataSourceSyncJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDataSourceSyncJobsCommand(input, ...args));
+  return await client.send(new ListDataSourceSyncJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Kendra,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDataSourceSyncJobs(input, ...args);
 };
-export async function* listDataSourceSyncJobsPaginate(
+export async function* paginateListDataSourceSyncJobs(
   config: KendraPaginationConfiguration,
   input: ListDataSourceSyncJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDataSourceSyncJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDataSourceSyncJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Kendra) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listDataSourceSyncJobsPaginate(
       throw new Error("Invalid client, expected Kendra | KendraClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -146,6 +146,10 @@ import {
   ModifyReplicationTaskCommandOutput,
 } from "./commands/ModifyReplicationTaskCommand.ts";
 import {
+  MoveReplicationTaskCommandInput,
+  MoveReplicationTaskCommandOutput,
+} from "./commands/MoveReplicationTaskCommand.ts";
+import {
   RebootReplicationInstanceCommandInput,
   RebootReplicationInstanceCommandOutput,
 } from "./commands/RebootReplicationInstanceCommand.ts";
@@ -266,6 +270,7 @@ export type ServiceInputTypes =
   | ModifyReplicationInstanceCommandInput
   | ModifyReplicationSubnetGroupCommandInput
   | ModifyReplicationTaskCommandInput
+  | MoveReplicationTaskCommandInput
   | RebootReplicationInstanceCommandInput
   | RefreshSchemasCommandInput
   | ReloadTablesCommandInput
@@ -321,6 +326,7 @@ export type ServiceOutputTypes =
   | ModifyReplicationInstanceCommandOutput
   | ModifyReplicationSubnetGroupCommandOutput
   | ModifyReplicationTaskCommandOutput
+  | MoveReplicationTaskCommandOutput
   | RebootReplicationInstanceCommandOutput
   | RefreshSchemasCommandOutput
   | ReloadTablesCommandOutput

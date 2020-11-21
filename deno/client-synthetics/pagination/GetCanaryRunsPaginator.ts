@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetCanaryRunsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetCanaryRunsCommand(input, ...args));
+  return await client.send(new GetCanaryRunsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Synthetics,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCanaryRuns(input, ...args);
 };
-export async function* getCanaryRunsPaginate(
+export async function* paginateGetCanaryRuns(
   config: SyntheticsPaginationConfiguration,
   input: GetCanaryRunsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCanaryRunsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCanaryRunsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Synthetics) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getCanaryRunsPaginate(
       throw new Error("Invalid client, expected Synthetics | SyntheticsClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

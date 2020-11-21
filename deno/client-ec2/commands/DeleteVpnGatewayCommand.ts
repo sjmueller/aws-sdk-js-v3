@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DeleteVpnGatewayRequest } from "../models/models_1.ts";
+import { DeleteVpnGatewayRequest } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DeleteVpnGatewayCommand,
   serializeAws_ec2DeleteVpnGatewayCommand,
@@ -45,11 +45,23 @@ export class DeleteVpnGatewayCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DeleteVpnGatewayCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteVpnGatewayRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

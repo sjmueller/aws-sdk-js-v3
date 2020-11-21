@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DescribeNatGatewaysRequest, DescribeNatGatewaysResult } from "../models/models_2.ts";
+import { DescribeNatGatewaysRequest, DescribeNatGatewaysResult } from "../models/models_3.ts";
 import {
   deserializeAws_ec2DescribeNatGatewaysCommand,
   serializeAws_ec2DescribeNatGatewaysCommand,
@@ -45,11 +45,23 @@ export class DescribeNatGatewaysCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeNatGatewaysCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeNatGatewaysRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeNatGatewaysResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

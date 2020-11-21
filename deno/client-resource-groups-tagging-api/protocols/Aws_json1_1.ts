@@ -165,7 +165,7 @@ export const deserializeAws_json1_1DescribeReportCreationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeReportCreationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeReportCreationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -244,7 +244,7 @@ export const deserializeAws_json1_1GetComplianceSummaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComplianceSummaryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetComplianceSummaryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -323,7 +323,7 @@ export const deserializeAws_json1_1GetResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -402,7 +402,7 @@ export const deserializeAws_json1_1GetTagKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTagKeysCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetTagKeysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -481,7 +481,7 @@ export const deserializeAws_json1_1GetTagValuesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTagValuesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetTagValuesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -560,7 +560,7 @@ export const deserializeAws_json1_1StartReportCreationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartReportCreationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartReportCreationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -647,7 +647,7 @@ export const deserializeAws_json1_1TagResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -718,7 +718,7 @@ export const deserializeAws_json1_1UntagResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

@@ -61,6 +61,11 @@ import {
   BatchStopJobRunCommandOutput,
 } from "./commands/BatchStopJobRunCommand.ts";
 import {
+  BatchUpdatePartitionCommand,
+  BatchUpdatePartitionCommandInput,
+  BatchUpdatePartitionCommandOutput,
+} from "./commands/BatchUpdatePartitionCommand.ts";
+import {
   CancelMLTaskRunCommand,
   CancelMLTaskRunCommandInput,
   CancelMLTaskRunCommandOutput,
@@ -307,6 +312,11 @@ import {
   GetPartitionCommandInput,
   GetPartitionCommandOutput,
 } from "./commands/GetPartitionCommand.ts";
+import {
+  GetPartitionIndexesCommand,
+  GetPartitionIndexesCommandInput,
+  GetPartitionIndexesCommandOutput,
+} from "./commands/GetPartitionIndexesCommand.ts";
 import {
   GetPartitionsCommand,
   GetPartitionsCommandInput,
@@ -964,6 +974,38 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Updates one or more partitions in a batch operation.</p>
+   */
+  public batchUpdatePartition(
+    args: BatchUpdatePartitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdatePartitionCommandOutput>;
+  public batchUpdatePartition(
+    args: BatchUpdatePartitionCommandInput,
+    cb: (err: any, data?: BatchUpdatePartitionCommandOutput) => void
+  ): void;
+  public batchUpdatePartition(
+    args: BatchUpdatePartitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdatePartitionCommandOutput) => void
+  ): void;
+  public batchUpdatePartition(
+    args: BatchUpdatePartitionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchUpdatePartitionCommandOutput) => void),
+    cb?: (err: any, data?: BatchUpdatePartitionCommandOutput) => void
+  ): Promise<BatchUpdatePartitionCommandOutput> | void {
+    const command = new BatchUpdatePartitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Cancels (stops) a task run. Machine learning task runs are asynchronous tasks that AWS
    *       Glue runs on your behalf as part of various machine learning workflows. You can cancel a
    *       machine learning task run at any time by calling <code>CancelMLTaskRun</code> with a task
@@ -1481,6 +1523,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Delete the partition column statistics of a column.</p>
+   *
+   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeletePartition</code>.</p>
    */
   public deleteColumnStatisticsForPartition(
     args: DeleteColumnStatisticsForPartitionCommandInput,
@@ -1513,6 +1557,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves table statistics of columns.</p>
+   *
+   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeleteTable</code>.</p>
    */
   public deleteColumnStatisticsForTable(
     args: DeleteColumnStatisticsForTableCommandInput,
@@ -2107,6 +2153,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves partition statistics of columns.</p>
+   *
+   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetPartition</code>.</p>
    */
   public getColumnStatisticsForPartition(
     args: GetColumnStatisticsForPartitionCommandInput,
@@ -2139,6 +2187,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves table statistics of columns.</p>
+   *
+   *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetTable</code>.</p>
    */
   public getColumnStatisticsForTable(
     args: GetColumnStatisticsForTableCommandInput,
@@ -2835,6 +2885,38 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: GetPartitionCommandOutput) => void
   ): Promise<GetPartitionCommandOutput> | void {
     const command = new GetPartitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the partition indexes associated with a table.</p>
+   */
+  public getPartitionIndexes(
+    args: GetPartitionIndexesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPartitionIndexesCommandOutput>;
+  public getPartitionIndexes(
+    args: GetPartitionIndexesCommandInput,
+    cb: (err: any, data?: GetPartitionIndexesCommandOutput) => void
+  ): void;
+  public getPartitionIndexes(
+    args: GetPartitionIndexesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPartitionIndexesCommandOutput) => void
+  ): void;
+  public getPartitionIndexes(
+    args: GetPartitionIndexesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPartitionIndexesCommandOutput) => void),
+    cb?: (err: any, data?: GetPartitionIndexesCommandOutput) => void
+  ): Promise<GetPartitionIndexesCommandOutput> | void {
+    const command = new GetPartitionIndexesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3782,7 +3864,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   * <p>Restarts any completed nodes in a workflow run and resumes the run execution.</p>
+   * <p>Restarts selected nodes of a previous partially completed workflow run and resumes the workflow run. The selected nodes and all nodes that are downstream from the selected nodes are run.</p>
    */
   public resumeWorkflowRun(
     args: ResumeWorkflowRunCommandInput,
@@ -4391,6 +4473,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Creates or updates partition statistics of columns.</p>
+   *
+   *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdatePartition</code>.</p>
    */
   public updateColumnStatisticsForPartition(
     args: UpdateColumnStatisticsForPartitionCommandInput,
@@ -4423,6 +4507,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Creates or updates table statistics of columns.</p>
+   *
+   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
    */
   public updateColumnStatisticsForTable(
     args: UpdateColumnStatisticsForTableCommandInput,

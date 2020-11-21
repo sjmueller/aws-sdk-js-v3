@@ -37,14 +37,14 @@ export const serializeAws_restJson1CompleteSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: any = {
     "Content-Type": "",
-    ...(isSerializableHeaderValue(input.Checksum) && { "x-amz-Checksum": input.Checksum! }),
-    ...(isSerializableHeaderValue(input.ChecksumAggregationMethod) && {
-      "x-amz-Checksum-Aggregation-Method": input.ChecksumAggregationMethod!,
-    }),
     ...(isSerializableHeaderValue(input.ChangedBlocksCount) && {
       "x-amz-ChangedBlocksCount": input.ChangedBlocksCount!.toString(),
     }),
+    ...(isSerializableHeaderValue(input.ChecksumAggregationMethod) && {
+      "x-amz-Checksum-Aggregation-Method": input.ChecksumAggregationMethod!,
+    }),
     ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && { "x-amz-Checksum-Algorithm": input.ChecksumAlgorithm! }),
+    ...(isSerializableHeaderValue(input.Checksum) && { "x-amz-Checksum": input.Checksum! }),
   };
   let resolvedPath = "/snapshots/completion/{SnapshotId}";
   if (input.SnapshotId !== undefined) {
@@ -77,15 +77,6 @@ export const serializeAws_restJson1GetSnapshotBlockCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
-  if (input.BlockIndex !== undefined) {
-    const labelValue: string = input.BlockIndex.toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BlockIndex.");
-    }
-    resolvedPath = resolvedPath.replace("{BlockIndex}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BlockIndex.");
-  }
   if (input.SnapshotId !== undefined) {
     const labelValue: string = input.SnapshotId;
     if (labelValue.length <= 0) {
@@ -94,6 +85,15 @@ export const serializeAws_restJson1GetSnapshotBlockCommand = async (
     resolvedPath = resolvedPath.replace("{SnapshotId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
+  }
+  if (input.BlockIndex !== undefined) {
+    const labelValue: string = input.BlockIndex.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: BlockIndex.");
+    }
+    resolvedPath = resolvedPath.replace("{BlockIndex}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: BlockIndex.");
   }
   const query: any = {
     ...(input.BlockToken !== undefined && { blockToken: input.BlockToken }),
@@ -167,9 +167,9 @@ export const serializeAws_restJson1ListSnapshotBlocksCommand = async (
     throw new Error("No value provided for input HTTP label: SnapshotId.");
   }
   const query: any = {
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.StartingBlockIndex !== undefined && { startingBlockIndex: input.StartingBlockIndex.toString() }),
     ...(input.NextToken !== undefined && { pageToken: input.NextToken }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -192,21 +192,12 @@ export const serializeAws_restJson1PutSnapshotBlockCommand = async (
   const headers: any = {
     "Content-Type": "application/octet-stream",
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    ...(isSerializableHeaderValue(input.DataLength) && { "x-amz-Data-Length": input.DataLength!.toString() }),
-    ...(isSerializableHeaderValue(input.Progress) && { "x-amz-Progress": input.Progress!.toString() }),
     ...(isSerializableHeaderValue(input.Checksum) && { "x-amz-Checksum": input.Checksum! }),
+    ...(isSerializableHeaderValue(input.Progress) && { "x-amz-Progress": input.Progress!.toString() }),
+    ...(isSerializableHeaderValue(input.DataLength) && { "x-amz-Data-Length": input.DataLength!.toString() }),
     ...(isSerializableHeaderValue(input.ChecksumAlgorithm) && { "x-amz-Checksum-Algorithm": input.ChecksumAlgorithm! }),
   };
   let resolvedPath = "/snapshots/{SnapshotId}/blocks/{BlockIndex}";
-  if (input.BlockIndex !== undefined) {
-    const labelValue: string = input.BlockIndex.toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: BlockIndex.");
-    }
-    resolvedPath = resolvedPath.replace("{BlockIndex}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: BlockIndex.");
-  }
   if (input.SnapshotId !== undefined) {
     const labelValue: string = input.SnapshotId;
     if (labelValue.length <= 0) {
@@ -215,6 +206,15 @@ export const serializeAws_restJson1PutSnapshotBlockCommand = async (
     resolvedPath = resolvedPath.replace("{SnapshotId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: SnapshotId.");
+  }
+  if (input.BlockIndex !== undefined) {
+    const labelValue: string = input.BlockIndex.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: BlockIndex.");
+    }
+    resolvedPath = resolvedPath.replace("{BlockIndex}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: BlockIndex.");
   }
   let body: any;
   if (input.BlockData !== undefined) {
@@ -267,7 +267,7 @@ export const deserializeAws_restJson1CompleteSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CompleteSnapshotCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1CompleteSnapshotCommandError(output, context);
   }
   const contents: CompleteSnapshotCommandOutput = {
@@ -362,7 +362,7 @@ export const deserializeAws_restJson1GetSnapshotBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSnapshotBlockCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSnapshotBlockCommandError(output, context);
   }
   const contents: GetSnapshotBlockCommandOutput = {
@@ -372,14 +372,14 @@ export const deserializeAws_restJson1GetSnapshotBlockCommand = async (
     ChecksumAlgorithm: undefined,
     DataLength: undefined,
   };
-  if (output.headers["x-amz-checksum"] !== undefined) {
-    contents.Checksum = output.headers["x-amz-checksum"];
-  }
   if (output.headers["x-amz-data-length"] !== undefined) {
     contents.DataLength = parseInt(output.headers["x-amz-data-length"], 10);
   }
   if (output.headers["x-amz-checksum-algorithm"] !== undefined) {
     contents.ChecksumAlgorithm = output.headers["x-amz-checksum-algorithm"];
+  }
+  if (output.headers["x-amz-checksum"] !== undefined) {
+    contents.Checksum = output.headers["x-amz-checksum"];
   }
   const data: any = output.body;
   contents.BlockData = data;
@@ -467,7 +467,7 @@ export const deserializeAws_restJson1ListChangedBlocksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChangedBlocksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListChangedBlocksCommandError(output, context);
   }
   const contents: ListChangedBlocksCommandOutput = {
@@ -578,7 +578,7 @@ export const deserializeAws_restJson1ListSnapshotBlocksCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSnapshotBlocksCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSnapshotBlocksCommandError(output, context);
   }
   const contents: ListSnapshotBlocksCommandOutput = {
@@ -689,7 +689,7 @@ export const deserializeAws_restJson1PutSnapshotBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutSnapshotBlockCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutSnapshotBlockCommandError(output, context);
   }
   const contents: PutSnapshotBlockCommandOutput = {
@@ -697,11 +697,11 @@ export const deserializeAws_restJson1PutSnapshotBlockCommand = async (
     Checksum: undefined,
     ChecksumAlgorithm: undefined,
   };
-  if (output.headers["x-amz-checksum"] !== undefined) {
-    contents.Checksum = output.headers["x-amz-checksum"];
-  }
   if (output.headers["x-amz-checksum-algorithm"] !== undefined) {
     contents.ChecksumAlgorithm = output.headers["x-amz-checksum-algorithm"];
+  }
+  if (output.headers["x-amz-checksum"] !== undefined) {
+    contents.Checksum = output.headers["x-amz-checksum"];
   }
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -788,7 +788,7 @@ export const deserializeAws_restJson1StartSnapshotCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartSnapshotCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartSnapshotCommandError(output, context);
   }
   const contents: StartSnapshotCommandOutput = {

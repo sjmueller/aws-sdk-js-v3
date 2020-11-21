@@ -684,7 +684,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about the status and settings for a classification job.</p>
+   * <p>Retrieves the status and settings for a classification job.</p>
    */
   public describeClassificationJob(
     args: DescribeClassificationJobCommandInput,
@@ -716,7 +716,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about the Amazon Macie configuration settings for an AWS organization.</p>
+   * <p>Retrieves the Amazon Macie configuration settings for an AWS organization.</p>
    */
   public describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
@@ -777,7 +777,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Disables an account as a delegated administrator of Amazon Macie for an AWS organization.</p>
+   * <p>Disables an account as the delegated Amazon Macie administrator account for an AWS organization.</p>
    */
   public disableOrganizationAdminAccount(
     args: DisableOrganizationAdminAccountCommandInput,
@@ -899,7 +899,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Enables an account as a delegated administrator of Amazon Macie for an AWS organization.</p>
+   * <p>Designates an account as the delegated Amazon Macie administrator account for an AWS organization.</p>
    */
   public enableOrganizationAdminAccount(
     args: EnableOrganizationAdminAccountCommandInput,
@@ -995,7 +995,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about the criteria and other settings for a custom data identifier.</p>
+   * <p>Retrieves the criteria and other settings for a custom data identifier.</p>
    */
   public getCustomDataIdentifier(
     args: GetCustomDataIdentifierCommandInput,
@@ -1027,7 +1027,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about one or more findings.</p>
+   * <p>Retrieves the details of one or more findings.</p>
    */
   public getFindings(args: GetFindingsCommandInput, options?: __HttpHandlerOptions): Promise<GetFindingsCommandOutput>;
   public getFindings(args: GetFindingsCommandInput, cb: (err: any, data?: GetFindingsCommandOutput) => void): void;
@@ -1053,7 +1053,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about the criteria and other settings for a findings filter.</p>
+   * <p>Retrieves the criteria and other settings for a findings filter.</p>
    */
   public getFindingsFilter(
     args: GetFindingsFilterCommandInput,
@@ -1149,7 +1149,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about the current status and configuration settings for an Amazon Macie account.</p>
+   * <p>Retrieves the current status and configuration settings for an Amazon Macie account.</p>
    */
   public getMacieSession(
     args: GetMacieSessionCommandInput,
@@ -1486,7 +1486,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Retrieves information about the account that's designated as the delegated administrator of Amazon Macie for an AWS organization.</p>
+   * <p>Retrieves information about the delegated Amazon Macie administrator account for an AWS organization.</p>
    */
   public listOrganizationAdminAccounts(
     args: ListOrganizationAdminAccountsCommandInput,
@@ -1672,7 +1672,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Cancels a classification job.</p>
+   * <p>Changes the status of a classification job.</p>
    */
   public updateClassificationJob(
     args: UpdateClassificationJobCommandInput,
@@ -1800,7 +1800,7 @@ export class Macie2 extends Macie2Client {
   }
 
   /**
-   * <p>Updates Amazon Macie configuration settings for an AWS organization.</p>
+   * <p>Updates the Amazon Macie configuration settings for an AWS organization.</p>
    */
   public updateOrganizationConfiguration(
     args: UpdateOrganizationConfigurationCommandInput,

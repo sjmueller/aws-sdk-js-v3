@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListVolumesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListVolumesCommand(input, ...args));
+  return await client.send(new ListVolumesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: StorageGateway,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listVolumes(input, ...args);
 };
-export async function* listVolumesPaginate(
+export async function* paginateListVolumes(
   config: StorageGatewayPaginationConfiguration,
   input: ListVolumesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVolumesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVolumesCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["Limit"] = config.pageSize;
     if (config.client instanceof StorageGateway) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listVolumesPaginate(
       throw new Error("Invalid client, expected StorageGateway | StorageGatewayClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

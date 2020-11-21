@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDashboardsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDashboardsCommand(input, ...args));
+  return await client.send(new ListDashboardsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: QuickSight,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDashboards(input, ...args);
 };
-export async function* listDashboardsPaginate(
+export async function* paginateListDashboards(
   config: QuickSightPaginationConfiguration,
   input: ListDashboardsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDashboardsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDashboardsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof QuickSight) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listDashboardsPaginate(
       throw new Error("Invalid client, expected QuickSight | QuickSightClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

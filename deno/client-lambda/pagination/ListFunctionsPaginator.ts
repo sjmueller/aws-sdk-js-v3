@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListFunctionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListFunctionsCommand(input, ...args));
+  return await client.send(new ListFunctionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Lambda,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listFunctions(input, ...args);
 };
-export async function* listFunctionsPaginate(
+export async function* paginateListFunctions(
   config: LambdaPaginationConfiguration,
   input: ListFunctionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListFunctionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListFunctionsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof Lambda) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listFunctionsPaginate(
       throw new Error("Invalid client, expected Lambda | LambdaClient");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDataRepositoryTasksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDataRepositoryTasksCommand(input, ...args));
+  return await client.send(new DescribeDataRepositoryTasksCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: FSx,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDataRepositoryTasks(input, ...args);
 };
-export async function* describeDataRepositoryTasksPaginate(
+export async function* paginateDescribeDataRepositoryTasks(
   config: FSxPaginationConfiguration,
   input: DescribeDataRepositoryTasksCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDataRepositoryTasksCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDataRepositoryTasksCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof FSx) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeDataRepositoryTasksPaginate(
       throw new Error("Invalid client, expected FSx | FSxClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

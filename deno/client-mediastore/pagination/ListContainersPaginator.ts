@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListContainersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListContainersCommand(input, ...args));
+  return await client.send(new ListContainersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MediaStore,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listContainers(input, ...args);
 };
-export async function* listContainersPaginate(
+export async function* paginateListContainers(
   config: MediaStorePaginationConfiguration,
   input: ListContainersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListContainersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListContainersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof MediaStore) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listContainersPaginate(
       throw new Error("Invalid client, expected MediaStore | MediaStoreClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

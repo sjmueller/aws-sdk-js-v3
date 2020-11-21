@@ -1,4 +1,3 @@
-
 import { CreateAnalyzerCommandInput, CreateAnalyzerCommandOutput } from "../commands/CreateAnalyzerCommand.ts";
 import { CreateArchiveRuleCommandInput, CreateArchiveRuleCommandOutput } from "../commands/CreateArchiveRuleCommand.ts";
 import { DeleteAnalyzerCommandInput, DeleteAnalyzerCommandOutput } from "../commands/DeleteAnalyzerCommand.ts";
@@ -646,7 +645,7 @@ export const deserializeAws_restJson1CreateAnalyzerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAnalyzerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateAnalyzerCommandError(output, context);
   }
   const contents: CreateAnalyzerCommandOutput = {
@@ -741,7 +740,7 @@ export const deserializeAws_restJson1CreateArchiveRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateArchiveRuleCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateArchiveRuleCommandError(output, context);
   }
   const contents: CreateArchiveRuleCommandOutput = {
@@ -840,7 +839,7 @@ export const deserializeAws_restJson1DeleteAnalyzerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAnalyzerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteAnalyzerCommandError(output, context);
   }
   const contents: DeleteAnalyzerCommandOutput = {
@@ -923,7 +922,7 @@ export const deserializeAws_restJson1DeleteArchiveRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteArchiveRuleCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteArchiveRuleCommandError(output, context);
   }
   const contents: DeleteArchiveRuleCommandOutput = {
@@ -1006,7 +1005,7 @@ export const deserializeAws_restJson1GetAnalyzedResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAnalyzedResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAnalyzedResourceCommandError(output, context);
   }
   const contents: GetAnalyzedResourceCommandOutput = {
@@ -1093,7 +1092,7 @@ export const deserializeAws_restJson1GetAnalyzerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAnalyzerCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAnalyzerCommandError(output, context);
   }
   const contents: GetAnalyzerCommandOutput = {
@@ -1180,7 +1179,7 @@ export const deserializeAws_restJson1GetArchiveRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetArchiveRuleCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetArchiveRuleCommandError(output, context);
   }
   const contents: GetArchiveRuleCommandOutput = {
@@ -1267,7 +1266,7 @@ export const deserializeAws_restJson1GetFindingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFindingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetFindingCommandError(output, context);
   }
   const contents: GetFindingCommandOutput = {
@@ -1354,7 +1353,7 @@ export const deserializeAws_restJson1ListAnalyzedResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAnalyzedResourcesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAnalyzedResourcesCommandError(output, context);
   }
   const contents: ListAnalyzedResourcesCommandOutput = {
@@ -1445,7 +1444,7 @@ export const deserializeAws_restJson1ListAnalyzersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAnalyzersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAnalyzersCommandError(output, context);
   }
   const contents: ListAnalyzersCommandOutput = {
@@ -1528,7 +1527,7 @@ export const deserializeAws_restJson1ListArchiveRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListArchiveRulesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListArchiveRulesCommandError(output, context);
   }
   const contents: ListArchiveRulesCommandOutput = {
@@ -1611,7 +1610,7 @@ export const deserializeAws_restJson1ListFindingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFindingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListFindingsCommandError(output, context);
   }
   const contents: ListFindingsCommandOutput = {
@@ -1702,7 +1701,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -1789,7 +1788,7 @@ export const deserializeAws_restJson1StartResourceScanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartResourceScanCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartResourceScanCommandError(output, context);
   }
   const contents: StartResourceScanCommandOutput = {
@@ -1872,7 +1871,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1955,7 +1954,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -2038,7 +2037,7 @@ export const deserializeAws_restJson1UpdateArchiveRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateArchiveRuleCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateArchiveRuleCommandError(output, context);
   }
   const contents: UpdateArchiveRuleCommandOutput = {
@@ -2121,7 +2120,7 @@ export const deserializeAws_restJson1UpdateFindingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFindingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateFindingsCommandError(output, context);
   }
   const contents: UpdateFindingsCommandOutput = {

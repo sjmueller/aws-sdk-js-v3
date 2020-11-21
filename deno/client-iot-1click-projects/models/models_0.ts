@@ -4,14 +4,19 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface AssociateDeviceWithPlacementRequest {
   /**
-   * <p>The name of the project containing the placement in which to associate the device.</p>
-   */
-  projectName: string | undefined;
-
-  /**
    * <p>The name of the placement in which to associate the device.</p>
    */
   placementName: string | undefined;
+
+  /**
+   * <p>The device template name to associate with the device ID.</p>
+   */
+  deviceTemplateName: string | undefined;
+
+  /**
+   * <p>The name of the project containing the placement in which to associate the device.</p>
+   */
+  projectName: string | undefined;
 
   /**
    * <p>The ID of the physical device to be associated with the given placement in the project.
@@ -19,11 +24,6 @@ export interface AssociateDeviceWithPlacementRequest {
    *       values.</p>
    */
   deviceId: string | undefined;
-
-  /**
-   * <p>The device template name to associate with the device ID.</p>
-   */
-  deviceTemplateName: string | undefined;
 }
 
 export namespace AssociateDeviceWithPlacementRequest {
@@ -62,8 +62,8 @@ export namespace InternalFailureException {
 export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
-  code: string | undefined;
   message: string | undefined;
+  code: string | undefined;
 }
 
 export namespace InvalidRequestException {
@@ -78,8 +78,8 @@ export namespace InvalidRequestException {
 export interface ResourceConflictException extends __SmithyException, $MetadataBearer {
   name: "ResourceConflictException";
   $fault: "client";
-  code: string | undefined;
   message: string | undefined;
+  code: string | undefined;
 }
 
 export namespace ResourceConflictException {
@@ -141,15 +141,15 @@ export namespace CreatePlacementResponse {
  */
 export interface DeviceTemplate {
   /**
+   * <p>The device type, which currently must be <code>"button"</code>.</p>
+   */
+  deviceType?: string;
+
+  /**
    * <p>An optional Lambda function to invoke instead of the default Lambda function provided by
    *       the placement template.</p>
    */
   callbackOverrides?: { [key: string]: string };
-
-  /**
-   * <p>The device type, which currently must be <code>"button"</code>.</p>
-   */
-  deviceType?: string;
 }
 
 export namespace DeviceTemplate {
@@ -188,17 +188,17 @@ export interface CreateProjectRequest {
   projectName: string | undefined;
 
   /**
-   * <p>An optional description for the project.</p>
-   */
-  description?: string;
-
-  /**
    * <p>The schema defining the placement to be created. A placement template defines placement
    *       default attributes and device templates. You cannot add or remove device templates after the
    *       project has been created. However, you can update <code>callbackOverrides</code> for the
    *       device templates using the <code>UpdateProject</code> API.</p>
    */
   placementTemplate?: PlacementTemplate;
+
+  /**
+   * <p>An optional description for the project.</p>
+   */
+  description?: string;
 
   /**
    * <p>Optional tags (metadata key/value pairs) to be associated with the project. For example,
@@ -224,14 +224,14 @@ export namespace CreateProjectResponse {
 
 export interface DeletePlacementRequest {
   /**
-   * <p>The name of the empty placement to delete.</p>
-   */
-  placementName: string | undefined;
-
-  /**
    * <p>The project containing the empty placement to delete.</p>
    */
   projectName: string | undefined;
+
+  /**
+   * <p>The name of the empty placement to delete.</p>
+   */
+  placementName: string | undefined;
 }
 
 export namespace DeletePlacementRequest {
@@ -287,14 +287,14 @@ export namespace DeleteProjectResponse {
 
 export interface DescribePlacementRequest {
   /**
-   * <p>The name of the placement within a project.</p>
-   */
-  placementName: string | undefined;
-
-  /**
    * <p>The project containing the placement to be described.</p>
    */
   projectName: string | undefined;
+
+  /**
+   * <p>The name of the placement within a project.</p>
+   */
+  placementName: string | undefined;
 }
 
 export namespace DescribePlacementRequest {
@@ -308,19 +308,14 @@ export namespace DescribePlacementRequest {
  */
 export interface PlacementDescription {
   /**
-   * <p>The date when the placement was initially created, in UNIX epoch time format.</p>
+   * <p>The name of the project containing the placement.</p>
    */
-  createdDate: Date | undefined;
+  projectName: string | undefined;
 
   /**
    * <p>The name of the placement.</p>
    */
   placementName: string | undefined;
-
-  /**
-   * <p>The user-defined attributes associated with the placement.</p>
-   */
-  attributes: { [key: string]: string } | undefined;
 
   /**
    * <p>The date when the placement was last updated, in UNIX epoch time format. If the placement
@@ -330,9 +325,14 @@ export interface PlacementDescription {
   updatedDate: Date | undefined;
 
   /**
-   * <p>The name of the project containing the placement.</p>
+   * <p>The date when the placement was initially created, in UNIX epoch time format.</p>
    */
-  projectName: string | undefined;
+  createdDate: Date | undefined;
+
+  /**
+   * <p>The user-defined attributes associated with the placement.</p>
+   */
+  attributes: { [key: string]: string } | undefined;
 }
 
 export namespace PlacementDescription {
@@ -373,24 +373,19 @@ export namespace DescribeProjectRequest {
  */
 export interface ProjectDescription {
   /**
-   * <p>The date when the project was originally created, in UNIX epoch time format.</p>
-   */
-  createdDate: Date | undefined;
-
-  /**
    * <p>The name of the project for which to obtain information from.</p>
    */
   projectName: string | undefined;
 
   /**
-   * <p>The tags (metadata key/value pairs) associated with the project.</p>
-   */
-  tags?: { [key: string]: string };
-
-  /**
    * <p>The ARN of the project.</p>
    */
   arn?: string;
+
+  /**
+   * <p>The description of the project.</p>
+   */
+  description?: string;
 
   /**
    * <p>The date when the project was last updated, in UNIX epoch time format. If the project was
@@ -399,14 +394,19 @@ export interface ProjectDescription {
   updatedDate: Date | undefined;
 
   /**
-   * <p>The description of the project.</p>
-   */
-  description?: string;
-
-  /**
    * <p>An object describing the project's placement specifications.</p>
    */
   placementTemplate?: PlacementTemplate;
+
+  /**
+   * <p>The tags (metadata key/value pairs) associated with the project.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
+   * <p>The date when the project was originally created, in UNIX epoch time format.</p>
+   */
+  createdDate: Date | undefined;
 }
 
 export namespace ProjectDescription {
@@ -430,6 +430,11 @@ export namespace DescribeProjectResponse {
 
 export interface DisassociateDeviceFromPlacementRequest {
   /**
+   * <p>The name of the placement that the device should be removed from.</p>
+   */
+  placementName: string | undefined;
+
+  /**
    * <p>The name of the project that contains the placement.</p>
    */
   projectName: string | undefined;
@@ -438,11 +443,6 @@ export interface DisassociateDeviceFromPlacementRequest {
    * <p>The device ID that should be removed from the placement.</p>
    */
   deviceTemplateName: string | undefined;
-
-  /**
-   * <p>The name of the placement that the device should be removed from.</p>
-   */
-  placementName: string | undefined;
 }
 
 export namespace DisassociateDeviceFromPlacementRequest {
@@ -461,14 +461,14 @@ export namespace DisassociateDeviceFromPlacementResponse {
 
 export interface GetDevicesInPlacementRequest {
   /**
-   * <p>The name of the project containing the placement.</p>
-   */
-  projectName: string | undefined;
-
-  /**
    * <p>The name of the placement to get the devices from.</p>
    */
   placementName: string | undefined;
+
+  /**
+   * <p>The name of the project containing the placement.</p>
+   */
+  projectName: string | undefined;
 }
 
 export namespace GetDevicesInPlacementRequest {
@@ -497,15 +497,15 @@ export interface ListPlacementsRequest {
   projectName: string | undefined;
 
   /**
-   * <p>The token to retrieve the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
    * <p>The maximum number of results to return per request. If not set, a default value of 100 is
    *       used.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   */
+  nextToken?: string;
 }
 
 export namespace ListPlacementsRequest {
@@ -524,13 +524,6 @@ export interface PlacementSummary {
   createdDate: Date | undefined;
 
   /**
-   * <p>The date when the placement was last updated, in UNIX epoch time format. If the placement
-   *       was not updated, then <code>createdDate</code> and <code>updatedDate</code> are the
-   *       same.</p>
-   */
-  updatedDate: Date | undefined;
-
-  /**
    * <p>The name of the project containing the placement.</p>
    */
   projectName: string | undefined;
@@ -539,6 +532,13 @@ export interface PlacementSummary {
    * <p>The name of the placement being summarized.</p>
    */
   placementName: string | undefined;
+
+  /**
+   * <p>The date when the placement was last updated, in UNIX epoch time format. If the placement
+   *       was not updated, then <code>createdDate</code> and <code>updatedDate</code> are the
+   *       same.</p>
+   */
+  updatedDate: Date | undefined;
 }
 
 export namespace PlacementSummary {
@@ -549,15 +549,15 @@ export namespace PlacementSummary {
 
 export interface ListPlacementsResponse {
   /**
+   * <p>An object listing the requested placements.</p>
+   */
+  placements: PlacementSummary[] | undefined;
+
+  /**
    * <p>The token used to retrieve the next set of results - will be effectively empty if there
    *       are no further results.</p>
    */
   nextToken?: string;
-
-  /**
-   * <p>An object listing the requested placements.</p>
-   */
-  placements: PlacementSummary[] | undefined;
 }
 
 export namespace ListPlacementsResponse {
@@ -601,6 +601,11 @@ export interface ProjectSummary {
   projectName: string | undefined;
 
   /**
+   * <p>The tags (metadata key/value pairs) associated with the project.</p>
+   */
+  tags?: { [key: string]: string };
+
+  /**
    * <p>The date when the project was originally created, in UNIX epoch time format.</p>
    */
   createdDate: Date | undefined;
@@ -610,11 +615,6 @@ export interface ProjectSummary {
    *       not updated, then <code>createdDate</code> and <code>updatedDate</code> are the same.</p>
    */
   updatedDate: Date | undefined;
-
-  /**
-   * <p>The tags (metadata key/value pairs) associated with the project.</p>
-   */
-  tags?: { [key: string]: string };
 }
 
 export namespace ProjectSummary {
@@ -723,6 +723,12 @@ export namespace UntagResourceResponse {
 
 export interface UpdatePlacementRequest {
   /**
+   * <p>The user-defined object of attributes used to update the placement. The maximum number of
+   *       key/value pairs is 50.</p>
+   */
+  attributes?: { [key: string]: string };
+
+  /**
    * <p>The name of the placement to update.</p>
    */
   placementName: string | undefined;
@@ -731,12 +737,6 @@ export interface UpdatePlacementRequest {
    * <p>The name of the project containing the placement to be updated.</p>
    */
   projectName: string | undefined;
-
-  /**
-   * <p>The user-defined object of attributes used to update the placement. The maximum number of
-   *       key/value pairs is 50.</p>
-   */
-  attributes?: { [key: string]: string };
 }
 
 export namespace UpdatePlacementRequest {
@@ -755,9 +755,9 @@ export namespace UpdatePlacementResponse {
 
 export interface UpdateProjectRequest {
   /**
-   * <p>An optional user-defined description for the project.</p>
+   * <p>The name of the project to be updated.</p>
    */
-  description?: string;
+  projectName: string | undefined;
 
   /**
    * <p>An object defining the project update. Once a project has been created, you cannot add
@@ -768,9 +768,9 @@ export interface UpdateProjectRequest {
   placementTemplate?: PlacementTemplate;
 
   /**
-   * <p>The name of the project to be updated.</p>
+   * <p>An optional user-defined description for the project.</p>
    */
-  projectName: string | undefined;
+  description?: string;
 }
 
 export namespace UpdateProjectRequest {

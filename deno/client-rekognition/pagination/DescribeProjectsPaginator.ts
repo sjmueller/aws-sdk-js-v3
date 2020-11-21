@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeProjectsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeProjectsCommand(input, ...args));
+  return await client.send(new DescribeProjectsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Rekognition,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeProjects(input, ...args);
 };
-export async function* describeProjectsPaginate(
+export async function* paginateDescribeProjects(
   config: RekognitionPaginationConfiguration,
   input: DescribeProjectsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeProjectsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeProjectsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Rekognition) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeProjectsPaginate(
       throw new Error("Invalid client, expected Rekognition | RekognitionClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

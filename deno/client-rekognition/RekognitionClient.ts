@@ -38,6 +38,10 @@ import {
   DetectModerationLabelsCommandInput,
   DetectModerationLabelsCommandOutput,
 } from "./commands/DetectModerationLabelsCommand.ts";
+import {
+  DetectProtectiveEquipmentCommandInput,
+  DetectProtectiveEquipmentCommandOutput,
+} from "./commands/DetectProtectiveEquipmentCommand.ts";
 import { DetectTextCommandInput, DetectTextCommandOutput } from "./commands/DetectTextCommand.ts";
 import { GetCelebrityInfoCommandInput, GetCelebrityInfoCommandOutput } from "./commands/GetCelebrityInfoCommand.ts";
 import {
@@ -174,6 +178,7 @@ export type ServiceInputTypes =
   | DetectFacesCommandInput
   | DetectLabelsCommandInput
   | DetectModerationLabelsCommandInput
+  | DetectProtectiveEquipmentCommandInput
   | DetectTextCommandInput
   | GetCelebrityInfoCommandInput
   | GetCelebrityRecognitionCommandInput
@@ -223,6 +228,7 @@ export type ServiceOutputTypes =
   | DetectFacesCommandOutput
   | DetectLabelsCommandOutput
   | DetectModerationLabelsCommandOutput
+  | DetectProtectiveEquipmentCommandOutput
   | DetectTextCommandOutput
   | GetCelebrityInfoCommandOutput
   | GetCelebrityRecognitionCommandOutput

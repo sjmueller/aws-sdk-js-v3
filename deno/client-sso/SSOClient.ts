@@ -21,12 +21,7 @@ import {
 } from "../middleware-host-header/mod.ts";
 import { getLoggerPlugin } from "../middleware-logger/mod.ts";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "../middleware-retry/mod.ts";
-import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
-  resolveAwsAuthConfig,
-} from "../middleware-signing/mod.ts";
+import { AwsAuthInputConfig, AwsAuthResolvedConfig, resolveAwsAuthConfig } from "../middleware-signing/mod.ts";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
@@ -215,7 +210,6 @@ export class SSOClient extends __Client<
     let _config_6 = resolveHostHeaderConfig(_config_5);
     super(_config_6);
     this.config = _config_6;
-    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));

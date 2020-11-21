@@ -220,7 +220,7 @@ export const deserializeAws_restJson1BatchExecuteStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchExecuteStatementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchExecuteStatementCommandError(output, context);
   }
   const contents: BatchExecuteStatementCommandOutput = {
@@ -307,7 +307,7 @@ export const deserializeAws_restJson1BeginTransactionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BeginTransactionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BeginTransactionCommandError(output, context);
   }
   const contents: BeginTransactionCommandOutput = {
@@ -394,7 +394,7 @@ export const deserializeAws_restJson1CommitTransactionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CommitTransactionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CommitTransactionCommandError(output, context);
   }
   const contents: CommitTransactionCommandOutput = {
@@ -489,7 +489,7 @@ export const deserializeAws_restJson1ExecuteSqlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteSqlCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ExecuteSqlCommandError(output, context);
   }
   const contents: ExecuteSqlCommandOutput = {
@@ -568,7 +568,7 @@ export const deserializeAws_restJson1ExecuteStatementCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExecuteStatementCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ExecuteStatementCommandError(output, context);
   }
   const contents: ExecuteStatementCommandOutput = {
@@ -667,7 +667,7 @@ export const deserializeAws_restJson1RollbackTransactionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RollbackTransactionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1RollbackTransactionCommandError(output, context);
   }
   const contents: RollbackTransactionCommandOutput = {

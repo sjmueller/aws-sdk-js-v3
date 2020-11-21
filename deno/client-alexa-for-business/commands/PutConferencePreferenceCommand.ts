@@ -45,11 +45,23 @@ export class PutConferencePreferenceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AlexaForBusinessClient";
+    const commandName = "PutConferencePreferenceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutConferencePreferenceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: PutConferencePreferenceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

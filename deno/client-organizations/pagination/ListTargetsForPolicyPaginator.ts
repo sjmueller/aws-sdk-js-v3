@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTargetsForPolicyCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTargetsForPolicyCommand(input, ...args));
+  return await client.send(new ListTargetsForPolicyCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Organizations,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTargetsForPolicy(input, ...args);
 };
-export async function* listTargetsForPolicyPaginate(
+export async function* paginateListTargetsForPolicy(
   config: OrganizationsPaginationConfiguration,
   input: ListTargetsForPolicyCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTargetsForPolicyCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTargetsForPolicyCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Organizations) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listTargetsForPolicyPaginate(
       throw new Error("Invalid client, expected Organizations | OrganizationsClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

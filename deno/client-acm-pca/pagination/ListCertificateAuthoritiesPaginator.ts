@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCertificateAuthoritiesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCertificateAuthoritiesCommand(input, ...args));
+  return await client.send(new ListCertificateAuthoritiesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ACMPCA,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCertificateAuthorities(input, ...args);
 };
-export async function* listCertificateAuthoritiesPaginate(
+export async function* paginateListCertificateAuthorities(
   config: ACMPCAPaginationConfiguration,
   input: ListCertificateAuthoritiesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCertificateAuthoritiesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCertificateAuthoritiesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof ACMPCA) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listCertificateAuthoritiesPaginate(
       throw new Error("Invalid client, expected ACMPCA | ACMPCAClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

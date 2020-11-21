@@ -45,11 +45,23 @@ export class StopGameSessionPlacementCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "GameLiftClient";
+    const commandName = "StopGameSessionPlacementCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopGameSessionPlacementInput.filterSensitiveLog,
       outputFilterSensitiveLog: StopGameSessionPlacementOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

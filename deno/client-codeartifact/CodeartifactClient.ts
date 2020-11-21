@@ -81,6 +81,10 @@ import {
   ListRepositoriesInDomainCommandOutput,
 } from "./commands/ListRepositoriesInDomainCommand.ts";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand.ts";
+import {
   PutDomainPermissionsPolicyCommandInput,
   PutDomainPermissionsPolicyCommandOutput,
 } from "./commands/PutDomainPermissionsPolicyCommand.ts";
@@ -88,6 +92,8 @@ import {
   PutRepositoryPermissionsPolicyCommandInput,
   PutRepositoryPermissionsPolicyCommandOutput,
 } from "./commands/PutRepositoryPermissionsPolicyCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import {
   UpdatePackageVersionsStatusCommandInput,
   UpdatePackageVersionsStatusCommandOutput,
@@ -170,8 +176,11 @@ export type ServiceInputTypes =
   | ListPackagesCommandInput
   | ListRepositoriesCommandInput
   | ListRepositoriesInDomainCommandInput
+  | ListTagsForResourceCommandInput
   | PutDomainPermissionsPolicyCommandInput
   | PutRepositoryPermissionsPolicyCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdatePackageVersionsStatusCommandInput
   | UpdateRepositoryCommandInput;
 
@@ -203,8 +212,11 @@ export type ServiceOutputTypes =
   | ListPackagesCommandOutput
   | ListRepositoriesCommandOutput
   | ListRepositoriesInDomainCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutDomainPermissionsPolicyCommandOutput
   | PutRepositoryPermissionsPolicyCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdatePackageVersionsStatusCommandOutput
   | UpdateRepositoryCommandOutput;
 
@@ -346,7 +358,7 @@ export type CodeartifactClientResolvedConfig = __SmithyResolvedConfiguration<__H
  *                      <code>mvn</code>
  *                   </b>), and <b>
  *                      <code>pip</code>
- *                   </b>. You can create up to 100 repositories per AWS account.</p>
+ *                   </b>.</p>
  *             </li>
  *             <li>
  *                <p>

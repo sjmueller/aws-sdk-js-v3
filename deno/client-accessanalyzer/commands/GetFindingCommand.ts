@@ -1,4 +1,3 @@
-
 import { AccessAnalyzerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AccessAnalyzerClient.ts";
 import { GetFindingRequest, GetFindingResponse } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class GetFindingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AccessAnalyzerClient";
+    const commandName = "GetFindingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetFindingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetFindingResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

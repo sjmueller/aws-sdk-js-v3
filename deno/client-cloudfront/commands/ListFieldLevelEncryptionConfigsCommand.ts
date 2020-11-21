@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { ListFieldLevelEncryptionConfigsRequest, ListFieldLevelEncryptionConfigsResult } from "../models/models_0.ts";
+import { ListFieldLevelEncryptionConfigsRequest, ListFieldLevelEncryptionConfigsResult } from "../models/models_1.ts";
 import {
   deserializeAws_restXmlListFieldLevelEncryptionConfigsCommand,
   serializeAws_restXmlListFieldLevelEncryptionConfigsCommand,
@@ -45,11 +45,23 @@ export class ListFieldLevelEncryptionConfigsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "ListFieldLevelEncryptionConfigsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListFieldLevelEncryptionConfigsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListFieldLevelEncryptionConfigsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

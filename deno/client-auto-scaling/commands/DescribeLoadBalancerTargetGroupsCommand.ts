@@ -1,6 +1,8 @@
-
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient.ts";
-import { DescribeLoadBalancerTargetGroupsRequest, DescribeLoadBalancerTargetGroupsResponse } from "../models/models_0.ts";
+import {
+  DescribeLoadBalancerTargetGroupsRequest,
+  DescribeLoadBalancerTargetGroupsResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_queryDescribeLoadBalancerTargetGroupsCommand,
   serializeAws_queryDescribeLoadBalancerTargetGroupsCommand,
@@ -45,11 +47,23 @@ export class DescribeLoadBalancerTargetGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingClient";
+    const commandName = "DescribeLoadBalancerTargetGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeLoadBalancerTargetGroupsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLoadBalancerTargetGroupsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

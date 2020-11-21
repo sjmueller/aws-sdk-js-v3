@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEventSourceMappingsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEventSourceMappingsCommand(input, ...args));
+  return await client.send(new ListEventSourceMappingsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Lambda,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEventSourceMappings(input, ...args);
 };
-export async function* listEventSourceMappingsPaginate(
+export async function* paginateListEventSourceMappings(
   config: LambdaPaginationConfiguration,
   input: ListEventSourceMappingsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEventSourceMappingsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEventSourceMappingsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof Lambda) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listEventSourceMappingsPaginate(
       throw new Error("Invalid client, expected Lambda | LambdaClient");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

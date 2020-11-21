@@ -63,6 +63,7 @@ export * from "./commands/ModifyEventSubscriptionCommand.ts";
 export * from "./commands/ModifyReplicationInstanceCommand.ts";
 export * from "./commands/ModifyReplicationSubnetGroupCommand.ts";
 export * from "./commands/ModifyReplicationTaskCommand.ts";
+export * from "./commands/MoveReplicationTaskCommand.ts";
 export * from "./commands/RebootReplicationInstanceCommand.ts";
 export * from "./commands/RefreshSchemasCommand.ts";
 export * from "./commands/ReloadTablesCommand.ts";

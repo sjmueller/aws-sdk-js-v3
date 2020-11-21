@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListMetricsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListMetricsCommand(input, ...args));
+  return await client.send(new ListMetricsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudWatch,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listMetrics(input, ...args);
 };
-export async function* listMetricsPaginate(
+export async function* paginateListMetrics(
   config: CloudWatchPaginationConfiguration,
   input: ListMetricsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListMetricsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListMetricsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof CloudWatch) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof CloudWatchClient) {
@@ -39,7 +39,7 @@ export async function* listMetricsPaginate(
       throw new Error("Invalid client, expected CloudWatch | CloudWatchClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

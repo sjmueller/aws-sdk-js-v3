@@ -350,7 +350,7 @@ export class ManagedBlockchain extends ManagedBlockchainClient {
   }
 
   /**
-   * <p>Returns a listing of all invitations made on the specified network.</p>
+   * <p>Returns a listing of all invitations for the current AWS account.</p>
    */
   public listInvitations(
     args: ListInvitationsCommandInput,

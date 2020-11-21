@@ -275,8 +275,8 @@ export const serializeAws_restJson1ListGroupsCommand = async (
   };
   let resolvedPath = "/groups-list";
   const query: any = {
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
   };
   let body: any;
   body = JSON.stringify({
@@ -474,7 +474,7 @@ export const deserializeAws_restJson1CreateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGroupCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateGroupCommandError(output, context);
   }
   const contents: CreateGroupCommandOutput = {
@@ -573,7 +573,7 @@ export const deserializeAws_restJson1DeleteGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGroupCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteGroupCommandError(output, context);
   }
   const contents: DeleteGroupCommandOutput = {
@@ -668,7 +668,7 @@ export const deserializeAws_restJson1GetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetGroupCommandError(output, context);
   }
   const contents: GetGroupCommandOutput = {
@@ -763,7 +763,7 @@ export const deserializeAws_restJson1GetGroupConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetGroupConfigurationCommandError(output, context);
   }
   const contents: GetGroupConfigurationCommandOutput = {
@@ -858,7 +858,7 @@ export const deserializeAws_restJson1GetGroupQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGroupQueryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetGroupQueryCommandError(output, context);
   }
   const contents: GetGroupQueryCommandOutput = {
@@ -953,7 +953,7 @@ export const deserializeAws_restJson1GetTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTagsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetTagsCommandError(output, context);
   }
   const contents: GetTagsCommandOutput = {
@@ -1052,7 +1052,7 @@ export const deserializeAws_restJson1GroupResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GroupResourcesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GroupResourcesCommandError(output, context);
   }
   const contents: GroupResourcesCommandOutput = {
@@ -1151,7 +1151,7 @@ export const deserializeAws_restJson1ListGroupResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupResourcesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListGroupResourcesCommandError(output, context);
   }
   const contents: ListGroupResourcesCommandOutput = {
@@ -1262,7 +1262,7 @@ export const deserializeAws_restJson1ListGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGroupsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListGroupsCommandError(output, context);
   }
   const contents: ListGroupsCommandOutput = {
@@ -1357,7 +1357,7 @@ export const deserializeAws_restJson1SearchResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SearchResourcesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1SearchResourcesCommandError(output, context);
   }
   const contents: SearchResourcesCommandOutput = {
@@ -1460,7 +1460,7 @@ export const deserializeAws_restJson1TagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagCommandError(output, context);
   }
   const contents: TagCommandOutput = {
@@ -1559,7 +1559,7 @@ export const deserializeAws_restJson1UngroupResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UngroupResourcesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UngroupResourcesCommandError(output, context);
   }
   const contents: UngroupResourcesCommandOutput = {
@@ -1658,7 +1658,7 @@ export const deserializeAws_restJson1UntagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagCommandError(output, context);
   }
   const contents: UntagCommandOutput = {
@@ -1757,7 +1757,7 @@ export const deserializeAws_restJson1UpdateGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateGroupCommandError(output, context);
   }
   const contents: UpdateGroupCommandOutput = {
@@ -1852,7 +1852,7 @@ export const deserializeAws_restJson1UpdateGroupQueryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGroupQueryCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateGroupQueryCommandError(output, context);
   }
   const contents: UpdateGroupQueryCommandOutput = {

@@ -1,4 +1,3 @@
-
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient.ts";
 import { DescribeJobQueuesRequest, DescribeJobQueuesResponse } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class DescribeJobQueuesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BatchClient";
+    const commandName = "DescribeJobQueuesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeJobQueuesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeJobQueuesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

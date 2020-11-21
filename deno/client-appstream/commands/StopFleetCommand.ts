@@ -1,7 +1,9 @@
-
 import { AppStreamClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppStreamClient.ts";
 import { StopFleetRequest, StopFleetResult } from "../models/models_0.ts";
-import { deserializeAws_json1_1StopFleetCommand, serializeAws_json1_1StopFleetCommand } from "../protocols/Aws_json1_1.ts";
+import {
+  deserializeAws_json1_1StopFleetCommand,
+  serializeAws_json1_1StopFleetCommand,
+} from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
@@ -42,11 +44,23 @@ export class StopFleetCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AppStreamClient";
+    const commandName = "StopFleetCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StopFleetRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StopFleetResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

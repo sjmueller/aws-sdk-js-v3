@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListSimulationJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListSimulationJobsCommand(input, ...args));
+  return await client.send(new ListSimulationJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RoboMaker,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listSimulationJobs(input, ...args);
 };
-export async function* listSimulationJobsPaginate(
+export async function* paginateListSimulationJobs(
   config: RoboMakerPaginationConfiguration,
   input: ListSimulationJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListSimulationJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListSimulationJobsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof RoboMaker) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listSimulationJobsPaginate(
       throw new Error("Invalid client, expected RoboMaker | RoboMakerClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

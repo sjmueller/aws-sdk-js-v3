@@ -1,6 +1,6 @@
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient.ts";
-import { UpdateAuthorizerRequest, UpdateAuthorizerResponse } from "../models/models_1.ts";
+import { UpdateAuthorizerRequest, UpdateAuthorizerResponse } from "../models/models_2.ts";
 import {
   deserializeAws_restJson1UpdateAuthorizerCommand,
   serializeAws_restJson1UpdateAuthorizerCommand,
@@ -45,11 +45,23 @@ export class UpdateAuthorizerCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IoTClient";
+    const commandName = "UpdateAuthorizerCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateAuthorizerRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAuthorizerResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

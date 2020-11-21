@@ -38,11 +38,23 @@ export class ListRolesCommand extends $Command<ListRolesCommandInput, ListRolesC
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "IAMClient";
+    const commandName = "ListRolesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListRolesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListRolesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

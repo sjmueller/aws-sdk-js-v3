@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListEmailTemplatesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListEmailTemplatesCommand(input, ...args));
+  return await client.send(new ListEmailTemplatesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SESv2,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listEmailTemplates(input, ...args);
 };
-export async function* listEmailTemplatesPaginate(
+export async function* paginateListEmailTemplates(
   config: SESv2PaginationConfiguration,
   input: ListEmailTemplatesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListEmailTemplatesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListEmailTemplatesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["PageSize"] = config.pageSize;
     if (config.client instanceof SESv2) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listEmailTemplatesPaginate(
       throw new Error("Invalid client, expected SESv2 | SESv2Client");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

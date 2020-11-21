@@ -1,6 +1,6 @@
 
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_0.ts";
+import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1GetInvitationsCountCommand,
   serializeAws_restJson1GetInvitationsCountCommand,
@@ -45,11 +45,23 @@ export class GetInvitationsCountCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecurityHubClient";
+    const commandName = "GetInvitationsCountCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetInvitationsCountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetInvitationsCountResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

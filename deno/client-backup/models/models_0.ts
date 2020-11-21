@@ -1,6 +1,38 @@
-
 import { SENSITIVE_STRING, SmithyException as __SmithyException } from "../../smithy-client/mod.ts";
 import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
+
+/**
+ * <p>A list of backup options for each resource type.</p>
+ */
+export interface AdvancedBackupSetting {
+  /**
+   * <p>The type of AWS resource to be backed up. For VSS Windows backups, the only supported
+   *          resource type is Amazon EC2.</p>
+   *          <p>Valid values: <code>EC2</code>.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>Specifies the backup option for a selected resource. This option is only available for
+   *          Windows VSS backup jobs.</p>
+   *          <p>Valid values: </p>
+   *          <p>Set to <code>"WindowsVSS":"enabled"</code> to enable the WindowsVSS backup option and
+   *          create a VSS Windows backup. </p>
+   *          <p>Set to <code>"WindowsVSS":"disabled"</code> to create a regular backup. The WindowsVSS
+   *          option is not enabled by default.</p>
+   *          <p>If you specify an invalid option, you get an <code>InvalidParameterValueException</code>
+   *          exception.</p>
+   *          <p>For more information about Windows VSS backups, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/windows-backups.html">Creating a VSS-Enabled Windows
+   *             Backup</a>.</p>
+   */
+  BackupOptions?: { [key: string]: string };
+}
+
+export namespace AdvancedBackupSetting {
+  export const filterSensitiveLog = (obj: AdvancedBackupSetting): any => ({
+    ...obj,
+  });
+}
 
 /**
  * <p>The required resource already exists.</p>
@@ -8,18 +40,8 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 export interface AlreadyExistsException extends __SmithyException, $MetadataBearer {
   name: "AlreadyExistsException";
   $fault: "client";
-  Message?: string;
   Code?: string;
-  /**
-   * <p></p>
-   */
-  Arn?: string;
-
-  /**
-   * <p></p>
-   */
-  Context?: string;
-
+  Message?: string;
   /**
    * <p></p>
    */
@@ -28,7 +50,17 @@ export interface AlreadyExistsException extends __SmithyException, $MetadataBear
   /**
    * <p></p>
    */
+  Arn?: string;
+
+  /**
+   * <p></p>
+   */
   Type?: string;
+
+  /**
+   * <p></p>
+   */
+  Context?: string;
 }
 
 export namespace AlreadyExistsException {
@@ -43,10 +75,9 @@ export namespace AlreadyExistsException {
  */
 export interface RecoveryPointCreator {
   /**
-   * <p>Uniquely identifies a rule used to schedule the backup of a selection of
-   *          resources.</p>
+   * <p>Uniquely identifies a backup plan.</p>
    */
-  BackupRuleId?: string;
+  BackupPlanId?: string;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
@@ -61,9 +92,10 @@ export interface RecoveryPointCreator {
   BackupPlanVersion?: string;
 
   /**
-   * <p>Uniquely identifies a backup plan.</p>
+   * <p>Uniquely identifies a rule used to schedule the backup of a selection of
+   *          resources.</p>
    */
-  BackupPlanId?: string;
+  BackupRuleId?: string;
 }
 
 export namespace RecoveryPointCreator {
@@ -88,6 +120,48 @@ export enum BackupJobState {
  */
 export interface BackupJob {
   /**
+   * <p>The account ID that owns the backup job.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
+   */
+  BackupJobId?: string;
+
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the AWS Region where they
+   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   */
+  BackupVaultName?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   */
+  BackupVaultArn?: string;
+
+  /**
+   * <p>An ARN that uniquely identifies a recovery point; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   */
+  RecoveryPointArn?: string;
+
+  /**
+   * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the
+   *          resource type.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The date and time a backup job is created, in Unix format and Coordinated Universal Time
+   *          (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For example, the
+   *          value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   */
+  CreationDate?: Date;
+
+  /**
    * <p>The date and time a job to create a backup job is completed, in Unix format and
    *          Coordinated Universal Time (UTC). The value of <code>CompletionDate</code> is accurate to
    *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
@@ -96,11 +170,46 @@ export interface BackupJob {
   CompletionDate?: Date;
 
   /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   * <p>The current state of a resource recovery point.</p>
    */
-  BackupVaultName?: string;
+  State?: BackupJobState | string;
+
+  /**
+   * <p>A detailed message explaining the status of the job to back up a resource.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>Contains an estimated percentage complete of a job at the time the job status was
+   *          queried.</p>
+   */
+  PercentDone?: string;
+
+  /**
+   * <p>The size, in bytes, of a backup.</p>
+   */
+  BackupSizeInBytes?: number;
+
+  /**
+   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
+   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>Contains identifying information about the creation of a backup job, including the
+   *             <code>BackupPlanArn</code>, <code>BackupPlanId</code>, <code>BackupPlanVersion</code>,
+   *          and <code>BackupRuleId</code> of the backup plan used to create it.</p>
+   */
+  CreatedBy?: RecoveryPointCreator;
+
+  /**
+   * <p>The date and time a job to back up resources is expected to be completed, in Unix format
+   *          and Coordinated Universal Time (UTC). The value of <code>ExpectedCompletionDate</code> is
+   *          accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January
+   *          26, 2018 12:11:30.087 AM.</p>
+   */
+  ExpectedCompletionDate?: Date;
 
   /**
    * <p>Specifies the time in Unix format and Coordinated Universal Time (UTC) when a backup job
@@ -113,40 +222,10 @@ export interface BackupJob {
   StartBy?: Date;
 
   /**
-   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
-   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   * <p>The type of AWS resource to be backed up; for example, an Amazon Elastic Block Store
+   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database. For VSS Windows backups, the only supported resource type is Amazon EC2.</p>
    */
-  IamRoleArn?: string;
-
-  /**
-   * <p>The current state of a resource recovery point.</p>
-   */
-  State?: BackupJobState | string;
-
-  /**
-   * <p>The date and time a backup job is created, in Unix format and Coordinated Universal Time
-   *          (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For example, the
-   *          value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
-   */
-  CreationDate?: Date;
-
-  /**
-   * <p>Contains identifying information about the creation of a backup job, including the
-   *             <code>BackupPlanArn</code>, <code>BackupPlanId</code>, <code>BackupPlanVersion</code>,
-   *          and <code>BackupRuleId</code> of the backup plan used to create it.</p>
-   */
-  CreatedBy?: RecoveryPointCreator;
-
-  /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
-   */
-  BackupVaultArn?: string;
-
-  /**
-   * <p>A detailed message explaining the status of the job to back up a resource.</p>
-   */
-  StatusMessage?: string;
+  ResourceType?: string;
 
   /**
    * <p>The size in bytes transferred to a backup vault at the time that the job status was
@@ -155,51 +234,18 @@ export interface BackupJob {
   BytesTransferred?: number;
 
   /**
-   * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
+   * <p>Specifies the backup option for a selected resource. This option is only available for
+   *          Windows VSS backup jobs.</p>
+   *          <p>Valid values: Set to <code>"WindowsVSS”:“enabled"</code> to enable WindowsVSS backup option and create a VSS Windows backup.
+   *          Set to “WindowsVSS”:”disabled” to create a regular backup. If you specify an invalid option, you get an
+   *             <code>InvalidParameterValueException</code> exception.</p>
    */
-  BackupJobId?: string;
+  BackupOptions?: { [key: string]: string };
 
   /**
-   * <p>The date and time a job to back up resources is expected to be completed, in Unix format
-   *          and Coordinated Universal Time (UTC). The value of <code>ExpectedCompletionDate</code> is
-   *          accurate to milliseconds. For example, the value 1516925490.087 represents Friday, January
-   *          26, 2018 12:11:30.087 AM.</p>
+   * <p>Represents the type of backup for a backup job.</p>
    */
-  ExpectedCompletionDate?: Date;
-
-  /**
-   * <p>Contains an estimated percentage complete of a job at the time the job status was
-   *          queried.</p>
-   */
-  PercentDone?: string;
-
-  /**
-   * <p>The account ID that owns the backup job.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The type of AWS resource to be backed up; for example, an Amazon Elastic Block Store
-   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
-   */
-  ResourceType?: string;
-
-  /**
-   * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the
-   *          resource type.</p>
-   */
-  ResourceArn?: string;
-
-  /**
-   * <p>The size, in bytes, of a backup.</p>
-   */
-  BackupSizeInBytes?: number;
-
-  /**
-   * <p>An ARN that uniquely identifies a recovery point; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
-   */
-  RecoveryPointArn?: string;
+  BackupType?: string;
 }
 
 export namespace BackupJob {
@@ -218,16 +264,16 @@ export namespace BackupJob {
  */
 export interface Lifecycle {
   /**
-   * <p>Specifies the number of days after creation that a recovery point is deleted. Must be
-   *          greater than 90 days plus <code>MoveToColdStorageAfterDays</code>.</p>
-   */
-  DeleteAfterDays?: number;
-
-  /**
    * <p>Specifies the number of days after creation that a recovery point is moved to cold
    *          storage.</p>
    */
   MoveToColdStorageAfterDays?: number;
+
+  /**
+   * <p>Specifies the number of days after creation that a recovery point is deleted. Must be
+   *          greater than 90 days plus <code>MoveToColdStorageAfterDays</code>.</p>
+   */
+  DeleteAfterDays?: number;
 }
 
 export namespace Lifecycle {
@@ -241,13 +287,6 @@ export namespace Lifecycle {
  */
 export interface CopyAction {
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for
-   *          the copied backup. For example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
-   */
-  DestinationBackupVaultArn: string | undefined;
-
-  /**
    * <p>Contains an array of <code>Transition</code> objects specifying how long in days before
    *          a recovery point transitions to cold storage or is deleted.</p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
@@ -256,6 +295,13 @@ export interface CopyAction {
    *          setting cannot be changed after a backup has been transitioned to cold.</p>
    */
   Lifecycle?: Lifecycle;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for
+   *          the copied backup. For example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   */
+  DestinationBackupVaultArn: string | undefined;
 }
 
 export namespace CopyAction {
@@ -269,6 +315,11 @@ export namespace CopyAction {
  */
 export interface BackupRule {
   /**
+   * <p>An optional display name for a backup rule.</p>
+   */
+  RuleName: string | undefined;
+
+  /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
    *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
@@ -276,14 +327,20 @@ export interface BackupRule {
   TargetBackupVaultName: string | undefined;
 
   /**
+   * <p>A CRON expression specifying when AWS Backup initiates a backup job. For more information about cron expressions, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html">Schedule Expressions for Rules</a> in
+   *               the <i>Amazon CloudWatch Events User Guide.</i>. Prior to specifying a value for this parameter, we recommend testing your cron expression using one of the many available cron generator and testing tools.</p>
+   */
+  ScheduleExpression?: string;
+
+  /**
+   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it doesn't start successfully. This value is optional.</p>
+   */
+  StartWindowMinutes?: number;
+
+  /**
    * <p>A value in minutes after a backup job is successfully started before it must be completed or it will be canceled by AWS Backup. This value is optional.</p>
    */
   CompletionWindowMinutes?: number;
-
-  /**
-   * <p>A CRON expression specifying when AWS Backup initiates a backup job.</p>
-   */
-  ScheduleExpression?: string;
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
@@ -297,26 +354,16 @@ export interface BackupRule {
   Lifecycle?: Lifecycle;
 
   /**
-   * <p>Uniquely identifies a rule that is used to schedule the backup of a selection of
-   *          resources.</p>
-   */
-  RuleId?: string;
-
-  /**
    * <p>An array of key-value pair strings that are assigned to resources that are associated
    *          with this rule when restored from backup.</p>
    */
   RecoveryPointTags?: { [key: string]: string };
 
   /**
-   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it doesn't start successfully. This value is optional.</p>
+   * <p>Uniquely identifies a rule that is used to schedule the backup of a selection of
+   *          resources.</p>
    */
-  StartWindowMinutes?: number;
-
-  /**
-   * <p>An optional display name for a backup rule.</p>
-   */
-  RuleName: string | undefined;
+  RuleId?: string;
 
   /**
    * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy operation.</p>
@@ -347,6 +394,11 @@ export interface BackupPlan {
    *          that is used to back up a selection of resources. </p>
    */
   Rules: BackupRule[] | undefined;
+
+  /**
+   * <p>Contains a list of <code>BackupOptions</code> for each resource type.</p>
+   */
+  AdvancedBackupSettings?: AdvancedBackupSetting[];
 }
 
 export namespace BackupPlan {
@@ -361,20 +413,16 @@ export namespace BackupPlan {
  */
 export interface BackupRuleInput {
   /**
-   * <p>To help organize your resources, you can assign your own metadata to the resources that
-   *          you create. Each tag is a key-value pair.</p>
-   */
-  RecoveryPointTags?: { [key: string]: string };
-
-  /**
    * <p>An optional display name for a backup rule.</p>
    */
   RuleName: string | undefined;
 
   /**
-   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it doesn't start successfully. This value is optional.</p>
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the AWS Region where they
+   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
    */
-  StartWindowMinutes?: number;
+  TargetBackupVaultName: string | undefined;
 
   /**
    * <p>A CRON expression specifying when AWS Backup initiates a backup job.</p>
@@ -382,9 +430,9 @@ export interface BackupRuleInput {
   ScheduleExpression?: string;
 
   /**
-   * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy operation.</p>
+   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it doesn't start successfully. This value is optional.</p>
    */
-  CopyActions?: CopyAction[];
+  StartWindowMinutes?: number;
 
   /**
    * <p>A value in minutes after a backup job is successfully started before it must be completed or it will be canceled by AWS Backup. This value is optional.</p>
@@ -403,11 +451,15 @@ export interface BackupRuleInput {
   Lifecycle?: Lifecycle;
 
   /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   * <p>To help organize your resources, you can assign your own metadata to the resources that
+   *          you create. Each tag is a key-value pair.</p>
    */
-  TargetBackupVaultName: string | undefined;
+  RecoveryPointTags?: { [key: string]: string };
+
+  /**
+   * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy operation.</p>
+   */
+  CopyActions?: CopyAction[];
 }
 
 export namespace BackupRuleInput {
@@ -424,15 +476,20 @@ export namespace BackupRuleInput {
  */
 export interface BackupPlanInput {
   /**
+   * <p>The optional display name of a backup plan.</p>
+   */
+  BackupPlanName: string | undefined;
+
+  /**
    * <p>An array of <code>BackupRule</code> objects, each of which specifies a scheduled task
    *          that is used to back up a selection of resources.</p>
    */
   Rules: BackupRuleInput[] | undefined;
 
   /**
-   * <p>The optional display name of a backup plan.</p>
+   * <p>Specifies a list of <code>BackupOptions</code> for each resource type. These settings are only available for Windows VSS backup jobs.</p>
    */
-  BackupPlanName: string | undefined;
+  AdvancedBackupSettings?: AdvancedBackupSetting[];
 }
 
 export namespace BackupPlanInput {
@@ -447,10 +504,15 @@ export namespace BackupPlanInput {
  */
 export interface BackupPlansListMember {
   /**
-   * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
-   *          long. Version IDs cannot be edited.</p>
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
    */
-  VersionId?: string;
+  BackupPlanArn?: string;
+
+  /**
+   * <p>Uniquely identifies a backup plan.</p>
+   */
+  BackupPlanId?: string;
 
   /**
    * <p>The date and time a resource backup plan is created, in Unix format and Coordinated
@@ -461,25 +523,6 @@ export interface BackupPlansListMember {
   CreationDate?: Date;
 
   /**
-   * <p>The display name of a saved backup plan.</p>
-   */
-  BackupPlanName?: string;
-
-  /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
-   */
-  BackupPlanArn?: string;
-
-  /**
-   * <p>The last time a job to back up resources was executed with this rule. A date and time,
-   *          in Unix format and Coordinated Universal Time (UTC). The value of
-   *             <code>LastExecutionDate</code> is accurate to milliseconds. For example, the value
-   *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
-   */
-  LastExecutionDate?: Date;
-
-  /**
    * <p>The date and time a backup plan is deleted, in Unix format and Coordinated Universal
    *          Time (UTC). The value of <code>DeletionDate</code> is accurate to milliseconds. For
    *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
@@ -488,15 +531,34 @@ export interface BackupPlansListMember {
   DeletionDate?: Date;
 
   /**
-   * <p>Uniquely identifies a backup plan.</p>
+   * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
+   *          long. Version IDs cannot be edited.</p>
    */
-  BackupPlanId?: string;
+  VersionId?: string;
+
+  /**
+   * <p>The display name of a saved backup plan.</p>
+   */
+  BackupPlanName?: string;
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of executing the operation twice.</p>
+   *          without the risk of running the operation twice.</p>
    */
   CreatorRequestId?: string;
+
+  /**
+   * <p>The last time a job to back up resources was run with this rule. A date and time, in
+   *          Unix format and Coordinated Universal Time (UTC). The value of
+   *             <code>LastExecutionDate</code> is accurate to milliseconds. For example, the value
+   *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   */
+  LastExecutionDate?: Date;
+
+  /**
+   * <p>Contains a list of <code>BackupOptions</code> for a resource type.</p>
+   */
+  AdvancedBackupSettings?: AdvancedBackupSetting[];
 }
 
 export namespace BackupPlansListMember {
@@ -532,27 +594,27 @@ export enum ConditionType {
 
 /**
  * <p>Contains an array of triplets made up of a condition type (such as
- *          <code>STRINGEQUALS</code>), a key, and a value. Conditions are used to filter resources
+ *             <code>StringEquals</code>), a key, and a value. Conditions are used to filter resources
  *          in a selection that is assigned to a backup plan.</p>
  */
 export interface Condition {
   /**
-   * <p>An operation, such as <code>STRINGEQUALS</code>, that is applied to a key-value pair
+   * <p>An operation, such as <code>StringEquals</code>, that is applied to a key-value pair
    *          used to filter resources in a selection.</p>
    */
   ConditionType: ConditionType | string | undefined;
-
-  /**
-   * <p>The value in a key-value pair. For example, in <code>"ec2:ResourceTag/Department":
-   *             "accounting"</code>, <code>"accounting"</code> is the value.</p>
-   */
-  ConditionValue: string | undefined;
 
   /**
    * <p>The key in a key-value pair. For example, in <code>"ec2:ResourceTag/Department":
    *             "accounting"</code>, <code>"ec2:ResourceTag/Department"</code> is the key.</p>
    */
   ConditionKey: string | undefined;
+
+  /**
+   * <p>The value in a key-value pair. For example, in <code>"ec2:ResourceTag/Department":
+   *             "accounting"</code>, <code>"accounting"</code> is the value.</p>
+   */
+  ConditionValue: string | undefined;
 }
 
 export namespace Condition {
@@ -566,11 +628,15 @@ export namespace Condition {
  */
 export interface BackupSelection {
   /**
-   * <p>An array of conditions used to specify a set of resources to assign to a backup plan;
-   *          for example, <code>"STRINGEQUALS": {"ec2:ResourceTag/Department":
-   *          "accounting"</code>.</p>
+   * <p>The display name of a resource selection document.</p>
    */
-  ListOfTags?: Condition[];
+  SelectionName: string | undefined;
+
+  /**
+   * <p>The ARN of the IAM role that AWS Backup uses to authenticate when backing up the target
+   *          resource; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   */
+  IamRoleArn: string | undefined;
 
   /**
    * <p>An array of strings that contain Amazon Resource Names (ARNs)  of resources to assign
@@ -579,15 +645,11 @@ export interface BackupSelection {
   Resources?: string[];
 
   /**
-   * <p>The ARN of the IAM role that AWS Backup uses to authenticate when restoring the target
-   *          resource; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   * <p>An array of conditions used to specify a set of resources to assign to a backup plan;
+   *          for example, <code>"StringEquals": {"ec2:ResourceTag/Department":
+   *          "accounting"</code>.</p>
    */
-  IamRoleArn: string | undefined;
-
-  /**
-   * <p>The display name of a resource selection document.</p>
-   */
-  SelectionName: string | undefined;
+  ListOfTags?: Condition[];
 }
 
 export namespace BackupSelection {
@@ -601,17 +663,6 @@ export namespace BackupSelection {
  */
 export interface BackupSelectionsListMember {
   /**
-   * <p>Uniquely identifies a backup plan.</p>
-   */
-  BackupPlanId?: string;
-
-  /**
-   * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of executing the operation twice.</p>
-   */
-  CreatorRequestId?: string;
-
-  /**
    * <p>Uniquely identifies a request to assign a set of resources to a backup plan.</p>
    */
   SelectionId?: string;
@@ -622,10 +673,9 @@ export interface BackupSelectionsListMember {
   SelectionName?: string;
 
   /**
-   * <p>Specifies the IAM role Amazon Resource Name (ARN) to create the target recovery point;
-   *          for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   * <p>Uniquely identifies a backup plan.</p>
    */
-  IamRoleArn?: string;
+  BackupPlanId?: string;
 
   /**
    * <p>The date and time a backup plan is created, in Unix format and Coordinated Universal
@@ -634,6 +684,18 @@ export interface BackupSelectionsListMember {
    *          AM.</p>
    */
   CreationDate?: Date;
+
+  /**
+   * <p>A unique string that identifies the request and allows failed requests to be retried
+   *          without the risk of running the operation twice.</p>
+   */
+  CreatorRequestId?: string;
+
+  /**
+   * <p>Specifies the IAM role Amazon Resource Name (ARN) to create the target recovery point;
+   *          for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   */
+  IamRoleArn?: string;
 }
 
 export namespace BackupSelectionsListMember {
@@ -665,16 +727,11 @@ export enum BackupVaultEvent {
  */
 export interface BackupVaultListMember {
   /**
-   * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of executing the operation twice.</p>
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the AWS Region where they
+   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
    */
-  CreatorRequestId?: string;
-
-  /**
-   * <p>The server-side encryption key that is used to protect your backups; for example,
-   *          <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
-   */
-  EncryptionKeyArn?: string;
+  BackupVaultName?: string;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
@@ -691,16 +748,21 @@ export interface BackupVaultListMember {
   CreationDate?: Date;
 
   /**
+   * <p>The server-side encryption key that is used to protect your backups; for example,
+   *          <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   */
+  EncryptionKeyArn?: string;
+
+  /**
+   * <p>A unique string that identifies the request and allows failed requests to be retried
+   *          without the risk of running the operation twice.</p>
+   */
+  CreatorRequestId?: string;
+
+  /**
    * <p>The number of recovery points that are stored in a backup vault.</p>
    */
   NumberOfRecoveryPoints?: number;
-
-  /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
-   */
-  BackupVaultName?: string;
 }
 
 export namespace BackupVaultListMember {
@@ -750,16 +812,20 @@ export enum CopyJobState {
  */
 export interface CopyJob {
   /**
-   * <p>The date and time a copy job is completed, in Unix format and Coordinated Universal Time (UTC). The
-   *          value of <code>CompletionDate</code> is accurate to milliseconds. For example, the value 1516925490.087
-   *          represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   * <p>The account ID that owns the copy job.</p>
    */
-  CompletionDate?: Date;
+  AccountId?: string;
 
   /**
-   * <p>The current state of a copy job.</p>
+   * <p>Uniquely identifies a copy job.</p>
    */
-  State?: CopyJobState | string;
+  CopyJobId?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a source copy vault; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>. </p>
+   */
+  SourceBackupVaultArn?: string;
 
   /**
    * <p>An ARN that uniquely identifies a source recovery point; for example,
@@ -774,10 +840,16 @@ export interface CopyJob {
   DestinationBackupVaultArn?: string;
 
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a source copy vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>. </p>
+   * <p>An ARN that uniquely identifies a destination recovery point; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    */
-  SourceBackupVaultArn?: string;
+  DestinationRecoveryPointArn?: string;
+
+  /**
+   * <p>The AWS resource to be copied; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an
+   *          Amazon Relational Database Service (Amazon RDS) database.</p>
+   */
+  ResourceArn?: string;
 
   /**
    * <p>The date and time a copy job is created, in Unix format and Coordinated Universal Time (UTC). The
@@ -785,6 +857,28 @@ export interface CopyJob {
    *          represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    */
   CreationDate?: Date;
+
+  /**
+   * <p>The date and time a copy job is completed, in Unix format and Coordinated Universal Time (UTC). The
+   *          value of <code>CompletionDate</code> is accurate to milliseconds. For example, the value 1516925490.087
+   *          represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   */
+  CompletionDate?: Date;
+
+  /**
+   * <p>The current state of a copy job.</p>
+   */
+  State?: CopyJobState | string;
+
+  /**
+   * <p>A detailed message explaining the status of the job to copy a resource.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>The size, in bytes, of a copy job.</p>
+   */
+  BackupSizeInBytes?: number;
 
   /**
    * <p>Specifies the IAM role ARN used to copy the target recovery point; for example,
@@ -799,41 +893,9 @@ export interface CopyJob {
   CreatedBy?: RecoveryPointCreator;
 
   /**
-   * <p>An ARN that uniquely identifies a destination recovery point; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
-   */
-  DestinationRecoveryPointArn?: string;
-
-  /**
-   * <p>The account ID that owns the copy job.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The size, in bytes, of a copy job.</p>
-   */
-  BackupSizeInBytes?: number;
-
-  /**
-   * <p>Uniquely identifies a copy job.</p>
-   */
-  CopyJobId?: string;
-
-  /**
-   * <p>A detailed message explaining the status of the job to copy a resource.</p>
-   */
-  StatusMessage?: string;
-
-  /**
-   * <p>The AWS resource to be copied; for example, an Amazon Elastic Block Store (Amazon EBS) volume or an
-   *          Amazon Relational Database Service (Amazon RDS) database.</p>
-   */
-  ResourceArn?: string;
-
-  /**
    * <p>The type of AWS resource to be copied;
    *          for example, an Amazon Elastic Block Store (Amazon EBS) volume or an Amazon
-   *          Relational Database Service (Amazon RDS) database.</p>
+   *          Relational Database Service (Amazon RDS) database. </p>
    */
   ResourceType?: string;
 }
@@ -860,8 +922,9 @@ export interface CreateBackupPlanInput {
 
   /**
    * <p>Identifies the request and allows failed requests to be retried without the risk of
-   *          executing the operation twice. If the request includes a <code>CreatorRequestId</code> that
-   *          matches an existing backup plan, that plan is returned. This parameter is optional.</p>
+   *          running
+   *          the operation twice. If the request includes a <code>CreatorRequestId</code> that matches
+   *          an existing backup plan, that plan is returned. This parameter is optional.</p>
    */
   CreatorRequestId?: string;
 }
@@ -875,6 +938,17 @@ export namespace CreateBackupPlanInput {
 }
 
 export interface CreateBackupPlanOutput {
+  /**
+   * <p>Uniquely identifies a backup plan.</p>
+   */
+  BackupPlanId?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
+   */
+  BackupPlanArn?: string;
+
   /**
    * <p>The date and time that a backup plan is created, in Unix format and Coordinated
    *          Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds.
@@ -890,15 +964,9 @@ export interface CreateBackupPlanOutput {
   VersionId?: string;
 
   /**
-   * <p>Uniquely identifies a backup plan.</p>
+   * <p>A list of <code>BackupOptions</code> settings for a resource type. This option is only available for Windows VSS backup jobs.</p>
    */
-  BackupPlanId?: string;
-
-  /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
-   */
-  BackupPlanArn?: string;
+  AdvancedBackupSettings?: AdvancedBackupSetting[];
 }
 
 export namespace CreateBackupPlanOutput {
@@ -914,6 +982,8 @@ export namespace CreateBackupPlanOutput {
 export interface InvalidParameterValueException extends __SmithyException, $MetadataBearer {
   name: "InvalidParameterValueException";
   $fault: "client";
+  Code?: string;
+  Message?: string;
   /**
    * <p></p>
    */
@@ -923,9 +993,6 @@ export interface InvalidParameterValueException extends __SmithyException, $Meta
    * <p></p>
    */
   Context?: string;
-
-  Code?: string;
-  Message?: string;
 }
 
 export namespace InvalidParameterValueException {
@@ -991,18 +1058,17 @@ export namespace MissingParameterValueException {
 export interface ServiceUnavailableException extends __SmithyException, $MetadataBearer {
   name: "ServiceUnavailableException";
   $fault: "server";
+  Code?: string;
+  Message?: string;
   /**
    * <p></p>
    */
   Type?: string;
 
-  Message?: string;
   /**
    * <p></p>
    */
   Context?: string;
-
-  Code?: string;
 }
 
 export namespace ServiceUnavailableException {
@@ -1013,12 +1079,6 @@ export namespace ServiceUnavailableException {
 
 export interface CreateBackupSelectionInput {
   /**
-   * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of executing the operation twice.</p>
-   */
-  CreatorRequestId?: string;
-
-  /**
    * <p>Uniquely identifies the backup plan to be associated with the selection of
    *          resources.</p>
    */
@@ -1028,6 +1088,12 @@ export interface CreateBackupSelectionInput {
    * <p>Specifies the body of a request to assign a set of resources to a backup plan.</p>
    */
   BackupSelection: BackupSelection | undefined;
+
+  /**
+   * <p>A unique string that identifies the request and allows failed requests to be retried
+   *          without the risk of running the operation twice.</p>
+   */
+  CreatorRequestId?: string;
 }
 
 export namespace CreateBackupSelectionInput {
@@ -1072,6 +1138,12 @@ export interface CreateBackupVaultInput {
   BackupVaultName: string | undefined;
 
   /**
+   * <p>Metadata that you can assign to help organize the resources that you create. Each tag is
+   *          a key-value pair.</p>
+   */
+  BackupVaultTags?: { [key: string]: string };
+
+  /**
    * <p>The server-side encryption key that is used to protect your backups; for example,
    *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    */
@@ -1079,15 +1151,9 @@ export interface CreateBackupVaultInput {
 
   /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of executing the operation twice.</p>
+   *          without the risk of running the operation twice.</p>
    */
   CreatorRequestId?: string;
-
-  /**
-   * <p>Metadata that you can assign to help organize the resources that you create. Each tag is
-   *          a key-value pair.</p>
-   */
-  BackupVaultTags?: { [key: string]: string };
 }
 
 export namespace CreateBackupVaultInput {
@@ -1141,6 +1207,11 @@ export namespace DeleteBackupPlanInput {
 
 export interface DeleteBackupPlanOutput {
   /**
+   * <p>Uniquely identifies a backup plan.</p>
+   */
+  BackupPlanId?: string;
+
+  /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
    */
@@ -1156,14 +1227,9 @@ export interface DeleteBackupPlanOutput {
 
   /**
    * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
-   *          long. Version Ids cannot be edited.</p>
+   *          long. Version IDs cannot be edited.</p>
    */
   VersionId?: string;
-
-  /**
-   * <p>Uniquely identifies a backup plan.</p>
-   */
-  BackupPlanId?: string;
 }
 
 export namespace DeleteBackupPlanOutput {
@@ -1179,13 +1245,13 @@ export namespace DeleteBackupPlanOutput {
 export interface InvalidRequestException extends __SmithyException, $MetadataBearer {
   name: "InvalidRequestException";
   $fault: "client";
+  Code?: string;
+  Message?: string;
   /**
    * <p></p>
    */
   Type?: string;
 
-  Message?: string;
-  Code?: string;
   /**
    * <p></p>
    */
@@ -1315,13 +1381,13 @@ export namespace DeleteRecoveryPointInput {
 export interface DependencyFailureException extends __SmithyException, $MetadataBearer {
   name: "DependencyFailureException";
   $fault: "server";
+  Code?: string;
   Message?: string;
   /**
    * <p></p>
    */
   Type?: string;
 
-  Code?: string;
   /**
    * <p></p>
    */
@@ -1349,10 +1415,109 @@ export namespace DescribeBackupJobInput {
 
 export interface DescribeBackupJobOutput {
   /**
+   * <p>Returns the account ID that owns the backup job.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
+   */
+  BackupJobId?: string;
+
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the AWS Region where they
+   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   */
+  BackupVaultName?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   */
+  BackupVaultArn?: string;
+
+  /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    */
   RecoveryPointArn?: string;
+
+  /**
+   * <p>An ARN that uniquely identifies a saved resource. The format of the ARN depends on the
+   *          resource type.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The date and time that a backup job is created, in Unix format and Coordinated Universal
+   *          Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For
+   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   */
+  CreationDate?: Date;
+
+  /**
+   * <p>The date and time that a job to create a backup job is completed, in Unix format and
+   *          Coordinated Universal Time (UTC). The value of <code>CompletionDate</code> is accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  CompletionDate?: Date;
+
+  /**
+   * <p>The current state of a resource recovery point.</p>
+   */
+  State?: BackupJobState | string;
+
+  /**
+   * <p>A detailed message explaining the status of the job to back up a resource.</p>
+   */
+  StatusMessage?: string;
+
+  /**
+   * <p>Contains an estimated percentage that is complete of a job at the time the job status
+   *          was queried.</p>
+   */
+  PercentDone?: string;
+
+  /**
+   * <p>The size, in bytes, of a backup.</p>
+   */
+  BackupSizeInBytes?: number;
+
+  /**
+   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
+   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>Contains identifying information about the creation of a backup job, including the
+   *             <code>BackupPlanArn</code>, <code>BackupPlanId</code>, <code>BackupPlanVersion</code>,
+   *          and <code>BackupRuleId</code> of the backup plan that is used to create it.</p>
+   */
+  CreatedBy?: RecoveryPointCreator;
+
+  /**
+   * <p>The type of AWS resource to be backed up; for example, an Amazon Elastic Block Store
+   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>The size in bytes transferred to a backup vault at the time that the job status was
+   *          queried.</p>
+   */
+  BytesTransferred?: number;
+
+  /**
+   * <p>The date and time that a job to back up resources is expected to be completed, in Unix
+   *          format and Coordinated Universal Time (UTC). The value of
+   *             <code>ExpectedCompletionDate</code> is accurate to milliseconds. For example, the value
+   *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
+   */
+  ExpectedCompletionDate?: Date;
 
   /**
    * <p>Specifies the time in Unix format and Coordinated Universal Time (UTC) when a backup job
@@ -1365,103 +1530,17 @@ export interface DescribeBackupJobOutput {
   StartBy?: Date;
 
   /**
-   * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
+   * <p>Represents the options specified as part of backup plan or on-demand backup job.</p>
    */
-  BackupJobId?: string;
+  BackupOptions?: { [key: string]: string };
 
   /**
-   * <p>A detailed message explaining the status of the job to back up a resource.</p>
+   * <p>Represents the actual backup type selected for a backup job. For example, if a
+   *          successful WindowsVSS backup was taken, <code>BackupType</code> returns "WindowsVSS". If
+   *             <code>BackupType</code> is empty, then the backup type that was is a regular
+   *          backup.</p>
    */
-  StatusMessage?: string;
-
-  /**
-   * <p>The date and time that a job to create a backup job is completed, in Unix format and
-   *          Coordinated Universal Time (UTC). The value of <code>CompletionDate</code> is accurate to
-   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
-   *          12:11:30.087 AM.</p>
-   */
-  CompletionDate?: Date;
-
-  /**
-   * <p>An ARN that uniquely identifies a saved resource. The format of the ARN depends on the
-   *          resource type.</p>
-   */
-  ResourceArn?: string;
-
-  /**
-   * <p>The date and time that a job to back up resources is expected to be completed, in Unix
-   *          format and Coordinated Universal Time (UTC). The value of
-   *             <code>ExpectedCompletionDate</code> is accurate to milliseconds. For example, the value
-   *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
-   */
-  ExpectedCompletionDate?: Date;
-
-  /**
-   * <p>The size, in bytes, of a backup.</p>
-   */
-  BackupSizeInBytes?: number;
-
-  /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
-   */
-  BackupVaultName?: string;
-
-  /**
-   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
-   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
-   */
-  IamRoleArn?: string;
-
-  /**
-   * <p>The type of AWS resource to be backed up; for example, an Amazon Elastic Block Store
-   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
-   */
-  ResourceType?: string;
-
-  /**
-   * <p>Contains identifying information about the creation of a backup job, including the
-   *             <code>BackupPlanArn</code>, <code>BackupPlanId</code>, <code>BackupPlanVersion</code>,
-   *          and <code>BackupRuleId</code> of the backup plan that is used to create it.</p>
-   */
-  CreatedBy?: RecoveryPointCreator;
-
-  /**
-   * <p>The size in bytes transferred to a backup vault at the time that the job status was
-   *          queried.</p>
-   */
-  BytesTransferred?: number;
-
-  /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
-   */
-  BackupVaultArn?: string;
-
-  /**
-   * <p>Returns the account ID that owns the backup job.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The date and time that a backup job is created, in Unix format and Coordinated Universal
-   *          Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For
-   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
-   *          AM.</p>
-   */
-  CreationDate?: Date;
-
-  /**
-   * <p>Contains an estimated percentage that is complete of a job at the time the job status
-   *          was queried.</p>
-   */
-  PercentDone?: string;
-
-  /**
-   * <p>The current state of a resource recovery point.</p>
-   */
-  State?: BackupJobState | string;
+  BackupType?: string;
 }
 
 export namespace DescribeBackupJobOutput {
@@ -1487,11 +1566,6 @@ export namespace DescribeBackupVaultInput {
 
 export interface DescribeBackupVaultOutput {
   /**
-   * <p>The number of recovery points that are stored in a backup vault.</p>
-   */
-  NumberOfRecoveryPoints?: number;
-
-  /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the Region where they are
    *          created. They consist of lowercase letters, numbers, and hyphens.</p>
@@ -1505,6 +1579,12 @@ export interface DescribeBackupVaultOutput {
   BackupVaultArn?: string;
 
   /**
+   * <p>The server-side encryption key that is used to protect your backups; for example,
+   *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   */
+  EncryptionKeyArn?: string;
+
+  /**
    * <p>The date and time that a backup vault is created, in Unix format and Coordinated
    *          Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds.
    *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
@@ -1513,16 +1593,15 @@ export interface DescribeBackupVaultOutput {
   CreationDate?: Date;
 
   /**
-   * <p>The server-side encryption key that is used to protect your backups; for example,
-   *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
-   */
-  EncryptionKeyArn?: string;
-
-  /**
    * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of executing the operation twice.</p>
+   *          without the risk of running the operation twice.</p>
    */
   CreatorRequestId?: string;
+
+  /**
+   * <p>The number of recovery points that are stored in a backup vault.</p>
+   */
+  NumberOfRecoveryPoints?: number;
 }
 
 export namespace DescribeBackupVaultOutput {
@@ -1557,6 +1636,35 @@ export namespace DescribeCopyJobOutput {
   });
 }
 
+export interface DescribeGlobalSettingsInput {}
+
+export namespace DescribeGlobalSettingsInput {
+  export const filterSensitiveLog = (obj: DescribeGlobalSettingsInput): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeGlobalSettingsOutput {
+  /**
+   * <p>A list of resources along with the opt-in preferences for the account.</p>
+   */
+  GlobalSettings?: { [key: string]: string };
+
+  /**
+   * <p>The date and time that the global settings was last updated. This update is in Unix format and
+   *          Coordinated Universal Time (UTC). The value of <code>LastUpdateTime</code> is accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  LastUpdateTime?: Date;
+}
+
+export namespace DescribeGlobalSettingsOutput {
+  export const filterSensitiveLog = (obj: DescribeGlobalSettingsOutput): any => ({
+    ...obj,
+  });
+}
+
 export interface DescribeProtectedResourceInput {
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
@@ -1579,18 +1687,18 @@ export interface DescribeProtectedResourceOutput {
   ResourceArn?: string;
 
   /**
+   * <p>The type of AWS resource saved as a recovery point; for example, an EBS volume or an
+   *          Amazon RDS database.</p>
+   */
+  ResourceType?: string;
+
+  /**
    * <p>The date and time that a resource was last backed up, in Unix format and Coordinated
    *          Universal Time (UTC). The value of <code>LastBackupTime</code> is accurate to milliseconds.
    *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
    *          AM.</p>
    */
   LastBackupTime?: Date;
-
-  /**
-   * <p>The type of AWS resource saved as a recovery point; for example, an EBS volume or an
-   *          Amazon RDS database.</p>
-   */
-  ResourceType?: string;
 }
 
 export namespace DescribeProtectedResourceOutput {
@@ -1635,26 +1743,55 @@ export enum StorageClass {
 
 export interface DescribeRecoveryPointOutput {
   /**
-   * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
-   *          it expires. AWS Backup transitions and expires backups automatically according to the
-   *          lifecycle that you define. </p>
-   *          <p>Backups that are transitioned to cold storage must be stored in cold storage for a
-   *          minimum of 90 days. Therefore, the “expire after days” setting must be 90 days greater than
-   *          the “transition to cold after days” setting. The “transition to cold after days” setting
-   *          cannot be changed after a backup has been transitioned to cold. </p>
+   * <p>An ARN that uniquely identifies a recovery point; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    */
-  Lifecycle?: Lifecycle;
+  RecoveryPointArn?: string;
 
   /**
-   * <p>The size, in bytes, of a backup.</p>
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the Region where they are
+   *          created. They consist of lowercase letters, numbers, and hyphens.</p>
    */
-  BackupSizeInBytes?: number;
+  BackupVaultName?: string;
 
   /**
    * <p>An ARN that uniquely identifies a backup vault; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
    */
   BackupVaultArn?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies the source vault where the resource was originally backed up in; for example,
+   *          <code>arn:aws:backup:us-east-1:123456789012:vault:BackupVault</code>. If the recovery is restored to the same AWS account or Region, this value will be <code>null</code>.</p>
+   */
+  SourceBackupVaultArn?: string;
+
+  /**
+   * <p>An ARN that uniquely identifies a saved resource. The format of the ARN depends on the
+   *          resource type.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The type of AWS resource to save as a recovery point; for example, an Amazon Elastic
+   *          Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS)
+   *          database.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>Contains identifying information about the creation of a recovery point, including the
+   *             <code>BackupPlanArn</code>, <code>BackupPlanId</code>, <code>BackupPlanVersion</code>,
+   *          and <code>BackupRuleId</code> of the backup plan used to create it.</p>
+   */
+  CreatedBy?: RecoveryPointCreator;
+
+  /**
+   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
+   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   */
+  IamRoleArn?: string;
 
   /**
    * <p>A status code specifying the state of the recovery point.</p>
@@ -1674,40 +1811,6 @@ export interface DescribeRecoveryPointOutput {
   CreationDate?: Date;
 
   /**
-   * <p>The server-side encryption key used to protect your backups; for example,
-   *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
-   */
-  EncryptionKeyArn?: string;
-
-  /**
-   * <p>Specifies the storage class of the recovery point. Valid values are <code>WARM</code> or
-   *             <code>COLD</code>.</p>
-   */
-  StorageClass?: StorageClass | string;
-
-  /**
-   * <p>Contains identifying information about the creation of a recovery point, including the
-   *             <code>BackupPlanArn</code>, <code>BackupPlanId</code>, <code>BackupPlanVersion</code>,
-   *          and <code>BackupRuleId</code> of the backup plan used to create it.</p>
-   */
-  CreatedBy?: RecoveryPointCreator;
-
-  /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the Region where they are
-   *          created. They consist of lowercase letters, numbers, and hyphens.</p>
-   */
-  BackupVaultName?: string;
-
-  /**
-   * <p>The date and time that a recovery point was last restored, in Unix format and
-   *          Coordinated Universal Time (UTC). The value of <code>LastRestoreTime</code> is accurate to
-   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
-   *          12:11:30.087 AM.</p>
-   */
-  LastRestoreTime?: Date;
-
-  /**
    * <p>The date and time that a job to create a recovery point is completed, in Unix format and
    *          Coordinated Universal Time (UTC). The value of <code>CompletionDate</code> is accurate to
    *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
@@ -1716,29 +1819,9 @@ export interface DescribeRecoveryPointOutput {
   CompletionDate?: Date;
 
   /**
-   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
-   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   * <p>The size, in bytes, of a backup.</p>
    */
-  IamRoleArn?: string;
-
-  /**
-   * <p>The type of AWS resource to save as a recovery point; for example, an Amazon Elastic
-   *          Block Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS)
-   *          database.</p>
-   */
-  ResourceType?: string;
-
-  /**
-   * <p>An ARN that uniquely identifies a recovery point; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
-   */
-  RecoveryPointArn?: string;
-
-  /**
-   * <p>An ARN that uniquely identifies a saved resource. The format of the ARN depends on the
-   *          resource type.</p>
-   */
-  ResourceArn?: string;
+  BackupSizeInBytes?: number;
 
   /**
    * <p>A <code>CalculatedLifecycle</code> object containing <code>DeleteAt</code> and
@@ -1747,10 +1830,41 @@ export interface DescribeRecoveryPointOutput {
   CalculatedLifecycle?: CalculatedLifecycle;
 
   /**
+   * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
+   *          it expires. AWS Backup transitions and expires backups automatically according to the
+   *          lifecycle that you define. </p>
+   *          <p>Backups that are transitioned to cold storage must be stored in cold storage for a
+   *          minimum of 90 days. Therefore, the “expire after days” setting must be 90 days greater than
+   *          the “transition to cold after days” setting. The “transition to cold after days” setting
+   *          cannot be changed after a backup has been transitioned to cold. </p>
+   */
+  Lifecycle?: Lifecycle;
+
+  /**
+   * <p>The server-side encryption key used to protect your backups; for example,
+   *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   */
+  EncryptionKeyArn?: string;
+
+  /**
    * <p>A Boolean value that is returned as <code>TRUE</code> if the specified recovery point is
    *          encrypted, or <code>FALSE</code> if the recovery point is not encrypted.</p>
    */
   IsEncrypted?: boolean;
+
+  /**
+   * <p>Specifies the storage class of the recovery point. Valid values are <code>WARM</code> or
+   *             <code>COLD</code>.</p>
+   */
+  StorageClass?: StorageClass | string;
+
+  /**
+   * <p>The date and time that a recovery point was last restored, in Unix format and
+   *          Coordinated Universal Time (UTC). The value of <code>LastRestoreTime</code> is accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  LastRestoreTime?: Date;
 }
 
 export namespace DescribeRecoveryPointOutput {
@@ -1769,7 +1883,7 @@ export namespace DescribeRegionSettingsInput {
 
 export interface DescribeRegionSettingsOutput {
   /**
-   * <p>Returns a list of all services along with the opt-in preferences in the region.</p>
+   * <p>Returns a list of all services along with the opt-in preferences in the Region.</p>
    */
   ResourceTypeOptInPreference?: { [key: string]: boolean };
 }
@@ -1803,15 +1917,20 @@ export enum RestoreJobStatus {
 
 export interface DescribeRestoreJobOutput {
   /**
-   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
-   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   * <p>Returns the account ID that owns the restore job.</p>
    */
-  IamRoleArn?: string;
+  AccountId?: string;
 
   /**
-   * <p>Returns metadata associated with a restore job listed by resource type.</p>
+   * <p>Uniquely identifies the job that restores a recovery point.</p>
    */
-  ResourceType?: string;
+  RestoreJobId?: string;
+
+  /**
+   * <p>An ARN that uniquely identifies a recovery point; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   */
+  RecoveryPointArn?: string;
 
   /**
    * <p>The date and time that a restore job is created, in Unix format and Coordinated
@@ -1836,22 +1955,9 @@ export interface DescribeRestoreJobOutput {
   Status?: RestoreJobStatus | string;
 
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource whose recovery point
-   *          is being restored. The format of the ARN depends on the resource type of the backed-up
-   *          resource.</p>
+   * <p>A message showing the status of a job to restore a recovery point.</p>
    */
-  CreatedResourceArn?: string;
-
-  /**
-   * <p>The size, in bytes, of the restored resource.</p>
-   */
-  BackupSizeInBytes?: number;
-
-  /**
-   * <p>An ARN that uniquely identifies a recovery point; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
-   */
-  RecoveryPointArn?: string;
+  StatusMessage?: string;
 
   /**
    * <p>Contains an estimated percentage that is complete of a job at the time the job status
@@ -1860,25 +1966,33 @@ export interface DescribeRestoreJobOutput {
   PercentDone?: string;
 
   /**
-   * <p>Returns the account ID that owns the restore job.</p>
+   * <p>The size, in bytes, of the restored resource.</p>
    */
-  AccountId?: string;
+  BackupSizeInBytes?: number;
 
   /**
-   * <p>Uniquely identifies the job that restores a recovery point.</p>
+   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
+   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
    */
-  RestoreJobId?: string;
-
-  /**
-   * <p>A message showing the status of a job to restore a recovery point.</p>
-   */
-  StatusMessage?: string;
+  IamRoleArn?: string;
 
   /**
    * <p>The amount of time in minutes that a job restoring a recovery point is expected to
    *          take.</p>
    */
   ExpectedCompletionTimeMinutes?: number;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource whose recovery point
+   *          is being restored. The format of the ARN depends on the resource type of the backed-up
+   *          resource.</p>
+   */
+  CreatedResourceArn?: string;
+
+  /**
+   * <p>Returns metadata associated with a restore job listed by resource type.</p>
+   */
+  ResourceType?: string;
 }
 
 export namespace DescribeRestoreJobOutput {
@@ -1920,15 +2034,15 @@ export namespace ExportBackupPlanTemplateOutput {
 
 export interface GetBackupPlanInput {
   /**
+   * <p>Uniquely identifies a backup plan.</p>
+   */
+  BackupPlanId: string | undefined;
+
+  /**
    * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
    *          long. Version IDs cannot be edited.</p>
    */
   VersionId?: string;
-
-  /**
-   * <p>Uniquely identifies a backup plan.</p>
-   */
-  BackupPlanId: string | undefined;
 }
 
 export namespace GetBackupPlanInput {
@@ -1939,10 +2053,10 @@ export namespace GetBackupPlanInput {
 
 export interface GetBackupPlanOutput {
   /**
-   * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of executing the operation twice.</p>
+   * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code> and one or
+   *          more sets of <code>Rules</code>.</p>
    */
-  CreatorRequestId?: string;
+  BackupPlan?: BackupPlan;
 
   /**
    * <p>Uniquely identifies a backup plan.</p>
@@ -1950,10 +2064,22 @@ export interface GetBackupPlanOutput {
   BackupPlanId?: string;
 
   /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
+   */
+  BackupPlanArn?: string;
+
+  /**
    * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
    *          long. Version IDs cannot be edited.</p>
    */
   VersionId?: string;
+
+  /**
+   * <p>A unique string that identifies the request and allows failed requests to be retried
+   *          without the risk of running the operation twice.</p>
+   */
+  CreatorRequestId?: string;
 
   /**
    * <p>The date and time that a backup plan is created, in Unix format and Coordinated
@@ -1972,24 +2098,18 @@ export interface GetBackupPlanOutput {
   DeletionDate?: Date;
 
   /**
-   * <p>The last time a job to back up resources was executed with this backup plan. A date and
-   *          time, in Unix format and Coordinated Universal Time (UTC). The value of
+   * <p>The last time a job to back up resources was run with this backup plan. A date and time,
+   *          in Unix format and Coordinated Universal Time (UTC). The value of
    *             <code>LastExecutionDate</code> is accurate to milliseconds. For example, the value
    *          1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    */
   LastExecutionDate?: Date;
 
   /**
-   * <p>Specifies the body of a backup plan. Includes a <code>BackupPlanName</code> and one or
-   *          more sets of <code>Rules</code>.</p>
+   * <p>Contains a list of <code>BackupOptions</code> for each resource type. The list is
+   *          populated only if the advanced option is set for the backup plan.</p>
    */
-  BackupPlan?: BackupPlan;
-
-  /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup plan; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:plan:8F81F553-3A74-4A3F-B93D-B3360DC80C50</code>.</p>
-   */
-  BackupPlanArn?: string;
+  AdvancedBackupSettings?: AdvancedBackupSetting[];
 }
 
 export namespace GetBackupPlanOutput {
@@ -2057,15 +2177,15 @@ export namespace GetBackupPlanFromTemplateOutput {
 
 export interface GetBackupSelectionInput {
   /**
+   * <p>Uniquely identifies a backup plan.</p>
+   */
+  BackupPlanId: string | undefined;
+
+  /**
    * <p>Uniquely identifies the body of a request to assign a set of resources to a backup
    *          plan.</p>
    */
   SelectionId: string | undefined;
-
-  /**
-   * <p>Uniquely identifies a backup plan.</p>
-   */
-  BackupPlanId: string | undefined;
 }
 
 export namespace GetBackupSelectionInput {
@@ -2076,12 +2196,9 @@ export namespace GetBackupSelectionInput {
 
 export interface GetBackupSelectionOutput {
   /**
-   * <p>The date and time a backup selection is created, in Unix format and Coordinated
-   *          Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds.
-   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
-   *          AM.</p>
+   * <p>Specifies the body of a request to assign a set of resources to a backup plan.</p>
    */
-  CreationDate?: Date;
+  BackupSelection?: BackupSelection;
 
   /**
    * <p>Uniquely identifies the body of a request to assign a set of resources to a backup
@@ -2090,20 +2207,23 @@ export interface GetBackupSelectionOutput {
   SelectionId?: string;
 
   /**
-   * <p>A unique string that identifies the request and allows failed requests to be retried
-   *          without the risk of executing the operation twice.</p>
-   */
-  CreatorRequestId?: string;
-
-  /**
    * <p>Uniquely identifies a backup plan.</p>
    */
   BackupPlanId?: string;
 
   /**
-   * <p>Specifies the body of a request to assign a set of resources to a backup plan.</p>
+   * <p>The date and time a backup selection is created, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds.
+   *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
    */
-  BackupSelection?: BackupSelection;
+  CreationDate?: Date;
+
+  /**
+   * <p>A unique string that identifies the request and allows failed requests to be retried
+   *          without the risk of running the operation twice.</p>
+   */
+  CreatorRequestId?: string;
 }
 
 export namespace GetBackupSelectionOutput {
@@ -2129,6 +2249,13 @@ export namespace GetBackupVaultAccessPolicyInput {
 
 export interface GetBackupVaultAccessPolicyOutput {
   /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the Region where they are
+   *          created. They consist of lowercase letters, numbers, and hyphens.</p>
+   */
+  BackupVaultName?: string;
+
+  /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
    */
@@ -2138,13 +2265,6 @@ export interface GetBackupVaultAccessPolicyOutput {
    * <p>The backup vault access policy document in JSON format.</p>
    */
   Policy?: string;
-
-  /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the Region where they are
-   *          created. They consist of lowercase letters, numbers, and hyphens.</p>
-   */
-  BackupVaultName?: string;
 }
 
 export namespace GetBackupVaultAccessPolicyOutput {
@@ -2170,6 +2290,13 @@ export namespace GetBackupVaultNotificationsInput {
 
 export interface GetBackupVaultNotificationsOutput {
   /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the Region where they are
+   *          created. They consist of lowercase letters, numbers, and hyphens.</p>
+   */
+  BackupVaultName?: string;
+
+  /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a backup vault; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
    */
@@ -2186,13 +2313,6 @@ export interface GetBackupVaultNotificationsOutput {
    *          vault.</p>
    */
   BackupVaultEvents?: (BackupVaultEvent | string)[];
-
-  /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the Region where they are
-   *          created. They consist of lowercase letters, numbers, and hyphens.</p>
-   */
-  BackupVaultName?: string;
 }
 
 export namespace GetBackupVaultNotificationsOutput {
@@ -2224,13 +2344,6 @@ export namespace GetRecoveryPointRestoreMetadataInput {
 
 export interface GetRecoveryPointRestoreMetadataOutput {
   /**
-   * <p>The set of metadata key-value pairs that describes the original configuration of the
-   *          backed-up resource. These values vary depending on the service that is being
-   *          restored.</p>
-   */
-  RestoreMetadata?: { [key: string]: string };
-
-  /**
    * <p>An ARN that uniquely identifies a backup vault; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
    */
@@ -2241,6 +2354,13 @@ export interface GetRecoveryPointRestoreMetadataOutput {
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    */
   RecoveryPointArn?: string;
+
+  /**
+   * <p>The set of metadata key-value pairs that describe the original configuration of the
+   *          backed-up resource. These values vary depending on the service that is being
+   *          restored.</p>
+   */
+  RestoreMetadata?: { [key: string]: string };
 }
 
 export namespace GetRecoveryPointRestoreMetadataOutput {
@@ -2291,11 +2411,6 @@ export namespace GetSupportedResourceTypesOutput {
 
 export interface ListBackupJobsInput {
   /**
-   * <p>The account ID to list the jobs from. Returns only backup jobs associated with the specified account ID.</p>
-   */
-  ByAccountId?: string;
-
-  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
@@ -2304,9 +2419,9 @@ export interface ListBackupJobsInput {
   NextToken?: string;
 
   /**
-   * <p>Returns only backup jobs that were created after the specified date.</p>
+   * <p>The maximum number of items to be returned.</p>
    */
-  ByCreatedAfter?: Date;
+  MaxResults?: number;
 
   /**
    * <p>Returns only backup jobs that match the specified resource Amazon Resource Name
@@ -2320,9 +2435,22 @@ export interface ListBackupJobsInput {
   ByState?: BackupJobState | string;
 
   /**
-   * <p>The maximum number of items to be returned.</p>
+   * <p>Returns only backup jobs that will be stored in the specified backup vault. Backup
+   *          vaults are identified by names that are unique to the account used to create them and the
+   *          AWS Region where they are created. They consist of lowercase letters, numbers, and
+   *          hyphens.</p>
    */
-  MaxResults?: number;
+  ByBackupVaultName?: string;
+
+  /**
+   * <p>Returns only backup jobs that were created before the specified date.</p>
+   */
+  ByCreatedBefore?: Date;
+
+  /**
+   * <p>Returns only backup jobs that were created after the specified date.</p>
+   */
+  ByCreatedAfter?: Date;
 
   /**
    * <p>Returns only backup jobs for the specified resources:</p>
@@ -2356,17 +2484,9 @@ export interface ListBackupJobsInput {
   ByResourceType?: string;
 
   /**
-   * <p>Returns only backup jobs that were created before the specified date.</p>
+   * <p>The account ID to list the jobs from. Returns only backup jobs associated with the specified account ID.</p>
    */
-  ByCreatedBefore?: Date;
-
-  /**
-   * <p>Returns only backup jobs that will be stored in the specified backup vault. Backup
-   *          vaults are identified by names that are unique to the account used to create them and the
-   *          AWS Region where they are created. They consist of lowercase letters, numbers, and
-   *          hyphens.</p>
-   */
-  ByBackupVaultName?: string;
+  ByAccountId?: string;
 }
 
 export namespace ListBackupJobsInput {
@@ -2426,18 +2546,18 @@ export namespace ListBackupPlansInput {
 
 export interface ListBackupPlansOutput {
   /**
-   * <p>An array of backup plan list items containing metadata about your saved backup
-   *          plans.</p>
-   */
-  BackupPlansList?: BackupPlansListMember[];
-
-  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of backup plan list items containing metadata about your saved backup
+   *          plans.</p>
+   */
+  BackupPlansList?: BackupPlansListMember[];
 }
 
 export namespace ListBackupPlansOutput {
@@ -2448,17 +2568,17 @@ export namespace ListBackupPlansOutput {
 
 export interface ListBackupPlanTemplatesInput {
   /**
-   * <p>The maximum number of items to be returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to be returned.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListBackupPlanTemplatesInput {
@@ -2469,17 +2589,17 @@ export namespace ListBackupPlanTemplatesInput {
 
 export interface ListBackupPlanTemplatesOutput {
   /**
-   * <p>An array of template list items containing metadata about your saved templates.</p>
-   */
-  BackupPlanTemplatesList?: BackupPlanTemplatesListMember[];
-
-  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of template list items containing metadata about your saved templates.</p>
+   */
+  BackupPlanTemplatesList?: BackupPlanTemplatesListMember[];
 }
 
 export namespace ListBackupPlanTemplatesOutput {
@@ -2495,17 +2615,17 @@ export interface ListBackupPlanVersionsInput {
   BackupPlanId: string | undefined;
 
   /**
-   * <p>The maximum number of items to be returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to be returned.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListBackupPlanVersionsInput {
@@ -2537,6 +2657,11 @@ export namespace ListBackupPlanVersionsOutput {
 
 export interface ListBackupSelectionsInput {
   /**
+   * <p>Uniquely identifies a backup plan.</p>
+   */
+  BackupPlanId: string | undefined;
+
+  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
@@ -2548,11 +2673,6 @@ export interface ListBackupSelectionsInput {
    * <p>The maximum number of items to be returned.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>Uniquely identifies a backup plan.</p>
-   */
-  BackupPlanId: string | undefined;
 }
 
 export namespace ListBackupSelectionsInput {
@@ -2563,18 +2683,18 @@ export namespace ListBackupSelectionsInput {
 
 export interface ListBackupSelectionsOutput {
   /**
-   * <p>An array of backup selection list items containing metadata about each resource in the
-   *          list.</p>
-   */
-  BackupSelectionsList?: BackupSelectionsListMember[];
-
-  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of backup selection list items containing metadata about each resource in the
+   *          list.</p>
+   */
+  BackupSelectionsList?: BackupSelectionsListMember[];
 }
 
 export namespace ListBackupSelectionsOutput {
@@ -2585,17 +2705,17 @@ export namespace ListBackupSelectionsOutput {
 
 export interface ListBackupVaultsInput {
   /**
-   * <p>The maximum number of items to be returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to be returned.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListBackupVaultsInput {
@@ -2629,14 +2749,11 @@ export namespace ListBackupVaultsOutput {
 
 export interface ListCopyJobsInput {
   /**
-   * <p>The account ID to list the jobs from. Returns only copy jobs associated with the specified account ID.</p>
+   * <p>The next item following a partial list of returned items.
+   *          For example, if a request is made to return maxResults number of items,
+   *          NextToken allows you to return more items in your list starting at the location pointed to by the next token. </p>
    */
-  ByAccountId?: string;
-
-  /**
-   * <p>Returns only copy jobs that match the specified resource Amazon Resource Name (ARN). </p>
-   */
-  ByResourceArn?: string;
+  NextToken?: string;
 
   /**
    * <p>The maximum number of items to be returned.</p>
@@ -2644,9 +2761,19 @@ export interface ListCopyJobsInput {
   MaxResults?: number;
 
   /**
+   * <p>Returns only copy jobs that match the specified resource Amazon Resource Name (ARN). </p>
+   */
+  ByResourceArn?: string;
+
+  /**
    * <p>Returns only copy jobs that are in the specified state.</p>
    */
   ByState?: CopyJobState | string;
+
+  /**
+   * <p>Returns only copy jobs that were created before the specified date.</p>
+   */
+  ByCreatedBefore?: Date;
 
   /**
    * <p>Returns only copy jobs that were created after the specified date.</p>
@@ -2685,22 +2812,15 @@ export interface ListCopyJobsInput {
   ByResourceType?: string;
 
   /**
-   * <p>The next item following a partial list of returned items.
-   *          For example, if a request is made to return maxResults number of items,
-   *          NextToken allows you to return more items in your list starting at the location pointed to by the next token. </p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Returns only copy jobs that were created before the specified date.</p>
-   */
-  ByCreatedBefore?: Date;
-
-  /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a source backup vault to copy
    *          from; for example, <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>. </p>
    */
   ByDestinationVaultArn?: string;
+
+  /**
+   * <p>The account ID to list the jobs from. Returns only copy jobs associated with the specified account ID.</p>
+   */
+  ByAccountId?: string;
 }
 
 export namespace ListCopyJobsInput {
@@ -2754,8 +2874,14 @@ export namespace ListProtectedResourcesInput {
  */
 export interface ProtectedResource {
   /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
+   *          depends on the resource type.</p>
+   */
+  ResourceArn?: string;
+
+  /**
    * <p>The type of AWS resource; for example, an Amazon Elastic Block Store (Amazon EBS) volume
-   *          or an Amazon Relational Database Service (Amazon RDS) database.</p>
+   *          or an Amazon Relational Database Service (Amazon RDS) database. For VSS Windows backups, the only supported resource type is Amazon EC2.</p>
    */
   ResourceType?: string;
 
@@ -2766,12 +2892,6 @@ export interface ProtectedResource {
    *          AM.</p>
    */
   LastBackupTime?: Date;
-
-  /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
-   *          depends on the resource type.</p>
-   */
-  ResourceArn?: string;
 }
 
 export namespace ProtectedResource {
@@ -2782,19 +2902,19 @@ export namespace ProtectedResource {
 
 export interface ListProtectedResourcesOutput {
   /**
+   * <p>An array of resources successfully backed up by AWS Backup including the time the
+   *          resource was saved, an Amazon Resource Name (ARN) of the resource, and a resource
+   *          type.</p>
+   */
+  Results?: ProtectedResource[];
+
+  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>An array of resources successfully backed up by AWS Backup including the time the
-   *          resource was saved, an Amazon Resource Name (ARN) of the resource, and a resource
-   *          type.</p>
-   */
-  Results?: ProtectedResource[];
 }
 
 export namespace ListProtectedResourcesOutput {
@@ -2805,6 +2925,13 @@ export namespace ListProtectedResourcesOutput {
 
 export interface ListRecoveryPointsByBackupVaultInput {
   /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the AWS Region where they
+   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   */
+  BackupVaultName: string | undefined;
+
+  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
@@ -2813,11 +2940,9 @@ export interface ListRecoveryPointsByBackupVaultInput {
   NextToken?: string;
 
   /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   * <p>The maximum number of items to be returned.</p>
    */
-  BackupVaultName: string | undefined;
+  MaxResults?: number;
 
   /**
    * <p>Returns only recovery points that match the specified resource Amazon Resource Name
@@ -2826,19 +2951,14 @@ export interface ListRecoveryPointsByBackupVaultInput {
   ByResourceArn?: string;
 
   /**
+   * <p>Returns only recovery points that match the specified resource type.</p>
+   */
+  ByResourceType?: string;
+
+  /**
    * <p>Returns only recovery points that match the specified backup plan ID.</p>
    */
   ByBackupPlanId?: string;
-
-  /**
-   * <p>The maximum number of items to be returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Returns only recovery points that were created after the specified timestamp.</p>
-   */
-  ByCreatedAfter?: Date;
 
   /**
    * <p>Returns only recovery points that were created before the specified timestamp.</p>
@@ -2846,9 +2966,9 @@ export interface ListRecoveryPointsByBackupVaultInput {
   ByCreatedBefore?: Date;
 
   /**
-   * <p>Returns only recovery points that match the specified resource type.</p>
+   * <p>Returns only recovery points that were created after the specified timestamp.</p>
    */
-  ByResourceType?: string;
+  ByCreatedAfter?: Date;
 }
 
 export namespace ListRecoveryPointsByBackupVaultInput {
@@ -2862,9 +2982,17 @@ export namespace ListRecoveryPointsByBackupVaultInput {
  */
 export interface RecoveryPointByBackupVault {
   /**
-   * <p>The size, in bytes, of a backup.</p>
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    */
-  BackupSizeInBytes?: number;
+  RecoveryPointArn?: string;
+
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the AWS Region where they
+   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   */
+  BackupVaultName?: string;
 
   /**
    * <p>An ARN that uniquely identifies a backup vault; for example,
@@ -2873,10 +3001,49 @@ export interface RecoveryPointByBackupVault {
   BackupVaultArn?: string;
 
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   * <p>The backup vault where the recovery point was originally copied from.
+   *          If the recovery point is restored to the same account this value will be <code>null</code>.</p>
    */
-  RecoveryPointArn?: string;
+  SourceBackupVaultArn?: string;
+
+  /**
+   * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the
+   *          resource type.</p>
+   */
+  ResourceArn?: string;
+
+  /**
+   * <p>The type of AWS resource saved as a recovery point; for example, an Amazon Elastic Block
+   *          Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS)
+   *          database. For VSS Windows backups, the only supported resource type is Amazon EC2.</p>
+   */
+  ResourceType?: string;
+
+  /**
+   * <p>Contains identifying information about the creation of a recovery point, including the
+   *             <code>BackupPlanArn</code>, <code>BackupPlanId</code>, <code>BackupPlanVersion</code>,
+   *          and <code>BackupRuleId</code> of the backup plan that is used to create it.</p>
+   */
+  CreatedBy?: RecoveryPointCreator;
+
+  /**
+   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
+   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>A status code specifying the state of the recovery point.</p>
+   */
+  Status?: RecoveryPointStatus | string;
+
+  /**
+   * <p>The date and time a recovery point is created, in Unix format and Coordinated Universal
+   *          Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For
+   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
+   *          AM.</p>
+   */
+  CreationDate?: Date;
 
   /**
    * <p>The date and time a job to restore a recovery point is completed, in Unix format and
@@ -2887,76 +3054,15 @@ export interface RecoveryPointByBackupVault {
   CompletionDate?: Date;
 
   /**
-   * <p>The type of AWS resource saved as a recovery point; for example, an Amazon Elastic Block
-   *          Store (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS)
-   *          database.</p>
+   * <p>The size, in bytes, of a backup.</p>
    */
-  ResourceType?: string;
-
-  /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
-   */
-  BackupVaultName?: string;
-
-  /**
-   * <p>A status code specifying the state of the recovery point.</p>
-   */
-  Status?: RecoveryPointStatus | string;
-
-  /**
-   * <p>The server-side encryption key that is used to protect your backups; for example,
-   *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
-   */
-  EncryptionKeyArn?: string;
-
-  /**
-   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
-   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
-   */
-  IamRoleArn?: string;
-
-  /**
-   * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the
-   *          resource type.</p>
-   */
-  ResourceArn?: string;
+  BackupSizeInBytes?: number;
 
   /**
    * <p>A <code>CalculatedLifecycle</code> object containing <code>DeleteAt</code> and
    *             <code>MoveToColdStorageAt</code> timestamps.</p>
    */
   CalculatedLifecycle?: CalculatedLifecycle;
-
-  /**
-   * <p>The date and time a recovery point was last restored, in Unix format and Coordinated
-   *          Universal Time (UTC). The value of <code>LastRestoreTime</code> is accurate to
-   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
-   *          12:11:30.087 AM.</p>
-   */
-  LastRestoreTime?: Date;
-
-  /**
-   * <p>A Boolean value that is returned as <code>TRUE</code> if the specified recovery point is
-   *          encrypted, or <code>FALSE</code> if the recovery point is not encrypted.</p>
-   */
-  IsEncrypted?: boolean;
-
-  /**
-   * <p>Contains identifying information about the creation of a recovery point, including the
-   *             <code>BackupPlanArn</code>, <code>BackupPlanId</code>, <code>BackupPlanVersion</code>,
-   *          and <code>BackupRuleId</code> of the backup plan that is used to create it.</p>
-   */
-  CreatedBy?: RecoveryPointCreator;
-
-  /**
-   * <p>The date and time a recovery point is created, in Unix format and Coordinated Universal
-   *          Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For
-   *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
-   *          AM.</p>
-   */
-  CreationDate?: Date;
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
@@ -2968,6 +3074,26 @@ export interface RecoveryPointByBackupVault {
    *          be changed after a backup has been transitioned to cold. </p>
    */
   Lifecycle?: Lifecycle;
+
+  /**
+   * <p>The server-side encryption key that is used to protect your backups; for example,
+   *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
+   */
+  EncryptionKeyArn?: string;
+
+  /**
+   * <p>A Boolean value that is returned as <code>TRUE</code> if the specified recovery point is
+   *          encrypted, or <code>FALSE</code> if the recovery point is not encrypted.</p>
+   */
+  IsEncrypted?: boolean;
+
+  /**
+   * <p>The date and time a recovery point was last restored, in Unix format and Coordinated
+   *          Universal Time (UTC). The value of <code>LastRestoreTime</code> is accurate to
+   *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
+   *          12:11:30.087 AM.</p>
+   */
+  LastRestoreTime?: Date;
 }
 
 export namespace RecoveryPointByBackupVault {
@@ -2978,18 +3104,18 @@ export namespace RecoveryPointByBackupVault {
 
 export interface ListRecoveryPointsByBackupVaultOutput {
   /**
-   * <p>An array of objects that contain detailed information about recovery points saved in a
-   *          backup vault.</p>
-   */
-  RecoveryPoints?: RecoveryPointByBackupVault[];
-
-  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of objects that contain detailed information about recovery points saved in a
+   *          backup vault.</p>
+   */
+  RecoveryPoints?: RecoveryPointByBackupVault[];
 }
 
 export namespace ListRecoveryPointsByBackupVaultOutput {
@@ -2999,11 +3125,6 @@ export namespace ListRecoveryPointsByBackupVaultOutput {
 }
 
 export interface ListRecoveryPointsByResourceInput {
-  /**
-   * <p>The maximum number of items to be returned.</p>
-   */
-  MaxResults?: number;
-
   /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the
    *          resource type.</p>
@@ -3017,6 +3138,11 @@ export interface ListRecoveryPointsByResourceInput {
    *          token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to be returned.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListRecoveryPointsByResourceInput {
@@ -3030,9 +3156,10 @@ export namespace ListRecoveryPointsByResourceInput {
  */
 export interface RecoveryPointByResource {
   /**
-   * <p>A status code specifying the state of the recovery point.</p>
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    */
-  Status?: RecoveryPointStatus | string;
+  RecoveryPointArn?: string;
 
   /**
    * <p>The date and time a recovery point is created, in Unix format and Coordinated Universal
@@ -3043,11 +3170,9 @@ export interface RecoveryPointByResource {
   CreationDate?: Date;
 
   /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   * <p>A status code specifying the state of the recovery point.</p>
    */
-  BackupVaultName?: string;
+  Status?: RecoveryPointStatus | string;
 
   /**
    * <p>The server-side encryption key that is used to protect your backups; for example,
@@ -3056,15 +3181,16 @@ export interface RecoveryPointByResource {
   EncryptionKeyArn?: string;
 
   /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
-   */
-  RecoveryPointArn?: string;
-
-  /**
    * <p>The size, in bytes, of a backup.</p>
    */
   BackupSizeBytes?: number;
+
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the AWS Region where they
+   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   */
+  BackupVaultName?: string;
 }
 
 export namespace RecoveryPointByResource {
@@ -3075,18 +3201,18 @@ export namespace RecoveryPointByResource {
 
 export interface ListRecoveryPointsByResourceOutput {
   /**
-   * <p>An array of objects that contain detailed information about recovery points of the
-   *          specified resource type.</p>
-   */
-  RecoveryPoints?: RecoveryPointByResource[];
-
-  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>An array of objects that contain detailed information about recovery points of the
+   *          specified resource type.</p>
+   */
+  RecoveryPoints?: RecoveryPointByResource[];
 }
 
 export namespace ListRecoveryPointsByResourceOutput {
@@ -3105,9 +3231,19 @@ export interface ListRestoreJobsInput {
   NextToken?: string;
 
   /**
+   * <p>The maximum number of items to be returned.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The account ID to list the jobs from. Returns only restore jobs associated with the specified account ID.</p>
    */
   ByAccountId?: string;
+
+  /**
+   * <p>Returns only restore jobs that were created before the specified date.</p>
+   */
+  ByCreatedBefore?: Date;
 
   /**
    * <p>Returns only restore jobs that were created after the specified date.</p>
@@ -3118,16 +3254,6 @@ export interface ListRestoreJobsInput {
    * <p>Returns only restore jobs associated with the specified job status.</p>
    */
   ByStatus?: RestoreJobStatus | string;
-
-  /**
-   * <p>The maximum number of items to be returned.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Returns only restore jobs that were created before the specified date.</p>
-   */
-  ByCreatedBefore?: Date;
 }
 
 export namespace ListRestoreJobsInput {
@@ -3141,16 +3267,20 @@ export namespace ListRestoreJobsInput {
  */
 export interface RestoreJobsListMember {
   /**
-   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
-   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   * <p>The account ID that owns the restore job.</p>
    */
-  IamRoleArn?: string;
+  AccountId?: string;
 
   /**
-   * <p>The resource type of the listed restore jobs; for example, an Amazon Elastic Block Store
-   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database.</p>
+   * <p>Uniquely identifies the job that restores a recovery point.</p>
    */
-  ResourceType?: string;
+  RestoreJobId?: string;
+
+  /**
+   * <p>An ARN that uniquely identifies a recovery point; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   */
+  RecoveryPointArn?: string;
 
   /**
    * <p>The date and time a restore job is created, in Unix format and Coordinated Universal
@@ -3161,18 +3291,6 @@ export interface RestoreJobsListMember {
   CreationDate?: Date;
 
   /**
-   * <p>A status code specifying the state of the job initiated by AWS Backup to restore a
-   *          recovery point.</p>
-   */
-  Status?: RestoreJobStatus | string;
-
-  /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
-   *          depends on the resource type.</p>
-   */
-  CreatedResourceArn?: string;
-
-  /**
    * <p>The date and time a job to restore a recovery point is completed, in Unix format and
    *          Coordinated Universal Time (UTC). The value of <code>CompletionDate</code> is accurate to
    *          milliseconds. For example, the value 1516925490.087 represents Friday, January 26, 2018
@@ -3181,31 +3299,10 @@ export interface RestoreJobsListMember {
   CompletionDate?: Date;
 
   /**
-   * <p>An ARN that uniquely identifies a recovery point; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   * <p>A status code specifying the state of the job initiated by AWS Backup to restore a
+   *          recovery point.</p>
    */
-  RecoveryPointArn?: string;
-
-  /**
-   * <p>The size, in bytes, of the restored resource.</p>
-   */
-  BackupSizeInBytes?: number;
-
-  /**
-   * <p>The amount of time in minutes that a job restoring a recovery point is expected to
-   *          take.</p>
-   */
-  ExpectedCompletionTimeMinutes?: number;
-
-  /**
-   * <p>The account ID that owns the restore job.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>Uniquely identifies the job that restores a recovery point.</p>
-   */
-  RestoreJobId?: string;
+  Status?: RestoreJobStatus | string;
 
   /**
    * <p>A detailed message explaining the status of the job to restore a recovery point.</p>
@@ -3217,6 +3314,35 @@ export interface RestoreJobsListMember {
    *          queried.</p>
    */
   PercentDone?: string;
+
+  /**
+   * <p>The size, in bytes, of the restored resource.</p>
+   */
+  BackupSizeInBytes?: number;
+
+  /**
+   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
+   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   */
+  IamRoleArn?: string;
+
+  /**
+   * <p>The amount of time in minutes that a job restoring a recovery point is expected to
+   *          take.</p>
+   */
+  ExpectedCompletionTimeMinutes?: number;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
+   *          depends on the resource type.</p>
+   */
+  CreatedResourceArn?: string;
+
+  /**
+   * <p>The resource type of the listed restore jobs; for example, an Amazon Elastic Block Store
+   *          (Amazon EBS) volume or an Amazon Relational Database Service (Amazon RDS) database. For VSS Windows backups, the only supported resource type is Amazon EC2.</p>
+   */
+  ResourceType?: string;
 }
 
 export namespace RestoreJobsListMember {
@@ -3249,19 +3375,19 @@ export namespace ListRestoreJobsOutput {
 
 export interface ListTagsInput {
   /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
+   *          depends on the type of resource. Valid targets for <code>ListTags</code> are recovery
+   *          points, backup plans, and backup vaults.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a resource. The format of the ARN
-   *          depends on the type of resource. Valid targets for <code>ListTags</code> are recovery
-   *          points, backup plans, and backup vaults.</p>
-   */
-  ResourceArn: string | undefined;
 
   /**
    * <p>The maximum number of items to be returned.</p>
@@ -3277,18 +3403,18 @@ export namespace ListTagsInput {
 
 export interface ListTagsOutput {
   /**
-   * <p>To help organize your resources, you can assign your own metadata to the resources you
-   *          create. Each tag is a key-value pair.</p>
-   */
-  Tags?: { [key: string]: string };
-
-  /**
    * <p>The next item following a partial list of returned items. For example, if a request is
    *          made to return <code>maxResults</code> number of items, <code>NextToken</code> allows you
    *          to return more items in your list starting at the location pointed to by the next
    *          token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>To help organize your resources, you can assign your own metadata to the resources you
+   *          create. Each tag is a key-value pair.</p>
+   */
+  Tags?: { [key: string]: string };
 }
 
 export namespace ListTagsOutput {
@@ -3300,16 +3426,16 @@ export namespace ListTagsOutput {
 
 export interface PutBackupVaultAccessPolicyInput {
   /**
-   * <p>The backup vault access policy document in JSON format.</p>
-   */
-  Policy?: string;
-
-  /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
    *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
    */
   BackupVaultName: string | undefined;
+
+  /**
+   * <p>The backup vault access policy document in JSON format.</p>
+   */
+  Policy?: string;
 }
 
 export namespace PutBackupVaultAccessPolicyInput {
@@ -3320,10 +3446,11 @@ export namespace PutBackupVaultAccessPolicyInput {
 
 export interface PutBackupVaultNotificationsInput {
   /**
-   * <p>An array of events that indicate the status of jobs to back up resources to the backup
-   *          vault.</p>
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the AWS Region where they
+   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
    */
-  BackupVaultEvents: (BackupVaultEvent | string)[] | undefined;
+  BackupVaultName: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events; for
@@ -3332,11 +3459,10 @@ export interface PutBackupVaultNotificationsInput {
   SNSTopicArn: string | undefined;
 
   /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   * <p>An array of events that indicate the status of jobs to back up resources to the backup
+   *          vault.</p>
    */
-  BackupVaultName: string | undefined;
+  BackupVaultEvents: (BackupVaultEvent | string)[] | undefined;
 }
 
 export namespace PutBackupVaultNotificationsInput {
@@ -3346,39 +3472,6 @@ export namespace PutBackupVaultNotificationsInput {
 }
 
 export interface StartBackupJobInput {
-  /**
-   * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
-   *          it expires. AWS Backup will transition and expire backups automatically according to the
-   *          lifecycle that you define. </p>
-   *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
-   *          days. Therefore, the “expire after days” setting must be 90 days greater than the
-   *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
-   *          be changed after a backup has been transitioned to cold. </p>
-   */
-  Lifecycle?: Lifecycle;
-
-  /**
-   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it doesn't start successfully. This value is optional.</p>
-   */
-  StartWindowMinutes?: number;
-
-  /**
-   * <p>A value in minutes after a backup job is successfully started before it must be completed or it will be canceled by AWS Backup. This value is optional.</p>
-   */
-  CompleteWindowMinutes?: number;
-
-  /**
-   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
-   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
-   */
-  IamRoleArn: string | undefined;
-
-  /**
-   * <p>To help organize your resources, you can assign your own metadata to the resources that
-   *          you create. Each tag is a key-value pair.</p>
-   */
-  RecoveryPointTags?: { [key: string]: string };
-
   /**
    * <p>The name of a logical container where backups are stored. Backup vaults are identified
    *          by names that are unique to the account used to create them and the AWS Region where they
@@ -3393,10 +3486,51 @@ export interface StartBackupJobInput {
   ResourceArn: string | undefined;
 
   /**
+   * <p>Specifies the IAM role ARN used to create the target recovery point; for example,
+   *             <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   */
+  IamRoleArn: string | undefined;
+
+  /**
    * <p>A customer chosen string that can be used to distinguish between calls to
    *             <code>StartBackupJob</code>.</p>
    */
   IdempotencyToken?: string;
+
+  /**
+   * <p>A value in minutes after a backup is scheduled before a job will be canceled if it doesn't start successfully. This value is optional.</p>
+   */
+  StartWindowMinutes?: number;
+
+  /**
+   * <p>A value in minutes after a backup job is successfully started before it must be completed or it will be canceled by AWS Backup. This value is optional.</p>
+   */
+  CompleteWindowMinutes?: number;
+
+  /**
+   * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
+   *          it expires. AWS Backup will transition and expire backups automatically according to the
+   *          lifecycle that you define. </p>
+   *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90
+   *          days. Therefore, the “expire after days” setting must be 90 days greater than the
+   *          “transition to cold after days” setting. The “transition to cold after days” setting cannot
+   *          be changed after a backup has been transitioned to cold. </p>
+   */
+  Lifecycle?: Lifecycle;
+
+  /**
+   * <p>To help organize your resources, you can assign your own metadata to the resources that
+   *          you create. Each tag is a key-value pair.</p>
+   */
+  RecoveryPointTags?: { [key: string]: string };
+
+  /**
+   * <p>Specifies the backup option for a selected resource. This option is only available for
+   *          Windows VSS backup jobs.</p>
+   *          <p>Valid values: Set to <code>"WindowsVSS”:“enabled"</code> to enable WindowsVSS backup option and create a VSS Windows backup.
+   *          Set to “WindowsVSS”:”disabled” to create a regular backup. The WindowsVSS option is not enabled by default.</p>
+   */
+  BackupOptions?: { [key: string]: string };
 }
 
 export namespace StartBackupJobInput {
@@ -3408,15 +3542,15 @@ export namespace StartBackupJobInput {
 
 export interface StartBackupJobOutput {
   /**
+   * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
+   */
+  BackupJobId?: string;
+
+  /**
    * <p>An ARN that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    */
   RecoveryPointArn?: string;
-
-  /**
-   * <p>Uniquely identifies a request to AWS Backup to back up a resource.</p>
-   */
-  BackupJobId?: string;
 
   /**
    * <p>The date and time that a backup job is started, in Unix format and Coordinated Universal
@@ -3435,17 +3569,16 @@ export namespace StartBackupJobOutput {
 
 export interface StartCopyJobInput {
   /**
+   * <p>An ARN that uniquely identifies a recovery point to use for the copy job; for example, arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45. </p>
+   */
+  RecoveryPointArn: string | undefined;
+
+  /**
    * <p>The name of a logical source container where backups are stored.
    *          Backup vaults are identified by names that are unique to the account used to create them and the AWS Region where they are created.
    *          They consist of lowercase letters, numbers, and hyphens.</p>
    */
   SourceBackupVaultName: string | undefined;
-
-  /**
-   * <p>A customer chosen string that can be used to distinguish between calls to
-   *          <code>StartCopyJob</code>.</p>
-   */
-  IdempotencyToken?: string;
 
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a destination backup vault to copy to; for example,
@@ -3460,9 +3593,10 @@ export interface StartCopyJobInput {
   IamRoleArn: string | undefined;
 
   /**
-   * <p>An ARN that uniquely identifies a recovery point to use for the copy job; for example, arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45. </p>
+   * <p>A customer chosen string that can be used to distinguish between calls to
+   *          <code>StartCopyJob</code>.</p>
    */
-  RecoveryPointArn: string | undefined;
+  IdempotencyToken?: string;
 
   /**
    * <p>Contains an array of <code>Transition</code> objects specifying how long in days before
@@ -3483,16 +3617,16 @@ export namespace StartCopyJobInput {
 
 export interface StartCopyJobOutput {
   /**
+   * <p>Uniquely identifies a copy job.</p>
+   */
+  CopyJobId?: string;
+
+  /**
    * <p>The date and time that a copy job is started, in Unix format and Coordinated Universal Time (UTC).
    *          The value of <code>CreationDate</code> is accurate to milliseconds.
    *          For example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087 AM.</p>
    */
   CreationDate?: Date;
-
-  /**
-   * <p>Uniquely identifies a copy job.</p>
-   */
-  CopyJobId?: string;
 }
 
 export namespace StartCopyJobOutput {
@@ -3507,6 +3641,70 @@ export interface StartRestoreJobInput {
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
    */
   RecoveryPointArn: string | undefined;
+
+  /**
+   * <p>A set of metadata key-value pairs. Contains information, such as a resource name,
+   *          required to restore a recovery point.</p>
+   *          <p> You can get configuration metadata about a resource at the time it was backed up by
+   *          calling <code>GetRecoveryPointRestoreMetadata</code>. However, values in addition to those
+   *          provided by <code>GetRecoveryPointRestoreMetadata</code> might be required to restore a
+   *          resource. For example, you might need to provide a new resource name if the original
+   *          already exists.</p>
+   *          <p>You need to specify specific metadata to restore an Amazon Elastic File System (Amazon EFS) instance:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>file-system-id</code>: The ID of the Amazon EFS file system that is backed
+   *                up by AWS Backup. Returned in <code>GetRecoveryPointRestoreMetadata</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Encrypted</code>:  A Boolean value that, if true, specifies that the
+   *                file system is encrypted. If <code>KmsKeyId</code> is specified,
+   *                <code>Encrypted</code> must be set to <code>true</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>KmsKeyId</code>: Specifies the AWS KMS key that is used to encrypt the
+   *                restored file system. You can specify a key from another AWS account provided that key it is properly shared with your account via AWS KMS.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PerformanceMode</code>: Specifies the throughput mode of the file
+   *                system.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CreationToken</code>: A user-supplied value that ensures the
+   *                uniqueness (idempotency) of the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>newFileSystem</code>:  A Boolean value that, if true, specifies that
+   *                the recovery point is restored to a new Amazon EFS file system.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ItemsToRestore </code>: A serialized list of up to five strings
+   *             where each string is a file path. Use <code>ItemsToRestore</code> to restore
+   *             specific files or directories rather than the entire file system. This parameter is
+   *             optional.</p>
+   *             </li>
+   *          </ul>
+   */
+  Metadata: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target
+   *          recovery point; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
+   */
+  IamRoleArn: string | undefined;
+
+  /**
+   * <p>A customer chosen string that can be used to distinguish between calls to
+   *             <code>StartRestoreJob</code>.</p>
+   */
+  IdempotencyToken?: string;
 
   /**
    * <p>Starts a job to restore a recovery point for one of the following resources:</p>
@@ -3538,63 +3736,6 @@ export interface StartRestoreJobInput {
    *          </ul>
    */
   ResourceType?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that AWS Backup uses to create the target
-   *          recovery point; for example, <code>arn:aws:iam::123456789012:role/S3Access</code>.</p>
-   */
-  IamRoleArn: string | undefined;
-
-  /**
-   * <p>A customer chosen string that can be used to distinguish between calls to
-   *             <code>StartRestoreJob</code>.</p>
-   */
-  IdempotencyToken?: string;
-
-  /**
-   * <p>A set of metadata key-value pairs. Contains information, such as a resource name,
-   *          required to restore a recovery point.</p>
-   *          <p> You can get configuration metadata about a resource at the time it was backed up by
-   *          calling <code>GetRecoveryPointRestoreMetadata</code>. However, values in addition to those
-   *          provided by <code>GetRecoveryPointRestoreMetadata</code> might be required to restore a
-   *          resource. For example, you might need to provide a new resource name if the original
-   *          already exists.</p>
-   *          <p>You need to specify specific metadata to restore an Amazon Elastic File System (Amazon EFS) instance:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>file-system-id</code>: ID of the Amazon EFS file system that is backed up
-   *                by AWS Backup. Returned in <code>GetRecoveryPointRestoreMetadata</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Encrypted</code>:  A Boolean value that, if true, specifies that the
-   *                file system is encrypted. If <code>KmsKeyId</code> is specified,
-   *                <code>Encrypted</code> must be set to <code>true</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>KmsKeyId</code>: Specifies the AWS KMS key that is used to encrypt the
-   *                restored file system.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PerformanceMode</code>: Specifies the throughput mode of the file
-   *                system.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CreationToken</code>: A user-supplied value that ensures the
-   *                uniqueness (idempotency) of the request.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>newFileSystem</code>:  A Boolean value that, if true, specifies that
-   *                the recovery point is restored to a new Amazon EFS file system.</p>
-   *             </li>
-   *          </ul>
-   */
-  Metadata: { [key: string]: string } | undefined;
 }
 
 export namespace StartRestoreJobInput {
@@ -3632,16 +3773,16 @@ export namespace StopBackupJobInput {
 
 export interface TagResourceInput {
   /**
-   * <p>Key-value pairs that are used to help organize your resources. You can assign your own
-   *          metadata to the resources you create. </p>
-   */
-  Tags: { [key: string]: string } | undefined;
-
-  /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the type of
    *          the tagged resource.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>Key-value pairs that are used to help organize your resources. You can assign your own
+   *          metadata to the resources you create. </p>
+   */
+  Tags: { [key: string]: string } | undefined;
 }
 
 export namespace TagResourceInput {
@@ -3653,15 +3794,15 @@ export namespace TagResourceInput {
 
 export interface UntagResourceInput {
   /**
-   * <p>A list of keys to identify which key-value tags to remove from a resource.</p>
-   */
-  TagKeyList: string[] | undefined;
-
-  /**
    * <p>An ARN that uniquely identifies a resource. The format of the ARN depends on the type of
    *          the tagged resource.</p>
    */
   ResourceArn: string | undefined;
+
+  /**
+   * <p>A list of keys to identify which key-value tags to remove from a resource.</p>
+   */
+  TagKeyList: string[] | undefined;
 }
 
 export namespace UntagResourceInput {
@@ -3704,18 +3845,23 @@ export interface UpdateBackupPlanOutput {
   BackupPlanArn?: string;
 
   /**
-   * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
-   *          long. Version Ids cannot be edited.</p>
-   */
-  VersionId?: string;
-
-  /**
    * <p>The date and time a backup plan is updated, in Unix format and Coordinated Universal
    *          Time (UTC). The value of <code>CreationDate</code> is accurate to milliseconds. For
    *          example, the value 1516925490.087 represents Friday, January 26, 2018 12:11:30.087
    *          AM.</p>
    */
   CreationDate?: Date;
+
+  /**
+   * <p>Unique, randomly generated, Unicode, UTF-8 encoded strings that are at most 1,024 bytes
+   *          long. Version Ids cannot be edited.</p>
+   */
+  VersionId?: string;
+
+  /**
+   * <p>Contains a list of <code>BackupOptions</code> for each resource type.</p>
+   */
+  AdvancedBackupSettings?: AdvancedBackupSetting[];
 }
 
 export namespace UpdateBackupPlanOutput {
@@ -3724,7 +3870,27 @@ export namespace UpdateBackupPlanOutput {
   });
 }
 
+export interface UpdateGlobalSettingsInput {
+  /**
+   * <p>A list of resources along with the opt-in preferences for the account.</p>
+   */
+  GlobalSettings?: { [key: string]: string };
+}
+
+export namespace UpdateGlobalSettingsInput {
+  export const filterSensitiveLog = (obj: UpdateGlobalSettingsInput): any => ({
+    ...obj,
+  });
+}
+
 export interface UpdateRecoveryPointLifecycleInput {
+  /**
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified
+   *          by names that are unique to the account used to create them and the AWS Region where they
+   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
+   */
+  BackupVaultName: string | undefined;
+
   /**
    * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
    *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
@@ -3741,13 +3907,6 @@ export interface UpdateRecoveryPointLifecycleInput {
    *          be changed after a backup has been transitioned to cold. </p>
    */
   Lifecycle?: Lifecycle;
-
-  /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified
-   *          by names that are unique to the account used to create them and the AWS Region where they
-   *          are created. They consist of lowercase letters, numbers, and hyphens.</p>
-   */
-  BackupVaultName: string | undefined;
 }
 
 export namespace UpdateRecoveryPointLifecycleInput {
@@ -3758,10 +3917,16 @@ export namespace UpdateRecoveryPointLifecycleInput {
 
 export interface UpdateRecoveryPointLifecycleOutput {
   /**
-   * <p>A <code>CalculatedLifecycle</code> object containing <code>DeleteAt</code> and
-   *             <code>MoveToColdStorageAt</code> timestamps.</p>
+   * <p>An ARN that uniquely identifies a backup vault; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
    */
-  CalculatedLifecycle?: CalculatedLifecycle;
+  BackupVaultArn?: string;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
+   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
+   */
+  RecoveryPointArn?: string;
 
   /**
    * <p>The lifecycle defines when a protected resource is transitioned to cold storage and when
@@ -3775,16 +3940,10 @@ export interface UpdateRecoveryPointLifecycleOutput {
   Lifecycle?: Lifecycle;
 
   /**
-   * <p>An ARN that uniquely identifies a backup vault; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:vault:aBackupVault</code>.</p>
+   * <p>A <code>CalculatedLifecycle</code> object containing <code>DeleteAt</code> and
+   *             <code>MoveToColdStorageAt</code> timestamps.</p>
    */
-  BackupVaultArn?: string;
-
-  /**
-   * <p>An Amazon Resource Name (ARN) that uniquely identifies a recovery point; for example,
-   *             <code>arn:aws:backup:us-east-1:123456789012:recovery-point:1EB3B5E7-9EB0-435A-A80B-108B488B0D45</code>.</p>
-   */
-  RecoveryPointArn?: string;
+  CalculatedLifecycle?: CalculatedLifecycle;
 }
 
 export namespace UpdateRecoveryPointLifecycleOutput {
@@ -3795,7 +3954,7 @@ export namespace UpdateRecoveryPointLifecycleOutput {
 
 export interface UpdateRegionSettingsInput {
   /**
-   * <p>Updates the list of services along with the opt-in preferences for the region.</p>
+   * <p>Updates the list of services along with the opt-in preferences for the Region.</p>
    */
   ResourceTypeOptInPreference?: { [key: string]: boolean };
 }

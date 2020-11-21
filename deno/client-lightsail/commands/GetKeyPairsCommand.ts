@@ -1,6 +1,7 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { GetKeyPairsRequest, GetKeyPairsResult } from "../models/models_0.ts";
+import { GetKeyPairsRequest } from "../models/models_0.ts";
+import { GetKeyPairsResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetKeyPairsCommand,
   serializeAws_json1_1GetKeyPairsCommand,
@@ -45,11 +46,23 @@ export class GetKeyPairsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "GetKeyPairsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetKeyPairsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetKeyPairsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

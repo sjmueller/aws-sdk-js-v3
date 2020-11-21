@@ -45,10 +45,12 @@ import {
   IdempotentParameterMismatchException,
   InternalServerError,
   InvalidJobIdException,
+  InvalidKMSKeyException,
   InvalidParameterException,
   InvalidS3ObjectException,
   LimitExceededException,
   NotificationChannel,
+  OutputConfig,
   Point,
   ProvisionedThroughputExceededException,
   Relationship,
@@ -153,7 +155,7 @@ export const deserializeAws_json1_1AnalyzeDocumentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AnalyzeDocumentCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AnalyzeDocumentCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -280,7 +282,7 @@ export const deserializeAws_json1_1DetectDocumentTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetectDocumentTextCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DetectDocumentTextCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -399,7 +401,7 @@ export const deserializeAws_json1_1GetDocumentAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentAnalysisCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetDocumentAnalysisCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -457,6 +459,14 @@ const deserializeAws_json1_1GetDocumentAnalysisCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.textract#InvalidS3ObjectException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
       response = {
@@ -494,7 +504,7 @@ export const deserializeAws_json1_1GetDocumentTextDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDocumentTextDetectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetDocumentTextDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -552,6 +562,14 @@ const deserializeAws_json1_1GetDocumentTextDetectionCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidS3ObjectException":
+    case "com.amazonaws.textract#InvalidS3ObjectException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidS3ObjectExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "ProvisionedThroughputExceededException":
     case "com.amazonaws.textract#ProvisionedThroughputExceededException":
       response = {
@@ -589,7 +607,7 @@ export const deserializeAws_json1_1StartDocumentAnalysisCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDocumentAnalysisCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartDocumentAnalysisCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -651,6 +669,14 @@ const deserializeAws_json1_1StartDocumentAnalysisCommandError = async (
     case "com.amazonaws.textract#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKMSKeyException":
+    case "com.amazonaws.textract#InvalidKMSKeyException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -724,7 +750,7 @@ export const deserializeAws_json1_1StartDocumentTextDetectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartDocumentTextDetectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartDocumentTextDetectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -786,6 +812,14 @@ const deserializeAws_json1_1StartDocumentTextDetectionCommandError = async (
     case "com.amazonaws.textract#InternalServerError":
       response = {
         ...(await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidKMSKeyException":
+    case "com.amazonaws.textract#InvalidKMSKeyException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidKMSKeyExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -953,6 +987,21 @@ const deserializeAws_json1_1InvalidJobIdExceptionResponse = async (
   const deserialized: any = deserializeAws_json1_1InvalidJobIdException(body, context);
   const contents: InvalidJobIdException = {
     name: "InvalidJobIdException",
+    $fault: "client",
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  };
+  return contents;
+};
+
+const deserializeAws_json1_1InvalidKMSKeyExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidKMSKeyException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1InvalidKMSKeyException(body, context);
+  const contents: InvalidKMSKeyException = {
+    name: "InvalidKMSKeyException",
     $fault: "client",
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
@@ -1142,6 +1191,13 @@ const serializeAws_json1_1NotificationChannel = (input: NotificationChannel, con
   };
 };
 
+const serializeAws_json1_1OutputConfig = (input: OutputConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
+    ...(input.S3Prefix !== undefined && { S3Prefix: input.S3Prefix }),
+  };
+};
+
 const serializeAws_json1_1S3Object = (input: S3Object, context: __SerdeContext): any => {
   return {
     ...(input.Bucket !== undefined && { Bucket: input.Bucket }),
@@ -1163,8 +1219,12 @@ const serializeAws_json1_1StartDocumentAnalysisRequest = (
       FeatureTypes: serializeAws_json1_1FeatureTypes(input.FeatureTypes, context),
     }),
     ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
+    ...(input.KMSKeyId !== undefined && { KMSKeyId: input.KMSKeyId }),
     ...(input.NotificationChannel !== undefined && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
+    }),
+    ...(input.OutputConfig !== undefined && {
+      OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context),
     }),
   };
 };
@@ -1179,8 +1239,12 @@ const serializeAws_json1_1StartDocumentTextDetectionRequest = (
       DocumentLocation: serializeAws_json1_1DocumentLocation(input.DocumentLocation, context),
     }),
     ...(input.JobTag !== undefined && { JobTag: input.JobTag }),
+    ...(input.KMSKeyId !== undefined && { KMSKeyId: input.KMSKeyId }),
     ...(input.NotificationChannel !== undefined && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
+    }),
+    ...(input.OutputConfig !== undefined && {
+      OutputConfig: serializeAws_json1_1OutputConfig(input.OutputConfig, context),
     }),
   };
 };
@@ -1248,6 +1312,7 @@ const deserializeAws_json1_1Block = (output: any, context: __SerdeContext): Bloc
     SelectionStatus:
       output.SelectionStatus !== undefined && output.SelectionStatus !== null ? output.SelectionStatus : undefined,
     Text: output.Text !== undefined && output.Text !== null ? output.Text : undefined,
+    TextType: output.TextType !== undefined && output.TextType !== null ? output.TextType : undefined,
   } as any;
 };
 
@@ -1430,6 +1495,13 @@ const deserializeAws_json1_1InternalServerError = (output: any, context: __Serde
 };
 
 const deserializeAws_json1_1InvalidJobIdException = (output: any, context: __SerdeContext): InvalidJobIdException => {
+  return {
+    Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
+    Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1InvalidKMSKeyException = (output: any, context: __SerdeContext): InvalidKMSKeyException => {
   return {
     Code: output.Code !== undefined && output.Code !== null ? output.Code : undefined,
     Message: output.Message !== undefined && output.Message !== null ? output.Message : undefined,

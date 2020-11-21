@@ -93,7 +93,7 @@ export const deserializeAws_json1_0DescribeStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DescribeStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -156,7 +156,7 @@ export const deserializeAws_json1_0GetRecordsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecordsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0GetRecordsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -243,7 +243,7 @@ export const deserializeAws_json1_0GetShardIteratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetShardIteratorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0GetShardIteratorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -314,7 +314,7 @@ export const deserializeAws_json1_0ListStreamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListStreamsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

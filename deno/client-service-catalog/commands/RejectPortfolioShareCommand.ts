@@ -45,11 +45,23 @@ export class RejectPortfolioShareCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ServiceCatalogClient";
+    const commandName = "RejectPortfolioShareCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RejectPortfolioShareInput.filterSensitiveLog,
       outputFilterSensitiveLog: RejectPortfolioShareOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

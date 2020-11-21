@@ -1,6 +1,6 @@
 
 const name = "@aws-sdk/client-synthetics";
-const version = "1.0.0-gamma.3";
+const version = "1.0.0-rc.7";
 
 import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";
 import { FetchHttpHandler, streamCollector } from "../fetch-http-handler/mod.ts";

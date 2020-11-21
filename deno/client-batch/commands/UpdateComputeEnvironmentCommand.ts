@@ -1,4 +1,3 @@
-
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient.ts";
 import { UpdateComputeEnvironmentRequest, UpdateComputeEnvironmentResponse } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class UpdateComputeEnvironmentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BatchClient";
+    const commandName = "UpdateComputeEnvironmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateComputeEnvironmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateComputeEnvironmentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

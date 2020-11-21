@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { GetReservedInstancesExchangeQuoteRequest, GetReservedInstancesExchangeQuoteResult } from "../models/models_3.ts";
+import { GetReservedInstancesExchangeQuoteRequest, GetReservedInstancesExchangeQuoteResult } from "../models/models_4.ts";
 import {
   deserializeAws_ec2GetReservedInstancesExchangeQuoteCommand,
   serializeAws_ec2GetReservedInstancesExchangeQuoteCommand,
@@ -45,11 +45,23 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "GetReservedInstancesExchangeQuoteCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetReservedInstancesExchangeQuoteRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetReservedInstancesExchangeQuoteResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

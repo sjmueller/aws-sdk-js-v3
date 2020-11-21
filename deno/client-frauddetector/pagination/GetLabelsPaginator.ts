@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetLabelsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetLabelsCommand(input, ...args));
+  return await client.send(new GetLabelsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: FraudDetector,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getLabels(input, ...args);
 };
-export async function* getLabelsPaginate(
+export async function* paginateGetLabels(
   config: FraudDetectorPaginationConfiguration,
   input: GetLabelsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetLabelsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetLabelsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof FraudDetector) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* getLabelsPaginate(
       throw new Error("Invalid client, expected FraudDetector | FraudDetectorClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

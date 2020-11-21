@@ -38,11 +38,23 @@ export class ListAppsCommand extends $Command<ListAppsCommandInput, ListAppsComm
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SMSClient";
+    const commandName = "ListAppsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAppsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAppsResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

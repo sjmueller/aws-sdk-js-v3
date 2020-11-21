@@ -49,11 +49,23 @@ export class StartSupportDataExportCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "MarketplaceCommerceAnalyticsClient";
+    const commandName = "StartSupportDataExportCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: StartSupportDataExportRequest.filterSensitiveLog,
       outputFilterSensitiveLog: StartSupportDataExportResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

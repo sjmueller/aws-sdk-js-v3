@@ -1,6 +1,6 @@
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient.ts";
-import { ListOriginRequestPoliciesRequest, ListOriginRequestPoliciesResult } from "../models/models_0.ts";
+import { ListOriginRequestPoliciesRequest, ListOriginRequestPoliciesResult } from "../models/models_1.ts";
 import {
   deserializeAws_restXmlListOriginRequestPoliciesCommand,
   serializeAws_restXmlListOriginRequestPoliciesCommand,
@@ -45,11 +45,23 @@ export class ListOriginRequestPoliciesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFrontClient";
+    const commandName = "ListOriginRequestPoliciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListOriginRequestPoliciesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListOriginRequestPoliciesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,4 +1,3 @@
-
 import { BatchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BatchClient.ts";
 import { CreateComputeEnvironmentRequest, CreateComputeEnvironmentResponse } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class CreateComputeEnvironmentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BatchClient";
+    const commandName = "CreateComputeEnvironmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateComputeEnvironmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateComputeEnvironmentResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -17,8 +17,19 @@ import {
   DeleteDetectorVersionCommandInput,
   DeleteDetectorVersionCommandOutput,
 } from "../commands/DeleteDetectorVersionCommand.ts";
+import { DeleteEntityTypeCommandInput, DeleteEntityTypeCommandOutput } from "../commands/DeleteEntityTypeCommand.ts";
 import { DeleteEventCommandInput, DeleteEventCommandOutput } from "../commands/DeleteEventCommand.ts";
+import { DeleteEventTypeCommandInput, DeleteEventTypeCommandOutput } from "../commands/DeleteEventTypeCommand.ts";
+import {
+  DeleteExternalModelCommandInput,
+  DeleteExternalModelCommandOutput,
+} from "../commands/DeleteExternalModelCommand.ts";
+import { DeleteLabelCommandInput, DeleteLabelCommandOutput } from "../commands/DeleteLabelCommand.ts";
+import { DeleteModelCommandInput, DeleteModelCommandOutput } from "../commands/DeleteModelCommand.ts";
+import { DeleteModelVersionCommandInput, DeleteModelVersionCommandOutput } from "../commands/DeleteModelVersionCommand.ts";
+import { DeleteOutcomeCommandInput, DeleteOutcomeCommandOutput } from "../commands/DeleteOutcomeCommand.ts";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "../commands/DeleteRuleCommand.ts";
+import { DeleteVariableCommandInput, DeleteVariableCommandOutput } from "../commands/DeleteVariableCommand.ts";
 import { DescribeDetectorCommandInput, DescribeDetectorCommandOutput } from "../commands/DescribeDetectorCommand.ts";
 import {
   DescribeModelVersionsCommandInput,
@@ -101,10 +112,26 @@ import {
   DeleteDetectorResult,
   DeleteDetectorVersionRequest,
   DeleteDetectorVersionResult,
+  DeleteEntityTypeRequest,
+  DeleteEntityTypeResult,
   DeleteEventRequest,
   DeleteEventResult,
+  DeleteEventTypeRequest,
+  DeleteEventTypeResult,
+  DeleteExternalModelRequest,
+  DeleteExternalModelResult,
+  DeleteLabelRequest,
+  DeleteLabelResult,
+  DeleteModelRequest,
+  DeleteModelResult,
+  DeleteModelVersionRequest,
+  DeleteModelVersionResult,
+  DeleteOutcomeRequest,
+  DeleteOutcomeResult,
   DeleteRuleRequest,
   DeleteRuleResult,
+  DeleteVariableRequest,
+  DeleteVariableResult,
   DescribeDetectorRequest,
   DescribeDetectorResult,
   DescribeModelVersionsRequest,
@@ -334,6 +361,19 @@ export const serializeAws_json1_1DeleteDetectorVersionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteEntityTypeCommand = async (
+  input: DeleteEntityTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteEntityType",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteEntityTypeRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteEventCommand = async (
   input: DeleteEventCommandInput,
   context: __SerdeContext
@@ -347,6 +387,84 @@ export const serializeAws_json1_1DeleteEventCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteEventTypeCommand = async (
+  input: DeleteEventTypeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteEventType",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteEventTypeRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteExternalModelCommand = async (
+  input: DeleteExternalModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteExternalModel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteExternalModelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteLabelCommand = async (
+  input: DeleteLabelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteLabel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteLabelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteModelCommand = async (
+  input: DeleteModelCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteModel",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteModelRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteModelVersionCommand = async (
+  input: DeleteModelVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteModelVersion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteModelVersionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteOutcomeCommand = async (
+  input: DeleteOutcomeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteOutcome",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteOutcomeRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteRuleCommand = async (
   input: DeleteRuleCommandInput,
   context: __SerdeContext
@@ -357,6 +475,19 @@ export const serializeAws_json1_1DeleteRuleCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteRuleRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteVariableCommand = async (
+  input: DeleteVariableCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "Content-Type": "application/x-amz-json-1.1",
+    "X-Amz-Target": "AWSHawksNestServiceFacade.DeleteVariable",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteVariableRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -804,7 +935,7 @@ export const deserializeAws_json1_1BatchCreateVariableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchCreateVariableCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchCreateVariableCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -883,7 +1014,7 @@ export const deserializeAws_json1_1BatchGetVariableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetVariableCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1BatchGetVariableCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -962,7 +1093,7 @@ export const deserializeAws_json1_1CreateDetectorVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDetectorVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDetectorVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1049,7 +1180,7 @@ export const deserializeAws_json1_1CreateModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateModelCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateModelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1120,7 +1251,7 @@ export const deserializeAws_json1_1CreateModelVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateModelVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateModelVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1199,7 +1330,7 @@ export const deserializeAws_json1_1CreateRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1278,7 +1409,7 @@ export const deserializeAws_json1_1CreateVariableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateVariableCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateVariableCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1357,7 +1488,7 @@ export const deserializeAws_json1_1DeleteDetectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDetectorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDetectorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1444,7 +1575,7 @@ export const deserializeAws_json1_1DeleteDetectorVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDetectorVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDetectorVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1535,11 +1666,90 @@ const deserializeAws_json1_1DeleteDetectorVersionCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteEntityTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEntityTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteEntityTypeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteEntityTypeResult(data, context);
+  const response: DeleteEntityTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteEntityTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEntityTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DeleteEventCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteEventCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1589,6 +1799,496 @@ const deserializeAws_json1_1DeleteEventCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteEventTypeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventTypeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteEventTypeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteEventTypeResult(data, context);
+  const response: DeleteEventTypeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteEventTypeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEventTypeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteExternalModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExternalModelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteExternalModelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteExternalModelResult(data, context);
+  const response: DeleteExternalModelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteExternalModelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteExternalModelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteLabelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLabelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteLabelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteLabelResult(data, context);
+  const response: DeleteLabelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteLabelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLabelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteModelCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteModelCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteModelCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteModelResult(data, context);
+  const response: DeleteModelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteModelCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteModelCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteModelVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteModelVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteModelVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteModelVersionResult(data, context);
+  const response: DeleteModelVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteModelVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteModelVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
+export const deserializeAws_json1_1DeleteOutcomeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOutcomeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteOutcomeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteOutcomeResult(data, context);
+  const response: DeleteOutcomeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteOutcomeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteOutcomeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     default:
       const parsedBody = parsedOutput.body;
       errorCode = parsedBody.code || parsedBody.Code || errorCode;
@@ -1610,7 +2310,7 @@ export const deserializeAws_json1_1DeleteRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1693,11 +2393,98 @@ const deserializeAws_json1_1DeleteRuleCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_json1_1DeleteVariableCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVariableCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteVariableCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteVariableResult(data, context);
+  const response: DeleteVariableCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteVariableCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVariableCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  const errorTypeParts: String = parsedOutput.body["__type"].split("#");
+  errorCode = errorTypeParts[1] === undefined ? errorTypeParts[0] : errorTypeParts[1];
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.frauddetector#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InternalServerException":
+    case "com.amazonaws.frauddetector#InternalServerException":
+      response = {
+        ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ThrottlingException":
+    case "com.amazonaws.frauddetector#ThrottlingException":
+      response = {
+        ...(await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.frauddetector#ValidationException":
+      response = {
+        ...(await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_json1_1DescribeDetectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDetectorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDetectorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1784,7 +2571,7 @@ export const deserializeAws_json1_1DescribeModelVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeModelVersionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeModelVersionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1863,7 +2650,7 @@ export const deserializeAws_json1_1GetDetectorsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDetectorsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetDetectorsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1950,7 +2737,7 @@ export const deserializeAws_json1_1GetDetectorVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDetectorVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetDetectorVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2037,7 +2824,7 @@ export const deserializeAws_json1_1GetEntityTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEntityTypesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetEntityTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2116,7 +2903,7 @@ export const deserializeAws_json1_1GetEventPredictionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEventPredictionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetEventPredictionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2146,6 +2933,14 @@ const deserializeAws_json1_1GetEventPredictionCommandError = async (
     case "com.amazonaws.frauddetector#AccessDeniedException":
       response = {
         ...(await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.frauddetector#ConflictException":
+      response = {
+        ...(await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -2203,7 +2998,7 @@ export const deserializeAws_json1_1GetEventTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEventTypesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetEventTypesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2282,7 +3077,7 @@ export const deserializeAws_json1_1GetExternalModelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetExternalModelsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetExternalModelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2369,7 +3164,7 @@ export const deserializeAws_json1_1GetKMSEncryptionKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetKMSEncryptionKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetKMSEncryptionKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2440,7 +3235,7 @@ export const deserializeAws_json1_1GetLabelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLabelsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetLabelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2519,7 +3314,7 @@ export const deserializeAws_json1_1GetModelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetModelsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2598,7 +3393,7 @@ export const deserializeAws_json1_1GetModelVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetModelVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetModelVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2677,7 +3472,7 @@ export const deserializeAws_json1_1GetOutcomesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetOutcomesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetOutcomesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2764,7 +3559,7 @@ export const deserializeAws_json1_1GetRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRulesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2851,7 +3646,7 @@ export const deserializeAws_json1_1GetVariablesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetVariablesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetVariablesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2938,7 +3733,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3009,7 +3804,7 @@ export const deserializeAws_json1_1PutDetectorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutDetectorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutDetectorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3088,7 +3883,7 @@ export const deserializeAws_json1_1PutEntityTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEntityTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutEntityTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3159,7 +3954,7 @@ export const deserializeAws_json1_1PutEventTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutEventTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutEventTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3230,7 +4025,7 @@ export const deserializeAws_json1_1PutExternalModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutExternalModelCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutExternalModelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3309,7 +4104,7 @@ export const deserializeAws_json1_1PutKMSEncryptionKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutKMSEncryptionKeyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutKMSEncryptionKeyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3388,7 +4183,7 @@ export const deserializeAws_json1_1PutLabelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLabelCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutLabelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3459,7 +4254,7 @@ export const deserializeAws_json1_1PutOutcomeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutOutcomeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutOutcomeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3538,7 +4333,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3609,7 +4404,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3680,7 +4475,7 @@ export const deserializeAws_json1_1UpdateDetectorVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDetectorVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateDetectorVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3767,7 +4562,7 @@ export const deserializeAws_json1_1UpdateDetectorVersionMetadataCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDetectorVersionMetadataCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateDetectorVersionMetadataCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3846,7 +4641,7 @@ export const deserializeAws_json1_1UpdateDetectorVersionStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDetectorVersionStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateDetectorVersionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3933,7 +4728,7 @@ export const deserializeAws_json1_1UpdateModelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateModelCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateModelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4012,7 +4807,7 @@ export const deserializeAws_json1_1UpdateModelVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateModelVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateModelVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4091,7 +4886,7 @@ export const deserializeAws_json1_1UpdateModelVersionStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateModelVersionStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateModelVersionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4170,7 +4965,7 @@ export const deserializeAws_json1_1UpdateRuleMetadataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRuleMetadataCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateRuleMetadataCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4257,7 +5052,7 @@ export const deserializeAws_json1_1UpdateRuleVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRuleVersionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateRuleVersionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4344,7 +5139,7 @@ export const deserializeAws_json1_1UpdateVariableCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVariableCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateVariableCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4634,6 +5429,12 @@ const serializeAws_json1_1DeleteDetectorVersionRequest = (
   };
 };
 
+const serializeAws_json1_1DeleteEntityTypeRequest = (input: DeleteEntityTypeRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+  };
+};
+
 const serializeAws_json1_1DeleteEventRequest = (input: DeleteEventRequest, context: __SerdeContext): any => {
   return {
     ...(input.eventId !== undefined && { eventId: input.eventId }),
@@ -4641,9 +5442,60 @@ const serializeAws_json1_1DeleteEventRequest = (input: DeleteEventRequest, conte
   };
 };
 
+const serializeAws_json1_1DeleteEventTypeRequest = (input: DeleteEventTypeRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+  };
+};
+
+const serializeAws_json1_1DeleteExternalModelRequest = (
+  input: DeleteExternalModelRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.modelEndpoint !== undefined && { modelEndpoint: input.modelEndpoint }),
+  };
+};
+
+const serializeAws_json1_1DeleteLabelRequest = (input: DeleteLabelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+  };
+};
+
+const serializeAws_json1_1DeleteModelRequest = (input: DeleteModelRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.modelId !== undefined && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && { modelType: input.modelType }),
+  };
+};
+
+const serializeAws_json1_1DeleteModelVersionRequest = (
+  input: DeleteModelVersionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.modelId !== undefined && { modelId: input.modelId }),
+    ...(input.modelType !== undefined && { modelType: input.modelType }),
+    ...(input.modelVersionNumber !== undefined && { modelVersionNumber: input.modelVersionNumber }),
+  };
+};
+
+const serializeAws_json1_1DeleteOutcomeRequest = (input: DeleteOutcomeRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+  };
+};
+
 const serializeAws_json1_1DeleteRuleRequest = (input: DeleteRuleRequest, context: __SerdeContext): any => {
   return {
     ...(input.rule !== undefined && { rule: serializeAws_json1_1Rule(input.rule, context) }),
+  };
+};
+
+const serializeAws_json1_1DeleteVariableRequest = (input: DeleteVariableRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.name !== undefined && { name: input.name }),
   };
 };
 
@@ -5328,11 +6180,49 @@ const deserializeAws_json1_1DeleteDetectorVersionResult = (
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteEntityTypeResult = (output: any, context: __SerdeContext): DeleteEntityTypeResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteEventResult = (output: any, context: __SerdeContext): DeleteEventResult => {
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteEventTypeResult = (output: any, context: __SerdeContext): DeleteEventTypeResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteExternalModelResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteExternalModelResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteLabelResult = (output: any, context: __SerdeContext): DeleteLabelResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteModelResult = (output: any, context: __SerdeContext): DeleteModelResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteModelVersionResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteModelVersionResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteOutcomeResult = (output: any, context: __SerdeContext): DeleteOutcomeResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteRuleResult = (output: any, context: __SerdeContext): DeleteRuleResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteVariableResult = (output: any, context: __SerdeContext): DeleteVariableResult => {
   return {} as any;
 };
 

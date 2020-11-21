@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DescribeLocalGatewayRouteTableVpcAssociationsRequest,
   DescribeLocalGatewayRouteTableVpcAssociationsResult,
-} from "../models/models_2.ts";
+} from "../models/models_3.ts";
 import {
   deserializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand,
   serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsCommand,
@@ -52,11 +52,23 @@ export class DescribeLocalGatewayRouteTableVpcAssociationsCommand extends $Comma
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DescribeLocalGatewayRouteTableVpcAssociationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeLocalGatewayRouteTableVpcAssociationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeLocalGatewayRouteTableVpcAssociationsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

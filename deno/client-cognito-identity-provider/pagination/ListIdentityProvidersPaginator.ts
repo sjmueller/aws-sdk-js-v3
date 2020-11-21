@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListIdentityProvidersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListIdentityProvidersCommand(input, ...args));
+  return await client.send(new ListIdentityProvidersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CognitoIdentityProvider,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listIdentityProviders(input, ...args);
 };
-export async function* listIdentityProvidersPaginate(
+export async function* paginateListIdentityProviders(
   config: CognitoIdentityProviderPaginationConfiguration,
   input: ListIdentityProvidersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListIdentityProvidersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListIdentityProvidersCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CognitoIdentityProvider) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listIdentityProvidersPaginate(
       throw new Error("Invalid client, expected CognitoIdentityProvider | CognitoIdentityProviderClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

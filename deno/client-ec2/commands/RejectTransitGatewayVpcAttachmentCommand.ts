@@ -45,11 +45,23 @@ export class RejectTransitGatewayVpcAttachmentCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "RejectTransitGatewayVpcAttachmentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: RejectTransitGatewayVpcAttachmentRequest.filterSensitiveLog,
       outputFilterSensitiveLog: RejectTransitGatewayVpcAttachmentResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -2,6 +2,7 @@
 export * from "./CodeGuruReviewerClient.ts";
 export * from "./CodeGuruReviewer.ts";
 export * from "./commands/AssociateRepositoryCommand.ts";
+export * from "./commands/CreateCodeReviewCommand.ts";
 export * from "./commands/DescribeCodeReviewCommand.ts";
 export * from "./commands/DescribeRecommendationFeedbackCommand.ts";
 export * from "./commands/DescribeRepositoryAssociationCommand.ts";

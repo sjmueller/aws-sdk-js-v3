@@ -21,7 +21,17 @@ export interface CreateOutpostInput {
   /**
    * <p>The name of the Outpost.</p>
    */
-  Name?: string;
+  Name: string | undefined;
+
+  /**
+   * <p>The Outpost description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the site.</p>
+   */
+  SiteId: string | undefined;
 
   /**
    * <p>The Availability Zone.</p>
@@ -34,16 +44,6 @@ export interface CreateOutpostInput {
    *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
    */
   AvailabilityZoneId?: string;
-
-  /**
-   * <p>The ID of the site.</p>
-   */
-  SiteId: string | undefined;
-
-  /**
-   * <p>The Outpost description.</p>
-   */
-  Description?: string;
 }
 
 export namespace CreateOutpostInput {
@@ -57,38 +57,6 @@ export namespace CreateOutpostInput {
  */
 export interface Outpost {
   /**
-   * <p>The ID of the Availability Zone.</p>
-   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
-   */
-  AvailabilityZoneId?: string;
-
-  /**
-   * <p>The Availability Zone.</p>
-   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The life cycle status.</p>
-   */
-  LifeCycleStatus?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>The name of the Outpost.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The ID of the site.</p>
-   */
-  SiteId?: string;
-
-  /**
    * <p>The ID of the Outpost.</p>
    */
   OutpostId?: string;
@@ -99,9 +67,41 @@ export interface Outpost {
   OwnerId?: string;
 
   /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The ID of the site.</p>
+   */
+  SiteId?: string;
+
+  /**
+   * <p>The name of the Outpost.</p>
+   */
+  Name?: string;
+
+  /**
    * <p>The Outpost description.</p>
    */
   Description?: string;
+
+  /**
+   * <p>The life cycle status.</p>
+   */
+  LifeCycleStatus?: string;
+
+  /**
+   * <p>The Availability Zone.</p>
+   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The ID of the Availability Zone.</p>
+   *          <p>You must specify <code>AvailabilityZone</code> or <code>AvailabilityZoneId</code>.</p>
+   */
+  AvailabilityZoneId?: string;
 }
 
 export namespace Outpost {
@@ -253,14 +253,14 @@ export namespace GetOutpostOutput {
 
 export interface GetOutpostInstanceTypesInput {
   /**
-   * <p>The pagination token.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The ID of the Outpost.</p>
    */
   OutpostId: string | undefined;
+
+  /**
+   * <p>The pagination token.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>The maximum page size.</p>
@@ -292,16 +292,6 @@ export namespace InstanceTypeItem {
 
 export interface GetOutpostInstanceTypesOutput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>The ID of the Outpost.</p>
-   */
-  OutpostId?: string;
-
-  /**
    * <p>Information about the instance types.</p>
    */
   InstanceTypes?: InstanceTypeItem[];
@@ -310,6 +300,16 @@ export interface GetOutpostInstanceTypesOutput {
    * <p>The pagination token.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The ID of the Outpost.</p>
+   */
+  OutpostId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost.</p>
+   */
+  OutpostArn?: string;
 }
 
 export namespace GetOutpostInstanceTypesOutput {
@@ -377,6 +377,11 @@ export namespace ListSitesInput {
  */
 export interface Site {
   /**
+   * <p>The ID of the site.</p>
+   */
+  SiteId?: string;
+
+  /**
    * <p>The ID of the AWS account.</p>
    */
   AccountId?: string;
@@ -385,11 +390,6 @@ export interface Site {
    * <p>The name of the site.</p>
    */
   Name?: string;
-
-  /**
-   * <p>The ID of the site.</p>
-   */
-  SiteId?: string;
 
   /**
    * <p>The description of the site.</p>

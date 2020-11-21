@@ -1,4 +1,3 @@
-
 import { Backup } from "../Backup.ts";
 import { BackupClient } from "../BackupClient.ts";
 import { ListTagsCommand, ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand.ts";
@@ -11,7 +10,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListTagsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListTagsCommand(input, ...args));
+  return await client.send(new ListTagsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Backup,
@@ -21,16 +20,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listTags(input, ...args);
 };
-export async function* listTagsPaginate(
+export async function* paginateListTags(
   config: BackupPaginationConfiguration,
   input: ListTagsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListTagsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListTagsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Backup) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +39,7 @@ export async function* listTagsPaginate(
       throw new Error("Invalid client, expected Backup | BackupClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

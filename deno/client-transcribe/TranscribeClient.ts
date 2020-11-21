@@ -1,5 +1,9 @@
 
 import {
+  CreateLanguageModelCommandInput,
+  CreateLanguageModelCommandOutput,
+} from "./commands/CreateLanguageModelCommand.ts";
+import {
   CreateMedicalVocabularyCommandInput,
   CreateMedicalVocabularyCommandOutput,
 } from "./commands/CreateMedicalVocabularyCommand.ts";
@@ -8,6 +12,10 @@ import {
   CreateVocabularyFilterCommandInput,
   CreateVocabularyFilterCommandOutput,
 } from "./commands/CreateVocabularyFilterCommand.ts";
+import {
+  DeleteLanguageModelCommandInput,
+  DeleteLanguageModelCommandOutput,
+} from "./commands/DeleteLanguageModelCommand.ts";
 import {
   DeleteMedicalTranscriptionJobCommandInput,
   DeleteMedicalTranscriptionJobCommandOutput,
@@ -26,6 +34,10 @@ import {
   DeleteVocabularyFilterCommandOutput,
 } from "./commands/DeleteVocabularyFilterCommand.ts";
 import {
+  DescribeLanguageModelCommandInput,
+  DescribeLanguageModelCommandOutput,
+} from "./commands/DescribeLanguageModelCommand.ts";
+import {
   GetMedicalTranscriptionJobCommandInput,
   GetMedicalTranscriptionJobCommandOutput,
 } from "./commands/GetMedicalTranscriptionJobCommand.ts";
@@ -42,6 +54,7 @@ import {
   GetVocabularyFilterCommandInput,
   GetVocabularyFilterCommandOutput,
 } from "./commands/GetVocabularyFilterCommand.ts";
+import { ListLanguageModelsCommandInput, ListLanguageModelsCommandOutput } from "./commands/ListLanguageModelsCommand.ts";
 import {
   ListMedicalTranscriptionJobsCommandInput,
   ListMedicalTranscriptionJobsCommandOutput,
@@ -126,19 +139,23 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | CreateLanguageModelCommandInput
   | CreateMedicalVocabularyCommandInput
   | CreateVocabularyCommandInput
   | CreateVocabularyFilterCommandInput
+  | DeleteLanguageModelCommandInput
   | DeleteMedicalTranscriptionJobCommandInput
   | DeleteMedicalVocabularyCommandInput
   | DeleteTranscriptionJobCommandInput
   | DeleteVocabularyCommandInput
   | DeleteVocabularyFilterCommandInput
+  | DescribeLanguageModelCommandInput
   | GetMedicalTranscriptionJobCommandInput
   | GetMedicalVocabularyCommandInput
   | GetTranscriptionJobCommandInput
   | GetVocabularyCommandInput
   | GetVocabularyFilterCommandInput
+  | ListLanguageModelsCommandInput
   | ListMedicalTranscriptionJobsCommandInput
   | ListMedicalVocabulariesCommandInput
   | ListTranscriptionJobsCommandInput
@@ -151,19 +168,23 @@ export type ServiceInputTypes =
   | UpdateVocabularyFilterCommandInput;
 
 export type ServiceOutputTypes =
+  | CreateLanguageModelCommandOutput
   | CreateMedicalVocabularyCommandOutput
   | CreateVocabularyCommandOutput
   | CreateVocabularyFilterCommandOutput
+  | DeleteLanguageModelCommandOutput
   | DeleteMedicalTranscriptionJobCommandOutput
   | DeleteMedicalVocabularyCommandOutput
   | DeleteTranscriptionJobCommandOutput
   | DeleteVocabularyCommandOutput
   | DeleteVocabularyFilterCommandOutput
+  | DescribeLanguageModelCommandOutput
   | GetMedicalTranscriptionJobCommandOutput
   | GetMedicalVocabularyCommandOutput
   | GetTranscriptionJobCommandOutput
   | GetVocabularyCommandOutput
   | GetVocabularyFilterCommandOutput
+  | ListLanguageModelsCommandOutput
   | ListMedicalTranscriptionJobsCommandOutput
   | ListMedicalVocabulariesCommandOutput
   | ListTranscriptionJobsCommandOutput

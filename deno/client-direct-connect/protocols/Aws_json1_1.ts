@@ -1033,7 +1033,7 @@ export const deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposal
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AcceptDirectConnectGatewayAssociationProposalCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AcceptDirectConnectGatewayAssociationProposalCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1096,7 +1096,7 @@ export const deserializeAws_json1_1AllocateConnectionOnInterconnectCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AllocateConnectionOnInterconnectCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AllocateConnectionOnInterconnectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1159,7 +1159,7 @@ export const deserializeAws_json1_1AllocateHostedConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AllocateHostedConnectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AllocateHostedConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1238,7 +1238,7 @@ export const deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AllocatePrivateVirtualInterfaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AllocatePrivateVirtualInterfaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1317,7 +1317,7 @@ export const deserializeAws_json1_1AllocatePublicVirtualInterfaceCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AllocatePublicVirtualInterfaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AllocatePublicVirtualInterfaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1396,7 +1396,7 @@ export const deserializeAws_json1_1AllocateTransitVirtualInterfaceCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AllocateTransitVirtualInterfaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AllocateTransitVirtualInterfaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1475,7 +1475,7 @@ export const deserializeAws_json1_1AssociateConnectionWithLagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateConnectionWithLagCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateConnectionWithLagCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1538,7 +1538,7 @@ export const deserializeAws_json1_1AssociateHostedConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateHostedConnectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateHostedConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1601,7 +1601,7 @@ export const deserializeAws_json1_1AssociateVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateVirtualInterfaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateVirtualInterfaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1664,7 +1664,7 @@ export const deserializeAws_json1_1ConfirmConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmConnectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ConfirmConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1727,7 +1727,7 @@ export const deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmPrivateVirtualInterfaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ConfirmPrivateVirtualInterfaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1790,7 +1790,7 @@ export const deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmPublicVirtualInterfaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ConfirmPublicVirtualInterfaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1853,7 +1853,7 @@ export const deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ConfirmTransitVirtualInterfaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ConfirmTransitVirtualInterfaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1916,7 +1916,7 @@ export const deserializeAws_json1_1CreateBGPPeerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBGPPeerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateBGPPeerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1979,7 +1979,7 @@ export const deserializeAws_json1_1CreateConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2058,7 +2058,7 @@ export const deserializeAws_json1_1CreateDirectConnectGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDirectConnectGatewayCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDirectConnectGatewayCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2121,7 +2121,7 @@ export const deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDirectConnectGatewayAssociationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDirectConnectGatewayAssociationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2184,7 +2184,7 @@ export const deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposal
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateDirectConnectGatewayAssociationProposalCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateDirectConnectGatewayAssociationProposalCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2247,7 +2247,7 @@ export const deserializeAws_json1_1CreateInterconnectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInterconnectCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateInterconnectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2326,7 +2326,7 @@ export const deserializeAws_json1_1CreateLagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLagCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateLagCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2405,7 +2405,7 @@ export const deserializeAws_json1_1CreatePrivateVirtualInterfaceCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePrivateVirtualInterfaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePrivateVirtualInterfaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2484,7 +2484,7 @@ export const deserializeAws_json1_1CreatePublicVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreatePublicVirtualInterfaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreatePublicVirtualInterfaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2563,7 +2563,7 @@ export const deserializeAws_json1_1CreateTransitVirtualInterfaceCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTransitVirtualInterfaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateTransitVirtualInterfaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2642,7 +2642,7 @@ export const deserializeAws_json1_1DeleteBGPPeerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBGPPeerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteBGPPeerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2705,7 +2705,7 @@ export const deserializeAws_json1_1DeleteConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2768,7 +2768,7 @@ export const deserializeAws_json1_1DeleteDirectConnectGatewayCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDirectConnectGatewayCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDirectConnectGatewayCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2831,7 +2831,7 @@ export const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDirectConnectGatewayAssociationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDirectConnectGatewayAssociationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2894,7 +2894,7 @@ export const deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposal
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDirectConnectGatewayAssociationProposalCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteDirectConnectGatewayAssociationProposalCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2957,7 +2957,7 @@ export const deserializeAws_json1_1DeleteInterconnectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteInterconnectCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteInterconnectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3020,7 +3020,7 @@ export const deserializeAws_json1_1DeleteLagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLagCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteLagCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3083,7 +3083,7 @@ export const deserializeAws_json1_1DeleteVirtualInterfaceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteVirtualInterfaceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteVirtualInterfaceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3146,7 +3146,7 @@ export const deserializeAws_json1_1DescribeConnectionLoaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConnectionLoaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeConnectionLoaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3209,7 +3209,7 @@ export const deserializeAws_json1_1DescribeConnectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConnectionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeConnectionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3272,7 +3272,7 @@ export const deserializeAws_json1_1DescribeConnectionsOnInterconnectCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeConnectionsOnInterconnectCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeConnectionsOnInterconnectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3335,7 +3335,7 @@ export const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationPropos
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDirectConnectGatewayAssociationProposalsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3398,7 +3398,7 @@ export const deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsComma
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDirectConnectGatewayAssociationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3461,7 +3461,7 @@ export const deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsComman
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDirectConnectGatewayAttachmentsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3524,7 +3524,7 @@ export const deserializeAws_json1_1DescribeDirectConnectGatewaysCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeDirectConnectGatewaysCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeDirectConnectGatewaysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3587,7 +3587,7 @@ export const deserializeAws_json1_1DescribeHostedConnectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeHostedConnectionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeHostedConnectionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3650,7 +3650,7 @@ export const deserializeAws_json1_1DescribeInterconnectLoaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInterconnectLoaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeInterconnectLoaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3713,7 +3713,7 @@ export const deserializeAws_json1_1DescribeInterconnectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeInterconnectsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeInterconnectsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3776,7 +3776,7 @@ export const deserializeAws_json1_1DescribeLagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeLagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3839,7 +3839,7 @@ export const deserializeAws_json1_1DescribeLoaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoaCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeLoaCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3902,7 +3902,7 @@ export const deserializeAws_json1_1DescribeLocationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLocationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeLocationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3965,7 +3965,7 @@ export const deserializeAws_json1_1DescribeTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4028,7 +4028,7 @@ export const deserializeAws_json1_1DescribeVirtualGatewaysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualGatewaysCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeVirtualGatewaysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4091,7 +4091,7 @@ export const deserializeAws_json1_1DescribeVirtualInterfacesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeVirtualInterfacesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeVirtualInterfacesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4154,7 +4154,7 @@ export const deserializeAws_json1_1DisassociateConnectionFromLagCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateConnectionFromLagCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateConnectionFromLagCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4217,7 +4217,7 @@ export const deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVirtualInterfaceTestHistoryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListVirtualInterfaceTestHistoryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4280,7 +4280,7 @@ export const deserializeAws_json1_1StartBgpFailoverTestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBgpFailoverTestCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartBgpFailoverTestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4343,7 +4343,7 @@ export const deserializeAws_json1_1StopBgpFailoverTestCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBgpFailoverTestCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopBgpFailoverTestCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4406,7 +4406,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4485,7 +4485,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4548,7 +4548,7 @@ export const deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommand 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDirectConnectGatewayAssociationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateDirectConnectGatewayAssociationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4611,7 +4611,7 @@ export const deserializeAws_json1_1UpdateLagCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLagCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateLagCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4674,7 +4674,7 @@ export const deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateVirtualInterfaceAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateVirtualInterfaceAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

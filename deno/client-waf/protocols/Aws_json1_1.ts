@@ -1420,7 +1420,7 @@ export const deserializeAws_json1_1CreateByteMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateByteMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateByteMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1515,7 +1515,7 @@ export const deserializeAws_json1_1CreateGeoMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateGeoMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateGeoMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1610,7 +1610,7 @@ export const deserializeAws_json1_1CreateIPSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateIPSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateIPSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1705,7 +1705,7 @@ export const deserializeAws_json1_1CreateRateBasedRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRateBasedRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateRateBasedRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1816,7 +1816,7 @@ export const deserializeAws_json1_1CreateRegexMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRegexMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateRegexMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1895,7 +1895,7 @@ export const deserializeAws_json1_1CreateRegexPatternSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRegexPatternSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateRegexPatternSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1974,7 +1974,7 @@ export const deserializeAws_json1_1CreateRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2085,7 +2085,7 @@ export const deserializeAws_json1_1CreateRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRuleGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2188,7 +2188,7 @@ export const deserializeAws_json1_1CreateSizeConstraintSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSizeConstraintSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateSizeConstraintSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2283,7 +2283,7 @@ export const deserializeAws_json1_1CreateSqlInjectionMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSqlInjectionMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateSqlInjectionMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2378,7 +2378,7 @@ export const deserializeAws_json1_1CreateWebACLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWebACLCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateWebACLCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2497,7 +2497,7 @@ export const deserializeAws_json1_1CreateWebACLMigrationStackCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateWebACLMigrationStackCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateWebACLMigrationStackCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2584,7 +2584,7 @@ export const deserializeAws_json1_1CreateXssMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateXssMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateXssMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2679,7 +2679,7 @@ export const deserializeAws_json1_1DeleteByteMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteByteMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteByteMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2774,7 +2774,7 @@ export const deserializeAws_json1_1DeleteGeoMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteGeoMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteGeoMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2869,7 +2869,7 @@ export const deserializeAws_json1_1DeleteIPSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteIPSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteIPSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2964,7 +2964,7 @@ export const deserializeAws_json1_1DeleteLoggingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoggingConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteLoggingConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3035,7 +3035,7 @@ export const deserializeAws_json1_1DeletePermissionPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePermissionPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeletePermissionPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3106,7 +3106,7 @@ export const deserializeAws_json1_1DeleteRateBasedRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRateBasedRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteRateBasedRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3217,7 +3217,7 @@ export const deserializeAws_json1_1DeleteRegexMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRegexMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteRegexMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3312,7 +3312,7 @@ export const deserializeAws_json1_1DeleteRegexPatternSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRegexPatternSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteRegexPatternSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3407,7 +3407,7 @@ export const deserializeAws_json1_1DeleteRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3518,7 +3518,7 @@ export const deserializeAws_json1_1DeleteRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRuleGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3629,7 +3629,7 @@ export const deserializeAws_json1_1DeleteSizeConstraintSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSizeConstraintSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSizeConstraintSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3724,7 +3724,7 @@ export const deserializeAws_json1_1DeleteSqlInjectionMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSqlInjectionMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteSqlInjectionMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3819,7 +3819,7 @@ export const deserializeAws_json1_1DeleteWebACLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWebACLCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteWebACLCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3930,7 +3930,7 @@ export const deserializeAws_json1_1DeleteXssMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteXssMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteXssMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4025,7 +4025,7 @@ export const deserializeAws_json1_1GetByteMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetByteMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetByteMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4096,7 +4096,7 @@ export const deserializeAws_json1_1GetChangeTokenCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChangeTokenCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetChangeTokenCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4151,7 +4151,7 @@ export const deserializeAws_json1_1GetChangeTokenStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChangeTokenStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetChangeTokenStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4214,7 +4214,7 @@ export const deserializeAws_json1_1GetGeoMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetGeoMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetGeoMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4285,7 +4285,7 @@ export const deserializeAws_json1_1GetIPSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetIPSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetIPSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4356,7 +4356,7 @@ export const deserializeAws_json1_1GetLoggingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLoggingConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetLoggingConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4419,7 +4419,7 @@ export const deserializeAws_json1_1GetPermissionPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPermissionPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetPermissionPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4482,7 +4482,7 @@ export const deserializeAws_json1_1GetRateBasedRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRateBasedRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRateBasedRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4553,7 +4553,7 @@ export const deserializeAws_json1_1GetRateBasedRuleManagedKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRateBasedRuleManagedKeysCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRateBasedRuleManagedKeysCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4632,7 +4632,7 @@ export const deserializeAws_json1_1GetRegexMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRegexMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRegexMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4703,7 +4703,7 @@ export const deserializeAws_json1_1GetRegexPatternSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRegexPatternSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRegexPatternSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4774,7 +4774,7 @@ export const deserializeAws_json1_1GetRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4845,7 +4845,7 @@ export const deserializeAws_json1_1GetRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRuleGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4908,7 +4908,7 @@ export const deserializeAws_json1_1GetSampledRequestsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSampledRequestsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSampledRequestsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4971,7 +4971,7 @@ export const deserializeAws_json1_1GetSizeConstraintSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSizeConstraintSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSizeConstraintSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5042,7 +5042,7 @@ export const deserializeAws_json1_1GetSqlInjectionMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSqlInjectionMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetSqlInjectionMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5113,7 +5113,7 @@ export const deserializeAws_json1_1GetWebACLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetWebACLCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetWebACLCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5184,7 +5184,7 @@ export const deserializeAws_json1_1GetXssMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetXssMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetXssMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5255,7 +5255,7 @@ export const deserializeAws_json1_1ListActivatedRulesInRuleGroupCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListActivatedRulesInRuleGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListActivatedRulesInRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5326,7 +5326,7 @@ export const deserializeAws_json1_1ListByteMatchSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListByteMatchSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListByteMatchSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5389,7 +5389,7 @@ export const deserializeAws_json1_1ListGeoMatchSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGeoMatchSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListGeoMatchSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5452,7 +5452,7 @@ export const deserializeAws_json1_1ListIPSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListIPSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListIPSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5515,7 +5515,7 @@ export const deserializeAws_json1_1ListLoggingConfigurationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLoggingConfigurationsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListLoggingConfigurationsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5586,7 +5586,7 @@ export const deserializeAws_json1_1ListRateBasedRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRateBasedRulesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRateBasedRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5649,7 +5649,7 @@ export const deserializeAws_json1_1ListRegexMatchSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRegexMatchSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRegexMatchSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5712,7 +5712,7 @@ export const deserializeAws_json1_1ListRegexPatternSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRegexPatternSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRegexPatternSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5775,7 +5775,7 @@ export const deserializeAws_json1_1ListRuleGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRuleGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRuleGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5830,7 +5830,7 @@ export const deserializeAws_json1_1ListRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRulesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5893,7 +5893,7 @@ export const deserializeAws_json1_1ListSizeConstraintSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSizeConstraintSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSizeConstraintSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -5956,7 +5956,7 @@ export const deserializeAws_json1_1ListSqlInjectionMatchSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSqlInjectionMatchSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSqlInjectionMatchSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6019,7 +6019,7 @@ export const deserializeAws_json1_1ListSubscribedRuleGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSubscribedRuleGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListSubscribedRuleGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6082,7 +6082,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6177,7 +6177,7 @@ export const deserializeAws_json1_1ListWebACLsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListWebACLsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListWebACLsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6240,7 +6240,7 @@ export const deserializeAws_json1_1ListXssMatchSetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListXssMatchSetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListXssMatchSetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6303,7 +6303,7 @@ export const deserializeAws_json1_1PutLoggingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutLoggingConfigurationCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutLoggingConfigurationCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6382,7 +6382,7 @@ export const deserializeAws_json1_1PutPermissionPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutPermissionPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutPermissionPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6461,7 +6461,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6564,7 +6564,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6659,7 +6659,7 @@ export const deserializeAws_json1_1UpdateByteMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateByteMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateByteMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6770,7 +6770,7 @@ export const deserializeAws_json1_1UpdateGeoMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateGeoMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateGeoMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -6889,7 +6889,7 @@ export const deserializeAws_json1_1UpdateIPSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateIPSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateIPSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7008,7 +7008,7 @@ export const deserializeAws_json1_1UpdateRateBasedRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRateBasedRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateRateBasedRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7127,7 +7127,7 @@ export const deserializeAws_json1_1UpdateRegexMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRegexMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateRegexMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7238,7 +7238,7 @@ export const deserializeAws_json1_1UpdateRegexPatternSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRegexPatternSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateRegexPatternSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7349,7 +7349,7 @@ export const deserializeAws_json1_1UpdateRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7468,7 +7468,7 @@ export const deserializeAws_json1_1UpdateRuleGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRuleGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateRuleGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7571,7 +7571,7 @@ export const deserializeAws_json1_1UpdateSizeConstraintSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSizeConstraintSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateSizeConstraintSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7690,7 +7690,7 @@ export const deserializeAws_json1_1UpdateSqlInjectionMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSqlInjectionMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateSqlInjectionMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7801,7 +7801,7 @@ export const deserializeAws_json1_1UpdateWebACLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWebACLCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateWebACLCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -7928,7 +7928,7 @@ export const deserializeAws_json1_1UpdateXssMatchSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateXssMatchSetCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateXssMatchSetCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

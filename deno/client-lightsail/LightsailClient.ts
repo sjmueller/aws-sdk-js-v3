@@ -28,6 +28,18 @@ import {
   CreateContactMethodCommandInput,
   CreateContactMethodCommandOutput,
 } from "./commands/CreateContactMethodCommand.ts";
+import {
+  CreateContainerServiceCommandInput,
+  CreateContainerServiceCommandOutput,
+} from "./commands/CreateContainerServiceCommand.ts";
+import {
+  CreateContainerServiceDeploymentCommandInput,
+  CreateContainerServiceDeploymentCommandOutput,
+} from "./commands/CreateContainerServiceDeploymentCommand.ts";
+import {
+  CreateContainerServiceRegistryLoginCommandInput,
+  CreateContainerServiceRegistryLoginCommandOutput,
+} from "./commands/CreateContainerServiceRegistryLoginCommand.ts";
 import { CreateDiskCommandInput, CreateDiskCommandOutput } from "./commands/CreateDiskCommand.ts";
 import {
   CreateDiskFromSnapshotCommandInput,
@@ -71,6 +83,14 @@ import {
   DeleteContactMethodCommandInput,
   DeleteContactMethodCommandOutput,
 } from "./commands/DeleteContactMethodCommand.ts";
+import {
+  DeleteContainerImageCommandInput,
+  DeleteContainerImageCommandOutput,
+} from "./commands/DeleteContainerImageCommand.ts";
+import {
+  DeleteContainerServiceCommandInput,
+  DeleteContainerServiceCommandOutput,
+} from "./commands/DeleteContainerServiceCommand.ts";
 import { DeleteDiskCommandInput, DeleteDiskCommandOutput } from "./commands/DeleteDiskCommand.ts";
 import { DeleteDiskSnapshotCommandInput, DeleteDiskSnapshotCommandOutput } from "./commands/DeleteDiskSnapshotCommand.ts";
 import { DeleteDistributionCommandInput, DeleteDistributionCommandOutput } from "./commands/DeleteDistributionCommand.ts";
@@ -127,6 +147,28 @@ import {
   GetCloudFormationStackRecordsCommandOutput,
 } from "./commands/GetCloudFormationStackRecordsCommand.ts";
 import { GetContactMethodsCommandInput, GetContactMethodsCommandOutput } from "./commands/GetContactMethodsCommand.ts";
+import {
+  GetContainerAPIMetadataCommandInput,
+  GetContainerAPIMetadataCommandOutput,
+} from "./commands/GetContainerAPIMetadataCommand.ts";
+import { GetContainerImagesCommandInput, GetContainerImagesCommandOutput } from "./commands/GetContainerImagesCommand.ts";
+import { GetContainerLogCommandInput, GetContainerLogCommandOutput } from "./commands/GetContainerLogCommand.ts";
+import {
+  GetContainerServiceDeploymentsCommandInput,
+  GetContainerServiceDeploymentsCommandOutput,
+} from "./commands/GetContainerServiceDeploymentsCommand.ts";
+import {
+  GetContainerServiceMetricDataCommandInput,
+  GetContainerServiceMetricDataCommandOutput,
+} from "./commands/GetContainerServiceMetricDataCommand.ts";
+import {
+  GetContainerServicePowersCommandInput,
+  GetContainerServicePowersCommandOutput,
+} from "./commands/GetContainerServicePowersCommand.ts";
+import {
+  GetContainerServicesCommandInput,
+  GetContainerServicesCommandOutput,
+} from "./commands/GetContainerServicesCommand.ts";
 import { GetDiskCommandInput, GetDiskCommandOutput } from "./commands/GetDiskCommand.ts";
 import { GetDiskSnapshotCommandInput, GetDiskSnapshotCommandOutput } from "./commands/GetDiskSnapshotCommand.ts";
 import { GetDiskSnapshotsCommandInput, GetDiskSnapshotsCommandOutput } from "./commands/GetDiskSnapshotsCommand.ts";
@@ -259,6 +301,10 @@ import {
   RebootRelationalDatabaseCommandInput,
   RebootRelationalDatabaseCommandOutput,
 } from "./commands/RebootRelationalDatabaseCommand.ts";
+import {
+  RegisterContainerImageCommandInput,
+  RegisterContainerImageCommandOutput,
+} from "./commands/RegisterContainerImageCommand.ts";
 import { ReleaseStaticIpCommandInput, ReleaseStaticIpCommandOutput } from "./commands/ReleaseStaticIpCommand.ts";
 import {
   ResetDistributionCacheCommandInput,
@@ -282,6 +328,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/Ta
 import { TestAlarmCommandInput, TestAlarmCommandOutput } from "./commands/TestAlarmCommand.ts";
 import { UnpeerVpcCommandInput, UnpeerVpcCommandOutput } from "./commands/UnpeerVpcCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
+import {
+  UpdateContainerServiceCommandInput,
+  UpdateContainerServiceCommandOutput,
+} from "./commands/UpdateContainerServiceCommand.ts";
 import {
   UpdateDistributionBundleCommandInput,
   UpdateDistributionBundleCommandOutput,
@@ -361,6 +411,9 @@ export type ServiceInputTypes =
   | CreateCertificateCommandInput
   | CreateCloudFormationStackCommandInput
   | CreateContactMethodCommandInput
+  | CreateContainerServiceCommandInput
+  | CreateContainerServiceDeploymentCommandInput
+  | CreateContainerServiceRegistryLoginCommandInput
   | CreateDiskCommandInput
   | CreateDiskFromSnapshotCommandInput
   | CreateDiskSnapshotCommandInput
@@ -380,6 +433,8 @@ export type ServiceInputTypes =
   | DeleteAutoSnapshotCommandInput
   | DeleteCertificateCommandInput
   | DeleteContactMethodCommandInput
+  | DeleteContainerImageCommandInput
+  | DeleteContainerServiceCommandInput
   | DeleteDiskCommandInput
   | DeleteDiskSnapshotCommandInput
   | DeleteDistributionCommandInput
@@ -409,6 +464,13 @@ export type ServiceInputTypes =
   | GetCertificatesCommandInput
   | GetCloudFormationStackRecordsCommandInput
   | GetContactMethodsCommandInput
+  | GetContainerAPIMetadataCommandInput
+  | GetContainerImagesCommandInput
+  | GetContainerLogCommandInput
+  | GetContainerServiceDeploymentsCommandInput
+  | GetContainerServiceMetricDataCommandInput
+  | GetContainerServicePowersCommandInput
+  | GetContainerServicesCommandInput
   | GetDiskCommandInput
   | GetDiskSnapshotCommandInput
   | GetDiskSnapshotsCommandInput
@@ -460,6 +522,7 @@ export type ServiceInputTypes =
   | PutInstancePublicPortsCommandInput
   | RebootInstanceCommandInput
   | RebootRelationalDatabaseCommandInput
+  | RegisterContainerImageCommandInput
   | ReleaseStaticIpCommandInput
   | ResetDistributionCacheCommandInput
   | SendContactMethodVerificationCommandInput
@@ -471,6 +534,7 @@ export type ServiceInputTypes =
   | TestAlarmCommandInput
   | UnpeerVpcCommandInput
   | UntagResourceCommandInput
+  | UpdateContainerServiceCommandInput
   | UpdateDistributionBundleCommandInput
   | UpdateDistributionCommandInput
   | UpdateDomainEntryCommandInput
@@ -490,6 +554,9 @@ export type ServiceOutputTypes =
   | CreateCertificateCommandOutput
   | CreateCloudFormationStackCommandOutput
   | CreateContactMethodCommandOutput
+  | CreateContainerServiceCommandOutput
+  | CreateContainerServiceDeploymentCommandOutput
+  | CreateContainerServiceRegistryLoginCommandOutput
   | CreateDiskCommandOutput
   | CreateDiskFromSnapshotCommandOutput
   | CreateDiskSnapshotCommandOutput
@@ -509,6 +576,8 @@ export type ServiceOutputTypes =
   | DeleteAutoSnapshotCommandOutput
   | DeleteCertificateCommandOutput
   | DeleteContactMethodCommandOutput
+  | DeleteContainerImageCommandOutput
+  | DeleteContainerServiceCommandOutput
   | DeleteDiskCommandOutput
   | DeleteDiskSnapshotCommandOutput
   | DeleteDistributionCommandOutput
@@ -538,6 +607,13 @@ export type ServiceOutputTypes =
   | GetCertificatesCommandOutput
   | GetCloudFormationStackRecordsCommandOutput
   | GetContactMethodsCommandOutput
+  | GetContainerAPIMetadataCommandOutput
+  | GetContainerImagesCommandOutput
+  | GetContainerLogCommandOutput
+  | GetContainerServiceDeploymentsCommandOutput
+  | GetContainerServiceMetricDataCommandOutput
+  | GetContainerServicePowersCommandOutput
+  | GetContainerServicesCommandOutput
   | GetDiskCommandOutput
   | GetDiskSnapshotCommandOutput
   | GetDiskSnapshotsCommandOutput
@@ -589,6 +665,7 @@ export type ServiceOutputTypes =
   | PutInstancePublicPortsCommandOutput
   | RebootInstanceCommandOutput
   | RebootRelationalDatabaseCommandOutput
+  | RegisterContainerImageCommandOutput
   | ReleaseStaticIpCommandOutput
   | ResetDistributionCacheCommandOutput
   | SendContactMethodVerificationCommandOutput
@@ -600,6 +677,7 @@ export type ServiceOutputTypes =
   | TestAlarmCommandOutput
   | UnpeerVpcCommandOutput
   | UntagResourceCommandOutput
+  | UpdateContainerServiceCommandOutput
   | UpdateDistributionBundleCommandOutput
   | UpdateDistributionCommandOutput
   | UpdateDomainEntryCommandOutput
@@ -722,10 +800,10 @@ export type LightsailClientResolvedConfig = __SmithyResolvedConfiguration<__Http
 /**
  * <p>Amazon Lightsail is the easiest way to get started with Amazon Web Services (AWS) for developers
  *       who need to build websites or web applications. It includes everything you need to launch your
- *       project quickly – instances (virtual private servers), managed databases, SSD-based block
- *       storage, static IP addresses, load balancers, content delivery network (CDN) distributions,
- *       DNS management of registered domains, and snapshots (backups) – for a low, predictable monthly
- *       price.</p>
+ *       project quickly - instances (virtual private servers), container services, managed databases,
+ *       SSD-based block storage, static IP addresses, load balancers, content delivery network (CDN)
+ *       distributions, DNS management of registered domains, and resource snapshots (backups) - for a
+ *       low, predictable monthly price.</p>
  *
  *          <p>You can manage your Lightsail resources using the Lightsail console, Lightsail API,
  *       AWS Command Line Interface (AWS CLI), or SDKs. For more information about Lightsail concepts
@@ -733,7 +811,7 @@ export type LightsailClientResolvedConfig = __SmithyResolvedConfiguration<__Http
  *
  *          <p>This API Reference provides detailed information about the actions, data types,
  *       parameters, and errors of the Lightsail service. For more information about the supported
- *       AWS Regions, endpoints, and service quotas for the Lightsail service, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail Endpoints and
+ *       AWS Regions, endpoints, and service quotas of the Lightsail service, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail Endpoints and
  *         Quotas</a> in the <i>AWS General Reference</i>.</p>
  */
 export class LightsailClient extends __Client<

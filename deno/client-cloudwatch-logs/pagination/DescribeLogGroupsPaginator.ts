@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeLogGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeLogGroupsCommand(input, ...args));
+  return await client.send(new DescribeLogGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudWatchLogs,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeLogGroups(input, ...args);
 };
-export async function* describeLogGroupsPaginate(
+export async function* paginateDescribeLogGroups(
   config: CloudWatchLogsPaginationConfiguration,
   input: DescribeLogGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeLogGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeLogGroupsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["limit"] = config.pageSize;
     if (config.client instanceof CloudWatchLogs) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeLogGroupsPaginate(
       throw new Error("Invalid client, expected CloudWatchLogs | CloudWatchLogsClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

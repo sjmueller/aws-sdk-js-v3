@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetExternalModelsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetExternalModelsCommand(input, ...args));
+  return await client.send(new GetExternalModelsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: FraudDetector,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getExternalModels(input, ...args);
 };
-export async function* getExternalModelsPaginate(
+export async function* paginateGetExternalModels(
   config: FraudDetectorPaginationConfiguration,
   input: GetExternalModelsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetExternalModelsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetExternalModelsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof FraudDetector) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getExternalModelsPaginate(
       throw new Error("Invalid client, expected FraudDetector | FraudDetectorClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

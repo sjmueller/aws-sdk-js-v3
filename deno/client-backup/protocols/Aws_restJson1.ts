@@ -1,4 +1,3 @@
-
 import { CreateBackupPlanCommandInput, CreateBackupPlanCommandOutput } from "../commands/CreateBackupPlanCommand.ts";
 import {
   CreateBackupSelectionCommandInput,
@@ -30,6 +29,10 @@ import {
 } from "../commands/DescribeBackupVaultCommand.ts";
 import { DescribeCopyJobCommandInput, DescribeCopyJobCommandOutput } from "../commands/DescribeCopyJobCommand.ts";
 import {
+  DescribeGlobalSettingsCommandInput,
+  DescribeGlobalSettingsCommandOutput,
+} from "../commands/DescribeGlobalSettingsCommand.ts";
+import {
   DescribeProtectedResourceCommandInput,
   DescribeProtectedResourceCommandOutput,
 } from "../commands/DescribeProtectedResourceCommand.ts";
@@ -41,7 +44,10 @@ import {
   DescribeRegionSettingsCommandInput,
   DescribeRegionSettingsCommandOutput,
 } from "../commands/DescribeRegionSettingsCommand.ts";
-import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "../commands/DescribeRestoreJobCommand.ts";
+import {
+  DescribeRestoreJobCommandInput,
+  DescribeRestoreJobCommandOutput,
+} from "../commands/DescribeRestoreJobCommand.ts";
 import {
   ExportBackupPlanTemplateCommandInput,
   ExportBackupPlanTemplateCommandOutput,
@@ -55,7 +61,10 @@ import {
   GetBackupPlanFromTemplateCommandInput,
   GetBackupPlanFromTemplateCommandOutput,
 } from "../commands/GetBackupPlanFromTemplateCommand.ts";
-import { GetBackupSelectionCommandInput, GetBackupSelectionCommandOutput } from "../commands/GetBackupSelectionCommand.ts";
+import {
+  GetBackupSelectionCommandInput,
+  GetBackupSelectionCommandOutput,
+} from "../commands/GetBackupSelectionCommand.ts";
 import {
   GetBackupVaultAccessPolicyCommandInput,
   GetBackupVaultAccessPolicyCommandOutput,
@@ -118,6 +127,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand.ts";
 import { UpdateBackupPlanCommandInput, UpdateBackupPlanCommandOutput } from "../commands/UpdateBackupPlanCommand.ts";
 import {
+  UpdateGlobalSettingsCommandInput,
+  UpdateGlobalSettingsCommandOutput,
+} from "../commands/UpdateGlobalSettingsCommand.ts";
+import {
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput,
 } from "../commands/UpdateRecoveryPointLifecycleCommand.ts";
@@ -126,6 +139,7 @@ import {
   UpdateRegionSettingsCommandOutput,
 } from "../commands/UpdateRegionSettingsCommand.ts";
 import {
+  AdvancedBackupSetting,
   AlreadyExistsException,
   BackupJob,
   BackupPlan,
@@ -559,6 +573,28 @@ export const serializeAws_restJson1DescribeCopyJobCommand = async (
   });
 };
 
+export const serializeAws_restJson1DescribeGlobalSettingsCommand = async (
+  input: DescribeGlobalSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "",
+  };
+  let resolvedPath = "/global-settings";
+  let body: any;
+  body = "{}";
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DescribeProtectedResourceCommand = async (
   input: DescribeProtectedResourceCommandInput,
   context: __SerdeContext
@@ -806,15 +842,6 @@ export const serializeAws_restJson1GetBackupSelectionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/backup/plans/{BackupPlanId}/selections/{SelectionId}";
-  if (input.SelectionId !== undefined) {
-    const labelValue: string = input.SelectionId;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: SelectionId.");
-    }
-    resolvedPath = resolvedPath.replace("{SelectionId}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: SelectionId.");
-  }
   if (input.BackupPlanId !== undefined) {
     const labelValue: string = input.BackupPlanId;
     if (labelValue.length <= 0) {
@@ -823,6 +850,15 @@ export const serializeAws_restJson1GetBackupSelectionCommand = async (
     resolvedPath = resolvedPath.replace("{BackupPlanId}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
+  }
+  if (input.SelectionId !== undefined) {
+    const labelValue: string = input.SelectionId;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: SelectionId.");
+    }
+    resolvedPath = resolvedPath.replace("{SelectionId}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: SelectionId.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -967,19 +1003,19 @@ export const serializeAws_restJson1ListBackupJobsCommand = async (
   };
   let resolvedPath = "/backup-jobs";
   const query: any = {
-    ...(input.ByAccountId !== undefined && { accountId: input.ByAccountId }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.ByCreatedAfter !== undefined && {
-      createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
-    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
     ...(input.ByState !== undefined && { state: input.ByState }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
+    ...(input.ByBackupVaultName !== undefined && { backupVaultName: input.ByBackupVaultName }),
     ...(input.ByCreatedBefore !== undefined && {
       createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.ByBackupVaultName !== undefined && { backupVaultName: input.ByBackupVaultName }),
+    ...(input.ByCreatedAfter !== undefined && {
+      createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
+    }),
+    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
+    ...(input.ByAccountId !== undefined && { accountId: input.ByAccountId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1031,8 +1067,8 @@ export const serializeAws_restJson1ListBackupPlanTemplatesCommand = async (
   };
   let resolvedPath = "/backup/template/plans";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1066,8 +1102,8 @@ export const serializeAws_restJson1ListBackupPlanVersionsCommand = async (
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1127,8 +1163,8 @@ export const serializeAws_restJson1ListBackupVaultsCommand = async (
   };
   let resolvedPath = "/backup-vaults";
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1153,19 +1189,19 @@ export const serializeAws_restJson1ListCopyJobsCommand = async (
   };
   let resolvedPath = "/copy-jobs";
   const query: any = {
-    ...(input.ByAccountId !== undefined && { accountId: input.ByAccountId }),
-    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
+    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
     ...(input.ByState !== undefined && { state: input.ByState }),
+    ...(input.ByCreatedBefore !== undefined && {
+      createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
+    }),
     ...(input.ByCreatedAfter !== undefined && {
       createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
     ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
-    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.ByCreatedBefore !== undefined && {
-      createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
-    }),
     ...(input.ByDestinationVaultArn !== undefined && { destinationVaultArn: input.ByDestinationVaultArn }),
+    ...(input.ByAccountId !== undefined && { accountId: input.ByAccountId }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1226,16 +1262,16 @@ export const serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand = asyn
   }
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
-    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
-    ...(input.ByBackupPlanId !== undefined && { backupPlanId: input.ByBackupPlanId }),
     ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.ByCreatedAfter !== undefined && {
-      createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
-    }),
+    ...(input.ByResourceArn !== undefined && { resourceArn: input.ByResourceArn }),
+    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
+    ...(input.ByBackupPlanId !== undefined && { backupPlanId: input.ByBackupPlanId }),
     ...(input.ByCreatedBefore !== undefined && {
       createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
     }),
-    ...(input.ByResourceType !== undefined && { resourceType: input.ByResourceType }),
+    ...(input.ByCreatedAfter !== undefined && {
+      createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
+    }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1269,8 +1305,8 @@ export const serializeAws_restJson1ListRecoveryPointsByResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   const query: any = {
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1296,15 +1332,15 @@ export const serializeAws_restJson1ListRestoreJobsCommand = async (
   let resolvedPath = "/restore-jobs";
   const query: any = {
     ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
     ...(input.ByAccountId !== undefined && { accountId: input.ByAccountId }),
+    ...(input.ByCreatedBefore !== undefined && {
+      createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
+    }),
     ...(input.ByCreatedAfter !== undefined && {
       createdAfter: (input.ByCreatedAfter.toISOString().split(".")[0] + "Z").toString(),
     }),
     ...(input.ByStatus !== undefined && { status: input.ByStatus }),
-    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults.toString() }),
-    ...(input.ByCreatedBefore !== undefined && {
-      createdBefore: (input.ByCreatedBefore.toISOString().split(".")[0] + "Z").toString(),
-    }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1434,6 +1470,9 @@ export const serializeAws_restJson1StartBackupJobCommand = async (
   let resolvedPath = "/backup-jobs";
   let body: any;
   body = JSON.stringify({
+    ...(input.BackupOptions !== undefined && {
+      BackupOptions: serializeAws_restJson1BackupOptions(input.BackupOptions, context),
+    }),
     ...(input.BackupVaultName !== undefined && { BackupVaultName: input.BackupVaultName }),
     ...(input.CompleteWindowMinutes !== undefined && { CompleteWindowMinutes: input.CompleteWindowMinutes }),
     ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
@@ -1647,6 +1686,32 @@ export const serializeAws_restJson1UpdateBackupPlanCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateGlobalSettingsCommand = async (
+  input: UpdateGlobalSettingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/global-settings";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.GlobalSettings !== undefined && {
+      GlobalSettings: serializeAws_restJson1GlobalSettings(input.GlobalSettings, context),
+    }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
   input: UpdateRecoveryPointLifecycleCommandInput,
   context: __SerdeContext
@@ -1655,15 +1720,6 @@ export const serializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}";
-  if (input.RecoveryPointArn !== undefined) {
-    const labelValue: string = input.RecoveryPointArn;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: RecoveryPointArn.");
-    }
-    resolvedPath = resolvedPath.replace("{RecoveryPointArn}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: RecoveryPointArn.");
-  }
   if (input.BackupVaultName !== undefined) {
     const labelValue: string = input.BackupVaultName;
     if (labelValue.length <= 0) {
@@ -1672,6 +1728,15 @@ export const serializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
     resolvedPath = resolvedPath.replace("{BackupVaultName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
+  }
+  if (input.RecoveryPointArn !== undefined) {
+    const labelValue: string = input.RecoveryPointArn;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: RecoveryPointArn.");
+    }
+    resolvedPath = resolvedPath.replace("{RecoveryPointArn}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: RecoveryPointArn.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1722,17 +1787,24 @@ export const deserializeAws_restJson1CreateBackupPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupPlanCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBackupPlanCommandError(output, context);
   }
   const contents: CreateBackupPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
+    AdvancedBackupSettings: undefined,
     BackupPlanArn: undefined,
     BackupPlanId: undefined,
     CreationDate: undefined,
     VersionId: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.AdvancedBackupSettings !== undefined && data.AdvancedBackupSettings !== null) {
+    contents.AdvancedBackupSettings = deserializeAws_restJson1AdvancedBackupSettings(
+      data.AdvancedBackupSettings,
+      context
+    );
+  }
   if (data.BackupPlanArn !== undefined && data.BackupPlanArn !== null) {
     contents.BackupPlanArn = data.BackupPlanArn;
   }
@@ -1821,7 +1893,7 @@ export const deserializeAws_restJson1CreateBackupSelectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupSelectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBackupSelectionCommandError(output, context);
   }
   const contents: CreateBackupSelectionCommandOutput = {
@@ -1916,7 +1988,7 @@ export const deserializeAws_restJson1CreateBackupVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateBackupVaultCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateBackupVaultCommandError(output, context);
   }
   const contents: CreateBackupVaultCommandOutput = {
@@ -2011,7 +2083,7 @@ export const deserializeAws_restJson1DeleteBackupPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupPlanCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBackupPlanCommandError(output, context);
   }
   const contents: DeleteBackupPlanCommandOutput = {
@@ -2110,7 +2182,7 @@ export const deserializeAws_restJson1DeleteBackupSelectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupSelectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBackupSelectionCommandError(output, context);
   }
   const contents: DeleteBackupSelectionCommandOutput = {
@@ -2185,7 +2257,7 @@ export const deserializeAws_restJson1DeleteBackupVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBackupVaultCommandError(output, context);
   }
   const contents: DeleteBackupVaultCommandOutput = {
@@ -2268,7 +2340,7 @@ export const deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommand = asyn
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBackupVaultAccessPolicyCommandError(output, context);
   }
   const contents: DeleteBackupVaultAccessPolicyCommandOutput = {
@@ -2343,7 +2415,7 @@ export const deserializeAws_restJson1DeleteBackupVaultNotificationsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteBackupVaultNotificationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteBackupVaultNotificationsCommandError(output, context);
   }
   const contents: DeleteBackupVaultNotificationsCommandOutput = {
@@ -2418,7 +2490,7 @@ export const deserializeAws_restJson1DeleteRecoveryPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRecoveryPointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteRecoveryPointCommandError(output, context);
   }
   const contents: DeleteRecoveryPointCommandOutput = {
@@ -2501,14 +2573,16 @@ export const deserializeAws_restJson1DescribeBackupJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeBackupJobCommandError(output, context);
   }
   const contents: DescribeBackupJobCommandOutput = {
     $metadata: deserializeMetadata(output),
     AccountId: undefined,
     BackupJobId: undefined,
+    BackupOptions: undefined,
     BackupSizeInBytes: undefined,
+    BackupType: undefined,
     BackupVaultArn: undefined,
     BackupVaultName: undefined,
     BytesTransferred: undefined,
@@ -2532,8 +2606,14 @@ export const deserializeAws_restJson1DescribeBackupJobCommand = async (
   if (data.BackupJobId !== undefined && data.BackupJobId !== null) {
     contents.BackupJobId = data.BackupJobId;
   }
+  if (data.BackupOptions !== undefined && data.BackupOptions !== null) {
+    contents.BackupOptions = deserializeAws_restJson1BackupOptions(data.BackupOptions, context);
+  }
   if (data.BackupSizeInBytes !== undefined && data.BackupSizeInBytes !== null) {
     contents.BackupSizeInBytes = data.BackupSizeInBytes;
+  }
+  if (data.BackupType !== undefined && data.BackupType !== null) {
+    contents.BackupType = data.BackupType;
   }
   if (data.BackupVaultArn !== undefined && data.BackupVaultArn !== null) {
     contents.BackupVaultArn = data.BackupVaultArn;
@@ -2656,7 +2736,7 @@ export const deserializeAws_restJson1DescribeBackupVaultCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBackupVaultCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeBackupVaultCommandError(output, context);
   }
   const contents: DescribeBackupVaultCommandOutput = {
@@ -2755,7 +2835,7 @@ export const deserializeAws_restJson1DescribeCopyJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeCopyJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeCopyJobCommandError(output, context);
   }
   const contents: DescribeCopyJobCommandOutput = {
@@ -2830,11 +2910,70 @@ const deserializeAws_restJson1DescribeCopyJobCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DescribeGlobalSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGlobalSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeGlobalSettingsCommandError(output, context);
+  }
+  const contents: DescribeGlobalSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    GlobalSettings: undefined,
+    LastUpdateTime: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.GlobalSettings !== undefined && data.GlobalSettings !== null) {
+    contents.GlobalSettings = deserializeAws_restJson1GlobalSettings(data.GlobalSettings, context);
+  }
+  if (data.LastUpdateTime !== undefined && data.LastUpdateTime !== null) {
+    contents.LastUpdateTime = new Date(Math.round(data.LastUpdateTime * 1000));
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DescribeGlobalSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeGlobalSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DescribeProtectedResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProtectedResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeProtectedResourceCommandError(output, context);
   }
   const contents: DescribeProtectedResourceCommandOutput = {
@@ -2921,7 +3060,7 @@ export const deserializeAws_restJson1DescribeRecoveryPointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRecoveryPointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeRecoveryPointCommandError(output, context);
   }
   const contents: DescribeRecoveryPointCommandOutput = {
@@ -2941,6 +3080,7 @@ export const deserializeAws_restJson1DescribeRecoveryPointCommand = async (
     RecoveryPointArn: undefined,
     ResourceArn: undefined,
     ResourceType: undefined,
+    SourceBackupVaultArn: undefined,
     Status: undefined,
     StorageClass: undefined,
   };
@@ -2989,6 +3129,9 @@ export const deserializeAws_restJson1DescribeRecoveryPointCommand = async (
   }
   if (data.ResourceType !== undefined && data.ResourceType !== null) {
     contents.ResourceType = data.ResourceType;
+  }
+  if (data.SourceBackupVaultArn !== undefined && data.SourceBackupVaultArn !== null) {
+    contents.SourceBackupVaultArn = data.SourceBackupVaultArn;
   }
   if (data.Status !== undefined && data.Status !== null) {
     contents.Status = data.Status;
@@ -3064,7 +3207,7 @@ export const deserializeAws_restJson1DescribeRegionSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRegionSettingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeRegionSettingsCommandError(output, context);
   }
   const contents: DescribeRegionSettingsCommandOutput = {
@@ -3122,7 +3265,7 @@ export const deserializeAws_restJson1DescribeRestoreJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRestoreJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeRestoreJobCommandError(output, context);
   }
   const contents: DescribeRestoreJobCommandOutput = {
@@ -3257,7 +3400,7 @@ export const deserializeAws_restJson1ExportBackupPlanTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ExportBackupPlanTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ExportBackupPlanTemplateCommandError(output, context);
   }
   const contents: ExportBackupPlanTemplateCommandOutput = {
@@ -3336,11 +3479,12 @@ export const deserializeAws_restJson1GetBackupPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackupPlanCommandError(output, context);
   }
   const contents: GetBackupPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
+    AdvancedBackupSettings: undefined,
     BackupPlan: undefined,
     BackupPlanArn: undefined,
     BackupPlanId: undefined,
@@ -3351,6 +3495,12 @@ export const deserializeAws_restJson1GetBackupPlanCommand = async (
     VersionId: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.AdvancedBackupSettings !== undefined && data.AdvancedBackupSettings !== null) {
+    contents.AdvancedBackupSettings = deserializeAws_restJson1AdvancedBackupSettings(
+      data.AdvancedBackupSettings,
+      context
+    );
+  }
   if (data.BackupPlan !== undefined && data.BackupPlan !== null) {
     contents.BackupPlan = deserializeAws_restJson1BackupPlan(data.BackupPlan, context);
   }
@@ -3443,7 +3593,7 @@ export const deserializeAws_restJson1GetBackupPlanFromJSONCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanFromJSONCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackupPlanFromJSONCommandError(output, context);
   }
   const contents: GetBackupPlanFromJSONCommandOutput = {
@@ -3530,7 +3680,7 @@ export const deserializeAws_restJson1GetBackupPlanFromTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupPlanFromTemplateCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackupPlanFromTemplateCommandError(output, context);
   }
   const contents: GetBackupPlanFromTemplateCommandOutput = {
@@ -3609,7 +3759,7 @@ export const deserializeAws_restJson1GetBackupSelectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupSelectionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackupSelectionCommandError(output, context);
   }
   const contents: GetBackupSelectionCommandOutput = {
@@ -3704,7 +3854,7 @@ export const deserializeAws_restJson1GetBackupVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupVaultAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackupVaultAccessPolicyCommandError(output, context);
   }
   const contents: GetBackupVaultAccessPolicyCommandOutput = {
@@ -3791,7 +3941,7 @@ export const deserializeAws_restJson1GetBackupVaultNotificationsCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupVaultNotificationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetBackupVaultNotificationsCommandError(output, context);
   }
   const contents: GetBackupVaultNotificationsCommandOutput = {
@@ -3882,7 +4032,7 @@ export const deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecoveryPointRestoreMetadataCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetRecoveryPointRestoreMetadataCommandError(output, context);
   }
   const contents: GetRecoveryPointRestoreMetadataCommandOutput = {
@@ -3969,7 +4119,7 @@ export const deserializeAws_restJson1GetSupportedResourceTypesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSupportedResourceTypesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSupportedResourceTypesCommandError(output, context);
   }
   const contents: GetSupportedResourceTypesCommandOutput = {
@@ -4024,7 +4174,7 @@ export const deserializeAws_restJson1ListBackupJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListBackupJobsCommandError(output, context);
   }
   const contents: ListBackupJobsCommandOutput = {
@@ -4091,7 +4241,7 @@ export const deserializeAws_restJson1ListBackupPlansCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlansCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListBackupPlansCommandError(output, context);
   }
   const contents: ListBackupPlansCommandOutput = {
@@ -4174,7 +4324,7 @@ export const deserializeAws_restJson1ListBackupPlanTemplatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlanTemplatesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListBackupPlanTemplatesCommandError(output, context);
   }
   const contents: ListBackupPlanTemplatesCommandOutput = {
@@ -4260,7 +4410,7 @@ export const deserializeAws_restJson1ListBackupPlanVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupPlanVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListBackupPlanVersionsCommandError(output, context);
   }
   const contents: ListBackupPlanVersionsCommandOutput = {
@@ -4346,7 +4496,7 @@ export const deserializeAws_restJson1ListBackupSelectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupSelectionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListBackupSelectionsCommandError(output, context);
   }
   const contents: ListBackupSelectionsCommandOutput = {
@@ -4429,7 +4579,7 @@ export const deserializeAws_restJson1ListBackupVaultsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListBackupVaultsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListBackupVaultsCommandError(output, context);
   }
   const contents: ListBackupVaultsCommandOutput = {
@@ -4512,7 +4662,7 @@ export const deserializeAws_restJson1ListCopyJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListCopyJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListCopyJobsCommandError(output, context);
   }
   const contents: ListCopyJobsCommandOutput = {
@@ -4579,7 +4729,7 @@ export const deserializeAws_restJson1ListProtectedResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProtectedResourcesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProtectedResourcesCommandError(output, context);
   }
   const contents: ListProtectedResourcesCommandOutput = {
@@ -4646,7 +4796,7 @@ export const deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByBackupVaultCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommandError(output, context);
   }
   const contents: ListRecoveryPointsByBackupVaultCommandOutput = {
@@ -4729,7 +4879,7 @@ export const deserializeAws_restJson1ListRecoveryPointsByResourceCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRecoveryPointsByResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRecoveryPointsByResourceCommandError(output, context);
   }
   const contents: ListRecoveryPointsByResourceCommandOutput = {
@@ -4812,7 +4962,7 @@ export const deserializeAws_restJson1ListRestoreJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListRestoreJobsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListRestoreJobsCommandError(output, context);
   }
   const contents: ListRestoreJobsCommandOutput = {
@@ -4895,7 +5045,7 @@ export const deserializeAws_restJson1ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsCommandError(output, context);
   }
   const contents: ListTagsCommandOutput = {
@@ -4978,7 +5128,7 @@ export const deserializeAws_restJson1PutBackupVaultAccessPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupVaultAccessPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutBackupVaultAccessPolicyCommandError(output, context);
   }
   const contents: PutBackupVaultAccessPolicyCommandOutput = {
@@ -5053,7 +5203,7 @@ export const deserializeAws_restJson1PutBackupVaultNotificationsCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutBackupVaultNotificationsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutBackupVaultNotificationsCommandError(output, context);
   }
   const contents: PutBackupVaultNotificationsCommandOutput = {
@@ -5128,7 +5278,7 @@ export const deserializeAws_restJson1StartBackupJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartBackupJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartBackupJobCommandError(output, context);
   }
   const contents: StartBackupJobCommandOutput = {
@@ -5166,6 +5316,14 @@ const deserializeAws_restJson1StartBackupJobCommandError = async (
     case "com.amazonaws.backup#InvalidParameterValueException":
       response = {
         ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -5223,7 +5381,7 @@ export const deserializeAws_restJson1StartCopyJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartCopyJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartCopyJobCommandError(output, context);
   }
   const contents: StartCopyJobCommandOutput = {
@@ -5314,7 +5472,7 @@ export const deserializeAws_restJson1StartRestoreJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartRestoreJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StartRestoreJobCommandError(output, context);
   }
   const contents: StartRestoreJobCommandOutput = {
@@ -5393,7 +5551,7 @@ export const deserializeAws_restJson1StopBackupJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopBackupJobCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StopBackupJobCommandError(output, context);
   }
   const contents: StopBackupJobCommandOutput = {
@@ -5476,7 +5634,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -5559,7 +5717,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -5634,17 +5792,24 @@ export const deserializeAws_restJson1UpdateBackupPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateBackupPlanCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateBackupPlanCommandError(output, context);
   }
   const contents: UpdateBackupPlanCommandOutput = {
     $metadata: deserializeMetadata(output),
+    AdvancedBackupSettings: undefined,
     BackupPlanArn: undefined,
     BackupPlanId: undefined,
     CreationDate: undefined,
     VersionId: undefined,
   };
   const data: any = await parseBody(output.body, context);
+  if (data.AdvancedBackupSettings !== undefined && data.AdvancedBackupSettings !== null) {
+    contents.AdvancedBackupSettings = deserializeAws_restJson1AdvancedBackupSettings(
+      data.AdvancedBackupSettings,
+      context
+    );
+  }
   if (data.BackupPlanArn !== undefined && data.BackupPlanArn !== null) {
     contents.BackupPlanArn = data.BackupPlanArn;
   }
@@ -5721,11 +5886,86 @@ const deserializeAws_restJson1UpdateBackupPlanCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1UpdateGlobalSettingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGlobalSettingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateGlobalSettingsCommandError(output, context);
+  }
+  const contents: UpdateGlobalSettingsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1UpdateGlobalSettingsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateGlobalSettingsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      response = {
+        ...(await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      response = {
+        ...(await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1UpdateRecoveryPointLifecycleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRecoveryPointLifecycleCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateRecoveryPointLifecycleCommandError(output, context);
   }
   const contents: UpdateRecoveryPointLifecycleCommandOutput = {
@@ -5816,7 +6056,7 @@ export const deserializeAws_restJson1UpdateRegionSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateRegionSettingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateRegionSettingsCommandError(output, context);
   }
   const contents: UpdateRegionSettingsCommandOutput = {
@@ -6119,8 +6359,34 @@ const deserializeAws_restJson1ServiceUnavailableExceptionResponse = async (
   return contents;
 };
 
+const serializeAws_restJson1AdvancedBackupSetting = (input: AdvancedBackupSetting, context: __SerdeContext): any => {
+  return {
+    ...(input.BackupOptions !== undefined && {
+      BackupOptions: serializeAws_restJson1BackupOptions(input.BackupOptions, context),
+    }),
+    ...(input.ResourceType !== undefined && { ResourceType: input.ResourceType }),
+  };
+};
+
+const serializeAws_restJson1AdvancedBackupSettings = (input: AdvancedBackupSetting[], context: __SerdeContext): any => {
+  return input.map((entry) => serializeAws_restJson1AdvancedBackupSetting(entry, context));
+};
+
+const serializeAws_restJson1BackupOptions = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
 const serializeAws_restJson1BackupPlanInput = (input: BackupPlanInput, context: __SerdeContext): any => {
   return {
+    ...(input.AdvancedBackupSettings !== undefined && {
+      AdvancedBackupSettings: serializeAws_restJson1AdvancedBackupSettings(input.AdvancedBackupSettings, context),
+    }),
     ...(input.BackupPlanName !== undefined && { BackupPlanName: input.BackupPlanName }),
     ...(input.Rules !== undefined && { Rules: serializeAws_restJson1BackupRulesInput(input.Rules, context) }),
   };
@@ -6184,6 +6450,16 @@ const serializeAws_restJson1CopyActions = (input: CopyAction[], context: __Serde
   return input.map((entry) => serializeAws_restJson1CopyAction(entry, context));
 };
 
+const serializeAws_restJson1GlobalSettings = (input: { [key: string]: string }, context: __SerdeContext): any => {
+  return Object.entries(input).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
 const serializeAws_restJson1Lifecycle = (input: Lifecycle, context: __SerdeContext): any => {
   return {
     ...(input.DeleteAfterDays !== undefined && { DeleteAfterDays: input.DeleteAfterDays }),
@@ -6238,14 +6514,36 @@ const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: _
   );
 };
 
+const deserializeAws_restJson1AdvancedBackupSetting = (output: any, context: __SerdeContext): AdvancedBackupSetting => {
+  return {
+    BackupOptions:
+      output.BackupOptions !== undefined && output.BackupOptions !== null
+        ? deserializeAws_restJson1BackupOptions(output.BackupOptions, context)
+        : undefined,
+    ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1AdvancedBackupSettings = (
+  output: any,
+  context: __SerdeContext
+): AdvancedBackupSetting[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1AdvancedBackupSetting(entry, context));
+};
+
 const deserializeAws_restJson1BackupJob = (output: any, context: __SerdeContext): BackupJob => {
   return {
     AccountId: output.AccountId !== undefined && output.AccountId !== null ? output.AccountId : undefined,
     BackupJobId: output.BackupJobId !== undefined && output.BackupJobId !== null ? output.BackupJobId : undefined,
+    BackupOptions:
+      output.BackupOptions !== undefined && output.BackupOptions !== null
+        ? deserializeAws_restJson1BackupOptions(output.BackupOptions, context)
+        : undefined,
     BackupSizeInBytes:
       output.BackupSizeInBytes !== undefined && output.BackupSizeInBytes !== null
         ? output.BackupSizeInBytes
         : undefined,
+    BackupType: output.BackupType !== undefined && output.BackupType !== null ? output.BackupType : undefined,
     BackupVaultArn:
       output.BackupVaultArn !== undefined && output.BackupVaultArn !== null ? output.BackupVaultArn : undefined,
     BackupVaultName:
@@ -6286,8 +6584,22 @@ const deserializeAws_restJson1BackupJobsList = (output: any, context: __SerdeCon
   return (output || []).map((entry: any) => deserializeAws_restJson1BackupJob(entry, context));
 };
 
+const deserializeAws_restJson1BackupOptions = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
 const deserializeAws_restJson1BackupPlan = (output: any, context: __SerdeContext): BackupPlan => {
   return {
+    AdvancedBackupSettings:
+      output.AdvancedBackupSettings !== undefined && output.AdvancedBackupSettings !== null
+        ? deserializeAws_restJson1AdvancedBackupSettings(output.AdvancedBackupSettings, context)
+        : undefined,
     BackupPlanName:
       output.BackupPlanName !== undefined && output.BackupPlanName !== null ? output.BackupPlanName : undefined,
     Rules:
@@ -6303,6 +6615,10 @@ const deserializeAws_restJson1BackupPlansList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1BackupPlansListMember = (output: any, context: __SerdeContext): BackupPlansListMember => {
   return {
+    AdvancedBackupSettings:
+      output.AdvancedBackupSettings !== undefined && output.AdvancedBackupSettings !== null
+        ? deserializeAws_restJson1AdvancedBackupSettings(output.AdvancedBackupSettings, context)
+        : undefined,
     BackupPlanArn:
       output.BackupPlanArn !== undefined && output.BackupPlanArn !== null ? output.BackupPlanArn : undefined,
     BackupPlanId: output.BackupPlanId !== undefined && output.BackupPlanId !== null ? output.BackupPlanId : undefined,
@@ -6558,6 +6874,16 @@ const deserializeAws_restJson1CopyJobsList = (output: any, context: __SerdeConte
   return (output || []).map((entry: any) => deserializeAws_restJson1CopyJob(entry, context));
 };
 
+const deserializeAws_restJson1GlobalSettings = (output: any, context: __SerdeContext): { [key: string]: string } => {
+  return Object.entries(output).reduce(
+    (acc: { [key: string]: string }, [key, value]: [string, any]) => ({
+      ...acc,
+      [key]: value,
+    }),
+    {}
+  );
+};
+
 const deserializeAws_restJson1Lifecycle = (output: any, context: __SerdeContext): Lifecycle => {
   return {
     DeleteAfterDays:
@@ -6643,6 +6969,10 @@ const deserializeAws_restJson1RecoveryPointByBackupVault = (
       output.RecoveryPointArn !== undefined && output.RecoveryPointArn !== null ? output.RecoveryPointArn : undefined,
     ResourceArn: output.ResourceArn !== undefined && output.ResourceArn !== null ? output.ResourceArn : undefined,
     ResourceType: output.ResourceType !== undefined && output.ResourceType !== null ? output.ResourceType : undefined,
+    SourceBackupVaultArn:
+      output.SourceBackupVaultArn !== undefined && output.SourceBackupVaultArn !== null
+        ? output.SourceBackupVaultArn
+        : undefined,
     Status: output.Status !== undefined && output.Status !== null ? output.Status : undefined,
   } as any;
 };

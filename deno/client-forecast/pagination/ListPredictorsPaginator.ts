@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListPredictorsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListPredictorsCommand(input, ...args));
+  return await client.send(new ListPredictorsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Forecast,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listPredictors(input, ...args);
 };
-export async function* listPredictorsPaginate(
+export async function* paginateListPredictors(
   config: ForecastPaginationConfiguration,
   input: ListPredictorsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListPredictorsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListPredictorsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Forecast) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listPredictorsPaginate(
       throw new Error("Invalid client, expected Forecast | ForecastClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

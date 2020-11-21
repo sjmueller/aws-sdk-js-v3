@@ -10,6 +10,16 @@ import {
 } from "./commands/GetEncryptionConfigCommand.ts";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand.ts";
 import { GetGroupsCommandInput, GetGroupsCommandOutput } from "./commands/GetGroupsCommand.ts";
+import { GetInsightCommandInput, GetInsightCommandOutput } from "./commands/GetInsightCommand.ts";
+import { GetInsightEventsCommandInput, GetInsightEventsCommandOutput } from "./commands/GetInsightEventsCommand.ts";
+import {
+  GetInsightImpactGraphCommandInput,
+  GetInsightImpactGraphCommandOutput,
+} from "./commands/GetInsightImpactGraphCommand.ts";
+import {
+  GetInsightSummariesCommandInput,
+  GetInsightSummariesCommandOutput,
+} from "./commands/GetInsightSummariesCommand.ts";
 import { GetSamplingRulesCommandInput, GetSamplingRulesCommandOutput } from "./commands/GetSamplingRulesCommand.ts";
 import {
   GetSamplingStatisticSummariesCommandInput,
@@ -24,6 +34,10 @@ import {
 import { GetTraceGraphCommandInput, GetTraceGraphCommandOutput } from "./commands/GetTraceGraphCommand.ts";
 import { GetTraceSummariesCommandInput, GetTraceSummariesCommandOutput } from "./commands/GetTraceSummariesCommand.ts";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand.ts";
+import {
   PutEncryptionConfigCommandInput,
   PutEncryptionConfigCommandOutput,
 } from "./commands/PutEncryptionConfigCommand.ts";
@@ -32,6 +46,8 @@ import {
   PutTelemetryRecordsCommandOutput,
 } from "./commands/PutTelemetryRecordsCommand.ts";
 import { PutTraceSegmentsCommandInput, PutTraceSegmentsCommandOutput } from "./commands/PutTraceSegmentsCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand.ts";
 import { UpdateSamplingRuleCommandInput, UpdateSamplingRuleCommandOutput } from "./commands/UpdateSamplingRuleCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
@@ -92,6 +108,10 @@ export type ServiceInputTypes =
   | GetEncryptionConfigCommandInput
   | GetGroupCommandInput
   | GetGroupsCommandInput
+  | GetInsightCommandInput
+  | GetInsightEventsCommandInput
+  | GetInsightImpactGraphCommandInput
+  | GetInsightSummariesCommandInput
   | GetSamplingRulesCommandInput
   | GetSamplingStatisticSummariesCommandInput
   | GetSamplingTargetsCommandInput
@@ -99,9 +119,12 @@ export type ServiceInputTypes =
   | GetTimeSeriesServiceStatisticsCommandInput
   | GetTraceGraphCommandInput
   | GetTraceSummariesCommandInput
+  | ListTagsForResourceCommandInput
   | PutEncryptionConfigCommandInput
   | PutTelemetryRecordsCommandInput
   | PutTraceSegmentsCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateGroupCommandInput
   | UpdateSamplingRuleCommandInput;
 
@@ -114,6 +137,10 @@ export type ServiceOutputTypes =
   | GetEncryptionConfigCommandOutput
   | GetGroupCommandOutput
   | GetGroupsCommandOutput
+  | GetInsightCommandOutput
+  | GetInsightEventsCommandOutput
+  | GetInsightImpactGraphCommandOutput
+  | GetInsightSummariesCommandOutput
   | GetSamplingRulesCommandOutput
   | GetSamplingStatisticSummariesCommandOutput
   | GetSamplingTargetsCommandOutput
@@ -121,9 +148,12 @@ export type ServiceOutputTypes =
   | GetTimeSeriesServiceStatisticsCommandOutput
   | GetTraceGraphCommandOutput
   | GetTraceSummariesCommandOutput
+  | ListTagsForResourceCommandOutput
   | PutEncryptionConfigCommandOutput
   | PutTelemetryRecordsCommandOutput
   | PutTraceSegmentsCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateGroupCommandOutput
   | UpdateSamplingRuleCommandOutput;
 

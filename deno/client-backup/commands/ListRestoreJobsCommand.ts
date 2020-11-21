@@ -1,4 +1,3 @@
-
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient.ts";
 import { ListRestoreJobsInput, ListRestoreJobsOutput } from "../models/models_0.ts";
 import {
@@ -45,11 +44,23 @@ export class ListRestoreJobsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BackupClient";
+    const commandName = "ListRestoreJobsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListRestoreJobsInput.filterSensitiveLog,
       outputFilterSensitiveLog: ListRestoreJobsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

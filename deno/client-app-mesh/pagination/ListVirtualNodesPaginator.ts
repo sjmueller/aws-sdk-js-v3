@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListVirtualNodesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListVirtualNodesCommand(input, ...args));
+  return await client.send(new ListVirtualNodesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AppMesh,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listVirtualNodes(input, ...args);
 };
-export async function* listVirtualNodesPaginate(
+export async function* paginateListVirtualNodes(
   config: AppMeshPaginationConfiguration,
   input: ListVirtualNodesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListVirtualNodesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListVirtualNodesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["limit"] = config.pageSize;
     if (config.client instanceof AppMesh) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listVirtualNodesPaginate(
       throw new Error("Invalid client, expected AppMesh | AppMeshClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

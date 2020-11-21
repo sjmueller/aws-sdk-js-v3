@@ -45,11 +45,23 @@ export class DescribeClusterParameterGroupsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "RedshiftClient";
+    const commandName = "DescribeClusterParameterGroupsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeClusterParameterGroupsMessage.filterSensitiveLog,
       outputFilterSensitiveLog: ClusterParameterGroupsMessage.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

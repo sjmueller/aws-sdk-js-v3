@@ -45,11 +45,23 @@ export class DescribeDeliveryChannelStatusCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ConfigServiceClient";
+    const commandName = "DescribeDeliveryChannelStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeDeliveryChannelStatusRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeDeliveryChannelStatusResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

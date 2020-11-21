@@ -247,6 +247,16 @@ import {
   GetAWSOrganizationsAccessStatusCommandOutput,
 } from "./commands/GetAWSOrganizationsAccessStatusCommand.ts";
 import {
+  GetProvisionedProductOutputsCommand,
+  GetProvisionedProductOutputsCommandInput,
+  GetProvisionedProductOutputsCommandOutput,
+} from "./commands/GetProvisionedProductOutputsCommand.ts";
+import {
+  ImportAsProvisionedProductCommand,
+  ImportAsProvisionedProductCommandInput,
+  ImportAsProvisionedProductCommandOutput,
+} from "./commands/ImportAsProvisionedProductCommand.ts";
+import {
   ListAcceptedPortfolioSharesCommand,
   ListAcceptedPortfolioSharesCommandInput,
   ListAcceptedPortfolioSharesCommandOutput,
@@ -417,9 +427,10 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  * <fullname>AWS Service Catalog</fullname>
  *          <p>
  *             <a href="https://aws.amazon.com/servicecatalog/">AWS Service Catalog</a> enables
- *          organizations to create and manage catalogs of IT services that are approved for use on
- *          AWS. To get the most out of this documentation, you should be familiar with the
- *          terminology discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">AWS Service Catalog Concepts</a>.</p>
+ *          organizations to create and manage catalogs of IT services that are approved for AWS. To
+ *          get the most out of this documentation, you should be familiar with the terminology
+ *          discussed in <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html">AWS Service Catalog
+ *          Concepts</a>.</p>
  */
 export class ServiceCatalog extends ServiceCatalogClient {
   /**
@@ -782,8 +793,10 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Shares the specified portfolio with the specified account or organization node. Shares to an organization node can only be created by the master account of an organization or by a delegated
-   *          administrator. You can share portfolios to an organization, an organizational unit, or a specific account.</p>
+   * <p>Shares the specified portfolio with the specified account or organization node.
+   *          Shares to an organization node can only be created by the management account of an
+   *          organization or by a delegated administrator. You can share portfolios to an organization,
+   *          an organizational unit, or a specific account.</p>
    *          <p>Note that if a delegated admin is de-registered, they can no longer create portfolio shares.</p>
    *         <p>
    *             <code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio share to an organization node.</p>
@@ -1055,8 +1068,9 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Stops sharing the specified portfolio with the specified account or organization node. Shares to an organization node can only be deleted by the master account of an organization or by a
-   *        delegated administrator.</p>
+   * <p>Stops sharing the specified portfolio with the specified account or organization
+   *          node. Shares to an organization node can only be deleted by the management account of an
+   *          organization or by a delegated administrator.</p>
    *          <p>Note that if a delegated admin is de-registered, portfolio shares created from that account are removed.</p>
    */
   public deletePortfolioShare(
@@ -1352,7 +1366,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Gets the status of the specified portfolio share operation. This API can only be called by the master account in the organization or by a delegated admin.</p>
+   * <p>Gets the status of the specified portfolio share operation. This API can only be called
+   *          by the management account in the organization or by a delegated admin.</p>
    */
   public describePortfolioShareStatus(
     args: DescribePortfolioShareStatusCommandInput,
@@ -1753,8 +1768,11 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Disable portfolio sharing through AWS Organizations feature. This feature will not delete your current shares but it will prevent you from creating new shares throughout your organization.
-   *          Current shares will not be in sync with your organization structure if it changes after calling this API. This API can only be called by the master account in the organization.</p>
+   * <p>Disable portfolio sharing through AWS Organizations feature. This feature will not
+   *          delete your current shares but it will prevent you from creating new shares throughout your
+   *          organization. Current shares will not be in sync with your organization structure if it
+   *          changes after calling this API. This API can only be called by the management  account in
+   *          the organization.</p>
    *          <p>This API can't be invoked if there are active delegated administrators in the organization.</p>
    *          <p>Note that a delegated administrator is not authorized to invoke <code>DisableAWSOrganizationsAccess</code>.</p>
    */
@@ -1952,7 +1970,10 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Enable portfolio sharing feature through AWS Organizations. This API will allow Service Catalog to receive updates on your organization in order to sync your shares with the current structure. This API can only be called by the master account in the organization.</p>
+   * <p>Enable portfolio sharing feature through AWS Organizations. This API will allow Service
+   *          Catalog to receive updates on your organization in order to sync your shares with the
+   *          current structure. This API can only be called by the management  account in the
+   *          organization.</p>
    *          <p>By calling this API Service Catalog will make a call to organizations:EnableAWSServiceAccess on your behalf so that your shares can be in sync with any changes in your AWS Organizations structure.</p>
    *          <p>Note that a delegated administrator is not authorized to invoke <code>EnableAWSOrganizationsAccess</code>.</p>
    */
@@ -2052,7 +2073,8 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Get the Access Status for AWS Organization portfolio share feature. This API can only be called by the master account in the organization or by a delegated admin.</p>
+   * <p>Get the Access Status for AWS Organization portfolio share feature. This API can only be
+   *          called by the management account in the organization or by a delegated admin.</p>
    */
   public getAWSOrganizationsAccessStatus(
     args: GetAWSOrganizationsAccessStatusCommandInput,
@@ -2073,6 +2095,80 @@ export class ServiceCatalog extends ServiceCatalogClient {
     cb?: (err: any, data?: GetAWSOrganizationsAccessStatusCommandOutput) => void
   ): Promise<GetAWSOrganizationsAccessStatusCommandOutput> | void {
     const command = new GetAWSOrganizationsAccessStatusCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This API takes either a <code>ProvisonedProductId</code> or a <code>ProvisionedProductName</code>, along with a list of one or more output keys, and responds with the key/value pairs of those outputs.</p>
+   */
+  public getProvisionedProductOutputs(
+    args: GetProvisionedProductOutputsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetProvisionedProductOutputsCommandOutput>;
+  public getProvisionedProductOutputs(
+    args: GetProvisionedProductOutputsCommandInput,
+    cb: (err: any, data?: GetProvisionedProductOutputsCommandOutput) => void
+  ): void;
+  public getProvisionedProductOutputs(
+    args: GetProvisionedProductOutputsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetProvisionedProductOutputsCommandOutput) => void
+  ): void;
+  public getProvisionedProductOutputs(
+    args: GetProvisionedProductOutputsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetProvisionedProductOutputsCommandOutput) => void),
+    cb?: (err: any, data?: GetProvisionedProductOutputsCommandOutput) => void
+  ): Promise<GetProvisionedProductOutputsCommandOutput> | void {
+    const command = new GetProvisionedProductOutputsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Requests the import of a resource as a Service Catalog provisioned product that is
+   *          associated to a Service Catalog product and provisioning artifact. Once imported all
+   *          supported Service Catalog governance actions are supported on the provisioned
+   *          product.</p>
+   *          <p>Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets and
+   *          non-root nested stacks are not supported.</p>
+   *          <p>The CloudFormation stack must have one of the following statuses to be imported:
+   *          CREATE_COMPLETE, UPDATE_COMPLETE, UPDATE_ROLLBACK_COMPLETE, IMPORT_COMPLETE,
+   *          IMPORT_ROLLBACK_COMPLETE.</p>
+   *          <p>Import of the resource requires that the CloudFormation stack template matches the
+   *          associated Service Catalog product provisioning artifact. </p>
+   */
+  public importAsProvisionedProduct(
+    args: ImportAsProvisionedProductCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportAsProvisionedProductCommandOutput>;
+  public importAsProvisionedProduct(
+    args: ImportAsProvisionedProductCommandInput,
+    cb: (err: any, data?: ImportAsProvisionedProductCommandOutput) => void
+  ): void;
+  public importAsProvisionedProduct(
+    args: ImportAsProvisionedProductCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportAsProvisionedProductCommandOutput) => void
+  ): void;
+  public importAsProvisionedProduct(
+    args: ImportAsProvisionedProductCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ImportAsProvisionedProductCommandOutput) => void),
+    cb?: (err: any, data?: ImportAsProvisionedProductCommandOutput) => void
+  ): Promise<ImportAsProvisionedProductCommandOutput> | void {
+    const command = new ImportAsProvisionedProductCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2214,7 +2310,9 @@ export class ServiceCatalog extends ServiceCatalogClient {
   }
 
   /**
-   * <p>Lists the organization nodes that have access to the specified portfolio. This API can only be called by the master account in the organization or by a delegated admin.</p>
+   * <p>Lists the organization nodes that have access to the specified portfolio. This API can
+   *          only be called by the management account in the organization or by a delegated
+   *          admin.</p>
    *          <p>If a delegated admin is de-registered, they can no longer perform this operation.</p>
    */
   public listOrganizationPortfolioAccess(

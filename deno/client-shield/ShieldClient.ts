@@ -13,16 +13,32 @@ import {
   AssociateProactiveEngagementDetailsCommandOutput,
 } from "./commands/AssociateProactiveEngagementDetailsCommand.ts";
 import { CreateProtectionCommandInput, CreateProtectionCommandOutput } from "./commands/CreateProtectionCommand.ts";
+import {
+  CreateProtectionGroupCommandInput,
+  CreateProtectionGroupCommandOutput,
+} from "./commands/CreateProtectionGroupCommand.ts";
 import { CreateSubscriptionCommandInput, CreateSubscriptionCommandOutput } from "./commands/CreateSubscriptionCommand.ts";
 import { DeleteProtectionCommandInput, DeleteProtectionCommandOutput } from "./commands/DeleteProtectionCommand.ts";
+import {
+  DeleteProtectionGroupCommandInput,
+  DeleteProtectionGroupCommandOutput,
+} from "./commands/DeleteProtectionGroupCommand.ts";
 import { DeleteSubscriptionCommandInput, DeleteSubscriptionCommandOutput } from "./commands/DeleteSubscriptionCommand.ts";
 import { DescribeAttackCommandInput, DescribeAttackCommandOutput } from "./commands/DescribeAttackCommand.ts";
+import {
+  DescribeAttackStatisticsCommandInput,
+  DescribeAttackStatisticsCommandOutput,
+} from "./commands/DescribeAttackStatisticsCommand.ts";
 import { DescribeDRTAccessCommandInput, DescribeDRTAccessCommandOutput } from "./commands/DescribeDRTAccessCommand.ts";
 import {
   DescribeEmergencyContactSettingsCommandInput,
   DescribeEmergencyContactSettingsCommandOutput,
 } from "./commands/DescribeEmergencyContactSettingsCommand.ts";
 import { DescribeProtectionCommandInput, DescribeProtectionCommandOutput } from "./commands/DescribeProtectionCommand.ts";
+import {
+  DescribeProtectionGroupCommandInput,
+  DescribeProtectionGroupCommandOutput,
+} from "./commands/DescribeProtectionGroupCommand.ts";
 import {
   DescribeSubscriptionCommandInput,
   DescribeSubscriptionCommandOutput,
@@ -52,11 +68,23 @@ import {
   GetSubscriptionStateCommandOutput,
 } from "./commands/GetSubscriptionStateCommand.ts";
 import { ListAttacksCommandInput, ListAttacksCommandOutput } from "./commands/ListAttacksCommand.ts";
+import {
+  ListProtectionGroupsCommandInput,
+  ListProtectionGroupsCommandOutput,
+} from "./commands/ListProtectionGroupsCommand.ts";
 import { ListProtectionsCommandInput, ListProtectionsCommandOutput } from "./commands/ListProtectionsCommand.ts";
+import {
+  ListResourcesInProtectionGroupCommandInput,
+  ListResourcesInProtectionGroupCommandOutput,
+} from "./commands/ListResourcesInProtectionGroupCommand.ts";
 import {
   UpdateEmergencyContactSettingsCommandInput,
   UpdateEmergencyContactSettingsCommandOutput,
 } from "./commands/UpdateEmergencyContactSettingsCommand.ts";
+import {
+  UpdateProtectionGroupCommandInput,
+  UpdateProtectionGroupCommandOutput,
+} from "./commands/UpdateProtectionGroupCommand.ts";
 import { UpdateSubscriptionCommandInput, UpdateSubscriptionCommandOutput } from "./commands/UpdateSubscriptionCommand.ts";
 import { ClientDefaultValues as __ClientDefaultValues } from "./runtimeConfig.ts";
 import {
@@ -113,13 +141,17 @@ export type ServiceInputTypes =
   | AssociateHealthCheckCommandInput
   | AssociateProactiveEngagementDetailsCommandInput
   | CreateProtectionCommandInput
+  | CreateProtectionGroupCommandInput
   | CreateSubscriptionCommandInput
   | DeleteProtectionCommandInput
+  | DeleteProtectionGroupCommandInput
   | DeleteSubscriptionCommandInput
   | DescribeAttackCommandInput
+  | DescribeAttackStatisticsCommandInput
   | DescribeDRTAccessCommandInput
   | DescribeEmergencyContactSettingsCommandInput
   | DescribeProtectionCommandInput
+  | DescribeProtectionGroupCommandInput
   | DescribeSubscriptionCommandInput
   | DisableProactiveEngagementCommandInput
   | DisassociateDRTLogBucketCommandInput
@@ -128,8 +160,11 @@ export type ServiceInputTypes =
   | EnableProactiveEngagementCommandInput
   | GetSubscriptionStateCommandInput
   | ListAttacksCommandInput
+  | ListProtectionGroupsCommandInput
   | ListProtectionsCommandInput
+  | ListResourcesInProtectionGroupCommandInput
   | UpdateEmergencyContactSettingsCommandInput
+  | UpdateProtectionGroupCommandInput
   | UpdateSubscriptionCommandInput;
 
 export type ServiceOutputTypes =
@@ -138,13 +173,17 @@ export type ServiceOutputTypes =
   | AssociateHealthCheckCommandOutput
   | AssociateProactiveEngagementDetailsCommandOutput
   | CreateProtectionCommandOutput
+  | CreateProtectionGroupCommandOutput
   | CreateSubscriptionCommandOutput
   | DeleteProtectionCommandOutput
+  | DeleteProtectionGroupCommandOutput
   | DeleteSubscriptionCommandOutput
   | DescribeAttackCommandOutput
+  | DescribeAttackStatisticsCommandOutput
   | DescribeDRTAccessCommandOutput
   | DescribeEmergencyContactSettingsCommandOutput
   | DescribeProtectionCommandOutput
+  | DescribeProtectionGroupCommandOutput
   | DescribeSubscriptionCommandOutput
   | DisableProactiveEngagementCommandOutput
   | DisassociateDRTLogBucketCommandOutput
@@ -153,8 +192,11 @@ export type ServiceOutputTypes =
   | EnableProactiveEngagementCommandOutput
   | GetSubscriptionStateCommandOutput
   | ListAttacksCommandOutput
+  | ListProtectionGroupsCommandOutput
   | ListProtectionsCommandOutput
+  | ListResourcesInProtectionGroupCommandOutput
   | UpdateEmergencyContactSettingsCommandOutput
+  | UpdateProtectionGroupCommandOutput
   | UpdateSubscriptionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

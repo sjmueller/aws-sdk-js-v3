@@ -121,11 +121,11 @@ export const serializeAws_restJson1GetLifecyclePoliciesCommand = async (
   };
   let resolvedPath = "/policies";
   const query: any = {
+    ...(input.State !== undefined && { state: input.State }),
+    ...(input.TagsToAdd !== undefined && { tagsToAdd: (input.TagsToAdd || []).map((_entry) => _entry) }),
+    ...(input.PolicyIds !== undefined && { policyIds: (input.PolicyIds || []).map((_entry) => _entry) }),
     ...(input.ResourceTypes !== undefined && { resourceTypes: (input.ResourceTypes || []).map((_entry) => _entry) }),
     ...(input.TargetTags !== undefined && { targetTags: (input.TargetTags || []).map((_entry) => _entry) }),
-    ...(input.PolicyIds !== undefined && { policyIds: (input.PolicyIds || []).map((_entry) => _entry) }),
-    ...(input.TagsToAdd !== undefined && { tagsToAdd: (input.TagsToAdd || []).map((_entry) => _entry) }),
-    ...(input.State !== undefined && { state: input.State }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -310,7 +310,7 @@ export const deserializeAws_restJson1CreateLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLifecyclePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateLifecyclePolicyCommandError(output, context);
   }
   const contents: CreateLifecyclePolicyCommandOutput = {
@@ -381,7 +381,7 @@ export const deserializeAws_restJson1DeleteLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLifecyclePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteLifecyclePolicyCommandError(output, context);
   }
   const contents: DeleteLifecyclePolicyCommandOutput = {
@@ -448,7 +448,7 @@ export const deserializeAws_restJson1GetLifecyclePoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePoliciesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetLifecyclePoliciesCommandError(output, context);
   }
   const contents: GetLifecyclePoliciesCommandOutput = {
@@ -527,7 +527,7 @@ export const deserializeAws_restJson1GetLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLifecyclePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetLifecyclePolicyCommandError(output, context);
   }
   const contents: GetLifecyclePolicyCommandOutput = {
@@ -598,7 +598,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -669,7 +669,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -736,7 +736,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -803,7 +803,7 @@ export const deserializeAws_restJson1UpdateLifecyclePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateLifecyclePolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateLifecyclePolicyCommandError(output, context);
   }
   const contents: UpdateLifecyclePolicyCommandOutput = {
@@ -1034,6 +1034,7 @@ const serializeAws_restJson1FastRestoreRule = (input: FastRestoreRule, context: 
 const serializeAws_restJson1_Parameters = (input: _Parameters, context: __SerdeContext): any => {
   return {
     ...(input.ExcludeBootVolume !== undefined && { ExcludeBootVolume: input.ExcludeBootVolume }),
+    ...(input.NoReboot !== undefined && { NoReboot: input.NoReboot }),
   };
 };
 
@@ -1181,9 +1182,13 @@ const deserializeAws_restJson1FastRestoreRule = (output: any, context: __SerdeCo
 const deserializeAws_restJson1LifecyclePolicy = (output: any, context: __SerdeContext): LifecyclePolicy => {
   return {
     DateCreated:
-      output.DateCreated !== undefined && output.DateCreated !== null ? new Date(output.DateCreated) : undefined,
+      output.DateCreated !== undefined && output.DateCreated !== null
+        ? new Date(Math.round(output.DateCreated * 1000))
+        : undefined,
     DateModified:
-      output.DateModified !== undefined && output.DateModified !== null ? new Date(output.DateModified) : undefined,
+      output.DateModified !== undefined && output.DateModified !== null
+        ? new Date(Math.round(output.DateModified * 1000))
+        : undefined,
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     ExecutionRoleArn:
       output.ExecutionRoleArn !== undefined && output.ExecutionRoleArn !== null ? output.ExecutionRoleArn : undefined,
@@ -1210,6 +1215,7 @@ const deserializeAws_restJson1LifecyclePolicySummary = (
   return {
     Description: output.Description !== undefined && output.Description !== null ? output.Description : undefined,
     PolicyId: output.PolicyId !== undefined && output.PolicyId !== null ? output.PolicyId : undefined,
+    PolicyType: output.PolicyType !== undefined && output.PolicyType !== null ? output.PolicyType : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     Tags:
       output.Tags !== undefined && output.Tags !== null
@@ -1235,6 +1241,7 @@ const deserializeAws_restJson1_Parameters = (output: any, context: __SerdeContex
       output.ExcludeBootVolume !== undefined && output.ExcludeBootVolume !== null
         ? output.ExcludeBootVolume
         : undefined,
+    NoReboot: output.NoReboot !== undefined && output.NoReboot !== null ? output.NoReboot : undefined,
   } as any;
 };
 

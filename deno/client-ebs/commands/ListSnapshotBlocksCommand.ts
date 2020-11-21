@@ -45,11 +45,23 @@ export class ListSnapshotBlocksCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EBSClient";
+    const commandName = "ListSnapshotBlocksCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListSnapshotBlocksRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListSnapshotBlocksResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

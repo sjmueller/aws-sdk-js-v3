@@ -65,6 +65,7 @@ import { SubscribeToShardCommandInput, SubscribeToShardCommandOutput } from "../
 import { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "../commands/UpdateShardCountCommand.ts";
 import {
   AddTagsToStreamInput,
+  ChildShard,
   Consumer,
   ConsumerDescription,
   CreateStreamInput,
@@ -124,6 +125,7 @@ import {
   ResourceNotFoundException,
   SequenceNumberRange,
   Shard,
+  ShardFilter,
   SplitShardInput,
   StartStreamEncryptionInput,
   StartingPosition,
@@ -517,7 +519,7 @@ export const deserializeAws_json1_1AddTagsToStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsToStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AddTagsToStreamCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -593,7 +595,7 @@ export const deserializeAws_json1_1CreateStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateStreamCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -661,7 +663,7 @@ export const deserializeAws_json1_1DecreaseStreamRetentionPeriodCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DecreaseStreamRetentionPeriodCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DecreaseStreamRetentionPeriodCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -737,7 +739,7 @@ export const deserializeAws_json1_1DeleteStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteStreamCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -805,7 +807,7 @@ export const deserializeAws_json1_1DeregisterStreamConsumerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterStreamConsumerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeregisterStreamConsumerCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -873,7 +875,7 @@ export const deserializeAws_json1_1DescribeLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLimitsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeLimitsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -928,7 +930,7 @@ export const deserializeAws_json1_1DescribeStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -991,7 +993,7 @@ export const deserializeAws_json1_1DescribeStreamConsumerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStreamConsumerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeStreamConsumerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1062,7 +1064,7 @@ export const deserializeAws_json1_1DescribeStreamSummaryCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStreamSummaryCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeStreamSummaryCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1125,7 +1127,7 @@ export const deserializeAws_json1_1DisableEnhancedMonitoringCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableEnhancedMonitoringCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisableEnhancedMonitoringCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1204,7 +1206,7 @@ export const deserializeAws_json1_1EnableEnhancedMonitoringCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<EnableEnhancedMonitoringCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1EnableEnhancedMonitoringCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1283,7 +1285,7 @@ export const deserializeAws_json1_1GetRecordsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetRecordsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetRecordsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1410,7 +1412,7 @@ export const deserializeAws_json1_1GetShardIteratorCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetShardIteratorCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetShardIteratorCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1481,7 +1483,7 @@ export const deserializeAws_json1_1IncreaseStreamRetentionPeriodCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<IncreaseStreamRetentionPeriodCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1IncreaseStreamRetentionPeriodCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1557,7 +1559,7 @@ export const deserializeAws_json1_1ListShardsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListShardsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListShardsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1644,7 +1646,7 @@ export const deserializeAws_json1_1ListStreamConsumersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamConsumersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListStreamConsumersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1731,7 +1733,7 @@ export const deserializeAws_json1_1ListStreamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListStreamsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1786,7 +1788,7 @@ export const deserializeAws_json1_1ListTagsForStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForStreamCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1857,7 +1859,7 @@ export const deserializeAws_json1_1MergeShardsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<MergeShardsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1MergeShardsCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -1933,7 +1935,7 @@ export const deserializeAws_json1_1PutRecordCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRecordCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutRecordCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2052,7 +2054,7 @@ export const deserializeAws_json1_1PutRecordsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutRecordsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutRecordsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2171,7 +2173,7 @@ export const deserializeAws_json1_1RegisterStreamConsumerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterStreamConsumerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RegisterStreamConsumerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2250,7 +2252,7 @@ export const deserializeAws_json1_1RemoveTagsFromStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsFromStreamCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1RemoveTagsFromStreamCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2326,7 +2328,7 @@ export const deserializeAws_json1_1SplitShardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SplitShardCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SplitShardCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2402,7 +2404,7 @@ export const deserializeAws_json1_1StartStreamEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartStreamEncryptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartStreamEncryptionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2526,7 +2528,7 @@ export const deserializeAws_json1_1StopStreamEncryptionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopStreamEncryptionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopStreamEncryptionCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2602,7 +2604,7 @@ export const deserializeAws_json1_1SubscribeToShardCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SubscribeToShardCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1SubscribeToShardCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2681,7 +2683,7 @@ export const deserializeAws_json1_1UpdateShardCountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateShardCountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateShardCountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3081,6 +3083,9 @@ const serializeAws_json1_1ListShardsInput = (input: ListShardsInput, context: __
     ...(input.ExclusiveStartShardId !== undefined && { ExclusiveStartShardId: input.ExclusiveStartShardId }),
     ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
     ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ShardFilter !== undefined && {
+      ShardFilter: serializeAws_json1_1ShardFilter(input.ShardFilter, context),
+    }),
     ...(input.StreamCreationTimestamp !== undefined && {
       StreamCreationTimestamp: Math.round(input.StreamCreationTimestamp.getTime() / 1000),
     }),
@@ -3185,6 +3190,14 @@ const serializeAws_json1_1RemoveTagsFromStreamInput = (
   };
 };
 
+const serializeAws_json1_1ShardFilter = (input: ShardFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.ShardId !== undefined && { ShardId: input.ShardId }),
+    ...(input.Timestamp !== undefined && { Timestamp: Math.round(input.Timestamp.getTime() / 1000) }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+  };
+};
+
 const serializeAws_json1_1SplitShardInput = (input: SplitShardInput, context: __SerdeContext): any => {
   return {
     ...(input.NewStartingHashKey !== undefined && { NewStartingHashKey: input.NewStartingHashKey }),
@@ -3253,6 +3266,24 @@ const serializeAws_json1_1UpdateShardCountInput = (input: UpdateShardCountInput,
     ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
     ...(input.TargetShardCount !== undefined && { TargetShardCount: input.TargetShardCount }),
   };
+};
+
+const deserializeAws_json1_1ChildShard = (output: any, context: __SerdeContext): ChildShard => {
+  return {
+    HashKeyRange:
+      output.HashKeyRange !== undefined && output.HashKeyRange !== null
+        ? deserializeAws_json1_1HashKeyRange(output.HashKeyRange, context)
+        : undefined,
+    ParentShards:
+      output.ParentShards !== undefined && output.ParentShards !== null
+        ? deserializeAws_json1_1ShardIdList(output.ParentShards, context)
+        : undefined,
+    ShardId: output.ShardId !== undefined && output.ShardId !== null ? output.ShardId : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ChildShardList = (output: any, context: __SerdeContext): ChildShard[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1ChildShard(entry, context));
 };
 
 const deserializeAws_json1_1Consumer = (output: any, context: __SerdeContext): Consumer => {
@@ -3377,6 +3408,10 @@ const deserializeAws_json1_1ExpiredNextTokenException = (
 
 const deserializeAws_json1_1GetRecordsOutput = (output: any, context: __SerdeContext): GetRecordsOutput => {
   return {
+    ChildShards:
+      output.ChildShards !== undefined && output.ChildShards !== null
+        ? deserializeAws_json1_1ChildShardList(output.ChildShards, context)
+        : undefined,
     MillisBehindLatest:
       output.MillisBehindLatest !== undefined && output.MillisBehindLatest !== null
         ? output.MillisBehindLatest
@@ -3655,6 +3690,10 @@ const deserializeAws_json1_1Shard = (output: any, context: __SerdeContext): Shar
   } as any;
 };
 
+const deserializeAws_json1_1ShardIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_json1_1ShardList = (output: any, context: __SerdeContext): Shard[] => {
   return (output || []).map((entry: any) => deserializeAws_json1_1Shard(entry, context));
 };
@@ -3724,6 +3763,10 @@ const deserializeAws_json1_1StreamNameList = (output: any, context: __SerdeConte
 
 const deserializeAws_json1_1SubscribeToShardEvent = (output: any, context: __SerdeContext): SubscribeToShardEvent => {
   return {
+    ChildShards:
+      output.ChildShards !== undefined && output.ChildShards !== null
+        ? deserializeAws_json1_1ChildShardList(output.ChildShards, context)
+        : undefined,
     ContinuationSequenceNumber:
       output.ContinuationSequenceNumber !== undefined && output.ContinuationSequenceNumber !== null
         ? output.ContinuationSequenceNumber

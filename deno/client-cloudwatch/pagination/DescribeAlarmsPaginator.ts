@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeAlarmsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeAlarmsCommand(input, ...args));
+  return await client.send(new DescribeAlarmsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CloudWatch,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeAlarms(input, ...args);
 };
-export async function* describeAlarmsPaginate(
+export async function* paginateDescribeAlarms(
   config: CloudWatchPaginationConfiguration,
   input: DescribeAlarmsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeAlarmsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeAlarmsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof CloudWatch) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeAlarmsPaginate(
       throw new Error("Invalid client, expected CloudWatch | CloudWatchClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

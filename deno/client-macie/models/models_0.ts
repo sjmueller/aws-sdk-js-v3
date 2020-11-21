@@ -8,12 +8,11 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 export interface AccessDeniedException extends __SmithyException, $MetadataBearer {
   name: "AccessDeniedException";
   $fault: "client";
+  message?: string;
   /**
    * Resource type that caused the exception
    */
   resourceType?: string;
-
-  message?: string;
 }
 
 export namespace AccessDeniedException {
@@ -67,11 +66,12 @@ export interface InvalidInputException extends __SmithyException, $MetadataBeare
    */
   fieldName?: string;
 
-  message?: string;
   /**
    * Error code for the exception
    */
   errorCode?: string;
+
+  message?: string;
 }
 
 export namespace InvalidInputException {
@@ -87,7 +87,6 @@ export namespace InvalidInputException {
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
-  message?: string;
   /**
    * Error code for the exception
    */
@@ -97,6 +96,8 @@ export interface LimitExceededException extends __SmithyException, $MetadataBear
    * Resource type that caused the exception
    */
   resourceType?: string;
+
+  message?: string;
 }
 
 export namespace LimitExceededException {
@@ -152,16 +153,16 @@ export interface S3ResourceClassification {
   prefix?: string;
 
   /**
-   * <p>The classification type that you want to specify for the resource associated with
-   *       Amazon Macie Classic. </p>
-   */
-  classificationType: ClassificationType | undefined;
-
-  /**
    * <p>The name of the S3 bucket that you want to associate with Amazon Macie
    *       Classic.</p>
    */
   bucketName: string | undefined;
+
+  /**
+   * <p>The classification type that you want to specify for the resource associated with
+   *       Amazon Macie Classic. </p>
+   */
+  classificationType: ClassificationType | undefined;
 }
 
 export namespace S3ResourceClassification {
@@ -197,14 +198,14 @@ export namespace AssociateS3ResourcesRequest {
  */
 export interface S3Resource {
   /**
-   * <p>The prefix of the S3 bucket. </p>
-   */
-  prefix?: string;
-
-  /**
    * <p>The name of the S3 bucket.</p>
    */
   bucketName: string | undefined;
+
+  /**
+   * <p>The prefix of the S3 bucket. </p>
+   */
+  prefix?: string;
 }
 
 export namespace S3Resource {
@@ -223,14 +224,14 @@ export interface FailedS3Resource {
   errorCode?: string;
 
   /**
-   * <p>The failed S3 resources.</p>
-   */
-  failedItem?: S3Resource;
-
-  /**
    * <p>The error message of a failed item.</p>
    */
   errorMessage?: string;
+
+  /**
+   * <p>The failed S3 resources.</p>
+   */
+  failedItem?: S3Resource;
 }
 
 export namespace FailedS3Resource {
@@ -330,18 +331,18 @@ export namespace DisassociateS3ResourcesResult {
 
 export interface ListMemberAccountsRequest {
   /**
-   * <p>Use this parameter to indicate the maximum number of items that you want in the
-   *       response. The default value is 250. </p>
-   */
-  maxResults?: number;
-
-  /**
    * <p>Use this parameter when paginating results. Set the value of this parameter to null on
    *       your first call to the ListMemberAccounts action. Subsequent calls to the action fill
    *       nextToken in the request with the value of nextToken from the previous response to continue
    *       listing data. </p>
    */
   nextToken?: string;
+
+  /**
+   * <p>Use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 250. </p>
+   */
+  maxResults?: number;
 }
 
 export namespace ListMemberAccountsRequest {
@@ -396,17 +397,17 @@ export interface ListS3ResourcesRequest {
   memberAccountId?: string;
 
   /**
+   * <p>Use this parameter to indicate the maximum number of items that you want in the
+   *       response. The default value is 250. </p>
+   */
+  maxResults?: number;
+
+  /**
    * <p>Use this parameter when paginating results. Set its value to null on your first call to
    *       the ListS3Resources action. Subsequent calls to the action fill nextToken in the request with
    *       the value of nextToken from the previous response to continue listing data. </p>
    */
   nextToken?: string;
-
-  /**
-   * <p>Use this parameter to indicate the maximum number of items that you want in the
-   *       response. The default value is 250. </p>
-   */
-  maxResults?: number;
 }
 
 export namespace ListS3ResourcesRequest {
@@ -442,10 +443,9 @@ export namespace ListS3ResourcesResult {
  */
 export interface S3ResourceClassificationUpdate {
   /**
-   * <p>The classification type that you want to update for the resource associated with Amazon
-   *       Macie Classic. </p>
+   * <p>The prefix of the S3 bucket whose classification types you want to update.</p>
    */
-  classificationTypeUpdate: ClassificationTypeUpdate | undefined;
+  prefix?: string;
 
   /**
    * <p>The name of the S3 bucket whose classification types you want to update.</p>
@@ -453,9 +453,10 @@ export interface S3ResourceClassificationUpdate {
   bucketName: string | undefined;
 
   /**
-   * <p>The prefix of the S3 bucket whose classification types you want to update.</p>
+   * <p>The classification type that you want to update for the resource associated with Amazon
+   *       Macie Classic. </p>
    */
-  prefix?: string;
+  classificationTypeUpdate: ClassificationTypeUpdate | undefined;
 }
 
 export namespace S3ResourceClassificationUpdate {
@@ -466,15 +467,15 @@ export namespace S3ResourceClassificationUpdate {
 
 export interface UpdateS3ResourcesRequest {
   /**
-   * <p>The S3 resources whose classification types you want to update.</p>
-   */
-  s3ResourcesUpdate: S3ResourceClassificationUpdate[] | undefined;
-
-  /**
    * <p>The AWS ID of the Amazon Macie Classic member account whose S3 resources'
    *       classification types you want to update. </p>
    */
   memberAccountId?: string;
+
+  /**
+   * <p>The S3 resources whose classification types you want to update.</p>
+   */
+  s3ResourcesUpdate: S3ResourceClassificationUpdate[] | undefined;
 }
 
 export namespace UpdateS3ResourcesRequest {

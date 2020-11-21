@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetTransitGatewayRegistrationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetTransitGatewayRegistrationsCommand(input, ...args));
+  return await client.send(new GetTransitGatewayRegistrationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: NetworkManager,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getTransitGatewayRegistrations(input, ...args);
 };
-export async function* getTransitGatewayRegistrationsPaginate(
+export async function* paginateGetTransitGatewayRegistrations(
   config: NetworkManagerPaginationConfiguration,
   input: GetTransitGatewayRegistrationsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetTransitGatewayRegistrationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetTransitGatewayRegistrationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof NetworkManager) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getTransitGatewayRegistrationsPaginate(
       throw new Error("Invalid client, expected NetworkManager | NetworkManagerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -45,11 +45,23 @@ export class CreateEmailIdentityPolicyCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SESv2Client";
+    const commandName = "CreateEmailIdentityPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateEmailIdentityPolicyRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateEmailIdentityPolicyResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

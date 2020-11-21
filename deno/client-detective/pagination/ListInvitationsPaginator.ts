@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListInvitationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListInvitationsCommand(input, ...args));
+  return await client.send(new ListInvitationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Detective,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listInvitations(input, ...args);
 };
-export async function* listInvitationsPaginate(
+export async function* paginateListInvitations(
   config: DetectivePaginationConfiguration,
   input: ListInvitationsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListInvitationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListInvitationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Detective) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listInvitationsPaginate(
       throw new Error("Invalid client, expected Detective | DetectiveClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

@@ -1,6 +1,6 @@
 
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0.ts";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UntagResourceCommand,
   serializeAws_restJson1UntagResourceCommand,
@@ -45,11 +45,23 @@ export class UntagResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecurityHubClient";
+    const commandName = "UntagResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UntagResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UntagResourceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

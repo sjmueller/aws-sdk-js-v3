@@ -72,6 +72,11 @@ import {
   CreateStorediSCSIVolumeCommandOutput,
 } from "./commands/CreateStorediSCSIVolumeCommand.ts";
 import {
+  CreateTapePoolCommand,
+  CreateTapePoolCommandInput,
+  CreateTapePoolCommandOutput,
+} from "./commands/CreateTapePoolCommand.ts";
+import {
   CreateTapeWithBarcodeCommand,
   CreateTapeWithBarcodeCommandInput,
   CreateTapeWithBarcodeCommandOutput,
@@ -114,6 +119,11 @@ import {
 } from "./commands/DeleteTapeArchiveCommand.ts";
 import { DeleteTapeCommand, DeleteTapeCommandInput, DeleteTapeCommandOutput } from "./commands/DeleteTapeCommand.ts";
 import {
+  DeleteTapePoolCommand,
+  DeleteTapePoolCommandInput,
+  DeleteTapePoolCommandOutput,
+} from "./commands/DeleteTapePoolCommand.ts";
+import {
   DeleteVolumeCommand,
   DeleteVolumeCommandInput,
   DeleteVolumeCommandOutput,
@@ -128,6 +138,11 @@ import {
   DescribeBandwidthRateLimitCommandInput,
   DescribeBandwidthRateLimitCommandOutput,
 } from "./commands/DescribeBandwidthRateLimitCommand.ts";
+import {
+  DescribeBandwidthRateLimitScheduleCommand,
+  DescribeBandwidthRateLimitScheduleCommandInput,
+  DescribeBandwidthRateLimitScheduleCommandOutput,
+} from "./commands/DescribeBandwidthRateLimitScheduleCommand.ts";
 import {
   DescribeCacheCommand,
   DescribeCacheCommandInput,
@@ -244,6 +259,11 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
+import {
+  ListTapePoolsCommand,
+  ListTapePoolsCommandInput,
+  ListTapePoolsCommandOutput,
+} from "./commands/ListTapePoolsCommand.ts";
 import { ListTapesCommand, ListTapesCommandInput, ListTapesCommandOutput } from "./commands/ListTapesCommand.ts";
 import {
   ListVolumeInitiatorsCommand,
@@ -318,6 +338,11 @@ import {
   UpdateBandwidthRateLimitCommandOutput,
 } from "./commands/UpdateBandwidthRateLimitCommand.ts";
 import {
+  UpdateBandwidthRateLimitScheduleCommand,
+  UpdateBandwidthRateLimitScheduleCommandInput,
+  UpdateBandwidthRateLimitScheduleCommandOutput,
+} from "./commands/UpdateBandwidthRateLimitScheduleCommand.ts";
+import {
   UpdateChapCredentialsCommand,
   UpdateChapCredentialsCommandInput,
   UpdateChapCredentialsCommandOutput,
@@ -347,6 +372,11 @@ import {
   UpdateSMBFileShareCommandInput,
   UpdateSMBFileShareCommandOutput,
 } from "./commands/UpdateSMBFileShareCommand.ts";
+import {
+  UpdateSMBFileShareVisibilityCommand,
+  UpdateSMBFileShareVisibilityCommandInput,
+  UpdateSMBFileShareVisibilityCommandOutput,
+} from "./commands/UpdateSMBFileShareVisibilityCommand.ts";
 import {
   UpdateSMBSecurityStrategyCommand,
   UpdateSMBSecurityStrategyCommandInput,
@@ -402,7 +432,7 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">AWS Storage Gateway
- *                   endpoints and quotas:</a> Provides a list of each AWS Region and the endpoints
+ *                   endpoints and quotas</a>: Provides a list of each AWS Region and the endpoints
  *                available for use with AWS Storage Gateway.</p>
  *             </li>
  *          </ul>
@@ -878,8 +908,8 @@ export class StorageGateway extends StorageGatewayClient {
   /**
    * <p>Creates a Server Message Block (SMB) file share on an existing file gateway. In Storage
    *          Gateway, a file share is a file system mount point backed by Amazon S3 cloud storage.
-   *          Storage Gateway expose file shares using an SMB interface. This operation is only supported
-   *          for file gateways.</p>
+   *          Storage Gateway exposes file shares using an SMB interface. This operation is only
+   *          supported for file gateways.</p>
    *
    *          <important>
    *             <p>File gateways require AWS Security Token Service (AWS STS) to be activated to enable
@@ -929,16 +959,16 @@ export class StorageGateway extends StorageGatewayClient {
    *          to Amazon Simple Storage (Amazon S3) for durable off-site recovery, as well as import the
    *          data to an Amazon Elastic Block Store (EBS) volume in Amazon Elastic Compute Cloud (EC2).
    *          You can take snapshots of your gateway volume on a scheduled or ad hoc basis. This API
-   *          enables you to take ad-hoc snapshot. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing a
+   *          enables you to take an ad hoc snapshot. For more information, see <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/managing-volumes.html#SchedulingSnapshot">Editing a
    *             snapshot schedule</a>.</p>
    *
-   *          <p>In the CreateSnapshot request you identify the volume by providing its Amazon Resource
-   *          Name (ARN). You must also provide description for the snapshot. When AWS Storage Gateway
-   *          takes the snapshot of specified volume, the snapshot and description appears in the AWS
-   *          Storage Gateway Console. In response, AWS Storage Gateway returns you a snapshot ID. You
-   *          can use this snapshot ID to check the snapshot progress or later use it when you want to
-   *          create a volume from a snapshot. This operation is only supported in stored and cached
-   *          volume gateway type.</p>
+   *          <p>In the <code>CreateSnapshot</code> request, you identify the volume by providing its
+   *          Amazon Resource Name (ARN). You must also provide description for the snapshot. When AWS
+   *          Storage Gateway takes the snapshot of specified volume, the snapshot and description
+   *          appears in the AWS Storage Gateway console. In response, AWS Storage Gateway returns you a
+   *          snapshot ID. You can use this snapshot ID to check the snapshot progress or later use it
+   *          when you want to create a volume from a snapshot. This operation is only supported in
+   *          stored and cached volume gateway type.</p>
    *
    *          <note>
    *             <p>To list or delete a snapshot, you must use the Amazon EC2 API. For more information,
@@ -1044,7 +1074,7 @@ export class StorageGateway extends StorageGatewayClient {
    *          empty volume. If you choose to create an empty gateway volume, then any existing data on
    *          the disk is erased.</p>
    *
-   *          <p>In the request you must specify the gateway and the disk information on which you are
+   *          <p>In the request, you must specify the gateway and the disk information on which you are
    *          creating the volume. In response, the gateway creates the volume and returns volume
    *          information such as the volume Amazon Resource Name (ARN), its size, and the iSCSI target
    *          ARN that initiators can use to connect to the volume target.</p>
@@ -1068,6 +1098,39 @@ export class StorageGateway extends StorageGatewayClient {
     cb?: (err: any, data?: CreateStorediSCSIVolumeCommandOutput) => void
   ): Promise<CreateStorediSCSIVolumeCommandOutput> | void {
     const command = new CreateStorediSCSIVolumeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a new custom tape pool. You can use custom tape pool to enable tape retention
+   *          lock on tapes that are archived in the custom pool.</p>
+   */
+  public createTapePool(
+    args: CreateTapePoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTapePoolCommandOutput>;
+  public createTapePool(
+    args: CreateTapePoolCommandInput,
+    cb: (err: any, data?: CreateTapePoolCommandOutput) => void
+  ): void;
+  public createTapePool(
+    args: CreateTapePoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTapePoolCommandOutput) => void
+  ): void;
+  public createTapePool(
+    args: CreateTapePoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateTapePoolCommandOutput) => void),
+    cb?: (err: any, data?: CreateTapePoolCommandOutput) => void
+  ): Promise<CreateTapePoolCommandOutput> | void {
+    const command = new CreateTapePoolCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1112,9 +1175,9 @@ export class StorageGateway extends StorageGatewayClient {
 
   /**
    * <p>Creates a virtual tape by using your own barcode. You write data to the virtual tape and
-   *          then archive the tape. A barcode is unique and can not be reused if it has already been
-   *          used on a tape. This applies to barcodes used on deleted tapes. This operation is only
-   *          supported in the tape gateway type.</p>
+   *          then archive the tape. A barcode is unique and cannot be reused if it has already been used
+   *          on a tape. This applies to barcodes used on deleted tapes. This operation is only supported
+   *          in the tape gateway type.</p>
    *
    *          <note>
    *             <p>Cache storage must be allocated to the gateway before you can create a virtual tape.
@@ -1341,9 +1404,10 @@ export class StorageGateway extends StorageGatewayClient {
    *
    *          <p>You can take snapshots of your gateway volumes on a scheduled or ad hoc basis. This API
    *          action enables you to delete a snapshot schedule for a volume. For more information, see
-   *             <a href="https://docs.aws.amazon.com/storagegatewaylatest/userguide/backing-up-volumes.html">Backing up your volumes</a>. In the <code>DeleteSnapshotSchedule</code> request,
-   *          you identify the volume by providing its Amazon Resource Name (ARN). This operation is only
-   *          supported in stored and cached volume gateway types.</p>
+   *             <a href="https://docs.aws.amazon.com/storagegateway/latest/userguide/backing-up-volumes.html">Backing up your
+   *             volumes</a>. In the <code>DeleteSnapshotSchedule</code> request, you identify the
+   *          volume by providing its Amazon Resource Name (ARN). This operation is only supported in
+   *          stored and cached volume gateway types.</p>
    *
    *          <note>
    *
@@ -1442,6 +1506,40 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
+   * <p>Delete a custom tape pool. A custom tape pool can only be deleted if there are no tapes
+   *          in the pool and if there are no automatic tape creation policies that reference the custom
+   *          tape pool.</p>
+   */
+  public deleteTapePool(
+    args: DeleteTapePoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTapePoolCommandOutput>;
+  public deleteTapePool(
+    args: DeleteTapePoolCommandInput,
+    cb: (err: any, data?: DeleteTapePoolCommandOutput) => void
+  ): void;
+  public deleteTapePool(
+    args: DeleteTapePoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTapePoolCommandOutput) => void
+  ): void;
+  public deleteTapePool(
+    args: DeleteTapePoolCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteTapePoolCommandOutput) => void),
+    cb?: (err: any, data?: DeleteTapePoolCommandOutput) => void
+  ): Promise<DeleteTapePoolCommandOutput> | void {
+    const command = new DeleteTapePoolCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified storage volume that you previously created using the <a>CreateCachediSCSIVolume</a> or <a>CreateStorediSCSIVolume</a> API.
    *          This operation is only supported in the cached volume and stored volume types. For stored
    *          volume gateways, the local disk that was configured as the storage volume is not deleted.
@@ -1519,7 +1617,7 @@ export class StorageGateway extends StorageGatewayClient {
   /**
    * <p>Returns the bandwidth rate limits of a gateway. By default, these limits are not set,
    *          which means no bandwidth rate limiting is in effect. This operation is supported for the
-   *          stored volume, cached volume and tape gateway types.</p>
+   *          stored volume, cached volume, and tape gateway types.</p>
    *
    *          <p>This operation only returns a value for a bandwidth rate limit only if the limit is set.
    *          If no limits are set for the gateway, then this operation returns only the gateway ARN in
@@ -1545,6 +1643,58 @@ export class StorageGateway extends StorageGatewayClient {
     cb?: (err: any, data?: DescribeBandwidthRateLimitCommandOutput) => void
   ): Promise<DescribeBandwidthRateLimitCommandOutput> | void {
     const command = new DescribeBandwidthRateLimitCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *          Returns information about the bandwidth rate limit schedule of a gateway. By default, gateways do
+   *          not have bandwidth rate limit schedules, which means no bandwidth rate limiting is in effect. This
+   *          operation is supported only in the volume and tape gateway types.
+   *       </p>
+   *
+   *          <p>This operation returns information about a gateway's bandwidth rate limit schedule. A bandwidth
+   *          rate limit schedule consists of one or more bandwidth rate limit intervals. A bandwidth rate limit
+   *          interval defines a period of time on one or more days of the week, during which bandwidth rate
+   *          limits are specified for uploading, downloading, or both.
+   *       </p>
+   *
+   *          <p>
+   *          A bandwidth rate limit interval consists of one or more days of the week, a start hour and minute,
+   *          an ending hour and minute, and bandwidth rate limits for uploading and downloading
+   *       </p>
+   *
+   *          <p>
+   *          If no bandwidth rate limit schedule intervals are set for the gateway, this operation returns an
+   *          empty response. To specify which gateway to describe, use the Amazon Resource Name (ARN)
+   *          of the gateway in your request.</p>
+   */
+  public describeBandwidthRateLimitSchedule(
+    args: DescribeBandwidthRateLimitScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBandwidthRateLimitScheduleCommandOutput>;
+  public describeBandwidthRateLimitSchedule(
+    args: DescribeBandwidthRateLimitScheduleCommandInput,
+    cb: (err: any, data?: DescribeBandwidthRateLimitScheduleCommandOutput) => void
+  ): void;
+  public describeBandwidthRateLimitSchedule(
+    args: DescribeBandwidthRateLimitScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBandwidthRateLimitScheduleCommandOutput) => void
+  ): void;
+  public describeBandwidthRateLimitSchedule(
+    args: DescribeBandwidthRateLimitScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBandwidthRateLimitScheduleCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBandwidthRateLimitScheduleCommandOutput) => void
+  ): Promise<DescribeBandwidthRateLimitScheduleCommandOutput> | void {
+    const command = new DescribeBandwidthRateLimitScheduleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2401,6 +2551,46 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
+   * <p>Lists custom tape pools. You specify custom tape pools to list by specifying one or more
+   *          custom tape pool Amazon Resource Names (ARNs). If you don't specify a custom tape pool ARN,
+   *          the operation lists all custom tape pools.</p>
+   *
+   *          <p>This operation supports pagination. You can optionally specify the <code>Limit</code>
+   *          parameter in the body to limit the number of tape pools in the response. If the number of
+   *          tape pools returned in the response is truncated, the response includes a
+   *             <code>Marker</code> element that you can use in your subsequent request to retrieve the
+   *          next set of tape pools.</p>
+   */
+  public listTapePools(
+    args: ListTapePoolsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTapePoolsCommandOutput>;
+  public listTapePools(
+    args: ListTapePoolsCommandInput,
+    cb: (err: any, data?: ListTapePoolsCommandOutput) => void
+  ): void;
+  public listTapePools(
+    args: ListTapePoolsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTapePoolsCommandOutput) => void
+  ): void;
+  public listTapePools(
+    args: ListTapePoolsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListTapePoolsCommandOutput) => void),
+    cb?: (err: any, data?: ListTapePoolsCommandOutput) => void
+  ): Promise<ListTapePoolsCommandOutput> | void {
+    const command = new ListTapePoolsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf
    *          (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource Names
    *          (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes in both
@@ -3084,6 +3274,43 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
+   * <p>
+   *          Updates the bandwidth rate limit schedule for a specified gateway. By default, gateways do
+   *          not have bandwidth rate limit schedules, which means no bandwidth rate limiting is in effect.
+   *          Use this to initiate or update a gateway's bandwidth rate limit schedule.
+   *          This operation is supported in the volume and tape gateway types.
+   *       </p>
+   */
+  public updateBandwidthRateLimitSchedule(
+    args: UpdateBandwidthRateLimitScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateBandwidthRateLimitScheduleCommandOutput>;
+  public updateBandwidthRateLimitSchedule(
+    args: UpdateBandwidthRateLimitScheduleCommandInput,
+    cb: (err: any, data?: UpdateBandwidthRateLimitScheduleCommandOutput) => void
+  ): void;
+  public updateBandwidthRateLimitSchedule(
+    args: UpdateBandwidthRateLimitScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateBandwidthRateLimitScheduleCommandOutput) => void
+  ): void;
+  public updateBandwidthRateLimitSchedule(
+    args: UpdateBandwidthRateLimitScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateBandwidthRateLimitScheduleCommandOutput) => void),
+    cb?: (err: any, data?: UpdateBandwidthRateLimitScheduleCommandOutput) => void
+  ): Promise<UpdateBandwidthRateLimitScheduleCommandOutput> | void {
+    const command = new UpdateBandwidthRateLimitScheduleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a
    *          specified iSCSI target. By default, a gateway does not have CHAP enabled; however, for
    *          added security, you might use it. This operation is supported in the volume and tape
@@ -3129,7 +3356,7 @@ export class StorageGateway extends StorageGatewayClient {
    *          your request.</p>
    *
    *          <note>
-   *             <p>For Gateways activated after September 2, 2015, the gateway's ARN contains the
+   *             <p>For gateways activated after September 2, 2015, the gateway's ARN contains the
    *             gateway ID rather than the gateway name. However, changing the name of the gateway has
    *             no effect on the gateway's ARN.</p>
    *          </note>
@@ -3252,7 +3479,7 @@ export class StorageGateway extends StorageGatewayClient {
    *             null.</p>
    *          </note>
    *
-   *          <p>Updates the following file share setting:</p>
+   *          <p>Updates the following file share settings:</p>
    *
    *          <ul>
    *             <li>
@@ -3271,11 +3498,6 @@ export class StorageGateway extends StorageGatewayClient {
    *                <p>Write status of your file share</p>
    *             </li>
    *          </ul>
-   *
-   *          <note>
-   *             <p>To leave a file share field unchanged, set the corresponding input field to null.
-   *             This operation is only supported in file gateways.</p>
-   *          </note>
    */
   public updateNFSFileShare(
     args: UpdateNFSFileShareCommandInput,
@@ -3307,11 +3529,12 @@ export class StorageGateway extends StorageGatewayClient {
   }
 
   /**
-   * <p>Updates a Server Message Block (SMB) file share.</p>
+   * <p>Updates a Server Message Block (SMB) file share. This operation is only supported for
+   *          file gateways.</p>
    *
    *          <note>
-   *             <p>To leave a file share field unchanged, set the corresponding input field to null.
-   *             This operation is only supported for file gateways.</p>
+   *             <p>To leave a file share field unchanged, set the corresponding input field to
+   *             null.</p>
    *          </note>
    *
    *          <important>
@@ -3345,6 +3568,39 @@ export class StorageGateway extends StorageGatewayClient {
     cb?: (err: any, data?: UpdateSMBFileShareCommandOutput) => void
   ): Promise<UpdateSMBFileShareCommandOutput> | void {
     const command = new UpdateSMBFileShareCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Controls whether the shares on a gateway are visible in a net view or browse
+   *          list.</p>
+   */
+  public updateSMBFileShareVisibility(
+    args: UpdateSMBFileShareVisibilityCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSMBFileShareVisibilityCommandOutput>;
+  public updateSMBFileShareVisibility(
+    args: UpdateSMBFileShareVisibilityCommandInput,
+    cb: (err: any, data?: UpdateSMBFileShareVisibilityCommandOutput) => void
+  ): void;
+  public updateSMBFileShareVisibility(
+    args: UpdateSMBFileShareVisibilityCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSMBFileShareVisibilityCommandOutput) => void
+  ): void;
+  public updateSMBFileShareVisibility(
+    args: UpdateSMBFileShareVisibilityCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateSMBFileShareVisibilityCommandOutput) => void),
+    cb?: (err: any, data?: UpdateSMBFileShareVisibilityCommandOutput) => void
+  ): Promise<UpdateSMBFileShareVisibilityCommandOutput> | void {
+    const command = new UpdateSMBFileShareVisibilityCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

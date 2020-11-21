@@ -7,6 +7,7 @@ import {
 import { GetGroupRequest, GetGroupResponse } from "../models/models_0.ts";
 import { deserializeAws_json1_1GetGroupCommand, serializeAws_json1_1GetGroupCommand } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
+import { getAwsAuthPlugin } from "../../middleware-signing/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
@@ -42,15 +43,28 @@ export class GetGroupCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<GetGroupCommandInput, GetGroupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "GetGroupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetGroupRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetGroupResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

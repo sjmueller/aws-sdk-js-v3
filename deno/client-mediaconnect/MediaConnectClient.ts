@@ -8,16 +8,24 @@ import {
 import { CreateFlowCommandInput, CreateFlowCommandOutput } from "./commands/CreateFlowCommand.ts";
 import { DeleteFlowCommandInput, DeleteFlowCommandOutput } from "./commands/DeleteFlowCommand.ts";
 import { DescribeFlowCommandInput, DescribeFlowCommandOutput } from "./commands/DescribeFlowCommand.ts";
+import { DescribeOfferingCommandInput, DescribeOfferingCommandOutput } from "./commands/DescribeOfferingCommand.ts";
+import {
+  DescribeReservationCommandInput,
+  DescribeReservationCommandOutput,
+} from "./commands/DescribeReservationCommand.ts";
 import {
   GrantFlowEntitlementsCommandInput,
   GrantFlowEntitlementsCommandOutput,
 } from "./commands/GrantFlowEntitlementsCommand.ts";
 import { ListEntitlementsCommandInput, ListEntitlementsCommandOutput } from "./commands/ListEntitlementsCommand.ts";
 import { ListFlowsCommandInput, ListFlowsCommandOutput } from "./commands/ListFlowsCommand.ts";
+import { ListOfferingsCommandInput, ListOfferingsCommandOutput } from "./commands/ListOfferingsCommand.ts";
+import { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand.ts";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
+import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand.ts";
 import { RemoveFlowOutputCommandInput, RemoveFlowOutputCommandOutput } from "./commands/RemoveFlowOutputCommand.ts";
 import { RemoveFlowSourceCommandInput, RemoveFlowSourceCommandOutput } from "./commands/RemoveFlowSourceCommand.ts";
 import {
@@ -95,10 +103,15 @@ export type ServiceInputTypes =
   | CreateFlowCommandInput
   | DeleteFlowCommandInput
   | DescribeFlowCommandInput
+  | DescribeOfferingCommandInput
+  | DescribeReservationCommandInput
   | GrantFlowEntitlementsCommandInput
   | ListEntitlementsCommandInput
   | ListFlowsCommandInput
+  | ListOfferingsCommandInput
+  | ListReservationsCommandInput
   | ListTagsForResourceCommandInput
+  | PurchaseOfferingCommandInput
   | RemoveFlowOutputCommandInput
   | RemoveFlowSourceCommandInput
   | RemoveFlowVpcInterfaceCommandInput
@@ -119,10 +132,15 @@ export type ServiceOutputTypes =
   | CreateFlowCommandOutput
   | DeleteFlowCommandOutput
   | DescribeFlowCommandOutput
+  | DescribeOfferingCommandOutput
+  | DescribeReservationCommandOutput
   | GrantFlowEntitlementsCommandOutput
   | ListEntitlementsCommandOutput
   | ListFlowsCommandOutput
+  | ListOfferingsCommandOutput
+  | ListReservationsCommandOutput
   | ListTagsForResourceCommandOutput
+  | PurchaseOfferingCommandOutput
   | RemoveFlowOutputCommandOutput
   | RemoveFlowSourceCommandOutput
   | RemoveFlowVpcInterfaceCommandOutput

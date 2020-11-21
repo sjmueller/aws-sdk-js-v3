@@ -45,11 +45,23 @@ export class CreateNetworkProfileCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AlexaForBusinessClient";
+    const commandName = "CreateNetworkProfileCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateNetworkProfileRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateNetworkProfileResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

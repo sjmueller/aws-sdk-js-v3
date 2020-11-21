@@ -23,6 +23,7 @@ import {
   CreateStorediSCSIVolumeCommandInput,
   CreateStorediSCSIVolumeCommandOutput,
 } from "./commands/CreateStorediSCSIVolumeCommand.ts";
+import { CreateTapePoolCommandInput, CreateTapePoolCommandOutput } from "./commands/CreateTapePoolCommand.ts";
 import {
   CreateTapeWithBarcodeCommandInput,
   CreateTapeWithBarcodeCommandOutput,
@@ -48,6 +49,7 @@ import {
 } from "./commands/DeleteSnapshotScheduleCommand.ts";
 import { DeleteTapeArchiveCommandInput, DeleteTapeArchiveCommandOutput } from "./commands/DeleteTapeArchiveCommand.ts";
 import { DeleteTapeCommandInput, DeleteTapeCommandOutput } from "./commands/DeleteTapeCommand.ts";
+import { DeleteTapePoolCommandInput, DeleteTapePoolCommandOutput } from "./commands/DeleteTapePoolCommand.ts";
 import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand.ts";
 import {
   DescribeAvailabilityMonitorTestCommandInput,
@@ -57,6 +59,10 @@ import {
   DescribeBandwidthRateLimitCommandInput,
   DescribeBandwidthRateLimitCommandOutput,
 } from "./commands/DescribeBandwidthRateLimitCommand.ts";
+import {
+  DescribeBandwidthRateLimitScheduleCommandInput,
+  DescribeBandwidthRateLimitScheduleCommandOutput,
+} from "./commands/DescribeBandwidthRateLimitScheduleCommand.ts";
 import { DescribeCacheCommandInput, DescribeCacheCommandOutput } from "./commands/DescribeCacheCommand.ts";
 import {
   DescribeCachediSCSIVolumesCommandInput,
@@ -126,6 +132,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
+import { ListTapePoolsCommandInput, ListTapePoolsCommandOutput } from "./commands/ListTapePoolsCommand.ts";
 import { ListTapesCommandInput, ListTapesCommandOutput } from "./commands/ListTapesCommand.ts";
 import {
   ListVolumeInitiatorsCommandInput,
@@ -174,6 +181,10 @@ import {
   UpdateBandwidthRateLimitCommandOutput,
 } from "./commands/UpdateBandwidthRateLimitCommand.ts";
 import {
+  UpdateBandwidthRateLimitScheduleCommandInput,
+  UpdateBandwidthRateLimitScheduleCommandOutput,
+} from "./commands/UpdateBandwidthRateLimitScheduleCommand.ts";
+import {
   UpdateChapCredentialsCommandInput,
   UpdateChapCredentialsCommandOutput,
 } from "./commands/UpdateChapCredentialsCommand.ts";
@@ -191,6 +202,10 @@ import {
 } from "./commands/UpdateMaintenanceStartTimeCommand.ts";
 import { UpdateNFSFileShareCommandInput, UpdateNFSFileShareCommandOutput } from "./commands/UpdateNFSFileShareCommand.ts";
 import { UpdateSMBFileShareCommandInput, UpdateSMBFileShareCommandOutput } from "./commands/UpdateSMBFileShareCommand.ts";
+import {
+  UpdateSMBFileShareVisibilityCommandInput,
+  UpdateSMBFileShareVisibilityCommandOutput,
+} from "./commands/UpdateSMBFileShareVisibilityCommand.ts";
 import {
   UpdateSMBSecurityStrategyCommandInput,
   UpdateSMBSecurityStrategyCommandOutput,
@@ -268,6 +283,7 @@ export type ServiceInputTypes =
   | CreateSnapshotCommandInput
   | CreateSnapshotFromVolumeRecoveryPointCommandInput
   | CreateStorediSCSIVolumeCommandInput
+  | CreateTapePoolCommandInput
   | CreateTapeWithBarcodeCommandInput
   | CreateTapesCommandInput
   | DeleteAutomaticTapeCreationPolicyCommandInput
@@ -278,9 +294,11 @@ export type ServiceInputTypes =
   | DeleteSnapshotScheduleCommandInput
   | DeleteTapeArchiveCommandInput
   | DeleteTapeCommandInput
+  | DeleteTapePoolCommandInput
   | DeleteVolumeCommandInput
   | DescribeAvailabilityMonitorTestCommandInput
   | DescribeBandwidthRateLimitCommandInput
+  | DescribeBandwidthRateLimitScheduleCommandInput
   | DescribeCacheCommandInput
   | DescribeCachediSCSIVolumesCommandInput
   | DescribeChapCredentialsCommandInput
@@ -305,6 +323,7 @@ export type ServiceInputTypes =
   | ListGatewaysCommandInput
   | ListLocalDisksCommandInput
   | ListTagsForResourceCommandInput
+  | ListTapePoolsCommandInput
   | ListTapesCommandInput
   | ListVolumeInitiatorsCommandInput
   | ListVolumeRecoveryPointsCommandInput
@@ -322,12 +341,14 @@ export type ServiceInputTypes =
   | StartGatewayCommandInput
   | UpdateAutomaticTapeCreationPolicyCommandInput
   | UpdateBandwidthRateLimitCommandInput
+  | UpdateBandwidthRateLimitScheduleCommandInput
   | UpdateChapCredentialsCommandInput
   | UpdateGatewayInformationCommandInput
   | UpdateGatewaySoftwareNowCommandInput
   | UpdateMaintenanceStartTimeCommandInput
   | UpdateNFSFileShareCommandInput
   | UpdateSMBFileShareCommandInput
+  | UpdateSMBFileShareVisibilityCommandInput
   | UpdateSMBSecurityStrategyCommandInput
   | UpdateSnapshotScheduleCommandInput
   | UpdateVTLDeviceTypeCommandInput;
@@ -348,6 +369,7 @@ export type ServiceOutputTypes =
   | CreateSnapshotCommandOutput
   | CreateSnapshotFromVolumeRecoveryPointCommandOutput
   | CreateStorediSCSIVolumeCommandOutput
+  | CreateTapePoolCommandOutput
   | CreateTapeWithBarcodeCommandOutput
   | CreateTapesCommandOutput
   | DeleteAutomaticTapeCreationPolicyCommandOutput
@@ -358,9 +380,11 @@ export type ServiceOutputTypes =
   | DeleteSnapshotScheduleCommandOutput
   | DeleteTapeArchiveCommandOutput
   | DeleteTapeCommandOutput
+  | DeleteTapePoolCommandOutput
   | DeleteVolumeCommandOutput
   | DescribeAvailabilityMonitorTestCommandOutput
   | DescribeBandwidthRateLimitCommandOutput
+  | DescribeBandwidthRateLimitScheduleCommandOutput
   | DescribeCacheCommandOutput
   | DescribeCachediSCSIVolumesCommandOutput
   | DescribeChapCredentialsCommandOutput
@@ -385,6 +409,7 @@ export type ServiceOutputTypes =
   | ListGatewaysCommandOutput
   | ListLocalDisksCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTapePoolsCommandOutput
   | ListTapesCommandOutput
   | ListVolumeInitiatorsCommandOutput
   | ListVolumeRecoveryPointsCommandOutput
@@ -402,12 +427,14 @@ export type ServiceOutputTypes =
   | StartGatewayCommandOutput
   | UpdateAutomaticTapeCreationPolicyCommandOutput
   | UpdateBandwidthRateLimitCommandOutput
+  | UpdateBandwidthRateLimitScheduleCommandOutput
   | UpdateChapCredentialsCommandOutput
   | UpdateGatewayInformationCommandOutput
   | UpdateGatewaySoftwareNowCommandOutput
   | UpdateMaintenanceStartTimeCommandOutput
   | UpdateNFSFileShareCommandOutput
   | UpdateSMBFileShareCommandOutput
+  | UpdateSMBFileShareVisibilityCommandOutput
   | UpdateSMBSecurityStrategyCommandOutput
   | UpdateSnapshotScheduleCommandOutput
   | UpdateVTLDeviceTypeCommandOutput;
@@ -562,7 +589,7 @@ export type StorageGatewayClientResolvedConfig = __SmithyResolvedConfiguration<_
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/general/latest/gr/sg.html">AWS Storage Gateway
- *                   endpoints and quotas:</a> Provides a list of each AWS Region and the endpoints
+ *                   endpoints and quotas</a>: Provides a list of each AWS Region and the endpoints
  *                available for use with AWS Storage Gateway.</p>
  *             </li>
  *          </ul>

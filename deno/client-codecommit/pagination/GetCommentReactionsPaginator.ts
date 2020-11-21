@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetCommentReactionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetCommentReactionsCommand(input, ...args));
+  return await client.send(new GetCommentReactionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeCommit,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCommentReactions(input, ...args);
 };
-export async function* getCommentReactionsPaginate(
+export async function* paginateGetCommentReactions(
   config: CodeCommitPaginationConfiguration,
   input: GetCommentReactionsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCommentReactionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCommentReactionsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof CodeCommit) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getCommentReactionsPaginate(
       throw new Error("Invalid client, expected CodeCommit | CodeCommitClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

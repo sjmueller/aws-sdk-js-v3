@@ -201,7 +201,7 @@ export const deserializeAws_restJson1GetClipCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetClipCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetClipCommandError(output, context);
   }
   const contents: GetClipCommandOutput = {
@@ -322,7 +322,7 @@ export const deserializeAws_restJson1GetDASHStreamingSessionURLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDASHStreamingSessionURLCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDASHStreamingSessionURLCommandError(output, context);
   }
   const contents: GetDASHStreamingSessionURLCommandOutput = {
@@ -433,7 +433,7 @@ export const deserializeAws_restJson1GetHLSStreamingSessionURLCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHLSStreamingSessionURLCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetHLSStreamingSessionURLCommandError(output, context);
   }
   const contents: GetHLSStreamingSessionURLCommandOutput = {
@@ -544,7 +544,7 @@ export const deserializeAws_restJson1GetMediaForFragmentListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetMediaForFragmentListCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetMediaForFragmentListCommandError(output, context);
   }
   const contents: GetMediaForFragmentListCommandOutput = {
@@ -625,7 +625,7 @@ export const deserializeAws_restJson1ListFragmentsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFragmentsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListFragmentsCommandError(output, context);
   }
   const contents: ListFragmentsCommandOutput = {

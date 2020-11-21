@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListHandshakesForOrganizationCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListHandshakesForOrganizationCommand(input, ...args));
+  return await client.send(new ListHandshakesForOrganizationCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Organizations,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listHandshakesForOrganization(input, ...args);
 };
-export async function* listHandshakesForOrganizationPaginate(
+export async function* paginateListHandshakesForOrganization(
   config: OrganizationsPaginationConfiguration,
   input: ListHandshakesForOrganizationCommandInput,
   ...additionalArguments: any
 ): Paginator<ListHandshakesForOrganizationCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListHandshakesForOrganizationCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Organizations) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listHandshakesForOrganizationPaginate(
       throw new Error("Invalid client, expected Organizations | OrganizationsClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

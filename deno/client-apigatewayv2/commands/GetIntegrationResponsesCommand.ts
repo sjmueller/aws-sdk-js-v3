@@ -45,11 +45,23 @@ export class GetIntegrationResponsesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ApiGatewayV2Client";
+    const commandName = "GetIntegrationResponsesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetIntegrationResponsesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetIntegrationResponsesResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

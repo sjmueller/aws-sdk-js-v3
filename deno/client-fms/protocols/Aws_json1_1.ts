@@ -108,6 +108,11 @@ import {
   ListProtocolsListsResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
+  NetworkFirewallMissingExpectedRTViolation,
+  NetworkFirewallMissingFirewallViolation,
+  NetworkFirewallMissingSubnetViolation,
+  NetworkFirewallPolicyDescription,
+  NetworkFirewallPolicyModifiedViolation,
   PartialMatch,
   Policy,
   PolicyComplianceDetail,
@@ -128,6 +133,8 @@ import {
   SecurityGroupRemediationAction,
   SecurityGroupRuleDescription,
   SecurityServicePolicyData,
+  StatefulRuleGroup,
+  StatelessRuleGroup,
   Tag,
   TagResourceRequest,
   TagResourceResponse,
@@ -487,7 +494,7 @@ export const deserializeAws_json1_1AssociateAdminAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateAdminAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateAdminAccountCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -563,7 +570,7 @@ export const deserializeAws_json1_1DeleteAppsListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAppsListCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteAppsListCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -631,7 +638,7 @@ export const deserializeAws_json1_1DeleteNotificationChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteNotificationChannelCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteNotificationChannelCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -699,7 +706,7 @@ export const deserializeAws_json1_1DeletePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeletePolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeletePolicyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -730,10 +737,26 @@ const deserializeAws_json1_1DeletePolicyCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
       response = {
         ...(await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "LimitExceededException":
+    case "com.amazonaws.fms#LimitExceededException":
+      response = {
+        ...(await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -767,7 +790,7 @@ export const deserializeAws_json1_1DeleteProtocolsListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProtocolsListCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteProtocolsListCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -835,7 +858,7 @@ export const deserializeAws_json1_1DisassociateAdminAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateAdminAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateAdminAccountCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -903,7 +926,7 @@ export const deserializeAws_json1_1GetAdminAccountCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAdminAccountCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetAdminAccountCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -974,7 +997,7 @@ export const deserializeAws_json1_1GetAppsListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAppsListCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetAppsListCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1045,7 +1068,7 @@ export const deserializeAws_json1_1GetComplianceDetailCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetComplianceDetailCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetComplianceDetailCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1124,7 +1147,7 @@ export const deserializeAws_json1_1GetNotificationChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetNotificationChannelCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetNotificationChannelCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1195,7 +1218,7 @@ export const deserializeAws_json1_1GetPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1274,7 +1297,7 @@ export const deserializeAws_json1_1GetProtectionStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProtectionStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetProtectionStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1345,7 +1368,7 @@ export const deserializeAws_json1_1GetProtocolsListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProtocolsListCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetProtocolsListCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1416,7 +1439,7 @@ export const deserializeAws_json1_1GetViolationDetailsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetViolationDetailsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetViolationDetailsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1487,7 +1510,7 @@ export const deserializeAws_json1_1ListAppsListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAppsListsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListAppsListsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1566,7 +1589,7 @@ export const deserializeAws_json1_1ListComplianceStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListComplianceStatusCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListComplianceStatusCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1629,7 +1652,7 @@ export const deserializeAws_json1_1ListMemberAccountsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListMemberAccountsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListMemberAccountsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1692,7 +1715,7 @@ export const deserializeAws_json1_1ListPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1771,7 +1794,7 @@ export const deserializeAws_json1_1ListProtocolsListsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProtocolsListsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListProtocolsListsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1842,7 +1865,7 @@ export const deserializeAws_json1_1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1921,7 +1944,7 @@ export const deserializeAws_json1_1PutAppsListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutAppsListCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutAppsListCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2008,7 +2031,7 @@ export const deserializeAws_json1_1PutNotificationChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutNotificationChannelCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutNotificationChannelCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -2076,7 +2099,7 @@ export const deserializeAws_json1_1PutPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutPolicyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutPolicyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2171,7 +2194,7 @@ export const deserializeAws_json1_1PutProtocolsListCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutProtocolsListCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1PutProtocolsListCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2258,7 +2281,7 @@ export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2345,7 +2368,7 @@ export const deserializeAws_json1_1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3247,6 +3270,111 @@ const deserializeAws_json1_1MemberAccounts = (output: any, context: __SerdeConte
   return (output || []).map((entry: any) => entry);
 };
 
+const deserializeAws_json1_1NetworkFirewallActionList = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_json1_1NetworkFirewallMissingExpectedRTViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallMissingExpectedRTViolation => {
+  return {
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
+    CurrentRouteTable:
+      output.CurrentRouteTable !== undefined && output.CurrentRouteTable !== null
+        ? output.CurrentRouteTable
+        : undefined,
+    ExpectedRouteTable:
+      output.ExpectedRouteTable !== undefined && output.ExpectedRouteTable !== null
+        ? output.ExpectedRouteTable
+        : undefined,
+    VPC: output.VPC !== undefined && output.VPC !== null ? output.VPC : undefined,
+    ViolationTarget:
+      output.ViolationTarget !== undefined && output.ViolationTarget !== null ? output.ViolationTarget : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1NetworkFirewallMissingFirewallViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallMissingFirewallViolation => {
+  return {
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
+    TargetViolationReason:
+      output.TargetViolationReason !== undefined && output.TargetViolationReason !== null
+        ? output.TargetViolationReason
+        : undefined,
+    VPC: output.VPC !== undefined && output.VPC !== null ? output.VPC : undefined,
+    ViolationTarget:
+      output.ViolationTarget !== undefined && output.ViolationTarget !== null ? output.ViolationTarget : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1NetworkFirewallMissingSubnetViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallMissingSubnetViolation => {
+  return {
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null ? output.AvailabilityZone : undefined,
+    TargetViolationReason:
+      output.TargetViolationReason !== undefined && output.TargetViolationReason !== null
+        ? output.TargetViolationReason
+        : undefined,
+    VPC: output.VPC !== undefined && output.VPC !== null ? output.VPC : undefined,
+    ViolationTarget:
+      output.ViolationTarget !== undefined && output.ViolationTarget !== null ? output.ViolationTarget : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1NetworkFirewallPolicyDescription = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallPolicyDescription => {
+  return {
+    StatefulRuleGroups:
+      output.StatefulRuleGroups !== undefined && output.StatefulRuleGroups !== null
+        ? deserializeAws_json1_1StatefulRuleGroupList(output.StatefulRuleGroups, context)
+        : undefined,
+    StatelessCustomActions:
+      output.StatelessCustomActions !== undefined && output.StatelessCustomActions !== null
+        ? deserializeAws_json1_1NetworkFirewallActionList(output.StatelessCustomActions, context)
+        : undefined,
+    StatelessDefaultActions:
+      output.StatelessDefaultActions !== undefined && output.StatelessDefaultActions !== null
+        ? deserializeAws_json1_1NetworkFirewallActionList(output.StatelessDefaultActions, context)
+        : undefined,
+    StatelessFragmentDefaultActions:
+      output.StatelessFragmentDefaultActions !== undefined && output.StatelessFragmentDefaultActions !== null
+        ? deserializeAws_json1_1NetworkFirewallActionList(output.StatelessFragmentDefaultActions, context)
+        : undefined,
+    StatelessRuleGroups:
+      output.StatelessRuleGroups !== undefined && output.StatelessRuleGroups !== null
+        ? deserializeAws_json1_1StatelessRuleGroupList(output.StatelessRuleGroups, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1NetworkFirewallPolicyModifiedViolation = (
+  output: any,
+  context: __SerdeContext
+): NetworkFirewallPolicyModifiedViolation => {
+  return {
+    CurrentPolicyDescription:
+      output.CurrentPolicyDescription !== undefined && output.CurrentPolicyDescription !== null
+        ? deserializeAws_json1_1NetworkFirewallPolicyDescription(output.CurrentPolicyDescription, context)
+        : undefined,
+    ExpectedPolicyDescription:
+      output.ExpectedPolicyDescription !== undefined && output.ExpectedPolicyDescription !== null
+        ? deserializeAws_json1_1NetworkFirewallPolicyDescription(output.ExpectedPolicyDescription, context)
+        : undefined,
+    ViolationTarget:
+      output.ViolationTarget !== undefined && output.ViolationTarget !== null ? output.ViolationTarget : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1PartialMatch = (output: any, context: __SerdeContext): PartialMatch => {
   return {
     Reference: output.Reference !== undefined && output.Reference !== null ? output.Reference : undefined,
@@ -3523,6 +3651,38 @@ const deserializeAws_json1_1ResourceViolation = (output: any, context: __SerdeCo
       output.AwsVPCSecurityGroupViolation !== undefined && output.AwsVPCSecurityGroupViolation !== null
         ? deserializeAws_json1_1AwsVPCSecurityGroupViolation(output.AwsVPCSecurityGroupViolation, context)
         : undefined,
+    NetworkFirewallMissingExpectedRTViolation:
+      output.NetworkFirewallMissingExpectedRTViolation !== undefined &&
+      output.NetworkFirewallMissingExpectedRTViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallMissingExpectedRTViolation(
+            output.NetworkFirewallMissingExpectedRTViolation,
+            context
+          )
+        : undefined,
+    NetworkFirewallMissingFirewallViolation:
+      output.NetworkFirewallMissingFirewallViolation !== undefined &&
+      output.NetworkFirewallMissingFirewallViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallMissingFirewallViolation(
+            output.NetworkFirewallMissingFirewallViolation,
+            context
+          )
+        : undefined,
+    NetworkFirewallMissingSubnetViolation:
+      output.NetworkFirewallMissingSubnetViolation !== undefined &&
+      output.NetworkFirewallMissingSubnetViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallMissingSubnetViolation(
+            output.NetworkFirewallMissingSubnetViolation,
+            context
+          )
+        : undefined,
+    NetworkFirewallPolicyModifiedViolation:
+      output.NetworkFirewallPolicyModifiedViolation !== undefined &&
+      output.NetworkFirewallPolicyModifiedViolation !== null
+        ? deserializeAws_json1_1NetworkFirewallPolicyModifiedViolation(
+            output.NetworkFirewallPolicyModifiedViolation,
+            context
+          )
+        : undefined,
   } as any;
 };
 
@@ -3581,6 +3741,31 @@ const deserializeAws_json1_1SecurityServicePolicyData = (
         : undefined,
     Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1StatefulRuleGroup = (output: any, context: __SerdeContext): StatefulRuleGroup => {
+  return {
+    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    RuleGroupName:
+      output.RuleGroupName !== undefined && output.RuleGroupName !== null ? output.RuleGroupName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StatefulRuleGroupList = (output: any, context: __SerdeContext): StatefulRuleGroup[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1StatefulRuleGroup(entry, context));
+};
+
+const deserializeAws_json1_1StatelessRuleGroup = (output: any, context: __SerdeContext): StatelessRuleGroup => {
+  return {
+    Priority: output.Priority !== undefined && output.Priority !== null ? output.Priority : undefined,
+    ResourceId: output.ResourceId !== undefined && output.ResourceId !== null ? output.ResourceId : undefined,
+    RuleGroupName:
+      output.RuleGroupName !== undefined && output.RuleGroupName !== null ? output.RuleGroupName : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1StatelessRuleGroupList = (output: any, context: __SerdeContext): StatelessRuleGroup[] => {
+  return (output || []).map((entry: any) => deserializeAws_json1_1StatelessRuleGroup(entry, context));
 };
 
 const deserializeAws_json1_1Tag = (output: any, context: __SerdeContext): Tag => {

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeDBProxyTargetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeDBProxyTargetsCommand(input, ...args));
+  return await client.send(new DescribeDBProxyTargetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RDS,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeDBProxyTargets(input, ...args);
 };
-export async function* describeDBProxyTargetsPaginate(
+export async function* paginateDescribeDBProxyTargets(
   config: RDSPaginationConfiguration,
   input: DescribeDBProxyTargetsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeDBProxyTargetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeDBProxyTargetsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof RDS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeDBProxyTargetsPaginate(
       throw new Error("Invalid client, expected RDS | RDSClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

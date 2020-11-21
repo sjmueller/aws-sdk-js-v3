@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeInstanceInformationCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeInstanceInformationCommand(input, ...args));
+  return await client.send(new DescribeInstanceInformationCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SSM,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeInstanceInformation(input, ...args);
 };
-export async function* describeInstanceInformationPaginate(
+export async function* paginateDescribeInstanceInformation(
   config: SSMPaginationConfiguration,
   input: DescribeInstanceInformationCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeInstanceInformationCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeInstanceInformationCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SSM) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeInstanceInformationPaginate(
       throw new Error("Invalid client, expected SSM | SSMClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

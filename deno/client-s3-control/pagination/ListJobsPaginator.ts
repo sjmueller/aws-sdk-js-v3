@@ -11,7 +11,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListJobsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListJobsCommand(input, ...args));
+  return await client.send(new ListJobsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: S3Control,
@@ -21,16 +21,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listJobs(input, ...args);
 };
-export async function* listJobsPaginate(
+export async function* paginateListJobs(
   config: S3ControlPaginationConfiguration,
   input: ListJobsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListJobsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListJobsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof S3Control) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -40,7 +40,7 @@ export async function* listJobsPaginate(
       throw new Error("Invalid client, expected S3Control | S3ControlClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

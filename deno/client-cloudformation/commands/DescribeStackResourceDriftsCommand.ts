@@ -45,11 +45,23 @@ export class DescribeStackResourceDriftsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CloudFormationClient";
+    const commandName = "DescribeStackResourceDriftsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeStackResourceDriftsInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeStackResourceDriftsOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -193,7 +193,7 @@ export const deserializeAws_json1_1DeleteTerminologyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTerminologyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteTerminologyCommandError(output, context);
   }
   await collectBody(output.body, context);
@@ -220,6 +220,14 @@ const deserializeAws_json1_1DeleteTerminologyCommandError = async (
     case "com.amazonaws.translate#InternalServerException":
       response = {
         ...(await deserializeAws_json1_1InternalServerExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "InvalidParameterValueException":
+    case "com.amazonaws.translate#InvalidParameterValueException":
+      response = {
+        ...(await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context)),
         name: errorCode,
         $metadata: deserializeMetadata(output),
       };
@@ -261,7 +269,7 @@ export const deserializeAws_json1_1DescribeTextTranslationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTextTranslationJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeTextTranslationJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -332,7 +340,7 @@ export const deserializeAws_json1_1GetTerminologyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetTerminologyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1GetTerminologyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -411,7 +419,7 @@ export const deserializeAws_json1_1ImportTerminologyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ImportTerminologyCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ImportTerminologyCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -490,7 +498,7 @@ export const deserializeAws_json1_1ListTerminologiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTerminologiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTerminologiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -561,7 +569,7 @@ export const deserializeAws_json1_1ListTextTranslationJobsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTextTranslationJobsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTextTranslationJobsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -640,7 +648,7 @@ export const deserializeAws_json1_1StartTextTranslationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StartTextTranslationJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StartTextTranslationJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -727,7 +735,7 @@ export const deserializeAws_json1_1StopTextTranslationJobCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopTextTranslationJobCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1StopTextTranslationJobCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -798,7 +806,7 @@ export const deserializeAws_json1_1TranslateTextCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TranslateTextCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TranslateTextCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

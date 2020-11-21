@@ -86,6 +86,10 @@ import { GetVpcLinkCommandInput, GetVpcLinkCommandOutput } from "./commands/GetV
 import { GetVpcLinksCommandInput, GetVpcLinksCommandOutput } from "./commands/GetVpcLinksCommand.ts";
 import { ImportApiCommandInput, ImportApiCommandOutput } from "./commands/ImportApiCommand.ts";
 import { ReimportApiCommandInput, ReimportApiCommandOutput } from "./commands/ReimportApiCommand.ts";
+import {
+  ResetAuthorizersCacheCommandInput,
+  ResetAuthorizersCacheCommandOutput,
+} from "./commands/ResetAuthorizersCacheCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UpdateApiCommandInput, UpdateApiCommandOutput } from "./commands/UpdateApiCommand.ts";
@@ -213,6 +217,7 @@ export type ServiceInputTypes =
   | GetVpcLinksCommandInput
   | ImportApiCommandInput
   | ReimportApiCommandInput
+  | ResetAuthorizersCacheCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateApiCommandInput
@@ -286,6 +291,7 @@ export type ServiceOutputTypes =
   | GetVpcLinksCommandOutput
   | ImportApiCommandOutput
   | ReimportApiCommandOutput
+  | ResetAuthorizersCacheCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateApiCommandOutput

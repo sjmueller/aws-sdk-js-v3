@@ -21,6 +21,7 @@ export * from "./commands/DetectCustomLabelsCommand.ts";
 export * from "./commands/DetectFacesCommand.ts";
 export * from "./commands/DetectLabelsCommand.ts";
 export * from "./commands/DetectModerationLabelsCommand.ts";
+export * from "./commands/DetectProtectiveEquipmentCommand.ts";
 export * from "./commands/DetectTextCommand.ts";
 export * from "./commands/GetCelebrityInfoCommand.ts";
 export * from "./commands/GetCelebrityRecognitionCommand.ts";

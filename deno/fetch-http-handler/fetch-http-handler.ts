@@ -10,7 +10,7 @@ declare let AbortController: any;
 /**
  * Represents the http options that can be passed to a browser http client.
  */
-export interface BrowserHttpOptions {
+export interface FetchHttpHandlerOptions {
   /**
    * The number of milliseconds a request can take before being automatically
    * terminated.
@@ -19,7 +19,11 @@ export interface BrowserHttpOptions {
 }
 
 export class FetchHttpHandler implements HttpHandler {
-  constructor(private readonly httpOptions: BrowserHttpOptions = {}) {}
+  private readonly requestTimeout?: number;
+
+  constructor({ requestTimeout }: FetchHttpHandlerOptions = {}) {
+    this.requestTimeout = requestTimeout;
+  }
 
   destroy(): void {
     // Do nothing. TLS and HTTP/2 connection pooling is handled by the
@@ -28,7 +32,7 @@ export class FetchHttpHandler implements HttpHandler {
 
   handle(request: HttpRequest, options: HttpHandlerOptions): Promise<{ response: HttpResponse }> {
     const abortSignal = options?.abortSignal;
-    const requestTimeoutInMs = this.httpOptions.requestTimeout;
+    const requestTimeoutInMs = this.requestTimeout;
 
     // if the request was already aborted, prevent doing extra work
     if (abortSignal?.aborted) {
@@ -45,12 +49,15 @@ export class FetchHttpHandler implements HttpHandler {
       }
     }
 
-    const port = request.port;
+    const { port, method } = request;
     const url = `${request.protocol}//${request.hostname}${port ? `:${port}` : ""}${path}`;
+    // Request constructor doesn't allow GET/HEAD request with body
+    // ref: https://github.com/whatwg/fetch/issues/551
+    const body = method === "GET" || method === "HEAD" ? undefined : request.body;
     const requestOptions: RequestInit = {
-      body: request.body,
+      body,
       headers: new Headers(request.headers),
-      method: request.method,
+      method: method,
     };
 
     // some browsers support abort signal

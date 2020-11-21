@@ -1,4 +1,3 @@
-
 import { Batch } from "../Batch.ts";
 import { BatchClient } from "../BatchClient.ts";
 import {
@@ -15,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeComputeEnvironmentsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeComputeEnvironmentsCommand(input, ...args));
+  return await client.send(new DescribeComputeEnvironmentsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Batch,
@@ -25,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeComputeEnvironments(input, ...args);
 };
-export async function* describeComputeEnvironmentsPaginate(
+export async function* paginateDescribeComputeEnvironments(
   config: BatchPaginationConfiguration,
   input: DescribeComputeEnvironmentsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeComputeEnvironmentsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeComputeEnvironmentsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Batch) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +43,7 @@ export async function* describeComputeEnvironmentsPaginate(
       throw new Error("Invalid client, expected Batch | BatchClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

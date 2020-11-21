@@ -201,7 +201,7 @@ export const deserializeAws_json1_0CreateConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateConnectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0CreateConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -272,7 +272,7 @@ export const deserializeAws_json1_0CreateHostCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateHostCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0CreateHostCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -327,7 +327,7 @@ export const deserializeAws_json1_0DeleteConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConnectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DeleteConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -382,7 +382,7 @@ export const deserializeAws_json1_0DeleteHostCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteHostCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0DeleteHostCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -445,7 +445,7 @@ export const deserializeAws_json1_0GetConnectionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetConnectionCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0GetConnectionCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -508,7 +508,7 @@ export const deserializeAws_json1_0GetHostCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetHostCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0GetHostCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -563,7 +563,7 @@ export const deserializeAws_json1_0ListConnectionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListConnectionsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListConnectionsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -610,7 +610,7 @@ export const deserializeAws_json1_0ListHostsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListHostsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListHostsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -657,7 +657,7 @@ export const deserializeAws_json1_0ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0ListTagsForResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -712,7 +712,7 @@ export const deserializeAws_json1_0TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0TagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -775,7 +775,7 @@ export const deserializeAws_json1_0UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_0UntagResourceCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

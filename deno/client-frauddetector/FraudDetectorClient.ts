@@ -17,8 +17,19 @@ import {
   DeleteDetectorVersionCommandInput,
   DeleteDetectorVersionCommandOutput,
 } from "./commands/DeleteDetectorVersionCommand.ts";
+import { DeleteEntityTypeCommandInput, DeleteEntityTypeCommandOutput } from "./commands/DeleteEntityTypeCommand.ts";
 import { DeleteEventCommandInput, DeleteEventCommandOutput } from "./commands/DeleteEventCommand.ts";
+import { DeleteEventTypeCommandInput, DeleteEventTypeCommandOutput } from "./commands/DeleteEventTypeCommand.ts";
+import {
+  DeleteExternalModelCommandInput,
+  DeleteExternalModelCommandOutput,
+} from "./commands/DeleteExternalModelCommand.ts";
+import { DeleteLabelCommandInput, DeleteLabelCommandOutput } from "./commands/DeleteLabelCommand.ts";
+import { DeleteModelCommandInput, DeleteModelCommandOutput } from "./commands/DeleteModelCommand.ts";
+import { DeleteModelVersionCommandInput, DeleteModelVersionCommandOutput } from "./commands/DeleteModelVersionCommand.ts";
+import { DeleteOutcomeCommandInput, DeleteOutcomeCommandOutput } from "./commands/DeleteOutcomeCommand.ts";
 import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand.ts";
+import { DeleteVariableCommandInput, DeleteVariableCommandOutput } from "./commands/DeleteVariableCommand.ts";
 import { DescribeDetectorCommandInput, DescribeDetectorCommandOutput } from "./commands/DescribeDetectorCommand.ts";
 import {
   DescribeModelVersionsCommandInput,
@@ -136,8 +147,16 @@ export type ServiceInputTypes =
   | CreateVariableCommandInput
   | DeleteDetectorCommandInput
   | DeleteDetectorVersionCommandInput
+  | DeleteEntityTypeCommandInput
   | DeleteEventCommandInput
+  | DeleteEventTypeCommandInput
+  | DeleteExternalModelCommandInput
+  | DeleteLabelCommandInput
+  | DeleteModelCommandInput
+  | DeleteModelVersionCommandInput
+  | DeleteOutcomeCommandInput
   | DeleteRuleCommandInput
+  | DeleteVariableCommandInput
   | DescribeDetectorCommandInput
   | DescribeModelVersionsCommandInput
   | GetDetectorVersionCommandInput
@@ -183,8 +202,16 @@ export type ServiceOutputTypes =
   | CreateVariableCommandOutput
   | DeleteDetectorCommandOutput
   | DeleteDetectorVersionCommandOutput
+  | DeleteEntityTypeCommandOutput
   | DeleteEventCommandOutput
+  | DeleteEventTypeCommandOutput
+  | DeleteExternalModelCommandOutput
+  | DeleteLabelCommandOutput
+  | DeleteModelCommandOutput
+  | DeleteModelVersionCommandOutput
+  | DeleteOutcomeCommandOutput
   | DeleteRuleCommandOutput
+  | DeleteVariableCommandOutput
   | DescribeDetectorCommandOutput
   | DescribeModelVersionsCommandOutput
   | GetDetectorVersionCommandOutput

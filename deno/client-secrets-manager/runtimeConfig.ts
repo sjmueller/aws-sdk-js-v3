@@ -1,6 +1,6 @@
 
 const name = "@aws-sdk/client-secrets-manager";
-const version = "1.0.0-gamma.10";
+const version = "1.0.0-rc.7";
 
 import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";
 import { FetchHttpHandler, streamCollector } from "../fetch-http-handler/mod.ts";

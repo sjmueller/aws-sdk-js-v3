@@ -105,33 +105,10 @@ export enum EntitySubType {
  */
 export interface Attribute {
   /**
-   * <p> The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized
-   *       as an attribute. </p>
-   */
-  Score?: number;
-
-  /**
-   * <p> The category of attribute. </p>
-   */
-  Category?: EntityType | string;
-
-  /**
-   * <p> The level of confidence that Amazon Comprehend Medical has that this attribute is correctly related to this
-   *       entity. </p>
-   */
-  RelationshipScore?: number;
-
-  /**
    * <p> The 0-based character offset in the input text that shows where the attribute ends. The
    *       offset returns the UTF-8 code point in the string.</p>
    */
   EndOffset?: number;
-
-  /**
-   * <p> The numeric identifier for this attribute. This is a monotonically increasing id unique
-   *       within this response rather than a global unique identifier. </p>
-   */
-  Id?: number;
 
   /**
    * <p> The 0-based character offset in the input text that shows where the attribute begins. The
@@ -140,9 +117,15 @@ export interface Attribute {
   BeginOffset?: number;
 
   /**
-   * <p> Contextual information for this attribute. </p>
+   * <p> The numeric identifier for this attribute. This is a monotonically increasing id unique
+   *       within this response rather than a global unique identifier. </p>
    */
-  Traits?: Trait[];
+  Id?: number;
+
+  /**
+   * <p> The category of attribute. </p>
+   */
+  Category?: EntityType | string;
 
   /**
    * <p>The type of relationship between the entity and attribute. Type for the relationship is <code>OVERLAP</code>, indicating that the entity occurred at the same time as the <code>Date_Expression</code>.
@@ -151,14 +134,31 @@ export interface Attribute {
   RelationshipType?: RelationshipType | string;
 
   /**
-   * <p> The segment of input text extracted as this attribute.</p>
+   * <p> Contextual information for this attribute. </p>
    */
-  Text?: string;
+  Traits?: Trait[];
+
+  /**
+   * <p> The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized
+   *       as an attribute. </p>
+   */
+  Score?: number;
 
   /**
    * <p> The type of attribute. </p>
    */
   Type?: EntitySubType | string;
+
+  /**
+   * <p> The segment of input text extracted as this attribute.</p>
+   */
+  Text?: string;
+
+  /**
+   * <p> The level of confidence that Amazon Comprehend Medical has that this attribute is correctly related to this
+   *       entity. </p>
+   */
+  RelationshipScore?: number;
 }
 
 export namespace Attribute {
@@ -187,17 +187,17 @@ export namespace DescribeEntitiesDetectionV2JobRequest {
  */
 export interface InputDataConfig {
   /**
+   * <p>The path to the input data files in the S3 bucket.</p>
+   */
+  S3Key?: string;
+
+  /**
    * <p>The URI of the S3 bucket that contains the input data. The bucket must be in the same
    *       region as the API endpoint that you are calling.</p>
    *          <p>Each file in the document collection must be less than 40 KB. You can store a maximum of
    *       30 GB in the bucket.</p>
    */
   S3Bucket: string | undefined;
-
-  /**
-   * <p>The path to the input data files in the S3 bucket.</p>
-   */
-  S3Key?: string;
 }
 
 export namespace InputDataConfig {
@@ -251,14 +251,14 @@ export namespace OutputDataConfig {
  */
 export interface ComprehendMedicalAsyncJobProperties {
   /**
-   * <p>The path to the file that describes the results of a batch job.</p>
+   * <p>The time that the detection job completed.</p>
    */
-  ManifestFilePath?: string;
+  EndTime?: Date;
 
   /**
-   * <p>The input data configuration that you supplied when you created the detection job.</p>
+   * <p>The time that the detection job was submitted for processing.</p>
    */
-  InputDataConfig?: InputDataConfig;
+  SubmitTime?: Date;
 
   /**
    * <p>The version of the model used to analyze the documents. The version number looks like
@@ -268,19 +268,14 @@ export interface ComprehendMedicalAsyncJobProperties {
   ModelVersion?: string;
 
   /**
+   * <p>The input data configuration that you supplied when you created the detection job.</p>
+   */
+  InputDataConfig?: InputDataConfig;
+
+  /**
    * <p>The output data configuration that you supplied when you created the detection job.</p>
    */
   OutputDataConfig?: OutputDataConfig;
-
-  /**
-   * <p>The time that the detection job completed.</p>
-   */
-  EndTime?: Date;
-
-  /**
-   * <p>The name that you assigned to the detection job.</p>
-   */
-  JobName?: string;
 
   /**
    * <p>A description of the status of a job.</p>
@@ -288,9 +283,15 @@ export interface ComprehendMedicalAsyncJobProperties {
   Message?: string;
 
   /**
-   * <p>The time that the detection job was submitted for processing.</p>
+   * <p>The AWS Key Management Service key, if any, used to encrypt the output files. </p>
    */
-  SubmitTime?: Date;
+  KMSKey?: string;
+
+  /**
+   * <p>The current status of the detection job. If the status is <code>FAILED</code>, the
+   *         <code>Message</code> field shows the reason for the failure.</p>
+   */
+  JobStatus?: JobStatus | string;
 
   /**
    * <p>The date and time that job metadata is deleted from the server. Output files in your S3
@@ -306,20 +307,19 @@ export interface ComprehendMedicalAsyncJobProperties {
   DataAccessRoleArn?: string;
 
   /**
-   * <p>The AWS Key Management Service key, if any, used to encrypt the output files. </p>
-   */
-  KMSKey?: string;
-
-  /**
-   * <p>The current status of the detection job. If the status is <code>FAILED</code>, the
-   *         <code>Message</code> field shows the reason for the failure.</p>
-   */
-  JobStatus?: JobStatus | string;
-
-  /**
    * <p>The language code of the input documents.</p>
    */
   LanguageCode?: LanguageCode | string;
+
+  /**
+   * <p>The name that you assigned to the detection job.</p>
+   */
+  JobName?: string;
+
+  /**
+   * <p>The path to the file that describes the results of a batch job.</p>
+   */
+  ManifestFilePath?: string;
 
   /**
    * <p>The identifier assigned to the detection job.</p>
@@ -508,25 +508,19 @@ export namespace DetectEntitiesRequest {
  */
 export interface Entity {
   /**
-   * <p> The segment of input text extracted as this entity.</p>
+   * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detection.</p>
    */
-  Text?: string;
-
-  /**
-   * <p> The 0-based character offset in the input text that shows where the entity ends. The
-   *       offset returns the UTF-8 code point in the string. </p>
-   */
-  EndOffset?: number;
-
-  /**
-   * <p> The extracted attributes that relate to this entity.</p>
-   */
-  Attributes?: Attribute[];
+  Score?: number;
 
   /**
    * <p> The category of the entity.</p>
    */
   Category?: EntityType | string;
+
+  /**
+   * <p> Describes the specific type of entity with category of entities.</p>
+   */
+  Type?: EntitySubType | string;
 
   /**
    * <p> The 0-based character offset in the input text that shows where the entity begins. The
@@ -535,25 +529,31 @@ export interface Entity {
   BeginOffset?: number;
 
   /**
+   * <p> The 0-based character offset in the input text that shows where the entity ends. The
+   *       offset returns the UTF-8 code point in the string. </p>
+   */
+  EndOffset?: number;
+
+  /**
    * <p> The numeric identifier for the entity. This is a monotonically increasing id unique
    *       within this response rather than a global unique identifier. </p>
    */
   Id?: number;
 
   /**
-   * <p> Describes the specific type of entity with category of entities.</p>
-   */
-  Type?: EntitySubType | string;
-
-  /**
-   * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detection.</p>
-   */
-  Score?: number;
-
-  /**
    * <p>Contextual information for the entity.</p>
    */
   Traits?: Trait[];
+
+  /**
+   * <p> The extracted attributes that relate to this entity.</p>
+   */
+  Attributes?: Attribute[];
+
+  /**
+   * <p> The segment of input text extracted as this entity.</p>
+   */
+  Text?: string;
 }
 
 export namespace Entity {
@@ -567,16 +567,16 @@ export namespace Entity {
  */
 export interface UnmappedAttribute {
   /**
-   * <p> The specific attribute that has been extracted but not mapped to an entity. </p>
-   */
-  Attribute?: Attribute;
-
-  /**
    * <p> The type of the attribute, could be one of the following values: "MEDICATION",
    *       "MEDICAL_CONDITION", "ANATOMY", "TEST_AND_TREATMENT_PROCEDURE" or
    *       "PROTECTED_HEALTH_INFORMATION". </p>
    */
   Type?: EntityType | string;
+
+  /**
+   * <p> The specific attribute that has been extracted but not mapped to an entity. </p>
+   */
+  Attribute?: Attribute;
 }
 
 export namespace UnmappedAttribute {
@@ -586,6 +586,14 @@ export namespace UnmappedAttribute {
 }
 
 export interface DetectEntitiesResponse {
+  /**
+   * <p> The collection of medical entities extracted from the input text and their associated
+   *       information. For each entity, the response provides the entity text, the entity category,
+   *       where the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in the
+   *       detection and analysis. Attributes and traits of the entity are also returned.</p>
+   */
+  Entities: Entity[] | undefined;
+
   /**
    * <p>The version of the model used to analyze the documents. The version number looks like
    *       X.X.X. You can use this information to track the model used for a particular batch of
@@ -598,14 +606,6 @@ export interface DetectEntitiesResponse {
    *       include the <code>PaginationToken</code> to fetch the next page of entities.</p>
    */
   PaginationToken?: string;
-
-  /**
-   * <p> The collection of medical entities extracted from the input text and their associated
-   *       information. For each entity, the response provides the entity text, the entity category,
-   *       where the entity text begins and ends, and the level of confidence that Amazon Comprehend Medical has in the
-   *       detection and analysis. Attributes and traits of the entity are also returned.</p>
-   */
-  Entities: Entity[] | undefined;
 
   /**
    * <p> Attributes extracted from the input text that we were unable to relate to an
@@ -689,10 +689,11 @@ export interface DetectEntitiesV2Response {
   UnmappedAttributes?: UnmappedAttribute[];
 
   /**
-   * <p>If the result to the <code>DetectEntitiesV2</code> operation was truncated, include the
-   *         <code>PaginationToken</code> to fetch the next page of entities.</p>
+   * <p>The version of the model used to analyze the documents. The version number looks like
+   *       X.X.X. You can use this information to track the model used for a particular batch of
+   *       documents.</p>
    */
-  PaginationToken?: string;
+  ModelVersion: string | undefined;
 
   /**
    * <p>The collection of medical entities extracted from the input text and their associated
@@ -703,11 +704,10 @@ export interface DetectEntitiesV2Response {
   Entities: Entity[] | undefined;
 
   /**
-   * <p>The version of the model used to analyze the documents. The version number looks like
-   *       X.X.X. You can use this information to track the model used for a particular batch of
-   *       documents.</p>
+   * <p>If the result to the <code>DetectEntitiesV2</code> operation was truncated, include the
+   *         <code>PaginationToken</code> to fetch the next page of entities.</p>
    */
-  ModelVersion: string | undefined;
+  PaginationToken?: string;
 }
 
 export namespace DetectEntitiesV2Response {
@@ -787,15 +787,15 @@ export enum ICD10CMTraitName {
  */
 export interface ICD10CMTrait {
   /**
-   * <p>Provides a name or contextual description about the trait.</p>
-   */
-  Name?: ICD10CMTraitName | string;
-
-  /**
    * <p>The level of confidence that Amazon Comprehend Medical has that the segment of text is correctly recognized
    *       as a trait.</p>
    */
   Score?: number;
+
+  /**
+   * <p>Provides a name or contextual description about the trait.</p>
+   */
+  Name?: ICD10CMTraitName | string;
 }
 
 export namespace ICD10CMTrait {
@@ -826,28 +826,22 @@ export interface ICD10CMAttribute {
   RelationshipScore?: number;
 
   /**
-   * <p>The type of attribute. InferICD10CM detects entities of the type <code>DX_NAME</code>.
-   *     </p>
-   */
-  Type?: ICD10CMAttributeType | string;
-
-  /**
    * <p>The level of confidence that Amazon Comprehend Medical has that the segment of text is
    *       correctly recognized as an attribute.</p>
    */
   Score?: number;
 
   /**
+   * <p>The type of attribute. InferICD10CM detects entities of the type <code>DX_NAME</code>.
+   *     </p>
+   */
+  Type?: ICD10CMAttributeType | string;
+
+  /**
    * <p>The 0-based character offset in the input text that shows where the attribute ends. The
    *       offset returns the UTF-8 code point in the string.</p>
    */
   EndOffset?: number;
-
-  /**
-   * <p>The numeric identifier for this attribute. This is a monotonically increasing id unique
-   *       within this response rather than a global unique identifier.</p>
-   */
-  Id?: number;
 
   /**
    * <p>The contextual information for the attribute. The traits recognized by InferICD10CM are
@@ -857,15 +851,21 @@ export interface ICD10CMAttribute {
   Traits?: ICD10CMTrait[];
 
   /**
-   * <p>The 0-based character offset in the input text that shows where the attribute begins. The
-   *       offset returns the UTF-8 code point in the string.</p>
+   * <p>The numeric identifier for this attribute. This is a monotonically increasing id unique
+   *       within this response rather than a global unique identifier.</p>
    */
-  BeginOffset?: number;
+  Id?: number;
 
   /**
    * <p>The segment of input text which contains the detected attribute.</p>
    */
   Text?: string;
+
+  /**
+   * <p>The 0-based character offset in the input text that shows where the attribute begins. The
+   *       offset returns the UTF-8 code point in the string.</p>
+   */
+  BeginOffset?: number;
 }
 
 export namespace ICD10CMAttribute {
@@ -920,6 +920,11 @@ export enum ICD10CMEntityType {
  */
 export interface ICD10CMEntity {
   /**
+   * <p>The segment of input text that is matched to the detected entity.</p>
+   */
+  Text?: string;
+
+  /**
    * <p>The detected attributes that relate to the entity. An extracted segment of the text that
    *       is an attribute of an entity, or otherwise related to an entity, such as the nature of a
    *       medical condition.</p>
@@ -927,16 +932,10 @@ export interface ICD10CMEntity {
   Attributes?: ICD10CMAttribute[];
 
   /**
-   * <p>The ICD-10-CM concepts that the entity could refer to, along with a score indicating the
-   *       likelihood of the match.</p>
+   * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the
+   *       detection.</p>
    */
-  ICD10CMConcepts?: ICD10CMConcept[];
-
-  /**
-   * <p>The numeric identifier for the entity. This is a monotonically increasing id unique within
-   *       this response rather than a global unique identifier.</p>
-   */
-  Id?: number;
+  Score?: number;
 
   /**
    * <p>Provides Contextual information for the entity. The traits recognized by InferICD10CM are
@@ -947,16 +946,10 @@ export interface ICD10CMEntity {
   Traits?: ICD10CMTrait[];
 
   /**
-   * <p>The 0-based character offset in the input text that shows where the entity ends. The
-   *       offset returns the UTF-8 code point in the string.</p>
+   * <p>The ICD-10-CM concepts that the entity could refer to, along with a score indicating the
+   *       likelihood of the match.</p>
    */
-  EndOffset?: number;
-
-  /**
-   * <p>The 0-based character offset in the input text that shows where the entity begins. The
-   *       offset returns the UTF-8 code point in the string.</p>
-   */
-  BeginOffset?: number;
+  ICD10CMConcepts?: ICD10CMConcept[];
 
   /**
    * <p>Describes the specific type of entity with category of entities. InferICD10CM detects
@@ -965,10 +958,10 @@ export interface ICD10CMEntity {
   Type?: ICD10CMEntityType | string;
 
   /**
-   * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the
-   *       detection.</p>
+   * <p>The 0-based character offset in the input text that shows where the entity ends. The
+   *       offset returns the UTF-8 code point in the string.</p>
    */
-  Score?: number;
+  EndOffset?: number;
 
   /**
    * <p> The category of the entity. InferICD10CM detects entities in the
@@ -977,9 +970,16 @@ export interface ICD10CMEntity {
   Category?: ICD10CMEntityCategory | string;
 
   /**
-   * <p>The segment of input text that is matched to the detected entity.</p>
+   * <p>The numeric identifier for the entity. This is a monotonically increasing id unique within
+   *       this response rather than a global unique identifier.</p>
    */
-  Text?: string;
+  Id?: number;
+
+  /**
+   * <p>The 0-based character offset in the input text that shows where the entity begins. The
+   *       offset returns the UTF-8 code point in the string.</p>
+   */
+  BeginOffset?: number;
 }
 
 export namespace ICD10CMEntity {
@@ -1075,16 +1075,10 @@ export enum RxNormAttributeType {
  */
 export interface RxNormAttribute {
   /**
-   * <p>The level of confidence that Comprehend Medical has that the segment of text is correctly
-   *       recognized as an attribute.</p>
+   * <p>The 0-based character offset in the input text that shows where the attribute ends. The
+   *       offset returns the UTF-8 code point in the string.</p>
    */
-  Score?: number;
-
-  /**
-   * <p>The level of confidence that Amazon Comprehend Medical has that the attribute is
-   *       accurately linked to an entity.</p>
-   */
-  RelationshipScore?: number;
+  EndOffset?: number;
 
   /**
    * <p>The 0-based character offset in the input text that shows where the attribute begins. The
@@ -1093,16 +1087,22 @@ export interface RxNormAttribute {
   BeginOffset?: number;
 
   /**
+   * <p>The level of confidence that Amazon Comprehend Medical has that the attribute is
+   *       accurately linked to an entity.</p>
+   */
+  RelationshipScore?: number;
+
+  /**
    * <p>The type of attribute. The types of attributes recognized by InferRxNorm are
    *         <code>BRAND_NAME</code> and <code>GENERIC_NAME</code>.</p>
    */
   Type?: RxNormAttributeType | string;
 
   /**
-   * <p>The 0-based character offset in the input text that shows where the attribute ends. The
-   *       offset returns the UTF-8 code point in the string.</p>
+   * <p>The level of confidence that Comprehend Medical has that the segment of text is correctly
+   *       recognized as an attribute.</p>
    */
-  EndOffset?: number;
+  Score?: number;
 
   /**
    * <p>Contextual information for the attribute. InferRxNorm recognizes the trait
@@ -1112,15 +1112,15 @@ export interface RxNormAttribute {
   Traits?: RxNormTrait[];
 
   /**
+   * <p>The segment of input text which corresponds to the detected attribute.</p>
+   */
+  Text?: string;
+
+  /**
    * <p>The numeric identifier for this attribute. This is a monotonically increasing id unique
    *       within this response rather than a global unique identifier.</p>
    */
   Id?: number;
-
-  /**
-   * <p>The segment of input text which corresponds to the detected attribute.</p>
-   */
-  Text?: string;
 }
 
 export namespace RxNormAttribute {
@@ -1175,10 +1175,21 @@ export enum RxNormEntityType {
  */
 export interface RxNormEntity {
   /**
-   * <p>The 0-based character offset in the input text that shows where the entity ends. The
+   * <p>The 0-based character offset in the input text that shows where the entity begins. The
    *       offset returns the UTF-8 code point in the string.</p>
    */
-  EndOffset?: number;
+  BeginOffset?: number;
+
+  /**
+   * <p> The RxNorm concepts that the entity could refer to, along with a score indicating the
+   *       likelihood of the match.</p>
+   */
+  RxNormConcepts?: RxNormConcept[];
+
+  /**
+   * <p> Contextual information for the entity.</p>
+   */
+  Traits?: RxNormTrait[];
 
   /**
    * <p>The category of the entity. The recognized categories are <code>GENERIC</code> or
@@ -1193,10 +1204,15 @@ export interface RxNormEntity {
   Id?: number;
 
   /**
-   * <p>The 0-based character offset in the input text that shows where the entity begins. The
+   * <p>The 0-based character offset in the input text that shows where the entity ends. The
    *       offset returns the UTF-8 code point in the string.</p>
    */
-  BeginOffset?: number;
+  EndOffset?: number;
+
+  /**
+   * <p>The segment of input text extracted from which the entity was detected.</p>
+   */
+  Text?: string;
 
   /**
    * <p>The extracted attributes that relate to the entity. The attributes recognized by
@@ -1207,32 +1223,16 @@ export interface RxNormEntity {
   Attributes?: RxNormAttribute[];
 
   /**
-   * <p>The segment of input text extracted from which the entity was detected.</p>
+   * <p> Describes the specific type of entity. For InferRxNorm, the recognized entity type is
+   *         <code>MEDICATION</code>.</p>
    */
-  Text?: string;
-
-  /**
-   * <p> The RxNorm concepts that the entity could refer to, along with a score indicating the
-   *       likelihood of the match.</p>
-   */
-  RxNormConcepts?: RxNormConcept[];
-
-  /**
-   * <p> Contextual information for the entity.</p>
-   */
-  Traits?: RxNormTrait[];
+  Type?: RxNormEntityType | string;
 
   /**
    * <p>The level of confidence that Amazon Comprehend Medical has in the accuracy of the detected
    *       entity.</p>
    */
   Score?: number;
-
-  /**
-   * <p> Describes the specific type of entity. For InferRxNorm, the recognized entity type is
-   *         <code>MEDICATION</code>.</p>
-   */
-  Type?: RxNormEntityType | string;
 }
 
 export namespace RxNormEntity {
@@ -1242,6 +1242,12 @@ export namespace RxNormEntity {
 }
 
 export interface InferRxNormResponse {
+  /**
+   * <p>If the result of the previous request to <code>InferRxNorm</code> was truncated, include
+   *       the <code>PaginationToken</code> to fetch the next page of medication entities.</p>
+   */
+  PaginationToken?: string;
+
   /**
    * <p>The medication entities detected in the text linked to RxNorm concepts. If the action is
    *       successful, the service sends back an HTTP 200 response, as well as the entities
@@ -1255,12 +1261,6 @@ export interface InferRxNormResponse {
    *       information to track the model used for a particular batch of documents.</p>
    */
   ModelVersion?: string;
-
-  /**
-   * <p>If the result of the previous request to <code>InferRxNorm</code> was truncated, include
-   *       the <code>PaginationToken</code> to fetch the next page of medication entities.</p>
-   */
-  PaginationToken?: string;
 }
 
 export namespace InferRxNormResponse {
@@ -1273,6 +1273,12 @@ export namespace InferRxNormResponse {
  * <p>Provides information for filtering a list of detection jobs.</p>
  */
 export interface ComprehendMedicalAsyncJobFilter {
+  /**
+   * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
+   *       status.</p>
+   */
+  JobStatus?: JobStatus | string;
+
   /**
    * <p>Filters the list of jobs based on the time that the job was submitted for processing.
    *       Returns only jobs submitted after the specified time. Jobs are returned in descending order,
@@ -1291,12 +1297,6 @@ export interface ComprehendMedicalAsyncJobFilter {
    * <p>Filters on the name of the job.</p>
    */
   JobName?: string;
-
-  /**
-   * <p>Filters the list of jobs based on job status. Returns only jobs with the specified
-   *       status.</p>
-   */
-  JobStatus?: JobStatus | string;
 }
 
 export namespace ComprehendMedicalAsyncJobFilter {
@@ -1307,12 +1307,6 @@ export namespace ComprehendMedicalAsyncJobFilter {
 
 export interface ListEntitiesDetectionV2JobsRequest {
   /**
-   * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or
-   *       the date and time that they were submitted. You can only set one filter at a time.</p>
-   */
-  Filter?: ComprehendMedicalAsyncJobFilter;
-
-  /**
    * <p>Identifies the next page of results to return.</p>
    */
   NextToken?: string;
@@ -1321,6 +1315,12 @@ export interface ListEntitiesDetectionV2JobsRequest {
    * <p>The maximum number of results to return in each page. The default is 100.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or
+   *       the date and time that they were submitted. You can only set one filter at a time.</p>
+   */
+  Filter?: ComprehendMedicalAsyncJobFilter;
 }
 
 export namespace ListEntitiesDetectionV2JobsRequest {
@@ -1331,14 +1331,14 @@ export namespace ListEntitiesDetectionV2JobsRequest {
 
 export interface ListEntitiesDetectionV2JobsResponse {
   /**
-   * <p>A list containing the properties of each job returned.</p>
-   */
-  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[];
-
-  /**
    * <p>Identifies the next page of results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>A list containing the properties of each job returned.</p>
+   */
+  ComprehendMedicalAsyncJobPropertiesList?: ComprehendMedicalAsyncJobProperties[];
 }
 
 export namespace ListEntitiesDetectionV2JobsResponse {
@@ -1370,14 +1370,14 @@ export interface ListICD10CMInferenceJobsRequest {
   Filter?: ComprehendMedicalAsyncJobFilter;
 
   /**
-   * <p>The maximum number of results to return in each page. The default is 100.</p>
-   */
-  MaxResults?: number;
-
-  /**
    * <p>Identifies the next page of results to return.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in each page. The default is 100.</p>
+   */
+  MaxResults?: number;
 }
 
 export namespace ListICD10CMInferenceJobsRequest {
@@ -1448,14 +1448,14 @@ export namespace ListPHIDetectionJobsResponse {
 
 export interface ListRxNormInferenceJobsRequest {
   /**
-   * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
-   */
-  Filter?: ComprehendMedicalAsyncJobFilter;
-
-  /**
    * <p>Identifies the next page of results to return.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>Filters the jobs that are returned. You can filter jobs based on their names, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
+   */
+  Filter?: ComprehendMedicalAsyncJobFilter;
 
   /**
    * <p>Identifies the next page of results to return.</p>
@@ -1494,26 +1494,10 @@ export interface StartEntitiesDetectionV2JobRequest {
   JobName?: string;
 
   /**
-   * <p>The language of the input documents. All documents must be in the same language.</p>
-   */
-  LanguageCode: LanguageCode | string | undefined;
-
-  /**
-   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical
-   *       generates one.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
    * <p>An AWS Key Management Service key to encrypt your output files. If you do not specify a
    *       key, the files are written in plain text.</p>
    */
   KMSKey?: string;
-
-  /**
-   * <p>Specifies where to send the output files.</p>
-   */
-  OutputDataConfig: OutputDataConfig | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
@@ -1525,6 +1509,22 @@ export interface StartEntitiesDetectionV2JobRequest {
    * <p>Specifies the format and location of the input data for the job.</p>
    */
   InputDataConfig: InputDataConfig | undefined;
+
+  /**
+   * <p>The language of the input documents. All documents must be in the same language.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+
+  /**
+   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical
+   *       generates one.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>Specifies where to send the output files.</p>
+   */
+  OutputDataConfig: OutputDataConfig | undefined;
 }
 
 export namespace StartEntitiesDetectionV2JobRequest {
@@ -1549,16 +1549,6 @@ export namespace StartEntitiesDetectionV2JobResponse {
 
 export interface StartICD10CMInferenceJobRequest {
   /**
-   * <p>Specifies where to send the output files.</p>
-   */
-  OutputDataConfig: OutputDataConfig | undefined;
-
-  /**
-   * <p>The identifier of the job.</p>
-   */
-  JobName?: string;
-
-  /**
    * <p>The language of the input documents. All documents must be in the same language.</p>
    */
   LanguageCode: LanguageCode | string | undefined;
@@ -1570,21 +1560,31 @@ export interface StartICD10CMInferenceJobRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
-   *       grants Amazon Comprehend Medical read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
-   */
-  DataAccessRoleArn: string | undefined;
-
-  /**
    * <p>An AWS Key Management Service key to encrypt your output files. If you do not specify a
    *       key, the files are written in plain text.</p>
    */
   KMSKey?: string;
 
   /**
+   * <p>The identifier of the job.</p>
+   */
+  JobName?: string;
+
+  /**
    * <p>Specifies the format and location of the input data for the job.</p>
    */
   InputDataConfig: InputDataConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+   *       grants Amazon Comprehend Medical read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
+   */
+  DataAccessRoleArn: string | undefined;
+
+  /**
+   * <p>Specifies where to send the output files.</p>
+   */
+  OutputDataConfig: OutputDataConfig | undefined;
 }
 
 export namespace StartICD10CMInferenceJobRequest {
@@ -1609,15 +1609,20 @@ export namespace StartICD10CMInferenceJobResponse {
 
 export interface StartPHIDetectionJobRequest {
   /**
+   * <p>Specifies the format and location of the input data for the job.</p>
+   */
+  InputDataConfig: InputDataConfig | undefined;
+
+  /**
    * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
    *       grants Amazon Comprehend Medical read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
    */
   DataAccessRoleArn: string | undefined;
 
   /**
-   * <p>The language of the input documents. All documents must be in the same language.</p>
+   * <p>The identifier of the job.</p>
    */
-  LanguageCode: LanguageCode | string | undefined;
+  JobName?: string;
 
   /**
    * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical
@@ -1626,19 +1631,14 @@ export interface StartPHIDetectionJobRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>Specifies the format and location of the input data for the job.</p>
+   * <p>The language of the input documents. All documents must be in the same language.</p>
    */
-  InputDataConfig: InputDataConfig | undefined;
+  LanguageCode: LanguageCode | string | undefined;
 
   /**
    * <p>Specifies where to send the output files.</p>
    */
   OutputDataConfig: OutputDataConfig | undefined;
-
-  /**
-   * <p>The identifier of the job.</p>
-   */
-  JobName?: string;
 
   /**
    * <p>An AWS Key Management Service key to encrypt your output files. If you do not specify a
@@ -1669,9 +1669,26 @@ export namespace StartPHIDetectionJobResponse {
 
 export interface StartRxNormInferenceJobRequest {
   /**
+   * <p>The language of the input documents. All documents must be in the same language.</p>
+   */
+  LanguageCode: LanguageCode | string | undefined;
+
+  /**
+   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical
+   *       generates one.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
    * <p>Specifies where to send the output files.</p>
    */
   OutputDataConfig: OutputDataConfig | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+   *       grants Amazon Comprehend Medical read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
+   */
+  DataAccessRoleArn: string | undefined;
 
   /**
    * <p>Specifies the format and location of the input data for the job.</p>
@@ -1683,23 +1700,6 @@ export interface StartRxNormInferenceJobRequest {
    *       key, the files are written in plain text.</p>
    */
   KMSKey?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
-   *       grants Amazon Comprehend Medical read access to your input data. For more information, see <a href="https://docs.aws.amazon.com/comprehend/latest/dg/access-control-managing-permissions-med.html#auth-role-permissions-med"> Role-Based Permissions Required for Asynchronous Operations</a>.</p>
-   */
-  DataAccessRoleArn: string | undefined;
-
-  /**
-   * <p>The language of the input documents. All documents must be in the same language.</p>
-   */
-  LanguageCode: LanguageCode | string | undefined;
-
-  /**
-   * <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend Medical
-   *       generates one.</p>
-   */
-  ClientRequestToken?: string;
 
   /**
    * <p>The identifier of the job.</p>

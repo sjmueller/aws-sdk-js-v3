@@ -1,4 +1,3 @@
-
 import { Athena } from "../Athena.ts";
 import { AthenaClient } from "../AthenaClient.ts";
 import {
@@ -15,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListQueryExecutionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListQueryExecutionsCommand(input, ...args));
+  return await client.send(new ListQueryExecutionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Athena,
@@ -25,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listQueryExecutions(input, ...args);
 };
-export async function* listQueryExecutionsPaginate(
+export async function* paginateListQueryExecutions(
   config: AthenaPaginationConfiguration,
   input: ListQueryExecutionsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListQueryExecutionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListQueryExecutionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Athena) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +43,7 @@ export async function* listQueryExecutionsPaginate(
       throw new Error("Invalid client, expected Athena | AthenaClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

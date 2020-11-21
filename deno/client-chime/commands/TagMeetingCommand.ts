@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { TagMeetingRequest } from "../models/models_0.ts";
+import { TagMeetingRequest } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1TagMeetingCommand,
   serializeAws_restJson1TagMeetingCommand,
@@ -45,11 +45,23 @@ export class TagMeetingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "TagMeetingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TagMeetingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

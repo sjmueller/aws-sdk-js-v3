@@ -1,8 +1,19 @@
 
 import {
+  AcceptInputDeviceTransferCommandInput,
+  AcceptInputDeviceTransferCommandOutput,
+} from "./commands/AcceptInputDeviceTransferCommand.ts";
+import { BatchDeleteCommandInput, BatchDeleteCommandOutput } from "./commands/BatchDeleteCommand.ts";
+import { BatchStartCommandInput, BatchStartCommandOutput } from "./commands/BatchStartCommand.ts";
+import { BatchStopCommandInput, BatchStopCommandOutput } from "./commands/BatchStopCommand.ts";
+import {
   BatchUpdateScheduleCommandInput,
   BatchUpdateScheduleCommandOutput,
 } from "./commands/BatchUpdateScheduleCommand.ts";
+import {
+  CancelInputDeviceTransferCommandInput,
+  CancelInputDeviceTransferCommandOutput,
+} from "./commands/CancelInputDeviceTransferCommand.ts";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "./commands/CreateChannelCommand.ts";
 import { CreateInputCommandInput, CreateInputCommandOutput } from "./commands/CreateInputCommand.ts";
 import {
@@ -55,6 +66,10 @@ import {
 } from "./commands/DescribeReservationCommand.ts";
 import { DescribeScheduleCommandInput, DescribeScheduleCommandOutput } from "./commands/DescribeScheduleCommand.ts";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "./commands/ListChannelsCommand.ts";
+import {
+  ListInputDeviceTransfersCommandInput,
+  ListInputDeviceTransfersCommandOutput,
+} from "./commands/ListInputDeviceTransfersCommand.ts";
 import { ListInputDevicesCommandInput, ListInputDevicesCommandOutput } from "./commands/ListInputDevicesCommand.ts";
 import {
   ListInputSecurityGroupsCommandInput,
@@ -73,10 +88,18 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand.ts";
 import { PurchaseOfferingCommandInput, PurchaseOfferingCommandOutput } from "./commands/PurchaseOfferingCommand.ts";
+import {
+  RejectInputDeviceTransferCommandInput,
+  RejectInputDeviceTransferCommandOutput,
+} from "./commands/RejectInputDeviceTransferCommand.ts";
 import { StartChannelCommandInput, StartChannelCommandOutput } from "./commands/StartChannelCommand.ts";
 import { StartMultiplexCommandInput, StartMultiplexCommandOutput } from "./commands/StartMultiplexCommand.ts";
 import { StopChannelCommandInput, StopChannelCommandOutput } from "./commands/StopChannelCommand.ts";
 import { StopMultiplexCommandInput, StopMultiplexCommandOutput } from "./commands/StopMultiplexCommand.ts";
+import {
+  TransferInputDeviceCommandInput,
+  TransferInputDeviceCommandOutput,
+} from "./commands/TransferInputDeviceCommand.ts";
 import { UpdateChannelClassCommandInput, UpdateChannelClassCommandOutput } from "./commands/UpdateChannelClassCommand.ts";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "./commands/UpdateChannelCommand.ts";
 import { UpdateInputCommandInput, UpdateInputCommandOutput } from "./commands/UpdateInputCommand.ts";
@@ -141,7 +164,12 @@ import {
 } from "../types/mod.ts";
 
 export type ServiceInputTypes =
+  | AcceptInputDeviceTransferCommandInput
+  | BatchDeleteCommandInput
+  | BatchStartCommandInput
+  | BatchStopCommandInput
   | BatchUpdateScheduleCommandInput
+  | CancelInputDeviceTransferCommandInput
   | CreateChannelCommandInput
   | CreateInputCommandInput
   | CreateInputSecurityGroupCommandInput
@@ -167,6 +195,7 @@ export type ServiceInputTypes =
   | DescribeReservationCommandInput
   | DescribeScheduleCommandInput
   | ListChannelsCommandInput
+  | ListInputDeviceTransfersCommandInput
   | ListInputDevicesCommandInput
   | ListInputSecurityGroupsCommandInput
   | ListInputsCommandInput
@@ -176,10 +205,12 @@ export type ServiceInputTypes =
   | ListReservationsCommandInput
   | ListTagsForResourceCommandInput
   | PurchaseOfferingCommandInput
+  | RejectInputDeviceTransferCommandInput
   | StartChannelCommandInput
   | StartMultiplexCommandInput
   | StopChannelCommandInput
   | StopMultiplexCommandInput
+  | TransferInputDeviceCommandInput
   | UpdateChannelClassCommandInput
   | UpdateChannelCommandInput
   | UpdateInputCommandInput
@@ -190,7 +221,12 @@ export type ServiceInputTypes =
   | UpdateReservationCommandInput;
 
 export type ServiceOutputTypes =
+  | AcceptInputDeviceTransferCommandOutput
+  | BatchDeleteCommandOutput
+  | BatchStartCommandOutput
+  | BatchStopCommandOutput
   | BatchUpdateScheduleCommandOutput
+  | CancelInputDeviceTransferCommandOutput
   | CreateChannelCommandOutput
   | CreateInputCommandOutput
   | CreateInputSecurityGroupCommandOutput
@@ -216,6 +252,7 @@ export type ServiceOutputTypes =
   | DescribeReservationCommandOutput
   | DescribeScheduleCommandOutput
   | ListChannelsCommandOutput
+  | ListInputDeviceTransfersCommandOutput
   | ListInputDevicesCommandOutput
   | ListInputSecurityGroupsCommandOutput
   | ListInputsCommandOutput
@@ -225,10 +262,12 @@ export type ServiceOutputTypes =
   | ListReservationsCommandOutput
   | ListTagsForResourceCommandOutput
   | PurchaseOfferingCommandOutput
+  | RejectInputDeviceTransferCommandOutput
   | StartChannelCommandOutput
   | StartMultiplexCommandOutput
   | StopChannelCommandOutput
   | StopMultiplexCommandOutput
+  | TransferInputDeviceCommandOutput
   | UpdateChannelClassCommandOutput
   | UpdateChannelCommandOutput
   | UpdateInputCommandOutput

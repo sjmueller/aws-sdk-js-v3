@@ -594,7 +594,7 @@ export const deserializeAws_restJson1CreateSignalingChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateSignalingChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateSignalingChannelCommandError(output, context);
   }
   const contents: CreateSignalingChannelCommandOutput = {
@@ -689,7 +689,7 @@ export const deserializeAws_restJson1CreateStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateStreamCommandError(output, context);
   }
   const contents: CreateStreamCommandOutput = {
@@ -792,7 +792,7 @@ export const deserializeAws_restJson1DeleteSignalingChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteSignalingChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteSignalingChannelCommandError(output, context);
   }
   const contents: DeleteSignalingChannelCommandOutput = {
@@ -883,7 +883,7 @@ export const deserializeAws_restJson1DeleteStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteStreamCommandError(output, context);
   }
   const contents: DeleteStreamCommandOutput = {
@@ -974,7 +974,7 @@ export const deserializeAws_restJson1DescribeSignalingChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSignalingChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeSignalingChannelCommandError(output, context);
   }
   const contents: DescribeSignalingChannelCommandOutput = {
@@ -1053,7 +1053,7 @@ export const deserializeAws_restJson1DescribeStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DescribeStreamCommandError(output, context);
   }
   const contents: DescribeStreamCommandOutput = {
@@ -1132,7 +1132,7 @@ export const deserializeAws_restJson1GetDataEndpointCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetDataEndpointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetDataEndpointCommandError(output, context);
   }
   const contents: GetDataEndpointCommandOutput = {
@@ -1211,7 +1211,7 @@ export const deserializeAws_restJson1GetSignalingChannelEndpointCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetSignalingChannelEndpointCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetSignalingChannelEndpointCommandError(output, context);
   }
   const contents: GetSignalingChannelEndpointCommandOutput = {
@@ -1298,7 +1298,7 @@ export const deserializeAws_restJson1ListSignalingChannelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListSignalingChannelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListSignalingChannelsCommandError(output, context);
   }
   const contents: ListSignalingChannelsCommandOutput = {
@@ -1373,7 +1373,7 @@ export const deserializeAws_restJson1ListStreamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListStreamsCommandError(output, context);
   }
   const contents: ListStreamsCommandOutput = {
@@ -1440,7 +1440,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -1523,7 +1523,7 @@ export const deserializeAws_restJson1ListTagsForStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForStreamCommandError(output, context);
   }
   const contents: ListTagsForStreamCommandOutput = {
@@ -1614,7 +1614,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1697,7 +1697,7 @@ export const deserializeAws_restJson1TagStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagStreamCommandError(output, context);
   }
   const contents: TagStreamCommandOutput = {
@@ -1788,7 +1788,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -1863,7 +1863,7 @@ export const deserializeAws_restJson1UntagStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagStreamCommandError(output, context);
   }
   const contents: UntagStreamCommandOutput = {
@@ -1946,7 +1946,7 @@ export const deserializeAws_restJson1UpdateDataRetentionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateDataRetentionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateDataRetentionCommandError(output, context);
   }
   const contents: UpdateDataRetentionCommandOutput = {
@@ -2037,7 +2037,7 @@ export const deserializeAws_restJson1UpdateSignalingChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateSignalingChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateSignalingChannelCommandError(output, context);
   }
   const contents: UpdateSignalingChannelCommandOutput = {
@@ -2128,7 +2128,7 @@ export const deserializeAws_restJson1UpdateStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateStreamCommandError(output, context);
   }
   const contents: UpdateStreamCommandOutput = {

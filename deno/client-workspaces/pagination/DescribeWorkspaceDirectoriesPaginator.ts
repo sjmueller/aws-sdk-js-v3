@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeWorkspaceDirectoriesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeWorkspaceDirectoriesCommand(input, ...args));
+  return await client.send(new DescribeWorkspaceDirectoriesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: WorkSpaces,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeWorkspaceDirectories(input, ...args);
 };
-export async function* describeWorkspaceDirectoriesPaginate(
+export async function* paginateDescribeWorkspaceDirectories(
   config: WorkSpacesPaginationConfiguration,
   input: DescribeWorkspaceDirectoriesCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeWorkspaceDirectoriesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeWorkspaceDirectoriesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     if (config.client instanceof WorkSpaces) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
     } else if (config.client instanceof WorkSpacesClient) {
@@ -43,7 +43,7 @@ export async function* describeWorkspaceDirectoriesPaginate(
       throw new Error("Invalid client, expected WorkSpaces | WorkSpacesClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

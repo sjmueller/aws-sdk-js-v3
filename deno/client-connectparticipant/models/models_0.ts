@@ -24,14 +24,14 @@ export enum ConnectionType {
 
 export interface CreateParticipantConnectionRequest {
   /**
-   * <p>Participant Token as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContactResponse.html">StartChatContact</a> API response.</p>
-   */
-  ParticipantToken: string | undefined;
-
-  /**
    * <p>Type of connection information required.</p>
    */
   Type: (ConnectionType | string)[] | undefined;
+
+  /**
+   * <p>Participant Token as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContactResponse.html">StartChatContact</a> API response.</p>
+   */
+  ParticipantToken: string | undefined;
 }
 
 export namespace CreateParticipantConnectionRequest {
@@ -88,15 +88,15 @@ export namespace Websocket {
 
 export interface CreateParticipantConnectionResponse {
   /**
+   * <p>Creates the participant's websocket connection.</p>
+   */
+  Websocket?: Websocket;
+
+  /**
    * <p>Creates the participant's connection credentials. The authentication token associated
    *             with the participant's connection.</p>
    */
   ConnectionCredentials?: ConnectionCredentials;
-
-  /**
-   * <p>Creates the participant's websocket connection.</p>
-   */
-  Websocket?: Websocket;
 }
 
 export namespace CreateParticipantConnectionResponse {
@@ -152,15 +152,15 @@ export namespace ValidationException {
 
 export interface DisconnectParticipantRequest {
   /**
+   * <p>The authentication token associated with the participant's connection.</p>
+   */
+  ConnectionToken: string | undefined;
+
+  /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *             request.</p>
    */
   ClientToken?: string;
-
-  /**
-   * <p>The authentication token associated with the participant's connection.</p>
-   */
-  ConnectionToken: string | undefined;
 }
 
 export namespace DisconnectParticipantRequest {
@@ -193,13 +193,6 @@ export enum SortKey {
  */
 export interface StartPosition {
   /**
-   * <p>The time in ISO format where to start.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
-   *             2019-11-08T02:41:28.172Z.</p>
-   */
-  AbsoluteTime?: string;
-
-  /**
    * <p>The start position of the most recent message where you want to start. </p>
    */
   MostRecent?: number;
@@ -208,6 +201,13 @@ export interface StartPosition {
    * <p>The ID of the message or event where to start. </p>
    */
   Id?: string;
+
+  /**
+   * <p>The time in ISO format where to start.</p>
+   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *             2019-11-08T02:41:28.172Z.</p>
+   */
+  AbsoluteTime?: string;
 }
 
 export namespace StartPosition {
@@ -218,14 +218,15 @@ export namespace StartPosition {
 
 export interface GetTranscriptRequest {
   /**
-   * <p>The sort order for the records. Default: DESCENDING.</p>
+   * <p>The direction from StartPosition from which to retrieve message. Default: BACKWARD when no StartPosition is provided, FORWARD with StartPosition. </p>
    */
-  SortOrder?: SortKey | string;
+  ScanDirection?: ScanDirection | string;
 
   /**
-   * <p>The contactId from the current contact chain for which transcript is needed.</p>
+   * <p>The maximum number of results to return in the page. Default: 10.
+   *            </p>
    */
-  ContactId?: string;
+  MaxResults?: number;
 
   /**
    * <p>A filtering option for where to start.</p>
@@ -244,15 +245,14 @@ export interface GetTranscriptRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to return in the page. Default: 10.
-   *            </p>
+   * <p>The sort order for the records. Default: DESCENDING.</p>
    */
-  MaxResults?: number;
+  SortOrder?: SortKey | string;
 
   /**
-   * <p>The direction from StartPosition from which to retrieve message. Default: BACKWARD when no StartPosition is provided, FORWARD with StartPosition. </p>
+   * <p>The contactId from the current contact chain for which transcript is needed.</p>
    */
-  ScanDirection?: ScanDirection | string;
+  ContactId?: string;
 }
 
 export namespace GetTranscriptRequest {
@@ -278,6 +278,16 @@ export enum ChatItemType {
  */
 export interface Item {
   /**
+   * <p>Type of the item: message or event. </p>
+   */
+  Type?: ChatItemType | string;
+
+  /**
+   * <p>The role of the sender. For example, is it a customer, agent, or system.</p>
+   */
+  ParticipantRole?: ParticipantRole | string;
+
+  /**
    * <p>The ID of the sender in the session.</p>
    */
   ParticipantId?: string;
@@ -288,9 +298,9 @@ export interface Item {
   ContentType?: string;
 
   /**
-   * <p>Type of the item: message or event. </p>
+   * <p>The ID of the item.</p>
    */
-  Type?: ChatItemType | string;
+  Id?: string;
 
   /**
    * <p>The content of the message or event.</p>
@@ -298,26 +308,16 @@ export interface Item {
   Content?: string;
 
   /**
-   * <p>The time when the message or event was sent.</p>
-   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
-   *             2019-11-08T02:41:28.172Z.</p>
-   */
-  AbsoluteTime?: string;
-
-  /**
    * <p>The chat display name of the sender.</p>
    */
   DisplayName?: string;
 
   /**
-   * <p>The ID of the item.</p>
+   * <p>The time when the message or event was sent.</p>
+   *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
+   *             2019-11-08T02:41:28.172Z.</p>
    */
-  Id?: string;
-
-  /**
-   * <p>The role of the sender. For example, is it a customer, agent, or system.</p>
-   */
-  ParticipantRole?: ParticipantRole | string;
+  AbsoluteTime?: string;
 }
 
 export namespace Item {
@@ -328,6 +328,12 @@ export namespace Item {
 
 export interface GetTranscriptResponse {
   /**
+   * <p>The pagination token. Use the value returned previously in the next subsequent request
+   *             to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The initial contact ID for the contact. </p>
    */
   InitialContactId?: string;
@@ -336,12 +342,6 @@ export interface GetTranscriptResponse {
    * <p>The list of messages in the session.</p>
    */
   Transcript?: Item[];
-
-  /**
-   * <p>The pagination token. Use the value returned previously in the next subsequent request
-   *             to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace GetTranscriptResponse {
@@ -352,15 +352,10 @@ export namespace GetTranscriptResponse {
 
 export interface SendEventRequest {
   /**
-   * <p>The authentication token associated with the participant's connection.</p>
+   * <p>The content of the event to be sent (for example, message text). This is not yet
+   *             supported.</p>
    */
-  ConnectionToken: string | undefined;
-
-  /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
-   */
-  ClientToken?: string;
+  Content?: string;
 
   /**
    * <p>The content type of the request. Supported types are:</p>
@@ -377,10 +372,15 @@ export interface SendEventRequest {
   ContentType: string | undefined;
 
   /**
-   * <p>The content of the event to be sent (for example, message text). This is not yet
-   *             supported.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
    */
-  Content?: string;
+  ClientToken?: string;
+
+  /**
+   * <p>The authentication token associated with the participant's connection.</p>
+   */
+  ConnectionToken: string | undefined;
 }
 
 export namespace SendEventRequest {
@@ -391,16 +391,16 @@ export namespace SendEventRequest {
 
 export interface SendEventResponse {
   /**
-   * <p>The ID of the response.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The time when the event was sent.</p>
    *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   AbsoluteTime?: string;
+
+  /**
+   * <p>The ID of the response.</p>
+   */
+  Id?: string;
 }
 
 export namespace SendEventResponse {
@@ -411,10 +411,9 @@ export namespace SendEventResponse {
 
 export interface SendMessageRequest {
   /**
-   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request.</p>
+   * <p>The content of the message.</p>
    */
-  ClientToken?: string;
+  Content: string | undefined;
 
   /**
    * <p>The type of the content. Supported types are text/plain.</p>
@@ -427,9 +426,10 @@ export interface SendMessageRequest {
   ConnectionToken: string | undefined;
 
   /**
-   * <p>The content of the message.</p>
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request.</p>
    */
-  Content: string | undefined;
+  ClientToken?: string;
 }
 
 export namespace SendMessageRequest {
@@ -440,16 +440,16 @@ export namespace SendMessageRequest {
 
 export interface SendMessageResponse {
   /**
-   * <p>The ID of the message.</p>
-   */
-  Id?: string;
-
-  /**
    * <p>The time when the message was sent.</p>
    *         <p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example,
    *             2019-11-08T02:41:28.172Z.</p>
    */
   AbsoluteTime?: string;
+
+  /**
+   * <p>The ID of the message.</p>
+   */
+  Id?: string;
 }
 
 export namespace SendMessageResponse {

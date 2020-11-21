@@ -4,6 +4,7 @@ import {
   CreateAccountCustomizationCommandInput,
   CreateAccountCustomizationCommandOutput,
 } from "./commands/CreateAccountCustomizationCommand.ts";
+import { CreateAnalysisCommandInput, CreateAnalysisCommandOutput } from "./commands/CreateAnalysisCommand.ts";
 import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "./commands/CreateDashboardCommand.ts";
 import { CreateDataSetCommandInput, CreateDataSetCommandOutput } from "./commands/CreateDataSetCommand.ts";
 import { CreateDataSourceCommandInput, CreateDataSourceCommandOutput } from "./commands/CreateDataSourceCommand.ts";
@@ -29,6 +30,7 @@ import {
   DeleteAccountCustomizationCommandInput,
   DeleteAccountCustomizationCommandOutput,
 } from "./commands/DeleteAccountCustomizationCommand.ts";
+import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "./commands/DeleteAnalysisCommand.ts";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand.ts";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand.ts";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand.ts";
@@ -62,6 +64,11 @@ import {
   DescribeAccountSettingsCommandInput,
   DescribeAccountSettingsCommandOutput,
 } from "./commands/DescribeAccountSettingsCommand.ts";
+import { DescribeAnalysisCommandInput, DescribeAnalysisCommandOutput } from "./commands/DescribeAnalysisCommand.ts";
+import {
+  DescribeAnalysisPermissionsCommandInput,
+  DescribeAnalysisPermissionsCommandOutput,
+} from "./commands/DescribeAnalysisPermissionsCommand.ts";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "./commands/DescribeDashboardCommand.ts";
 import {
   DescribeDashboardPermissionsCommandInput,
@@ -105,6 +112,7 @@ import {
   GetDashboardEmbedUrlCommandOutput,
 } from "./commands/GetDashboardEmbedUrlCommand.ts";
 import { GetSessionEmbedUrlCommandInput, GetSessionEmbedUrlCommandOutput } from "./commands/GetSessionEmbedUrlCommand.ts";
+import { ListAnalysesCommandInput, ListAnalysesCommandOutput } from "./commands/ListAnalysesCommand.ts";
 import {
   ListDashboardVersionsCommandInput,
   ListDashboardVersionsCommandOutput,
@@ -146,6 +154,8 @@ import { ListThemesCommandInput, ListThemesCommandOutput } from "./commands/List
 import { ListUserGroupsCommandInput, ListUserGroupsCommandOutput } from "./commands/ListUserGroupsCommand.ts";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand.ts";
 import { RegisterUserCommandInput, RegisterUserCommandOutput } from "./commands/RegisterUserCommand.ts";
+import { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "./commands/RestoreAnalysisCommand.ts";
+import { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "./commands/SearchAnalysesCommand.ts";
 import { SearchDashboardsCommandInput, SearchDashboardsCommandOutput } from "./commands/SearchDashboardsCommand.ts";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
@@ -157,6 +167,11 @@ import {
   UpdateAccountSettingsCommandInput,
   UpdateAccountSettingsCommandOutput,
 } from "./commands/UpdateAccountSettingsCommand.ts";
+import { UpdateAnalysisCommandInput, UpdateAnalysisCommandOutput } from "./commands/UpdateAnalysisCommand.ts";
+import {
+  UpdateAnalysisPermissionsCommandInput,
+  UpdateAnalysisPermissionsCommandOutput,
+} from "./commands/UpdateAnalysisPermissionsCommand.ts";
 import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "./commands/UpdateDashboardCommand.ts";
 import {
   UpdateDashboardPermissionsCommandInput,
@@ -249,6 +264,7 @@ import {
 export type ServiceInputTypes =
   | CancelIngestionCommandInput
   | CreateAccountCustomizationCommandInput
+  | CreateAnalysisCommandInput
   | CreateDashboardCommandInput
   | CreateDataSetCommandInput
   | CreateDataSourceCommandInput
@@ -262,6 +278,7 @@ export type ServiceInputTypes =
   | CreateThemeAliasCommandInput
   | CreateThemeCommandInput
   | DeleteAccountCustomizationCommandInput
+  | DeleteAnalysisCommandInput
   | DeleteDashboardCommandInput
   | DeleteDataSetCommandInput
   | DeleteDataSourceCommandInput
@@ -277,6 +294,8 @@ export type ServiceInputTypes =
   | DeleteUserCommandInput
   | DescribeAccountCustomizationCommandInput
   | DescribeAccountSettingsCommandInput
+  | DescribeAnalysisCommandInput
+  | DescribeAnalysisPermissionsCommandInput
   | DescribeDashboardCommandInput
   | DescribeDashboardPermissionsCommandInput
   | DescribeDataSetCommandInput
@@ -296,6 +315,7 @@ export type ServiceInputTypes =
   | DescribeUserCommandInput
   | GetDashboardEmbedUrlCommandInput
   | GetSessionEmbedUrlCommandInput
+  | ListAnalysesCommandInput
   | ListDashboardVersionsCommandInput
   | ListDashboardsCommandInput
   | ListDataSetsCommandInput
@@ -316,11 +336,15 @@ export type ServiceInputTypes =
   | ListUserGroupsCommandInput
   | ListUsersCommandInput
   | RegisterUserCommandInput
+  | RestoreAnalysisCommandInput
+  | SearchAnalysesCommandInput
   | SearchDashboardsCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAccountCustomizationCommandInput
   | UpdateAccountSettingsCommandInput
+  | UpdateAnalysisCommandInput
+  | UpdateAnalysisPermissionsCommandInput
   | UpdateDashboardCommandInput
   | UpdateDashboardPermissionsCommandInput
   | UpdateDashboardPublishedVersionCommandInput
@@ -341,6 +365,7 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CancelIngestionCommandOutput
   | CreateAccountCustomizationCommandOutput
+  | CreateAnalysisCommandOutput
   | CreateDashboardCommandOutput
   | CreateDataSetCommandOutput
   | CreateDataSourceCommandOutput
@@ -354,6 +379,7 @@ export type ServiceOutputTypes =
   | CreateThemeAliasCommandOutput
   | CreateThemeCommandOutput
   | DeleteAccountCustomizationCommandOutput
+  | DeleteAnalysisCommandOutput
   | DeleteDashboardCommandOutput
   | DeleteDataSetCommandOutput
   | DeleteDataSourceCommandOutput
@@ -369,6 +395,8 @@ export type ServiceOutputTypes =
   | DeleteUserCommandOutput
   | DescribeAccountCustomizationCommandOutput
   | DescribeAccountSettingsCommandOutput
+  | DescribeAnalysisCommandOutput
+  | DescribeAnalysisPermissionsCommandOutput
   | DescribeDashboardCommandOutput
   | DescribeDashboardPermissionsCommandOutput
   | DescribeDataSetCommandOutput
@@ -388,6 +416,7 @@ export type ServiceOutputTypes =
   | DescribeUserCommandOutput
   | GetDashboardEmbedUrlCommandOutput
   | GetSessionEmbedUrlCommandOutput
+  | ListAnalysesCommandOutput
   | ListDashboardVersionsCommandOutput
   | ListDashboardsCommandOutput
   | ListDataSetsCommandOutput
@@ -408,11 +437,15 @@ export type ServiceOutputTypes =
   | ListUserGroupsCommandOutput
   | ListUsersCommandOutput
   | RegisterUserCommandOutput
+  | RestoreAnalysisCommandOutput
+  | SearchAnalysesCommandOutput
   | SearchDashboardsCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAccountCustomizationCommandOutput
   | UpdateAccountSettingsCommandOutput
+  | UpdateAnalysisCommandOutput
+  | UpdateAnalysisPermissionsCommandOutput
   | UpdateDashboardCommandOutput
   | UpdateDashboardPermissionsCommandOutput
   | UpdateDashboardPublishedVersionCommandOutput
@@ -544,10 +577,10 @@ export type QuickSightClientResolvedConfig = __SmithyResolvedConfiguration<__Htt
 
 /**
  * <fullname>Amazon QuickSight API Reference</fullname>
- * 		       <p>Amazon QuickSight is a fully managed, serverless business intelligence service for the AWS
- * 			Cloud that makes it easy to extend data and insights to every user in your organization.
- * 			This API reference contains documentation for a programming interface that you can use
- * 			to manage Amazon QuickSight. </p>
+ *         <p>Amazon QuickSight is a fully managed, serverless business intelligence service for the
+ *             AWS Cloud that makes it easy to extend data and insights to every user in your
+ *             organization. This API reference contains documentation for a programming interface that
+ *             you can use to manage Amazon QuickSight. </p>
  */
 export class QuickSightClient extends __Client<
   __HttpHandlerOptions,

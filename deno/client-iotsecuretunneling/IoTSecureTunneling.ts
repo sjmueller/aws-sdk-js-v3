@@ -25,8 +25,8 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
  * <fullname>AWS IoT Secure Tunneling</fullname>
  * 		       <p>AWS IoT Secure Tunnling enables you to create remote connections to devices
  * 			deployed in the field.</p>
- * 		       <p>For more information about how AWS IoT Secure Tunneling works, see the <a href="https://docs.aws.amazon.com/secure-tunneling/latest/ug/what-is-secure-tunneling.html">User
- * 			Guide</a>.</p>
+ *
+ * 		       <p>For more information about how AWS IoT Secure Tunneling works, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/secure-tunneling.html">AWS IoT Secure Tunneling</a>.</p>
  */
 export class IoTSecureTunneling extends IoTSecureTunnelingClient {
   /**
@@ -150,7 +150,7 @@ export class IoTSecureTunneling extends IoTSecureTunnelingClient {
 
   /**
    * <p>Creates a new tunnel, and returns two client access tokens for clients to use to
-   * 			connect to the AWS IoT Secure Tunneling proxy server. .</p>
+   * 			connect to the AWS IoT Secure Tunneling proxy server.</p>
    */
   public openTunnel(args: OpenTunnelCommandInput, options?: __HttpHandlerOptions): Promise<OpenTunnelCommandOutput>;
   public openTunnel(args: OpenTunnelCommandInput, cb: (err: any, data?: OpenTunnelCommandOutput) => void): void;

@@ -1,4 +1,3 @@
-
 import { AccessAnalyzer } from "../AccessAnalyzer.ts";
 import { AccessAnalyzerClient } from "../AccessAnalyzerClient.ts";
 import {
@@ -15,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListArchiveRulesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListArchiveRulesCommand(input, ...args));
+  return await client.send(new ListArchiveRulesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AccessAnalyzer,
@@ -25,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listArchiveRules(input, ...args);
 };
-export async function* listArchiveRulesPaginate(
+export async function* paginateListArchiveRules(
   config: AccessAnalyzerPaginationConfiguration,
   input: ListArchiveRulesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListArchiveRulesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListArchiveRulesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof AccessAnalyzer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +43,7 @@ export async function* listArchiveRulesPaginate(
       throw new Error("Invalid client, expected AccessAnalyzer | AccessAnalyzerClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

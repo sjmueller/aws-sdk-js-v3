@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListChannelsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListChannelsCommand(input, ...args));
+  return await client.send(new ListChannelsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Ivs,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listChannels(input, ...args);
 };
-export async function* listChannelsPaginate(
+export async function* paginateListChannels(
   config: IvsPaginationConfiguration,
   input: ListChannelsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListChannelsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListChannelsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof Ivs) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listChannelsPaginate(
       throw new Error("Invalid client, expected Ivs | IvsClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

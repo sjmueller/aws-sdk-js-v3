@@ -35,14 +35,14 @@ export namespace AccessDeniedException {
  */
 export interface AgeRange {
   /**
-   * <p>The highest estimated age.</p>
-   */
-  High?: number;
-
-  /**
    * <p>The lowest estimated age.</p>
    */
   Low?: number;
+
+  /**
+   * <p>The highest estimated age.</p>
+   */
+  High?: number;
 }
 
 export namespace AgeRange {
@@ -62,14 +62,14 @@ export namespace AgeRange {
  */
 export interface S3Object {
   /**
-   * <p>Name of the S3 bucket.</p>
-   */
-  Bucket?: string;
-
-  /**
    * <p>If the bucket is versioning enabled, you can specify the object version. </p>
    */
   Version?: string;
+
+  /**
+   * <p>Name of the S3 bucket.</p>
+   */
+  Bucket?: string;
 
   /**
    * <p>S3 object key name.</p>
@@ -84,7 +84,8 @@ export namespace S3Object {
 }
 
 /**
- * <p>The S3 bucket that contains the Ground Truth manifest file.</p>
+ * <p>The S3 bucket that contains an Amazon Sagemaker Ground Truth format manifest file.
+ * </p>
  */
 export interface GroundTruthManifest {
   /**
@@ -107,12 +108,13 @@ export namespace GroundTruthManifest {
 
 /**
  * <p>Assets are the images that you use to train and evaluate a model version.
- *          Assets are referenced by Sagemaker GroundTruth manifest files.
- *     </p>
+ *          Assets can also contain validation information that you use to debug a failed model training.
+ *          </p>
  */
 export interface Asset {
   /**
-   * <p>The S3 bucket that contains the Ground Truth manifest file.</p>
+   * <p>The S3 bucket that contains an Amazon Sagemaker Ground Truth format manifest file.
+   * </p>
    */
   GroundTruthManifest?: GroundTruthManifest;
 }
@@ -134,14 +136,14 @@ export enum Attribute {
  */
 export interface AudioMetadata {
   /**
-   * <p>The number of audio channels in the segement.</p>
-   */
-  NumberOfChannels?: number;
-
-  /**
    * <p>The duration of the audio stream in milliseconds.</p>
    */
   DurationMillis?: number;
+
+  /**
+   * <p>The sample rate for the audio stream.</p>
+   */
+  SampleRate?: number;
 
   /**
    * <p>The audio codec used to encode or decode the audio stream. </p>
@@ -149,9 +151,9 @@ export interface AudioMetadata {
   Codec?: string;
 
   /**
-   * <p>The sample rate for the audio stream.</p>
+   * <p>The number of audio channels in the segment.</p>
    */
-  SampleRate?: number;
+  NumberOfChannels?: number;
 }
 
 export namespace AudioMetadata {
@@ -166,14 +168,14 @@ export namespace AudioMetadata {
  */
 export interface Beard {
   /**
-   * <p>Boolean value that indicates whether the face has beard or not.</p>
-   */
-  Value?: boolean;
-
-  /**
    * <p>Level of confidence in the determination.</p>
    */
   Confidence?: number;
+
+  /**
+   * <p>Boolean value that indicates whether the face has beard or not.</p>
+   */
+  Value?: boolean;
 }
 
 export namespace Beard {
@@ -182,9 +184,16 @@ export namespace Beard {
   });
 }
 
+export enum BodyPart {
+  FACE = "FACE",
+  HEAD = "HEAD",
+  LEFT_HAND = "LEFT_HAND",
+  RIGHT_HAND = "RIGHT_HAND",
+}
+
 /**
- * <p>Identifies the bounding box around the label, face, or text. The <code>left</code>
- *       (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and
+ * <p>Identifies the bounding box around the label, face, text or personal protective equipment.
+ *       The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and
  *       left sides of the bounding box. Note that the upper-left corner of the image is the origin
  *       (0,0). </p>
  *          <p>The <code>top</code> and <code>left</code> values returned are ratios of the overall
@@ -204,16 +213,6 @@ export namespace Beard {
  */
 export interface BoundingBox {
   /**
-   * <p>Width of the bounding box as a ratio of the overall image width.</p>
-   */
-  Width?: number;
-
-  /**
-   * <p>Height of the bounding box as a ratio of the overall image height.</p>
-   */
-  Height?: number;
-
-  /**
    * <p>Left coordinate of the bounding box as a ratio of overall image width.</p>
    */
   Left?: number;
@@ -222,10 +221,110 @@ export interface BoundingBox {
    * <p>Top coordinate of the bounding box as a ratio of overall image height.</p>
    */
   Top?: number;
+
+  /**
+   * <p>Width of the bounding box as a ratio of the overall image width.</p>
+   */
+  Width?: number;
+
+  /**
+   * <p>Height of the bounding box as a ratio of the overall image height.</p>
+   */
+  Height?: number;
 }
 
 export namespace BoundingBox {
   export const filterSensitiveLog = (obj: BoundingBox): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about an item of Personal Protective Equipment covering a corresponding body part. For more
+ *          information, see <a>DetectProtectiveEquipment</a>.</p>
+ */
+export interface CoversBodyPart {
+  /**
+   * <p>The confidence that Amazon Rekognition has in the value of <code>Value</code>.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>True if the PPE covers the corresponding body part, otherwise false.</p>
+   */
+  Value?: boolean;
+}
+
+export namespace CoversBodyPart {
+  export const filterSensitiveLog = (obj: CoversBodyPart): any => ({
+    ...obj,
+  });
+}
+
+export enum ProtectiveEquipmentType {
+  FACE_COVER = "FACE_COVER",
+  HAND_COVER = "HAND_COVER",
+  HEAD_COVER = "HEAD_COVER",
+}
+
+/**
+ * <p>Information about an item of Personal Protective Equipment (PPE) detected by
+ *          <a>DetectProtectiveEquipment</a>. For more
+ *          information, see <a>DetectProtectiveEquipment</a>.</p>
+ */
+export interface EquipmentDetection {
+  /**
+   * <p>A bounding box surrounding the item of detected PPE.</p>
+   */
+  BoundingBox?: BoundingBox;
+
+  /**
+   * <p>The confidence that Amazon Rekognition has that the bounding box (<code>BoundingBox</code>) contains an item of PPE.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>Information about the body part covered by the detected PPE.</p>
+   */
+  CoversBodyPart?: CoversBodyPart;
+
+  /**
+   * <p>The type of detected PPE.</p>
+   */
+  Type?: ProtectiveEquipmentType | string;
+}
+
+export namespace EquipmentDetection {
+  export const filterSensitiveLog = (obj: EquipmentDetection): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Information about a body part detected by <a>DetectProtectiveEquipment</a> that contains PPE.
+ *          An array of <code>ProtectiveEquipmentBodyPart</code> objects is returned for each person detected by
+ *          <code>DetectProtectiveEquipment</code>. </p>
+ */
+export interface ProtectiveEquipmentBodyPart {
+  /**
+   * <p>The detected body part.</p>
+   */
+  Name?: BodyPart | string;
+
+  /**
+   * <p>An array of Personal Protective Equipment items detected around a body part.</p>
+   */
+  EquipmentDetections?: EquipmentDetection[];
+
+  /**
+   * <p>The confidence that Amazon Rekognition has in the detection accuracy of the detected body part.
+   *       </p>
+   */
+  Confidence?: number;
+}
+
+export namespace ProtectiveEquipmentBodyPart {
+  export const filterSensitiveLog = (obj: ProtectiveEquipmentBodyPart): any => ({
     ...obj,
   });
 }
@@ -273,18 +372,18 @@ export interface Landmark {
   Type?: LandmarkType | string;
 
   /**
-   * <p>The y-coordinate from the top left of the landmark expressed as the ratio of the height
-   *       of the image. For example, if the image is 700 x 200 and the y-coordinate of the landmark is
-   *       at 100 pixels, this value is 0.5.</p>
-   */
-  Y?: number;
-
-  /**
-   * <p>The x-coordinate from the top left of the landmark expressed as the ratio of the width
-   *       of the image. For example, if the image is 700 x 200 and the x-coordinate of the landmark is
-   *       at 350 pixels, this value is 0.5. </p>
+   * <p>The x-coordinate of the landmark expressed as a ratio of the width of the image.
+   *       The x-coordinate is measured from the left-side of the image.
+   *       For example, if the image is 700 pixels wide and the x-coordinate of the landmark is at 350 pixels, this value is 0.5. </p>
    */
   X?: number;
+
+  /**
+   * <p>The y-coordinate of the landmark expressed as a ratio of the height of the image.
+   *       The y-coordinate is measured from the top of the image.
+   *       For example, if the image height is 200 pixels and the y-coordinate of the landmark is at 50 pixels, this value is 0.25.</p>
+   */
+  Y?: number;
 }
 
 export namespace Landmark {
@@ -324,16 +423,16 @@ export namespace Pose {
  */
 export interface ImageQuality {
   /**
-   * <p>Value representing sharpness of the face. The service returns a value between 0 and 100
-   *       (inclusive). A higher value indicates a sharper face image.</p>
-   */
-  Sharpness?: number;
-
-  /**
    * <p>Value representing brightness of the face. The service returns a value between 0 and
    *       100 (inclusive). A higher value indicates a brighter face image.</p>
    */
   Brightness?: number;
+
+  /**
+   * <p>Value representing sharpness of the face. The service returns a value between 0 and 100
+   *       (inclusive). A higher value indicates a sharper face image.</p>
+   */
+  Sharpness?: number;
 }
 
 export namespace ImageQuality {
@@ -348,14 +447,14 @@ export namespace ImageQuality {
  */
 export interface ComparedFace {
   /**
+   * <p>Level of confidence that what the bounding box contains is a face.</p>
+   */
+  Confidence?: number;
+
+  /**
    * <p>An array of facial landmarks.</p>
    */
   Landmarks?: Landmark[];
-
-  /**
-   * <p>Bounding box of the face.</p>
-   */
-  BoundingBox?: BoundingBox;
 
   /**
    * <p>Identifies face image brightness and sharpness. </p>
@@ -363,14 +462,14 @@ export interface ComparedFace {
   Quality?: ImageQuality;
 
   /**
-   * <p>Level of confidence that what the bounding box contains is a face.</p>
-   */
-  Confidence?: number;
-
-  /**
    * <p>Indicates the pose of the face as determined by its pitch, roll, and yaw.</p>
    */
   Pose?: Pose;
+
+  /**
+   * <p>Bounding box of the face.</p>
+   */
+  BoundingBox?: BoundingBox;
 }
 
 export namespace ComparedFace {
@@ -384,22 +483,6 @@ export namespace ComparedFace {
  */
 export interface Celebrity {
   /**
-   * <p>A unique identifier for the celebrity. </p>
-   */
-  Id?: string;
-
-  /**
-   * <p>The confidence, in percentage, that Amazon Rekognition has that the recognized face is the
-   *       celebrity.</p>
-   */
-  MatchConfidence?: number;
-
-  /**
-   * <p>The name of the celebrity.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>An array of URLs pointing to additional information about the celebrity. If there is no
    *       additional information about the celebrity, this list is empty.</p>
    */
@@ -410,6 +493,22 @@ export interface Celebrity {
    *       image.</p>
    */
   Face?: ComparedFace;
+
+  /**
+   * <p>A unique identifier for the celebrity. </p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The name of the celebrity.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The confidence, in percentage, that Amazon Rekognition has that the recognized face is the
+   *       celebrity.</p>
+   */
+  MatchConfidence?: number;
 }
 
 export namespace Celebrity {
@@ -437,14 +536,14 @@ export type EmotionName =
  */
 export interface Emotion {
   /**
-   * <p>Type of emotion detected.</p>
-   */
-  Type?: EmotionName | string;
-
-  /**
    * <p>Level of confidence in the determination.</p>
    */
   Confidence?: number;
+
+  /**
+   * <p>Type of emotion detected.</p>
+   */
+  Type?: EmotionName | string;
 }
 
 export namespace Emotion {
@@ -459,14 +558,14 @@ export namespace Emotion {
  */
 export interface Eyeglasses {
   /**
-   * <p>Level of confidence in the determination.</p>
-   */
-  Confidence?: number;
-
-  /**
    * <p>Boolean value that indicates whether the face is wearing eye glasses or not.</p>
    */
   Value?: boolean;
+
+  /**
+   * <p>Level of confidence in the determination.</p>
+   */
+  Confidence?: number;
 }
 
 export namespace Eyeglasses {
@@ -481,14 +580,14 @@ export namespace Eyeglasses {
  */
 export interface EyeOpen {
   /**
-   * <p>Level of confidence in the determination.</p>
-   */
-  Confidence?: number;
-
-  /**
    * <p>Boolean value that indicates whether the eyes on the face are open.</p>
    */
   Value?: boolean;
+
+  /**
+   * <p>Level of confidence in the determination.</p>
+   */
+  Confidence?: number;
 }
 
 export namespace EyeOpen {
@@ -519,14 +618,14 @@ export enum GenderType {
  */
 export interface Gender {
   /**
-   * <p>Level of confidence in the prediction.</p>
-   */
-  Confidence?: number;
-
-  /**
    * <p>The predicted gender of the face.</p>
    */
   Value?: GenderType | string;
+
+  /**
+   * <p>Level of confidence in the prediction.</p>
+   */
+  Confidence?: number;
 }
 
 export namespace Gender {
@@ -541,14 +640,14 @@ export namespace Gender {
  */
 export interface MouthOpen {
   /**
-   * <p>Boolean value that indicates whether the mouth on the face is open or not.</p>
-   */
-  Value?: boolean;
-
-  /**
    * <p>Level of confidence in the determination.</p>
    */
   Confidence?: number;
+
+  /**
+   * <p>Boolean value that indicates whether the mouth on the face is open or not.</p>
+   */
+  Value?: boolean;
 }
 
 export namespace MouthOpen {
@@ -563,14 +662,14 @@ export namespace MouthOpen {
  */
 export interface Mustache {
   /**
-   * <p>Boolean value that indicates whether the face has mustache or not.</p>
-   */
-  Value?: boolean;
-
-  /**
    * <p>Level of confidence in the determination.</p>
    */
   Confidence?: number;
+
+  /**
+   * <p>Boolean value that indicates whether the face has mustache or not.</p>
+   */
+  Value?: boolean;
 }
 
 export namespace Mustache {
@@ -585,14 +684,14 @@ export namespace Mustache {
  */
 export interface Smile {
   /**
-   * <p>Boolean value that indicates whether the face is smiling or not.</p>
-   */
-  Value?: boolean;
-
-  /**
    * <p>Level of confidence in the determination.</p>
    */
   Confidence?: number;
+
+  /**
+   * <p>Boolean value that indicates whether the face is smiling or not.</p>
+   */
+  Value?: boolean;
 }
 
 export namespace Smile {
@@ -607,14 +706,14 @@ export namespace Smile {
  */
 export interface Sunglasses {
   /**
-   * <p>Level of confidence in the determination.</p>
-   */
-  Confidence?: number;
-
-  /**
    * <p>Boolean value that indicates whether the face is wearing sunglasses or not.</p>
    */
   Value?: boolean;
+
+  /**
+   * <p>Level of confidence in the determination.</p>
+   */
+  Confidence?: number;
 }
 
 export namespace Sunglasses {
@@ -650,34 +749,10 @@ export namespace Sunglasses {
  */
 export interface FaceDetail {
   /**
-   * <p>Indicates whether or not the mouth on the face is open, and the confidence level in the
-   *       determination.</p>
-   */
-  MouthOpen?: MouthOpen;
-
-  /**
-   * <p>Indicates whether or not the face is wearing sunglasses, and the confidence level in
-   *       the determination.</p>
-   */
-  Sunglasses?: Sunglasses;
-
-  /**
    * <p>Indicates whether or not the eyes on the face are open, and the confidence level in the
    *       determination.</p>
    */
   EyesOpen?: EyeOpen;
-
-  /**
-   * <p>The predicted gender of a detected face.
-   *     </p>
-   */
-  Gender?: Gender;
-
-  /**
-   * <p>Indicates whether or not the face has a mustache, and the confidence level in the
-   *       determination.</p>
-   */
-  Mustache?: Mustache;
 
   /**
    * <p>Identifies image brightness and sharpness. Default attribute.</p>
@@ -685,28 +760,25 @@ export interface FaceDetail {
   Quality?: ImageQuality;
 
   /**
-   * <p>Indicates whether or not the face is wearing eye glasses, and the confidence level in
-   *       the determination.</p>
-   */
-  Eyeglasses?: Eyeglasses;
-
-  /**
-   * <p>Confidence level that the bounding box contains a face (and not a different object such
-   *       as a tree). Default attribute.</p>
-   */
-  Confidence?: number;
-
-  /**
-   * <p>Indicates whether or not the face is smiling, and the confidence level in the
+   * <p>Indicates whether or not the mouth on the face is open, and the confidence level in the
    *       determination.</p>
    */
-  Smile?: Smile;
+  MouthOpen?: MouthOpen;
 
   /**
-   * <p>Indicates whether or not the face has a beard, and the confidence level in the
-   *       determination.</p>
+   * <p>Bounding box of the face. Default attribute.</p>
    */
-  Beard?: Beard;
+  BoundingBox?: BoundingBox;
+
+  /**
+   * <p>Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.</p>
+   */
+  Pose?: Pose;
+
+  /**
+   * <p>Indicates the location of landmarks on the face. Default attribute.</p>
+   */
+  Landmarks?: Landmark[];
 
   /**
    * <p>The emotions that appear to be expressed on the face, and the confidence level in the determination.
@@ -717,14 +789,10 @@ export interface FaceDetail {
   Emotions?: Emotion[];
 
   /**
-   * <p>Bounding box of the face. Default attribute.</p>
+   * <p>Indicates whether or not the face has a beard, and the confidence level in the
+   *       determination.</p>
    */
-  BoundingBox?: BoundingBox;
-
-  /**
-   * <p>Indicates the location of landmarks on the face. Default attribute.</p>
-   */
-  Landmarks?: Landmark[];
+  Beard?: Beard;
 
   /**
    * <p>The estimated age range, in years, for the face. Low represents the lowest estimated
@@ -733,9 +801,40 @@ export interface FaceDetail {
   AgeRange?: AgeRange;
 
   /**
-   * <p>Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.</p>
+   * <p>Indicates whether or not the face is wearing sunglasses, and the confidence level in
+   *       the determination.</p>
    */
-  Pose?: Pose;
+  Sunglasses?: Sunglasses;
+
+  /**
+   * <p>Indicates whether or not the face has a mustache, and the confidence level in the
+   *       determination.</p>
+   */
+  Mustache?: Mustache;
+
+  /**
+   * <p>Confidence level that the bounding box contains a face (and not a different object such
+   *       as a tree). Default attribute.</p>
+   */
+  Confidence?: number;
+
+  /**
+   * <p>The predicted gender of a detected face.
+   *     </p>
+   */
+  Gender?: Gender;
+
+  /**
+   * <p>Indicates whether or not the face is wearing eye glasses, and the confidence level in
+   *       the determination.</p>
+   */
+  Eyeglasses?: Eyeglasses;
+
+  /**
+   * <p>Indicates whether or not the face is smiling, and the confidence level in the
+   *       determination.</p>
+   */
+  Smile?: Smile;
 }
 
 export namespace FaceDetail {
@@ -749,14 +848,9 @@ export namespace FaceDetail {
  */
 export interface CelebrityDetail {
   /**
-   * <p>Bounding box around the body of a celebrity.</p>
+   * <p>The unique identifier for the celebrity. </p>
    */
-  BoundingBox?: BoundingBox;
-
-  /**
-   * <p>The name of the celebrity.</p>
-   */
-  Name?: string;
+  Id?: string;
 
   /**
    * <p>The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity. </p>
@@ -764,19 +858,24 @@ export interface CelebrityDetail {
   Confidence?: number;
 
   /**
-   * <p>An array of URLs pointing to additional celebrity information. </p>
-   */
-  Urls?: string[];
-
-  /**
    * <p>Face details for the recognized celebrity.</p>
    */
   Face?: FaceDetail;
 
   /**
-   * <p>The unique identifier for the celebrity. </p>
+   * <p>An array of URLs pointing to additional celebrity information. </p>
    */
-  Id?: string;
+  Urls?: string[];
+
+  /**
+   * <p>The name of the celebrity.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Bounding box around the body of a celebrity.</p>
+   */
+  BoundingBox?: BoundingBox;
 }
 
 export namespace CelebrityDetail {
@@ -820,14 +919,14 @@ export enum CelebrityRecognitionSortBy {
  */
 export interface ComparedSourceImageFace {
   /**
-   * <p>Confidence level that the selected bounding box contains a face.</p>
-   */
-  Confidence?: number;
-
-  /**
    * <p>Bounding box of the face.</p>
    */
   BoundingBox?: BoundingBox;
+
+  /**
+   * <p>Confidence level that the selected bounding box contains a face.</p>
+   */
+  Confidence?: number;
 }
 
 export namespace ComparedSourceImageFace {
@@ -889,16 +988,6 @@ export namespace Image {
 
 export interface CompareFacesRequest {
   /**
-   * <p>The input image as base64-encoded bytes or an S3 object.
-   *       If you use the AWS CLI to call Amazon Rekognition operations,
-   *       passing base64-encoded image bytes is not supported. </p>
-   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes
-   *       passed using the <code>Bytes</code> field.
-   *       For more information, see Images in the Amazon Rekognition developer guide.</p>
-   */
-  SourceImage: Image | undefined;
-
-  /**
    * <p>A filter that specifies a quality bar for how much filtering is done to identify faces.
    *       Filtered faces aren't compared. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar.
    *       If you specify <code>LOW</code>,
@@ -914,6 +1003,16 @@ export interface CompareFacesRequest {
    *          <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
    */
   QualityFilter?: QualityFilter | string;
+
+  /**
+   * <p>The input image as base64-encoded bytes or an S3 object.
+   *       If you use the AWS CLI to call Amazon Rekognition operations,
+   *       passing base64-encoded image bytes is not supported. </p>
+   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes
+   *       passed using the <code>Bytes</code> field.
+   *       For more information, see Images in the Amazon Rekognition developer guide.</p>
+   */
+  SourceImage: Image | undefined;
 
   /**
    * <p>The target image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
@@ -946,15 +1045,15 @@ export namespace CompareFacesRequest {
  */
 export interface CompareFacesMatch {
   /**
-   * <p>Level of confidence that the faces match.</p>
-   */
-  Similarity?: number;
-
-  /**
    * <p>Provides face metadata (bounding box and confidence that the bounding box actually
    *       contains a face).</p>
    */
   Face?: ComparedFace;
+
+  /**
+   * <p>Level of confidence that the faces match.</p>
+   */
+  Similarity?: number;
 }
 
 export namespace CompareFacesMatch {
@@ -986,19 +1085,6 @@ export interface CompareFacesResponse {
   TargetImageOrientationCorrection?: OrientationCorrection | string;
 
   /**
-   * <p>The face in the source image that was used for comparison.</p>
-   */
-  SourceImageFace?: ComparedSourceImageFace;
-
-  /**
-   * <p>An array of faces in the target image that match the source image face. Each
-   *         <code>CompareFacesMatch</code> object provides the bounding box, the confidence level that
-   *       the bounding box contains a face, and the similarity score for the face in the bounding box
-   *       and the face in the source image.</p>
-   */
-  FaceMatches?: CompareFacesMatch[];
-
-  /**
    * <p>An array of faces in the target image that did not match the source image
    *       face.</p>
    */
@@ -1017,6 +1103,19 @@ export interface CompareFacesResponse {
    *     </p>
    */
   SourceImageOrientationCorrection?: OrientationCorrection | string;
+
+  /**
+   * <p>The face in the source image that was used for comparison.</p>
+   */
+  SourceImageFace?: ComparedSourceImageFace;
+
+  /**
+   * <p>An array of faces in the target image that match the source image face. Each
+   *         <code>CompareFacesMatch</code> object provides the bounding box, the confidence level that
+   *       the bounding box contains a face, and the similarity score for the face in the bounding box
+   *       and the face in the source image.</p>
+   */
+  FaceMatches?: CompareFacesMatch[];
 }
 
 export namespace CompareFacesResponse {
@@ -1032,13 +1131,12 @@ export namespace CompareFacesResponse {
 export interface ImageTooLargeException extends __SmithyException, $MetadataBearer {
   name: "ImageTooLargeException";
   $fault: "client";
+  Message?: string;
+  Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
-
-  Code?: string;
-  Message?: string;
 }
 
 export namespace ImageTooLargeException {
@@ -1096,11 +1194,12 @@ export interface InvalidParameterException extends __SmithyException, $MetadataB
   name: "InvalidParameterException";
   $fault: "client";
   Code?: string;
-  Message?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+
+  Message?: string;
 }
 
 export namespace InvalidParameterException {
@@ -1137,13 +1236,13 @@ export namespace InvalidS3ObjectException {
 export interface ProvisionedThroughputExceededException extends __SmithyException, $MetadataBearer {
   name: "ProvisionedThroughputExceededException";
   $fault: "client";
-  Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
 
   Message?: string;
+  Code?: string;
 }
 
 export namespace ProvisionedThroughputExceededException {
@@ -1158,13 +1257,13 @@ export namespace ProvisionedThroughputExceededException {
 export interface ThrottlingException extends __SmithyException, $MetadataBearer {
   name: "ThrottlingException";
   $fault: "server";
-  Message?: string;
+  Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
 
-  Code?: string;
+  Message?: string;
 }
 
 export namespace ThrottlingException {
@@ -1185,17 +1284,6 @@ export enum ContentClassifier {
  */
 export interface ModerationLabel {
   /**
-   * <p>The name for the parent label. Labels at the top level of the hierarchy have the parent
-   *       label <code>""</code>.</p>
-   */
-  ParentName?: string;
-
-  /**
-   * <p>The label name for the type of unsafe content detected in the image.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>Specifies the confidence that Amazon Rekognition has that the label has been correctly
    *       identified.</p>
    *          <p>If you don't specify the <code>MinConfidence</code> parameter in the call to
@@ -1203,6 +1291,17 @@ export interface ModerationLabel {
    *       greater than or equal to 50 percent.</p>
    */
   Confidence?: number;
+
+  /**
+   * <p>The label name for the type of unsafe content detected in the image.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The name for the parent label. Labels at the top level of the hierarchy have the parent
+   *       label <code>""</code>.</p>
+   */
+  ParentName?: string;
 }
 
 export namespace ModerationLabel {
@@ -1216,14 +1315,14 @@ export namespace ModerationLabel {
  */
 export interface ContentModerationDetection {
   /**
-   * <p>The unsafe content label detected by in the stored video.</p>
-   */
-  ModerationLabel?: ModerationLabel;
-
-  /**
    * <p>Time, in milliseconds from the beginning of the video, that the unsafe content label was detected.</p>
    */
   Timestamp?: number;
+
+  /**
+   * <p>The unsafe content label detected by in the stored video.</p>
+   */
+  ModerationLabel?: ModerationLabel;
 }
 
 export namespace ContentModerationDetection {
@@ -1252,15 +1351,15 @@ export namespace CreateCollectionRequest {
 
 export interface CreateCollectionResponse {
   /**
-   * <p>Version number of the face detection model associated with the collection you are creating.</p>
-   */
-  FaceModelVersion?: string;
-
-  /**
    * <p>Amazon Resource Name (ARN) of the collection. You can use this to manage permissions on
    *       your resources. </p>
    */
   CollectionArn?: string;
+
+  /**
+   * <p>Version number of the face detection model associated with the collection you are creating.</p>
+   */
+  FaceModelVersion?: string;
 
   /**
    * <p>HTTP status code indicating the result of the operation.</p>
@@ -1281,12 +1380,11 @@ export interface ResourceAlreadyExistsException extends __SmithyException, $Meta
   name: "ResourceAlreadyExistsException";
   $fault: "client";
   Code?: string;
+  Message?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
-
-  Message?: string;
 }
 
 export namespace ResourceAlreadyExistsException {
@@ -1330,12 +1428,12 @@ export namespace CreateProjectResponse {
 export interface LimitExceededException extends __SmithyException, $MetadataBearer {
   name: "LimitExceededException";
   $fault: "client";
-  Message?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
 
+  Message?: string;
   Code?: string;
 }
 
@@ -1351,12 +1449,12 @@ export namespace LimitExceededException {
 export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
-  Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
 
+  Code?: string;
   Message?: string;
 }
 
@@ -1393,14 +1491,14 @@ export namespace OutputConfig {
  */
 export interface TestingData {
   /**
-   * <p>The assets used for testing.</p>
-   */
-  Assets?: Asset[];
-
-  /**
    * <p>If specified, Amazon Rekognition Custom Labels creates a testing dataset with an 80/20 split of the training dataset.</p>
    */
   AutoCreate?: boolean;
+
+  /**
+   * <p>The assets used for testing.</p>
+   */
+  Assets?: Asset[];
 }
 
 export namespace TestingData {
@@ -1427,20 +1525,19 @@ export namespace TrainingData {
 
 export interface CreateProjectVersionRequest {
   /**
-   * <p>The Amazon S3 location to store the results of training.</p>
-   */
-  OutputConfig: OutputConfig | undefined;
-
-  /**
    * <p>A name for the version of the model. This value must be unique.</p>
    */
   VersionName: string | undefined;
 
   /**
-   * <p>The ARN of the Amazon Rekognition Custom Labels project that
-   *          manages the model that you want to train.</p>
+   * <p>The Amazon S3 location to store the results of training.</p>
    */
-  ProjectArn: string | undefined;
+  OutputConfig: OutputConfig | undefined;
+
+  /**
+   * <p>The dataset to use for testing.</p>
+   */
+  TestingData: TestingData | undefined;
 
   /**
    * <p>The dataset to use for training. </p>
@@ -1448,9 +1545,10 @@ export interface CreateProjectVersionRequest {
   TrainingData: TrainingData | undefined;
 
   /**
-   * <p>The dataset to use for testing.</p>
+   * <p>The ARN of the Amazon Rekognition Custom Labels project that
+   *          manages the model that you want to train.</p>
    */
-  TestingData: TestingData | undefined;
+  ProjectArn: string | undefined;
 }
 
 export namespace CreateProjectVersionRequest {
@@ -1602,10 +1700,14 @@ export namespace StreamProcessorSettings {
 
 export interface CreateStreamProcessorRequest {
   /**
-   * <p>Face recognition input parameters to be used by the stream processor. Includes the collection to use for face recognition and the face
-   *         attributes to detect.</p>
+   * <p>Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>.</p>
    */
-  Settings: StreamProcessorSettings | undefined;
+  Output: StreamProcessorOutput | undefined;
+
+  /**
+   * <p>Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is <code>StreamProcessorInput</code>.</p>
+   */
+  Input: StreamProcessorInput | undefined;
 
   /**
    * <p>An identifier you assign to the stream processor. You can use <code>Name</code> to
@@ -1616,14 +1718,10 @@ export interface CreateStreamProcessorRequest {
   Name: string | undefined;
 
   /**
-   * <p>Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>.</p>
+   * <p>Face recognition input parameters to be used by the stream processor. Includes the collection to use for face recognition and the face
+   *         attributes to detect.</p>
    */
-  Output: StreamProcessorOutput | undefined;
-
-  /**
-   * <p>Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is <code>StreamProcessorInput</code>.</p>
-   */
-  Input: StreamProcessorInput | undefined;
+  Settings: StreamProcessorSettings | undefined;
 
   /**
    * <p>ARN of the IAM role that allows access to the stream processor.</p>
@@ -1706,6 +1804,12 @@ export namespace Geometry {
  */
 export interface CustomLabel {
   /**
+   * <p>The confidence that the model has in the detection of the custom label. The
+   *       range is 0-100. A higher value indicates a higher confidence.</p>
+   */
+  Confidence?: number;
+
+  /**
    * <p>The name of the custom label.</p>
    */
   Name?: string;
@@ -1716,12 +1820,6 @@ export interface CustomLabel {
    *          for more accurate spatial information.</p>
    */
   Geometry?: Geometry;
-
-  /**
-   * <p>The confidence that the model has in the detection of the custom label. The
-   *       range is 0-100. A higher value indicates a higher confidence.</p>
-   */
-  Confidence?: number;
 }
 
 export namespace CustomLabel {
@@ -1893,15 +1991,21 @@ export namespace DescribeCollectionRequest {
 
 export interface DescribeCollectionResponse {
   /**
+   * <p>The Amazon Resource Name (ARN) of the collection.</p>
+   */
+  CollectionARN?: string;
+
+  /**
    * <p>The number of milliseconds since the Unix epoch time until the creation of the collection.
    *          The Unix epoch time is 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.</p>
    */
   CreationTimestamp?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the collection.</p>
+   * <p>The number of faces that are indexed into the collection. To index faces into a
+   *          collection, use <a>IndexFaces</a>.</p>
    */
-  CollectionARN?: string;
+  FaceCount?: number;
 
   /**
    * <p>The version of the face model that's used by the collection for face detection.</p>
@@ -1910,12 +2014,6 @@ export interface DescribeCollectionResponse {
    *      Amazon Rekognition Developer Guide.</p>
    */
   FaceModelVersion?: string;
-
-  /**
-   * <p>The number of faces that are indexed into the collection. To index faces into a
-   *          collection, use <a>IndexFaces</a>.</p>
-   */
-  FaceCount?: number;
 }
 
 export namespace DescribeCollectionResponse {
@@ -1951,11 +2049,6 @@ export namespace DescribeProjectsRequest {
  */
 export interface ProjectDescription {
   /**
-   * <p>The current status of the project.</p>
-   */
-  Status?: ProjectStatus | string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the project.</p>
    */
   ProjectArn?: string;
@@ -1964,6 +2057,11 @@ export interface ProjectDescription {
    * <p>The Unix timestamp for the date and time that the project was created.</p>
    */
   CreationTimestamp?: Date;
+
+  /**
+   * <p>The current status of the project.</p>
+   */
+  Status?: ProjectStatus | string;
 }
 
 export namespace ProjectDescription {
@@ -1998,13 +2096,13 @@ export namespace DescribeProjectsResponse {
 export interface InvalidPaginationTokenException extends __SmithyException, $MetadataBearer {
   name: "InvalidPaginationTokenException";
   $fault: "client";
-  Code?: string;
+  Message?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
 
-  Message?: string;
+  Code?: string;
 }
 
 export namespace InvalidPaginationTokenException {
@@ -2015,11 +2113,9 @@ export namespace InvalidPaginationTokenException {
 
 export interface DescribeProjectVersionsRequest {
   /**
-   * <p>If the previous response was incomplete (because there is more
-   *            results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response.
-   *            You can use this pagination token to retrieve the next set of results. </p>
+   * <p>The Amazon Resource Name (ARN) of the project that contains the models you want to describe.</p>
    */
-  NextToken?: string;
+  ProjectArn: string | undefined;
 
   /**
    * <p>The maximum number of results to return per paginated call.
@@ -2029,9 +2125,11 @@ export interface DescribeProjectVersionsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the project that contains the models you want to describe.</p>
+   * <p>If the previous response was incomplete (because there is more
+   *            results to retrieve), Amazon Rekognition Custom Labels returns a pagination token in the response.
+   *            You can use this pagination token to retrieve the next set of results. </p>
    */
-  ProjectArn: string | undefined;
+  NextToken?: string;
 
   /**
    * <p>A list of model version names that you want to describe. You can add up to 10 model version names
@@ -2079,6 +2177,11 @@ export namespace Summary {
  */
 export interface EvaluationResult {
   /**
+   * <p>The S3 bucket that contains the training summary.</p>
+   */
+  Summary?: Summary;
+
+  /**
    * <p>The F1 score for the evaluation of all labels. The F1 score metric evaluates the overall precision
    *          and recall performance of the model as a single value. A higher value indicates better precision
    *          and recall performance. A lower score indicates that precision, recall, or both are performing poorly.
@@ -2086,11 +2189,6 @@ export interface EvaluationResult {
    *   </p>
    */
   F1Score?: number;
-
-  /**
-   * <p>The S3 bucket that contains the training summary.</p>
-   */
-  Summary?: Summary;
 }
 
 export namespace EvaluationResult {
@@ -2100,9 +2198,41 @@ export namespace EvaluationResult {
 }
 
 /**
- * <p>A Sagemaker Groundtruth format manifest file representing the dataset used for testing.</p>
+ * <p>Contains the Amazon S3 bucket location of the validation data for a model training job. </p>
+ *
+ *          <p>The validation data includes error information for individual
+ *          JSON lines in the dataset.
+ *             For more information, see Debugging a Failed Model Training in the
+ *             Amazon Rekognition Custom Labels Developer Guide. </p>
+ *          <p>You get the <code>ValidationData</code> object for the training dataset (<a>TrainingDataResult</a>)
+ *          and the test dataset (<a>TestingDataResult</a>) by calling <a>DescribeProjectVersions</a>. </p>
+ *          <p>The assets array contains a single <a>Asset</a> object.
+ *          The <a>GroundTruthManifest</a> field of the Asset object contains the S3 bucket location of
+ *          the validation data.
+ * </p>
+ */
+export interface ValidationData {
+  /**
+   * <p>The assets that comprise the validation data. </p>
+   */
+  Assets?: Asset[];
+}
+
+export namespace ValidationData {
+  export const filterSensitiveLog = (obj: ValidationData): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.</p>
  */
 export interface TestingDataResult {
+  /**
+   * <p>The location of the data validation manifest. The data validation manifest is created for the test dataset during model training.</p>
+   */
+  Validation?: ValidationData;
+
   /**
    * <p>The testing dataset that was supplied for training.</p>
    */
@@ -2122,18 +2252,23 @@ export namespace TestingDataResult {
 }
 
 /**
- * <p>A Sagemaker Groundtruth format manifest file that represents the dataset used for training.</p>
+ * <p>Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.</p>
  */
 export interface TrainingDataResult {
-  /**
-   * <p>The images (assets) that were actually trained by Amazon Rekognition Custom Labels. </p>
-   */
-  Output?: TrainingData;
-
   /**
    * <p>The training assets that you supplied for training.</p>
    */
   Input?: TrainingData;
+
+  /**
+   * <p>The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.</p>
+   */
+  Validation?: ValidationData;
+
+  /**
+   * <p>The images (assets) that were actually trained by Amazon Rekognition Custom Labels. </p>
+   */
+  Output?: TrainingData;
 }
 
 export namespace TrainingDataResult {
@@ -2147,14 +2282,35 @@ export namespace TrainingDataResult {
  */
 export interface ProjectVersionDescription {
   /**
-   * <p>The location where training results are saved.</p>
+   * <p>The location of the summary manifest. The summary manifest provides aggregate data validation results for the training
+   *          and test datasets.</p>
    */
-  OutputConfig?: OutputConfig;
+  ManifestSummary?: GroundTruthManifest;
+
+  /**
+   * <p>The training results. <code>EvaluationResult</code> is only returned if training is successful.</p>
+   */
+  EvaluationResult?: EvaluationResult;
 
   /**
    * <p>The current status of the model version.</p>
    */
   Status?: ProjectVersionStatus | string;
+
+  /**
+   * <p>The location where training results are saved.</p>
+   */
+  OutputConfig?: OutputConfig;
+
+  /**
+   * <p>Contains information about the training results.</p>
+   */
+  TrainingDataResult?: TrainingDataResult;
+
+  /**
+   * <p>The Unix date and time that training of the model ended.</p>
+   */
+  TrainingEndTimestamp?: Date;
 
   /**
    * <p>The minimum number of inference units used by the model. For more information,
@@ -2163,19 +2319,9 @@ export interface ProjectVersionDescription {
   MinInferenceUnits?: number;
 
   /**
-   * <p>The Unix date and time that training of the model ended.</p>
-   */
-  TrainingEndTimestamp?: Date;
-
-  /**
-   * <p>The manifest file that represents the testing results.</p>
+   * <p>Contains information about the testing results.</p>
    */
   TestingDataResult?: TestingDataResult;
-
-  /**
-   * <p>The manifest file that represents the training results.</p>
-   */
-  TrainingDataResult?: TrainingDataResult;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model version. </p>
@@ -2183,20 +2329,15 @@ export interface ProjectVersionDescription {
   ProjectVersionArn?: string;
 
   /**
-   * <p>The training results.  <code>EvaluationResult</code> is only returned if training is successful.</p>
+   * <p>A descriptive message for an error or warning that occurred.</p>
    */
-  EvaluationResult?: EvaluationResult;
+  StatusMessage?: string;
 
   /**
    * <p>The duration, in seconds, that the model version has been billed for training.
    *       This value is only returned if the model version has been successfully trained.</p>
    */
   BillableTrainingTimeInSeconds?: number;
-
-  /**
-   * <p>A descriptive message for an error or warning that occurred.</p>
-   */
-  StatusMessage?: string;
 
   /**
    * <p>The Unix datetime for the date and time that training started.</p>
@@ -2254,6 +2395,16 @@ export enum StreamProcessorStatus {
 
 export interface DescribeStreamProcessorResponse {
   /**
+   * <p>ARN of the stream processor.</p>
+   */
+  StreamProcessorArn?: string;
+
+  /**
+   * <p>Current status of the stream processor.</p>
+   */
+  Status?: StreamProcessorStatus | string;
+
+  /**
    * <p>ARN of the IAM role that allows access to the stream processor.</p>
    */
   RoleArn?: string;
@@ -2263,11 +2414,6 @@ export interface DescribeStreamProcessorResponse {
    *         processor moves from a running state to a failed state, or when the user starts or stops the stream processor.</p>
    */
   LastUpdateTimestamp?: Date;
-
-  /**
-   * <p>Current status of the stream processor.</p>
-   */
-  Status?: StreamProcessorStatus | string;
 
   /**
    * <p>Kinesis video stream that provides the source streaming video.</p>
@@ -2292,19 +2438,14 @@ export interface DescribeStreamProcessorResponse {
   Name?: string;
 
   /**
-   * <p>Date and time the stream processor was created</p>
-   */
-  CreationTimestamp?: Date;
-
-  /**
-   * <p>ARN of the stream processor.</p>
-   */
-  StreamProcessorArn?: string;
-
-  /**
    * <p>Kinesis data stream to which Amazon Rekognition Video puts the analysis results.</p>
    */
   Output?: StreamProcessorOutput;
+
+  /**
+   * <p>Date and time the stream processor was created</p>
+   */
+  CreationTimestamp?: Date;
 }
 
 export namespace DescribeStreamProcessorResponse {
@@ -2327,6 +2468,11 @@ export interface DetectCustomLabelsRequest {
    *       to lowest.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The ARN of the model version that you want to use.</p>
+   */
+  ProjectVersionArn: string | undefined;
 
   /**
    * <p>Provides the input image either as bytes or an S3 object.</p>
@@ -2354,11 +2500,6 @@ export interface DetectCustomLabelsRequest {
    *     </p>
    */
   Image: Image | undefined;
-
-  /**
-   * <p>The ARN of the model version that you want to use.</p>
-   */
-  ProjectVersionArn: string | undefined;
 }
 
 export namespace DetectCustomLabelsRequest {
@@ -2388,13 +2529,13 @@ export namespace DetectCustomLabelsResponse {
 export interface ResourceNotReadyException extends __SmithyException, $MetadataBearer {
   name: "ResourceNotReadyException";
   $fault: "client";
+  Message?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
 
   Code?: string;
-  Message?: string;
 }
 
 export namespace ResourceNotReadyException {
@@ -2404,6 +2545,15 @@ export namespace ResourceNotReadyException {
 }
 
 export interface DetectFacesRequest {
+  /**
+   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
+   *       Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
+   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes
+   *       passed using the <code>Bytes</code> field.
+   *       For more information, see Images in the Amazon Rekognition developer guide.</p>
+   */
+  Image: Image | undefined;
+
   /**
    * <p>An array of facial attributes you want to be returned. This can be the default list of
    *       attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if
@@ -2415,15 +2565,6 @@ export interface DetectFacesRequest {
    *       operator to determine which attributes to return (in this case, all attributes). </p>
    */
   Attributes?: (Attribute | string)[];
-
-  /**
-   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
-   *       Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
-   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes
-   *       passed using the <code>Bytes</code> field.
-   *       For more information, see Images in the Amazon Rekognition developer guide.</p>
-   */
-  Image: Image | undefined;
 }
 
 export namespace DetectFacesRequest {
@@ -2464,6 +2605,13 @@ export namespace DetectFacesResponse {
  */
 export interface DetectionFilter {
   /**
+   * <p>Sets confidence of word detection. Words with detection confidence below this will be excluded
+   *       from the result. Values should be between 0.5 and 1 as Text in Video will not return any result below
+   *       0.5.</p>
+   */
+  MinConfidence?: number;
+
+  /**
    * <p>Sets the minimum height of the word bounding box. Words with bounding box heights lesser than
    *       this value will be excluded from the result. Value is relative to the video frame height.</p>
    */
@@ -2474,13 +2622,6 @@ export interface DetectionFilter {
    *       this value will be excluded from the result. Value is relative to the video frame width.</p>
    */
   MinBoundingBoxWidth?: number;
-
-  /**
-   * <p>Sets confidence of word detection. Words with detection confidence below this will be excluded
-   *       from the result. Values should be between 0.5 and 1 as Text in Video will not return any result below
-   *       0.5.</p>
-   */
-  MinConfidence?: number;
 }
 
 export namespace DetectionFilter {
@@ -2491,6 +2632,14 @@ export namespace DetectionFilter {
 
 export interface DetectLabelsRequest {
   /**
+   * <p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't
+   *       return any labels with confidence lower than this specified value.</p>
+   *          <p>If <code>MinConfidence</code> is not specified, the operation returns labels with a
+   *       confidence values greater than or equal to 55 percent.</p>
+   */
+  MinConfidence?: number;
+
+  /**
    * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
    *       Amazon Rekognition operations, passing image bytes is not supported. Images stored in an S3 Bucket do
    *     not need to be base64-encoded.</p>
@@ -2499,14 +2648,6 @@ export interface DetectLabelsRequest {
    *       For more information, see Images in the Amazon Rekognition developer guide.</p>
    */
   Image: Image | undefined;
-
-  /**
-   * <p>Specifies the minimum confidence level for the labels to return. Amazon Rekognition doesn't
-   *       return any labels with confidence lower than this specified value.</p>
-   *          <p>If <code>MinConfidence</code> is not specified, the operation returns labels with a
-   *       confidence values greater than or equal to 55 percent.</p>
-   */
-  MinConfidence?: number;
 
   /**
    * <p>Maximum number of labels you want the service to return in the response. The service
@@ -2567,6 +2708,11 @@ export namespace Parent {
  */
 export interface Label {
   /**
+   * <p>The parent labels for a label. The response includes all ancestor labels.</p>
+   */
+  Parents?: Parent[];
+
+  /**
    * <p>The name (label) of the object or scene.</p>
    */
   Name?: string;
@@ -2576,11 +2722,6 @@ export interface Label {
    *       Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.</p>
    */
   Instances?: Instance[];
-
-  /**
-   * <p>The parent labels for a label. The response includes all ancestor labels.</p>
-   */
-  Parents?: Parent[];
 
   /**
    * <p>Level of confidence.</p>
@@ -2596,6 +2737,11 @@ export namespace Label {
 
 export interface DetectLabelsResponse {
   /**
+   * <p>Version number of the label detection model that was used to detect labels.</p>
+   */
+  LabelModelVersion?: string;
+
+  /**
    * <p>The value of <code>OrientationCorrection</code> is always null.</p>
    *          <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata
    *       that includes the image's orientation. Amazon Rekognition uses this orientation information to perform
@@ -2608,11 +2754,6 @@ export interface DetectLabelsResponse {
    *       </p>
    */
   OrientationCorrection?: OrientationCorrection | string;
-
-  /**
-   * <p>Version number of the label detection model that was used to detect labels.</p>
-   */
-  LabelModelVersion?: string;
 
   /**
    * <p>An array of labels for the real-world objects detected. </p>
@@ -2710,12 +2851,6 @@ export namespace DetectModerationLabelsRequest {
  */
 export interface HumanLoopActivationOutput {
   /**
-   * <p>Shows the result of condition evaluations, including those conditions which activated a
-   *       human review.</p>
-   */
-  HumanLoopActivationConditionsEvaluationResults?: __LazyJsonString | string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the HumanLoop created.</p>
    */
   HumanLoopArn?: string;
@@ -2724,6 +2859,12 @@ export interface HumanLoopActivationOutput {
    * <p>Shows if and why human review was needed.</p>
    */
   HumanLoopActivationReasons?: string[];
+
+  /**
+   * <p>Shows the result of condition evaluations, including those conditions which activated a
+   *       human review.</p>
+   */
+  HumanLoopActivationConditionsEvaluationResults?: __LazyJsonString | string;
 }
 
 export namespace HumanLoopActivationOutput {
@@ -2734,14 +2875,14 @@ export namespace HumanLoopActivationOutput {
 
 export interface DetectModerationLabelsResponse {
   /**
-   * <p>Shows the results of the human in the loop evaluation.</p>
-   */
-  HumanLoopActivationOutput?: HumanLoopActivationOutput;
-
-  /**
    * <p>Version number of the moderation detection model that was used to detect unsafe content.</p>
    */
   ModerationModelVersion?: string;
+
+  /**
+   * <p>Shows the results of the human in the loop evaluation.</p>
+   */
+  HumanLoopActivationOutput?: HumanLoopActivationOutput;
 
   /**
    * <p>Array of detected Moderation labels and the time, in milliseconds from the
@@ -2763,30 +2904,190 @@ export interface HumanLoopQuotaExceededException extends __SmithyException, $Met
   name: "HumanLoopQuotaExceededException";
   $fault: "client";
   /**
-   * <p>The resource type.</p>
-   */
-  ResourceType?: string;
-
-  /**
    * <p>The quota code.</p>
    */
   QuotaCode?: string;
 
-  Message?: string;
+  /**
+   * <p>The service code.</p>
+   */
+  ServiceCode?: string;
+
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
 
   Code?: string;
+  Message?: string;
   /**
-   * <p>The service code.</p>
+   * <p>The resource type.</p>
    */
-  ServiceCode?: string;
+  ResourceType?: string;
 }
 
 export namespace HumanLoopQuotaExceededException {
   export const filterSensitiveLog = (obj: HumanLoopQuotaExceededException): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Specifies summary attributes to return from a call to <a>DetectProtectiveEquipment</a>.
+ *          You can specify which types of PPE to summarize. You can also specify a minimum confidence value for detections.
+ *          Summary information is returned in the <code>Summary</code> (<a>ProtectiveEquipmentSummary</a>) field of the response from
+ *          <code>DetectProtectiveEquipment</code>.
+ *          The summary includes which persons in an image were detected wearing the requested types of person protective equipment (PPE), which persons
+ *          were detected as not wearing PPE, and the persons in which a determination could not be made. For more information,
+ *          see <a>ProtectiveEquipmentSummary</a>.</p>
+ */
+export interface ProtectiveEquipmentSummarizationAttributes {
+  /**
+   * <p>The minimum confidence level for which you want summary information.
+   *          The confidence level applies to person detection, body part detection, equipment detection, and body part coverage.
+   *          Amazon Rekognition doesn't return summary information with a confidence than this specified value. There isn't a
+   *          default value.</p>
+   *          <p>Specify a <code>MinConfidence</code> value that is between 50-100% as <code>DetectProtectiveEquipment</code>
+   *          returns predictions only where the detection confidence is between 50% - 100%.
+   *          If you specify a value that is less than 50%, the results are the same specifying a value of 50%.</p>
+   *          <p>
+   *       </p>
+   */
+  MinConfidence: number | undefined;
+
+  /**
+   * <p>An array of personal protective equipment types for which you want summary information.
+   *          If a person is detected wearing a required requipment type, the person's ID is added to the
+   *          <code>PersonsWithRequiredEquipment</code> array field returned in <a>ProtectiveEquipmentSummary</a>
+   *          by <code>DetectProtectiveEquipment</code>.  </p>
+   */
+  RequiredEquipmentTypes: (ProtectiveEquipmentType | string)[] | undefined;
+}
+
+export namespace ProtectiveEquipmentSummarizationAttributes {
+  export const filterSensitiveLog = (obj: ProtectiveEquipmentSummarizationAttributes): any => ({
+    ...obj,
+  });
+}
+
+export interface DetectProtectiveEquipmentRequest {
+  /**
+   * <p>An array of PPE types that you want to summarize.</p>
+   */
+  SummarizationAttributes?: ProtectiveEquipmentSummarizationAttributes;
+
+  /**
+   * <p>The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can
+   *          reference an image stored in an Amazon S3 bucket. </p>
+   */
+  Image: Image | undefined;
+}
+
+export namespace DetectProtectiveEquipmentRequest {
+  export const filterSensitiveLog = (obj: DetectProtectiveEquipmentRequest): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>A person detected by a call to <a>DetectProtectiveEquipment</a>. The API returns
+ *          all persons detected in the input
+ *          image in an array of <code>ProtectiveEquipmentPerson</code> objects.</p>
+ */
+export interface ProtectiveEquipmentPerson {
+  /**
+   * <p>A bounding box around the detected person.</p>
+   */
+  BoundingBox?: BoundingBox;
+
+  /**
+   * <p>An array of body parts detected on a person's body (including body parts without PPE). </p>
+   */
+  BodyParts?: ProtectiveEquipmentBodyPart[];
+
+  /**
+   * <p>The identifier for the detected person. The identifier is only unique for a single call to
+   *          <code>DetectProtectiveEquipment</code>.</p>
+   */
+  Id?: number;
+
+  /**
+   * <p>The confidence that Amazon Rekognition has that the bounding box contains a person.</p>
+   */
+  Confidence?: number;
+}
+
+export namespace ProtectiveEquipmentPerson {
+  export const filterSensitiveLog = (obj: ProtectiveEquipmentPerson): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>Summary information for required items of personal protective equipment (PPE) detected on persons by a call
+ *          to <a>DetectProtectiveEquipment</a>. You specify the required type of PPE in
+ *          the <code>SummarizationAttributes</code>
+ *          (<a>ProtectiveEquipmentSummarizationAttributes</a>) input parameter.
+ *          The summary includes which persons were detected wearing the required personal protective equipment
+ *          (<code>PersonsWithRequiredEquipment</code>),
+ *          which persons were detected as not wearing the required PPE (<code>PersonsWithoutRequiredEquipment</code>),
+ *          and the persons in which a determination
+ *          could not be made (<code>PersonsIndeterminate</code>).</p>
+ *          <p>To get a total for each category, use the size of the field array. For example,
+ *          to find out how many people were detected as wearing the specified PPE,
+ *          use the size of the <code>PersonsWithRequiredEquipment</code> array.
+ *          If you want to find out more about a person, such as the
+ *          location (<a>BoundingBox</a>) of the person on the image, use the person ID in each array element.
+ *          Each person ID matches the ID field of a <a>ProtectiveEquipmentPerson</a> object returned
+ *          in the <code>Persons</code> array by <code>DetectProtectiveEquipment</code>.</p>
+ */
+export interface ProtectiveEquipmentSummary {
+  /**
+   * <p>An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of
+   *          the detected personal protective equipment.
+   *       </p>
+   */
+  PersonsWithoutRequiredEquipment?: number[];
+
+  /**
+   * <p>An array of IDs for persons who are wearing detected personal protective equipment.
+   *       </p>
+   */
+  PersonsWithRequiredEquipment?: number[];
+
+  /**
+   * <p>An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment.
+   *       </p>
+   */
+  PersonsIndeterminate?: number[];
+}
+
+export namespace ProtectiveEquipmentSummary {
+  export const filterSensitiveLog = (obj: ProtectiveEquipmentSummary): any => ({
+    ...obj,
+  });
+}
+
+export interface DetectProtectiveEquipmentResponse {
+  /**
+   * <p>An array of persons detected in the image (including persons not wearing PPE).</p>
+   */
+  Persons?: ProtectiveEquipmentPerson[];
+
+  /**
+   * <p>The version number of the PPE detection model used to detect PPE in the image.</p>
+   */
+  ProtectiveEquipmentModelVersion?: string;
+
+  /**
+   * <p>Summary information for the types of PPE specified in the <code>SummarizationAttributes</code> input
+   *       parameter.</p>
+   */
+  Summary?: ProtectiveEquipmentSummary;
+}
+
+export namespace DetectProtectiveEquipmentResponse {
+  export const filterSensitiveLog = (obj: DetectProtectiveEquipmentResponse): any => ({
     ...obj,
   });
 }
@@ -2819,15 +3120,15 @@ export namespace RegionOfInterest {
  */
 export interface DetectTextFilters {
   /**
-   * <p>A set of parameters that allow you to filter out certain results from your returned results.</p>
-   */
-  WordFilter?: DetectionFilter;
-
-  /**
    * <p> A Filter focusing on a certain area of the image. Uses a <code>BoundingBox</code> object to set the region
    *       of the image.</p>
    */
   RegionsOfInterest?: RegionOfInterest[];
+
+  /**
+   * <p>A set of parameters that allow you to filter out certain results from your returned results.</p>
+   */
+  WordFilter?: DetectionFilter;
 }
 
 export namespace DetectTextFilters {
@@ -2876,10 +3177,16 @@ export enum TextTypes {
  */
 export interface TextDetection {
   /**
-   * <p>The identifier for the detected text. The identifier is only unique for a single call
-   *       to <code>DetectText</code>. </p>
+   * <p>The Parent identifier for the detected text identified by the value of <code>ID</code>.
+   *       If the type of detected text is <code>LINE</code>, the value of <code>ParentId</code> is
+   *         <code>Null</code>. </p>
    */
-  Id?: number;
+  ParentId?: number;
+
+  /**
+   * <p>The type of text that was detected.</p>
+   */
+  Type?: TextTypes | string;
 
   /**
    * <p>The location of the detected text on the image. Includes an axis aligned coarse
@@ -2889,27 +3196,21 @@ export interface TextDetection {
   Geometry?: Geometry;
 
   /**
-   * <p>The type of text that was detected.</p>
+   * <p>The identifier for the detected text. The identifier is only unique for a single call
+   *       to <code>DetectText</code>. </p>
    */
-  Type?: TextTypes | string;
-
-  /**
-   * <p>The word or line of text recognized by Amazon Rekognition. </p>
-   */
-  DetectedText?: string;
-
-  /**
-   * <p>The Parent identifier for the detected text identified by the value of <code>ID</code>.
-   *       If the type of detected text is <code>LINE</code>, the value of <code>ParentId</code> is
-   *         <code>Null</code>. </p>
-   */
-  ParentId?: number;
+  Id?: number;
 
   /**
    * <p>The confidence that Amazon Rekognition has in the accuracy of the detected text and the accuracy
    *       of the geometry points around the detected text.</p>
    */
   Confidence?: number;
+
+  /**
+   * <p>The word or line of text recognized by Amazon Rekognition. </p>
+   */
+  DetectedText?: string;
 }
 
 export namespace TextDetection {
@@ -2920,14 +3221,14 @@ export namespace TextDetection {
 
 export interface DetectTextResponse {
   /**
-   * <p>The model version used to detect text.</p>
-   */
-  TextModelVersion?: string;
-
-  /**
    * <p>An array of text that was detected in the input image.</p>
    */
   TextDetections?: TextDetection[];
+
+  /**
+   * <p>The model version used to detect text.</p>
+   */
+  TextModelVersion?: string;
 }
 
 export namespace DetectTextResponse {
@@ -2942,9 +3243,9 @@ export namespace DetectTextResponse {
  */
 export interface Face {
   /**
-   * <p>Unique identifier that Amazon Rekognition assigns to the face.</p>
+   * <p>Bounding box of the face.</p>
    */
-  FaceId?: string;
+  BoundingBox?: BoundingBox;
 
   /**
    * <p>Confidence level that the bounding box contains a face (and not a different object such
@@ -2958,14 +3259,14 @@ export interface Face {
   ImageId?: string;
 
   /**
-   * <p>Bounding box of the face.</p>
-   */
-  BoundingBox?: BoundingBox;
-
-  /**
    * <p>Identifier that you assign to all the faces in the input image.</p>
    */
   ExternalImageId?: string;
+
+  /**
+   * <p>Unique identifier that Amazon Rekognition assigns to the face.</p>
+   */
+  FaceId?: string;
 }
 
 export namespace Face {
@@ -2984,14 +3285,14 @@ export enum FaceAttributes {
  */
 export interface FaceDetection {
   /**
-   * <p>Time, in milliseconds from the start of the video, that the face was detected.</p>
-   */
-  Timestamp?: number;
-
-  /**
    * <p>The face properties for the detected face.</p>
    */
   Face?: FaceDetail;
+
+  /**
+   * <p>Time, in milliseconds from the start of the video, that the face was detected.</p>
+   */
+  Timestamp?: number;
 }
 
 export namespace FaceDetection {
@@ -3006,15 +3307,15 @@ export namespace FaceDetection {
  */
 export interface FaceMatch {
   /**
-   * <p>Confidence in the match of this face with the input face.</p>
-   */
-  Similarity?: number;
-
-  /**
    * <p>Describes the face properties such as the bounding box, face ID, image ID of the source
    *       image, and external image ID that you assigned.</p>
    */
   Face?: Face;
+
+  /**
+   * <p>Confidence in the match of this face with the input face.</p>
+   */
+  Similarity?: number;
 }
 
 export namespace FaceMatch {
@@ -3029,15 +3330,15 @@ export namespace FaceMatch {
  */
 export interface FaceRecord {
   /**
+   * <p>Structure containing attributes of the face that the algorithm detected.</p>
+   */
+  FaceDetail?: FaceDetail;
+
+  /**
    * <p>Describes the face properties such as the bounding box, face ID, image ID of the input
    *       image, and external image ID that you assigned. </p>
    */
   Face?: Face;
-
-  /**
-   * <p>Structure containing attributes of the face that the algorithm detected.</p>
-   */
-  FaceDetail?: FaceDetail;
 }
 
 export namespace FaceRecord {
@@ -3067,14 +3368,14 @@ export namespace GetCelebrityInfoRequest {
 
 export interface GetCelebrityInfoResponse {
   /**
-   * <p>The name of the celebrity.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>An array of URLs pointing to additional celebrity information. </p>
    */
   Urls?: string[];
+
+  /**
+   * <p>The name of the celebrity.</p>
+   */
+  Name?: string;
 }
 
 export namespace GetCelebrityInfoResponse {
@@ -3085,10 +3386,10 @@ export namespace GetCelebrityInfoResponse {
 
 export interface GetCelebrityRecognitionRequest {
   /**
-   * <p>Sort to use for celebrities returned in <code>Celebrities</code> field. Specify <code>ID</code> to sort by the celebrity identifier,
-   *         specify <code>TIMESTAMP</code> to sort by the time the celebrity was recognized.</p>
+   * <p>Job identifier for the required celebrity recognition analysis. You can get the job identifer from
+   *       a call to <code>StartCelebrityRecognition</code>.</p>
    */
-  SortBy?: CelebrityRecognitionSortBy | string;
+  JobId: string | undefined;
 
   /**
    * <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.
@@ -3104,10 +3405,10 @@ export interface GetCelebrityRecognitionRequest {
   NextToken?: string;
 
   /**
-   * <p>Job identifier for the required celebrity recognition analysis. You can get the job identifer from
-   *       a call to <code>StartCelebrityRecognition</code>.</p>
+   * <p>Sort to use for celebrities returned in <code>Celebrities</code> field. Specify <code>ID</code> to sort by the celebrity identifier,
+   *         specify <code>TIMESTAMP</code> to sort by the time the celebrity was recognized.</p>
    */
-  JobId: string | undefined;
+  SortBy?: CelebrityRecognitionSortBy | string;
 }
 
 export namespace GetCelebrityRecognitionRequest {
@@ -3128,19 +3429,9 @@ export enum VideoJobStatus {
  */
 export interface VideoMetadata {
   /**
-   * <p>Length of the video in milliseconds.</p>
-   */
-  DurationMillis?: number;
-
-  /**
    * <p>Vertical pixel dimension of the video.</p>
    */
   FrameHeight?: number;
-
-  /**
-   * <p>Number of frames per second in the video.</p>
-   */
-  FrameRate?: number;
 
   /**
    * <p>Horizontal pixel dimension of the video.</p>
@@ -3156,6 +3447,16 @@ export interface VideoMetadata {
    * <p>Type of compression used in the analyzed video. </p>
    */
   Codec?: string;
+
+  /**
+   * <p>Length of the video in milliseconds.</p>
+   */
+  DurationMillis?: number;
+
+  /**
+   * <p>Number of frames per second in the video.</p>
+   */
+  FrameRate?: number;
 }
 
 export namespace VideoMetadata {
@@ -3166,20 +3467,16 @@ export namespace VideoMetadata {
 
 export interface GetCelebrityRecognitionResponse {
   /**
-   * <p>Array of celebrities recognized in the video.</p>
-   */
-  Celebrities?: CelebrityRecognition[];
-
-  /**
    * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request
    *       to retrieve the next set of celebrities.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The current status of the celebrity recognition job.</p>
+   * <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in
+   *       every page of paginated responses from a Amazon Rekognition Video operation.</p>
    */
-  JobStatus?: VideoJobStatus | string;
+  VideoMetadata?: VideoMetadata;
 
   /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
@@ -3187,10 +3484,14 @@ export interface GetCelebrityRecognitionResponse {
   StatusMessage?: string;
 
   /**
-   * <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in
-   *       every page of paginated responses from a Amazon Rekognition Video operation.</p>
+   * <p>Array of celebrities recognized in the video.</p>
    */
-  VideoMetadata?: VideoMetadata;
+  Celebrities?: CelebrityRecognition[];
+
+  /**
+   * <p>The current status of the celebrity recognition job.</p>
+   */
+  JobStatus?: VideoJobStatus | string;
 }
 
 export namespace GetCelebrityRecognitionResponse {
@@ -3208,13 +3509,6 @@ export interface GetContentModerationRequest {
   MaxResults?: number;
 
   /**
-   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition
-   *         returns a pagination token in the response. You can use this pagination token
-   *         to retrieve the next set of unsafe content labels.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>Sort to use for elements in the <code>ModerationLabelDetections</code> array.
    *        Use <code>TIMESTAMP</code> to sort array elements by the time labels are detected.
    *        Use <code>NAME</code> to alphabetically group elements for a label together.
@@ -3222,6 +3516,13 @@ export interface GetContentModerationRequest {
    *        The default sort is by <code>TIMESTAMP</code>.</p>
    */
   SortBy?: ContentModerationSortBy | string;
+
+  /**
+   * <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition
+   *         returns a pagination token in the response. You can use this pagination token
+   *         to retrieve the next set of unsafe content labels.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>The identifier for the unsafe content job. Use <code>JobId</code> to identify the job in
@@ -3238,16 +3539,6 @@ export namespace GetContentModerationRequest {
 
 export interface GetContentModerationResponse {
   /**
-   * <p>The current status of the unsafe content analysis job.</p>
-   */
-  JobStatus?: VideoJobStatus | string;
-
-  /**
-   * <p>The detected unsafe content labels and the time(s) they were detected.</p>
-   */
-  ModerationLabels?: ContentModerationDetection[];
-
-  /**
    * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
    *      request to retrieve the next set of unsafe content labels. </p>
    */
@@ -3259,10 +3550,20 @@ export interface GetContentModerationResponse {
   ModerationModelVersion?: string;
 
   /**
+   * <p>The current status of the unsafe content analysis job.</p>
+   */
+  JobStatus?: VideoJobStatus | string;
+
+  /**
    * <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code>
    *      is returned in every page of paginated responses from <code>GetContentModeration</code>. </p>
    */
   VideoMetadata?: VideoMetadata;
+
+  /**
+   * <p>The detected unsafe content labels and the time(s) they were detected.</p>
+   */
+  ModerationLabels?: ContentModerationDetection[];
 
   /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
@@ -3278,15 +3579,15 @@ export namespace GetContentModerationResponse {
 
 export interface GetFaceDetectionRequest {
   /**
+   * <p>Unique identifier for the face detection job. The <code>JobId</code> is returned from <code>StartFaceDetection</code>.</p>
+   */
+  JobId: string | undefined;
+
+  /**
    * <p>If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination
    *        token in the response. You can use this pagination token to retrieve the next set of faces.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Unique identifier for the face detection job. The <code>JobId</code> is returned from <code>StartFaceDetection</code>.</p>
-   */
-  JobId: string | undefined;
 
   /**
    * <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.
@@ -3304,21 +3605,14 @@ export namespace GetFaceDetectionRequest {
 
 export interface GetFaceDetectionResponse {
   /**
-   * <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in
-   *        every page of paginated responses from a Amazon Rekognition video operation.</p>
-   */
-  VideoMetadata?: VideoMetadata;
-
-  /**
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
    */
   StatusMessage?: string;
 
   /**
-   * <p>An array of faces detected in the video. Each element contains a detected face's details and the time,
-   *        in milliseconds from the start of the video, the face was detected. </p>
+   * <p>If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces. </p>
    */
-  Faces?: FaceDetection[];
+  NextToken?: string;
 
   /**
    * <p>The current status of the face detection job.</p>
@@ -3326,9 +3620,16 @@ export interface GetFaceDetectionResponse {
   JobStatus?: VideoJobStatus | string;
 
   /**
-   * <p>If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces. </p>
+   * <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in
+   *        every page of paginated responses from a Amazon Rekognition video operation.</p>
    */
-  NextToken?: string;
+  VideoMetadata?: VideoMetadata;
+
+  /**
+   * <p>An array of faces detected in the video. Each element contains a detected face's details and the time,
+   *        in milliseconds from the start of the video, the face was detected. </p>
+   */
+  Faces?: FaceDetection[];
 }
 
 export namespace GetFaceDetectionResponse {
@@ -3345,17 +3646,17 @@ export interface GetFaceSearchRequest {
   SortBy?: FaceSearchSortBy | string;
 
   /**
+   * <p>If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination
+   *       token in the response. You can use this pagination token to retrieve the next set of search results. </p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.
    *       If you specify a value greater than 1000, a maximum of 1000 results is returned.
    *       The default value is 1000.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination
-   *       token in the response. You can use this pagination token to retrieve the next set of search results. </p>
-   */
-  NextToken?: string;
 
   /**
    * <p>The job identifer for the search request. You get the job identifier from an initial call to <code>StartFaceSearch</code>.</p>
@@ -3403,6 +3704,11 @@ export namespace PersonDetail {
  */
 export interface PersonMatch {
   /**
+   * <p>Information about the matched person.</p>
+   */
+  Person?: PersonDetail;
+
+  /**
    * <p>Information about the faces in the input collection that match the face of a person in the video.</p>
    */
   FaceMatches?: FaceMatch[];
@@ -3411,11 +3717,6 @@ export interface PersonMatch {
    * <p>The time, in milliseconds from the beginning of the video, that the person was matched in the video.</p>
    */
   Timestamp?: number;
-
-  /**
-   * <p>Information about the matched person.</p>
-   */
-  Person?: PersonDetail;
 }
 
 export namespace PersonMatch {
@@ -3442,11 +3743,6 @@ export interface GetFaceSearchResponse {
   JobStatus?: VideoJobStatus | string;
 
   /**
-   * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results. </p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>An array of persons,  <a>PersonMatch</a>,
    *       in the video whose face(s) match the face(s) in an Amazon Rekognition collection. It also includes time information
    *        for when persons are matched in the video.
@@ -3456,6 +3752,11 @@ export interface GetFaceSearchResponse {
    *        and person information (<code>Person</code>) for the matched person. </p>
    */
   Persons?: PersonMatch[];
+
+  /**
+   * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results. </p>
+   */
+  NextToken?: string;
 }
 
 export namespace GetFaceSearchResponse {
@@ -3471,12 +3772,6 @@ export enum LabelDetectionSortBy {
 
 export interface GetLabelDetectionRequest {
   /**
-   * <p>Job identifier for the label detection operation for which you want results returned. You get the job identifer from
-   *       an initial call to <code>StartlabelDetection</code>.</p>
-   */
-  JobId: string | undefined;
-
-  /**
    * <p>Sort to use for elements in the <code>Labels</code> array.
    *       Use <code>TIMESTAMP</code> to sort array elements by the time labels are detected.
    *       Use <code>NAME</code> to alphabetically group elements for a label together.
@@ -3484,6 +3779,12 @@ export interface GetLabelDetectionRequest {
    *       The default sort is by <code>TIMESTAMP</code>.</p>
    */
   SortBy?: LabelDetectionSortBy | string;
+
+  /**
+   * <p>Job identifier for the label detection operation for which you want results returned. You get the job identifer from
+   *       an initial call to <code>StartlabelDetection</code>.</p>
+   */
+  JobId: string | undefined;
 
   /**
    * <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.
@@ -3528,15 +3829,9 @@ export namespace LabelDetection {
 
 export interface GetLabelDetectionResponse {
   /**
-   * <p>Version number of the label detection model that was used to detect labels.</p>
+   * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
    */
-  LabelModelVersion?: string;
-
-  /**
-   * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request
-   *         to retrieve the next set of labels.</p>
-   */
-  NextToken?: string;
+  StatusMessage?: string;
 
   /**
    * <p>An array of labels detected in the video. Each element contains the detected label and the time,
@@ -3545,20 +3840,26 @@ export interface GetLabelDetectionResponse {
   Labels?: LabelDetection[];
 
   /**
+   * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request
+   *         to retrieve the next set of labels.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The current status of the label detection job.</p>
    */
   JobStatus?: VideoJobStatus | string;
-
-  /**
-   * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
-   */
-  StatusMessage?: string;
 
   /**
    * <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in
    *        every page of paginated responses from a Amazon Rekognition video operation.</p>
    */
   VideoMetadata?: VideoMetadata;
+
+  /**
+   * <p>Version number of the label detection model that was used to detect labels.</p>
+   */
+  LabelModelVersion?: string;
 }
 
 export namespace GetLabelDetectionResponse {
@@ -3582,12 +3883,6 @@ export interface GetPersonTrackingRequest {
   SortBy?: PersonTrackingSortBy | string;
 
   /**
-   * <p>The identifier for a job that tracks persons in a video. You get the <code>JobId</code> from a call to <code>StartPersonTracking</code>.
-   *         </p>
-   */
-  JobId: string | undefined;
-
-  /**
    * <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.
    *       If you specify a value greater than 1000, a maximum of 1000 results is returned.
    *       The default value is 1000.</p>
@@ -3599,6 +3894,12 @@ export interface GetPersonTrackingRequest {
    *        token in the response. You can use this pagination token to retrieve the next set of persons. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The identifier for a job that tracks persons in a video. You get the <code>JobId</code> from a call to <code>StartPersonTracking</code>.
+   *         </p>
+   */
+  JobId: string | undefined;
 }
 
 export namespace GetPersonTrackingRequest {
@@ -3644,12 +3945,6 @@ export interface GetPersonTrackingResponse {
   NextToken?: string;
 
   /**
-   * <p>An array of the persons detected in the video and the time(s) their path was tracked throughout the video.
-   *         An array element will exist for each time a person's path is tracked. </p>
-   */
-  Persons?: PersonDetection[];
-
-  /**
    * <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in
    *        every page of paginated responses from a Amazon Rekognition Video operation.</p>
    */
@@ -3659,6 +3954,12 @@ export interface GetPersonTrackingResponse {
    * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
    */
   StatusMessage?: string;
+
+  /**
+   * <p>An array of the persons detected in the video and the time(s) their path was tracked throughout the video.
+   *         An array element will exist for each time a person's path is tracked. </p>
+   */
+  Persons?: PersonDetection[];
 }
 
 export namespace GetPersonTrackingResponse {
@@ -3674,16 +3975,16 @@ export interface GetSegmentDetectionRequest {
   MaxResults?: number;
 
   /**
-   * <p>Job identifier for the text detection operation for which you want results returned.
-   *       You get the job identifer from an initial call to <code>StartSegmentDetection</code>.</p>
-   */
-  JobId: string | undefined;
-
-  /**
    * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
    *       request to retrieve the next set of text.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Job identifier for the text detection operation for which you want results returned.
+   *       You get the job identifer from an initial call to <code>StartSegmentDetection</code>.</p>
+   */
+  JobId: string | undefined;
 }
 
 export namespace GetSegmentDetectionRequest {
@@ -3698,14 +3999,14 @@ export namespace GetSegmentDetectionRequest {
  */
 export interface ShotSegment {
   /**
+   * <p>An Identifier for a shot detection segment detected in a video. </p>
+   */
+  Index?: number;
+
+  /**
    * <p>The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.</p>
    */
   Confidence?: number;
-
-  /**
-   * <p>An Identifier for a shot detection segment detected in a video </p>
-   */
-  Index?: number;
 }
 
 export namespace ShotSegment {
@@ -3754,16 +4055,22 @@ export enum SegmentType {
  */
 export interface SegmentDetection {
   /**
-   * <p>The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment.
-   *       <code>StartTimecode</code> is in <i>HH:MM:SS:fr</i> format
-   *       (and <i>;fr</i> for drop frame-rates). </p>
+   * <p>The duration of the detected segment in milliseconds. </p>
    */
-  StartTimecodeSMPTE?: string;
+  DurationMillis?: number;
 
   /**
-   * <p>The duration of the timecode for the detected segment in SMPTE format.</p>
+   * <p>The start time of the detected segment in milliseconds from the start of the video. This value
+   *       is rounded down. For example, if the actual timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a value of
+   *       100 millis.</p>
    */
-  DurationSMPTE?: string;
+  StartTimestampMillis?: number;
+
+  /**
+   * <p>The end time of the detected segment, in milliseconds, from the start of the video.
+   *     This value is rounded down.</p>
+   */
+  EndTimestampMillis?: number;
 
   /**
    * <p>If the segment is a shot detection, contains information about the shot detection.</p>
@@ -3778,19 +4085,9 @@ export interface SegmentDetection {
   EndTimecodeSMPTE?: string;
 
   /**
-   * <p>The end time of the detected segment, in milliseconds, from the start of the video.</p>
+   * <p>The duration of the timecode for the detected segment in SMPTE format.</p>
    */
-  EndTimestampMillis?: number;
-
-  /**
-   * <p>The start time of the detected segment in milliseconds from the start of the video.</p>
-   */
-  StartTimestampMillis?: number;
-
-  /**
-   * <p>The type of the  segment. Valid values are <code>TECHNICAL_CUE</code> and <code>SHOT</code>.</p>
-   */
-  Type?: SegmentType | string;
+  DurationSMPTE?: string;
 
   /**
    * <p>If the segment is a technical cue, contains information about the technical cue.</p>
@@ -3798,9 +4095,16 @@ export interface SegmentDetection {
   TechnicalCueSegment?: TechnicalCueSegment;
 
   /**
-   * <p>The duration of the detected segment in milliseconds. </p>
+   * <p>The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment.
+   *       <code>StartTimecode</code> is in <i>HH:MM:SS:fr</i> format
+   *       (and <i>;fr</i> for drop frame-rates). </p>
    */
-  DurationMillis?: number;
+  StartTimecodeSMPTE?: string;
+
+  /**
+   * <p>The type of the  segment. Valid values are <code>TECHNICAL_CUE</code> and <code>SHOT</code>.</p>
+   */
+  Type?: SegmentType | string;
 }
 
 export namespace SegmentDetection {
@@ -3833,12 +4137,6 @@ export namespace SegmentTypeInfo {
 
 export interface GetSegmentDetectionResponse {
   /**
-   * <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns
-   *       a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>An array of
    *        objects. There can be multiple audio streams.
    *       Each <code>AudioMetadata</code> object contains metadata for a single audio stream.
@@ -3850,22 +4148,6 @@ export interface GetSegmentDetectionResponse {
   AudioMetadata?: AudioMetadata[];
 
   /**
-   * <p>An array of segments detected in a video.</p>
-   */
-  Segments?: SegmentDetection[];
-
-  /**
-   * <p>An array containing the segment types requested in the call to <code>StartSegmentDetection</code>.
-   *     </p>
-   */
-  SelectedSegmentTypes?: SegmentTypeInfo[];
-
-  /**
-   * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
-   */
-  StatusMessage?: string;
-
-  /**
    * <p>Currently, Amazon Rekognition Video returns a single   object in the
    *       <code>VideoMetadata</code> array. The object
    *       contains information about the video stream in the input file that Amazon Rekognition Video chose to analyze.
@@ -3875,9 +4157,33 @@ export interface GetSegmentDetectionResponse {
   VideoMetadata?: VideoMetadata[];
 
   /**
+   * <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns
+   *       a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>An array containing the segment types requested in the call to <code>StartSegmentDetection</code>.
+   *     </p>
+   */
+  SelectedSegmentTypes?: SegmentTypeInfo[];
+
+  /**
+   * <p>An array of segments detected in a video.  The array is sorted by the segment types (TECHNICAL_CUE or SHOT)
+   *       specified in the <code>SegmentTypes</code> input parameter of <code>StartSegmentDetection</code>. Within
+   *       each segment type the array is sorted by timestamp values.</p>
+   */
+  Segments?: SegmentDetection[];
+
+  /**
    * <p>Current status of the segment detection job.</p>
    */
   JobStatus?: VideoJobStatus | string;
+
+  /**
+   * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
+   */
+  StatusMessage?: string;
 }
 
 export namespace GetSegmentDetectionResponse {
@@ -3888,10 +4194,10 @@ export namespace GetSegmentDetectionResponse {
 
 export interface GetTextDetectionRequest {
   /**
-   * <p>Job identifier for the text detection operation for which you want results returned.
-   *         You get the job identifer from an initial call to <code>StartTextDetection</code>.</p>
+   * <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns
+   *       a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>
    */
-  JobId: string | undefined;
+  NextToken?: string;
 
   /**
    * <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.</p>
@@ -3899,10 +4205,10 @@ export interface GetTextDetectionRequest {
   MaxResults?: number;
 
   /**
-   * <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns
-   *       a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>
+   * <p>Job identifier for the text detection operation for which you want results returned.
+   *         You get the job identifer from an initial call to <code>StartTextDetection</code>.</p>
    */
-  NextToken?: string;
+  JobId: string | undefined;
 }
 
 export namespace GetTextDetectionRequest {
@@ -3917,14 +4223,14 @@ export namespace GetTextDetectionRequest {
  */
 export interface TextDetectionResult {
   /**
-   * <p>Details about text detected in a video.</p>
-   */
-  TextDetection?: TextDetection;
-
-  /**
    * <p>The time, in milliseconds from the start of the video, that the text was detected.</p>
    */
   Timestamp?: number;
+
+  /**
+   * <p>Details about text detected in a video.</p>
+   */
+  TextDetection?: TextDetection;
 }
 
 export namespace TextDetectionResult {
@@ -3935,10 +4241,10 @@ export namespace TextDetectionResult {
 
 export interface GetTextDetectionResponse {
   /**
-   * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
-   *         request to retrieve the next set of text.</p>
+   * <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in
+   *             every page of paginated responses from a Amazon Rekognition video operation.</p>
    */
-  NextToken?: string;
+  VideoMetadata?: VideoMetadata;
 
   /**
    * <p>Version number of the text detection model that was used to detect text.</p>
@@ -3946,15 +4252,16 @@ export interface GetTextDetectionResponse {
   TextModelVersion?: string;
 
   /**
-   * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
+   * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
+   *         request to retrieve the next set of text.</p>
    */
-  StatusMessage?: string;
+  NextToken?: string;
 
   /**
-   * <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in
-   *             every page of paginated responses from a Amazon Rekognition video operation.</p>
+   * <p>An array of text detected in the video. Each element contains the detected text, the time in milliseconds
+   *       from the start of the video that the text was detected, and where it was detected on the screen.</p>
    */
-  VideoMetadata?: VideoMetadata;
+  TextDetections?: TextDetectionResult[];
 
   /**
    * <p>Current status of the text detection job.</p>
@@ -3962,10 +4269,9 @@ export interface GetTextDetectionResponse {
   JobStatus?: VideoJobStatus | string;
 
   /**
-   * <p>An array of text detected in the video. Each element contains the detected text, the time in milliseconds
-   *       from the start of the video that the text was detected, and where it was detected on the screen.</p>
+   * <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
    */
-  TextDetections?: TextDetectionResult[];
+  StatusMessage?: string;
 }
 
 export namespace GetTextDetectionResponse {
@@ -3981,13 +4287,13 @@ export namespace GetTextDetectionResponse {
 export interface IdempotentParameterMismatchException extends __SmithyException, $MetadataBearer {
   name: "IdempotentParameterMismatchException";
   $fault: "client";
+  Message?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
 
   Code?: string;
-  Message?: string;
 }
 
 export namespace IdempotentParameterMismatchException {
@@ -3998,15 +4304,26 @@ export namespace IdempotentParameterMismatchException {
 
 export interface IndexFacesRequest {
   /**
-   * <p>The ID of an existing collection to which you want to add the faces that are detected
-   *       in the input images.</p>
-   */
-  CollectionId: string | undefined;
-
-  /**
    * <p>The ID you want to assign to all the faces detected in the image.</p>
    */
   ExternalImageId?: string;
+
+  /**
+   * <p>The maximum number of faces to index. The value of <code>MaxFaces</code> must be greater
+   *       than or equal to 1. <code>IndexFaces</code> returns no more than 100 detected faces in an
+   *       image, even if you specify a larger value for <code>MaxFaces</code>.</p>
+   *          <p>If <code>IndexFaces</code> detects more faces than the value of <code>MaxFaces</code>, the
+   *       faces with the lowest quality are filtered out first. If there are still more faces than the
+   *       value of <code>MaxFaces</code>, the faces with the smallest bounding boxes are filtered out
+   *       (up to the number that's needed to satisfy the value of <code>MaxFaces</code>). Information
+   *       about the unindexed faces is available in the <code>UnindexedFaces</code> array. </p>
+   *          <p>The faces that are returned by <code>IndexFaces</code> are sorted by the largest face
+   *       bounding box size to the smallest size, in descending order.</p>
+   *          <p>
+   *             <code>MaxFaces</code> can be used with a collection associated with any version of
+   *       the face model.</p>
+   */
+  MaxFaces?: number;
 
   /**
    * <p>An array of facial attributes that you want to be returned. This can be the default
@@ -4030,6 +4347,12 @@ export interface IndexFacesRequest {
   Image: Image | undefined;
 
   /**
+   * <p>The ID of an existing collection to which you want to add the faces that are detected
+   *       in the input images.</p>
+   */
+  CollectionId: string | undefined;
+
+  /**
    * <p>A filter that specifies a quality bar for how much filtering is done to identify faces.
    *     Filtered faces aren't indexed. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar.
    *       If you specify <code>LOW</code>,
@@ -4045,23 +4368,6 @@ export interface IndexFacesRequest {
    *          <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
    */
   QualityFilter?: QualityFilter | string;
-
-  /**
-   * <p>The maximum number of faces to index. The value of <code>MaxFaces</code> must be greater
-   *       than or equal to 1. <code>IndexFaces</code> returns no more than 100 detected faces in an
-   *       image, even if you specify a larger value for <code>MaxFaces</code>.</p>
-   *          <p>If <code>IndexFaces</code> detects more faces than the value of <code>MaxFaces</code>, the
-   *       faces with the lowest quality are filtered out first. If there are still more faces than the
-   *       value of <code>MaxFaces</code>, the faces with the smallest bounding boxes are filtered out
-   *       (up to the number that's needed to satisfy the value of <code>MaxFaces</code>). Information
-   *       about the unindexed faces is available in the <code>UnindexedFaces</code> array. </p>
-   *          <p>The faces that are returned by <code>IndexFaces</code> are sorted by the largest face
-   *       bounding box size to the smallest size, in descending order.</p>
-   *          <p>
-   *             <code>MaxFaces</code> can be used with a collection associated with any version of
-   *       the face model.</p>
-   */
-  MaxFaces?: number;
 }
 
 export namespace IndexFacesRequest {
@@ -4085,6 +4391,13 @@ export enum Reason {
  *         <code>Reasons</code> response attribute to determine why a face wasn't indexed.</p>
  */
 export interface UnindexedFace {
+  /**
+   * <p>The
+   *       structure that contains attributes of a face that
+   *       <code>IndexFaces</code>detected, but didn't index. </p>
+   */
+  FaceDetail?: FaceDetail;
+
   /**
    * <p>An array of reasons that specify why a face wasn't indexed. </p>
    *          <ul>
@@ -4111,13 +4424,6 @@ export interface UnindexedFace {
    *          </ul>
    */
   Reasons?: (Reason | string)[];
-
-  /**
-   * <p>The
-   *       structure that contains attributes of a face that
-   *       <code>IndexFaces</code>detected, but didn't index. </p>
-   */
-  FaceDetail?: FaceDetail;
 }
 
 export namespace UnindexedFace {
@@ -4127,20 +4433,6 @@ export namespace UnindexedFace {
 }
 
 export interface IndexFacesResponse {
-  /**
-   * <p>An array of faces that were detected in the image but weren't indexed. They weren't
-   *       indexed because the quality filter identified them as low quality, or the
-   *         <code>MaxFaces</code> request parameter filtered them out. To use the quality filter, you
-   *       specify the <code>QualityFilter</code> request parameter.</p>
-   */
-  UnindexedFaces?: UnindexedFace[];
-
-  /**
-   * <p>The version number of the face detection model that's associated with the input
-   *       collection (<code>CollectionId</code>).</p>
-   */
-  FaceModelVersion?: string;
-
   /**
    * <p>If your collection is associated with a face detection model that's later
    *       than version 3.0, the value of <code>OrientationCorrection</code>
@@ -4173,15 +4465,53 @@ export interface IndexFacesResponse {
   OrientationCorrection?: OrientationCorrection | string;
 
   /**
+   * <p>The version number of the face detection model that's associated with the input
+   *       collection (<code>CollectionId</code>).</p>
+   */
+  FaceModelVersion?: string;
+
+  /**
    * <p>An array of faces detected and added to the collection.
    *       For more information, see Searching Faces in a Collection in the Amazon Rekognition Developer Guide.
    *     </p>
    */
   FaceRecords?: FaceRecord[];
+
+  /**
+   * <p>An array of faces that were detected in the image but weren't indexed. They weren't
+   *       indexed because the quality filter identified them as low quality, or the
+   *         <code>MaxFaces</code> request parameter filtered them out. To use the quality filter, you
+   *       specify the <code>QualityFilter</code> request parameter.</p>
+   */
+  UnindexedFaces?: UnindexedFace[];
 }
 
 export namespace IndexFacesResponse {
   export const filterSensitiveLog = (obj: IndexFacesResponse): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p></p>
+ *
+ *
+ *          <p>The size of the collection exceeds the allowed limit. For more information, see
+ *       Limits in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ */
+export interface ServiceQuotaExceededException extends __SmithyException, $MetadataBearer {
+  name: "ServiceQuotaExceededException";
+  $fault: "client";
+  Code?: string;
+  Message?: string;
+  /**
+   * <p>A universally unique identifier (UUID) for the request.</p>
+   */
+  Logref?: string;
+}
+
+export namespace ServiceQuotaExceededException {
+  export const filterSensitiveLog = (obj: ServiceQuotaExceededException): any => ({
     ...obj,
   });
 }
@@ -4206,15 +4536,15 @@ export namespace ListCollectionsRequest {
 
 export interface ListCollectionsResponse {
   /**
+   * <p>An array of collection IDs.</p>
+   */
+  CollectionIds?: string[];
+
+  /**
    * <p>If the result is truncated, the response provides a <code>NextToken</code> that you can
    *       use in the subsequent request to fetch the next set of collection IDs.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>An array of collection IDs.</p>
-   */
-  CollectionIds?: string[];
 
   /**
    * <p>Version numbers of the face detection models associated with the collections in the array <code>CollectionIds</code>.
@@ -4232,6 +4562,13 @@ export namespace ListCollectionsResponse {
 
 export interface ListFacesRequest {
   /**
+   * <p>If the previous response was incomplete (because there is more data to retrieve),
+   *       Amazon Rekognition returns a pagination token in the response. You can use this pagination token to
+   *       retrieve the next set of faces.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>ID of the collection from which to list the faces.</p>
    */
   CollectionId: string | undefined;
@@ -4240,13 +4577,6 @@ export interface ListFacesRequest {
    * <p>Maximum number of faces to return.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>If the previous response was incomplete (because there is more data to retrieve),
-   *       Amazon Rekognition returns a pagination token in the response. You can use this pagination token to
-   *       retrieve the next set of faces.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace ListFacesRequest {
@@ -4257,15 +4587,15 @@ export namespace ListFacesRequest {
 
 export interface ListFacesResponse {
   /**
+   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
+   */
+  FaceModelVersion?: string;
+
+  /**
    * <p>If the response is truncated, Amazon Rekognition returns this token that you can use in the
    *       subsequent request to retrieve the next set of faces.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
-   */
-  FaceModelVersion?: string;
 
   /**
    * <p>An array of <code>Face</code> objects. </p>
@@ -4281,15 +4611,15 @@ export namespace ListFacesResponse {
 
 export interface ListStreamProcessorsRequest {
   /**
+   * <p>Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000. </p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video
    *             returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000. </p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListStreamProcessorsRequest {
@@ -4306,14 +4636,14 @@ export namespace ListStreamProcessorsRequest {
  */
 export interface StreamProcessor {
   /**
-   * <p>Name of the Amazon Rekognition stream processor. </p>
-   */
-  Name?: string;
-
-  /**
    * <p>Current status of the Amazon Rekognition stream processor.</p>
    */
   Status?: StreamProcessorStatus | string;
+
+  /**
+   * <p>Name of the Amazon Rekognition stream processor. </p>
+   */
+  Name?: string;
 }
 
 export namespace StreamProcessor {
@@ -4324,15 +4654,15 @@ export namespace StreamProcessor {
 
 export interface ListStreamProcessorsResponse {
   /**
+   * <p>List of stream processors that you have created.</p>
+   */
+  StreamProcessors?: StreamProcessor[];
+
+  /**
    * <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent
    *             request to retrieve the next set of stream processors. </p>
    */
   NextToken?: string;
-
-  /**
-   * <p>List of stream processors that you have created.</p>
-   */
-  StreamProcessors?: StreamProcessor[];
 }
 
 export namespace ListStreamProcessorsResponse {
@@ -4382,11 +4712,6 @@ export namespace RecognizeCelebritiesRequest {
 
 export interface RecognizeCelebritiesResponse {
   /**
-   * <p>Details about each unrecognized face in the image.</p>
-   */
-  UnrecognizedFaces?: ComparedFace[];
-
-  /**
    * <p>The orientation of the input image (counterclockwise direction). If your application
    *       displays the image, you can use this value to correct the orientation. The bounding box
    *       coordinates returned in <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code>
@@ -4403,7 +4728,12 @@ export interface RecognizeCelebritiesResponse {
   OrientationCorrection?: OrientationCorrection | string;
 
   /**
-   * <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 15
+   * <p>Details about each unrecognized face in the image.</p>
+   */
+  UnrecognizedFaces?: ComparedFace[];
+
+  /**
+   * <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64
    *       celebrities in an image.</p>
    */
   CelebrityFaces?: Celebrity[];
@@ -4417,15 +4747,17 @@ export namespace RecognizeCelebritiesResponse {
 
 export interface SearchFacesRequest {
   /**
+   * <p>Optional value specifying the minimum confidence in the face match to return. For
+   *       example, don't return any matches where confidence in matches is less than 70%.
+   *       The default value is 80%.
+   *     </p>
+   */
+  FaceMatchThreshold?: number;
+
+  /**
    * <p>ID of a face to find matches for in the collection.</p>
    */
   FaceId: string | undefined;
-
-  /**
-   * <p>Maximum number of faces to return. The operation returns the maximum number of faces
-   *       with the highest confidence in the match.</p>
-   */
-  MaxFaces?: number;
 
   /**
    * <p>ID of the collection the face belongs to.</p>
@@ -4433,12 +4765,10 @@ export interface SearchFacesRequest {
   CollectionId: string | undefined;
 
   /**
-   * <p>Optional value specifying the minimum confidence in the face match to return. For
-   *       example, don't return any matches where confidence in matches is less than 70%.
-   *       The default value is 80%.
-   *     </p>
+   * <p>Maximum number of faces to return. The operation returns the maximum number of faces
+   *       with the highest confidence in the match.</p>
    */
-  FaceMatchThreshold?: number;
+  MaxFaces?: number;
 }
 
 export namespace SearchFacesRequest {
@@ -4454,15 +4784,15 @@ export interface SearchFacesResponse {
   SearchedFaceId?: string;
 
   /**
-   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
-   */
-  FaceModelVersion?: string;
-
-  /**
    * <p>An array of faces that matched the input face, along with the confidence in the
    *       match.</p>
    */
   FaceMatches?: FaceMatch[];
+
+  /**
+   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
+   */
+  FaceModelVersion?: string;
 }
 
 export namespace SearchFacesResponse {
@@ -4472,12 +4802,6 @@ export namespace SearchFacesResponse {
 }
 
 export interface SearchFacesByImageRequest {
-  /**
-   * <p>Maximum number of faces to return. The operation returns the maximum number of faces
-   *       with the highest confidence in the match.</p>
-   */
-  MaxFaces?: number;
-
   /**
    * <p>(Optional) Specifies the minimum confidence in the face match to return. For example,
    *       don't return any matches where confidence in matches is less than 70%.
@@ -4494,6 +4818,11 @@ export interface SearchFacesByImageRequest {
    *       For more information, see Images in the Amazon Rekognition developer guide.</p>
    */
   Image: Image | undefined;
+
+  /**
+   * <p>ID of the collection to search.</p>
+   */
+  CollectionId: string | undefined;
 
   /**
    * <p>A filter that specifies a quality bar for how much filtering is done to identify faces.
@@ -4513,9 +4842,10 @@ export interface SearchFacesByImageRequest {
   QualityFilter?: QualityFilter | string;
 
   /**
-   * <p>ID of the collection to search.</p>
+   * <p>Maximum number of faces to return. The operation returns the maximum number of faces
+   *       with the highest confidence in the match.</p>
    */
-  CollectionId: string | undefined;
+  MaxFaces?: number;
 }
 
 export namespace SearchFacesByImageRequest {
@@ -4526,27 +4856,27 @@ export namespace SearchFacesByImageRequest {
 
 export interface SearchFacesByImageResponse {
   /**
-   * <p>The level of confidence that the <code>searchedFaceBoundingBox</code>, contains a
-   *       face.</p>
-   */
-  SearchedFaceConfidence?: number;
-
-  /**
    * <p>The bounding box around the face in the input image that Amazon Rekognition used for the
    *       search.</p>
    */
   SearchedFaceBoundingBox?: BoundingBox;
 
   /**
+   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
+   */
+  FaceModelVersion?: string;
+
+  /**
+   * <p>The level of confidence that the <code>searchedFaceBoundingBox</code>, contains a
+   *       face.</p>
+   */
+  SearchedFaceConfidence?: number;
+
+  /**
    * <p>An array of faces that match the input face, along with the confidence in the
    *       match.</p>
    */
   FaceMatches?: FaceMatch[];
-
-  /**
-   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
-   */
-  FaceModelVersion?: string;
 }
 
 export namespace SearchFacesByImageResponse {
@@ -4574,6 +4904,12 @@ export namespace Video {
 
 export interface StartCelebrityRecognitionRequest {
   /**
+   * <p>The video in which you want to recognize celebrities. The video must be stored
+   *       in an Amazon S3 bucket.</p>
+   */
+  Video: Video | undefined;
+
+  /**
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
    *     <code>StartCelebrityRecognition</code> requests, the same <code>JobId</code> is returned. Use
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
@@ -4581,22 +4917,16 @@ export interface StartCelebrityRecognitionRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The video in which you want to recognize celebrities. The video must be stored
-   *       in an Amazon S3 bucket.</p>
+   * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
+   *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    */
-  Video: Video | undefined;
+  JobTag?: string;
 
   /**
    * <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the
    *       celebrity recognition analysis to.</p>
    */
   NotificationChannel?: NotificationChannel;
-
-  /**
-   * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
-   *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
-   */
-  JobTag?: string;
 }
 
 export namespace StartCelebrityRecognitionRequest {
@@ -4626,12 +4956,13 @@ export namespace StartCelebrityRecognitionResponse {
 export interface VideoTooLargeException extends __SmithyException, $MetadataBearer {
   name: "VideoTooLargeException";
   $fault: "client";
-  Message?: string;
-  Code?: string;
   /**
    * <p>A universally unique identifier (UUID) for the request.</p>
    */
   Logref?: string;
+
+  Message?: string;
+  Code?: string;
 }
 
 export namespace VideoTooLargeException {
@@ -4642,6 +4973,12 @@ export namespace VideoTooLargeException {
 
 export interface StartContentModerationRequest {
   /**
+   * <p>The video in which you want to detect unsafe content. The video must be stored
+   *       in an Amazon S3 bucket.</p>
+   */
+  Video: Video | undefined;
+
+  /**
    * <p>Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence
    *       represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence.
    *       100 is the highest confidence.  Amazon Rekognition doesn't return any moderated content labels with a confidence level
@@ -4649,18 +4986,6 @@ export interface StartContentModerationRequest {
    *        returns labels with confidence values greater than or equal to 50 percent.</p>
    */
   MinConfidence?: number;
-
-  /**
-   * <p>The video in which you want to detect unsafe content. The video must be stored
-   *       in an Amazon S3 bucket.</p>
-   */
-  Video: Video | undefined;
-
-  /**
-   * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
-   *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
-   */
-  JobTag?: string;
 
   /**
    * <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the
@@ -4674,6 +4999,12 @@ export interface StartContentModerationRequest {
    *       <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
+   *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
+   */
+  JobTag?: string;
 }
 
 export namespace StartContentModerationRequest {
@@ -4698,10 +5029,19 @@ export namespace StartContentModerationResponse {
 
 export interface StartFaceDetectionRequest {
   /**
-   * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the
-   *          face detection operation.</p>
+   * <p>The face attributes you want returned.</p>
+   *          <p>
+   *             <code>DEFAULT</code> - The following subset of facial attributes are returned: BoundingBox, Confidence, Pose, Quality and Landmarks. </p>
+   *          <p>
+   *             <code>ALL</code> - All facial attributes are returned.</p>
    */
-  NotificationChannel?: NotificationChannel;
+  FaceAttributes?: FaceAttributes | string;
+
+  /**
+   * <p>The video in which you want to detect faces. The video must be stored
+   *       in an Amazon S3 bucket.</p>
+   */
+  Video: Video | undefined;
 
   /**
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
@@ -4711,25 +5051,16 @@ export interface StartFaceDetectionRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The video in which you want to detect faces. The video must be stored
-   *       in an Amazon S3 bucket.</p>
+   * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the
+   *          face detection operation.</p>
    */
-  Video: Video | undefined;
+  NotificationChannel?: NotificationChannel;
 
   /**
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    */
   JobTag?: string;
-
-  /**
-   * <p>The face attributes you want returned.</p>
-   *          <p>
-   *             <code>DEFAULT</code> - The following subset of facial attributes are returned: BoundingBox, Confidence, Pose, Quality and Landmarks. </p>
-   *          <p>
-   *             <code>ALL</code> - All facial attributes are returned.</p>
-   */
-  FaceAttributes?: FaceAttributes | string;
 }
 
 export namespace StartFaceDetectionRequest {
@@ -4754,15 +5085,15 @@ export namespace StartFaceDetectionResponse {
 
 export interface StartFaceSearchRequest {
   /**
-   * <p>The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%.
-   *       The default value is 80%.</p>
-   */
-  FaceMatchThreshold?: number;
-
-  /**
    * <p>ID of the collection that contains the faces you want to search for.</p>
    */
   CollectionId: string | undefined;
+
+  /**
+   * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
+   *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
+   */
+  JobTag?: string;
 
   /**
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
@@ -4772,20 +5103,20 @@ export interface StartFaceSearchRequest {
   ClientRequestToken?: string;
 
   /**
+   * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. </p>
+   */
+  NotificationChannel?: NotificationChannel;
+
+  /**
    * <p>The video you want to search. The video must be stored in an Amazon S3 bucket. </p>
    */
   Video: Video | undefined;
 
   /**
-   * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
-   *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
+   * <p>The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%.
+   *       The default value is 80%.</p>
    */
-  JobTag?: string;
-
-  /**
-   * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. </p>
-   */
-  NotificationChannel?: NotificationChannel;
+  FaceMatchThreshold?: number;
 }
 
 export namespace StartFaceSearchRequest {
@@ -4826,10 +5157,10 @@ export interface StartLabelDetectionRequest {
   MinConfidence?: number;
 
   /**
-   * <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection
-   *         operation to. </p>
+   * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
+   *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    */
-  NotificationChannel?: NotificationChannel;
+  JobTag?: string;
 
   /**
    * <p>The video in which you want to detect labels. The video must be stored
@@ -4838,10 +5169,10 @@ export interface StartLabelDetectionRequest {
   Video: Video | undefined;
 
   /**
-   * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
-   *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
+   * <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection
+   *         operation to. </p>
    */
-  JobTag?: string;
+  NotificationChannel?: NotificationChannel;
 }
 
 export namespace StartLabelDetectionRequest {
@@ -4879,16 +5210,16 @@ export interface StartPersonTrackingRequest {
   Video: Video | undefined;
 
   /**
-   * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
-   *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
-   */
-  JobTag?: string;
-
-  /**
    * <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people detection
    *         operation to.</p>
    */
   NotificationChannel?: NotificationChannel;
+
+  /**
+   * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
+   *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
+   */
+  JobTag?: string;
 }
 
 export namespace StartPersonTrackingRequest {
@@ -4997,14 +5328,14 @@ export namespace StartTechnicalCueDetectionFilter {
  */
 export interface StartSegmentDetectionFilters {
   /**
-   * <p>Filters that are specific to shot detections.</p>
-   */
-  ShotFilter?: StartShotDetectionFilter;
-
-  /**
    * <p>Filters that are specific to technical cues.</p>
    */
   TechnicalCueFilter?: StartTechnicalCueDetectionFilter;
+
+  /**
+   * <p>Filters that are specific to shot detections.</p>
+   */
+  ShotFilter?: StartShotDetectionFilter;
 }
 
 export namespace StartSegmentDetectionFilters {
@@ -5015,9 +5346,20 @@ export namespace StartSegmentDetectionFilters {
 
 export interface StartSegmentDetectionRequest {
   /**
+   * <p>Filters for technical cue or shot detection.</p>
+   */
+  Filters?: StartSegmentDetectionFilters;
+
+  /**
    * <p>An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.</p>
    */
   SegmentTypes: (SegmentType | string)[] | undefined;
+
+  /**
+   * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
+   *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+   */
+  Video: Video | undefined;
 
   /**
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple
@@ -5027,27 +5369,16 @@ export interface StartSegmentDetectionRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the
-   *       segment detection operation.</p>
-   */
-  NotificationChannel?: NotificationChannel;
-
-  /**
-   * <p>Filters for technical cue or shot detection.</p>
-   */
-  Filters?: StartSegmentDetectionFilters;
-
-  /**
-   * <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to
-   *             specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
-   */
-  Video: Video | undefined;
-
-  /**
    * <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic.
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    */
   JobTag?: string;
+
+  /**
+   * <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the
+   *       segment detection operation.</p>
+   */
+  NotificationChannel?: NotificationChannel;
 }
 
 export namespace StartSegmentDetectionRequest {
@@ -5098,15 +5429,15 @@ export namespace StartStreamProcessorResponse {
  */
 export interface StartTextDetectionFilters {
   /**
+   * <p>Filters focusing on qualities of the text, such as confidence or size.</p>
+   */
+  WordFilter?: DetectionFilter;
+
+  /**
    * <p>Filter focusing on a certain area of the frame. Uses a <code>BoundingBox</code> object to set the region
    *       of the screen.</p>
    */
   RegionsOfInterest?: RegionOfInterest[];
-
-  /**
-   * <p>Filters focusing on qualities of the text, such as confidence or size.</p>
-   */
-  WordFilter?: DetectionFilter;
 }
 
 export namespace StartTextDetectionFilters {
@@ -5116,11 +5447,6 @@ export namespace StartTextDetectionFilters {
 }
 
 export interface StartTextDetectionRequest {
-  /**
-   * <p>Optional parameters that let you set criteria the text must meet to be included in your response.</p>
-   */
-  Filters?: StartTextDetectionFilters;
-
   /**
    * <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartTextDetection</code>
    *       requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job
@@ -5135,16 +5461,21 @@ export interface StartTextDetectionRequest {
   Video: Video | undefined;
 
   /**
+   * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see
+   *             <a>api-video</a>.</p>
+   */
+  NotificationChannel?: NotificationChannel;
+
+  /**
    * <p>An identifier returned in the completion status published by your Amazon Simple Notification Service topic.  For example, you can use <code>JobTag</code> to group related jobs
    *       and identify them in the completion notification.</p>
    */
   JobTag?: string;
 
   /**
-   * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see
-   *             <a>api-video</a>.</p>
+   * <p>Optional parameters that let you set criteria the text must meet to be included in your response.</p>
    */
-  NotificationChannel?: NotificationChannel;
+  Filters?: StartTextDetectionFilters;
 }
 
 export namespace StartTextDetectionRequest {

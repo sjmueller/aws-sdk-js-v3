@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListOrganizationAdminAccountsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListOrganizationAdminAccountsCommand(input, ...args));
+  return await client.send(new ListOrganizationAdminAccountsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: GuardDuty,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listOrganizationAdminAccounts(input, ...args);
 };
-export async function* listOrganizationAdminAccountsPaginate(
+export async function* paginateListOrganizationAdminAccounts(
   config: GuardDutyPaginationConfiguration,
   input: ListOrganizationAdminAccountsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListOrganizationAdminAccountsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListOrganizationAdminAccountsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof GuardDuty) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listOrganizationAdminAccountsPaginate(
       throw new Error("Invalid client, expected GuardDuty | GuardDutyClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

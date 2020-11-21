@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListResourcesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListResourcesCommand(input, ...args));
+  return await client.send(new ListResourcesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: RAM,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listResources(input, ...args);
 };
-export async function* listResourcesPaginate(
+export async function* paginateListResources(
   config: RAMPaginationConfiguration,
   input: ListResourcesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListResourcesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListResourcesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof RAM) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listResourcesPaginate(
       throw new Error("Invalid client, expected RAM | RAMClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

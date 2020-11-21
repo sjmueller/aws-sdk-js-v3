@@ -177,6 +177,7 @@ import {
   ResourceNotReadyException,
   Runtime,
   ServiceException,
+  SourceAccessConfiguration,
   SubnetIPAddressLimitReachedException,
   TooManyRequestsException,
   TracingConfig,
@@ -205,15 +206,6 @@ export const serializeAws_restJson1AddLayerVersionPermissionCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
-  if (input.VersionNumber !== undefined) {
-    const labelValue: string = input.VersionNumber.toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: VersionNumber.");
-    }
-    resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: VersionNumber.");
-  }
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -222,6 +214,15 @@ export const serializeAws_restJson1AddLayerVersionPermissionCommand = async (
     resolvedPath = resolvedPath.replace("{LayerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: LayerName.");
+  }
+  if (input.VersionNumber !== undefined) {
+    const labelValue: string = input.VersionNumber.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VersionNumber.");
+    }
+    resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
   const query: any = {
     ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
@@ -355,10 +356,18 @@ export const serializeAws_restJson1CreateEventSourceMappingCommand = async (
     }),
     ...(input.MaximumRetryAttempts !== undefined && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
     ...(input.ParallelizationFactor !== undefined && { ParallelizationFactor: input.ParallelizationFactor }),
+    ...(input.Queues !== undefined && { Queues: serializeAws_restJson1Queues(input.Queues, context) }),
+    ...(input.SourceAccessConfigurations !== undefined && {
+      SourceAccessConfigurations: serializeAws_restJson1SourceAccessConfigurations(
+        input.SourceAccessConfigurations,
+        context
+      ),
+    }),
     ...(input.StartingPosition !== undefined && { StartingPosition: input.StartingPosition }),
     ...(input.StartingPositionTimestamp !== undefined && {
       StartingPositionTimestamp: Math.round(input.StartingPositionTimestamp.getTime() / 1000),
     }),
+    ...(input.Topics !== undefined && { Topics: serializeAws_restJson1Topics(input.Topics, context) }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -428,15 +437,6 @@ export const serializeAws_restJson1DeleteAliasCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -445,6 +445,15 @@ export const serializeAws_restJson1DeleteAliasCommand = async (
     resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
+  }
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -956,15 +965,6 @@ export const serializeAws_restJson1GetLayerVersionPolicyCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy";
-  if (input.VersionNumber !== undefined) {
-    const labelValue: string = input.VersionNumber.toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: VersionNumber.");
-    }
-    resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: VersionNumber.");
-  }
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -973,6 +973,15 @@ export const serializeAws_restJson1GetLayerVersionPolicyCommand = async (
     resolvedPath = resolvedPath.replace("{LayerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: LayerName.");
+  }
+  if (input.VersionNumber !== undefined) {
+    const labelValue: string = input.VersionNumber.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VersionNumber.");
+    }
+    resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1146,9 +1155,9 @@ export const serializeAws_restJson1ListAliasesCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   const query: any = {
+    ...(input.FunctionVersion !== undefined && { FunctionVersion: input.FunctionVersion }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-    ...(input.FunctionVersion !== undefined && { FunctionVersion: input.FunctionVersion }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1173,10 +1182,10 @@ export const serializeAws_restJson1ListEventSourceMappingsCommand = async (
   };
   let resolvedPath = "/2015-03-31/event-source-mappings";
   const query: any = {
+    ...(input.EventSourceArn !== undefined && { EventSourceArn: input.EventSourceArn }),
+    ...(input.FunctionName !== undefined && { FunctionName: input.FunctionName }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
     ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
-    ...(input.FunctionName !== undefined && { FunctionName: input.FunctionName }),
-    ...(input.EventSourceArn !== undefined && { EventSourceArn: input.EventSourceArn }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1210,8 +1219,8 @@ export const serializeAws_restJson1ListFunctionEventInvokeConfigsCommand = async
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   const query: any = {
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1236,10 +1245,10 @@ export const serializeAws_restJson1ListFunctionsCommand = async (
   };
   let resolvedPath = "/2015-03-31/functions";
   const query: any = {
-    ...(input.FunctionVersion !== undefined && { FunctionVersion: input.FunctionVersion }),
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
     ...(input.MasterRegion !== undefined && { MasterRegion: input.MasterRegion }),
+    ...(input.FunctionVersion !== undefined && { FunctionVersion: input.FunctionVersion }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1264,9 +1273,9 @@ export const serializeAws_restJson1ListLayersCommand = async (
   };
   let resolvedPath = "/2018-10-31/layers";
   const query: any = {
-    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
     ...(input.CompatibleRuntime !== undefined && { CompatibleRuntime: input.CompatibleRuntime }),
     ...(input.Marker !== undefined && { Marker: input.Marker }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems.toString() }),
   };
   let body: any;
   const { hostname, protocol = "https", port } = await context.endpoint();
@@ -1617,15 +1626,6 @@ export const serializeAws_restJson1RemoveLayerVersionPermissionCommand = async (
     "Content-Type": "",
   };
   let resolvedPath = "/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}";
-  if (input.VersionNumber !== undefined) {
-    const labelValue: string = input.VersionNumber.toString();
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: VersionNumber.");
-    }
-    resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: VersionNumber.");
-  }
   if (input.LayerName !== undefined) {
     const labelValue: string = input.LayerName;
     if (labelValue.length <= 0) {
@@ -1634,6 +1634,15 @@ export const serializeAws_restJson1RemoveLayerVersionPermissionCommand = async (
     resolvedPath = resolvedPath.replace("{LayerName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: LayerName.");
+  }
+  if (input.VersionNumber !== undefined) {
+    const labelValue: string = input.VersionNumber.toString();
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: VersionNumber.");
+    }
+    resolvedPath = resolvedPath.replace("{VersionNumber}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: VersionNumber.");
   }
   if (input.StatementId !== undefined) {
     const labelValue: string = input.StatementId;
@@ -1780,15 +1789,6 @@ export const serializeAws_restJson1UpdateAliasCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/2015-03-31/functions/{FunctionName}/aliases/{Name}";
-  if (input.Name !== undefined) {
-    const labelValue: string = input.Name;
-    if (labelValue.length <= 0) {
-      throw new Error("Empty value provided for input HTTP label: Name.");
-    }
-    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
-  } else {
-    throw new Error("No value provided for input HTTP label: Name.");
-  }
   if (input.FunctionName !== undefined) {
     const labelValue: string = input.FunctionName;
     if (labelValue.length <= 0) {
@@ -1797,6 +1797,15 @@ export const serializeAws_restJson1UpdateAliasCommand = async (
     resolvedPath = resolvedPath.replace("{FunctionName}", __extendedEncodeURIComponent(labelValue));
   } else {
     throw new Error("No value provided for input HTTP label: FunctionName.");
+  }
+  if (input.Name !== undefined) {
+    const labelValue: string = input.Name;
+    if (labelValue.length <= 0) {
+      throw new Error("Empty value provided for input HTTP label: Name.");
+    }
+    resolvedPath = resolvedPath.replace("{Name}", __extendedEncodeURIComponent(labelValue));
+  } else {
+    throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
   body = JSON.stringify({
@@ -1855,6 +1864,12 @@ export const serializeAws_restJson1UpdateEventSourceMappingCommand = async (
     }),
     ...(input.MaximumRetryAttempts !== undefined && { MaximumRetryAttempts: input.MaximumRetryAttempts }),
     ...(input.ParallelizationFactor !== undefined && { ParallelizationFactor: input.ParallelizationFactor }),
+    ...(input.SourceAccessConfigurations !== undefined && {
+      SourceAccessConfigurations: serializeAws_restJson1SourceAccessConfigurations(
+        input.SourceAccessConfigurations,
+        context
+      ),
+    }),
   });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
@@ -2006,7 +2021,7 @@ export const deserializeAws_restJson1AddLayerVersionPermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddLayerVersionPermissionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1AddLayerVersionPermissionCommandError(output, context);
   }
   const contents: AddLayerVersionPermissionCommandOutput = {
@@ -2113,7 +2128,7 @@ export const deserializeAws_restJson1AddPermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddPermissionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1AddPermissionCommandError(output, context);
   }
   const contents: AddPermissionCommandOutput = {
@@ -2216,7 +2231,7 @@ export const deserializeAws_restJson1CreateAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateAliasCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateAliasCommandError(output, context);
   }
   const contents: CreateAliasCommandOutput = {
@@ -2323,7 +2338,7 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateEventSourceMappingCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateEventSourceMappingCommandError(output, context);
   }
   const contents: CreateEventSourceMappingCommandOutput = {
@@ -2339,8 +2354,11 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
     MaximumRecordAgeInSeconds: undefined,
     MaximumRetryAttempts: undefined,
     ParallelizationFactor: undefined,
+    Queues: undefined,
+    SourceAccessConfigurations: undefined,
     State: undefined,
     StateTransitionReason: undefined,
+    Topics: undefined,
     UUID: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2377,11 +2395,23 @@ export const deserializeAws_restJson1CreateEventSourceMappingCommand = async (
   if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
     contents.ParallelizationFactor = data.ParallelizationFactor;
   }
+  if (data.Queues !== undefined && data.Queues !== null) {
+    contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
+  }
+  if (data.SourceAccessConfigurations !== undefined && data.SourceAccessConfigurations !== null) {
+    contents.SourceAccessConfigurations = deserializeAws_restJson1SourceAccessConfigurations(
+      data.SourceAccessConfigurations,
+      context
+    );
+  }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
   }
   if (data.StateTransitionReason !== undefined && data.StateTransitionReason !== null) {
     contents.StateTransitionReason = data.StateTransitionReason;
+  }
+  if (data.Topics !== undefined && data.Topics !== null) {
+    contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
   }
   if (data.UUID !== undefined && data.UUID !== null) {
     contents.UUID = data.UUID;
@@ -2462,7 +2492,7 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateFunctionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateFunctionCommandError(output, context);
   }
   const contents: CreateFunctionCommandOutput = {
@@ -2661,7 +2691,7 @@ export const deserializeAws_restJson1DeleteAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteAliasCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteAliasCommandError(output, context);
   }
   const contents: DeleteAliasCommandOutput = {
@@ -2736,7 +2766,7 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteEventSourceMappingCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteEventSourceMappingCommandError(output, context);
   }
   const contents: DeleteEventSourceMappingCommandOutput = {
@@ -2752,8 +2782,11 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
     MaximumRecordAgeInSeconds: undefined,
     MaximumRetryAttempts: undefined,
     ParallelizationFactor: undefined,
+    Queues: undefined,
+    SourceAccessConfigurations: undefined,
     State: undefined,
     StateTransitionReason: undefined,
+    Topics: undefined,
     UUID: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -2790,11 +2823,23 @@ export const deserializeAws_restJson1DeleteEventSourceMappingCommand = async (
   if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
     contents.ParallelizationFactor = data.ParallelizationFactor;
   }
+  if (data.Queues !== undefined && data.Queues !== null) {
+    contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
+  }
+  if (data.SourceAccessConfigurations !== undefined && data.SourceAccessConfigurations !== null) {
+    contents.SourceAccessConfigurations = deserializeAws_restJson1SourceAccessConfigurations(
+      data.SourceAccessConfigurations,
+      context
+    );
+  }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
   }
   if (data.StateTransitionReason !== undefined && data.StateTransitionReason !== null) {
     contents.StateTransitionReason = data.StateTransitionReason;
+  }
+  if (data.Topics !== undefined && data.Topics !== null) {
+    contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
   }
   if (data.UUID !== undefined && data.UUID !== null) {
     contents.UUID = data.UUID;
@@ -2875,7 +2920,7 @@ export const deserializeAws_restJson1DeleteFunctionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteFunctionCommandError(output, context);
   }
   const contents: DeleteFunctionCommandOutput = {
@@ -2958,7 +3003,7 @@ export const deserializeAws_restJson1DeleteFunctionConcurrencyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionConcurrencyCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteFunctionConcurrencyCommandError(output, context);
   }
   const contents: DeleteFunctionConcurrencyCommandOutput = {
@@ -3041,7 +3086,7 @@ export const deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteFunctionEventInvokeConfigCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteFunctionEventInvokeConfigCommandError(output, context);
   }
   const contents: DeleteFunctionEventInvokeConfigCommandOutput = {
@@ -3116,7 +3161,7 @@ export const deserializeAws_restJson1DeleteLayerVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLayerVersionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteLayerVersionCommandError(output, context);
   }
   const contents: DeleteLayerVersionCommandOutput = {
@@ -3175,7 +3220,7 @@ export const deserializeAws_restJson1DeleteProvisionedConcurrencyConfigCommand =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProvisionedConcurrencyConfigCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteProvisionedConcurrencyConfigCommandError(output, context);
   }
   const contents: DeleteProvisionedConcurrencyConfigCommandOutput = {
@@ -3258,7 +3303,7 @@ export const deserializeAws_restJson1GetAccountSettingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAccountSettingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAccountSettingsCommandError(output, context);
   }
   const contents: GetAccountSettingsCommandOutput = {
@@ -3325,7 +3370,7 @@ export const deserializeAws_restJson1GetAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetAliasCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetAliasCommandError(output, context);
   }
   const contents: GetAliasCommandOutput = {
@@ -3424,7 +3469,7 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetEventSourceMappingCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetEventSourceMappingCommandError(output, context);
   }
   const contents: GetEventSourceMappingCommandOutput = {
@@ -3440,8 +3485,11 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
     MaximumRecordAgeInSeconds: undefined,
     MaximumRetryAttempts: undefined,
     ParallelizationFactor: undefined,
+    Queues: undefined,
+    SourceAccessConfigurations: undefined,
     State: undefined,
     StateTransitionReason: undefined,
+    Topics: undefined,
     UUID: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -3478,11 +3526,23 @@ export const deserializeAws_restJson1GetEventSourceMappingCommand = async (
   if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
     contents.ParallelizationFactor = data.ParallelizationFactor;
   }
+  if (data.Queues !== undefined && data.Queues !== null) {
+    contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
+  }
+  if (data.SourceAccessConfigurations !== undefined && data.SourceAccessConfigurations !== null) {
+    contents.SourceAccessConfigurations = deserializeAws_restJson1SourceAccessConfigurations(
+      data.SourceAccessConfigurations,
+      context
+    );
+  }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
   }
   if (data.StateTransitionReason !== undefined && data.StateTransitionReason !== null) {
     contents.StateTransitionReason = data.StateTransitionReason;
+  }
+  if (data.Topics !== undefined && data.Topics !== null) {
+    contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
   }
   if (data.UUID !== undefined && data.UUID !== null) {
     contents.UUID = data.UUID;
@@ -3555,7 +3615,7 @@ export const deserializeAws_restJson1GetFunctionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetFunctionCommandError(output, context);
   }
   const contents: GetFunctionCommandOutput = {
@@ -3646,7 +3706,7 @@ export const deserializeAws_restJson1GetFunctionConcurrencyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionConcurrencyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetFunctionConcurrencyCommandError(output, context);
   }
   const contents: GetFunctionConcurrencyCommandOutput = {
@@ -3725,7 +3785,7 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetFunctionConfigurationCommandError(output, context);
   }
   const contents: GetFunctionConfigurationCommandOutput = {
@@ -3908,7 +3968,7 @@ export const deserializeAws_restJson1GetFunctionEventInvokeConfigCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetFunctionEventInvokeConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetFunctionEventInvokeConfigCommandError(output, context);
   }
   const contents: GetFunctionEventInvokeConfigCommandOutput = {
@@ -4003,7 +4063,7 @@ export const deserializeAws_restJson1GetLayerVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLayerVersionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetLayerVersionCommandError(output, context);
   }
   const contents: GetLayerVersionCommandOutput = {
@@ -4110,7 +4170,7 @@ export const deserializeAws_restJson1GetLayerVersionByArnCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLayerVersionByArnCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetLayerVersionByArnCommandError(output, context);
   }
   const contents: GetLayerVersionByArnCommandOutput = {
@@ -4217,7 +4277,7 @@ export const deserializeAws_restJson1GetLayerVersionPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetLayerVersionPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetLayerVersionPolicyCommandError(output, context);
   }
   const contents: GetLayerVersionPolicyCommandOutput = {
@@ -4300,7 +4360,7 @@ export const deserializeAws_restJson1GetPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetPolicyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetPolicyCommandError(output, context);
   }
   const contents: GetPolicyCommandOutput = {
@@ -4383,7 +4443,7 @@ export const deserializeAws_restJson1GetProvisionedConcurrencyConfigCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetProvisionedConcurrencyConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetProvisionedConcurrencyConfigCommandError(output, context);
   }
   const contents: GetProvisionedConcurrencyConfigCommandOutput = {
@@ -4499,7 +4559,7 @@ export const deserializeAws_restJson1InvokeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1InvokeCommandError(output, context);
   }
   const contents: InvokeCommandOutput = {
@@ -4508,15 +4568,16 @@ export const deserializeAws_restJson1InvokeCommand = async (
     FunctionError: undefined,
     LogResult: undefined,
     Payload: undefined,
+    StatusCode: undefined,
   };
+  if (output.headers["x-amz-function-error"] !== undefined) {
+    contents.FunctionError = output.headers["x-amz-function-error"];
+  }
   if (output.headers["x-amz-log-result"] !== undefined) {
     contents.LogResult = output.headers["x-amz-log-result"];
   }
   if (output.headers["x-amz-executed-version"] !== undefined) {
     contents.ExecutedVersion = output.headers["x-amz-executed-version"];
-  }
-  if (output.headers["x-amz-function-error"] !== undefined) {
-    contents.FunctionError = output.headers["x-amz-function-error"];
   }
   const data: any = await collectBody(output.body, context);
   contents.Payload = data;
@@ -4764,11 +4825,12 @@ export const deserializeAws_restJson1InvokeAsyncCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<InvokeAsyncCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1InvokeAsyncCommandError(output, context);
   }
   const contents: InvokeAsyncCommandOutput = {
     $metadata: deserializeMetadata(output),
+    Status: undefined,
   };
   await collectBody(output.body, context);
   return Promise.resolve(contents);
@@ -4847,7 +4909,7 @@ export const deserializeAws_restJson1ListAliasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListAliasesCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListAliasesCommandError(output, context);
   }
   const contents: ListAliasesCommandOutput = {
@@ -4930,7 +4992,7 @@ export const deserializeAws_restJson1ListEventSourceMappingsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListEventSourceMappingsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListEventSourceMappingsCommandError(output, context);
   }
   const contents: ListEventSourceMappingsCommandOutput = {
@@ -5013,7 +5075,7 @@ export const deserializeAws_restJson1ListFunctionEventInvokeConfigsCommand = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionEventInvokeConfigsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListFunctionEventInvokeConfigsCommandError(output, context);
   }
   const contents: ListFunctionEventInvokeConfigsCommandOutput = {
@@ -5099,7 +5161,7 @@ export const deserializeAws_restJson1ListFunctionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListFunctionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListFunctionsCommandError(output, context);
   }
   const contents: ListFunctionsCommandOutput = {
@@ -5174,7 +5236,7 @@ export const deserializeAws_restJson1ListLayersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLayersCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListLayersCommandError(output, context);
   }
   const contents: ListLayersCommandOutput = {
@@ -5249,7 +5311,7 @@ export const deserializeAws_restJson1ListLayerVersionsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListLayerVersionsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListLayerVersionsCommandError(output, context);
   }
   const contents: ListLayerVersionsCommandOutput = {
@@ -5332,7 +5394,7 @@ export const deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommand = 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProvisionedConcurrencyConfigsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListProvisionedConcurrencyConfigsCommandError(output, context);
   }
   const contents: ListProvisionedConcurrencyConfigsCommandOutput = {
@@ -5418,7 +5480,7 @@ export const deserializeAws_restJson1ListTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsCommandError(output, context);
   }
   const contents: ListTagsCommandOutput = {
@@ -5497,7 +5559,7 @@ export const deserializeAws_restJson1ListVersionsByFunctionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListVersionsByFunctionCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListVersionsByFunctionCommandError(output, context);
   }
   const contents: ListVersionsByFunctionCommandOutput = {
@@ -5580,7 +5642,7 @@ export const deserializeAws_restJson1PublishLayerVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishLayerVersionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1PublishLayerVersionCommandError(output, context);
   }
   const contents: PublishLayerVersionCommandOutput = {
@@ -5695,7 +5757,7 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PublishVersionCommandOutput> => {
-  if (output.statusCode !== 201 && output.statusCode >= 400) {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
     return deserializeAws_restJson1PublishVersionCommandError(output, context);
   }
   const contents: PublishVersionCommandOutput = {
@@ -5902,7 +5964,7 @@ export const deserializeAws_restJson1PutFunctionConcurrencyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutFunctionConcurrencyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutFunctionConcurrencyCommandError(output, context);
   }
   const contents: PutFunctionConcurrencyCommandOutput = {
@@ -5989,7 +6051,7 @@ export const deserializeAws_restJson1PutFunctionEventInvokeConfigCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutFunctionEventInvokeConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutFunctionEventInvokeConfigCommandError(output, context);
   }
   const contents: PutFunctionEventInvokeConfigCommandOutput = {
@@ -6084,7 +6146,7 @@ export const deserializeAws_restJson1PutProvisionedConcurrencyConfigCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutProvisionedConcurrencyConfigCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutProvisionedConcurrencyConfigCommandError(output, context);
   }
   const contents: PutProvisionedConcurrencyConfigCommandOutput = {
@@ -6200,7 +6262,7 @@ export const deserializeAws_restJson1RemoveLayerVersionPermissionCommand = async
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveLayerVersionPermissionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1RemoveLayerVersionPermissionCommandError(output, context);
   }
   const contents: RemoveLayerVersionPermissionCommandOutput = {
@@ -6283,7 +6345,7 @@ export const deserializeAws_restJson1RemovePermissionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemovePermissionCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1RemovePermissionCommandError(output, context);
   }
   const contents: RemovePermissionCommandOutput = {
@@ -6366,7 +6428,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -6449,7 +6511,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 204 && output.statusCode >= 400) {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -6532,7 +6594,7 @@ export const deserializeAws_restJson1UpdateAliasCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateAliasCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateAliasCommandError(output, context);
   }
   const contents: UpdateAliasCommandOutput = {
@@ -6647,7 +6709,7 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateEventSourceMappingCommandOutput> => {
-  if (output.statusCode !== 202 && output.statusCode >= 400) {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateEventSourceMappingCommandError(output, context);
   }
   const contents: UpdateEventSourceMappingCommandOutput = {
@@ -6663,8 +6725,11 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
     MaximumRecordAgeInSeconds: undefined,
     MaximumRetryAttempts: undefined,
     ParallelizationFactor: undefined,
+    Queues: undefined,
+    SourceAccessConfigurations: undefined,
     State: undefined,
     StateTransitionReason: undefined,
+    Topics: undefined,
     UUID: undefined,
   };
   const data: any = await parseBody(output.body, context);
@@ -6701,11 +6766,23 @@ export const deserializeAws_restJson1UpdateEventSourceMappingCommand = async (
   if (data.ParallelizationFactor !== undefined && data.ParallelizationFactor !== null) {
     contents.ParallelizationFactor = data.ParallelizationFactor;
   }
+  if (data.Queues !== undefined && data.Queues !== null) {
+    contents.Queues = deserializeAws_restJson1Queues(data.Queues, context);
+  }
+  if (data.SourceAccessConfigurations !== undefined && data.SourceAccessConfigurations !== null) {
+    contents.SourceAccessConfigurations = deserializeAws_restJson1SourceAccessConfigurations(
+      data.SourceAccessConfigurations,
+      context
+    );
+  }
   if (data.State !== undefined && data.State !== null) {
     contents.State = data.State;
   }
   if (data.StateTransitionReason !== undefined && data.StateTransitionReason !== null) {
     contents.StateTransitionReason = data.StateTransitionReason;
+  }
+  if (data.Topics !== undefined && data.Topics !== null) {
+    contents.Topics = deserializeAws_restJson1Topics(data.Topics, context);
   }
   if (data.UUID !== undefined && data.UUID !== null) {
     contents.UUID = data.UUID;
@@ -6794,7 +6871,7 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionCodeCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateFunctionCodeCommandError(output, context);
   }
   const contents: UpdateFunctionCodeCommandOutput = {
@@ -7001,7 +7078,7 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionConfigurationCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateFunctionConfigurationCommandError(output, context);
   }
   const contents: UpdateFunctionConfigurationCommandOutput = {
@@ -7200,7 +7277,7 @@ export const deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommand = as
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateFunctionEventInvokeConfigCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateFunctionEventInvokeConfigCommandError(output, context);
   }
   const contents: UpdateFunctionEventInvokeConfigCommandOutput = {
@@ -8061,8 +8138,29 @@ const serializeAws_restJson1OnSuccess = (input: OnSuccess, context: __SerdeConte
   };
 };
 
+const serializeAws_restJson1Queues = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
+};
+
 const serializeAws_restJson1SecurityGroupIds = (input: string[], context: __SerdeContext): any => {
   return input.map((entry) => entry);
+};
+
+const serializeAws_restJson1SourceAccessConfiguration = (
+  input: SourceAccessConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.URI !== undefined && { URI: input.URI }),
+  };
+};
+
+const serializeAws_restJson1SourceAccessConfigurations = (
+  input: SourceAccessConfiguration[],
+  context: __SerdeContext
+): any => {
+  return input.map((entry) => serializeAws_restJson1SourceAccessConfiguration(entry, context));
 };
 
 const serializeAws_restJson1SubnetIds = (input: string[], context: __SerdeContext): any => {
@@ -8077,6 +8175,10 @@ const serializeAws_restJson1Tags = (input: { [key: string]: string }, context: _
     }),
     {}
   );
+};
+
+const serializeAws_restJson1Topics = (input: string[], context: __SerdeContext): any => {
+  return input.map((entry) => entry);
 };
 
 const serializeAws_restJson1TracingConfig = (input: TracingConfig, context: __SerdeContext): any => {
@@ -8272,10 +8374,22 @@ const deserializeAws_restJson1EventSourceMappingConfiguration = (
       output.ParallelizationFactor !== undefined && output.ParallelizationFactor !== null
         ? output.ParallelizationFactor
         : undefined,
+    Queues:
+      output.Queues !== undefined && output.Queues !== null
+        ? deserializeAws_restJson1Queues(output.Queues, context)
+        : undefined,
+    SourceAccessConfigurations:
+      output.SourceAccessConfigurations !== undefined && output.SourceAccessConfigurations !== null
+        ? deserializeAws_restJson1SourceAccessConfigurations(output.SourceAccessConfigurations, context)
+        : undefined,
     State: output.State !== undefined && output.State !== null ? output.State : undefined,
     StateTransitionReason:
       output.StateTransitionReason !== undefined && output.StateTransitionReason !== null
         ? output.StateTransitionReason
+        : undefined,
+    Topics:
+      output.Topics !== undefined && output.Topics !== null
+        ? deserializeAws_restJson1Topics(output.Topics, context)
         : undefined,
     UUID: output.UUID !== undefined && output.UUID !== null ? output.UUID : undefined,
   } as any;
@@ -8506,8 +8620,29 @@ const deserializeAws_restJson1ProvisionedConcurrencyConfigListItem = (
   } as any;
 };
 
+const deserializeAws_restJson1Queues = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
+};
+
 const deserializeAws_restJson1SecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
   return (output || []).map((entry: any) => entry);
+};
+
+const deserializeAws_restJson1SourceAccessConfiguration = (
+  output: any,
+  context: __SerdeContext
+): SourceAccessConfiguration => {
+  return {
+    Type: output.Type !== undefined && output.Type !== null ? output.Type : undefined,
+    URI: output.URI !== undefined && output.URI !== null ? output.URI : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1SourceAccessConfigurations = (
+  output: any,
+  context: __SerdeContext
+): SourceAccessConfiguration[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1SourceAccessConfiguration(entry, context));
 };
 
 const deserializeAws_restJson1SubnetIds = (output: any, context: __SerdeContext): string[] => {
@@ -8522,6 +8657,10 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): { [
     }),
     {}
   );
+};
+
+const deserializeAws_restJson1Topics = (output: any, context: __SerdeContext): string[] => {
+  return (output || []).map((entry: any) => entry);
 };
 
 const deserializeAws_restJson1TracingConfigResponse = (output: any, context: __SerdeContext): TracingConfigResponse => {

@@ -1,6 +1,8 @@
-
 import { BudgetsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BudgetsClient.ts";
-import { DescribeBudgetPerformanceHistoryRequest, DescribeBudgetPerformanceHistoryResponse } from "../models/models_0.ts";
+import {
+  DescribeBudgetPerformanceHistoryRequest,
+  DescribeBudgetPerformanceHistoryResponse,
+} from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeBudgetPerformanceHistoryCommand,
   serializeAws_json1_1DescribeBudgetPerformanceHistoryCommand,
@@ -45,11 +47,23 @@ export class DescribeBudgetPerformanceHistoryCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "BudgetsClient";
+    const commandName = "DescribeBudgetPerformanceHistoryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeBudgetPerformanceHistoryRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeBudgetPerformanceHistoryResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

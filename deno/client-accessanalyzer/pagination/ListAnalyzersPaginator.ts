@@ -1,4 +1,3 @@
-
 import { AccessAnalyzer } from "../AccessAnalyzer.ts";
 import { AccessAnalyzerClient } from "../AccessAnalyzerClient.ts";
 import {
@@ -15,7 +14,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListAnalyzersCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListAnalyzersCommand(input, ...args));
+  return await client.send(new ListAnalyzersCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: AccessAnalyzer,
@@ -25,16 +24,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listAnalyzers(input, ...args);
 };
-export async function* listAnalyzersPaginate(
+export async function* paginateListAnalyzers(
   config: AccessAnalyzerPaginationConfiguration,
   input: ListAnalyzersCommandInput,
   ...additionalArguments: any
 ): Paginator<ListAnalyzersCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListAnalyzersCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof AccessAnalyzer) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +43,7 @@ export async function* listAnalyzersPaginate(
       throw new Error("Invalid client, expected AccessAnalyzer | AccessAnalyzerClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

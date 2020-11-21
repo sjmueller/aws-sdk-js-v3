@@ -45,11 +45,23 @@ export class ListAvailableManagementCidrRangesCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "WorkSpacesClient";
+    const commandName = "ListAvailableManagementCidrRangesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: ListAvailableManagementCidrRangesRequest.filterSensitiveLog,
       outputFilterSensitiveLog: ListAvailableManagementCidrRangesResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -52,11 +52,23 @@ export class AssociateSigninDelegateGroupsWithAccountCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "AssociateSigninDelegateGroupsWithAccountCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: AssociateSigninDelegateGroupsWithAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: AssociateSigninDelegateGroupsWithAccountResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

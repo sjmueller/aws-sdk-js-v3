@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeFileSystemsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeFileSystemsCommand(input, ...args));
+  return await client.send(new DescribeFileSystemsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EFS,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeFileSystems(input, ...args);
 };
-export async function* describeFileSystemsPaginate(
+export async function* paginateDescribeFileSystems(
   config: EFSPaginationConfiguration,
   input: DescribeFileSystemsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeFileSystemsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeFileSystemsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxItems"] = config.pageSize;
     if (config.client instanceof EFS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeFileSystemsPaginate(
       throw new Error("Invalid client, expected EFS | EFSClient");
     }
     yield page;
-    token = page["NextMarker"];
+    token = page.NextMarker;
     hasNext = !!token;
   }
   // @ts-ignore

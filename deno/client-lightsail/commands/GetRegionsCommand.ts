@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { GetRegionsRequest, GetRegionsResult } from "../models/models_0.ts";
+import { GetRegionsRequest, GetRegionsResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetRegionsCommand,
   serializeAws_json1_1GetRegionsCommand,
@@ -45,11 +45,23 @@ export class GetRegionsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "GetRegionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetRegionsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetRegionsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

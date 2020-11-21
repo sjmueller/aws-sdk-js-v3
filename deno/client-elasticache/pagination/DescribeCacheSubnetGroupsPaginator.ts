@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeCacheSubnetGroupsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeCacheSubnetGroupsCommand(input, ...args));
+  return await client.send(new DescribeCacheSubnetGroupsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ElastiCache,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeCacheSubnetGroups(input, ...args);
 };
-export async function* describeCacheSubnetGroupsPaginate(
+export async function* paginateDescribeCacheSubnetGroups(
   config: ElastiCachePaginationConfiguration,
   input: DescribeCacheSubnetGroupsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeCacheSubnetGroupsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeCacheSubnetGroupsCommandOutput;
   while (hasNext) {
-    input["Marker"] = token;
+    input.Marker = token;
     input["MaxRecords"] = config.pageSize;
     if (config.client instanceof ElastiCache) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeCacheSubnetGroupsPaginate(
       throw new Error("Invalid client, expected ElastiCache | ElastiCacheClient");
     }
     yield page;
-    token = page["Marker"];
+    token = page.Marker;
     hasNext = !!token;
   }
   // @ts-ignore

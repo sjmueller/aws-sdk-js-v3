@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { UpdateAccountRequest, UpdateAccountResponse } from "../models/models_0.ts";
+import { UpdateAccountRequest, UpdateAccountResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UpdateAccountCommand,
   serializeAws_restJson1UpdateAccountCommand,
@@ -45,11 +45,23 @@ export class UpdateAccountCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "UpdateAccountCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateAccountResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -1,6 +1,6 @@
 
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/models_0.ts";
+import { GetMasterAccountRequest, GetMasterAccountResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1GetMasterAccountCommand,
   serializeAws_restJson1GetMasterAccountCommand,
@@ -45,11 +45,23 @@ export class GetMasterAccountCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecurityHubClient";
+    const commandName = "GetMasterAccountCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetMasterAccountRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetMasterAccountResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListCodeRepositoriesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListCodeRepositoriesCommand(input, ...args));
+  return await client.send(new ListCodeRepositoriesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: SageMaker,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listCodeRepositories(input, ...args);
 };
-export async function* listCodeRepositoriesPaginate(
+export async function* paginateListCodeRepositories(
   config: SageMakerPaginationConfiguration,
   input: ListCodeRepositoriesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListCodeRepositoriesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListCodeRepositoriesCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof SageMaker) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listCodeRepositoriesPaginate(
       throw new Error("Invalid client, expected SageMaker | SageMakerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

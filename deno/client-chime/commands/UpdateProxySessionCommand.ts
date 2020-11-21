@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { UpdateProxySessionRequest, UpdateProxySessionResponse } from "../models/models_0.ts";
+import { UpdateProxySessionRequest, UpdateProxySessionResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UpdateProxySessionCommand,
   serializeAws_restJson1UpdateProxySessionCommand,
@@ -45,11 +45,23 @@ export class UpdateProxySessionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "UpdateProxySessionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UpdateProxySessionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: UpdateProxySessionResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

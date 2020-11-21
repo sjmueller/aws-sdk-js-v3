@@ -1,6 +1,6 @@
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client.ts";
-import { DeleteVpcPeeringConnectionRequest, DeleteVpcPeeringConnectionResult } from "../models/models_1.ts";
+import { DeleteVpcPeeringConnectionRequest, DeleteVpcPeeringConnectionResult } from "../models/models_2.ts";
 import {
   deserializeAws_ec2DeleteVpcPeeringConnectionCommand,
   serializeAws_ec2DeleteVpcPeeringConnectionCommand,
@@ -45,11 +45,23 @@ export class DeleteVpcPeeringConnectionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DeleteVpcPeeringConnectionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteVpcPeeringConnectionRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteVpcPeeringConnectionResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

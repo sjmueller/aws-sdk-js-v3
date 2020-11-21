@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetCustomerGatewayAssociationsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetCustomerGatewayAssociationsCommand(input, ...args));
+  return await client.send(new GetCustomerGatewayAssociationsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: NetworkManager,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCustomerGatewayAssociations(input, ...args);
 };
-export async function* getCustomerGatewayAssociationsPaginate(
+export async function* paginateGetCustomerGatewayAssociations(
   config: NetworkManagerPaginationConfiguration,
   input: GetCustomerGatewayAssociationsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCustomerGatewayAssociationsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCustomerGatewayAssociationsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof NetworkManager) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getCustomerGatewayAssociationsPaginate(
       throw new Error("Invalid client, expected NetworkManager | NetworkManagerClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

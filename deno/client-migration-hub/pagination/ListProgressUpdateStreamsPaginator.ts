@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListProgressUpdateStreamsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListProgressUpdateStreamsCommand(input, ...args));
+  return await client.send(new ListProgressUpdateStreamsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: MigrationHub,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProgressUpdateStreams(input, ...args);
 };
-export async function* listProgressUpdateStreamsPaginate(
+export async function* paginateListProgressUpdateStreams(
   config: MigrationHubPaginationConfiguration,
   input: ListProgressUpdateStreamsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProgressUpdateStreamsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProgressUpdateStreamsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof MigrationHub) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listProgressUpdateStreamsPaginate(
       throw new Error("Invalid client, expected MigrationHub | MigrationHubClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

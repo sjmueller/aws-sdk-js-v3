@@ -3,7 +3,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DeleteVpcEndpointServiceConfigurationsRequest,
   DeleteVpcEndpointServiceConfigurationsResult,
-} from "../models/models_1.ts";
+} from "../models/models_2.ts";
 import {
   deserializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand,
   serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand,
@@ -49,11 +49,23 @@ export class DeleteVpcEndpointServiceConfigurationsCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "EC2Client";
+    const commandName = "DeleteVpcEndpointServiceConfigurationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DeleteVpcEndpointServiceConfigurationsRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DeleteVpcEndpointServiceConfigurationsResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

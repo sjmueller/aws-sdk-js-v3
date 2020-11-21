@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListUserPoolClientsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListUserPoolClientsCommand(input, ...args));
+  return await client.send(new ListUserPoolClientsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CognitoIdentityProvider,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listUserPoolClients(input, ...args);
 };
-export async function* listUserPoolClientsPaginate(
+export async function* paginateListUserPoolClients(
   config: CognitoIdentityProviderPaginationConfiguration,
   input: ListUserPoolClientsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListUserPoolClientsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListUserPoolClientsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CognitoIdentityProvider) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listUserPoolClientsPaginate(
       throw new Error("Invalid client, expected CognitoIdentityProvider | CognitoIdentityProviderClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

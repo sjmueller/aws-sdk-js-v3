@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListBuildBatchesForProjectCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListBuildBatchesForProjectCommand(input, ...args));
+  return await client.send(new ListBuildBatchesForProjectCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeBuild,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listBuildBatchesForProject(input, ...args);
 };
-export async function* listBuildBatchesForProjectPaginate(
+export async function* paginateListBuildBatchesForProject(
   config: CodeBuildPaginationConfiguration,
   input: ListBuildBatchesForProjectCommandInput,
   ...additionalArguments: any
 ): Paginator<ListBuildBatchesForProjectCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListBuildBatchesForProjectCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof CodeBuild) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listBuildBatchesForProjectPaginate(
       throw new Error("Invalid client, expected CodeBuild | CodeBuildClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

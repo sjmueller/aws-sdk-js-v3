@@ -1,4 +1,3 @@
-
 import { CreateBackupPlanCommandInput, CreateBackupPlanCommandOutput } from "./commands/CreateBackupPlanCommand.ts";
 import {
   CreateBackupSelectionCommandInput,
@@ -30,6 +29,10 @@ import {
 } from "./commands/DescribeBackupVaultCommand.ts";
 import { DescribeCopyJobCommandInput, DescribeCopyJobCommandOutput } from "./commands/DescribeCopyJobCommand.ts";
 import {
+  DescribeGlobalSettingsCommandInput,
+  DescribeGlobalSettingsCommandOutput,
+} from "./commands/DescribeGlobalSettingsCommand.ts";
+import {
   DescribeProtectedResourceCommandInput,
   DescribeProtectedResourceCommandOutput,
 } from "./commands/DescribeProtectedResourceCommand.ts";
@@ -41,7 +44,10 @@ import {
   DescribeRegionSettingsCommandInput,
   DescribeRegionSettingsCommandOutput,
 } from "./commands/DescribeRegionSettingsCommand.ts";
-import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "./commands/DescribeRestoreJobCommand.ts";
+import {
+  DescribeRestoreJobCommandInput,
+  DescribeRestoreJobCommandOutput,
+} from "./commands/DescribeRestoreJobCommand.ts";
 import {
   ExportBackupPlanTemplateCommandInput,
   ExportBackupPlanTemplateCommandOutput,
@@ -55,7 +61,10 @@ import {
   GetBackupPlanFromTemplateCommandInput,
   GetBackupPlanFromTemplateCommandOutput,
 } from "./commands/GetBackupPlanFromTemplateCommand.ts";
-import { GetBackupSelectionCommandInput, GetBackupSelectionCommandOutput } from "./commands/GetBackupSelectionCommand.ts";
+import {
+  GetBackupSelectionCommandInput,
+  GetBackupSelectionCommandOutput,
+} from "./commands/GetBackupSelectionCommand.ts";
 import {
   GetBackupVaultAccessPolicyCommandInput,
   GetBackupVaultAccessPolicyCommandOutput,
@@ -117,6 +126,10 @@ import { StopBackupJobCommandInput, StopBackupJobCommandOutput } from "./command
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UpdateBackupPlanCommandInput, UpdateBackupPlanCommandOutput } from "./commands/UpdateBackupPlanCommand.ts";
+import {
+  UpdateGlobalSettingsCommandInput,
+  UpdateGlobalSettingsCommandOutput,
+} from "./commands/UpdateGlobalSettingsCommand.ts";
 import {
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput,
@@ -187,6 +200,7 @@ export type ServiceInputTypes =
   | DescribeBackupJobCommandInput
   | DescribeBackupVaultCommandInput
   | DescribeCopyJobCommandInput
+  | DescribeGlobalSettingsCommandInput
   | DescribeProtectedResourceCommandInput
   | DescribeRecoveryPointCommandInput
   | DescribeRegionSettingsCommandInput
@@ -221,6 +235,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBackupPlanCommandInput
+  | UpdateGlobalSettingsCommandInput
   | UpdateRecoveryPointLifecycleCommandInput
   | UpdateRegionSettingsCommandInput;
 
@@ -237,6 +252,7 @@ export type ServiceOutputTypes =
   | DescribeBackupJobCommandOutput
   | DescribeBackupVaultCommandOutput
   | DescribeCopyJobCommandOutput
+  | DescribeGlobalSettingsCommandOutput
   | DescribeProtectedResourceCommandOutput
   | DescribeRecoveryPointCommandOutput
   | DescribeRegionSettingsCommandOutput
@@ -271,6 +287,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBackupPlanCommandOutput
+  | UpdateGlobalSettingsCommandOutput
   | UpdateRecoveryPointLifecycleCommandOutput
   | UpdateRegionSettingsCommandOutput;
 

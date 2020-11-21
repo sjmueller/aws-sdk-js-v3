@@ -1,5 +1,8 @@
-
-import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient.ts";
+import {
+  AutoScalingPlansClientResolvedConfig,
+  ServiceInputTypes,
+  ServiceOutputTypes,
+} from "../AutoScalingPlansClient.ts";
 import { DescribeScalingPlansRequest, DescribeScalingPlansResponse } from "../models/models_0.ts";
 import {
   deserializeAws_json1_1DescribeScalingPlansCommand,
@@ -45,11 +48,23 @@ export class DescribeScalingPlansCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "AutoScalingPlansClient";
+    const commandName = "DescribeScalingPlansCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeScalingPlansRequest.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeScalingPlansResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

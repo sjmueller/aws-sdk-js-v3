@@ -6,6 +6,16 @@ import {
   ActivateEventSourceCommandOutput,
 } from "./commands/ActivateEventSourceCommand.ts";
 import {
+  CancelReplayCommand,
+  CancelReplayCommandInput,
+  CancelReplayCommandOutput,
+} from "./commands/CancelReplayCommand.ts";
+import {
+  CreateArchiveCommand,
+  CreateArchiveCommandInput,
+  CreateArchiveCommandOutput,
+} from "./commands/CreateArchiveCommand.ts";
+import {
   CreateEventBusCommand,
   CreateEventBusCommandInput,
   CreateEventBusCommandOutput,
@@ -21,6 +31,11 @@ import {
   DeactivateEventSourceCommandOutput,
 } from "./commands/DeactivateEventSourceCommand.ts";
 import {
+  DeleteArchiveCommand,
+  DeleteArchiveCommandInput,
+  DeleteArchiveCommandOutput,
+} from "./commands/DeleteArchiveCommand.ts";
+import {
   DeleteEventBusCommand,
   DeleteEventBusCommandInput,
   DeleteEventBusCommandOutput,
@@ -31,6 +46,11 @@ import {
   DeletePartnerEventSourceCommandOutput,
 } from "./commands/DeletePartnerEventSourceCommand.ts";
 import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand.ts";
+import {
+  DescribeArchiveCommand,
+  DescribeArchiveCommandInput,
+  DescribeArchiveCommandOutput,
+} from "./commands/DescribeArchiveCommand.ts";
 import {
   DescribeEventBusCommand,
   DescribeEventBusCommandInput,
@@ -47,12 +67,22 @@ import {
   DescribePartnerEventSourceCommandOutput,
 } from "./commands/DescribePartnerEventSourceCommand.ts";
 import {
+  DescribeReplayCommand,
+  DescribeReplayCommandInput,
+  DescribeReplayCommandOutput,
+} from "./commands/DescribeReplayCommand.ts";
+import {
   DescribeRuleCommand,
   DescribeRuleCommandInput,
   DescribeRuleCommandOutput,
 } from "./commands/DescribeRuleCommand.ts";
 import { DisableRuleCommand, DisableRuleCommandInput, DisableRuleCommandOutput } from "./commands/DisableRuleCommand.ts";
 import { EnableRuleCommand, EnableRuleCommandInput, EnableRuleCommandOutput } from "./commands/EnableRuleCommand.ts";
+import {
+  ListArchivesCommand,
+  ListArchivesCommandInput,
+  ListArchivesCommandOutput,
+} from "./commands/ListArchivesCommand.ts";
 import {
   ListEventBusesCommand,
   ListEventBusesCommandInput,
@@ -73,6 +103,7 @@ import {
   ListPartnerEventSourcesCommandInput,
   ListPartnerEventSourcesCommandOutput,
 } from "./commands/ListPartnerEventSourcesCommand.ts";
+import { ListReplaysCommand, ListReplaysCommandInput, ListReplaysCommandOutput } from "./commands/ListReplaysCommand.ts";
 import {
   ListRuleNamesByTargetCommand,
   ListRuleNamesByTargetCommandInput,
@@ -112,6 +143,7 @@ import {
   RemoveTargetsCommandInput,
   RemoveTargetsCommandOutput,
 } from "./commands/RemoveTargetsCommand.ts";
+import { StartReplayCommand, StartReplayCommandInput, StartReplayCommandOutput } from "./commands/StartReplayCommand.ts";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   TestEventPatternCommand,
@@ -123,6 +155,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand.ts";
+import {
+  UpdateArchiveCommand,
+  UpdateArchiveCommandInput,
+  UpdateArchiveCommandOutput,
+} from "./commands/UpdateArchiveCommand.ts";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "../types/mod.ts";
 
 /**
@@ -173,6 +210,69 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
     cb?: (err: any, data?: ActivateEventSourceCommandOutput) => void
   ): Promise<ActivateEventSourceCommandOutput> | void {
     const command = new ActivateEventSourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels the specified replay.</p>
+   */
+  public cancelReplay(
+    args: CancelReplayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelReplayCommandOutput>;
+  public cancelReplay(args: CancelReplayCommandInput, cb: (err: any, data?: CancelReplayCommandOutput) => void): void;
+  public cancelReplay(
+    args: CancelReplayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelReplayCommandOutput) => void
+  ): void;
+  public cancelReplay(
+    args: CancelReplayCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CancelReplayCommandOutput) => void),
+    cb?: (err: any, data?: CancelReplayCommandOutput) => void
+  ): Promise<CancelReplayCommandOutput> | void {
+    const command = new CancelReplayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates an archive of events with the specified settings. When you create an archive,
+   *             incoming events might not immediately start being sent to the archive. Allow a short
+   *             period of time for changes to take effect.</p>
+   */
+  public createArchive(
+    args: CreateArchiveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateArchiveCommandOutput>;
+  public createArchive(
+    args: CreateArchiveCommandInput,
+    cb: (err: any, data?: CreateArchiveCommandOutput) => void
+  ): void;
+  public createArchive(
+    args: CreateArchiveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateArchiveCommandOutput) => void
+  ): void;
+  public createArchive(
+    args: CreateArchiveCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateArchiveCommandOutput) => void),
+    cb?: (err: any, data?: CreateArchiveCommandOutput) => void
+  ): Promise<CreateArchiveCommandOutput> | void {
+    const command = new CreateArchiveCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -309,6 +409,38 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * <p>Deletes the specified archive.</p>
+   */
+  public deleteArchive(
+    args: DeleteArchiveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteArchiveCommandOutput>;
+  public deleteArchive(
+    args: DeleteArchiveCommandInput,
+    cb: (err: any, data?: DeleteArchiveCommandOutput) => void
+  ): void;
+  public deleteArchive(
+    args: DeleteArchiveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteArchiveCommandOutput) => void
+  ): void;
+  public deleteArchive(
+    args: DeleteArchiveCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteArchiveCommandOutput) => void),
+    cb?: (err: any, data?: DeleteArchiveCommandOutput) => void
+  ): Promise<DeleteArchiveCommandOutput> | void {
+    const command = new DeleteArchiveCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes the specified custom event bus or partner event bus. All rules associated with
    *             this event bus need to be deleted. You can't delete your account's default event
    *             bus.</p>
@@ -403,6 +535,38 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
     cb?: (err: any, data?: DeleteRuleCommandOutput) => void
   ): Promise<DeleteRuleCommandOutput> | void {
     const command = new DeleteRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves details about an archive.</p>
+   */
+  public describeArchive(
+    args: DescribeArchiveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeArchiveCommandOutput>;
+  public describeArchive(
+    args: DescribeArchiveCommandInput,
+    cb: (err: any, data?: DescribeArchiveCommandOutput) => void
+  ): void;
+  public describeArchive(
+    args: DescribeArchiveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeArchiveCommandOutput) => void
+  ): void;
+  public describeArchive(
+    args: DescribeArchiveCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeArchiveCommandOutput) => void),
+    cb?: (err: any, data?: DescribeArchiveCommandOutput) => void
+  ): Promise<DescribeArchiveCommandOutput> | void {
+    const command = new DescribeArchiveCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -520,6 +684,46 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * <p>Retrieves details about a replay. Use <code>DescribeReplay</code> to determine the
+   *             progress of a running replay. A replay processes events to replay based on
+   *             the time in the event, and replays them using 1 minute intervals. If you use <code>StartReplay</code> and specify an
+   *             <code>EventStartTime</code> and an <code>EventEndTime</code> that covers a 20 minute
+   *             time range, the events are replayed from the first minute of that 20 minute range first.
+   *             Then the events from the second minute are replayed. You can use
+   *             <code>DescribeReplay</code> to determine the progress of a replay. The value
+   *             returned for <code>EventLastReplayedTime</code> indicates the time within the specified
+   *             time range associated with the last event replayed.</p>
+   */
+  public describeReplay(
+    args: DescribeReplayCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeReplayCommandOutput>;
+  public describeReplay(
+    args: DescribeReplayCommandInput,
+    cb: (err: any, data?: DescribeReplayCommandOutput) => void
+  ): void;
+  public describeReplay(
+    args: DescribeReplayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeReplayCommandOutput) => void
+  ): void;
+  public describeReplay(
+    args: DescribeReplayCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeReplayCommandOutput) => void),
+    cb?: (err: any, data?: DescribeReplayCommandOutput) => void
+  ): Promise<DescribeReplayCommandOutput> | void {
+    const command = new DescribeReplayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the specified rule.</p>
    *         <p>DescribeRule does not list the targets of a rule. To see the targets associated
    *             with a rule, use <a>ListTargetsByRule</a>.</p>
@@ -600,6 +804,36 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
     cb?: (err: any, data?: EnableRuleCommandOutput) => void
   ): Promise<EnableRuleCommandOutput> | void {
     const command = new EnableRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists your archives. You can either list all the archives or you can provide a prefix
+   *             to match to the archive names. Filter parameters are exclusive.</p>
+   */
+  public listArchives(
+    args: ListArchivesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListArchivesCommandOutput>;
+  public listArchives(args: ListArchivesCommandInput, cb: (err: any, data?: ListArchivesCommandOutput) => void): void;
+  public listArchives(
+    args: ListArchivesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListArchivesCommandOutput) => void
+  ): void;
+  public listArchives(
+    args: ListArchivesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListArchivesCommandOutput) => void),
+    cb?: (err: any, data?: ListArchivesCommandOutput) => void
+  ): Promise<ListArchivesCommandOutput> | void {
+    const command = new ListArchivesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -744,6 +978,33 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
+   * <p>Lists your replays. You can either list all the replays or you can provide a prefix to
+   *             match to the replay names. Filter parameters are exclusive.</p>
+   */
+  public listReplays(args: ListReplaysCommandInput, options?: __HttpHandlerOptions): Promise<ListReplaysCommandOutput>;
+  public listReplays(args: ListReplaysCommandInput, cb: (err: any, data?: ListReplaysCommandOutput) => void): void;
+  public listReplays(
+    args: ListReplaysCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReplaysCommandOutput) => void
+  ): void;
+  public listReplays(
+    args: ListReplaysCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListReplaysCommandOutput) => void),
+    cb?: (err: any, data?: ListReplaysCommandOutput) => void
+  ): Promise<ListReplaysCommandOutput> | void {
+    const command = new ListReplaysCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the rules for the specified target. You can see which of the rules in Amazon
    *             EventBridge can invoke a specific target in your account.</p>
    */
@@ -807,8 +1068,8 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
-   * <p>Displays the tags associated with an EventBridge resource. In EventBridge,
-   *             rules and event buses can be tagged.</p>
+   * <p>Displays the tags associated with an EventBridge resource. In EventBridge, rules and
+   *             event buses can be tagged.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -933,9 +1194,9 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
 
   /**
    * <p>Running <code>PutPermission</code> permits the specified AWS account or AWS
-   *             organization to put events to the specified <i>event bus</i>. Amazon EventBridge (CloudWatch Events)
-   *             rules in your account are triggered by these events arriving to an event bus in
-   *             your account. </p>
+   *             organization to put events to the specified <i>event bus</i>. Amazon
+   *             EventBridge (CloudWatch Events) rules in your account are triggered by these events
+   *             arriving to an event bus in your account. </p>
    *         <p>For another account to send events to your account, that external account must have
    *             an EventBridge rule with your account's event bus as a target.</p>
    *
@@ -1114,6 +1375,9 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
    *             <li>
    *                 <p>Amazon API Gateway REST APIs</p>
    *             </li>
+   *             <li>
+   *                 <p>Redshift Clusters to invoke Data API ExecuteStatement on</p>
+   *             </li>
    *          </ul>
    *
    *
@@ -1129,11 +1393,11 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
    *             multiple EC2 instances with one rule, you can use the <code>RunCommandParameters</code>
    *             field.</p>
    *         <p>To be able to make API calls against the resources that you own, Amazon EventBridge
-   *             (CloudWatch Events) needs the appropriate permissions. For AWS Lambda and Amazon SNS resources,
-   *             EventBridge relies on resource-based policies. For EC2 instances, Kinesis data
-   *             streams, AWS Step Functions state machines and API Gateway REST APIs, EventBridge relies on IAM roles
-   *             that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>. For more information,
-   *             see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">Authentication and Access Control</a> in the <i>Amazon EventBridge User
+   *             (CloudWatch Events) needs the appropriate permissions. For AWS Lambda and Amazon SNS
+   *             resources, EventBridge relies on resource-based policies. For EC2 instances, Kinesis
+   *             data streams, AWS Step Functions state machines and API Gateway REST APIs, EventBridge
+   *             relies on IAM roles that you specify in the <code>RoleARN</code> argument in
+   *                 <code>PutTargets</code>. For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/auth-and-access-control-eventbridge.html">Authentication and Access Control</a> in the <i>Amazon EventBridge User
    *                 Guide</i>.</p>
    *
    *         <p>If another AWS account is in the same region and has granted you permission (using
@@ -1143,8 +1407,8 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
    *             run <code>PutTargets</code>. If your account sends events to another account, your
    *             account is charged for each sent event. Each event sent to another account is charged as
    *             a custom event. The account receiving the event is not charged. For more information,
-   *             see <a href="https://aws.amazon.com/eventbridge/pricing/">Amazon EventBridge (CloudWatch Events)
-   *                 Pricing</a>.</p>
+   *             see <a href="https://aws.amazon.com/eventbridge/pricing/">Amazon EventBridge
+   *                 (CloudWatch Events) Pricing</a>.</p>
    *
    *         <note>
    *             <p>
@@ -1304,17 +1568,50 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
-   * <p>Assigns one or more tags (key-value pairs) to the specified EventBridge
-   *             resource. Tags can help you organize and categorize your resources. You can also use
-   *             them to scope user permissions by granting a user permission to access or change only
-   *             resources with certain tag values. In EventBridge, rules and event buses can be tagged.</p>
+   * <p>Starts the specified replay. Events are not necessarily replayed in the exact same
+   *             order that they were added to the archive. A replay processes events to replay based on
+   *             the time in the event, and replays them using 1 minute intervals. If you specify an
+   *                 <code>EventStartTime</code> and an <code>EventEndTime</code> that covers a 20 minute
+   *             time range, the events are replayed from the first minute of that 20 minute range first.
+   *             Then the events from the second minute are replayed. You can use
+   *                 <code>DescribeReplay</code> to determine the progress of a replay. The value
+   *             returned for <code>EventLastReplayedTime</code> indicates the time within the specified
+   *             time range associated with the last event replayed.</p>
+   */
+  public startReplay(args: StartReplayCommandInput, options?: __HttpHandlerOptions): Promise<StartReplayCommandOutput>;
+  public startReplay(args: StartReplayCommandInput, cb: (err: any, data?: StartReplayCommandOutput) => void): void;
+  public startReplay(
+    args: StartReplayCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartReplayCommandOutput) => void
+  ): void;
+  public startReplay(
+    args: StartReplayCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReplayCommandOutput) => void),
+    cb?: (err: any, data?: StartReplayCommandOutput) => void
+  ): Promise<StartReplayCommandOutput> | void {
+    const command = new StartReplayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Assigns one or more tags (key-value pairs) to the specified EventBridge resource. Tags
+   *             can help you organize and categorize your resources. You can also use them to scope user
+   *             permissions by granting a user permission to access or change only resources with
+   *             certain tag values. In EventBridge, rules and event buses can be tagged.</p>
    *         <p>Tags don't have any semantic meaning to AWS and are interpreted strictly as strings of
    *             characters.</p>
-   *         <p>You can use the <code>TagResource</code> action with a resource that already has tags. If
-   *             you specify a new tag key, this tag is appended to the list of tags
-   *             associated with the resource. If you specify a tag key that is already associated with the
-   *             resource, the new tag value that you specify replaces the previous value for that
-   *             tag.</p>
+   *         <p>You can use the <code>TagResource</code> action with a resource that already has tags.
+   *             If you specify a new tag key, this tag is appended to the list of tags associated with
+   *             the resource. If you specify a tag key that is already associated with the resource, the
+   *             new tag value that you specify replaces the previous value for that tag.</p>
    *         <p>You can associate as many as 50 tags with a resource.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1377,8 +1674,8 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
   }
 
   /**
-   * <p>Removes one or more tags from the specified EventBridge resource. In Amazon EventBridge (CloudWatch
-   *             Events, rules and event buses can be tagged.</p>
+   * <p>Removes one or more tags from the specified EventBridge resource. In Amazon
+   *             EventBridge (CloudWatch Events, rules and event buses can be tagged.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1399,6 +1696,38 @@ export class CloudWatchEvents extends CloudWatchEventsClient {
     cb?: (err: any, data?: UntagResourceCommandOutput) => void
   ): Promise<UntagResourceCommandOutput> | void {
     const command = new UntagResourceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the specified archive.</p>
+   */
+  public updateArchive(
+    args: UpdateArchiveCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateArchiveCommandOutput>;
+  public updateArchive(
+    args: UpdateArchiveCommandInput,
+    cb: (err: any, data?: UpdateArchiveCommandOutput) => void
+  ): void;
+  public updateArchive(
+    args: UpdateArchiveCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateArchiveCommandOutput) => void
+  ): void;
+  public updateArchive(
+    args: UpdateArchiveCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateArchiveCommandOutput) => void),
+    cb?: (err: any, data?: UpdateArchiveCommandOutput) => void
+  ): Promise<UpdateArchiveCommandOutput> | void {
+    const command = new UpdateArchiveCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

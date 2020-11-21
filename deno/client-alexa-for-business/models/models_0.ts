@@ -38,14 +38,14 @@ export interface AddressBookData {
   Description?: string;
 
   /**
-   * <p>The name of the address book.</p>
-   */
-  Name?: string;
-
-  /**
    * <p>The ARN of the address book.</p>
    */
   AddressBookArn?: string;
+
+  /**
+   * <p>The name of the address book.</p>
+   */
+  Name?: string;
 }
 
 export namespace AddressBookData {
@@ -189,14 +189,14 @@ export namespace DeviceNotRegisteredException {
 
 export interface AssociateDeviceWithRoomRequest {
   /**
-   * <p>The ARN of the room with which to associate the device. Required.</p>
-   */
-  RoomArn?: string;
-
-  /**
    * <p>The ARN of the device to associate to a room. Required.</p>
    */
   DeviceArn?: string;
+
+  /**
+   * <p>The ARN of the room with which to associate the device. Required.</p>
+   */
+  RoomArn?: string;
 }
 
 export namespace AssociateDeviceWithRoomRequest {
@@ -215,14 +215,14 @@ export namespace AssociateDeviceWithRoomResponse {
 
 export interface AssociateSkillGroupWithRoomRequest {
   /**
-   * <p>The ARN of the skill group to associate with a room. Required.</p>
-   */
-  SkillGroupArn?: string;
-
-  /**
    * <p>The ARN of the room with which to associate the skill group. Required.</p>
    */
   RoomArn?: string;
+
+  /**
+   * <p>The ARN of the skill group to associate with a room. Required.</p>
+   */
+  SkillGroupArn?: string;
 }
 
 export namespace AssociateSkillGroupWithRoomRequest {
@@ -241,14 +241,14 @@ export namespace AssociateSkillGroupWithRoomResponse {
 
 export interface AssociateSkillWithSkillGroupRequest {
   /**
-   * <p>The ARN of the skill group to associate the skill to. Required.</p>
-   */
-  SkillGroupArn?: string;
-
-  /**
    * <p>The unique identifier of the skill.</p>
    */
   SkillId: string | undefined;
+
+  /**
+   * <p>The ARN of the skill group to associate the skill to. Required.</p>
+   */
+  SkillGroupArn?: string;
 }
 
 export namespace AssociateSkillWithSkillGroupRequest {
@@ -318,15 +318,15 @@ export namespace AlreadyExistsException {
 
 export interface CreateAddressBookRequest {
   /**
-   * <p>The description of the address book.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>A unique, user-specified identifier for the request that ensures
    *          idempotency.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>The description of the address book.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The name of the address book.</p>
@@ -401,14 +401,14 @@ export namespace BusinessReportRecurrence {
  */
 export interface Tag {
   /**
-   * <p>The value of a tag. Tag values are case sensitive and can be null.</p>
-   */
-  Value: string | undefined;
-
-  /**
    * <p>The key of a tag. Tag keys are case-sensitive. </p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>The value of a tag. Tag values are case sensitive and can be null.</p>
+   */
+  Value: string | undefined;
 }
 
 export namespace Tag {
@@ -424,31 +424,14 @@ export interface CreateBusinessReportScheduleRequest {
   S3KeyPrefix?: string;
 
   /**
-   * <p>The S3 bucket name of the output reports. If this isn't specified, the report can be
-   *          retrieved from a download link by calling ListBusinessReportSchedule. </p>
-   */
-  S3BucketName?: string;
-
-  /**
-   * <p>The content range of the reports.</p>
-   */
-  ContentRange: BusinessReportContentRange | undefined;
-
-  /**
    * <p>The client request token.</p>
    */
   ClientRequestToken?: string;
 
   /**
-   * <p>The recurrence of the reports. If this isn't specified, the report will only be
-   *          delivered one time when the API is called. </p>
+   * <p>The content range of the reports.</p>
    */
-  Recurrence?: BusinessReportRecurrence;
-
-  /**
-   * <p>The tags for the business report schedule.</p>
-   */
-  Tags?: Tag[];
+  ContentRange: BusinessReportContentRange | undefined;
 
   /**
    * <p>The name identifier of the schedule.</p>
@@ -460,6 +443,23 @@ export interface CreateBusinessReportScheduleRequest {
    *          individual files).</p>
    */
   Format: BusinessReportFormat | string | undefined;
+
+  /**
+   * <p>The S3 bucket name of the output reports. If this isn't specified, the report can be
+   *          retrieved from a download link by calling ListBusinessReportSchedule. </p>
+   */
+  S3BucketName?: string;
+
+  /**
+   * <p>The tags for the business report schedule.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The recurrence of the reports. If this isn't specified, the report will only be
+   *          delivered one time when the API is called. </p>
+   */
+  Recurrence?: BusinessReportRecurrence;
 }
 
 export namespace CreateBusinessReportScheduleRequest {
@@ -505,14 +505,14 @@ export enum CommsProtocol {
  */
 export interface IPDialIn {
   /**
-   * <p>The IP address.</p>
-   */
-  Endpoint: string | undefined;
-
-  /**
    * <p>The protocol, including SIP, SIPS, and H323.</p>
    */
   CommsProtocol: CommsProtocol | string | undefined;
+
+  /**
+   * <p>The IP address.</p>
+   */
+  Endpoint: string | undefined;
 }
 
 export namespace IPDialIn {
@@ -561,24 +561,24 @@ export namespace MeetingSetting {
  */
 export interface PSTNDialIn {
   /**
-   * <p>The delay duration before Alexa enters the conference pin with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
-   */
-  OneClickPinDelay: string | undefined;
-
-  /**
    * <p>The phone number to call to join the conference.</p>
    */
   PhoneNumber: string | undefined;
 
   /**
-   * <p>The zip code.</p>
+   * <p>The delay duration before Alexa enters the conference pin with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
    */
-  CountryCode: string | undefined;
+  OneClickPinDelay: string | undefined;
 
   /**
    * <p>The delay duration before Alexa enters the conference ID with dual-tone multi-frequency (DTMF). Each number on the dial pad corresponds to a DTMF tone, which is how we send data over the telephone network.</p>
    */
   OneClickIdDelay: string | undefined;
+
+  /**
+   * <p>The zip code.</p>
+   */
+  CountryCode: string | undefined;
 }
 
 export namespace PSTNDialIn {
@@ -589,24 +589,19 @@ export namespace PSTNDialIn {
 
 export interface CreateConferenceProviderRequest {
   /**
-   * <p>The IP endpoint and protocol for calling.</p>
-   */
-  IPDialIn?: IPDialIn;
-
-  /**
-   * <p>The request token of the client.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
    * <p>The information for PSTN conferencing.</p>
    */
   PSTNDialIn?: PSTNDialIn;
 
   /**
-   * <p>The meeting settings for the conference provider.</p>
+   * <p>Represents a type within a list of predefined types.</p>
    */
-  MeetingSetting: MeetingSetting | undefined;
+  ConferenceProviderType: ConferenceProviderType | string | undefined;
+
+  /**
+   * <p>The IP endpoint and protocol for calling.</p>
+   */
+  IPDialIn?: IPDialIn;
 
   /**
    * <p>The name of the conference provider.</p>
@@ -614,9 +609,14 @@ export interface CreateConferenceProviderRequest {
   ConferenceProviderName: string | undefined;
 
   /**
-   * <p>Represents a type within a list of predefined types.</p>
+   * <p>The meeting settings for the conference provider.</p>
    */
-  ConferenceProviderType: ConferenceProviderType | string | undefined;
+  MeetingSetting: MeetingSetting | undefined;
+
+  /**
+   * <p>The request token of the client.</p>
+   */
+  ClientRequestToken?: string;
 }
 
 export namespace CreateConferenceProviderRequest {
@@ -649,21 +649,21 @@ export enum PhoneNumberType {
  */
 export interface PhoneNumber {
   /**
-   * <p>The raw value of the phone number.</p>
-   */
-  Number: string | undefined;
-
-  /**
    * <p>The type of the phone number.</p>
    */
   Type: PhoneNumberType | string | undefined;
+
+  /**
+   * <p>The raw value of the phone number.</p>
+   */
+  Number: string | undefined;
 }
 
 export namespace PhoneNumber {
   export const filterSensitiveLog = (obj: PhoneNumber): any => ({
     ...obj,
-    ...(obj.Number && { Number: SENSITIVE_STRING }),
     ...(obj.Type && { Type: SENSITIVE_STRING }),
+    ...(obj.Number && { Number: SENSITIVE_STRING }),
   });
 }
 
@@ -676,41 +676,34 @@ export enum SipType {
  */
 export interface SipAddress {
   /**
-   * <p>The URI for the SIP address.</p>
-   */
-  Uri: string | undefined;
-
-  /**
    * <p>The type of the SIP address.</p>
    */
   Type: SipType | string | undefined;
+
+  /**
+   * <p>The URI for the SIP address.</p>
+   */
+  Uri: string | undefined;
 }
 
 export namespace SipAddress {
   export const filterSensitiveLog = (obj: SipAddress): any => ({
     ...obj,
-    ...(obj.Uri && { Uri: SENSITIVE_STRING }),
     ...(obj.Type && { Type: SENSITIVE_STRING }),
+    ...(obj.Uri && { Uri: SENSITIVE_STRING }),
   });
 }
 
 export interface CreateContactRequest {
   /**
-   * <p>The first name of the contact that is used to call the contact on the
-   *          device.</p>
-   */
-  FirstName: string | undefined;
-
-  /**
-   * <p>A unique, user-specified identifier for this request that ensures
-   *          idempotency.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
    * <p>The list of phone numbers for the contact.</p>
    */
   PhoneNumbers?: PhoneNumber[];
+
+  /**
+   * <p>The list of SIP addresses for the contact.</p>
+   */
+  SipAddresses?: SipAddress[];
 
   /**
    * <p>The last name of the contact that is used to call the contact on the
@@ -731,17 +724,24 @@ export interface CreateContactRequest {
   PhoneNumber?: string;
 
   /**
-   * <p>The list of SIP addresses for the contact.</p>
+   * <p>A unique, user-specified identifier for this request that ensures
+   *          idempotency.</p>
    */
-  SipAddresses?: SipAddress[];
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The first name of the contact that is used to call the contact on the
+   *          device.</p>
+   */
+  FirstName: string | undefined;
 }
 
 export namespace CreateContactRequest {
   export const filterSensitiveLog = (obj: CreateContactRequest): any => ({
     ...obj,
     ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
-    ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
     ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
+    ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
   });
 }
 
@@ -765,14 +765,14 @@ export interface CreateGatewayGroupRequest {
   Description?: string;
 
   /**
-   * <p>The name of the gateway group.</p>
-   */
-  Name: string | undefined;
-
-  /**
    * <p> A unique, user-specified identifier for the request that ensures idempotency.</p>
    */
   ClientRequestToken?: string;
+
+  /**
+   * <p>The name of the gateway group.</p>
+   */
+  Name: string | undefined;
 }
 
 export namespace CreateGatewayGroupRequest {
@@ -808,10 +808,36 @@ export enum NetworkSecurityType {
 
 export interface CreateNetworkProfileRequest {
   /**
-   * <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is
-   *          supported.</p>
+   * <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK,
+   *          WEP, or OPEN.</p>
    */
-  EapMethod?: NetworkEapMethod | string;
+  SecurityType: NetworkSecurityType | string | undefined;
+
+  /**
+   * <p>The SSID of the Wi-Fi network.</p>
+   */
+  Ssid: string | undefined;
+
+  /**
+   * <p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager
+   *          (ACM). This is used to issue certificates to the devices. </p>
+   */
+  CertificateAuthorityArn?: string;
+
+  /**
+   * <p>A unique, user-specified identifier for the request that ensures idempotency.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The current password of the Wi-Fi network.</p>
+   */
+  CurrentPassword?: string;
+
+  /**
+   * <p>The name of the network profile associated with a device.</p>
+   */
+  NetworkProfileName: string | undefined;
 
   /**
    * <p>Detailed information about a device's network profile.</p>
@@ -832,43 +858,17 @@ export interface CreateNetworkProfileRequest {
   NextPassword?: string;
 
   /**
-   * <p>The SSID of the Wi-Fi network.</p>
+   * <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is
+   *          supported.</p>
    */
-  Ssid: string | undefined;
-
-  /**
-   * <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK,
-   *          WEP, or OPEN.</p>
-   */
-  SecurityType: NetworkSecurityType | string | undefined;
-
-  /**
-   * <p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager
-   *          (ACM). This is used to issue certificates to the devices. </p>
-   */
-  CertificateAuthorityArn?: string;
-
-  /**
-   * <p>The current password of the Wi-Fi network.</p>
-   */
-  CurrentPassword?: string;
-
-  /**
-   * <p>The name of the network profile associated with a device.</p>
-   */
-  NetworkProfileName: string | undefined;
-
-  /**
-   * <p>A unique, user-specified identifier for the request that ensures idempotency.</p>
-   */
-  ClientRequestToken?: string;
+  EapMethod?: NetworkEapMethod | string;
 }
 
 export namespace CreateNetworkProfileRequest {
   export const filterSensitiveLog = (obj: CreateNetworkProfileRequest): any => ({
     ...obj,
-    ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
     ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
+    ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
   });
 }
 
@@ -934,14 +934,14 @@ export enum EndOfMeetingReminderType {
  */
 export interface CreateEndOfMeetingReminder {
   /**
-   * <p>The type of sound that users hear during the end of meeting reminder. </p>
-   */
-  ReminderType: EndOfMeetingReminderType | string | undefined;
-
-  /**
    * <p> A range of 3 to 15 minutes that determines when the reminder begins.</p>
    */
   ReminderAtMinutes: number[] | undefined;
+
+  /**
+   * <p>The type of sound that users hear during the end of meeting reminder. </p>
+   */
+  ReminderType: EndOfMeetingReminderType | string | undefined;
 
   /**
    * <p>Whether an end of meeting reminder is enabled or not.</p>
@@ -962,15 +962,15 @@ export namespace CreateEndOfMeetingReminder {
  */
 export interface CreateInstantBooking {
   /**
+   * <p>Whether instant booking is enabled or not.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
    * <p>Duration between 15 and 240 minutes at increments of 15 that determines how long to book
    *          an available room when a meeting is started with Alexa.</p>
    */
   DurationInMinutes: number | undefined;
-
-  /**
-   * <p>Whether instant booking is enabled or not.</p>
-   */
-  Enabled: boolean | undefined;
 }
 
 export namespace CreateInstantBooking {
@@ -1005,11 +1005,6 @@ export namespace CreateRequireCheckIn {
  */
 export interface CreateMeetingRoomConfiguration {
   /**
-   * <p>Settings to automatically book a room for a configured duration if it's free when joining a meeting with Alexa.</p>
-   */
-  InstantBooking?: CreateInstantBooking;
-
-  /**
    * <p>Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.”</p>
    */
   RequireCheckIn?: CreateRequireCheckIn;
@@ -1018,6 +1013,11 @@ export interface CreateMeetingRoomConfiguration {
    * <p>Whether room utilization metrics are enabled or not.</p>
    */
   RoomUtilizationMetricsEnabled?: boolean;
+
+  /**
+   * <p>Settings to automatically book a room for a configured duration if it's free when joining a meeting with Alexa.</p>
+   */
+  InstantBooking?: CreateInstantBooking;
 
   /**
    * <p>Creates settings for the end of meeting reminder feature that are applied to a room
@@ -1047,14 +1047,24 @@ export enum WakeWord {
 
 export interface CreateProfileRequest {
   /**
-   * <p>The tags for the profile.</p>
+   * <p>The meeting room settings of a room profile.</p>
    */
-  Tags?: Tag[];
+  MeetingRoomConfiguration?: CreateMeetingRoomConfiguration;
 
   /**
-   * <p>The user-specified token that is used during the creation of a profile.</p>
+   * <p>The locale of the room profile. (This is currently only available to a limited preview audience.)</p>
    */
-  ClientRequestToken?: string;
+  Locale?: string;
+
+  /**
+   * <p>The time zone used by a room profile.</p>
+   */
+  Timezone: string | undefined;
+
+  /**
+   * <p>The maximum volume limit for a room profile.</p>
+   */
+  MaxVolumeLimit?: number;
 
   /**
    * <p>The name of a room profile.</p>
@@ -1062,14 +1072,34 @@ export interface CreateProfileRequest {
   ProfileName: string | undefined;
 
   /**
+   * <p>The distance unit to be used by devices in the profile.</p>
+   */
+  DistanceUnit: DistanceUnit | string | undefined;
+
+  /**
+   * <p>Whether room profile setup is enabled.</p>
+   */
+  SetupModeDisabled?: boolean;
+
+  /**
    * <p>The temperature unit to be used by devices in the profile.</p>
    */
   TemperatureUnit: TemperatureUnit | string | undefined;
 
   /**
-   * <p>The meeting room settings of a room profile.</p>
+   * <p>The user-specified token that is used during the creation of a profile.</p>
    */
-  MeetingRoomConfiguration?: CreateMeetingRoomConfiguration;
+  ClientRequestToken?: string;
+
+  /**
+   * <p>A wake word for Alexa, Echo, Amazon, or a computer.</p>
+   */
+  WakeWord: WakeWord | string | undefined;
+
+  /**
+   * <p>The tags for the profile.</p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p>The valid address for the room.</p>
@@ -1080,36 +1110,6 @@ export interface CreateProfileRequest {
    * <p>Whether PSTN calling is enabled.</p>
    */
   PSTNEnabled?: boolean;
-
-  /**
-   * <p>The time zone used by a room profile.</p>
-   */
-  Timezone: string | undefined;
-
-  /**
-   * <p>The locale of the room profile. (This is currently only available to a limited preview audience.)</p>
-   */
-  Locale?: string;
-
-  /**
-   * <p>The maximum volume limit for a room profile.</p>
-   */
-  MaxVolumeLimit?: number;
-
-  /**
-   * <p>Whether room profile setup is enabled.</p>
-   */
-  SetupModeDisabled?: boolean;
-
-  /**
-   * <p>The distance unit to be used by devices in the profile.</p>
-   */
-  DistanceUnit: DistanceUnit | string | undefined;
-
-  /**
-   * <p>A wake word for Alexa, Echo, Amazon, or a computer.</p>
-   */
-  WakeWord: WakeWord | string | undefined;
 }
 
 export namespace CreateProfileRequest {
@@ -1138,9 +1138,14 @@ export interface CreateRoomRequest {
   ProviderCalendarId?: string;
 
   /**
-   * <p>The name for the room.</p>
+   * <p>The description for the room.</p>
    */
-  RoomName: string | undefined;
+  Description?: string;
+
+  /**
+   * <p>The profile ARN for the room. This is required.</p>
+   */
+  ProfileArn?: string;
 
   /**
    * <p>A unique, user-specified identifier for this request that ensures idempotency.
@@ -1149,14 +1154,9 @@ export interface CreateRoomRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The profile ARN for the room. This is required.</p>
+   * <p>The name for the room.</p>
    */
-  ProfileArn?: string;
-
-  /**
-   * <p>The description for the room.</p>
-   */
-  Description?: string;
+  RoomName: string | undefined;
 
   /**
    * <p>The tags for the room.</p>
@@ -1185,16 +1185,6 @@ export namespace CreateRoomResponse {
 
 export interface CreateSkillGroupRequest {
   /**
-   * <p>The description for the skill group.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The name for the skill group.</p>
-   */
-  SkillGroupName: string | undefined;
-
-  /**
    * <p>A unique, user-specified identifier for this request that ensures idempotency.
    *       </p>
    */
@@ -1204,6 +1194,16 @@ export interface CreateSkillGroupRequest {
    * <p>The tags for the skill group.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The description for the skill group.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name for the skill group.</p>
+   */
+  SkillGroupName: string | undefined;
 }
 
 export namespace CreateSkillGroupRequest {
@@ -1227,14 +1227,9 @@ export namespace CreateSkillGroupResponse {
 
 export interface CreateUserRequest {
   /**
-   * <p>The ARN for the user.</p>
+   * <p>The email address for the user.</p>
    */
-  UserId: string | undefined;
-
-  /**
-   * <p>The tags for the user.</p>
-   */
-  Tags?: Tag[];
+  Email?: string;
 
   /**
    * <p>A unique, user-specified identifier for this request that ensures idempotency.
@@ -1248,14 +1243,19 @@ export interface CreateUserRequest {
   FirstName?: string;
 
   /**
-   * <p>The email address for the user.</p>
+   * <p>The ARN for the user.</p>
    */
-  Email?: string;
+  UserId: string | undefined;
 
   /**
    * <p>The last name for the user.</p>
    */
   LastName?: string;
+
+  /**
+   * <p>The tags for the user.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateUserRequest {
@@ -1283,12 +1283,11 @@ export namespace CreateUserResponse {
 export interface ResourceInUseException extends __SmithyException, $MetadataBearer {
   name: "ResourceInUseException";
   $fault: "client";
+  Message?: string;
   /**
    * <p>A unique, user-specified identifier for the request that ensures idempotency.</p>
    */
   ClientRequestToken?: string;
-
-  Message?: string;
 }
 
 export namespace ResourceInUseException {
@@ -1408,14 +1407,14 @@ export enum DeviceUsageType {
 
 export interface DeleteDeviceUsageDataRequest {
   /**
-   * <p>The ARN of the device.</p>
-   */
-  DeviceArn: string | undefined;
-
-  /**
    * <p>The type of usage data to delete.</p>
    */
   DeviceUsageType: DeviceUsageType | string | undefined;
+
+  /**
+   * <p>The ARN of the device.</p>
+   */
+  DeviceArn: string | undefined;
 }
 
 export namespace DeleteDeviceUsageDataRequest {
@@ -1533,9 +1532,9 @@ export namespace DeleteRoomResponse {
 
 export interface DeleteRoomSkillParameterRequest {
   /**
-   * <p>The ID of the skill from which to remove the room skill parameter details.</p>
+   * <p>The ARN of the room from which to remove the room skill parameter details.</p>
    */
-  SkillId: string | undefined;
+  RoomArn?: string;
 
   /**
    * <p>The room skill parameter key for which to remove details.</p>
@@ -1543,9 +1542,9 @@ export interface DeleteRoomSkillParameterRequest {
   ParameterKey: string | undefined;
 
   /**
-   * <p>The ARN of the room from which to remove the room skill parameter details.</p>
+   * <p>The ID of the skill from which to remove the room skill parameter details.</p>
    */
-  RoomArn?: string;
+  SkillId: string | undefined;
 }
 
 export namespace DeleteRoomSkillParameterRequest {
@@ -1564,14 +1563,14 @@ export namespace DeleteRoomSkillParameterResponse {
 
 export interface DeleteSkillAuthorizationRequest {
   /**
-   * <p>The unique identifier of a skill.</p>
-   */
-  SkillId: string | undefined;
-
-  /**
    * <p>The room that the skill is authorized for.</p>
    */
   RoomArn?: string;
+
+  /**
+   * <p>The unique identifier of a skill.</p>
+   */
+  SkillId: string | undefined;
 }
 
 export namespace DeleteSkillAuthorizationRequest {
@@ -1611,14 +1610,14 @@ export namespace DeleteSkillGroupResponse {
 
 export interface DeleteUserRequest {
   /**
-   * <p>The ARN of the user's enrollment in the organization. Required.</p>
-   */
-  EnrollmentId: string | undefined;
-
-  /**
    * <p>The ARN of the user to delete in the organization. Required.</p>
    */
   UserArn?: string;
+
+  /**
+   * <p>The ARN of the user's enrollment in the organization. Required.</p>
+   */
+  EnrollmentId: string | undefined;
 }
 
 export namespace DeleteUserRequest {
@@ -1684,14 +1683,14 @@ export namespace DisassociateDeviceFromRoomResponse {
 
 export interface DisassociateSkillFromSkillGroupRequest {
   /**
-   * <p>The ARN of a skill group to associate to a skill.</p>
-   */
-  SkillId: string | undefined;
-
-  /**
    * <p>The unique identifier of a skill. Required.</p>
    */
   SkillGroupArn?: string;
+
+  /**
+   * <p>The ARN of a skill group to associate to a skill.</p>
+   */
+  SkillId: string | undefined;
 }
 
 export namespace DisassociateSkillFromSkillGroupRequest {
@@ -1731,15 +1730,15 @@ export namespace DisassociateSkillFromUsersResponse {
 
 export interface DisassociateSkillGroupFromRoomRequest {
   /**
-   * <p>The ARN of the skill group to disassociate from a room. Required.</p>
-   */
-  SkillGroupArn?: string;
-
-  /**
    * <p>The ARN of the room from which the skill group is to be disassociated.
    *          Required.</p>
    */
   RoomArn?: string;
+
+  /**
+   * <p>The ARN of the skill group to disassociate from a room. Required.</p>
+   */
+  SkillGroupArn?: string;
 }
 
 export namespace DisassociateSkillGroupFromRoomRequest {
@@ -1859,24 +1858,9 @@ export namespace GetConferenceProviderRequest {
  */
 export interface ConferenceProvider {
   /**
-   * <p>The IP endpoint and protocol for calling.</p>
+   * <p>The ARN of the newly created conference provider.</p>
    */
-  IPDialIn?: IPDialIn;
-
-  /**
-   * <p>The type of conference providers.</p>
-   */
-  Type?: ConferenceProviderType | string;
-
-  /**
-   * <p>The name of the conference provider.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The meeting settings for the conference provider.</p>
-   */
-  MeetingSetting?: MeetingSetting;
+  Arn?: string;
 
   /**
    * <p>The information for PSTN conferencing.</p>
@@ -1884,9 +1868,24 @@ export interface ConferenceProvider {
   PSTNDialIn?: PSTNDialIn;
 
   /**
-   * <p>The ARN of the newly created conference provider.</p>
+   * <p>The meeting settings for the conference provider.</p>
    */
-  Arn?: string;
+  MeetingSetting?: MeetingSetting;
+
+  /**
+   * <p>The IP endpoint and protocol for calling.</p>
+   */
+  IPDialIn?: IPDialIn;
+
+  /**
+   * <p>The name of the conference provider.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of conference providers.</p>
+   */
+  Type?: ConferenceProviderType | string;
 }
 
 export namespace ConferenceProvider {
@@ -1926,33 +1925,6 @@ export namespace GetContactRequest {
  */
 export interface Contact {
   /**
-   * <p>The phone number of the contact. The phone number type defaults to WORK. You can
-   *          either specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which
-   *          lets you specify the phone number type and multiple numbers.</p>
-   */
-  PhoneNumber?: string;
-
-  /**
-   * <p>The list of SIP addresses for the contact.</p>
-   */
-  SipAddresses?: SipAddress[];
-
-  /**
-   * <p>The name of the contact to display on the console.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The ARN of the contact.</p>
-   */
-  ContactArn?: string;
-
-  /**
-   * <p>The last name of the contact, used to call the contact on the device.</p>
-   */
-  LastName?: string;
-
-  /**
    * <p>The first name of the contact, used to call the contact on the device.</p>
    */
   FirstName?: string;
@@ -1961,14 +1933,41 @@ export interface Contact {
    * <p>The list of phone numbers for the contact.</p>
    */
   PhoneNumbers?: PhoneNumber[];
+
+  /**
+   * <p>The list of SIP addresses for the contact.</p>
+   */
+  SipAddresses?: SipAddress[];
+
+  /**
+   * <p>The phone number of the contact. The phone number type defaults to WORK. You can
+   *          either specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which
+   *          lets you specify the phone number type and multiple numbers.</p>
+   */
+  PhoneNumber?: string;
+
+  /**
+   * <p>The ARN of the contact.</p>
+   */
+  ContactArn?: string;
+
+  /**
+   * <p>The name of the contact to display on the console.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The last name of the contact, used to call the contact on the device.</p>
+   */
+  LastName?: string;
 }
 
 export namespace Contact {
   export const filterSensitiveLog = (obj: Contact): any => ({
     ...obj,
-    ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-    ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
     ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
+    ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
+    ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
   });
 }
 
@@ -2048,14 +2047,14 @@ export enum Feature {
  */
 export interface DeviceStatusDetail {
   /**
-   * <p>The list of available features on the device.</p>
-   */
-  Feature?: Feature | string;
-
-  /**
    * <p>The device status detail code.</p>
    */
   Code?: DeviceStatusDetailCode | string;
+
+  /**
+   * <p>The list of available features on the device.</p>
+   */
+  Feature?: Feature | string;
 }
 
 export namespace DeviceStatusDetail {
@@ -2069,14 +2068,14 @@ export namespace DeviceStatusDetail {
  */
 export interface DeviceStatusInfo {
   /**
-   * <p>The time (in epoch) when the device connection status changed.</p>
-   */
-  ConnectionStatusUpdatedTime?: Date;
-
-  /**
    * <p>The latest available information about the connection status of a device. </p>
    */
   ConnectionStatus?: ConnectionStatus | string;
+
+  /**
+   * <p>The time (in epoch) when the device connection status changed.</p>
+   */
+  ConnectionStatusUpdatedTime?: Date;
 
   /**
    * <p>One or more device status detail descriptions.</p>
@@ -2095,6 +2094,11 @@ export namespace DeviceStatusInfo {
  */
 export interface DeviceNetworkProfileInfo {
   /**
+   * <p>The ARN of the certificate associated with a device.</p>
+   */
+  CertificateArn?: string;
+
+  /**
    * <p>The ARN of the network profile associated with a device.</p>
    */
   NetworkProfileArn?: string;
@@ -2103,11 +2107,6 @@ export interface DeviceNetworkProfileInfo {
    * <p>The time (in epoch) when the certificate expires.</p>
    */
   CertificateExpirationTime?: Date;
-
-  /**
-   * <p>The ARN of the certificate associated with a device.</p>
-   */
-  CertificateArn?: string;
 }
 
 export namespace DeviceNetworkProfileInfo {
@@ -2131,10 +2130,24 @@ export interface Device {
   DeviceSerialNumber?: string;
 
   /**
-   * <p>The status of a device. If the status is not READY, check the DeviceStatusInfo value
-   *          for details.</p>
+   * <p>Detailed information about a device's status.</p>
    */
-  DeviceStatus?: DeviceStatus | string;
+  DeviceStatusInfo?: DeviceStatusInfo;
+
+  /**
+   * <p>Detailed information about a device's network profile.</p>
+   */
+  NetworkProfileInfo?: DeviceNetworkProfileInfo;
+
+  /**
+   * <p>The software version of a device.</p>
+   */
+  SoftwareVersion?: string;
+
+  /**
+   * <p>The type of a device.</p>
+   */
+  DeviceType?: string;
 
   /**
    * <p>The name of a device.</p>
@@ -2147,29 +2160,15 @@ export interface Device {
   MacAddress?: string;
 
   /**
-   * <p>Detailed information about a device's status.</p>
-   */
-  DeviceStatusInfo?: DeviceStatusInfo;
-
-  /**
    * <p>The room ARN of a device.</p>
    */
   RoomArn?: string;
 
   /**
-   * <p>The type of a device.</p>
+   * <p>The status of a device. If the status is not READY, check the DeviceStatusInfo value
+   *          for details.</p>
    */
-  DeviceType?: string;
-
-  /**
-   * <p>The software version of a device.</p>
-   */
-  SoftwareVersion?: string;
-
-  /**
-   * <p>Detailed information about a device's network profile.</p>
-   */
-  NetworkProfileInfo?: DeviceNetworkProfileInfo;
+  DeviceStatus?: DeviceStatus | string;
 }
 
 export namespace Device {
@@ -2209,9 +2208,10 @@ export namespace GetGatewayRequest {
  */
 export interface Gateway {
   /**
-   * <p>The ARN of the gateway.</p>
+   * <p>The software version of the gateway. The gateway automatically updates its software
+   *          version during normal operation.</p>
    */
-  Arn?: string;
+  SoftwareVersion?: string;
 
   /**
    * <p>The description of the gateway.</p>
@@ -2224,10 +2224,9 @@ export interface Gateway {
   GatewayGroupArn?: string;
 
   /**
-   * <p>The software version of the gateway. The gateway automatically updates its software
-   *          version during normal operation.</p>
+   * <p>The ARN of the gateway.</p>
    */
-  SoftwareVersion?: string;
+  Arn?: string;
 
   /**
    * <p>The name of the gateway.</p>
@@ -2272,14 +2271,14 @@ export namespace GetGatewayGroupRequest {
  */
 export interface GatewayGroup {
   /**
-   * <p>The description of the gateway group.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The name of the gateway group.</p>
    */
   Name?: string;
+
+  /**
+   * <p>The description of the gateway group.</p>
+   */
+  Description?: string;
 
   /**
    * <p>The ARN of the gateway group.</p>
@@ -2316,10 +2315,9 @@ export namespace GetInvitationConfigurationRequest {
 
 export interface GetInvitationConfigurationResponse {
   /**
-   * <p>The email ID of the organization or individual contact that the enrolled user can use.
-   *       </p>
+   * <p>The name of the organization sending the enrollment invite to a user.</p>
    */
-  ContactEmail?: string;
+  OrganizationName?: string;
 
   /**
    * <p>The list of private skill IDs that you want to recommend to the user to enable in the
@@ -2328,9 +2326,10 @@ export interface GetInvitationConfigurationResponse {
   PrivateSkillIds?: string[];
 
   /**
-   * <p>The name of the organization sending the enrollment invite to a user.</p>
+   * <p>The email ID of the organization or individual contact that the enrolled user can use.
+   *       </p>
    */
-  OrganizationName?: string;
+  ContactEmail?: string;
 }
 
 export namespace GetInvitationConfigurationResponse {
@@ -2357,16 +2356,22 @@ export namespace GetNetworkProfileRequest {
  */
 export interface NetworkProfile {
   /**
+   * <p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager
+   *          (ACM). This is used to issue certificates to the devices. </p>
+   */
+  CertificateAuthorityArn?: string;
+
+  /**
+   * <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK,
+   *          WEP, or OPEN.</p>
+   */
+  SecurityType?: NetworkSecurityType | string;
+
+  /**
    * <p>The root certificates of your authentication server, which is installed on your devices
    *          and used to trust your authentication server during EAP negotiation.</p>
    */
   TrustAnchors?: string[];
-
-  /**
-   * <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is
-   *          supported. </p>
-   */
-  EapMethod?: NetworkEapMethod | string;
 
   /**
    * <p>The next, or subsequent, password of the Wi-Fi network. This password is asynchronously
@@ -2376,30 +2381,9 @@ export interface NetworkProfile {
   NextPassword?: string;
 
   /**
-   * <p>Detailed information about a device's network profile.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The current password of the Wi-Fi network.</p>
    */
   CurrentPassword?: string;
-
-  /**
-   * <p>The name of the network profile associated with a device.</p>
-   */
-  NetworkProfileName?: string;
-
-  /**
-   * <p>The ARN of the network profile associated with a device.</p>
-   */
-  NetworkProfileArn?: string;
-
-  /**
-   * <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK,
-   *          WEP, or OPEN.</p>
-   */
-  SecurityType?: NetworkSecurityType | string;
 
   /**
    * <p>The SSID of the Wi-Fi network.</p>
@@ -2407,10 +2391,25 @@ export interface NetworkProfile {
   Ssid?: string;
 
   /**
-   * <p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager
-   *          (ACM). This is used to issue certificates to the devices. </p>
+   * <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is
+   *          supported. </p>
    */
-  CertificateAuthorityArn?: string;
+  EapMethod?: NetworkEapMethod | string;
+
+  /**
+   * <p>The ARN of the network profile associated with a device.</p>
+   */
+  NetworkProfileArn?: string;
+
+  /**
+   * <p>Detailed information about a device's network profile.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The name of the network profile associated with a device.</p>
+   */
+  NetworkProfileName?: string;
 }
 
 export namespace NetworkProfile {
@@ -2469,6 +2468,11 @@ export namespace GetProfileRequest {
  */
 export interface EndOfMeetingReminder {
   /**
+   * <p>A range of 3 to 15 minutes that determines when the reminder begins.</p>
+   */
+  ReminderAtMinutes?: number[];
+
+  /**
    * <p>Whether an end of meeting reminder is enabled or not.</p>
    */
   Enabled?: boolean;
@@ -2477,11 +2481,6 @@ export interface EndOfMeetingReminder {
    * <p>The type of sound that users hear during the end of meeting reminder. </p>
    */
   ReminderType?: EndOfMeetingReminderType | string;
-
-  /**
-   * <p>A range of 3 to 15 minutes that determines when the reminder begins.</p>
-   */
-  ReminderAtMinutes?: number[];
 }
 
 export namespace EndOfMeetingReminder {
@@ -2540,17 +2539,6 @@ export namespace RequireCheckIn {
  */
 export interface MeetingRoomConfiguration {
   /**
-   * <p>Settings to automatically book the room if available for a configured duration when
-   *          joining a meeting with Alexa. </p>
-   */
-  InstantBooking?: InstantBooking;
-
-  /**
-   * <p>Whether room utilization metrics are enabled or not.</p>
-   */
-  RoomUtilizationMetricsEnabled?: boolean;
-
-  /**
    * <p>Settings for requiring a check in when a room is reserved. Alexa can cancel a room
    *          reservation if it's not checked into. This makes the room available for others. Users can
    *          check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check
@@ -2563,6 +2551,17 @@ export interface MeetingRoomConfiguration {
    *          end of meeting reminder enables Alexa to remind users when a meeting is ending. </p>
    */
   EndOfMeetingReminder?: EndOfMeetingReminder;
+
+  /**
+   * <p>Whether room utilization metrics are enabled or not.</p>
+   */
+  RoomUtilizationMetricsEnabled?: boolean;
+
+  /**
+   * <p>Settings to automatically book the room if available for a configured duration when
+   *          joining a meeting with Alexa. </p>
+   */
+  InstantBooking?: InstantBooking;
 }
 
 export namespace MeetingRoomConfiguration {
@@ -2576,9 +2575,55 @@ export namespace MeetingRoomConfiguration {
  */
 export interface Profile {
   /**
-   * <p>The time zone of a room profile.</p>
+   * <p>The distance unit of a room profile.</p>
    */
-  Timezone?: string;
+  DistanceUnit?: DistanceUnit | string;
+
+  /**
+   * <p>The ARN of the address book.</p>
+   */
+  AddressBookArn?: string;
+
+  /**
+   * <p>Meeting room settings of a room profile.</p>
+   */
+  MeetingRoomConfiguration?: MeetingRoomConfiguration;
+
+  /**
+   * <p>The name of a room profile.</p>
+   */
+  ProfileName?: string;
+
+  /**
+   * <p>The setup mode of a room profile.</p>
+   */
+  SetupModeDisabled?: boolean;
+
+  /**
+   * <p>The temperature unit of a room profile.</p>
+   */
+  TemperatureUnit?: TemperatureUnit | string;
+
+  /**
+   * <p>The PSTN setting of a room profile.</p>
+   */
+  PSTNEnabled?: boolean;
+
+  /**
+   * <p>The locale of a room profile. (This is currently available only to a limited preview
+   *          audience.)</p>
+   */
+  Locale?: string;
+
+  /**
+   * <p>The address of a room profile.</p>
+   */
+  Address?: string;
+
+  /**
+   * <p>The max volume limit of a room profile.</p>
+   */
+  MaxVolumeLimit?: number;
 
   /**
    * <p>Retrieves if the profile is default or not.</p>
@@ -2586,10 +2631,9 @@ export interface Profile {
   IsDefault?: boolean;
 
   /**
-   * <p>The locale of a room profile. (This is currently available only to a limited preview
-   *          audience.)</p>
+   * <p>The time zone of a room profile.</p>
    */
-  Locale?: string;
+  Timezone?: string;
 
   /**
    * <p>The wake word of a room profile.</p>
@@ -2600,51 +2644,6 @@ export interface Profile {
    * <p>The ARN of a room profile.</p>
    */
   ProfileArn?: string;
-
-  /**
-   * <p>The temperature unit of a room profile.</p>
-   */
-  TemperatureUnit?: TemperatureUnit | string;
-
-  /**
-   * <p>The name of a room profile.</p>
-   */
-  ProfileName?: string;
-
-  /**
-   * <p>The max volume limit of a room profile.</p>
-   */
-  MaxVolumeLimit?: number;
-
-  /**
-   * <p>Meeting room settings of a room profile.</p>
-   */
-  MeetingRoomConfiguration?: MeetingRoomConfiguration;
-
-  /**
-   * <p>The ARN of the address book.</p>
-   */
-  AddressBookArn?: string;
-
-  /**
-   * <p>The distance unit of a room profile.</p>
-   */
-  DistanceUnit?: DistanceUnit | string;
-
-  /**
-   * <p>The setup mode of a room profile.</p>
-   */
-  SetupModeDisabled?: boolean;
-
-  /**
-   * <p>The address of a room profile.</p>
-   */
-  Address?: string;
-
-  /**
-   * <p>The PSTN setting of a room profile.</p>
-   */
-  PSTNEnabled?: boolean;
 }
 
 export namespace Profile {
@@ -2684,16 +2683,6 @@ export namespace GetRoomRequest {
  */
 export interface Room {
   /**
-   * <p>The ARN of a room.</p>
-   */
-  RoomArn?: string;
-
-  /**
-   * <p>The provider calendar ARN of a room.</p>
-   */
-  ProviderCalendarId?: string;
-
-  /**
    * <p>The description of a room.</p>
    */
   Description?: string;
@@ -2704,9 +2693,19 @@ export interface Room {
   ProfileArn?: string;
 
   /**
+   * <p>The provider calendar ARN of a room.</p>
+   */
+  ProviderCalendarId?: string;
+
+  /**
    * <p>The name of a room.</p>
    */
   RoomName?: string;
+
+  /**
+   * <p>The ARN of a room.</p>
+   */
+  RoomArn?: string;
 }
 
 export namespace Room {
@@ -2730,11 +2729,6 @@ export namespace GetRoomResponse {
 
 export interface GetRoomSkillParameterRequest {
   /**
-   * <p>The room skill parameter key for which to get details. Required.</p>
-   */
-  ParameterKey: string | undefined;
-
-  /**
    * <p>The ARN of the skill from which to get the room skill parameter details.
    *          Required.</p>
    */
@@ -2744,6 +2738,11 @@ export interface GetRoomSkillParameterRequest {
    * <p>The ARN of the room from which to get the room skill parameter details. </p>
    */
   RoomArn?: string;
+
+  /**
+   * <p>The room skill parameter key for which to get details. Required.</p>
+   */
+  ParameterKey: string | undefined;
 }
 
 export namespace GetRoomSkillParameterRequest {
@@ -2805,14 +2804,14 @@ export namespace GetSkillGroupRequest {
  */
 export interface SkillGroup {
   /**
-   * <p>The name of a skill group.</p>
-   */
-  SkillGroupName?: string;
-
-  /**
    * <p>The ARN of a skill group.</p>
    */
   SkillGroupArn?: string;
+
+  /**
+   * <p>The name of a skill group.</p>
+   */
+  SkillGroupName?: string;
 
   /**
    * <p>The description of a skill group.</p>
@@ -2868,14 +2867,14 @@ export enum BusinessReportFailureCode {
  */
 export interface BusinessReportS3Location {
   /**
-   * <p>The S3 bucket name of the output reports.</p>
-   */
-  BucketName?: string;
-
-  /**
    * <p>The path of the business report.</p>
    */
   Path?: string;
+
+  /**
+   * <p>The S3 bucket name of the output reports.</p>
+   */
+  BucketName?: string;
 }
 
 export namespace BusinessReportS3Location {
@@ -2895,14 +2894,15 @@ export enum BusinessReportStatus {
  */
 export interface BusinessReport {
   /**
+   * <p>The status of the report generation execution (RUNNING, SUCCEEDED, or
+   *          FAILED).</p>
+   */
+  Status?: BusinessReportStatus | string;
+
+  /**
    * <p>The failure code.</p>
    */
   FailureCode?: BusinessReportFailureCode | string;
-
-  /**
-   * <p>The S3 location of the output reports.</p>
-   */
-  S3Location?: BusinessReportS3Location;
 
   /**
    * <p>The time of report delivery.</p>
@@ -2915,10 +2915,9 @@ export interface BusinessReport {
   DownloadUrl?: string;
 
   /**
-   * <p>The status of the report generation execution (RUNNING, SUCCEEDED, or
-   *          FAILED).</p>
+   * <p>The S3 location of the output reports.</p>
    */
-  Status?: BusinessReportStatus | string;
+  S3Location?: BusinessReportS3Location;
 }
 
 export namespace BusinessReport {
@@ -2932,9 +2931,9 @@ export namespace BusinessReport {
  */
 export interface BusinessReportSchedule {
   /**
-   * <p>The name identifier of the schedule.</p>
+   * <p>The S3 bucket name of the output reports.</p>
    */
-  ScheduleName?: string;
+  S3BucketName?: string;
 
   /**
    * <p>The content range of the reports.</p>
@@ -2942,25 +2941,15 @@ export interface BusinessReportSchedule {
   ContentRange?: BusinessReportContentRange;
 
   /**
-   * <p>The S3 bucket name of the output reports.</p>
+   * <p>The S3 key where the report is delivered.</p>
    */
-  S3BucketName?: string;
-
-  /**
-   * <p>The recurrence of the reports.</p>
-   */
-  Recurrence?: BusinessReportRecurrence;
+  S3KeyPrefix?: string;
 
   /**
    * <p>The details of the last business report delivery for a specified time
    *          interval.</p>
    */
   LastBusinessReport?: BusinessReport;
-
-  /**
-   * <p>The S3 key where the report is delivered.</p>
-   */
-  S3KeyPrefix?: string;
 
   /**
    * <p>The ARN of the business report schedule.</p>
@@ -2972,6 +2961,16 @@ export interface BusinessReportSchedule {
    *          individual files).</p>
    */
   Format?: BusinessReportFormat | string;
+
+  /**
+   * <p>The recurrence of the reports.</p>
+   */
+  Recurrence?: BusinessReportRecurrence;
+
+  /**
+   * <p>The name identifier of the schedule.</p>
+   */
+  ScheduleName?: string;
 }
 
 export namespace BusinessReportSchedule {
@@ -2982,14 +2981,14 @@ export namespace BusinessReportSchedule {
 
 export interface ListBusinessReportSchedulesResponse {
   /**
-   * <p>The schedule of the reports.</p>
-   */
-  BusinessReportSchedules?: BusinessReportSchedule[];
-
-  /**
    * <p>The token used to list the remaining schedules from the previous API call.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The schedule of the reports.</p>
+   */
+  BusinessReportSchedules?: BusinessReportSchedule[];
 }
 
 export namespace ListBusinessReportSchedulesResponse {
@@ -3000,15 +2999,15 @@ export namespace ListBusinessReportSchedulesResponse {
 
 export interface ListConferenceProvidersRequest {
   /**
-   * <p>The tokens used for pagination.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of conference providers to be returned, per paginated
    *          calls.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The tokens used for pagination.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListConferenceProvidersRequest {
@@ -3042,6 +3041,13 @@ export enum DeviceEventType {
 
 export interface ListDeviceEventsRequest {
   /**
+   * <p>The maximum number of results to include in the response. The default value is 50. If
+   *          more results exist than the specified MaxResults value, a token is included in the response
+   *          so that the remaining results can be retrieved. </p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The event type to filter device events. If EventType isn't specified, this returns a
    *          list of all device events in reverse chronological order. If EventType is specified, this
    *          returns a list of device events for that EventType in reverse chronological order.
@@ -3050,11 +3056,9 @@ export interface ListDeviceEventsRequest {
   EventType?: DeviceEventType | string;
 
   /**
-   * <p>The maximum number of results to include in the response. The default value is 50. If
-   *          more results exist than the specified MaxResults value, a token is included in the response
-   *          so that the remaining results can be retrieved. </p>
+   * <p>The ARN of a device.</p>
    */
-  MaxResults?: number;
+  DeviceArn: string | undefined;
 
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -3063,11 +3067,6 @@ export interface ListDeviceEventsRequest {
    *          is reached, the response has a value of null.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The ARN of a device.</p>
-   */
-  DeviceArn: string | undefined;
 }
 
 export namespace ListDeviceEventsRequest {
@@ -3081,9 +3080,9 @@ export namespace ListDeviceEventsRequest {
  */
 export interface DeviceEvent {
   /**
-   * <p>The type of device event.</p>
+   * <p>The value of the event.</p>
    */
-  Type?: DeviceEventType | string;
+  Value?: string;
 
   /**
    * <p>The time (in epoch) when the event occurred. </p>
@@ -3091,9 +3090,9 @@ export interface DeviceEvent {
   Timestamp?: Date;
 
   /**
-   * <p>The value of the event.</p>
+   * <p>The type of device event.</p>
    */
-  Value?: string;
+  Type?: DeviceEventType | string;
 }
 
 export namespace DeviceEvent {
@@ -3122,14 +3121,14 @@ export namespace ListDeviceEventsResponse {
 
 export interface ListGatewayGroupsRequest {
   /**
-   * <p>The token used to paginate though multiple pages of gateway group summaries.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of gateway group summaries to return. The default is 50.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>The token used to paginate though multiple pages of gateway group summaries.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListGatewayGroupsRequest {
@@ -3143,9 +3142,9 @@ export namespace ListGatewayGroupsRequest {
  */
 export interface GatewayGroupSummary {
   /**
-   * <p>The name of the gateway group.</p>
+   * <p>The description of the gateway group.</p>
    */
-  Name?: string;
+  Description?: string;
 
   /**
    * <p>The ARN of the gateway group.</p>
@@ -3153,9 +3152,9 @@ export interface GatewayGroupSummary {
   Arn?: string;
 
   /**
-   * <p>The description of the gateway group.</p>
+   * <p>The name of the gateway group.</p>
    */
-  Description?: string;
+  Name?: string;
 }
 
 export namespace GatewayGroupSummary {
@@ -3166,14 +3165,14 @@ export namespace GatewayGroupSummary {
 
 export interface ListGatewayGroupsResponse {
   /**
-   * <p>The token used to paginate though multiple pages of gateway group summaries.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The gateway groups in the list.</p>
    */
   GatewayGroups?: GatewayGroupSummary[];
+
+  /**
+   * <p>The token used to paginate though multiple pages of gateway group summaries.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace ListGatewayGroupsResponse {
@@ -3184,6 +3183,11 @@ export namespace ListGatewayGroupsResponse {
 
 export interface ListGatewaysRequest {
   /**
+   * <p>The maximum number of gateway summaries to return. The default is 50.</p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The token used to paginate though multiple pages of gateway summaries.</p>
    */
   NextToken?: string;
@@ -3192,11 +3196,6 @@ export interface ListGatewaysRequest {
    * <p>The gateway group ARN for which to list gateways.</p>
    */
   GatewayGroupArn?: string;
-
-  /**
-   * <p>The maximum number of gateway summaries to return. The default is 50.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListGatewaysRequest {
@@ -3210,9 +3209,10 @@ export namespace ListGatewaysRequest {
  */
 export interface GatewaySummary {
   /**
-   * <p>The description of the gateway.</p>
+   * <p>The software version of the gateway. The gateway automatically updates its software
+   *          version during normal operation.</p>
    */
-  Description?: string;
+  SoftwareVersion?: string;
 
   /**
    * <p>The ARN of the gateway.</p>
@@ -3230,10 +3230,9 @@ export interface GatewaySummary {
   Name?: string;
 
   /**
-   * <p>The software version of the gateway. The gateway automatically updates its software
-   *          version during normal operation.</p>
+   * <p>The description of the gateway.</p>
    */
-  SoftwareVersion?: string;
+  Description?: string;
 }
 
 export namespace GatewaySummary {
@@ -3273,9 +3272,23 @@ export enum SkillTypeFilter {
 
 export interface ListSkillsRequest {
   /**
+   * <p>An optional token returned from a prior request. Use this token for pagination of
+   *          results from this action. If this parameter is specified, the response includes only
+   *          results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The ARN of the skill group for which to list enabled skills.</p>
    */
   SkillGroupArn?: string;
+
+  /**
+   * <p>The maximum number of results to include in the response. If more results exist than
+   *          the specified <code>MaxResults</code> value, a token is included in the response so that
+   *          the remaining results can be retrieved.</p>
+   */
+  MaxResults?: number;
 
   /**
    * <p>Whether the skill is publicly available or is a private skill.</p>
@@ -3286,20 +3299,6 @@ export interface ListSkillsRequest {
    * <p>Whether the skill is enabled under the user's account.</p>
    */
   EnablementType?: EnablementTypeFilter | string;
-
-  /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of
-   *          results from this action. If this parameter is specified, the response includes only
-   *          results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to include in the response. If more results exist than
-   *          the specified <code>MaxResults</code> value, a token is included in the response so that
-   *          the remaining results can be retrieved.</p>
-   */
-  MaxResults?: number;
 }
 
 export namespace ListSkillsRequest {
@@ -3328,6 +3327,16 @@ export interface SkillSummary {
   SkillId?: string;
 
   /**
+   * <p>The name of the skill.</p>
+   */
+  SkillName?: string;
+
+  /**
+   * <p>Whether the skill is publicly available or is a private skill.</p>
+   */
+  SkillType?: SkillType | string;
+
+  /**
    * <p>Whether the skill is enabled under the user's account, or if it requires linking to be
    *          used.</p>
    */
@@ -3337,16 +3346,6 @@ export interface SkillSummary {
    * <p>Linking support for a skill.</p>
    */
   SupportsLinking?: boolean;
-
-  /**
-   * <p>Whether the skill is publicly available or is a private skill.</p>
-   */
-  SkillType?: SkillType | string;
-
-  /**
-   * <p>The name of the skill.</p>
-   */
-  SkillName?: string;
 }
 
 export namespace SkillSummary {
@@ -3433,15 +3432,15 @@ export namespace ListSkillsStoreCategoriesResponse {
 
 export interface ListSkillsStoreSkillsByCategoryRequest {
   /**
+   * <p>The tokens used for pagination.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The category ID for which the skills are being retrieved from the skill
    *          store.</p>
    */
   CategoryId: number | undefined;
-
-  /**
-   * <p>The tokens used for pagination.</p>
-   */
-  NextToken?: string;
 
   /**
    * <p>The maximum number of skills returned per paginated calls.</p>
@@ -3460,6 +3459,16 @@ export namespace ListSkillsStoreSkillsByCategoryRequest {
  */
 export interface DeveloperInfo {
   /**
+   * <p>The website of the developer.</p>
+   */
+  Url?: string;
+
+  /**
+   * <p>The URL of the privacy policy.</p>
+   */
+  PrivacyPolicy?: string;
+
+  /**
    * <p>The email of the developer.</p>
    */
   Email?: string;
@@ -3468,16 +3477,6 @@ export interface DeveloperInfo {
    * <p>The name of the developer.</p>
    */
   DeveloperName?: string;
-
-  /**
-   * <p>The URL of the privacy policy.</p>
-   */
-  PrivacyPolicy?: string;
-
-  /**
-   * <p>The website of the developer.</p>
-   */
-  Url?: string;
 }
 
 export namespace DeveloperInfo {
@@ -3491,34 +3490,25 @@ export namespace DeveloperInfo {
  */
 export interface SkillDetails {
   /**
-   * <p>The details about what the skill supports organized as bullet points.</p>
-   */
-  BulletPoints?: string[];
-
-  /**
-   * <p>The types of skills.</p>
-   */
-  SkillTypes?: string[];
-
-  /**
-   * <p>The updates added in bullet points.</p>
-   */
-  NewInThisVersionBulletPoints?: string[];
-
-  /**
-   * <p>The date when the skill was released.</p>
-   */
-  ReleaseDate?: string;
-
-  /**
    * <p>The details about the developer that published the skill.</p>
    */
   DeveloperInfo?: DeveloperInfo;
 
   /**
+   * <p>The generic keywords associated with the skill that can be used to find a
+   *          skill.</p>
+   */
+  GenericKeywords?: string[];
+
+  /**
    * <p>The description of the product.</p>
    */
   ProductDescription?: string;
+
+  /**
+   * <p>The types of skills.</p>
+   */
+  SkillTypes?: string[];
 
   /**
    * <p>
@@ -3529,20 +3519,29 @@ export interface SkillDetails {
   Reviews?: { [key: string]: string };
 
   /**
+   * <p>The URL of the end user license agreement.</p>
+   */
+  EndUserLicenseAgreement?: string;
+
+  /**
    * <p>The phrase used to trigger the skill.</p>
    */
   InvocationPhrase?: string;
 
   /**
-   * <p>The generic keywords associated with the skill that can be used to find a
-   *          skill.</p>
+   * <p>The date when the skill was released.</p>
    */
-  GenericKeywords?: string[];
+  ReleaseDate?: string;
 
   /**
-   * <p>The URL of the end user license agreement.</p>
+   * <p>The details about what the skill supports organized as bullet points.</p>
    */
-  EndUserLicenseAgreement?: string;
+  BulletPoints?: string[];
+
+  /**
+   * <p>The updates added in bullet points.</p>
+   */
+  NewInThisVersionBulletPoints?: string[];
 }
 
 export namespace SkillDetails {
@@ -3556,14 +3555,14 @@ export namespace SkillDetails {
  */
 export interface SkillsStoreSkill {
   /**
-   * <p>The URL where the skill icon resides.</p>
+   * <p>The ARN of the skill.</p>
    */
-  IconUrl?: string;
+  SkillId?: string;
 
   /**
-   * <p>The name of the skill.</p>
+   * <p>Information about the skill.</p>
    */
-  SkillName?: string;
+  SkillDetails?: SkillDetails;
 
   /**
    * <p>Sample utterances that interact with the skill.</p>
@@ -3576,19 +3575,19 @@ export interface SkillsStoreSkill {
   SupportsLinking?: boolean;
 
   /**
-   * <p>The ARN of the skill.</p>
+   * <p>The URL where the skill icon resides.</p>
    */
-  SkillId?: string;
+  IconUrl?: string;
+
+  /**
+   * <p>The name of the skill.</p>
+   */
+  SkillName?: string;
 
   /**
    * <p>Short description about the skill.</p>
    */
   ShortDescription?: string;
-
-  /**
-   * <p>Information about the skill.</p>
-   */
-  SkillDetails?: SkillDetails;
 }
 
 export namespace SkillsStoreSkill {
@@ -3599,14 +3598,14 @@ export namespace SkillsStoreSkill {
 
 export interface ListSkillsStoreSkillsByCategoryResponse {
   /**
-   * <p>The skill store skills.</p>
-   */
-  SkillsStoreSkills?: SkillsStoreSkill[];
-
-  /**
    * <p>The tokens used for pagination.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The skill store skills.</p>
+   */
+  SkillsStoreSkills?: SkillsStoreSkill[];
 }
 
 export namespace ListSkillsStoreSkillsByCategoryResponse {
@@ -3644,9 +3643,9 @@ export namespace ListSmartHomeAppliancesRequest {
  */
 export interface SmartHomeAppliance {
   /**
-   * <p>The friendly name of the smart home appliance.</p>
+   * <p>The name of the manufacturer of the smart home appliance.</p>
    */
-  FriendlyName?: string;
+  ManufacturerName?: string;
 
   /**
    * <p>The description of the smart home appliance.</p>
@@ -3654,9 +3653,9 @@ export interface SmartHomeAppliance {
   Description?: string;
 
   /**
-   * <p>The name of the manufacturer of the smart home appliance.</p>
+   * <p>The friendly name of the smart home appliance.</p>
    */
-  ManufacturerName?: string;
+  FriendlyName?: string;
 }
 
 export namespace SmartHomeAppliance {
@@ -3667,14 +3666,14 @@ export namespace SmartHomeAppliance {
 
 export interface ListSmartHomeAppliancesResponse {
   /**
-   * <p>The smart home appliances.</p>
-   */
-  SmartHomeAppliances?: SmartHomeAppliance[];
-
-  /**
    * <p>The tokens used for pagination.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The smart home appliances.</p>
+   */
+  SmartHomeAppliances?: SmartHomeAppliance[];
 }
 
 export namespace ListSmartHomeAppliancesResponse {
@@ -3684,6 +3683,11 @@ export namespace ListSmartHomeAppliancesResponse {
 }
 
 export interface ListTagsRequest {
+  /**
+   * <p>The ARN of the specified resource for which to list tags.</p>
+   */
+  Arn: string | undefined;
+
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
    *          results from this action. If this parameter is specified, the response includes only
@@ -3697,11 +3701,6 @@ export interface ListTagsRequest {
    *          the remaining results can be retrieved.</p>
    */
   MaxResults?: number;
-
-  /**
-   * <p>The ARN of the specified resource for which to list tags.</p>
-   */
-  Arn: string | undefined;
 }
 
 export namespace ListTagsRequest {
@@ -3751,6 +3750,12 @@ export namespace PutConferencePreferenceResponse {
 
 export interface PutInvitationConfigurationRequest {
   /**
+   * <p>The email ID of the organization or individual contact that the enrolled user can use.
+   *       </p>
+   */
+  ContactEmail?: string;
+
+  /**
    * <p>The name of the organization sending the enrollment invite to a user.</p>
    */
   OrganizationName: string | undefined;
@@ -3760,12 +3765,6 @@ export interface PutInvitationConfigurationRequest {
    *          invitation.</p>
    */
   PrivateSkillIds?: string[];
-
-  /**
-   * <p>The email ID of the organization or individual contact that the enrolled user can use.
-   *       </p>
-   */
-  ContactEmail?: string;
 }
 
 export namespace PutInvitationConfigurationRequest {
@@ -3789,14 +3788,14 @@ export interface PutRoomSkillParameterRequest {
   RoomArn?: string;
 
   /**
-   * <p>The updated room skill parameter. Required.</p>
-   */
-  RoomSkillParameter: RoomSkillParameter | undefined;
-
-  /**
    * <p>The ARN of the skill associated with the room skill parameter. Required.</p>
    */
   SkillId: string | undefined;
+
+  /**
+   * <p>The updated room skill parameter. Required.</p>
+   */
+  RoomSkillParameter: RoomSkillParameter | undefined;
 }
 
 export namespace PutRoomSkillParameterRequest {
@@ -3815,11 +3814,6 @@ export namespace PutRoomSkillParameterResponse {
 
 export interface PutSkillAuthorizationRequest {
   /**
-   * <p>The unique identifier of a skill.</p>
-   */
-  SkillId: string | undefined;
-
-  /**
    * <p>The room that the skill is authorized for.</p>
    */
   RoomArn?: string;
@@ -3829,6 +3823,11 @@ export interface PutSkillAuthorizationRequest {
    *          populated in the AuthorizationResult map to establish the authorization.</p>
    */
   AuthorizationResult: { [key: string]: string } | undefined;
+
+  /**
+   * <p>The unique identifier of a skill.</p>
+   */
+  SkillId: string | undefined;
 }
 
 export namespace PutSkillAuthorizationRequest {
@@ -3878,12 +3877,6 @@ export namespace InvalidDeviceException {
 
 export interface RegisterAVSDeviceRequest {
   /**
-   * <p>The device type ID for your AVS device generated by Amazon when the OEM creates a new
-   *          product on Amazon's Developer Console.</p>
-   */
-  AmazonId: string | undefined;
-
-  /**
    * <p>The ARN of the room with which to associate your AVS device.</p>
    */
   RoomArn?: string;
@@ -3911,6 +3904,12 @@ export interface RegisterAVSDeviceRequest {
    *          AVS device.</p>
    */
   DeviceSerialNumber?: string;
+
+  /**
+   * <p>The device type ID for your AVS device generated by Amazon when the OEM creates a new
+   *          product on Amazon's Developer Console.</p>
+   */
+  AmazonId: string | undefined;
 }
 
 export namespace RegisterAVSDeviceRequest {
@@ -3955,14 +3954,14 @@ export namespace RejectSkillResponse {
 
 export interface ResolveRoomRequest {
   /**
-   * <p>The ARN of the skill that was requested. Required.</p>
-   */
-  SkillId: string | undefined;
-
-  /**
    * <p>The ARN of the user. Required.</p>
    */
   UserId: string | undefined;
+
+  /**
+   * <p>The ARN of the skill that was requested. Required.</p>
+   */
+  SkillId: string | undefined;
 }
 
 export namespace ResolveRoomRequest {
@@ -3973,9 +3972,9 @@ export namespace ResolveRoomRequest {
 
 export interface ResolveRoomResponse {
   /**
-   * <p>The name of the room from which the skill request was invoked.</p>
+   * <p>Response to get the room profile request. Required.</p>
    */
-  RoomName?: string;
+  RoomSkillParameters?: RoomSkillParameter[];
 
   /**
    * <p>The ARN of the room from which the skill request was invoked.</p>
@@ -3983,9 +3982,9 @@ export interface ResolveRoomResponse {
   RoomArn?: string;
 
   /**
-   * <p>Response to get the room profile request. Required.</p>
+   * <p>The name of the room from which the skill request was invoked.</p>
    */
-  RoomSkillParameters?: RoomSkillParameter[];
+  RoomName?: string;
 }
 
 export namespace ResolveRoomResponse {
@@ -4026,14 +4025,14 @@ export namespace RevokeInvitationResponse {
  */
 export interface Filter {
   /**
-   * <p>The values of a filter.</p>
-   */
-  Values: string[] | undefined;
-
-  /**
    * <p>The key of a filter.</p>
    */
   Key: string | undefined;
+
+  /**
+   * <p>The values of a filter.</p>
+   */
+  Values: string[] | undefined;
 }
 
 export namespace Filter {
@@ -4077,10 +4076,11 @@ export interface SearchAddressBooksRequest {
   NextToken?: string;
 
   /**
-   * <p>The filters to use to list a specified set of address books. The supported filter key
-   *          is AddressBookName.</p>
+   * <p>The maximum number of results to include in the response. If more results exist than
+   *          the specified MaxResults value, a token is included in the response so that the remaining
+   *          results can be retrieved.</p>
    */
-  Filters?: Filter[];
+  MaxResults?: number;
 
   /**
    * <p>The sort order to use in listing the specified set of address books. The supported
@@ -4089,11 +4089,10 @@ export interface SearchAddressBooksRequest {
   SortCriteria?: Sort[];
 
   /**
-   * <p>The maximum number of results to include in the response. If more results exist than
-   *          the specified MaxResults value, a token is included in the response so that the remaining
-   *          results can be retrieved.</p>
+   * <p>The filters to use to list a specified set of address books. The supported filter key
+   *          is AddressBookName.</p>
    */
-  MaxResults?: number;
+  Filters?: Filter[];
 }
 
 export namespace SearchAddressBooksRequest {
@@ -4134,18 +4133,18 @@ export interface SearchContactsRequest {
   SortCriteria?: Sort[];
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of
-   *          results from this action. If this parameter is specified, the response only includes
-   *          results beyond the token, up to the value specified by MaxResults.</p>
-   */
-  NextToken?: string;
-
-  /**
    * <p>The maximum number of results to include in the response. If more results exist than
    *          the specified MaxResults value, a token is included in the response so that the remaining
    *          results can be retrieved.</p>
    */
   MaxResults?: number;
+
+  /**
+   * <p>An optional token returned from a prior request. Use this token for pagination of
+   *          results from this action. If this parameter is specified, the response only includes
+   *          results beyond the token, up to the value specified by MaxResults.</p>
+   */
+  NextToken?: string;
 
   /**
    * <p>The filters to use to list a specified set of address books. The supported filter
@@ -4165,6 +4164,21 @@ export namespace SearchContactsRequest {
  */
 export interface ContactData {
   /**
+   * <p>The list of phone numbers for the contact.</p>
+   */
+  PhoneNumbers?: PhoneNumber[];
+
+  /**
+   * <p>The first name of the contact, used to call the contact on the device.</p>
+   */
+  FirstName?: string;
+
+  /**
+   * <p>The list of SIP addresses for the contact.</p>
+   */
+  SipAddresses?: SipAddress[];
+
+  /**
    * <p>The phone number of the contact. The phone number type defaults to WORK. You can
    *          specify PhoneNumber or PhoneNumbers. We recommend that you use PhoneNumbers, which lets you
    *          specify the phone number type and multiple numbers.</p>
@@ -4177,45 +4191,30 @@ export interface ContactData {
   DisplayName?: string;
 
   /**
-   * <p>The last name of the contact, used to call the contact on the device.</p>
-   */
-  LastName?: string;
-
-  /**
-   * <p>The list of SIP addresses for the contact.</p>
-   */
-  SipAddresses?: SipAddress[];
-
-  /**
    * <p>The ARN of the contact.</p>
    */
   ContactArn?: string;
 
   /**
-   * <p>The list of phone numbers for the contact.</p>
+   * <p>The last name of the contact, used to call the contact on the device.</p>
    */
-  PhoneNumbers?: PhoneNumber[];
-
-  /**
-   * <p>The first name of the contact, used to call the contact on the device.</p>
-   */
-  FirstName?: string;
+  LastName?: string;
 }
 
 export namespace ContactData {
   export const filterSensitiveLog = (obj: ContactData): any => ({
     ...obj,
-    ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
-    ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
     ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
+    ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
+    ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
   });
 }
 
 export interface SearchContactsResponse {
   /**
-   * <p>The contacts that meet the specified set of filter criteria, in sort order.</p>
+   * <p>The total number of contacts returned.</p>
    */
-  Contacts?: ContactData[];
+  TotalCount?: number;
 
   /**
    * <p>The token returned to indicate that there is more data available.</p>
@@ -4223,9 +4222,9 @@ export interface SearchContactsResponse {
   NextToken?: string;
 
   /**
-   * <p>The total number of contacts returned.</p>
+   * <p>The contacts that meet the specified set of filter criteria, in sort order.</p>
    */
-  TotalCount?: number;
+  Contacts?: ContactData[];
 }
 
 export namespace SearchContactsResponse {
@@ -4236,6 +4235,14 @@ export namespace SearchContactsResponse {
 }
 
 export interface SearchDevicesRequest {
+  /**
+   * <p>The filters to use to list a specified set of devices. Supported filter keys are
+   *          DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber,
+   *          UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE), NetworkProfileName,
+   *          NetworkProfileArn, Feature, and FailureCode.</p>
+   */
+  Filters?: Filter[];
+
   /**
    * <p>The sort order to use in listing the specified set of devices. Supported sort keys
    *          are DeviceName, DeviceStatus, RoomName, DeviceType, DeviceSerialNumber, ConnectionStatus,
@@ -4256,14 +4263,6 @@ export interface SearchDevicesRequest {
    *          results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The filters to use to list a specified set of devices. Supported filter keys are
-   *          DeviceName, DeviceStatus, DeviceStatusDetailCode, RoomName, DeviceType, DeviceSerialNumber,
-   *          UnassociatedOnly, ConnectionStatus (ONLINE and OFFLINE), NetworkProfileName,
-   *          NetworkProfileArn, Feature, and FailureCode.</p>
-   */
-  Filters?: Filter[];
 }
 
 export namespace SearchDevicesRequest {
@@ -4277,9 +4276,29 @@ export namespace SearchDevicesRequest {
  */
 export interface DeviceData {
   /**
+   * <p>The MAC address of a device.</p>
+   */
+  MacAddress?: string;
+
+  /**
+   * <p>The time (in epoch) when the device data was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The status of a device.</p>
+   */
+  DeviceStatus?: DeviceStatus | string;
+
+  /**
    * <p>The name of the room associated with a device.</p>
    */
   RoomName?: string;
+
+  /**
+   * <p>The name of a device.</p>
+   */
+  DeviceName?: string;
 
   /**
    * <p>The room ARN associated with a device.</p>
@@ -4292,14 +4311,9 @@ export interface DeviceData {
   DeviceStatusInfo?: DeviceStatusInfo;
 
   /**
-   * <p>The name of a device.</p>
+   * <p>The serial number of a device.</p>
    */
-  DeviceName?: string;
-
-  /**
-   * <p>The status of a device.</p>
-   */
-  DeviceStatus?: DeviceStatus | string;
+  DeviceSerialNumber?: string;
 
   /**
    * <p>The ARN of a device.</p>
@@ -4307,14 +4321,9 @@ export interface DeviceData {
   DeviceArn?: string;
 
   /**
-   * <p>The name of the network profile associated with a device.</p>
+   * <p>The ARN of the network profile associated with a device.</p>
    */
-  NetworkProfileName?: string;
-
-  /**
-   * <p>The type of a device.</p>
-   */
-  DeviceType?: string;
+  NetworkProfileArn?: string;
 
   /**
    * <p>The software version of a device.</p>
@@ -4322,24 +4331,14 @@ export interface DeviceData {
   SoftwareVersion?: string;
 
   /**
-   * <p>The time (in epoch) when the device data was created.</p>
+   * <p>The type of a device.</p>
    */
-  CreatedTime?: Date;
+  DeviceType?: string;
 
   /**
-   * <p>The serial number of a device.</p>
+   * <p>The name of the network profile associated with a device.</p>
    */
-  DeviceSerialNumber?: string;
-
-  /**
-   * <p>The MAC address of a device.</p>
-   */
-  MacAddress?: string;
-
-  /**
-   * <p>The ARN of the network profile associated with a device.</p>
-   */
-  NetworkProfileArn?: string;
+  NetworkProfileName?: string;
 }
 
 export namespace DeviceData {
@@ -4373,10 +4372,11 @@ export namespace SearchDevicesResponse {
 
 export interface SearchNetworkProfilesRequest {
   /**
-   * <p>The sort order to use to list the specified set of network profiles. Valid sort criteria
-   *          includes NetworkProfileName, Ssid, and SecurityType.</p>
+   * <p>An optional token returned from a prior request. Use this token for pagination of
+   *          results from this action. If this parameter is specified, the response includes only
+   *          results beyond the token, up to the value specified by MaxResults. </p>
    */
-  SortCriteria?: Sort[];
+  NextToken?: string;
 
   /**
    * <p>The filters to use to list a specified set of network profiles. Valid filters are
@@ -4385,11 +4385,10 @@ export interface SearchNetworkProfilesRequest {
   Filters?: Filter[];
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of
-   *          results from this action. If this parameter is specified, the response includes only
-   *          results beyond the token, up to the value specified by MaxResults. </p>
+   * <p>The sort order to use to list the specified set of network profiles. Valid sort criteria
+   *          includes NetworkProfileName, Ssid, and SecurityType.</p>
    */
-  NextToken?: string;
+  SortCriteria?: Sort[];
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist than the
@@ -4410,31 +4409,20 @@ export namespace SearchNetworkProfilesRequest {
  */
 export interface NetworkProfileData {
   /**
-   * <p>The SSID of the Wi-Fi network.</p>
-   */
-  Ssid?: string;
-
-  /**
-   * <p>The ARN of the network profile associated with a device.</p>
-   */
-  NetworkProfileArn?: string;
-
-  /**
    * <p>The authentication standard that is used in the EAP framework. Currently, EAP_TLS is
    *          supported.</p>
    */
   EapMethod?: NetworkEapMethod | string;
 
   /**
-   * <p>Detailed information about a device's network profile.</p>
+   * <p>The name of the network profile associated with a device.</p>
    */
-  Description?: string;
+  NetworkProfileName?: string;
 
   /**
-   * <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK,
-   *          WEP, or OPEN.</p>
+   * <p>The SSID of the Wi-Fi network.</p>
    */
-  SecurityType?: NetworkSecurityType | string;
+  Ssid?: string;
 
   /**
    * <p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager
@@ -4443,9 +4431,20 @@ export interface NetworkProfileData {
   CertificateAuthorityArn?: string;
 
   /**
-   * <p>The name of the network profile associated with a device.</p>
+   * <p>The security type of the Wi-Fi network. This can be WPA2_ENTERPRISE, WPA2_PSK, WPA_PSK,
+   *          WEP, or OPEN.</p>
    */
-  NetworkProfileName?: string;
+  SecurityType?: NetworkSecurityType | string;
+
+  /**
+   * <p>The ARN of the network profile associated with a device.</p>
+   */
+  NetworkProfileArn?: string;
+
+  /**
+   * <p>Detailed information about a device's network profile.</p>
+   */
+  Description?: string;
 }
 
 export namespace NetworkProfileData {
@@ -4456,11 +4455,10 @@ export namespace NetworkProfileData {
 
 export interface SearchNetworkProfilesResponse {
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of
-   *          results from this action. If this parameter is specified, the response includes only
-   *          results beyond the token, up to the value specified by MaxResults.</p>
+   * <p>The network profiles that meet the specified set of filter criteria, in sort order. It
+   *          is a list of NetworkProfileData objects. </p>
    */
-  NextToken?: string;
+  NetworkProfiles?: NetworkProfileData[];
 
   /**
    * <p>The total number of network profiles returned.</p>
@@ -4468,10 +4466,11 @@ export interface SearchNetworkProfilesResponse {
   TotalCount?: number;
 
   /**
-   * <p>The network profiles that meet the specified set of filter criteria, in sort order. It
-   *          is a list of NetworkProfileData objects. </p>
+   * <p>An optional token returned from a prior request. Use this token for pagination of
+   *          results from this action. If this parameter is specified, the response includes only
+   *          results beyond the token, up to the value specified by MaxResults.</p>
    */
-  NetworkProfiles?: NetworkProfileData[];
+  NextToken?: string;
 }
 
 export namespace SearchNetworkProfilesResponse {
@@ -4482,16 +4481,17 @@ export namespace SearchNetworkProfilesResponse {
 
 export interface SearchProfilesRequest {
   /**
+   * <p>An optional token returned from a prior request. Use this token for pagination of
+   *          results from this action. If this parameter is specified, the response includes only
+   *          results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The filters to use to list a specified set of room profiles. Supported filter keys
    *          are ProfileName and Address. Required. </p>
    */
   Filters?: Filter[];
-
-  /**
-   * <p>The sort order to use in listing the specified set of room profiles. Supported sort
-   *          keys are ProfileName and Address.</p>
-   */
-  SortCriteria?: Sort[];
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist than
@@ -4501,11 +4501,10 @@ export interface SearchProfilesRequest {
   MaxResults?: number;
 
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of
-   *          results from this action. If this parameter is specified, the response includes only
-   *          results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
+   * <p>The sort order to use in listing the specified set of room profiles. Supported sort
+   *          keys are ProfileName and Address.</p>
    */
-  NextToken?: string;
+  SortCriteria?: Sort[];
 }
 
 export namespace SearchProfilesRequest {
@@ -4519,9 +4518,9 @@ export namespace SearchProfilesRequest {
  */
 export interface ProfileData {
   /**
-   * <p>The name of a room profile.</p>
+   * <p>Retrieves if the profile data is default or not.</p>
    */
-  ProfileName?: string;
+  IsDefault?: boolean;
 
   /**
    * <p>The ARN of a room profile.</p>
@@ -4529,10 +4528,14 @@ export interface ProfileData {
   ProfileArn?: string;
 
   /**
-   * <p>The locale of a room profile. (This is currently available only to a limited preview
-   *          audience.)</p>
+   * <p>The temperature unit of a room profile.</p>
    */
-  Locale?: string;
+  TemperatureUnit?: TemperatureUnit | string;
+
+  /**
+   * <p>The name of a room profile.</p>
+   */
+  ProfileName?: string;
 
   /**
    * <p>The time zone of a room profile.</p>
@@ -4540,19 +4543,10 @@ export interface ProfileData {
   Timezone?: string;
 
   /**
-   * <p>Retrieves if the profile data is default or not.</p>
+   * <p>The locale of a room profile. (This is currently available only to a limited preview
+   *          audience.)</p>
    */
-  IsDefault?: boolean;
-
-  /**
-   * <p>The address of a room profile.</p>
-   */
-  Address?: string;
-
-  /**
-   * <p>The temperature unit of a room profile.</p>
-   */
-  TemperatureUnit?: TemperatureUnit | string;
+  Locale?: string;
 
   /**
    * <p>The distance unit of a room profile.</p>
@@ -4563,6 +4557,11 @@ export interface ProfileData {
    * <p>The wake word of a room profile.</p>
    */
   WakeWord?: WakeWord | string;
+
+  /**
+   * <p>The address of a room profile.</p>
+   */
+  Address?: string;
 }
 
 export namespace ProfileData {
@@ -4573,6 +4572,11 @@ export namespace ProfileData {
 
 export interface SearchProfilesResponse {
   /**
+   * <p>The profiles that meet the specified set of filter criteria, in sort order.</p>
+   */
+  Profiles?: ProfileData[];
+
+  /**
    * <p>The token returned to indicate that there is more data available.</p>
    */
   NextToken?: string;
@@ -4581,11 +4585,6 @@ export interface SearchProfilesResponse {
    * <p>The total number of room profiles returned.</p>
    */
   TotalCount?: number;
-
-  /**
-   * <p>The profiles that meet the specified set of filter criteria, in sort order.</p>
-   */
-  Profiles?: ProfileData[];
 }
 
 export namespace SearchProfilesResponse {
@@ -4596,11 +4595,10 @@ export namespace SearchProfilesResponse {
 
 export interface SearchRoomsRequest {
   /**
-   * <p>The maximum number of results to include in the response. If more results exist than
-   *          the specified <code>MaxResults</code> value, a token is included in the response so that
-   *          the remaining results can be retrieved. </p>
+   * <p>The sort order to use in listing the specified set of rooms. The supported sort keys
+   *          are RoomName and ProfileName.</p>
    */
-  MaxResults?: number;
+  SortCriteria?: Sort[];
 
   /**
    * <p>The filters to use to list a specified set of rooms. The supported filter keys are
@@ -4609,17 +4607,18 @@ export interface SearchRoomsRequest {
   Filters?: Filter[];
 
   /**
+   * <p>The maximum number of results to include in the response. If more results exist than
+   *          the specified <code>MaxResults</code> value, a token is included in the response so that
+   *          the remaining results can be retrieved. </p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
    *          results from this action. If this parameter is specified, the response includes only
    *          results beyond the token, up to the value specified by <code>MaxResults</code>.</p>
    */
   NextToken?: string;
-
-  /**
-   * <p>The sort order to use in listing the specified set of rooms. The supported sort keys
-   *          are RoomName and ProfileName.</p>
-   */
-  SortCriteria?: Sort[];
 }
 
 export namespace SearchRoomsRequest {
@@ -4633,9 +4632,9 @@ export namespace SearchRoomsRequest {
  */
 export interface RoomData {
   /**
-   * <p>The profile name of a room.</p>
+   * <p>The description of a room.</p>
    */
-  ProfileName?: string;
+  Description?: string;
 
   /**
    * <p>The name of a room.</p>
@@ -4653,14 +4652,14 @@ export interface RoomData {
   ProviderCalendarId?: string;
 
   /**
-   * <p>The description of a room.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The profile ARN of a room.</p>
    */
   ProfileArn?: string;
+
+  /**
+   * <p>The profile name of a room.</p>
+   */
+  ProfileName?: string;
 }
 
 export namespace RoomData {
@@ -4676,14 +4675,14 @@ export interface SearchRoomsResponse {
   NextToken?: string;
 
   /**
-   * <p>The total number of rooms returned.</p>
-   */
-  TotalCount?: number;
-
-  /**
    * <p>The rooms that meet the specified set of filter criteria, in sort order.</p>
    */
   Rooms?: RoomData[];
+
+  /**
+   * <p>The total number of rooms returned.</p>
+   */
+  TotalCount?: number;
 }
 
 export namespace SearchRoomsResponse {
@@ -4694,16 +4693,17 @@ export namespace SearchRoomsResponse {
 
 export interface SearchSkillGroupsRequest {
   /**
+   * <p>The maximum number of results to include in the response. If more results exist than
+   *          the specified <code>MaxResults</code> value, a token is included in the response so that
+   *          the remaining results can be retrieved. </p>
+   */
+  MaxResults?: number;
+
+  /**
    * <p>The filters to use to list a specified set of skill groups. The supported filter key
    *          is SkillGroupName. </p>
    */
   Filters?: Filter[];
-
-  /**
-   * <p>The sort order to use in listing the specified set of skill groups. The supported
-   *          sort key is SkillGroupName. </p>
-   */
-  SortCriteria?: Sort[];
 
   /**
    * <p>An optional token returned from a prior request. Use this token for pagination of
@@ -4714,11 +4714,10 @@ export interface SearchSkillGroupsRequest {
   NextToken?: string;
 
   /**
-   * <p>The maximum number of results to include in the response. If more results exist than
-   *          the specified <code>MaxResults</code> value, a token is included in the response so that
-   *          the remaining results can be retrieved. </p>
+   * <p>The sort order to use in listing the specified set of skill groups. The supported
+   *          sort key is SkillGroupName. </p>
    */
-  MaxResults?: number;
+  SortCriteria?: Sort[];
 }
 
 export namespace SearchSkillGroupsRequest {
@@ -4732,11 +4731,6 @@ export namespace SearchSkillGroupsRequest {
  */
 export interface SkillGroupData {
   /**
-   * <p>The description of a skill group.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The skill group ARN of a skill group.</p>
    */
   SkillGroupArn?: string;
@@ -4745,6 +4739,11 @@ export interface SkillGroupData {
    * <p>The skill group name of a skill group.</p>
    */
   SkillGroupName?: string;
+
+  /**
+   * <p>The description of a skill group.</p>
+   */
+  Description?: string;
 }
 
 export namespace SkillGroupData {
@@ -4755,6 +4754,11 @@ export namespace SkillGroupData {
 
 export interface SearchSkillGroupsResponse {
   /**
+   * <p>The token returned to indicate that there is more data available.</p>
+   */
+  NextToken?: string;
+
+  /**
    * <p>The total number of skill groups returned.</p>
    */
   TotalCount?: number;
@@ -4763,11 +4767,6 @@ export interface SearchSkillGroupsResponse {
    * <p>The skill groups that meet the filter criteria, in sort order.</p>
    */
   SkillGroups?: SkillGroupData[];
-
-  /**
-   * <p>The token returned to indicate that there is more data available.</p>
-   */
-  NextToken?: string;
 }
 
 export namespace SearchSkillGroupsResponse {
@@ -4778,18 +4777,10 @@ export namespace SearchSkillGroupsResponse {
 
 export interface SearchUsersRequest {
   /**
-   * <p>An optional token returned from a prior request. Use this token for pagination of
-   *          results from this action. If this parameter is specified, the response includes only
-   *          results beyond the token, up to the value specified by <code>MaxResults</code>.
-   *          Required.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The sort order to use in listing the filtered set of users. Required. Supported sort
+   * <p>The filters to use for listing a specific set of users. Required. Supported filter
    *          keys are UserId, FirstName, LastName, Email, and EnrollmentStatus.</p>
    */
-  SortCriteria?: Sort[];
+  Filters?: Filter[];
 
   /**
    * <p>The maximum number of results to include in the response. If more results exist than
@@ -4799,10 +4790,18 @@ export interface SearchUsersRequest {
   MaxResults?: number;
 
   /**
-   * <p>The filters to use for listing a specific set of users. Required. Supported filter
+   * <p>The sort order to use in listing the filtered set of users. Required. Supported sort
    *          keys are UserId, FirstName, LastName, Email, and EnrollmentStatus.</p>
    */
-  Filters?: Filter[];
+  SortCriteria?: Sort[];
+
+  /**
+   * <p>An optional token returned from a prior request. Use this token for pagination of
+   *          results from this action. If this parameter is specified, the response includes only
+   *          results beyond the token, up to the value specified by <code>MaxResults</code>.
+   *          Required.</p>
+   */
+  NextToken?: string;
 }
 
 export namespace SearchUsersRequest {
@@ -4834,9 +4833,9 @@ export interface UserData {
   EnrollmentId?: string;
 
   /**
-   * <p>The first name of a user.</p>
+   * <p>The enrollment status of a user.</p>
    */
-  FirstName?: string;
+  EnrollmentStatus?: EnrollmentStatus | string;
 
   /**
    * <p>The last name of a user.</p>
@@ -4844,14 +4843,14 @@ export interface UserData {
   LastName?: string;
 
   /**
-   * <p>The enrollment status of a user.</p>
-   */
-  EnrollmentStatus?: EnrollmentStatus | string;
-
-  /**
    * <p>The ARN of a user.</p>
    */
   UserArn?: string;
+
+  /**
+   * <p>The first name of a user.</p>
+   */
+  FirstName?: string;
 }
 
 export namespace UserData {
@@ -4923,14 +4922,14 @@ export namespace Audio {
  */
 export interface Ssml {
   /**
-   * <p>The value of the SSML message in the correct SSML format. The audio tag is not supported.</p>
-   */
-  Value: string | undefined;
-
-  /**
    * <p>The locale of the SSML message. Currently, en-US is supported.</p>
    */
   Locale: Locale | string | undefined;
+
+  /**
+   * <p>The value of the SSML message in the correct SSML format. The audio tag is not supported.</p>
+   */
+  Value: string | undefined;
 }
 
 export namespace Ssml {
@@ -4944,14 +4943,14 @@ export namespace Ssml {
  */
 export interface Text {
   /**
-   * <p>The value of the text message.</p>
-   */
-  Value: string | undefined;
-
-  /**
    * <p>The locale of the text message. Currently, en-US is supported.</p>
    */
   Locale: Locale | string | undefined;
+
+  /**
+   * <p>The value of the text message.</p>
+   */
+  Value: string | undefined;
 }
 
 export namespace Text {
@@ -4989,6 +4988,16 @@ export namespace Content {
 
 export interface SendAnnouncementRequest {
   /**
+   * <p>The unique, user-specified identifier for the request that ensures idempotency.</p>
+   */
+  ClientRequestToken?: string;
+
+  /**
+   * <p>The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.</p>
+   */
+  RoomFilters: Filter[] | undefined;
+
+  /**
    * <p>The time to live for an announcement. Default is 300. If delivery doesn't occur within this time, the
    *          announcement is not delivered.</p>
    */
@@ -4998,16 +5007,6 @@ export interface SendAnnouncementRequest {
    * <p>The announcement content. This can contain only one of the three possible announcement types (text, SSML or audio).</p>
    */
   Content: Content | undefined;
-
-  /**
-   * <p>The unique, user-specified identifier for the request that ensures idempotency.</p>
-   */
-  ClientRequestToken?: string;
-
-  /**
-   * <p>The filters to use to send an announcement to a specified list of rooms. The supported filter keys are RoomName, ProfileName, RoomArn, and ProfileArn. To send to all rooms, specify an empty RoomFilters list.</p>
-   */
-  RoomFilters: Filter[] | undefined;
 }
 
 export namespace SendAnnouncementRequest {
@@ -5067,6 +5066,11 @@ export namespace SendInvitationResponse {
 
 export interface StartDeviceSyncRequest {
   /**
+   * <p>Request structure to start the device sync. Required.</p>
+   */
+  Features: (Feature | string)[] | undefined;
+
+  /**
    * <p>The ARN of the room with which the device to sync is associated. Required.</p>
    */
   RoomArn?: string;
@@ -5075,11 +5079,6 @@ export interface StartDeviceSyncRequest {
    * <p>The ARN of the device to sync. Required.</p>
    */
   DeviceArn?: string;
-
-  /**
-   * <p>Request structure to start the device sync. Required.</p>
-   */
-  Features: (Feature | string)[] | undefined;
 }
 
 export namespace StartDeviceSyncRequest {
@@ -5119,15 +5118,15 @@ export namespace StartSmartHomeApplianceDiscoveryResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p>The ARN of the resource to which to add metadata tags. Required. </p>
-   */
-  Arn: string | undefined;
-
-  /**
    * <p>The tags to be added to the specified resource. Do not provide system tags. Required.
    *       </p>
    */
   Tags: Tag[] | undefined;
+
+  /**
+   * <p>The ARN of the resource to which to add metadata tags. Required. </p>
+   */
+  Arn: string | undefined;
 }
 
 export namespace TagResourceRequest {
@@ -5146,15 +5145,15 @@ export namespace TagResourceResponse {
 
 export interface UntagResourceRequest {
   /**
+   * <p>The ARN of the resource from which to remove metadata tags. Required. </p>
+   */
+  Arn: string | undefined;
+
+  /**
    * <p>The tags to be removed from the specified resource. Do not provide system tags.
    *          Required. </p>
    */
   TagKeys: string[] | undefined;
-
-  /**
-   * <p>The ARN of the resource from which to remove metadata tags. Required. </p>
-   */
-  Arn: string | undefined;
 }
 
 export namespace UntagResourceRequest {
@@ -5193,14 +5192,14 @@ export interface UpdateAddressBookRequest {
   Name?: string;
 
   /**
-   * <p>The updated description of the room.</p>
-   */
-  Description?: string;
-
-  /**
    * <p>The ARN of the room to update.</p>
    */
   AddressBookArn: string | undefined;
+
+  /**
+   * <p>The updated description of the room.</p>
+   */
+  Description?: string;
 }
 
 export namespace UpdateAddressBookRequest {
@@ -5219,20 +5218,20 @@ export namespace UpdateAddressBookResponse {
 
 export interface UpdateBusinessReportScheduleRequest {
   /**
-   * <p>The ARN of the business report schedule.</p>
-   */
-  ScheduleArn: string | undefined;
-
-  /**
-   * <p>The recurrence of the reports.</p>
-   */
-  Recurrence?: BusinessReportRecurrence;
-
-  /**
    * <p>The format of the generated report (individual CSV files or zipped files of
    *          individual files).</p>
    */
   Format?: BusinessReportFormat | string;
+
+  /**
+   * <p>The name identifier of the schedule.</p>
+   */
+  ScheduleName?: string;
+
+  /**
+   * <p>The ARN of the business report schedule.</p>
+   */
+  ScheduleArn: string | undefined;
 
   /**
    * <p>The S3 key where the report is delivered.</p>
@@ -5240,14 +5239,14 @@ export interface UpdateBusinessReportScheduleRequest {
   S3KeyPrefix?: string;
 
   /**
+   * <p>The recurrence of the reports.</p>
+   */
+  Recurrence?: BusinessReportRecurrence;
+
+  /**
    * <p>The S3 location of the output reports.</p>
    */
   S3BucketName?: string;
-
-  /**
-   * <p>The name identifier of the schedule.</p>
-   */
-  ScheduleName?: string;
 }
 
 export namespace UpdateBusinessReportScheduleRequest {
@@ -5266,14 +5265,19 @@ export namespace UpdateBusinessReportScheduleResponse {
 
 export interface UpdateConferenceProviderRequest {
   /**
-   * <p>The ARN of the conference provider.</p>
-   */
-  ConferenceProviderArn: string | undefined;
-
-  /**
    * <p>The IP endpoint and protocol for calling.</p>
    */
   IPDialIn?: IPDialIn;
+
+  /**
+   * <p>The information for PSTN conferencing.</p>
+   */
+  PSTNDialIn?: PSTNDialIn;
+
+  /**
+   * <p>The ARN of the conference provider.</p>
+   */
+  ConferenceProviderArn: string | undefined;
 
   /**
    * <p>The meeting settings for the conference provider.</p>
@@ -5284,11 +5288,6 @@ export interface UpdateConferenceProviderRequest {
    * <p>The type of the conference provider.</p>
    */
   ConferenceProviderType: ConferenceProviderType | string | undefined;
-
-  /**
-   * <p>The information for PSTN conferencing.</p>
-   */
-  PSTNDialIn?: PSTNDialIn;
 }
 
 export namespace UpdateConferenceProviderRequest {
@@ -5307,24 +5306,14 @@ export namespace UpdateConferenceProviderResponse {
 
 export interface UpdateContactRequest {
   /**
+   * <p>The ARN of the contact to update.</p>
+   */
+  ContactArn: string | undefined;
+
+  /**
    * <p>The list of SIP addresses for the contact.</p>
    */
   SipAddresses?: SipAddress[];
-
-  /**
-   * <p>The updated first name of the contact.</p>
-   */
-  FirstName?: string;
-
-  /**
-   * <p>The list of phone numbers for the contact.</p>
-   */
-  PhoneNumbers?: PhoneNumber[];
-
-  /**
-   * <p>The updated last name of the contact.</p>
-   */
-  LastName?: string;
 
   /**
    * <p>The updated display name of the contact.</p>
@@ -5339,17 +5328,27 @@ export interface UpdateContactRequest {
   PhoneNumber?: string;
 
   /**
-   * <p>The ARN of the contact to update.</p>
+   * <p>The updated first name of the contact.</p>
    */
-  ContactArn: string | undefined;
+  FirstName?: string;
+
+  /**
+   * <p>The updated last name of the contact.</p>
+   */
+  LastName?: string;
+
+  /**
+   * <p>The list of phone numbers for the contact.</p>
+   */
+  PhoneNumbers?: PhoneNumber[];
 }
 
 export namespace UpdateContactRequest {
   export const filterSensitiveLog = (obj: UpdateContactRequest): any => ({
     ...obj,
     ...(obj.SipAddresses && { SipAddresses: obj.SipAddresses.map((item) => SipAddress.filterSensitiveLog(item)) }),
-    ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
     ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+    ...(obj.PhoneNumbers && { PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumber.filterSensitiveLog(item)) }),
   });
 }
 
@@ -5389,9 +5388,9 @@ export namespace UpdateDeviceResponse {
 
 export interface UpdateGatewayRequest {
   /**
-   * <p>The ARN of the gateway to update.</p>
+   * <p>The updated description of the gateway.</p>
    */
-  GatewayArn: string | undefined;
+  Description?: string;
 
   /**
    * <p>The updated software version of the gateway. The gateway automatically updates its
@@ -5405,9 +5404,9 @@ export interface UpdateGatewayRequest {
   Name?: string;
 
   /**
-   * <p>The updated description of the gateway.</p>
+   * <p>The ARN of the gateway to update.</p>
    */
-  Description?: string;
+  GatewayArn: string | undefined;
 }
 
 export namespace UpdateGatewayRequest {
@@ -5426,9 +5425,9 @@ export namespace UpdateGatewayResponse {
 
 export interface UpdateGatewayGroupRequest {
   /**
-   * <p>The ARN of the gateway group to update.</p>
+   * <p>The updated description of the gateway group.</p>
    */
-  GatewayGroupArn: string | undefined;
+  Description?: string;
 
   /**
    * <p>The updated name of the gateway group.</p>
@@ -5436,9 +5435,9 @@ export interface UpdateGatewayGroupRequest {
   Name?: string;
 
   /**
-   * <p>The updated description of the gateway group.</p>
+   * <p>The ARN of the gateway group to update.</p>
    */
-  Description?: string;
+  GatewayGroupArn: string | undefined;
 }
 
 export namespace UpdateGatewayGroupRequest {
@@ -5457,6 +5456,17 @@ export namespace UpdateGatewayGroupResponse {
 
 export interface UpdateNetworkProfileRequest {
   /**
+   * <p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager
+   *          (ACM). This is used to issue certificates to the devices. </p>
+   */
+  CertificateAuthorityArn?: string;
+
+  /**
+   * <p>The current password of the Wi-Fi network.</p>
+   */
+  CurrentPassword?: string;
+
+  /**
    * <p>The root certificate(s) of your authentication server that will be installed on your
    *          devices and used to trust your authentication server during EAP negotiation. </p>
    */
@@ -5470,6 +5480,11 @@ export interface UpdateNetworkProfileRequest {
   NextPassword?: string;
 
   /**
+   * <p>The ARN of the network profile associated with a device.</p>
+   */
+  NetworkProfileArn: string | undefined;
+
+  /**
    * <p>Detailed information about a device's network profile.</p>
    */
   Description?: string;
@@ -5478,29 +5493,13 @@ export interface UpdateNetworkProfileRequest {
    * <p>The name of the network profile associated with a device.</p>
    */
   NetworkProfileName?: string;
-
-  /**
-   * <p>The ARN of the network profile associated with a device.</p>
-   */
-  NetworkProfileArn: string | undefined;
-
-  /**
-   * <p>The ARN of the Private Certificate Authority (PCA) created in AWS Certificate Manager
-   *          (ACM). This is used to issue certificates to the devices. </p>
-   */
-  CertificateAuthorityArn?: string;
-
-  /**
-   * <p>The current password of the Wi-Fi network.</p>
-   */
-  CurrentPassword?: string;
 }
 
 export namespace UpdateNetworkProfileRequest {
   export const filterSensitiveLog = (obj: UpdateNetworkProfileRequest): any => ({
     ...obj,
-    ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
     ...(obj.CurrentPassword && { CurrentPassword: SENSITIVE_STRING }),
+    ...(obj.NextPassword && { NextPassword: SENSITIVE_STRING }),
   });
 }
 
@@ -5518,11 +5517,9 @@ export namespace UpdateNetworkProfileResponse {
  */
 export interface UpdateEndOfMeetingReminder {
   /**
-   * <p>Updates settings for the end of meeting reminder feature that are applied to a room
-   *          profile. The end of meeting reminder enables Alexa to remind users when a meeting is
-   *          ending. </p>
+   * <p>Whether an end of meeting reminder is enabled or not.</p>
    */
-  ReminderAtMinutes?: number[];
+  Enabled?: boolean;
 
   /**
    * <p>The type of sound that users hear during the end of meeting reminder. </p>
@@ -5530,9 +5527,11 @@ export interface UpdateEndOfMeetingReminder {
   ReminderType?: EndOfMeetingReminderType | string;
 
   /**
-   * <p>Whether an end of meeting reminder is enabled or not.</p>
+   * <p>Updates settings for the end of meeting reminder feature that are applied to a room
+   *          profile. The end of meeting reminder enables Alexa to remind users when a meeting is
+   *          ending. </p>
    */
-  Enabled?: boolean;
+  ReminderAtMinutes?: number[];
 }
 
 export namespace UpdateEndOfMeetingReminder {
@@ -5570,14 +5569,14 @@ export namespace UpdateInstantBooking {
  */
 export interface UpdateRequireCheckIn {
   /**
-   * <p>Duration between 5 and 20 minutes to determine when to release the room if it's not checked into. </p>
-   */
-  ReleaseAfterMinutes?: number;
-
-  /**
    * <p>Whether require check in is enabled or not.</p>
    */
   Enabled?: boolean;
+
+  /**
+   * <p>Duration between 5 and 20 minutes to determine when to release the room if it's not checked into. </p>
+   */
+  ReleaseAfterMinutes?: number;
 }
 
 export namespace UpdateRequireCheckIn {
@@ -5591,17 +5590,6 @@ export namespace UpdateRequireCheckIn {
  */
 export interface UpdateMeetingRoomConfiguration {
   /**
-   * <p>Settings for the end of meeting reminder feature that are applied to a room profile. The
-   *          end of meeting reminder enables Alexa to remind users when a meeting is ending. </p>
-   */
-  EndOfMeetingReminder?: UpdateEndOfMeetingReminder;
-
-  /**
-   * <p>Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.” </p>
-   */
-  RequireCheckIn?: UpdateRequireCheckIn;
-
-  /**
    * <p>Whether room utilization metrics are enabled or not.</p>
    */
   RoomUtilizationMetricsEnabled?: boolean;
@@ -5611,6 +5599,17 @@ export interface UpdateMeetingRoomConfiguration {
    *          when joining a meeting with Alexa.</p>
    */
   InstantBooking?: UpdateInstantBooking;
+
+  /**
+   * <p>Settings for requiring a check in when a room is reserved. Alexa can cancel a room reservation if it's not checked into to make the room available for others. Users can check in by joining the meeting with Alexa or an AVS device, or by saying “Alexa, check in.” </p>
+   */
+  RequireCheckIn?: UpdateRequireCheckIn;
+
+  /**
+   * <p>Settings for the end of meeting reminder feature that are applied to a room profile. The
+   *          end of meeting reminder enables Alexa to remind users when a meeting is ending. </p>
+   */
+  EndOfMeetingReminder?: UpdateEndOfMeetingReminder;
 }
 
 export namespace UpdateMeetingRoomConfiguration {
@@ -5621,24 +5620,9 @@ export namespace UpdateMeetingRoomConfiguration {
 
 export interface UpdateProfileRequest {
   /**
-   * <p>The updated name for the room profile.</p>
+   * <p>The updated timezone for the room profile.</p>
    */
-  ProfileName?: string;
-
-  /**
-   * <p>The updated distance unit for the room profile.</p>
-   */
-  DistanceUnit?: DistanceUnit | string;
-
-  /**
-   * <p>The updated temperature unit for the room profile.</p>
-   */
-  TemperatureUnit?: TemperatureUnit | string;
-
-  /**
-   * <p>The updated locale for the room profile. (This is currently only available to a limited preview audience.)</p>
-   */
-  Locale?: string;
+  Timezone?: string;
 
   /**
    * <p>The updated meeting room settings of a room profile.</p>
@@ -5646,9 +5630,39 @@ export interface UpdateProfileRequest {
   MeetingRoomConfiguration?: UpdateMeetingRoomConfiguration;
 
   /**
-   * <p>The updated timezone for the room profile.</p>
+   * <p>The updated name for the room profile.</p>
    */
-  Timezone?: string;
+  ProfileName?: string;
+
+  /**
+   * <p>The updated maximum volume limit for the room profile.</p>
+   */
+  MaxVolumeLimit?: number;
+
+  /**
+   * <p>The updated locale for the room profile. (This is currently only available to a limited preview audience.)</p>
+   */
+  Locale?: string;
+
+  /**
+   * <p>Whether the setup mode of the profile is enabled.</p>
+   */
+  SetupModeDisabled?: boolean;
+
+  /**
+   * <p>The updated wake word for the room profile.</p>
+   */
+  WakeWord?: WakeWord | string;
+
+  /**
+   * <p>The updated temperature unit for the room profile.</p>
+   */
+  TemperatureUnit?: TemperatureUnit | string;
+
+  /**
+   * <p>The ARN of the room profile to update. Required.</p>
+   */
+  ProfileArn?: string;
 
   /**
    * <p>Sets the profile as default if selected. If this is missing, no update is done to the
@@ -5657,19 +5671,9 @@ export interface UpdateProfileRequest {
   IsDefault?: boolean;
 
   /**
-   * <p>The ARN of the room profile to update. Required.</p>
+   * <p>The updated distance unit for the room profile.</p>
    */
-  ProfileArn?: string;
-
-  /**
-   * <p>The updated maximum volume limit for the room profile.</p>
-   */
-  MaxVolumeLimit?: number;
-
-  /**
-   * <p>The updated address for the room profile.</p>
-   */
-  Address?: string;
+  DistanceUnit?: DistanceUnit | string;
 
   /**
    * <p>Whether the PSTN setting of the room profile is enabled.</p>
@@ -5677,14 +5681,9 @@ export interface UpdateProfileRequest {
   PSTNEnabled?: boolean;
 
   /**
-   * <p>The updated wake word for the room profile.</p>
+   * <p>The updated address for the room profile.</p>
    */
-  WakeWord?: WakeWord | string;
-
-  /**
-   * <p>Whether the setup mode of the profile is enabled.</p>
-   */
-  SetupModeDisabled?: boolean;
+  Address?: string;
 }
 
 export namespace UpdateProfileRequest {
@@ -5713,11 +5712,6 @@ export interface UpdateRoomRequest {
   ProfileArn?: string;
 
   /**
-   * <p>The ARN of the room to update. </p>
-   */
-  RoomArn?: string;
-
-  /**
    * <p>The updated provider calendar ARN for the room.</p>
    */
   ProviderCalendarId?: string;
@@ -5726,6 +5720,11 @@ export interface UpdateRoomRequest {
    * <p>The updated name for the room.</p>
    */
   RoomName?: string;
+
+  /**
+   * <p>The ARN of the room to update. </p>
+   */
+  RoomArn?: string;
 }
 
 export namespace UpdateRoomRequest {
@@ -5744,9 +5743,9 @@ export namespace UpdateRoomResponse {
 
 export interface UpdateSkillGroupRequest {
   /**
-   * <p>The updated name for the skill group.</p>
+   * <p>The updated description for the skill group.</p>
    */
-  SkillGroupName?: string;
+  Description?: string;
 
   /**
    * <p>The ARN of the skill group to update. </p>
@@ -5754,9 +5753,9 @@ export interface UpdateSkillGroupRequest {
   SkillGroupArn?: string;
 
   /**
-   * <p>The updated description for the skill group.</p>
+   * <p>The updated name for the skill group.</p>
    */
-  Description?: string;
+  SkillGroupName?: string;
 }
 
 export namespace UpdateSkillGroupRequest {

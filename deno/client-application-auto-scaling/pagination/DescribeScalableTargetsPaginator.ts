@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeScalableTargetsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeScalableTargetsCommand(input, ...args));
+  return await client.send(new DescribeScalableTargetsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ApplicationAutoScaling,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeScalableTargets(input, ...args);
 };
-export async function* describeScalableTargetsPaginate(
+export async function* paginateDescribeScalableTargets(
   config: ApplicationAutoScalingPaginationConfiguration,
   input: DescribeScalableTargetsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeScalableTargetsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeScalableTargetsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof ApplicationAutoScaling) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeScalableTargetsPaginate(
       throw new Error("Invalid client, expected ApplicationAutoScaling | ApplicationAutoScalingClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

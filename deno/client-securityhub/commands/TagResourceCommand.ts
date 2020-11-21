@@ -1,6 +1,6 @@
 
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient.ts";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_0.ts";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1TagResourceCommand,
   serializeAws_restJson1TagResourceCommand,
@@ -45,11 +45,23 @@ export class TagResourceCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "SecurityHubClient";
+    const commandName = "TagResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: TagResourceRequest.filterSensitiveLog,
       outputFilterSensitiveLog: TagResourceResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

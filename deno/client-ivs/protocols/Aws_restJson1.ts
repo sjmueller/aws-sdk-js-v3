@@ -4,11 +4,24 @@ import { BatchGetStreamKeyCommandInput, BatchGetStreamKeyCommandOutput } from ".
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand.ts";
 import { CreateStreamKeyCommandInput, CreateStreamKeyCommandOutput } from "../commands/CreateStreamKeyCommand.ts";
 import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "../commands/DeleteChannelCommand.ts";
+import {
+  DeletePlaybackKeyPairCommandInput,
+  DeletePlaybackKeyPairCommandOutput,
+} from "../commands/DeletePlaybackKeyPairCommand.ts";
 import { DeleteStreamKeyCommandInput, DeleteStreamKeyCommandOutput } from "../commands/DeleteStreamKeyCommand.ts";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "../commands/GetChannelCommand.ts";
+import { GetPlaybackKeyPairCommandInput, GetPlaybackKeyPairCommandOutput } from "../commands/GetPlaybackKeyPairCommand.ts";
 import { GetStreamCommandInput, GetStreamCommandOutput } from "../commands/GetStreamCommand.ts";
 import { GetStreamKeyCommandInput, GetStreamKeyCommandOutput } from "../commands/GetStreamKeyCommand.ts";
+import {
+  ImportPlaybackKeyPairCommandInput,
+  ImportPlaybackKeyPairCommandOutput,
+} from "../commands/ImportPlaybackKeyPairCommand.ts";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand.ts";
+import {
+  ListPlaybackKeyPairsCommandInput,
+  ListPlaybackKeyPairsCommandOutput,
+} from "../commands/ListPlaybackKeyPairsCommand.ts";
 import { ListStreamKeysCommandInput, ListStreamKeysCommandOutput } from "../commands/ListStreamKeysCommand.ts";
 import { ListStreamsCommandInput, ListStreamsCommandOutput } from "../commands/ListStreamsCommand.ts";
 import {
@@ -29,6 +42,8 @@ import {
   ConflictException,
   InternalServerException,
   PendingVerification,
+  PlaybackKeyPair,
+  PlaybackKeyPairSummary,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   StreamKey,
@@ -109,6 +124,7 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   let resolvedPath = "/CreateChannel";
   let body: any;
   body = JSON.stringify({
+    ...(input.authorized !== undefined && { authorized: input.authorized }),
     ...(input.latencyMode !== undefined && { latencyMode: input.latencyMode }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
@@ -175,6 +191,30 @@ export const serializeAws_restJson1DeleteChannelCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeletePlaybackKeyPairCommand = async (
+  input: DeletePlaybackKeyPairCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/DeletePlaybackKeyPair";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.arn !== undefined && { arn: input.arn }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteStreamKeyCommand = async (
   input: DeleteStreamKeyCommandInput,
   context: __SerdeContext
@@ -207,6 +247,30 @@ export const serializeAws_restJson1GetChannelCommand = async (
     "Content-Type": "application/json",
   };
   let resolvedPath = "/GetChannel";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.arn !== undefined && { arn: input.arn }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1GetPlaybackKeyPairCommand = async (
+  input: GetPlaybackKeyPairCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/GetPlaybackKeyPair";
   let body: any;
   body = JSON.stringify({
     ...(input.arn !== undefined && { arn: input.arn }),
@@ -271,6 +335,32 @@ export const serializeAws_restJson1GetStreamKeyCommand = async (
   });
 };
 
+export const serializeAws_restJson1ImportPlaybackKeyPairCommand = async (
+  input: ImportPlaybackKeyPairCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/ImportPlaybackKeyPair";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.publicKeyMaterial !== undefined && { publicKeyMaterial: input.publicKeyMaterial }),
+    ...(input.tags !== undefined && { tags: serializeAws_restJson1Tags(input.tags, context) }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListChannelsCommand = async (
   input: ListChannelsCommandInput,
   context: __SerdeContext
@@ -282,6 +372,31 @@ export const serializeAws_restJson1ListChannelsCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.filterByName !== undefined && { filterByName: input.filterByName }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+  });
+  const { hostname, protocol = "https", port } = await context.endpoint();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListPlaybackKeyPairsCommand = async (
+  input: ListPlaybackKeyPairsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: any = {
+    "Content-Type": "application/json",
+  };
+  let resolvedPath = "/ListPlaybackKeyPairs";
+  let body: any;
+  body = JSON.stringify({
     ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
     ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
   });
@@ -509,6 +624,7 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.arn !== undefined && { arn: input.arn }),
+    ...(input.authorized !== undefined && { authorized: input.authorized }),
     ...(input.latencyMode !== undefined && { latencyMode: input.latencyMode }),
     ...(input.name !== undefined && { name: input.name }),
     ...(input.type !== undefined && { type: input.type }),
@@ -529,7 +645,7 @@ export const deserializeAws_restJson1BatchGetChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchGetChannelCommandError(output, context);
   }
   const contents: BatchGetChannelCommandOutput = {
@@ -580,7 +696,7 @@ export const deserializeAws_restJson1BatchGetStreamKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<BatchGetStreamKeyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1BatchGetStreamKeyCommandError(output, context);
   }
   const contents: BatchGetStreamKeyCommandOutput = {
@@ -631,7 +747,7 @@ export const deserializeAws_restJson1CreateChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateChannelCommandError(output, context);
   }
   const contents: CreateChannelCommandOutput = {
@@ -714,7 +830,7 @@ export const deserializeAws_restJson1CreateStreamKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateStreamKeyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1CreateStreamKeyCommandError(output, context);
   }
   const contents: CreateStreamKeyCommandOutput = {
@@ -801,7 +917,7 @@ export const deserializeAws_restJson1DeleteChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteChannelCommandError(output, context);
   }
   const contents: DeleteChannelCommandOutput = {
@@ -880,11 +996,86 @@ const deserializeAws_restJson1DeleteChannelCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1DeletePlaybackKeyPairCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePlaybackKeyPairCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeletePlaybackKeyPairCommandError(output, context);
+  }
+  const contents: DeletePlaybackKeyPairCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  await collectBody(output.body, context);
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1DeletePlaybackKeyPairCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeletePlaybackKeyPairCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivs#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PendingVerification":
+    case "com.amazonaws.ivs#PendingVerification":
+      response = {
+        ...(await deserializeAws_restJson1PendingVerificationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ivs#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1DeleteStreamKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteStreamKeyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1DeleteStreamKeyCommandError(output, context);
   }
   const contents: DeleteStreamKeyCommandOutput = {
@@ -959,7 +1150,7 @@ export const deserializeAws_restJson1GetChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetChannelCommandError(output, context);
   }
   const contents: GetChannelCommandOutput = {
@@ -1026,11 +1217,82 @@ const deserializeAws_restJson1GetChannelCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1GetPlaybackKeyPairCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPlaybackKeyPairCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetPlaybackKeyPairCommandError(output, context);
+  }
+  const contents: GetPlaybackKeyPairCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    keyPair: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.keyPair !== undefined && data.keyPair !== null) {
+    contents.keyPair = deserializeAws_restJson1PlaybackKeyPair(data.keyPair, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1GetPlaybackKeyPairCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPlaybackKeyPairCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivs#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ivs#ResourceNotFoundException":
+      response = {
+        ...(await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1GetStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetStreamCommandError(output, context);
   }
   const contents: GetStreamCommandOutput = {
@@ -1109,7 +1371,7 @@ export const deserializeAws_restJson1GetStreamKeyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetStreamKeyCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1GetStreamKeyCommandError(output, context);
   }
   const contents: GetStreamKeyCommandOutput = {
@@ -1176,11 +1438,98 @@ const deserializeAws_restJson1GetStreamKeyCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ImportPlaybackKeyPairCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportPlaybackKeyPairCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ImportPlaybackKeyPairCommandError(output, context);
+  }
+  const contents: ImportPlaybackKeyPairCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    keyPair: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.keyPair !== undefined && data.keyPair !== null) {
+    contents.keyPair = deserializeAws_restJson1PlaybackKeyPair(data.keyPair, context);
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ImportPlaybackKeyPairCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportPlaybackKeyPairCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivs#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ConflictException":
+    case "com.amazonaws.ivs#ConflictException":
+      response = {
+        ...(await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "PendingVerification":
+    case "com.amazonaws.ivs#PendingVerification":
+      response = {
+        ...(await deserializeAws_restJson1PendingVerificationResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ivs#ServiceQuotaExceededException":
+      response = {
+        ...(await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListChannelsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListChannelsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListChannelsCommandError(output, context);
   }
   const contents: ListChannelsCommandOutput = {
@@ -1243,11 +1592,78 @@ const deserializeAws_restJson1ListChannelsCommandError = async (
   return Promise.reject(Object.assign(new Error(message), response));
 };
 
+export const deserializeAws_restJson1ListPlaybackKeyPairsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPlaybackKeyPairsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListPlaybackKeyPairsCommandError(output, context);
+  }
+  const contents: ListPlaybackKeyPairsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    keyPairs: undefined,
+    nextToken: undefined,
+  };
+  const data: any = await parseBody(output.body, context);
+  if (data.keyPairs !== undefined && data.keyPairs !== null) {
+    contents.keyPairs = deserializeAws_restJson1PlaybackKeyPairList(data.keyPairs, context);
+  }
+  if (data.nextToken !== undefined && data.nextToken !== null) {
+    contents.nextToken = data.nextToken;
+  }
+  return Promise.resolve(contents);
+};
+
+const deserializeAws_restJson1ListPlaybackKeyPairsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListPlaybackKeyPairsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseBody(output.body, context),
+  };
+  let response: __SmithyException & __MetadataBearer & { [key: string]: any };
+  let errorCode: string = "UnknownError";
+  errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ivs#AccessDeniedException":
+      response = {
+        ...(await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    case "ValidationException":
+    case "com.amazonaws.ivs#ValidationException":
+      response = {
+        ...(await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
+    default:
+      const parsedBody = parsedOutput.body;
+      errorCode = parsedBody.code || parsedBody.Code || errorCode;
+      response = {
+        ...parsedBody,
+        name: `${errorCode}`,
+        message: parsedBody.message || parsedBody.Message || errorCode,
+        $fault: "client",
+        $metadata: deserializeMetadata(output),
+      } as any;
+  }
+  const message = response.message || response.Message || errorCode;
+  response.message = message;
+  delete response.Message;
+  return Promise.reject(Object.assign(new Error(message), response));
+};
+
 export const deserializeAws_restJson1ListStreamKeysCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamKeysCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListStreamKeysCommandError(output, context);
   }
   const contents: ListStreamKeysCommandOutput = {
@@ -1322,7 +1738,7 @@ export const deserializeAws_restJson1ListStreamsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListStreamsCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListStreamsCommandError(output, context);
   }
   const contents: ListStreamsCommandOutput = {
@@ -1381,7 +1797,7 @@ export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1ListTagsForResourceCommandError(output, context);
   }
   const contents: ListTagsForResourceCommandOutput = {
@@ -1456,7 +1872,7 @@ export const deserializeAws_restJson1PutMetadataCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutMetadataCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1PutMetadataCommandError(output, context);
   }
   const contents: PutMetadataCommandOutput = {
@@ -1539,7 +1955,7 @@ export const deserializeAws_restJson1StopStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<StopStreamCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1StopStreamCommandError(output, context);
   }
   const contents: StopStreamCommandOutput = {
@@ -1622,7 +2038,7 @@ export const deserializeAws_restJson1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1TagResourceCommandError(output, context);
   }
   const contents: TagResourceCommandOutput = {
@@ -1689,7 +2105,7 @@ export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagResourceCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UntagResourceCommandError(output, context);
   }
   const contents: UntagResourceCommandOutput = {
@@ -1756,7 +2172,7 @@ export const deserializeAws_restJson1UpdateChannelCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateChannelCommandOutput> => {
-  if (output.statusCode !== 200 && output.statusCode >= 400) {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return deserializeAws_restJson1UpdateChannelCommandError(output, context);
   }
   const contents: UpdateChannelCommandOutput = {
@@ -2042,6 +2458,7 @@ const deserializeAws_restJson1BatchErrors = (output: any, context: __SerdeContex
 const deserializeAws_restJson1Channel = (output: any, context: __SerdeContext): Channel => {
   return {
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    authorized: output.authorized !== undefined && output.authorized !== null ? output.authorized : undefined,
     ingestEndpoint:
       output.ingestEndpoint !== undefined && output.ingestEndpoint !== null ? output.ingestEndpoint : undefined,
     latencyMode: output.latencyMode !== undefined && output.latencyMode !== null ? output.latencyMode : undefined,
@@ -2066,7 +2483,41 @@ const deserializeAws_restJson1Channels = (output: any, context: __SerdeContext):
 const deserializeAws_restJson1ChannelSummary = (output: any, context: __SerdeContext): ChannelSummary => {
   return {
     arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    authorized: output.authorized !== undefined && output.authorized !== null ? output.authorized : undefined,
     latencyMode: output.latencyMode !== undefined && output.latencyMode !== null ? output.latencyMode : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1Tags(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PlaybackKeyPair = (output: any, context: __SerdeContext): PlaybackKeyPair => {
+  return {
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    fingerprint: output.fingerprint !== undefined && output.fingerprint !== null ? output.fingerprint : undefined,
+    name: output.name !== undefined && output.name !== null ? output.name : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1Tags(output.tags, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PlaybackKeyPairList = (
+  output: any,
+  context: __SerdeContext
+): PlaybackKeyPairSummary[] => {
+  return (output || []).map((entry: any) => deserializeAws_restJson1PlaybackKeyPairSummary(entry, context));
+};
+
+const deserializeAws_restJson1PlaybackKeyPairSummary = (
+  output: any,
+  context: __SerdeContext
+): PlaybackKeyPairSummary => {
+  return {
+    arn: output.arn !== undefined && output.arn !== null ? output.arn : undefined,
     name: output.name !== undefined && output.name !== null ? output.name : undefined,
     tags:
       output.tags !== undefined && output.tags !== null

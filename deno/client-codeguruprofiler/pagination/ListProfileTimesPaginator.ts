@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListProfileTimesCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListProfileTimesCommand(input, ...args));
+  return await client.send(new ListProfileTimesCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CodeGuruProfiler,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProfileTimes(input, ...args);
 };
-export async function* listProfileTimesPaginate(
+export async function* paginateListProfileTimes(
   config: CodeGuruProfilerPaginationConfiguration,
   input: ListProfileTimesCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProfileTimesCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProfileTimesCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof CodeGuruProfiler) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listProfileTimesPaginate(
       throw new Error("Invalid client, expected CodeGuruProfiler | CodeGuruProfilerClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

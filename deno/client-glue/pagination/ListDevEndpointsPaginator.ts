@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListDevEndpointsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListDevEndpointsCommand(input, ...args));
+  return await client.send(new ListDevEndpointsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Glue,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listDevEndpoints(input, ...args);
 };
-export async function* listDevEndpointsPaginate(
+export async function* paginateListDevEndpoints(
   config: GluePaginationConfiguration,
   input: ListDevEndpointsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListDevEndpointsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListDevEndpointsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Glue) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listDevEndpointsPaginate(
       throw new Error("Invalid client, expected Glue | GlueClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

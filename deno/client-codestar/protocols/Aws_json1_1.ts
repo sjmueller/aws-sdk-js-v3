@@ -338,7 +338,7 @@ export const deserializeAws_json1_1AssociateTeamMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateTeamMemberCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1AssociateTeamMemberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -441,7 +441,7 @@ export const deserializeAws_json1_1CreateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateProjectCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -544,7 +544,7 @@ export const deserializeAws_json1_1CreateUserProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateUserProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1CreateUserProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -607,7 +607,7 @@ export const deserializeAws_json1_1DeleteProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteProjectCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -678,7 +678,7 @@ export const deserializeAws_json1_1DeleteUserProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteUserProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DeleteUserProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -733,7 +733,7 @@ export const deserializeAws_json1_1DescribeProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeProjectCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -820,7 +820,7 @@ export const deserializeAws_json1_1DescribeUserProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeUserProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DescribeUserProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -883,7 +883,7 @@ export const deserializeAws_json1_1DisassociateTeamMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisassociateTeamMemberCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1DisassociateTeamMemberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -962,7 +962,7 @@ export const deserializeAws_json1_1ListProjectsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListProjectsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListProjectsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1025,7 +1025,7 @@ export const deserializeAws_json1_1ListResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListResourcesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListResourcesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1096,7 +1096,7 @@ export const deserializeAws_json1_1ListTagsForProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTagsForProjectCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTagsForProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1167,7 +1167,7 @@ export const deserializeAws_json1_1ListTeamMembersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListTeamMembersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListTeamMembersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1238,7 +1238,7 @@ export const deserializeAws_json1_1ListUserProfilesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListUserProfilesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1ListUserProfilesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1301,7 +1301,7 @@ export const deserializeAws_json1_1TagProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<TagProjectCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1TagProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1380,7 +1380,7 @@ export const deserializeAws_json1_1UntagProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UntagProjectCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UntagProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1459,7 +1459,7 @@ export const deserializeAws_json1_1UpdateProjectCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateProjectCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateProjectCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1522,7 +1522,7 @@ export const deserializeAws_json1_1UpdateTeamMemberCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateTeamMemberCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateTeamMemberCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1625,7 +1625,7 @@ export const deserializeAws_json1_1UpdateUserProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateUserProfileCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_json1_1UpdateUserProfileCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);

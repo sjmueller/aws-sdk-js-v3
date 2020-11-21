@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { GetOperationRequest, GetOperationResult } from "../models/models_0.ts";
+import { GetOperationRequest, GetOperationResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetOperationCommand,
   serializeAws_json1_1GetOperationCommand,
@@ -45,11 +45,23 @@ export class GetOperationCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "GetOperationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetOperationRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetOperationResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

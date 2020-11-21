@@ -1,6 +1,6 @@
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient.ts";
-import { UntagMeetingRequest } from "../models/models_0.ts";
+import { UntagMeetingRequest } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1UntagMeetingCommand,
   serializeAws_restJson1UntagMeetingCommand,
@@ -45,11 +45,23 @@ export class UntagMeetingCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "ChimeClient";
+    const commandName = "UntagMeetingCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: UntagMeetingRequest.filterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

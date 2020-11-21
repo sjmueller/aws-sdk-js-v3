@@ -45,11 +45,23 @@ export class DescribeMaintenanceStartTimeCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "StorageGatewayClient";
+    const commandName = "DescribeMaintenanceStartTimeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: DescribeMaintenanceStartTimeInput.filterSensitiveLog,
       outputFilterSensitiveLog: DescribeMaintenanceStartTimeOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

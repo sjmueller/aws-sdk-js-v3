@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetIntentVersionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetIntentVersionsCommand(input, ...args));
+  return await client.send(new GetIntentVersionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: LexModelBuildingService,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getIntentVersions(input, ...args);
 };
-export async function* getIntentVersionsPaginate(
+export async function* paginateGetIntentVersions(
   config: LexModelBuildingServicePaginationConfiguration,
   input: GetIntentVersionsCommandInput,
   ...additionalArguments: any
 ): Paginator<GetIntentVersionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetIntentVersionsCommandOutput;
   while (hasNext) {
-    input["nextToken"] = token;
+    input.nextToken = token;
     input["maxResults"] = config.pageSize;
     if (config.client instanceof LexModelBuildingService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getIntentVersionsPaginate(
       throw new Error("Invalid client, expected LexModelBuildingService | LexModelBuildingServiceClient");
     }
     yield page;
-    token = page["nextToken"];
+    token = page.nextToken;
     hasNext = !!token;
   }
   // @ts-ignore

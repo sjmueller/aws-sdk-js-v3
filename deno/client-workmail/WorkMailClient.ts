@@ -7,23 +7,41 @@ import {
   AssociateMemberToGroupCommandInput,
   AssociateMemberToGroupCommandOutput,
 } from "./commands/AssociateMemberToGroupCommand.ts";
+import {
+  CancelMailboxExportJobCommandInput,
+  CancelMailboxExportJobCommandOutput,
+} from "./commands/CancelMailboxExportJobCommand.ts";
 import { CreateAliasCommandInput, CreateAliasCommandOutput } from "./commands/CreateAliasCommand.ts";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand.ts";
+import { CreateOrganizationCommandInput, CreateOrganizationCommandOutput } from "./commands/CreateOrganizationCommand.ts";
 import { CreateResourceCommandInput, CreateResourceCommandOutput } from "./commands/CreateResourceCommand.ts";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand.ts";
+import {
+  DeleteAccessControlRuleCommandInput,
+  DeleteAccessControlRuleCommandOutput,
+} from "./commands/DeleteAccessControlRuleCommand.ts";
 import { DeleteAliasCommandInput, DeleteAliasCommandOutput } from "./commands/DeleteAliasCommand.ts";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand.ts";
 import {
   DeleteMailboxPermissionsCommandInput,
   DeleteMailboxPermissionsCommandOutput,
 } from "./commands/DeleteMailboxPermissionsCommand.ts";
+import { DeleteOrganizationCommandInput, DeleteOrganizationCommandOutput } from "./commands/DeleteOrganizationCommand.ts";
 import { DeleteResourceCommandInput, DeleteResourceCommandOutput } from "./commands/DeleteResourceCommand.ts";
+import {
+  DeleteRetentionPolicyCommandInput,
+  DeleteRetentionPolicyCommandOutput,
+} from "./commands/DeleteRetentionPolicyCommand.ts";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand.ts";
 import {
   DeregisterFromWorkMailCommandInput,
   DeregisterFromWorkMailCommandOutput,
 } from "./commands/DeregisterFromWorkMailCommand.ts";
 import { DescribeGroupCommandInput, DescribeGroupCommandOutput } from "./commands/DescribeGroupCommand.ts";
+import {
+  DescribeMailboxExportJobCommandInput,
+  DescribeMailboxExportJobCommandOutput,
+} from "./commands/DescribeMailboxExportJobCommand.ts";
 import {
   DescribeOrganizationCommandInput,
   DescribeOrganizationCommandOutput,
@@ -38,10 +56,26 @@ import {
   DisassociateMemberFromGroupCommandInput,
   DisassociateMemberFromGroupCommandOutput,
 } from "./commands/DisassociateMemberFromGroupCommand.ts";
+import {
+  GetAccessControlEffectCommandInput,
+  GetAccessControlEffectCommandOutput,
+} from "./commands/GetAccessControlEffectCommand.ts";
+import {
+  GetDefaultRetentionPolicyCommandInput,
+  GetDefaultRetentionPolicyCommandOutput,
+} from "./commands/GetDefaultRetentionPolicyCommand.ts";
 import { GetMailboxDetailsCommandInput, GetMailboxDetailsCommandOutput } from "./commands/GetMailboxDetailsCommand.ts";
+import {
+  ListAccessControlRulesCommandInput,
+  ListAccessControlRulesCommandOutput,
+} from "./commands/ListAccessControlRulesCommand.ts";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand.ts";
 import { ListGroupMembersCommandInput, ListGroupMembersCommandOutput } from "./commands/ListGroupMembersCommand.ts";
 import { ListGroupsCommandInput, ListGroupsCommandOutput } from "./commands/ListGroupsCommand.ts";
+import {
+  ListMailboxExportJobsCommandInput,
+  ListMailboxExportJobsCommandOutput,
+} from "./commands/ListMailboxExportJobsCommand.ts";
 import {
   ListMailboxPermissionsCommandInput,
   ListMailboxPermissionsCommandOutput,
@@ -52,13 +86,28 @@ import {
   ListResourceDelegatesCommandOutput,
 } from "./commands/ListResourceDelegatesCommand.ts";
 import { ListResourcesCommandInput, ListResourcesCommandOutput } from "./commands/ListResourcesCommand.ts";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand.ts";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand.ts";
+import {
+  PutAccessControlRuleCommandInput,
+  PutAccessControlRuleCommandOutput,
+} from "./commands/PutAccessControlRuleCommand.ts";
 import {
   PutMailboxPermissionsCommandInput,
   PutMailboxPermissionsCommandOutput,
 } from "./commands/PutMailboxPermissionsCommand.ts";
+import { PutRetentionPolicyCommandInput, PutRetentionPolicyCommandOutput } from "./commands/PutRetentionPolicyCommand.ts";
 import { RegisterToWorkMailCommandInput, RegisterToWorkMailCommandOutput } from "./commands/RegisterToWorkMailCommand.ts";
 import { ResetPasswordCommandInput, ResetPasswordCommandOutput } from "./commands/ResetPasswordCommand.ts";
+import {
+  StartMailboxExportJobCommandInput,
+  StartMailboxExportJobCommandOutput,
+} from "./commands/StartMailboxExportJobCommand.ts";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand.ts";
 import { UpdateMailboxQuotaCommandInput, UpdateMailboxQuotaCommandOutput } from "./commands/UpdateMailboxQuotaCommand.ts";
 import {
   UpdatePrimaryEmailAddressCommandInput,
@@ -117,34 +166,50 @@ import {
 export type ServiceInputTypes =
   | AssociateDelegateToResourceCommandInput
   | AssociateMemberToGroupCommandInput
+  | CancelMailboxExportJobCommandInput
   | CreateAliasCommandInput
   | CreateGroupCommandInput
+  | CreateOrganizationCommandInput
   | CreateResourceCommandInput
   | CreateUserCommandInput
+  | DeleteAccessControlRuleCommandInput
   | DeleteAliasCommandInput
   | DeleteGroupCommandInput
   | DeleteMailboxPermissionsCommandInput
+  | DeleteOrganizationCommandInput
   | DeleteResourceCommandInput
+  | DeleteRetentionPolicyCommandInput
   | DeleteUserCommandInput
   | DeregisterFromWorkMailCommandInput
   | DescribeGroupCommandInput
+  | DescribeMailboxExportJobCommandInput
   | DescribeOrganizationCommandInput
   | DescribeResourceCommandInput
   | DescribeUserCommandInput
   | DisassociateDelegateFromResourceCommandInput
   | DisassociateMemberFromGroupCommandInput
+  | GetAccessControlEffectCommandInput
+  | GetDefaultRetentionPolicyCommandInput
   | GetMailboxDetailsCommandInput
+  | ListAccessControlRulesCommandInput
   | ListAliasesCommandInput
   | ListGroupMembersCommandInput
   | ListGroupsCommandInput
+  | ListMailboxExportJobsCommandInput
   | ListMailboxPermissionsCommandInput
   | ListOrganizationsCommandInput
   | ListResourceDelegatesCommandInput
   | ListResourcesCommandInput
+  | ListTagsForResourceCommandInput
   | ListUsersCommandInput
+  | PutAccessControlRuleCommandInput
   | PutMailboxPermissionsCommandInput
+  | PutRetentionPolicyCommandInput
   | RegisterToWorkMailCommandInput
   | ResetPasswordCommandInput
+  | StartMailboxExportJobCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateMailboxQuotaCommandInput
   | UpdatePrimaryEmailAddressCommandInput
   | UpdateResourceCommandInput;
@@ -152,34 +217,50 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AssociateDelegateToResourceCommandOutput
   | AssociateMemberToGroupCommandOutput
+  | CancelMailboxExportJobCommandOutput
   | CreateAliasCommandOutput
   | CreateGroupCommandOutput
+  | CreateOrganizationCommandOutput
   | CreateResourceCommandOutput
   | CreateUserCommandOutput
+  | DeleteAccessControlRuleCommandOutput
   | DeleteAliasCommandOutput
   | DeleteGroupCommandOutput
   | DeleteMailboxPermissionsCommandOutput
+  | DeleteOrganizationCommandOutput
   | DeleteResourceCommandOutput
+  | DeleteRetentionPolicyCommandOutput
   | DeleteUserCommandOutput
   | DeregisterFromWorkMailCommandOutput
   | DescribeGroupCommandOutput
+  | DescribeMailboxExportJobCommandOutput
   | DescribeOrganizationCommandOutput
   | DescribeResourceCommandOutput
   | DescribeUserCommandOutput
   | DisassociateDelegateFromResourceCommandOutput
   | DisassociateMemberFromGroupCommandOutput
+  | GetAccessControlEffectCommandOutput
+  | GetDefaultRetentionPolicyCommandOutput
   | GetMailboxDetailsCommandOutput
+  | ListAccessControlRulesCommandOutput
   | ListAliasesCommandOutput
   | ListGroupMembersCommandOutput
   | ListGroupsCommandOutput
+  | ListMailboxExportJobsCommandOutput
   | ListMailboxPermissionsCommandOutput
   | ListOrganizationsCommandOutput
   | ListResourceDelegatesCommandOutput
   | ListResourcesCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListUsersCommandOutput
+  | PutAccessControlRuleCommandOutput
   | PutMailboxPermissionsCommandOutput
+  | PutRetentionPolicyCommandOutput
   | RegisterToWorkMailCommandOutput
   | ResetPasswordCommandOutput
+  | StartMailboxExportJobCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateMailboxQuotaCommandOutput
   | UpdatePrimaryEmailAddressCommandOutput
   | UpdateResourceCommandOutput;
@@ -324,14 +405,15 @@ export type WorkMailClientResolvedConfig = __SmithyResolvedConfiguration<__HttpH
  *                <p>Managing resources</p>
  *             </li>
  *          </ul>
- *          <p>All WorkMail API operations are Amazon-authenticated and certificate-signed. They not only
- *          require the use of the AWS SDK, but also allow for the exclusive use of AWS Identity and Access Management users and roles
- *          to help facilitate access, trust, and permission policies. By creating a role and allowing
- *          an IAM user to access the WorkMail site, the IAM user gains full administrative visibility into
- *          the entire WorkMail organization (or as set in the IAM policy). This includes, but is not
- *          limited to, the ability to create, update, and delete users, groups, and resources. This
- *          allows developers to perform the scenarios listed above, as well as give users the ability
- *          to grant access on a selective basis using the IAM model.</p>
+ *          <p>All WorkMail API operations are Amazon-authenticated and certificate-signed. They not
+ *          only require the use of the AWS SDK, but also allow for the exclusive use of AWS Identity and Access Management
+ *          users and roles to help facilitate access, trust, and permission policies. By creating a
+ *          role and allowing an IAM user to access the WorkMail site, the IAM user gains full
+ *          administrative visibility into the entire WorkMail organization (or as set in the IAM
+ *          policy). This includes, but is not limited to, the ability to create, update, and delete
+ *          users, groups, and resources. This allows developers to perform the scenarios listed above,
+ *          as well as give users the ability to grant access on a selective basis using the IAM
+ *          model.</p>
  */
 export class WorkMailClient extends __Client<
   __HttpHandlerOptions,

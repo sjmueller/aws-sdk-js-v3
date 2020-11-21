@@ -1,6 +1,6 @@
 
 import { LightsailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LightsailClient.ts";
-import { GetLoadBalancerMetricDataRequest, GetLoadBalancerMetricDataResult } from "../models/models_0.ts";
+import { GetLoadBalancerMetricDataRequest, GetLoadBalancerMetricDataResult } from "../models/models_1.ts";
 import {
   deserializeAws_json1_1GetLoadBalancerMetricDataCommand,
   serializeAws_json1_1GetLoadBalancerMetricDataCommand,
@@ -45,11 +45,23 @@ export class GetLoadBalancerMetricDataCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "LightsailClient";
+    const commandName = "GetLoadBalancerMetricDataCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetLoadBalancerMetricDataRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetLoadBalancerMetricDataResult.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<DescribeReportDefinitionsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new DescribeReportDefinitionsCommand(input, ...args));
+  return await client.send(new DescribeReportDefinitionsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: CostAndUsageReportService,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.describeReportDefinitions(input, ...args);
 };
-export async function* describeReportDefinitionsPaginate(
+export async function* paginateDescribeReportDefinitions(
   config: CostAndUsageReportServicePaginationConfiguration,
   input: DescribeReportDefinitionsCommandInput,
   ...additionalArguments: any
 ): Paginator<DescribeReportDefinitionsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: DescribeReportDefinitionsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof CostAndUsageReportService) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* describeReportDefinitionsPaginate(
       throw new Error("Invalid client, expected CostAndUsageReportService | CostAndUsageReportServiceClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

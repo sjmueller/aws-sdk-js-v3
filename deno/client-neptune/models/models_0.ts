@@ -4,15 +4,21 @@ import { MetadataBearer as $MetadataBearer } from "../../types/mod.ts";
 
 export interface AddRoleToDBClusterMessage {
   /**
-   * <p>The name of the DB cluster to associate the IAM role with.</p>
-   */
-  DBClusterIdentifier: string | undefined;
-
-  /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to associate with the Neptune DB cluster,
    *       for example <code>arn:aws:iam::123456789012:role/NeptuneAccessRole</code>.</p>
    */
   RoleArn: string | undefined;
+
+  /**
+   * <p>The name of the feature for the Neptune DB cluster that the IAM role is to be associated with.
+   *       For the list of supported feature names, see <a>DBEngineVersion</a>.</p>
+   */
+  FeatureName?: string;
+
+  /**
+   * <p>The name of the DB cluster to associate the IAM role with.</p>
+   */
+  DBClusterIdentifier: string | undefined;
 }
 
 export namespace AddRoleToDBClusterMessage {
@@ -96,6 +102,12 @@ export namespace InvalidDBClusterStateFault {
 
 export interface AddSourceIdentifierToSubscriptionMessage {
   /**
+   * <p>The name of the event notification subscription you want to add a source identifier
+   *       to.</p>
+   */
+  SubscriptionName: string | undefined;
+
+  /**
    * <p>The identifier of the event source to be added.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -118,12 +130,6 @@ export interface AddSourceIdentifierToSubscriptionMessage {
    *          </ul>
    */
   SourceIdentifier: string | undefined;
-
-  /**
-   * <p>The name of the event notification subscription you want to add a source identifier
-   *       to.</p>
-   */
-  SubscriptionName: string | undefined;
 }
 
 export namespace AddSourceIdentifierToSubscriptionMessage {
@@ -143,14 +149,9 @@ export interface EventSubscription {
   Enabled?: boolean;
 
   /**
-   * <p>The topic ARN of the event notification subscription.</p>
+   * <p>The AWS customer account associated with the event notification subscription.</p>
    */
-  SnsTopicArn?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the event subscription.</p>
-   */
-  EventSubscriptionArn?: string;
+  CustomerAwsId?: string;
 
   /**
    * <p>The event notification subscription Id.</p>
@@ -158,9 +159,9 @@ export interface EventSubscription {
   CustSubscriptionId?: string;
 
   /**
-   * <p>A list of source IDs for the event notification subscription.</p>
+   * <p>The time the event notification subscription was created.</p>
    */
-  SourceIdsList?: string[];
+  SubscriptionCreationTime?: string;
 
   /**
    * <p>The status of the event notification subscription.</p>
@@ -179,19 +180,24 @@ export interface EventSubscription {
   EventCategoriesList?: string[];
 
   /**
+   * <p>A list of source IDs for the event notification subscription.</p>
+   */
+  SourceIdsList?: string[];
+
+  /**
    * <p>The source type for the event notification subscription.</p>
    */
   SourceType?: string;
 
   /**
-   * <p>The AWS customer account associated with the event notification subscription.</p>
+   * <p>The Amazon Resource Name (ARN) for the event subscription.</p>
    */
-  CustomerAwsId?: string;
+  EventSubscriptionArn?: string;
 
   /**
-   * <p>The time the event notification subscription was created.</p>
+   * <p>The topic ARN of the event notification subscription.</p>
    */
-  SubscriptionCreationTime?: string;
+  SnsTopicArn?: string;
 }
 
 export namespace EventSubscription {
@@ -254,20 +260,20 @@ export namespace SubscriptionNotFoundFault {
  */
 export interface Tag {
   /**
-   * <p>A key is the required name of the tag. The string value can be from 1 to 128 Unicode
-   *       characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain
-   *       only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java
-   *       regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
-   */
-  Key?: string;
-
-  /**
    * <p>A value is the optional value of the tag. The string value can be from 1 to 256 Unicode
    *       characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain
    *       only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java
    *       regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
    */
   Value?: string;
+
+  /**
+   * <p>A key is the required name of the tag. The string value can be from 1 to 128 Unicode
+   *       characters in length and can't be prefixed with "aws:" or "rds:". The string can only contain
+   *       only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-' (Java
+   *       regex: "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-]*)$").</p>
+   */
+  Key?: string;
 }
 
 export namespace Tag {
@@ -389,23 +395,9 @@ export interface PendingMaintenanceAction {
   OptInStatus?: string;
 
   /**
-   * <p>The effective date when the pending maintenance action is applied to the resource. This
-   *       date takes into account opt-in requests received from the <a>ApplyPendingMaintenanceAction</a> API, the <code>AutoAppliedAfterDate</code>, and the
-   *       <code>ForcedApplyDate</code>. This value is blank if an opt-in request has not been received
-   *       and nothing has been specified as <code>AutoAppliedAfterDate</code> or
-   *       <code>ForcedApplyDate</code>.</p>
-   */
-  CurrentApplyDate?: Date;
-
-  /**
    * <p>A description providing more detail about the maintenance action.</p>
    */
   Description?: string;
-
-  /**
-   * <p>The type of pending maintenance action that is available for the resource.</p>
-   */
-  Action?: string;
 
   /**
    * <p>The date of the maintenance window when the action is applied. The maintenance action is
@@ -420,6 +412,20 @@ export interface PendingMaintenanceAction {
    *       this date is specified, any <code>immediate</code> opt-in requests are ignored.</p>
    */
   ForcedApplyDate?: Date;
+
+  /**
+   * <p>The type of pending maintenance action that is available for the resource.</p>
+   */
+  Action?: string;
+
+  /**
+   * <p>The effective date when the pending maintenance action is applied to the resource. This
+   *       date takes into account opt-in requests received from the <a>ApplyPendingMaintenanceAction</a> API, the <code>AutoAppliedAfterDate</code>, and the
+   *       <code>ForcedApplyDate</code>. This value is blank if an opt-in request has not been received
+   *       and nothing has been specified as <code>AutoAppliedAfterDate</code> or
+   *       <code>ForcedApplyDate</code>.</p>
+   */
+  CurrentApplyDate?: Date;
 }
 
 export namespace PendingMaintenanceAction {
@@ -488,6 +494,28 @@ export interface CopyDBClusterParameterGroupMessage {
   Tags?: Tag[];
 
   /**
+   * <p>The identifier for the copied DB cluster parameter group.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Cannot be null, empty, or blank</p>
+   *             </li>
+   *             <li>
+   *                <p>Must contain from 1 to 255 letters, numbers, or hyphens</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>my-cluster-param-group1</code>
+   *          </p>
+   */
+  TargetDBClusterParameterGroupIdentifier: string | undefined;
+
+  /**
    * <p>The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group.
    *       For information about creating an ARN, see <a href="https://docs.aws.amazon.com/neptune/latest/UserGuide/tagging.ARN.html#tagging.ARN.Constructing"> Constructing an
    *       Amazon Resource Name (ARN)</a>.</p>
@@ -511,28 +539,6 @@ export interface CopyDBClusterParameterGroupMessage {
   SourceDBClusterParameterGroupIdentifier: string | undefined;
 
   /**
-   * <p>The identifier for the copied DB cluster parameter group.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Cannot be null, empty, or blank</p>
-   *             </li>
-   *             <li>
-   *                <p>Must contain from 1 to 255 letters, numbers, or hyphens</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>my-cluster-param-group1</code>
-   *          </p>
-   */
-  TargetDBClusterParameterGroupIdentifier: string | undefined;
-
-  /**
    * <p>A description for the copied DB cluster parameter group.</p>
    */
   TargetDBClusterParameterGroupDescription: string | undefined;
@@ -550,9 +556,9 @@ export namespace CopyDBClusterParameterGroupMessage {
  */
 export interface DBClusterParameterGroup {
   /**
-   * <p>Provides the name of the DB cluster parameter group.</p>
+   * <p>Provides the customer-specified description for this DB cluster parameter group.</p>
    */
-  DBClusterParameterGroupName?: string;
+  Description?: string;
 
   /**
    * <p>Provides the name of the DB parameter group family that this DB cluster parameter group is
@@ -566,9 +572,9 @@ export interface DBClusterParameterGroup {
   DBClusterParameterGroupArn?: string;
 
   /**
-   * <p>Provides the customer-specified description for this DB cluster parameter group.</p>
+   * <p>Provides the name of the DB cluster parameter group.</p>
    */
-  Description?: string;
+  DBClusterParameterGroupName?: string;
 }
 
 export namespace DBClusterParameterGroup {
@@ -654,10 +660,24 @@ export interface CopyDBClusterSnapshotMessage {
   Tags?: Tag[];
 
   /**
-   * <p>True to copy all tags from the source DB cluster snapshot to the target DB cluster
-   *       snapshot, and otherwise false. The default is false.</p>
+   * <p>The identifier of the new DB cluster snapshot to create from the source DB cluster
+   *       snapshot. This parameter is not case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>my-cluster-snapshot2</code>
+   *          </p>
    */
-  CopyTags?: boolean;
+  TargetDBClusterSnapshotIdentifier: string | undefined;
 
   /**
    * <p>The AWS AWS KMS key ID for an encrypted DB cluster snapshot. The KMS key ID is the Amazon
@@ -680,6 +700,17 @@ export interface CopyDBClusterSnapshotMessage {
   KmsKeyId?: string;
 
   /**
+   * <p>Not currently supported.</p>
+   */
+  PreSignedUrl?: string;
+
+  /**
+   * <p>True to copy all tags from the source DB cluster snapshot to the target DB cluster
+   *       snapshot, and otherwise false. The default is false.</p>
+   */
+  CopyTags?: boolean;
+
+  /**
    * <p>The identifier of the DB cluster snapshot to copy. This parameter is not
    *       case-sensitive.</p>
    *          <p>You can't copy from one AWS Region to another.</p>
@@ -696,31 +727,6 @@ export interface CopyDBClusterSnapshotMessage {
    *          </p>
    */
   SourceDBClusterSnapshotIdentifier: string | undefined;
-
-  /**
-   * <p>Not currently supported.</p>
-   */
-  PreSignedUrl?: string;
-
-  /**
-   * <p>The identifier of the new DB cluster snapshot to create from the source DB cluster
-   *       snapshot. This parameter is not case-sensitive.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>my-cluster-snapshot2</code>
-   *          </p>
-   */
-  TargetDBClusterSnapshotIdentifier: string | undefined;
 }
 
 export namespace CopyDBClusterSnapshotMessage {
@@ -735,15 +741,9 @@ export namespace CopyDBClusterSnapshotMessage {
  */
 export interface DBClusterSnapshot {
   /**
-   * <p>Specifies the time when the DB cluster was created, in Universal Coordinated Time
-   *       (UTC).</p>
+   * <p>Provides the version of the database engine for this DB cluster snapshot.</p>
    */
-  ClusterCreateTime?: Date;
-
-  /**
-   * <p>Specifies the name of the database engine.</p>
-   */
-  Engine?: string;
+  EngineVersion?: string;
 
   /**
    * <p>Provides the list of EC2 Availability Zones that instances in the DB cluster snapshot can
@@ -752,14 +752,42 @@ export interface DBClusterSnapshot {
   AvailabilityZones?: string[];
 
   /**
-   * <p>Provides the version of the database engine for this DB cluster snapshot.</p>
+   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts
+   *       is enabled, and otherwise false.</p>
    */
-  EngineVersion?: string;
+  IAMDatabaseAuthenticationEnabled?: boolean;
 
   /**
-   * <p>Provides the master username for the DB cluster snapshot.</p>
+   * <p>Specifies the time when the DB cluster was created, in Universal Coordinated Time
+   *       (UTC).</p>
    */
-  MasterUsername?: string;
+  ClusterCreateTime?: Date;
+
+  /**
+   * <p>Specifies the status of this DB cluster snapshot.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>Specifies whether the DB cluster snapshot is encrypted.</p>
+   */
+  StorageEncrypted?: boolean;
+
+  /**
+   * <p>Specifies the name of the database engine.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>Provides the license model information for this DB cluster snapshot.</p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * <p>Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was
+   *       created from.</p>
+   */
+  DBClusterIdentifier?: string;
 
   /**
    * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the encrypted DB
@@ -786,14 +814,9 @@ export interface DBClusterSnapshot {
   DBClusterSnapshotIdentifier?: string;
 
   /**
-   * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
+   * <p>Provides the master username for the DB cluster snapshot.</p>
    */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>Provides the license model information for this DB cluster snapshot.</p>
-   */
-  LicenseModel?: string;
+  MasterUsername?: string;
 
   /**
    * <p>Provides the VPC ID associated with the DB cluster snapshot.</p>
@@ -801,42 +824,9 @@ export interface DBClusterSnapshot {
   VpcId?: string;
 
   /**
-   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts
-   *       is enabled, and otherwise false.</p>
-   */
-  IAMDatabaseAuthenticationEnabled?: boolean;
-
-  /**
-   * <p>Specifies whether the DB cluster snapshot is encrypted.</p>
-   */
-  StorageEncrypted?: boolean;
-
-  /**
-   * <p>Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was
-   *       created from.</p>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
    * <p>Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC).</p>
    */
   SnapshotCreateTime?: Date;
-
-  /**
-   * <p>Specifies the percentage of the estimated data that has been transferred.</p>
-   */
-  PercentProgress?: number;
-
-  /**
-   * <p>Specifies the port that the DB cluster was listening on at the time of the
-   *       snapshot.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the DB cluster snapshot.</p>
-   */
-  DBClusterSnapshotArn?: string;
 
   /**
    * <p>If the DB cluster snapshot was copied from a source DB cluster snapshot, the Amazon
@@ -845,14 +835,30 @@ export interface DBClusterSnapshot {
   SourceDBClusterSnapshotArn?: string;
 
   /**
-   * <p>Specifies the status of this DB cluster snapshot.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>Provides the type of the DB cluster snapshot.</p>
    */
   SnapshotType?: string;
+
+  /**
+   * <p>Specifies the allocated storage size in gibibytes (GiB).</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>Specifies the percentage of the estimated data that has been transferred.</p>
+   */
+  PercentProgress?: number;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the DB cluster snapshot.</p>
+   */
+  DBClusterSnapshotArn?: string;
+
+  /**
+   * <p>Specifies the port that the DB cluster was listening on at the time of the
+   *       snapshot.</p>
+   */
+  Port?: number;
 }
 
 export namespace DBClusterSnapshot {
@@ -974,6 +980,11 @@ export interface CopyDBParameterGroupMessage {
   TargetDBParameterGroupDescription: string | undefined;
 
   /**
+   * <p>The tags to be assigned to the copied DB parameter group.</p>
+   */
+  Tags?: Tag[];
+
+  /**
    * <p>The identifier for the copied DB parameter group.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -995,11 +1006,6 @@ export interface CopyDBParameterGroupMessage {
    *          </p>
    */
   TargetDBParameterGroupIdentifier: string | undefined;
-
-  /**
-   * <p>The tags to be assigned to the copied DB parameter group.</p>
-   */
-  Tags?: Tag[];
 
   /**
    * <p>The identifier or ARN for the source DB parameter group. For information about creating
@@ -1038,12 +1044,6 @@ export interface DBParameterGroup {
   Description?: string;
 
   /**
-   * <p>Provides the name of the DB parameter group family that this DB parameter group is
-   *       compatible with.</p>
-   */
-  DBParameterGroupFamily?: string;
-
-  /**
    * <p>The Amazon Resource Name (ARN) for the DB parameter group.</p>
    */
   DBParameterGroupArn?: string;
@@ -1052,6 +1052,12 @@ export interface DBParameterGroup {
    * <p>Provides the name of the DB parameter group.</p>
    */
   DBParameterGroupName?: string;
+
+  /**
+   * <p>Provides the name of the DB parameter group family that this DB parameter group is
+   *       compatible with.</p>
+   */
+  DBParameterGroupFamily?: string;
 }
 
 export namespace DBParameterGroup {
@@ -1076,49 +1082,35 @@ export namespace CopyDBParameterGroupResult {
 
 export interface CreateDBClusterMessage {
   /**
-   * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-   *       accounts, and otherwise false.</p>
-   *          <p>Default: <code>false</code>
+   * <p>The list of log types that need to be enabled for exporting to CloudWatch Logs.</p>
+   */
+  EnableCloudwatchLogsExports?: string[];
+
+  /**
+   * <p>The name of the database engine to be used for this DB cluster.</p>
+   *          <p>Valid Values: <code>neptune</code>
    *          </p>
    */
-  EnableIAMDatabaseAuthentication?: boolean;
+  Engine: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster
-   *       is created as a Read Replica.</p>
+   * <p>The version number of the database engine to use for the new DB cluster.</p>
+   *          <p>Example: <code>1.0.2.1</code>
+   *          </p>
    */
-  ReplicationSourceIdentifier?: string;
+  EngineVersion?: string;
 
   /**
-   * <p>The tags to assign to the new DB cluster.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The password for the master database user. This password can contain any printable ASCII
-   *       character except "/", """, or "@".</p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
-   */
-  MasterUserPassword?: string;
-
-  /**
-   * <p>The DB cluster identifier. This parameter is stored as a lowercase string.</p>
+   * <p> The name of the DB cluster parameter group to associate with this DB cluster. If this
+   *       argument is omitted, the default is used.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter.</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
    *             </li>
    *          </ul>
-   *          <p>Example: <code>my-cluster1</code>
-   *          </p>
    */
-  DBClusterIdentifier: string | undefined;
+  DBClusterParameterGroupName?: string;
 
   /**
    * <p>The number of days for which automated backups are retained. You must specify a minimum
@@ -1134,94 +1126,10 @@ export interface CreateDBClusterMessage {
   BackupRetentionPeriod?: number;
 
   /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p> The name of the DB cluster parameter group to associate with this DB cluster. If this
-   *       argument is omitted, the default is used.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterParameterGroupName?: string;
-
-  /**
-   * <p>The port number on which the instances in the DB cluster accept connections.</p>
-   *          <p> Default: <code>8182</code>
-   *          </p>
-   */
-  Port?: number;
-
-  /**
-   * <p>The version number of the database engine to use. Currently, setting this
-   *       parameter has no effect.</p>
-   *          <p>Example: <code>1.0.1</code>
-   *          </p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>Specifies whether the DB cluster is encrypted.</p>
-   */
-  StorageEncrypted?: boolean;
-
-  /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
-   */
-  CharacterSetName?: string;
-
-  /**
-   * <p>A DB subnet group to associate with this DB cluster.</p>
-   *          <p>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
-   *          </p>
-   */
-  DBSubnetGroupName?: string;
-
-  /**
-   * <p>A list of EC2 VPC security groups to associate with this DB cluster.</p>
-   */
-  VpcSecurityGroupIds?: string[];
-
-  /**
-   * <p>A list of EC2 Availability Zones that instances in the DB cluster can be created
-   *       in.</p>
-   */
-  AvailabilityZones?: string[];
-
-  /**
-   * <p>The name of the database engine to be used for this DB cluster.</p>
-   *          <p>Valid Values: <code>neptune</code>
-   *          </p>
-   */
-  Engine: string | undefined;
-
-  /**
-   * <p>The list of log types that need to be enabled for exporting to CloudWatch Logs.</p>
-   */
-  EnableCloudwatchLogsExports?: string[];
-
-  /**
    * <p>The name for your database of up to 64 alpha-numeric characters. If you do not provide a
    *       name, Amazon Neptune will not create a database in the DB cluster you are creating.</p>
    */
   DatabaseName?: string;
-
-  /**
-   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
-   *       The database can't be deleted when deletion protection is enabled. By default,
-   *       deletion protection is enabled.</p>
-   */
-  DeletionProtection?: boolean;
 
   /**
    * <p>The name of the master user for the DB cluster.</p>
@@ -1241,9 +1149,25 @@ export interface CreateDBClusterMessage {
   MasterUsername?: string;
 
   /**
-   * <p>This parameter is not currently supported.</p>
+   * <p>The weekly time range during which system maintenance can occur, in Universal Coordinated
+   *       Time (UTC).</p>
+   *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
+   *          </p>
+   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
+   *       AWS Region, occurring on a random day of the week. To see the time blocks available, see
+   *       <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the Preferred
+   *       Maintenance Window</a> in the <i>Amazon Neptune User Guide.</i>
+   *          </p>
+   *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
+   *          <p>Constraints: Minimum 30-minute window.</p>
    */
-  PreSignedUrl?: string;
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>A list of EC2 Availability Zones that instances in the DB cluster can be created
+   *       in.</p>
+   */
+  AvailabilityZones?: string[];
 
   /**
    * <p>The AWS KMS key identifier for an encrypted DB cluster.</p>
@@ -1298,19 +1222,97 @@ export interface CreateDBClusterMessage {
   PreferredBackupWindow?: string;
 
   /**
-   * <p>The weekly time range during which system maintenance can occur, in Universal Coordinated
-   *       Time (UTC).</p>
-   *          <p>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
+   * <p>A DB subnet group to associate with this DB cluster.</p>
+   *          <p>Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.</p>
+   *          <p>Example: <code>mySubnetgroup</code>
    *          </p>
-   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
-   *       AWS Region, occurring on a random day of the week. To see the time blocks available, see
-   *       <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html"> Adjusting the Preferred
-   *       Maintenance Window</a> in the <i>Amazon Neptune User Guide.</i>
-   *          </p>
-   *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
-   *          <p>Constraints: Minimum 30-minute window.</p>
    */
-  PreferredMaintenanceWindow?: string;
+  DBSubnetGroupName?: string;
+
+  /**
+   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
+   *       The database can't be deleted when deletion protection is enabled. By default,
+   *       deletion protection is enabled.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>Not supported by Neptune.</p>
+   */
+  EnableIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>The tags to assign to the new DB cluster.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  PreSignedUrl?: string;
+
+  /**
+   * <p>The password for the master database user. This password can contain any printable ASCII
+   *       character except "/", """, or "@".</p>
+   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
+   */
+  MasterUserPassword?: string;
+
+  /**
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
+   *          </p>
+   */
+  OptionGroupName?: string;
+
+  /**
+   * <p>The DB cluster identifier. This parameter is stored as a lowercase string.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>my-cluster1</code>
+   *          </p>
+   */
+  DBClusterIdentifier: string | undefined;
+
+  /**
+   * <p>The port number on which the instances in the DB cluster accept connections.</p>
+   *          <p> Default: <code>8182</code>
+   *          </p>
+   */
+  Port?: number;
+
+  /**
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
+   *          </p>
+   */
+  CharacterSetName?: string;
+
+  /**
+   * <p>A list of EC2 VPC security groups to associate with this DB cluster.</p>
+   */
+  VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source DB instance or DB cluster if this DB cluster
+   *       is created as a Read Replica.</p>
+   */
+  ReplicationSourceIdentifier?: string;
+
+  /**
+   * <p>Specifies whether the DB cluster is encrypted.</p>
+   */
+  StorageEncrypted?: boolean;
 }
 
 export namespace CreateDBClusterMessage {
@@ -1353,6 +1355,13 @@ export interface DBClusterRole {
    *          </ul>
    */
   Status?: string;
+
+  /**
+   * <p>The name of the feature associated with the AWS Identity and Access Management (IAM) role.
+   *       For the list of supported feature names, see <a>DBEngineVersion</a>.
+   *     </p>
+   */
+  FeatureName?: string;
 }
 
 export namespace DBClusterRole {
@@ -1366,6 +1375,18 @@ export namespace DBClusterRole {
  */
 export interface DBClusterMember {
   /**
+   * <p>Specifies the status of the DB cluster parameter group for this member of the DB
+   *       cluster.</p>
+   */
+  DBClusterParameterGroupStatus?: string;
+
+  /**
+   * <p>A value that specifies the order in which a Read Replica is promoted to the primary
+   *       instance after a failure of the existing primary instance.</p>
+   */
+  PromotionTier?: number;
+
+  /**
    * <p>Value that is <code>true</code> if the cluster member is the primary instance for the DB
    *       cluster and <code>false</code> otherwise.</p>
    */
@@ -1375,18 +1396,6 @@ export interface DBClusterMember {
    * <p>Specifies the instance identifier for this member of the DB cluster.</p>
    */
   DBInstanceIdentifier?: string;
-
-  /**
-   * <p>A value that specifies the order in which a Read Replica is promoted to the primary
-   *       instance after a failure of the existing primary instance.</p>
-   */
-  PromotionTier?: number;
-
-  /**
-   * <p>Specifies the status of the DB cluster parameter group for this member of the DB
-   *       cluster.</p>
-   */
-  DBClusterParameterGroupStatus?: string;
 }
 
 export namespace DBClusterMember {
@@ -1422,14 +1431,14 @@ export namespace DBClusterOptionGroupStatus {
  */
 export interface VpcSecurityGroupMembership {
   /**
-   * <p>The status of the VPC security group.</p>
-   */
-  Status?: string;
-
-  /**
    * <p>The name of the VPC security group.</p>
    */
   VpcSecurityGroupId?: string;
+
+  /**
+   * <p>The status of the VPC security group.</p>
+   */
+  Status?: string;
 }
 
 export namespace VpcSecurityGroupMembership {
@@ -1444,10 +1453,105 @@ export namespace VpcSecurityGroupMembership {
  */
 export interface DBCluster {
   /**
-   * <p>Specifies the latest time to which a database can be restored with point-in-time
-   *       restore.</p>
+   * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that are associated
+   *       with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the
+   *       DB cluster to access other AWS services on your behalf.</p>
    */
-  LatestRestorableTime?: Date;
+  AssociatedRoles?: DBClusterRole[];
+
+  /**
+   * <p>Specifies whether the DB cluster has instances in multiple Availability Zones.</p>
+   */
+  MultiAZ?: boolean;
+
+  /**
+   * <p>Specifies the time when the DB cluster was created, in Universal Coordinated Time
+   *       (UTC).</p>
+   */
+  ClusterCreateTime?: Date;
+
+  /**
+   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts
+   *       is enabled, and otherwise false.</p>
+   */
+  IAMDatabaseAuthenticationEnabled?: boolean;
+
+  /**
+   * <p>Not supported by Neptune.</p>
+   */
+  ReplicationSourceIdentifier?: string;
+
+  /**
+   * <p>Specifies whether the DB cluster is encrypted.</p>
+   */
+  StorageEncrypted?: boolean;
+
+  /**
+   * <p>Contains one or more identifiers of the Read Replicas associated with this DB
+   *       cluster.</p>
+   */
+  ReadReplicaIdentifiers?: string[];
+
+  /**
+   * <p>Specifies the connection endpoint for the primary instance of the DB cluster.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found
+   *       in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.</p>
+   */
+  DbClusterResourceId?: string;
+
+  /**
+   * <p>Provides the list of instances that make up the DB cluster.</p>
+   */
+  DBClusterMembers?: DBClusterMember[];
+
+  /**
+   * <p>Contains a user-supplied DB cluster identifier. This identifier is the unique key that
+   *       identifies a DB cluster.</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * <p>Specifies the number of days for which automatic DB snapshots are retained.</p>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>Identifies the clone group to which the DB cluster is associated.</p>
+   */
+  CloneGroupId?: string;
+
+  /**
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
+   *          </p>
+   */
+  CharacterSetName?: string;
+
+  /**
+   * <p>Specifies the port that the database engine is listening on.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>Indicates the database engine version.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>
+   *             <code>AllocatedStorage</code> always returns 1, because Neptune DB cluster storage size is
+   *       not fixed, but instead automatically adjusts as needed.</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>Specifies the progress of the operation as a percentage.</p>
+   */
+  PercentProgress?: string;
 
   /**
    * <p>The reader endpoint for the DB cluster. The reader endpoint for a DB cluster load-balances
@@ -1467,17 +1571,10 @@ export interface DBCluster {
   Engine?: string;
 
   /**
-   * <p>Indicates whether or not the DB cluster has deletion protection enabled.
-   *       The database can't be deleted when deletion protection is enabled.</p>
+   * <p>Specifies the latest time to which a database can be restored with point-in-time
+   *       restore.</p>
    */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
-   */
-  DBClusterOptionGroupMemberships?: DBClusterOptionGroupStatus[];
+  LatestRestorableTime?: Date;
 
   /**
    * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
@@ -1491,138 +1588,11 @@ export interface DBCluster {
   AvailabilityZones?: string[];
 
   /**
-   * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
-   *       encrypted DB cluster.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p>Specifies the weekly time range during which system maintenance can occur, in Universal
-   *       Coordinated Time (UTC).</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>Contains the name of the initial database of this DB cluster that was provided at create
-   *       time, if one was specified when the DB cluster was created. This same name is returned for the
-   *       life of the DB cluster.</p>
-   */
-  DatabaseName?: string;
-
-  /**
-   * <p>Specifies the daily time range during which automated backups are created if automated
-   *       backups are enabled, as determined by the <code>BackupRetentionPeriod</code>.</p>
-   */
-  PreferredBackupWindow?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the DB cluster.</p>
-   */
-  DBClusterArn?: string;
-
-  /**
-   * <p>Specifies the name of the DB cluster parameter group for the DB cluster.</p>
-   */
-  DBClusterParameterGroup?: string;
-
-  /**
-   * <p>Specifies information on the subnet group associated with the DB cluster, including the
-   *       name, description, and subnets in the subnet group.</p>
-   */
-  DBSubnetGroup?: string;
-
-  /**
-   * <p>A list of log types that this DB cluster is configured to export to CloudWatch Logs.</p>
-   */
-  EnabledCloudwatchLogsExports?: string[];
-
-  /**
-   * <p>Provides a list of the AWS Identity and Access Management (IAM) roles that are associated
-   *       with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the
-   *       DB cluster to access other AWS services on your behalf.</p>
-   */
-  AssociatedRoles?: DBClusterRole[];
-
-  /**
-   * <p>Specifies whether the DB cluster has instances in multiple Availability Zones.</p>
-   */
-  MultiAZ?: boolean;
-
-  /**
-   * <p>Provides a list of VPC security groups that the DB cluster belongs to.</p>
-   */
-  VpcSecurityGroups?: VpcSecurityGroupMembership[];
-
-  /**
-   * <p>True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts
-   *       is enabled, and otherwise false.</p>
-   */
-  IAMDatabaseAuthenticationEnabled?: boolean;
-
-  /**
-   * <p>Specifies whether the DB cluster is encrypted.</p>
-   */
-  StorageEncrypted?: boolean;
-
-  /**
-   * <p>Not supported by Neptune.</p>
-   */
-  ReplicationSourceIdentifier?: string;
-
-  /**
-   * <p>Specifies the connection endpoint for the primary instance of the DB cluster.</p>
-   */
-  Endpoint?: string;
-
-  /**
-   * <p>Contains the master username for the DB cluster.</p>
-   */
-  MasterUsername?: string;
-
-  /**
-   * <p>Specifies the number of days for which automatic DB snapshots are retained.</p>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p>Specifies the progress of the operation as a percentage.</p>
-   */
-  PercentProgress?: string;
-
-  /**
-   * <p>Contains a user-supplied DB cluster identifier. This identifier is the unique key that
-   *       identifies a DB cluster.</p>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
-   * <p>Identifies the clone group to which the DB cluster is associated.</p>
-   */
-  CloneGroupId?: string;
-
-  /**
-   * <p>The AWS Region-unique, immutable identifier for the DB cluster. This identifier is found
-   *       in AWS CloudTrail log entries whenever the AWS KMS key for the DB cluster is accessed.</p>
-   */
-  DbClusterResourceId?: string;
-
-  /**
-   * <p>Provides the list of instances that make up the DB cluster.</p>
-   */
-  DBClusterMembers?: DBClusterMember[];
-
-  /**
    * <p>
-   *             <code>AllocatedStorage</code> always returns 1, because Neptune DB cluster storage size is
-   *       not fixed, but instead automatically adjusts as needed.</p>
+   *             <i>(Not supported by Neptune)</i>
+   *          </p>
    */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>Contains one or more identifiers of the Read Replicas associated with this DB
-   *       cluster.</p>
-   */
-  ReadReplicaIdentifiers?: string[];
+  DBClusterOptionGroupMemberships?: DBClusterOptionGroupStatus[];
 
   /**
    * <p>Specifies the current state of this DB cluster.</p>
@@ -1636,27 +1606,66 @@ export interface DBCluster {
   EarliestRestorableTime?: Date;
 
   /**
-   * <p>Indicates the database engine version.</p>
+   * <p>If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the
+   *       encrypted DB cluster.</p>
    */
-  EngineVersion?: string;
+  KmsKeyId?: string;
 
   /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
+   * <p>Specifies the daily time range during which automated backups are created if automated
+   *       backups are enabled, as determined by the <code>BackupRetentionPeriod</code>.</p>
    */
-  CharacterSetName?: string;
+  PreferredBackupWindow?: string;
 
   /**
-   * <p>Specifies the time when the DB cluster was created, in Universal Coordinated Time
-   *       (UTC).</p>
+   * <p>Contains the master username for the DB cluster.</p>
    */
-  ClusterCreateTime?: Date;
+  MasterUsername?: string;
 
   /**
-   * <p>Specifies the port that the database engine is listening on.</p>
+   * <p>Contains the name of the initial database of this DB cluster that was provided at create
+   *       time, if one was specified when the DB cluster was created. This same name is returned for the
+   *       life of the DB cluster.</p>
    */
-  Port?: number;
+  DatabaseName?: string;
+
+  /**
+   * <p>Indicates whether or not the DB cluster has deletion protection enabled.
+   *       The database can't be deleted when deletion protection is enabled.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>Provides a list of VPC security groups that the DB cluster belongs to.</p>
+   */
+  VpcSecurityGroups?: VpcSecurityGroupMembership[];
+
+  /**
+   * <p>Specifies information on the subnet group associated with the DB cluster, including the
+   *       name, description, and subnets in the subnet group.</p>
+   */
+  DBSubnetGroup?: string;
+
+  /**
+   * <p>Specifies the name of the DB cluster parameter group for the DB cluster.</p>
+   */
+  DBClusterParameterGroup?: string;
+
+  /**
+   * <p>A list of log types that this DB cluster is configured to export to CloudWatch Logs.</p>
+   */
+  EnabledCloudwatchLogsExports?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the DB cluster.</p>
+   */
+  DBClusterArn?: string;
+
+  /**
+   * <p>Specifies the weekly time range during which system maintenance can occur, in Universal
+   *       Coordinated Time (UTC).</p>
+   */
+  PreferredMaintenanceWindow?: string;
 }
 
 export namespace DBCluster {
@@ -1886,12 +1895,175 @@ export namespace StorageQuotaExceededFault {
   });
 }
 
-export interface CreateDBClusterParameterGroupMessage {
+export interface CreateDBClusterEndpointMessage {
   /**
-   * <p>The description for the DB cluster parameter group.</p>
+   * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
+   *       stored as a lowercase string.</p>
    */
-  Description: string | undefined;
+  DBClusterIdentifier: string | undefined;
 
+  /**
+   * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>ANY</code>.</p>
+   */
+  EndpointType: string | undefined;
+
+  /**
+   * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
+   */
+  StaticMembers?: string[];
+
+  /**
+   * <p>The tags to be assigned to the Amazon Neptune resource.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
+   *       All other eligible instances are reachable through the custom endpoint.
+   *       Only relevant if the list of static members is empty.</p>
+   */
+  ExcludedMembers?: string[];
+
+  /**
+   * <p>The identifier to use for the new endpoint. This parameter is stored as a lowercase string.</p>
+   */
+  DBClusterEndpointIdentifier: string | undefined;
+}
+
+export namespace CreateDBClusterEndpointMessage {
+  export const filterSensitiveLog = (obj: CreateDBClusterEndpointMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This data type represents the information you need to connect to an Amazon Neptune DB cluster.
+ *       This data type is used as a response element in the following actions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>CreateDBClusterEndpoint</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBClusterEndpoints</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ModifyDBClusterEndpoint</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DeleteDBClusterEndpoint</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>For the data structure that represents Amazon Neptune DB instance endpoints,
+ *       see <code>Endpoint</code>.</p>
+ */
+export interface CreateDBClusterEndpointOutput {
+  /**
+   * <p>A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.</p>
+   */
+  DBClusterEndpointResourceIdentifier?: string;
+
+  /**
+   * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>CUSTOM</code>.</p>
+   */
+  EndpointType?: string;
+
+  /**
+   * <p>The identifier associated with the endpoint. This parameter is stored as a lowercase string.</p>
+   */
+  DBClusterEndpointIdentifier?: string;
+
+  /**
+   * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
+   *       All other eligible instances are reachable through the custom endpoint.
+   *       Only relevant if the list of static members is empty.</p>
+   */
+  ExcludedMembers?: string[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the endpoint.</p>
+   */
+  DBClusterEndpointArn?: string;
+
+  /**
+   * <p>The type associated with a custom endpoint. One of: <code>READER</code>,
+   *       <code>WRITER</code>, <code>ANY</code>.</p>
+   */
+  CustomEndpointType?: string;
+
+  /**
+   * <p>The DNS address of the endpoint.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The current status of the endpoint. One of: <code>creating</code>, <code>available</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>. The <code>inactive</code> state applies to an endpoint that cannot be used for a certain kind of cluster,
+   *       such as a <code>writer</code> endpoint for a read-only secondary cluster in a global database.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
+   */
+  StaticMembers?: string[];
+
+  /**
+   * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
+   *       stored as a lowercase string.</p>
+   */
+  DBClusterIdentifier?: string;
+}
+
+export namespace CreateDBClusterEndpointOutput {
+  export const filterSensitiveLog = (obj: CreateDBClusterEndpointOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The specified custom endpoint cannot be created because it already exists.</p>
+ */
+export interface DBClusterEndpointAlreadyExistsFault extends __SmithyException, $MetadataBearer {
+  name: "DBClusterEndpointAlreadyExistsFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBClusterEndpointAlreadyExistsFault {
+  export const filterSensitiveLog = (obj: DBClusterEndpointAlreadyExistsFault): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The cluster already has the maximum number of custom endpoints.</p>
+ */
+export interface DBClusterEndpointQuotaExceededFault extends __SmithyException, $MetadataBearer {
+  name: "DBClusterEndpointQuotaExceededFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBClusterEndpointQuotaExceededFault {
+  export const filterSensitiveLog = (obj: DBClusterEndpointQuotaExceededFault): any => ({
+    ...obj,
+  });
+}
+
+export interface CreateDBClusterParameterGroupMessage {
   /**
    * <p>The tags to be assigned to the new DB cluster parameter group.</p>
    */
@@ -1918,6 +2090,11 @@ export interface CreateDBClusterParameterGroupMessage {
    *       group family.</p>
    */
   DBParameterGroupFamily: string | undefined;
+
+  /**
+   * <p>The description for the DB cluster parameter group.</p>
+   */
+  Description: string | undefined;
 }
 
 export namespace CreateDBClusterParameterGroupMessage {
@@ -1941,11 +2118,6 @@ export namespace CreateDBClusterParameterGroupResult {
 }
 
 export interface CreateDBClusterSnapshotMessage {
-  /**
-   * <p>The tags to be assigned to the DB cluster snapshot.</p>
-   */
-  Tags?: Tag[];
-
   /**
    * <p>The identifier of the DB cluster to create a snapshot for. This parameter is not
    *       case-sensitive.</p>
@@ -1979,6 +2151,11 @@ export interface CreateDBClusterSnapshotMessage {
    *          </p>
    */
   DBClusterSnapshotIdentifier: string | undefined;
+
+  /**
+   * <p>The tags to be assigned to the DB cluster snapshot.</p>
+   */
+  Tags?: Tag[];
 }
 
 export namespace CreateDBClusterSnapshotMessage {
@@ -2022,124 +2199,29 @@ export namespace AuthorizationNotFoundFault {
 
 export interface CreateDBInstanceMessage {
   /**
-   * <p>Specify the name of the IAM role to be used when making API calls to the Directory
-   *       Service.</p>
+   * <p>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
+   *       Not all DB instance classes are available in all AWS Regions.</p>
    */
-  DomainIAMRoleName?: string;
-
-  /**
-   * <p>A value that specifies the order in which an Read Replica is promoted to the primary
-   *       instance after a failure of the existing primary instance.
-   *       </p>
-   *          <p>Default: 1</p>
-   *          <p>Valid Values: 0 - 15</p>
-   */
-  PromotionTier?: number;
-
-  /**
-   * <p>The password for the master user. The password can include any printable ASCII character
-   *       except "/", """, or "@".</p>
-   *          <p> Not used.</p>
-   */
-  MasterUserPassword?: string;
-
-  /**
-   * <p>Specify the Active Directory Domain to create the instance in.</p>
-   */
-  Domain?: string;
-
-  /**
-   * <p>The ARN for the IAM role that permits Neptune to send enhanced monitoring metrics to
-   *       Amazon CloudWatch Logs. For example,
-   *       <code>arn:aws:iam:123456789012:role/emaccess</code>.</p>
-   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
-   *       <code>MonitoringRoleArn</code> value.</p>
-   */
-  MonitoringRoleArn?: string;
-
-  /**
-   * <p>The tags to assign to the new instance.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>True to enable AWS Identity and Access Management (IAM) authentication for Neptune.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  EnableIAMDatabaseAuthentication?: boolean;
-
-  /**
-   * <p>Specifies if the DB instance is a Multi-AZ deployment. You can't set the AvailabilityZone
-   *       parameter if the MultiAZ parameter is set to true.</p>
-   */
-  MultiAZ?: boolean;
-
-  /**
-   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
-   */
-  TdeCredentialArn?: string;
+  DBInstanceClass: string | undefined;
 
   /**
    * <p>
    *             <i>(Not supported by Neptune)</i>
    *          </p>
    */
-  PerformanceInsightsKMSKeyId?: string;
+  EnablePerformanceInsights?: boolean;
 
   /**
-   * <p>This flag should no longer be used.</p>
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>The identifier of the DB cluster that the instance will belong to.</p>
-   *          <p>For information on creating a DB cluster, see <a>CreateDBCluster</a>.</p>
-   *          <p>Type: String</p>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
-   * <p>The number of days for which automated backups are
-   *       retained.</p>
-   *          <p>Not applicable. The retention period for automated backups is managed by the DB cluster.
-   *       For more information, see <a>CreateDBCluster</a>.</p>
-   *          <p>Default: 1</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be a value from 0 to 35</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot be set to 0 if the DB instance is a source to Read Replicas</p>
-   *             </li>
-   *          </ul>
-   */
-  BackupRetentionPeriod?: number;
-
-  /**
-   * <p>The port number on which the database accepts connections.</p>
-   *          <p>Not applicable. The port is managed by the DB cluster. For more information, see <a>CreateDBCluster</a>.</p>
-   *          <p> Default: <code>8182</code>
-   *          </p>
-   *          <p>Type: Integer</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
+   * <p>The name of the database engine to be used for this instance.</p>
+   *          <p>Valid Values: <code>neptune</code>
    *          </p>
    */
-  CharacterSetName?: string;
+  Engine: string | undefined;
 
   /**
-   * <p>A list of EC2 VPC security groups to associate with this DB instance.</p>
-   *          <p>Not applicable. The associated list of EC2 VPC security groups is managed by the DB
-   *       cluster. For more information, see <a>CreateDBCluster</a>.</p>
-   *          <p>Default: The default EC2 VPC security group for the DB subnet group's VPC.</p>
+   * <p>The list of log types that need to be enabled for exporting to CloudWatch Logs.</p>
    */
-  VpcSecurityGroupIds?: string[];
+  EnableCloudwatchLogsExports?: string[];
 
   /**
    * <p>The version number of the database engine to use. Currently, setting this
@@ -2148,18 +2230,17 @@ export interface CreateDBInstanceMessage {
   EngineVersion?: string;
 
   /**
-   * <p>Specifies whether the DB instance is encrypted.</p>
-   *          <p>Not applicable. The encryption for DB instances is managed by the DB cluster. For more
-   *       information, see <a>CreateDBCluster</a>.</p>
-   *          <p>Default: false</p>
+   * <p>The password for the given ARN from the key store in order to access the device.</p>
    */
-  StorageEncrypted?: boolean;
+  TdeCredentialPassword?: string;
 
   /**
-   * <p>Specifies the storage type to be associated with the DB instance.</p>
-   *          <p>Not applicable. Storage is managed by the DB Cluster.</p>
+   * <p>Indicates that minor engine upgrades are applied automatically to the DB instance during
+   *       the maintenance window.</p>
+   *          <p>Default: <code>true</code>
+   *          </p>
    */
-  StorageType?: string;
+  AutoMinorVersionUpgrade?: boolean;
 
   /**
    * <p>The DB instance identifier. This parameter is stored as a lowercase string.</p>
@@ -2181,71 +2262,16 @@ export interface CreateDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
+   * <p>Specifies the storage type to be associated with the DB instance.</p>
+   *          <p>Not applicable. Storage is managed by the DB Cluster.</p>
    */
-  OptionGroupName?: string;
-
-  /**
-   * <p>The amount of storage (in gibibytes) to allocate for the DB instance.</p>
-   *          <p>Type: Integer</p>
-   *          <p>Not applicable. Neptune cluster volumes automatically grow as the amount of data in your
-   *       database increases, though you are only charged for the space that you use in a Neptune
-   *       cluster volume.</p>
-   */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
-   */
-  EnablePerformanceInsights?: boolean;
-
-  /**
-   * <p>The list of log types that need to be enabled for exporting to CloudWatch Logs.</p>
-   */
-  EnableCloudwatchLogsExports?: string[];
+  StorageType?: string;
 
   /**
    * <p>The amount of Provisioned IOPS (input/output operations per second) to be initially
    *       allocated for the DB instance.</p>
    */
   Iops?: number;
-
-  /**
-   * <p>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
-   *       Not all DB instance classes are available in all AWS Regions.</p>
-   */
-  DBInstanceClass: string | undefined;
-
-  /**
-   * <p>Indicates that minor engine upgrades are applied automatically to the DB instance during
-   *       the maintenance window.</p>
-   *          <p>Default: <code>true</code>
-   *          </p>
-   */
-  AutoMinorVersionUpgrade?: boolean;
-
-  /**
-   * <p>A list of DB security groups to associate with this DB instance.</p>
-   *          <p>Default: The default DB security group for the database engine.</p>
-   */
-  DBSecurityGroups?: string[];
-
-  /**
-   * <p>The name of the database engine to be used for this instance.</p>
-   *          <p>Valid Values: <code>neptune</code>
-   *          </p>
-   */
-  Engine: string | undefined;
-
-  /**
-   * <p>True to copy all tags from the DB instance to snapshots of the DB instance, and otherwise
-   *       false. The default is false.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
 
   /**
    * <p> The daily time range during which automated backups are created.</p>
@@ -2255,98 +2281,14 @@ export interface CreateDBInstanceMessage {
   PreferredBackupWindow?: string;
 
   /**
-   * <p>The time range each week during which system maintenance can occur, in Universal
-   *       Coordinated Time (UTC).</p>
-   *          <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
-   *          </p>
-   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
-   *       AWS Region, occurring on a random day of the week.</p>
-   *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
-   *          <p>Constraints: Minimum 30-minute window.</p>
+   * <p>This flag should no longer be used.</p>
    */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>Not supported.</p>
-   */
-  DBName?: string;
+  PubliclyAccessible?: boolean;
 
   /**
    * <p>The name for the master user. Not used.</p>
    */
   MasterUsername?: string;
-
-  /**
-   * <p>The AWS KMS key identifier for an encrypted DB instance.</p>
-   *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If
-   *       you are creating a DB instance with the same AWS account that owns the KMS encryption key used
-   *       to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the
-   *       KM encryption key.</p>
-   *          <p>Not applicable. The KMS key identifier is managed by the DB cluster. For more information,
-   *       see <a>CreateDBCluster</a>.</p>
-   *          <p>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value for
-   *       the <code>KmsKeyId</code> parameter, then Amazon Neptune will use your default encryption key.
-   *       AWS KMS creates the default encryption key for your AWS account. Your AWS account has a
-   *       different default encryption key for each AWS Region.</p>
-   */
-  KmsKeyId?: string;
-
-  /**
-   * <p> The EC2 Availability Zone that the DB instance is created in</p>
-   *          <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</p>
-   *          <p> Example: <code>us-east-1d</code>
-   *          </p>
-   *          <p> Constraint: The AvailabilityZone parameter can't be specified if the MultiAZ parameter is
-   *       set to <code>true</code>. The specified Availability Zone must be in the same AWS Region as
-   *       the current endpoint.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>License model information for this DB instance.</p>
-   *          <p> Valid values: <code>license-included</code> | <code>bring-your-own-license</code> |
-   *       <code>general-public-license</code>
-   *          </p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>The time zone of the DB instance.</p>
-   */
-  Timezone?: string;
-
-  /**
-   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
-   *       for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default
-   *       is 0.</p>
-   *          <p>If <code>MonitoringRoleArn</code> is specified, then you must also set
-   *       <code>MonitoringInterval</code> to a value other than 0.</p>
-   *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
-   *          </p>
-   */
-  MonitoringInterval?: number;
-
-  /**
-   * <p>A value that indicates whether the DB instance has deletion protection enabled.
-   *       The database can't be deleted when deletion protection is enabled. By default,
-   *       deletion protection is disabled. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html">Deleting
-   *       a DB Instance</a>.</p>
-   *
-   *          <p>DB instances in a DB cluster can be deleted even when deletion
-   *       protection is enabled in their parent DB cluster.</p>
-   */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>A DB subnet group to associate with this DB instance.</p>
-   *          <p>If there is no DB subnet group, then it is a non-VPC DB instance.</p>
-   */
-  DBSubnetGroupName?: string;
-
-  /**
-   * <p>The password for the given ARN from the key store in order to access the device.</p>
-   */
-  TdeCredentialPassword?: string;
 
   /**
    * <p>The name of the DB parameter group to associate with this DB instance. If this argument is
@@ -2365,6 +2307,241 @@ export interface CreateDBInstanceMessage {
    *          </ul>
    */
   DBParameterGroupName?: string;
+
+  /**
+   * <p>Not supported.</p>
+   */
+  DBName?: string;
+
+  /**
+   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
+   *       for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default
+   *       is 0.</p>
+   *          <p>If <code>MonitoringRoleArn</code> is specified, then you must also set
+   *       <code>MonitoringInterval</code> to a value other than 0.</p>
+   *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
+   *          </p>
+   */
+  MonitoringInterval?: number;
+
+  /**
+   * <p>The time range each week during which system maintenance can occur, in Universal
+   *       Coordinated Time (UTC).</p>
+   *          <p> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code>
+   *          </p>
+   *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
+   *       AWS Region, occurring on a random day of the week.</p>
+   *          <p>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</p>
+   *          <p>Constraints: Minimum 30-minute window.</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>A list of DB security groups to associate with this DB instance.</p>
+   *          <p>Default: The default DB security group for the database engine.</p>
+   */
+  DBSecurityGroups?: string[];
+
+  /**
+   * <p>The AWS KMS key identifier for an encrypted DB instance.</p>
+   *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If
+   *       you are creating a DB instance with the same AWS account that owns the KMS encryption key used
+   *       to encrypt the new DB instance, then you can use the KMS key alias instead of the ARN for the
+   *       KM encryption key.</p>
+   *          <p>Not applicable. The KMS key identifier is managed by the DB cluster. For more information,
+   *       see <a>CreateDBCluster</a>.</p>
+   *          <p>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value for
+   *       the <code>KmsKeyId</code> parameter, then Amazon Neptune will use your default encryption key.
+   *       AWS KMS creates the default encryption key for your AWS account. Your AWS account has a
+   *       different default encryption key for each AWS Region.</p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>License model information for this DB instance.</p>
+   *          <p> Valid values: <code>license-included</code> | <code>bring-your-own-license</code> |
+   *       <code>general-public-license</code>
+   *          </p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * <p> The EC2 Availability Zone that the DB instance is created in</p>
+   *          <p>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</p>
+   *          <p> Example: <code>us-east-1d</code>
+   *          </p>
+   *          <p> Constraint: The AvailabilityZone parameter can't be specified if the MultiAZ parameter is
+   *       set to <code>true</code>. The specified Availability Zone must be in the same AWS Region as
+   *       the current endpoint.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The time zone of the DB instance.</p>
+   */
+  Timezone?: string;
+
+  /**
+   * <p>A DB subnet group to associate with this DB instance.</p>
+   *          <p>If there is no DB subnet group, then it is a non-VPC DB instance.</p>
+   */
+  DBSubnetGroupName?: string;
+
+  /**
+   * <p>A value that indicates whether the DB instance has deletion protection enabled.
+   *       The database can't be deleted when deletion protection is enabled. By default,
+   *       deletion protection is disabled. See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html">Deleting
+   *       a DB Instance</a>.</p>
+   *
+   *          <p>DB instances in a DB cluster can be deleted even when deletion
+   *       protection is enabled in their parent DB cluster.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
+   */
+  TdeCredentialArn?: string;
+
+  /**
+   * <p>Specify the name of the IAM role to be used when making API calls to the Directory
+   *       Service.</p>
+   */
+  DomainIAMRoleName?: string;
+
+  /**
+   * <p>Specifies if the DB instance is a Multi-AZ deployment. You can't set the AvailabilityZone
+   *       parameter if the MultiAZ parameter is set to true.</p>
+   */
+  MultiAZ?: boolean;
+
+  /**
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
+   *          </p>
+   */
+  PerformanceInsightsKMSKeyId?: string;
+
+  /**
+   * <p>Specify the Active Directory Domain to create the instance in.</p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>The ARN for the IAM role that permits Neptune to send enhanced monitoring metrics to
+   *       Amazon CloudWatch Logs. For example,
+   *       <code>arn:aws:iam:123456789012:role/emaccess</code>.</p>
+   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
+   *       <code>MonitoringRoleArn</code> value.</p>
+   */
+  MonitoringRoleArn?: string;
+
+  /**
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
+   *          </p>
+   */
+  CharacterSetName?: string;
+
+  /**
+   * <p>The port number on which the database accepts connections.</p>
+   *          <p>Not applicable. The port is managed by the DB cluster. For more information, see <a>CreateDBCluster</a>.</p>
+   *          <p> Default: <code>8182</code>
+   *          </p>
+   *          <p>Type: Integer</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The password for the master user. The password can include any printable ASCII character
+   *       except "/", """, or "@".</p>
+   *          <p> Not used.</p>
+   */
+  MasterUserPassword?: string;
+
+  /**
+   * <p>True to enable AWS Identity and Access Management (IAM) authentication for Neptune.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  EnableIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>The number of days for which automated backups are
+   *       retained.</p>
+   *          <p>Not applicable. The retention period for automated backups is managed by the DB cluster.
+   *       For more information, see <a>CreateDBCluster</a>.</p>
+   *          <p>Default: 1</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be a value from 0 to 35</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot be set to 0 if the DB instance is a source to Read Replicas</p>
+   *             </li>
+   *          </ul>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>A value that specifies the order in which an Read Replica is promoted to the primary
+   *       instance after a failure of the existing primary instance.
+   *       </p>
+   *          <p>Default: 1</p>
+   *          <p>Valid Values: 0 - 15</p>
+   */
+  PromotionTier?: number;
+
+  /**
+   * <p>True to copy all tags from the DB instance to snapshots of the DB instance, and otherwise
+   *       false. The default is false.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
+   * <p>The tags to assign to the new instance.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The amount of storage (in gibibytes) to allocate for the DB instance.</p>
+   *          <p>Type: Integer</p>
+   *          <p>Not applicable. Neptune cluster volumes automatically grow as the amount of data in your
+   *       database increases, though you are only charged for the space that you use in a Neptune
+   *       cluster volume.</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>A list of EC2 VPC security groups to associate with this DB instance.</p>
+   *          <p>Not applicable. The associated list of EC2 VPC security groups is managed by the DB
+   *       cluster. For more information, see <a>CreateDBCluster</a>.</p>
+   *          <p>Default: The default EC2 VPC security group for the DB subnet group's VPC.</p>
+   */
+  VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
+   *          </p>
+   */
+  OptionGroupName?: string;
+
+  /**
+   * <p>The identifier of the DB cluster that the instance will belong to.</p>
+   *          <p>For information on creating a DB cluster, see <a>CreateDBCluster</a>.</p>
+   *          <p>Type: String</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * <p>Specifies whether the DB instance is encrypted.</p>
+   *          <p>Not applicable. The encryption for DB instances is managed by the DB cluster. For more
+   *       information, see <a>CreateDBCluster</a>.</p>
+   *          <p>Default: false</p>
+   */
+  StorageEncrypted?: boolean;
 }
 
 export namespace CreateDBInstanceMessage {
@@ -2460,14 +2637,14 @@ export namespace AvailabilityZone {
  */
 export interface Subnet {
   /**
-   * <p>Specifies the status of the subnet.</p>
-   */
-  SubnetStatus?: string;
-
-  /**
    * <p>Specifies the identifier of the subnet.</p>
    */
   SubnetIdentifier?: string;
+
+  /**
+   * <p>Specifies the status of the subnet.</p>
+   */
+  SubnetStatus?: string;
 
   /**
    * <p>Specifies the EC2 Availability Zone that the subnet is in.</p>
@@ -2492,6 +2669,21 @@ export interface DBSubnetGroup {
   VpcId?: string;
 
   /**
+   * <p> Contains a list of <a>Subnet</a> elements.</p>
+   */
+  Subnets?: Subnet[];
+
+  /**
+   * <p>The name of the DB subnet group.</p>
+   */
+  DBSubnetGroupName?: string;
+
+  /**
+   * <p>Provides the status of the DB subnet group.</p>
+   */
+  SubnetGroupStatus?: string;
+
+  /**
    * <p>The Amazon Resource Name (ARN) for the DB subnet group.</p>
    */
   DBSubnetGroupArn?: string;
@@ -2500,21 +2692,6 @@ export interface DBSubnetGroup {
    * <p>Provides the description of the DB subnet group.</p>
    */
   DBSubnetGroupDescription?: string;
-
-  /**
-   * <p>Provides the status of the DB subnet group.</p>
-   */
-  SubnetGroupStatus?: string;
-
-  /**
-   * <p>The name of the DB subnet group.</p>
-   */
-  DBSubnetGroupName?: string;
-
-  /**
-   * <p> Contains a list of <a>Subnet</a> elements.</p>
-   */
-  Subnets?: Subnet[];
 }
 
 export namespace DBSubnetGroup {
@@ -2528,16 +2705,6 @@ export namespace DBSubnetGroup {
  */
 export interface DomainMembership {
   /**
-   * <p>The identifier of the Active Directory Domain.</p>
-   */
-  Domain?: string;
-
-  /**
-   * <p>The name of the IAM role to be used when making API calls to the Directory Service.</p>
-   */
-  IAMRoleName?: string;
-
-  /**
    * <p>The status of the DB instance's Active Directory Domain membership, such as joined,
    *       pending-join, failed etc).</p>
    */
@@ -2547,6 +2714,16 @@ export interface DomainMembership {
    * <p>The fully qualified domain name of the Active Directory Domain.</p>
    */
   FQDN?: string;
+
+  /**
+   * <p>The identifier of the Active Directory Domain.</p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>The name of the IAM role to be used when making API calls to the Directory Service.</p>
+   */
+  IAMRoleName?: string;
 }
 
 export namespace DomainMembership {
@@ -2557,6 +2734,9 @@ export namespace DomainMembership {
 
 /**
  * <p>Specifies a connection endpoint.</p>
+ *
+ *          <p>For the data structure that represents Amazon Neptune DB cluster endpoints,
+ *       see <code>DBClusterEndpoint</code>.</p>
  */
 export interface Endpoint {
   /**
@@ -2565,14 +2745,14 @@ export interface Endpoint {
   Port?: number;
 
   /**
-   * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
-   */
-  HostedZoneId?: string;
-
-  /**
    * <p>Specifies the DNS address of the DB instance.</p>
    */
   Address?: string;
+
+  /**
+   * <p>Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.</p>
+   */
+  HostedZoneId?: string;
 }
 
 export namespace Endpoint {
@@ -2586,17 +2766,17 @@ export namespace Endpoint {
  */
 export interface OptionGroupMembership {
   /**
+   * <p>The name of the option group that the instance belongs to.</p>
+   */
+  OptionGroupName?: string;
+
+  /**
    * <p>The status of the DB instance's option group membership. Valid values are:
    *       <code>in-sync</code>, <code>pending-apply</code>, <code>pending-removal</code>,
    *       <code>pending-maintenance-apply</code>, <code>pending-maintenance-removal</code>,
    *       <code>applying</code>, <code>removing</code>, and <code>failed</code>.</p>
    */
   Status?: string;
-
-  /**
-   * <p>The name of the option group that the instance belongs to.</p>
-   */
-  OptionGroupName?: string;
 }
 
 export namespace OptionGroupMembership {
@@ -2635,11 +2815,6 @@ export namespace PendingCloudwatchLogsExports {
  */
 export interface PendingModifiedValues {
   /**
-   * <p>Specifies the storage type to be associated with the DB instance.</p>
-   */
-  StorageType?: string;
-
-  /**
    * <p>The license model for the DB instance.</p>
    *          <p>Valid values: <code>license-included</code> | <code>bring-your-own-license</code> |
    *       <code>general-public-license</code>
@@ -2648,20 +2823,9 @@ export interface PendingModifiedValues {
   LicenseModel?: string;
 
   /**
-   * <p>Specifies the pending port for the DB instance.</p>
+   * <p>Specifies the storage type to be associated with the DB instance.</p>
    */
-  Port?: number;
-
-  /**
-   * <p>Indicates the database engine version.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>Specifies the new Provisioned IOPS value for the DB instance that will be applied or is
-   *       currently being applied.</p>
-   */
-  Iops?: number;
+  StorageType?: string;
 
   /**
    * <p> Contains the new <code>AllocatedStorage</code> size for the DB instance that will be
@@ -2670,9 +2834,9 @@ export interface PendingModifiedValues {
   AllocatedStorage?: number;
 
   /**
-   * <p>The new DB subnet group for the DB instance.</p>
+   * <p>Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment.</p>
    */
-  DBSubnetGroupName?: string;
+  MultiAZ?: boolean;
 
   /**
    * <p>Contains the pending or currently-in-progress change of the master credentials for the DB
@@ -2686,16 +2850,15 @@ export interface PendingModifiedValues {
   CACertificateIdentifier?: string;
 
   /**
+   * <p>The new DB subnet group for the DB instance.</p>
+   */
+  DBSubnetGroupName?: string;
+
+  /**
    * <p> Contains the new <code>DBInstanceIdentifier</code> for the DB instance that will be
    *       applied or is currently being applied.</p>
    */
   DBInstanceIdentifier?: string;
-
-  /**
-   * <p>This <code>PendingCloudwatchLogsExports</code> structure specifies
-   *       pending changes to which CloudWatch logs are enabled and which are disabled.</p>
-   */
-  PendingCloudwatchLogsExports?: PendingCloudwatchLogsExports;
 
   /**
    * <p> Contains the new <code>DBInstanceClass</code> for the DB instance that will be applied or
@@ -2704,14 +2867,31 @@ export interface PendingModifiedValues {
   DBInstanceClass?: string;
 
   /**
-   * <p>Indicates that the Single-AZ DB instance is to change to a Multi-AZ deployment.</p>
+   * <p>This <code>PendingCloudwatchLogsExports</code> structure specifies
+   *       pending changes to which CloudWatch logs are enabled and which are disabled.</p>
    */
-  MultiAZ?: boolean;
+  PendingCloudwatchLogsExports?: PendingCloudwatchLogsExports;
 
   /**
    * <p>Specifies the pending number of days for which automated backups are retained.</p>
    */
   BackupRetentionPeriod?: number;
+
+  /**
+   * <p>Specifies the new Provisioned IOPS value for the DB instance that will be applied or is
+   *       currently being applied.</p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>Indicates the database engine version.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>Specifies the pending port for the DB instance.</p>
+   */
+  Port?: number;
 }
 
 export namespace PendingModifiedValues {
@@ -2725,6 +2905,18 @@ export namespace PendingModifiedValues {
  */
 export interface DBInstanceStatusInfo {
   /**
+   * <p>Boolean value that is true if the instance is operating normally, or false if the instance
+   *       is in an error state.</p>
+   */
+  Normal?: boolean;
+
+  /**
+   * <p>Details of the error if there is an error for the instance. If the instance is not in an
+   *       error state, this value is blank.</p>
+   */
+  Message?: string;
+
+  /**
    * <p>Status of the DB instance. For a StatusType of read replica, the values can be
    *       replicating, error, stopped, or terminated.</p>
    */
@@ -2734,18 +2926,6 @@ export interface DBInstanceStatusInfo {
    * <p>This value is currently "read replication."</p>
    */
   StatusType?: string;
-
-  /**
-   * <p>Details of the error if there is an error for the instance. If the instance is not in an
-   *       error state, this value is blank.</p>
-   */
-  Message?: string;
-
-  /**
-   * <p>Boolean value that is true if the instance is operating normally, or false if the instance
-   *       is in an error state.</p>
-   */
-  Normal?: boolean;
 }
 
 export namespace DBInstanceStatusInfo {
@@ -2760,68 +2940,14 @@ export namespace DBInstanceStatusInfo {
  */
 export interface DBInstance {
   /**
-   * <p>Specifies the name of the Availability Zone the DB instance is located in.</p>
+   * <p>Not supported</p>
    */
-  AvailabilityZone?: string;
+  DomainMemberships?: DomainMembership[];
 
   /**
-   * <p>The database name.</p>
+   * <p>Specifies the number of days for which automatic DB snapshots are retained.</p>
    */
-  DBName?: string;
-
-  /**
-   * <p>Contains one or more identifiers of the Read Replicas associated with this DB
-   *       instance.</p>
-   */
-  ReadReplicaDBInstanceIdentifiers?: string[];
-
-  /**
-   * <p>Specifies the allocated storage size specified in gibibytes.</p>
-   */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>The identifier of the CA certificate for this DB instance.</p>
-   */
-  CACertificateIdentifier?: string;
-
-  /**
-   * <p>Contains the name of the compute and memory capacity class of the DB instance.</p>
-   */
-  DBInstanceClass?: string;
-
-  /**
-   * <p>Specifies the latest time to which a database can be restored with point-in-time
-   *       restore.</p>
-   */
-  LatestRestorableTime?: Date;
-
-  /**
-   * <p>Provides the name of the database engine to be used for this DB instance.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
-   *       for the DB instance.</p>
-   */
-  MonitoringInterval?: number;
-
-  /**
-   * <p>A list of log types that this DB instance is configured to export to CloudWatch
-   *       Logs.</p>
-   */
-  EnabledCloudwatchLogsExports?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the DB instance.</p>
-   */
-  DBInstanceArn?: string;
-
-  /**
-   * <p>Specifies the current state of this database.</p>
-   */
-  DBInstanceStatus?: string;
+  BackupRetentionPeriod?: number;
 
   /**
    * <p>If the DB instance is a member of a DB cluster, contains the name of the DB cluster that
@@ -2830,53 +2956,9 @@ export interface DBInstance {
   DBClusterIdentifier?: string;
 
   /**
-   * <p>Not supported</p>
+   * <p>The Amazon Resource Name (ARN) for the DB instance.</p>
    */
-  DomainMemberships?: DomainMembership[];
-
-  /**
-   * <p>Specifies whether tags are copied from the DB instance to snapshots of the DB
-   *       instance.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
-
-  /**
-   * <p>Contains one or more identifiers of DB clusters that are Read Replicas of this DB
-   *       instance.</p>
-   */
-  ReadReplicaDBClusterIdentifiers?: string[];
-
-  /**
-   * <p>Not supported: The encryption for DB instances is managed by the DB cluster.</p>
-   */
-  StorageEncrypted?: boolean;
-
-  /**
-   * <p>Not supported.</p>
-   */
-  Timezone?: string;
-
-  /**
-   * <p>The ARN for the IAM role that permits Neptune to send Enhanced Monitoring metrics to
-   *       Amazon CloudWatch Logs.</p>
-   */
-  MonitoringRoleArn?: string;
-
-  /**
-   * <p>If present, specifies the name of the secondary Availability Zone for a DB instance with
-   *       multi-AZ support.</p>
-   */
-  SecondaryAvailabilityZone?: string;
-
-  /**
-   * <p>Provides the date and time the DB instance was created.</p>
-   */
-  InstanceCreateTime?: Date;
-
-  /**
-   * <p>Contains the master username for the DB instance.</p>
-   */
-  MasterUsername?: string;
+  DBInstanceArn?: string;
 
   /**
    * <p> Provides List of DB security group elements containing only
@@ -2885,23 +2967,28 @@ export interface DBInstance {
   DBSecurityGroups?: DBSecurityGroupMembership[];
 
   /**
-   * <p>A value that specifies the order in which a Read Replica is promoted to the primary
-   *       instance after a failure of the existing primary instance.
-   *    </p>
+   * <p>If present, specifies the name of the secondary Availability Zone for a DB instance with
+   *       multi-AZ support.</p>
    */
-  PromotionTier?: number;
+  SecondaryAvailabilityZone?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the
-   *       Enhanced Monitoring metrics data for the DB instance.</p>
+   * <p>The ARN from the key store with which the instance is associated for TDE
+   *       encryption.</p>
    */
-  EnhancedMonitoringResourceArn?: string;
+  TdeCredentialArn?: string;
 
   /**
-   * <p>Contains a user-supplied database identifier. This identifier is the unique key that
-   *       identifies a DB instance.</p>
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
+   *          </p>
    */
-  DBInstanceIdentifier?: string;
+  PerformanceInsightsEnabled?: boolean;
+
+  /**
+   * <p>Not supported: The encryption for DB instances is managed by the DB cluster.</p>
+   */
+  StorageEncrypted?: boolean;
 
   /**
    * <p>Contains the identifier of the source DB instance if this DB instance is a Read
@@ -2910,27 +2997,14 @@ export interface DBInstance {
   ReadReplicaSourceDBInstanceIdentifier?: string;
 
   /**
-   * <p>Specifies the storage type associated with DB instance.</p>
-   */
-  StorageType?: string;
-
-  /**
    * <p>Indicates the database engine version.</p>
    */
   EngineVersion?: string;
 
   /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
+   * <p>Specifies the allocated storage size specified in gibibytes.</p>
    */
-  CharacterSetName?: string;
-
-  /**
-   * <p>Specifies the weekly time range during which system maintenance can occur, in Universal
-   *       Coordinated Time (UTC).</p>
-   */
-  PreferredMaintenanceWindow?: string;
+  AllocatedStorage?: number;
 
   /**
    * <p>Indicates whether or not the DB instance has deletion protection enabled.
@@ -2940,25 +3014,9 @@ export interface DBInstance {
   DeletionProtection?: boolean;
 
   /**
-   * <p>This flag should no longer be used.</p>
+   * <p>Specifies the name of the Availability Zone the DB instance is located in.</p>
    */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>Specifies information on the subnet group associated with the DB instance, including the
-   *       name, description, and subnets in the subnet group.</p>
-   */
-  DBSubnetGroup?: DBSubnetGroup;
-
-  /**
-   * <p>License model information for this DB instance.</p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>Specifies the connection endpoint.</p>
-   */
-  Endpoint?: Endpoint;
+  AvailabilityZone?: string;
 
   /**
    * <p> Not supported: The encryption for DB instances is managed by the DB cluster.</p>
@@ -2966,10 +3024,9 @@ export interface DBInstance {
   KmsKeyId?: string;
 
   /**
-   * <p>Specifies the port that the DB instance listens on. If the DB instance is part of a DB
-   *       cluster, this can be a different port than the DB cluster port.</p>
+   * <p>This flag should no longer be used.</p>
    */
-  DbInstancePort?: number;
+  PubliclyAccessible?: boolean;
 
   /**
    * <p>Specifies that changes to the DB instance are pending. This element is only included when
@@ -2978,47 +3035,26 @@ export interface DBInstance {
   PendingModifiedValues?: PendingModifiedValues;
 
   /**
-   * <p>Provides the list of DB parameter groups applied to this DB instance.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon CloudWatch Logs log stream that receives the
+   *       Enhanced Monitoring metrics data for the DB instance.</p>
    */
-  DBParameterGroups?: DBParameterGroupStatus[];
+  EnhancedMonitoringResourceArn?: string;
 
   /**
-   * <p>Specifies the Provisioned IOPS (I/O operations per second) value.</p>
+   * <p>Specifies the latest time to which a database can be restored with point-in-time
+   *       restore.</p>
    */
-  Iops?: number;
+  LatestRestorableTime?: Date;
 
   /**
-   * <p>Indicates that minor version patches are applied automatically.</p>
+   * <p>Provides the date and time the DB instance was created.</p>
    */
-  AutoMinorVersionUpgrade?: boolean;
-
-  /**
-   * <p>The ARN from the key store with which the instance is associated for TDE
-   *       encryption.</p>
-   */
-  TdeCredentialArn?: string;
+  InstanceCreateTime?: Date;
 
   /**
    * <p>Specifies if the DB instance is a Multi-AZ deployment.</p>
    */
   MultiAZ?: boolean;
-
-  /**
-   * <p>Provides a list of VPC security group elements that the DB instance belongs to.</p>
-   */
-  VpcSecurityGroups?: VpcSecurityGroupMembership[];
-
-  /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
-   */
-  PerformanceInsightsKMSKeyId?: string;
-
-  /**
-   * <p>The status of a Read Replica. If the instance is not a Read Replica, this is blank.</p>
-   */
-  StatusInfos?: DBInstanceStatusInfo[];
 
   /**
    * <p>
@@ -3028,15 +3064,57 @@ export interface DBInstance {
   OptionGroupMemberships?: OptionGroupMembership[];
 
   /**
-   * <p>Specifies the number of days for which automatic DB snapshots are retained.</p>
+   * <p>Specifies the current state of this database.</p>
    */
-  BackupRetentionPeriod?: number;
+  DBInstanceStatus?: string;
 
   /**
-   * <p>The AWS Region-unique, immutable identifier for the DB instance. This identifier is found
-   *       in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.</p>
+   * <p>Contains the name of the compute and memory capacity class of the DB instance.</p>
    */
-  DbiResourceId?: string;
+  DBInstanceClass?: string;
+
+  /**
+   * <p>The status of a Read Replica. If the instance is not a Read Replica, this is blank.</p>
+   */
+  StatusInfos?: DBInstanceStatusInfo[];
+
+  /**
+   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
+   *       for the DB instance.</p>
+   */
+  MonitoringInterval?: number;
+
+  /**
+   * <p>Not supported.</p>
+   */
+  Timezone?: string;
+
+  /**
+   * <p>Contains one or more identifiers of DB clusters that are Read Replicas of this DB
+   *       instance.</p>
+   */
+  ReadReplicaDBClusterIdentifiers?: string[];
+
+  /**
+   * <p>Indicates that minor version patches are applied automatically.</p>
+   */
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * <p>Provides a list of VPC security group elements that the DB instance belongs to.</p>
+   */
+  VpcSecurityGroups?: VpcSecurityGroupMembership[];
+
+  /**
+   * <p>Specifies whether tags are copied from the DB instance to snapshots of the DB
+   *       instance.</p>
+   */
+  CopyTagsToSnapshot?: boolean;
+
+  /**
+   * <p>Contains the master username for the DB instance.</p>
+   */
+  MasterUsername?: string;
 
   /**
    * <p> Specifies the daily time range during which automated backups are created if automated
@@ -3045,17 +3123,119 @@ export interface DBInstance {
   PreferredBackupWindow?: string;
 
   /**
-   * <p>True if AWS Identity and Access Management (IAM) authentication is enabled, and otherwise
-   *       false.</p>
+   * <p>The ARN for the IAM role that permits Neptune to send Enhanced Monitoring metrics to
+   *       Amazon CloudWatch Logs.</p>
    */
-  IAMDatabaseAuthenticationEnabled?: boolean;
+  MonitoringRoleArn?: string;
+
+  /**
+   * <p>A value that specifies the order in which a Read Replica is promoted to the primary
+   *       instance after a failure of the existing primary instance.
+   *    </p>
+   */
+  PromotionTier?: number;
+
+  /**
+   * <p>Provides the list of DB parameter groups applied to this DB instance.</p>
+   */
+  DBParameterGroups?: DBParameterGroupStatus[];
 
   /**
    * <p>
    *             <i>(Not supported by Neptune)</i>
    *          </p>
    */
-  PerformanceInsightsEnabled?: boolean;
+  CharacterSetName?: string;
+
+  /**
+   * <p>Specifies the storage type associated with DB instance.</p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p>Contains a user-supplied database identifier. This identifier is the unique key that
+   *       identifies a DB instance.</p>
+   */
+  DBInstanceIdentifier?: string;
+
+  /**
+   * <p>Contains one or more identifiers of the Read Replicas associated with this DB
+   *       instance.</p>
+   */
+  ReadReplicaDBInstanceIdentifiers?: string[];
+
+  /**
+   * <p>The database name.</p>
+   */
+  DBName?: string;
+
+  /**
+   * <p>Specifies the port that the DB instance listens on. If the DB instance is part of a DB
+   *       cluster, this can be a different port than the DB cluster port.</p>
+   */
+  DbInstancePort?: number;
+
+  /**
+   * <p>Specifies the connection endpoint.</p>
+   */
+  Endpoint?: Endpoint;
+
+  /**
+   * <p>The identifier of the CA certificate for this DB instance.</p>
+   */
+  CACertificateIdentifier?: string;
+
+  /**
+   * <p>Specifies the Provisioned IOPS (I/O operations per second) value.</p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>Provides the name of the database engine to be used for this DB instance.</p>
+   */
+  Engine?: string;
+
+  /**
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
+   *          </p>
+   */
+  PerformanceInsightsKMSKeyId?: string;
+
+  /**
+   * <p>A list of log types that this DB instance is configured to export to CloudWatch
+   *       Logs.</p>
+   */
+  EnabledCloudwatchLogsExports?: string[];
+
+  /**
+   * <p>License model information for this DB instance.</p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * <p>True if AWS Identity and Access Management (IAM) authentication is enabled, and otherwise
+   *       false.</p>
+   */
+  IAMDatabaseAuthenticationEnabled?: boolean;
+
+  /**
+   * <p>Specifies information on the subnet group associated with the DB instance, including the
+   *       name, description, and subnets in the subnet group.</p>
+   */
+  DBSubnetGroup?: DBSubnetGroup;
+
+  /**
+   * <p>Specifies the weekly time range during which system maintenance can occur, in Universal
+   *       Coordinated Time (UTC).</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>The AWS Region-unique, immutable identifier for the DB instance. This identifier is found
+   *       in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.</p>
+   */
+  DbiResourceId?: string;
 }
 
 export namespace DBInstance {
@@ -3287,14 +3467,19 @@ export namespace CreateDBParameterGroupResult {
 
 export interface CreateDBSubnetGroupMessage {
   /**
-   * <p>The description for the DB subnet group.</p>
+   * <p>The EC2 Subnet IDs for the DB subnet group.</p>
    */
-  DBSubnetGroupDescription: string | undefined;
+  SubnetIds: string[] | undefined;
 
   /**
    * <p>The tags to be assigned to the new DB subnet group.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The description for the DB subnet group.</p>
+   */
+  DBSubnetGroupDescription: string | undefined;
 
   /**
    * <p>The name for the DB subnet group. This value is stored as a lowercase string.</p>
@@ -3304,11 +3489,6 @@ export interface CreateDBSubnetGroupMessage {
    *          </p>
    */
   DBSubnetGroupName: string | undefined;
-
-  /**
-   * <p>The EC2 Subnet IDs for the DB subnet group.</p>
-   */
-  SubnetIds: string[] | undefined;
 }
 
 export namespace CreateDBSubnetGroupMessage {
@@ -3388,10 +3568,26 @@ export namespace DBSubnetQuotaExceededFault {
 
 export interface CreateEventSubscriptionMessage {
   /**
+   * <p>The type of source that is generating the events. For example, if you want to be notified
+   *       of events generated by a DB instance, you would set this parameter to db-instance. if this
+   *       value is not specified, all events are returned.</p>
+   *          <p>Valid values: <code>db-instance</code> | <code>db-cluster</code> |
+   *       <code>db-parameter-group</code> | <code>db-security-group</code> | <code>db-snapshot</code> |
+   *       <code>db-cluster-snapshot</code>
+   *          </p>
+   */
+  SourceType?: string;
+
+  /**
    * <p>The name of the subscription.</p>
    *          <p>Constraints: The name must be less than 255 characters.</p>
    */
   SubscriptionName: string | undefined;
+
+  /**
+   * <p>The tags to be applied to the new event subscription.</p>
+   */
+  Tags?: Tag[];
 
   /**
    * <p> A list of event categories for a SourceType that you want to subscribe to. You can see a
@@ -3399,12 +3595,6 @@ export interface CreateEventSubscriptionMessage {
    *       <b>DescribeEventCategories</b> action.</p>
    */
   EventCategories?: string[];
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is
-   *       created by Amazon SNS when you create a topic and subscribe to it.</p>
-   */
-  SnsTopicArn: string | undefined;
 
   /**
    * <p>The list of identifiers of the event sources for which events are returned. If not
@@ -3437,27 +3627,17 @@ export interface CreateEventSubscriptionMessage {
   SourceIds?: string[];
 
   /**
-   * <p>The tags to be applied to the new event subscription.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The type of source that is generating the events. For example, if you want to be notified
-   *       of events generated by a DB instance, you would set this parameter to db-instance. if this
-   *       value is not specified, all events are returned.</p>
-   *          <p>Valid values: <code>db-instance</code> | <code>db-cluster</code> |
-   *       <code>db-parameter-group</code> | <code>db-security-group</code> | <code>db-snapshot</code> |
-   *       <code>db-cluster-snapshot</code>
-   *          </p>
-   */
-  SourceType?: string;
-
-  /**
    * <p> A Boolean value; set to <b>true</b> to activate the
    *       subscription, set to <b>false</b> to create the subscription but not
    *       active it.</p>
    */
   Enabled?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is
+   *       created by Amazon SNS when you create a topic and subscribe to it.</p>
+   */
+  SnsTopicArn: string | undefined;
 }
 
 export namespace CreateEventSubscriptionMessage {
@@ -3657,6 +3837,146 @@ export namespace DeleteDBClusterResult {
   });
 }
 
+/**
+ * <p>The specified custom endpoint doesn't exist.</p>
+ */
+export interface DBClusterEndpointNotFoundFault extends __SmithyException, $MetadataBearer {
+  name: "DBClusterEndpointNotFoundFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace DBClusterEndpointNotFoundFault {
+  export const filterSensitiveLog = (obj: DBClusterEndpointNotFoundFault): any => ({
+    ...obj,
+  });
+}
+
+export interface DeleteDBClusterEndpointMessage {
+  /**
+   * <p>The identifier associated with the custom endpoint. This parameter is stored as a lowercase string.</p>
+   */
+  DBClusterEndpointIdentifier: string | undefined;
+}
+
+export namespace DeleteDBClusterEndpointMessage {
+  export const filterSensitiveLog = (obj: DeleteDBClusterEndpointMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This data type represents the information you need to connect to an Amazon Neptune DB cluster.
+ *       This data type is used as a response element in the following actions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>CreateDBClusterEndpoint</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBClusterEndpoints</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ModifyDBClusterEndpoint</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DeleteDBClusterEndpoint</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>For the data structure that represents Amazon RDS DB instance endpoints,
+ *       see <code>Endpoint</code>.</p>
+ */
+export interface DeleteDBClusterEndpointOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the endpoint.</p>
+   */
+  DBClusterEndpointArn?: string;
+
+  /**
+   * <p>A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.</p>
+   */
+  DBClusterEndpointResourceIdentifier?: string;
+
+  /**
+   * <p>The current status of the endpoint. One of: <code>creating</code>, <code>available</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>. The <code>inactive</code> state applies to an endpoint that cannot be used for a certain kind of cluster,
+   *       such as a <code>writer</code> endpoint for a read-only secondary cluster in a global database.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>CUSTOM</code>.</p>
+   */
+  EndpointType?: string;
+
+  /**
+   * <p>The DNS address of the endpoint.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
+   *       All other eligible instances are reachable through the custom endpoint.
+   *       Only relevant if the list of static members is empty.</p>
+   */
+  ExcludedMembers?: string[];
+
+  /**
+   * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
+   *       stored as a lowercase string.</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
+   */
+  StaticMembers?: string[];
+
+  /**
+   * <p>The type associated with a custom endpoint. One of: <code>READER</code>,
+   *       <code>WRITER</code>, <code>ANY</code>.</p>
+   */
+  CustomEndpointType?: string;
+
+  /**
+   * <p>The identifier associated with the endpoint. This parameter is stored as a lowercase string.</p>
+   */
+  DBClusterEndpointIdentifier?: string;
+}
+
+export namespace DeleteDBClusterEndpointOutput {
+  export const filterSensitiveLog = (obj: DeleteDBClusterEndpointOutput): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>The requested operation cannot be performed on the endpoint while the endpoint is in this state.</p>
+ */
+export interface InvalidDBClusterEndpointStateFault extends __SmithyException, $MetadataBearer {
+  name: "InvalidDBClusterEndpointStateFault";
+  $fault: "client";
+  /**
+   * <p>A message describing the details of the problem.</p>
+   */
+  message?: string;
+}
+
+export namespace InvalidDBClusterEndpointStateFault {
+  export const filterSensitiveLog = (obj: InvalidDBClusterEndpointStateFault): any => ({
+    ...obj,
+  });
+}
+
 export interface DeleteDBClusterParameterGroupMessage {
   /**
    * <p>The name of the DB cluster parameter group.</p>
@@ -3751,31 +4071,6 @@ export namespace DBSnapshotAlreadyExistsFault {
 
 export interface DeleteDBInstanceMessage {
   /**
-   * <p> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to
-   *       <code>false</code>.</p>
-   *          <note>
-   *             <p>Specifying this parameter and also setting the SkipFinalShapshot parameter to true
-   *         results in an error.</p>
-   *          </note>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must be 1 to 255 letters or numbers.</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot be specified when deleting a Read Replica.</p>
-   *             </li>
-   *          </ul>
-   */
-  FinalDBSnapshotIdentifier?: string;
-
-  /**
    * <p> Determines whether a final DB snapshot is created before the DB instance is deleted. If
    *       <code>true</code> is specified, no DBSnapshot is created. If <code>false</code> is specified,
    *       a DB snapshot is created before the DB instance is deleted.</p>
@@ -3803,6 +4098,31 @@ export interface DeleteDBInstanceMessage {
    *          </ul>
    */
   DBInstanceIdentifier: string | undefined;
+
+  /**
+   * <p> The DBSnapshotIdentifier of the new DBSnapshot created when SkipFinalSnapshot is set to
+   *       <code>false</code>.</p>
+   *          <note>
+   *             <p>Specifying this parameter and also setting the SkipFinalShapshot parameter to true
+   *         results in an error.</p>
+   *          </note>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must be 1 to 255 letters or numbers.</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot be specified when deleting a Read Replica.</p>
+   *             </li>
+   *          </ul>
+   */
+  FinalDBSnapshotIdentifier?: string;
 }
 
 export namespace DeleteDBInstanceMessage {
@@ -3932,6 +4252,193 @@ export namespace InvalidEventSubscriptionStateFault {
   });
 }
 
+/**
+ * <p>This data type represents the information you need to connect to an Amazon Neptune DB cluster.
+ *       This data type is used as a response element in the following actions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>CreateDBClusterEndpoint</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBClusterEndpoints</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ModifyDBClusterEndpoint</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DeleteDBClusterEndpoint</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>For the data structure that represents Amazon Neptune DB instance endpoints,
+ *       see <code>Endpoint</code>.</p>
+ */
+export interface DBClusterEndpoint {
+  /**
+   * <p>The type associated with a custom endpoint. One of: <code>READER</code>,
+   *       <code>WRITER</code>, <code>ANY</code>.</p>
+   */
+  CustomEndpointType?: string;
+
+  /**
+   * <p>The current status of the endpoint. One of: <code>creating</code>, <code>available</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>. The <code>inactive</code> state applies to an endpoint that cannot be used for a certain kind of cluster,
+   *       such as a <code>writer</code> endpoint for a read-only secondary cluster in a global database.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the endpoint.</p>
+   */
+  DBClusterEndpointArn?: string;
+
+  /**
+   * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
+   */
+  StaticMembers?: string[];
+
+  /**
+   * <p>The identifier associated with the endpoint. This parameter is stored as a lowercase string.</p>
+   */
+  DBClusterEndpointIdentifier?: string;
+
+  /**
+   * <p>A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.</p>
+   */
+  DBClusterEndpointResourceIdentifier?: string;
+
+  /**
+   * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
+   *       stored as a lowercase string.</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
+   *       All other eligible instances are reachable through the custom endpoint.
+   *       Only relevant if the list of static members is empty.</p>
+   */
+  ExcludedMembers?: string[];
+
+  /**
+   * <p>The DNS address of the endpoint.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>CUSTOM</code>.</p>
+   */
+  EndpointType?: string;
+}
+
+export namespace DBClusterEndpoint {
+  export const filterSensitiveLog = (obj: DBClusterEndpoint): any => ({
+    ...obj,
+  });
+}
+
+export interface DBClusterEndpointMessage {
+  /**
+   * <p> An optional pagination token provided by a previous
+   *       <code>DescribeDBClusterEndpoints</code> request.
+   *       If this parameter is specified, the response includes
+   *       only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code>.
+   *     </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>Contains the details of the endpoints associated with the cluster
+   *       and matching any filter conditions.</p>
+   */
+  DBClusterEndpoints?: DBClusterEndpoint[];
+}
+
+export namespace DBClusterEndpointMessage {
+  export const filterSensitiveLog = (obj: DBClusterEndpointMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This type is not currently supported.</p>
+ */
+export interface Filter {
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Values: string[] | undefined;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Name: string | undefined;
+}
+
+export namespace Filter {
+  export const filterSensitiveLog = (obj: Filter): any => ({
+    ...obj,
+  });
+}
+
+export interface DescribeDBClusterEndpointsMessage {
+  /**
+   * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
+   *       stored as a lowercase string.</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * <p> An optional pagination token provided by a previous
+   *       <code>DescribeDBClusterEndpoints</code> request.
+   *       If this parameter is specified, the response includes
+   *       only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code>.
+   *     </p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A set of name-value pairs that define which endpoints to include in the output.
+   *       The filters are specified as name-value pairs, in the format
+   *       <code>Name=<i>endpoint_type</i>,Values=<i>endpoint_type1</i>,<i>endpoint_type2</i>,...</code>.
+   *       <code>Name</code> can be one of: <code>db-cluster-endpoint-type</code>, <code>db-cluster-endpoint-custom-type</code>, <code>db-cluster-endpoint-id</code>, <code>db-cluster-endpoint-status</code>.
+   *       <code>Values</code> for the <code> db-cluster-endpoint-type</code> filter can be one or more of: <code>reader</code>, <code>writer</code>, <code>custom</code>.
+   *       <code>Values</code> for the <code>db-cluster-endpoint-custom-type</code> filter can be one or more of: <code>reader</code>, <code>any</code>.
+   *       <code>Values</code> for the <code>db-cluster-endpoint-status</code> filter can be one or more of: <code>available</code>, <code>creating</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>.
+   *     </p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *       If more records exist than the specified <code>MaxRecords</code> value,
+   *       a pagination token called a marker is included in the response so you can retrieve the remaining results.
+   *     </p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>The identifier of the endpoint to describe. This parameter is stored as a lowercase string.</p>
+   */
+  DBClusterEndpointIdentifier?: string;
+}
+
+export namespace DescribeDBClusterEndpointsMessage {
+  export const filterSensitiveLog = (obj: DescribeDBClusterEndpointsMessage): any => ({
+    ...obj,
+  });
+}
+
 export interface DBClusterParameterGroupsMessage {
   /**
    * <p> An optional pagination token provided by a previous
@@ -3953,27 +4460,6 @@ export namespace DBClusterParameterGroupsMessage {
   });
 }
 
-/**
- * <p>This type is not currently supported.</p>
- */
-export interface Filter {
-  /**
-   * <p>This parameter is not currently supported.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>This parameter is not currently supported.</p>
-   */
-  Values: string[] | undefined;
-}
-
-export namespace Filter {
-  export const filterSensitiveLog = (obj: Filter): any => ({
-    ...obj,
-  });
-}
-
 export interface DescribeDBClusterParameterGroupsMessage {
   /**
    * <p>The name of a specific DB cluster parameter group to return details for.</p>
@@ -3985,14 +4471,6 @@ export interface DescribeDBClusterParameterGroupsMessage {
    *          </ul>
    */
   DBClusterParameterGroupName?: string;
-
-  /**
-   * <p> An optional pagination token provided by a previous
-   *       <code>DescribeDBClusterParameterGroups</code> request. If this parameter is specified, the
-   *       response includes only records beyond the marker, up to the value specified by
-   *       <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
 
   /**
    * <p>This parameter is not currently supported.</p>
@@ -4007,6 +4485,14 @@ export interface DescribeDBClusterParameterGroupsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p> An optional pagination token provided by a previous
+   *       <code>DescribeDBClusterParameterGroups</code> request. If this parameter is specified, the
+   *       response includes only records beyond the marker, up to the value specified by
+   *       <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
 }
 
 export namespace DescribeDBClusterParameterGroupsMessage {
@@ -4022,26 +4508,24 @@ export type ApplyMethod = "immediate" | "pending-reboot";
  */
 export interface Parameter {
   /**
-   * <p>Provides a description of the parameter.</p>
+   * <p>Specifies the value of the parameter.</p>
    */
-  Description?: string;
+  ParameterValue?: string;
+
+  /**
+   * <p>Specifies the valid range of values for the parameter.</p>
+   */
+  AllowedValues?: string;
+
+  /**
+   * <p>Specifies the valid data type for the parameter.</p>
+   */
+  DataType?: string;
 
   /**
    * <p>Specifies the engine specific parameters type.</p>
    */
   ApplyType?: string;
-
-  /**
-   * <p> Indicates whether (<code>true</code>) or not (<code>false</code>) the parameter can be
-   *       modified. Some parameters have security or operational implications that prevent them from
-   *       being changed.</p>
-   */
-  IsModifiable?: boolean;
-
-  /**
-   * <p>Indicates when to apply parameter updates.</p>
-   */
-  ApplyMethod?: ApplyMethod | string;
 
   /**
    * <p>Specifies the name of the parameter.</p>
@@ -4054,9 +4538,16 @@ export interface Parameter {
   Source?: string;
 
   /**
-   * <p>Specifies the valid data type for the parameter.</p>
+   * <p>Indicates when to apply parameter updates.</p>
    */
-  DataType?: string;
+  ApplyMethod?: ApplyMethod | string;
+
+  /**
+   * <p> Indicates whether (<code>true</code>) or not (<code>false</code>) the parameter can be
+   *       modified. Some parameters have security or operational implications that prevent them from
+   *       being changed.</p>
+   */
+  IsModifiable?: boolean;
 
   /**
    * <p>The earliest engine version to which the parameter can apply.</p>
@@ -4064,14 +4555,9 @@ export interface Parameter {
   MinimumEngineVersion?: string;
 
   /**
-   * <p>Specifies the valid range of values for the parameter.</p>
+   * <p>Provides a description of the parameter.</p>
    */
-  AllowedValues?: string;
-
-  /**
-   * <p>Specifies the value of the parameter.</p>
-   */
-  ParameterValue?: string;
+  Description?: string;
 }
 
 export namespace Parameter {
@@ -4102,18 +4588,26 @@ export namespace DBClusterParameterGroupDetails {
 
 export interface DescribeDBClusterParametersMessage {
   /**
-   * <p> An optional pagination token provided by a previous
-   *       <code>DescribeDBClusterParameters</code> request. If this parameter is specified, the response
-   *       includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.
-   *    </p>
+   * <p>The name of a specific DB cluster parameter group to return parameter details for.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
+   *             </li>
+   *          </ul>
    */
-  Marker?: string;
+  DBClusterParameterGroupName: string | undefined;
 
   /**
    * <p> A value that indicates to return only parameters for a specific source. Parameter sources
    *       can be <code>engine</code>, <code>service</code>, or <code>customer</code>.</p>
    */
   Source?: string;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Filters?: Filter[];
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
@@ -4125,20 +4619,12 @@ export interface DescribeDBClusterParametersMessage {
   MaxRecords?: number;
 
   /**
-   * <p>This parameter is not currently supported.</p>
+   * <p> An optional pagination token provided by a previous
+   *       <code>DescribeDBClusterParameters</code> request. If this parameter is specified, the response
+   *       includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.
+   *    </p>
    */
-  Filters?: Filter[];
-
-  /**
-   * <p>The name of a specific DB cluster parameter group to return parameter details for.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterParameterGroupName: string | undefined;
+  Marker?: string;
 }
 
 export namespace DescribeDBClusterParametersMessage {
@@ -4149,14 +4635,14 @@ export namespace DescribeDBClusterParametersMessage {
 
 export interface DBClusterMessage {
   /**
-   * <p>Contains a list of DB clusters for the user.</p>
-   */
-  DBClusters?: DBCluster[];
-
-  /**
    * <p>A pagination token that can be used in a subsequent DescribeDBClusters request.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>Contains a list of DB clusters for the user.</p>
+   */
+  DBClusters?: DBCluster[];
 }
 
 export namespace DBClusterMessage {
@@ -4174,6 +4660,25 @@ export interface DescribeDBClustersMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
+   *       request. If this parameter is specified, the response includes only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The user-supplied DB cluster identifier. If this parameter is specified, information from
+   *       only the specific DB cluster is returned. This parameter isn't case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match an existing DBClusterIdentifier.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterIdentifier?: string;
 
   /**
    * <p>A filter that specifies one or more DB clusters to describe.</p>
@@ -4196,25 +4701,6 @@ export interface DescribeDBClustersMessage {
    *       Neptune DB clusters are returned, you could use the following command:</p>
    */
   Filters?: Filter[];
-
-  /**
-   * <p>The user-supplied DB cluster identifier. If this parameter is specified, information from
-   *       only the specific DB cluster is returned. This parameter isn't case-sensitive.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match an existing DBClusterIdentifier.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
-   * <p>An optional pagination token provided by a previous <a>DescribeDBClusters</a>
-   *       request. If this parameter is specified, the response includes only records beyond the marker,
-   *       up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
 }
 
 export namespace DescribeDBClustersMessage {
@@ -4326,19 +4812,6 @@ export namespace DBClusterSnapshotMessage {
 
 export interface DescribeDBClusterSnapshotsMessage {
   /**
-   * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter
-   *       can't be used in conjunction with the <code>DBClusterSnapshotIdentifier</code> parameter. This
-   *       parameter is not case-sensitive.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the identifier of an existing DBCluster.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterIdentifier?: string;
-
-  /**
    * <p>A specific DB cluster snapshot identifier to describe. This parameter can't be used in
    *       conjunction with the <code>DBClusterIdentifier</code> parameter. This value is stored as a
    *       lowercase string.</p>
@@ -4356,6 +4829,14 @@ export interface DescribeDBClusterSnapshotsMessage {
   DBClusterSnapshotIdentifier?: string;
 
   /**
+   * <p>An optional pagination token provided by a previous
+   *       <code>DescribeDBClusterSnapshots</code> request. If this parameter is specified, the response
+   *       includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.
+   *    </p>
+   */
+  Marker?: string;
+
+  /**
    * <p>True to include shared manual DB cluster snapshots from other AWS accounts that this AWS
    *       account has been given permission to copy or restore, and otherwise false. The default is
    *       <code>false</code>.</p>
@@ -4364,6 +4845,19 @@ export interface DescribeDBClusterSnapshotsMessage {
    *       action.</p>
    */
   IncludeShared?: boolean;
+
+  /**
+   * <p>True to include manual DB cluster snapshots that are public and can be copied or restored
+   *       by any AWS account, and otherwise false. The default is <code>false</code>. The default is
+   *       false.</p>
+   *          <p>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
+   */
+  IncludePublic?: boolean;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Filters?: Filter[];
 
   /**
    * <p>The type of DB cluster snapshots to be returned. You can specify one of the following
@@ -4404,19 +4898,6 @@ export interface DescribeDBClusterSnapshotsMessage {
   SnapshotType?: string;
 
   /**
-   * <p>True to include manual DB cluster snapshots that are public and can be copied or restored
-   *       by any AWS account, and otherwise false. The default is <code>false</code>. The default is
-   *       false.</p>
-   *          <p>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a> API action.</p>
-   */
-  IncludePublic?: boolean;
-
-  /**
-   * <p>This parameter is not currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
    * <p>The maximum number of records to include in the response. If more records exist than the
    *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
    *       response so that the remaining results can be retrieved.</p>
@@ -4426,12 +4907,17 @@ export interface DescribeDBClusterSnapshotsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>An optional pagination token provided by a previous
-   *       <code>DescribeDBClusterSnapshots</code> request. If this parameter is specified, the response
-   *       includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.
-   *    </p>
+   * <p>The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter
+   *       can't be used in conjunction with the <code>DBClusterSnapshotIdentifier</code> parameter. This
+   *       parameter is not case-sensitive.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the identifier of an existing DBCluster.</p>
+   *             </li>
+   *          </ul>
    */
-  Marker?: string;
+  DBClusterIdentifier?: string;
 }
 
 export namespace DescribeDBClusterSnapshotsMessage {
@@ -4487,15 +4973,9 @@ export interface UpgradeTarget {
   Description?: string;
 
   /**
-   * <p>A value that indicates whether the target version is applied to any source DB instances
-   *       that have AutoMinorVersionUpgrade set to true.</p>
+   * <p>The name of the upgrade target database engine.</p>
    */
-  AutoUpgrade?: boolean;
-
-  /**
-   * <p>The version number of the upgrade target database engine.</p>
-   */
-  EngineVersion?: string;
+  Engine?: string;
 
   /**
    * <p>A value that indicates whether a database engine is upgraded to a major version.</p>
@@ -4503,9 +4983,15 @@ export interface UpgradeTarget {
   IsMajorVersionUpgrade?: boolean;
 
   /**
-   * <p>The name of the upgrade target database engine.</p>
+   * <p>The version number of the upgrade target database engine.</p>
    */
-  Engine?: string;
+  EngineVersion?: string;
+
+  /**
+   * <p>A value that indicates whether the target version is applied to any source DB instances
+   *       that have AutoMinorVersionUpgrade set to true.</p>
+   */
+  AutoUpgrade?: boolean;
 }
 
 export namespace UpgradeTarget {
@@ -4523,18 +5009,6 @@ export interface DBEngineVersion {
    *             <i>(Not supported by Neptune)</i>
    *          </p>
    */
-  SupportedCharacterSets?: CharacterSet[];
-
-  /**
-   * <p>A list of engine versions that this database engine version can be upgraded to.</p>
-   */
-  ValidUpgradeTarget?: UpgradeTarget[];
-
-  /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
-   */
   DefaultCharacterSet?: CharacterSet;
 
   /**
@@ -4543,10 +5017,15 @@ export interface DBEngineVersion {
   SupportsReadReplica?: boolean;
 
   /**
-   * <p>The types of logs that the database engine has available for export to CloudWatch
-   *       Logs.</p>
+   * <p>A value that indicates whether the engine version supports exporting the log types
+   *       specified by ExportableLogTypes to CloudWatch Logs.</p>
    */
-  ExportableLogTypes?: string[];
+  SupportsLogExportsToCloudwatchLogs?: boolean;
+
+  /**
+   * <p>The version number of the database engine.</p>
+   */
+  EngineVersion?: string;
 
   /**
    * <p>A list of the time zones supported by this engine for the <code>Timezone</code> parameter
@@ -4555,25 +5034,30 @@ export interface DBEngineVersion {
   SupportedTimezones?: Timezone[];
 
   /**
-   * <p>The description of the database engine.</p>
-   */
-  DBEngineDescription?: string;
-
-  /**
-   * <p>A value that indicates whether the engine version supports exporting the log types
-   *       specified by ExportableLogTypes to CloudWatch Logs.</p>
-   */
-  SupportsLogExportsToCloudwatchLogs?: boolean;
-
-  /**
    * <p>The name of the database engine.</p>
    */
   Engine?: string;
 
   /**
-   * <p>The version number of the database engine.</p>
+   * <p>The description of the database engine version.</p>
    */
-  EngineVersion?: string;
+  DBEngineVersionDescription?: string;
+
+  /**
+   * <p>The description of the database engine.</p>
+   */
+  DBEngineDescription?: string;
+
+  /**
+   * <p>A list of engine versions that this database engine version can be upgraded to.</p>
+   */
+  ValidUpgradeTarget?: UpgradeTarget[];
+
+  /**
+   * <p>The types of logs that the database engine has available for export to CloudWatch
+   *       Logs.</p>
+   */
+  ExportableLogTypes?: string[];
 
   /**
    * <p>The name of the DB parameter group family for the database engine.</p>
@@ -4581,9 +5065,11 @@ export interface DBEngineVersion {
   DBParameterGroupFamily?: string;
 
   /**
-   * <p>The description of the database engine version.</p>
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
+   *          </p>
    */
-  DBEngineVersionDescription?: string;
+  SupportedCharacterSets?: CharacterSet[];
 }
 
 export namespace DBEngineVersion {
@@ -4594,16 +5080,16 @@ export namespace DBEngineVersion {
 
 export interface DBEngineVersionMessage {
   /**
+   * <p> A list of <code>DBEngineVersion</code> elements.</p>
+   */
+  DBEngineVersions?: DBEngineVersion[];
+
+  /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *       specified, the response includes only records beyond the marker, up to the value specified by
    *       <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-
-  /**
-   * <p> A list of <code>DBEngineVersion</code> elements.</p>
-   */
-  DBEngineVersions?: DBEngineVersion[];
 }
 
 export namespace DBEngineVersionMessage {
@@ -4614,25 +5100,6 @@ export namespace DBEngineVersionMessage {
 
 export interface DescribeDBEngineVersionsMessage {
   /**
-   * <p>If this parameter is specified and the requested engine supports the <code>TimeZone</code>
-   *       parameter for <code>CreateDBInstance</code>, the response includes a list of supported time
-   *       zones for each engine version.</p>
-   */
-  ListSupportedTimezones?: boolean;
-
-  /**
-   * <p> An optional pagination token provided by a previous request. If this parameter is
-   *       specified, the response includes only records beyond the marker, up to the value specified by
-   *       <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The database engine to return.</p>
-   */
-  Engine?: string;
-
-  /**
    * <p> The maximum number of records to include in the response. If more than the
    *       <code>MaxRecords</code> value is available, a pagination token called a marker is included in
    *       the response so that the following results can be retrieved.</p>
@@ -4640,6 +5107,36 @@ export interface DescribeDBEngineVersionsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>If this parameter is specified and the requested engine supports the
+   *       <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the response
+   *       includes a list of supported character sets for each engine version.</p>
+   */
+  ListSupportedCharacterSets?: boolean;
+
+  /**
+   * <p>If this parameter is specified and the requested engine supports the <code>TimeZone</code>
+   *       parameter for <code>CreateDBInstance</code>, the response includes a list of supported time
+   *       zones for each engine version.</p>
+   */
+  ListSupportedTimezones?: boolean;
+
+  /**
+   * <p>Not currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Indicates that only the default version of the specified engine or engine and major
+   *       version combination is returned.</p>
+   */
+  DefaultOnly?: boolean;
+
+  /**
+   * <p>The database engine to return.</p>
+   */
+  Engine?: string;
 
   /**
    * <p>The name of a specific DB parameter group family to return details for.</p>
@@ -4653,11 +5150,6 @@ export interface DescribeDBEngineVersionsMessage {
   DBParameterGroupFamily?: string;
 
   /**
-   * <p>Not currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
    * <p>The database engine version to return.</p>
    *          <p>Example: <code>5.1.49</code>
    *          </p>
@@ -4665,17 +5157,11 @@ export interface DescribeDBEngineVersionsMessage {
   EngineVersion?: string;
 
   /**
-   * <p>Indicates that only the default version of the specified engine or engine and major
-   *       version combination is returned.</p>
+   * <p> An optional pagination token provided by a previous request. If this parameter is
+   *       specified, the response includes only records beyond the marker, up to the value specified by
+   *       <code>MaxRecords</code>.</p>
    */
-  DefaultOnly?: boolean;
-
-  /**
-   * <p>If this parameter is specified and the requested engine supports the
-   *       <code>CharacterSetName</code> parameter for <code>CreateDBInstance</code>, the response
-   *       includes a list of supported character sets for each engine version.</p>
-   */
-  ListSupportedCharacterSets?: boolean;
+  Marker?: string;
 }
 
 export namespace DescribeDBEngineVersionsMessage {
@@ -4686,16 +5172,16 @@ export namespace DescribeDBEngineVersionsMessage {
 
 export interface DBInstanceMessage {
   /**
+   * <p> A list of <a>DBInstance</a> instances.</p>
+   */
+  DBInstances?: DBInstance[];
+
+  /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *       specified, the response includes only records beyond the marker, up to the value specified by
    *       <code>MaxRecords</code> .</p>
    */
   Marker?: string;
-
-  /**
-   * <p> A list of <a>DBInstance</a> instances.</p>
-   */
-  DBInstances?: DBInstance[];
 }
 
 export namespace DBInstanceMessage {
@@ -4728,6 +5214,13 @@ export interface DescribeDBInstancesMessage {
   Filters?: Filter[];
 
   /**
+   * <p> An optional pagination token provided by a previous <code>DescribeDBInstances</code>
+   *       request. If this parameter is specified, the response includes only records beyond the marker,
+   *       up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p> The maximum number of records to include in the response. If more records exist than the
    *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
    *       response so that the remaining results can be retrieved.</p>
@@ -4747,13 +5240,6 @@ export interface DescribeDBInstancesMessage {
    *          </ul>
    */
   DBInstanceIdentifier?: string;
-
-  /**
-   * <p> An optional pagination token provided by a previous <code>DescribeDBInstances</code>
-   *       request. If this parameter is specified, the response includes only records beyond the marker,
-   *       up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
 }
 
 export namespace DescribeDBInstancesMessage {
@@ -4798,6 +5284,13 @@ export interface DescribeDBParameterGroupsMessage {
   MaxRecords?: number;
 
   /**
+   * <p>An optional pagination token provided by a previous
+   *       <code>DescribeDBParameterGroups</code> request. If this parameter is specified, the response
+   *       includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p>The name of a specific DB parameter group to return details for.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -4807,13 +5300,6 @@ export interface DescribeDBParameterGroupsMessage {
    *          </ul>
    */
   DBParameterGroupName?: string;
-
-  /**
-   * <p>An optional pagination token provided by a previous
-   *       <code>DescribeDBParameterGroups</code> request. If this parameter is specified, the response
-   *       includes only records beyond the marker, up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
 }
 
 export namespace DescribeDBParameterGroupsMessage {
@@ -4824,16 +5310,16 @@ export namespace DescribeDBParameterGroupsMessage {
 
 export interface DBParameterGroupDetails {
   /**
-   * <p>A list of <a>Parameter</a> values.</p>
-   */
-  Parameters?: Parameter[];
-
-  /**
    * <p>An optional pagination token provided by a previous request. If this parameter is
    *       specified, the response includes only records beyond the marker, up to the value specified by
    *       <code>MaxRecords</code>.</p>
    */
   Marker?: string;
+
+  /**
+   * <p>A list of <a>Parameter</a> values.</p>
+   */
+  Parameters?: Parameter[];
 }
 
 export namespace DBParameterGroupDetails {
@@ -4855,9 +5341,13 @@ export interface DescribeDBParametersMessage {
   DBParameterGroupName: string | undefined;
 
   /**
-   * <p>This parameter is not currently supported.</p>
+   * <p>The maximum number of records to include in the response. If more records exist than the
+   *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
+   *       response so that the remaining results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
-  Filters?: Filter[];
+  MaxRecords?: number;
 
   /**
    * <p>An optional pagination token provided by a previous <code>DescribeDBParameters</code>
@@ -4875,13 +5365,9 @@ export interface DescribeDBParametersMessage {
   Source?: string;
 
   /**
-   * <p>The maximum number of records to include in the response. If more records exist than the
-   *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
-   *       response so that the remaining results can be retrieved.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   * <p>This parameter is not currently supported.</p>
    */
-  MaxRecords?: number;
+  Filters?: Filter[];
 }
 
 export namespace DescribeDBParametersMessage {
@@ -4892,16 +5378,16 @@ export namespace DescribeDBParametersMessage {
 
 export interface DBSubnetGroupMessage {
   /**
+   * <p> A list of <a>DBSubnetGroup</a> instances.</p>
+   */
+  DBSubnetGroups?: DBSubnetGroup[];
+
+  /**
    * <p> An optional pagination token provided by a previous request. If this parameter is
    *       specified, the response includes only records beyond the marker, up to the value specified by
    *       <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-
-  /**
-   * <p> A list of <a>DBSubnetGroup</a> instances.</p>
-   */
-  DBSubnetGroups?: DBSubnetGroup[];
 }
 
 export namespace DBSubnetGroupMessage {
@@ -4917,15 +5403,6 @@ export interface DescribeDBSubnetGroupsMessage {
   Filters?: Filter[];
 
   /**
-   * <p> The maximum number of records to include in the response. If more records exist than the
-   *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
-   *       response so that the remaining results can be retrieved.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
    * <p>The name of the DB subnet group to return details for.</p>
    */
   DBSubnetGroupName?: string;
@@ -4936,6 +5413,15 @@ export interface DescribeDBSubnetGroupsMessage {
    *       value specified by <code>MaxRecords</code>.</p>
    */
   Marker?: string;
+
+  /**
+   * <p> The maximum number of records to include in the response. If more records exist than the
+   *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
+   *       response so that the remaining results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
 }
 
 export namespace DescribeDBSubnetGroupsMessage {
@@ -4960,11 +5446,6 @@ export interface DescribeEngineDefaultClusterParametersMessage {
   Marker?: string;
 
   /**
-   * <p>This parameter is not currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
    * <p> The maximum number of records to include in the response. If more records exist than the
    *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
    *       response so that the remaining results can be retrieved.</p>
@@ -4972,6 +5453,11 @@ export interface DescribeEngineDefaultClusterParametersMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Filters?: Filter[];
 }
 
 export namespace DescribeEngineDefaultClusterParametersMessage {
@@ -4992,15 +5478,15 @@ export interface EngineDefaults {
   Marker?: string;
 
   /**
+   * <p>Contains a list of engine default parameters.</p>
+   */
+  Parameters?: Parameter[];
+
+  /**
    * <p>Specifies the name of the DB parameter group family that the engine default parameters
    *       apply to.</p>
    */
   DBParameterGroupFamily?: string;
-
-  /**
-   * <p>Contains a list of engine default parameters.</p>
-   */
-  Parameters?: Parameter[];
 }
 
 export namespace EngineDefaults {
@@ -5029,6 +5515,15 @@ export interface DescribeEngineDefaultParametersMessage {
   Filters?: Filter[];
 
   /**
+   * <p> The maximum number of records to include in the response. If more records exist than the
+   *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
+   *       response so that the remaining results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
    * <p>The name of the DB parameter group family.</p>
    */
   DBParameterGroupFamily: string | undefined;
@@ -5040,15 +5535,6 @@ export interface DescribeEngineDefaultParametersMessage {
    *       <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-
-  /**
-   * <p> The maximum number of records to include in the response. If more records exist than the
-   *       specified <code>MaxRecords</code> value, a pagination token called a marker is included in the
-   *       response so that the remaining results can be retrieved.</p>
-   *          <p>Default: 100</p>
-   *          <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
 }
 
 export namespace DescribeEngineDefaultParametersMessage {
@@ -5072,15 +5558,15 @@ export namespace DescribeEngineDefaultParametersResult {
 
 export interface DescribeEventCategoriesMessage {
   /**
-   * <p>This parameter is not currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
    * <p>The type of source that is generating the events.</p>
    *          <p>Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot</p>
    */
   SourceType?: string;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Filters?: Filter[];
 }
 
 export namespace DescribeEventCategoriesMessage {
@@ -5094,14 +5580,14 @@ export namespace DescribeEventCategoriesMessage {
  */
 export interface EventCategoriesMap {
   /**
-   * <p>The event categories for the specified source type</p>
-   */
-  EventCategories?: string[];
-
-  /**
    * <p>The source type that the returned categories belong to</p>
    */
   SourceType?: string;
+
+  /**
+   * <p>The event categories for the specified source type</p>
+   */
+  EventCategories?: string[];
 }
 
 export namespace EventCategoriesMap {
@@ -5133,12 +5619,25 @@ export type SourceType =
 
 export interface DescribeEventsMessage {
   /**
+   * <p> An optional pagination token provided by a previous DescribeEvents request. If this
+   *       parameter is specified, the response includes only records beyond the marker, up to the value
+   *       specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
    * <p> The end of the time interval for which to retrieve events, specified in ISO 8601 format.
    *       For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
    *          </p>
    *          <p>Example: 2009-07-08T18:00Z</p>
    */
   EndTime?: Date;
+
+  /**
+   * <p>The number of minutes to retrieve events for.</p>
+   *          <p>Default: 60</p>
+   */
+  Duration?: number;
 
   /**
    * <p> The maximum number of records to include in the response. If more records exist than the
@@ -5148,27 +5647,6 @@ export interface DescribeEventsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
-
-  /**
-   * <p> An optional pagination token provided by a previous DescribeEvents request. If this
-   *       parameter is specified, the response includes only records beyond the marker, up to the value
-   *       specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The event source to retrieve events for. If no value is specified, all events are
-   *       returned.</p>
-   */
-  SourceType?: SourceType | string;
-
-  /**
-   * <p> The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
-   *       For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
-   *          </p>
-   *          <p>Example: 2009-07-08T18:00Z</p>
-   */
-  StartTime?: Date;
 
   /**
    * <p>The identifier of the event source for which events are returned. If not specified, then
@@ -5202,10 +5680,10 @@ export interface DescribeEventsMessage {
   SourceIdentifier?: string;
 
   /**
-   * <p>A list of event categories that trigger notifications for a event notification
-   *       subscription.</p>
+   * <p>The event source to retrieve events for. If no value is specified, all events are
+   *       returned.</p>
    */
-  EventCategories?: string[];
+  SourceType?: SourceType | string;
 
   /**
    * <p>This parameter is not currently supported.</p>
@@ -5213,10 +5691,18 @@ export interface DescribeEventsMessage {
   Filters?: Filter[];
 
   /**
-   * <p>The number of minutes to retrieve events for.</p>
-   *          <p>Default: 60</p>
+   * <p>A list of event categories that trigger notifications for a event notification
+   *       subscription.</p>
    */
-  Duration?: number;
+  EventCategories?: string[];
+
+  /**
+   * <p> The beginning of the time interval to retrieve events for, specified in ISO 8601 format.
+   *       For more information about ISO 8601, go to the <a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601 Wikipedia page.</a>
+   *          </p>
+   *          <p>Example: 2009-07-08T18:00Z</p>
+   */
+  StartTime?: Date;
 }
 
 export namespace DescribeEventsMessage {
@@ -5231,24 +5717,14 @@ export namespace DescribeEventsMessage {
  */
 export interface Event {
   /**
-   * <p>Specifies the date and time of the event.</p>
-   */
-  Date?: Date;
-
-  /**
    * <p>Provides the identifier for the source of the event.</p>
    */
   SourceIdentifier?: string;
 
   /**
-   * <p>Specifies the source type for this event.</p>
+   * <p>The Amazon Resource Name (ARN) for the event.</p>
    */
-  SourceType?: SourceType | string;
-
-  /**
-   * <p>Provides the text of this event.</p>
-   */
-  Message?: string;
+  SourceArn?: string;
 
   /**
    * <p>Specifies the category for the event.</p>
@@ -5256,9 +5732,19 @@ export interface Event {
   EventCategories?: string[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the event.</p>
+   * <p>Specifies the source type for this event.</p>
    */
-  SourceArn?: string;
+  SourceType?: SourceType | string;
+
+  /**
+   * <p>Specifies the date and time of the event.</p>
+   */
+  Date?: Date;
+
+  /**
+   * <p>Provides the text of this event.</p>
+   */
+  Message?: string;
 }
 
 export namespace Event {
@@ -5269,16 +5755,16 @@ export namespace Event {
 
 export interface EventsMessage {
   /**
+   * <p> A list of <a>Event</a> instances.</p>
+   */
+  Events?: Event[];
+
+  /**
    * <p> An optional pagination token provided by a previous Events request. If this parameter is
    *       specified, the response includes only records beyond the marker, up to the value specified by
    *       <code>MaxRecords</code> .</p>
    */
   Marker?: string;
-
-  /**
-   * <p> A list of <a>Event</a> instances.</p>
-   */
-  Events?: Event[];
 }
 
 export namespace EventsMessage {
@@ -5298,14 +5784,14 @@ export interface DescribeEventSubscriptionsMessage {
   MaxRecords?: number;
 
   /**
-   * <p>The name of the event notification subscription you want to describe.</p>
-   */
-  SubscriptionName?: string;
-
-  /**
    * <p>This parameter is not currently supported.</p>
    */
   Filters?: Filter[];
+
+  /**
+   * <p>The name of the event notification subscription you want to describe.</p>
+   */
+  SubscriptionName?: string;
 
   /**
    * <p> An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions
@@ -5343,6 +5829,18 @@ export namespace EventSubscriptionsMessage {
 
 export interface DescribeOrderableDBInstanceOptionsMessage {
   /**
+   * <p>The VPC filter value. Specify this parameter to show only the available VPC or non-VPC
+   *       offerings.</p>
+   */
+  Vpc?: boolean;
+
+  /**
+   * <p>The DB instance class filter value. Specify this parameter to show only the available
+   *       offerings matching the specified DB instance class.</p>
+   */
+  DBInstanceClass?: string;
+
+  /**
    * <p> An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions
    *       request. If this parameter is specified, the response includes only records beyond the marker,
    *       up to the value specified by <code>MaxRecords</code> .</p>
@@ -5350,10 +5848,21 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
   Marker?: string;
 
   /**
-   * <p>The VPC filter value. Specify this parameter to show only the available VPC or non-VPC
-   *       offerings.</p>
+   * <p>The license model filter value. Specify this parameter to show only the available
+   *       offerings matching the specified license model.</p>
    */
-  Vpc?: boolean;
+  LicenseModel?: string;
+
+  /**
+   * <p>The engine version filter value. Specify this parameter to show only the available
+   *       offerings matching the specified engine version.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Filters?: Filter[];
 
   /**
    * <p>The name of the engine to retrieve DB instance options for.</p>
@@ -5368,29 +5877,6 @@ export interface DescribeOrderableDBInstanceOptionsMessage {
    *          <p>Constraints: Minimum 20, maximum 100.</p>
    */
   MaxRecords?: number;
-
-  /**
-   * <p>The DB instance class filter value. Specify this parameter to show only the available
-   *       offerings matching the specified DB instance class.</p>
-   */
-  DBInstanceClass?: string;
-
-  /**
-   * <p>This parameter is not currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The license model filter value. Specify this parameter to show only the available
-   *       offerings matching the specified license model.</p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>The engine version filter value. Specify this parameter to show only the available
-   *       offerings matching the specified engine version.</p>
-   */
-  EngineVersion?: string;
 }
 
 export namespace DescribeOrderableDBInstanceOptionsMessage {
@@ -5405,34 +5891,14 @@ export namespace DescribeOrderableDBInstanceOptionsMessage {
  */
 export interface OrderableDBInstanceOption {
   /**
-   * <p>The DB instance class for a DB instance.</p>
-   */
-  DBInstanceClass?: string;
-
-  /**
-   * <p>A list of Availability Zones for a DB instance.</p>
-   */
-  AvailabilityZones?: AvailabilityZone[];
-
-  /**
-   * <p>The engine type of a DB instance.</p>
-   */
-  Engine?: string;
-
-  /**
-   * <p>Indicates whether a DB instance is Multi-AZ capable.</p>
-   */
-  MultiAZCapable?: boolean;
-
-  /**
    * <p>Maximum storage size for a DB instance.</p>
    */
   MaxStorageSize?: number;
 
   /**
-   * <p>Indicates whether a DB instance is in a VPC.</p>
+   * <p>Minimum total provisioned IOPS for a DB instance.</p>
    */
-  Vpc?: boolean;
+  MinIopsPerDbInstance?: number;
 
   /**
    * <p>The engine version of a DB instance.</p>
@@ -5445,25 +5911,14 @@ export interface OrderableDBInstanceOption {
   StorageType?: string;
 
   /**
-   * <p>Minimum total provisioned IOPS for a DB instance.</p>
+   * <p>Minimum provisioned IOPS per GiB for a DB instance.</p>
    */
-  MinIopsPerDbInstance?: number;
+  MinIopsPerGib?: number;
 
   /**
-   * <p>Indicates whether a DB instance supports IAM database authentication.</p>
+   * <p>Indicates whether a DB instance is Multi-AZ capable.</p>
    */
-  SupportsIAMDatabaseAuthentication?: boolean;
-
-  /**
-   * <p>Indicates whether a DB instance supports provisioned IOPS.</p>
-   */
-  SupportsIops?: boolean;
-
-  /**
-   * <p>Indicates whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60
-   *       seconds.</p>
-   */
-  SupportsEnhancedMonitoring?: boolean;
+  MultiAZCapable?: boolean;
 
   /**
    * <p>The license model for a DB instance.</p>
@@ -5471,14 +5926,19 @@ export interface OrderableDBInstanceOption {
   LicenseModel?: string;
 
   /**
-   * <p>Maximum provisioned IOPS per GiB for a DB instance.</p>
+   * <p>The engine type of a DB instance.</p>
    */
-  MaxIopsPerGib?: number;
+  Engine?: string;
 
   /**
-   * <p>Maximum total provisioned IOPS for a DB instance.</p>
+   * <p>Indicates whether a DB instance supports provisioned IOPS.</p>
    */
-  MaxIopsPerDbInstance?: number;
+  SupportsIops?: boolean;
+
+  /**
+   * <p>Indicates whether a DB instance can have a Read Replica.</p>
+   */
+  ReadReplicaCapable?: boolean;
 
   /**
    * <p>
@@ -5488,24 +5948,50 @@ export interface OrderableDBInstanceOption {
   SupportsPerformanceInsights?: boolean;
 
   /**
-   * <p>Indicates whether a DB instance can have a Read Replica.</p>
+   * <p>Indicates whether a DB instance supports Enhanced Monitoring at intervals from 1 to 60
+   *       seconds.</p>
    */
-  ReadReplicaCapable?: boolean;
+  SupportsEnhancedMonitoring?: boolean;
 
   /**
-   * <p>Minimum storage size for a DB instance.</p>
+   * <p>Maximum total provisioned IOPS for a DB instance.</p>
    */
-  MinStorageSize?: number;
+  MaxIopsPerDbInstance?: number;
 
   /**
-   * <p>Minimum provisioned IOPS per GiB for a DB instance.</p>
+   * <p>A list of Availability Zones for a DB instance.</p>
    */
-  MinIopsPerGib?: number;
+  AvailabilityZones?: AvailabilityZone[];
 
   /**
    * <p>Indicates whether a DB instance supports encrypted storage.</p>
    */
   SupportsStorageEncryption?: boolean;
+
+  /**
+   * <p>Maximum provisioned IOPS per GiB for a DB instance.</p>
+   */
+  MaxIopsPerGib?: number;
+
+  /**
+   * <p>Indicates whether a DB instance is in a VPC.</p>
+   */
+  Vpc?: boolean;
+
+  /**
+   * <p>Indicates whether a DB instance supports IAM database authentication.</p>
+   */
+  SupportsIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>The DB instance class for a DB instance.</p>
+   */
+  DBInstanceClass?: string;
+
+  /**
+   * <p>Minimum storage size for a DB instance.</p>
+   */
+  MinStorageSize?: number;
 }
 
 export namespace OrderableDBInstanceOption {
@@ -5546,14 +6032,6 @@ export interface DescribePendingMaintenanceActionsMessage {
   MaxRecords?: number;
 
   /**
-   * <p> An optional pagination token provided by a previous
-   *       <code>DescribePendingMaintenanceActions</code> request. If this parameter is specified, the
-   *       response includes only records beyond the marker, up to a number of records specified by
-   *       <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
    * <p>The ARN of a resource to return pending maintenance actions for.</p>
    */
   ResourceIdentifier?: string;
@@ -5578,6 +6056,14 @@ export interface DescribePendingMaintenanceActionsMessage {
    *          </ul>
    */
   Filters?: Filter[];
+
+  /**
+   * <p> An optional pagination token provided by a previous
+   *       <code>DescribePendingMaintenanceActions</code> request. If this parameter is specified, the
+   *       response includes only records beyond the marker, up to a number of records specified by
+   *       <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
 }
 
 export namespace DescribePendingMaintenanceActionsMessage {
@@ -5588,17 +6074,17 @@ export namespace DescribePendingMaintenanceActionsMessage {
 
 export interface PendingMaintenanceActionsMessage {
   /**
+   * <p>A list of the pending maintenance actions for the resource.</p>
+   */
+  PendingMaintenanceActions?: ResourcePendingMaintenanceActions[];
+
+  /**
    * <p> An optional pagination token provided by a previous
    *       <code>DescribePendingMaintenanceActions</code> request. If this parameter is specified, the
    *       response includes only records beyond the marker, up to a number of records specified by
    *       <code>MaxRecords</code>.</p>
    */
   Marker?: string;
-
-  /**
-   * <p>A list of the pending maintenance actions for the resource.</p>
-   */
-  PendingMaintenanceActions?: ResourcePendingMaintenanceActions[];
 }
 
 export namespace PendingMaintenanceActionsMessage {
@@ -5646,12 +6132,9 @@ export namespace DoubleRange {
  */
 export interface Range {
   /**
-   * <p>The step value for the range. For example, if you have a range of 5,000 to 10,000, with a
-   *       step value of 1,000, the valid values start at 5,000 and step up by 1,000. Even though 7,500
-   *       is within the range, it isn't a valid value for the range. The valid values are 5,000, 6,000,
-   *       7,000, 8,000...</p>
+   * <p>The maximum value in the range.</p>
    */
-  Step?: number;
+  To?: number;
 
   /**
    * <p>The minimum value in the range.</p>
@@ -5659,9 +6142,12 @@ export interface Range {
   From?: number;
 
   /**
-   * <p>The maximum value in the range.</p>
+   * <p>The step value for the range. For example, if you have a range of 5,000 to 10,000, with a
+   *       step value of 1,000, the valid values start at 5,000 and step up by 1,000. Even though 7,500
+   *       is within the range, it isn't a valid value for the range. The valid values are 5,000, 6,000,
+   *       7,000, 8,000...</p>
    */
-  To?: number;
+  Step?: number;
 }
 
 export namespace Range {
@@ -5683,9 +6169,9 @@ export interface ValidStorageOptions {
   IopsToStorageRatio?: DoubleRange[];
 
   /**
-   * <p>The valid storage types for your DB instance. For example, gp2, io1.</p>
+   * <p>The valid range of storage in gibibytes. For example, 100 to 16384.</p>
    */
-  StorageType?: string;
+  StorageSize?: Range[];
 
   /**
    * <p>The valid range of provisioned IOPS. For example, 1000-20000.</p>
@@ -5693,9 +6179,9 @@ export interface ValidStorageOptions {
   ProvisionedIops?: Range[];
 
   /**
-   * <p>The valid range of storage in gibibytes. For example, 100 to 16384.</p>
+   * <p>The valid storage types for your DB instance. For example, gp2, io1.</p>
    */
-  StorageSize?: Range[];
+  StorageType?: string;
 }
 
 export namespace ValidStorageOptions {
@@ -5741,6 +6227,13 @@ export namespace DescribeValidDBInstanceModificationsResult {
 
 export interface FailoverDBClusterMessage {
   /**
+   * <p>The name of the instance to promote to the primary instance.</p>
+   *          <p>You must specify the instance identifier for an Read Replica in the DB cluster. For
+   *       example, <code>mydbcluster-replica1</code>.</p>
+   */
+  TargetDBInstanceIdentifier?: string;
+
+  /**
    * <p>A DB cluster identifier to force a failover for. This parameter is not
    *       case-sensitive.</p>
    *          <p>Constraints:</p>
@@ -5751,13 +6244,6 @@ export interface FailoverDBClusterMessage {
    *          </ul>
    */
   DBClusterIdentifier?: string;
-
-  /**
-   * <p>The name of the instance to promote to the primary instance.</p>
-   *          <p>You must specify the instance identifier for an Read Replica in the DB cluster. For
-   *       example, <code>mydbcluster-replica1</code>.</p>
-   */
-  TargetDBInstanceIdentifier?: string;
 }
 
 export namespace FailoverDBClusterMessage {
@@ -5840,14 +6326,14 @@ export namespace InvalidDBSecurityGroupStateFault {
  */
 export interface CloudwatchLogsExportConfiguration {
   /**
-   * <p>The list of log types to enable.</p>
-   */
-  EnableLogTypes?: string[];
-
-  /**
    * <p>The list of log types to disable.</p>
    */
   DisableLogTypes?: string[];
+
+  /**
+   * <p>The list of log types to enable.</p>
+   */
+  EnableLogTypes?: string[];
 }
 
 export namespace CloudwatchLogsExportConfiguration {
@@ -5858,31 +6344,21 @@ export namespace CloudwatchLogsExportConfiguration {
 
 export interface ModifyDBClusterMessage {
   /**
-   * <p>The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is
-   *       stored as a lowercase string.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>
-   *             </li>
-   *             <li>
-   *                <p>The first character must be a letter</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
-   *             </li>
-   *          </ul>
-   *          <p>Example: <code>my-cluster2</code>
-   *          </p>
+   * <p>The version number of the database engine to which you want to upgrade. Changing this
+   *       parameter results in an outage. The change is applied during the next maintenance window
+   *       unless the <code>ApplyImmediately</code> parameter is set to true.</p>
+   *          <p>For a list of valid engine versions, see <a href="https://docs.aws.amazon.com/neptune/latest/userguide/engine-releases.html">Engine Releases for Amazon
+   *       Neptune</a>, or call <a href="https://docs.aws.amazon.com/neptune/latest/userguide/api-other-apis.html#DescribeDBEngineVersions">DescribeDBEngineVersions</a>.</p>
    */
-  NewDBClusterIdentifier?: string;
+  EngineVersion?: string;
 
   /**
-   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
-   *       The database can't be deleted when deletion protection is enabled. By default,
-   *       deletion protection is disabled.</p>
+   * <p>The port number on which the DB cluster accepts connections.</p>
+   *          <p>Constraints: Value must be <code>1150-65535</code>
+   *          </p>
+   *          <p>Default: The same port as the original DB cluster.</p>
    */
-  DeletionProtection?: boolean;
+  Port?: number;
 
   /**
    * <p>The DB cluster identifier for the cluster being modified. This parameter is not
@@ -5895,13 +6371,6 @@ export interface ModifyDBClusterMessage {
    *          </ul>
    */
   DBClusterIdentifier: string | undefined;
-
-  /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
-   */
-  OptionGroupName?: string;
 
   /**
    * <p>The weekly time range during which system maintenance can occur, in Universal Coordinated
@@ -5917,34 +6386,18 @@ export interface ModifyDBClusterMessage {
   PreferredMaintenanceWindow?: string;
 
   /**
-   * <p>The port number on which the DB cluster accepts connections.</p>
-   *          <p>Constraints: Value must be <code>1150-65535</code>
+   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
+   *       The database can't be deleted when deletion protection is enabled. By default,
+   *       deletion protection is disabled.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
    *          </p>
-   *          <p>Default: The same port as the original DB cluster.</p>
    */
-  Port?: number;
-
-  /**
-   * <p>The version number of the database engine. Currently, setting this
-   *       parameter has no effect. To upgrade your database engine to the most recent release,
-   *       use the <a>ApplyPendingMaintenanceAction</a> API.</p>
-   *
-   *          <p>For a list of valid engine versions, see <a>CreateDBInstance</a>,
-   *       or call <a>DescribeDBEngineVersions</a>.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>The new password for the master database user. This password can contain any printable
-   *       ASCII character except "/", """, or "@".</p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
-   */
-  MasterUserPassword?: string;
-
-  /**
-   * <p>A list of VPC security groups that the DB cluster will belong to.</p>
-   */
-  VpcSecurityGroupIds?: string[];
+  OptionGroupName?: string;
 
   /**
    * <p>The daily time range during which automated backups are created if automated backups are
@@ -5970,9 +6423,16 @@ export interface ModifyDBClusterMessage {
   PreferredBackupWindow?: string;
 
   /**
-   * <p>The name of the DB cluster parameter group to use for the DB cluster.</p>
+   * <p>The new password for the master database user. This password can contain any printable
+   *       ASCII character except "/", """, or "@".</p>
+   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
    */
-  DBClusterParameterGroupName?: string;
+  MasterUserPassword?: string;
+
+  /**
+   * <p>A list of VPC security groups that the DB cluster will belong to.</p>
+   */
+  VpcSecurityGroupIds?: string[];
 
   /**
    * <p>The number of days for which automated backups are retained. You must specify a minimum
@@ -5988,12 +6448,10 @@ export interface ModifyDBClusterMessage {
   BackupRetentionPeriod?: number;
 
   /**
-   * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-   *       accounts, and otherwise false.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
+   * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs
+   *       for a specific DB cluster.</p>
    */
-  EnableIAMDatabaseAuthentication?: boolean;
+  CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
 
   /**
    * <p>A value that specifies whether the modifications in this request and any pending
@@ -6013,10 +6471,37 @@ export interface ModifyDBClusterMessage {
   ApplyImmediately?: boolean;
 
   /**
-   * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs
-   *       for a specific DB cluster.</p>
+   * <p>The name of the DB cluster parameter group to use for the DB cluster.</p>
    */
-  CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
+  DBClusterParameterGroupName?: string;
+
+  /**
+   * <p>The new DB cluster identifier for the DB cluster when renaming a DB cluster. This value is
+   *       stored as a lowercase string.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>
+   *             </li>
+   *             <li>
+   *                <p>The first character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
+   *          <p>Example: <code>my-cluster2</code>
+   *          </p>
+   */
+  NewDBClusterIdentifier?: string;
+
+  /**
+   * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
+   *       accounts, and otherwise false.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  EnableIAMDatabaseAuthentication?: boolean;
 }
 
 export namespace ModifyDBClusterMessage {
@@ -6035,6 +6520,127 @@ export interface ModifyDBClusterResult {
 
 export namespace ModifyDBClusterResult {
   export const filterSensitiveLog = (obj: ModifyDBClusterResult): any => ({
+    ...obj,
+  });
+}
+
+export interface ModifyDBClusterEndpointMessage {
+  /**
+   * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
+   */
+  StaticMembers?: string[];
+
+  /**
+   * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
+   *       All other eligible instances are reachable through the custom endpoint.
+   *       Only relevant if the list of static members is empty.</p>
+   */
+  ExcludedMembers?: string[];
+
+  /**
+   * <p>The identifier of the endpoint to modify. This parameter is stored as a lowercase string.</p>
+   */
+  DBClusterEndpointIdentifier: string | undefined;
+
+  /**
+   * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>ANY</code>.</p>
+   */
+  EndpointType?: string;
+}
+
+export namespace ModifyDBClusterEndpointMessage {
+  export const filterSensitiveLog = (obj: ModifyDBClusterEndpointMessage): any => ({
+    ...obj,
+  });
+}
+
+/**
+ * <p>This data type represents the information you need to connect to an Amazon Aurora DB cluster.
+ *       This data type is used as a response element in the following actions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>CreateDBClusterEndpoint</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DescribeDBClusterEndpoints</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ModifyDBClusterEndpoint</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>DeleteDBClusterEndpoint</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>For the data structure that represents Amazon RDS DB instance endpoints,
+ *       see <code>Endpoint</code>.</p>
+ */
+export interface ModifyDBClusterEndpointOutput {
+  /**
+   * <p>The current status of the endpoint. One of: <code>creating</code>, <code>available</code>, <code>deleting</code>, <code>inactive</code>, <code>modifying</code>. The <code>inactive</code> state applies to an endpoint that cannot be used for a certain kind of cluster,
+   *       such as a <code>writer</code> endpoint for a read-only secondary cluster in a global database.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The type associated with a custom endpoint. One of: <code>READER</code>,
+   *       <code>WRITER</code>, <code>ANY</code>.</p>
+   */
+  CustomEndpointType?: string;
+
+  /**
+   * <p>The DB cluster identifier of the DB cluster associated with the endpoint. This parameter is
+   *       stored as a lowercase string.</p>
+   */
+  DBClusterIdentifier?: string;
+
+  /**
+   * <p>The identifier associated with the endpoint. This parameter is stored as a lowercase string.</p>
+   */
+  DBClusterEndpointIdentifier?: string;
+
+  /**
+   * <p>List of DB instance identifiers that are part of the custom endpoint group.</p>
+   */
+  StaticMembers?: string[];
+
+  /**
+   * <p>List of DB instance identifiers that aren't part of the custom endpoint group.
+   *       All other eligible instances are reachable through the custom endpoint.
+   *       Only relevant if the list of static members is empty.</p>
+   */
+  ExcludedMembers?: string[];
+
+  /**
+   * <p>A unique system-generated identifier for an endpoint. It remains the same for the whole life of the endpoint.</p>
+   */
+  DBClusterEndpointResourceIdentifier?: string;
+
+  /**
+   * <p>The type of the endpoint. One of: <code>READER</code>, <code>WRITER</code>, <code>CUSTOM</code>.</p>
+   */
+  EndpointType?: string;
+
+  /**
+   * <p>The DNS address of the endpoint.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the endpoint.</p>
+   */
+  DBClusterEndpointArn?: string;
+}
+
+export namespace ModifyDBClusterEndpointOutput {
+  export const filterSensitiveLog = (obj: ModifyDBClusterEndpointOutput): any => ({
     ...obj,
   });
 }
@@ -6099,17 +6705,6 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
   DBClusterSnapshotIdentifier: string | undefined;
 
   /**
-   * <p>A list of DB cluster snapshot attributes to remove from the attribute specified by
-   *       <code>AttributeName</code>.</p>
-   *          <p>To remove authorization for other AWS accounts to copy or restore a manual DB cluster
-   *       snapshot, set this list to include one or more AWS account identifiers, or <code>all</code> to
-   *       remove authorization for any AWS account to copy or restore the DB cluster snapshot. If you
-   *       specify <code>all</code>, an AWS account whose account ID is explicitly added to the
-   *       <code>restore</code> attribute can still copy or restore a manual DB cluster snapshot.</p>
-   */
-  ValuesToRemove?: string[];
-
-  /**
    * <p>A list of DB cluster snapshot attributes to add to the attribute specified by
    *       <code>AttributeName</code>.</p>
    *          <p>To authorize other AWS accounts to copy or restore a manual DB cluster snapshot, set this
@@ -6119,6 +6714,17 @@ export interface ModifyDBClusterSnapshotAttributeMessage {
    *       accounts.</p>
    */
   ValuesToAdd?: string[];
+
+  /**
+   * <p>A list of DB cluster snapshot attributes to remove from the attribute specified by
+   *       <code>AttributeName</code>.</p>
+   *          <p>To remove authorization for other AWS accounts to copy or restore a manual DB cluster
+   *       snapshot, set this list to include one or more AWS account identifiers, or <code>all</code> to
+   *       remove authorization for any AWS account to copy or restore the DB cluster snapshot. If you
+   *       specify <code>all</code>, an AWS account whose account ID is explicitly added to the
+   *       <code>restore</code> attribute can still copy or restore a manual DB cluster snapshot.</p>
+   */
+  ValuesToRemove?: string[];
 }
 
 export namespace ModifyDBClusterSnapshotAttributeMessage {
@@ -6199,178 +6805,6 @@ export namespace DBUpgradeDependencyFailureFault {
 
 export interface ModifyDBInstanceMessage {
   /**
-   * <p>A value that indicates whether the DB instance has deletion protection enabled.
-   *       The database can't be deleted when deletion protection is enabled. By default,
-   *       deletion protection is disabled.  See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html">Deleting
-   *       a DB Instance</a>.</p>
-   */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p>Not supported.</p>
-   */
-  StorageType?: string;
-
-  /**
-   * <p>Not supported.</p>
-   */
-  LicenseModel?: string;
-
-  /**
-   * <p>The weekly time range (in UTC) during which system maintenance can occur, which might
-   *       result in an outage. Changing this parameter doesn't result in an outage, except in the
-   *       following situation, and the change is asynchronously applied as soon as possible. If there
-   *       are pending actions that cause a reboot, and the maintenance window is changed to include the
-   *       current time, then changing this parameter will cause a reboot of the DB instance. If moving
-   *       this window to the current time, there must be at least 30 minutes between the current time
-   *       and end of the window to ensure pending changes are applied.</p>
-   *          <p>Default: Uses existing setting</p>
-   *          <p>Format: ddd:hh24:mi-ddd:hh24:mi</p>
-   *          <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
-   *          <p>Constraints: Must be at least 30 minutes</p>
-   */
-  PreferredMaintenanceWindow?: string;
-
-  /**
-   * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs
-   *       for a specific DB instance or DB cluster.</p>
-   */
-  CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
-
-  /**
-   * <p>The password for the given ARN from the key store in order to access the device.</p>
-   */
-  TdeCredentialPassword?: string;
-
-  /**
-   * <p>The new amount of storage (in gibibytes) to allocate for the DB instance.</p>
-   *          <p>Not applicable. Storage is managed by the DB Cluster.</p>
-   */
-  AllocatedStorage?: number;
-
-  /**
-   * <p>This flag should no longer be used.</p>
-   */
-  PubliclyAccessible?: boolean;
-
-  /**
-   * <p>The version number of the database engine to upgrade to. Currently, setting this
-   *       parameter has no effect. To upgrade your database engine to the most recent release,
-   *       use the <a>ApplyPendingMaintenanceAction</a> API.</p>
-   */
-  EngineVersion?: string;
-
-  /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
-   */
-  EnablePerformanceInsights?: boolean;
-
-  /**
-   * <p>The new compute and memory capacity of the DB instance, for example,
-   *       <code>db.m4.large</code>. Not all DB instance classes are available in all AWS
-   *       Regions.</p>
-   *          <p>If you modify the DB instance class, an outage occurs during the change. The change is
-   *       applied during the next maintenance window, unless <code>ApplyImmediately</code> is specified
-   *       as <code>true</code> for this request.</p>
-   *          <p>Default: Uses existing setting</p>
-   */
-  DBInstanceClass?: string;
-
-  /**
-   * <p>The new DB subnet group for the DB instance. You can use this parameter to move your DB
-   *       instance to a different VPC.</p>
-   *          <p>Changing the subnet group causes an outage during the change. The change is applied during
-   *       the next maintenance window, unless you specify <code>true</code> for the
-   *       <code>ApplyImmediately</code> parameter.</p>
-   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
-   *          <p>Example: <code>mySubnetGroup</code>
-   *          </p>
-   */
-  DBSubnetGroupName?: string;
-
-  /**
-   * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-   *       accounts, and otherwise false.</p>
-   *          <p>You can enable IAM database authentication for the following database engines</p>
-   *          <p>Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB
-   *       cluster. For more information, see <a>ModifyDBCluster</a>.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  EnableIAMDatabaseAuthentication?: boolean;
-
-  /**
-   * <p>Not supported.</p>
-   */
-  Domain?: string;
-
-  /**
-   * <p> Indicates that minor version upgrades are applied automatically to the DB instance during
-   *       the maintenance window. Changing this parameter doesn't result in an outage except in the
-   *       following case and the change is asynchronously applied as soon as possible. An outage will
-   *       result if this parameter is set to <code>true</code> during the maintenance window, and a
-   *       newer minor version is available, and Neptune has enabled auto patching for that engine
-   *       version.</p>
-   */
-  AutoMinorVersionUpgrade?: boolean;
-
-  /**
-   * <p>The new Provisioned IOPS (I/O operations per second) value for the instance.</p>
-   *          <p>Changing this setting doesn't result in an outage and the change is applied during the
-   *       next maintenance window unless the <code>ApplyImmediately</code> parameter is set to
-   *       <code>true</code> for this request.</p>
-   *          <p>Default: Uses existing setting</p>
-   */
-  Iops?: number;
-
-  /**
-   * <p>Not applicable.</p>
-   */
-  MasterUserPassword?: string;
-
-  /**
-   * <p>The name of the DB parameter group to apply to the DB instance. Changing this setting
-   *       doesn't result in an outage. The parameter group name itself is changed immediately, but the
-   *       actual parameter changes are not applied until you reboot the instance without failover. The
-   *       db instance will NOT be rebooted automatically and the parameter changes will NOT be applied
-   *       during the next maintenance window.</p>
-   *          <p>Default: Uses existing setting</p>
-   *          <p>Constraints: The DB parameter group must be in the same DB parameter group family as this
-   *       DB instance.</p>
-   */
-  DBParameterGroupName?: string;
-
-  /**
-   * <p>Specifies whether the modifications in this request and any pending modifications are
-   *       asynchronously applied as soon as possible, regardless of the
-   *       <code>PreferredMaintenanceWindow</code> setting for the DB instance.</p>
-   *          <p> If this parameter is set to <code>false</code>, changes to the DB instance are applied
-   *       during the next maintenance window. Some parameter changes can cause an outage and are applied
-   *       on the next call to <a>RebootDBInstance</a>, or the next
-   *       failure reboot.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  ApplyImmediately?: boolean;
-
-  /**
-   * <p>The ARN for the IAM role that permits Neptune to send enhanced monitoring metrics to
-   *       Amazon CloudWatch Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.</p>
-   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
-   *       <code>MonitoringRoleArn</code> value.</p>
-   */
-  MonitoringRoleArn?: string;
-
-  /**
    * <p> The daily time range during which automated backups are created if automated backups are
    *       enabled.</p>
    *          <p>Not applicable. The daily time range for creating automated backups is managed by the DB
@@ -6394,28 +6828,10 @@ export interface ModifyDBInstanceMessage {
   PreferredBackupWindow?: string;
 
   /**
-   * <p>Indicates the certificate that needs to be associated with the instance.</p>
+   * <p>True to copy all tags from the DB instance to snapshots of the DB instance, and otherwise
+   *       false. The default is false.</p>
    */
-  CACertificateIdentifier?: string;
-
-  /**
-   * <p>A list of DB security groups to authorize on this DB instance. Changing this setting
-   *       doesn't result in an outage and the change is asynchronously applied as soon as
-   *       possible.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match existing DBSecurityGroups.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBSecurityGroups?: string[];
-
-  /**
-   * <p>Indicates that major version upgrades are allowed. Changing this parameter doesn't result
-   *       in an outage and the change is asynchronously applied as soon as possible.</p>
-   */
-  AllowMajorVersionUpgrade?: boolean;
+  CopyTagsToSnapshot?: boolean;
 
   /**
    * <p>Not applicable. The retention period for automated backups is managed by the DB cluster.
@@ -6423,38 +6839,6 @@ export interface ModifyDBInstanceMessage {
    *          <p>Default: Uses existing setting</p>
    */
   BackupRetentionPeriod?: number;
-
-  /**
-   * <p>Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter doesn't
-   *       result in an outage and the change is applied during the next maintenance window unless the
-   *       <code>ApplyImmediately</code> parameter is set to <code>true</code> for this request.</p>
-   */
-  MultiAZ?: boolean;
-
-  /**
-   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
-   *       for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default
-   *       is 0.</p>
-   *          <p>If <code>MonitoringRoleArn</code> is specified, then you must also set
-   *       <code>MonitoringInterval</code> to a value other than 0.</p>
-   *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
-   *          </p>
-   */
-  MonitoringInterval?: number;
-
-  /**
-   * <p>A value that specifies the order in which a Read Replica is promoted to the primary
-   *       instance after a failure of the existing primary instance.</p>
-   *          <p>Default: 1</p>
-   *          <p>Valid Values: 0 - 15</p>
-   */
-  PromotionTier?: number;
-
-  /**
-   * <p>True to copy all tags from the DB instance to snapshots of the DB instance, and otherwise
-   *       false. The default is false.</p>
-   */
-  CopyTagsToSnapshot?: boolean;
 
   /**
    * <p> The new DB instance identifier for the DB instance when renaming a DB instance. When you
@@ -6479,6 +6863,17 @@ export interface ModifyDBInstanceMessage {
   NewDBInstanceIdentifier?: string;
 
   /**
+   * <p>The interval, in seconds, between points when Enhanced Monitoring metrics are collected
+   *       for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default
+   *       is 0.</p>
+   *          <p>If <code>MonitoringRoleArn</code> is specified, then you must also set
+   *       <code>MonitoringInterval</code> to a value other than 0.</p>
+   *          <p>Valid Values: <code>0, 1, 5, 10, 15, 30, 60</code>
+   *          </p>
+   */
+  MonitoringInterval?: number;
+
+  /**
    * <p>The DB instance identifier. This value is stored as a lowercase string.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -6490,32 +6885,11 @@ export interface ModifyDBInstanceMessage {
   DBInstanceIdentifier: string | undefined;
 
   /**
-   * <p>The port number on which the database accepts connections.</p>
-   *          <p>The value of the <code>DBPortNumber</code> parameter must not match any of the port values
-   *       specified for options in the option group for the DB instance.</p>
-   *          <p>Your database will restart when you change the <code>DBPortNumber</code> value regardless
-   *       of the value of the <code>ApplyImmediately</code> parameter.</p>
-   *          <p> Default: <code>8182</code>
-   *          </p>
-   */
-  DBPortNumber?: number;
-
-  /**
    * <p>
    *             <i>(Not supported by Neptune)</i>
    *          </p>
    */
   PerformanceInsightsKMSKeyId?: string;
-
-  /**
-   * <p>Not supported</p>
-   */
-  DomainIAMRoleName?: string;
-
-  /**
-   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
-   */
-  TdeCredentialArn?: string;
 
   /**
    * <p>A list of EC2 VPC security groups to authorize on this DB instance. This change is
@@ -6530,6 +6904,238 @@ export interface ModifyDBInstanceMessage {
    *          </ul>
    */
   VpcSecurityGroupIds?: string[];
+
+  /**
+   * <p>The new compute and memory capacity of the DB instance, for example,
+   *       <code>db.m4.large</code>. Not all DB instance classes are available in all AWS
+   *       Regions.</p>
+   *          <p>If you modify the DB instance class, an outage occurs during the change. The change is
+   *       applied during the next maintenance window, unless <code>ApplyImmediately</code> is specified
+   *       as <code>true</code> for this request.</p>
+   *          <p>Default: Uses existing setting</p>
+   */
+  DBInstanceClass?: string;
+
+  /**
+   * <p>The port number on which the database accepts connections.</p>
+   *          <p>The value of the <code>DBPortNumber</code> parameter must not match any of the port values
+   *       specified for options in the option group for the DB instance.</p>
+   *          <p>Your database will restart when you change the <code>DBPortNumber</code> value regardless
+   *       of the value of the <code>ApplyImmediately</code> parameter.</p>
+   *          <p> Default: <code>8182</code>
+   *          </p>
+   */
+  DBPortNumber?: number;
+
+  /**
+   * <p>The ARN from the key store with which to associate the instance for TDE encryption.</p>
+   */
+  TdeCredentialArn?: string;
+
+  /**
+   * <p>Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter doesn't
+   *       result in an outage and the change is applied during the next maintenance window unless the
+   *       <code>ApplyImmediately</code> parameter is set to <code>true</code> for this request.</p>
+   */
+  MultiAZ?: boolean;
+
+  /**
+   * <p>The configuration setting for the log types to be enabled for export to CloudWatch Logs
+   *       for a specific DB instance or DB cluster.</p>
+   */
+  CloudwatchLogsExportConfiguration?: CloudwatchLogsExportConfiguration;
+
+  /**
+   * <p>Not supported</p>
+   */
+  DomainIAMRoleName?: string;
+
+  /**
+   * <p>The new amount of storage (in gibibytes) to allocate for the DB instance.</p>
+   *          <p>Not applicable. Storage is managed by the DB Cluster.</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
+   *          </p>
+   */
+  OptionGroupName?: string;
+
+  /**
+   * <p>This flag should no longer be used.</p>
+   */
+  PubliclyAccessible?: boolean;
+
+  /**
+   * <p>A value that indicates whether the DB instance has deletion protection enabled.
+   *       The database can't be deleted when deletion protection is enabled. By default,
+   *       deletion protection is disabled.  See <a href="https://docs.aws.amazon.com/neptune/latest/userguide/manage-console-instances-delete.html">Deleting
+   *       a DB Instance</a>.</p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>The password for the given ARN from the key store in order to access the device.</p>
+   */
+  TdeCredentialPassword?: string;
+
+  /**
+   * <p>The version number of the database engine to upgrade to. Currently, setting this
+   *       parameter has no effect. To upgrade your database engine to the most recent release,
+   *       use the <a>ApplyPendingMaintenanceAction</a> API.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The name of the DB parameter group to apply to the DB instance. Changing this setting
+   *       doesn't result in an outage. The parameter group name itself is changed immediately, but the
+   *       actual parameter changes are not applied until you reboot the instance without failover. The
+   *       db instance will NOT be rebooted automatically and the parameter changes will NOT be applied
+   *       during the next maintenance window.</p>
+   *          <p>Default: Uses existing setting</p>
+   *          <p>Constraints: The DB parameter group must be in the same DB parameter group family as this
+   *       DB instance.</p>
+   */
+  DBParameterGroupName?: string;
+
+  /**
+   * <p>Not supported.</p>
+   */
+  LicenseModel?: string;
+
+  /**
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
+   *          </p>
+   */
+  EnablePerformanceInsights?: boolean;
+
+  /**
+   * <p>The weekly time range (in UTC) during which system maintenance can occur, which might
+   *       result in an outage. Changing this parameter doesn't result in an outage, except in the
+   *       following situation, and the change is asynchronously applied as soon as possible. If there
+   *       are pending actions that cause a reboot, and the maintenance window is changed to include the
+   *       current time, then changing this parameter will cause a reboot of the DB instance. If moving
+   *       this window to the current time, there must be at least 30 minutes between the current time
+   *       and end of the window to ensure pending changes are applied.</p>
+   *          <p>Default: Uses existing setting</p>
+   *          <p>Format: ddd:hh24:mi-ddd:hh24:mi</p>
+   *          <p>Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun</p>
+   *          <p>Constraints: Must be at least 30 minutes</p>
+   */
+  PreferredMaintenanceWindow?: string;
+
+  /**
+   * <p>Not supported.</p>
+   */
+  StorageType?: string;
+
+  /**
+   * <p> Indicates that minor version upgrades are applied automatically to the DB instance during
+   *       the maintenance window. Changing this parameter doesn't result in an outage except in the
+   *       following case and the change is asynchronously applied as soon as possible. An outage will
+   *       result if this parameter is set to <code>true</code> during the maintenance window, and a
+   *       newer minor version is available, and Neptune has enabled auto patching for that engine
+   *       version.</p>
+   */
+  AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * <p>The new Provisioned IOPS (I/O operations per second) value for the instance.</p>
+   *          <p>Changing this setting doesn't result in an outage and the change is applied during the
+   *       next maintenance window unless the <code>ApplyImmediately</code> parameter is set to
+   *       <code>true</code> for this request.</p>
+   *          <p>Default: Uses existing setting</p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
+   *       accounts, and otherwise false.</p>
+   *          <p>You can enable IAM database authentication for the following database engines</p>
+   *          <p>Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB
+   *       cluster. For more information, see <a>ModifyDBCluster</a>.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  EnableIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>A list of DB security groups to authorize on this DB instance. Changing this setting
+   *       doesn't result in an outage and the change is asynchronously applied as soon as
+   *       possible.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match existing DBSecurityGroups.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBSecurityGroups?: string[];
+
+  /**
+   * <p>Not applicable.</p>
+   */
+  MasterUserPassword?: string;
+
+  /**
+   * <p>Indicates the certificate that needs to be associated with the instance.</p>
+   */
+  CACertificateIdentifier?: string;
+
+  /**
+   * <p>A value that specifies the order in which a Read Replica is promoted to the primary
+   *       instance after a failure of the existing primary instance.</p>
+   *          <p>Default: 1</p>
+   *          <p>Valid Values: 0 - 15</p>
+   */
+  PromotionTier?: number;
+
+  /**
+   * <p>The new DB subnet group for the DB instance. You can use this parameter to move your DB
+   *       instance to a different VPC.</p>
+   *          <p>Changing the subnet group causes an outage during the change. The change is applied during
+   *       the next maintenance window, unless you specify <code>true</code> for the
+   *       <code>ApplyImmediately</code> parameter.</p>
+   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
+   *          <p>Example: <code>mySubnetGroup</code>
+   *          </p>
+   */
+  DBSubnetGroupName?: string;
+
+  /**
+   * <p>The ARN for the IAM role that permits Neptune to send enhanced monitoring metrics to
+   *       Amazon CloudWatch Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.</p>
+   *          <p>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply a
+   *       <code>MonitoringRoleArn</code> value.</p>
+   */
+  MonitoringRoleArn?: string;
+
+  /**
+   * <p>Indicates that major version upgrades are allowed. Changing this parameter doesn't result
+   *       in an outage and the change is asynchronously applied as soon as possible.</p>
+   */
+  AllowMajorVersionUpgrade?: boolean;
+
+  /**
+   * <p>Not supported.</p>
+   */
+  Domain?: string;
+
+  /**
+   * <p>Specifies whether the modifications in this request and any pending modifications are
+   *       asynchronously applied as soon as possible, regardless of the
+   *       <code>PreferredMaintenanceWindow</code> setting for the DB instance.</p>
+   *          <p> If this parameter is set to <code>false</code>, changes to the DB instance are applied
+   *       during the next maintenance window. Some parameter changes can cause an outage and are applied
+   *       on the next call to <a>RebootDBInstance</a>, or the next
+   *       failure reboot.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  ApplyImmediately?: boolean;
 }
 
 export namespace ModifyDBInstanceMessage {
@@ -6567,6 +7173,17 @@ export namespace DBParameterGroupNameMessage {
 
 export interface ModifyDBParameterGroupMessage {
   /**
+   * <p>The name of the DB parameter group.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBParameterGroupName: string | undefined;
+
+  /**
    * <p>An array of parameter names, values, and the apply method for the parameter update. At
    *       least one parameter name, value, and apply method must be supplied; subsequent arguments are
    *       optional. A maximum of 20 parameters can be modified in a single request.</p>
@@ -6579,17 +7196,6 @@ export interface ModifyDBParameterGroupMessage {
    *          </note>
    */
   Parameters: Parameter[] | undefined;
-
-  /**
-   * <p>The name of the DB parameter group.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBParameterGroup.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBParameterGroupName: string | undefined;
 }
 
 export namespace ModifyDBParameterGroupMessage {
@@ -6664,18 +7270,12 @@ export interface ModifyEventSubscriptionMessage {
   SubscriptionName: string | undefined;
 
   /**
-   * <p>The type of source that is generating the events. For example, if you want to be notified
-   *       of events generated by a DB instance, you would set this parameter to db-instance. if this
-   *       value is not specified, all events are returned.</p>
-   *          <p>Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot</p>
+   * <p> A list of event categories for a SourceType that you want to subscribe to. You can see a
+   *       list of the categories for a given SourceType
+   *
+   *       by using the <b>DescribeEventCategories</b> action.</p>
    */
-  SourceType?: string;
-
-  /**
-   * <p> A Boolean value; set to <b>true</b> to activate the
-   *       subscription.</p>
-   */
-  Enabled?: boolean;
+  EventCategories?: string[];
 
   /**
    * <p>The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is
@@ -6684,12 +7284,18 @@ export interface ModifyEventSubscriptionMessage {
   SnsTopicArn?: string;
 
   /**
-   * <p> A list of event categories for a SourceType that you want to subscribe to. You can see a
-   *       list of the categories for a given SourceType
-   *
-   *       by using the <b>DescribeEventCategories</b> action.</p>
+   * <p> A Boolean value; set to <b>true</b> to activate the
+   *       subscription.</p>
    */
-  EventCategories?: string[];
+  Enabled?: boolean;
+
+  /**
+   * <p>The type of source that is generating the events. For example, if you want to be notified
+   *       of events generated by a DB instance, you would set this parameter to db-instance. if this
+   *       value is not specified, all events are returned.</p>
+   *          <p>Valid values: db-instance | db-parameter-group | db-security-group | db-snapshot</p>
+   */
+  SourceType?: string;
 }
 
 export namespace ModifyEventSubscriptionMessage {
@@ -6740,6 +7346,13 @@ export namespace PromoteReadReplicaDBClusterResult {
 
 export interface RebootDBInstanceMessage {
   /**
+   * <p> When <code>true</code>, the reboot is conducted through a MultiAZ failover.</p>
+   *          <p>Constraint: You can't specify <code>true</code> if the instance is not configured for
+   *       MultiAZ.</p>
+   */
+  ForceFailover?: boolean;
+
+  /**
    * <p>The DB instance identifier. This parameter is stored as a lowercase string.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -6749,13 +7362,6 @@ export interface RebootDBInstanceMessage {
    *          </ul>
    */
   DBInstanceIdentifier: string | undefined;
-
-  /**
-   * <p> When <code>true</code>, the reboot is conducted through a MultiAZ failover.</p>
-   *          <p>Constraint: You can't specify <code>true</code> if the instance is not configured for
-   *       MultiAZ.</p>
-   */
-  ForceFailover?: boolean;
 }
 
 export namespace RebootDBInstanceMessage {
@@ -6798,15 +7404,21 @@ export namespace DBClusterRoleNotFoundFault {
 
 export interface RemoveRoleFromDBClusterMessage {
   /**
-   * <p>The name of the DB cluster to disassociate the IAM role from.</p>
+   * <p>The name of the feature for the DB cluster that the IAM role is to be disassociated from.
+   *       For the list of supported feature names, see <a>DBEngineVersion</a>.</p>
    */
-  DBClusterIdentifier: string | undefined;
+  FeatureName?: string;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role to disassociate from the DB cluster, for
    *       example <code>arn:aws:iam::123456789012:role/NeptuneAccessRole</code>.</p>
    */
   RoleArn: string | undefined;
+
+  /**
+   * <p>The name of the DB cluster to disassociate the IAM role from.</p>
+   */
+  DBClusterIdentifier: string | undefined;
 }
 
 export namespace RemoveRoleFromDBClusterMessage {
@@ -6898,17 +7510,6 @@ export namespace ResetDBClusterParameterGroupMessage {
 
 export interface ResetDBParameterGroupMessage {
   /**
-   * <p>The name of the DB parameter group.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must match the name of an existing DBParameterGroup.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBParameterGroupName: string | undefined;
-
-  /**
    * <p>To reset the entire DB parameter group, specify the <code>DBParameterGroup</code> name and
    *       <code>ResetAllParameters</code> parameters. To reset specific parameters, provide a list of
    *       the following: <code>ParameterName</code> and <code>ApplyMethod</code>. A maximum of 20
@@ -6925,6 +7526,17 @@ export interface ResetDBParameterGroupMessage {
    *          </p>
    */
   ResetAllParameters?: boolean;
+
+  /**
+   * <p>The name of the DB parameter group.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the name of an existing DBParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBParameterGroupName: string | undefined;
 }
 
 export namespace ResetDBParameterGroupMessage {
@@ -6994,48 +7606,9 @@ export interface RestoreDBClusterFromSnapshotMessage {
   Tags?: Tag[];
 
   /**
-   * <p>The name of the DB cluster parameter group to associate with the new DB cluster.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterParameterGroupName?: string;
-
-  /**
    * <p>A list of VPC security groups that the new DB cluster will belong to.</p>
    */
   VpcSecurityGroupIds?: string[];
-
-  /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p>Not supported.</p>
-   */
-  DatabaseName?: string;
-
-  /**
-   * <p>The name of the DB subnet group to use for the new DB cluster.</p>
-   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
-   *          </p>
-   */
-  DBSubnetGroupName?: string;
-
-  /**
-   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
-   *       The database can't be deleted when deletion protection is enabled. By default,
-   *       deletion protection is disabled.
-   *     </p>
-   */
-  DeletionProtection?: boolean;
 
   /**
    * <p>The name of the DB cluster to create from the DB snapshot or DB cluster snapshot. This
@@ -7058,30 +7631,16 @@ export interface RestoreDBClusterFromSnapshotMessage {
   DBClusterIdentifier: string | undefined;
 
   /**
-   * <p>The version of the database engine to use for the new DB cluster.</p>
+   * <p>Not supported.</p>
    */
-  EngineVersion?: string;
+  DatabaseName?: string;
 
   /**
-   * <p>The identifier for the DB snapshot or DB cluster snapshot to restore from.</p>
-   *          <p>You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster
-   *       snapshot. However, you can use only the ARN to specify a DB snapshot.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must match the identifier of an existing Snapshot.</p>
-   *             </li>
-   *          </ul>
-   */
-  SnapshotIdentifier: string | undefined;
-
-  /**
-   * <p>The port number on which the new DB cluster accepts connections.</p>
-   *          <p>Constraints: Value must be <code>1150-65535</code>
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
    *          </p>
-   *          <p>Default: The same port as the original DB cluster.</p>
    */
-  Port?: number;
+  OptionGroupName?: string;
 
   /**
    * <p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from a DB
@@ -7107,10 +7666,51 @@ export interface RestoreDBClusterFromSnapshotMessage {
   KmsKeyId?: string;
 
   /**
+   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
+   *       The database can't be deleted when deletion protection is enabled. By default,
+   *       deletion protection is disabled.
+   *     </p>
+   */
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>The name of the DB subnet group to use for the new DB cluster.</p>
+   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
+   *          <p>Example: <code>mySubnetgroup</code>
+   *          </p>
+   */
+  DBSubnetGroupName?: string;
+
+  /**
+   * <p>The identifier for the DB snapshot or DB cluster snapshot to restore from.</p>
+   *          <p>You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster
+   *       snapshot. However, you can use only the ARN to specify a DB snapshot.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must match the identifier of an existing Snapshot.</p>
+   *             </li>
+   *          </ul>
+   */
+  SnapshotIdentifier: string | undefined;
+
+  /**
    * <p>Provides the list of EC2 Availability Zones that instances in the restored DB cluster can
    *       be created in.</p>
    */
   AvailabilityZones?: string[];
+
+  /**
+   * <p>The version of the database engine to use for the new DB cluster.</p>
+   */
+  EngineVersion?: string;
+
+  /**
+   * <p>The database engine to use for the new DB cluster.</p>
+   *          <p>Default: The same as source</p>
+   *          <p>Constraint: Must be compatible with the engine of the source</p>
+   */
+  Engine: string | undefined;
 
   /**
    * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
@@ -7121,16 +7721,28 @@ export interface RestoreDBClusterFromSnapshotMessage {
   EnableIAMDatabaseAuthentication?: boolean;
 
   /**
-   * <p>The database engine to use for the new DB cluster.</p>
-   *          <p>Default: The same as source</p>
-   *          <p>Constraint: Must be compatible with the engine of the source</p>
-   */
-  Engine: string | undefined;
-
-  /**
    * <p>The list of logs that the restored DB cluster is to export to Amazon CloudWatch Logs.</p>
    */
   EnableCloudwatchLogsExports?: string[];
+
+  /**
+   * <p>The port number on which the new DB cluster accepts connections.</p>
+   *          <p>Constraints: Value must be <code>1150-65535</code>
+   *          </p>
+   *          <p>Default: The same port as the original DB cluster.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>The name of the DB cluster parameter group to associate with the new DB cluster.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If supplied, must match the name of an existing DBClusterParameterGroup.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterParameterGroupName?: string;
 }
 
 export namespace RestoreDBClusterFromSnapshotMessage {
@@ -7160,31 +7772,9 @@ export interface RestoreDBClusterToPointInTimeMessage {
   Tags?: Tag[];
 
   /**
-   * <p>The type of restore to be performed. You can specify one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>full-copy</code> - The new DB cluster is restored as a full copy of the source
-   *           DB cluster.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>copy-on-write</code> - The new DB cluster is restored as a clone of the source
-   *           DB cluster.</p>
-   *             </li>
-   *          </ul>
-   *          <p>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is restored
-   *       as a full copy of the source DB cluster.</p>
+   * <p>A list of VPC security groups that the new DB cluster belongs to.</p>
    */
-  RestoreType?: string;
-
-  /**
-   * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-   *       accounts, and otherwise false.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   */
-  EnableIAMDatabaseAuthentication?: boolean;
+  VpcSecurityGroupIds?: string[];
 
   /**
    * <p>The identifier of the source DB cluster from which to restore.</p>
@@ -7198,6 +7788,14 @@ export interface RestoreDBClusterToPointInTimeMessage {
   SourceDBClusterIdentifier: string | undefined;
 
   /**
+   * <p>The DB subnet group name to use for the new DB cluster.</p>
+   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
+   *          <p>Example: <code>mySubnetgroup</code>
+   *          </p>
+   */
+  DBSubnetGroupName?: string;
+
+  /**
    * <p>The name of the DB cluster parameter group to associate with the new DB cluster.</p>
    *          <p>Constraints:</p>
    *          <ul>
@@ -7207,6 +7805,40 @@ export interface RestoreDBClusterToPointInTimeMessage {
    *          </ul>
    */
   DBClusterParameterGroupName?: string;
+
+  /**
+   * <p>
+   *             <i>(Not supported by Neptune)</i>
+   *          </p>
+   */
+  OptionGroupName?: string;
+
+  /**
+   * <p>A value that is set to <code>true</code> to restore the DB cluster to the latest
+   *       restorable backup time, and <code>false</code> otherwise.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   *          <p>Constraints: Cannot be specified if <code>RestoreToTime</code> parameter is
+   *       provided.</p>
+   */
+  UseLatestRestorableTime?: boolean;
+
+  /**
+   * <p>The name of the new DB cluster to be created.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>
+   *             </li>
+   *             <li>
+   *                <p>First character must be a letter</p>
+   *             </li>
+   *             <li>
+   *                <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterIdentifier: string | undefined;
 
   /**
    * <p>The port number on which the new DB cluster accepts connections.</p>
@@ -7243,61 +7875,6 @@ export interface RestoreDBClusterToPointInTimeMessage {
   RestoreToTime?: Date;
 
   /**
-   * <p>The list of logs that the restored DB cluster is to export to CloudWatch Logs.</p>
-   */
-  EnableCloudwatchLogsExports?: string[];
-
-  /**
-   * <p>A value that is set to <code>true</code> to restore the DB cluster to the latest
-   *       restorable backup time, and <code>false</code> otherwise.</p>
-   *          <p>Default: <code>false</code>
-   *          </p>
-   *          <p>Constraints: Cannot be specified if <code>RestoreToTime</code> parameter is
-   *       provided.</p>
-   */
-  UseLatestRestorableTime?: boolean;
-
-  /**
-   * <p>The DB subnet group name to use for the new DB cluster.</p>
-   *          <p>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</p>
-   *          <p>Example: <code>mySubnetgroup</code>
-   *          </p>
-   */
-  DBSubnetGroupName?: string;
-
-  /**
-   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
-   *       The database can't be deleted when deletion protection is enabled. By default,
-   *       deletion protection is disabled.
-   *     </p>
-   */
-  DeletionProtection?: boolean;
-
-  /**
-   * <p>
-   *             <i>(Not supported by Neptune)</i>
-   *          </p>
-   */
-  OptionGroupName?: string;
-
-  /**
-   * <p>The name of the new DB cluster to be created.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens</p>
-   *             </li>
-   *             <li>
-   *                <p>First character must be a letter</p>
-   *             </li>
-   *             <li>
-   *                <p>Cannot end with a hyphen or contain two consecutive hyphens</p>
-   *             </li>
-   *          </ul>
-   */
-  DBClusterIdentifier: string | undefined;
-
-  /**
    * <p>The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
    *       DB cluster.</p>
    *          <p>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key. If
@@ -7325,9 +7902,44 @@ export interface RestoreDBClusterToPointInTimeMessage {
   KmsKeyId?: string;
 
   /**
-   * <p>A list of VPC security groups that the new DB cluster belongs to.</p>
+   * <p>A value that indicates whether the DB cluster has deletion protection enabled.
+   *       The database can't be deleted when deletion protection is enabled. By default,
+   *       deletion protection is disabled.
+   *     </p>
    */
-  VpcSecurityGroupIds?: string[];
+  DeletionProtection?: boolean;
+
+  /**
+   * <p>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
+   *       accounts, and otherwise false.</p>
+   *          <p>Default: <code>false</code>
+   *          </p>
+   */
+  EnableIAMDatabaseAuthentication?: boolean;
+
+  /**
+   * <p>The list of logs that the restored DB cluster is to export to CloudWatch Logs.</p>
+   */
+  EnableCloudwatchLogsExports?: string[];
+
+  /**
+   * <p>The type of restore to be performed. You can specify one of the following values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>full-copy</code> - The new DB cluster is restored as a full copy of the source
+   *           DB cluster.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>copy-on-write</code> - The new DB cluster is restored as a clone of the source
+   *           DB cluster.</p>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is restored
+   *       as a full copy of the source DB cluster.</p>
+   */
+  RestoreType?: string;
 }
 
 export namespace RestoreDBClusterToPointInTimeMessage {

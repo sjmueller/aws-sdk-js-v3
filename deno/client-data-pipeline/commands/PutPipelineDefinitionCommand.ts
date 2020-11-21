@@ -45,11 +45,23 @@ export class PutPipelineDefinitionCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "DataPipelineClient";
+    const commandName = "PutPipelineDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: PutPipelineDefinitionInput.filterSensitiveLog,
       outputFilterSensitiveLog: PutPipelineDefinitionOutput.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

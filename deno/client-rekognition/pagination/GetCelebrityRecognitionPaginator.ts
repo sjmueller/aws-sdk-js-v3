@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetCelebrityRecognitionCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetCelebrityRecognitionCommand(input, ...args));
+  return await client.send(new GetCelebrityRecognitionCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: Rekognition,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getCelebrityRecognition(input, ...args);
 };
-export async function* getCelebrityRecognitionPaginate(
+export async function* paginateGetCelebrityRecognition(
   config: RekognitionPaginationConfiguration,
   input: GetCelebrityRecognitionCommandInput,
   ...additionalArguments: any
 ): Paginator<GetCelebrityRecognitionCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetCelebrityRecognitionCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof Rekognition) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getCelebrityRecognitionPaginate(
       throw new Error("Invalid client, expected Rekognition | RekognitionClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

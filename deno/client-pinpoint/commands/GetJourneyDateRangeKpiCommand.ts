@@ -1,6 +1,6 @@
 
 import { PinpointClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PinpointClient.ts";
-import { GetJourneyDateRangeKpiRequest, GetJourneyDateRangeKpiResponse } from "../models/models_0.ts";
+import { GetJourneyDateRangeKpiRequest, GetJourneyDateRangeKpiResponse } from "../models/models_1.ts";
 import {
   deserializeAws_restJson1GetJourneyDateRangeKpiCommand,
   serializeAws_restJson1GetJourneyDateRangeKpiCommand,
@@ -45,11 +45,23 @@ export class GetJourneyDateRangeKpiCommand extends $Command<
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "PinpointClient";
+    const commandName = "GetJourneyDateRangeKpiCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: GetJourneyDateRangeKpiRequest.filterSensitiveLog,
       outputFilterSensitiveLog: GetJourneyDateRangeKpiResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

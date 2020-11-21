@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListProblemsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListProblemsCommand(input, ...args));
+  return await client.send(new ListProblemsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ApplicationInsights,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listProblems(input, ...args);
 };
-export async function* listProblemsPaginate(
+export async function* paginateListProblems(
   config: ApplicationInsightsPaginationConfiguration,
   input: ListProblemsCommandInput,
   ...additionalArguments: any
 ): Paginator<ListProblemsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListProblemsCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof ApplicationInsights) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listProblemsPaginate(
       throw new Error("Invalid client, expected ApplicationInsights | ApplicationInsightsClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

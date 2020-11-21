@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<ListChangedBlocksCommandOutput> => {
   // @ts-ignore
-  return await client.send(new ListChangedBlocksCommand(input, ...args));
+  return await client.send(new ListChangedBlocksCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: EBS,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.listChangedBlocks(input, ...args);
 };
-export async function* listChangedBlocksPaginate(
+export async function* paginateListChangedBlocks(
   config: EBSPaginationConfiguration,
   input: ListChangedBlocksCommandInput,
   ...additionalArguments: any
 ): Paginator<ListChangedBlocksCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: ListChangedBlocksCommandOutput;
   while (hasNext) {
-    input["NextToken"] = token;
+    input.NextToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof EBS) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* listChangedBlocksPaginate(
       throw new Error("Invalid client, expected EBS | EBSClient");
     }
     yield page;
-    token = page["NextToken"];
+    token = page.NextToken;
     hasNext = !!token;
   }
   // @ts-ignore

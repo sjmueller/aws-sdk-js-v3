@@ -1,0 +1,52 @@
+
+import { CloudFormation } from "../CloudFormation.ts";
+import { CloudFormationClient } from "../CloudFormationClient.ts";
+import {
+  ListStackSetOperationsCommand,
+  ListStackSetOperationsCommandInput,
+  ListStackSetOperationsCommandOutput,
+} from "../commands/ListStackSetOperationsCommand.ts";
+import { CloudFormationPaginationConfiguration } from "./Interfaces.ts";
+import { Paginator } from "../../types/mod.ts";
+
+const makePagedClientRequest = async (
+  client: CloudFormationClient,
+  input: ListStackSetOperationsCommandInput,
+  ...args: any
+): Promise<ListStackSetOperationsCommandOutput> => {
+  // @ts-ignore
+  return await client.send(new ListStackSetOperationsCommand(input), ...args);
+};
+const makePagedRequest = async (
+  client: CloudFormation,
+  input: ListStackSetOperationsCommandInput,
+  ...args: any
+): Promise<ListStackSetOperationsCommandOutput> => {
+  // @ts-ignore
+  return await client.listStackSetOperations(input, ...args);
+};
+export async function* paginateListStackSetOperations(
+  config: CloudFormationPaginationConfiguration,
+  input: ListStackSetOperationsCommandInput,
+  ...additionalArguments: any
+): Paginator<ListStackSetOperationsCommandOutput> {
+  let token: string | undefined = config.startingToken || undefined;
+  let hasNext = true;
+  let page: ListStackSetOperationsCommandOutput;
+  while (hasNext) {
+    input.NextToken = token;
+    input["MaxResults"] = config.pageSize;
+    if (config.client instanceof CloudFormation) {
+      page = await makePagedRequest(config.client, input, ...additionalArguments);
+    } else if (config.client instanceof CloudFormationClient) {
+      page = await makePagedClientRequest(config.client, input, ...additionalArguments);
+    } else {
+      throw new Error("Invalid client, expected CloudFormation | CloudFormationClient");
+    }
+    yield page;
+    token = page.NextToken;
+    hasNext = !!token;
+  }
+  // @ts-ignore
+  return undefined;
+}

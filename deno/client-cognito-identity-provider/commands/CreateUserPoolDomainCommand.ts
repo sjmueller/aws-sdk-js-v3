@@ -10,6 +10,7 @@ import {
   serializeAws_json1_1CreateUserPoolDomainCommand,
 } from "../protocols/Aws_json1_1.ts";
 import { getSerdePlugin } from "../../middleware-serde/mod.ts";
+import { getAwsAuthPlugin } from "../../middleware-signing/mod.ts";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "../../protocol-http/mod.ts";
 import { Command as $Command } from "../../smithy-client/mod.ts";
 import {
@@ -45,15 +46,28 @@ export class CreateUserPoolDomainCommand extends $Command<
     options?: __HttpHandlerOptions
   ): Handler<CreateUserPoolDomainCommandInput, CreateUserPoolDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
+    this.middlewareStack.use(getAwsAuthPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
+    const clientName = "CognitoIdentityProviderClient";
+    const commandName = "CreateUserPoolDomainCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
+      clientName,
+      commandName,
       inputFilterSensitiveLog: CreateUserPoolDomainRequest.filterSensitiveLog,
       outputFilterSensitiveLog: CreateUserPoolDomainResponse.filterSensitiveLog,
     };
+
+    if (typeof logger.info === "function") {
+      logger.info({
+        clientName,
+        commandName,
+      });
+    }
+
     const { requestHandler } = configuration;
     return stack.resolve(
       (request: FinalizeHandlerArguments<any>) =>

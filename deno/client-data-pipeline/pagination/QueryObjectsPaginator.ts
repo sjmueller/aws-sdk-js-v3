@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<QueryObjectsCommandOutput> => {
   // @ts-ignore
-  return await client.send(new QueryObjectsCommand(input, ...args));
+  return await client.send(new QueryObjectsCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: DataPipeline,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.queryObjects(input, ...args);
 };
-export async function* queryObjectsPaginate(
+export async function* paginateQueryObjects(
   config: DataPipelinePaginationConfiguration,
   input: QueryObjectsCommandInput,
   ...additionalArguments: any
 ): Paginator<QueryObjectsCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: QueryObjectsCommandOutput;
   while (hasNext) {
-    input["marker"] = token;
+    input.marker = token;
     input["limit"] = config.pageSize;
     if (config.client instanceof DataPipeline) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* queryObjectsPaginate(
       throw new Error("Invalid client, expected DataPipeline | DataPipelineClient");
     }
     yield page;
-    token = page["marker"];
+    token = page.marker;
     hasNext = !!token;
   }
   // @ts-ignore

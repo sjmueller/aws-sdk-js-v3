@@ -15,7 +15,7 @@ const makePagedClientRequest = async (
   ...args: any
 ): Promise<GetComplianceSummaryCommandOutput> => {
   // @ts-ignore
-  return await client.send(new GetComplianceSummaryCommand(input, ...args));
+  return await client.send(new GetComplianceSummaryCommand(input), ...args);
 };
 const makePagedRequest = async (
   client: ResourceGroupsTaggingAPI,
@@ -25,16 +25,16 @@ const makePagedRequest = async (
   // @ts-ignore
   return await client.getComplianceSummary(input, ...args);
 };
-export async function* getComplianceSummaryPaginate(
+export async function* paginateGetComplianceSummary(
   config: ResourceGroupsTaggingAPIPaginationConfiguration,
   input: GetComplianceSummaryCommandInput,
   ...additionalArguments: any
 ): Paginator<GetComplianceSummaryCommandOutput> {
-  let token: string | undefined = config.startingToken || "";
+  let token: string | undefined = config.startingToken || undefined;
   let hasNext = true;
   let page: GetComplianceSummaryCommandOutput;
   while (hasNext) {
-    input["PaginationToken"] = token;
+    input.PaginationToken = token;
     input["MaxResults"] = config.pageSize;
     if (config.client instanceof ResourceGroupsTaggingAPI) {
       page = await makePagedRequest(config.client, input, ...additionalArguments);
@@ -44,7 +44,7 @@ export async function* getComplianceSummaryPaginate(
       throw new Error("Invalid client, expected ResourceGroupsTaggingAPI | ResourceGroupsTaggingAPIClient");
     }
     yield page;
-    token = page["PaginationToken"];
+    token = page.PaginationToken;
     hasNext = !!token;
   }
   // @ts-ignore

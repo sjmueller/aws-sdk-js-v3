@@ -777,7 +777,7 @@ export const deserializeAws_queryAddListenerCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddListenerCertificatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAddListenerCertificatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -847,7 +847,7 @@ export const deserializeAws_queryAddTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AddTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryAddTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -925,7 +925,7 @@ export const deserializeAws_queryCreateListenerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateListenerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateListenerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1062,6 +1062,14 @@ const deserializeAws_queryCreateListenerCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "TooManyTagsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyTargetsException":
     case "com.amazonaws.elasticloadbalancingv2#TooManyTargetsException":
       response = {
@@ -1107,7 +1115,7 @@ export const deserializeAws_queryCreateLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoadBalancerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1257,7 +1265,7 @@ export const deserializeAws_queryCreateRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1362,6 +1370,14 @@ const deserializeAws_queryCreateRuleCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "TooManyTagsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyTargetGroupsException":
     case "com.amazonaws.elasticloadbalancingv2#TooManyTargetGroupsException":
       response = {
@@ -1415,7 +1431,7 @@ export const deserializeAws_queryCreateTargetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateTargetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryCreateTargetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1456,6 +1472,14 @@ const deserializeAws_queryCreateTargetGroupCommandError = async (
         $metadata: deserializeMetadata(output),
       };
       break;
+    case "TooManyTagsException":
+    case "com.amazonaws.elasticloadbalancingv2#TooManyTagsException":
+      response = {
+        ...(await deserializeAws_queryTooManyTagsExceptionResponse(parsedOutput, context)),
+        name: errorCode,
+        $metadata: deserializeMetadata(output),
+      };
+      break;
     case "TooManyTargetGroupsException":
     case "com.amazonaws.elasticloadbalancingv2#TooManyTargetGroupsException":
       response = {
@@ -1485,7 +1509,7 @@ export const deserializeAws_queryDeleteListenerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteListenerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteListenerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1539,7 +1563,7 @@ export const deserializeAws_queryDeleteLoadBalancerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteLoadBalancerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteLoadBalancerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1609,7 +1633,7 @@ export const deserializeAws_queryDeleteRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1671,7 +1695,7 @@ export const deserializeAws_queryDeleteTargetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTargetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeleteTargetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1725,7 +1749,7 @@ export const deserializeAws_queryDeregisterTargetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeregisterTargetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDeregisterTargetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1787,7 +1811,7 @@ export const deserializeAws_queryDescribeAccountLimitsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeAccountLimitsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeAccountLimitsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1833,7 +1857,7 @@ export const deserializeAws_queryDescribeListenerCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeListenerCertificatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeListenerCertificatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1887,7 +1911,7 @@ export const deserializeAws_queryDescribeListenersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeListenersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeListenersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -1957,7 +1981,7 @@ export const deserializeAws_queryDescribeLoadBalancerAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancerAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeLoadBalancerAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2014,7 +2038,7 @@ export const deserializeAws_queryDescribeLoadBalancersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeLoadBalancersCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeLoadBalancersCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2068,7 +2092,7 @@ export const deserializeAws_queryDescribeRulesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeRulesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeRulesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2138,7 +2162,7 @@ export const deserializeAws_queryDescribeSSLPoliciesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeSSLPoliciesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeSSLPoliciesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2192,7 +2216,7 @@ export const deserializeAws_queryDescribeTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2270,7 +2294,7 @@ export const deserializeAws_queryDescribeTargetGroupAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTargetGroupAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeTargetGroupAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2324,7 +2348,7 @@ export const deserializeAws_queryDescribeTargetGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTargetGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeTargetGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2386,7 +2410,7 @@ export const deserializeAws_queryDescribeTargetHealthCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeTargetHealthCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryDescribeTargetHealthCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2456,7 +2480,7 @@ export const deserializeAws_queryModifyListenerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyListenerCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyListenerCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2638,7 +2662,7 @@ export const deserializeAws_queryModifyLoadBalancerAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyLoadBalancerAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyLoadBalancerAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2700,7 +2724,7 @@ export const deserializeAws_queryModifyRuleCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyRuleCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyRuleCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2834,7 +2858,7 @@ export const deserializeAws_queryModifyTargetGroupCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyTargetGroupCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyTargetGroupCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2896,7 +2920,7 @@ export const deserializeAws_queryModifyTargetGroupAttributesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyTargetGroupAttributesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryModifyTargetGroupAttributesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -2958,7 +2982,7 @@ export const deserializeAws_queryRegisterTargetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RegisterTargetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRegisterTargetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3036,7 +3060,7 @@ export const deserializeAws_queryRemoveListenerCertificatesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveListenerCertificatesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRemoveListenerCertificatesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3098,7 +3122,7 @@ export const deserializeAws_queryRemoveTagsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<RemoveTagsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_queryRemoveTagsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3184,7 +3208,7 @@ export const deserializeAws_querySetIpAddressTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetIpAddressTypeCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetIpAddressTypeCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3254,7 +3278,7 @@ export const deserializeAws_querySetRulePrioritiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetRulePrioritiesCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetRulePrioritiesCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3324,7 +3348,7 @@ export const deserializeAws_querySetSecurityGroupsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetSecurityGroupsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetSecurityGroupsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -3394,7 +3418,7 @@ export const deserializeAws_querySetSubnetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<SetSubnetsCommandOutput> => {
-  if (output.statusCode >= 400) {
+  if (output.statusCode >= 300) {
     return deserializeAws_querySetSubnetsCommandError(output, context);
   }
   const data: any = await parseBody(output.body, context);
@@ -4041,12 +4065,28 @@ const deserializeAws_queryUnsupportedProtocolExceptionResponse = async (
 
 const serializeAws_queryAction = (input: Action, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.ForwardConfig !== undefined) {
-    const memberEntries = serializeAws_queryForwardActionConfig(input.ForwardConfig, context);
+  if (input.Type !== undefined) {
+    entries["Type"] = input.Type;
+  }
+  if (input.TargetGroupArn !== undefined) {
+    entries["TargetGroupArn"] = input.TargetGroupArn;
+  }
+  if (input.AuthenticateOidcConfig !== undefined) {
+    const memberEntries = serializeAws_queryAuthenticateOidcActionConfig(input.AuthenticateOidcConfig, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `ForwardConfig.${key}`;
+      const loc = `AuthenticateOidcConfig.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.AuthenticateCognitoConfig !== undefined) {
+    const memberEntries = serializeAws_queryAuthenticateCognitoActionConfig(input.AuthenticateCognitoConfig, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AuthenticateCognitoConfig.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Order !== undefined) {
+    entries["Order"] = input.Order;
   }
   if (input.RedirectConfig !== undefined) {
     const memberEntries = serializeAws_queryRedirectActionConfig(input.RedirectConfig, context);
@@ -4062,26 +4102,10 @@ const serializeAws_queryAction = (input: Action, context: __SerdeContext): any =
       entries[loc] = value;
     });
   }
-  if (input.TargetGroupArn !== undefined) {
-    entries["TargetGroupArn"] = input.TargetGroupArn;
-  }
-  if (input.Order !== undefined) {
-    entries["Order"] = input.Order;
-  }
-  if (input.AuthenticateCognitoConfig !== undefined) {
-    const memberEntries = serializeAws_queryAuthenticateCognitoActionConfig(input.AuthenticateCognitoConfig, context);
+  if (input.ForwardConfig !== undefined) {
+    const memberEntries = serializeAws_queryForwardActionConfig(input.ForwardConfig, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `AuthenticateCognitoConfig.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Type !== undefined) {
-    entries["Type"] = input.Type;
-  }
-  if (input.AuthenticateOidcConfig !== undefined) {
-    const memberEntries = serializeAws_queryAuthenticateOidcActionConfig(input.AuthenticateOidcConfig, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `AuthenticateOidcConfig.${key}`;
+      const loc = `ForwardConfig.${key}`;
       entries[loc] = value;
     });
   }
@@ -4121,17 +4145,17 @@ const serializeAws_queryAddListenerCertificatesInput = (
 
 const serializeAws_queryAddTagsInput = (input: AddTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.ResourceArns !== undefined) {
     const memberEntries = serializeAws_queryResourceArns(input.ResourceArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
@@ -4167,6 +4191,24 @@ const serializeAws_queryAuthenticateCognitoActionConfig = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.UserPoolArn !== undefined) {
+    entries["UserPoolArn"] = input.UserPoolArn;
+  }
+  if (input.UserPoolClientId !== undefined) {
+    entries["UserPoolClientId"] = input.UserPoolClientId;
+  }
+  if (input.UserPoolDomain !== undefined) {
+    entries["UserPoolDomain"] = input.UserPoolDomain;
+  }
+  if (input.SessionCookieName !== undefined) {
+    entries["SessionCookieName"] = input.SessionCookieName;
+  }
+  if (input.Scope !== undefined) {
+    entries["Scope"] = input.Scope;
+  }
+  if (input.SessionTimeout !== undefined) {
+    entries["SessionTimeout"] = input.SessionTimeout;
+  }
   if (input.AuthenticationRequestExtraParams !== undefined) {
     const memberEntries = serializeAws_queryAuthenticateCognitoActionAuthenticationRequestExtraParams(
       input.AuthenticationRequestExtraParams,
@@ -4176,24 +4218,6 @@ const serializeAws_queryAuthenticateCognitoActionConfig = (
       const loc = `AuthenticationRequestExtraParams.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.UserPoolArn !== undefined) {
-    entries["UserPoolArn"] = input.UserPoolArn;
-  }
-  if (input.UserPoolClientId !== undefined) {
-    entries["UserPoolClientId"] = input.UserPoolClientId;
-  }
-  if (input.SessionTimeout !== undefined) {
-    entries["SessionTimeout"] = input.SessionTimeout;
-  }
-  if (input.Scope !== undefined) {
-    entries["Scope"] = input.Scope;
-  }
-  if (input.UserPoolDomain !== undefined) {
-    entries["UserPoolDomain"] = input.UserPoolDomain;
-  }
-  if (input.SessionCookieName !== undefined) {
-    entries["SessionCookieName"] = input.SessionCookieName;
   }
   if (input.OnUnauthenticatedRequest !== undefined) {
     entries["OnUnauthenticatedRequest"] = input.OnUnauthenticatedRequest;
@@ -4220,17 +4244,29 @@ const serializeAws_queryAuthenticateOidcActionConfig = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.ClientSecret !== undefined) {
-    entries["ClientSecret"] = input.ClientSecret;
-  }
-  if (input.TokenEndpoint !== undefined) {
-    entries["TokenEndpoint"] = input.TokenEndpoint;
-  }
   if (input.Issuer !== undefined) {
     entries["Issuer"] = input.Issuer;
   }
   if (input.AuthorizationEndpoint !== undefined) {
     entries["AuthorizationEndpoint"] = input.AuthorizationEndpoint;
+  }
+  if (input.TokenEndpoint !== undefined) {
+    entries["TokenEndpoint"] = input.TokenEndpoint;
+  }
+  if (input.UserInfoEndpoint !== undefined) {
+    entries["UserInfoEndpoint"] = input.UserInfoEndpoint;
+  }
+  if (input.ClientId !== undefined) {
+    entries["ClientId"] = input.ClientId;
+  }
+  if (input.ClientSecret !== undefined) {
+    entries["ClientSecret"] = input.ClientSecret;
+  }
+  if (input.SessionCookieName !== undefined) {
+    entries["SessionCookieName"] = input.SessionCookieName;
+  }
+  if (input.Scope !== undefined) {
+    entries["Scope"] = input.Scope;
   }
   if (input.SessionTimeout !== undefined) {
     entries["SessionTimeout"] = input.SessionTimeout;
@@ -4248,18 +4284,6 @@ const serializeAws_queryAuthenticateOidcActionConfig = (
   if (input.OnUnauthenticatedRequest !== undefined) {
     entries["OnUnauthenticatedRequest"] = input.OnUnauthenticatedRequest;
   }
-  if (input.SessionCookieName !== undefined) {
-    entries["SessionCookieName"] = input.SessionCookieName;
-  }
-  if (input.Scope !== undefined) {
-    entries["Scope"] = input.Scope;
-  }
-  if (input.UserInfoEndpoint !== undefined) {
-    entries["UserInfoEndpoint"] = input.UserInfoEndpoint;
-  }
-  if (input.ClientId !== undefined) {
-    entries["ClientId"] = input.ClientId;
-  }
   if (input.UseExistingClientSecret !== undefined) {
     entries["UseExistingClientSecret"] = input.UseExistingClientSecret;
   }
@@ -4268,11 +4292,11 @@ const serializeAws_queryAuthenticateOidcActionConfig = (
 
 const serializeAws_queryCertificate = (input: Certificate, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IsDefault !== undefined) {
-    entries["IsDefault"] = input.IsDefault;
-  }
   if (input.CertificateArn !== undefined) {
     entries["CertificateArn"] = input.CertificateArn;
+  }
+  if (input.IsDefault !== undefined) {
+    entries["IsDefault"] = input.IsDefault;
   }
   return entries;
 };
@@ -4295,11 +4319,21 @@ const serializeAws_queryCreateListenerInput = (input: CreateListenerInput, conte
   if (input.LoadBalancerArn !== undefined) {
     entries["LoadBalancerArn"] = input.LoadBalancerArn;
   }
-  if (input.SslPolicy !== undefined) {
-    entries["SslPolicy"] = input.SslPolicy;
+  if (input.Protocol !== undefined) {
+    entries["Protocol"] = input.Protocol;
   }
   if (input.Port !== undefined) {
     entries["Port"] = input.Port;
+  }
+  if (input.SslPolicy !== undefined) {
+    entries["SslPolicy"] = input.SslPolicy;
+  }
+  if (input.Certificates !== undefined) {
+    const memberEntries = serializeAws_queryCertificateList(input.Certificates, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Certificates.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.DefaultActions !== undefined) {
     const memberEntries = serializeAws_queryActions(input.DefaultActions, context);
@@ -4315,13 +4349,10 @@ const serializeAws_queryCreateListenerInput = (input: CreateListenerInput, conte
       entries[loc] = value;
     });
   }
-  if (input.Protocol !== undefined) {
-    entries["Protocol"] = input.Protocol;
-  }
-  if (input.Certificates !== undefined) {
-    const memberEntries = serializeAws_queryCertificateList(input.Certificates, context);
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Certificates.${key}`;
+      const loc = `Tags.${key}`;
       entries[loc] = value;
     });
   }
@@ -4330,28 +4361,8 @@ const serializeAws_queryCreateListenerInput = (input: CreateListenerInput, conte
 
 const serializeAws_queryCreateLoadBalancerInput = (input: CreateLoadBalancerInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.IpAddressType !== undefined) {
-    entries["IpAddressType"] = input.IpAddressType;
-  }
-  if (input.Tags !== undefined) {
-    const memberEntries = serializeAws_queryTagList(input.Tags, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Tags.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Type !== undefined) {
-    entries["Type"] = input.Type;
-  }
-  if (input.SecurityGroups !== undefined) {
-    const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `SecurityGroups.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.Scheme !== undefined) {
-    entries["Scheme"] = input.Scheme;
+  if (input.Name !== undefined) {
+    entries["Name"] = input.Name;
   }
   if (input.Subnets !== undefined) {
     const memberEntries = serializeAws_querySubnets(input.Subnets, context);
@@ -4367,20 +4378,39 @@ const serializeAws_queryCreateLoadBalancerInput = (input: CreateLoadBalancerInpu
       entries[loc] = value;
     });
   }
-  if (input.Name !== undefined) {
-    entries["Name"] = input.Name;
+  if (input.SecurityGroups !== undefined) {
+    const memberEntries = serializeAws_querySecurityGroups(input.SecurityGroups, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroups.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Scheme !== undefined) {
+    entries["Scheme"] = input.Scheme;
+  }
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Type !== undefined) {
+    entries["Type"] = input.Type;
+  }
+  if (input.IpAddressType !== undefined) {
+    entries["IpAddressType"] = input.IpAddressType;
+  }
+  if (input.CustomerOwnedIpv4Pool !== undefined) {
+    entries["CustomerOwnedIpv4Pool"] = input.CustomerOwnedIpv4Pool;
   }
   return entries;
 };
 
 const serializeAws_queryCreateRuleInput = (input: CreateRuleInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Actions !== undefined) {
-    const memberEntries = serializeAws_queryActions(input.Actions, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Actions.${key}`;
-      entries[loc] = value;
-    });
+  if (input.ListenerArn !== undefined) {
+    entries["ListenerArn"] = input.ListenerArn;
   }
   if (input.Conditions !== undefined) {
     const memberEntries = serializeAws_queryRuleConditionList(input.Conditions, context);
@@ -4392,14 +4422,64 @@ const serializeAws_queryCreateRuleInput = (input: CreateRuleInput, context: __Se
   if (input.Priority !== undefined) {
     entries["Priority"] = input.Priority;
   }
-  if (input.ListenerArn !== undefined) {
-    entries["ListenerArn"] = input.ListenerArn;
+  if (input.Actions !== undefined) {
+    const memberEntries = serializeAws_queryActions(input.Actions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Actions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
 
 const serializeAws_queryCreateTargetGroupInput = (input: CreateTargetGroupInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.Name !== undefined) {
+    entries["Name"] = input.Name;
+  }
+  if (input.Protocol !== undefined) {
+    entries["Protocol"] = input.Protocol;
+  }
+  if (input.ProtocolVersion !== undefined) {
+    entries["ProtocolVersion"] = input.ProtocolVersion;
+  }
+  if (input.Port !== undefined) {
+    entries["Port"] = input.Port;
+  }
+  if (input.VpcId !== undefined) {
+    entries["VpcId"] = input.VpcId;
+  }
+  if (input.HealthCheckProtocol !== undefined) {
+    entries["HealthCheckProtocol"] = input.HealthCheckProtocol;
+  }
+  if (input.HealthCheckPort !== undefined) {
+    entries["HealthCheckPort"] = input.HealthCheckPort;
+  }
+  if (input.HealthCheckEnabled !== undefined) {
+    entries["HealthCheckEnabled"] = input.HealthCheckEnabled;
+  }
+  if (input.HealthCheckPath !== undefined) {
+    entries["HealthCheckPath"] = input.HealthCheckPath;
+  }
+  if (input.HealthCheckIntervalSeconds !== undefined) {
+    entries["HealthCheckIntervalSeconds"] = input.HealthCheckIntervalSeconds;
+  }
+  if (input.HealthCheckTimeoutSeconds !== undefined) {
+    entries["HealthCheckTimeoutSeconds"] = input.HealthCheckTimeoutSeconds;
+  }
+  if (input.HealthyThresholdCount !== undefined) {
+    entries["HealthyThresholdCount"] = input.HealthyThresholdCount;
+  }
+  if (input.UnhealthyThresholdCount !== undefined) {
+    entries["UnhealthyThresholdCount"] = input.UnhealthyThresholdCount;
+  }
   if (input.Matcher !== undefined) {
     const memberEntries = serializeAws_queryMatcher(input.Matcher, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -4407,44 +4487,15 @@ const serializeAws_queryCreateTargetGroupInput = (input: CreateTargetGroupInput,
       entries[loc] = value;
     });
   }
-  if (input.HealthCheckEnabled !== undefined) {
-    entries["HealthCheckEnabled"] = input.HealthCheckEnabled;
-  }
   if (input.TargetType !== undefined) {
     entries["TargetType"] = input.TargetType;
   }
-  if (input.UnhealthyThresholdCount !== undefined) {
-    entries["UnhealthyThresholdCount"] = input.UnhealthyThresholdCount;
-  }
-  if (input.HealthCheckIntervalSeconds !== undefined) {
-    entries["HealthCheckIntervalSeconds"] = input.HealthCheckIntervalSeconds;
-  }
-  if (input.HealthCheckPort !== undefined) {
-    entries["HealthCheckPort"] = input.HealthCheckPort;
-  }
-  if (input.HealthCheckProtocol !== undefined) {
-    entries["HealthCheckProtocol"] = input.HealthCheckProtocol;
-  }
-  if (input.HealthCheckPath !== undefined) {
-    entries["HealthCheckPath"] = input.HealthCheckPath;
-  }
-  if (input.Port !== undefined) {
-    entries["Port"] = input.Port;
-  }
-  if (input.Protocol !== undefined) {
-    entries["Protocol"] = input.Protocol;
-  }
-  if (input.HealthCheckTimeoutSeconds !== undefined) {
-    entries["HealthCheckTimeoutSeconds"] = input.HealthCheckTimeoutSeconds;
-  }
-  if (input.Name !== undefined) {
-    entries["Name"] = input.Name;
-  }
-  if (input.HealthyThresholdCount !== undefined) {
-    entries["HealthyThresholdCount"] = input.HealthyThresholdCount;
-  }
-  if (input.VpcId !== undefined) {
-    entries["VpcId"] = input.VpcId;
+  if (input.Tags !== undefined) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -4483,15 +4534,15 @@ const serializeAws_queryDeleteTargetGroupInput = (input: DeleteTargetGroupInput,
 
 const serializeAws_queryDeregisterTargetsInput = (input: DeregisterTargetsInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.TargetGroupArn !== undefined) {
+    entries["TargetGroupArn"] = input.TargetGroupArn;
+  }
   if (input.Targets !== undefined) {
     const memberEntries = serializeAws_queryTargetDescriptions(input.Targets, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Targets.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.TargetGroupArn !== undefined) {
-    entries["TargetGroupArn"] = input.TargetGroupArn;
   }
   return entries;
 };
@@ -4515,22 +4566,22 @@ const serializeAws_queryDescribeListenerCertificatesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.ListenerArn !== undefined) {
+    entries["ListenerArn"] = input.ListenerArn;
+  }
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
   }
   if (input.PageSize !== undefined) {
     entries["PageSize"] = input.PageSize;
   }
-  if (input.ListenerArn !== undefined) {
-    entries["ListenerArn"] = input.ListenerArn;
-  }
   return entries;
 };
 
 const serializeAws_queryDescribeListenersInput = (input: DescribeListenersInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
+  if (input.LoadBalancerArn !== undefined) {
+    entries["LoadBalancerArn"] = input.LoadBalancerArn;
   }
   if (input.ListenerArns !== undefined) {
     const memberEntries = serializeAws_queryListenerArns(input.ListenerArns, context);
@@ -4539,11 +4590,11 @@ const serializeAws_queryDescribeListenersInput = (input: DescribeListenersInput,
       entries[loc] = value;
     });
   }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
   if (input.PageSize !== undefined) {
     entries["PageSize"] = input.PageSize;
-  }
-  if (input.LoadBalancerArn !== undefined) {
-    entries["LoadBalancerArn"] = input.LoadBalancerArn;
   }
   return entries;
 };
@@ -4564,11 +4615,12 @@ const serializeAws_queryDescribeLoadBalancersInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
-  if (input.PageSize !== undefined) {
-    entries["PageSize"] = input.PageSize;
+  if (input.LoadBalancerArns !== undefined) {
+    const memberEntries = serializeAws_queryLoadBalancerArns(input.LoadBalancerArns, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LoadBalancerArns.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.Names !== undefined) {
     const memberEntries = serializeAws_queryLoadBalancerNames(input.Names, context);
@@ -4577,23 +4629,19 @@ const serializeAws_queryDescribeLoadBalancersInput = (
       entries[loc] = value;
     });
   }
-  if (input.LoadBalancerArns !== undefined) {
-    const memberEntries = serializeAws_queryLoadBalancerArns(input.LoadBalancerArns, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `LoadBalancerArns.${key}`;
-      entries[loc] = value;
-    });
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.PageSize !== undefined) {
+    entries["PageSize"] = input.PageSize;
   }
   return entries;
 };
 
 const serializeAws_queryDescribeRulesInput = (input: DescribeRulesInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
-  }
-  if (input.PageSize !== undefined) {
-    entries["PageSize"] = input.PageSize;
+  if (input.ListenerArn !== undefined) {
+    entries["ListenerArn"] = input.ListenerArn;
   }
   if (input.RuleArns !== undefined) {
     const memberEntries = serializeAws_queryRuleArns(input.RuleArns, context);
@@ -4602,26 +4650,29 @@ const serializeAws_queryDescribeRulesInput = (input: DescribeRulesInput, context
       entries[loc] = value;
     });
   }
-  if (input.ListenerArn !== undefined) {
-    entries["ListenerArn"] = input.ListenerArn;
-  }
-  return entries;
-};
-
-const serializeAws_queryDescribeSSLPoliciesInput = (input: DescribeSSLPoliciesInput, context: __SerdeContext): any => {
-  const entries: any = {};
   if (input.Marker !== undefined) {
     entries["Marker"] = input.Marker;
   }
   if (input.PageSize !== undefined) {
     entries["PageSize"] = input.PageSize;
   }
+  return entries;
+};
+
+const serializeAws_queryDescribeSSLPoliciesInput = (input: DescribeSSLPoliciesInput, context: __SerdeContext): any => {
+  const entries: any = {};
   if (input.Names !== undefined) {
     const memberEntries = serializeAws_querySslPolicyNames(input.Names, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Names.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.PageSize !== undefined) {
+    entries["PageSize"] = input.PageSize;
   }
   return entries;
 };
@@ -4654,8 +4705,15 @@ const serializeAws_queryDescribeTargetGroupsInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.Marker !== undefined) {
-    entries["Marker"] = input.Marker;
+  if (input.LoadBalancerArn !== undefined) {
+    entries["LoadBalancerArn"] = input.LoadBalancerArn;
+  }
+  if (input.TargetGroupArns !== undefined) {
+    const memberEntries = serializeAws_queryTargetGroupArns(input.TargetGroupArns, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TargetGroupArns.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.Names !== undefined) {
     const memberEntries = serializeAws_queryTargetGroupNames(input.Names, context);
@@ -4664,18 +4722,11 @@ const serializeAws_queryDescribeTargetGroupsInput = (
       entries[loc] = value;
     });
   }
-  if (input.LoadBalancerArn !== undefined) {
-    entries["LoadBalancerArn"] = input.LoadBalancerArn;
+  if (input.Marker !== undefined) {
+    entries["Marker"] = input.Marker;
   }
   if (input.PageSize !== undefined) {
     entries["PageSize"] = input.PageSize;
-  }
-  if (input.TargetGroupArns !== undefined) {
-    const memberEntries = serializeAws_queryTargetGroupArns(input.TargetGroupArns, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `TargetGroupArns.${key}`;
-      entries[loc] = value;
-    });
   }
   return entries;
 };
@@ -4685,15 +4736,15 @@ const serializeAws_queryDescribeTargetHealthInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.TargetGroupArn !== undefined) {
+    entries["TargetGroupArn"] = input.TargetGroupArn;
+  }
   if (input.Targets !== undefined) {
     const memberEntries = serializeAws_queryTargetDescriptions(input.Targets, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Targets.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.TargetGroupArn !== undefined) {
-    entries["TargetGroupArn"] = input.TargetGroupArn;
   }
   return entries;
 };
@@ -4703,11 +4754,11 @@ const serializeAws_queryFixedResponseActionConfig = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
-  if (input.StatusCode !== undefined) {
-    entries["StatusCode"] = input.StatusCode;
-  }
   if (input.MessageBody !== undefined) {
     entries["MessageBody"] = input.MessageBody;
+  }
+  if (input.StatusCode !== undefined) {
+    entries["StatusCode"] = input.StatusCode;
   }
   if (input.ContentType !== undefined) {
     entries["ContentType"] = input.ContentType;
@@ -4717,17 +4768,17 @@ const serializeAws_queryFixedResponseActionConfig = (
 
 const serializeAws_queryForwardActionConfig = (input: ForwardActionConfig, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TargetGroupStickinessConfig !== undefined) {
-    const memberEntries = serializeAws_queryTargetGroupStickinessConfig(input.TargetGroupStickinessConfig, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `TargetGroupStickinessConfig.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.TargetGroups !== undefined) {
     const memberEntries = serializeAws_queryTargetGroupList(input.TargetGroups, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroups.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.TargetGroupStickinessConfig !== undefined) {
+    const memberEntries = serializeAws_queryTargetGroupStickinessConfig(input.TargetGroupStickinessConfig, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TargetGroupStickinessConfig.${key}`;
       entries[loc] = value;
     });
   }
@@ -4851,13 +4902,32 @@ const serializeAws_queryMatcher = (input: Matcher, context: __SerdeContext): any
   if (input.HttpCode !== undefined) {
     entries["HttpCode"] = input.HttpCode;
   }
+  if (input.GrpcCode !== undefined) {
+    entries["GrpcCode"] = input.GrpcCode;
+  }
   return entries;
 };
 
 const serializeAws_queryModifyListenerInput = (input: ModifyListenerInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.ListenerArn !== undefined) {
+    entries["ListenerArn"] = input.ListenerArn;
+  }
   if (input.Port !== undefined) {
     entries["Port"] = input.Port;
+  }
+  if (input.Protocol !== undefined) {
+    entries["Protocol"] = input.Protocol;
+  }
+  if (input.SslPolicy !== undefined) {
+    entries["SslPolicy"] = input.SslPolicy;
+  }
+  if (input.Certificates !== undefined) {
+    const memberEntries = serializeAws_queryCertificateList(input.Certificates, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Certificates.${key}`;
+      entries[loc] = value;
+    });
   }
   if (input.DefaultActions !== undefined) {
     const memberEntries = serializeAws_queryActions(input.DefaultActions, context);
@@ -4866,26 +4936,10 @@ const serializeAws_queryModifyListenerInput = (input: ModifyListenerInput, conte
       entries[loc] = value;
     });
   }
-  if (input.SslPolicy !== undefined) {
-    entries["SslPolicy"] = input.SslPolicy;
-  }
-  if (input.Protocol !== undefined) {
-    entries["Protocol"] = input.Protocol;
-  }
   if (input.AlpnPolicy !== undefined) {
     const memberEntries = serializeAws_queryAlpnPolicyName(input.AlpnPolicy, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AlpnPolicy.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.ListenerArn !== undefined) {
-    entries["ListenerArn"] = input.ListenerArn;
-  }
-  if (input.Certificates !== undefined) {
-    const memberEntries = serializeAws_queryCertificateList(input.Certificates, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Certificates.${key}`;
       entries[loc] = value;
     });
   }
@@ -4897,15 +4951,15 @@ const serializeAws_queryModifyLoadBalancerAttributesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.LoadBalancerArn !== undefined) {
+    entries["LoadBalancerArn"] = input.LoadBalancerArn;
+  }
   if (input.Attributes !== undefined) {
     const memberEntries = serializeAws_queryLoadBalancerAttributes(input.Attributes, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Attributes.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.LoadBalancerArn !== undefined) {
-    entries["LoadBalancerArn"] = input.LoadBalancerArn;
   }
   return entries;
 };
@@ -4952,31 +5006,6 @@ const serializeAws_queryModifyTargetGroupAttributesInput = (
 
 const serializeAws_queryModifyTargetGroupInput = (input: ModifyTargetGroupInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.UnhealthyThresholdCount !== undefined) {
-    entries["UnhealthyThresholdCount"] = input.UnhealthyThresholdCount;
-  }
-  if (input.HealthCheckTimeoutSeconds !== undefined) {
-    entries["HealthCheckTimeoutSeconds"] = input.HealthCheckTimeoutSeconds;
-  }
-  if (input.HealthCheckIntervalSeconds !== undefined) {
-    entries["HealthCheckIntervalSeconds"] = input.HealthCheckIntervalSeconds;
-  }
-  if (input.HealthCheckEnabled !== undefined) {
-    entries["HealthCheckEnabled"] = input.HealthCheckEnabled;
-  }
-  if (input.Matcher !== undefined) {
-    const memberEntries = serializeAws_queryMatcher(input.Matcher, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `Matcher.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.HealthyThresholdCount !== undefined) {
-    entries["HealthyThresholdCount"] = input.HealthyThresholdCount;
-  }
-  if (input.HealthCheckPath !== undefined) {
-    entries["HealthCheckPath"] = input.HealthCheckPath;
-  }
   if (input.TargetGroupArn !== undefined) {
     entries["TargetGroupArn"] = input.TargetGroupArn;
   }
@@ -4985,6 +5014,31 @@ const serializeAws_queryModifyTargetGroupInput = (input: ModifyTargetGroupInput,
   }
   if (input.HealthCheckPort !== undefined) {
     entries["HealthCheckPort"] = input.HealthCheckPort;
+  }
+  if (input.HealthCheckPath !== undefined) {
+    entries["HealthCheckPath"] = input.HealthCheckPath;
+  }
+  if (input.HealthCheckEnabled !== undefined) {
+    entries["HealthCheckEnabled"] = input.HealthCheckEnabled;
+  }
+  if (input.HealthCheckIntervalSeconds !== undefined) {
+    entries["HealthCheckIntervalSeconds"] = input.HealthCheckIntervalSeconds;
+  }
+  if (input.HealthCheckTimeoutSeconds !== undefined) {
+    entries["HealthCheckTimeoutSeconds"] = input.HealthCheckTimeoutSeconds;
+  }
+  if (input.HealthyThresholdCount !== undefined) {
+    entries["HealthyThresholdCount"] = input.HealthyThresholdCount;
+  }
+  if (input.UnhealthyThresholdCount !== undefined) {
+    entries["UnhealthyThresholdCount"] = input.UnhealthyThresholdCount;
+  }
+  if (input.Matcher !== undefined) {
+    const memberEntries = serializeAws_queryMatcher(input.Matcher, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Matcher.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -5051,12 +5105,6 @@ const serializeAws_queryRedirectActionConfig = (input: RedirectActionConfig, con
   if (input.Protocol !== undefined) {
     entries["Protocol"] = input.Protocol;
   }
-  if (input.StatusCode !== undefined) {
-    entries["StatusCode"] = input.StatusCode;
-  }
-  if (input.Query !== undefined) {
-    entries["Query"] = input.Query;
-  }
   if (input.Port !== undefined) {
     entries["Port"] = input.Port;
   }
@@ -5066,20 +5114,26 @@ const serializeAws_queryRedirectActionConfig = (input: RedirectActionConfig, con
   if (input.Path !== undefined) {
     entries["Path"] = input.Path;
   }
+  if (input.Query !== undefined) {
+    entries["Query"] = input.Query;
+  }
+  if (input.StatusCode !== undefined) {
+    entries["StatusCode"] = input.StatusCode;
+  }
   return entries;
 };
 
 const serializeAws_queryRegisterTargetsInput = (input: RegisterTargetsInput, context: __SerdeContext): any => {
   const entries: any = {};
+  if (input.TargetGroupArn !== undefined) {
+    entries["TargetGroupArn"] = input.TargetGroupArn;
+  }
   if (input.Targets !== undefined) {
     const memberEntries = serializeAws_queryTargetDescriptions(input.Targets, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Targets.${key}`;
       entries[loc] = value;
     });
-  }
-  if (input.TargetGroupArn !== undefined) {
-    entries["TargetGroupArn"] = input.TargetGroupArn;
   }
   return entries;
 };
@@ -5089,6 +5143,9 @@ const serializeAws_queryRemoveListenerCertificatesInput = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  if (input.ListenerArn !== undefined) {
+    entries["ListenerArn"] = input.ListenerArn;
+  }
   if (input.Certificates !== undefined) {
     const memberEntries = serializeAws_queryCertificateList(input.Certificates, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
@@ -5096,25 +5153,22 @@ const serializeAws_queryRemoveListenerCertificatesInput = (
       entries[loc] = value;
     });
   }
-  if (input.ListenerArn !== undefined) {
-    entries["ListenerArn"] = input.ListenerArn;
-  }
   return entries;
 };
 
 const serializeAws_queryRemoveTagsInput = (input: RemoveTagsInput, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.TagKeys !== undefined) {
-    const memberEntries = serializeAws_queryTagKeys(input.TagKeys, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `TagKeys.${key}`;
-      entries[loc] = value;
-    });
-  }
   if (input.ResourceArns !== undefined) {
     const memberEntries = serializeAws_queryResourceArns(input.ResourceArns, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `ResourceArns.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.TagKeys !== undefined) {
+    const memberEntries = serializeAws_queryTagKeys(input.TagKeys, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagKeys.${key}`;
       entries[loc] = value;
     });
   }
@@ -5143,19 +5197,8 @@ const serializeAws_queryRuleArns = (input: string[], context: __SerdeContext): a
 
 const serializeAws_queryRuleCondition = (input: RuleCondition, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.HttpHeaderConfig !== undefined) {
-    const memberEntries = serializeAws_queryHttpHeaderConditionConfig(input.HttpHeaderConfig, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `HttpHeaderConfig.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.HttpRequestMethodConfig !== undefined) {
-    const memberEntries = serializeAws_queryHttpRequestMethodConditionConfig(input.HttpRequestMethodConfig, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `HttpRequestMethodConfig.${key}`;
-      entries[loc] = value;
-    });
+  if (input.Field !== undefined) {
+    entries["Field"] = input.Field;
   }
   if (input.Values !== undefined) {
     const memberEntries = serializeAws_queryListOfString(input.Values, context);
@@ -5164,17 +5207,10 @@ const serializeAws_queryRuleCondition = (input: RuleCondition, context: __SerdeC
       entries[loc] = value;
     });
   }
-  if (input.SourceIpConfig !== undefined) {
-    const memberEntries = serializeAws_querySourceIpConditionConfig(input.SourceIpConfig, context);
+  if (input.HostHeaderConfig !== undefined) {
+    const memberEntries = serializeAws_queryHostHeaderConditionConfig(input.HostHeaderConfig, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `SourceIpConfig.${key}`;
-      entries[loc] = value;
-    });
-  }
-  if (input.QueryStringConfig !== undefined) {
-    const memberEntries = serializeAws_queryQueryStringConditionConfig(input.QueryStringConfig, context);
-    Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `QueryStringConfig.${key}`;
+      const loc = `HostHeaderConfig.${key}`;
       entries[loc] = value;
     });
   }
@@ -5185,13 +5221,31 @@ const serializeAws_queryRuleCondition = (input: RuleCondition, context: __SerdeC
       entries[loc] = value;
     });
   }
-  if (input.Field !== undefined) {
-    entries["Field"] = input.Field;
-  }
-  if (input.HostHeaderConfig !== undefined) {
-    const memberEntries = serializeAws_queryHostHeaderConditionConfig(input.HostHeaderConfig, context);
+  if (input.HttpHeaderConfig !== undefined) {
+    const memberEntries = serializeAws_queryHttpHeaderConditionConfig(input.HttpHeaderConfig, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
-      const loc = `HostHeaderConfig.${key}`;
+      const loc = `HttpHeaderConfig.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.QueryStringConfig !== undefined) {
+    const memberEntries = serializeAws_queryQueryStringConditionConfig(input.QueryStringConfig, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `QueryStringConfig.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.HttpRequestMethodConfig !== undefined) {
+    const memberEntries = serializeAws_queryHttpRequestMethodConditionConfig(input.HttpRequestMethodConfig, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `HttpRequestMethodConfig.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.SourceIpConfig !== undefined) {
+    const memberEntries = serializeAws_querySourceIpConditionConfig(input.SourceIpConfig, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SourceIpConfig.${key}`;
       entries[loc] = value;
     });
   }
@@ -5226,11 +5280,11 @@ const serializeAws_queryRulePriorityList = (input: RulePriorityPair[], context: 
 
 const serializeAws_queryRulePriorityPair = (input: RulePriorityPair, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Priority !== undefined) {
-    entries["Priority"] = input.Priority;
-  }
   if (input.RuleArn !== undefined) {
     entries["RuleArn"] = input.RuleArn;
+  }
+  if (input.Priority !== undefined) {
+    entries["Priority"] = input.Priority;
   }
   return entries;
 };
@@ -5302,6 +5356,9 @@ const serializeAws_querySetSubnetsInput = (input: SetSubnetsInput, context: __Se
       entries[loc] = value;
     });
   }
+  if (input.IpAddressType !== undefined) {
+    entries["IpAddressType"] = input.IpAddressType;
+  }
   return entries;
 };
 
@@ -5329,14 +5386,17 @@ const serializeAws_querySslPolicyNames = (input: string[], context: __SerdeConte
 
 const serializeAws_querySubnetMapping = (input: SubnetMapping, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.AllocationId !== undefined) {
-    entries["AllocationId"] = input.AllocationId;
-  }
   if (input.SubnetId !== undefined) {
     entries["SubnetId"] = input.SubnetId;
   }
+  if (input.AllocationId !== undefined) {
+    entries["AllocationId"] = input.AllocationId;
+  }
   if (input.PrivateIPv4Address !== undefined) {
     entries["PrivateIPv4Address"] = input.PrivateIPv4Address;
+  }
+  if (input.IPv6Address !== undefined) {
+    entries["IPv6Address"] = input.IPv6Address;
   }
   return entries;
 };
@@ -5366,11 +5426,11 @@ const serializeAws_querySubnets = (input: string[], context: __SerdeContext): an
 
 const serializeAws_queryTag = (input: Tag, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Value !== undefined) {
-    entries["Value"] = input.Value;
-  }
   if (input.Key !== undefined) {
     entries["Key"] = input.Key;
+  }
+  if (input.Value !== undefined) {
+    entries["Value"] = input.Value;
   }
   return entries;
 };
@@ -5437,11 +5497,11 @@ const serializeAws_queryTargetGroupArns = (input: string[], context: __SerdeCont
 
 const serializeAws_queryTargetGroupAttribute = (input: TargetGroupAttribute, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input.Value !== undefined) {
-    entries["Value"] = input.Value;
-  }
   if (input.Key !== undefined) {
     entries["Key"] = input.Key;
+  }
+  if (input.Value !== undefined) {
+    entries["Value"] = input.Value;
   }
   return entries;
 };
@@ -5509,17 +5569,35 @@ const serializeAws_queryTargetGroupTuple = (input: TargetGroupTuple, context: __
 
 const deserializeAws_queryAction = (output: any, context: __SerdeContext): Action => {
   let contents: any = {
-    ForwardConfig: undefined,
+    Type: undefined,
+    TargetGroupArn: undefined,
+    AuthenticateOidcConfig: undefined,
+    AuthenticateCognitoConfig: undefined,
+    Order: undefined,
     RedirectConfig: undefined,
     FixedResponseConfig: undefined,
-    TargetGroupArn: undefined,
-    Order: undefined,
-    AuthenticateCognitoConfig: undefined,
-    Type: undefined,
-    AuthenticateOidcConfig: undefined,
+    ForwardConfig: undefined,
   };
-  if (output["ForwardConfig"] !== undefined) {
-    contents.ForwardConfig = deserializeAws_queryForwardActionConfig(output["ForwardConfig"], context);
+  if (output["Type"] !== undefined) {
+    contents.Type = output["Type"];
+  }
+  if (output["TargetGroupArn"] !== undefined) {
+    contents.TargetGroupArn = output["TargetGroupArn"];
+  }
+  if (output["AuthenticateOidcConfig"] !== undefined) {
+    contents.AuthenticateOidcConfig = deserializeAws_queryAuthenticateOidcActionConfig(
+      output["AuthenticateOidcConfig"],
+      context
+    );
+  }
+  if (output["AuthenticateCognitoConfig"] !== undefined) {
+    contents.AuthenticateCognitoConfig = deserializeAws_queryAuthenticateCognitoActionConfig(
+      output["AuthenticateCognitoConfig"],
+      context
+    );
+  }
+  if (output["Order"] !== undefined) {
+    contents.Order = parseInt(output["Order"]);
   }
   if (output["RedirectConfig"] !== undefined) {
     contents.RedirectConfig = deserializeAws_queryRedirectActionConfig(output["RedirectConfig"], context);
@@ -5530,26 +5608,8 @@ const deserializeAws_queryAction = (output: any, context: __SerdeContext): Actio
       context
     );
   }
-  if (output["TargetGroupArn"] !== undefined) {
-    contents.TargetGroupArn = output["TargetGroupArn"];
-  }
-  if (output["Order"] !== undefined) {
-    contents.Order = parseInt(output["Order"]);
-  }
-  if (output["AuthenticateCognitoConfig"] !== undefined) {
-    contents.AuthenticateCognitoConfig = deserializeAws_queryAuthenticateCognitoActionConfig(
-      output["AuthenticateCognitoConfig"],
-      context
-    );
-  }
-  if (output["Type"] !== undefined) {
-    contents.Type = output["Type"];
-  }
-  if (output["AuthenticateOidcConfig"] !== undefined) {
-    contents.AuthenticateOidcConfig = deserializeAws_queryAuthenticateOidcActionConfig(
-      output["AuthenticateOidcConfig"],
-      context
-    );
+  if (output["ForwardConfig"] !== undefined) {
+    contents.ForwardConfig = deserializeAws_queryForwardActionConfig(output["ForwardConfig"], context);
   }
   return contents;
 };
@@ -5630,15 +5690,33 @@ const deserializeAws_queryAuthenticateCognitoActionConfig = (
   context: __SerdeContext
 ): AuthenticateCognitoActionConfig => {
   let contents: any = {
-    AuthenticationRequestExtraParams: undefined,
     UserPoolArn: undefined,
     UserPoolClientId: undefined,
-    SessionTimeout: undefined,
-    Scope: undefined,
     UserPoolDomain: undefined,
     SessionCookieName: undefined,
+    Scope: undefined,
+    SessionTimeout: undefined,
+    AuthenticationRequestExtraParams: undefined,
     OnUnauthenticatedRequest: undefined,
   };
+  if (output["UserPoolArn"] !== undefined) {
+    contents.UserPoolArn = output["UserPoolArn"];
+  }
+  if (output["UserPoolClientId"] !== undefined) {
+    contents.UserPoolClientId = output["UserPoolClientId"];
+  }
+  if (output["UserPoolDomain"] !== undefined) {
+    contents.UserPoolDomain = output["UserPoolDomain"];
+  }
+  if (output["SessionCookieName"] !== undefined) {
+    contents.SessionCookieName = output["SessionCookieName"];
+  }
+  if (output["Scope"] !== undefined) {
+    contents.Scope = output["Scope"];
+  }
+  if (output["SessionTimeout"] !== undefined) {
+    contents.SessionTimeout = parseInt(output["SessionTimeout"]);
+  }
   if (output.AuthenticationRequestExtraParams === "") {
     contents.AuthenticationRequestExtraParams = {};
   }
@@ -5650,24 +5728,6 @@ const deserializeAws_queryAuthenticateCognitoActionConfig = (
       __getArrayIfSingleItem(output["AuthenticationRequestExtraParams"]["entry"]),
       context
     );
-  }
-  if (output["UserPoolArn"] !== undefined) {
-    contents.UserPoolArn = output["UserPoolArn"];
-  }
-  if (output["UserPoolClientId"] !== undefined) {
-    contents.UserPoolClientId = output["UserPoolClientId"];
-  }
-  if (output["SessionTimeout"] !== undefined) {
-    contents.SessionTimeout = parseInt(output["SessionTimeout"]);
-  }
-  if (output["Scope"] !== undefined) {
-    contents.Scope = output["Scope"];
-  }
-  if (output["UserPoolDomain"] !== undefined) {
-    contents.UserPoolDomain = output["UserPoolDomain"];
-  }
-  if (output["SessionCookieName"] !== undefined) {
-    contents.SessionCookieName = output["SessionCookieName"];
   }
   if (output["OnUnauthenticatedRequest"] !== undefined) {
     contents.OnUnauthenticatedRequest = output["OnUnauthenticatedRequest"];
@@ -5693,30 +5753,42 @@ const deserializeAws_queryAuthenticateOidcActionConfig = (
   context: __SerdeContext
 ): AuthenticateOidcActionConfig => {
   let contents: any = {
-    ClientSecret: undefined,
-    TokenEndpoint: undefined,
     Issuer: undefined,
     AuthorizationEndpoint: undefined,
+    TokenEndpoint: undefined,
+    UserInfoEndpoint: undefined,
+    ClientId: undefined,
+    ClientSecret: undefined,
+    SessionCookieName: undefined,
+    Scope: undefined,
     SessionTimeout: undefined,
     AuthenticationRequestExtraParams: undefined,
     OnUnauthenticatedRequest: undefined,
-    SessionCookieName: undefined,
-    Scope: undefined,
-    UserInfoEndpoint: undefined,
-    ClientId: undefined,
     UseExistingClientSecret: undefined,
   };
-  if (output["ClientSecret"] !== undefined) {
-    contents.ClientSecret = output["ClientSecret"];
-  }
-  if (output["TokenEndpoint"] !== undefined) {
-    contents.TokenEndpoint = output["TokenEndpoint"];
-  }
   if (output["Issuer"] !== undefined) {
     contents.Issuer = output["Issuer"];
   }
   if (output["AuthorizationEndpoint"] !== undefined) {
     contents.AuthorizationEndpoint = output["AuthorizationEndpoint"];
+  }
+  if (output["TokenEndpoint"] !== undefined) {
+    contents.TokenEndpoint = output["TokenEndpoint"];
+  }
+  if (output["UserInfoEndpoint"] !== undefined) {
+    contents.UserInfoEndpoint = output["UserInfoEndpoint"];
+  }
+  if (output["ClientId"] !== undefined) {
+    contents.ClientId = output["ClientId"];
+  }
+  if (output["ClientSecret"] !== undefined) {
+    contents.ClientSecret = output["ClientSecret"];
+  }
+  if (output["SessionCookieName"] !== undefined) {
+    contents.SessionCookieName = output["SessionCookieName"];
+  }
+  if (output["Scope"] !== undefined) {
+    contents.Scope = output["Scope"];
   }
   if (output["SessionTimeout"] !== undefined) {
     contents.SessionTimeout = parseInt(output["SessionTimeout"]);
@@ -5736,18 +5808,6 @@ const deserializeAws_queryAuthenticateOidcActionConfig = (
   if (output["OnUnauthenticatedRequest"] !== undefined) {
     contents.OnUnauthenticatedRequest = output["OnUnauthenticatedRequest"];
   }
-  if (output["SessionCookieName"] !== undefined) {
-    contents.SessionCookieName = output["SessionCookieName"];
-  }
-  if (output["Scope"] !== undefined) {
-    contents.Scope = output["Scope"];
-  }
-  if (output["UserInfoEndpoint"] !== undefined) {
-    contents.UserInfoEndpoint = output["UserInfoEndpoint"];
-  }
-  if (output["ClientId"] !== undefined) {
-    contents.ClientId = output["ClientId"];
-  }
   if (output["UseExistingClientSecret"] !== undefined) {
     contents.UseExistingClientSecret = output["UseExistingClientSecret"] == "true";
   }
@@ -5756,10 +5816,20 @@ const deserializeAws_queryAuthenticateOidcActionConfig = (
 
 const deserializeAws_queryAvailabilityZone = (output: any, context: __SerdeContext): AvailabilityZone => {
   let contents: any = {
-    LoadBalancerAddresses: undefined,
-    SubnetId: undefined,
     ZoneName: undefined,
+    SubnetId: undefined,
+    OutpostId: undefined,
+    LoadBalancerAddresses: undefined,
   };
+  if (output["ZoneName"] !== undefined) {
+    contents.ZoneName = output["ZoneName"];
+  }
+  if (output["SubnetId"] !== undefined) {
+    contents.SubnetId = output["SubnetId"];
+  }
+  if (output["OutpostId"] !== undefined) {
+    contents.OutpostId = output["OutpostId"];
+  }
   if (output.LoadBalancerAddresses === "") {
     contents.LoadBalancerAddresses = [];
   }
@@ -5768,12 +5838,6 @@ const deserializeAws_queryAvailabilityZone = (output: any, context: __SerdeConte
       __getArrayIfSingleItem(output["LoadBalancerAddresses"]["member"]),
       context
     );
-  }
-  if (output["SubnetId"] !== undefined) {
-    contents.SubnetId = output["SubnetId"];
-  }
-  if (output["ZoneName"] !== undefined) {
-    contents.ZoneName = output["ZoneName"];
   }
   return contents;
 };
@@ -5797,14 +5861,14 @@ const deserializeAws_queryAvailabilityZones = (output: any, context: __SerdeCont
 
 const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): Certificate => {
   let contents: any = {
-    IsDefault: undefined,
     CertificateArn: undefined,
+    IsDefault: undefined,
   };
-  if (output["IsDefault"] !== undefined) {
-    contents.IsDefault = output["IsDefault"] == "true";
-  }
   if (output["CertificateArn"] !== undefined) {
     contents.CertificateArn = output["CertificateArn"];
+  }
+  if (output["IsDefault"] !== undefined) {
+    contents.IsDefault = output["IsDefault"] == "true";
   }
   return contents;
 };
@@ -6115,12 +6179,9 @@ const deserializeAws_queryDescribeTargetGroupsOutput = (
   context: __SerdeContext
 ): DescribeTargetGroupsOutput => {
   let contents: any = {
-    NextMarker: undefined,
     TargetGroups: undefined,
+    NextMarker: undefined,
   };
-  if (output["NextMarker"] !== undefined) {
-    contents.NextMarker = output["NextMarker"];
-  }
   if (output.TargetGroups === "") {
     contents.TargetGroups = [];
   }
@@ -6129,6 +6190,9 @@ const deserializeAws_queryDescribeTargetGroupsOutput = (
       __getArrayIfSingleItem(output["TargetGroups"]["member"]),
       context
     );
+  }
+  if (output["NextMarker"] !== undefined) {
+    contents.NextMarker = output["NextMarker"];
   }
   return contents;
 };
@@ -6209,15 +6273,15 @@ const deserializeAws_queryFixedResponseActionConfig = (
   context: __SerdeContext
 ): FixedResponseActionConfig => {
   let contents: any = {
-    StatusCode: undefined,
     MessageBody: undefined,
+    StatusCode: undefined,
     ContentType: undefined,
   };
-  if (output["StatusCode"] !== undefined) {
-    contents.StatusCode = output["StatusCode"];
-  }
   if (output["MessageBody"] !== undefined) {
     contents.MessageBody = output["MessageBody"];
+  }
+  if (output["StatusCode"] !== undefined) {
+    contents.StatusCode = output["StatusCode"];
   }
   if (output["ContentType"] !== undefined) {
     contents.ContentType = output["ContentType"];
@@ -6227,21 +6291,21 @@ const deserializeAws_queryFixedResponseActionConfig = (
 
 const deserializeAws_queryForwardActionConfig = (output: any, context: __SerdeContext): ForwardActionConfig => {
   let contents: any = {
-    TargetGroupStickinessConfig: undefined,
     TargetGroups: undefined,
+    TargetGroupStickinessConfig: undefined,
   };
-  if (output["TargetGroupStickinessConfig"] !== undefined) {
-    contents.TargetGroupStickinessConfig = deserializeAws_queryTargetGroupStickinessConfig(
-      output["TargetGroupStickinessConfig"],
-      context
-    );
-  }
   if (output.TargetGroups === "") {
     contents.TargetGroups = [];
   }
   if (output["TargetGroups"] !== undefined && output["TargetGroups"]["member"] !== undefined) {
     contents.TargetGroups = deserializeAws_queryTargetGroupList(
       __getArrayIfSingleItem(output["TargetGroups"]["member"]),
+      context
+    );
+  }
+  if (output["TargetGroupStickinessConfig"] !== undefined) {
+    contents.TargetGroupStickinessConfig = deserializeAws_queryTargetGroupStickinessConfig(
+      output["TargetGroupStickinessConfig"],
       context
     );
   }
@@ -6397,14 +6461,14 @@ const deserializeAws_queryInvalidTargetException = (output: any, context: __Serd
 
 const deserializeAws_queryLimit = (output: any, context: __SerdeContext): Limit => {
   let contents: any = {
-    Max: undefined,
     Name: undefined,
+    Max: undefined,
   };
-  if (output["Max"] !== undefined) {
-    contents.Max = output["Max"];
-  }
   if (output["Name"] !== undefined) {
     contents.Name = output["Name"];
+  }
+  if (output["Max"] !== undefined) {
+    contents.Max = output["Max"];
   }
   return contents;
 };
@@ -6415,15 +6479,27 @@ const deserializeAws_queryLimits = (output: any, context: __SerdeContext): Limit
 
 const deserializeAws_queryListener = (output: any, context: __SerdeContext): Listener => {
   let contents: any = {
-    Certificates: undefined,
+    ListenerArn: undefined,
+    LoadBalancerArn: undefined,
     Port: undefined,
     Protocol: undefined,
+    Certificates: undefined,
     SslPolicy: undefined,
     DefaultActions: undefined,
-    LoadBalancerArn: undefined,
     AlpnPolicy: undefined,
-    ListenerArn: undefined,
   };
+  if (output["ListenerArn"] !== undefined) {
+    contents.ListenerArn = output["ListenerArn"];
+  }
+  if (output["LoadBalancerArn"] !== undefined) {
+    contents.LoadBalancerArn = output["LoadBalancerArn"];
+  }
+  if (output["Port"] !== undefined) {
+    contents.Port = parseInt(output["Port"]);
+  }
+  if (output["Protocol"] !== undefined) {
+    contents.Protocol = output["Protocol"];
+  }
   if (output.Certificates === "") {
     contents.Certificates = [];
   }
@@ -6432,12 +6508,6 @@ const deserializeAws_queryListener = (output: any, context: __SerdeContext): Lis
       __getArrayIfSingleItem(output["Certificates"]["member"]),
       context
     );
-  }
-  if (output["Port"] !== undefined) {
-    contents.Port = parseInt(output["Port"]);
-  }
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = output["Protocol"];
   }
   if (output["SslPolicy"] !== undefined) {
     contents.SslPolicy = output["SslPolicy"];
@@ -6451,9 +6521,6 @@ const deserializeAws_queryListener = (output: any, context: __SerdeContext): Lis
       context
     );
   }
-  if (output["LoadBalancerArn"] !== undefined) {
-    contents.LoadBalancerArn = output["LoadBalancerArn"];
-  }
   if (output.AlpnPolicy === "") {
     contents.AlpnPolicy = [];
   }
@@ -6462,9 +6529,6 @@ const deserializeAws_queryListener = (output: any, context: __SerdeContext): Lis
       __getArrayIfSingleItem(output["AlpnPolicy"]["member"]),
       context
     );
-  }
-  if (output["ListenerArn"] !== undefined) {
-    contents.ListenerArn = output["ListenerArn"];
   }
   return contents;
 };
@@ -6492,36 +6556,55 @@ const deserializeAws_queryListOfString = (output: any, context: __SerdeContext):
 
 const deserializeAws_queryLoadBalancer = (output: any, context: __SerdeContext): LoadBalancer => {
   let contents: any = {
-    State: undefined,
-    CanonicalHostedZoneId: undefined,
-    LoadBalancerName: undefined,
+    LoadBalancerArn: undefined,
     DNSName: undefined,
-    Scheme: undefined,
+    CanonicalHostedZoneId: undefined,
     CreatedTime: undefined,
+    LoadBalancerName: undefined,
+    Scheme: undefined,
+    VpcId: undefined,
+    State: undefined,
+    Type: undefined,
+    AvailabilityZones: undefined,
     SecurityGroups: undefined,
     IpAddressType: undefined,
-    AvailabilityZones: undefined,
-    Type: undefined,
-    LoadBalancerArn: undefined,
-    VpcId: undefined,
+    CustomerOwnedIpv4Pool: undefined,
   };
-  if (output["State"] !== undefined) {
-    contents.State = deserializeAws_queryLoadBalancerState(output["State"], context);
-  }
-  if (output["CanonicalHostedZoneId"] !== undefined) {
-    contents.CanonicalHostedZoneId = output["CanonicalHostedZoneId"];
-  }
-  if (output["LoadBalancerName"] !== undefined) {
-    contents.LoadBalancerName = output["LoadBalancerName"];
+  if (output["LoadBalancerArn"] !== undefined) {
+    contents.LoadBalancerArn = output["LoadBalancerArn"];
   }
   if (output["DNSName"] !== undefined) {
     contents.DNSName = output["DNSName"];
   }
-  if (output["Scheme"] !== undefined) {
-    contents.Scheme = output["Scheme"];
+  if (output["CanonicalHostedZoneId"] !== undefined) {
+    contents.CanonicalHostedZoneId = output["CanonicalHostedZoneId"];
   }
   if (output["CreatedTime"] !== undefined) {
     contents.CreatedTime = new Date(output["CreatedTime"]);
+  }
+  if (output["LoadBalancerName"] !== undefined) {
+    contents.LoadBalancerName = output["LoadBalancerName"];
+  }
+  if (output["Scheme"] !== undefined) {
+    contents.Scheme = output["Scheme"];
+  }
+  if (output["VpcId"] !== undefined) {
+    contents.VpcId = output["VpcId"];
+  }
+  if (output["State"] !== undefined) {
+    contents.State = deserializeAws_queryLoadBalancerState(output["State"], context);
+  }
+  if (output["Type"] !== undefined) {
+    contents.Type = output["Type"];
+  }
+  if (output.AvailabilityZones === "") {
+    contents.AvailabilityZones = [];
+  }
+  if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
+    contents.AvailabilityZones = deserializeAws_queryAvailabilityZones(
+      __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
+      context
+    );
   }
   if (output.SecurityGroups === "") {
     contents.SecurityGroups = [];
@@ -6535,23 +6618,8 @@ const deserializeAws_queryLoadBalancer = (output: any, context: __SerdeContext):
   if (output["IpAddressType"] !== undefined) {
     contents.IpAddressType = output["IpAddressType"];
   }
-  if (output.AvailabilityZones === "") {
-    contents.AvailabilityZones = [];
-  }
-  if (output["AvailabilityZones"] !== undefined && output["AvailabilityZones"]["member"] !== undefined) {
-    contents.AvailabilityZones = deserializeAws_queryAvailabilityZones(
-      __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
-      context
-    );
-  }
-  if (output["Type"] !== undefined) {
-    contents.Type = output["Type"];
-  }
-  if (output["LoadBalancerArn"] !== undefined) {
-    contents.LoadBalancerArn = output["LoadBalancerArn"];
-  }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = output["VpcId"];
+  if (output["CustomerOwnedIpv4Pool"] !== undefined) {
+    contents.CustomerOwnedIpv4Pool = output["CustomerOwnedIpv4Pool"];
   }
   return contents;
 };
@@ -6561,6 +6629,7 @@ const deserializeAws_queryLoadBalancerAddress = (output: any, context: __SerdeCo
     IpAddress: undefined,
     AllocationId: undefined,
     PrivateIPv4Address: undefined,
+    IPv6Address: undefined,
   };
   if (output["IpAddress"] !== undefined) {
     contents.IpAddress = output["IpAddress"];
@@ -6570,6 +6639,9 @@ const deserializeAws_queryLoadBalancerAddress = (output: any, context: __SerdeCo
   }
   if (output["PrivateIPv4Address"] !== undefined) {
     contents.PrivateIPv4Address = output["PrivateIPv4Address"];
+  }
+  if (output["IPv6Address"] !== undefined) {
+    contents.IPv6Address = output["IPv6Address"];
   }
   return contents;
 };
@@ -6634,9 +6706,13 @@ const deserializeAws_queryLoadBalancerState = (output: any, context: __SerdeCont
 const deserializeAws_queryMatcher = (output: any, context: __SerdeContext): Matcher => {
   let contents: any = {
     HttpCode: undefined,
+    GrpcCode: undefined,
   };
   if (output["HttpCode"] !== undefined) {
     contents.HttpCode = output["HttpCode"];
+  }
+  if (output["GrpcCode"] !== undefined) {
+    contents.GrpcCode = output["GrpcCode"];
   }
   return contents;
 };
@@ -6803,20 +6879,14 @@ const deserializeAws_queryQueryStringKeyValuePairList = (
 const deserializeAws_queryRedirectActionConfig = (output: any, context: __SerdeContext): RedirectActionConfig => {
   let contents: any = {
     Protocol: undefined,
-    StatusCode: undefined,
-    Query: undefined,
     Port: undefined,
     Host: undefined,
     Path: undefined,
+    Query: undefined,
+    StatusCode: undefined,
   };
   if (output["Protocol"] !== undefined) {
     contents.Protocol = output["Protocol"];
-  }
-  if (output["StatusCode"] !== undefined) {
-    contents.StatusCode = output["StatusCode"];
-  }
-  if (output["Query"] !== undefined) {
-    contents.Query = output["Query"];
   }
   if (output["Port"] !== undefined) {
     contents.Port = output["Port"];
@@ -6826,6 +6896,12 @@ const deserializeAws_queryRedirectActionConfig = (output: any, context: __SerdeC
   }
   if (output["Path"] !== undefined) {
     contents.Path = output["Path"];
+  }
+  if (output["Query"] !== undefined) {
+    contents.Query = output["Query"];
+  }
+  if (output["StatusCode"] !== undefined) {
+    contents.StatusCode = output["StatusCode"];
   }
   return contents;
 };
@@ -6860,26 +6936,17 @@ const deserializeAws_queryResourceInUseException = (output: any, context: __Serd
 
 const deserializeAws_queryRule = (output: any, context: __SerdeContext): Rule => {
   let contents: any = {
-    IsDefault: undefined,
     RuleArn: undefined,
     Priority: undefined,
-    Actions: undefined,
     Conditions: undefined,
+    Actions: undefined,
+    IsDefault: undefined,
   };
-  if (output["IsDefault"] !== undefined) {
-    contents.IsDefault = output["IsDefault"] == "true";
-  }
   if (output["RuleArn"] !== undefined) {
     contents.RuleArn = output["RuleArn"];
   }
   if (output["Priority"] !== undefined) {
     contents.Priority = output["Priority"];
-  }
-  if (output.Actions === "") {
-    contents.Actions = [];
-  }
-  if (output["Actions"] !== undefined && output["Actions"]["member"] !== undefined) {
-    contents.Actions = deserializeAws_queryActions(__getArrayIfSingleItem(output["Actions"]["member"]), context);
   }
   if (output.Conditions === "") {
     contents.Conditions = [];
@@ -6890,28 +6957,31 @@ const deserializeAws_queryRule = (output: any, context: __SerdeContext): Rule =>
       context
     );
   }
+  if (output.Actions === "") {
+    contents.Actions = [];
+  }
+  if (output["Actions"] !== undefined && output["Actions"]["member"] !== undefined) {
+    contents.Actions = deserializeAws_queryActions(__getArrayIfSingleItem(output["Actions"]["member"]), context);
+  }
+  if (output["IsDefault"] !== undefined) {
+    contents.IsDefault = output["IsDefault"] == "true";
+  }
   return contents;
 };
 
 const deserializeAws_queryRuleCondition = (output: any, context: __SerdeContext): RuleCondition => {
   let contents: any = {
-    HttpHeaderConfig: undefined,
-    HttpRequestMethodConfig: undefined,
-    Values: undefined,
-    SourceIpConfig: undefined,
-    QueryStringConfig: undefined,
-    PathPatternConfig: undefined,
     Field: undefined,
+    Values: undefined,
     HostHeaderConfig: undefined,
+    PathPatternConfig: undefined,
+    HttpHeaderConfig: undefined,
+    QueryStringConfig: undefined,
+    HttpRequestMethodConfig: undefined,
+    SourceIpConfig: undefined,
   };
-  if (output["HttpHeaderConfig"] !== undefined) {
-    contents.HttpHeaderConfig = deserializeAws_queryHttpHeaderConditionConfig(output["HttpHeaderConfig"], context);
-  }
-  if (output["HttpRequestMethodConfig"] !== undefined) {
-    contents.HttpRequestMethodConfig = deserializeAws_queryHttpRequestMethodConditionConfig(
-      output["HttpRequestMethodConfig"],
-      context
-    );
+  if (output["Field"] !== undefined) {
+    contents.Field = output["Field"];
   }
   if (output.Values === "") {
     contents.Values = [];
@@ -6919,20 +6989,26 @@ const deserializeAws_queryRuleCondition = (output: any, context: __SerdeContext)
   if (output["Values"] !== undefined && output["Values"]["member"] !== undefined) {
     contents.Values = deserializeAws_queryListOfString(__getArrayIfSingleItem(output["Values"]["member"]), context);
   }
-  if (output["SourceIpConfig"] !== undefined) {
-    contents.SourceIpConfig = deserializeAws_querySourceIpConditionConfig(output["SourceIpConfig"], context);
-  }
-  if (output["QueryStringConfig"] !== undefined) {
-    contents.QueryStringConfig = deserializeAws_queryQueryStringConditionConfig(output["QueryStringConfig"], context);
+  if (output["HostHeaderConfig"] !== undefined) {
+    contents.HostHeaderConfig = deserializeAws_queryHostHeaderConditionConfig(output["HostHeaderConfig"], context);
   }
   if (output["PathPatternConfig"] !== undefined) {
     contents.PathPatternConfig = deserializeAws_queryPathPatternConditionConfig(output["PathPatternConfig"], context);
   }
-  if (output["Field"] !== undefined) {
-    contents.Field = output["Field"];
+  if (output["HttpHeaderConfig"] !== undefined) {
+    contents.HttpHeaderConfig = deserializeAws_queryHttpHeaderConditionConfig(output["HttpHeaderConfig"], context);
   }
-  if (output["HostHeaderConfig"] !== undefined) {
-    contents.HostHeaderConfig = deserializeAws_queryHostHeaderConditionConfig(output["HostHeaderConfig"], context);
+  if (output["QueryStringConfig"] !== undefined) {
+    contents.QueryStringConfig = deserializeAws_queryQueryStringConditionConfig(output["QueryStringConfig"], context);
+  }
+  if (output["HttpRequestMethodConfig"] !== undefined) {
+    contents.HttpRequestMethodConfig = deserializeAws_queryHttpRequestMethodConditionConfig(
+      output["HttpRequestMethodConfig"],
+      context
+    );
+  }
+  if (output["SourceIpConfig"] !== undefined) {
+    contents.SourceIpConfig = deserializeAws_querySourceIpConditionConfig(output["SourceIpConfig"], context);
   }
   return contents;
 };
@@ -7001,6 +7077,7 @@ const deserializeAws_querySetSecurityGroupsOutput = (output: any, context: __Ser
 const deserializeAws_querySetSubnetsOutput = (output: any, context: __SerdeContext): SetSubnetsOutput => {
   let contents: any = {
     AvailabilityZones: undefined,
+    IpAddressType: undefined,
   };
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
@@ -7010,6 +7087,9 @@ const deserializeAws_querySetSubnetsOutput = (output: any, context: __SerdeConte
       __getArrayIfSingleItem(output["AvailabilityZones"]["member"]),
       context
     );
+  }
+  if (output["IpAddressType"] !== undefined) {
+    contents.IpAddressType = output["IpAddressType"];
   }
   return contents;
 };
@@ -7033,16 +7113,10 @@ const deserializeAws_querySslPolicies = (output: any, context: __SerdeContext): 
 
 const deserializeAws_querySslPolicy = (output: any, context: __SerdeContext): SslPolicy => {
   let contents: any = {
-    Ciphers: undefined,
     SslProtocols: undefined,
+    Ciphers: undefined,
     Name: undefined,
   };
-  if (output.Ciphers === "") {
-    contents.Ciphers = [];
-  }
-  if (output["Ciphers"] !== undefined && output["Ciphers"]["member"] !== undefined) {
-    contents.Ciphers = deserializeAws_queryCiphers(__getArrayIfSingleItem(output["Ciphers"]["member"]), context);
-  }
   if (output.SslProtocols === "") {
     contents.SslProtocols = [];
   }
@@ -7051,6 +7125,12 @@ const deserializeAws_querySslPolicy = (output: any, context: __SerdeContext): Ss
       __getArrayIfSingleItem(output["SslProtocols"]["member"]),
       context
     );
+  }
+  if (output.Ciphers === "") {
+    contents.Ciphers = [];
+  }
+  if (output["Ciphers"] !== undefined && output["Ciphers"]["member"] !== undefined) {
+    contents.Ciphers = deserializeAws_queryCiphers(__getArrayIfSingleItem(output["Ciphers"]["member"]), context);
   }
   if (output["Name"] !== undefined) {
     contents.Name = output["Name"];
@@ -7087,14 +7167,14 @@ const deserializeAws_querySubnetNotFoundException = (output: any, context: __Ser
 
 const deserializeAws_queryTag = (output: any, context: __SerdeContext): Tag => {
   let contents: any = {
-    Value: undefined,
     Key: undefined,
+    Value: undefined,
   };
-  if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
-  }
   if (output["Key"] !== undefined) {
     contents.Key = output["Key"];
+  }
+  if (output["Value"] !== undefined) {
+    contents.Value = output["Value"];
   }
   return contents;
 };
@@ -7144,25 +7224,50 @@ const deserializeAws_queryTargetDescription = (output: any, context: __SerdeCont
 
 const deserializeAws_queryTargetGroup = (output: any, context: __SerdeContext): TargetGroup => {
   let contents: any = {
-    UnhealthyThresholdCount: undefined,
-    HealthCheckTimeoutSeconds: undefined,
-    HealthyThresholdCount: undefined,
-    HealthCheckIntervalSeconds: undefined,
-    HealthCheckEnabled: undefined,
-    VpcId: undefined,
-    Protocol: undefined,
-    TargetGroupName: undefined,
-    TargetType: undefined,
-    Matcher: undefined,
-    HealthCheckPath: undefined,
     TargetGroupArn: undefined,
+    TargetGroupName: undefined,
+    Protocol: undefined,
     Port: undefined,
+    VpcId: undefined,
     HealthCheckProtocol: undefined,
     HealthCheckPort: undefined,
+    HealthCheckEnabled: undefined,
+    HealthCheckIntervalSeconds: undefined,
+    HealthCheckTimeoutSeconds: undefined,
+    HealthyThresholdCount: undefined,
+    UnhealthyThresholdCount: undefined,
+    HealthCheckPath: undefined,
+    Matcher: undefined,
     LoadBalancerArns: undefined,
+    TargetType: undefined,
+    ProtocolVersion: undefined,
   };
-  if (output["UnhealthyThresholdCount"] !== undefined) {
-    contents.UnhealthyThresholdCount = parseInt(output["UnhealthyThresholdCount"]);
+  if (output["TargetGroupArn"] !== undefined) {
+    contents.TargetGroupArn = output["TargetGroupArn"];
+  }
+  if (output["TargetGroupName"] !== undefined) {
+    contents.TargetGroupName = output["TargetGroupName"];
+  }
+  if (output["Protocol"] !== undefined) {
+    contents.Protocol = output["Protocol"];
+  }
+  if (output["Port"] !== undefined) {
+    contents.Port = parseInt(output["Port"]);
+  }
+  if (output["VpcId"] !== undefined) {
+    contents.VpcId = output["VpcId"];
+  }
+  if (output["HealthCheckProtocol"] !== undefined) {
+    contents.HealthCheckProtocol = output["HealthCheckProtocol"];
+  }
+  if (output["HealthCheckPort"] !== undefined) {
+    contents.HealthCheckPort = output["HealthCheckPort"];
+  }
+  if (output["HealthCheckEnabled"] !== undefined) {
+    contents.HealthCheckEnabled = output["HealthCheckEnabled"] == "true";
+  }
+  if (output["HealthCheckIntervalSeconds"] !== undefined) {
+    contents.HealthCheckIntervalSeconds = parseInt(output["HealthCheckIntervalSeconds"]);
   }
   if (output["HealthCheckTimeoutSeconds"] !== undefined) {
     contents.HealthCheckTimeoutSeconds = parseInt(output["HealthCheckTimeoutSeconds"]);
@@ -7170,41 +7275,14 @@ const deserializeAws_queryTargetGroup = (output: any, context: __SerdeContext): 
   if (output["HealthyThresholdCount"] !== undefined) {
     contents.HealthyThresholdCount = parseInt(output["HealthyThresholdCount"]);
   }
-  if (output["HealthCheckIntervalSeconds"] !== undefined) {
-    contents.HealthCheckIntervalSeconds = parseInt(output["HealthCheckIntervalSeconds"]);
-  }
-  if (output["HealthCheckEnabled"] !== undefined) {
-    contents.HealthCheckEnabled = output["HealthCheckEnabled"] == "true";
-  }
-  if (output["VpcId"] !== undefined) {
-    contents.VpcId = output["VpcId"];
-  }
-  if (output["Protocol"] !== undefined) {
-    contents.Protocol = output["Protocol"];
-  }
-  if (output["TargetGroupName"] !== undefined) {
-    contents.TargetGroupName = output["TargetGroupName"];
-  }
-  if (output["TargetType"] !== undefined) {
-    contents.TargetType = output["TargetType"];
-  }
-  if (output["Matcher"] !== undefined) {
-    contents.Matcher = deserializeAws_queryMatcher(output["Matcher"], context);
+  if (output["UnhealthyThresholdCount"] !== undefined) {
+    contents.UnhealthyThresholdCount = parseInt(output["UnhealthyThresholdCount"]);
   }
   if (output["HealthCheckPath"] !== undefined) {
     contents.HealthCheckPath = output["HealthCheckPath"];
   }
-  if (output["TargetGroupArn"] !== undefined) {
-    contents.TargetGroupArn = output["TargetGroupArn"];
-  }
-  if (output["Port"] !== undefined) {
-    contents.Port = parseInt(output["Port"]);
-  }
-  if (output["HealthCheckProtocol"] !== undefined) {
-    contents.HealthCheckProtocol = output["HealthCheckProtocol"];
-  }
-  if (output["HealthCheckPort"] !== undefined) {
-    contents.HealthCheckPort = output["HealthCheckPort"];
+  if (output["Matcher"] !== undefined) {
+    contents.Matcher = deserializeAws_queryMatcher(output["Matcher"], context);
   }
   if (output.LoadBalancerArns === "") {
     contents.LoadBalancerArns = [];
@@ -7214,6 +7292,12 @@ const deserializeAws_queryTargetGroup = (output: any, context: __SerdeContext): 
       __getArrayIfSingleItem(output["LoadBalancerArns"]["member"]),
       context
     );
+  }
+  if (output["TargetType"] !== undefined) {
+    contents.TargetType = output["TargetType"];
+  }
+  if (output["ProtocolVersion"] !== undefined) {
+    contents.ProtocolVersion = output["ProtocolVersion"];
   }
   return contents;
 };
@@ -7233,14 +7317,14 @@ const deserializeAws_queryTargetGroupAssociationLimitException = (
 
 const deserializeAws_queryTargetGroupAttribute = (output: any, context: __SerdeContext): TargetGroupAttribute => {
   let contents: any = {
-    Value: undefined,
     Key: undefined,
+    Value: undefined,
   };
-  if (output["Value"] !== undefined) {
-    contents.Value = output["Value"];
-  }
   if (output["Key"] !== undefined) {
     contents.Key = output["Key"];
+  }
+  if (output["Value"] !== undefined) {
+    contents.Value = output["Value"];
   }
   return contents;
 };
@@ -7303,33 +7387,33 @@ const deserializeAws_queryTargetGroupTuple = (output: any, context: __SerdeConte
 
 const deserializeAws_queryTargetHealth = (output: any, context: __SerdeContext): TargetHealth => {
   let contents: any = {
+    State: undefined,
     Reason: undefined,
     Description: undefined,
-    State: undefined,
   };
+  if (output["State"] !== undefined) {
+    contents.State = output["State"];
+  }
   if (output["Reason"] !== undefined) {
     contents.Reason = output["Reason"];
   }
   if (output["Description"] !== undefined) {
     contents.Description = output["Description"];
   }
-  if (output["State"] !== undefined) {
-    contents.State = output["State"];
-  }
   return contents;
 };
 
 const deserializeAws_queryTargetHealthDescription = (output: any, context: __SerdeContext): TargetHealthDescription => {
   let contents: any = {
-    HealthCheckPort: undefined,
     Target: undefined,
+    HealthCheckPort: undefined,
     TargetHealth: undefined,
   };
-  if (output["HealthCheckPort"] !== undefined) {
-    contents.HealthCheckPort = output["HealthCheckPort"];
-  }
   if (output["Target"] !== undefined) {
     contents.Target = deserializeAws_queryTargetDescription(output["Target"], context);
+  }
+  if (output["HealthCheckPort"] !== undefined) {
+    contents.HealthCheckPort = output["HealthCheckPort"];
   }
   if (output["TargetHealth"] !== undefined) {
     contents.TargetHealth = deserializeAws_queryTargetHealth(output["TargetHealth"], context);
