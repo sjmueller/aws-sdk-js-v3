@@ -143,7 +143,7 @@ async function denoifyTsFile(file, depth) {
     if (line.match(/defaultUserAgent: defaultUserAgent\(packageInfo\.name, packageInfo\.version\),/)) {
       replaced = line.replace(
         "defaultUserAgent(packageInfo.name, packageInfo.version)",
-        "`aws-sdk-js-v3-${name}/${version}`"
+        "`aws-sdk-js-v3-deno-${name}/${version}`"
       );
     }
 
