@@ -1,3 +1,4 @@
+
 import { AppSyncClient } from "./AppSyncClient.ts";
 import {
   CreateApiCacheCommand,
@@ -66,21 +67,13 @@ import {
   FlushApiCacheCommandInput,
   FlushApiCacheCommandOutput,
 } from "./commands/FlushApiCacheCommand.ts";
-import {
-  GetApiCacheCommand,
-  GetApiCacheCommandInput,
-  GetApiCacheCommandOutput,
-} from "./commands/GetApiCacheCommand.ts";
+import { GetApiCacheCommand, GetApiCacheCommandInput, GetApiCacheCommandOutput } from "./commands/GetApiCacheCommand.ts";
 import {
   GetDataSourceCommand,
   GetDataSourceCommandInput,
   GetDataSourceCommandOutput,
 } from "./commands/GetDataSourceCommand.ts";
-import {
-  GetFunctionCommand,
-  GetFunctionCommandInput,
-  GetFunctionCommandOutput,
-} from "./commands/GetFunctionCommand.ts";
+import { GetFunctionCommand, GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand.ts";
 import {
   GetGraphqlApiCommand,
   GetGraphqlApiCommandInput,
@@ -91,22 +84,14 @@ import {
   GetIntrospectionSchemaCommandInput,
   GetIntrospectionSchemaCommandOutput,
 } from "./commands/GetIntrospectionSchemaCommand.ts";
-import {
-  GetResolverCommand,
-  GetResolverCommandInput,
-  GetResolverCommandOutput,
-} from "./commands/GetResolverCommand.ts";
+import { GetResolverCommand, GetResolverCommandInput, GetResolverCommandOutput } from "./commands/GetResolverCommand.ts";
 import {
   GetSchemaCreationStatusCommand,
   GetSchemaCreationStatusCommandInput,
   GetSchemaCreationStatusCommandOutput,
 } from "./commands/GetSchemaCreationStatusCommand.ts";
 import { GetTypeCommand, GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand.ts";
-import {
-  ListApiKeysCommand,
-  ListApiKeysCommandInput,
-  ListApiKeysCommandOutput,
-} from "./commands/ListApiKeysCommand.ts";
+import { ListApiKeysCommand, ListApiKeysCommandInput, ListApiKeysCommandOutput } from "./commands/ListApiKeysCommand.ts";
 import {
   ListDataSourcesCommand,
   ListDataSourcesCommandInput,
@@ -143,11 +128,7 @@ import {
   StartSchemaCreationCommandInput,
   StartSchemaCreationCommandOutput,
 } from "./commands/StartSchemaCreationCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,

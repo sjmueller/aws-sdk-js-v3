@@ -1,3 +1,4 @@
+
 import { BatchClient } from "./BatchClient.ts";
 import { CancelJobCommand, CancelJobCommandInput, CancelJobCommandOutput } from "./commands/CancelJobCommand.ts";
 import {
@@ -57,11 +58,7 @@ import {
   RegisterJobDefinitionCommandOutput,
 } from "./commands/RegisterJobDefinitionCommand.ts";
 import { SubmitJobCommand, SubmitJobCommandInput, SubmitJobCommandOutput } from "./commands/SubmitJobCommand.ts";
-import {
-  TagResourceCommand,
-  TagResourceCommandInput,
-  TagResourceCommandOutput,
-} from "./commands/TagResourceCommand.ts";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand.ts";
 import {
   TerminateJobCommand,
   TerminateJobCommandInput,

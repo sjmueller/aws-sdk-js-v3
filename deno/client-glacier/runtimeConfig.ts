@@ -22,7 +22,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   bodyChecksumGenerator,
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
-  defaultUserAgent: `aws-sdk-js-v3-${name}/${version}`,
+  defaultUserAgent: `aws-sdk-js-v3-deno-${name}/${version}`,
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
   region: invalidFunction("Region is missing") as any,
   requestHandler: new FetchHttpHandler(),

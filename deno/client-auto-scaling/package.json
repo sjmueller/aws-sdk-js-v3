@@ -1,3 +1,4 @@
+
 {
   "name": "@aws-sdk/client-auto-scaling",
   "description": "AWS SDK for JavaScript Auto Scaling Client for Node.js, Browser and React Native",

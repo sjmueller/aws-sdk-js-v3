@@ -1,8 +1,5 @@
-import {
-  AutoScalingPlansClientResolvedConfig,
-  ServiceInputTypes,
-  ServiceOutputTypes,
-} from "../AutoScalingPlansClient.ts";
+
+import { AutoScalingPlansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingPlansClient.ts";
 import {
   GetScalingPlanResourceForecastDataRequest,
   GetScalingPlanResourceForecastDataResponse,

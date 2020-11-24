@@ -1,3 +1,4 @@
+
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
 import { GetQueryExecutionInput, GetQueryExecutionOutput } from "../models/models_0.ts";
 import {

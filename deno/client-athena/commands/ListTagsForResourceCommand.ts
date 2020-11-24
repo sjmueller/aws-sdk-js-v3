@@ -1,3 +1,4 @@
+
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient.ts";
 import { ListTagsForResourceInput, ListTagsForResourceOutput } from "../models/models_0.ts";
 import {

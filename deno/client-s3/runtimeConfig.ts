@@ -23,7 +23,7 @@ export const ClientDefaultValues: Required<ClientDefaults> = {
   base64Encoder: toBase64,
   bodyLengthChecker: calculateBodyLength,
   credentialDefaultProvider: invalidFunction("Credential is missing") as any,
-  defaultUserAgent: `aws-sdk-js-v3-${name}/${version}`,
+  defaultUserAgent: `aws-sdk-js-v3-deno-${name}/${version}`,
   eventStreamSerdeProvider,
   maxAttempts: DEFAULT_MAX_ATTEMPTS,
   md5: Md5,

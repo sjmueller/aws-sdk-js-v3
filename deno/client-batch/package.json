@@ -1,3 +1,4 @@
+
 {
   "name": "@aws-sdk/client-batch",
   "description": "AWS SDK for JavaScript Batch Client for Node.js, Browser and React Native",

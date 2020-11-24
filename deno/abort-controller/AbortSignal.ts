@@ -1,3 +1,4 @@
+
 import { AbortHandler, AbortSignal as IAbortSignal } from "../types/mod.ts";
 
 export class AbortSignal implements IAbortSignal {

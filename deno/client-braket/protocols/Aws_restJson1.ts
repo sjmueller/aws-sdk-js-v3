@@ -1,12 +1,10 @@
+
 import { CancelQuantumTaskCommandInput, CancelQuantumTaskCommandOutput } from "../commands/CancelQuantumTaskCommand.ts";
 import { CreateQuantumTaskCommandInput, CreateQuantumTaskCommandOutput } from "../commands/CreateQuantumTaskCommand.ts";
 import { GetDeviceCommandInput, GetDeviceCommandOutput } from "../commands/GetDeviceCommand.ts";
 import { GetQuantumTaskCommandInput, GetQuantumTaskCommandOutput } from "../commands/GetQuantumTaskCommand.ts";
 import { SearchDevicesCommandInput, SearchDevicesCommandOutput } from "../commands/SearchDevicesCommand.ts";
-import {
-  SearchQuantumTasksCommandInput,
-  SearchQuantumTasksCommandOutput,
-} from "../commands/SearchQuantumTasksCommand.ts";
+import { SearchQuantumTasksCommandInput, SearchQuantumTasksCommandOutput } from "../commands/SearchQuantumTasksCommand.ts";
 import {
   AccessDeniedException,
   ConflictException,
