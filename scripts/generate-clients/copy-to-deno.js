@@ -31,6 +31,9 @@ async function copyPackage(packageName, packageDir, destinationDir) {
     if (dpath.endsWith(".spec.ts")) {
       continue;
     }
+    if (dpath === "e2e") {
+      continue
+    }
     if (dpath === "package.json") {
       let topath = dpath;
       await fsx.copyFile(path.join(packageDir, dpath), path.join(destinationDir, packageName, topath));
@@ -100,7 +103,6 @@ async function denoifyTree(tpath, depth) {
 
 // fixup imports for deno and also refer any @aws- imports to the local copy
 async function denoifyTsFile(file, depth) {
-  //console.log("read file ", file);
   const fileContent = await fsx.readFile(file);
   const lines = fileContent.toString().split("\n");
 
@@ -184,11 +186,10 @@ async function denoifyTsFile(file, depth) {
           const checkAt = path.resolve(path.join(file, "..", `${relpath}${importFromAWSSDKmatch[1]}/mod.ts`));
           const exists = await fsx.exists(checkAt);
           if (!exists) {
-            throw new Error(`denoifyTsFile ${file} - Cannot find ${checkAt}`);
+            console.error(`denoifyTsFile ${file} - Cannot find ${checkAt}`);
           }
           replaced = `${match[1]}from "${relpath}${importFromAWSSDKmatch[1]}/mod.ts";`;
         } else {
-          //import { Readable } from "stream.ts";
           const absImportFromMatch = importFrom.match(/^([^.].*)/);
 
           if (absImportFromMatch) {
@@ -201,8 +202,8 @@ async function denoifyTsFile(file, depth) {
               output.push(replaced);
               continue;
             } else if (importFrom === "stream") {
-              // import { Readable } from "stream.ts"; -> type only
               if (line === 'import { Readable } from "stream";') {
+                // type only
                 replaced = "type Readable = any;";
                 output.push(replaced);
                 continue;
@@ -220,9 +221,9 @@ async function denoifyTsFile(file, depth) {
               output.push(replaced);
               continue;
             } else if (importFrom === "url") {
-              //...
+              continue
             } else if (importFrom === "http") {
-              //...
+              // TODO
             } else if (importFrom === "buffer") {
               continue
             } else if (importFrom === "@aws-crypto/crc32") {
@@ -230,14 +231,17 @@ async function denoifyTsFile(file, depth) {
               output.push(replaced);
               continue;
             } else if (importFrom === "http2") {
-              //...
+              // TODO
             } else if (importFrom === "https") {
-              //...
+              // TODO
             } else if (importFrom === "net") {
-              //...
+              // TODO
+            } else if (importFrom === "nock") {
+              // TODO
+            } else if (importFrom === "child_process") {
+              // TODO
             } else {
-              //throw new Error(`Absolute import of: |${importfrom}|`);
-              //console.log(`Absolute import of: |${importfrom}|`);
+              console.error(`Absolute import of: ${importFrom} (${file})`);
             }
           }
 
@@ -258,35 +262,28 @@ async function denoifyTsFile(file, depth) {
 async function copyToDeno(sourceDirs, destinationDir) {
   await fsx.emptyDir(destinationDir);
 
+  const keepBrowserPackages = [
+    'eventstream-serde-browser',
+    'hash-blob-browser',
+    'url-parser-browser',
+    'util-base64-browser',
+  ]
+
   for (const packagesDir of sourceDirs) {
     for (const package of await fsx.readdir(packagesDir)) {
-      // (using the browser flavoured implementations)
-      // skip implementation packages for native and node
-      if (package.endsWith("native")) {
+      // (using the node flavoured implementations)
+      // skip implementation packages for native and browser
+      if (package.endsWith("-native")) {
         continue;
       }
-      if (package.endsWith("node")) {
-        if (package === "credential-provider-node") {
-          // lets see whats in it
-        } else {
-          // skip
-          continue;
+      if (package.endsWith("-browser")) {
+        if (!keepBrowserPackages.includes(package)) {
+          continue
         }
       }
-      if (package.startsWith("node")) {
-        if (package === "node-config-provider") {
-          // lets see whats in it
-        } else {
-          // skip
-          continue;
-        }
+      if (package.endsWith("documentation-generator")) {
+        continue
       }
-      if (package.endsWith("client-documentation-generator")) {
-        continue;
-      }
-      /*if (package.endsWith("credential-provider-process")) {
-        continue;
-      }*/
 
       await copyPackage(package, path.join(packagesDir, package), destinationDir);
     }
