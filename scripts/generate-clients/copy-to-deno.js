@@ -221,6 +221,8 @@ async function denoifyTsFile(file, depth) {
               replaced = `${match[1]}from "https://deno.land/std@0.79.0/node/path.ts";`;
               output.push(replaced);
               continue;
+            } else if (importFrom === "crypto") {
+              continue
             } else if (importFrom === "url") {
               continue
             } else if (importFrom === "http") {
@@ -240,6 +242,10 @@ async function denoifyTsFile(file, depth) {
             } else if (importFrom === "nock") {
               // TODO
             } else if (importFrom === "child_process") {
+              continue
+            } else if (importFrom === "process") {
+              continue
+            } else if (importFrom === "stream") {
               // TODO
             } else {
               console.error(`Absolute import of: ${importFrom} (${file})`);

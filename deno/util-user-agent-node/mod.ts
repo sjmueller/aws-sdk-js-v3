@@ -1,5 +1,4 @@
 import process from "https://deno.land/std@0.79.0/node/process.ts";
-import process from "process.ts";
 
 export function defaultUserAgent(packageName: string, packageVersion: string): string {
   let engine = `${process.platform}/${process.version}`;
