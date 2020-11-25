@@ -1,7 +1,6 @@
-import { ProviderError } from "../property-provider/mod.ts";
-import { Provider } from "../types/mod.ts";
 
-type ProcessEnv = {[key:string]:string};
+import { ProviderError } from "../property-provider/mod.ts";
+import { Provider, ProcessEnv } from "../types/mod.ts";
 
 export type GetterFromEnv<T> = (env: ProcessEnv) => T | undefined;
 
