@@ -41,16 +41,11 @@ async function copyPackage(packageName, packageDir, destinationDir) {
     if (dpath.endsWith(".ts")) {
       let topath = dpath;
 
-      // take the browser runtime config
-      if (dpath === "runtimeConfig.browser.ts") {
-        topath = "runtimeConfig.ts";
-      }
-
       // skip the other runtime configs
       if (dpath === "runtimeConfig.native.ts") {
         continue;
       }
-      if (dpath === "runtimeConfig.ts") {
+      if (dpath === "runtimeConfig.browser.ts") {
         continue;
       }
       if (dpath === "index.ts") {
@@ -110,6 +105,9 @@ async function denoifyTsFile(file, depth) {
   const output = [];
 
   let state = "nothing";
+
+  const isRuntimeConfig = file.endsWith('/runtimeConfig.ts')
+
   // very fragile line & regex based fixer-upper:   assuming fairly pretty source lines
   for (const line of lines) {
     let replaced = line;
@@ -249,6 +247,36 @@ async function denoifyTsFile(file, depth) {
             replaced = `${importLhs}from "${importFrom}.ts";`;
           }
         }
+      }
+    }
+
+    if (isRuntimeConfig) {
+      let match
+      if (match = line.match(/runtime: "node"/)) {
+        replaced = line.replace(match[0], 'runtime: "deno"')
+      }
+
+      // Use fetch API instead of http module
+      else if (match = line.match(/import .* NodeHttpHandler,? .* from .*/)) {
+        replaced = line.replace(match[0], 'import { FetchHttpHandler, streamCollector } from "../fetch-http-handler/mod.ts";')
+      }
+      else if (match = line.match(/requestHandler: *new NodeHttpHandler\(/)) {
+        replaced = line.replace(match[0], 'requestHandler: new FetchHttpHandler(')
+      }
+
+      // Use blobHasher instead of fileStreamHasher
+      else if (match = line.match(/import .* fileStreamHasher,? .* from .*/)) {
+        replaced = line.replace(match[0], 'import { blobHasher as streamHasher } from "../hash-blob-browser/mod.ts";')
+      }
+
+      // Use eventstream-serde-browser
+      else if (match = line.match(/import .* eventStreamSerdeProvider,? .* from .*/)) {
+        replaced = line.replace(match[0], 'import { eventStreamSerdeProvider } from "../eventstream-serde-browser/mod.ts";')
+      }
+
+      // Use url-parser-browser
+      else if (match = line.match(/import .* parseUrl,? .* from .*/)) {
+        replaced = line.replace(match[0], 'import { parseUrl } from "../url-parser-browser/mod.ts";')
       }
     }
 
