@@ -1,4 +1,4 @@
-
+import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { MachineLearningClient } from "./MachineLearningClient.ts";
 import { AddTagsCommand, AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand.ts";
 import {

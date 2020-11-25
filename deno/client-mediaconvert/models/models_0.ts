@@ -1,4 +1,4 @@
-
+import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { SENSITIVE_STRING } from "../../smithy-client/mod.ts";
 
 export enum AudioChannelTag {

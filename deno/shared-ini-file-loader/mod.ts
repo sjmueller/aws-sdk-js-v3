@@ -1,4 +1,4 @@
-
+import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { readFile } from "https://deno.land/std@0.79.0/node/fs.ts";
 import { homedir } from "https://deno.land/std@0.79.0/node/os.ts";
 import { join, sep } from "https://deno.land/std@0.79.0/node/path.ts";

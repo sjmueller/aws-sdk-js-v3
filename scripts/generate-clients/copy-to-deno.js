@@ -115,6 +115,9 @@ async function denoifyTsFile(file, depth) {
     if (line.match(/\bBuffer\b/)) {
       extraHeaderLines["buffer"] = 'import { Buffer } from "https://deno.land/std@0.79.0/node/buffer.ts";'
     }
+    if (line.match(/\bprocess\b/)) {
+      extraHeaderLines["process"] = 'import process from "https://deno.land/std@0.79.0/node/process.ts";'
+    }
 
     if (line === 'import { Sha256 } from "@aws-crypto/sha256-browser";') {
       replaced = 'import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";';

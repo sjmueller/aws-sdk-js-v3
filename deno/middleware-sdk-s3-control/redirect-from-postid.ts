@@ -1,4 +1,4 @@
-
+import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { HttpRequest } from "../protocol-http/mod.ts";
 import { BuildHandlerOptions, BuildMiddleware, Pluggable } from "../types/mod.ts";
 

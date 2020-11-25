@@ -1,4 +1,4 @@
-
+import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { CancelChangeSetCommandInput, CancelChangeSetCommandOutput } from "./commands/CancelChangeSetCommand.ts";
 import { DescribeChangeSetCommandInput, DescribeChangeSetCommandOutput } from "./commands/DescribeChangeSetCommand.ts";
 import { DescribeEntityCommandInput, DescribeEntityCommandOutput } from "./commands/DescribeEntityCommand.ts";

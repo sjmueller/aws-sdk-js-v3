@@ -1,4 +1,4 @@
-
+import process from "https://deno.land/std@0.79.0/node/process.ts";
 /// <reference types="mocha" />
 /**
  * This is the integration test that make sure the client can make request cross-platform-ly

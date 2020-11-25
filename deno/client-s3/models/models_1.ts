@@ -1,4 +1,4 @@
-
+import process from "https://deno.land/std@0.79.0/node/process.ts";
 import { GlacierJobParameters, RequestCharged, RequestPayer, S3Location, ServerSideEncryption, Tier } from "./models_0.ts";
 import { SENSITIVE_STRING } from "../../smithy-client/mod.ts";
 type Readable = any;
