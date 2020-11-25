@@ -291,12 +291,7 @@ async function copyToDeno(sourceDirs, destinationDir) {
         continue;
       }*/
 
-      try {
-        await copyPackage(package, path.join(packagesDir, package), destinationDir);
-      } catch (err) {
-        console.log(`Error from copyPackage ${package}`);
-        throw err;
-      }
+      await copyPackage(package, path.join(packagesDir, package), destinationDir);
     }
   }
 
