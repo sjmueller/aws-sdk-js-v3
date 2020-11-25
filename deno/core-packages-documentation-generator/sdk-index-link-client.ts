@@ -1,5 +1,5 @@
 
-import { isAbsolute, join, relative, resolve, sep } from "https://deno.land/std@0.68.0/node/path.ts";
+import { isAbsolute, join, relative, resolve, sep } from "https://deno.land/std@0.79.0/node/path.ts";
 import { BindOption } from "typedoc.ts";
 import { Component, RendererComponent } from "typedoc/dist/lib/output/components.ts";
 import { PageEvent } from "typedoc/dist/lib/output/events.ts";

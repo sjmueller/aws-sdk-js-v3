@@ -206,15 +206,15 @@ async function denoifyTsFile(file, depth) {
                 continue;
               }
             } else if (importFrom === "fs") {
-              replaced = `${match[1]}from "https://deno.land/std@0.68.0/node/fs.ts";`;
+              replaced = `${match[1]}from "https://deno.land/std@0.79.0/node/fs.ts";`;
               output.push(replaced);
               continue;
             } else if (importFrom === "os") {
-              replaced = `${match[1]}from "https://deno.land/std@0.68.0/node/os.ts";`;
+              replaced = `${match[1]}from "https://deno.land/std@0.79.0/node/os.ts";`;
               output.push(replaced);
               continue;
             } else if (importFrom === "path") {
-              replaced = `${match[1]}from "https://deno.land/std@0.68.0/node/path.ts";`;
+              replaced = `${match[1]}from "https://deno.land/std@0.79.0/node/path.ts";`;
               output.push(replaced);
               continue;
             } else if (importFrom === "url") {
