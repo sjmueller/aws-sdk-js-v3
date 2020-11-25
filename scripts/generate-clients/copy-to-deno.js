@@ -2,9 +2,9 @@ const fsx = require("fs-extra");
 const path = require("path");
 
 async function copyPackage(packageName, packageDir, destinationDir) {
-  if (packageName.startsWith("deno-")) {
+  if (packageName.endsWith("-deno")) {
     // skip here - copy instead at the end
-    return;
+    return
   }
 
   await fsx.mkdirp(path.join(destinationDir, packageName));
@@ -71,7 +71,7 @@ async function copyPackage(packageName, packageDir, destinationDir) {
 
 // Overwrite some packages with a deno implementation instead of editing the node implementation
 async function copyDenoPackage(packageName, packageDir, destinationDir) {
-  const resultPackageName = packageName.replace(/^deno-/g, "")
+  const resultPackageName = packageName.replace(/-deno$/g, "")
   await fsx.mkdirp(path.join(destinationDir, resultPackageName))
   await fsx.copy(packageDir, path.join(destinationDir, resultPackageName))
 }
@@ -79,10 +79,10 @@ async function copyDenoPackage(packageName, packageDir, destinationDir) {
 async function copyDenoPackages(sourceDirs, destinationDir) {
   for (const packagesDir of sourceDirs) {
     for (const packageName of await fsx.readdir(packagesDir)) {
-      if (!packageName.startsWith("deno-")) {
-        continue
+      if (!packageName.endsWith("-deno")) {
+        continue;
       }
-      await copyDenoPackage(packageName, path.join(packagesDir, packageName), destinationDir)
+      await copyDenoPackage(packageName, path.join(packagesDir, packageName), destinationDir);
     }
   }
 }
@@ -298,7 +298,7 @@ async function copyToDeno(sourceDirs, destinationDir) {
   await denoifyTree(destinationDir, 0);
 
   // Overwrite some packages with a deno implementation instead of editing the node implementation
-  await copyDenoPackages(sourceDirs, destinationDir)
+  await copyDenoPackages(sourceDirs, destinationDir);
 }
 
 if (require.main === module) {
