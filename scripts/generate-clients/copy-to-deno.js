@@ -299,6 +299,10 @@ async function denoifyTsFile(file, depth) {
 async function copyToDeno(sourceDirs, destinationDir) {
   await fsx.emptyDir(destinationDir);
 
+  const excludePackages = [
+    'md5-js',
+  ]
+
   const keepBrowserPackages = [
     'eventstream-serde-browser',
     'hash-blob-browser',
@@ -308,6 +312,9 @@ async function copyToDeno(sourceDirs, destinationDir) {
 
   for (const packagesDir of sourceDirs) {
     for (const package of await fsx.readdir(packagesDir)) {
+      if (excludePackages.includes(package)) {
+        continue
+      }
       // (using the node flavoured implementations)
       // skip implementation packages for native and browser
       if (package.endsWith("-native")) {
