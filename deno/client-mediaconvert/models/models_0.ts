@@ -1,4 +1,4 @@
-import { Buffer } from "../../buffer/mod.ts";
+
 import { SENSITIVE_STRING } from "../../smithy-client/mod.ts";
 
 export enum AudioChannelTag {

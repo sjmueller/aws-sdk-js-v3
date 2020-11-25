@@ -1,4 +1,4 @@
-import { Buffer } from "../../buffer/mod.ts";
+import { Buffer } from "https://deno.land/std@0.79.0/node/buffer.ts";
 export const createBuffer = (size: string) => {
   var match;
   var buffer;

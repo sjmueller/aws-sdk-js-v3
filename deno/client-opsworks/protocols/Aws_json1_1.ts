@@ -1,4 +1,4 @@
-import { Buffer } from "../../buffer/mod.ts";
+
 import { AssignInstanceCommandInput, AssignInstanceCommandOutput } from "../commands/AssignInstanceCommand.ts";
 import { AssignVolumeCommandInput, AssignVolumeCommandOutput } from "../commands/AssignVolumeCommand.ts";
 import { AssociateElasticIpCommandInput, AssociateElasticIpCommandOutput } from "../commands/AssociateElasticIpCommand.ts";

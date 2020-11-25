@@ -112,14 +112,8 @@ async function denoifyTsFile(file, depth) {
   for (const line of lines) {
     let replaced = line;
 
-    if (line.match(/ Buffer/)) {
-      if (depth === 3) {
-        extraHeaderLines["buffer"] = 'import { Buffer } from "../../buffer/mod.ts";';
-      } else if (depth === 2) {
-        extraHeaderLines["buffer"] = 'import { Buffer } from "../buffer/mod.ts";';
-      } else {
-        throw new Error(`Error fixing type Buffer for import from ${file}`);
-      }
+    if (line.match(/\bBuffer\b/)) {
+      extraHeaderLines["buffer"] = 'import { Buffer } from "https://deno.land/std@0.79.0/node/buffer.ts";'
     }
 
     if (line === 'import { Sha256 } from "@aws-crypto/sha256-browser";') {
@@ -227,7 +221,7 @@ async function denoifyTsFile(file, depth) {
             } else if (importFrom === "http") {
               //...
             } else if (importFrom === "buffer") {
-              //...
+              continue
             } else if (importFrom === "@aws-crypto/crc32") {
               replaced = `${match[1]}from "https://jspm.dev/@aws-crypto/crc32";`;
               output.push(replaced);

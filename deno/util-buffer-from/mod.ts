@@ -1,6 +1,5 @@
-import { Buffer } from "../buffer/mod.ts";
+import { Buffer } from "https://deno.land/std@0.79.0/node/buffer.ts";
 import { isArrayBuffer } from "../is-array-buffer/mod.ts";
-import { Buffer } from "buffer.ts";
 
 export const fromArrayBuffer = (input: ArrayBuffer, offset = 0, length: number = input.byteLength - offset): Buffer => {
   if (!isArrayBuffer(input)) {

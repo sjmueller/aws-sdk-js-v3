@@ -1,4 +1,4 @@
-import { Buffer } from "../../buffer/mod.ts";
+import { Buffer } from "https://deno.land/std@0.79.0/node/buffer.ts";
 import { MediaStoreDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaStoreDataClient.ts";
 import { PutObjectRequest, PutObjectResponse } from "../models/models_0.ts";
 import {
