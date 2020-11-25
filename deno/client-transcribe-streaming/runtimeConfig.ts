@@ -6,7 +6,7 @@ import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../
 import { defaultProvider as credentialDefaultProvider } from "../credential-provider-node/mod.ts";
 import { eventStreamPayloadHandlerProvider } from "../eventstream-handler-node/mod.ts";
 import { eventStreamSerdeProvider } from "../eventstream-serde-browser/mod.ts";
-import { Hash } from "../hash-node/mod.ts";
+import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS } from "../middleware-retry/mod.ts";
 import { loadConfig as loadNodeConfig } from "../node-config-provider/mod.ts";
 import { NodeHttp2Handler, streamCollector } from "../node-http-handler/mod.ts";

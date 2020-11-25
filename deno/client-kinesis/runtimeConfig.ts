@@ -5,7 +5,7 @@ const version = "1.0.0-rc.7";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";
 import { defaultProvider as credentialDefaultProvider } from "../credential-provider-node/mod.ts";
 import { eventStreamSerdeProvider } from "../eventstream-serde-browser/mod.ts";
-import { Hash } from "../hash-node/mod.ts";
+import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS } from "../middleware-retry/mod.ts";
 import { loadConfig as loadNodeConfig } from "../node-config-provider/mod.ts";
 import { FetchHttpHandler, streamCollector } from "../fetch-http-handler/mod.ts";

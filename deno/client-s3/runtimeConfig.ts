@@ -5,7 +5,7 @@ const version = "1.0.0-rc.7";
 import { NODE_REGION_CONFIG_FILE_OPTIONS, NODE_REGION_CONFIG_OPTIONS } from "../config-resolver/mod.ts";
 import { defaultProvider as credentialDefaultProvider } from "../credential-provider-node/mod.ts";
 import { eventStreamSerdeProvider } from "../eventstream-serde-browser/mod.ts";
-import { Hash } from "../hash-node/mod.ts";
+import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";
 import { blobHasher as streamHasher } from "../hash-blob-browser/mod.ts";
 import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "../middleware-bucket-endpoint/mod.ts";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS } from "../middleware-retry/mod.ts";

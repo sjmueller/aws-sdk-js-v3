@@ -119,7 +119,8 @@ async function denoifyTsFile(file, depth) {
       extraHeaderLines["process"] = 'import process from "https://deno.land/std@0.79.0/node/process.ts";'
     }
 
-    if (line === 'import { Sha256 } from "@aws-crypto/sha256-browser";') {
+    if (line === 'import { Hash } from "@aws-sdk/hash-node";' ||
+        line === 'import { Sha256 } from "@aws-crypto/sha256-browser";') {
       replaced = 'import { Hash } from "https://jspm.dev/@aws-sdk/hash-node";';
       output.push(replaced);
       continue;
@@ -191,7 +192,9 @@ async function denoifyTsFile(file, depth) {
           const absImportFromMatch = importFrom.match(/^([^.].*)/);
 
           if (absImportFromMatch) {
-            if (importFrom === "uuid") {
+            if (importFrom.startsWith('https://deno.land/std')) {
+              // ignore
+            } else if (importFrom === "uuid") {
               replaced = `${match[1]}from "${relpath}uuid/mod.ts";`;
               output.push(replaced);
               continue;
